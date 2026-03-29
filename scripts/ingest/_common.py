@@ -177,13 +177,17 @@ def parse_osis(path: Path) -> tuple[dict[str, Any], list[tuple[str, str]]]:
 
     ns = {"osis": _OSIS_NS}
 
+    def find_el(xpath: str) -> etree._Element | None:
+        return root.find(xpath, namespaces=ns)
+
     def find(xpath: str) -> str | None:
-        el = root.find(xpath, namespaces=ns)
+        el = find_el(xpath)
         return _element_text(el) if el is not None else None
 
     # Work metadata lives in <header><work>
+    work_el = find_el(".//osis:header/osis:work")
     metadata: dict[str, Any] = {
-        "work_id": find(".//osis:header/osis:work/@osisWork"),
+        "work_id": work_el.get("osisWork") if work_el is not None else None,
         "title": find(".//osis:header/osis:work/osis:title"),
         "language": find(".//osis:header/osis:work/osis:language"),
         "description": find(".//osis:header/osis:work/osis:description"),

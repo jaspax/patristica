@@ -286,11 +286,11 @@ dependencies = [
 ## 10. Milestone Checklist
 
 ### Milestone 1: Infrastructure (session 1)
-- [ ] Scaffold directory structure
-- [ ] `pyproject.toml` + dev environment
-- [ ] Pydantic models (`patristica/models.py`)
-- [ ] Common ingestion utilities (`scripts/ingest/_common.py`)
-- [ ] Catalog/status script
+- [x] Scaffold directory structure
+- [x] `pyproject.toml` + dev environment
+- [x] Pydantic models (`patristica/models.py`)
+- [x] Common ingestion utilities (`scripts/ingest/_common.py`)
+- [x] Catalog/status script
 
 ### Milestone 2: Scripture — Tier 1 (sessions 2–3)
 - [ ] OSHB (Hebrew Bible) ingestion + OSIS parser

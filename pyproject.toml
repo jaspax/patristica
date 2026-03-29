@@ -20,8 +20,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff", "mypy"]
+dev = ["pytest", "pytest-mock", "ruff", "mypy"]
 usfm = ["usfm-grammar"]  # requires Node.js
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
 
 [tool.hatch.build.targets.wheel]
 packages = ["patristica", "scripts"]
