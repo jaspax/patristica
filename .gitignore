@@ -1,0 +1,16 @@
+# Downloaded source data (large, do not commit)
+data/raw/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Environment
+.env
+
+# Validation output (regenerated on each run)
+data/validation_report.json
