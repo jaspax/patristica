@@ -1,6 +1,9 @@
 # Downloaded source data (large, do not commit)
 data/raw/
 
+# Claude
+.claude
+
 # Python
 __pycache__/
 *.py[cod]
