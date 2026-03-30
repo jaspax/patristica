@@ -72,18 +72,18 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 #### 3.1 Scripture
 
-| ID | Text | Language | Source | Format | License |
-|----|------|----------|--------|--------|---------|
-| `scripture/oshb` | Open Scriptures Hebrew Bible | Hebrew (`hbo`) | github.com/openscriptures/morphhb | OSIS XML | CC-BY 4.0 |
-| `scripture/sblgnt` | SBL Greek NT | Greek (`grc`) | github.com/LogosBible/SBLGNT + github.com/morphgnt/sblgnt | OSIS XML + morph TSV | CC-BY 4.0 |
-| `scripture/nestle1904` | Nestle 1904 GNT | Greek (`grc`) | github.com/biblicalhumanities/Nestle1904 | USFM/XML | Public domain |
-| `scripture/clementine` | Clementine Vulgate | Latin (`lat`) | dev.find.bible/bibles/LATCLV + Internet Archive | HTML/text | Public domain |
-| `scripture/lxx-rahlfs` | Septuagint (Rahlfs 1935) | Greek (`grc`) | github.com/eliranwong/LXX-Rahlfs-1935 | USFM | CC-BY-NC-SA 4.0 |
-| `scripture/kjv` | King James Version | English (`eng`) | github.com/aruljohn/Bible-kjv or similar | JSON/XML | Public domain |
-| `scripture/asv` | American Standard Version | English (`eng`) | multiple GitHub mirrors | JSON/XML | Public domain |
-| `scripture/web` | World English Bible | English (`eng`) | ebible.org/Scriptures/ | USFM | Public domain |
-| `scripture/coptic-nt` | Sahidic Coptic NT (Horner) | Coptic (`cop`) | sahidica.org + Coptic Scriptorium GitHub | HTML/CoNLL-U | Free non-commercial / CC-BY |
-| `scripture/wulfila` | Gothic Bible (Wulfila) | Gothic (`got`) | wulfila.be/gothic/download | TEI XML | Academic non-commercial |
+| ID | Text | Language | Source | Format | License | Notes |
+|----|------|----------|--------|--------|---------|-------|
+| `scripture/oshb` | Open Scriptures Hebrew Bible | Hebrew (`hbo`) | github.com/openscriptures/morphhb | OSIS XML (word-level) | CC-BY 4.0 | ZIP: morphhb-master.zip; words inside `<w>` with lemma/morph; text reconstructed by joining `<w>` children |
+| `scripture/sblgnt` | SBL Greek NT | Greek (`grc`) | github.com/LogosBible/SBLGNT | Custom Logos XML (NOT OSIS) | Non-commercial | ZIP: SBLGNT-master.zip; uses `<verse-number id="Book Ch:V">` + `<w>` + `<suffix>`; custom parser required |
+| `scripture/nestle1904` | Nestle 1904 GNT | Greek (`grc`) | github.com/biblicalhumanities/Nestle1904 | USFM/XML | Public domain | Not yet ingested (M2 deferred) |
+| `scripture/clementine` | Clementine Vulgate | Latin (`lat`) | ebible.org/Scriptures/ (`latVUC_usfm.zip`) | USFM | Public domain | 73 books incl. Deuterocanon; footnotes stripped via `_ebible_usfm` helper |
+| `scripture/lxx-rahlfs` | Septuagint (Rahlfs 1935) | Greek (`grc`) | github.com/eliranwong/LXX-Rahlfs-1935 | Word-list CSV + verse-index CSV | CC-BY-NC-SA 4.0 | CCAT user declaration required; word list 3-col (`idx\tidx\tword`); verse index start-only; 33 books produced |
+| `scripture/kjv` | King James Version | English (`eng`) | github.com/aruljohn/Bible-kjv | JSON per book (no spaces in filename: `1Samuel.json`) | Public domain | 66 books |
+| `scripture/asv` | American Standard Version | English (`eng`) | github.com/scrollmapper/bible_databases (`ASV.csv`) | CSV (`Book,Chapter,Verse,Text`) | Public domain | 48 books (scrollmapper ASV lacks some books — see gap below) |
+| `scripture/web` | World English Bible | English (`eng`) | ebible.org/Scriptures/ (`engwebp_usfm.zip`) | USFM | Public domain | `WEB.csv` does not exist in scrollmapper; use eBible USFM; Strong's annotations stripped |
+| `scripture/coptic-nt` | Sahidic Coptic NT | Coptic (`cop`) | github.com/scrollmapper/bible_databases (`CopSahBible2.csv`) | CSV | Public domain | 50 files (includes some OT books from this CSV) |
+| `scripture/wulfila` | Gothic Bible (Wulfila) | Gothic (`got`) | wulfila.be/gothic/text/gotica.xml | TEI P5 XML | Academic non-commercial | 18 books; identified by `xml:id="B1"–"B18"` with German headings; words in `<app><rdg><w>` |
 
 #### 3.2 Patristic Texts
 
@@ -164,10 +164,34 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 Common utilities in `scripts/ingest/_common.py`:
 - `download_file(url, dest, etag_cache=True)` — idempotent HTTP download with ETag caching
 - `parse_tei(path)` — shared TEI XML parser returning `(metadata, list[str paragraphs])`
-- `parse_osis(path)` — OSIS XML parser (for OSHB, SBLGNT)
-- `parse_usfm(path)` — USFM parser (for Nestle1904, LXX)
+- `parse_osis(path)` — OSIS XML parser (for OSHB and other OSIS sources)
+- `parse_usfm(path)` — USFM parser (for eBible and similar sources)
 - `clean_html(html)` — strip markup, normalize whitespace
 - `slugify_ref(ref)` — normalize canonical references
+
+Higher-level shared helpers (use instead of duplicating logic):
+- `_scripture_meta.py` — `OT_BOOKS`, `NT_BOOKS`, `BOOK_TITLE`, `BOOK_DATES`, `FULL_NAME_TO_ABBREV`, `book_work_id()` — shared across all scripture ingestors
+- `_scrollmapper.py` / `ingest_scrollmapper()` — downloads and parses any translation from `github.com/scrollmapper/bible_databases` CSV format
+- `_ebible_usfm.py` / `ingest_ebible_usfm()` — downloads and parses any eBible.org USFM zip (pre-processes Strong's numbers and footnotes); also exports `USFM_TO_OSIS` code map
+- `_ingestor_main.py` / `ingestor_main()` — standard CLI entry point; call from every ingestor's `if __name__ == "__main__"` block
+
+Each ingestor must also define a `SOURCE_ID` constant at module level (used by the entry point).
+
+### Running ingestors
+
+```bash
+# All sources:
+uv run python -m scripts.ingest.all
+
+# Single source by ID:
+uv run python -m scripts.ingest.all --source scripture/oshb [--force]
+
+# Single source module directly:
+uv run python -m scripts.ingest.oshb [--force]
+
+# Check what ran and when:
+uv run python -m scripts.catalog
+```
 
 ### Execution order (suggested)
 
@@ -348,3 +372,10 @@ dependencies = [
 | TLG/Patrologia Orientalis behind paywall | Defer; note gaps in validation report; seek institutional access |
 | Migne PG OCR quality highly variable | Use Open PG GitHub (already OCR'd); supplement with PTA where critical editions exist |
 | Gallican/Mozarabic liturgy sources are 19th-century editions (may contain editorial additions) | Document edition metadata; flag as `edition_date: 1855` etc. |
+| `WEB.csv` does not exist in scrollmapper/bible_databases | Use eBible.org USFM (`engwebp_usfm.zip`) — already implemented |
+| SBLGNT is NOT OSIS XML — uses Logos custom format | Custom parser implemented in `sblgnt.py`; `parse_osis` will not work for it |
+| LXX Rahlfs (eliranwong repo) has CCAT user-declaration requirement | Non-commercial only; word CSV is 3-column, verse index is start-only — see `lxx_rahlfs.py` |
+| ASV from scrollmapper is only 48/66 books | Some NT books appear to be missing from the scrollmapper ASV CSV; investigate before M7 QC |
+| `beta2unicode` package does not exist on PyPI | Betacode conversion for any CCAT-sourced text (Tier 2) needs a custom solution at ingest time |
+| Clementine Vulgate eBible ID is `latVUC` not `latclv` | Corrected; `latVUC_usfm.zip` is the working URL |
+| Wulfila books B19–B21 (Skeireins, legal docs, calendar) skipped | Non-canonical; if needed, add mappings to `_BOOK_ID_TO_OSIS` in `wulfila.py` |

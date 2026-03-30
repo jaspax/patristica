@@ -32,6 +32,102 @@ All sources are public domain unless otherwise noted.
 
 See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for full technical detail.
 
+---
+
+## Development Setup
+
+Requires Python 3.11+ and [`uv`](https://github.com/astral-sh/uv).
+
+```bash
+uv venv
+uv pip install -e ".[dev]"
+```
+
+Run the test suite:
+
+```bash
+uv run pytest
+```
+
+---
+
+## Data Ingestion (Phase 1)
+
+### Check ingestion status
+
+Shows how many raw and normalized files exist per source, and when each was last run:
+
+```bash
+uv run python -m scripts.catalog
+```
+
+### Run all ingestors
+
+Downloads and parses every Tier 1 source into `data/raw/`:
+
+```bash
+uv run python -m scripts.ingest.all
+```
+
+### Run a single source
+
+Pass `--source` with the source ID (see the catalog for IDs):
+
+```bash
+uv run python -m scripts.ingest.all --source scripture/oshb
+uv run python -m scripts.ingest.all --source scripture/kjv
+uv run python -m scripts.ingest.all --source scripture/lxx-rahlfs
+```
+
+Each ingestor module can also be run directly:
+
+```bash
+uv run python -m scripts.ingest.oshb
+uv run python -m scripts.ingest.sblgnt
+uv run python -m scripts.ingest.kjv
+```
+
+All ingestors are **idempotent** — re-running skips already-downloaded files. Use `--force` to re-download and re-parse:
+
+```bash
+uv run python -m scripts.ingest.all --source scripture/wulfila --force
+```
+
+### Normalize, chunk, and link translations
+
+After ingestion, run the pipeline to produce embedding-ready chunks:
+
+```bash
+# 1. Convert raw verse JSON → Chunk objects
+uv run python -m scripts.normalize
+
+# 2. Add context overlap (50-token context_before / context_after)
+uv run python -m scripts.chunk
+
+# 3. Assign translation_group_id across parallel verse chunks
+uv run python -m scripts.link_translations
+```
+
+All three scripts accept `--help` for options, and support `--force` to overwrite existing output.
+
+### Raw data format
+
+Each ingestor writes one JSON file per book to `data/raw/{source_id}/`:
+
+```json
+{
+  "work": { "work_id": "scripture/oshb/gen", "language": "hbo", ... },
+  "verses": [
+    { "ref": "Gen.1.1", "text": "בְּרֵאשִׁית בָּרָא אֱלֹהִים..." },
+    ...
+  ]
+}
+```
+
+Normalized output (`data/normalized/`) is a JSON array of `Chunk` objects. Final chunked output (`data/chunks/`) adds `context_before` and `context_after` and `translation_group_id`.
+
+---
+
 ## Tech Stack
 
 - Python (ingestion scripts, FastAPI backend)
