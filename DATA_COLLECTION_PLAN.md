@@ -111,7 +111,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Text | Language | Source | Format | Notes |
 |----|------|----------|--------|--------|-------|
-| `scripture/peshitta` | Peshitta NT (SEDRA) | Syriac (`syc`) | sedra.bethmardutho.org + github.com/peshitta/sedrajs | DB/JS | Non-commercial; JS conversion needed |
+| `scripture/peshitta` | Peshitta NT (SEDRA) | Syriac (`syc`) | sedra.bethmardutho.org + github.com/peshitta/sedrajs | DB/JS | **Superseded by `scripture/pta-peshitta` (clean TEI, 85 books)** |
 | `scripture/gez` | Ethiopic Bible (Ge'ez) | Ge'ez (`gez`) | Internet Archive (multiple editions) | PDF/text | Public domain; OCR quality varies |
 | `scripture/armenian` | Classical Armenian Bible (Zohrab 1805) | Armenian (`hye`) | Internet Archive | PDF/text | Public domain; OCR needed |
 | `scripture/vetus-latina` | Vetus Latina fragments | Latin (`lat`) | itseeweb.cal.bham.ac.uk | HTML | Check licensing; fragmentary |
@@ -327,11 +327,13 @@ dependencies = [
 - [x] Chunking + translation linking for all Scripture  (`normalize.py`, `chunk.py`, `link_translations.py`)
 
 ### Milestone 3: Patristic Texts — Tier 1 (sessions 4–6)
-- [ ] Patristic Text Archive (PTA) TEI ingestion
+- [x] Patristic Text Archive (PTA) TEI ingestion  (`scripts/ingest/pta.py`; git clone; 163 works incl. 9 Armenian-language; CC-BY/CC-BY-SA)
+- [x] Syriac Peshitta — 85 books via PTA pta9999  (`scripts/ingest/pta_peshitta.py`; CC-BY NT / CC-BY-NC OT; supersedes M5 SEDRA plan)
+- [x] Author/work metadata table population  (`scripts/ingest/_patristic_meta.py`)
+- [x] Normalize patristic prose  (`normalize.py` now handles `genre: "patristic"` with `"paragraphs"`)
 - [ ] First1KGreek + OGLT Patrologia Latina
 - [ ] Perseus canonical Greek/Latin
-- [ ] CCEL ANF/NPNF HTML ingestion (scrape or ThML parse)
-- [ ] Author/work metadata table population
+- [ ] CCEL ANF/NPNF HTML ingestion (ThML from ccel.org)
 
 ### Milestone 4: Liturgical Texts — Tier 1 (sessions 7–8)
 - [ ] CANTUS Database API ingestion

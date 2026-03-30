@@ -66,6 +66,51 @@ def normalize_scripture_work(
     return work, chunks
 
 
+def normalize_patristic_work(
+    raw_record: dict,
+) -> tuple[Work, list[Chunk]]:
+    """Convert a raw patristic record into a ``Work`` + list of ``Chunk`` objects.
+
+    For patristic prose, each paragraph is a chunk.  Context overlap
+    (``context_before`` / ``context_after``) is left ``None`` here and filled
+    in by ``chunk.py``.
+    """
+    work = Work(**raw_record["work"])
+    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+
+    post_schism = bool(
+        work.date_composed is not None and work.date_composed > 1054
+    ) or (
+        work.date_range is not None and work.date_range[0] > 1054
+    )
+
+    chunks: list[Chunk] = []
+    for idx, para in enumerate(raw_paragraphs):
+        ref = para.get("ref", "")
+        text = para.get("text", "").strip()
+        if not text:
+            continue
+
+        chunk = Chunk(
+            chunk_id=f"{work.work_id}#{ref}",
+            work_id=work.work_id,
+            canonical_ref=ref,
+            language=work.language,
+            text=text,
+            chunk_index=idx,
+            context_before=None,
+            context_after=None,
+            date_composed=work.date_composed,
+            date_range=work.date_range,
+            date_confidence=work.date_confidence,
+            post_schism=post_schism,
+            translation_group_id=None,
+        )
+        chunks.append(chunk)
+
+    return work, chunks
+
+
 def normalize_file(
     raw_path: Path,
     output_dir: Path,
@@ -90,8 +135,10 @@ def normalize_file(
     genre = work_dict.get("genre", "")
     if genre == "scripture":
         work, chunks = normalize_scripture_work(raw_record)
+    elif genre == "patristic":
+        work, chunks = normalize_patristic_work(raw_record)
     else:
-        # Patristic/liturgical/council normalization: implemented in M3+
+        # Liturgical/council normalization: implemented in M4+
         log.debug("Skipping %s: genre %r not yet supported by normalize.py", raw_path, genre)
         return 0
 
