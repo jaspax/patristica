@@ -293,14 +293,14 @@ dependencies = [
 - [x] Catalog/status script
 
 ### Milestone 2: Scripture — Tier 1 (sessions 2–3)
-- [ ] OSHB (Hebrew Bible) ingestion + OSIS parser
-- [ ] SBLGNT + MorphGNT ingestion
-- [ ] Clementine Vulgate ingestion
-- [ ] LXX Rahlfs ingestion
-- [ ] KJV / ASV / WEB ingestion
-- [ ] Sahidic Coptic NT (Coptic Scriptorium)
-- [ ] Gothic Wulfila
-- [ ] Chunking + translation linking for all Scripture
+- [x] OSHB (Hebrew Bible) ingestion + OSIS parser  (`scripts/ingest/oshb.py`)
+- [x] SBLGNT + MorphGNT ingestion  (`scripts/ingest/sblgnt.py`; text only, no morph)
+- [x] Clementine Vulgate ingestion  (`scripts/ingest/clementine.py`; eBible USFM)
+- [x] LXX Rahlfs ingestion  (`scripts/ingest/lxx_rahlfs.py`; CC-BY-NC-SA, CCAT decl. req'd)
+- [x] KJV / ASV / WEB ingestion  (`scripts/ingest/kjv.py`, `asv.py`, `web.py`)
+- [x] Sahidic Coptic NT  (`scripts/ingest/coptic_nt.py`; scrollmapper CopSahBible2)
+- [x] Gothic Wulfila  (`scripts/ingest/wulfila.py`; Wulfila Project TEI)
+- [x] Chunking + translation linking for all Scripture  (`normalize.py`, `chunk.py`, `link_translations.py`)
 
 ### Milestone 3: Patristic Texts — Tier 1 (sessions 4–6)
 - [ ] Patristic Text Archive (PTA) TEI ingestion

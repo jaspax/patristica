@@ -47,12 +47,14 @@ class TestCountFiles:
         assert count_files(tmp_path, suffix=".json") == {}
 
     def test_counts_nested_json(self, tmp_path):
-        src = tmp_path / "ccel-anf"
-        sub = src / "vol1"
+        # Two-level nesting: scripture/oshb/Gen.json → source_id "scripture/oshb"
+        src = tmp_path / "scripture"
+        sub = src / "oshb"
         sub.mkdir(parents=True)
-        (sub / "work.json").write_text("{}")
+        (sub / "Gen.json").write_text("{}")
+        (sub / "Exod.json").write_text("{}")
         result = count_files(tmp_path)
-        assert result == {"ccel-anf": 1}
+        assert result == {"scripture/oshb": 2}
 
 
 class TestBuildCatalog:
