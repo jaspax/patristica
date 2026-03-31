@@ -333,8 +333,8 @@ dependencies = [
 - [x] Author/work metadata table population  (`scripts/ingest/_patristic_meta.py`)
 - [x] Normalize patristic prose  (`normalize.py` now handles `genre: "patristic"` with `"paragraphs"`)
 - [x] First1KGreek + OGLT Patrologia Latina  (`scripts/ingest/first1k.py` 1104 works grc, date≥−50 CE; `scripts/ingest/oglt_pl.py` 1453 works lat; CC-BY-SA 4.0)
-- [ ] Perseus canonical Greek/Latin
-- [ ] CCEL ANF/NPNF HTML ingestion (ThML from ccel.org)
+- [x] Perseus canonical Greek/Latin  (`scripts/ingest/perseus.py`; git clone canonical-greekLit + canonical-latinLit; dedup against First1KGreek by CTS work ID; same date filters as first1k; CC-BY-SA 4.0)
+- [x] CCEL ANF/NPNF ThML ingestion  (`scripts/ingest/ccel_anf.py` 10 vols, `ccel_npnf1.py` 14 vols, `ccel_npnf2.py` 14 vols; `_ccel_common.py`; downloads from ccel.org/ccel/s/schaff/; public domain English translations; eng)
 
 ### Milestone 4: Liturgical Texts — Tier 1 (sessions 7–8)
 - [ ] CANTUS Database API ingestion
