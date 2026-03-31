@@ -325,13 +325,14 @@ dependencies = [
 - [x] Sahidic Coptic NT  (`scripts/ingest/coptic_nt.py`; scrollmapper CopSahBible2)
 - [x] Gothic Wulfila  (`scripts/ingest/wulfila.py`; Wulfila Project TEI)
 - [x] Chunking + translation linking for all Scripture  (`normalize.py`, `chunk.py`, `link_translations.py`)
+- [x] LXX with Deuterocanon — full Rahlfs 1935 (80 OT + 5 variant editions + 27 NT books) via PTA pta9999  (`scripts/ingest/pta_lxx.py`; CC-BY-SA 4.0 OT / CC-BY 4.0 NT; supersedes the 33-book `lxx-rahlfs` gap; includes Judith, Tobit, 1–4 Maccabees, Wisdom, Sirach, Baruch, Ep. Jer., 1 Esdras, Odes, Psalms of Solomon, Theodotion + OG variants for Daniel/Susanna/Bel)
 
 ### Milestone 3: Patristic Texts — Tier 1 (sessions 4–6)
 - [x] Patristic Text Archive (PTA) TEI ingestion  (`scripts/ingest/pta.py`; git clone; 163 works incl. 9 Armenian-language; CC-BY/CC-BY-SA)
 - [x] Syriac Peshitta — 85 books via PTA pta9999  (`scripts/ingest/pta_peshitta.py`; CC-BY NT / CC-BY-NC OT; supersedes M5 SEDRA plan)
 - [x] Author/work metadata table population  (`scripts/ingest/_patristic_meta.py`)
 - [x] Normalize patristic prose  (`normalize.py` now handles `genre: "patristic"` with `"paragraphs"`)
-- [ ] First1KGreek + OGLT Patrologia Latina
+- [x] First1KGreek + OGLT Patrologia Latina  (`scripts/ingest/first1k.py` 1104 works grc, date≥−50 CE; `scripts/ingest/oglt_pl.py` 1453 works lat; CC-BY-SA 4.0)
 - [ ] Perseus canonical Greek/Latin
 - [ ] CCEL ANF/NPNF HTML ingestion (ThML from ccel.org)
 
@@ -360,6 +361,7 @@ dependencies = [
 - [ ] Full validation pass
 - [ ] Translation linkage for all Scripture
 - [ ] Chunk count report by language/genre/tradition
+- [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
 - [ ] Hand normalized JSON to Phase 2 (database construction)
 
 ---
@@ -373,6 +375,7 @@ dependencies = [
 | Typikon date filtering requires scholarly judgment | Compile a date annotation table from academic literature; default to inclusion when uncertain |
 | TLG/Patrologia Orientalis behind paywall | Defer; note gaps in validation report; seek institutional access |
 | Migne PG OCR quality highly variable | Use Open PG GitHub (already OCR'd); supplement with PTA where critical editions exist |
+| OGLT PL: 502/1459 split-dir files have no author or title metadata | The OGLT project left those volumes' metadata unpopulated. **Phase 2/3 TODO**: cross-reference Migne PL column numbers against a reference index (e.g. Corpus Thomisticum, Clavis Patrum Latinorum, or a community-maintained PL column map) to supply `author` and `title` for all `oglt_pl/unknown/*` works. Required before citations can be shown to users. |
 | Gallican/Mozarabic liturgy sources are 19th-century editions (may contain editorial additions) | Document edition metadata; flag as `edition_date: 1855` etc. |
 | `WEB.csv` does not exist in scrollmapper/bible_databases | Use eBible.org USFM (`engwebp_usfm.zip`) — already implemented |
 | SBLGNT is NOT OSIS XML — uses Logos custom format | Custom parser implemented in `sblgnt.py`; `parse_osis` will not work for it |
