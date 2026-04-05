@@ -333,12 +333,12 @@ dependencies = [
 - [x] Author/work metadata table population  (`scripts/ingest/_patristic_meta.py`)
 - [x] Normalize patristic prose  (`normalize.py` now handles `genre: "patristic"` with `"paragraphs"`)
 - [x] First1KGreek + OGLT Patrologia Latina  (`scripts/ingest/first1k.py` 1104 works grc, date≥−50 CE; `scripts/ingest/oglt_pl.py` 1453 works lat; CC-BY-SA 4.0)
-- [x] Perseus canonical Greek/Latin  (`scripts/ingest/perseus.py`; git clone canonical-greekLit + canonical-latinLit; dedup against First1KGreek by CTS work ID; same date filters as first1k; CC-BY-SA 4.0)
-- [x] CCEL ANF/NPNF ThML ingestion  (`scripts/ingest/ccel_anf.py` 10 vols, `ccel_npnf1.py` 14 vols, `ccel_npnf2.py` 14 vols; `_ccel_common.py`; downloads from ccel.org/ccel/s/schaff/; public domain English translations; eng)
+- [x] Perseus canonical Greek/Latin  (`scripts/ingest/perseus.py`; git clone canonical-greekLit + canonical-latinLit; repos stored under `data/raw/_repos/` to avoid catalog pollution; dedup against First1KGreek by CTS work ID; same −50 CE / post-schism date filters; `XMLParser(no_network=True)` required — Latin files reference remote Perseus DTDs; 892 works: 658 grc + 234 lat; CC-BY-SA 4.0)
+- [x] CCEL ANF/NPNF ThML ingestion  (`scripts/ingest/ccel_anf.py` 10 vols, `ccel_npnf1.py` 14 vols, `ccel_npnf2.py` 14 vols; shared `_ccel_common.py`; downloads from `https://ccel.org/ccel/s/schaff/{volume_id}.xml`; ETag-cached; ANF uses `<h1>` for headings, NPNF uses `<p>`; output filename is positional `{div1_counter:03d}.json` for stability; author matched via 3-pass fuzzy strategy against `_patristic_meta.AUTHORS`; 343 works total; public domain eng; `translation_of=None` — linking pass deferred to M7)
 
 ### Milestone 4: Liturgical Texts — Tier 1 (sessions 7–8)
-- [ ] CANTUS Database API ingestion
-- [ ] CURSUS TEI liturgical texts
+- [x] CANTUS Database API ingestion — 22 manuscripts (860–1200 CE), 63,062 chants; `liturgical/cantus`
+- [x] CURSUS TEI liturgical texts — 12 English Benedictine manuscripts, 32,180 chunks; `liturgical/cursus`
 - [ ] Coptic Scriptorium liturgical content
 - [ ] goarch.org Greek liturgies (Chrysostom, Basil)
 
@@ -360,6 +360,7 @@ dependencies = [
 ### Milestone 7: QC & Handoff (session 15)
 - [ ] Full validation pass
 - [ ] Translation linkage for all Scripture
+- [ ] **CCEL translation linkage**: populate `translation_of` on all CCEL ANF/NPNF1/NPNF2 works by matching author abbreviation + work structure against First1KGreek/PTA/Perseus originals (currently all `null`)
 - [ ] Chunk count report by language/genre/tradition
 - [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
 - [ ] Hand normalized JSON to Phase 2 (database construction)
@@ -382,5 +383,7 @@ dependencies = [
 | LXX Rahlfs (eliranwong repo) has CCAT user-declaration requirement | Non-commercial only; word CSV is 3-column, verse index is start-only — see `lxx_rahlfs.py` |
 | ASV from scrollmapper is only 48/66 books | Some NT books appear to be missing from the scrollmapper ASV CSV; investigate before M7 QC |
 | `beta2unicode` package does not exist on PyPI | Betacode conversion for any CCAT-sourced text (Tier 2) needs a custom solution at ingest time |
+| CCEL ANF/NPNF `translation_of` is null for all 343 works | English translations not yet linked to Greek/Latin originals. M7 TODO: match by author abbreviation + canonical ref structure against First1KGreek/PTA/Perseus. |
+| Perseus Latin repo contains `.tracking.json` files from the CTS system | Repos stored under `data/raw/_repos/` (not `data/raw/patristic/`) to prevent catalog and normalize.py from treating them as source files. Do not move repos back into `patristic/`. |
 | Clementine Vulgate eBible ID is `latVUC` not `latclv` | Corrected; `latVUC_usfm.zip` is the working URL |
 | Wulfila books B19–B21 (Skeireins, legal docs, calendar) skipped | Non-canonical; if needed, add mappings to `_BOOK_ID_TO_OSIS` in `wulfila.py` |

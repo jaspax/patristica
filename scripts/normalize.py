@@ -66,6 +66,45 @@ def normalize_scripture_work(
     return work, chunks
 
 
+def normalize_liturgical_work(
+    raw_record: dict,
+) -> tuple[Work, list[Chunk]]:
+    """Convert a raw liturgical record into a ``Work`` + list of ``Chunk`` objects.
+
+    Liturgical texts use the ``"paragraphs"`` key (same layout as patristic).
+    ``post_schism`` is always ``False``: even when the manuscript is dated after
+    1054 the underlying chant/prayer tradition is pre-schism in origin.
+    """
+    work = Work(**raw_record["work"])
+    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+
+    chunks: list[Chunk] = []
+    for idx, para in enumerate(raw_paragraphs):
+        ref = para.get("ref", "")
+        text = para.get("text", "").strip()
+        if not text:
+            continue
+
+        chunk = Chunk(
+            chunk_id=f"{work.work_id}#{ref}",
+            work_id=work.work_id,
+            canonical_ref=ref,
+            language=work.language,
+            text=text,
+            chunk_index=idx,
+            context_before=None,
+            context_after=None,
+            date_composed=work.date_composed,
+            date_range=work.date_range,
+            date_confidence=work.date_confidence,
+            post_schism=False,
+            translation_group_id=None,
+        )
+        chunks.append(chunk)
+
+    return work, chunks
+
+
 def normalize_patristic_work(
     raw_record: dict,
 ) -> tuple[Work, list[Chunk]]:
@@ -137,8 +176,10 @@ def normalize_file(
         work, chunks = normalize_scripture_work(raw_record)
     elif genre == "patristic":
         work, chunks = normalize_patristic_work(raw_record)
+    elif genre == "liturgical":
+        work, chunks = normalize_liturgical_work(raw_record)
     else:
-        # Liturgical/council normalization: implemented in M4+
+        # Council normalization: implemented in M5+
         log.debug("Skipping %s: genre %r not yet supported by normalize.py", raw_path, genre)
         return 0
 
