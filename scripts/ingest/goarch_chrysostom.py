@@ -1,8 +1,8 @@
 """
 Ingestor for the Divine Liturgy of St. John Chrysostom (Greek).
 
-Source: https://www.goarch.org/-/the-divine-liturgy-of-saint-john-chrysostom
-Format: HTML scrape (Liferay CMS, ``languageId=el_GR``)
+Source: https://dcs.goarch.org/goa/dcs/h/b/skeleton/liturgy/chrys/gr-en/index.html
+Format: GOA Digital Chant Stand bilingual HTML (table#biTable, leftCell = Greek)
 License: Text is 4th-century; public domain.
 
 The base text of the Liturgy of St. John Chrysostom dates to the late
@@ -21,24 +21,24 @@ import logging
 from pathlib import Path
 
 from patristica.models import Work
-from scripts.ingest._goarch_common import fetch_greek_html, parse_greek_liturgy
+from scripts.ingest._goarch_common import fetch_dcs_html, parse_dcs_liturgy
 
 log = logging.getLogger(__name__)
 
 SOURCE_ID = "liturgical/goarch-chrysostom"
 
-_ENGLISH_URL = (
-    "https://www.goarch.org/-/the-divine-liturgy-of-saint-john-chrysostom"
+_DCS_URL = (
+    "https://dcs.goarch.org/goa/dcs/h/b/skeleton/liturgy/chrys/gr-en/index.html"
 )
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
-    """Scrape the Greek Chrysostom liturgy from goarch.org and write JSON."""
+    """Fetch the Greek Chrysostom skeleton liturgy from dcs.goarch.org and write JSON."""
     out_root = Path(output_dir) / SOURCE_ID
     out_root.mkdir(parents=True, exist_ok=True)
     out_path = out_root / "liturgy.json"
 
-    cache_path = Path(output_dir) / "_cache" / "goarch-chrysostom.html"
+    cache_path = Path(output_dir) / "_cache" / "goarch-dcs-chrysostom.html"
 
     if out_path.exists() and not force:
         log.info("Skipping %s (already exists)", out_path)
@@ -46,12 +46,12 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             saved = json.load(f)
         return [Work(**saved["work"])]
 
-    html = fetch_greek_html(_ENGLISH_URL, cache_path, force=force)
+    html = fetch_dcs_html(_DCS_URL, cache_path, force=force)
     if html is None:
         log.error("Could not obtain HTML for Chrysostom liturgy; skipping.")
         return []
 
-    paragraphs = parse_greek_liturgy(html, service_abbrev="Chrysostom")
+    paragraphs = parse_dcs_liturgy(html, service_abbrev="Chrysostom")
     if not paragraphs:
         log.error("No Greek paragraphs extracted from Chrysostom liturgy HTML.")
         return []
@@ -68,8 +68,8 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         language="grc",
         tradition="greek",
         license="public_domain",
-        provenance_url=_ENGLISH_URL,
-        edition="Greek Orthodox Archdiocese of America, goarch.org",
+        provenance_url=_DCS_URL,
+        edition="GOA Digital Chant Stand (dcs.goarch.org), skeleton liturgy",
     )
 
     out_path.write_text(

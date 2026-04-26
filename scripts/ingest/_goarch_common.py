@@ -1,20 +1,17 @@
 """
 Shared scraping logic for goarch.org Greek liturgical texts.
 
-Source: https://www.goarch.org/ (Greek Orthodox Archdiocese of America)
-Format: Liferay CMS HTML pages, language parameter ``languageId=el_GR``
+Sources
+-------
+- www.goarch.org: Liferay CMS pages (returns 403 for automated requests; kept for reference)
+- dcs.goarch.org: GOA Digital Chant Stand — static HTML files, publicly accessible
+
+The DCS (https://dcs.goarch.org/goa/dcs/) serves liturgical texts as plain static HTML
+with a bilingual table layout: ``leftCell`` (Greek) and ``rightCell`` (English).
+These pages are fetched directly with httpx; no browser automation is required.
+
 License: Site content freely available; texts themselves are public domain
-         (4th-century compositions)
-
-Notes
------
-The site uses Liferay Portal.  Greek-language pages are fetched by appending
-a portlet instance ``languageId`` parameter to the page URL.  The exact
-instance ID (e.g. ``_101_INSTANCE_ulcNzWPdScz6_``) is extracted dynamically
-from the English page's language-switcher links.
-
-If the site returns 403 (bot-blocking), the raw HTML can be downloaded
-manually and placed at the cache path printed in the error message.
+         (4th-century compositions).
 """
 
 from __future__ import annotations
@@ -48,9 +45,195 @@ _HEADERS = {
 # Greek Unicode: Basic Greek (U+0370–U+03FF) + Greek Extended (U+1F00–U+1FFF)
 _GREEK_RE = re.compile(r"[Ͱ-Ͽἀ-῿]")
 
+# Paragraph classes that carry no liturgical text
+_DCS_SKIP_CLASSES = frozenset({
+    "break",
+    "rubric",
+    "bmc_collapse",
+    "emc_collapse",
+    "servicesourcestitle",
+    "servicesources",
+    "servicesourcessection",
+})
+
+# Span child classes inside <p class="mixed"> that mark major section breaks
+_DCS_SECTION_SPAN_CLASSES = frozenset({"boldred", "smaller"})
+
+# Paragraph classes that open a new top-level section
+_DCS_SECTION_P_CLASSES = frozenset({"smallcenterboldred"})
+
 
 # ---------------------------------------------------------------------------
-# Fetch helpers
+# DCS fetch helper
+# ---------------------------------------------------------------------------
+
+def fetch_dcs_html(
+    dcs_url: str,
+    cache_path: Path,
+    force: bool = False,
+) -> str | None:
+    """
+    Fetch a GOA Digital Chant Stand HTML page.
+
+    The DCS serves static HTML files that are publicly accessible without
+    bot-blocking.  This is a simple fetch-and-cache wrapper.
+
+    Returns the HTML string, or None if the fetch fails.
+    """
+    if cache_path.exists() and not force:
+        log.info("Using cached HTML: %s", cache_path)
+        return cache_path.read_text(encoding="utf-8")
+
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+
+    log.info("Fetching DCS page: %s", dcs_url)
+    try:
+        time.sleep(_POLITE_DELAY)
+        with httpx.Client(follow_redirects=True) as client:
+            resp = client.get(dcs_url, headers=_HEADERS, timeout=30)
+            resp.raise_for_status()
+            html = resp.text
+    except httpx.HTTPStatusError as exc:
+        log.error("HTTP %d fetching %s", exc.response.status_code, dcs_url)
+        return None
+    except Exception as exc:
+        log.error("Failed to fetch %s: %s", dcs_url, exc)
+        return None
+
+    cache_path.write_text(html, encoding="utf-8")
+    log.info("Cached DCS HTML to %s", cache_path)
+    return html
+
+
+# ---------------------------------------------------------------------------
+# DCS HTML parsing
+# ---------------------------------------------------------------------------
+
+def _is_greek(text: str) -> bool:
+    """Return True if the text contains Greek characters."""
+    return bool(_GREEK_RE.search(text))
+
+
+def _clean_text(text: str) -> str:
+    """Normalize whitespace in extracted text."""
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def parse_dcs_liturgy(
+    html: str,
+    service_abbrev: str,
+) -> list[dict]:
+    """
+    Parse a GOA DCS bilingual (gr-en) liturgy HTML page into paragraph records.
+
+    The DCS renders liturgical text as a two-column table (``table#biTable``).
+    Only the Greek left column (``td.leftCell``) is extracted.
+
+    Paragraph classes handled:
+
+    Included:
+      dialog, inaudible, reading, hymn — liturgical text
+      actor, actorinaudible            — speaker labels (ΔΙΑΚΟΝΟΣ, ΙΕΡΕΥΣ…)
+      designation                      — structural labels (Ἀντίφωνον Αʹ…)
+      mixed (non-rubric content)       — headings, prayer labels, rubrics
+
+    Skipped:
+      break, rubric, bmc_collapse, emc_collapse — UI / navigation elements
+      servicesourcestitle/sources/section       — source-book metadata block
+
+    Section tracking:
+      ``p.mixed`` containing a ``span.boldred`` or ``span.smaller`` child, and
+      ``p.smallcenterboldred``, trigger a section increment (``section_n``).
+      All other content increments ``para_n`` within the current section.
+
+    Parameters
+    ----------
+    html:            Raw HTML of the DCS gr-en liturgy page.
+    service_abbrev:  Short abbreviation used in canonical refs (e.g. 'Chrysostom').
+
+    Returns
+    -------
+    List of ``{"ref": ..., "text": ...}`` dicts, one per liturgical passage.
+    Only paragraphs containing Greek text are included.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    table = soup.find("table", id="biTable")
+    if table is None:
+        log.warning("No biTable found in %s DCS HTML", service_abbrev)
+        return []
+
+    paragraphs: list[dict] = []
+    section_n = 0
+    para_n = 0
+
+    for tr in table.find_all("tr"):
+        left: Tag | None = tr.find("td", class_="leftCell")
+        if left is None:
+            continue
+
+        for p in left.find_all("p"):
+            cls = set(p.get("class", []))
+
+            # Skip UI/metadata paragraphs
+            if cls & _DCS_SKIP_CLASSES:
+                continue
+
+            if "mixed" in cls:
+                # Inspect the first meaningful span child
+                first_span = p.find("span", class_=True, recursive=False)
+                if first_span is None:
+                    continue
+                span_cls = set(first_span.get("class", []))
+                if "rubric" in span_cls:
+                    continue  # "(Δείτε τά μεταβλητά.)" — variable-parts notice
+                text = _clean_text(p.get_text())
+                if not text or not _is_greek(text):
+                    continue
+                if span_cls & _DCS_SECTION_SPAN_CLASSES:
+                    # Major section break — reset paragraph counter
+                    section_n += 1
+                    para_n = 0
+                ref = slugify_ref(
+                    f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
+                )
+                paragraphs.append({"ref": ref, "text": text})
+                para_n += 1
+                continue
+
+            if cls & _DCS_SECTION_P_CLASSES:
+                text = _clean_text(p.get_text())
+                if not text or not _is_greek(text):
+                    continue
+                section_n += 1
+                para_n = 0
+                ref = slugify_ref(
+                    f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
+                )
+                paragraphs.append({"ref": ref, "text": text})
+                para_n += 1
+                continue
+
+            # All remaining paragraph classes: dialog, inaudible, reading, hymn,
+            # actor, actorinaudible, designation, etc.
+            text = _clean_text(p.get_text())
+            if not text or not _is_greek(text):
+                continue
+            ref = slugify_ref(
+                f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
+            )
+            paragraphs.append({"ref": ref, "text": text})
+            para_n += 1
+
+    log.info(
+        "  Parsed %d Greek paragraphs from %s DCS HTML",
+        len(paragraphs),
+        service_abbrev,
+    )
+    return paragraphs
+
+
+# ---------------------------------------------------------------------------
+# Legacy www.goarch.org helpers (kept for reference; site blocks automated access)
 # ---------------------------------------------------------------------------
 
 def _fetch_url(url: str, client: httpx.Client) -> str:
@@ -64,14 +247,12 @@ def _fetch_url(url: str, client: httpx.Client) -> str:
 def _find_greek_url(english_html: str, base_url: str) -> str | None:
     """Extract the Greek-language URL from the English page's language switcher."""
     soup = BeautifulSoup(english_html, "lxml")
-    # Liferay language switcher links contain languageId=el_GR
     for a in soup.find_all("a", href=True):
         href = a["href"]
         if "el_GR" in href or "languageId=el_GR" in href:
             if href.startswith("http"):
                 return href
             if href.startswith("/"):
-                # Build absolute URL from the base
                 m = re.match(r"(https?://[^/]+)", base_url)
                 if m:
                     return m.group(1) + href
@@ -84,15 +265,12 @@ def fetch_greek_html(
     force: bool = False,
 ) -> str | None:
     """
-    Fetch the Greek-language version of a goarch.org liturgy page.
+    Fetch the Greek-language version of a www.goarch.org liturgy page.
 
-    Strategy:
-    1. Serve from cache if available (and not force).
-    2. Fetch the English page to discover the Greek URL from the language switcher.
-    3. Fetch the Greek page.
-    4. Cache the result.
+    NOTE: www.goarch.org currently returns 403 for all automated requests.
+    Use ``fetch_dcs_html`` with a dcs.goarch.org URL instead.
 
-    Returns the HTML string, or None if the fetch fails.
+    If manual HTML is available at ``cache_path``, it will be used as-is.
     """
     if cache_path.exists() and not force:
         log.info("Using cached HTML: %s", cache_path)
@@ -101,7 +279,6 @@ def fetch_greek_html(
     cache_path.parent.mkdir(parents=True, exist_ok=True)
 
     with httpx.Client(follow_redirects=True) as client:
-        # Step 1: fetch English page to find Greek URL
         log.info("Fetching English page to discover Greek URL: %s", english_url)
         try:
             english_html = _fetch_url(english_url, client)
@@ -123,10 +300,8 @@ def fetch_greek_html(
             log.error("Failed to fetch %s: %s", english_url, exc)
             return None
 
-        # Step 2: extract Greek URL
         greek_url = _find_greek_url(english_html, english_url)
         if greek_url is None:
-            # Fall back: try a common Liferay pattern with el_GR
             log.warning(
                 "Could not find Greek URL in language switcher; trying parameter append."
             )
@@ -154,23 +329,8 @@ def fetch_greek_html(
     return greek_html
 
 
-# ---------------------------------------------------------------------------
-# HTML parsing
-# ---------------------------------------------------------------------------
-
-def _is_greek(text: str) -> bool:
-    """Return True if the text contains Greek characters."""
-    return bool(_GREEK_RE.search(text))
-
-
-def _clean_text(text: str) -> str:
-    """Normalize whitespace in extracted text."""
-    return re.sub(r"\s+", " ", text).strip()
-
-
 def _find_content_div(soup: BeautifulSoup) -> Tag | None:
-    """Find the main article/content container on a goarch.org page."""
-    # Try common Liferay/goarch content containers in order of specificity
+    """Find the main article/content container on a www.goarch.org page."""
     for selector in [
         "div.portlet-body",
         "div.journal-content-article",
@@ -182,7 +342,6 @@ def _find_content_div(soup: BeautifulSoup) -> Tag | None:
         el = soup.select_one(selector)
         if el:
             return el
-    # Last resort: the largest <div> by text length
     return soup.body
 
 
@@ -191,17 +350,10 @@ def parse_greek_liturgy(
     service_abbrev: str,
 ) -> list[dict]:
     """
-    Parse a goarch.org Greek liturgy HTML page into paragraph records.
+    Parse a www.goarch.org Greek liturgy HTML page into paragraph records.
 
-    Parameters
-    ----------
-    html:            Raw HTML of the Greek-language liturgy page.
-    service_abbrev:  Short abbreviation used in canonical refs (e.g. 'Chrysostom').
-
-    Returns
-    -------
-    List of ``{"ref": ..., "text": ...}`` dicts, one per liturgical passage.
-    Only paragraphs containing Greek text are included.
+    NOTE: Kept for legacy/manual-cache use. For new fetches use
+    ``fetch_dcs_html`` + ``parse_dcs_liturgy`` instead.
     """
     soup = BeautifulSoup(html, "lxml")
     content = _find_content_div(soup)
@@ -212,41 +364,32 @@ def parse_greek_liturgy(
     paragraphs: list[dict] = []
     section_n = 0
     para_n = 0
-    current_section: str = "intro"
 
     for el in content.find_all(["h1", "h2", "h3", "h4", "h5", "p", "li", "div"]):
         tag_name = el.name
 
-        # Section headings become new section markers
         if tag_name in ("h1", "h2", "h3", "h4", "h5"):
             heading_text = _clean_text(el.get_text())
             if heading_text:
                 section_n += 1
                 para_n = 0
-                # Slugify the heading for the ref
-                slug = re.sub(r"[^A-Za-z0-9Ͱ-Ͽἀ-῿]+", "_", heading_text)
-                slug = slug.strip("_")[:40]  # cap length
-                current_section = f"{section_n:04d}"
             continue
 
-        # For <div> elements, only emit if they are leaf-level text nodes
         if tag_name == "div":
-            # Skip containers that hold block children — those will be processed recursively
             if el.find(["p", "div", "h1", "h2", "h3", "h4", "li"]):
                 continue
 
         text = _clean_text(el.get_text())
-        if not text:
-            continue
-        if not _is_greek(text):
+        if not text or not _is_greek(text):
             continue
 
-        ref = slugify_ref(f"ByzLit.{service_abbrev}.{current_section}.{para_n:04d}")
+        ref = slugify_ref(f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}")
         paragraphs.append({"ref": ref, "text": text})
         para_n += 1
 
     log.info(
         "  Parsed %d Greek paragraphs from %s liturgy HTML",
-        len(paragraphs), service_abbrev,
+        len(paragraphs),
+        service_abbrev,
     )
     return paragraphs

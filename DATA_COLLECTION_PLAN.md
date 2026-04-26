@@ -340,7 +340,7 @@ dependencies = [
 - [x] CANTUS Database API ingestion — 22 manuscripts (860–1200 CE), 63,062 chants; `liturgical/cantus`
 - [x] CURSUS TEI liturgical texts — 12 English Benedictine manuscripts, 32,180 chunks; `liturgical/cursus`
 - [x] Coptic Scriptorium corpus — 49 works (Shenoute, AP, Besa, Pachomius, pseudo-attributed homilies, hagiographies, liturgical texts); 14,595 chunks; `liturgical/coptic-scriptorium` (`scripts/ingest/coptic_scriptorium.py`; CC-BY 4.0; Coptic `cop`; shallow clone to `data/raw/_repos/coptic-scriptorium/`; handles both TEI P5 and custom `<meta>` annotation formats)
-- [ ] goarch.org Greek liturgies (Chrysostom, Basil) — **blocked**: goarch.org returns 403 for all automated requests (IP-level block). Ingestors `goarch_chrysostom.py` and `goarch_basil.py` are implemented; HTML must be provided manually to `data/raw/_cache/goarch-{chrysostom,basil}.html` (see error output of ingestors for instructions)
+- [x] goarch.org Greek liturgies (Chrysostom, Basil) — **source changed to dcs.goarch.org** (DCS serves plain static HTML, publicly accessible). `fetch_dcs_html` + `parse_dcs_liturgy` in `_goarch_common.py` handle the bilingual `table#biTable` layout. 403/1 works each; Chrysostom 403 chunks, Basil 417 chunks; `liturgical/goarch-chrysostom`, `liturgical/goarch-basil`
 
 ### Milestone 5: Tier 2 Sources (sessions 9–12)
 - [ ] SEDRA Peshitta
@@ -387,5 +387,5 @@ dependencies = [
 | Perseus Latin repo contains `.tracking.json` files from the CTS system | Repos stored under `data/raw/_repos/` (not `data/raw/patristic/`) to prevent catalog and normalize.py from treating them as source files. Do not move repos back into `patristic/`. |
 | Clementine Vulgate eBible ID is `latVUC` not `latclv` | Corrected; `latVUC_usfm.zip` is the working URL |
 | Wulfila books B19–B21 (Skeireins, legal docs, calendar) skipped | Non-canonical; if needed, add mappings to `_BOOK_ID_TO_OSIS` in `wulfila.py` |
-| goarch.org returns 403 for all automated requests | Ingestors implemented but require manual HTML download. Open each liturgy page in a browser, switch language to Greek (Ελληνικά), and save page source to `data/raw/_cache/goarch-chrysostom.html` / `goarch-basil.html`. Ingestors will then use those cached files. |
+| www.goarch.org returns 403 for automated requests | Resolved: ingestors retargeted to `dcs.goarch.org` (GOA Digital Chant Stand) which serves static HTML without bot-blocking. |
 | Coptic Scriptorium uses two XML formats | Standard TEI P5 for most corpora; custom `<meta>` root with `<norm_group>` word elements for some (besa-letters, shenoute-eagerness, life-aphou, etc.). Both handled by `coptic_scriptorium.py`. |
