@@ -38,6 +38,34 @@ DEUTEROCANON_BOOKS: list[str] = [
     "Tob", "Jdt", "1Macc", "2Macc", "Wis", "Sir", "Bar",
 ]
 
+#: Books in the Ethiopic Orthodox canon not present in the Catholic Deuterocanon.
+#: Includes both classic pseudepigrapha and Ethiopian-specific compositions.
+ETHIOPIC_EXTRA_BOOKS: list[str] = [
+    "1En",   # 1 Enoch
+    "Jub",   # Jubilees
+    "1Meq",  # 1 Meqabyan (not = 1 Maccabees)
+    "2Meq",  # 2 Meqabyan
+    "3Meq",  # 3 Meqabyan
+    "4Bar",  # 4 Baruch / Paraleipomena of Jeremiah
+    "Kings", # Combined Ethiopic Kings (1Sam–2Kgs folded; LXX "1–4 Kingdoms")
+    "ApEz",  # Apocalypse of Ezra
+    "Lef",   # Lefafa Sedq
+    "MysHE", # Mysteries of Heaven and Earth
+    "TestLd",# Testament of Our Lord
+    "Teach", # Teaching of Mysteries
+    "Sinod", # Sinodos
+    "KN",    # Kebra Nagast (post-schism composition; flagged)
+    "Synax", # Synaxarion (liturgical calendar; flagged)
+    "Clem",  # Ethiopic Clement
+]
+
+#: Additional books found in the Armenian Apostolic canon (beyond Catholic Deuterocanon).
+ARMENIAN_EXTRA_BOOKS: list[str] = [
+    "3Macc", # 3 Maccabees (shared with Greek Orthodox)
+    "1Esd",  # 1 Esdras (Greek Esdras / 3 Ezra)
+    "3Cor",  # 3 Corinthians (apocryphal NT, canonical in Armenian tradition)
+]
+
 #: Full set in Protestant canonical order.
 PROTESTANT_BOOKS: list[str] = OT_BOOKS + NT_BOOKS
 
@@ -75,6 +103,18 @@ BOOK_TITLE: dict[str, str] = {
     "Tob": "Tobit", "Jdt": "Judith", "1Macc": "1 Maccabees",
     "2Macc": "2 Maccabees", "Wis": "Wisdom of Solomon",
     "Sir": "Sirach", "Bar": "Baruch",
+    # Ethiopic Orthodox extra books
+    "1En": "1 Enoch", "Jub": "Jubilees",
+    "1Meq": "1 Meqabyan", "2Meq": "2 Meqabyan", "3Meq": "3 Meqabyan",
+    "4Bar": "4 Baruch", "Kings": "Kings",
+    "ApEz": "Apocalypse of Ezra", "Lef": "Lefafa Sedq",
+    "MysHE": "Mysteries of Heaven and Earth",
+    "TestLd": "Testament of Our Lord", "Teach": "Teaching of Mysteries",
+    "Sinod": "Sinodos", "KN": "Kebra Nagast", "Synax": "Synaxarion",
+    "Clem": "Ethiopic Clement",
+    # Armenian extra books
+    "3Macc": "3 Maccabees", "3Cor": "3 Corinthians",
+    "1Esd": "1 Esdras",
 }
 
 
@@ -158,6 +198,28 @@ BOOK_DATES: dict[str, dict] = {
     "3John":{"date_composed": 95,  "date_range": (85, 100),   "date_confidence": "approximate"},
     "Jude": {"date_composed": 70,  "date_range": (65, 100),   "date_confidence": "uncertain"},
     "Rev":  {"date_composed": 95,  "date_range": (81, 96),    "date_confidence": "approximate"},
+    # Ethiopic Orthodox extra books
+    "1En":   {"date_composed": -200, "date_range": (-300, -100), "date_confidence": "approximate"},
+    "Jub":   {"date_composed": -155, "date_range": (-170, -140), "date_confidence": "approximate"},
+    "1Meq":  {"date_composed": 500,  "date_range": (400, 700),   "date_confidence": "uncertain"},
+    "2Meq":  {"date_composed": 500,  "date_range": (400, 700),   "date_confidence": "uncertain"},
+    "3Meq":  {"date_composed": 500,  "date_range": (400, 700),   "date_confidence": "uncertain"},
+    "4Bar":  {"date_composed": 100,  "date_range": (70, 135),    "date_confidence": "approximate"},
+    "Kings": {"date_composed": -600, "date_range": (-900, -550), "date_confidence": "uncertain"},
+    "ApEz":  {"date_composed": 100,  "date_range": (70, 218),    "date_confidence": "uncertain"},
+    "Lef":   {"date_composed": 500,  "date_range": (400, 800),   "date_confidence": "uncertain"},
+    "MysHE": {"date_composed": 500,  "date_range": (400, 800),   "date_confidence": "uncertain"},
+    "TestLd":{"date_composed": 400,  "date_range": (350, 600),   "date_confidence": "uncertain"},
+    "Teach": {"date_composed": 500,  "date_range": (400, 800),   "date_confidence": "uncertain"},
+    "Sinod": {"date_composed": 400,  "date_range": (300, 700),   "date_confidence": "uncertain"},
+    # Kebra Nagast: compiled ~13th c. CE from older sources; post-schism composition
+    "KN":    {"date_composed": 1250, "date_range": (1200, 1325), "date_confidence": "approximate"},
+    "Synax": {"date_composed": 1400, "date_range": (1200, 1500), "date_confidence": "uncertain"},
+    "Clem":  {"date_composed": 400,  "date_range": (300, 600),   "date_confidence": "uncertain"},
+    # Armenian / Greek Orthodox extra books
+    "3Macc": {"date_composed": -100, "date_range": (-130, -70),  "date_confidence": "approximate"},
+    "3Cor":  {"date_composed": 160,  "date_range": (150, 250),   "date_confidence": "approximate"},
+    "1Esd":  {"date_composed": -200, "date_range": (-400, -100), "date_confidence": "uncertain"},
     # Deuterocanon
     "Tob":  {"date_composed": -200, "date_range": (-300, -100), "date_confidence": "approximate"},
     "Jdt":  {"date_composed": -150, "date_range": (-200, -100), "date_confidence": "approximate"},
@@ -203,6 +265,25 @@ FULL_NAME_TO_ABBREV: dict[str, str] = {
     "Wisdom of Solomon": "Wis", "Wisdom": "Wis",
     "Sirach": "Sir", "Ecclesiasticus": "Sir",
     "Baruch": "Bar",
+    # Ethiopic extra
+    "1 Enoch": "1En", "Enoch": "1En",
+    "Jubilees": "Jub",
+    "1 Meqabyan": "1Meq", "2 Meqabyan": "2Meq", "3 Meqabyan": "3Meq",
+    "4 Baruch": "4Bar", "Paraleipomena of Jeremiah": "4Bar",
+    "Kings": "Kings",
+    "Apocalypse of Ezra": "ApEz",
+    "Lefafa Sedq": "Lef",
+    "Mysteries of Heaven and Earth": "MysHE",
+    "Testament of Our Lord": "TestLd",
+    "Teaching of Mysteries": "Teach",
+    "Sinodos": "Sinod",
+    "Kebra Nagast": "KN",
+    "Synaxarion": "Synax",
+    "Ethiopic Clement": "Clem",
+    # Armenian / Greek Orthodox extra
+    "3 Maccabees": "3Macc",
+    "3 Corinthians": "3Cor",
+    "1 Esdras": "1Esd", "3 Ezra": "1Esd",
 }
 
 

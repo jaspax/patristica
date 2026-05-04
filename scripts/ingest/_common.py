@@ -75,6 +75,9 @@ def download_file(
         if resp.status_code == 304:
             log.debug("304 Not Modified — keeping cached %s", dest)
             return dest
+        if resp.is_error:
+            log.debug("Conditional GET returned %s — keeping cached %s", resp.status_code, dest)
+            return dest
         # Fall through to write new content
         _write_response(resp, dest, etag_path)
         return dest

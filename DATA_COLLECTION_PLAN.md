@@ -112,8 +112,8 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | ID | Text | Language | Source | Format | Notes |
 |----|------|----------|--------|--------|-------|
 | `scripture/peshitta` | Peshitta NT (SEDRA) | Syriac (`syc`) | sedra.bethmardutho.org + github.com/peshitta/sedrajs | DB/JS | **Superseded by `scripture/pta-peshitta` (clean TEI, 85 books)** |
-| `scripture/gez` | Ethiopic Bible (Ge'ez) | Ge'ez (`gez`) | Internet Archive (multiple editions) | PDF/text | Public domain; OCR quality varies |
-| `scripture/armenian` | Classical Armenian Bible (Zohrab 1805) | Armenian (`hye`) | Internet Archive | PDF/text | Public domain; OCR needed |
+| `scripture/gez` | Ethiopic Bible (Ge'ez) | Ge'ez (`gez`) | github.com/LPettay/ethiopian-bible (Beta Masaheft data) | JSON chapter files | CC-BY-SA 4.0 |
+| `scripture/armenian` | Classical Armenian Bible (Zohrab 1895) | Armenian (`hye`) | arak29.org/bible/book/ (1895 Constantinople edition) | HTML per chapter | Public domain |
 | `scripture/vetus-latina` | Vetus Latina fragments | Latin (`lat`) | itseeweb.cal.bham.ac.uk | HTML | Check licensing; fragmentary |
 | `patristic/ogpg` | Open Patrologia Graeca (OCR) | Greek (`grc`) | github.com/OGL-PatrologiaGraecaDev | .txt/.hocr | Public domain; OCR noise |
 | `patristic/dco` | Documenta Catholica Omnia | Latin (`lat`) | documentacatholicaomnia.eu | PDF/DOC | Unclear license; Latin originals |
@@ -343,19 +343,21 @@ dependencies = [
 - [x] goarch.org Greek liturgies (Chrysostom, Basil) — **source changed to dcs.goarch.org** (DCS serves plain static HTML, publicly accessible). `fetch_dcs_html` + `parse_dcs_liturgy` in `_goarch_common.py` handle the bilingual `table#biTable` layout. 403/1 works each; Chrysostom 403 chunks, Basil 417 chunks; `liturgical/goarch-chrysostom`, `liturgical/goarch-basil`
 
 ### Milestone 5: Tier 2 Sources (sessions 9–12)
-- [ ] SEDRA Peshitta
-- [ ] Ge'ez Bible (OCR pipeline)
-- [ ] Classical Armenian Bible (OCR pipeline)
-- [ ] Open Patrologia Graeca (OCR noise handling)
-- [ ] Gallican + Mozarabic liturgies
-- [ ] Ethiopian Anaphoras
-- [ ] Syriac Liturgy of St. James
-- [ ] Ecumenical Council texts
+- [x] Ecumenical Council texts — 17 works (7 ecumenical + Trullo + 5 provincial + 4 Sardica/Carthage), 4213 chunks; `councils/ecumenical` (`scripts/ingest/ecumenical.py`; Schaff/Percival NPNF2-14; public domain; genre `council`; `normalize_council_work()` added to `normalize.py`)
+- [x] Open Patrologia Graeca (OCR noise handling) — 176 works, 139,196 chunks from 196 repos (PG Vol. 1–161; 3 repos are empty: Vol.-58-59, Vol.-61-62, Vol.-65-66); `patristic/ogpg` (`scripts/ingest/ogpg.py`); glob-based sparse git clone (no API calls needed; avoids 60 req/hour unauthenticated rate limit); Greek/Latin column separation by line-level Greek char ratio (≥35%); page-boundary paragraph flush; function-word quality filter (≥2 Greek function words per paragraph); public domain
+- [x] Ge'ez Bible — 36 books, 18,296 chunks; `scripture/gez` (`scripts/ingest/gez.py`; shallow clone `LPettay/ethiopian-bible`; CC-BY-SA 4.0 Beta Masaheft data; includes 1 Enoch, Jubilees, Meqabyan 1–3, Kebra Nagast, Synaxarion; no OCR needed)
+- [x] Classical Armenian Bible (Zohrab 1895 text) — 75 books, 35,309 chunks; `scripture/armenian` (`scripts/ingest/armenian.py`; HTML scrape of arak29.org; public domain; full Bible incl. Deuterocanon + 1 Esdras; LXX book numbering; no OCR needed)
+- [x] Gallican liturgies — 2 works (Missale Gothicum 219 chunks, Missale Gallicanum Vetus 391 chunks); `liturgical/gallican` (`scripts/ingest/gallican.py`; IA OCR; public domain; Bobbio + Stowe omitted — only facsimile editions available on IA)
+- [x] Mozarabic rite — 2 works (Liber Mozarabicus Sacramentorum 612 chunks, Liber Ordinum 486 chunks); `liturgical/mozarabic` (`scripts/ingest/mozarabic.py`; Ferotin 1904/1912 via IA; public domain)
+- [x] Ethiopian Anaphoras — 13 works, ~1166 chunks; `liturgical/gez-anaphoras` (`scripts/ingest/gez_anaphoras.py`; "Anaphoras of the Ethiopic Liturgy" 1928 IA English translation; public domain; Basil not in OCR)
+- [x] Syriac Liturgy of St. James — 468 chunks; `liturgical/syriac-james` (`scripts/ingest/syriac_james.py`; CCEL ANF Vol. 7 English translation; public domain)
 
 ### Milestone 6: Tier 3 Sources (sessions 13–14)
-- [ ] Hudra.day Syriac liturgical scrape
-- [ ] Tertullian.org corpus scrape
 - [ ] Typikon date-filtered ingestion
+- [ ] Hudra.day Syriac liturgical scrape
+- [ ] https://www.syromalabarliturgy.org/ liturgical scrape
+- [ ] Tertullian.org corpus scrape 
+- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-languages sources have not been found)
 
 ### Milestone 7: QC & Handoff (session 15)
 - [ ] Full validation pass
@@ -363,6 +365,8 @@ dependencies = [
 - [ ] **CCEL translation linkage**: populate `translation_of` on all CCEL ANF/NPNF1/NPNF2 works by matching author abbreviation + work structure against First1KGreek/PTA/Perseus originals (currently all `null`)
 - [ ] Chunk count report by language/genre/tradition
 - [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
+- [ ] **OPG Greek dictionary filter**: score each `patristic/ogpg` paragraph by the fraction of Greek tokens that appear in a standard Greek lexicon (Perseus Morpheus wordlist or TLG headword list). Drop or flag paragraphs below a tuned threshold (~40% real words). This catches garbled OCR that slips past the current function-word filter — especially the mixed Latin/Greek column-boundary artifacts and combined-diacritic noise strings. Implement as a post-processing pass over the normalized chunks, not a change to the ingestor.
+- [ ] **OPG cross-scan voting** *(follow-on to dictionary filter)*: each PG volume has 5–9 independent scans in the OGL repos (hvd, coo, mdp, njp, etc.); we currently use one. For paragraphs that score below the dictionary threshold in the primary scan, fetch the same page range from a secondary scan and substitute if it scores higher. Requires aligning page numbers across scans.
 - [ ] Hand normalized JSON to Phase 2 (database construction)
 
 ---
@@ -389,3 +393,19 @@ dependencies = [
 | Wulfila books B19–B21 (Skeireins, legal docs, calendar) skipped | Non-canonical; if needed, add mappings to `_BOOK_ID_TO_OSIS` in `wulfila.py` |
 | www.goarch.org returns 403 for automated requests | Resolved: ingestors retargeted to `dcs.goarch.org` (GOA Digital Chant Stand) which serves static HTML without bot-blocking. |
 | Coptic Scriptorium uses two XML formats | Standard TEI P5 for most corpora; custom `<meta>` root with `<norm_group>` word elements for some (besa-letters, shenoute-eagerness, life-aphou, etc.). Both handled by `coptic_scriptorium.py`. |
+
+---
+
+## 12. Future: Custom OCR Pipeline (Post-Phase 1, if needed)
+
+If the M7 dictionary filter + cross-scan voting strategy does not bring OPG quality to an acceptable level for search, a custom OCR pipeline is the next escalation. Gate this decision on measured search quality after Phase 3 is running.
+
+**What it would address:** The root cause of most OPG noise is that the OGL project ran Tesseract on full-page images without separating the Greek and Latin columns first. Better character recognition alone is not sufficient — the column layout problem must be solved first.
+
+**Approach:**
+1. **Source images**: The OGL repo identifiers (`hvd.32044054121090`, `coo.31924054872803`, etc.) are Internet Archive item IDs. Full-resolution TIFFs are freely downloadable via the IA S3 API (~200–400 GB per volume; selective download of individual volumes is feasible).
+2. **Column segmentation**: Detect the vertical divider between Greek and Latin columns using a layout analysis model (LayoutParser, PaddleOCR layout, or a simple projection-profile heuristic on the binarized image). Crop to the Greek column before passing to OCR. This step alone would eliminate the interleaved-column artifacts that are the largest noise source.
+3. **OCR engine**: Kraken or Calamari (both designed for historical printed text) with a model fine-tuned on polytonic Greek. The OGL project's custom Tesseract 3 model (`migne*.pyrnn.gz`) could serve as training data ground-truth for bootstrapping a Kraken model. Alternatively, check whether the OCR-D or EFES projects have published Migne-specific Kraken models.
+4. **Scale**: ~600 pages/volume × 161 volumes ≈ 97,000 page images. At ~2–5 s/page on a single GPU, this is a few hours of compute once the pipeline is built; the data prep (IA download + segmentation) is the larger investment.
+
+**Decision criteria**: Pursue this path if post-M7 search evaluation shows that OPG result quality is materially worse than PTA/First1KGreek results for the same authors (e.g., Origen, Chrysostom, Athanasius), and the dictionary filter has not closed that gap.

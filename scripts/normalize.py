@@ -150,6 +150,43 @@ def normalize_patristic_work(
     return work, chunks
 
 
+def normalize_council_work(
+    raw_record: dict,
+) -> tuple[Work, list[Chunk]]:
+    """Convert a raw council record into a Work + list of Chunk objects.
+
+    All ecumenical council texts are pre-schism (post_schism=False).
+    """
+    work = Work(**raw_record["work"])
+    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+
+    chunks: list[Chunk] = []
+    for idx, para in enumerate(raw_paragraphs):
+        ref = para.get("ref", "")
+        text = para.get("text", "").strip()
+        if not text:
+            continue
+
+        chunk = Chunk(
+            chunk_id=f"{work.work_id}#{ref}",
+            work_id=work.work_id,
+            canonical_ref=ref,
+            language=work.language,
+            text=text,
+            chunk_index=idx,
+            context_before=None,
+            context_after=None,
+            date_composed=work.date_composed,
+            date_range=work.date_range,
+            date_confidence=work.date_confidence,
+            post_schism=False,
+            translation_group_id=None,
+        )
+        chunks.append(chunk)
+
+    return work, chunks
+
+
 def normalize_file(
     raw_path: Path,
     output_dir: Path,
@@ -178,8 +215,9 @@ def normalize_file(
         work, chunks = normalize_patristic_work(raw_record)
     elif genre == "liturgical":
         work, chunks = normalize_liturgical_work(raw_record)
+    elif genre == "council":
+        work, chunks = normalize_council_work(raw_record)
     else:
-        # Council normalization: implemented in M5+
         log.debug("Skipping %s: genre %r not yet supported by normalize.py", raw_path, genre)
         return 0
 
@@ -228,7 +266,10 @@ def normalize_all(
     """
     json_files = [
         p for p in raw_dir.rglob("*.json")
-        if "_zips" not in p.parts and "_csvs" not in p.parts
+        if "_zips" not in p.parts
+        and "_csvs" not in p.parts
+        and "_repos" not in p.parts
+        and not p.name.startswith("_")
     ]
 
     if not json_files:
