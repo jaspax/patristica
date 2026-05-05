@@ -133,7 +133,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `liturgical/hudra` | East Syriac Hudra texts | Syriac (`syc`) | hudra.day | Free; may require scraping |
 | `liturgical/goarch-chrysostom` | Liturgy of St. John Chrysostom (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
 | `liturgical/goarch-basil` | Liturgy of St. Basil (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
-| `liturgical/typikon` | Greek Typikon (selected pre-1054 sections) | Greek (`grc`) | equip-orthodox.com + manual curation | PDF; date filtering required |
+| `liturgical/typikon` | Greek Typikon (selected pre-1054 sections) | Greek (`grc`) | Violakis 1900 ed. via archive.org/details/typikontstou00orth | OCR plain text; date filtering required via flag_liturgical.py second pass |
 | `patristic/tertullian` | Tertullian.org corpus | English (`eng`) | tertullian.org | HTML scrape |
 
 ---
@@ -373,12 +373,12 @@ dependencies = [
 - [x] Apostolic Constitutions (all 8 books) — 401 chunks; `patristic/apostolic-constitutions` (`scripts/ingest/apostolic_constitutions.py`; CCEL ANF Vol. 7; public domain; supersedes anonymous `anf07/009.json`; book-level refs ApostConst.I–VIII; Book VIII contains the Clementine Liturgy, the most complete early Greek anaphora; c.375–400 CE)
 
 ### Milestone 6: Tier 3 Sources (sessions 13–14)
-- [ ] Typikon date-filtered ingestion (see §6 for post-schism saint filtering design)
-- [ ] Hudra.day Syriac liturgical scrape (see §6 for post-schism saint filtering design)
-- [ ] Anaphora of Serapion of Thmuis (c.350 CE) — Wordsworth 1899 English translation; Internet Archive; public domain; Egyptian bishop, colleague of Athanasius; important for early Egyptian eucharistic theology
-- [ ] Armenian Divine Liturgy / Badarak — English translation from Internet Archive public domain edition; `liturgical/armenian-liturgy`; lang `eng`, tradition `armenian`
-- [ ] Tertullian.org corpus scrape
-- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-language sources have not been found)
+- [x] Typikon date-filtered ingestion (see §6 for post-schism saint filtering design) — `scripts/ingest/typikon.py`; Violakis 1900 OCR from Internet Archive; 3806 paragraphs in 14 sections (General + 12 months + Mov); flag_liturgical.py second pass deferred
+- [ ] Hudra.day Syriac liturgical scrape (see §6 for post-schism saint filtering design) — **BLOCKED**: site is Next.js + Firebase Firestore (client-rendered); requires playwright or direct Firestore API access; deferred until dependency decision is made
+- [x] Anaphora of Serapion of Thmuis (c.350 CE) — 426 paragraphs; `liturgical/serapion` (`scripts/ingest/serapion.py`); Wordsworth 1899 English translation from IA (`bishopsarapionsp06sera`); public domain; Egyptian bishop, colleague of Athanasius; 30 prayers incl. eucharistic anaphora, baptismal, ordination, blessing of oils, pro-anaphoral prayers; lang `eng`, tradition `coptic`
+- [x] Armenian Divine Liturgy / Badarak — 641 paragraphs; `liturgical/armenian-liturgy` (`scripts/ingest/armenian_liturgy.py`); Issaverdens 1873 English translation from IA (`ArmenianRitual0104`); public domain; Part I (Divine Liturgy) only; lang `eng`, tradition `armenian`; date_range (350, 500)
+- [ ] Tertullian.org corpus scrape — **DEFERRED to M7 QA pass**: Tertullian already has 30 Latin works from Perseus (`stoa0275`); English ANF translations in cached `anf03.xml` as large blobs; dedicated ingestors for individual works (Apologeticus, De Baptismo, etc.) should be part of the "ANF full QA pass" in M7
+- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-language sources have not been found) — **DEFERRED to M7 QA pass**: newadvent.org content is largely sourced from CCEL ANF/NPNF, which we already have; unique works (e.g. Aphrahat Demonstrations → NPNF2 vol 13 already cached) are attribution-gap issues, not missing source data; address in M7 QA
 
 ### Milestone 7: QC & Handoff (session 15)
 - [ ] Full validation pass
