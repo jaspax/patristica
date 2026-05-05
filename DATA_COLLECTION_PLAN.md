@@ -241,7 +241,7 @@ After all chunks are normalized, `scripts/link_translations.py` creates `transla
 
 Some sources (especially liturgical) contain material from a wide date range. Handle as follows:
 
-- **Typikon**: Use section-level composition dates from academic sources. Include only sections plausibly pre-1054. Annotate each chunk with `date_composed` and `date_range`; post-1054 content flagged `excluded=True` in the raw record but retained in data files.
+- **Typikon** and **Hudra**: Ingest all content in the primary pass; apply `post_schism` flags in a dedicated second pass (see below). The ingestors should preserve feast-section headings as structured metadata (not just inline text) so the second pass can operate at section granularity without re-parsing.
 - **Beth Gazo / Hudra**: Include sections attributable to pre-1054 hymnographers (Ephrem the Syrian d.373, Narsai d.502, etc.). Flag uncertain-date sections with `date_confidence: "uncertain"`.
 - **Sarum Use**: Post-dates the cutoff; include only demonstrably pre-schism liturgical elements.
 - **CANTUS chants**: Filter by `century` metadata field where available; include chants attributed to Gregory I (d.604) and earlier, flag later attributions.
@@ -253,6 +253,22 @@ date_range: tuple[int,int] | None
 date_confidence: str           # "established" | "approximate" | "uncertain"
 post_schism: bool              # True if composition date > 1054 CE
 ```
+
+### Post-schism saint filtering — second pass design
+
+The Typikon and Hudra both organize content around feast days, some of which commemorate saints canonized after 1054 CE (Greek tradition) or after the Church of the East's principal canonization period. The hymnography composed for these feasts (troparia, kontakia, canons) is post-schism even though it appears in the same book as genuinely ancient material. This cannot be reliably resolved at ingestion time without a pre-compiled saint-date lookup table.
+
+**Approach:** Ingest everything in the primary pass with `post_schism=False` as the default. Run `scripts/flag_liturgical.py` as a separate step after primary ingestion is complete.
+
+**Implementation notes for `scripts/flag_liturgical.py`:**
+- Maintain `data/post_schism_feasts.csv` with columns `tradition`, `feast_name` (normalized), `saint_name`, `canonization_year`, `notes`. This file is the authoritative source and should be reviewed manually before each pipeline run.
+- The ingestors must expose the feast section heading in each chunk's `canonical_ref` or in a sidecar metadata field so the flagging script can do a direct lookup without re-parsing the source XML/text.
+- Apply `post_schism=True` to all chunks whose containing feast section matches an entry in the lookup table. Propagate the flag to the entire section (heading + all following hymnographic chunks) rather than individual chunks.
+- For feast sections **not** in the lookup table, leave `post_schism=False` and `date_confidence="uncertain"`. The default-include policy means marginally post-schism or disputed feasts are included until positive evidence of post-1054 canonization is established.
+- **Reference sources for building the lookup table:**
+  - Greek: *Synaxarion of Constantinople* (Hieromonk Makarios of Simonos Petra, Ormylia 1998–2005) gives feast-by-feast origin dates for the Byzantine calendar.
+  - East Syriac: *The Martyrology and Hagiology of the Church of the East* (Fiey, CSCO 1963) and the Hudra critical editions by Sauget and Jammo.
+- The flagging script is idempotent: re-running it with an updated `post_schism_feasts.csv` corrects previously set flags.
 
 ---
 
@@ -351,13 +367,18 @@ dependencies = [
 - [x] Mozarabic rite — 2 works (Liber Mozarabicus Sacramentorum 612 chunks, Liber Ordinum 486 chunks); `liturgical/mozarabic` (`scripts/ingest/mozarabic.py`; Ferotin 1904/1912 via IA; public domain)
 - [x] Ethiopian Anaphoras — 13 works, ~1166 chunks; `liturgical/gez-anaphoras` (`scripts/ingest/gez_anaphoras.py`; "Anaphoras of the Ethiopic Liturgy" 1928 IA English translation; public domain; Basil not in OCR)
 - [x] Syriac Liturgy of St. James — 468 chunks; `liturgical/syriac-james` (`scripts/ingest/syriac_james.py`; CCEL ANF Vol. 7 English translation; public domain)
+- [x] Liturgy of the Holy Apostles Adai and Mari — 233 chunks; `liturgical/adai-mari` (`scripts/ingest/adai_mari.py`; CCEL ANF Vol. 7 English translation; ANF07 cache shared with `syriac_james`; public domain; oldest complete surviving anaphora, c.2nd–4th c., foundational to East Syriac and pre-Portuguese Thomas Christian tradition)
+- [x] Divine Liturgy of St. Mark — 375 chunks; `liturgical/mark-liturgy` (`scripts/ingest/mark_liturgy.py`; CCEL ANF Vol. 7 English translation; ANF07 cache shared; public domain; ancient Alexandrian eucharistic rite, ancestor of Coptic Liturgy of St. Cyril; c.3rd–5th c.)
+- [x] Didache (Teaching of the Twelve Apostles) — 24 chunks; `patristic/didache` (`scripts/ingest/didache.py`; CCEL ANF Vol. 7; public domain; supersedes anonymous `anf07/008.json` with correct metadata; c.50–120 CE; genre `patristic`, tradition `greek`)
+- [x] Apostolic Constitutions (all 8 books) — 401 chunks; `patristic/apostolic-constitutions` (`scripts/ingest/apostolic_constitutions.py`; CCEL ANF Vol. 7; public domain; supersedes anonymous `anf07/009.json`; book-level refs ApostConst.I–VIII; Book VIII contains the Clementine Liturgy, the most complete early Greek anaphora; c.375–400 CE)
 
 ### Milestone 6: Tier 3 Sources (sessions 13–14)
-- [ ] Typikon date-filtered ingestion
-- [ ] Hudra.day Syriac liturgical scrape
-- [ ] https://www.syromalabarliturgy.org/ liturgical scrape
-- [ ] Tertullian.org corpus scrape 
-- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-languages sources have not been found)
+- [ ] Typikon date-filtered ingestion (see §6 for post-schism saint filtering design)
+- [ ] Hudra.day Syriac liturgical scrape (see §6 for post-schism saint filtering design)
+- [ ] Anaphora of Serapion of Thmuis (c.350 CE) — Wordsworth 1899 English translation; Internet Archive; public domain; Egyptian bishop, colleague of Athanasius; important for early Egyptian eucharistic theology
+- [ ] Armenian Divine Liturgy / Badarak — English translation from Internet Archive public domain edition; `liturgical/armenian-liturgy`; lang `eng`, tradition `armenian`
+- [ ] Tertullian.org corpus scrape
+- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-language sources have not been found)
 
 ### Milestone 7: QC & Handoff (session 15)
 - [ ] Full validation pass
@@ -367,6 +388,15 @@ dependencies = [
 - [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
 - [ ] **OPG Greek dictionary filter**: score each `patristic/ogpg` paragraph by the fraction of Greek tokens that appear in a standard Greek lexicon (Perseus Morpheus wordlist or TLG headword list). Drop or flag paragraphs below a tuned threshold (~40% real words). This catches garbled OCR that slips past the current function-word filter — especially the mixed Latin/Greek column-boundary artifacts and combined-diacritic noise strings. Implement as a post-processing pass over the normalized chunks, not a change to the ingestor.
 - [ ] **OPG cross-scan voting** *(follow-on to dictionary filter)*: each PG volume has 5–9 independent scans in the OGL repos (hvd, coo, mdp, njp, etc.); we currently use one. For paragraphs that score below the dictionary threshold in the primary scan, fetch the same page range from a secondary scan and substitute if it scores higher. Requires aligning page numbers across scans.
+- [ ] **ANF08/009 Syriac documents — dedicated ingestors**: the "Memoirs of Edessa" blob (`patristic/ccel-anf/anf08/009.json`, 1485 paragraphs) contains several distinct works currently ingested as one anonymous blob. Create dedicated ingestors for each, all from the already-cached `anf08.xml`, following the same pattern as `didache.py` and `apostolic_constitutions.py`:
+  - **Teaching of Addai (Doctrina Addai)** — §CCELANF089.6; foundational Syriac text on the Christianization of Edessa; c.3rd–5th c.; `patristic/teaching-of-addai`; author=None, tradition=`syriac`
+  - **Bardesan, Book of the Laws of Divers Countries** — §CCELANF089.16; Bardesan of Edessa (154–222 CE), earliest major Syriac theologian/philosopher; `patristic/bardesan`; author="Bardesan of Edessa", tradition=`syriac`
+  - **Teaching of the Apostles** (Syriac) — §CCELANF089.7; Syriac church-order document related to the Didache tradition; early; `patristic/teaching-of-apostles-syriac`; author=None, tradition=`syriac`
+  - **Jacob of Serugh, Hymns on Edessa** — §CCELANF089.4 + §CCELANF089.14; Jacob of Serugh (d.521), pre-schism East Syriac poet; genre `patristic`; author="Jacob of Serugh", tradition=`syriac`
+  - **Acts of Sharbil** — §CCELANF089.9; Edessene martyrdom account, c.3rd c.; `patristic/acts-of-sharbil`; tradition=`syriac`
+  - **Martyrdom of Habib the Deacon** — §CCELANF089.11; early Syrian martyrdom; `patristic/martyrdom-of-habib`; tradition=`syriac`
+  - **Moses of Khoren, History of Armenia** — §CCELANF089.13; Moses of Khoren (c.5th c.), foundational Armenian historian; `patristic/moses-of-khoren`; author="Moses of Khoren", tradition=`armenian`
+- [ ] **ANF full QA pass — identify remaining extractable works**: audit all 10 ANF volumes (`anf01`–`anf10`) for div1/div2 sections currently ingested as anonymous blobs in `patristic/ccel-anf/` that could be extracted into dedicated ingestors with proper author, title, and date metadata. Priority: any work with a known author, a distinct canonical identity, or liturgical/conciliar genre that is misclassified as generic patristic. Cross-reference against First1KGreek, PTA, and Perseus to avoid duplicating works already present in original-language form.
 - [ ] Hand normalized JSON to Phase 2 (database construction)
 
 ---
@@ -377,7 +407,7 @@ dependencies = [
 |-----|-----------|
 | No clean Ge'ez digital text; PDFs only | OCR with Ge'ez Tesseract model; flag low-confidence passages |
 | SEDRA Peshitta is JS-native; no Python parser | Use Node.js subprocess or port the sedrajs data layer to Python |
-| Typikon date filtering requires scholarly judgment | Compile a date annotation table from academic literature; default to inclusion when uncertain |
+| Typikon/Hudra post-schism saint filtering requires scholarly judgment | Ingest all content; apply `post_schism` flags in a second pass via `scripts/flag_liturgical.py` using `data/post_schism_feasts.csv` (see §6 for full design). Default is inclusion when uncertain. |
 | TLG/Patrologia Orientalis behind paywall | Defer; note gaps in validation report; seek institutional access |
 | Migne PG OCR quality highly variable | Use Open PG GitHub (already OCR'd); supplement with PTA where critical editions exist |
 | OGLT PL: 502/1459 split-dir files have no author or title metadata | The OGLT project left those volumes' metadata unpopulated. **Phase 2/3 TODO**: cross-reference Migne PL column numbers against a reference index (e.g. Corpus Thomisticum, Clavis Patrum Latinorum, or a community-maintained PL column map) to supply `author` and `title` for all `oglt_pl/unknown/*` works. Required before citations can be shown to users. |
