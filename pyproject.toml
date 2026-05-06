@@ -17,6 +17,7 @@ dependencies = [
     # NOTE: beta-code conversion for CCAT LXX betacode → Unicode is handled
     # per-ingestor. No stable PyPI package exists; add a vendored converter
     # or a suitable package (e.g. "betacode") when that source is implemented.
+    "playwright>=1.59.0",
 ]
 
 [project.optional-dependencies]
