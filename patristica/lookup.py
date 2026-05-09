@@ -41,6 +41,14 @@ class WorkResult:
     chunks: list[dict]     # filtered Chunk dicts, in chunk_index order
 
 
+@dataclass
+class SectionEntry:
+    section_key: str       # the next canonical_ref component after the query
+    title: str | None      # WorkEntry title when section = a distinct sub-work
+    work_id: str | None    # work_id when section = a distinct sub-work
+    chunk_count: int
+
+
 # ---------------------------------------------------------------------------
 # Path helpers
 # ---------------------------------------------------------------------------
@@ -293,6 +301,83 @@ def list_translations(
     index = load_index(data_dir, rebuild=rebuild_index)
     canonical_prefix, _ = parse_query(query)
     return list(index.get("entries", {}).get(canonical_prefix, []))
+
+
+def list_sections(
+    query: str,
+    data_dir: Path,
+    *,
+    lang: str | None = None,
+    source_id: str | None = None,
+    rebuild_index: bool = False,
+) -> list[SectionEntry]:
+    """
+    List the sections at the level immediately below *query*.
+
+    Each returned SectionEntry represents one distinct value of the next
+    canonical_ref component.  When every section key maps to a different
+    underlying work file (e.g. OGPG volumes, ByzLit liturgies), the
+    WorkEntry title is included.  When all sections share the same work
+    file (e.g. Gen chapters), only the key is returned.
+
+    Results are sorted in the order the sections first appear in the data.
+    """
+    index = load_index(data_dir, rebuild=rebuild_index)
+    canonical_prefix, query_ref = parse_query(query)
+
+    candidates: list[WorkEntry] = index.get("entries", {}).get(canonical_prefix, [])
+    if not candidates:
+        return []
+
+    if source_id is not None:
+        candidates = [e for e in candidates if e["source_id"] == source_id]
+
+    selected = select_entries(candidates, lang=lang)
+
+    # group_index: which dot-component to group by (0-based)
+    group_index = len(query_ref.split("."))
+
+    # key → (list of chunks, set of work_ids encountered, last entry seen)
+    groups: dict[str, tuple[list[dict], set[str], WorkEntry]] = {}
+
+    for entry in selected:
+        chunks = _load_chunks_for_entry(entry, data_dir)
+        filtered = filter_chunks(chunks, query_ref)
+        for chunk in filtered:
+            parts = chunk.get("canonical_ref", "").split(".")
+            key = parts[group_index] if len(parts) > group_index else parts[-1]
+            if key not in groups:
+                groups[key] = ([], set(), entry)
+            group_chunks, work_ids, _ = groups[key]
+            group_chunks.append(chunk)
+            work_ids.add(entry["work_id"])
+
+    if not groups:
+        return []
+
+    # If the number of distinct section keys equals the number of distinct
+    # work_ids, each section corresponds to a distinct sub-work → show titles.
+    all_work_ids: set[str] = set()
+    for _, (_, wids, _) in groups.items():
+        all_work_ids.update(wids)
+    show_titles = len(groups) == len(all_work_ids)
+
+    sections: list[SectionEntry] = []
+    for key, (chunk_list, wids, entry) in groups.items():
+        if show_titles:
+            title = entry["title"]
+            work_id = entry["work_id"]
+        else:
+            title = None
+            work_id = None
+        sections.append(SectionEntry(
+            section_key=key,
+            title=title,
+            work_id=work_id,
+            chunk_count=len(chunk_list),
+        ))
+
+    return sections
 
 
 def list_works(

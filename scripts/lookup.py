@@ -8,6 +8,9 @@ Usage
     python -m scripts.lookup -q 1Cor.4.4
     python -m scripts.lookup -q Gen --lang hbo
     python -m scripts.lookup -q Gen --list-translations
+    python -m scripts.lookup --list-sections ogpg
+    python -m scripts.lookup --list-sections ByzLit
+    python -m scripts.lookup --list-sections Gen --lang hbo
     python -m scripts.lookup --list-works
     python -m scripts.lookup --list-works --lang grc
     python -m scripts.lookup --list-works --source-id scripture/sblgnt
@@ -23,6 +26,7 @@ from pathlib import Path
 
 from patristica.lookup import (
     format_results,
+    list_sections,
     list_translations,
     list_works,
     lookup,
@@ -54,6 +58,30 @@ def _print_works_table(entries: list) -> None:
             f"{e['source_id']:<{source_w}}  {e['title']}"
         )
     print(f"\n{len(entries)} works")
+
+
+def _print_sections_table(sections: list, query: str) -> None:
+    if not sections:
+        print("No sections found.")
+        return
+    key_w = max((len(s.section_key) for s in sections), default=7)
+    key_w = max(key_w, len("SECTION"))
+    has_titles = any(s.title for s in sections)
+    if has_titles:
+        title_w = max((len(s.title or "") for s in sections), default=5)
+        title_w = max(title_w, len("TITLE"))
+        header = f"{'SECTION':<{key_w}}  {'TITLE':<{title_w}}  CHUNKS"
+        print(header)
+        print("-" * len(header))
+        for s in sections:
+            print(f"{s.section_key:<{key_w}}  {(s.title or ''):<{title_w}}  {s.chunk_count}")
+    else:
+        header = f"{'SECTION':<{key_w}}  CHUNKS"
+        print(header)
+        print("-" * len(header))
+        for s in sections:
+            print(f"{s.section_key:<{key_w}}  {s.chunk_count}")
+    print(f"\n{len(sections)} sections under {query!r}")
 
 
 def _print_translations_table(entries: list) -> None:
@@ -98,6 +126,11 @@ def main() -> None:
         help='Restrict to a specific source (e.g. "scripture/kjv")',
     )
     parser.add_argument(
+        "--list-sections",
+        metavar="QUERY",
+        help="List sections within a work or collection (e.g. \"ogpg\", \"ByzLit\", \"Gen\")",
+    )
+    parser.add_argument(
         "--list-translations",
         action="store_true",
         help="List all available languages and sources for -q QUERY, then exit",
@@ -121,6 +154,20 @@ def main() -> None:
 
     data_dir = Path(args.data_dir)
 
+    if args.list_sections:
+        sections = list_sections(
+            args.list_sections,
+            data_dir,
+            lang=args.lang,
+            source_id=args.source_id,
+            rebuild_index=args.rebuild_index,
+        )
+        if not sections:
+            print(f"No sections found for: {args.list_sections!r}", file=sys.stderr)
+            sys.exit(1)
+        _print_sections_table(sections, args.list_sections)
+        return
+
     if args.list_works:
         entries = list_works(
             data_dir,
@@ -132,7 +179,7 @@ def main() -> None:
         return
 
     if not args.query:
-        parser.error("-q/--query is required unless --list-works is used")
+        parser.error("-q/--query is required unless --list-works or --list-sections is used")
 
     if args.list_translations:
         entries = list_translations(
