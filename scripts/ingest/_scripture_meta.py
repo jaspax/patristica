@@ -66,6 +66,30 @@ ARMENIAN_EXTRA_BOOKS: list[str] = [
     "3Cor",  # 3 Corinthians (apocryphal NT, canonical in Armenian tradition)
 ]
 
+#: Extra books and textual variants found in LXX (Rahlfs, PTA) and Peshitta sources.
+#: These are legitimate scripture refs but not part of any canonical list above.
+LXX_EXTRA_BOOKS: list[str] = [
+    "PsSol",    # Psalms of Solomon
+    "Odes",     # Odes (LXX appendix canticles)
+    "PrMan",    # Prayer of Manasseh
+    "EpJer",    # Epistle of Jeremiah (= Bar.6 in some traditions)
+    "4Macc",    # 4 Maccabees (LXX appendix)
+    "Sus",      # Susanna (Old Greek, separate chapter)
+    "SusThdt",  # Susanna (Theodotion recension)
+    "BelDr",    # Bel and the Dragon (Old Greek)
+    "BelDrThdt",# Bel and the Dragon (Theodotion)
+    "DanThdt",  # Daniel (Theodotion recension)
+    "TobSin",   # Tobit (Sinaiticus recension)
+    "TobVatAl", # Tobit (Vaticanus/Alexandrinus recension)
+    "JudgVat",  # Judges (Vaticanus recension)
+    "EzraNeh",  # Ezra-Nehemiah combined (Greek)
+    "1Esr",     # 1 Esdras (alternate OSIS abbreviation for 1Esd)
+    "2Bar",     # 2 Baruch (Syriac Apocalypse of Baruch)
+    "3Esr",     # 3 Esdras (Syriac numeration)
+    "4Esr",     # 4 Esdras (Syriac numeration)
+    "LetBar",   # Letter of Baruch
+]
+
 #: Full set in Protestant canonical order.
 PROTESTANT_BOOKS: list[str] = OT_BOOKS + NT_BOOKS
 
