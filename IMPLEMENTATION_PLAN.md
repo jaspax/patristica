@@ -152,6 +152,12 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 - Hybrid mode: toggle between semantic and keyword search
 - Results show: canonical reference, author, work, date, snippet
 
+**Citation Format:**
+The primary reference shown to users must be the work title and author, not the collection or source database. The collection/edition is secondary provenance. Target format:
+> *Apology*, by Tertullian — found in ANF Vol. 3 (`patristic/ccel-anf/anf03/…`)
+
+This means `Work.title` and `Work.author` must be the individual work's identity, and `Work.edition` carries the anthology/volume label. The `source_id` and `work_id` are internal identifiers only, never shown directly to users. Wherever a canonical reference is displayed (search results, text view, AI synthesis citations), use `{author}, *{title}* {canonical_ref}` as the human-readable label, falling back to `*{title}* {canonical_ref}` when author is absent.
+
 **Text View:**
 - Side-by-side or tabbed display: original language | known translation | AI translation
 - AI translation generated on demand via Claude API (cached after first generation)
