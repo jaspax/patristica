@@ -45,7 +45,8 @@ _BASE_URL = "https://arak29.org/bible/book/"
 
 # Armenian Unicode block: U+0531–U+058F (Ա–֏)
 _ARM_RE = re.compile(r"[Ա-֏]")
-_VERSE_RE = re.compile(r"^(\d+):(\d+)$")
+# "N:M"; continuation pages label verses "N_1:M" (e.g. Esther 13_1:8–18).
+_VERSE_RE = re.compile(r"^(\d+)(?:_\d+)?:(\d+)$")
 
 # Chapters where arak29.org restarts verse numbering mid-page.  Mapped onto
 # LXX versification (matching pta-lxx / lxx-rahlfs) so translation linking works:
@@ -196,7 +197,9 @@ def _fetch_cached(url: str, cache_path: Path, force: bool, client: httpx.Client)
         return None
 
 
-def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[dict]:
+def _parse_chapter_armenian(
+    html: str, osis_abbrev: str, chapter: int, seen: set[str]
+) -> list[dict]:
     """
     Parse Armenian verse text from one chapter HTML page.
 
@@ -207,7 +210,10 @@ def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[di
       verse number as a "N:M " prefix and the Armenian text following it.
 
     Returns list of {"ref": str, "text": str} dicts.
-    ch_seq is the sequential chapter number (1-based) used in the ref.
+    *chapter* is the real chapter number (from the page ID, not its position
+    in the book: Daniel is fetched Susanna-first).  *seen* holds refs already
+    emitted for this book, shared across pages so a continuation page (Esther
+    13_1 starts at 13:8, where page 13 ends) cannot collide.
     """
     soup = BeautifulSoup(html, "lxml")
     numbered: list[tuple[int, str]] = []
@@ -239,7 +245,7 @@ def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[di
         else:
             # Deuterocanon plain-text format: "N:M verse text…"
             full_text = td.get_text(" ", strip=True)
-            m = re.match(r"^(\d+):(\d+)\s+(.+)$", full_text, re.DOTALL)
+            m = re.match(r"^(\d+)(?:_\d+)?:(\d+)\s+(.+)$", full_text, re.DOTALL)
             if not m:
                 continue
             v_num = int(m.group(2))
@@ -248,10 +254,12 @@ def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[di
         if text and _ARM_RE.search(text):
             numbered.append((v_num, text))
 
-    return _assign_refs(numbered, osis_abbrev, ch_seq)
+    return _assign_refs(numbered, osis_abbrev, chapter, seen)
 
 
-def _assign_refs(numbered: list[tuple[int, str]], osis_abbrev: str, ch_seq: int) -> list[dict]:
+def _assign_refs(
+    numbered: list[tuple[int, str]], osis_abbrev: str, ch_seq: int, seen: set[str]
+) -> list[dict]:
     """Build refs, applying ``_RESTART_RULES`` where verse numbering restarts.
 
     Labels that still repeat (Sirach's scrambled partial verses, e.g. 16:13)
@@ -263,7 +271,6 @@ def _assign_refs(numbered: list[tuple[int, str]], osis_abbrev: str, ch_seq: int)
     prev = 0
     high = 0
     offset: int | None = None  # set once numbering restarts
-    seen: set[str] = set()
     for v_num, text in numbered:
         v_num = _LABEL_TYPOS.get((osis_abbrev, ch_seq, prev, v_num), v_num)
         if offset is None and v_num < prev:
@@ -350,14 +357,16 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             )
 
             all_verses: list[dict] = []
-            for ch_seq, ch_id in enumerate(chapter_ids, start=1):
+            seen_refs: set[str] = set()
+            for ch_id in chapter_ids:
                 url = _chapter_url(arak_id, ch_id)
                 cache_path = cache_dir / f"{arak_id}_{ch_id}.html"
                 html = _fetch_cached(url, cache_path, force, client)
                 if html is None:
                     log.warning("Could not fetch %s — skipping chapter", url)
                     continue
-                ch_verses = _parse_chapter_armenian(html, osis_abbrev, ch_seq)
+                chapter = int(ch_id.split("_")[0])
+                ch_verses = _parse_chapter_armenian(html, osis_abbrev, chapter, seen_refs)
                 if not ch_verses:
                     log.debug("No Armenian verses parsed from %s", url)
                 all_verses.extend(ch_verses)

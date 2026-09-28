@@ -1,9 +1,11 @@
 """
 Assign ``translation_group_id`` across parallel chunks in different languages.
 
-For Scripture this is deterministic: chunks sharing the same ``canonical_ref``
-across different ``work_id``s belong to the same translation group.  The group
-ID is simply the canonical reference itself (e.g. ``"Gen.1.1"``).
+For Scripture this is deterministic: each chunk's native ``canonical_ref`` is
+mapped onto one reference versification ("org": BHS / Nestle-Aland) by
+``patristica.versification``, and chunks sharing the mapped ref form a group.
+The group ID is the mapped ref (e.g. KJV ``Ps.23.1`` and LXX ``Ps.22.1`` both
+get ``"Ps.23.1"``).
 
 For Patristics (implemented in M3+), alignment requires a manual mapping table
 or a section-level heuristic.
@@ -29,6 +31,7 @@ from pathlib import Path
 from tqdm import tqdm
 
 from patristica.models import Chunk
+from patristica.versification import to_org_ref
 
 log = logging.getLogger(__name__)
 
@@ -63,23 +66,25 @@ def _load_chunks(chunks_dir: Path) -> tuple[list[Chunk], list[Path]]:
 def link_scripture_translations(
     chunks: list[Chunk],
 ) -> list[Chunk]:
-    """Assign ``translation_group_id`` to scripture chunks by canonical ref.
+    """Assign ``translation_group_id`` to scripture chunks by versification-mapped ref.
 
-    Groups are only created when ≥2 chunks share the same ``canonical_ref``
-    (across different work_ids / languages).  Singletons are left with
-    ``translation_group_id=None``.
+    Groups are only created when ≥2 chunks map to the same org ref (across
+    different work_ids / languages).  Singletons are left with
+    ``translation_group_id=None``.  The source is the first two components of
+    ``work_id`` (``scripture/kjv/gen`` → ``scripture/kjv``); an unregistered
+    source raises ``VersificationError``.
     """
-    # Group by canonical_ref
     ref_to_indices: dict[str, list[int]] = defaultdict(list)
     for i, chunk in enumerate(chunks):
         if chunk.canonical_ref:
-            ref_to_indices[chunk.canonical_ref].append(i)
+            source_id = "/".join(chunk.work_id.split("/")[:2])
+            ref_to_indices[to_org_ref(source_id, chunk.canonical_ref)].append(i)
 
     updated: list[Chunk] = list(chunks)  # shallow copy; we'll replace items
 
     for ref, indices in ref_to_indices.items():
         # Singletons get None explicitly, clearing any stale group from a
-        # previous run; otherwise the canonical ref is the group ID.
+        # previous run; otherwise the mapped org ref is the group ID.
         group_id = ref if len(indices) >= 2 else None
         for i in indices:
             updated[i] = updated[i].model_copy(

@@ -309,9 +309,9 @@ class TestLinkTranslations:
 
     def test_parallel_verses_get_group_id(self):
         chunks = [
-            self._chunk("scripture/hbo/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("scripture/grc/gen", "Gen.1.1", "grc", 0),
-            self._chunk("scripture/eng/gen", "Gen.1.1", "eng", 0),
+            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
+            self._chunk("scripture/kjv/gen", "Gen.1.1", "eng", 0),
         ]
         result = link_scripture_translations(chunks)
         group_ids = [c.translation_group_id for c in result]
@@ -319,15 +319,15 @@ class TestLinkTranslations:
 
     def test_singleton_no_group_id(self):
         # Only one language has this verse
-        chunks = [self._chunk("scripture/got/mark", "Mark.16.20", "got", 0)]
+        chunks = [self._chunk("scripture/wulfila/mark", "Mark.16.20", "got", 0)]
         result = link_scripture_translations(chunks)
         assert result[0].translation_group_id is None
 
     def test_mixed_refs(self):
         chunks = [
-            self._chunk("scripture/hbo/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("scripture/grc/gen", "Gen.1.1", "grc", 0),
-            self._chunk("scripture/hbo/gen", "Gen.1.2", "hbo", 1),
+            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
+            self._chunk("scripture/oshb/gen", "Gen.1.2", "hbo", 1),
             # Gen.1.2 has only one language → no group
         ]
         result = link_scripture_translations(chunks)
@@ -338,11 +338,37 @@ class TestLinkTranslations:
     def test_original_chunks_unchanged(self):
         """link_scripture_translations must not mutate input."""
         chunks = [
-            self._chunk("a/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("b/gen", "Gen.1.1", "grc", 0),
+            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
         ]
         original_ids = [id(c) for c in chunks]
         result = link_scripture_translations(chunks)
         # Result should be new objects
         result_ids = [id(c) for c in result]
         assert result_ids != original_ids
+
+    def test_psalms_grouped_across_versifications(self):
+        # Heb/Eng Ps 23 ("The LORD is my shepherd") = LXX/Vulgate Ps 22;
+        # LXX Ps 23 ("The earth is the Lord's") = Heb Ps 24.
+        chunks = [
+            self._chunk("scripture/kjv/ps", "Ps.23.1", "eng", 0),
+            self._chunk("scripture/pta-lxx/ps", "Ps.22.1", "grc", 0),
+            self._chunk("scripture/clementine/ps", "Ps.22.1", "lat", 0),
+            self._chunk("scripture/pta-lxx/ps", "Ps.23.1", "grc", 1),
+        ]
+        result = link_scripture_translations(chunks)
+        assert [c.translation_group_id for c in result] == ["Ps.23.1", "Ps.23.1", "Ps.23.1", None]
+
+    def test_english_psalm_titles_offset(self):
+        # English Bibles leave the title unnumbered: KJV Ps 3:1 = Hebrew Ps 3:2.
+        chunks = [
+            self._chunk("scripture/kjv/ps", "Ps.3.1", "eng", 0),
+            self._chunk("scripture/oshb/ps", "Ps.3.2", "hbo", 1),
+        ]
+        result = link_scripture_translations(chunks)
+        assert {c.translation_group_id for c in result} == {"Ps.3.2"}
+
+    def test_unregistered_source_raises(self):
+        from patristica.versification import VersificationError
+        with pytest.raises(VersificationError):
+            link_scripture_translations([self._chunk("scripture/nope/gen", "Gen.1.1", "eng", 0)])
