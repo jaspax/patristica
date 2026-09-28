@@ -8,7 +8,10 @@ ID is simply the canonical reference itself (e.g. ``"Gen.1.1"``).
 For Patristics (implemented in M3+), alignment requires a manual mapping table
 or a section-level heuristic.
 
-Reads and rewrites all JSON files under ``data/chunks/`` in-place.
+Reads and rewrites the JSON files under ``data/chunks/scripture/`` in-place
+(only Scripture is linked; patristic/liturgical refs are work-specific and
+must never be grouped by ref).  Singletons are reset to ``None`` so stale
+groups are cleared, and only files whose group IDs changed are rewritten.
 
 Usage::
 
@@ -75,9 +78,9 @@ def link_scripture_translations(
     updated: list[Chunk] = list(chunks)  # shallow copy; we'll replace items
 
     for ref, indices in ref_to_indices.items():
-        if len(indices) < 2:
-            continue  # singleton — no group needed
-        group_id = ref  # use the canonical ref as the group ID
+        # Singletons get None explicitly, clearing any stale group from a
+        # previous run; otherwise the canonical ref is the group ID.
+        group_id = ref if len(indices) >= 2 else None
         for i in indices:
             updated[i] = updated[i].model_copy(
                 update={"translation_group_id": group_id}
@@ -89,18 +92,24 @@ def link_scripture_translations(
 def rewrite_files(
     updated_chunks: list[Chunk],
     chunk_paths: list[Path],
+    changed_paths: set[Path],
     force: bool = False,
 ) -> None:
-    """Rewrite chunk JSON files with updated ``translation_group_id`` values.
+    """Rewrite chunk JSON files whose ``translation_group_id`` values changed.
 
-    Groups chunks by file path and overwrites each file once.
+    Groups chunks by file path and overwrites each changed file once.
     """
     # Group updated chunks by their source file
     file_chunks: dict[Path, list[Chunk]] = defaultdict(list)
     for chunk, path in zip(updated_chunks, chunk_paths):
         file_chunks[path].append(chunk)
 
-    for path, chunks in tqdm(file_chunks.items(), desc="rewrite"):
+    changed = {
+        path: chunks for path, chunks in file_chunks.items()
+        if force or path in changed_paths
+    }
+    log.info("Rewriting %d of %d chunk files", len(changed), len(file_chunks))
+    for path, chunks in tqdm(changed.items(), desc="rewrite"):
         # Sort by chunk_index to preserve order
         chunks.sort(key=lambda c: c.chunk_index)
         data = [c.model_dump() for c in chunks]
@@ -112,11 +121,12 @@ def link_all(chunks_dir: Path, force: bool = False) -> int:
 
     Returns the number of chunks assigned a translation_group_id.
     """
-    log.info("Loading chunks from %s…", chunks_dir)
-    all_chunks, chunk_paths = _load_chunks(chunks_dir)
+    scripture_dir = chunks_dir / "scripture"
+    log.info("Loading chunks from %s…", scripture_dir)
+    all_chunks, chunk_paths = _load_chunks(scripture_dir)
 
     if not all_chunks:
-        log.warning("No chunks found in %s", chunks_dir)
+        log.warning("No chunks found in %s", scripture_dir)
         return 0
 
     log.info("Linking translation groups across %d chunks…", len(all_chunks))
@@ -125,7 +135,11 @@ def link_all(chunks_dir: Path, force: bool = False) -> int:
     n_linked = sum(1 for c in updated if c.translation_group_id is not None)
     log.info("%d chunks assigned a translation_group_id", n_linked)
 
-    rewrite_files(updated, chunk_paths, force=force)
+    changed_paths = {
+        path for old, new, path in zip(all_chunks, updated, chunk_paths)
+        if old.translation_group_id != new.translation_group_id
+    }
+    rewrite_files(updated, chunk_paths, changed_paths, force=force)
     log.info("Translation linking complete")
     return n_linked
 

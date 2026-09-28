@@ -8,7 +8,11 @@ Scripture chunks (individual verses) use the preceding/following verse text
 as context.  Patristic prose chunks use a 50-token overlap from neighbouring
 paragraphs (implemented in M3+).
 
-Reads from ``data/normalized/`` and writes to ``data/chunks/``.
+Reads from ``data/normalized/`` and writes to ``data/chunks/``.  The output is
+derived scratch data (gitignored) kept in sync with its input: files are rebuilt
+when their normalized source is newer, and outputs whose source no longer exists
+are deleted.  Re-run ``link_translations`` afterwards, since rebuilt files lose
+their ``translation_group_id`` values.
 
 Usage::
 
@@ -72,25 +76,19 @@ def add_context(chunks: list[Chunk]) -> list[Chunk]:
 
 def chunk_file(
     norm_path: Path,
-    output_dir: Path,
+    out_path: Path,
     force: bool = False,
 ) -> int:
-    """Add context to all chunks in *norm_path* and write to *output_dir*.
+    """Add context to all chunks in *norm_path* and write them to *out_path*.
 
     Returns the number of chunks written (0 if skipped).
     """
-    # Mirror path structure
-    rel_parts = norm_path.parts
-    try:
-        norm_idx = next(i for i, p in enumerate(rel_parts) if p == "normalized")
-        sub_parts = rel_parts[norm_idx + 1:]
-    except StopIteration:
-        sub_parts = (norm_path.name,)
-
-    out_path = output_dir.joinpath(*sub_parts)
-
-    if out_path.exists() and not force:
-        log.debug("Skipping %s (already chunked)", out_path)
+    if (
+        not force
+        and out_path.exists()
+        and out_path.stat().st_mtime >= norm_path.stat().st_mtime
+    ):
+        log.debug("Skipping %s (up to date)", out_path)
         return 0
 
     with norm_path.open(encoding="utf-8") as f:
@@ -118,16 +116,30 @@ def chunk_all(
     output_dir: Path,
     force: bool = False,
 ) -> int:
-    """Walk *input_dir* and apply context overlap to every normalized file."""
-    json_files = list(input_dir.rglob("*.json"))
+    """Walk *input_dir* and apply context overlap to every normalized file.
+
+    Also deletes outputs in *output_dir* whose normalized source is gone.
+    """
+    json_files = sorted(
+        p for p in input_dir.rglob("*.json") if not p.name.startswith("_")  # skip _index.json
+    )
     if not json_files:
         log.warning("No normalized JSON files found under %s", input_dir)
         return 0
 
+    # Output mirrors the input tree: data/normalized/X/Y.json → data/chunks/X/Y.json
+    out_paths = {p: output_dir / p.relative_to(input_dir) for p in json_files}
+    expected = set(out_paths.values())
+    stale = [p for p in output_dir.rglob("*.json") if p not in expected]
+    for p in stale:
+        p.unlink()
+    if stale:
+        log.info("Removed %d chunk files with no normalized source", len(stale))
+
     log.info("Adding context overlap to %d normalized files…", len(json_files))
     total = 0
     for path in tqdm(json_files, desc="chunk"):
-        total += chunk_file(path, output_dir, force=force)
+        total += chunk_file(path, out_paths[path], force=force)
 
     log.info("Chunking complete: %d total records written", total)
     return total

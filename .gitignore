@@ -1,6 +1,10 @@
 # Downloaded source data (large, do not commit)
 data/raw/
 
+# Derived chunks (regenerated from data/normalized by scripts.chunk)
+data/chunks/*
+!data/chunks/.gitkeep
+
 # Claude
 .claude
 
