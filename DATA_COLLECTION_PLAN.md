@@ -381,8 +381,8 @@ dependencies = [
 - [ ] https://www.newadvent.org/fathers/ document scrape (only where original-language sources have not been found) — **DEFERRED to M7 QA pass**: newadvent.org content is largely sourced from CCEL ANF/NPNF, which we already have; unique works (e.g. Aphrahat Demonstrations → NPNF2 vol 13 already cached) are attribution-gap issues, not missing source data; address in M7 QA
 
 ### Milestone 7: QC & Handoff (session 15)
-- [x] Full validation pass — `scripts/validate.py` implemented with 10 check groups; first run: 4,961 works · 1,588,182 chunks; report at `data/validation_report.json`
-  - [x] Schema integrity: all 4,961 normalized files parse cleanly as JSON lists
+- [x] Full validation pass — `scripts/validate.py` implemented with 10 check groups; report at `data/validation_report.json` (first run: 4,961 works · 1,588,182 chunks; current, after the First1K/Perseus scope fix on 2026-09-28: 3,233 works · 1,109,902 chunks · 0 errors)
+  - [x] Schema integrity: all normalized files parse cleanly as JSON lists
   - [x] Text quality: no empty text; flags HTML artifacts, encoding failures, low-alpha chunks
   - [x] Language/script consistency: valid ISO 639-3 codes; verifies Unicode block coverage
   - [x] Canonical reference integrity: format check per genre; within-work dedup; sequential chunk_index
@@ -391,21 +391,18 @@ dependencies = [
   - [x] Cross-reference integrity: orphan chunks, bad translation_of targets, singleton translation groups
   - [x] Metadata completeness: author presence, collection-name titles
   - [x] Scripture coverage: books present/missing per translation source
-  - [x] Chunk count report: 1,588,182 total — grc 730k, lat 472k, eng 230k, cop 37k, syc 39k, hye 36k, gez 18k, hbo 23k, got 4k
-  - **Remaining errors** (must fix before Phase 2):
-    - `text_has_html_tags` 25,741 — CANTUS ingestor stored HTML rubric/genre fields; re-strip
-    - `duplicate_canonical_ref_within_work` + `duplicate_chunk_ids` 1,420 each — CCEL ANF dedup bug
-  - **Noteworthy warnings** (informational):
-    - ASV missing 18/66 Protestant books (1Sam, 2Sam, 1/2 Kgs, 1/2 Chr + 12 NT epistles) — scrollmapper CSV gap or abbreviation mismatch; investigate
-    - 1,601 works without `author` (expected for liturgical/council; OGLT PL and CCEL addressed below)
+  - [x] Chunk count report by language/genre: 1,109,902 total — lat 395k, grc 330k, eng 230k, syc 39k, cop 36k, hye 36k, hbo 23k, gez 18k, got 4k; by genre patristic 657k, scripture 329k, liturgical 120k, councils 4k
+  - [x] ~~Remaining errors~~ — all resolved: `text_has_html_tags` downgraded to a warning (2,247 remaining, mostly CANTUS/OCR; was 25,741); duplicate refs/chunk IDs fixed via shared `_common.dedupe_refs` + Armenian versification rules
+  - **Open warnings** (informational; tracked as items below where actionable):
+    - 1,599 works without `author` (expected for liturgical/council; OGLT PL and CCEL addressed below)
     - 177 works with collection-name titles (CCEL ANF/NPNF + OGPG) — addressed by title/author audit below
-    - Kebra Nagast `post_schism=False` with `date_composed=1250` — fix in gez ingestor
-- [ ] Translation linkage for all Scripture
-- [ ] **CCEL translation linkage**: populate `translation_of` on all CCEL ANF/NPNF1/NPNF2 works by matching author abbreviation + work structure against First1KGreek/PTA/Perseus originals (currently all `null`)
-- [ ] **`data/chunks/` first run** *(prerequisite for Phase 2 embedding)*: never populated yet (only `.gitkeep`). Before the first `chunk.py` → `link_translations.py` run:
+    - 2,247 chunks with HTML-like tags — mostly CANTUS rubric fields and OCR artifacts
+- [ ] **scrollmapper book-name mapping**: `scripture/asv` and `scripture/coptic-nt` are both missing the same 18 books — every book whose name starts with a numeral (1Sam … 3John) plus Revelation. Almost certainly a name mismatch between the scrollmapper CSVs and `FULL_NAME_TO_ABBREV` (e.g. roman numerals, "Revelation of John"), not missing source data
+- [ ] **Kebra Nagast `post_schism` flag**: `scripture/gez/kn` has `date_composed=1250` but `post_schism=False` (all 120 `schism_flag_mismatch` warnings) — fix in `gez.py`
+- [ ] **CCEL translation linkage**: populate `translation_of` on all CCEL ANF/NPNF1/NPNF2 works by matching author abbreviation + work structure against First1KGreek/PTA/Perseus originals (currently 0 of 343 linked)
+- [ ] **`data/chunks/` first run + Scripture translation linkage** *(prerequisite for Phase 2 embedding)*: `chunk.py` / `link_translations.py` exist (M2) but have never been run on the current data — `data/chunks/` holds only `.gitkeep`. Before the first run:
   - Add `data/chunks/*` + `!data/chunks/.gitkeep` to `.gitignore` — derived scratch data, larger than the 1.3 GB normalized set
   - Make `chunk.py` stay in sync with `data/normalized/`: rebuild outputs older than their normalized source, delete outputs whose source is gone (it currently skips existing files and never prunes — same staleness bug fixed in the First1K/Perseus ingestors), and explicitly exclude `_index.json` from its input glob
-- [ ] Chunk count report by language/genre/tradition — **Done as part of validation pass above**
 - [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
 - [ ] **Title/author extraction audit** *(prerequisite for Phase 3 display)*: the current `Work.title` and `Work.author` fields are often set to the collection name (`ANTE-NICENE FATHERS`, `Patrologia Graeca Vol. 1`) rather than the individual work's title and author. Before Phase 3, every patristic work must have its own title and author populated — not the anthology it was drawn from. The collection/edition identity should be recorded in `Work.edition` (already present on the model) and used only for the secondary provenance citation, not as the primary display label. Specific gaps to address:
   - CCEL ANF/NPNF: `Work.title` is currently the volume title (e.g. `ANTE-NICENE FATHERS`); must be replaced with the individual work title extracted from the `<h1>`/`<h2>` headings in the ThML. `Work.author` is already populated via the fuzzy-match strategy but should be verified against the heading text.
