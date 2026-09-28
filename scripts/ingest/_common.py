@@ -337,6 +337,31 @@ def slugify_ref(ref: str) -> str:
     return ref
 
 
+def dedupe_refs(records: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Make ``ref`` values unique within a work by suffixing ``.1``, ``.2``, …
+
+    Generated suffixes are reserved so they can never collide with a real ref
+    that appears later (e.g. a second ``X.4`` becoming ``X.4.1`` while the
+    source also has its own ``X.4.1``).
+    """
+    seen: dict[str, int] = {}
+    result: list[dict[str, str]] = []
+    for rec in records:
+        ref = rec["ref"]
+        if ref not in seen:
+            seen[ref] = 0
+            result.append(rec)
+            continue
+        while True:
+            seen[ref] += 1
+            candidate = f"{ref}.{seen[ref]}"
+            if candidate not in seen:
+                seen[candidate] = 0
+                result.append({**rec, "ref": candidate})
+                break
+    return result
+
+
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------

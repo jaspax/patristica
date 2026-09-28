@@ -136,8 +136,9 @@ def prune_out_of_scope(out_root: Path, langs: tuple[str, ...]) -> int:
     # checkout, which has unrelated dirs (data/, split/, save/, …).
     author_dirs = [d for d in out_root.iterdir() if d.is_dir() and _TEXTGROUP_RE.match(d.name)]
     for author_dir in author_dirs:
+        in_scope = is_in_scope(author_dir.name)
         for path in sorted(author_dir.glob("*/*.json")):
-            if is_in_scope(author_dir.name) and any(edition_matches_language(path, lang) for lang in langs):
+            if in_scope and any(edition_matches_language(path, lang) for lang in langs):
                 continue
             path.unlink()
             removed += 1

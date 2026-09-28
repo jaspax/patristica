@@ -47,6 +47,30 @@ _BASE_URL = "https://arak29.org/bible/book/"
 _ARM_RE = re.compile(r"[Ա-֏]")
 _VERSE_RE = re.compile(r"^(\d+):(\d+)$")
 
+# Chapters where arak29.org restarts verse numbering mid-page.  Mapped onto
+# LXX versification (matching pta-lxx / lxx-rahlfs) so translation linking works:
+#   "continue"     — keep counting past the restart (LXX Ps 9 = Heb Ps 9 + 10,
+#                    so the restarted 9:1–18 are LXX 9:22–39; the Armenian-only
+#                    addition after Song 8:14 becomes 8:15–20)
+#   ("letters", N) — restarted verses become N a, N b, … (LXX Prov 24:22a–e)
+#   "next_chapter" — restarted verses belong to the following chapter (LXX
+#                    Ps 151 is printed on the Ps 150 page)
+# Sirach also goes backwards in places, but those labels are real verse
+# numbers (the book's order is scrambled in the manuscript tradition),
+# so they are kept as-is.
+_RESTART_RULES: dict[tuple[str, int], str | tuple[str, int]] = {
+    ("Ps", 9): "continue",
+    ("Ps", 113): "continue",   # LXX 113 = Heb 114 + 115; restarted 1–18 → 9–26
+    ("Ps", 150): "next_chapter",
+    ("Song", 8): "continue",
+    ("Prov", 24): ("letters", 22),
+}
+
+# Misprinted verse labels on arak29.org: (book, chapter, previous label, printed) → correct.
+_LABEL_TYPOS: dict[tuple[str, int, int, int], int] = {
+    ("Exod", 39, 36, 34): 37,  # sequence reads …35, 36, 34, 38…
+}
+
 # Rate limit: seconds between HTTP requests
 _REQUEST_DELAY = 1.0
 
@@ -186,7 +210,7 @@ def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[di
     ch_seq is the sequential chapter number (1-based) used in the ref.
     """
     soup = BeautifulSoup(html, "lxml")
-    verses: list[dict] = []
+    numbered: list[tuple[int, str]] = []
 
     _ARM_COLS = {"#FFFFCC", "#EEEEFF"}
 
@@ -222,9 +246,52 @@ def _parse_chapter_armenian(html: str, osis_abbrev: str, ch_seq: int) -> list[di
             text = m.group(3).strip()
 
         if text and _ARM_RE.search(text):
-            ref = f"{osis_abbrev}.{ch_seq}.{v_num}"
-            verses.append({"ref": ref, "text": text})
+            numbered.append((v_num, text))
 
+    return _assign_refs(numbered, osis_abbrev, ch_seq)
+
+
+def _assign_refs(numbered: list[tuple[int, str]], osis_abbrev: str, ch_seq: int) -> list[dict]:
+    """Build refs, applying ``_RESTART_RULES`` where verse numbering restarts.
+
+    Labels that still repeat (Sirach's scrambled partial verses, e.g. 16:13)
+    get a letter suffix — ``Sir.16.13b`` — keeping refs in the 3-part
+    ``Book.C.V`` form, as the LXX sources do for ``Prov.24.22a``.
+    """
+    rule = _RESTART_RULES.get((osis_abbrev, ch_seq))
+    verses: list[dict] = []
+    prev = 0
+    high = 0
+    offset: int | None = None  # set once numbering restarts
+    seen: set[str] = set()
+    for v_num, text in numbered:
+        v_num = _LABEL_TYPOS.get((osis_abbrev, ch_seq, prev, v_num), v_num)
+        if offset is None and v_num < prev:
+            offset = high
+            if rule is None:
+                log.debug(
+                    "%s %d: verse numbering restarts at %d with no rule; keeping labels",
+                    osis_abbrev, ch_seq, v_num,
+                )
+        prev = v_num
+        high = max(high, v_num)
+        chapter = ch_seq
+        verse: str = str(v_num)
+        if offset is not None:
+            if rule == "next_chapter":
+                chapter = ch_seq + 1
+            elif rule == "continue":
+                verse = str(offset + v_num)
+            elif isinstance(rule, tuple):
+                verse = f"{rule[1]}{chr(ord('a') + v_num - 1)}"
+        ref = f"{osis_abbrev}.{chapter}.{verse}"
+        if ref in seen:
+            suffix = "b"
+            while f"{ref}{suffix}" in seen:
+                suffix = chr(ord(suffix) + 1)
+            ref = f"{ref}{suffix}"
+        seen.add(ref)
+        verses.append({"ref": ref, "text": text})
     return verses
 
 

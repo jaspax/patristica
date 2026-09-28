@@ -42,7 +42,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest._cts_scope import (
     author_id_from_path,
     edition_matches_language,
@@ -216,24 +216,7 @@ def _extract_paragraphs(
     for child in body_el:
         _walk(child, [])
 
-    # Deduplicate refs by appending a counter
-    seen: dict[str, int] = {}
-    result: list[dict[str, str]] = []
-    for rec in records:
-        ref = rec["ref"]
-        if ref not in seen:
-            seen[ref] = 0
-            result.append(rec)
-        else:
-            while True:
-                seen[ref] += 1
-                candidate = f"{ref}.{seen[ref]}"
-                if candidate not in seen:
-                    seen[candidate] = 0
-                    result.append({"ref": candidate, "text": rec["text"]})
-                    break
-
-    return result
+    return dedupe_refs(records)
 
 
 def _is_grc_file(xml_path: Path) -> bool:

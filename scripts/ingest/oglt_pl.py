@@ -43,7 +43,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Work
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest._patristic_meta import AUTHORS
 
 log = logging.getLogger(__name__)
@@ -200,19 +200,7 @@ def _extract_paragraphs(
     for child in body_el:
         _walk(child, [])
 
-    # Deduplicate refs
-    seen: dict[str, int] = {}
-    result: list[dict[str, str]] = []
-    for rec in records:
-        ref = rec["ref"]
-        if ref not in seen:
-            seen[ref] = 0
-            result.append(rec)
-        else:
-            seen[ref] += 1
-            result.append({"ref": f"{ref}.{seen[ref]}", "text": rec["text"]})
-
-    return result
+    return dedupe_refs(records)
 
 
 def _work_prefix_from_filename(xml_path: Path) -> str:

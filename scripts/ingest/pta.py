@@ -47,7 +47,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import dedupe_refs, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -231,19 +231,7 @@ def _extract_paragraphs(
     for child in body_div:
         _walk(child, [])
 
-    # Deduplicate refs by appending a counter for duplicate refs
-    seen: dict[str, int] = {}
-    result: list[dict[str, str]] = []
-    for rec in records:
-        ref = rec["ref"]
-        if ref not in seen:
-            seen[ref] = 0
-            result.append(rec)
-        else:
-            seen[ref] += 1
-            result.append({"ref": f"{ref}.{seen[ref]}", "text": rec["text"]})
-
-    return result
+    return dedupe_refs(records)
 
 
 def _parse_pta_file(
