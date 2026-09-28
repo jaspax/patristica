@@ -101,17 +101,6 @@ def _result(severity: str, violations: list[str], note: str = "") -> CheckResult
     return r
 
 
-def _all_scripture_books() -> set[str]:
-    from scripts.ingest._scripture_meta import (
-        OT_BOOKS, NT_BOOKS, DEUTEROCANON_BOOKS,
-        ETHIOPIC_EXTRA_BOOKS, ARMENIAN_EXTRA_BOOKS, LXX_EXTRA_BOOKS,
-    )
-    return set(
-        OT_BOOKS + NT_BOOKS + DEUTEROCANON_BOOKS
-        + ETHIOPIC_EXTRA_BOOKS + ARMENIAN_EXTRA_BOOKS + LXX_EXTRA_BOOKS
-    )
-
-
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
@@ -232,7 +221,7 @@ def _check_language_script(chunks: list[dict]) -> dict[str, CheckResult]:
 def _check_canonical_refs(
     chunks: list[dict], work_id_to_entry: dict[str, dict]
 ) -> dict[str, CheckResult]:
-    all_books = _all_scripture_books()
+    from scripts.ingest._scripture_meta import ALL_BOOKS as all_books
     scripture_work_ids = {
         wid for wid, entry in work_id_to_entry.items()
         if entry.get("path", "").startswith("scripture/")

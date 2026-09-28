@@ -402,6 +402,9 @@ dependencies = [
     - Kebra Nagast `post_schism=False` with `date_composed=1250` — fix in gez ingestor
 - [ ] Translation linkage for all Scripture
 - [ ] **CCEL translation linkage**: populate `translation_of` on all CCEL ANF/NPNF1/NPNF2 works by matching author abbreviation + work structure against First1KGreek/PTA/Perseus originals (currently all `null`)
+- [ ] **`data/chunks/` first run** *(prerequisite for Phase 2 embedding)*: never populated yet (only `.gitkeep`). Before the first `chunk.py` → `link_translations.py` run:
+  - Add `data/chunks/*` + `!data/chunks/.gitkeep` to `.gitignore` — derived scratch data, larger than the 1.3 GB normalized set
+  - Make `chunk.py` stay in sync with `data/normalized/`: rebuild outputs older than their normalized source, delete outputs whose source is gone (it currently skips existing files and never prunes — same staleness bug fixed in the First1K/Perseus ingestors), and explicitly exclude `_index.json` from its input glob
 - [ ] Chunk count report by language/genre/tradition — **Done as part of validation pass above**
 - [ ] **Resolve OGLT PL anonymous works**: apply Migne PL column-to-work mapping to populate `author`/`title` for the ~502 `oglt_pl/unknown/*` files (see Known Gaps). All citations shown to users must have an author and title.
 - [ ] **Title/author extraction audit** *(prerequisite for Phase 3 display)*: the current `Work.title` and `Work.author` fields are often set to the collection name (`ANTE-NICENE FATHERS`, `Patrologia Graeca Vol. 1`) rather than the individual work's title and author. Before Phase 3, every patristic work must have its own title and author populated — not the anthology it was drawn from. The collection/edition identity should be recorded in `Work.edition` (already present on the model) and used only for the secondary provenance citation, not as the primary display label. Specific gaps to address:

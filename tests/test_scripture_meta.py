@@ -3,6 +3,7 @@
 import pytest
 
 from scripts.ingest._scripture_meta import (
+    ALL_BOOKS,
     BOOK_DATES,
     BOOK_TITLE,
     CATHOLIC_BOOKS,
@@ -102,10 +103,8 @@ class TestFullNameToAbbrev:
         assert FULL_NAME_TO_ABBREV["Ecclesiasticus"] == "Sir"
 
     def test_all_values_are_known_abbrevs(self):
-        known = set(PROTESTANT_BOOKS) | set(DEUTEROCANON_BOOKS)
         for name, abbrev in FULL_NAME_TO_ABBREV.items():
-            assert abbrev in known or abbrev in {"Psalm"}, \
-                f"Unknown abbrev {abbrev!r} for name {name!r}"
+            assert abbrev in ALL_BOOKS, f"Unknown abbrev {abbrev!r} for name {name!r}"
 
 
 class TestBookWorkId:

@@ -96,6 +96,13 @@ PROTESTANT_BOOKS: list[str] = OT_BOOKS + NT_BOOKS
 #: Full set including Deuterocanon (Catholic order).
 CATHOLIC_BOOKS: list[str] = OT_BOOKS + DEUTEROCANON_BOOKS + NT_BOOKS
 
+#: Every book abbreviation any scripture ingestor may emit (canonical in some
+#: tradition, or an LXX/Peshitta variant).
+ALL_BOOKS: frozenset[str] = frozenset(
+    OT_BOOKS + NT_BOOKS + DEUTEROCANON_BOOKS
+    + ETHIOPIC_EXTRA_BOOKS + ARMENIAN_EXTRA_BOOKS + LXX_EXTRA_BOOKS
+)
+
 
 # ---------------------------------------------------------------------------
 # Full title map  (OSIS abbrev → full English title)
