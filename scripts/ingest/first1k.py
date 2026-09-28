@@ -15,10 +15,13 @@ File filtering
 We process only Greek-language files (xml:lang="grc" on the edition div) and skip:
 
 - ``__cts__.xml``  — CTS catalog metadata
-- Files whose version suffix is not ``grc`` (e.g. ``-lat1``, ``-eng1``)
-- Works with ``date_composed < −50`` CE (removes classical pagan literature before
-  the Hellenistic-Jewish period; uncertain-date works are included)
-- Works with post-schism dates (``date_range[0] > 1054``)
+- Textgroups not in ``_cts_scope.IN_SCOPE_AUTHOR_IDS`` — most of the repo is
+  classical/pagan (Galen, Libanius, Aristotle, scholia …); we keep only
+  Christian/Jewish pre-schism literature
+- Files whose version suffix is not ``grc`` (e.g. ``-lat1``, ``-eng1``, ``-ger1``)
+- Works with ``date_composed < −50`` CE or post-schism dates — note that
+  First1KGreek headers carry no ``creation/date``, so these rarely fire and the
+  author allowlist does the real filtering
 
 Canonical references
 --------------------
@@ -40,6 +43,12 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from scripts.ingest._common import slugify_ref
+from scripts.ingest._cts_scope import (
+    author_id_from_path,
+    edition_matches_language,
+    is_in_scope,
+    prune_out_of_scope,
+)
 
 log = logging.getLogger(__name__)
 
@@ -228,19 +237,12 @@ def _extract_paragraphs(
 
 
 def _is_grc_file(xml_path: Path) -> bool:
-    """Return True if this file looks like a Greek-language edition by name."""
-    stem = xml_path.stem  # e.g. "tlg0001.tlg001.1st1K-grc1"
-    # The version part is the third dot-separated component
-    parts = stem.split(".")
-    if len(parts) >= 3:
-        version = parts[2]  # e.g. "1st1K-grc1"
-        # Accept any version string containing "grc" (not "lat" or "eng" alone)
-        if re.search(r"grc", version, re.IGNORECASE):
-            return True
-        if re.search(r"lat|eng|ara|heb|syr|cop", version, re.IGNORECASE):
-            return False
-    # Ambiguous filename — let the xml:lang check in the parser decide
-    return True
+    """Return True if this file looks like a Greek-language edition by name.
+
+    Multilingual (``-mul``) or suffix-less files pass; the ``xml:lang`` check
+    in the parser decides those.
+    """
+    return edition_matches_language(xml_path, "grc")
 
 
 def _parse_first1k_file(
@@ -377,8 +379,13 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     xml_files = [
         p for p in sorted(data_dir.rglob("*.xml"))
         if p.name != "__cts__.xml"
+        and is_in_scope(author_id_from_path(p, data_dir))
         and _is_grc_file(p)
     ]
+
+    pruned = prune_out_of_scope(repo_dir, ("grc",))
+    if pruned:
+        log.info("Removed %d previously ingested out-of-scope First1KGreek files", pruned)
 
     log.info("Found %d First1KGreek text files to process", len(xml_files))
 

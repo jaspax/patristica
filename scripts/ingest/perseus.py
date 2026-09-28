@@ -16,12 +16,13 @@ newer editions of the same TLG texts.  Dedup is based on the CTS work ID
 (e.g. ``tlg0001.tlg001``).  Latin texts have no equivalent overlap source,
 so all passing the date filter are included.
 
-Date filtering
---------------
-Same as First1KGreek:
-- Skip works with a confidently-established composition date before −50 CE
-  (removes classical pagan literature; uncertain-date works are included)
-- Skip works where ``date_range[0] > 1054`` (post-schism)
+Scope filtering
+---------------
+Same as First1KGreek: only textgroups in ``_cts_scope.IN_SCOPE_AUTHOR_IDS``
+(Christian/Jewish pre-schism literature) are ingested; the rest of the repos
+are classical pagan literature.  Perseus TEI headers carry no composition
+dates, so the date filters below rarely fire.  Translations (``-eng``,
+``-fre``, ``-ger``, …) are skipped by edition suffix.
 
 Canonical references
 --------------------
@@ -42,6 +43,12 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from scripts.ingest._common import slugify_ref
+from scripts.ingest._cts_scope import (
+    author_id_from_path,
+    edition_matches_language,
+    is_in_scope,
+    prune_out_of_scope,
+)
 
 log = logging.getLogger(__name__)
 
@@ -257,29 +264,13 @@ def _extract_paragraphs(
 
 
 def _detect_language_from_path(xml_path: Path, repo_lang: str) -> str | None:
-    """Return expected language code based on repo type and filename edition suffix.
+    """Return *repo_lang* if the file's edition suffix matches it, else None.
 
     ``repo_lang`` is ``"grc"`` for the Greek repo or ``"lat"`` for the Latin repo.
-    Returns None if the file's edition suffix indicates a different language.
+    Any other edition language (eng, fre, ger, ita, ara, …) is a translation
+    or out-of-scope edition and is skipped.
     """
-    stem = xml_path.stem  # e.g. "tlg0001.tlg001.perseus-grc1" or "phi0448.phi001.perseus-lat2"
-    parts = stem.split(".")
-    if len(parts) >= 3:
-        version = parts[2].lower()
-        if repo_lang == "grc":
-            if re.search(r"grc", version):
-                return "grc"
-            if re.search(r"lat\d|eng\d|ara\d|heb\d|syr\d|cop\d", version):
-                return None  # skip non-Greek editions in the Greek repo
-            return "grc"  # ambiguous: assume Greek for greekLit repo
-        else:  # lat repo
-            if re.search(r"lat", version):
-                return "lat"
-            if re.search(r"grc\d|eng\d|ara\d", version):
-                return None  # skip non-Latin editions in the Latin repo
-            return "lat"  # ambiguous: assume Latin for latinLit repo
-    # No edition suffix — use repo default
-    return repo_lang
+    return repo_lang if edition_matches_language(xml_path, repo_lang) else None
 
 
 def _parse_perseus_file(
@@ -436,6 +427,10 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         (latin_repo_dir, "lat"),
     ]
 
+    pruned = prune_out_of_scope(output_dir / "patristic" / "perseus", ("grc", "lat"))
+    if pruned:
+        log.info("Removed %d previously ingested out-of-scope Perseus files", pruned)
+
     works: list[Work] = []
     total_skipped = 0
 
@@ -448,6 +443,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         xml_files = [
             p for p in sorted(data_dir.rglob("*.xml"))
             if p.name != "__cts__.xml"
+            and is_in_scope(author_id_from_path(p, data_dir))
         ]
 
         log.info(
