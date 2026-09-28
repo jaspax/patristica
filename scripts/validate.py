@@ -190,7 +190,7 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
     return {
         "text_empty": _result("error", empty),
         "text_too_short": _result("warning", short, f"< {MIN_TEXT_LEN} chars"),
-        "text_has_html_tags": _result("error", html),
+        "text_has_html_tags": _result("warning", html, "many are OCR artifacts in OGLT PL/OGPG/Gallican"),
         "text_has_replacement_char": _result("warning", replacement, "U+FFFD indicates encoding failure"),
         "text_low_alpha_ratio": _result("warning", low_alpha, f"< {MIN_ALPHA_RATIO:.0%} alphabetic chars"),
     }

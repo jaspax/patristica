@@ -153,6 +153,15 @@ def _element_inner_text(el: etree._Element) -> str:
     if el.text:
         parts.append(el.text)
     for child in el:
+        if child.tag is etree.Comment or child.tag is etree.ProcessingInstruction:
+            if child.tail:
+                parts.append(child.tail)
+            continue
+        local = etree.QName(child.tag).localname
+        if local in _SKIP_ELEMENTS:
+            if child.tail:
+                parts.append(child.tail)
+            continue
         parts.append(_element_inner_text(child))
         if child.tail:
             parts.append(child.tail)
@@ -207,8 +216,13 @@ def _extract_paragraphs(
             seen[ref] = 0
             result.append(rec)
         else:
-            seen[ref] += 1
-            result.append({"ref": f"{ref}.{seen[ref]}", "text": rec["text"]})
+            while True:
+                seen[ref] += 1
+                candidate = f"{ref}.{seen[ref]}"
+                if candidate not in seen:
+                    seen[candidate] = 0
+                    result.append({"ref": candidate, "text": rec["text"]})
+                    break
 
     return result
 

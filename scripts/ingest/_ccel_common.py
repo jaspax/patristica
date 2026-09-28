@@ -281,8 +281,12 @@ def _extract_paragraphs_from_div1(
         if base not in seen:
             seen[base] = 0
             return base
-        seen[base] += 1
-        return f"{base}.{seen[base]}"
+        while True:
+            seen[base] += 1
+            candidate = f"{base}.{seen[base]}"
+            if candidate not in seen:
+                seen[candidate] = 0  # reserve so structural paths can't collide
+                return candidate
 
     div2_counter = 0
     div3_counter = 0

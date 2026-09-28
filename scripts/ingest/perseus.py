@@ -191,6 +191,15 @@ def _element_inner_text(el: etree._Element) -> str:
     if el.text:
         parts.append(el.text)
     for child in el:
+        if child.tag is etree.Comment or child.tag is etree.ProcessingInstruction:
+            if child.tail:
+                parts.append(child.tail)
+            continue
+        local = etree.QName(child.tag).localname
+        if local in _SKIP_ELEMENTS:
+            if child.tail:
+                parts.append(child.tail)
+            continue
         parts.append(_element_inner_text(child))
         if child.tail:
             parts.append(child.tail)

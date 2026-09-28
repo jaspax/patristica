@@ -11,6 +11,7 @@ import csv
 import io
 import json
 import logging
+import re
 from pathlib import Path
 
 from tqdm import tqdm
@@ -53,6 +54,10 @@ def _parse_scrollmapper_csv(
         chapter = row.get("Chapter", "").strip()
         verse = row.get("Verse", "").strip()
         verse_text = row.get("Text", "").strip()
+
+        # Some CSVs (e.g. CopSahBible2) contain residual TEI/XML tags such as
+        # </ab> at the end of every verse and <gap reason="…"/> for lacunae.
+        verse_text = re.sub(r"<[^>]+>", "", verse_text).strip()
 
         abbrev = FULL_NAME_TO_ABBREV.get(book_name)
         if abbrev is None:
