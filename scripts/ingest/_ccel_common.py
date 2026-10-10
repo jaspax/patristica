@@ -408,7 +408,11 @@ _ANF_WORKS_DIVS: dict[str, str] = {
     "anf01": """
         iii.ii iv.iv v.xiv v.xv v.xvi v.xvii v.xviii v.xix v.xx v.xxi v.xxii v.xxiii
         v.xxv vi.ii vii.ii viii.v viii.vi viii.vii viii.xi ix.ii ix.iii ix.iv ix.vi
-        ix.vii ix.viii
+        ix.vii ix.viii ii.ii iv.ii v.ii v.iii v.iv v.v v.vi v.vii v.viii v.x v.xi
+        v.xii viii.ii viii.iii viii.iv viii.viii viii.ix
+    """,
+    "anf02": """
+        ii.ii ii.iii ii.iv iii.ii iii.iii iv.ii v.ii v.iii vi.ii vi.iii vi.iv vi.v
     """,
     "anf03": """
         iv.iii iv.iv iv.v iv.vi iv.vii iv.viii iv.ix iv.x iv.xi v.iii v.iv v.v v.vi
@@ -424,7 +428,7 @@ _ANF_WORKS_DIVS: dict[str, str] = {
         iv.iii iv.iv iv.v.i iv.v.ii iv.v.iii iv.v.iv iv.v.v iv.v.vi iv.v.vii
         iv.v.viii iv.v.ix iv.v.x iv.v.xi iv.v.xii iv.vi iv.vii.ii iv.vii.iii
         iv.vii.iv iv.vii.v v.iii.i v.iii.ii v.iii.iii vi.iii vi.iv vii.iii.ii
-        vii.iv.ii
+        vii.iv.ii vii.ii
     """,
     "anf06": """
         iii.iii.i iii.iii.ii iii.iii.iii iii.iii.iv iii.iv iv.iii iv.iv v.iii v.iv
@@ -434,7 +438,7 @@ _ANF_WORKS_DIVS: dict[str, str] = {
         xi.xii xi.viii xi.ix xii.iii
     """,
     "anf07": """
-        iv.i v.ii vi.i vi.ii vii.ii x.iii xi
+        iv.i v.ii vi.i vi.ii vii.ii x.iii xi iii.ii iii.iii iii.iv iii.v iii.vi
     """,
     "anf08": """
         iii.iii iii.iv iii.v iii.vi iii.vii iii.viii iii.ix iii.x iii.xi iii.xii
@@ -450,7 +454,7 @@ _ANF_WORKS_DIVS: dict[str, str] = {
     """,
     "anf09": """
         iii.ii v.ii v.iii vi.ii vii.ii viii.ii ix.iii x.ii xi.ii xii.iv xii.vi
-        xiii.iii xiii.iv xiv.iii xv.ii xv.iii xvi.ii
+        xiii.iii xiii.iv xiv.iii xv.ii xv.iii xvi.ii iv.iii
     """,
 }
 _ANF_NON_TEXT: dict[str, dict[str, str]] = {
@@ -464,7 +468,7 @@ _ANF_NON_TEXT: dict[str, dict[str, str]] = {
         "anf06": "i iii.i iv.i v.i vi.i vii.i viii.i ix.i x.i xi.i xii.i",
         "anf07": "i",
         "anf08": "i iii.i iv.i v.i vi.i vii.i viii.i x.i",
-        "anf09": "i ix.i xii.i xiii.i xiv.i",
+        "anf09": "i iii iv v xv xvi ix.i xii.i xiii.i xiv.i",  # iii–xvi: div1-level title lines
     },
     # Subject / Scripture / page indexes.
     "index": {
@@ -478,12 +482,276 @@ _ANF_NON_TEXT: dict[str, dict[str, str]] = {
     },
     # Parallel table of the four canonical Gospels' Passion narratives.
     "editorial synoptic table (canonical Gospel text)": {"anf09": "iii.iii"},
+    # Scribal colophons of the Arabic Diatessaron manuscripts.
+    "manuscript colophons": {"anf09": "iv.iv"},
+    # The 1885–97 editors' and translators' apparatus: volume prefaces,
+    # introductory notices, elucidations, "Note by the American Editor",
+    # translator's biographical notices.  (Nested ones inside divs taken by
+    # anf_works are also dropped there by title.)
+    "editorial": {
+            "anf01": "i.i i.ii ii.i iii.i iv.i iv.iii v.i v.ix v.xiii v.xxiv vi.i vii.i viii.i viii.x ix.i ix.v",
+            "anf02": "ii.i ii.v iii.i iv.i v.i vi.i vi.iii.iv vi.iv.i.xxx vi.iv.ii.xxiv vi.iv.iii.i vi.iv.iv.xxii vi.iv.v.xv vi.iv.vi.xix vi.iv.vii.xix vi.iv.viii.x vi.v.i",
+            "anf03": "iii iv.ii v.ii",
+            "anf04": "ii iii.xi.vi iii.xi.vii iv.ii vi.ii vi.iii",
+            "anf05": "ii iii.ii iii.v.vi iv.ii iv.v.xiii iv.vii.i iv.vii.vi v.ii v.iii.iv vi.ii vii.iii.i vii.iv.i vii.iv.iii",
+            "anf06": "ii iii.ii iv.ii iv.v v.ii v.vii vi.ii vi.iii.i vi.iv.i vi.iv.iii vi.v.i vi.vi.i vi.vii.i vi.viii.i vi.ix.i vi.x.i vi.x.vi vii.ii vii.v vii.vi viii.ii viii.iv ix.ii ix.v ix.vii x.ii x.iv xi.ii xi.vii xi.xiii xii.ii",
+            "anf07": "ii iii.i iii.ii.viii.lxx iii.iv.xxi iii.v.liii iii.vi.iii v.i vii.i viii.i viii.ii ix.i x.i x.ii xii.i xii.v",
+            "anf08": "ii iii.ii iii.xv iv.ii v.ii vi.ii vii.ii vii.iii viii.ii viii.x x.ii x.v.i x.vi.i x.xvii x.xviii x.xix",
+            "anf09": "ii iii.i iv.i iv.ii v.i vi.i vii.i viii.i ix.ii x.i xi.i xii.ii xii.iii xii.v xiii.ii xiv.ii xv.i xvi.i",
+    },
 }
 for _vol, _ids in _ANF_WORKS_DIVS.items():
     EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/anf-works"))
 for _reason, _per_vol in _ANF_NON_TEXT.items():
     for _vol, _ids in _per_vol.items():
         EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), f"non-text: {_reason}"))
+
+
+#: NPNF QA pass (M8 title/author audit).  Divs carved into properly
+#: attributed Works by ``npnf_works`` (space-separated ``@id``s per volume) ...
+_NPNF_WORKS_DIVS: dict[str, str] = {
+    "npnf101": """
+        vi vii
+    """,
+    "npnf102": """
+        iv v
+    """,
+    "npnf103": """
+        iv.i iv.ii iv.iii iv.iv iv.v iv.vi iv.vii v.i v.ii v.iii v.iv v.v v.vi
+        v.vii v.viii v.ix
+    """,
+    "npnf104": """
+        iv.iv iv.v iv.vi iv.vii iv.viii iv.ix iv.x v.iv v.v v.vi
+    """,
+    "npnf105": """
+        x xi xii xiii xiv xv xvi xvii xviii xix xx xxi.ii xxi.iii
+    """,
+    "npnf106": """
+        v vi vii
+    """,
+    "npnf107": """
+        iii iv v
+    """,
+    "npnf108": """
+        ii
+    """,
+    "npnf109": """
+        iv v vi vii viii ix x xi xii xiii xiv xv xvi xvii xviii xix
+    """,
+    "npnf110": """
+        iii
+    """,
+    "npnf111": """
+        vi vii
+    """,
+    "npnf112": """
+        iv v
+    """,
+    "npnf113": """
+        iii.iii iii.iv iv.iii iv.iv iv.v iv.vi v.iii v.iv v.v v.vi
+    """,
+    "npnf114": """
+        iv v
+    """,
+    "npnf201": """
+        iii.vi iii.vii iii.viii iii.ix iii.x iii.xi iii.xii iii.xiii iii.xv
+        iii.xvi iii.xiv iv.vi iv.vii iv.viii
+    """,
+    "npnf202": """
+        ii.iv ii.v ii.vi ii.vii ii.viii ii.ix ii.x iii.v iii.vi iii.vii
+        iii.viii iii.ix iii.x iii.xi iii.xii iii.xiii iii.xiv
+    """,
+    "npnf203": """
+        iv.vi iv.vii iv.viii iv.ix iv.x v.iii v.iv vi.iii vi.iv vi.v vi.vii
+        vi.viii vi.xiv vi.xv vi.xvi vi.xvii vi.xviii vi.xix vi.xx vi.vi vi.ix
+        vi.x vi.xi vi.xii vi.xiii
+    """,
+    "npnf204": """
+        vi vii viii ix x xi xii xiii xiv xv xvi xvii xviii xix xx xxi xxii
+        xxiii xxiv xxv.ii xxv.iii.ii xxv.iii.iii xxv.iii.iv
+    """,
+    "npnf205": """
+        viii.i viii.ii viii.iii viii.iv viii.v viii.vi ix.ii ix.iii ix.iv x.ii
+        x.iii xi.ii xii.ii xii.iii xiii
+    """,
+    "npnf206": """
+        v vi.i vi.ii vi.iii vi.iv vi.v vi.vi vi.vii vi.viii vi.ix vii
+    """,
+    "npnf207": """
+        ii.iv ii.v ii.vi ii.vii ii.viii ii.ix ii.x ii.xi ii.xii ii.xiii ii.xiv
+        ii.xv ii.xvi ii.xvii ii.xviii ii.xix ii.xx ii.xxi ii.xxii ii.xxiii
+        ii.xxiv ii.xxv ii.xxvi ii.xxvii iii.iii iii.iv iii.v iii.vi iii.vii
+        iii.viii iii.ix iii.x iii.xi iii.xiii iii.xiv iii.xv iii.xvi iii.xvii
+        iii.xviii iii.xix iii.xx iii.xxi iii.xxii iii.xxiii iii.xxiv iii.xxv
+        iii.xxvi iii.xxvii iv.ii iv.iii iv.iv
+    """,
+    "npnf208": """
+        vii viii ix
+    """,
+    "npnf209": """
+        ii.iv ii.v ii.vi iii.iv
+    """,
+    "npnf210": """
+        iv.i iv.ii iv.iii iv.iv iv.v iv.vi iv.vii iv.viii v.i v.iii v.ii v.iv
+        v.v v.vi v.viii v.ix v.x v.xi v.xii v.xiii v.xiv v.xv v.vii
+    """,
+    "npnf211": """
+        ii.ii ii.iii ii.iv ii.v ii.vi iii iv.ii iv.iii iv.iv iv.v iv.vi iv.vii
+    """,
+    "npnf212": """
+        ii.iv ii.v iii.iv iii.v
+    """,
+    "npnf213": """
+        ii.v ii.vi ii.vii ii.viii ii.ix ii.x iii.iv iii.v iii.vi iii.vii
+        iii.viii iii.ix
+    """,
+    "npnf214": """
+        xvii.iv xvii.v xvii.vi xvii.vii xvii.viii xvii.ix xvii.x xvii.xi
+        xvii.xii xvii.xiii xvii.xiv xvii.xv xvii.xvi xvii.xvii xvii.xviii
+        xvii.xix xvii.xx xvii.xxi xvii.xxii xvii.xxiii xvii.xxiv xvii.xxv
+        xvii.xxvi xvii.xxvii xvii.xxviii xvii.xxix xvii.xxx xvii.xxxi
+        xvii.xxxii
+    """,
+}
+#: ... and the NPNF apparatus: title pages, contents, indexes, and the
+#: editors' / translators' prefaces, prolegomena, introductions, notes and
+#: excursuses.  Authorial prefaces and introductions (Augustine's, Eusebius',
+#: Socrates', Cassian's, Rufinus' ...) are deliberately not listed.
+_NPNF_NON_TEXT: dict[str, dict[str, str]] = {
+    "title page": {
+        "npnf101": "i",
+        "npnf102": "i",
+        "npnf103": "i",
+        "npnf104": (
+            "i iv.i iv.iv.i iv.v.i iv.vi.i iv.vii.i iv.viii.i iv.ix.i iv.x.i "
+            "v.i v.iv.i v.v.i v.vi.i "
+        ),
+        "npnf105": (
+            "i x.i xi.i xii.i xiii.i xiv.i xv.i xvi.i xvii.i xviii.i xix.i xx.i "
+            "xxi.i xxi.iii.i "
+        ),
+        "npnf106": "i v.i vi.i vii.i",
+        "npnf107": "i iii.i iv.i v.i",
+        "npnf108": "i ii.i",
+        "npnf109": (
+            "i iv.i v.i vi.i vii.i viii.i ix.i x.i xi.i xii.i xiii.i xiv.i xv.i "
+            "xvi.i xvii.i xviii.i xix.i "
+        ),
+        "npnf110": "i iii.i",
+        "npnf111": "i iii",
+        "npnf112": "i ii",
+        "npnf113": "i iii.i iv.i v.i",
+        "npnf114": "i iv.i v.i",
+        "npnf201": "i iii.i iv.i iv.v",
+        "npnf202": "i ii.i iii.i",
+        "npnf203": "i iv.i v.i vi.i",
+        "npnf204": "i iii",
+        "npnf205": "i iii ix.i x.i xi.i xii.i xiii.i",
+        "npnf206": "i ii",
+        "npnf207": "i ii.i iii.i iv.i",
+        "npnf208": "i ii",
+        "npnf209": "i iii.i ii.i",
+        "npnf210": "i",
+        "npnf211": "i",
+        "npnf212": "i ii.i iii.i",
+        "npnf213": (
+            "i ii.i iii.i iii.iv.i iii.v.i iii.vi.i iii.vii.i iii.viii.i "
+            "iii.ix.i "
+        ),
+        "npnf214": "i viii.i xv.i xvii.i",
+    },
+    "table of contents": {
+        "npnf101": "iii",
+        "npnf102": "ii v.ii",
+        "npnf103": "iii",
+        "npnf104": "iii",
+        "npnf105": "iii",
+        "npnf106": "ii",
+    },
+    "index": {
+        "npnf101": "x viii ix",
+        "npnf102": "vi vii",
+        "npnf103": "vi vii",
+        "npnf104": "vi vii",
+        "npnf105": "xxii xxiii",
+        "npnf106": "viii ix",
+        "npnf107": "vi",
+        "npnf108": "iii iv",
+        "npnf109": "xx xxi",
+        "npnf110": "iv v",
+        "npnf111": "viii ix",
+        "npnf112": "vi vii",
+        "npnf113": "vi vii",
+        "npnf114": "vi vii",
+        "npnf201": "v vi",
+        "npnf202": "iv v",
+        "npnf203": "vii",
+        "npnf204": "xxvi",
+        "npnf205": "xiv",
+        "npnf206": "viii",
+        "npnf207": "v",
+        "npnf208": "x",
+        "npnf209": "iv",
+        "npnf210": "vi",
+        "npnf211": "v",
+        "npnf212": "iv",
+        "npnf213": "iv",
+        "npnf214": "xviii",
+    },
+    "editorial": {
+        "npnf101": "ii iv v vi.i vii.i",
+        "npnf102": "iii iv.i v.i",
+        "npnf103": (
+            "ii iv.i.i iv.i.ii iv.ii.i iv.iii.i iv.iv.i iv.vi.i v.ii.i v.iii.i "
+            "v.iv.i v.v.i v.vi.i v.vii.i v.viii.i v.ix.i "
+        ),
+        "npnf104": "ii iv.ii iv.iii iv.ix.ii iv.x.ii v.ii v.iii v.iv.ii v.v.ii",
+        "npnf105": (
+            "ii iv v vi vii viii ix xii.iii xiii.ii xiv.iii xvi.iii xvii.iii "
+            "xxi.iii.ii "
+        ),
+        "npnf106": "iii iv vi.ii vii.ii vi.iii",
+        "npnf107": "ii iv.ii v.ii",
+        "npnf108": "ii.ii ii.iii",
+        "npnf109": (
+            "ii iii iv.ii v.ii vi.ii vii.ii viii.ii x.ii xv.ii xvi.ii xvii.ii "
+            "xviii.ii xix.ii "
+        ),
+        "npnf110": "ii iii.ii iii.iii",
+        "npnf111": "ii iv v vii.i",
+        "npnf112": "iii",
+        "npnf113": "ii iii.ii iv.ii v.ii",
+        "npnf114": "ii iii iv.ii v.ii v.iii",
+        "npnf201": "ii iii.ii iii.iii iii.iv iii.v iii.xvii iv.ii iv.iii iv.iv",
+        "npnf202": "ii.ii ii.iii iii.ii iii.iii iii.iv",
+        "npnf203": "iii iv.ii iv.iii iv.iv iv.v v.ii vi.ii",
+        "npnf204": (
+            "ii iv v vi.i vii.i viii.i ix.i ix.iii x.i xi.i xii.i xiii.i "
+            "xiii.iii xiv.i xv.i xvi.i xvii.i xviii.i xix.i xx.i xxi.i "
+            "xxi.ii.ii xxi.ii.v xxii.i xxiii.i xxiv.i xxv.i xxv.ii.i xxv.iii.i "
+        ),
+        "npnf205": "ii iv v vi vii viii.ii.i ix.ii.i x.ii.i",
+        "npnf206": "iii iv vii.i vii.iii.i vii.iv.i",
+        "npnf207": "ii.ii ii.iii iii.ii iii.xii iv.ii.i",
+        "npnf208": "iii v vi vii.i viii.i ix.i",
+        "npnf209": "iii.ii ii.ii ii.iii ii.iv.i ii.v.i ii.vi.i iii.iii",
+        "npnf210": (
+            "ii iii v iv.i.i iv.ii.i iv.iii.i iv.iv.i iv.iv.ii iv.v.i iv.vi.i "
+            "iv.vii.i iv.viii.i "
+        ),
+        "npnf211": "ii.i iii.i iii.xxxv iii.xxxvi iii.xxxvii iv.i",
+        "npnf212": "ii.ii ii.iii iii.ii iii.iii iii.iv.i",
+        "npnf213": "ii.ii ii.iii ii.iv iii.ii iii.iii",
+        "npnf214": "ii iii.i iii.ii iii.iii iv v vi viii.ii xv.ii xvii.ii xvii.iii",
+    },
+}
+for _vol, _ids in _NPNF_WORKS_DIVS.items():
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/npnf-works"))
+for _reason, _per_vol in _NPNF_NON_TEXT.items():
+    for _vol, _ids in _per_vol.items():
+        for _id in _ids.split():
+            # Never override a div already owned by another ingestor (npnf214 councils).
+            EXCLUDED_DIVS.setdefault(_vol, {}).setdefault(_id, f"non-text: {_reason}")
 
 
 # ---------------------------------------------------------------------------

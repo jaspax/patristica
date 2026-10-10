@@ -16,102 +16,36 @@ distinct work with correct author, title, date, tradition and genre, driven by
 the ``_WORKS`` table below.
 
 Every div taken here is registered in ``_ccel_common.EXCLUDED_DIVS`` (value
-``"patristic/anf-works"``) so the text is not in the corpus twice; the editor's
-introductory notices that sit beside the extracted divs stay in ``ccel-anf``.
-Nested editorial divs *inside* an extracted div (Elucidations, "Note by the
-American Editor", translator's notices, ...) are left out of the Work, as are
-separator rules ("————").
-
-Canonical refs are ``{ref_prefix}[.{part label}].{div3}.{div4}[.n]`` — the
-``_ccel_common._extract_paragraphs_from_div1`` scheme applied to each part.
+``"patristic/anf-works"``) so the text is not in the corpus twice; the
+editors' apparatus (prefaces, introductory notices, elucidations) is
+registered there as ``"non-text: editorial"``.  With both in place the generic
+``ccel_anf`` ingestor produces no Works at all.  Extraction mechanics (refs,
+nested editorial divs, output layout) are in ``_ccel_works``.
 
 Output: ``data/raw/patristic/anf-works/{volume}/{slug}.json``; work_id
-``anf-works/{slug}``.  Every run rewrites only changed files and removes
-outputs no longer produced by the table.
+``anf-works/{slug}``.
 """
 
 from __future__ import annotations
 
-import json
 import logging
-import re
-from dataclasses import dataclass
 from pathlib import Path
 
-from lxml import etree
-
-from patristica.models import DateConfidence, Genre, Tradition, Work
-from scripts.ingest._ccel_common import (
-    _extract_paragraphs_from_div1,
-    _find_body,
-    download_volume,
+from patristica.models import Work
+from scripts.ingest._ccel_works import (  # noqa: F401  (re-exported for tests)
+    P,
+    W,
+    _editorial_ids,
+    _index_ids,
+    _split_commentary,
+    _WorkSpec,
+    extract_work,
+    ingest_table,
 )
 
 log = logging.getLogger(__name__)
 
-_SCHISM_YEAR = 1054
-
 SOURCE_ID = "patristic/anf-works"
-_ANF_CACHE = Path("patristic") / "ccel-anf"  # relative to the raw output dir
-
-#: Nested divs (inside an extracted part) whose ``@title`` marks them as
-#: editorial apparatus rather than text of the work.
-_EDITORIAL_TITLE_RE = re.compile(
-    r"^\s*(Elucidations?|Notes?\b|Two Notes|General Note|Introductory Not(e|ice)"
-    r"|Translator['’]s (Biographical Notice|Introduction))",
-    re.IGNORECASE,
-)
-#: Paragraphs that are only a typographic rule or ornament.
-_SEPARATOR_RE = re.compile(r"^[\s—–_\-•·*.]+$")
-#: Peter of Alexandria's canons are printed with 12th-century Byzantine
-#: commentary; these patterns split canon text from commentary.
-_COMMENTARY_START_RE = re.compile(r"^(Balsamon|Zonaras)\b")
-_CANON_HEAD_RE = re.compile(r"^Canon [IVXL]+\.$")
-
-
-@dataclass(frozen=True)
-class _Part:
-    div_id: str          # ThML @id of the div holding (part of) the text
-    title_check: str     # case-insensitive substring expected in the div's @title
-    label: str = ""      # ref segment distinguishing parts of a multi-part work
-    drop_leading: int = 0   # leading paragraphs that are the editor's preface
-    drop_trailing: int = 0  # trailing paragraphs that are the editor's note
-
-
-@dataclass(frozen=True)
-class _WorkSpec:
-    volume: str
-    slug: str
-    title: str
-    author: str | None
-    date_composed: int | None
-    date_range: tuple[int, int]
-    date_confidence: DateConfidence
-    tradition: Tradition | None
-    ref_prefix: str
-    parts: tuple[_Part, ...]
-    genre: Genre = "patristic"
-    #: ``"canons"`` / ``"commentary"``: keep only canon text or only the
-    #: Balsamon/Zonaras commentary (ANF06 Peter of Alexandria).
-    split: str | None = None
-
-
-def P(
-    div_id: str, title_check: str, label: str = "",
-    drop_leading: int = 0, drop_trailing: int = 0,
-) -> _Part:
-    return _Part(div_id, title_check, label, drop_leading, drop_trailing)
-
-
-def W(
-    volume: str, slug: str, title: str, author: str | None,
-    date: int | None, rng: tuple[int, int], conf: DateConfidence,
-    tradition: Tradition | None, ref_prefix: str, *parts: _Part,
-    genre: Genre = "patristic", split: str | None = None,
-) -> _WorkSpec:
-    return _WorkSpec(volume, slug, title, author, date, rng, conf, tradition,
-                     ref_prefix, tuple(parts), genre, split)
-
 
 _TERT = "Tertullian"
 _PS_TERT = "Pseudo-Tertullian"
@@ -123,6 +57,29 @@ _METH = "Methodius of Olympus"
 
 _WORKS: tuple[_WorkSpec, ...] = (
     # ------------------------------------------------------------------ ANF01
+    W("anf01", "first-clement", "The First Epistle of Clement to the Corinthians",
+      "Clement of Rome", 96, (95, 97), "established", "greek", "1Clem",
+      P("ii.ii", "First Epistle to the Corinthians")),
+    W("anf01", "polycarp-epistle-to-the-philippians", "The Epistle of Polycarp to the Philippians",
+      "Polycarp of Smyrna", 135, (110, 140), "approximate", "greek", "Pol.Phil",
+      P("iv.ii", "Epistle to the Philippians")),
+    *(W("anf01", f"ignatius-{slug}",
+        f"The Epistle of Ignatius {to} (shorter and longer recensions)",
+        "Ignatius of Antioch", 107, (105, 115), "approximate", "greek", f"Ign.{abbr}",
+        P(div, check))
+      for slug, to, abbr, div, check in (
+          ("to-the-ephesians", "to the Ephesians", "Eph", "v.ii", "Epistle to the Ephesians"),
+          ("to-the-magnesians", "to the Magnesians", "Magn", "v.iii", "Magnesians"),
+          ("to-the-trallians", "to the Trallians", "Trall", "v.iv", "Trallians"),
+          ("to-the-romans", "to the Romans", "Rom", "v.v", "Epistle to the Romans"),
+          ("to-the-philadelphians", "to the Philadelphians", "Phld", "v.vi", "Philadelphians"),
+          ("to-the-smyrnaeans", "to the Smyrnaeans", "Smyrn", "v.vii", "Smyrn"),
+          ("to-polycarp", "to Polycarp", "Pol", "v.viii", "Epistle to Polycarp"))),
+    W("anf01", "ignatius-syriac-recension",
+      "The Epistles of Ignatius: Syriac Recension (to Polycarp, the Ephesians, the Romans)",
+      "Ignatius of Antioch", 107, (105, 115), "approximate", "syriac", "Ign.Syr",
+      P("v.x", "Syriac Version", "Pol"), P("v.xi", "Syriac Version", "Eph"),
+      P("v.xii", "Syriac Version", "Rom")),
     W("anf01", "epistle-to-diognetus", "The Epistle to Diognetus", None,
       150, (130, 200), "uncertain", "greek", "DiogNet",
       P("iii.ii", "Epistle to Diognetus")),
@@ -162,6 +119,18 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf01", "pseudo-justin-sole-government-of-god", "On the Sole Government of God",
       "Pseudo-Justin", 200, (150, 300), "uncertain", "greek", "PsJust.Mon",
       P("viii.vii", "Sole Government of God")),
+    W("anf01", "justin-first-apology", "The First Apology", "Justin Martyr",
+      155, (150, 160), "established", "greek", "Just.1Apol", P("viii.ii", "First Apology")),
+    W("anf01", "justin-second-apology", "The Second Apology", "Justin Martyr",
+      157, (153, 161), "approximate", "greek", "Just.2Apol", P("viii.iii", "Second Apology")),
+    W("anf01", "justin-dialogue-with-trypho", "Dialogue with Trypho, a Jew", "Justin Martyr",
+      160, (155, 165), "approximate", "greek", "Just.Dial", P("viii.iv", "Dialogue with Trypho")),
+    W("anf01", "justin-on-the-resurrection", "Fragments of the Lost Work on the Resurrection",
+      "Justin Martyr", 160, (150, 200), "uncertain", "greek", "Just.Res",
+      P("viii.viii", "On the Resurrection")),
+    W("anf01", "justin-other-fragments", "Other Fragments from the Lost Writings of Justin",
+      "Justin Martyr", 160, (150, 165), "uncertain", "greek", "Just.Frag",
+      P("viii.ix", "Other Fragments")),
     W("anf01", "martyrdom-of-justin",
       "The Martyrdom of the Holy Martyrs Justin, Chariton, Charites, Paeon, and Liberianus",
       None, 170, (165, 200), "approximate", "greek", "MartJust",
@@ -173,6 +142,38 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf01", "irenaeus-fragments", "Fragments from the Lost Writings of Irenaeus",
       "Irenaeus of Lyon", 185, (170, 202), "uncertain", "greek", "Iren.Frag",
       P("ix.viii", "Fragments")),
+
+    # ------------------------------------------------------------------ ANF02
+    W("anf02", "shepherd-of-hermas", "The Shepherd of Hermas (Visions, Commandments, Similitudes)",
+      "Hermas", 140, (100, 160), "approximate", "greek", "Herm",
+      P("ii.ii", "Visions", "Vis"), P("ii.iii", "Commandments", "Mand"),
+      P("ii.iv", "Similitudes", "Sim")),
+    W("anf02", "tatian-address-to-the-greeks", "Address to the Greeks (Oratio ad Graecos)",
+      "Tatian", 170, (165, 175), "approximate", "greek", "Tat.OrGr",
+      P("iii.ii", "Address to the Greeks")),
+    W("anf02", "tatian-fragments", "Fragments of Tatian", "Tatian",
+      170, (160, 180), "uncertain", "greek", "Tat.Frag", P("iii.iii", "Fragments")),
+    W("anf02", "theophilus-to-autolycus", "To Autolycus", "Theophilus of Antioch",
+      181, (180, 185), "approximate", "greek", "Theoph.Autol",
+      P("iv.ii", "Theophilus to Autolycus")),
+    W("anf02", "athenagoras-plea-for-the-christians", "A Plea for the Christians (Legatio)",
+      "Athenagoras of Athens", 177, (176, 180), "approximate", "greek", "Athen.Leg",
+      P("v.ii", "Plea for the Christians")),
+    W("anf02", "athenagoras-resurrection-of-the-dead", "On the Resurrection of the Dead",
+      "Athenagoras of Athens", 180, (177, 250), "uncertain", "greek", "Athen.Res",
+      P("v.iii", "Resurrection of the Dead")),
+    W("anf02", "clement-exhortation-to-the-heathen", "Exhortation to the Heathen (Protrepticus)",
+      "Clement of Alexandria", 195, (190, 200), "approximate", "greek", "Clem.Protr",
+      P("vi.ii", "Exhortation to the Heathen")),
+    W("anf02", "clement-the-instructor", "The Instructor (Paedagogus)",
+      "Clement of Alexandria", 198, (190, 205), "approximate", "greek", "Clem.Paid",
+      P("vi.iii", "Instructor")),
+    W("anf02", "clement-stromata", "The Stromata, or Miscellanies",
+      "Clement of Alexandria", 202, (198, 215), "approximate", "greek", "Clem.Strom",
+      P("vi.iv", "Stromata")),
+    W("anf02", "clement-who-is-the-rich-man", "Who is the Rich Man that Shall be Saved?",
+      "Clement of Alexandria", 200, (190, 210), "approximate", "greek", "Clem.QDS",
+      P("vi.v", "Rich Man")),
 
     # ------------------------------------------------------------------ ANF03
     W("anf03", "tertullian-apology", "Apology (Apologeticum)", _TERT,
@@ -413,6 +414,11 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf05", "anonymous-on-rebaptism", "A Treatise on Re-Baptism by an Anonymous Writer",
       None, 256, (255, 258), "approximate", "latin", "Rebapt",
       P("vii.iv.ii", "Re-Baptism")),
+    W("anf05", "acts-and-records-baptism-of-heretics",
+      "Acts and Records of the Controversy About the Baptism of Heretics (Roman synod under "
+      "Stephen, from the Libellus Synodicus; Carthaginian councils)", None,
+      256, (253, 900), "uncertain", "latin", "BaptHaerActa",
+      P("vii.ii", "Baptism of Heretics"), genre="council"),
 
     # ------------------------------------------------------------------ ANF06
     W("anf06", "gregory-thaumaturgus-declaration-of-faith", "A Declaration of Faith",
@@ -552,6 +558,18 @@ _WORKS: tuple[_WorkSpec, ...] = (
       P("xii.iii", "Against the Heathen")),
 
     # ------------------------------------------------------------------ ANF07
+    W("anf07", "lactantius-divine-institutes", "The Divine Institutes", "Lactantius",
+      311, (303, 313), "approximate", "latin", "Lact.Inst", P("iii.ii", "Divine Institutes")),
+    W("anf07", "lactantius-anger-of-god", "A Treatise on the Anger of God", "Lactantius",
+      314, (313, 316), "approximate", "latin", "Lact.Ira", P("iii.iii", "Anger of God")),
+    W("anf07", "lactantius-workmanship-of-god", "On the Workmanship of God, or the Formation of Man",
+      "Lactantius", 304, (303, 305), "approximate", "latin", "Lact.Opif",
+      P("iii.iv", "Workmanship of God")),
+    W("anf07", "lactantius-deaths-of-the-persecutors",
+      "Of the Manner in Which the Persecutors Died", "Lactantius",
+      315, (313, 316), "approximate", "latin", "Lact.Mort", P("iii.v", "Persecutors Died")),
+    W("anf07", "lactantius-fragments", "Fragments of Lactantius", "Lactantius",
+      310, (290, 325), "uncertain", "latin", "Lact.Frag", P("iii.vi", "Fragments")),
     W("anf07", "venantius-on-easter", "On Easter (De Pascha)", "Venantius Fortunatus",
       570, (560, 600), "approximate", "latin", "VenFort.Pasch",
       P("iv.i", "On Easter", drop_trailing=1)),
@@ -795,6 +813,8 @@ _WORKS: tuple[_WorkSpec, ...] = (
       "The Narrative of Zosimus Concerning the Life of the Blessed", None,
       400, (100, 600), "uncertain", "greek", "NarrZos",
       P("xi.ii", "Narrative of Zosimus")),
+    W("anf09", "tatian-diatessaron", "The Diatessaron (Arabic version)", "Tatian",
+      170, (160, 175), "approximate", "syriac", "Tat.Diat", P("iv.iii", "Diatessaron")),
     W("anf09", "first-clement-anf09", "The First Epistle of Clement to the Corinthians",
       "Clement of Rome", 96, (95, 97), "established", "greek", "1Clem",
       P("xii.iv", "First Epistle of Clement")),
@@ -820,144 +840,9 @@ _WORKS: tuple[_WorkSpec, ...] = (
 )
 
 
-# ---------------------------------------------------------------------------
-# Extraction
-# ---------------------------------------------------------------------------
-
-def _norm(text: str) -> str:
-    """Casefold and collapse whitespace (CCEL titles contain NBSPs and double spaces)."""
-    return " ".join(text.split()).casefold()
-
-
-def _index_ids(root: etree._Element) -> dict[str, etree._Element]:
-    return {
-        el.get("id"): el
-        for el in root.iter()
-        if isinstance(el.tag, str) and el.get("id")
-    }
-
-
-def _editorial_ids(div: etree._Element) -> frozenset[str]:
-    """``@id``s of nested divs inside *div* whose title marks them as editorial."""
-    out = set()
-    for el in div.iterdescendants():
-        if not isinstance(el.tag, str) or not el.get("id"):
-            continue
-        if re.fullmatch(r"div\d", etree.QName(el.tag).localname) and _EDITORIAL_TITLE_RE.match(
-            el.get("title", "")
-        ):
-            out.add(el.get("id"))
-    return frozenset(out)
-
-
-def _split_commentary(paragraphs: list[dict[str, str]], keep: str) -> list[dict[str, str]]:
-    """Keep canon text (``keep="canons"``) or Balsamon/Zonaras commentary."""
-    out: list[dict[str, str]] = []
-    in_commentary = False
-    for para in paragraphs:
-        text = para["text"]
-        if _CANON_HEAD_RE.match(text):
-            in_commentary = False
-        elif _COMMENTARY_START_RE.match(text):
-            in_commentary = True
-        if in_commentary == (keep == "commentary"):
-            out.append(para)
-    return out
-
-
-def extract_work(spec: _WorkSpec, ids: dict[str, etree._Element]) -> list[dict[str, str]]:
-    """Return the ``{"ref", "text"}`` paragraphs of *spec* from an indexed volume."""
-    paragraphs: list[dict[str, str]] = []
-    for part in spec.parts:
-        div = ids.get(part.div_id)
-        if div is None:
-            raise RuntimeError(f"{spec.volume} has no div {part.div_id!r} (for {spec.slug})")
-        if _norm(part.title_check) not in _norm(div.get("title", "")):
-            raise RuntimeError(
-                f"{spec.volume} div {part.div_id!r} has title {div.get('title')!r}; "
-                f"expected it to contain {part.title_check!r} (for {spec.slug})"
-            )
-        prefix = f"{spec.ref_prefix}.{part.label}" if part.label else spec.ref_prefix
-        paras = _extract_paragraphs_from_div1(div, prefix, _editorial_ids(div))
-        paras = paras[part.drop_leading:len(paras) - part.drop_trailing]
-        paras = [p for p in paras if not _SEPARATOR_RE.match(p["text"])]
-        paragraphs.extend(paras)
-    if spec.split:
-        paragraphs = _split_commentary(paragraphs, spec.split)
-    refs = [p["ref"] for p in paragraphs]
-    if len(set(refs)) != len(refs):
-        raise RuntimeError(f"Duplicate canonical refs in {spec.slug}")
-    return paragraphs
-
-
-def _make_work(spec: _WorkSpec) -> Work:
-    return Work(
-        work_id=f"anf-works/{spec.slug}",
-        source_id=SOURCE_ID,
-        author=spec.author,
-        title=spec.title,
-        date_composed=spec.date_composed,
-        date_range=spec.date_range,
-        date_confidence=spec.date_confidence,
-        genre=spec.genre,
-        language="eng",
-        tradition=spec.tradition,
-        license="public_domain",
-        provenance_url=f"https://ccel.org/ccel/s/schaff/{spec.volume}.xml",
-        edition=f"ANF Vol. {int(spec.volume[3:])}",
-        translation_of=None,
-    )
-
-
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
-    """Write one JSON file per ``_WORKS`` entry (only when its content changed).
-
-    *force* re-downloads the volume XML; otherwise the ``ccel-anf`` cache is
-    used as-is.  Outputs no longer produced by the table are removed.
-    """
-    out_root = output_dir / SOURCE_ID
-    cache_dir = output_dir / _ANF_CACHE
-    works: list[Work] = []
-    produced: set[Path] = set()
-
-    for volume in sorted({s.volume for s in _WORKS}):
-        xml_path = cache_dir / f"{volume}.xml"
-        if force or not xml_path.exists():
-            xml_path = download_volume(volume, cache_dir, force=force)
-        root = etree.parse(str(xml_path)).getroot()
-        if _find_body(root) is None:
-            raise RuntimeError(f"No body element found in {xml_path}")
-        ids = _index_ids(root)
-
-        for spec in (s for s in _WORKS if s.volume == volume):
-            if spec.date_range[0] > _SCHISM_YEAR:
-                # Out of scope (composed after 1054).  The div stays registered in
-                # EXCLUDED_DIVS so it does not fall back into the ccel-anf blob.
-                log.info("Skipping %s: composed after %d", spec.slug, _SCHISM_YEAR)
-                continue
-            paragraphs = extract_work(spec, ids)
-            if not paragraphs:
-                raise RuntimeError(f"No paragraphs extracted for {spec.slug}")
-            work = _make_work(spec)
-            out_path = out_root / volume / f"{spec.slug}.json"
-            produced.add(out_path)
-            content = json.dumps(
-                {"work": work.model_dump(), "paragraphs": paragraphs},
-                ensure_ascii=False, indent=2,
-            )
-            if not out_path.exists() or out_path.read_text(encoding="utf-8") != content:
-                out_path.parent.mkdir(parents=True, exist_ok=True)
-                out_path.write_text(content, encoding="utf-8")
-                log.info("Wrote %s (%d paragraphs)", out_path, len(paragraphs))
-            works.append(work)
-
-    for stale in sorted(out_root.glob("*/*.json")):
-        if stale not in produced:
-            log.info("Removing %s (no longer in the _WORKS table)", stale)
-            stale.unlink()
-
-    log.info("%s: %d works", SOURCE_ID, len(works))
-    return works
+    """Write one JSON file per ``_WORKS`` row (see ``_ccel_works.ingest_table``)."""
+    return ingest_table(output_dir, SOURCE_ID, _WORKS, force=force)
 
 
 if __name__ == "__main__":
