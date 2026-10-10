@@ -436,6 +436,8 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 - `out_of_period` is per chunk (rule in `patristica/period.py`): works composed entirely after the period are excluded; hybrid/straddling works (Typikon, CANTUS, OGPG PG 3/4/97/119/120, a few OGLT PL files) are kept with date-derived flags — filter at query time.
 - Licences vary per work (`Work.license`): most are public domain or CC-BY(-SA); LXX Rahlfs (eliranwong) and the PTA Peshitta OT are non-commercial.
 
+**Open issues for the Phase 2 implementation** (chunk size normalization before embedding; embedding-model coverage of Coptic/Syriac/Armenian/Ge'ez/Gothic) are tracked in `IMPLEMENTATION_PLAN.md` §2.5; licensing obligations for the public site in §3.5.
+
 **Known caveats carried into Phase 2**: OGPG volumes are not split into individual works and remain noisier than PTA/First1K for the same authors (see "Custom OCR pipeline" decision criteria); 879 works without author (mostly liturgical, council, anonymous apocrypha — honest anonymity); 211 OGLT PL works undated; one deliberate `period_flag_mismatch` warning (Ethiopic Synaxarion, hybrid liturgical); remaining text-quality warnings are listed in `data/validation_report.json`.
 
 ---
