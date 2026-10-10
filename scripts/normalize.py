@@ -293,6 +293,8 @@ def normalize_all(
 
     if not json_files:
         log.warning("No raw JSON files found under %s", raw_dir)
+        _prune_orphans(raw_dir, output_dir)  # a source emptied by its ingestor
+        write_works_manifest(output_dir)
         return 0
 
     log.info("Normalizing %d raw files…", len(json_files))
@@ -302,8 +304,57 @@ def normalize_all(
 
     log.info("Normalization complete: %d total chunks written", total)
     _prune_orphans(raw_dir, output_dir)
+    write_works_manifest(output_dir)
     return total
 
+
+WORKS_MANIFEST = "_works.jsonl"
+
+
+def write_works_manifest(output_dir: Path) -> None:
+    """Maintain ``{output_dir}/_works.jsonl``: the full ``Work`` record for every
+    normalized file, one JSON object per line (``{"path": ..., "work": {...}}``).
+
+    Normalized files hold only chunks, and ``data/raw`` is gitignored, so this
+    is the tracked copy of work metadata (title, author, dates, translation_of,
+    license, provenance) for Phase 2.  Entries are refreshed from the raw file
+    when it exists; when it does not (fresh clone) the previous entry is kept.
+    Entries for normalized files that no longer exist are dropped.  The file is
+    rewritten only when its content changes.
+    """
+    manifest_path = output_dir / WORKS_MANIFEST
+    previous: dict[str, dict] = {}
+    if manifest_path.exists():
+        for line in manifest_path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                rec = json.loads(line)
+                previous[rec["path"]] = rec["work"]
+
+    raw_root = output_dir.resolve().parent / "raw"
+    entries: dict[str, dict] = {}
+    for norm_path in sorted(output_dir.rglob("*.json")):
+        if norm_path.name.startswith("_"):
+            continue
+        rel = norm_path.relative_to(output_dir).as_posix()
+        raw_path = raw_root / rel
+        work: dict | None = None
+        if raw_path.exists():
+            with raw_path.open(encoding="utf-8") as f:
+                work = json.load(f).get("work")
+        if work is None:
+            work = previous.get(rel)
+        if work is None:
+            log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
+            continue
+        entries[rel] = work
+
+    content = "".join(
+        json.dumps({"path": rel, "work": work}, ensure_ascii=False, sort_keys=True) + "\n"
+        for rel, work in sorted(entries.items())
+    )
+    if not manifest_path.exists() or manifest_path.read_text(encoding="utf-8") != content:
+        manifest_path.write_text(content, encoding="utf-8")
+        log.info("Wrote %s (%d works)", manifest_path, len(entries))
 
 def _prune_orphans(raw_dir: Path, output_dir: Path) -> None:
     """Delete normalized files under *raw_dir*'s mirror whose raw file is gone."""
