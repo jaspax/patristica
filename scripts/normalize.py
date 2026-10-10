@@ -244,13 +244,20 @@ def normalize_file(
 
     out_path = output_dir.joinpath(*sub_parts)
 
-    if out_path.exists() and not force:
-        log.debug("Skipping %s (already normalized)", out_path)
+    if (
+        not force
+        and out_path.exists()
+        and out_path.stat().st_mtime >= raw_path.stat().st_mtime
+    ):
+        log.debug("Skipping %s (up to date)", out_path)
         return 0
 
+    content = json.dumps([chunk.model_dump() for chunk in chunks], ensure_ascii=False, indent=2)
+    if out_path.exists() and out_path.read_text(encoding="utf-8") == content:
+        out_path.touch()  # mark up to date without changing content
+        return 0
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    data = [chunk.model_dump() for chunk in chunks]
-    out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    out_path.write_text(content, encoding="utf-8")
     log.debug("Normalized %d chunks → %s", len(chunks), out_path)
     return len(chunks)
 
@@ -261,6 +268,11 @@ def normalize_all(
     force: bool = False,
 ) -> int:
     """Walk *raw_dir* recursively and normalize every raw work JSON file.
+
+    Outputs are rebuilt when their raw file is newer.  Normalized files whose
+    raw file is gone are deleted — but only inside sources whose raw directory
+    exists (``data/raw`` is gitignored, so on a fresh clone without raw data
+    nothing is pruned).
 
     Returns the total number of chunks written.
     """
@@ -282,7 +294,28 @@ def normalize_all(
         total += normalize_file(path, output_dir, force=force)
 
     log.info("Normalization complete: %d total chunks written", total)
+    _prune_orphans(raw_dir, output_dir)
     return total
+
+
+def _prune_orphans(raw_dir: Path, output_dir: Path) -> None:
+    """Delete normalized files under *raw_dir*'s mirror whose raw file is gone."""
+    parts = raw_dir.resolve().parts
+    if "raw" not in parts:
+        return
+    raw_root = Path(*parts[: len(parts) - parts[::-1].index("raw")])
+    sub = raw_dir.resolve().relative_to(raw_root)
+    removed = 0
+    for norm_path in (output_dir / sub).rglob("*.json"):
+        rel = norm_path.relative_to(output_dir)
+        if norm_path.name.startswith("_") or len(rel.parts) < 3:
+            continue
+        source_dir = raw_root / rel.parts[0] / rel.parts[1]
+        if source_dir.is_dir() and not (raw_root / rel).exists():
+            norm_path.unlink()
+            removed += 1
+    if removed:
+        log.info("Removed %d normalized files whose raw source is gone", removed)
 
 
 def main() -> None:

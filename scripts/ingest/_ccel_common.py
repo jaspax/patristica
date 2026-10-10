@@ -21,11 +21,13 @@ One Work record is produced per ``<div1>``.
 
 from __future__ import annotations
 
+import json
 import logging
 import re
 from pathlib import Path
 
 from lxml import etree
+from tqdm import tqdm
 
 from patristica.models import DateConfidence, License, Tradition, Work
 from scripts.ingest._common import download_file, slugify_ref
@@ -258,6 +260,7 @@ def _slugify_title(title: str) -> str:
 def _extract_paragraphs_from_div1(
     div1: etree._Element,
     ref_prefix: str,
+    skip_ids: frozenset[str] = frozenset(),
 ) -> list[dict[str, str]]:
     """Extract paragraphs from a ``<div1>`` element with canonical refs.
 
@@ -272,6 +275,9 @@ def _extract_paragraphs_from_div1(
     ----------
     div1:       The ``<div1>`` element to process.
     ref_prefix: Author abbreviation or title slug to prefix all refs.
+    skip_ids:   ``@id`` values of nested divs to leave out (see ``EXCLUDED_DIVS``).
+                Skipped divs still advance the positional counters, so refs of
+                the remaining divs are unchanged.
     """
     records: list[dict[str, str]] = []
     seen: dict[str, int] = {}
@@ -315,6 +321,8 @@ def _extract_paragraphs_from_div1(
             if not n_clean:
                 div2_counter += 1
                 n_clean = str(div2_counter)
+            if el.get("id") in skip_ids:
+                return
             new_path = path + [n_clean]
             for child in el:
                 _walk(child, new_path)
@@ -326,12 +334,16 @@ def _extract_paragraphs_from_div1(
             if not n_clean:
                 div3_counter += 1
                 n_clean = str(div3_counter)
+            if el.get("id") in skip_ids:
+                return
             new_path = path + [n_clean]
             for child in el:
                 _walk(child, new_path)
             return
 
         if local in ("div4", "div5", "div6"):
+            if el.get("id") in skip_ids:
+                return
             n = el.get("n", "")
             n_clean = re.sub(r"[^A-Za-z0-9]", "", n)[:20] if n else ""
             new_path = path + [n_clean] if n_clean else path
@@ -346,6 +358,37 @@ def _extract_paragraphs_from_div1(
         _walk(child, [])
 
     return records
+
+
+# ---------------------------------------------------------------------------
+# Excluded divs
+# ---------------------------------------------------------------------------
+
+#: ThML ``@id``s, per volume, that the generic series ingestors (ccel_anf,
+#: ccel_npnf1, ccel_npnf2) must leave out.  The value says why: the source_id of
+#: the dedicated ingestor that owns the text (so it is not in the corpus twice),
+#: or ``"non-text: …"`` for editorial matter such as indexes.  An excluded div1
+#: produces no Work (its positional work_id is simply unused); an excluded
+#: nested div is cut out of its parent div1's Work.
+EXCLUDED_DIVS: dict[str, dict[str, str]] = {
+    "anf07": {
+        "viii.iii": "patristic/didache",
+        **{f"ix.{n}": "patristic/apostolic-constitutions"
+           for n in ("ii", "iii", "iv", "v", "vi", "vii", "viii", "ix")},
+        "xii.ii": "liturgical/syriac-james",
+        "xii.iii": "liturgical/mark-liturgy",
+        "xii.iv": "liturgical/adai-mari",
+    },
+    "anf08": {
+        # ANF08/009 Memoirs of Edessa — Syriac documents (dedicated ingestors)
+    },
+    "npnf214": {
+        **{d: "councils/ecumenical"
+           for d in ("vii", "ix", "x", "xi", "xii", "xiii", "xiv", "xvi",
+                     "viii.iii", "viii.iv", "viii.v", "viii.vi", "viii.vii",
+                     "xv.iii", "xv.iv", "xv.v", "xv.vi")},
+    },
+}
 
 
 # ---------------------------------------------------------------------------
@@ -383,6 +426,8 @@ def parse_thml_volume(
         return []
 
     results: list[tuple[Work, list[dict[str, str]]]] = []
+    excluded = EXCLUDED_DIVS.get(volume_id, {})
+    skip_ids = frozenset(excluded)
     div1_counter = 0
     series_prefix = source_id.split("/")[-1].upper().replace("-", "")  # e.g. "CCELANF"
 
@@ -394,6 +439,10 @@ def parse_thml_volume(
             continue
 
         div1_counter += 1
+        if child.get("id") in excluded:
+            div_id = child.get("id")
+            log.debug("Skipping %s div1 %s (%s)", volume_id, div_id, excluded[div_id])
+            continue
         head_text = _get_head_text(child)
         title_words = set((head_text or "").lower().split())
         is_non_author = bool(title_words & _NON_AUTHOR_TITLE_WORDS)
@@ -431,7 +480,7 @@ def parse_thml_volume(
             n_clean = re.sub(r"[^A-Za-z0-9]", "", n_attr)[:8] if n_attr else str(div1_counter)
             ref_prefix = f"{series_prefix}{volume_id[-2:]}{n_clean}"
 
-        paragraphs = _extract_paragraphs_from_div1(child, ref_prefix)
+        paragraphs = _extract_paragraphs_from_div1(child, ref_prefix, skip_ids)
 
         if not paragraphs:
             log.debug("No paragraphs in div1 %d (%r) of %s", div1_counter, title, xml_path.name)
@@ -458,3 +507,49 @@ def parse_thml_volume(
 
     log.debug("Parsed %d works from %s", len(results), xml_path.name)
     return results
+
+
+def ingest_ccel_series(
+    output_dir: Path,
+    source_id: str,
+    volumes: list[tuple[str, str]],
+    force: bool = False,
+) -> list[Work]:
+    """Ingest a CCEL series (one Work per div1) for ``ccel_anf`` / ``ccel_npnf1/2``.
+
+    *volumes* is a list of ``(volume_id, volume_label)``.  Every run re-parses
+    the cached volumes (cheap) and keeps the output in sync with the parser:
+    files are written only when their content changed (so downstream mtimes
+    stay put), and outputs no longer produced — e.g. a div newly added to
+    ``EXCLUDED_DIVS`` — are deleted.  *force* only re-downloads the XML.
+    """
+    cache_dir = output_dir / source_id
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    works: list[Work] = []
+
+    for volume_id, volume_label in tqdm(volumes, desc=source_id):
+        xml_path = download_volume(volume_id, cache_dir, force=force)
+        vol_dir = cache_dir / volume_id
+        produced: set[Path] = set()
+
+        for work, paragraphs in parse_thml_volume(
+            xml_path, source_id=source_id, volume_id=volume_id, volume_label=volume_label,
+        ):
+            out_path = vol_dir / f"{work.work_id.split('/')[-1]}.json"
+            produced.add(out_path)
+            content = json.dumps(
+                {"work": work.model_dump(), "paragraphs": paragraphs},
+                ensure_ascii=False, indent=2,
+            )
+            if not out_path.exists() or out_path.read_text(encoding="utf-8") != content:
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                out_path.write_text(content, encoding="utf-8")
+            works.append(work)
+
+        for stale in sorted(vol_dir.glob("[0-9][0-9][0-9].json")):
+            if stale not in produced:
+                log.info("Removing %s (no longer produced; see EXCLUDED_DIVS)", stale)
+                stale.unlink()
+
+    log.info("%s ingestion complete: %d works", source_id, len(works))
+    return works
