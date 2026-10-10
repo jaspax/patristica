@@ -25,23 +25,42 @@ Filtering
 
 Attribution index (``data/oglt_pl_index.csv``)
 ----------------------------------------------
-About a third of the split files have an empty TEI header (no author, no
-title).  For those, author / title / floruit dates come from
-``scripts/ingest/data/oglt_pl_index.csv``, keyed by split-file stem.  The
-index was built by matching each split file's text against the CTS-organised
-copy of the same corpus in the repo's own ``data/`` tree, whose
-``__cts__.xml`` catalog files give a groupname (author) and work title
-(same repo, same CC-BY-SA 4.0 licence — column ``cts_urn`` records the
-match), then hand-curated: author names normalised to Latin forms, floruit
-dates added, misattributions corrected (pseudepigrapha, letters *to* a pope
-filed under the pope, etc.), and early-modern editorial apparatus
-(admonitiones, prolegomena, notitiae historicae by Coustant, Gallandi,
-Migne's editors, …) attributed to its editor.  Column ``basis`` says which
-of ``ogl-cts`` / ``ogl-cts+curated`` / ``curated`` / ``editorial`` applies.
+The TEI headers are unreliable: a third have no author/title at all, and the
+rest carry the *volume's* first author and title (``sourceDesc/monogr``), so
+e.g. every PL16 work was titled "De Officiis" and Avitus of Vienne was filed
+under Gelasius I.  Author / title / floruit dates therefore come from
+``scripts/ingest/data/oglt_pl_index.csv``, which has one row per split file
+(keyed by filename stem).  It was built by matching each split file's text
+against the CTS-organised copy of the same corpus in the repo's own
+``data/`` tree, whose ``__cts__.xml`` catalog files give a groupname
+(author) and work title (same repo, same CC-BY-SA 4.0 licence; column
+``cts_urn`` records the match), then hand-curated: author names normalised
+to Latin forms, floruit dates added, misattributions corrected
+(pseudepigrapha, Ambrosiaster, Quodvultdeus, letters *to* a pope filed
+under the pope, ...), post-1054 works and forgeries dated, and early-modern
+editorial apparatus (indices, admonitiones, prolegomena, notitiae by
+Coustant, Gallandi, the Maurists, Migne's editors, ...) attributed to its
+editor.
+
+Column ``basis``:
+
+- ``ogl-cts`` — catalog author (normalised) and title used as-is;
+- ``ogl-cts+curated`` / ``tei+curated`` / ``curated`` — hand-corrected,
+  starting from the catalog match, the TEI header, or nothing;
+- ``editorial`` — early-modern editorial apparatus (excluded);
+- ``scripture`` — biblical text of Jerome's "Divina bibliotheca" (PL28-29),
+  which duplicates the Vulgate scripture source and is not patristic
+  (excluded; Jerome's own prefaces are kept via ``keep_refs``);
+- ``duplicate`` — stray file duplicating another split file (excluded).
+
+Column ``keep_refs`` (optional) restricts a work to some of its paragraphs:
+space-separated items, each either ``REF`` (that ref and its descendants,
+``REF.*``) or ``A..B`` (inclusive positional range from ref A to ref B).
+Filtering by ref is idempotent, so it can be re-applied to saved JSON.
 
 An index row overrides whatever the TEI header gives.  Its dates go through
-the same post-schism filter as TEI dates, so editorial apparatus and
-identified post-1054 works / forgeries are excluded.
+the same post-schism filter as TEI dates (``date_range[0] > 1054`` →
+excluded; works straddling 1054 keep ``date_composed`` as the midpoint).
 
 ``ingest()`` re-applies the index to already-written JSON files without
 re-parsing or pulling (rewriting or deleting them as needed), so edits to
@@ -99,7 +118,11 @@ _SKIP_ELEMENTS = frozenset({
 _PL_FILENAME_RE = re.compile(r"(PL\d+)(?:_\d+)?_([A-Z]+)", re.IGNORECASE)
 
 _PL_INDEX_PATH = Path(__file__).parent / "data" / "oglt_pl_index.csv"
-_INDEX_BASES = frozenset({"ogl-cts", "ogl-cts+curated", "curated", "editorial"})
+_INDEX_BASES = frozenset({
+    "ogl-cts", "ogl-cts+curated", "tei+curated", "curated", "editorial", "scripture", "duplicate",
+})
+# Rows with these bases are dropped from the corpus regardless of date.
+_EXCLUDED_BASES = frozenset({"editorial", "scripture", "duplicate"})
 
 
 @dataclass(frozen=True)
@@ -110,6 +133,14 @@ class PLIndexEntry:
     title: str
     date_range: tuple[int, int] | None
     basis: str
+    keep_refs: tuple[str, ...] = ()
+
+    @property
+    def excluded(self) -> bool:
+        """True when the work is dropped (excluded basis or post-schism dates)."""
+        return self.basis in _EXCLUDED_BASES or bool(
+            self.date_range and self.date_range[0] > _SCHISM_YEAR
+        )
 
 
 @functools.cache
@@ -132,8 +163,34 @@ def _load_pl_index(path: Path = _PL_INDEX_PATH) -> dict[str, PLIndexEntry]:
             date_range = (int(start), int(end)) if start else None
             if date_range and date_range[0] > date_range[1]:
                 raise ValueError(f"{path}: row {stem!r} has inverted date range")
-            index[stem] = PLIndexEntry(row["author"].strip(), row["title"].strip(), date_range, row["basis"])
+            keep_refs = tuple((row.get("keep_refs") or "").split())
+            index[stem] = PLIndexEntry(
+                row["author"].strip(), row["title"].strip(), date_range, row["basis"], keep_refs
+            )
     return index
+
+
+def _filter_paragraphs(
+    paragraphs: list[dict[str, str]], keep_refs: tuple[str, ...], stem: str
+) -> list[dict[str, str]]:
+    """Keep only the paragraphs selected by *keep_refs* (see module docstring)."""
+    refs = [p["ref"] for p in paragraphs]
+    keep: set[int] = set()
+    for item in keep_refs:
+        if ".." in item:
+            first, last = item.split("..", 1)
+            if first not in refs or last not in refs:
+                raise ValueError(f"{stem}: keep_refs range {item!r} names a missing ref")
+            lo, hi = refs.index(first), refs.index(last)
+            if lo > hi:
+                raise ValueError(f"{stem}: keep_refs range {item!r} is reversed")
+            keep.update(range(lo, hi + 1))
+        else:
+            hits = {i for i, r in enumerate(refs) if r == item or r.startswith(item + ".")}
+            if not hits:
+                raise ValueError(f"{stem}: keep_refs prefix {item!r} matches no paragraph")
+            keep |= hits
+    return [p for i, p in enumerate(paragraphs) if i in keep]
 
 
 def _work_id(author: str | None, stem: str) -> str:
@@ -142,24 +199,28 @@ def _work_id(author: str | None, stem: str) -> str:
     return f"oglt_pl/{author_slug}/{stem.lower()}"
 
 
-def _apply_pl_index(work: Work, stem: str) -> Work | None:
-    """Override *work*'s author/title/dates from the attribution index.
+def _apply_pl_index(
+    work: Work, stem: str, paragraphs: list[dict[str, str]]
+) -> tuple[Work, list[dict[str, str]]] | None:
+    """Override *work*'s author/title/dates (and paragraph selection) from the index.
 
-    Returns *work* unchanged when *stem* is not indexed, ``None`` when the
-    indexed dates place the work after the schism (it must be dropped), else
-    an updated copy.
+    Returns ``(work, paragraphs)`` unchanged when *stem* is not indexed,
+    ``None`` when the row excludes the work (editorial / scripture / duplicate
+    basis, or post-schism dates), else an updated copy.  Idempotent.
     """
     entry = _load_pl_index().get(stem)
     if entry is None:
-        return work
+        return work, paragraphs
+    if entry.excluded:
+        return None
     if entry.date_range is None:
         date_composed, date_confidence = None, "uncertain"
     else:
         lo, hi = entry.date_range
         date_composed, date_confidence = (lo + hi) // 2, "approximate"
-        if lo > _SCHISM_YEAR:
-            return None
-    return work.model_copy(update={
+    if entry.keep_refs:
+        paragraphs = _filter_paragraphs(paragraphs, entry.keep_refs, stem)
+    updated = work.model_copy(update={
         "work_id": _work_id(entry.author, stem),
         "author": entry.author,
         "title": entry.title,
@@ -167,6 +228,7 @@ def _apply_pl_index(work: Work, stem: str) -> Work | None:
         "date_range": entry.date_range,
         "date_confidence": date_confidence,
     })
+    return updated, paragraphs
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -340,13 +402,13 @@ def _parse_oglt_pl_file(
         if author is None:
             auth_el = monogr_el.find("tei:author", ns)
             if auth_el is not None:
-                candidate = (auth_el.text or "").strip()
+                candidate = " ".join((auth_el.text or "").split())
                 if candidate:
                     author = candidate
         if not title or re.search(r"patrologiae\s+cursus\s+completus", title, re.IGNORECASE):
             t_el = monogr_el.find("tei:title", ns)
             if t_el is not None:
-                candidate = (t_el.text or "").strip()
+                candidate = " ".join((t_el.text or "").split())
                 if candidate and not re.search(r"patrologiae\s+cursus\s+completus", candidate, re.IGNORECASE):
                     title = candidate
         if author and title:
@@ -421,13 +483,11 @@ def _parse_oglt_pl_file(
         translation_of=None,
     )
 
-    indexed = _apply_pl_index(work, xml_path.stem)
-    if indexed is None:
-        log.debug("Skipping post-schism work %s (attribution index)", xml_path.stem)
-        return None
-
     paragraphs = _extract_paragraphs(body_el, work_prefix, ns)
-    return indexed, paragraphs
+    indexed = _apply_pl_index(work, xml_path.stem, paragraphs)
+    if indexed is None:
+        log.debug("Skipping %s: excluded by attribution index", xml_path.stem)
+    return indexed
 
 
 def _collect_xml_files(repo_dir: Path) -> list[Path]:
@@ -492,14 +552,16 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if out_path.exists() and not force:
             saved = json.loads(out_path.read_text(encoding="utf-8"))
             saved_work = Work(**saved["work"])
-            work = _apply_pl_index(saved_work, xml_path.stem)
-            if work is None:
-                log.info("Removing %s: post-schism per attribution index", out_path)
+            applied = _apply_pl_index(saved_work, xml_path.stem, saved["paragraphs"])
+            if applied is None:
+                log.info("Removing %s: excluded by attribution index", out_path)
                 out_path.unlink()
                 skipped += 1
                 continue
-            if work != saved_work:
+            work, paragraphs = applied
+            if work != saved_work or paragraphs != saved["paragraphs"]:
                 saved["work"] = work.model_dump()
+                saved["paragraphs"] = paragraphs
                 out_path.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
                 refreshed += 1
             works.append(work)
