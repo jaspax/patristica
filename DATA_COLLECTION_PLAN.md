@@ -416,6 +416,9 @@ dependencies = [
 - [x] Hand normalized JSON to Phase 2 — see **Phase 2 Handoff** below
 
 
+### Follow-ups (post-Phase 1)
+- [ ] **Ethiopic Synaxarion: split by commemoration, then apply the period rule** — `scripture/gez/synax` is currently one 11,408-character chunk (`Synax.1.1`) covering only the month of Maskaram (the LPettay/ethiopian-bible source has just `chapters/Synax/1.json`), kept whole as a hybrid liturgical text and the source of the one `period_flag_mismatch` warning. Split it into one chunk (or work) per commemoration using its embedded day/saint headings, give each commemoration the date of the saint or event it commemorates, and apply `patristica.period` per commemoration: keep first-millennium saints, flag or drop later ones (Ethiopian saints of the 13th–15th c., e.g. Takla Haymanot), instead of treating the whole book as one hybrid. Consider sourcing the full year from Beta Masaheft's TEI edition, which this data derives from; regenerate refs as e.g. `Synax.{month}.{day}.{n}`. Same approach applies later to other synaxaria/menologia (Armenian Yaysmawurk', Coptic Synaxarium)
+
 ### Phase 2 Handoff (2026-10-10)
 
 Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation PASS (0 errors)**. Chunks by language: lat 340k, grc 276k, eng 195k, cop 41k, syc 39k, hye 36k, hbo 23k, gez 18k, got 4k. By genre: patristic 507k, scripture 341k, liturgical 120k, council 4k.
