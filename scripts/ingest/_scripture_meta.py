@@ -7,6 +7,8 @@ used by all scripture ingestor modules.
 
 from __future__ import annotations
 
+import re
+
 # ---------------------------------------------------------------------------
 # Ordered book lists
 # ---------------------------------------------------------------------------
@@ -54,7 +56,7 @@ ETHIOPIC_EXTRA_BOOKS: list[str] = [
     "TestLd",# Testament of Our Lord
     "Teach", # Teaching of Mysteries
     "Sinod", # Sinodos
-    "KN",    # Kebra Nagast (post-schism composition; flagged)
+    "KN",    # Kebra Nagast (post-schism composition; excluded by gez.py)
     "Synax", # Synaxarion (liturgical calendar; flagged)
     "Clem",  # Ethiopic Clement
 ]
@@ -88,6 +90,7 @@ LXX_EXTRA_BOOKS: list[str] = [
     "3Esr",     # 3 Esdras (Syriac numeration)
     "4Esr",     # 4 Esdras (Syriac numeration)
     "LetBar",   # Letter of Baruch
+    "PrAzar",   # Prayer of Azariah / Song of the Three (Dan 3:24-90 as a separate book)
 ]
 
 #: Full set in Protestant canonical order.
@@ -146,6 +149,10 @@ BOOK_TITLE: dict[str, str] = {
     # Armenian extra books
     "3Macc": "3 Maccabees", "3Cor": "3 Corinthians",
     "1Esd": "1 Esdras",
+    # LXX extras
+    "4Macc": "4 Maccabees", "PsSol": "Psalms of Solomon", "Odes": "Odes",
+    "PrMan": "Prayer of Manasseh", "EpJer": "Epistle of Jeremiah",
+    "Sus": "Susanna", "BelDr": "Bel and the Dragon", "PrAzar": "Prayer of Azariah",
 }
 
 
@@ -259,6 +266,15 @@ BOOK_DATES: dict[str, dict] = {
     "Wis":  {"date_composed": -50,  "date_range": (-100, 50),   "date_confidence": "approximate"},
     "Sir":  {"date_composed": -180, "date_range": (-200, -175), "date_confidence": "approximate"},
     "Bar":  {"date_composed": -150, "date_range": (-300, -100), "date_confidence": "uncertain"},
+    # LXX extras
+    "PsSol":  {"date_composed": -50,  "date_range": (-63, -30),  "date_confidence": "approximate"},
+    "Odes":   {"date_composed": 400,  "date_range": (200, 450),  "date_confidence": "uncertain"},  # as a collection
+    "PrMan":  {"date_composed": -100, "date_range": (-200, 70),  "date_confidence": "uncertain"},
+    "EpJer":  {"date_composed": -300, "date_range": (-317, -100), "date_confidence": "approximate"},
+    "Sus":    {"date_composed": -100, "date_range": (-200, -50), "date_confidence": "approximate"},
+    "BelDr":  {"date_composed": -100, "date_range": (-200, -50), "date_confidence": "approximate"},
+    "PrAzar": {"date_composed": -100, "date_range": (-200, -50), "date_confidence": "approximate"},
+    "4Macc":  {"date_composed": 50,   "date_range": (20, 120),   "date_confidence": "approximate"},
 }
 
 
@@ -315,7 +331,32 @@ FULL_NAME_TO_ABBREV: dict[str, str] = {
     "3 Maccabees": "3Macc",
     "3 Corinthians": "3Cor",
     "1 Esdras": "1Esd", "3 Ezra": "1Esd",
+    # LXX extras / variant names (scrollmapper CopSahBible2, ASV)
+    "4 Maccabees": "4Macc",
+    "Revelation of John": "Rev",
+    "Prayer of Manasses": "PrMan", "Prayer of Manasseh": "PrMan",
+    "Psalms of Solomon": "PsSol",
+    "Odes": "Odes",
+    "Epistle of Jeremiah": "EpJer", "Letter of Jeremiah": "EpJer",
+    "Susanna": "Sus",
+    "Bel and the Dragon": "BelDr",
+    "Prayer of Azariah": "PrAzar",
 }
+
+_ROMAN_PREFIX_RE = re.compile(r"^(I{1,3}|IV) (?=\S)")
+_ROMAN = {"I": "1", "II": "2", "III": "3", "IV": "4"}
+
+
+def book_abbrev(name: str) -> str | None:
+    """Look up a full book name, accepting roman-numeral prefixes ("II Kings").
+
+    Returns the OSIS-style abbreviation, or None if the name is unknown.
+    """
+    name = name.strip()
+    if name in FULL_NAME_TO_ABBREV:
+        return FULL_NAME_TO_ABBREV[name]
+    arabic = _ROMAN_PREFIX_RE.sub(lambda m: _ROMAN[m.group(1)] + " ", name)
+    return FULL_NAME_TO_ABBREV.get(arabic)
 
 
 def book_work_id(source_id: str, abbrev: str) -> str:

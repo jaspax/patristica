@@ -4,6 +4,7 @@ import pytest
 
 from scripts.ingest._scripture_meta import (
     ALL_BOOKS,
+    book_abbrev,
     BOOK_DATES,
     BOOK_TITLE,
     CATHOLIC_BOOKS,
@@ -101,6 +102,15 @@ class TestFullNameToAbbrev:
         assert FULL_NAME_TO_ABBREV["Song of Solomon"] == "Song"
         assert FULL_NAME_TO_ABBREV["Song of Songs"] == "Song"
         assert FULL_NAME_TO_ABBREV["Ecclesiasticus"] == "Sir"
+
+    def test_roman_numeral_prefixes(self):
+        # scrollmapper CSVs (ASV, CopSahBible2) use roman numerals
+        assert book_abbrev("I Samuel") == "1Sam"
+        assert book_abbrev("III John") == "3John"
+        assert book_abbrev("IV Maccabees") == "4Macc"
+        assert book_abbrev("Revelation of John") == "Rev"
+        assert book_abbrev("Isaiah") == "Isa"  # leading "I" of a name is not a numeral
+        assert book_abbrev("Nonexistent Book") is None
 
     def test_all_values_are_known_abbrevs(self):
         for name, abbrev in FULL_NAME_TO_ABBREV.items():

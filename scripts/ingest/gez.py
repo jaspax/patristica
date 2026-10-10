@@ -15,9 +15,11 @@ Note on Kings: the Ethiopic tradition uses a combined "Kings" book
 (LXX-style 1–4 Kingdoms merged), assigned the abbreviation ``Kings`` here
 with chapter/verse refs as ``Kings.{ch}.{v}``.
 
-Post-schism works: Kebra Nagast (~1250 CE) and Synaxarion (~1400 CE) are
-flagged with ``post_schism=True`` but still ingested; search-time filtering
-determines whether to surface them.
+Post-schism works: Kebra Nagast (c.1200–1325 CE, a national epic, not scripture
+or liturgy) is excluded (``_EXCLUDED_BOOKS``).  The Synaxarion (Ethiopic
+recension 14th c.) is a hybrid hagiographic calendar commemorating mostly
+early saints and is kept as liturgical, per the chunk-level policy for hybrid
+texts in CLAUDE.md.
 """
 
 from __future__ import annotations
@@ -39,7 +41,11 @@ SOURCE_ID = "scripture/gez"
 _REPO_URL = "https://github.com/LPettay/ethiopian-bible.git"
 # Books classified as patristic or liturgical rather than scripture
 _PATRISTIC_BOOKS = {"Clem"}
-_LITURGICAL_BOOKS = {"Sinod", "KN", "Synax"}
+_LITURGICAL_BOOKS = {"Sinod", "Synax"}
+#: Books left out of the corpus entirely, with the reason.
+_EXCLUDED_BOOKS: dict[str, str] = {
+    "KN": "Kebra Nagast — composed c.1200–1325 CE, after the 1054 cutoff",
+}
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -107,6 +113,12 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
     for book in tqdm(books, desc="gez books"):
         abbrev: str = book["abbrev"]
+        if abbrev in _EXCLUDED_BOOKS:
+            stale = dest_dir / f"{abbrev.lower()}.json"
+            if stale.exists():
+                log.info("Removing %s (%s)", stale, _EXCLUDED_BOOKS[abbrev])
+                stale.unlink()
+            continue
         title: str = BOOK_TITLE.get(abbrev, book.get("name", abbrev))
         n_chapters: int = book.get("chapters", 0)
 

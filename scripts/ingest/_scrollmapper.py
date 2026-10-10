@@ -21,7 +21,7 @@ from scripts.ingest._common import download_file
 from scripts.ingest._scripture_meta import (
     BOOK_DATES,
     BOOK_TITLE,
-    FULL_NAME_TO_ABBREV,
+    book_abbrev,
     book_work_id,
 )
 
@@ -48,6 +48,7 @@ def _parse_scrollmapper_csv(
     text = csv_bytes.decode("utf-8", errors="replace")
     reader = csv.DictReader(io.StringIO(text))
     books: dict[str, list[tuple[str, str]]] = {}
+    unknown: set[str] = set()
 
     for row in reader:
         book_name = row.get("Book", "").strip()
@@ -59,9 +60,13 @@ def _parse_scrollmapper_csv(
         # </ab> at the end of every verse and <gap reason="…"/> for lacunae.
         verse_text = re.sub(r"<[^>]+>", "", verse_text).strip()
 
-        abbrev = FULL_NAME_TO_ABBREV.get(book_name)
+        abbrev = book_abbrev(book_name)
         if abbrev is None:
-            log.debug("Unknown book name %r in %s CSV; skipping row", book_name, source_id)
+            if book_name not in unknown:
+                unknown.add(book_name)
+                log.warning(
+                    "Unknown book name %r in %s CSV; skipping its rows", book_name, source_id
+                )
             continue
         if not verse_text:
             continue

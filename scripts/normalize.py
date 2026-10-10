@@ -38,6 +38,13 @@ def normalize_scripture_work(
     """
     work = Work(**raw_record["work"])
     raw_verses: list[dict] = raw_record.get("verses", [])
+    # Canonical books are all pre-schism; computed rather than assumed so a
+    # late extra-canonical book (e.g. Ethiopic) is flagged by its date.
+    post_schism = bool(
+        work.date_composed is not None and work.date_composed > 1054
+    ) or (
+        work.date_range is not None and work.date_range[0] > 1054
+    )
 
     chunks: list[Chunk] = []
     for idx, verse in enumerate(raw_verses):
@@ -58,7 +65,7 @@ def normalize_scripture_work(
             date_composed=work.date_composed,
             date_range=work.date_range,
             date_confidence=work.date_confidence,
-            post_schism=False,  # all canonical scripture is pre-schism
+            post_schism=post_schism,
             translation_group_id=None,
         )
         chunks.append(chunk)
