@@ -149,7 +149,7 @@ Keep module filenames consistent with this convention.
 ## Pipeline Scripts
 
 ```bash
-uv run python -m scripts.normalize        # raw verses → Chunk objects
+uv run python -m scripts.normalize        # raw → Chunk objects; also maintains data/normalized/_works.jsonl
 uv run python -m scripts.chunk            # add 50-token context overlap
 uv run python -m scripts.link_translations # assign translation_group_id
 uv run python -m scripts.validate         # QC report (stub until M7)
