@@ -72,6 +72,10 @@ def download_volume(volume_id: str, cache_dir: Path, force: bool = False) -> Pat
     """
     url = f"{_CCEL_BASE_URL}/{volume_id}.xml"
     dest = cache_dir / f"{volume_id}.xml"
+    if dest.exists() and not force:
+        # No ETag revalidation: ccel.org answers 200 rather than 304, which
+        # would rewrite the shared cache (and hit the network) on every run.
+        return dest
     return download_file(url, dest, force=force)
 
 
@@ -381,6 +385,12 @@ EXCLUDED_DIVS: dict[str, dict[str, str]] = {
     },
     "anf08": {
         # ANF08/009 Memoirs of Edessa — Syriac documents (dedicated ingestors)
+        **{d: "patristic/syriac-documents"
+           for d in ("ix.iii", "ix.iv", "ix.v", "ix.vi.i", "ix.vii", "ix.viii",
+                     "ix.ix", "ix.xi", "ix.xii", "ix.xiii", "ix.xiv",
+                     "ix.xvi", "ix.xvii", "ix.xviii")},
+        **{d: "non-text: editorial"
+           for d in ("ix.i", "ix.ii", "ix.vi.ii", "ix.x", "ix.xv", "ix.xix")},
     },
     "npnf214": {
         **{d: "councils/ecumenical"
@@ -389,6 +399,91 @@ EXCLUDED_DIVS: dict[str, dict[str, str]] = {
                      "xv.iii", "xv.iv", "xv.v", "xv.vi")},
     },
 }
+
+
+#: ANF QA pass (Milestone 7).  Kept as separate literals merged into
+#: ``EXCLUDED_DIVS`` below so the per-volume blocks above stay untouched.
+#: Space-separated ThML ``@id`` lists.
+_ANF_WORKS_DIVS: dict[str, str] = {
+    "anf01": """
+        iii.ii iv.iv v.xiv v.xv v.xvi v.xvii v.xviii v.xix v.xx v.xxi v.xxii v.xxiii
+        v.xxv vi.ii vii.ii viii.v viii.vi viii.vii viii.xi ix.ii ix.iii ix.iv ix.vi
+        ix.vii ix.viii
+    """,
+    "anf03": """
+        iv.iii iv.iv iv.v iv.vi iv.vii iv.viii iv.ix iv.x iv.xi v.iii v.iv v.v v.vi
+        v.vii v.viii v.ix v.x v.xi vi.ii vi.iii vi.iv vi.v vi.vi vi.vii
+    """,
+    "anf04": """
+        iii.ii iii.iii iii.iv iii.v iii.vi iii.vii iii.viii iii.ix iii.x iii.xi.i
+        iii.xi.ii iii.xi.iii iii.xi.iv iii.xi.v iv.iii v.ii vi.iv vi.v vi.vi vi.vii
+        vi.viii vi.ix
+    """,
+    "anf05": """
+        iii.iii iii.iv.i iii.iv.ii iii.v.i iii.v.ii iii.v.iii iii.v.iv iii.v.v
+        iv.iii iv.iv iv.v.i iv.v.ii iv.v.iii iv.v.iv iv.v.v iv.v.vi iv.v.vii
+        iv.v.viii iv.v.ix iv.v.x iv.v.xi iv.v.xii iv.vi iv.vii.ii iv.vii.iii
+        iv.vii.iv iv.vii.v v.iii.i v.iii.ii v.iii.iii vi.iii vi.iv vii.iii.ii
+        vii.iv.ii
+    """,
+    "anf06": """
+        iii.iii.i iii.iii.ii iii.iii.iii iii.iii.iv iii.iv iv.iii iv.iv v.iii v.iv
+        v.v v.vi vi.iii.ii vi.iii.iii vi.iv.ii vi.v.ii vi.vi.ii vi.vi.iii vi.vii.ii
+        vi.viii.ii vi.viii.iii vi.ix.ii vi.x.ii vi.x.iii vi.x.iv vi.x.v vii.iii
+        vii.iv viii.iii ix.iii ix.iv ix.vi x.iii xi.iii xi.iv xi.v xi.vi xi.x xi.xi
+        xi.xii xi.viii xi.ix xii.iii
+    """,
+    "anf07": """
+        iv.i v.ii vi.i vi.ii vii.ii x.iii xi
+    """,
+    "anf08": """
+        iii.iii iii.iv iii.v iii.vi iii.vii iii.viii iii.ix iii.x iii.xi iii.xii
+        iii.xiii iii.xiv iv.iii v.iii v.iv vi.iii vi.iv vii.iv vii.v vii.vi vii.vii
+        vii.viii vii.ix vii.x vii.xi vii.xii vii.xiii vii.xiv vii.xv vii.xvi
+        vii.xvii vii.xviii vii.xix vii.xx vii.xxi vii.xxii vii.xxiii vii.xxiv
+        vii.xxv vii.xxvi vii.xxvii vii.xxviii vii.xxix vii.xxx vii.xxxi vii.xxxii
+        vii.xxxiii vii.xxxiv vii.xxxv vii.xxxvi vii.xxxvii vii.xxxviii vii.xxxix
+        vii.xl vii.xli vii.xlii vii.xliii vii.xliv viii.iii viii.iv viii.v viii.vi
+        viii.vii viii.viii viii.ix x.iii x.iv x.v.ii x.v.iii x.v.iv x.v.v x.v.vi
+        x.v.vii x.v.viii x.v.ix x.v.x x.v.xi x.v.xii x.v.xiii x.v.xiv x.v.xv x.v.xvi
+        x.vi.ii x.vii x.viii x.ix x.x x.xi x.xii x.xiii x.xiv x.xv x.xvi
+    """,
+    "anf09": """
+        iii.ii v.ii v.iii vi.ii vii.ii viii.ii ix.iii x.ii xi.ii xii.iv xii.vi
+        xiii.iii xiii.iv xiv.iii xv.ii xv.iii xvi.ii
+    """,
+}
+_ANF_NON_TEXT: dict[str, dict[str, str]] = {
+    # Title-page div1s (printed title, editors, imprint) and nested
+    # "Title Page." div2s that only repeat the author's name.
+    "title page": {
+        "anf02": "i",
+        "anf03": "i ii iv.i v.i vi.i",
+        "anf04": "i iii.i iv.i v.i vi.i",
+        "anf05": "i iii.i iv.i v.i vi.i vii.i",
+        "anf06": "i iii.i iv.i v.i vi.i vii.i viii.i ix.i x.i xi.i xii.i",
+        "anf07": "i",
+        "anf08": "i iii.i iv.i v.i vi.i vii.i viii.i x.i",
+        "anf09": "i ix.i xii.i xiii.i xiv.i",
+    },
+    # Subject / Scripture / page indexes.
+    "index": {
+        "anf02": "vii viii", "anf03": "vii", "anf04": "vii", "anf05": "viii",
+        "anf06": "xiii", "anf07": "xiii", "anf08": "xi", "anf09": "xvii",
+        "anf10": "x",
+    },
+    # ANF10 (Bibliographic Synopsis; General Index) is page images only.
+    "page images only (ANF10 front matter, synopsis and indexes)": {
+        "anf10": "i ii iii iv v vi vii viii ix",
+    },
+    # Parallel table of the four canonical Gospels' Passion narratives.
+    "editorial synoptic table (canonical Gospel text)": {"anf09": "iii.iii"},
+}
+for _vol, _ids in _ANF_WORKS_DIVS.items():
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/anf-works"))
+for _reason, _per_vol in _ANF_NON_TEXT.items():
+    for _vol, _ids in _per_vol.items():
+        EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), f"non-text: {_reason}"))
 
 
 # ---------------------------------------------------------------------------

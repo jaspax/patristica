@@ -23,6 +23,30 @@ Filtering
   of the author name against ``_patristic_meta.AUTHORS``.
 - Default: include when uncertain (``post_schism = False``).
 
+Attribution index (``data/oglt_pl_index.csv``)
+----------------------------------------------
+About a third of the split files have an empty TEI header (no author, no
+title).  For those, author / title / floruit dates come from
+``scripts/ingest/data/oglt_pl_index.csv``, keyed by split-file stem.  The
+index was built by matching each split file's text against the CTS-organised
+copy of the same corpus in the repo's own ``data/`` tree, whose
+``__cts__.xml`` catalog files give a groupname (author) and work title
+(same repo, same CC-BY-SA 4.0 licence — column ``cts_urn`` records the
+match), then hand-curated: author names normalised to Latin forms, floruit
+dates added, misattributions corrected (pseudepigrapha, letters *to* a pope
+filed under the pope, etc.), and early-modern editorial apparatus
+(admonitiones, prolegomena, notitiae historicae by Coustant, Gallandi,
+Migne's editors, …) attributed to its editor.  Column ``basis`` says which
+of ``ogl-cts`` / ``ogl-cts+curated`` / ``curated`` / ``editorial`` applies.
+
+An index row overrides whatever the TEI header gives.  Its dates go through
+the same post-schism filter as TEI dates, so editorial apparatus and
+identified post-1054 works / forgeries are excluded.
+
+``ingest()`` re-applies the index to already-written JSON files without
+re-parsing or pulling (rewriting or deleting them as needed), so edits to
+the CSV propagate on a plain, non-``--force`` run.
+
 Canonical references
 --------------------
 ``{work_prefix}.{div_n_path}.{para_index}``
@@ -33,10 +57,13 @@ the filename stem (``PL67_48_HO`` → ``PL67.HO``).
 
 from __future__ import annotations
 
+import csv
+import functools
 import json
 import logging
 import re
 import subprocess
+from dataclasses import dataclass
 from pathlib import Path
 
 from lxml import etree
@@ -70,6 +97,76 @@ _SKIP_ELEMENTS = frozenset({
 
 # Regex to extract a usable work prefix from PL filenames like PL67_48_HO.xml
 _PL_FILENAME_RE = re.compile(r"(PL\d+)(?:_\d+)?_([A-Z]+)", re.IGNORECASE)
+
+_PL_INDEX_PATH = Path(__file__).parent / "data" / "oglt_pl_index.csv"
+_INDEX_BASES = frozenset({"ogl-cts", "ogl-cts+curated", "curated", "editorial"})
+
+
+@dataclass(frozen=True)
+class PLIndexEntry:
+    """Curated attribution for one OGLT PL split file (see module docstring)."""
+
+    author: str
+    title: str
+    date_range: tuple[int, int] | None
+    basis: str
+
+
+@functools.cache
+def _load_pl_index(path: Path = _PL_INDEX_PATH) -> dict[str, PLIndexEntry]:
+    """Load the stem → attribution index; ``#`` lines are comments."""
+    with path.open(encoding="utf-8", newline="") as f:
+        rows = csv.DictReader(line for line in f if not line.startswith("#"))
+        index: dict[str, PLIndexEntry] = {}
+        for row in rows:
+            stem = row["stem"]
+            if not row["author"].strip() or not row["title"].strip():
+                raise ValueError(f"{path}: row {stem!r} lacks author or title")
+            if row["basis"] not in _INDEX_BASES:
+                raise ValueError(f"{path}: row {stem!r} has unknown basis {row['basis']!r}")
+            if stem in index:
+                raise ValueError(f"{path}: duplicate stem {stem!r}")
+            start, end = row["date_start"].strip(), row["date_end"].strip()
+            if bool(start) != bool(end):
+                raise ValueError(f"{path}: row {stem!r} needs both or neither date bound")
+            date_range = (int(start), int(end)) if start else None
+            if date_range and date_range[0] > date_range[1]:
+                raise ValueError(f"{path}: row {stem!r} has inverted date range")
+            index[stem] = PLIndexEntry(row["author"].strip(), row["title"].strip(), date_range, row["basis"])
+    return index
+
+
+def _work_id(author: str | None, stem: str) -> str:
+    """``oglt_pl/{author_slug}/{stem}`` — the stem keeps it unique per split file."""
+    author_slug = re.sub(r"[^a-z0-9]+", "-", (author or "unknown").lower()).strip("-")
+    return f"oglt_pl/{author_slug}/{stem.lower()}"
+
+
+def _apply_pl_index(work: Work, stem: str) -> Work | None:
+    """Override *work*'s author/title/dates from the attribution index.
+
+    Returns *work* unchanged when *stem* is not indexed, ``None`` when the
+    indexed dates place the work after the schism (it must be dropped), else
+    an updated copy.
+    """
+    entry = _load_pl_index().get(stem)
+    if entry is None:
+        return work
+    if entry.date_range is None:
+        date_composed, date_confidence = None, "uncertain"
+    else:
+        lo, hi = entry.date_range
+        date_composed, date_confidence = (lo + hi) // 2, "approximate"
+        if lo > _SCHISM_YEAR:
+            return None
+    return work.model_copy(update={
+        "work_id": _work_id(entry.author, stem),
+        "author": entry.author,
+        "title": entry.title,
+        "date_composed": date_composed,
+        "date_range": entry.date_range,
+        "date_confidence": date_confidence,
+    })
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -278,8 +375,7 @@ def _parse_oglt_pl_file(
     # work_id: use author slug + filename stem for a stable, human-readable identifier.
     # The filename (e.g. PL12_0_SAN) is unique per file and encodes PL volume + column,
     # so collision-free even when multiple files share the same author/title.
-    author_slug = re.sub(r"[^a-z0-9]+", "-", (author or "unknown").lower()).strip("-")
-    work_id = f"oglt_pl/{author_slug}/{xml_path.stem.lower()}"
+    work_id = _work_id(author, xml_path.stem)
 
     # work_prefix for canonical refs: derive from CTS URN if proper, else from filename.
     if cts_urn and cts_urn.startswith("urn:cts:"):
@@ -298,8 +394,12 @@ def _parse_oglt_pl_file(
     if date_composed is None and author:
         date_composed, date_range, date_confidence = _lookup_author_dates(author)
 
-    # Post-schism filter
-    if date_range is not None and date_range[0] > _SCHISM_YEAR:
+    # Post-schism filter (an attribution-index row, applied below, takes precedence)
+    if (
+        date_range is not None
+        and date_range[0] > _SCHISM_YEAR
+        and xml_path.stem not in _load_pl_index()
+    ):
         log.debug("Skipping post-schism work %s (date_range=%s)", work_id, date_range)
         return None
     post_schism = bool(date_composed is not None and date_composed > _SCHISM_YEAR)
@@ -321,8 +421,13 @@ def _parse_oglt_pl_file(
         translation_of=None,
     )
 
+    indexed = _apply_pl_index(work, xml_path.stem)
+    if indexed is None:
+        log.debug("Skipping post-schism work %s (attribution index)", xml_path.stem)
+        return None
+
     paragraphs = _extract_paragraphs(body_el, work_prefix, ns)
-    return work, paragraphs
+    return indexed, paragraphs
 
 
 def _collect_xml_files(repo_dir: Path) -> list[Path]:
@@ -378,17 +483,26 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
     works: list[Work] = []
     skipped = 0
+    refreshed = 0
 
     for xml_path in tqdm(xml_files, desc="OGLT PL ingest"):
         rel = xml_path.relative_to(repo_dir)
         out_path = output_dir / "patristic" / "oglt_pl" / rel.with_suffix(".json")
 
         if out_path.exists() and not force:
-            try:
-                saved = json.loads(out_path.read_text(encoding="utf-8"))
-                works.append(Work(**saved["work"]))
-            except Exception:
-                pass
+            saved = json.loads(out_path.read_text(encoding="utf-8"))
+            saved_work = Work(**saved["work"])
+            work = _apply_pl_index(saved_work, xml_path.stem)
+            if work is None:
+                log.info("Removing %s: post-schism per attribution index", out_path)
+                out_path.unlink()
+                skipped += 1
+                continue
+            if work != saved_work:
+                saved["work"] = work.model_dump()
+                out_path.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
+                refreshed += 1
+            works.append(work)
             continue
 
         result = _parse_oglt_pl_file(xml_path)
@@ -411,8 +525,9 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         works.append(work)
 
     log.info(
-        "OGLT PL ingestion complete: %d works written, %d skipped",
+        "OGLT PL ingestion complete: %d works (%d metadata refreshed), %d skipped",
         len(works),
+        refreshed,
         skipped,
     )
     return works
