@@ -211,7 +211,7 @@ class TestNormalizeScripture:
         assert c.canonical_ref == "Gen.1.1"
         assert c.text == "In the beginning"
         assert c.chunk_index == 0
-        assert c.post_schism is False
+        assert c.out_of_period is False
 
     def test_empty_text_skipped(self):
         raw = self._raw_record(verses=[

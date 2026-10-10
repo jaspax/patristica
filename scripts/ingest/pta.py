@@ -47,6 +47,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
+from patristica.period import work_in_period
 from scripts.ingest._common import dedupe_refs, slugify_ref
 
 log = logging.getLogger(__name__)
@@ -84,7 +85,6 @@ _LANG_TRADITION: dict[Language, Tradition | None] = {
     "hbo": None,
 }
 
-_SCHISM_YEAR = 1054
 
 # File name patterns to skip
 _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|MsL|MsM|MsN|MsO|MsP|MsQ|MsR|MsS|MsT|MsU|MsV|MsW|MsX|MsY|MsZ|Ms[A-Z]|deu")
@@ -292,13 +292,11 @@ def _parse_pta_file(
     # --- Dates ---
     date_composed, date_range, date_confidence = _extract_dates(root)
 
-    # Post-schism filter: skip only if we have positive evidence (notBefore > 1054)
-    if date_range is not None and date_range[0] > _SCHISM_YEAR:
-        log.debug("Skipping post-schism work %s (date_range=%s)", work_cts_id, date_range)
+    # Skip only on positive evidence of composition after the collection period
+    if not work_in_period(date_range):
+        log.debug("Skipping work after the collection period %s (date_range=%s)",
+                  work_cts_id, date_range)
         return None
-    post_schism = False
-    if date_composed is not None and date_composed > _SCHISM_YEAR:
-        post_schism = True
 
     # --- License ---
     avail_el = root.find(".//tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability", ns)

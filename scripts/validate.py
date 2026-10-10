@@ -9,7 +9,7 @@ Checks (10 groups):
 3. Language/script consistency — valid ISO 639-3 codes, correct Unicode blocks
 4. Canonical reference integrity — format, no duplicates, sequential chunk_index
 5. ID uniqueness — no duplicate work_ids or chunk_ids globally
-6. Date plausibility — date range, post_schism consistency
+6. Date plausibility — date range, out_of_period consistency
 7. Cross-reference integrity — work_ids exist, translation_of targets exist, groups ≥2
 8. Metadata completeness — author, title, license, provenance_url
 9. Scripture coverage — books present/missing per translation
@@ -28,6 +28,8 @@ from pathlib import Path
 from typing import Any
 
 from tqdm import tqdm
+
+from patristica.period import COMPOSED_BY
 
 log = logging.getLogger(__name__)
 
@@ -59,7 +61,6 @@ _REPLACEMENT_CHAR = "�"
 
 DATE_MIN = -800
 DATE_MAX = 1200
-SCHISM_YEAR = 1054
 MIN_TEXT_LEN = 10
 MIN_ALPHA_RATIO = 0.25
 MIN_SCRIPT_RATIO = 0.10
@@ -297,8 +298,8 @@ def _check_id_uniqueness(
 
 def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
     out_of_range: list[str] = []
-    post_schism_conflict: list[str] = []
-    schism_flag_mismatch: list[str] = []
+    period_flag_conflict: list[str] = []
+    period_flag_mismatch: list[str] = []
     range_inverted: list[str] = []
     date_outside_range: list[str] = []
 
@@ -306,15 +307,15 @@ def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
         cid = c.get("chunk_id", "?")
         dc = c.get("date_composed")
         dr = c.get("date_range")
-        ps = c.get("post_schism", False)
+        flagged = c.get("out_of_period", False)
 
         if dc is not None:
             if not (DATE_MIN <= dc <= DATE_MAX):
                 out_of_range.append(f"{cid} (date_composed={dc})")
-            if ps and dc <= SCHISM_YEAR:
-                post_schism_conflict.append(f"{cid} (post_schism=True, date_composed={dc})")
-            if not ps and dc > SCHISM_YEAR:
-                schism_flag_mismatch.append(f"{cid} (post_schism=False, date_composed={dc})")
+            if flagged and dc <= COMPOSED_BY:
+                period_flag_conflict.append(f"{cid} (out_of_period=True, date_composed={dc})")
+            if not flagged and dc > COMPOSED_BY:
+                period_flag_mismatch.append(f"{cid} (out_of_period=False, date_composed={dc})")
 
         if dr is not None and len(dr) == 2:
             if dr[0] > dr[1]:
@@ -326,8 +327,8 @@ def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
 
     return {
         "date_out_of_range": _result("warning", out_of_range, f"expected {DATE_MIN}–{DATE_MAX} CE"),
-        "post_schism_date_conflict": _result("error", post_schism_conflict),
-        "schism_flag_mismatch": _result("warning", schism_flag_mismatch),
+        "period_flag_date_conflict": _result("error", period_flag_conflict),
+        "period_flag_mismatch": _result("warning", period_flag_mismatch),
         "date_range_inverted": _result("error", range_inverted),
         "date_outside_stated_range": _result("warning", date_outside_range),
     }

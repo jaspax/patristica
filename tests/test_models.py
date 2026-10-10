@@ -75,7 +75,7 @@ class TestChunk:
         )
         assert c.chunk_id == "augustine/confessions#Conf.1.1"
         assert c.translation_group_id is None
-        assert c.post_schism is False
+        assert c.out_of_period is False
         assert c.date_confidence == "uncertain"
 
     def test_context_fields(self):
@@ -92,7 +92,7 @@ class TestChunk:
         assert c.context_before == "..."
         assert c.context_after == "..."
 
-    def test_post_schism_flag(self):
+    def test_out_of_period_flag(self):
         c = Chunk(
             chunk_id="x#y",
             work_id="x",
@@ -100,10 +100,10 @@ class TestChunk:
             language="lat",
             text="text",
             chunk_index=0,
-            post_schism=True,
+            out_of_period=True,
             date_composed=1200,
         )
-        assert c.post_schism is True
+        assert c.out_of_period is True
 
     def test_invalid_language(self):
         with pytest.raises(ValidationError):

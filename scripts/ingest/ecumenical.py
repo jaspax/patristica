@@ -30,7 +30,6 @@ log = logging.getLogger(__name__)
 SOURCE_ID = "councils/ecumenical"
 
 _NPNF214_URL = "https://ccel.org/ccel/s/schaff/npnf214.xml"
-_SCHISM_YEAR = 1054
 
 
 # ---------------------------------------------------------------------------

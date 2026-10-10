@@ -12,9 +12,9 @@ the full Byzantine liturgical year by feast day, giving rubrics and hymn
 incipits for Vespers, Matins, and Liturgy at each commemoration. Hymnographic
 material ranges from patristic-era (4th–10th c.) through later Byzantine practice.
 
-All chunks default to post_schism=False. The flag_liturgical.py second pass
-(deferred) sets post_schism=True for feasts commemorating saints canonized
-after 1054 CE, using data/post_schism_feasts.csv as the lookup table.
+All chunks default to out_of_period=False. A deferred second pass would set
+out_of_period=True for feasts commemorating saints who lived after the
+collection period (``patristica.period``), using a lookup table of such feasts.
 
 Canonical ref format
 --------------------
@@ -32,6 +32,7 @@ from collections import Counter
 from pathlib import Path
 
 from patristica.models import Work
+from patristica.period import COMPOSED_BY
 from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
@@ -253,7 +254,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         author="Georgios Violakis",
         title="Τυπικόν",
         date_composed=None,
-        date_range=(400, 1054),
+        date_range=(400, COMPOSED_BY),
         date_confidence="uncertain",
         genre="liturgical",
         language="grc",

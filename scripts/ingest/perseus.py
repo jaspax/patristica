@@ -19,7 +19,7 @@ so all passing the date filter are included.
 Scope filtering
 ---------------
 Same as First1KGreek: only textgroups in ``_cts_scope.IN_SCOPE_AUTHOR_IDS``
-(Christian/Jewish pre-schism literature) are ingested; the rest of the repos
+(Christian/Jewish first-millennium literature) are ingested; the rest of the repos
 are classical pagan literature.  Perseus TEI headers carry no composition
 dates, so the date filters below rarely fire.  Translations (``-eng``,
 ``-fre``, ``-ger``, …) are skipped by edition suffix.
@@ -42,6 +42,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
+from patristica.period import work_in_period
 from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest._cts_scope import (
     author_id_from_path,
@@ -60,7 +61,6 @@ _LATIN_REPO_URL = "https://github.com/PerseusDL/canonical-latinLit.git"
 _TEI = "http://www.tei-c.org/ns/1.0"
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
 
-_SCHISM_YEAR = 1054
 _CLASSICAL_CUTOFF = -50
 
 _STRUCTURAL_DIV_TYPES = frozenset({
@@ -347,9 +347,9 @@ def _parse_perseus_file(
         )
         return None
 
-    # Post-schism filter
-    if date_range is not None and date_range[0] > _SCHISM_YEAR:
-        log.debug("Skipping post-schism work %s (date_range=%s)", work_cts_id, date_range)
+    if not work_in_period(date_range):
+        log.debug("Skipping work after the collection period %s (date_range=%s)",
+                  work_cts_id, date_range)
         return None
 
     # --- Title ---

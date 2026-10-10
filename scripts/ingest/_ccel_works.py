@@ -17,7 +17,7 @@ Canonical refs are ``{ref_prefix}[.{part label}].{div3}.{div4}[.n]`` — the
 ``_ccel_common._extract_paragraphs_from_div1`` scheme applied to each part.
 Output: ``{output_dir}/{source_id}/{volume}/{slug}.json`` with work_id
 ``{source name}/{slug}``; only changed files are rewritten and outputs no
-longer in the table are removed.  Rows composed after 1054 are skipped (their
+longer in the table are removed.  Rows composed after the collection period are skipped (their
 divs stay registered so they do not fall back into the generic blob).
 """
 
@@ -32,6 +32,7 @@ from pathlib import Path
 from lxml import etree
 
 from patristica.models import DateConfidence, Genre, Tradition, Work
+from patristica.period import work_in_period
 from scripts.ingest._ccel_common import (
     EXCLUDED_DIVS,
     _extract_paragraphs_from_div1,
@@ -41,7 +42,6 @@ from scripts.ingest._ccel_common import (
 
 log = logging.getLogger(__name__)
 
-_SCHISM_YEAR = 1054
 
 #: Nested divs (inside an extracted part) whose ``@title`` marks them as
 #: editorial apparatus rather than text of the work.
@@ -249,8 +249,8 @@ def ingest_table(
         ids = _index_ids(root)
 
         for spec in (s for s in works if s.volume == volume):
-            if spec.date_range[0] > _SCHISM_YEAR:
-                log.info("Skipping %s: composed after %d", spec.slug, _SCHISM_YEAR)
+            if not work_in_period(spec.date_range):
+                log.info("Skipping %s: composed after the collection period", spec.slug)
                 continue
             paragraphs = extract_work(spec, ids)
             if not paragraphs:

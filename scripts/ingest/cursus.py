@@ -14,9 +14,9 @@ directory (~500 antiphon, respond, and prayer files, each identified by a
 ``<xptr from="ID({id})"/>`` elements; the surrounding structure gives
 liturgical context (Day, service, nocturn, etc.).
 
-Although the manuscript dates are post-1054, the Benedictine Office
-repertoire is largely pre-schism in origin (6th–10th c.); we therefore set
-``post_schism=False`` and ``date_confidence="approximate"`` for all chunks.
+Although the manuscripts are late medieval, the Benedictine Office repertoire
+is largely first-millennium in origin (6th–10th c.); we therefore set
+``out_of_period=False`` and ``date_confidence="approximate"`` for all chunks.
 
 Repository text extraction
 --------------------------

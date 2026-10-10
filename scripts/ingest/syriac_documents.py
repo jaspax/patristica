@@ -33,13 +33,13 @@ from pathlib import Path
 from lxml import etree
 
 from patristica.models import DateConfidence, Tradition, Work
+from patristica.period import is_out_of_period
 from scripts.ingest._ccel_common import _element_inner_text, _find_body, download_volume
 
 log = logging.getLogger(__name__)
 
 SOURCE_ID = "patristic/syriac-documents"
 _ANF_VOL = "anf08"
-_SCHISM_YEAR = 1054
 _EDITION = (
     "Ante-Nicene Fathers Vol. 8 (1886), \"Memoirs of Edessa and Other Ancient "
     "Syriac Documents\", tr. B. P. Pratten (after W. Cureton)"
@@ -356,8 +356,10 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             raise RuntimeError(f"No paragraphs extracted for {spec.slug} from {spec.div_id}")
 
         work = _make_work(spec)
-        if work.date_composed is not None and work.date_composed > _SCHISM_YEAR:
-            raise ValueError(f"{spec.slug} is dated after the Schism ({work.date_composed})")
+        if is_out_of_period(work.date_composed, work.date_range):
+            raise ValueError(
+                f"{spec.slug} is dated after the collection period ({work.date_composed})"
+            )
 
         out_path = out_dir / f"{spec.slug}.json"
         produced.add(out_path)

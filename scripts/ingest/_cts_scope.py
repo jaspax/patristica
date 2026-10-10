@@ -5,7 +5,7 @@ Both repos are dominated by classical pagan literature (Plutarch, Galen,
 Demosthenes, Cicero, …), and their TEI headers carry no composition dates,
 so a date cutoff cannot separate patristic from classical material.  Instead
 we keep only textgroups (CTS author IDs) that are Christian or Jewish
-religious literature composed before the Great Schism.
+religious literature of the first millennium (see ``patristica.period``).
 
 Deliberately excluded:
 - ``tlg0031`` New Testament, ``tlg0527`` Septuaginta — covered by dedicated
@@ -15,7 +15,7 @@ Deliberately excluded:
   counterpoint to hagiographic sources on Justinian's reign.
 - Pagan authors writing about Christians (Julian, Celsus via Origen, …) —
   a possible future expansion, out of scope for now.
-- Post-schism authors (Theophylact of Ohrid, Zonaras, Anna Comnena, …).
+- Authors after the collection period (Theophylact of Ohrid, Zonaras, Anna Comnena, …).
 """
 
 from __future__ import annotations

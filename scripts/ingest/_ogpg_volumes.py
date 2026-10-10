@@ -11,9 +11,9 @@ needed.
 Dates: ``date_composed`` is the principal author's floruit/death year;
 ``date_range`` spans *every* listed author, so hybrid volumes (e.g. PG 3–4,
 Pseudo-Dionysius with George Pachymeres' 14th-century paraphrase) are
-honest about their later content.  ``post_schism`` is derived downstream from
-``date_range[0] > 1054``, so a volume is only flagged when all of its contents
-are post-1054.
+honest about their later content.  A volume is excluded only when all of its
+contents fall after the collection period (``patristica.period.work_in_period``);
+straddling volumes are kept and flagged ``out_of_period`` by date.
 
 The OGL repos also contain a few mislabeled scans and duplicate bindings;
 those are listed in ``EXCLUDED_REPOS`` with the reason.
@@ -184,7 +184,7 @@ PG_VOLUMES: dict[int, PGVolume] = {
     # --- 11th century -----------------------------------------------------
     120: _v("Nicetas Stethatos; Michael Cerularius; Leo of Ohrid; Symeon the New Theologian; "
             "John Mauropous; John Xiphilinus", 1040, 1000, 1080,
-            note="mixed pre- and post-1054 authors; not separable at volume level"),
+            note="authors on both sides of the period boundary; not separable"),
     121: _v("George Cedrenus", 1060, 1057, 1100),
     122: _v("George Cedrenus; Michael Psellos", 1060, 1057, 1100),
     **{n: _THEOPHYLACT for n in range(123, 127)},

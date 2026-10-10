@@ -11,7 +11,8 @@ Scope
 CANTUS indexes Latin chants found in medieval liturgical manuscripts.  We
 include manuscripts whose date field parses to ≤ 1200 CE, since:
 
-  * Manuscripts dated ≤ 1054 definitively predate the Great Schism.
+  * Manuscripts dated within the collection period (``patristica.period``)
+    are dated by their year.
   * Manuscripts dated 1055–1200 are still early witnesses to a chant
     repertoire that was substantially fixed by the 9th–10th century.
 
@@ -45,6 +46,7 @@ import httpx
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Work
+from patristica.period import COMPOSED_BY
 from scripts.ingest._common import slugify_ref
 
 log = logging.getLogger(__name__)
@@ -78,11 +80,11 @@ def _date_metadata(year: int) -> tuple[int, tuple[int, int], DateConfidence]:
     """Return (date_composed, date_range, date_confidence) for a given year."""
     if year <= 1000:
         return year, (max(400, year - 50), year + 50), "established"
-    elif year <= 1054:
-        return year, (year - 25, 1054), "approximate"
+    elif year <= COMPOSED_BY:
+        return year, (year - 25, COMPOSED_BY), "approximate"
     else:
-        # Post-schism manuscript, but pre-schism chant tradition
-        return 950, (800, 1054), "approximate"
+        # Later manuscript, but first-millennium chant tradition
+        return 950, (800, COMPOSED_BY), "approximate"
 
 
 # ---------------------------------------------------------------------------

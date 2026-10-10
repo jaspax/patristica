@@ -15,7 +15,7 @@ Note on Kings: the Ethiopic tradition uses a combined "Kings" book
 (LXX-style 1–4 Kingdoms merged), assigned the abbreviation ``Kings`` here
 with chapter/verse refs as ``Kings.{ch}.{v}``.
 
-Post-schism works: Kebra Nagast (c.1200–1325 CE, a national epic, not scripture
+Works after the collection period: Kebra Nagast (c.1200–1325 CE, a national epic, not scripture
 or liturgy) is excluded (``_EXCLUDED_BOOKS``).  The Synaxarion (Ethiopic
 recension 14th c.) is a hybrid hagiographic calendar commemorating mostly
 early saints and is kept as liturgical, per the chunk-level policy for hybrid
@@ -44,7 +44,7 @@ _PATRISTIC_BOOKS = {"Clem"}
 _LITURGICAL_BOOKS = {"Sinod", "Synax"}
 #: Books left out of the corpus entirely, with the reason.
 _EXCLUDED_BOOKS: dict[str, str] = {
-    "KN": "Kebra Nagast — composed c.1200–1325 CE, after the 1054 cutoff",
+    "KN": "Kebra Nagast — composed c.1200–1325 CE, after the collection period",
 }
 
 

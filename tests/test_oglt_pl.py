@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from patristica.models import Work
+from patristica.period import work_in_period
 from scripts.ingest import oglt_pl
 
 
@@ -31,8 +32,8 @@ def test_index_rows_are_complete() -> None:
         assert entry.title != stem
         assert "\n" not in entry.author and "\t" not in entry.author
         if entry.basis == "editorial":
-            # Editorial apparatus is also dated after the schism.
-            assert entry.date_range is not None and entry.date_range[0] > 1054
+            # Editorial apparatus is also dated after the collection period.
+            assert entry.date_range is not None and not work_in_period(entry.date_range)
             assert entry.excluded
 
 

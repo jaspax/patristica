@@ -5,6 +5,7 @@ from __future__ import annotations
 import pytest
 from lxml import etree
 
+from patristica.period import COMPOSED_BY
 from scripts.ingest import syriac_documents as sd
 from scripts.ingest._ccel_common import EXCLUDED_DIVS
 
@@ -50,14 +51,14 @@ def test_extract_sectioned_skips_and_numbers() -> None:
 
 
 def test_table_consistent_with_excluded_divs() -> None:
-    """Every div the table reads or drops is registered for anf08, and all are pre-Schism."""
+    """Every div the table reads or drops is registered for anf08, and all are in period."""
     excluded = EXCLUDED_DIVS["anf08"]
     for spec in sd._WORKS:
         covered = spec.div_id in excluded or any(
             spec.div_id.startswith(d + ".") and excluded[d] == sd.SOURCE_ID for d in excluded
         )
         assert covered, spec.div_id
-        assert spec.date_range[0] <= spec.date_composed <= spec.date_range[1] <= 1054
+        assert spec.date_range[0] <= spec.date_composed <= spec.date_range[1] <= COMPOSED_BY
     for div_id in sd.EDITORIAL_DIVS:
         assert excluded[div_id] == "non-text: editorial"
     assert len({s.slug for s in sd._WORKS}) == len(sd._WORKS)

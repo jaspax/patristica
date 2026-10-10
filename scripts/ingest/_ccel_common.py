@@ -36,7 +36,6 @@ from scripts.ingest._patristic_meta import AUTHORS, AuthorMeta
 log = logging.getLogger(__name__)
 
 _CCEL_BASE_URL = "https://ccel.org/ccel/s/schaff"
-_SCHISM_YEAR = 1054
 
 # ThML elements to skip entirely (discard text content and children)
 _SKIP_LOCAL_NAMES = frozenset({
@@ -832,8 +831,6 @@ def parse_thml_volume(
             date_range = None
             date_confidence = "uncertain"
             tradition = None
-
-        post_schism = bool(date_composed is not None and date_composed > _SCHISM_YEAR)
 
         # Canonical ref prefix: author abbreviation when identified, else vol+div slug
         if author_meta:

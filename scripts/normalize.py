@@ -23,6 +23,7 @@ from pathlib import Path
 from tqdm import tqdm
 
 from patristica.models import Chunk, Work
+from patristica.period import is_out_of_period
 
 log = logging.getLogger(__name__)
 
@@ -38,13 +39,9 @@ def normalize_scripture_work(
     """
     work = Work(**raw_record["work"])
     raw_verses: list[dict] = raw_record.get("verses", [])
-    # Canonical books are all pre-schism; computed rather than assumed so a
+    # Canonical books are all in period; computed rather than assumed so a
     # late extra-canonical book (e.g. Ethiopic) is flagged by its date.
-    post_schism = bool(
-        work.date_composed is not None and work.date_composed > 1054
-    ) or (
-        work.date_range is not None and work.date_range[0] > 1054
-    )
+    out_of_period = is_out_of_period(work.date_composed, work.date_range)
 
     chunks: list[Chunk] = []
     for idx, verse in enumerate(raw_verses):
@@ -65,7 +62,7 @@ def normalize_scripture_work(
             date_composed=work.date_composed,
             date_range=work.date_range,
             date_confidence=work.date_confidence,
-            post_schism=post_schism,
+            out_of_period=out_of_period,
             translation_group_id=None,
         )
         chunks.append(chunk)
@@ -79,8 +76,8 @@ def normalize_liturgical_work(
     """Convert a raw liturgical record into a ``Work`` + list of ``Chunk`` objects.
 
     Liturgical texts use the ``"paragraphs"`` key (same layout as patristic).
-    ``post_schism`` is always ``False``: even when the manuscript is dated after
-    1054 the underlying chant/prayer tradition is pre-schism in origin.
+    ``out_of_period`` is always ``False``: even when the manuscript is late, the
+    underlying chant/prayer tradition is first-millennium in origin.
     """
     work = Work(**raw_record["work"])
     raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
@@ -104,7 +101,7 @@ def normalize_liturgical_work(
             date_composed=work.date_composed,
             date_range=work.date_range,
             date_confidence=work.date_confidence,
-            post_schism=False,
+            out_of_period=False,
             translation_group_id=None,
         )
         chunks.append(chunk)
@@ -124,11 +121,7 @@ def normalize_patristic_work(
     work = Work(**raw_record["work"])
     raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
 
-    post_schism = bool(
-        work.date_composed is not None and work.date_composed > 1054
-    ) or (
-        work.date_range is not None and work.date_range[0] > 1054
-    )
+    out_of_period = is_out_of_period(work.date_composed, work.date_range)
 
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
@@ -149,7 +142,7 @@ def normalize_patristic_work(
             date_composed=work.date_composed,
             date_range=work.date_range,
             date_confidence=work.date_confidence,
-            post_schism=post_schism,
+            out_of_period=out_of_period,
             translation_group_id=None,
         )
         chunks.append(chunk)
@@ -162,7 +155,7 @@ def normalize_council_work(
 ) -> tuple[Work, list[Chunk]]:
     """Convert a raw council record into a Work + list of Chunk objects.
 
-    All ecumenical council texts are pre-schism (post_schism=False).
+    All council texts are first-millennium (out_of_period=False).
     """
     work = Work(**raw_record["work"])
     raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
@@ -186,7 +179,7 @@ def normalize_council_work(
             date_composed=work.date_composed,
             date_range=work.date_range,
             date_confidence=work.date_confidence,
-            post_schism=False,
+            out_of_period=False,
             translation_group_id=None,
         )
         chunks.append(chunk)

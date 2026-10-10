@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pytest
 
+from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_volumes as pgv
 from scripts.ingest import ogpg
@@ -127,8 +128,8 @@ class TestVolumeTable:
 
     @pytest.mark.parametrize("vol,post", [(50, False), (112, False), (115, False),
                                           (120, False), (121, True), (150, True)])
-    def test_post_schism_boundary(self, vol: int, post: bool):
-        assert (pgv.PG_VOLUMES[vol].date_range[0] > 1054) is post
+    def test_period_boundary(self, vol: int, post: bool):
+        assert (not work_in_period(pgv.PG_VOLUMES[vol].date_range)) is post
 
     def test_combined_lookup_merges(self):
         meta = pgv.lookup([86, 87])

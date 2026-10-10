@@ -122,9 +122,12 @@ class Chunk(BaseModel):
     date_composed: int | None = None
     date_range: tuple[int, int] | None = None
     date_confidence: DateConfidence = "uncertain"
-    post_schism: bool = Field(
+    out_of_period: bool = Field(
         default=False,
-        description="True if this chunk's composition is positively dated after 1054 CE.",
+        description=(
+            "True if this chunk is positively dated after the collection period "
+            "(see patristica/period.py); only possible in works kept as hybrids."
+        ),
     )
 
     # Translation linkage

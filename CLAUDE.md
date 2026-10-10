@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Patristica is a searchable database of Scriptural and Patristic writings up to the Great Schism (1054 CE), with a web frontend. The project proceeds in three phases: data collection, database construction, and web app. See `IMPLEMENTATION_PLAN.md` for the high-level overview and `DATA_COLLECTION_PLAN.md` for the detailed Phase 1 plan.
+Patristica is a searchable database of Scriptural and Patristic writings from the first thousand years of Christianity, interpreted broadly: authors born before c. 1025, or — when the author is unknown — texts composed by 1050 (`patristica/period.py`), with a web frontend. The collection is deliberately not framed by the 1054 East–West schism, so that non-Chalcedonian traditions fit naturally. The project proceeds in three phases: data collection, database construction, and web app. See `IMPLEMENTATION_PLAN.md` for the high-level overview and `DATA_COLLECTION_PLAN.md` for the detailed Phase 1 plan.
 
 ## Tech Stack
 
@@ -170,7 +170,7 @@ All accept `--help`. `normalize.py` currently processes `genre: scripture` only;
 
 ## Date Handling
 
-Every chunk carries `date_composed`, `date_range`, `date_confidence`, and `post_schism` fields. For hybrid texts (Typikon, Beth Gazo, CANTUS), filter or flag at the chunk level — do not exclude entire works. When composition date is unknown, default to `date_confidence: "uncertain"` and `post_schism: False` (include unless positive evidence of post-1054 composition).
+The collection period is defined once, in `patristica/period.py` (`AUTHOR_BORN_BEFORE = 1025`, `COMPOSED_BY = 1050`); use `work_in_period()` / `is_out_of_period()` — never hard-code years. A whole work is excluded only on positive evidence (date range starting after `COMPOSED_BY`, or an author known to be born after `AUTHOR_BORN_BEFORE`). Every chunk carries `date_composed`, `date_range`, `date_confidence`, and `out_of_period`. For hybrid texts (Typikon, Beth Gazo, CANTUS, mixed Migne volumes), keep the work and flag at the chunk level. When composition date is unknown, default to `date_confidence: "uncertain"` and `out_of_period: False` (include).
 
 Per-book date estimates for all 66 Protestant books plus the Deuterocanon are in `_scripture_meta.BOOK_DATES`. Use these as the default; override only when a source warrants a specific translation date (e.g. Clementine Vulgate: 405 CE).
 

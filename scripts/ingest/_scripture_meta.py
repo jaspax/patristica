@@ -56,7 +56,7 @@ ETHIOPIC_EXTRA_BOOKS: list[str] = [
     "TestLd",# Testament of Our Lord
     "Teach", # Teaching of Mysteries
     "Sinod", # Sinodos
-    "KN",    # Kebra Nagast (post-schism composition; excluded by gez.py)
+    "KN",    # Kebra Nagast (composed after the collection period; excluded by gez.py)
     "Synax", # Synaxarion (liturgical calendar; flagged)
     "Clem",  # Ethiopic Clement
 ]
@@ -250,7 +250,7 @@ BOOK_DATES: dict[str, dict] = {
     "TestLd":{"date_composed": 400,  "date_range": (350, 600),   "date_confidence": "uncertain"},
     "Teach": {"date_composed": 500,  "date_range": (400, 800),   "date_confidence": "uncertain"},
     "Sinod": {"date_composed": 400,  "date_range": (300, 700),   "date_confidence": "uncertain"},
-    # Kebra Nagast: compiled ~13th c. CE from older sources; post-schism composition
+    # Kebra Nagast: compiled ~13th c. CE from older sources; composed after the collection period
     "KN":    {"date_composed": 1250, "date_range": (1200, 1325), "date_confidence": "approximate"},
     "Synax": {"date_composed": 1400, "date_range": (1200, 1500), "date_confidence": "uncertain"},
     "Clem":  {"date_composed": 400,  "date_range": (300, 600),   "date_confidence": "uncertain"},

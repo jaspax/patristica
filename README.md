@@ -1,6 +1,6 @@
 # Patristica
 
-A searchable online database of Scriptural and Patristic writings from the early church, covering the period up to the Great Schism (1054 AD).
+A searchable online database of Scriptural and Patristic writings from the early church, covering the first thousand years of Christianity (broadly: authors born before c. 1025, or anonymous texts composed by 1050), across Greek, Latin, Syriac, Coptic, Armenian, Ge'ez and other traditions.
 
 ## Goal
 

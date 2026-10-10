@@ -17,9 +17,10 @@ We process only Greek-language files (xml:lang="grc" on the edition div) and ski
 - ``__cts__.xml``  — CTS catalog metadata
 - Textgroups not in ``_cts_scope.IN_SCOPE_AUTHOR_IDS`` — most of the repo is
   classical/pagan (Galen, Libanius, Aristotle, scholia …); we keep only
-  Christian/Jewish pre-schism literature
+  Christian/Jewish first-millennium literature
 - Files whose version suffix is not ``grc`` (e.g. ``-lat1``, ``-eng1``, ``-ger1``)
-- Works with ``date_composed < −50`` CE or post-schism dates — note that
+- Works with ``date_composed < −50`` CE or dated after the collection period
+  (``patristica.period``) — note that
   First1KGreek headers carry no ``creation/date``, so these rarely fire and the
   author allowlist does the real filtering
 
@@ -42,6 +43,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
+from patristica.period import work_in_period
 from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest._cts_scope import (
     author_id_from_path,
@@ -60,7 +62,6 @@ _TEI = "http://www.tei-c.org/ns/1.0"
 _CTS_NS = "http://chs.harvard.edu/xmlns/cts"
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
 
-_SCHISM_YEAR = 1054
 # Skip works with a confidently-established composition date before this year.
 # Keeps Philo, Josephus, all Christian authors; removes most classical pagan lit.
 _CLASSICAL_CUTOFF = -50
@@ -308,11 +309,10 @@ def _parse_first1k_file(
         )
         return None
 
-    # Post-schism filter
-    if date_range is not None and date_range[0] > _SCHISM_YEAR:
-        log.debug("Skipping post-schism work %s (date_range=%s)", work_cts_id, date_range)
+    if not work_in_period(date_range):
+        log.debug("Skipping work after the collection period %s (date_range=%s)",
+                  work_cts_id, date_range)
         return None
-    post_schism = bool(date_composed is not None and date_composed > _SCHISM_YEAR)
 
     # --- Author ---
     author_el = root.find(".//tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author", ns)

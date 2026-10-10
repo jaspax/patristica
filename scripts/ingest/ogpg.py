@@ -55,12 +55,12 @@ import httpx
 from tqdm import tqdm
 
 from patristica.models import Work
+from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_volumes as pgv
 
 log = logging.getLogger(__name__)
 
-_SCHISM_YEAR = 1054
 
 SOURCE_ID = "patristic/ogpg"
 _GITHUB_ORG = "OGL-PatrologiaGraecaDev"
@@ -668,13 +668,13 @@ def _ingest_volume(
     out_path = output_dir / f"{vol_slug}.json"
     pipeline = _pipeline_id()
 
-    # Out of scope: volumes whose contents were all composed after 1054 (PG 121+),
-    # consistent with the other sources.  Volumes straddling 1054 are kept and
-    # flagged post-schism by date.
+    # Out of scope: volumes whose contents were all composed after the collection
+    # period (PG 121+), consistent with the other sources.  Straddling volumes are
+    # kept and their chunks flagged out_of_period by date.
     meta = pgv.lookup(vol_nums, part)
-    if meta is not None and meta.date_range[0] > _SCHISM_YEAR:
+    if meta is not None and not work_in_period(meta.date_range):
         if out_path.exists():
-            log.info("Removing %s (all contents after %d)", out_path, _SCHISM_YEAR)
+            log.info("Removing %s (all contents after the collection period)", out_path)
             out_path.unlink()
         return None, None
 

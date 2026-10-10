@@ -7,7 +7,7 @@ License: Text is 4th-century; public domain.
 
 The Liturgy of St. Basil the Great is attributed to Basil of Caesarea
 (330–379 CE).  It is used on ten occasions per year in the Byzantine rite.
-The text preserves archaic liturgical forms predating the Great Schism.
+The text preserves archaic first-millennium liturgical forms.
 
 Canonical references
 --------------------

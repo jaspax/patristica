@@ -18,10 +18,10 @@ each work is still encoded as a distinct ``<div>`` within the volume).
 
 Filtering
 ---------
-- Works with ``date_range[0] > 1054`` are skipped (post-schism).
+- Works dated after the collection period (``patristica.period``) are skipped.
 - If dates cannot be extracted from the header, we try a substring-match
   of the author name against ``_patristic_meta.AUTHORS``.
-- Default: include when uncertain (``post_schism = False``).
+- Default: include when uncertain.
 
 Attribution index (``data/oglt_pl_index.csv``)
 ----------------------------------------------
@@ -37,7 +37,7 @@ against the CTS-organised copy of the same corpus in the repo's own
 ``cts_urn`` records the match), then hand-curated: author names normalised
 to Latin forms, floruit dates added, misattributions corrected
 (pseudepigrapha, Ambrosiaster, Quodvultdeus, letters *to* a pope filed
-under the pope, ...), post-1054 works and forgeries dated, and early-modern
+under the pope, ...), works and forgeries after the period dated, and early-modern
 editorial apparatus (indices, admonitiones, prolegomena, notitiae by
 Coustant, Gallandi, the Maurists, Migne's editors, ...) attributed to its
 editor.
@@ -59,8 +59,8 @@ space-separated items, each either ``REF`` (that ref and its descendants,
 Filtering by ref is idempotent, so it can be re-applied to saved JSON.
 
 An index row overrides whatever the TEI header gives.  Its dates go through
-the same post-schism filter as TEI dates (``date_range[0] > 1054`` →
-excluded; works straddling 1054 keep ``date_composed`` as the midpoint).
+the same collection-period filter as TEI dates (``patristica.period`` →
+excluded; works straddling the boundary keep ``date_composed`` as the midpoint).
 
 ``ingest()`` re-applies the index to already-written JSON files without
 re-parsing or pulling (rewriting or deleting them as needed), so edits to
@@ -89,6 +89,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Work
+from patristica.period import work_in_period
 from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest._patristic_meta import AUTHORS
 
@@ -101,7 +102,6 @@ _REPO_URL = "https://github.com/OpenGreekAndLatin/patrologia_latina-dev.git"
 _TEI = "http://www.tei-c.org/ns/1.0"
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
 
-_SCHISM_YEAR = 1054
 
 _STRUCTURAL_DIV_TYPES = frozenset({
     "textpart", "book", "chapter", "section", "part",
@@ -137,10 +137,8 @@ class PLIndexEntry:
 
     @property
     def excluded(self) -> bool:
-        """True when the work is dropped (excluded basis or post-schism dates)."""
-        return self.basis in _EXCLUDED_BASES or bool(
-            self.date_range and self.date_range[0] > _SCHISM_YEAR
-        )
+        """True when the work is dropped (excluded basis or dated after the period)."""
+        return self.basis in _EXCLUDED_BASES or not work_in_period(self.date_range)
 
 
 @functools.cache
@@ -206,7 +204,7 @@ def _apply_pl_index(
 
     Returns ``(work, paragraphs)`` unchanged when *stem* is not indexed,
     ``None`` when the row excludes the work (editorial / scripture / duplicate
-    basis, or post-schism dates), else an updated copy.  Idempotent.
+    basis, or dated after the period), else an updated copy.  Idempotent.
     """
     entry = _load_pl_index().get(stem)
     if entry is None:
@@ -456,15 +454,11 @@ def _parse_oglt_pl_file(
     if date_composed is None and author:
         date_composed, date_range, date_confidence = _lookup_author_dates(author)
 
-    # Post-schism filter (an attribution-index row, applied below, takes precedence)
-    if (
-        date_range is not None
-        and date_range[0] > _SCHISM_YEAR
-        and xml_path.stem not in _load_pl_index()
-    ):
-        log.debug("Skipping post-schism work %s (date_range=%s)", work_id, date_range)
+    # Collection-period filter (an attribution-index row, applied below, takes precedence)
+    if not work_in_period(date_range) and xml_path.stem not in _load_pl_index():
+        log.debug("Skipping work after the collection period %s (date_range=%s)",
+                  work_id, date_range)
         return None
-    post_schism = bool(date_composed is not None and date_composed > _SCHISM_YEAR)
 
     work = Work(
         work_id=work_id,

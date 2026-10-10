@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from patristica.period import COMPOSED_BY
 from scripts.ingest import anf_works, npnf_works
 from scripts.ingest._ccel_common import EXCLUDED_DIVS, parse_thml_volume
 from scripts.ingest._ccel_works import _series
@@ -35,7 +36,7 @@ def test_table_consistent_with_excluded_divs() -> None:
 def test_rows_well_formed() -> None:
     for spec in npnf_works._WORKS:
         lo, hi = spec.date_range
-        assert lo <= hi <= 1054, spec.slug
+        assert lo <= hi <= COMPOSED_BY, spec.slug
         if spec.date_composed is not None:
             assert lo <= spec.date_composed <= hi, spec.slug
         assert spec.author is None or spec.author.strip(), spec.slug

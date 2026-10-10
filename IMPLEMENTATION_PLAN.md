@@ -2,7 +2,7 @@
 
 ## Context
 
-This project aims to build a comprehensive, searchable online database of Scriptural and Patristic writings from the early church up to the Great Schism (~1054 AD). The goal is to serve scholars and researchers by enabling semantic topic-based discovery across a vast corpus of texts, presenting original languages alongside translations, and offering AI-assisted translation and synthesis. The project proceeds in three phases: data collection, database construction, and web app development.
+This project aims to build a comprehensive, searchable online database of Scriptural and Patristic writings from the first thousand years of Christianity (broadly: authors born before c. 1025, or anonymous texts composed by 1050; see `patristica/period.py`). The goal is to serve scholars and researchers by enabling semantic topic-based discovery across a vast corpus of texts, presenting original languages alongside translations, and offering AI-assisted translation and synthesis. The project proceeds in three phases: data collection, database construction, and web app development.
 
 ---
 
