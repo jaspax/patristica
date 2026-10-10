@@ -26,7 +26,7 @@ from __future__ import annotations
 import json
 import logging
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from lxml import etree
@@ -100,6 +100,8 @@ class _WorkSpec:
     #: ``"canons"`` / ``"commentary"``: keep only canon text or only the
     #: Balsamon/Zonaras commentary (ANF06 Peter of Alexandria).
     split: str | None = None
+    #: work_id of the original-language Work in the corpus (``Work.translation_of``).
+    translation_of: str | None = None
 
 
 def P(
@@ -117,6 +119,23 @@ def W(
 ) -> _WorkSpec:
     return _WorkSpec(volume, slug, title, author, date, rng, conf, tradition,
                      ref_prefix, tuple(parts), genre, split)
+
+
+def link_originals(
+    works: tuple[_WorkSpec, ...], originals: dict[str, str],
+) -> tuple[_WorkSpec, ...]:
+    """Return *works* with ``translation_of`` set from *originals* (slug → work_id).
+
+    Raises if a key names no row, so a renamed slug cannot silently drop a link.
+    """
+    slugs = {s.slug for s in works}
+    unknown = sorted(set(originals) - slugs)
+    if unknown:
+        raise ValueError(f"translation_of keys name no table row: {unknown}")
+    return tuple(
+        replace(s, translation_of=originals[s.slug]) if s.slug in originals else s
+        for s in works
+    )
 
 
 def _norm(text: str) -> str:
@@ -205,7 +224,7 @@ def make_work(spec: _WorkSpec, source_id: str) -> Work:
         license="public_domain",
         provenance_url=f"https://ccel.org/ccel/s/schaff/{spec.volume}.xml",
         edition=edition,
-        translation_of=None,
+        translation_of=spec.translation_of,
     )
 
 

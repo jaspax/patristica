@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -74,3 +75,30 @@ def test_generic_blobs_fully_carved(series: str, volume: str) -> None:
 
 def test_anf_table_still_registered() -> None:
     assert anf_works.SOURCE_ID == "patristic/anf-works"
+
+
+def _corpus_work_ids() -> set[str]:
+    ids: set[str] = set()
+    for src in ("first1k", "pta", "perseus", "oglt_pl"):
+        for f in (_RAW / src).rglob("*.json"):
+            try:
+                ids.add(json.loads(f.read_text(encoding="utf-8"))["work"]["work_id"])
+            except (KeyError, ValueError, TypeError):
+                continue
+    return ids
+
+
+@pytest.mark.parametrize("module", [anf_works, npnf_works])
+def test_translation_of_targets_exist(module) -> None:
+    """Every translation_of resolves to an original-language Work in the corpus."""
+    if not (_RAW / "first1k").exists():
+        pytest.skip("original-language raw data not present")
+    ids = _corpus_work_ids()
+    linked = [s for s in module._WORKS if s.translation_of]
+    assert linked
+    for spec in linked:
+        assert spec.translation_of in ids, (spec.slug, spec.translation_of)
+        assert not spec.translation_of.startswith("ogpg/"), spec.slug
+    slugs = {s.slug for s in module._WORKS}
+    assert set(module._UNLINKED) <= slugs
+    assert not set(module._UNLINKED) & set(module._ORIGINALS)

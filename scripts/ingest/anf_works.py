@@ -41,6 +41,7 @@ from scripts.ingest._ccel_works import (  # noqa: F401  (re-exported for tests)
     _WorkSpec,
     extract_work,
     ingest_table,
+    link_originals,
 )
 
 log = logging.getLogger(__name__)
@@ -838,6 +839,122 @@ _WORKS: tuple[_WorkSpec, ...] = (
       246, (244, 249), "approximate", "greek", "Orig.CommMt",
       P("xvi.ii", "Commentary on Matthew")),
 )
+
+
+# ---------------------------------------------------------------------------
+# Translation linkage: slug → work_id of the original-language Work in the
+# corpus (First1KGreek, PTA, Perseus, OGLT PL).  Matched by author + title and
+# reviewed by hand; unsure cases are left out (see _UNLINKED).
+# ---------------------------------------------------------------------------
+
+_F1K = "first1k/{}/1st1K-grc1"
+_TERT_LAT = "perseus/stoa0275/{}/opp-lat1"
+
+_ORIGINALS: dict[str, str] = {
+    # ANF01
+    "first-clement": _F1K.format("tlg1271/tlg001"),
+    "polycarp-epistle-to-the-philippians": _F1K.format("tlg1622/tlg001"),
+    # Each letter is one part of the seven-letter collection; the CCEL text
+    # prints the longer (interpolated) recension alongside.
+    **{f"ignatius-{s}": _F1K.format("tlg1443/tlg001") for s in (
+        "to-the-ephesians", "to-the-magnesians", "to-the-trallians", "to-the-romans",
+        "to-the-philadelphians", "to-the-smyrnaeans", "to-polycarp")},
+    "pseudo-ignatian-epistles": _F1K.format("tlg1443/tlg002"),
+    "martyrdom-of-polycarp": _F1K.format("tlg1484/tlg001"),
+    "epistle-to-diognetus": _F1K.format("tlg0646/tlg004"),
+    "epistle-of-barnabas": "first1k/tlg1216/tlg001/opp-grc1",
+    "justin-first-apology": _F1K.format("tlg0645/tlg001"),
+    "justin-second-apology": "first1k/tlg0645/tlg002/perseus-grc2",
+    "justin-dialogue-with-trypho": "first1k/tlg0645/tlg003/perseus-grc2",
+    "irenaeus-against-heresies": _F1K.format("tlg1447/tlg001"),
+    # ANF02
+    "shepherd-of-hermas": _F1K.format("tlg1419/tlg001"),
+    "tatian-address-to-the-greeks": "first1k/tlg1766/tlg001/perseus-grc1",
+    "theophilus-to-autolycus": "first1k/tlg1725/tlg001/perseus-grc1",
+    "athenagoras-plea-for-the-christians": "first1k/tlg1205/tlg001/perseus-grc1",
+    "athenagoras-resurrection-of-the-dead": "first1k/tlg1205/tlg002/perseus-grc1",
+    "clement-exhortation-to-the-heathen": _F1K.format("tlg0555/tlg001"),
+    "clement-the-instructor": _F1K.format("tlg0555/tlg002"),
+    "clement-stromata": "perseus/tlg0555/tlg004/perseus-grc2",
+    "clement-who-is-the-rich-man": _F1K.format("tlg0555/tlg006"),
+    # ANF03-04: Tertullian (Perseus / Open Greek and Latin)
+    **{f"tertullian-{s}": _TERT_LAT.format(n) for s, n in (
+        ("on-idolatry", "stoa017"), ("de-corona", "stoa013"), ("to-scapula", "stoa003"),
+        ("ad-nationes", "stoa002"), ("answer-to-the-jews", "stoa005"),
+        ("souls-testimony", "stoa028"), ("on-the-soul", "stoa010"),
+        ("prescription-against-heretics", "stoa024"), ("against-marcion", "stoa006"),
+        ("against-hermogenes", "stoa004"), ("against-the-valentinians", "stoa008"),
+        ("on-the-flesh-of-christ", "stoa012"), ("resurrection-of-the-flesh", "stoa026"),
+        ("against-praxeas", "stoa007"), ("scorpiace", "stoa030"),
+        ("on-repentance", "stoa021"), ("on-baptism", "stoa011"), ("on-prayer", "stoa020"),
+        ("ad-martyras", "stoa001"), ("of-patience", "stoa023"),
+        ("on-the-pallium", "stoa022"), ("apparel-of-women", "stoa014"),
+        ("veiling-of-virgins", "stoa029"), ("exhortation-to-chastity", "stoa015"),
+        ("on-monogamy", "stoa019"), ("on-modesty", "stoa025"), ("on-fasting", "stoa018"),
+        ("de-fuga", "stoa016"))},
+    "tertullian-apology": "perseus/stoa0275/stoa009/perseus-lat2",
+    "tertullian-de-spectaculis": "perseus/stoa0275/stoa027/perseus-lat2",
+    # Perseus files Ad Uxorem under stoa0276 ("Pseudo-Tertullian"); same text.
+    "tertullian-to-his-wife": "perseus/stoa0276/stoa002/opp-lat1",
+    "passion-of-perpetua-and-felicitas": "oglt_pl/anonymus/pl3_0_pass",
+    "minucius-felix-octavius": "perseus/stoa0203/stoa001/perseus-lat2",
+    "commodian-instructions": "oglt_pl/commodianus/pl5_13_com",
+    "origen-against-celsus": "first1k/tlg2042/tlg001/perseus-grc1",
+    "origen-letter-to-africanus": _F1K.format("tlg2042/tlg045"),
+    # ANF05
+    "hippolytus-refutation-of-all-heresies": "first1k/tlg2115/tlg060/opp-grc1",
+    "pontius-life-of-cyprian": "oglt_pl/pontius-diaconus/pl3_37_unk",
+    "seventh-council-of-carthage": "oglt_pl/concilia-carthaginiensia/pl3_24_ann",
+    "caius-fragments": _F1K.format("tlg0572/tlg001"),
+    "muratorian-fragment": "oglt_pl/anonymus/pl3_1_unkn",
+    "novatian-on-the-trinity": "oglt_pl/novatianus/pl3_8_nova",
+    "novatian-on-the-jewish-meats": "oglt_pl/novatianus/pl3_9_nova",
+    "anonymous-against-novatian": "oglt_pl/pseudo-cyprian/pl3_36_ano",
+    "anonymous-on-rebaptism": "oglt_pl/pseudo-cyprian/pl3_34_ano",
+    # ANF06
+    # The Greek survives only in fragments (via Epiphanius); same work.
+    "acts-of-archelaus": _F1K.format("stoa0146d/stoa001"),
+    "methodius-banquet-of-the-ten-virgins": "first1k/tlg2959/tlg001/opp-grc1",
+    "methodius-concerning-free-will": "first1k/tlg2959/tlg002/opp-grc1",
+    # ANF07
+    "venantius-on-easter": "oglt_pl/venantius-fortunatus/pl7_1_vena",
+    "anonymous-against-the-montanists": _F1K.format("tlg1131/tlg001"),
+    "second-clement": _F1K.format("tlg1271/tlg002"),
+    # ANF08
+    "clement-excerpts-of-theodotus": _F1K.format("tlg0555/tlg007"),
+    "pseudo-clement-epistles-on-virginity": _F1K.format("tlg1271/tlg010"),
+    "pseudo-clementine-homilies": _F1K.format("tlg1271/tlg006"),
+    "acts-of-thomas": _F1K.format("tlg2038/tlg001"),
+    "acts-of-philip": _F1K.format("tlg2948/tlg001"),
+    "acts-of-barnabas": _F1K.format("tlg2949/tlg001"),
+    "dionysius-of-corinth-fragments": _F1K.format("tlg1329/tlg001"),
+    "polycrates-of-ephesus-epistle": _F1K.format("tlg1626/tlg001"),
+    # ANF09
+    "first-clement-anf09": _F1K.format("tlg1271/tlg001"),
+    "second-clement-anf09": _F1K.format("tlg1271/tlg002"),
+    # The ANF prints both recensions (Version I and II); linked to Recension A.
+    "testament-of-abraham": _F1K.format("tlg1701/tlg001"),
+    "origen-commentary-on-john": _F1K.format("tlg2042/tlg005"),
+}
+
+#: Plausible originals deliberately *not* linked (slug → reason).
+_UNLINKED: dict[str, str] = {
+    "ignatius-syriac-recension": "Syriac abridgement; no Syriac original in corpus",
+    "irenaeus-fragments": "first1k tlg1447.tlg009 is a different fragment set",
+    "origen-letter-to-gregory": "only extant inside the Philocalia (first1k tlg2042.tlg019)",
+    "origen-letter-to-gregory-anf09": "only extant inside the Philocalia (first1k tlg2042.tlg019)",
+    "origen-commentary-on-matthew": "ANF covers books 10-14, split across first1k tlg2042.tlg029/030",
+    "hippolytus-exegetical-fragments": "collection; PTA has only the Daniel commentary",
+    "alexander-of-alexandria-epistles": "PTA Urk. 4 covers only one of the letters",
+    "methodius-fragments": "spread over several first1k fragment works",
+    "methodius-concerning-matter": "an extract of first1k tlg2959.tlg002 (De libero arbitrio)",
+    "lactantius-fragments": "OGLT pl7 'Fragmenta' contents not verified to match",
+    "acts-of-john-the-theologian": "first1k 'Acta Joannis' (tlg0317) may be a different text",
+    "cyprian-epistles": "OGLT has only five individual letters, not the collection",
+    "apology-of-aristides": "Greek survives only inside Barlaam and Josaphat (perseus tlg2934.tlg066)",
+}
+
+_WORKS = link_originals(_WORKS, _ORIGINALS)
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:

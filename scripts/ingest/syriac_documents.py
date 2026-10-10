@@ -60,6 +60,10 @@ class _WorkSpec:
     title_check: str                # substring expected in that div's @title
     sectioned: bool = False         # number refs by the div's numbered <div3> children
     skip_ids: tuple[str, ...] = ()  # child divs belonging to another work / editorial
+    #: work_id of the original-language Work in the corpus.  None for every row:
+    #: no Syriac (or Armenian) original of these texts is in the corpus, and the
+    #: Syriac version of Eusebius HE 1.13 is one chapter of a Greek original.
+    translation_of: str | None = None
 
 
 _WORKS: tuple[_WorkSpec, ...] = (
@@ -308,7 +312,7 @@ def _make_work(spec: _WorkSpec) -> Work:
         license="public_domain",
         provenance_url=f"https://ccel.org/ccel/s/schaff/{_ANF_VOL}.xml",
         edition=_EDITION,
-        translation_of=None,
+        translation_of=spec.translation_of,
     )
 
 

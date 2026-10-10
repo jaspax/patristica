@@ -34,7 +34,7 @@ import logging
 from pathlib import Path
 
 from patristica.models import Work
-from scripts.ingest._ccel_works import P, W, _WorkSpec, ingest_table
+from scripts.ingest._ccel_works import P, W, _WorkSpec, ingest_table, link_originals
 
 log = logging.getLogger(__name__)
 
@@ -691,6 +691,125 @@ _WORKS: tuple[_WorkSpec, ...] = (
       "Gennadius I of Constantinople", 459, (458, 471), "approximate", "greek",
       "GennadConst.Enc", P("xvii.xxxii", "Gennadius")),
 )
+
+
+# ---------------------------------------------------------------------------
+# Translation linkage: slug → work_id of the original-language Work in the
+# corpus (First1KGreek, PTA, Perseus, OGLT PL).  Matched by author + title and
+# reviewed by hand; unsure cases are left out (see _UNLINKED).
+# ---------------------------------------------------------------------------
+
+_F1K = "first1k/{}/1st1K-grc1"
+_AUG_PL = "oglt_pl/augustinus/{}"
+_JER_PL = "oglt_pl/hieronymus/{}"
+_AMB_PL = "oglt_pl/ambrosius/{}"
+
+_ORIGINALS: dict[str, str] = {
+    # NPNF1: Augustine (OGLT PL)
+    "augustine-on-christian-doctrine": _AUG_PL.format("pl34_0_s."),
+    "augustine-on-the-trinity": _AUG_PL.format("pl42_14_s."),
+    "augustine-enchiridion": _AUG_PL.format("pl40_5_s."),
+    "augustine-catechising-the-uninstructed": _AUG_PL.format("pl40_7_s."),
+    "augustine-faith-of-things-not-seen": _AUG_PL.format("pl40_4_s."),
+    "augustine-on-the-creed": _AUG_PL.format("pl40_8_s."),
+    # PL prints the two books on morals as one work.
+    "augustine-morals-of-the-catholic-church": _AUG_PL.format("pl32_6_s."),
+    "augustine-morals-of-the-manichaeans": _AUG_PL.format("pl32_6_s."),
+    "augustine-perfection-in-righteousness": _AUG_PL.format("pl44_0_s."),
+    "augustine-proceedings-of-pelagius": _AUG_PL.format("pl44_1_s."),
+    "augustine-grace-of-christ-and-original-sin": _AUG_PL.format("pl44_2_s."),
+    "augustine-marriage-and-concupiscence": _AUG_PL.format("pl44_4_s."),
+    "augustine-grace-and-free-will": _AUG_PL.format("pl44_8_s."),
+    "augustine-rebuke-and-grace": _AUG_PL.format("pl44_11_s."),
+    "augustine-predestination-of-the-saints": _AUG_PL.format("pl44_14_s."),
+    "augustine-gift-of-perseverance": _AUG_PL.format("pl45_0_s."),
+    "augustine-sermon-on-the-mount": _AUG_PL.format("pl34_3_s."),
+    "augustine-tractates-on-john": _AUG_PL.format("pl35_3_s."),
+    "augustine-homilies-on-first-john": _AUG_PL.format("pl35_4_s."),
+    "augustine-soliloquies": _AUG_PL.format("pl32_0_s."),
+    # Only the PL 36 file of the Enarrationes is in the corpus.
+    "augustine-expositions-on-the-psalms": _AUG_PL.format("pl36_0_san"),
+    # NPNF1: Chrysostom (PTA)
+    "chrysostom-homilies-on-colossians": "pta/pta0002/pta161/pta-grc1",
+    # NPNF2 vol. 1-3: historians (First1KGreek), Jerome/Rufinus/Gennadius (OGLT)
+    "eusebius-church-history": _F1K.format("tlg2018/tlg002"),
+    "eusebius-martyrs-of-palestine": _F1K.format("tlg2018/tlg003"),
+    "eusebius-life-of-constantine": _F1K.format("tlg2018/tlg020"),
+    "constantine-oration-to-the-assembly-of-the-saints": _F1K.format("tlg2018/tlg021"),
+    "eusebius-oration-in-praise-of-constantine": _F1K.format("tlg2018/tlg022"),
+    "socrates-ecclesiastical-history": _F1K.format("tlg2057/tlg002"),
+    "sozomen-ecclesiastical-history": _F1K.format("tlg2048/tlg001"),
+    "theodoret-ecclesiastical-history": _F1K.format("tlg4089/tlg003"),
+    "jerome-lives-of-illustrious-men": _JER_PL.format("pl23_21_unknown"),
+    "gennadius-lives-of-illustrious-men": "oglt_pl/gennadius-massiliensis/pl58_25_li",
+    "rufinus-apology-to-anastasius": "oglt_pl/rufinus-aquileiensis/pl21_6_apo",
+    "anastasius-letter-to-john-of-jerusalem": "oglt_pl/anastasius-i/pl21_7_epi",
+    "rufinus-apology-against-jerome": "oglt_pl/rufinus-aquileiensis/pl21_5_ruf",
+    "jerome-apology-against-rufinus": _JER_PL.format("pl23_17_unknown"),
+    "rufinus-commentary-on-the-apostles-creed": "oglt_pl/rufinus-aquileiensis/pl21_2_com",
+    # NPNF2 vol. 4: Athanasius (PTA, Athanasius Werke)
+    "athanasius-against-the-heathen": "pta/pta0022/pta001/pta-grc1",
+    "athanasius-on-the-incarnation": "pta/pta0022/pta002/pta-grc1",
+    "athanasius-de-decretis": "pta/pta0022/pta003/pta-grc1",
+    "athanasius-de-sententia-dionysii": "pta/pta0022/pta004/pta-grc1",
+    "athanasius-apology-to-constantius": "pta/pta0022/pta010/pta-grc1",
+    "athanasius-tome-to-the-antiochenes": "pta/pta0022/pta015/pta-grc1",
+    "athanasius-letter-to-the-bishops-of-africa": "pta/pta0022/pta014/pta-grc1",
+    # Urkunde 4 (Opitz): Alexander's letters deposing Arius.
+    "alexander-deposition-of-arius": "pta/pta0100/pta002/pta-grc1",
+    # NPNF2 vol. 6: Jerome (OGLT)
+    "jerome-letters": _JER_PL.format("pl22_0_san"),
+    "jerome-life-of-paul-the-hermit": _JER_PL.format("pl23_0_vita"),
+    "jerome-life-of-hilarion": _JER_PL.format("pl23_1_vita"),
+    "jerome-life-of-malchus": _JER_PL.format("pl23_2_unknown"),
+    "jerome-dialogue-against-the-luciferians": _JER_PL.format("pl23_12_s.eusebiihieronymi"),
+    "jerome-against-helvidius": _JER_PL.format("pl23_13_unknown"),
+    "jerome-against-jovinianus": _JER_PL.format("pl23_14_s.eusebiihieronymi"),
+    "jerome-against-vigilantius": _JER_PL.format("pl23_15_s.eusebiihieronymi"),
+    "jerome-against-john-of-jerusalem": _JER_PL.format("pl23_16_unknown"),
+    "jerome-against-the-pelagians": _JER_PL.format("pl23_19_s.eusebiihieronymi"),
+    # NPNF2 vol. 7: Gregory Nazianzen's Theological Orations (First1KGreek)
+    **{f"gregory-nazianzen-oration-{n}": _F1K.format(f"tlg2022/tlg0{t:02d}")
+       for n, t in (("27", 7), ("28", 8), ("29", 9), ("30", 10), ("31", 11))},
+    # NPNF2 vol. 8: Basil's letters (Perseus)
+    "basil-letters": "perseus/tlg2040/tlg004/perseus-grc2",
+    # NPNF2 vol. 9: Hilary (OGLT); the homilies are a selection of the Tractatus.
+    "hilary-de-synodis": "oglt_pl/hilarius-pictaviensis/pl10_2_457",
+    "hilary-on-the-trinity": "oglt_pl/hilarius-pictaviensis/pl10_0_san",
+    "hilary-homilies-on-psalms": "oglt_pl/hilarius-pictaviensis/pl9_10_san",
+    # NPNF2 vol. 10: Ambrose (OGLT)
+    "ambrose-on-the-duties-of-the-clergy": _AMB_PL.format("pl16_0_san"),
+    "ambrose-on-the-holy-spirit": _AMB_PL.format("pl16_11_sa"),
+    "ambrose-on-the-decease-of-satyrus": _AMB_PL.format("pl16_21_sa"),
+    "ambrose-exposition-of-the-christian-faith": _AMB_PL.format("pl16_10_sa"),
+    "ambrose-on-the-mysteries": _AMB_PL.format("pl16_7_san"),
+    "ambrose-concerning-repentance": _AMB_PL.format("pl16_9_san"),
+    "ambrose-concerning-virgins": _AMB_PL.format("pl16_1_san"),
+    "ambrose-concerning-widows": _AMB_PL.format("pl16_2_san"),
+    # NPNF2 vol. 11-13 (OGLT)
+    "vincent-of-lerins-commonitory": "oglt_pl/vincentius-lirinensis/pl50_7_unk",
+    "leo-letters": "oglt_pl/leo-i-magnus/pl54_3_san",
+    "leo-sermons": "oglt_pl/leo-i-magnus/pl54_0_ser",
+    "gregory-the-great-pastoral-rule": "oglt_pl/gregorius-i-magnus/pl77_0_san",
+    # Both NPNF volumes translate a selection of the one PL Registrum.
+    "gregory-the-great-register-books-1-8": "oglt_pl/gregorius-i-magnus/pl77_9_",
+    "gregory-the-great-register-books-9-14": "oglt_pl/gregorius-i-magnus/pl77_9_",
+}
+
+#: Plausible originals deliberately *not* linked (slug → reason).
+_UNLINKED: dict[str, str] = {
+    "augustine-sermons-on-new-testament-lessons": "spread over the PL 38-39 sermon classes",
+    "athanasius-discourses-against-the-arians": "first1k has the four orations as four works",
+    "athanasius-canonical-epistles": "excerpts from three letters, not one work",
+    "eusebius-letter-to-his-church": "Opitz Urk. 22 is not among the PTA Dokumente in corpus",
+    "rufinus-prefaces-to-translations": "prefaces scattered across several PL works",
+    "jerome-prefaces": "prefaces scattered across many PL 28-29 files",
+    "ambrose-selected-letters": "selection spread over PL 16 'prima/secunda classis'",
+    "ambrose-sermon-against-auxentius": "printed inside the PL letter classes",
+    "symmachus-memorial-on-the-altar-of-victory": "PL 18 file is the letter collection; Relatio placement unverified",
+}
+
+_WORKS = link_originals(_WORKS, _ORIGINALS)
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
