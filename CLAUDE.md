@@ -26,7 +26,7 @@ patristica/
 ├── DATA_LICENSE.md            # texts keep their source licences; our own metadata is CC0
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
-├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR and push to master
+├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
 ├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → R2 (no-op if unchanged)
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
@@ -253,7 +253,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 - Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
 - The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
-- **CI** (`.github/workflows/ci.yml`) runs on every PR and every push to `master`. It has two jobs: Python unit tests, and the web app job (lint, typecheck, Vitest, build). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has two jobs: Python unit tests, and the web app job (lint, typecheck, Vitest, build). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
 ## Working with the Plan Docs
