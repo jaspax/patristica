@@ -24,7 +24,7 @@ patristica/
 ├── CLAUDE.md                  # this file
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
-├── .github/workflows/ci.yml   # CI: runs the test suite on every PR and push to master
+├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR and push to master
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   └── sources.py             # readable label for every source_id (SOURCE_LABELS)
@@ -44,6 +44,10 @@ patristica/
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
+├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
+│   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
+│   ├── src/components/        # shared UI (SiteHeader, SiteFooter)
+│   └── src/lib/               # lang.ts (ISO 639-3 → lang/dir/name), config.ts (NEXT_PUBLIC_* settings)
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -180,6 +184,17 @@ The collection period is defined once, in `patristica/period.py` (`AUTHOR_BORN_B
 
 Per-book date estimates for all 66 Protestant books plus the Deuterocanon are in `_scripture_meta.BOOK_DATES`. Use these as the default; override only when a source warrants a specific translation date (e.g. Clementine Vulgate: 405 CE).
 
+## Web app
+
+The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CSS modules, no Tailwind). It is the shell of the Phase 3 app (`IMPLEMENTATION_PLAN.md` §3).
+
+- **Node**: version 22, pinned in `web/.nvmrc`, installed with nvm. Shells need nvm loaded (`source ~/.nvm/nvm.sh`) before `node`/`npm` work.
+- **Commands** (run in `web/`): `npm ci`, `npm run dev`, `npm run lint`, `npm run typecheck` (runs `next typegen` first, since `LayoutProps`/`PageProps` are generated types), `npm test` (Vitest), `npm run build`. CI runs all of them in the `web` job.
+- **Next.js 16 differs from older versions.** Read the bundled docs in `web/node_modules/next/dist/docs/` before using a Next API (see `web/AGENTS.md`).
+- **Languages and fonts**: render corpus text with `lang` and `dir` from `languageInfo()` in `src/lib/lang.ts`. `globals.css` picks the script font with `:lang()` rules, and `src/app/fonts.ts` loads the fonts. Only the body font is preloaded.
+- **Config**: `NEXT_PUBLIC_LIBRARY_URL` is the base URL of the static library export (`scripts/export_library.py`). It defaults to `/library`.
+- New UI code comes with Vitest tests next to the code (`*.test.ts[x]`).
+
 ## Development Workflow
 
 These rules are mandatory for all changes, including ones made by Claude.
@@ -203,7 +218,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 - Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
 - The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
-- **CI** (`.github/workflows/ci.yml`) runs on every PR and every push to `master`. Today it runs the unit tests only; add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR and every push to `master`. It has two jobs: Python unit tests, and the web app job (lint, typecheck, Vitest, build). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
 ## Working with the Plan Docs

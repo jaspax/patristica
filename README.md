@@ -55,6 +55,26 @@ Enable the git hooks (rejects pushes to `master`; runs the unit tests before eve
 git config core.hooksPath scripts/hooks
 ```
 
+### Web app
+
+The frontend in `web/` is a Next.js (App Router, TypeScript) app. It needs Node.js 22; the version is pinned in `web/.nvmrc`, so with [nvm](https://github.com/nvm-sh/nvm):
+
+```bash
+cd web
+nvm install        # once; then `nvm use` in new shells
+npm ci
+npm run dev        # http://localhost:3000
+```
+
+Checks (all run in CI):
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
 ### Contributing
 
 - Work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues), not in checklists in the docs.
