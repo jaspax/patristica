@@ -1,0 +1,255 @@
+"""
+Upload the static library export to Cloudflare R2 for the deployed web app.
+
+Syncs ``data/library/`` (built by ``scripts.export_library``) to an R2 bucket
+through its S3-compatible API:
+
+- Works whose licence is not cleared for publication (``unknown``; see
+  DATA_LICENSE.md) are left out, and the uploaded ``index.json`` is filtered
+  to match.
+- Every object is stored gzip-compressed (``Content-Encoding: gzip``, built
+  deterministically), so its ETag is the MD5 of the compressed bytes. A file is
+  uploaded only when that differs from the bucket's ETag, which makes re-runs
+  cheap.
+- Objects in the bucket that are no longer part of the export are deleted
+  (disable with ``--no-delete``).
+
+Credentials come from the environment, or from ``.env`` / ``web/.env``:
+``R2_ACCOUNT_ID``, ``R2_ACCESS_KEY_ID``, ``R2_SECRET_ACCESS_KEY``, ``R2_BUCKET``.
+
+Usage::
+
+    uv run --extra deploy python -m scripts.upload_library [--dry-run] [--no-delete] [--set-cors]
+"""
+
+from __future__ import annotations
+
+import argparse
+import gzip
+import hashlib
+import json
+import logging
+import os
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from typing import Any
+
+from tqdm import tqdm
+
+log = logging.getLogger(__name__)
+
+#: Licences that may not be published (see DATA_LICENSE.md).
+EXCLUDED_LICENSES = frozenset({"unknown"})
+
+ENV_FILES = (Path(".env"), Path("web/.env"))
+REQUIRED_ENV = ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET")
+
+INDEX_KEY = "index.json"
+CACHE_INDEX = "public, max-age=300"
+CACHE_WORK = "public, max-age=3600"
+
+
+class UploadError(Exception):
+    """Raised for missing configuration or input."""
+
+
+def load_env_files(paths: tuple[Path, ...] = ENV_FILES) -> None:
+    """Read ``KEY=VALUE`` lines into ``os.environ`` without overriding existing values."""
+    for path in paths:
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
+
+
+def public_index(index: dict[str, Any]) -> dict[str, Any]:
+    """Return *index* without works whose licence is excluded from publication."""
+    works = [w for w in index["works"] if w["license"] not in EXCLUDED_LICENSES]
+    used = {w["source_id"] for w in works}
+    return {
+        **index,
+        "sources": {k: v for k, v in index["sources"].items() if k in used},
+        "works": works,
+    }
+
+
+def compress(data: bytes) -> bytes:
+    """Gzip *data* deterministically (fixed mtime), so unchanged files keep their ETag."""
+    return gzip.compress(data, compresslevel=9, mtime=0)
+
+
+def md5_hex(data: bytes) -> str:
+    return hashlib.md5(data).hexdigest()
+
+
+def plan_sync(
+    local: dict[str, str], remote: dict[str, str]
+) -> tuple[list[str], list[str]]:
+    """Return ``(keys to upload, keys to delete)`` given key → MD5 maps."""
+    upload = sorted(k for k, md5 in local.items() if remote.get(k) != md5)
+    delete = sorted(k for k in remote if k not in local)
+    return upload, delete
+
+
+UPLOAD_THREADS = 16
+
+
+def _client() -> Any:
+    import boto3  # optional dependency: `uv sync --extra deploy`
+    from botocore.config import Config
+
+    missing = [k for k in REQUIRED_ENV if not os.environ.get(k)]
+    if missing:
+        raise UploadError(
+            f"Missing R2 settings: {', '.join(missing)} (set them in .env or web/.env)"
+        )
+    return boto3.client(
+        "s3",
+        endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+        aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
+        aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
+        region_name="auto",
+        config=Config(max_pool_connections=UPLOAD_THREADS),
+    )
+
+
+def remote_etags(client: Any, bucket: str) -> dict[str, str]:
+    """Key → ETag (MD5 for single-part uploads) for every object in *bucket*."""
+    etags: dict[str, str] = {}
+    for page in client.get_paginator("list_objects_v2").paginate(Bucket=bucket):
+        for obj in page.get("Contents", []):
+            etags[obj["Key"]] = obj["ETag"].strip('"')
+    return etags
+
+
+CORS_RULES = [
+    {
+        "AllowedOrigins": ["*"],
+        "AllowedMethods": ["GET", "HEAD"],
+        "AllowedHeaders": ["*"],
+        "MaxAgeSeconds": 86400,
+    }
+]
+
+
+def set_cors(client: Any, bucket: str) -> None:
+    """Allow any origin to GET the (public) library files.
+
+    Needs a token with bucket admin rights; an object read/write token gets
+    AccessDenied, in which case set the same rule in the Cloudflare dashboard
+    (bucket → Settings → CORS policy).
+    """
+    from botocore.exceptions import ClientError
+
+    try:
+        client.put_bucket_cors(Bucket=bucket, CORSConfiguration={"CORSRules": CORS_RULES})
+    except ClientError as exc:
+        if exc.response.get("Error", {}).get("Code") != "AccessDenied":
+            raise
+        raise UploadError(
+            "This R2 token may not change bucket settings. Set the CORS policy in the "
+            "Cloudflare dashboard (R2 → bucket → Settings → CORS policy) to:\n"
+            + json.dumps(CORS_RULES, indent=2)
+        ) from exc
+    log.info("Set CORS on %s: GET/HEAD from any origin", bucket)
+
+
+def upload_library(
+    library_dir: Path, dry_run: bool = False, delete: bool = True, cors: bool = False
+) -> dict[str, int]:
+    """Sync *library_dir* to the R2 bucket.
+
+    Returns counts of uploaded, deleted and unchanged objects.
+    """
+    index_path = library_dir / INDEX_KEY
+    if not index_path.exists():
+        raise UploadError(f"{index_path} not found (run scripts.export_library first)")
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    pub = public_index(index)
+    excluded = len(index["works"]) - len(pub["works"])
+    if excluded:
+        log.info("Leaving out %d works with licences not cleared for publication", excluded)
+
+    # key → gzipped bytes is built lazily for works; the index is small.
+    index_gz = compress(json.dumps(pub, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
+    local: dict[str, str] = {INDEX_KEY: md5_hex(index_gz)}
+    for w in tqdm(pub["works"], desc="hash"):
+        path = library_dir / w["file"]
+        if not path.exists():
+            raise UploadError(f"Work file listed in index.json is missing: {path}")
+        local[w["file"]] = md5_hex(compress(path.read_bytes()))
+
+    client = _client()
+    bucket = os.environ["R2_BUCKET"]
+    if cors and not dry_run:
+        set_cors(client, bucket)
+    to_upload, to_delete = plan_sync(local, remote_etags(client, bucket))
+    if not delete:
+        to_delete = []
+    log.info(
+        "%d objects to upload, %d to delete, %d unchanged",
+        len(to_upload), len(to_delete), len(local) - len(to_upload),
+    )
+    if dry_run:
+        return {"uploaded": 0, "deleted": 0, "unchanged": len(local) - len(to_upload)}
+
+    def put(key: str) -> None:
+        body = index_gz if key == INDEX_KEY else compress((library_dir / key).read_bytes())
+        client.put_object(
+            Bucket=bucket,
+            Key=key,
+            Body=body,
+            ContentType="application/json; charset=utf-8",
+            ContentEncoding="gzip",
+            CacheControl=CACHE_INDEX if key == INDEX_KEY else CACHE_WORK,
+        )
+
+    # Upload works before the index, so the index never points at a missing file.
+    works_first = [k for k in to_upload if k != INDEX_KEY]
+    with ThreadPoolExecutor(max_workers=UPLOAD_THREADS) as pool:
+        list(tqdm(pool.map(put, works_first), total=len(works_first), desc="upload"))
+    if INDEX_KEY in to_upload:
+        put(INDEX_KEY)
+
+    for start in range(0, len(to_delete), 1000):
+        batch = to_delete[start:start + 1000]
+        client.delete_objects(Bucket=bucket, Delete={"Objects": [{"Key": k} for k in batch]})
+    if to_delete:
+        log.info("Deleted %d stale objects", len(to_delete))
+
+    return {
+        "uploaded": len(to_upload),
+        "deleted": len(to_delete),
+        "unchanged": len(local) - len(to_upload),
+    }
+
+
+def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    logging.getLogger("botocore").setLevel(logging.WARNING)
+    parser = argparse.ArgumentParser(
+        description="Upload the static library export to Cloudflare R2."
+    )
+    parser.add_argument("--library-dir", default="data/library")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="show what would change, upload nothing"
+    )
+    parser.add_argument(
+        "--no-delete", action="store_true", help="keep objects no longer in the export"
+    )
+    parser.add_argument("--set-cors", action="store_true", help="(re)apply the bucket's CORS rule")
+    args = parser.parse_args()
+
+    load_env_files()
+    counts = upload_library(
+        Path(args.library_dir), dry_run=args.dry_run, delete=not args.no_delete, cors=args.set_cors
+    )
+    log.info("Done: %s", counts)
+
+
+if __name__ == "__main__":
+    main()

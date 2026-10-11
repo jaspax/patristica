@@ -203,6 +203,8 @@ GET  /api/authors                      → Author list/browse
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
+*Current (library browser, #17):* the Next.js app is on Vercel (Hobby plan, production branch `master`, root directory `web`). The static library export is in a Cloudflare R2 bucket, uploaded with `scripts/upload_library.py`. Vercel's `NEXT_PUBLIC_LIBRARY_URL` points at the bucket's public URL. The R2 public URL and Vercel production URL are reachable by anyone who has them; Vercel Hobby can only restrict preview deployments.
+
 ### 3.5 Licensing & Attribution Requirements
 
 Every text carries its licence in `Work.license` (and provenance in `Work.provenance_url` / `Work.edition`). The public site must honour these:

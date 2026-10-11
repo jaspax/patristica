@@ -86,6 +86,17 @@ cd web && npm run link-data && npm run dev
 
 Then open http://localhost:3000. Re-run the export after the normalized data changes; the link stays.
 
+#### Deployment
+
+The deployed app runs on Vercel (root directory `web`) and reads the library from a Cloudflare R2 bucket. After re-exporting, publish the changes:
+
+```bash
+uv sync --extra deploy                                   # once: installs boto3
+uv run --extra deploy python -m scripts.upload_library   # add --dry-run to preview
+```
+
+The script reads `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` and `R2_BUCKET` from the environment, `.env` or `web/.env`. It uploads only changed files (gzip-compressed), deletes files that are no longer in the export, and leaves out works whose licence isn't cleared (`unknown`). In Vercel, set `NEXT_PUBLIC_LIBRARY_URL` to the bucket's public URL.
+
 ### Contributing
 
 - Work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues), not in checklists in the docs.
