@@ -8,7 +8,11 @@
   --page-width: 72rem;
   --text-width: 42rem;
   --gutter: 1rem;
-  --font-body: var(--font-serif), Georgia, serif;
+  /* Every script font is in the stack, so text in any corpus script renders
+     even without a lang attribute. Each font is fetched only when characters
+     in its unicode-range appear on the page. */
+  --font-body: var(--font-serif), var(--font-hebrew), var(--font-syriac), var(--font-coptic),
+    var(--font-ethiopic), var(--font-armenian), var(--font-gothic), Georgia, serif;
   color-scheme: light;
 }
 

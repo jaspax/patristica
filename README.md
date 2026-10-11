@@ -190,3 +190,13 @@ Normalized output (`data/normalized/`) is a JSON array of `Chunk` objects. Final
 - PostgreSQL + pgvector (database and vector search)
 - Next.js / React (frontend)
 - Claude API (AI translation and synthesis)
+
+---
+
+## License
+
+- **Code** (Python package, scripts, `web/`): [MIT](LICENSE).
+- **Texts**: each text keeps the licence of its source edition (public domain, CC BY, CC BY-SA, CC BY-NC(-SA), or the source's own terms), recorded per work in `Work.license`. Our changes to a text are shared under that text's licence. Some texts are non-commercial, so Patristica as a whole is non-commercial.
+- **Our own metadata**: CC0.
+
+See [DATA_LICENSE.md](DATA_LICENSE.md) for details, and the web app's *Sources & licences* page (`/sources`) for the per-collection list.
