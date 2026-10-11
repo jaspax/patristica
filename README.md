@@ -125,6 +125,16 @@ uv run python -m scripts.link_translations
 
 All three scripts accept `--help` for options, and support `--force` to overwrite existing output.
 
+### Export the static library
+
+The web library browser reads a static export of the normalized corpus:
+
+```bash
+uv run python -m scripts.export_library   # → data/library/index.json + data/library/works/…
+```
+
+It writes one index of all works (author, title, language, date, collection, …) and a slim JSON file per work. Re-runs only rebuild works whose normalized file changed; `--force` rebuilds everything.
+
 ### Raw data format
 
 Each ingestor writes one JSON file per book to `data/raw/{source_id}/`:
