@@ -75,6 +75,17 @@ npm test
 npm run build
 ```
 
+#### Library browser
+
+The app's library browser (work index with search and sort, plus a reader) reads a static export of the corpus. Build it and link it into the app once:
+
+```bash
+uv run python -m scripts.export_library   # in the repo root
+cd web && npm run link-data && npm run dev
+```
+
+Then open http://localhost:3000. Re-run the export after the normalized data changes; the link stays.
+
 ### Contributing
 
 - Work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues), not in checklists in the docs.

@@ -151,7 +151,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 | Component | Choice |
 |---|---|
 | Backend API | FastAPI (Python) |
-| Frontend | Next.js 14+ (React, TypeScript) |
+| Frontend | Next.js 16 (React, TypeScript), in `web/` |
 | Auth | Optional at launch; add later for saved searches/notes |
 | Deployment | Docker Compose (dev), cloud VM + managed Postgres (prod) |
 | AI features | Claude API (Anthropic) |
@@ -183,6 +183,8 @@ This means `Work.title` and `Work.author` must be the individual work's identity
 **Browse:**
 - By author, tradition, time period, work
 - Scripture browser with cross-links to Patristic commentary
+
+*Status:* a first library browser exists (`web/`, #16). It has a work index with client-side search, facets, date range and sorting, and a reader that renders normalized chunks as text. It reads the static export from `scripts/export_library.py` (`index.json` plus one JSON file per work), not an API. When the FastAPI backend exists, replace those fetches in `web/src/lib/library.ts` with `/api/works/*`. The rendering rules (section headings from the ref hierarchy, rubrics, out-of-period marking) live in `web/src/lib/render.ts`.
 
 ### 3.3 API Routes (FastAPI)
 

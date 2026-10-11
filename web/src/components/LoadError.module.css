@@ -1,0 +1,14 @@
+.error {
+  max-width: var(--text-width);
+  padding: 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+.error p + p {
+  margin-top: 0.5rem;
+}
+
+.error code {
+  font-size: 0.9em;
+}

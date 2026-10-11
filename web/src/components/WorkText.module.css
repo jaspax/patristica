@@ -1,0 +1,126 @@
+.toc {
+  max-width: var(--text-width);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.toc summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.toc ol {
+  list-style: none;
+  margin-top: 0.5rem;
+  max-height: 24rem;
+  overflow-y: auto;
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: 0.75rem;
+}
+
+.text {
+  max-width: calc(var(--text-width) + 2.5rem);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+/* Skip layout and paint for off-screen sections and paragraphs; the largest
+   works have close to 10,000 paragraphs. */
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 20rem;
+  margin-bottom: 1.5rem;
+}
+
+.verses,
+.section h2,
+.section h3,
+.section h4 {
+  padding-inline-start: 2.5rem;
+}
+
+.section h2,
+.section h3,
+.section h4 {
+  line-height: 1.35;
+  margin: 1.5rem 0 0.75rem;
+  scroll-margin-top: 1rem;
+}
+
+.section h2 {
+  font-size: 1.3rem;
+}
+
+.section h3 {
+  font-size: 1.12rem;
+}
+
+.section h4 {
+  font-size: 1rem;
+}
+
+.title {
+  font-weight: 600;
+}
+
+/* Headings derived from the ref path rather than the source text. */
+.label {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.95rem !important;
+  letter-spacing: 0.03em;
+}
+
+.para {
+  position: relative;
+  margin-bottom: 0.8rem;
+  /* The paragraph number sits in this padding: content-visibility clips
+     anything painted outside the box. */
+  padding-inline-start: 2.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 4rem;
+}
+
+.marker {
+  position: absolute;
+  inset-inline-start: 0;
+  width: 2rem;
+  text-align: end;
+  font-size: 0.72rem;
+  line-height: 2.6;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.marker:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.verses .n {
+  font-size: 0.65em;
+  color: var(--muted);
+  margin-inline-end: 0.2em;
+  font-variant-numeric: tabular-nums;
+}
+
+.rubric {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.oop {
+  opacity: 0.55;
+}
+
+.para.oop::after {
+  content: "after the period";
+  margin-inline-start: 0.5rem;
+  font-size: 0.7rem;
+  padding: 0 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--muted);
+}
