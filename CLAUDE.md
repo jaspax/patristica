@@ -203,6 +203,9 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 
 ### Deployment
 
+- **Production:** https://patristica-beta.vercel.app/ (Vercel team `patristica1`). It is public; preview and per-deployment URLs require a Vercel login. `patristica.vercel.app` belongs to an unrelated project.
+- **Library data:** https://pub-7022ba788905451f9b1a0db66d769964.r2.dev (Cloudflare R2, e.g. `https://pub-7022ba788905451f9b1a0db66d769964.r2.dev/index.json`).
+
 Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in Cloudflare R2: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the bucket's public `r2.dev` URL.
 
 - To publish data changes, run `scripts.export_library`, then `scripts.upload_library`. R2 credentials are in `web/.env` (gitignored). Never print or commit them.
