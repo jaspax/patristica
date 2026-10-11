@@ -49,7 +49,7 @@ Run the test suite:
 uv run pytest
 ```
 
-Enable the git hooks (runs the unit tests before every push):
+Enable the git hooks (rejects pushes to `master`; runs the unit tests before every push):
 
 ```bash
 git config core.hooksPath scripts/hooks

@@ -41,7 +41,7 @@ patristica/
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
-│   └── hooks/pre-push         # git hook: runs unit tests (enable: git config core.hooksPath scripts/hooks)
+│   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -198,7 +198,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 ### Tests, hooks and CI
 
 - Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
-- The **pre-push hook** (`scripts/hooks/pre-push`) runs the unit tests and aborts the push on failure. Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
+- The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
 - **CI** (`.github/workflows/ci.yml`) runs on every PR and every push to `master`. Today it runs the unit tests only; add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
