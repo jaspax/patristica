@@ -1,9 +1,10 @@
 name: CI
 
+# Runs on PRs only: everything reaches master through a PR (the pre-push hook
+# blocks direct pushes). Before merging, re-run a PR's checks if master has
+# moved since its last run; use workflow_dispatch to check master itself.
 on:
   pull_request:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 concurrency:
