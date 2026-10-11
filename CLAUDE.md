@@ -45,6 +45,7 @@ patristica/
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
+│   ├── upload_library.py      # sync data/library → Cloudflare R2 (deploy extra; skips unpublishable licences)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
@@ -168,6 +169,7 @@ uv run python -m scripts.link_translations # assign translation_group_id
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
+uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
 ```
 
 All accept `--help`. `normalize.py` currently processes `genre: scripture` only; prose genres are stubbed for M3+.
@@ -198,6 +200,15 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 - **Languages and fonts**: render corpus text with `lang` and `dir` from `languageInfo()` in `src/lib/lang.ts`. `globals.css` picks the script font with `:lang()` rules, and `src/app/fonts.ts` loads the fonts. Only the body font is preloaded.
 - **Config**: `NEXT_PUBLIC_LIBRARY_URL` is the base URL of the static library export (`scripts/export_library.py`). It defaults to `/library`.
 - New UI code comes with Vitest tests next to the code (`*.test.ts[x]`).
+
+### Deployment
+
+Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in Cloudflare R2: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the bucket's public `r2.dev` URL.
+
+- To publish data changes, run `scripts.export_library`, then `scripts.upload_library`. R2 credentials are in `web/.env` (gitignored). Never print or commit them.
+- Objects are stored gzipped with `Content-Encoding: gzip`, so their ETags are MD5s of the compressed bytes, which makes re-runs incremental.
+- The bucket's CORS policy (GET/HEAD from any origin) is set in the Cloudflare dashboard. The upload token has object read/write permission only, so `--set-cors` gets AccessDenied and prints the policy to apply.
+- `EXCLUDED_LICENSES` in `upload_library.py` keeps unpublishable works (`unknown`) out of the public copy.
 
 ### Library browser
 
