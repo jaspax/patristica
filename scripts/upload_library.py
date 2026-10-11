@@ -7,10 +7,15 @@ through its S3-compatible API:
 - Works whose licence is not cleared for publication (``unknown``; see
   DATA_LICENSE.md) are left out, and the uploaded ``index.json`` is filtered
   to match.
-- Every object is stored gzip-compressed (``Content-Encoding: gzip``, built
-  deterministically), so its ETag is the MD5 of the compressed bytes. A file is
-  uploaded only when that differs from the bucket's ETag, which makes re-runs
-  cheap.
+- Every object is stored gzip-compressed (``Content-Encoding: gzip``).
+- Changes are detected from content, not from the stored bytes: the bucket
+  holds a manifest (``_manifest.json``: key → SHA-256 of the *uncompressed*
+  content), and a file is uploaded only when its hash differs or the object is
+  missing. Gzip output varies between Python and zlib versions (even the
+  header's OS byte), so comparing compressed bytes or ETags would re-upload
+  everything whenever the uploading machine changes. The manifest is written
+  last, after all uploads and deletes succeed, so an interrupted run is simply
+  retried.
 - Objects in the bucket that are no longer part of the export are deleted
   (disable with ``--no-delete``).
 
@@ -45,6 +50,7 @@ ENV_FILES = (Path(".env"), Path("web/.env"))
 REQUIRED_ENV = ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET")
 
 INDEX_KEY = "index.json"
+MANIFEST_KEY = "_manifest.json"
 CACHE_INDEX = "public, max-age=300"
 CACHE_WORK = "public, max-age=3600"
 
@@ -78,20 +84,26 @@ def public_index(index: dict[str, Any]) -> dict[str, Any]:
 
 
 def compress(data: bytes) -> bytes:
-    """Gzip *data* deterministically (fixed mtime), so unchanged files keep their ETag."""
+    """Gzip *data* for storage with ``Content-Encoding: gzip``."""
     return gzip.compress(data, compresslevel=9, mtime=0)
 
 
-def md5_hex(data: bytes) -> str:
-    return hashlib.md5(data).hexdigest()
+def sha256_hex(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
 
 
 def plan_sync(
-    local: dict[str, str], remote: dict[str, str]
+    local: dict[str, str], manifest: dict[str, str], present: set[str]
 ) -> tuple[list[str], list[str]]:
-    """Return ``(keys to upload, keys to delete)`` given key → MD5 maps."""
-    upload = sorted(k for k, md5 in local.items() if remote.get(k) != md5)
-    delete = sorted(k for k in remote if k not in local)
+    """Return ``(keys to upload, keys to delete)``.
+
+    *local* and *manifest* map key → SHA-256 of the uncompressed content (what
+    we have, and what the bucket last received); *present* is the set of keys
+    actually in the bucket. A key is uploaded when its hash changed or the
+    object is missing; objects not in *local* are deleted (except the manifest).
+    """
+    upload = sorted(k for k, h in local.items() if manifest.get(k) != h or k not in present)
+    delete = sorted(k for k in present if k not in local and k != MANIFEST_KEY)
     return upload, delete
 
 
@@ -117,13 +129,26 @@ def _client() -> Any:
     )
 
 
-def remote_etags(client: Any, bucket: str) -> dict[str, str]:
-    """Key → ETag (MD5 for single-part uploads) for every object in *bucket*."""
-    etags: dict[str, str] = {}
+def remote_keys(client: Any, bucket: str) -> set[str]:
+    """Every object key in *bucket*."""
+    keys: set[str] = set()
     for page in client.get_paginator("list_objects_v2").paginate(Bucket=bucket):
-        for obj in page.get("Contents", []):
-            etags[obj["Key"]] = obj["ETag"].strip('"')
-    return etags
+        keys.update(obj["Key"] for obj in page.get("Contents", []))
+    return keys
+
+
+def read_manifest(client: Any, bucket: str) -> dict[str, str]:
+    """The bucket's manifest (key → content SHA-256), or ``{}`` if there is none yet."""
+    from botocore.exceptions import ClientError
+
+    try:
+        body = client.get_object(Bucket=bucket, Key=MANIFEST_KEY)["Body"].read()
+    except ClientError as exc:
+        if exc.response.get("Error", {}).get("Code") in ("NoSuchKey", "404"):
+            log.info("No manifest in the bucket yet; every file counts as changed")
+            return {}
+        raise
+    return dict(json.loads(gzip.decompress(body)))
 
 
 CORS_RULES = [
@@ -174,20 +199,20 @@ def upload_library(
     if excluded:
         log.info("Leaving out %d works with licences not cleared for publication", excluded)
 
-    # key → gzipped bytes is built lazily for works; the index is small.
-    index_gz = compress(json.dumps(pub, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
-    local: dict[str, str] = {INDEX_KEY: md5_hex(index_gz)}
+    index_bytes = json.dumps(pub, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    local: dict[str, str] = {INDEX_KEY: sha256_hex(index_bytes)}
     for w in tqdm(pub["works"], desc="hash"):
         path = library_dir / w["file"]
         if not path.exists():
             raise UploadError(f"Work file listed in index.json is missing: {path}")
-        local[w["file"]] = md5_hex(compress(path.read_bytes()))
+        local[w["file"]] = sha256_hex(path.read_bytes())
 
     client = _client()
     bucket = os.environ["R2_BUCKET"]
     if cors and not dry_run:
         set_cors(client, bucket)
-    to_upload, to_delete = plan_sync(local, remote_etags(client, bucket))
+    manifest = read_manifest(client, bucket)
+    to_upload, to_delete = plan_sync(local, manifest, remote_keys(client, bucket))
     if not delete:
         to_delete = []
     log.info(
@@ -197,15 +222,16 @@ def upload_library(
     if dry_run:
         return {"uploaded": 0, "deleted": 0, "unchanged": len(local) - len(to_upload)}
 
-    def put(key: str) -> None:
-        body = index_gz if key == INDEX_KEY else compress((library_dir / key).read_bytes())
+    def put(key: str, data: bytes | None = None, cache: str = CACHE_WORK) -> None:
+        if data is None:
+            data = (library_dir / key).read_bytes()
         client.put_object(
             Bucket=bucket,
             Key=key,
-            Body=body,
+            Body=compress(data),
             ContentType="application/json; charset=utf-8",
             ContentEncoding="gzip",
-            CacheControl=CACHE_INDEX if key == INDEX_KEY else CACHE_WORK,
+            CacheControl=cache,
         )
 
     # Upload works before the index, so the index never points at a missing file.
@@ -213,13 +239,17 @@ def upload_library(
     with ThreadPoolExecutor(max_workers=UPLOAD_THREADS) as pool:
         list(tqdm(pool.map(put, works_first), total=len(works_first), desc="upload"))
     if INDEX_KEY in to_upload:
-        put(INDEX_KEY)
+        put(INDEX_KEY, index_bytes, CACHE_INDEX)
 
     for start in range(0, len(to_delete), 1000):
         batch = to_delete[start:start + 1000]
         client.delete_objects(Bucket=bucket, Delete={"Objects": [{"Key": k} for k in batch]})
     if to_delete:
         log.info("Deleted %d stale objects", len(to_delete))
+
+    # Last: record what the bucket now holds.
+    if local != manifest:
+        put(MANIFEST_KEY, json.dumps(local, sort_keys=True).encode("utf-8"), "no-store")
 
     return {
         "uploaded": len(to_upload),
@@ -241,12 +271,17 @@ def main() -> None:
     parser.add_argument(
         "--no-delete", action="store_true", help="keep objects no longer in the export"
     )
-    parser.add_argument("--set-cors", action="store_true", help="(re)apply the bucket's CORS rule")
+    parser.add_argument(
+        "--set-cors", action="store_true", help="(re)apply the bucket's CORS rule"
+    )
     args = parser.parse_args()
 
     load_env_files()
     counts = upload_library(
-        Path(args.library_dir), dry_run=args.dry_run, delete=not args.no_delete, cors=args.set_cors
+        Path(args.library_dir),
+        dry_run=args.dry_run,
+        delete=not args.no_delete,
+        cors=args.set_cors,
     )
     log.info("Done: %s", counts)
 
