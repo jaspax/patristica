@@ -325,6 +325,8 @@ dependencies = [
 
 ## 10. Milestone Checklist
 
+> **Frozen (Phase 1 complete, 2026-10-10).** This checklist is the historical record of Phase 1. New and outstanding work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues); do not add items here.
+
 ### Milestone 1: Infrastructure (session 1)
 - [x] Scaffold directory structure
 - [x] `pyproject.toml` + dev environment
@@ -436,7 +438,7 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 - `out_of_period` is per chunk (rule in `patristica/period.py`): works composed entirely after the period are excluded; hybrid/straddling works (Typikon, CANTUS, OGPG PG 3/4/97/119/120, a few OGLT PL files) are kept with date-derived flags — filter at query time.
 - Licences vary per work (`Work.license`): most are public domain or CC-BY(-SA); LXX Rahlfs (eliranwong) and the PTA Peshitta OT are non-commercial.
 
-**Open issues for the Phase 2 implementation** (chunk size normalization before embedding; embedding-model coverage of Coptic/Syriac/Armenian/Ge'ez/Gothic) are tracked in `IMPLEMENTATION_PLAN.md` §2.5; licensing obligations for the public site in §3.5.
+**Open issues for the Phase 2 implementation** (chunk size normalization before embedding, [#2](https://github.com/jaspax/patristica/issues/2); embedding-model coverage of Coptic/Syriac/Armenian/Ge'ez/Gothic, [#3](https://github.com/jaspax/patristica/issues/3)) are described in `IMPLEMENTATION_PLAN.md` §2.5; licensing obligations for the public site in §3.5.
 
 **Known caveats carried into Phase 2**: OGPG volumes are not split into individual works and remain noisier than PTA/First1K for the same authors (see "Custom OCR pipeline" decision criteria); 879 works without author (mostly liturgical, council, anonymous apocrypha — honest anonymity); 211 OGLT PL works undated; one deliberate `period_flag_mismatch` warning (Ethiopic Synaxarion, hybrid liturgical); remaining text-quality warnings are listed in `data/validation_report.json`.
 
@@ -452,14 +454,14 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 | TLG and modern *Patrologia Orientalis* volumes behind paywall | Defer; seek institutional access. Note: PO volumes from 1904 to c.1930 (roughly PO 1–22) are public domain and scanned on archive.org, but need OCR (bilingual pages, Oriental scripts) — see §12 "Broader Non-Chalcedonian coverage" |
 | Migne PG OCR quality highly variable | Use Open PG GitHub (already OCR'd); supplement with PTA where critical editions exist |
 | OGLT PL attribution | The 502 anonymous split files are resolved via `scripts/ingest/data/oglt_pl_index.csv`. Remaining: header-attributed works carry volume-level (often wrong) author/title — M8 item; a few kept works are hybrids (PL8_4 Donation of Constantine + Armenian Letter of Concord; PL66_7 with an Alberic of Monte Cassino sermon; PL66_1 Rule with Martène commentary) that cannot be split per chunk |
-| CCEL/OGPG `Work.title` is set to collection/volume name, not individual work title | Currently `Work.title = "ANTE-NICENE FATHERS"` or `"Patrologia Graeca Vol. 1"` for most works in these collections. **M7 TODO** (see title/author extraction audit item above): replace with the actual work title; move collection identity to `Work.edition`. Until fixed, the lookup tool and any Phase 3 UI will surface collection names instead of work titles as the primary label. |
+| CCEL/OGPG `Work.title` is set to collection/volume name, not individual work title | Currently `Work.title = "ANTE-NICENE FATHERS"` or `"Patrologia Graeca Vol. 1"` for most works in these collections. Tracked in [#10](https://github.com/jaspax/patristica/issues/10): replace with the actual work title; move collection identity to `Work.edition`. Until fixed, the lookup tool and any Phase 3 UI will surface collection names instead of work titles as the primary label. |
 | Gallican/Mozarabic liturgy sources are 19th-century editions (may contain editorial additions) | Document edition metadata; flag as `edition_date: 1855` etc. |
 | `WEB.csv` does not exist in scrollmapper/bible_databases | Use eBible.org USFM (`engwebp_usfm.zip`) — already implemented |
 | SBLGNT is NOT OSIS XML — uses Logos custom format | Custom parser implemented in `sblgnt.py`; `parse_osis` will not work for it |
 | LXX Rahlfs (eliranwong repo) has CCAT user-declaration requirement | Non-commercial only; word CSV is 3-column, verse index is start-only — see `lxx_rahlfs.py` |
-| ASV from scrollmapper is only 48/66 books | Some NT books appear to be missing from the scrollmapper ASV CSV; investigate before M7 QC |
+| ASV from scrollmapper is only 48/66 books | Resolved: `data/raw/scripture/asv/` now has all 66 books |
 | `beta2unicode` package does not exist on PyPI | Betacode conversion for any CCAT-sourced text (Tier 2) needs a custom solution at ingest time |
-| CCEL ANF/NPNF `translation_of` is null for all 343 works | English translations not yet linked to Greek/Latin originals. M7 TODO: match by author abbreviation + canonical ref structure against First1KGreek/PTA/Perseus. |
+| CCEL ANF/NPNF `translation_of` is null for all 343 works | English translations not yet linked to Greek/Latin originals. Tracked in [#11](https://github.com/jaspax/patristica/issues/11): match by author abbreviation + canonical ref structure against First1KGreek/PTA/Perseus. |
 | First1KGreek/Perseus TEI headers have no composition dates; both repos are mostly classical pagan literature | The −50 CE / late-date filters never fired (every work was `uncertain`), so ~1,700 classical works (Plutarch, Galen, Cicero, …), works after the period (Anna Comnena, Zonaras) and French/German translations tagged `grc` were ingested. Fixed by an author-ID allowlist in `scripts/ingest/_cts_scope.py` (Christian/Jewish first-millennium literature, plus Procopius) and strict edition-suffix language matching; ingestors prune previously written out-of-scope files. NT (`tlg0031`) and LXX (`tlg0527`) excluded as covered by scripture ingestors. Pagan authors writing about Christians (Julian, etc.) are a possible future expansion. |
 | arak29.org (Armenian) restarts verse numbering mid-chapter and has label typos | Mapped onto LXX versification via `_RESTART_RULES` in `armenian.py` (Ps 9 / 113 continue numbering, Ps 151 split out of the Ps 150 page, Prov 24:22a–e, Armenian-only Song 8:15–20); Exod 39 label typo fixed via `_LABEL_TYPOS`; Sirach's scrambled partial verses get letter suffixes (`Sir.16.13b`). Ref dedup across First1K/Perseus/PTA/OGLT PL now uses the shared `_common.dedupe_refs`. |
 | Perseus Latin repo contains `.tracking.json` files from the CTS system | Repos stored under `data/raw/_repos/` (not `data/raw/patristic/`) to prevent catalog and normalize.py from treating them as source files. Do not move repos back into `patristic/`. |
@@ -477,12 +479,12 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 Requires a research project. Some of this stuff has poor online visibility.
 Consider doing OCR (see below) over Google Books where necessary.
 
-- [ ] **Patrologia Orientalis (public-domain volumes)** — not in the corpus at all today. The series (Graffin & Nau, 1904–) is the main edition of Syriac, Coptic, Arabic, Armenian, Ethiopic and Georgian Christian texts, each with a French or Latin translation. The plan lists it as Tier 4 "Subscription (Brepols)" and Known Gaps as "behind paywall", but that applies only to the modern volumes: the early volumes (1904 to c.1930, roughly PO 1–22) are public domain and scanned on archive.org. Ingesting them requires OCR — the scans have no usable text layer for the Oriental scripts, and pages are bilingual (original + translation), so the column/script separation problem described under Custom OCR Pipeline applies here too; consider ingesting the French/Latin translation first and the original-language text where OCR models exist (Syriac, Ge'ez, Armenian are the hardest). Includes the Coptic and Armenian synaxaria listed under the synaxaria items below, plus Severus of Antioch's homilies and letters, John of Ephesus, the History of the Patriarchs of Alexandria, and Ephrem and Jacob of Serugh texts. Start with an inventory: volume → contents → language → copyright status
+- **Patrologia Orientalis (public-domain volumes)** — [#4](https://github.com/jaspax/patristica/issues/4). The modern volumes are subscription-only (Tier 4), but PO 1–22 (1904 to c.1930) are public domain on archive.org; needs OCR of bilingual pages. Covers the Coptic and Armenian synaxaria below, Severus of Antioch, John of Ephesus, the History of the Patriarchs of Alexandria, Ephrem and Jacob of Serugh.
 
 ### Additional Scrapes
 
-- [ ] Tertullian.org corpus scrape — **DEFERRED from M6**: Tertullian already has 30 Latin works from Perseus (`stoa0275`); English ANF translations in cached `anf03.xml` as large blobs; dedicated ingestors for individual works (Apologeticus, De Baptismo, etc.) should be part of the "ANF full QA pass" in M7
-- [ ] https://www.newadvent.org/fathers/ document scrape (only where original-language sources have not been found) — **DEFERRED from M6**: newadvent.org content is largely sourced from CCEL ANF/NPNF, which we already have; unique works (e.g. Aphrahat Demonstrations → NPNF2 vol 13 already cached) are attribution-gap issues, not missing source data; address in M7 QA
+- Tertullian per-work ingestors / tertullian.org scrape — [#8](https://github.com/jaspax/patristica/issues/8) (deferred from M6)
+- newadvent.org Fathers scrape, only where no other source exists — [#9](https://github.com/jaspax/patristica/issues/9) (deferred from M6)
 
 ### Custom OCR Pipeline (Post-Phase 1, if needed)
 
@@ -499,7 +501,7 @@ If the M7 dictionary filter + cross-scan voting strategy does not bring OPG qual
 **Decision criteria**: Pursue this path if post-M7 search evaluation shows that OPG result quality is materially worse than PTA/First1KGreek results for the same authors (e.g., Origen, Chrysostom, Athanasius), and the dictionary filter has not closed that gap.
 
 ### Oriental Synaxaria
-- [ ] **Ethiopic Synaxarion: split by commemoration, then apply the period rule** — `scripture/gez/synax` is currently one 11,408-character chunk (`Synax.1.1`) covering only the month of Maskaram (the LPettay/ethiopian-bible source has just `chapters/Synax/1.json`), kept whole as a hybrid liturgical text and the source of the one `period_flag_mismatch` warning. Split it into one chunk (or work) per commemoration using its embedded day/saint headings, give each commemoration the date of the saint or event it commemorates, and apply `patristica.period` per commemoration: keep first-millennium saints, flag or drop later ones (Ethiopian saints of the 13th–15th c., e.g. Takla Haymanot), instead of treating the whole book as one hybrid. Consider sourcing the full year from Beta Masaheft's TEI edition, which this data derives from; regenerate refs as e.g. `Synax.{month}.{day}.{n}`. Same approach applies later to other synaxaria/menologia (Armenian Yaysmawurk', Coptic Synaxarium)
-- [ ] **Armenian Synaxarion (Yaysmawurk')** — acquire and ingest the Armenian synaxarion (compiled by Ter Israel, 13th c., with first-millennium core material and later additions). Candidate source: Bayan's edition with French translation in *Patrologia Orientalis* 5–6, 15–16, 18–19, 21 (1910–1930, public domain; scans on archive.org), or a digital Yaysmawurk' text if one can be found. Split by commemoration, date each by the saint or event, and apply `patristica.period` per commemoration, as for the Ethiopic Synaxarion. Likely needs OCR (see Custom OCR Pipeline)
-- [ ] **Coptic Synaxarium (Arabic, Alexandrian recension)** — acquire and ingest the Copto-Arabic synaxarium (compiled 13th–14th c. from older material). Candidate sources: Basset's edition and French translation in *Patrologia Orientalis* 1, 3, 11, 16, 17, 20 (1904–1929, public domain; archive.org), or Forget's edition in CSCO. The text is Arabic, so `patristica/models.py` `Language` needs an Arabic code (`arb`). Split and date per commemoration, as above. Likely needs OCR
+- **Ethiopic Synaxarion**: split by commemoration and apply the period rule per commemoration — [#5](https://github.com/jaspax/patristica/issues/5)
+- **Armenian Synaxarion (Yaysmawurk')** — [#6](https://github.com/jaspax/patristica/issues/6)
+- **Coptic Synaxarium (Arabic, Alexandrian recension)** — [#7](https://github.com/jaspax/patristica/issues/7)
 

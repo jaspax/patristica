@@ -123,13 +123,13 @@ translation_groups (id)      -- joins parallel chunks across languages
 
 Inputs and the data contract are described in `DATA_COLLECTION_PLAN.md` → "Phase 2 Handoff".
 
-1. **Chunk size normalization.** Phase 1 chunks are source units (verse, paragraph, div), and their sizes vary wildly. Measured with `cl100k_base`:
+1. **Chunk size normalization** ([#2](https://github.com/jaspax/patristica/issues/2)). Phase 1 chunks are source units (verse, paragraph, div), and their sizes vary wildly. Measured with `cl100k_base`:
    - 302 chunks exceed 8,191 tokens, the OpenAI embedding input limit. The worst are whole PTA manuscripts (`pta0022`) at up to ~144k tokens each; others come from OGLT PL (112), First1KGreek (48) and the Mozarabic/Gallican OCR (38).
    - ~68k chunks exceed 512 tokens (the `multilingual-e5-large` limit); ~39k exceed 2,000 tokens.
    - ~11k chunks are under 10 characters (headings, verse numbers, OCR fragments).
 
    Add a size-normalization step before embedding, ideally in `scripts/chunk.py` so `data/chunks/` is embedding-ready: split oversized chunks on sentence/clause boundaries into sub-chunks with stable derived refs (e.g. `{canonical_ref}.s{n}`) that keep `work_id`, dates and `translation_group_id`; merge or drop trivially short chunks. The target size depends on the embedding model (item 2), so decide them together.
-2. **Embedding model coverage of rare scripts.** ~100k chunks are Coptic, Syriac, Armenian, Ge'ez or Gothic (plus polytonic Greek and Hebrew). Both candidate models are trained mostly on high-resource languages. Before committing, evaluate candidates on a small labelled set per language — e.g. retrieve the parallel verse via `translation_group_id`, or match a CCEL translation to its original via `Work.translation_of` — and check whether a model makes these languages searchable or only Latin/Greek/English. Options if none is adequate: search rare-language texts via their translations (`translation_of` / translation groups), a per-language model, or full-text fallback only.
+2. **Embedding model coverage of rare scripts** ([#3](https://github.com/jaspax/patristica/issues/3)). ~100k chunks are Coptic, Syriac, Armenian, Ge'ez or Gothic (plus polytonic Greek and Hebrew). Both candidate models are trained mostly on high-resource languages. Before committing, evaluate candidates on a small labelled set per language — e.g. retrieve the parallel verse via `translation_group_id`, or match a CCEL translation to its original via `Work.translation_of` — and check whether a model makes these languages searchable or only Latin/Greek/English. Options if none is adequate: search rare-language texts via their translations (`translation_of` / translation groups), a per-language model, or full-text fallback only.
 
 ### 2.4 Search API (internal)
 
