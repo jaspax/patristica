@@ -46,8 +46,10 @@ patristica/
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
-│   ├── src/components/        # shared UI (SiteHeader, SiteFooter)
-│   └── src/lib/               # lang.ts (ISO 639-3 → lang/dir/name), config.ts (NEXT_PUBLIC_* settings)
+│   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
+│   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), WorkReader + WorkText (reader)
+│   └── src/lib/               # library.ts (export types/loaders), filter.ts (search/sort/URL state),
+│                              # render.ts (chunks → sections/units), lang.ts, format.ts, config.ts
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -194,6 +196,20 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 - **Languages and fonts**: render corpus text with `lang` and `dir` from `languageInfo()` in `src/lib/lang.ts`. `globals.css` picks the script font with `:lang()` rules, and `src/app/fonts.ts` loads the fonts. Only the body font is preloaded.
 - **Config**: `NEXT_PUBLIC_LIBRARY_URL` is the base URL of the static library export (`scripts/export_library.py`). It defaults to `/library`.
 - New UI code comes with Vitest tests next to the code (`*.test.ts[x]`).
+
+### Library browser
+
+`/` is the work index and `/works/{work_id}` is the reader. Both load the static library export in the browser. To run it locally:
+
+```bash
+uv run python -m scripts.export_library   # repo root: data/normalized → data/library
+cd web && npm run link-data               # symlink public/library → ../../data/library (once)
+npm run dev
+```
+
+- Index state (query, facets, date range, sort) lives in the URL query, so links can be shared.
+- `src/lib/render.ts` turns refs into structure. The last ref segment is the unit number and the rest is the section path. A chunk whose ref is the parent of the next ref is a section heading. A zero-numbered first unit is a heading in liturgy and scripture. Short all-caps lines in liturgical texts are rubrics.
+- Huge works (up to ~9.4k chunks) rely on `content-visibility: auto` instead of virtualization. Content-visibility clips anything painted outside the box, so keep margin content (paragraph numbers) inside the element's padding.
 
 ## Development Workflow
 
