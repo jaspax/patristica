@@ -9,9 +9,9 @@ from pathlib import Path
 import pytest
 
 from scripts.upload_library import (
+    MANIFEST_KEY,
     compress,
     load_env_files,
-    md5_hex,
     plan_sync,
     public_index,
 )
@@ -33,19 +33,31 @@ def test_public_index_drops_uncleared_licences():
     assert len(index["works"]) == 2  # input untouched
 
 
-def test_compress_is_deterministic_and_round_trips():
+def test_compress_round_trips():
     data = b'{"chunks": [["1", "\xce\xb1"]]}'
-    assert compress(data) == compress(data)
     assert gzip.decompress(compress(data)) == data
-    assert md5_hex(compress(data)) == md5_hex(compress(data))
 
 
-def test_plan_sync():
+def test_plan_sync_compares_content_hashes():
     local = {"index.json": "a", "works/x.json": "b", "works/new.json": "c"}
-    remote = {"index.json": "a", "works/x.json": "OLD", "works/gone.json": "d"}
-    upload, delete = plan_sync(local, remote)
+    manifest = {"index.json": "a", "works/x.json": "OLD", "works/gone.json": "d"}
+    present = {"index.json", "works/x.json", "works/gone.json", MANIFEST_KEY}
+    upload, delete = plan_sync(local, manifest, present)
     assert upload == ["works/new.json", "works/x.json"]
-    assert delete == ["works/gone.json"]
+    assert delete == ["works/gone.json"]  # never the manifest itself
+
+
+def test_plan_sync_reuploads_missing_objects_and_handles_no_manifest():
+    local = {"index.json": "a", "works/x.json": "b"}
+    # Manifest says x was uploaded, but the object is gone.
+    assert plan_sync(local, local, {"index.json"}) == (["works/x.json"], [])
+    # First run: no manifest, so everything uploads.
+    assert plan_sync(local, {}, {"index.json", "works/x.json"})[0] == ["index.json", "works/x.json"]
+
+
+def test_unchanged_is_a_no_op():
+    local = {"index.json": "a", "works/x.json": "b"}
+    assert plan_sync(local, dict(local), {"index.json", "works/x.json", MANIFEST_KEY}) == ([], [])
 
 
 def test_load_env_files_does_not_override(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
