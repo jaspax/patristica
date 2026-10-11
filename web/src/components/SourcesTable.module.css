@@ -1,0 +1,50 @@
+.wrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  text-align: start;
+  vertical-align: top;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.table ul {
+  list-style: none;
+}
+
+.numeric {
+  text-align: end !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.url {
+  overflow-wrap: anywhere;
+  font-size: 0.85em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.nc {
+  display: inline-block;
+  margin-inline-start: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0 0.35rem;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent);
+  white-space: nowrap;
+}

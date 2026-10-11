@@ -11,6 +11,7 @@ export default function SiteHeader() {
         </Link>
         <nav className={styles.nav} aria-label="Main">
           <Link href="/">Library</Link>
+          <Link href="/sources">Sources</Link>
           <span className={styles.disabled} aria-disabled="true" title="Coming soon">
             Search
           </span>

@@ -22,6 +22,8 @@ Patristica is a searchable database of Scriptural and Patristic writings from th
 ```
 patristica/
 ├── CLAUDE.md                  # this file
+├── LICENSE                    # MIT (code)
+├── DATA_LICENSE.md            # texts keep their source licences; our own metadata is CC0
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR and push to master
@@ -242,6 +244,14 @@ These rules are mandatory for all changes, including ones made by Claude.
 - `IMPLEMENTATION_PLAN.md` and `DATA_COLLECTION_PLAN.md` are **design and reference documents**: architecture, source catalog, conventions, known gaps. They are not task trackers (see "Work tracking" above).
 - When starting work on an issue, read the plan sections it references before writing any code.
 - If a source turns out to be unavailable, licensed differently than noted, or structurally different from what the plan describes, update the plan doc to reflect reality (in the same PR as the related change).
+
+## Licensing
+
+Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source licence (`Work.license`), and our changes to a text go out under that same licence. Our own metadata is CC0. See `DATA_LICENSE.md`.
+
+- Every new ingestor must set `Work.license` accurately from the source's actual terms. Use `unknown` only while the terms are being checked; works marked `unknown` must not be published.
+- Don't add anything that imposes extra terms on CC BY or public-domain text, or that puts CC BY-SA text under a different licence.
+- Non-commercial texts (CC BY-NC, CC BY-NC-SA, `academic-noncommercial`) mean the public site must stay non-commercial. `web/src/lib/sources.ts` (`NON_COMMERCIAL`) flags them on the `/sources` page.
 
 ## Known Issues / Gotchas
 
