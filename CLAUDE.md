@@ -26,7 +26,8 @@ patristica/
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR and push to master
 ├── patristica/
-│   └── models.py              # Pydantic data models (Work, Chunk)
+│   ├── models.py              # Pydantic data models (Work, Chunk)
+│   └── sources.py             # readable label for every source_id (SOURCE_LABELS)
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref
@@ -41,6 +42,7 @@ patristica/
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
+│   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
@@ -52,7 +54,8 @@ patristica/
     │   ├── _csvs/             # cached scrollmapper CSV files
     │   └── {source_id}/       # per-book JSON files (e.g. scripture/oshb/Gen.json)
     ├── normalized/            # normalized Chunk JSON (one file per work)
-    └── chunks/                # chunked records ready for embedding
+    ├── chunks/                # chunked records ready for embedding
+    └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 
 ## Data Models
@@ -160,6 +163,7 @@ uv run python -m scripts.chunk            # add 50-token context overlap
 uv run python -m scripts.link_translations # assign translation_group_id
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.catalog          # status table with last-run timestamps
+uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
 ```
 
 All accept `--help`. `normalize.py` currently processes `genre: scripture` only; prose genres are stubbed for M3+.
@@ -229,6 +233,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 - **LXX Rahlfs** (eliranwong repo) requires a CCAT user declaration for redistribution. License is CC-BY-NC-SA. The word CSV has 3 columns (`idx\tidx\tword`); the verse index has the same start index in both columns — end index is inferred from the next verse's start.
 - **Wulfila** books are identified by `xml:id="B1"–"B18"` (German headings), not OSIS codes. The mapping is in `_BOOK_ID_TO_OSIS` in `wulfila.py`. Books B19–B21 (Skeireins, legal documents, calendar) are non-canonical and skipped.
 - **eBible USFM** files contain Strong's number annotations (`\w word|strong="H1234"\w*`) and footnote blocks (`\f...\f*`). Always pre-process with `_ebible_usfm._preprocess_usfm()` before calling `parse_usfm`.
+- **New sources need a label**: add every new `source_id` to `SOURCE_LABELS` in `patristica/sources.py`. Users see that label, not the id. `tests/test_export_library.py` fails if a source in `_works.jsonl` has no label.
 - **CCEL carve-outs**: a dedicated ingestor that extracts a section of a CCEL volume (ANF/NPNF) must register that div's `@id` in `_ccel_common.EXCLUDED_DIVS`, otherwise `ccel_anf`/`ccel_npnf*` keep ingesting it too and the text is in the corpus twice. `download_volume` reads the cached XML without network access unless `force=True`.
 - **Scripture versification**: `canonical_ref` is always in the source's *native* numbering; `link_translations.py` groups verses via `patristica/versification.py`, which maps refs onto org (BHS / Nestle-Aland) numbering. A new scripture source must be added to `SOURCE_SCHEMES` there (org / eng / lxx / vul) or linking raises `VersificationError` — check its per-chapter verse counts against the schemes' `maxVerses` to pick one.
 - **`beta2unicode`** does not exist on PyPI. Betacode conversion for any CCAT source (Tier 2) will need a per-ingestor solution.
