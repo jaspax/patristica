@@ -125,11 +125,24 @@ class TestExport:
     def test_idempotent(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         export_library(corpus, out)
-        first = json.loads((out / "index.json").read_text(encoding="utf-8"))
+        first = (out / "index.json").read_bytes()
         counts = export_library(corpus, out)
         assert counts["written"] == 0
-        second = json.loads((out / "index.json").read_text(encoding="utf-8"))
-        assert first["works"] == second["works"]
+        # Byte-identical, so the upload sees no change.
+        assert (out / "index.json").read_bytes() == first
+        assert len(json.loads(first)["version"]) == 16
+
+    def test_version_tracks_text_changes(self, corpus: Path, tmp_path: Path):
+        out = tmp_path / "library"
+        export_library(corpus, out)
+        before = json.loads((out / "index.json").read_text())["version"]
+        # Same chunk count, different text: the index rows are unchanged.
+        src = corpus / "scripture/kjv/Exod.json"
+        src.write_text(json.dumps([_chunk("scripture/kjv/exod", "Exod.1.1", "Changed", 0)]))
+        future = src.stat().st_mtime + 10
+        os.utime(src, (future, future))
+        export_library(corpus, out)
+        assert json.loads((out / "index.json").read_text())["version"] != before
 
     def test_rebuilds_changed_source(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"

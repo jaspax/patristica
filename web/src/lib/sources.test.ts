@@ -26,7 +26,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
 }
 
 const index: LibraryIndex = {
-  built_at: "",
+  version: "",
   sources: { "patristic/pta": "Patristic Text Archive", "scripture/lxx-rahlfs": "Septuagint (Rahlfs)" },
   works: [
     row({ id: "a", provenance_url: "https://github.com/pta/data/a.xml", edition: "pta-grc1" }),
