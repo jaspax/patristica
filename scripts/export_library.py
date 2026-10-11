@@ -5,8 +5,10 @@ Reads ``data/normalized/_works.jsonl`` and each work's normalized chunk file and
 writes ``data/library/`` (gitignored):
 
 - ``index.json`` — one row per work (author, title, language, genre, dates,
-  collection, edition, licence, provenance, chunk count, file path) plus a
-  ``source_id → label`` map (``patristica.sources``).  The library browser
+  collection, edition, licence, provenance, chunk count, file path), a
+  ``source_id → label`` map (``patristica.sources``), and ``version``, a hash
+  of the index and every work file. Unchanged data gives a byte-identical
+  index, so re-exports and uploads are no-ops.  The library browser
   loads this once and searches/sorts it client-side.
 - ``works/{path}`` — a slim per-work file, ``{"work_id", "ref_prefix",
   "chunks": [[ref_suffix, text], ...]}``, where ``path`` mirrors the work's
@@ -26,9 +28,9 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -132,6 +134,17 @@ def index_row(work: Work, file: str, n_chunks: int) -> dict[str, Any]:
     }
 
 
+def library_version(
+    sources: dict[str, str], rows: list[dict[str, Any]], works_dir: Path
+) -> str:
+    """Content hash of the export: the index rows, labels, and every work file."""
+    h = hashlib.sha256()
+    h.update(json.dumps([sources, rows], ensure_ascii=False, sort_keys=True).encode("utf-8"))
+    for row in rows:
+        h.update(hashlib.sha256((works_dir.parent / row["file"]).read_bytes()).digest())
+    return h.hexdigest()[:16]
+
+
 def _previous_counts(index_path: Path) -> dict[str, int]:
     """Chunk counts from an earlier ``index.json``, so up-to-date works need not be re-read."""
     if not index_path.exists():
@@ -196,9 +209,10 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
     if unlabelled:
         log.warning("No label in patristica.sources for: %s", ", ".join(unlabelled))
 
+    sources = {s: source_label(s) for s in used_sources}
     index = {
-        "built_at": datetime.now(timezone.utc).isoformat(),
-        "sources": {s: source_label(s) for s in used_sources},
+        "version": library_version(sources, rows, works_dir),
+        "sources": sources,
         "works": rows,
     }
     output_dir.mkdir(parents=True, exist_ok=True)

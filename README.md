@@ -90,7 +90,7 @@ Then open http://localhost:3000. Re-run the export after the normalized data cha
 
 **Live site:** https://patristica-beta.vercel.app/
 
-The deployed app runs on Vercel (root directory `web`) and reads the library from a Cloudflare R2 bucket. After re-exporting, publish the changes:
+The deployed app runs on Vercel (root directory `web`) and reads the library from a Cloudflare R2 bucket. Merges to `master` that change the corpus publish it automatically (GitHub Actions, *Publish library*). To publish by hand:
 
 ```bash
 uv sync --extra deploy                                   # once: installs boto3

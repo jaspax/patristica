@@ -35,7 +35,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
 }
 
 const index: LibraryIndex = {
-  built_at: "2026-10-11T00:00:00Z",
+  version: "0123456789abcdef",
   sources: { "patristic/pta": "Patristic Text Archive" },
   works: [
     row({ id: "aug/conf", author: "Augustinus", title: "Confessiones", date: 397 }),

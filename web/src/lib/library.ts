@@ -22,7 +22,8 @@ export interface WorkRow {
 }
 
 export interface LibraryIndex {
-  built_at: string;
+  /** Content hash of the export; changes whenever any index row or text changes. */
+  version: string;
   /** source_id → readable collection label (patristica/sources.py). */
   sources: Record<string, string>;
   works: WorkRow[];

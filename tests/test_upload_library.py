@@ -19,7 +19,7 @@ from scripts.upload_library import (
 
 def test_public_index_drops_uncleared_licences():
     index = {
-        "built_at": "x",
+        "version": "x",
         "sources": {"a/x": "X", "b/y": "Y"},
         "works": [
             {"id": "1", "source_id": "a/x", "license": "cc-by-4.0"},
@@ -29,7 +29,7 @@ def test_public_index_drops_uncleared_licences():
     pub = public_index(index)
     assert [w["id"] for w in pub["works"]] == ["1"]
     assert pub["sources"] == {"a/x": "X"}
-    assert pub["built_at"] == "x"
+    assert pub["version"] == "x"
     assert len(index["works"]) == 2  # input untouched
 
 

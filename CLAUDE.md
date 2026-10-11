@@ -27,6 +27,7 @@ patristica/
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR and push to master
+├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → R2 (no-op if unchanged)
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   └── sources.py             # readable label for every source_id (SOURCE_LABELS)
@@ -208,7 +209,9 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 
 Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in Cloudflare R2: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the bucket's public `r2.dev` URL.
 
-- To publish data changes, run `scripts.export_library`, then `scripts.upload_library`. R2 credentials are in `web/.env` (gitignored). Never print or commit them.
+- **Data is published automatically.** On every push to `master` that touches `data/normalized/**` or the export/upload code, `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` and `R2_BUCKET`. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
+- To publish by hand, run the same two scripts locally. Local R2 credentials are in `web/.env` (gitignored). Never print or commit them.
+- The export is deterministic: `index.json` has a content hash (`version`), not a timestamp. A from-scratch export is byte-identical to an incremental one, which is what makes CI runs no-ops. Keep it that way: no timestamps or other run-dependent values in exported files.
 - Objects are stored gzipped with `Content-Encoding: gzip`, so their ETags are MD5s of the compressed bytes, which makes re-runs incremental.
 - The bucket's CORS policy (GET/HEAD from any origin) is set in the Cloudflare dashboard. The upload token has object read/write permission only, so `--set-cors` gets AccessDenied and prints the policy to apply.
 - `EXCLUDED_LICENSES` in `upload_library.py` keeps unpublishable works (`unknown`) out of the public copy.
