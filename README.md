@@ -49,6 +49,21 @@ Run the test suite:
 uv run pytest
 ```
 
+Enable the git hooks (runs the unit tests before every push):
+
+```bash
+git config core.hooksPath scripts/hooks
+```
+
+### Contributing
+
+- Work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues), not in checklists in the docs.
+- Don't commit directly to `master`. Do each change on a feature branch and merge it with a pull request.
+- Every PR must link the issue it resolves (`Closes #123` in the description).
+- CI (GitHub Actions, `.github/workflows/ci.yml`) must pass before merging.
+
+See [CLAUDE.md](CLAUDE.md) → "Development Workflow" for the details.
+
 ---
 
 ## Data Ingestion (Phase 1)

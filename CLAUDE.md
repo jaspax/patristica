@@ -23,7 +23,8 @@ Patristica is a searchable database of Scriptural and Patristic writings from th
 patristica/
 ├── CLAUDE.md                  # this file
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
-├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (living document — check off milestones)
+├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
+├── .github/workflows/ci.yml   # CI: runs the test suite on every PR and push to master
 ├── patristica/
 │   └── models.py              # Pydantic data models (Work, Chunk)
 ├── scripts/
@@ -39,7 +40,8 @@ patristica/
 │   ├── chunk.py               # normalized → chunked records (adds context overlap)
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
-│   └── catalog.py             # print ingestion status table with last-run timestamps
+│   ├── catalog.py             # print ingestion status table with last-run timestamps
+│   └── hooks/pre-push         # git hook: runs unit tests (enable: git config core.hooksPath scripts/hooks)
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -174,11 +176,37 @@ The collection period is defined once, in `patristica/period.py` (`AUTHOR_BORN_B
 
 Per-book date estimates for all 66 Protestant books plus the Deuterocanon are in `_scripture_meta.BOOK_DATES`. Use these as the default; override only when a source warrants a specific translation date (e.g. Clementine Vulgate: 405 CE).
 
+## Development Workflow
+
+These rules are mandatory for all changes, including ones made by Claude.
+
+### Work tracking: GitHub issues
+
+- All work items live in **GitHub issues** on `jaspax/patristica` (`gh issue list`). Do **not** add checklists or TODO lists to the plan docs or other text files; open an issue instead (`gh issue create`), and link to it from the doc if the doc needs to mention it (`#12`).
+- Label issues by area: `phase-1: data`, `phase-2: database`, `phase-3: web`, `data-quality`, `ocr`, `infra` (plus GitHub's `bug` / `enhancement` / `documentation`).
+- If you discover a bug, gap or follow-up while working on something else, file an issue rather than widening the current change.
+- The milestone checklists in `DATA_COLLECTION_PLAN.md` §10 are a frozen historical record of Phase 1; don't add new items there.
+
+### Branches and pull requests
+
+- **Never commit directly to `master`.** Start each piece of work on a feature branch off an up-to-date `master` (e.g. `git switch -c 12-ruff-cleanup`).
+- Every change lands on `master` through a **pull request**.
+- **Every PR must link the issue it resolves**, with a closing keyword in the PR description (`Closes #12`, `Fixes #12`). If no issue exists yet, create one first. A PR that only partially addresses an issue says `Part of #12` instead.
+- **CI must pass** before a PR is merged. Don't merge over a red build; fix it or, if the failure is unrelated, file an issue and fix that first.
+- Keep PRs focused on one issue.
+
+### Tests, hooks and CI
+
+- Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
+- The **pre-push hook** (`scripts/hooks/pre-push`) runs the unit tests and aborts the push on failure. Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR and every push to `master`. Today it runs the unit tests only; add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- New code should come with unit tests.
+
 ## Working with the Plan Docs
 
-- `DATA_COLLECTION_PLAN.md` is a **living document**. Check off milestone items as they are completed.
-- When starting a new session, read the relevant milestone section before writing any code.
-- If a source turns out to be unavailable, licensed differently than noted, or structurally different from what the plan describes, update the plan doc to reflect reality.
+- `IMPLEMENTATION_PLAN.md` and `DATA_COLLECTION_PLAN.md` are **design and reference documents**: architecture, source catalog, conventions, known gaps. They are not task trackers (see "Work tracking" above).
+- When starting work on an issue, read the plan sections it references before writing any code.
+- If a source turns out to be unavailable, licensed differently than noted, or structurally different from what the plan describes, update the plan doc to reflect reality (in the same PR as the related change).
 
 ## Known Issues / Gotchas
 
