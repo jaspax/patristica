@@ -1,0 +1,17 @@
+.main > * {
+  max-width: var(--text-width);
+}
+
+.main h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.main p {
+  margin-bottom: 1rem;
+}
+
+.note {
+  color: var(--muted);
+}
