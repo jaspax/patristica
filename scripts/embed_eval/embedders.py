@@ -23,6 +23,7 @@ from __future__ import annotations
 import hashlib
 import logging
 import os
+import re
 import sqlite3
 import time
 from collections.abc import Callable
@@ -40,6 +41,8 @@ log = logging.getLogger(__name__)
 
 LOCAL_MAX_TOKENS = 512
 RETRIES = 8
+# Rate limits clear on their own, so 429s get far more patience (~75 minutes).
+RATE_LIMIT_RETRIES = 40
 INSTRUCTION = "Given a search query, retrieve relevant passages from early Christian texts"
 
 
@@ -91,7 +94,9 @@ class ApiEmbedder:
         import httpx
 
         delay = 2.0
-        for attempt in range(1, RETRIES + 1):
+        attempt = 0
+        while True:
+            attempt += 1
             try:
                 r = self._client.post(url, headers=headers, json=body)
             except httpx.TransportError as e:
@@ -99,18 +104,20 @@ class ApiEmbedder:
             else:
                 if r.status_code == 200:
                     return r.json()
-                status, detail = r.status_code, r.text[:300]
+                status, detail = r.status_code, r.text[:1000]
                 if status not in (408, 429) and status < 500:
                     raise ApiError(f"{self.name}: HTTP {status}: {detail}")
                 retry_after = r.headers.get("retry-after")
                 if retry_after and retry_after.replace(".", "", 1).isdigit():
                     delay = max(delay, float(retry_after))
-            if attempt == RETRIES:
-                raise ApiError(f"{self.name}: gave up after {RETRIES} tries: {status} {detail}")
-            log.warning("%s: %s, retrying in %.0fs", self.name, status or detail, delay)
+            limit = RATE_LIMIT_RETRIES if status == 429 else RETRIES
+            if attempt >= limit:
+                raise ApiError(f"{self.name}: gave up after {attempt} tries: {status} {detail}")
+            quota = re.search(r"Quota exceeded for metric: [^\n]*|rate limit[^\"]*", detail)
+            log.warning("%s: %s %s, retrying in %.0fs", self.name, status or detail,
+                        quota.group(0) if quota else "", delay)
             time.sleep(delay)
             delay = min(delay * 2, 120)
-        raise AssertionError("unreachable")
 
     def _embed(self, texts: list[str], kind: str) -> list[list[float]]:
         raise NotImplementedError
@@ -215,9 +222,9 @@ class GeminiEmbedder(ApiEmbedder):
     # 100 texts is the batchEmbedContents maximum. The free tier counts every
     # text as a request (100 a minute), so send at most one batch a minute.
     batch_size = 100
-    max_batch_tokens = 24_000
+    max_batch_tokens = 12_000
     rpm = 0.9
-    tpm = 24_000
+    tpm = 12_000
 
     def __init__(self, model: str = "gemini-embedding-2") -> None:
         super().__init__()
