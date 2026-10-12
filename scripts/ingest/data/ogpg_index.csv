@@ -1,0 +1,93 @@
+# Open Patrologia Graeca: works per Migne column range. One row per work; see scripts/ingest/_ogpg_index.py for the columns and basis values.
+volume,slug,col_start,col_end,author,title,cpg,date_composed,date_start,date_end,date_confidence,basis,duplicate_of,note
+vol-044,in-hexaemeron,61,,Gregory of Nyssa,Explicatio apologetica in Hexaemeron,,379,379,380,approximate,elenchus,,
+vol-044,de-opificio-hominis,123,,Gregory of Nyssa,De hominis opificio,,379,379,380,approximate,elenchus,,
+vol-044,in-verba-faciamus,257,,Pseudo-Gregory of Nyssa,In verba: Faciamus hominem (orationes II),,,,,,elenchus,,"Two orations printed among Gregory's works; attributed also to Basil, authorship disputed."
+vol-044,de-vita-moysis,297,,Gregory of Nyssa,De vita Moysis,,390,385,394,approximate,elenchus,,
+vol-044,in-inscriptiones-psalmorum,431,,Gregory of Nyssa,In inscriptiones Psalmorum,,,,,,elenchus,,"Includes the homily In sextum Psalmum (De octava)."
+vol-044,in-ecclesiasten,615,,Gregory of Nyssa,In Ecclesiasten homiliae VIII,,,,,,elenchus,,
+vol-044,in-canticum,755,,Gregory of Nyssa,In Canticum canticorum homiliae XV,,392,390,395,approximate,elenchus,,
+vol-044,de-oratione-dominica,1119,,Gregory of Nyssa,De oratione dominica orationes V,,,,,,elenchus,,
+vol-044,de-beatitudinibus,1193,,Gregory of Nyssa,De beatitudinibus orationes VIII,,,,,,elenchus,,
+vol-044,in-illud-tunc-et-ipse,1303,,Gregory of Nyssa,In illud: Tunc et ipse Filius subjicietur,,,,,,elenchus,,
+vol-044,ad-imaginem,1327,1345,Pseudo-Gregory of Nyssa,Quid sit: Ad imaginem Dei et ad similitudinem,,,,,uncertain,elenchus,,Authorship disputed; printed by Migne among the dubia.
+vol-045,oratio-catechetica,9,,Gregory of Nyssa,Oratio catechetica magna,,385,383,387,approximate,elenchus,,
+vol-045,de-pythonissa,107,,Gregory of Nyssa,De pythonissa ad Theodosium episcopum,,,,,,elenchus,,
+vol-045,ad-ablabium,115,,Gregory of Nyssa,Quod non sint tres dii ad Ablabium,,,,,,elenchus,,
+vol-045,ad-simplicium,135,,Gregory of Nyssa,De fide ad Simplicium,,,,,,elenchus,,
+vol-045,contra-fatum,145,,Gregory of Nyssa,Contra fatum,,,,,,elenchus,,
+vol-045,ad-graecos,175,,Gregory of Nyssa,Ad Graecos ex communibus notionibus,,,,,,elenchus,,
+vol-045,de-anima,187,,Pseudo-Gregory of Nyssa,De anima,,,,,uncertain,elenchus,,"Printed by Migne as Gregory's; elsewhere attributed to Gregory Thaumaturgus (see Gallandi's Monitum, col. 9)."
+vol-045,epistula-canonica,221,,Gregory of Nyssa,Epistula canonica ad Letoium,,,,,,elenchus,,
+vol-045,ad-petrum,237,,Gregory of Nyssa,Epistula ad Petrum fratrem (with Peter's reply),,,,,,elenchus,,
+vol-045,contra-eunomium,243,,Gregory of Nyssa,Contra Eunomium libri XII,,381,380,383,approximate,elenchus,,
+vol-045,antirrheticus,1123,,Gregory of Nyssa,Antirrheticus adversus Apollinarium,,,,,,elenchus,,
+vol-045,ad-theophilum,1269,,Gregory of Nyssa,Ad Theophilum adversus Apollinaristas,,,,,,elenchus,,
+vol-045,adversus-arium,1275,,Pseudo-Gregory of Nyssa,Adversus Arium et Sabellium,,,,,uncertain,elenchus,,Authorship disputed.
+vol-045,adversus-macedonianos,1301,1332,Gregory of Nyssa,De Spiritu sancto adversus Pneumatomachos Macedonianos,,,,,,elenchus,,
+vol-025,contra-gentes,1,,Athanasius of Alexandria,Oratio contra gentes,,330,318,337,approximate,elenchus,,
+vol-025,de-incarnatione,95,,Athanasius of Alexandria,Oratio de incarnatione Verbi,,330,318,337,approximate,elenchus,,
+vol-025,expositio-fidei,199,,Pseudo-Athanasius,Expositio fidei,,,,,uncertain,elenchus,,Authenticity disputed.
+vol-025,in-illud-omnia,207,,Athanasius of Alexandria,In illud: Omnia mihi tradita sunt,,,,,,elenchus,,
+vol-025,epistula-encyclica,219,,Athanasius of Alexandria,Epistula encyclica ad episcopos,,339,339,339,established,elenchus,,
+vol-025,apologia-contra-arianos,239,,Athanasius of Alexandria,Apologia contra Arianos,,357,349,357,approximate,elenchus,,
+vol-025,de-decretis,411,,Athanasius of Alexandria,De decretis Nicaenae synodi,,352,350,356,approximate,elenchus,,
+vol-025,de-sententia-dionysii,477,,Athanasius of Alexandria,De sententia Dionysii,,353,350,356,approximate,elenchus,,
+vol-025,ad-dracontium,513,,Athanasius of Alexandria,Epistula ad Dracontium,,354,354,355,approximate,elenchus,,
+vol-025,ad-episcopos-aegypti,535,,Athanasius of Alexandria,Epistula ad episcopos Aegypti et Libyae,,356,356,357,approximate,elenchus,,
+vol-025,apologia-ad-constantium,593,,Athanasius of Alexandria,Apologia ad Constantium imperatorem,,357,356,357,approximate,elenchus,,
+vol-025,apologia-de-fuga,643,,Athanasius of Alexandria,Apologia de fuga sua,,357,357,358,approximate,elenchus,,
+vol-025,de-morte-arii,679,,Athanasius of Alexandria,Epistula ad Serapionem de morte Arii,,358,357,359,approximate,elenchus,,
+vol-025,ad-monachos,691,,Athanasius of Alexandria,Epistula ad monachos,,358,357,359,approximate,elenchus,,
+vol-025,historia-arianorum,695,,Athanasius of Alexandria,Historia Arianorum ad monachos,,358,357,358,approximate,elenchus,,
+vol-025,alexander-depositio-arii,797,,Alexander of Alexandria,Depositio Arii et epistula encyclica,,324,319,325,approximate,elenchus,,"Printed by Migne after the Historia Arianorum (see the Admonitio, col. 797)."
+vol-026,orationes-contra-arianos,12,,Athanasius of Alexandria,Orationes contra Arianos IV,,350,339,360,approximate,elenchus,,"The fourth oration is generally held to be spurious."
+vol-026,ad-serapionem,525,,Athanasius of Alexandria,Epistulae IV ad Serapionem,,359,358,361,approximate,elenchus,,
+vol-026,de-synodis,681,,Athanasius of Alexandria,De synodis Arimini et Seleuciae,,359,359,362,approximate,elenchus,,
+vol-026,tomus-ad-antiochenos,793,,Athanasius of Alexandria,Tomus ad Antiochenos,,362,362,362,established,elenchus,,
+vol-026,ad-jovianum,813,,Athanasius of Alexandria,Epistula ad Jovianum imperatorem,,363,363,364,approximate,elenchus,,
+vol-026,vita-antonii,835,,Athanasius of Alexandria,Vita S. Antonii,,357,356,362,approximate,elenchus,,
+vol-026,ad-orsisium,977,,Athanasius of Alexandria,Epistulae II ad Orsisium,,,,,,elenchus,,
+vol-026,narratio-ad-ammonium,979,,Athanasius of Alexandria,Narratio ad Ammonium de fuga sua sub Juliano,,,,,,elenchus,,
+vol-026,de-incarnatione-contra-arianos,983,,Pseudo-Athanasius,Liber de incarnatione Verbi Dei et contra Arianos,,,,,uncertain,elenchus,,Authenticity disputed (sometimes attributed to Marcellus of Ancyra).
+vol-026,ad-afros,1029,,Athanasius of Alexandria,Epistula ad Afros episcopos,,369,367,372,approximate,elenchus,,
+vol-026,ad-epictetum,1049,,Athanasius of Alexandria,Epistula ad Epictetum,,371,370,372,approximate,elenchus,,
+vol-026,ad-adelphium,1071,,Athanasius of Alexandria,Epistula ad Adelphium,,371,370,372,approximate,elenchus,,
+vol-026,ad-maximum,1085,,Athanasius of Alexandria,Epistula ad Maximum philosophum,,371,370,372,approximate,elenchus,,
+vol-026,contra-apollinarium,1093,,Pseudo-Athanasius,De incarnatione Domini nostri Jesu Christi contra Apollinarium libri II,,380,375,400,uncertain,elenchus,,Not by Athanasius; an anti-Apollinarian work of the later 4th century.
+vol-026,ad-amunem,1169,,Athanasius of Alexandria,Epistula ad Amunem monachum,,,,,,elenchus,,
+vol-026,ad-rufinianum,1179,,Athanasius of Alexandria,Epistula ad Rufinianum,,,,,,elenchus,,
+vol-026,ad-luciferum,1181,,Athanasius of Alexandria,Epistulae II ad Luciferum,,,,,,elenchus,,Survive in Latin.
+vol-026,ad-monachos,1185,,Athanasius of Alexandria,Epistula ad monachos,,,,,,elenchus,,
+vol-026,de-trinitate,1191,,Pseudo-Athanasius,Liber de Trinitate et Spiritu sancto,,,,,uncertain,elenchus,,Survives in Latin.
+vol-026,fragmenta-varia,1217,,Athanasius of Alexandria,Fragmenta varia,,,,,uncertain,elenchus,,
+vol-026,sermo-maior-de-fide,1261,,Pseudo-Athanasius,Sermo maior de fide,,,,,uncertain,elenchus,,Not by Athanasius (often attributed to Marcellus of Ancyra).
+vol-026,fragmenta-et-sermones,1293,,Athanasius of Alexandria,Fragmenta et sermones,,,,,uncertain,elenchus,,
+vol-026,de-azymis,1327,,Pseudo-Athanasius,Opusculum de azymis,,,,,uncertain,elenchus,,Spurious.
+vol-026,epistulae-festales,1339,,Athanasius of Alexandria,Epistulae festales,,350,329,373,approximate,elenchus,,"Mostly in Latin translation from the Syriac, with Greek fragments."
+vol-027,ad-marcellinum,11,,Athanasius of Alexandria,Epistula ad Marcellinum de interpretatione Psalmorum,,,,,,elenchus,,
+vol-027,expositiones-in-psalmos,59,,Athanasius of Alexandria,Expositiones in Psalmos,,,,,uncertain,elenchus,,Authenticity partly disputed.
+vol-027,de-titulis-psalmorum,591,,Pseudo-Athanasius,De titulis Psalmorum,,,,,uncertain,elenchus,,Spurious.
+vol-027,fragmenta-in-job,1343,,Athanasius of Alexandria,Fragmenta in Job,,,,,uncertain,elenchus,,From the catenae.
+vol-027,fragmenta-in-canticum,1347,,Athanasius of Alexandria,Fragmenta in Canticum canticorum,,,,,uncertain,elenchus,,From the catenae.
+vol-027,fragmenta-in-matthaeum,1363,,Athanasius of Alexandria,Fragmenta in Matthaeum,,,,,uncertain,elenchus,,From the catenae.
+vol-027,fragmenta-in-lucam,1389,,Athanasius of Alexandria,Fragmenta in Lucam,,,,,uncertain,elenchus,,From the catenae.
+vol-027,fragmenta-in-1-cor,1403,,Athanasius of Alexandria,Fragmentum in Epistulam I ad Corinthios,,,,,uncertain,elenchus,,From the catenae.
+vol-029,in-hexaemeron,3,,Basil of Caesarea,Homiliae IX in Hexaemeron,,378,370,378,approximate,elenchus,,
+vol-029,homiliae-in-psalmos,207,,Basil of Caesarea,Homiliae in Psalmos,,,,,,elenchus,,
+vol-029,adversus-eunomium,497,,Basil of Caesarea,Adversus Eunomium libri V,,364,363,365,approximate,elenchus,,"Books IV–V are generally held to be spurious."
+vol-031,homiliae-et-sermones,163,,Basil of Caesarea,Homiliae et sermones,,,,,,elenchus,,"Migne's collection of Basil's homilies (De jejunio, In illud Attende tibi ipsi, Ad adolescentes, …)."
+vol-031,ascetica,619,,Basil of Caesarea,"Ascetica (praevia institutio, sermones ascetici, de judicio Dei, de fide)",,,,,,elenchus,,
+vol-031,moralia,699,,Basil of Caesarea,Moralia,,,,,,elenchus,,
+vol-031,regulae-fusius,889,,Basil of Caesarea,Regulae fusius tractatae,,,,,,elenchus,,
+vol-031,regulae-brevius,1051,,Basil of Caesarea,Regulae brevius tractatae,,,,,,elenchus,,
+vol-031,constitutiones-monasticae,1321,,Pseudo-Basil,Constitutiones monasticae,,,,,uncertain,elenchus,,Spurious.
+vol-031,homiliae-dubiae,1429,,Pseudo-Basil,Homiliae quaedam dubiae,,,,,uncertain,elenchus,,
+vol-031,de-baptismo,1513,,Basil of Caesarea,De baptismo libri II,,,,,uncertain,elenchus,,Authenticity disputed.
+vol-031,liturgiae,1629,,Basil of Caesarea,Liturgiae S. Basilii,,,,,uncertain,elenchus,,Liturgical texts transmitted under Basil's name.
+vol-031,exorcismi,1677,,Pseudo-Basil,Orationes sive exorcismi,,,,,uncertain,elenchus,,
+vol-031,de-sacerdotum-instructione,1685,1686,Pseudo-Basil,Sermo de sacerdotum instructione,,,,,uncertain,elenchus,,
+vol-031,homiliae-matthaei,1705,1722,Pseudo-Basil,Homiliae III ex editione Matthaei,,,,,uncertain,elenchus,,
+vol-032,de-spiritu-sancto,67,,Basil of Caesarea,Liber de Spiritu sancto,,375,374,375,approximate,elenchus,,
+vol-032,epistulae,219,,Basil of Caesarea,Epistulae,,370,357,378,approximate,elenchus,,
+vol-032,symeon-sermones,1115,,Symeon Metaphrastes,Sermones XXIV de moribus ex operibus Basilii excerpti,,980,960,1000,approximate,elenchus,,
