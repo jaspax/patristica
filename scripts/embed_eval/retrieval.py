@@ -129,11 +129,22 @@ def _normalize(m: np.ndarray) -> np.ndarray:
 
 
 class RRF:
-    """Reciprocal rank fusion: score(d) = Σ 1 / (c + rank_r(d)) over retrievers r."""
+    """Weighted reciprocal rank fusion: score(d) = Σ w_r / (c + rank_r(d)) over retrievers r."""
 
-    def __init__(self, retrievers: list[Retriever], c: int = 60, depth: int = 100) -> None:
+    def __init__(
+        self,
+        retrievers: list[Retriever],
+        weights: list[float] | None = None,
+        c: int = 60,
+        depth: int = 100,
+    ) -> None:
         self.retrievers, self.c, self.depth = retrievers, c, depth
-        self.name = "hybrid:" + "+".join(r.name for r in retrievers)
+        self.weights = weights or [1.0] * len(retrievers)
+        if len(self.weights) != len(retrievers):
+            raise ValueError("one weight per retriever")
+        self.name = "hybrid:" + "+".join(
+            r.name if w == 1.0 else f"{r.name}@{w:g}" for r, w in zip(retrievers, self.weights)
+        )
 
     def search(self, queries: list[str], k: int, allowed: Allowed = None) -> list[list[int]]:
         depth = max(k, self.depth)
@@ -141,8 +152,8 @@ class RRF:
         out = []
         for qi in range(len(queries)):
             score: dict[int, float] = defaultdict(float)
-            for run in runs:
+            for run, w in zip(runs, self.weights):
                 for rank, d in enumerate(run[qi], start=1):
-                    score[d] += 1 / (self.c + rank)
+                    score[d] += w / (self.c + rank)
             out.append([d for d, _ in sorted(score.items(), key=lambda x: (-x[1], x[0]))[:k]])
         return out

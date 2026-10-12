@@ -7,7 +7,8 @@ language would. Writes per-query ranks and summaries to
 ``data/eval/results/{retriever}.json`` and prints one table per scope.
 
 Retriever specs: ``bm25``, ``dense:NAME`` (see ``embedders.EMBEDDERS``), and
-``hybrid:A+B`` for reciprocal rank fusion of any of those.
+``hybrid:A+B`` for reciprocal rank fusion of any of those; ``hybrid:bm25@0.3+dense:NAME``
+weights a component (default 1).
 
 Usage::
 
@@ -43,7 +44,9 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
         parts = spec.removeprefix("hybrid:").split("+")
         if len(parts) < 2:
             raise ValueError(f"hybrid needs at least two retrievers: {spec!r}")
-        return RRF([make_retriever(p, corpus, cache_dir) for p in parts])
+        specs = [p.rpartition("@") if "@" in p else (p, "", "1") for p in parts]
+        return RRF([make_retriever(spec, corpus, cache_dir) for spec, _, _ in specs],
+                   [float(w) for _, _, w in specs])
     texts = [c["text"] for c in corpus]
     if spec == "bm25":
         return BM25(texts)

@@ -152,6 +152,9 @@ def test_rrf_merges_rankings():
     rrf = retrieval.RRF([Fixed("a", [0, 1, 2]), Fixed("b", [1, 2, 0])])
     assert rrf.name == "hybrid:a+b"
     assert rrf.search(["q"], 3)[0] == [1, 0, 2]
+    weighted = retrieval.RRF([Fixed("a", [0, 1, 2]), Fixed("b", [1, 2, 0])], [1.0, 0.1])
+    assert weighted.name == "hybrid:a+b@0.1"
+    assert weighted.search(["q"], 3)[0] == [0, 1, 2]
 
 
 class CharEmbedder:
@@ -304,3 +307,21 @@ def test_api_batches_respect_count_tokens_and_truncation():
     assert batches[0][1] <= 10 and len(batches[0][0][0].split()) == 6
     Fake.max_batch_tokens = 6
     assert [len(b) for b, _ in Fake()._batches(texts)] == [1, 3, 1]
+
+
+def test_report_tables(tmp_path: Path):
+    from scripts.embed_eval import report
+
+    def result(name, r1, r3):
+        return {"retriever": name, "summaries": {"lang": [
+            {"mode": "exact", "lang": "grc", "origin": "unique", "n": 10, "R@1": r1},
+            {"mode": "paraphrase", "lang": "grc", "origin": "unique", "n": 5, "R@3": r3},
+        ]}}
+
+    for i, r in enumerate([result("bm25", 0.9, 0.0), result("dense:x", 0.5, 0.8)]):
+        (tmp_path / f"{i}.json").write_text(json.dumps(r))
+    out = report.report(tmp_path, "lang")
+    assert "| bm25 | 0.90 | 0.90 |" in out
+    para = out.split("### paraphrase")[1]
+    assert para.index("dense:x") < para.index("bm25")  # sorted by mean
+    assert "### topical" in out and "(no results)" in out
