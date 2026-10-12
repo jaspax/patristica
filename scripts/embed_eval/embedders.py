@@ -202,8 +202,8 @@ class CohereEmbedder(ApiEmbedder):
     # 96 texts is the API maximum. Trial keys allow 100k tokens a minute and
     # 1,000 calls a month, so batches are large and paced well under the limit.
     batch_size = 96
-    max_batch_tokens = 20_000
-    tpm = 60_000
+    max_batch_tokens = 15_000
+    tpm = 40_000
 
     def __init__(self, model: str = "embed-v4.0") -> None:
         super().__init__()
