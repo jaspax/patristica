@@ -56,6 +56,11 @@ def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
     function reconstructs verse text by joining word tokens, stripping morpheme
     separators, handling maqqef connectors and discarding verse-end markers
     (sof-pasuq).
+
+    A maqqef (``־``) binds the words on both sides into one prosodic word, so
+    it is written with no space on either side: ``עַל־הָאָ֖רֶץ``.  Elements
+    skipped from the running text (``<note>``, e.g. a ketiv/qere note) do not
+    break the binding.  Paseq (``׀``) stays a separate, space-delimited token.
     """
     root = etree.fromstring(xml_bytes)
     verses: list[tuple[str, str]] = []
@@ -66,28 +71,33 @@ def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
             continue
 
         tokens: list[str] = []
+        after_maqqef = False  # the next token attaches to tokens[-1]
         for child in verse_el:
             local = etree.QName(child.tag).localname
+            token = ""
+            is_maqqef = False
 
             if local == "w":
-                word = _word_text(child)
-                if word:
-                    tokens.append(word)
+                token = _word_text(child)
 
             elif local == "seg":
                 seg_type = child.get("type", "")
                 seg_text = (child.text or "").strip()
 
-                if seg_type == "x-maqqef":
-                    # Maqqef (֊) connects to the previous token without a space
-                    if tokens and seg_text:
-                        tokens[-1] = tokens[-1] + seg_text
-                elif seg_type == "x-sof-pasuq":
+                if seg_type == "x-sof-pasuq":
                     pass  # omit end-of-verse marker from stored text
-                elif seg_text:
-                    tokens.append(seg_text)
+                else:
+                    token = seg_text
+                    is_maqqef = seg_type == "x-maqqef"
 
-            # <note>, <hi>, other elements: skip
+            # <note>, <hi>, other elements: skip (a maqqef binds across them)
+            if not token:
+                continue
+            if (is_maqqef or after_maqqef) and tokens:
+                tokens[-1] += token
+            else:
+                tokens.append(token)
+            after_maqqef = is_maqqef
 
         text = " ".join(tokens)
         if text:
