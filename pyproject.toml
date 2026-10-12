@@ -26,6 +26,8 @@ dependencies = [
 dev = ["pytest", "pytest-mock", "ruff", "mypy"]
 usfm = ["usfm-grammar"]  # requires Node.js
 deploy = ["boto3"]  # scripts.upload_library (Cloudflare R2, S3 API)
+eval = ["numpy", "httpx", "anthropic"]  # scripts.embed_eval: dense retrieval, API embedders, translation eval
+eval-local = ["numpy", "sentence-transformers", "torch"]  # local embedders (CPU torch; not in CI)
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -40,3 +42,12 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+# CPU-only torch for the local embedding eval (the default PyPI wheel pulls in CUDA).
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

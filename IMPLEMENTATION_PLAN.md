@@ -89,7 +89,7 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 |---|---|---|
 | Relational DB | PostgreSQL 16+ | Mature, JSONB support, full-text search |
 | Vector store | pgvector extension | Keeps everything in one DB, simplifies ops |
-| Embeddings | `text-embedding-3-large` (OpenAI) or `multilingual-e5-large` | Multilingual support required |
+| Embeddings | OpenAI `text-embedding-3-large` (leading candidate); rare languages indexed through English translations by GPT-6.1 Sol | Eval in #3: best on Greek/Latin/Hebrew; no embedder reaches Coptic/Syriac from English (see 2.5) |
 | ORM/migration | SQLAlchemy + Alembic | Python ecosystem |
 | Search layer | Custom (via pgvector + Postgres FTS) | Avoid unnecessary infra |
 
@@ -113,9 +113,10 @@ translation_groups (id)      -- joins parallel chunks across languages
 
 1. Load normalized JSON from Phase 1
 2. Insert author/work metadata into PostgreSQL
-3. For each chunk: call embedding API → store chunk + embedding
-4. Build HNSW index on `text_chunks.embedding` via pgvector
-5. Build Postgres `tsvector` full-text index for keyword fallback
+3. Translate Syriac, Coptic, Armenian and Ge'ez chunks into English with GPT-6.1 Sol, and store each translation with model and date (#84)
+4. For each chunk: call embedding API → store chunk + embedding (plus a second embedding for the translation, where there is one)
+5. Build HNSW index on `text_chunks.embedding` via pgvector
+6. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)
 
 **Script:** `scripts/build_index.py` — idempotent, resumable (skip already-embedded chunks)
 
@@ -129,7 +130,13 @@ Inputs and the data contract are described in `DATA_COLLECTION_PLAN.md` → "Pha
    - ~11k chunks are under 10 characters (headings, verse numbers, OCR fragments).
 
    Add a size-normalization step before embedding, ideally in `scripts/chunk.py` so `data/chunks/` is embedding-ready: split oversized chunks on sentence/clause boundaries into sub-chunks with stable derived refs (e.g. `{canonical_ref}.s{n}`) that keep `work_id`, dates and `translation_group_id`; merge or drop trivially short chunks. The target size depends on the embedding model (item 2), so decide them together.
-2. **Embedding model coverage of rare scripts** ([#3](https://github.com/jaspax/patristica/issues/3)). ~100k chunks are Coptic, Syriac, Armenian, Ge'ez or Gothic (plus polytonic Greek and Hebrew). Both candidate models are trained mostly on high-resource languages. Before committing, evaluate candidates on a small labelled set per language — e.g. retrieve the parallel verse via `translation_group_id`, or match a CCEL translation to its original via `Work.translation_of` — and check whether a model makes these languages searchable or only Latin/Greek/English. Options if none is adequate: search rare-language texts via their translations (`translation_of` / translation groups), a per-language model, or full-text fallback only.
+2. **Embedding model coverage of rare scripts** ([#3](https://github.com/jaspax/patristica/issues/3)). *Evaluated 2026-10-12* with the harness in `scripts/embed_eval/`. Full results are on #3. Findings:
+   - **Quotes go to the keyword index.** Keyword search over normalized text finds an exact or near-verbatim quote at rank 1 in 0.94 of cases (0.98–1.00 for Scripture in every language). Every embedder scores below 0.5. So quoted queries (`"..."`) use the keyword index (#86).
+   - **No equal-weight hybrid.** Fusing keyword and vector rankings made both quote and paraphrase search worse, so queries are routed rather than fused.
+   - **Greek, Latin and Hebrew** are well served from English by OpenAI `text-embedding-3-large`: paraphrase R@3 0.95–1.0, topical R@100 0.85–1.0.
+   - **No embedder reaches Coptic or Syriac from English.** OpenAI doesn't reach Armenian or Ge'ez; BGE-M3 reaches them only partly.
+   - **Rare languages are therefore indexed through English translations** (#84). GPT-6.1 Sol and Opus 5.5 translate them about equally well under independent judging (fidelity ≈ 4.4–4.5 of 5, no hallucinations), with Sol at about a third of the cost. Haiku 5.5 invents content in about a quarter of passages.
+   - **Still open:** whether the translations bring rare-language recall up to the Greek/Latin level (#84), and the models that need paid access to test (#85).
 
 ### 2.4 Search API (internal)
 
@@ -137,8 +144,8 @@ Python function (later exposed via FastAPI):
 ```python
 def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 ```
-- Embed query with same model
-- pgvector cosine similarity search
+- Quoted query (`"..."`): phrase match against the normalized keyword index (#86)
+- Otherwise: embed query with same model; pgvector cosine similarity search, where a translated chunk scores the better of its original and English vectors
 - Optional filters: language, author, date range, tradition
 - Return ranked chunks with work/author metadata
 
@@ -161,7 +168,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 **Search:**
 - Text input → semantic vector search → ranked results
 - Filter panel: date range, tradition (Eastern/Western/Syrian/etc.), language, author
-- Hybrid mode: toggle between semantic and keyword search
+- Keyword mode via search operators: quoted text is a phrase search over the normalized keyword index, not a semantic one (#86)
 - Results show: canonical reference, author, work, date, snippet
 
 **Citation Format:**
@@ -228,7 +235,7 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: multilingual model needed for Greek/Latin/Hebrew/Syriac — evaluate `multilingual-e5-large` vs. OpenAI `text-embedding-3-large`
-- **Hosting budget**: pgvector at scale (millions of vectors) requires significant RAM — confirm target infrastructure
+- **Embedding model choice**: evaluated in #3 (see 2.5): OpenAI `text-embedding-3-large`, plus GPT-6.1 Sol translations for the rare languages. Final once #84 confirms recall.
+- **Hosting budget**: tracked in #50. Hetzner is ruled out (US hosting only); the choice waits on vector size.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable
 - **Transliteration**: Do we offer Hebrew/Greek in romanized form for accessibility?
