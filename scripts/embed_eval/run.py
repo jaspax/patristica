@@ -8,7 +8,9 @@ language would. Writes per-query ranks and summaries to
 
 Retriever specs: ``bm25``, ``dense:NAME`` (see ``embedders.EMBEDDERS``), and
 ``hybrid:A+B`` for reciprocal rank fusion of any of those; ``hybrid:bm25@0.3+dense:NAME``
-weights a component (default 1).
+weights a component (default 1). ``dense:NAME+tr:PATH@MODEL`` also embeds the
+English translations by MODEL in the translations JSONL at PATH, and scores
+each translated document by the better of its two vectors.
 
 Usage::
 
@@ -39,6 +41,16 @@ def load_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in f if line.strip()]
 
 
+def load_translations(path: Path, model: str) -> dict[str, str]:
+    """chunk_id → English translation by *model* from a translations JSONL."""
+    out = {}
+    for line in path.open(encoding="utf-8"):
+        r = json.loads(line)
+        if r["model"] == model:
+            out[r["chunk_id"]] = r["translation"]
+    return out
+
+
 def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Retriever:
     if spec.startswith("hybrid:"):
         parts = spec.removeprefix("hybrid:").split("+")
@@ -51,10 +63,16 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
     if spec == "bm25":
         return BM25(texts)
     if spec.startswith("dense:"):
-        embedder = get_embedder(spec.removeprefix("dense:"))
+        name, _, tr = spec.removeprefix("dense:").partition("+tr:")
+        embedder = get_embedder(name)
         if cache_dir is not None:
             safe = embedder.name.replace("/", "__")
             embedder = CachedEmbedder(embedder, cache_dir / f"{safe}.sqlite")
+        if tr:
+            path, _, model = tr.rpartition("@")
+            translations = load_translations(Path(path), model)
+            alt = [translations.get(c["chunk_id"]) for c in corpus]
+            return Dense(embedder, texts, alt, alt_name=f"tr:{model}")
         return Dense(embedder, texts)
     raise ValueError(f"Unknown retriever spec {spec!r}")
 

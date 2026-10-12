@@ -91,19 +91,37 @@ class BM25:
 
 
 class Dense:
-    def __init__(self, embedder: Embedder, texts: list[str]) -> None:
+    """Cosine retrieval. With *alt_texts* (e.g. English translations of some
+    documents), a document scores the better of its two vectors."""
+
+    def __init__(
+        self,
+        embedder: Embedder,
+        texts: list[str],
+        alt_texts: list[str | None] | None = None,
+        alt_name: str | None = None,
+    ) -> None:
         import numpy as np
 
-        self.name = f"dense:{embedder.name}"
+        self.name = f"dense:{embedder.name}" + (f"+{alt_name}" if alt_name else "")
         self.embedder = embedder
         log.info("%s: embedding %d documents", self.name, len(texts))
         self.docs = _normalize(np.asarray(embedder.embed_documents(texts), dtype=np.float32))
+        self.alt_idx = None
+        if alt_texts is not None:
+            idx = [i for i, t in enumerate(alt_texts) if t]
+            log.info("%s: embedding %d alternate texts", self.name, len(idx))
+            vecs = embedder.embed_documents([alt_texts[i] for i in idx]) if idx else []
+            self.alt_idx = np.asarray(idx, dtype=np.int64)
+            self.alt = _normalize(np.asarray(vecs, dtype=np.float32).reshape(len(idx), -1))
 
     def search(self, queries: list[str], k: int, allowed: Allowed = None) -> list[list[int]]:
         import numpy as np
 
         q = _normalize(np.asarray(self.embedder.embed_queries(queries), dtype=np.float32))
         sims = q @ self.docs.T
+        if self.alt_idx is not None and len(self.alt_idx):
+            sims[:, self.alt_idx] = np.maximum(sims[:, self.alt_idx], q @ self.alt.T)
         out = []
         for qi in range(len(queries)):
             row = sims[qi]

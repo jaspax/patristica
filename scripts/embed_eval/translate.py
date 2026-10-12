@@ -1,20 +1,31 @@
 """
-Translation eval for the low-resource languages (#3): can a cheap model
-translate Syriac, Coptic, Armenian and Ge'ez well enough that we can embed
-the English instead of the original?
+Translation eval for the low-resource languages (#3): which model translates
+Syriac, Coptic, Armenian and Ge'ez well enough that we can embed the English
+instead of the original?
 
 ``quality`` translates the targets of the drafted paraphrase/topical queries
-with the bulk model (Haiku) and a reference model (Opus), then has Opus judge
-both translations blind, in random order, against the original. For
-Scripture targets a published English translation from the same verse group
-(WEB, else KJV/ASV) is given to the judge as a reference. Results are
-appended to ``data/eval/translation/quality.jsonl`` (resumable), and token
-usage is reported so cost can be checked before scaling up.
+with every model in ``TRANSLATORS`` (Claude Haiku/Sonnet/Opus 5.5 and OpenAI
+GPT-6.1 Sol), then has every model in ``JUDGES`` (Opus and Sol) rate all
+translations of a passage blind, under shuffled labels, against the original.
+For Scripture targets a published English translation from the same verse
+group (WEB, else KJV/ASV) is given to the judges as a reference. Having
+judges from two vendors means every translation also gets a verdict from a
+model other than the one that produced it.
+
+Translations and judgements are cached in ``data/eval/translation/``
+(``translations.jsonl``, ``judgements.jsonl``), so runs resume and new models
+can be added without redoing the rest. Token usage is logged for cost.
 
 Usage::
 
     python -m scripts.embed_eval.translate quality [--limit N] [--langs syc cop hye gez]
     python -m scripts.embed_eval.translate summary
+    python -m scripts.embed_eval.translate bulk --model sol [--langs ...]
+
+``bulk`` translates every eval-corpus chunk in the given languages with one
+model, sending consecutive chunks of the same work together (up to
+``BULK_MAX_CHARS``) so the model sees context and the per-request overhead is
+shared. Output goes to the same ``translations.jsonl``.
 """
 
 from __future__ import annotations
@@ -23,8 +34,13 @@ import argparse
 import json
 import logging
 import random
-from collections import Counter, defaultdict
+import re
+import string
+import threading
+import time
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
@@ -32,9 +48,28 @@ from pydantic import BaseModel, Field
 
 log = logging.getLogger(__name__)
 
-BULK_MODEL = "claude-haiku-5-5"
-REFERENCE_MODEL = "claude-opus-5-5"
+
+@dataclass(frozen=True)
+class Model:
+    vendor: Literal["anthropic", "openai"]
+    model_id: str
+    price_in: float  # USD per million tokens
+    price_out: float
+
+
+# Prices: Claude from the claude-api model table; Sol from third-party
+# listings (Oct 2026) - check OpenAI's pricing page before budgeting on it.
+MODELS: dict[str, Model] = {
+    "haiku": Model("anthropic", "claude-haiku-5-5", 0.10, 0.50),
+    "sonnet": Model("anthropic", "claude-sonnet-5-5", 2.00, 10.00),
+    "opus": Model("anthropic", "claude-opus-5-5", 4.00, 20.00),
+    "sol": Model("openai", "gpt-6.1-sol", 2.00, 10.00),
+}
+TRANSLATORS = ("haiku", "sonnet", "opus", "sol")
+JUDGES = ("opus", "sol")
+
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
+FALLBACK_MODELS = {"claude-opus-5-5", "claude-sonnet-5-5"}
 
 LANGUAGE_NAMES = {
     "syc": "Syriac",
@@ -42,9 +77,6 @@ LANGUAGE_NAMES = {
     "hye": "Classical Armenian (Grabar)",
     "gez": "Ge'ez (Classical Ethiopic)",
 }
-
-# USD per million tokens (input, output), from the claude-api model table.
-PRICES = {BULK_MODEL: (0.10, 0.50), REFERENCE_MODEL: (4.00, 20.00)}
 
 DEFAULT_DIR = Path("data/eval")
 DEFAULT_AUTHORED = Path("data/eval_authored")
@@ -65,7 +97,7 @@ passage as a known text (for example a Bible verse); otherwise leave it null."""
 JUDGE_SYSTEM = """\
 You assess English translations of {language} passages from early Christian and \
 Jewish texts. You are given the original, sometimes a published reference \
-translation, and two candidate translations labelled A and B.
+translation, and several candidate translations labelled with letters.
 
 For each candidate, rate fidelity to the original from 1 to 5:
 5 = all meaning preserved, nothing added or lost; 4 = minor nuance lost; \
@@ -76,8 +108,27 @@ hallucination (content not in the original at all).
 
 Judge against the original. A reference translation, if given, may follow a \
 different textual tradition; do not penalise a candidate for matching the \
-original where the reference differs. Say how confidently you can read the \
+original where the reference differs. Rate each candidate on its own merits, \
+not by comparison with the others. Say how confidently you can read the \
 original yourself."""
+
+
+BULK_MAX_CHARS = 3000
+BULK_MAX_ITEMS = 25
+
+BULK_SYSTEM = TRANSLATOR_SYSTEM.split("- Rate your confidence")[0] + """\
+- The passages are numbered consecutive pieces of one work. Translate each one \
+separately and return one item per number, in order; use the neighbouring \
+passages only as context."""
+
+
+class BulkItem(BaseModel):
+    n: int
+    translation: str
+
+
+class BulkTranslation(BaseModel):
+    items: list[BulkItem]
 
 
 class Translation(BaseModel):
@@ -92,80 +143,106 @@ class TranslationError(BaseModel):
     detail: str
 
 
-class CandidateVerdict(BaseModel):
+class Verdict(BaseModel):
+    label: str
     fidelity: int = Field(ge=1, le=5)
     errors: list[TranslationError]
 
 
 class Judgement(BaseModel):
-    a: CandidateVerdict
-    b: CandidateVerdict
-    same_meaning: bool = Field(description="Do A and B say the same thing?")
+    verdicts: list[Verdict]
     judge_can_read_original: Literal["well", "partly", "poorly"]
 
 
-def _client():
-    import anthropic
+def openai_schema(model: type[BaseModel]) -> dict:
+    """Pydantic schema → OpenAI strict schema: every field required, no extra keys."""
+    schema = model.model_json_schema()
 
-    from scripts.embed_eval.embedders import _env_key
+    def fix(node: dict) -> None:
+        if "properties" in node:
+            node["additionalProperties"] = False
+            node["required"] = list(node["properties"])
+            for child in node["properties"].values():
+                fix(child)
+        for key in ("minimum", "maximum", "title", "default"):
+            node.pop(key, None)
+        if isinstance(node.get("items"), dict):
+            fix(node["items"])
+        for child in node.get("anyOf", []):
+            fix(child)
+        for child in node.get("$defs", {}).values():
+            fix(child)
 
-    return anthropic.Anthropic(api_key=_env_key("ANTHROPIC_API_KEY"), max_retries=6)
-
-
-def translate(client, model: str, lang: str, text: str) -> tuple[Translation, dict]:
-    kwargs = dict(
-        model=model,
-        max_tokens=16000,
-        system=TRANSLATOR_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
-        messages=[{"role": "user", "content": text}],
-        output_format=Translation,
-    )
-    if model == REFERENCE_MODEL:
-        resp = client.beta.messages.parse(betas=[FALLBACK_BETA], fallbacks="default", **kwargs)
-    else:
-        resp = client.messages.parse(**kwargs)
-    _check(resp)
-    return resp.parsed_output, _usage(model, resp)
-
-
-def judge(client, lang: str, text: str, reference: str | None,
-          a: str, b: str) -> tuple[Judgement, dict]:
-    parts = [f"Original ({LANGUAGE_NAMES[lang]}):\n{text}"]
-    if reference:
-        parts.append(f"Published reference translation:\n{reference}")
-    parts += [f"Candidate A:\n{a}", f"Candidate B:\n{b}"]
-    resp = client.beta.messages.parse(
-        model=REFERENCE_MODEL,
-        max_tokens=16000,
-        betas=[FALLBACK_BETA],
-        fallbacks="default",
-        output_config={"effort": "high"},
-        system=JUDGE_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
-        messages=[{"role": "user", "content": "\n\n".join(parts)}],
-        output_format=Judgement,
-    )
-    _check(resp)
-    return resp.parsed_output, _usage(REFERENCE_MODEL, resp)
+    fix(schema)
+    return schema
 
 
-def _check(resp) -> None:
-    if resp.stop_reason == "refusal":
-        raise RuntimeError(f"refused: {resp.stop_details}")
-    if resp.stop_reason == "max_tokens":
-        raise RuntimeError("hit max_tokens")
+class Clients:
+    def __init__(self) -> None:
+        import anthropic
+        import httpx
 
+        from scripts.embed_eval.embedders import _env_key
 
-def _usage(model: str, resp) -> dict:
-    u = resp.usage
-    return {"model": model, "input": u.input_tokens, "output": u.output_tokens}
+        self.anthropic = anthropic.Anthropic(api_key=_env_key("ANTHROPIC_API_KEY"),
+                                             max_retries=6)
+        self.openai_key = _env_key("OPENAI_API_KEY")
+        self.http = httpx.Client(timeout=900)
+
+    def call(self, name: str, system: str, user: str, schema: type[BaseModel],
+             effort: str | None = None) -> tuple[BaseModel, dict]:
+        m = MODELS[name]
+        if m.vendor == "anthropic":
+            return self._anthropic(name, m, system, user, schema, effort)
+        return self._openai(name, m, system, user, schema, effort)
+
+    def _anthropic(self, name, m, system, user, schema, effort):
+        kwargs: dict = dict(model=m.model_id, max_tokens=16000, system=system,
+                            messages=[{"role": "user", "content": user}], output_format=schema)
+        if effort:
+            kwargs["output_config"] = {"effort": effort}
+        if m.model_id in FALLBACK_MODELS:
+            resp = self.anthropic.beta.messages.parse(
+                betas=[FALLBACK_BETA], fallbacks="default", **kwargs)
+        else:
+            resp = self.anthropic.messages.parse(**kwargs)
+        if resp.stop_reason in ("refusal", "max_tokens"):
+            raise RuntimeError(f"{name}: stop_reason {resp.stop_reason}")
+        usage = {"model": name, "input": resp.usage.input_tokens,
+                 "output": resp.usage.output_tokens}
+        return resp.parsed_output, usage
+
+    def _openai(self, name, m, system, user, schema, effort):
+        body = {
+            "model": m.model_id, "max_completion_tokens": 32000,
+            "messages": [{"role": "system", "content": system},
+                         {"role": "user", "content": user}],
+            "response_format": {"type": "json_schema", "json_schema": {
+                "name": schema.__name__, "schema": openai_schema(schema), "strict": True}},
+        }
+        if effort:
+            body["reasoning_effort"] = effort
+        for attempt in range(6):
+            r = self.http.post("https://api.openai.com/v1/chat/completions",
+                               headers={"Authorization": f"Bearer {self.openai_key}"},
+                               json=body)
+            if r.status_code == 200:
+                break
+            if r.status_code not in (429, 500, 502, 503) or attempt == 5:
+                raise RuntimeError(f"{name}: HTTP {r.status_code}: {r.text[:300]}")
+            time.sleep(10 * (attempt + 1))
+        j = r.json()
+        choice = j["choices"][0]
+        if choice.get("finish_reason") != "stop":
+            raise RuntimeError(f"{name}: finish_reason {choice.get('finish_reason')}")
+        usage = {"model": name, "input": j["usage"]["prompt_tokens"],
+                 "output": j["usage"]["completion_tokens"]}
+        return schema.model_validate_json(choice["message"]["content"]), usage
 
 
 def cost(usages: list[dict]) -> float:
-    total = 0.0
-    for u in usages:
-        pin, pout = PRICES[u["model"]]
-        total += u["input"] * pin / 1e6 + u["output"] * pout / 1e6
-    return total
+    return sum(u["input"] * MODELS[u["model"]].price_in / 1e6
+               + u["output"] * MODELS[u["model"]].price_out / 1e6 for u in usages)
 
 
 # --- target selection -----------------------------------------------------------
@@ -173,12 +250,12 @@ def cost(usages: list[dict]) -> float:
 def quality_targets(eval_dir: Path, authored_dir: Path, langs: list[str]) -> list[dict]:
     """Targets of authored queries in *langs*, with an English reference for Scripture."""
     corpus = {}
-    by_group: dict[str, list[dict]] = defaultdict(list)
+    eng_by_group: dict[str, list[dict]] = defaultdict(list)
     for line in (eval_dir / "corpus.jsonl").open(encoding="utf-8"):
         c = json.loads(line)
         corpus[c["chunk_id"]] = c
         if c.get("translation_group_id") and c["language"] == "eng":
-            by_group[c["translation_group_id"]].append(c)
+            eng_by_group[c["translation_group_id"]].append(c)
     ids: dict[str, str] = {}
     for path in sorted(authored_dir.glob("*.jsonl")):
         for line in path.read_text(encoding="utf-8").splitlines():
@@ -192,7 +269,7 @@ def quality_targets(eval_dir: Path, authored_dir: Path, langs: list[str]) -> lis
         if c is None:
             continue
         ref = None
-        eng = by_group.get(c.get("translation_group_id") or "", [])
+        eng = eng_by_group.get(c.get("translation_group_id") or "", [])
         for source in ("scripture/web/", "scripture/kjv/", "scripture/asv/"):
             ref = next((e["text"] for e in eng if e["work_id"].startswith(source)), None)
             if ref:
@@ -202,81 +279,211 @@ def quality_targets(eval_dir: Path, authored_dir: Path, langs: list[str]) -> lis
     return out
 
 
+# --- run ------------------------------------------------------------------------
+
+class Store:
+    """Append-only JSONL of results keyed by (model, chunk_id); thread-safe."""
+
+    def __init__(self, path: Path) -> None:
+        self.path, self.lock = path, threading.Lock()
+        self.rows: dict[tuple[str, str], dict] = {}
+        if path.exists():
+            for line in path.open(encoding="utf-8"):
+                r = json.loads(line)
+                self.rows[(r["model"], r["chunk_id"])] = r
+
+    def get(self, model: str, chunk_id: str) -> dict | None:
+        return self.rows.get((model, chunk_id))
+
+    def put(self, row: dict) -> None:
+        with self.lock:
+            self.rows[(row["model"], row["chunk_id"])] = row
+            with self.path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
 def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int | None,
                 workers: int, seed: int = 0) -> None:
     out_dir = eval_dir / "translation"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "quality.jsonl"
-    done = set()
-    if out_path.exists():
-        done = {json.loads(line)["chunk_id"] for line in out_path.open(encoding="utf-8")}
-    targets = [t for t in quality_targets(eval_dir, authored_dir, langs)
-               if t["chunk_id"] not in done]
+    translations = Store(out_dir / "translations.jsonl")
+    judgements = Store(out_dir / "judgements.jsonl")
+    targets = quality_targets(eval_dir, authored_dir, langs)
     if limit is not None:
         per_lang: dict[str, list[dict]] = defaultdict(list)
         for t in targets:
             per_lang[t["language"]].append(t)
         targets = [t for lang in langs for t in per_lang[lang][:limit]]
-    log.info("Translating and judging %d passages (%d already done)", len(targets), len(done))
-    client = _client()
+    log.info("%d passages, %d translators, %d judges", len(targets), len(TRANSLATORS),
+             len(JUDGES))
+    clients = Clients()
 
-    def one(t: dict) -> dict:
-        rng = random.Random(f"{seed}:{t['chunk_id']}")
-        haiku, u1 = translate(client, BULK_MODEL, t["language"], t["text"])
-        opus, u2 = translate(client, REFERENCE_MODEL, t["language"], t["text"])
-        haiku_is_a = rng.random() < 0.5
-        a, b = (haiku, opus) if haiku_is_a else (opus, haiku)
-        j, u3 = judge(client, t["language"], t["text"], t["reference"],
-                      a.translation, b.translation)
-        hv, ov = (j.a, j.b) if haiku_is_a else (j.b, j.a)
-        return {**t, "haiku": haiku.model_dump(), "opus": opus.model_dump(),
-                "haiku_verdict": hv.model_dump(), "opus_verdict": ov.model_dump(),
-                "same_meaning": j.same_meaning,
-                "judge_can_read_original": j.judge_can_read_original,
-                "usage": [u1, u2, u3]}
+    def translate_one(job: tuple[str, dict]) -> None:
+        name, t = job
+        if translations.get(name, t["chunk_id"]):
+            return
+        system = TRANSLATOR_SYSTEM.format(language=LANGUAGE_NAMES[t["language"]])
+        out, usage = clients.call(name, system, t["text"], Translation)
+        translations.put({"model": name, "chunk_id": t["chunk_id"], **out.model_dump(),
+                          "usage": usage})
 
-    with ThreadPoolExecutor(workers) as pool, out_path.open("a", encoding="utf-8") as f:
-        for row in pool.map(_safe(one), targets):
-            if row is not None:
-                f.write(json.dumps(row, ensure_ascii=False) + "\n")
-                f.flush()
-    summarize(out_path)
+    def judge_one(job: tuple[str, dict]) -> None:
+        judge, t = job
+        if judgements.get(judge, t["chunk_id"]):
+            return
+        names = [n for n in TRANSLATORS if translations.get(n, t["chunk_id"])]
+        rng = random.Random(f"{seed}:{judge}:{t['chunk_id']}")
+        rng.shuffle(names)
+        labels = dict(zip(string.ascii_uppercase, names, strict=False))
+        parts = [f"Original ({LANGUAGE_NAMES[t['language']]}):\n{t['text']}"]
+        if t["reference"]:
+            parts.append(f"Published reference translation:\n{t['reference']}")
+        parts += [f"Candidate {label}:\n{translations.get(n, t['chunk_id'])['translation']}"
+                  for label, n in labels.items()]
+        system = JUDGE_SYSTEM.format(language=LANGUAGE_NAMES[t["language"]])
+        out, usage = clients.call(judge, system, "\n\n".join(parts), Judgement, effort="high")
+        by_model = {}
+        for v in out.verdicts:
+            if v.label in labels:
+                by_model[labels[v.label]] = {"fidelity": v.fidelity,
+                                             "errors": [e.model_dump() for e in v.errors]}
+        missing = set(names) - set(by_model)
+        if missing:
+            raise RuntimeError(f"{judge} gave no verdict for {missing} on {t['chunk_id']}")
+        judgements.put({"model": judge, "chunk_id": t["chunk_id"], "language": t["language"],
+                        "origin": t["origin"], "verdicts": by_model,
+                        "judge_can_read_original": out.judge_can_read_original,
+                        "usage": usage})
+
+    with ThreadPoolExecutor(workers) as pool:
+        list(pool.map(_safe(translate_one), [(n, t) for t in targets for n in TRANSLATORS]))
+        list(pool.map(_safe(judge_one), [(j, t) for t in targets for j in JUDGES]))
+    summarize(out_dir)
 
 
 def _safe(fn):
-    def wrapped(t):
+    def wrapped(job):
         try:
-            return fn(t)
-        except Exception:
-            log.exception("failed on %s", t["chunk_id"])
-            return None
+            fn(job)
+        except Exception as e:
+            log.error("%s on %s failed: %s", job[0], job[1]["chunk_id"], e)
     return wrapped
 
 
-def summarize(path: Path) -> None:
-    rows = [json.loads(line) for line in path.open(encoding="utf-8")]
-    if not rows:
-        print("no results")
-        return
-    print(f"{len(rows)} passages, cost so far ${cost([u for r in rows for u in r['usage']]):.2f}")
-    print(f"{'lang':4s} {'origin':9s} {'n':>3s} {'haiku':>6s} {'opus':>6s} "
-          f"{'h<=2':>5s} {'h_hallu':>7s} {'agree':>6s} {'judge_reads_well':>16s}")
-    groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
-    for r in rows:
-        groups[(r["language"], r["origin"])].append(r)
-    for (lang, origin), rs in sorted(groups.items()):
-        n = len(rs)
-        h = sum(r["haiku_verdict"]["fidelity"] for r in rs) / n
-        o = sum(r["opus_verdict"]["fidelity"] for r in rs) / n
-        bad = sum(r["haiku_verdict"]["fidelity"] <= 2 for r in rs)
-        hallu = sum(any(e["type"] == "hallucination" for e in r["haiku_verdict"]["errors"])
-                    for r in rs)
-        agree = sum(r["same_meaning"] for r in rs)
-        reads = Counter(r["judge_can_read_original"] for r in rs)["well"]
-        print(f"{lang:4s} {origin:9s} {n:3d} {h:6.2f} {o:6.2f} {bad:5d} {hallu:7d} "
-              f"{agree:6d} {reads:16d}")
-    conf = Counter((r["haiku"]["confidence"], r["haiku_verdict"]["fidelity"] >= 4) for r in rows)
-    print("haiku confidence vs fidelity>=4:", dict(sorted(conf.items())))
+def summarize(out_dir: Path) -> None:
+    translations = Store(out_dir / "translations.jsonl")
+    judgements = Store(out_dir / "judgements.jsonl")
+    usages = [r["usage"] for r in translations.rows.values()]
+    usages += [r["usage"] for r in judgements.rows.values()]
+    print(f"cost so far ${cost(usages):.2f} "
+          f"({len(translations.rows)} translations, {len(judgements.rows)} judgements)")
+    for name in TRANSLATORS:
+        tr = [r["usage"] for (m, _), r in translations.rows.items() if m == name]
+        if tr:
+            print(f"  {name:6s} translation: ${cost(tr):.3f} for {len(tr)} passages "
+                  f"(${cost(tr) / len(tr):.4f} each)")
+
+    cells: dict[tuple, list[int]] = defaultdict(list)
+    hallu: dict[tuple[str, str], int] = defaultdict(int)
+    for (judge, _), r in judgements.rows.items():
+        for name, v in r["verdicts"].items():
+            for key in ((r["language"], r["origin"]), ("all", "all")):
+                cells[(name, judge, *key)].append(v["fidelity"])
+            if any(e["type"] == "hallucination" for e in v["errors"]):
+                hallu[(name, judge)] += 1
+    groups = sorted({k[2:] for k in cells} - {("all", "all")}) + [("all", "all")]
+    print("\nmean fidelity (1-5), translator × judge; (self) = judge scored its own work")
+    print(f"{'translator':10s} {'judge':5s} "
+          + " ".join(f"{g[0] + '/' + g[1][:4]:>9s}" for g in groups) + "  hallucinated")
+    for name in TRANSLATORS:
+        for judge in JUDGES:
+            vals = [cells.get((name, judge, *g)) for g in groups]
+            if not any(vals):
+                continue
+            row = " ".join(f"{sum(v) / len(v):9.2f}" if v else f"{'–':>9s}" for v in vals)
+            tag = " (self)" if name == judge else ""
+            print(f"{name:10s} {judge:5s} {row}  {hallu[(name, judge)]:>12d}{tag}")
+
+    pairs = []
+    for (judge, cid), r in judgements.rows.items():
+        other = judgements.get(JUDGES[1], cid) if judge == JUDGES[0] else None
+        if other:
+            pairs += [(v["fidelity"], other["verdicts"][n]["fidelity"])
+                      for n, v in r["verdicts"].items() if n in other["verdicts"]]
+    if pairs:
+        exact = sum(a == b for a, b in pairs) / len(pairs)
+        within1 = sum(abs(a - b) <= 1 for a, b in pairs) / len(pairs)
+        print(f"\njudge agreement ({JUDGES[0]} vs {JUDGES[1]}, {len(pairs)} translations): "
+              f"exact {exact:.2f}, within one point {within1:.2f}")
+
+
+def _natural(s: str) -> list:
+    """Sort key that orders 'Gen.1.10' after 'Gen.1.2'."""
+    return [(0, int(p)) if p.isdigit() else (1, p) for p in re.split(r"(\d+)", s)]
+
+
+def bulk_groups(chunks: list[dict]) -> list[list[dict]]:
+    """Consecutive chunks of one work, up to BULK_MAX_CHARS / BULK_MAX_ITEMS each."""
+    by_work: dict[str, list[dict]] = defaultdict(list)
+    for c in chunks:
+        by_work[c["work_id"]].append(c)
+    groups = []
+    for work in sorted(by_work):
+        cur: list[dict] = []
+        size = 0
+        for c in sorted(by_work[work], key=lambda c: _natural(c["chunk_id"])):
+            if cur and (size + len(c["text"]) > BULK_MAX_CHARS or len(cur) >= BULK_MAX_ITEMS):
+                groups.append(cur)
+                cur, size = [], 0
+            cur.append(c)
+            size += len(c["text"])
+        if cur:
+            groups.append(cur)
+    return groups
+
+
+def run_bulk(eval_dir: Path, model: str, langs: list[str], workers: int) -> None:
+    out_dir = eval_dir / "translation"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    translations = Store(out_dir / "translations.jsonl")
+    chunks = [c for c in map(json.loads, (eval_dir / "corpus.jsonl").open(encoding="utf-8"))
+              if c["language"] in langs and not translations.get(model, c["chunk_id"])]
+    groups = bulk_groups(chunks)
+    log.info("bulk %s: %d chunks in %d requests", model, len(chunks), len(groups))
+    clients = Clients()
+
+    def one(group: list[dict]) -> None:
+        lang = group[0]["language"]
+        user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
+        out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
+                                  user, BulkTranslation)
+        got = {item.n: item.translation for item in out.items}
+        share = {k: round(v / len(group)) for k, v in usage.items() if k != "model"}
+        for i, c in enumerate(group, start=1):
+            if i in got:
+                translations.put({"model": model, "chunk_id": c["chunk_id"],
+                                  "translation": got[i], "bulk": True,
+                                  "usage": {"model": model, **share}})
+            else:
+                log.warning("%s: no translation for %s", model, c["chunk_id"])
+
+    done = 0
+    with ThreadPoolExecutor(workers) as pool:
+        for _ in pool.map(_safe_group(one), groups):
+            done += 1
+            if done % 50 == 0:
+                log.info("bulk %s: %d/%d requests", model, done, len(groups))
+    tr = [r["usage"] for (m, _), r in translations.rows.items() if m == model and r.get("bulk")]
+    log.info("bulk %s: %d chunks translated, cost $%.2f", model, len(tr), cost(tr))
+
+
+def _safe_group(fn):
+    def wrapped(group):
+        try:
+            fn(group)
+        except Exception as e:
+            log.error("group starting %s failed: %s", group[0]["chunk_id"], e)
+    return wrapped
 
 
 def main() -> None:
@@ -286,9 +493,13 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     q = sub.add_parser("quality")
     q.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES))
-    q.add_argument("--limit", type=int, help="at most N new passages per language")
-    q.add_argument("--workers", type=int, default=4)
+    q.add_argument("--limit", type=int, help="at most N passages per language")
+    q.add_argument("--workers", type=int, default=6)
     sub.add_parser("summary")
+    b = sub.add_parser("bulk")
+    b.add_argument("--model", required=True, choices=list(MODELS))
+    b.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES))
+    b.add_argument("--workers", type=int, default=8)
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     args = p.parse_args()
@@ -296,8 +507,10 @@ def main() -> None:
     logging.getLogger("httpx").setLevel(logging.WARNING)
     if args.cmd == "quality":
         run_quality(args.eval_dir, args.authored, args.langs, args.limit, args.workers)
+    elif args.cmd == "bulk":
+        run_bulk(args.eval_dir, args.model, args.langs, args.workers)
     else:
-        summarize(args.eval_dir / "translation" / "quality.jsonl")
+        summarize(args.eval_dir / "translation")
 
 
 if __name__ == "__main__":

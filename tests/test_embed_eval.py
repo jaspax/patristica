@@ -370,3 +370,53 @@ def test_extend_appends_language_without_touching_existing(tmp_path: Path):
     assert "extensions" in json.loads((out / "build.json").read_text())
     with pytest.raises(ValueError):
         build.extend_build(chunks_dir, works_path, out, "gez")
+
+
+def test_openai_schema_is_strict():
+    from scripts.embed_eval.translate import Judgement, Translation, openai_schema
+
+    def check(node):
+        if isinstance(node, dict):
+            if "properties" in node:
+                assert node["additionalProperties"] is False
+                assert set(node["required"]) == set(node["properties"])
+            assert "minimum" not in node and "maximum" not in node
+            for v in node.values():
+                check(v)
+        elif isinstance(node, list):
+            for v in node:
+                check(v)
+
+    for model in (Translation, Judgement):
+        check(openai_schema(model))
+
+
+def test_dense_alt_texts_take_the_better_vector():
+    pytest.importorskip("numpy")
+    docs = ["ⲡⲛⲟⲩⲧⲉ ⲡⲉ ⲡⲟⲩⲟⲉⲓⲛ", "Beati pauperes spiritu"]
+    plain = retrieval.Dense(CharEmbedder(), docs)
+    with_tr = retrieval.Dense(CharEmbedder(), docs, ["God is the light", None], alt_name="tr:x")
+    assert with_tr.name == "dense:fake/chars+tr:x"
+    q = ["god is the light"]
+    assert plain.search(q, 1)[0] == [1]   # Latin letters beat Coptic for an English query
+    assert with_tr.search(q, 1)[0] == [0]  # the translation makes the Coptic doc findable
+
+
+def test_bulk_groups_split_by_work_size_and_count(monkeypatch):
+    from scripts.embed_eval import translate
+
+    monkeypatch.setattr(translate, "BULK_MAX_CHARS", 10)
+    monkeypatch.setattr(translate, "BULK_MAX_ITEMS", 3)
+    chunks = [{"work_id": "a", "chunk_id": f"a#{i}", "text": "xxxx"} for i in range(4)]
+    chunks += [{"work_id": "b", "chunk_id": "b#0", "text": "y" * 50}]
+    groups = translate.bulk_groups(chunks)
+    assert [[c["chunk_id"] for c in g] for g in groups] == [
+        ["a#0", "a#1"], ["a#2", "a#3"], ["b#0"]]
+
+
+def test_bulk_groups_use_natural_order():
+    from scripts.embed_eval import translate
+
+    chunks = [{"work_id": "w", "chunk_id": f"w#Gen.1.{v}", "text": "x"} for v in (10, 2, 1)]
+    assert [c["chunk_id"] for c in translate.bulk_groups(chunks)[0]] == [
+        "w#Gen.1.1", "w#Gen.1.2", "w#Gen.1.10"]
