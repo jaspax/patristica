@@ -133,8 +133,8 @@ class TestSblgntParser:
 
 class TestOshbParser:
     # Gen 1:1 word text as in morphhb wlc/Gen.xml; the other "verses" combine real
-    # morphhb words to exercise suffix separators, maqqef, nested <seg> letters
-    # and ketiv/qere notes.
+    # morphhb words (some verses abridged from the real ones) to exercise suffix
+    # separators, maqqef, paseq, nested <seg> letters and ketiv/qere notes.
     _XML = textwrap.dedent("""\
         <?xml version="1.0" encoding="utf-8"?>
         <osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
@@ -160,6 +160,28 @@ class TestOshbParser:
           <verse osisID="Gen.8.17">
             <w type="x-ketiv" lemma="3318" morph="HVhv2ms" id="01Pdv">אהל/ה</w><note type="variant"><catchWord>אהל/ה</catchWord><rdg type="x-qere"><w lemma="168" morph="HNcmsc/Sp3ms" id="01Gdj">אָֽהֳל/וֹ֙</w></rdg></note>
           </verse>
+          <verse osisID="1Chr.1.11">
+            <w lemma="3205" morph="HVqp3ms" id="13Xw6">יָלַ֞ד</w>
+            <w lemma="853" morph="HTo" id="13eHJ">אֶת</w><seg type="x-maqqef">־</seg><w type="x-ketiv" lemma="3866" morph="HNp" id="13H6L">לודיים</w><note type="variant"><catchWord>לודיים</catchWord><rdg type="x-qere"><w lemma="3866" morph="HNp" id="13bmv">לוּדִ֧ים</w></rdg></note>
+            <w lemma="c/853" morph="HC/To" id="13FV9">וְ/אֶת</w><seg type="x-maqqef">־</seg><w lemma="6047" morph="HNp" id="13Xm1">עֲנָמִ֛ים</w><seg type="x-sof-pasuq">׃</seg>
+          </verse>
+          <verse osisID="1Kgs.1.9">
+            <w lemma="c/7121" morph="HC/Vqw3ms" id="11V27">וַ/יִּקְרָ֗א</w>
+            <w lemma="853" morph="HTo" id="11ifp">אֶת</w><seg type="x-maqqef">־</seg><w lemma="3605" morph="HNcmsc" id="117ZG">כָּל</w><seg type="x-maqqef">־</seg><w lemma="251" morph="HNcmpc/Sp3ms" id="11B2d">אֶחָי/ו֙</w>
+            <w lemma="1121 a" morph="HNcmpc" id="11ewe">בְּנֵ֣י</w>
+          </verse>
+          <verse osisID="2Sam.8.3">
+            <w lemma="b/3212" morph="HR/Vqc/Sp3ms" id="108Vg">בְּ/לֶכְתּ֕/וֹ</w>
+            <w lemma="b/5104" morph="HR/Ncmsc" id="10BJi">בִּֽ/נְהַר</w><seg type="x-maqqef">־</seg><note type="variant"><rdg type="x-qere"><w lemma="6578" morph="HNp" id="10dp9">פְּרָֽת</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+            <note n="a">Adaptations to a Qere which L and BHS, by their design, do not indicate. </note>
+          </verse>
+          <verse osisID="Gen.1.5">
+            <w lemma="430" morph="HNcmpa" id="01kfX">אֱלֹהִ֤ים</w>
+            <seg type="x-paseq">׀</seg>
+            <w lemma="l/216" morph="HRd/Ncbsa" id="01Wkf">לָ/אוֹר֙</w>
+            <w lemma="c/1961" morph="HC/Vqw3ms" id="01Y3z">וַֽ/יְהִי</w><seg type="x-maqqef">־</seg><w lemma="6153" morph="HNcmsa" id="01NQN">עֶ֥רֶב</w>
+            <w lemma="259" morph="HAcmsa" id="01NFp">אֶחָֽד</w><seg type="x-sof-pasuq">׃</seg>
+          </verse>
         </chapter></div></osisText></osis>
         """).encode("utf-8")
 
@@ -173,9 +195,24 @@ class TestOshbParser:
         assert all("/" not in text for text in verses.values())
 
     def test_suffix_separator_and_maqqef(self) -> None:
-        words = self._verses()["Gen.4.4"].split()
-        assert words[0] == "אִתָּ֑ךְ"
-        assert words[-1] == "הָאָ֖רֶץ"
+        # A maqqef binds both neighbours into one word: no space on either side (#54).
+        assert self._verses()["Gen.4.4"] == "אִתָּ֑ךְ עַל־הָאָ֖רֶץ"
+
+    def test_maqqef_before_ketiv(self) -> None:
+        # The ketiv after a maqqef attaches; the qere note in between is skipped.
+        assert self._verses()["1Chr.1.11"] == "יָלַ֞ד אֶת־לודיים וְאֶת־עֲנָמִ֛ים"
+
+    def test_chained_maqqefs(self) -> None:
+        assert self._verses()["1Kgs.1.9"] == "וַיִּקְרָ֗א אֶת־כָּל־אֶחָיו֙ בְּנֵ֣י"
+
+    def test_maqqef_at_verse_end(self) -> None:
+        # 2Sam 8:3 ends in a qere-only word (no ketiv), so the maqqef is the last
+        # character of the running text, with no trailing space.
+        assert self._verses()["2Sam.8.3"] == "בְּלֶכְתּ֕וֹ בִּֽנְהַר־"
+
+    def test_paseq_spaced_and_sof_pasuq_dropped(self) -> None:
+        # Paseq stands between spaces as in morphhb; sof pasuq is omitted.
+        assert self._verses()["Gen.1.5"] == "אֱלֹהִ֤ים ׀ לָאוֹר֙ וַֽיְהִי־עֶ֥רֶב אֶחָֽד"
 
     def test_nested_seg_letters_kept(self) -> None:
         # Large / suspended letters are <seg> children of <w>; they must not be dropped.
