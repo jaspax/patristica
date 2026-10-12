@@ -325,3 +325,48 @@ def test_report_tables(tmp_path: Path):
     para = out.split("### paraphrase")[1]
     assert para.index("dense:x") < para.index("bm25")  # sorted by mean
     assert "### topical" in out and "(no results)" in out
+
+
+def test_extend_appends_language_without_touching_existing(tmp_path: Path):
+    words = "ቃል እግዚአብሔር ሕይወት ብርሃን ጽልመት ዓለም ሥጋ ስብሐት ጸጋ ጽድቅ መንፈስ ማይ".split()
+    grc = "λόγος θεὸς ζωὴ φῶς σκοτία κόσμος σὰρξ δόξα χάρις ἀλήθεια πνεῦμα ὕδωρ".split()
+    rows = []
+    for v in range(6):
+        g = f"Gen.1.{v + 1}"
+        for lang, wid, vocab in (("grc", "lxx/gen", grc), ("gez", "scripture/gez/gen", words)):
+            rows.append({"chunk_id": f"{wid}#{g}", "work_id": wid, "language": lang,
+                         "text": " ".join(w + "ሀ" * (v + 1) if lang == "gez" else w + "α" * (v + 1)
+                                          for w in vocab),
+                         "chunk_index": v, "translation_group_id": g})
+    for i in range(8):
+        rows.append({"chunk_id": f"scripture/gez/jub#Jub.1.{i}", "work_id": "scripture/gez/jub",
+                     "language": "gez", "chunk_index": i, "translation_group_id": None,
+                     "text": " ".join(w + "ለ" * (i + 1) for w in words)})
+    chunks_dir = tmp_path / "chunks"
+    chunks_dir.mkdir()
+    (chunks_dir / "c.json").write_text(json.dumps(rows, ensure_ascii=False))
+    works = [{"work_id": "lxx/gen", "language": "grc", "genre": "scripture"},
+             {"work_id": "scripture/gez/gen", "language": "gez", "genre": "scripture"},
+             {"work_id": "scripture/gez/jub", "language": "gez", "genre": "scripture"}]
+    works_path = tmp_path / "works.jsonl"
+    works_path.write_text("".join(json.dumps({"work": w}) + "\n" for w in works))
+    out = tmp_path / "eval"
+
+    build.build(chunks_dir, works_path, out, scripture_per_lang=2, unique_per_lang=0,
+                distractors_per_lang=0, authored_dir=tmp_path / "none")
+    before_corpus = (out / "corpus.jsonl").read_text()
+    before_queries = (out / "queries.jsonl").read_text()
+
+    ext = build.extend_build(chunks_dir, works_path, out, "gez",
+                             scripture_per_lang=2, unique_per_lang=3)
+    assert ext["targets"] == {"gez/scripture": 2, "gez/unique": 3}
+    assert (out / "corpus.jsonl").read_text().startswith(before_corpus)
+    assert (out / "queries.jsonl").read_text().startswith(before_queries)
+    corpus = [json.loads(line) for line in (out / "corpus.jsonl").open()]
+    assert len({c["chunk_id"] for c in corpus}) == len(corpus)  # nothing duplicated
+    gez_q = [json.loads(line) for line in (out / "queries.jsonl").open()
+             if json.loads(line)["target_lang"] == "gez"]
+    assert {q["origin"] for q in gez_q} == {"scripture", "unique"}
+    assert "extensions" in json.loads((out / "build.json").read_text())
+    with pytest.raises(ValueError):
+        build.extend_build(chunks_dir, works_path, out, "gez")

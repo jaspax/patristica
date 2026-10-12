@@ -37,6 +37,17 @@ EXCLUDED_UNIQUE_WORKS: dict[str, str] = {
     "pta/pta0200/pta001/pta-syc1": "Syriac translation of Eusebius, Hist. eccl.; Greek in corpus",
 }
 
+# Explicit language-unique works, overriding the metadata rule in
+# ``unique_works``. Ge'ez Scripture books with no parallel elsewhere count as
+# unique; 1 Enoch is left out (Greek and Coptic fragments exist), as are the
+# works with open cleanup issues (#23, #24, #39) and the mislabelled 2 Kings (#66).
+UNIQUE_WORKS: dict[str, tuple[str, ...]] = {
+    "gez": (
+        "scripture/gez/jub", "scripture/gez/1meq", "scripture/gez/3meq",
+        "scripture/gez/apez", "scripture/gez/clem", "scripture/gez/testld",
+    ),
+}
+
 MIN_CHARS = 30
 MAX_CHARS = 2000
 
@@ -91,6 +102,10 @@ def unique_works(works: list[dict], excluded: dict[str, str] | None = None) -> d
             and w["work_id"] not in excluded
         ):
             out[w["language"]].add(w["work_id"])
+    known = {w["work_id"] for w in works}
+    for lang, ids in UNIQUE_WORKS.items():
+        if listed := known.intersection(ids):
+            out[lang] = listed
     return out
 
 
@@ -176,4 +191,71 @@ def select(
         for cid in rng.sample(ids, min(distractors_per_lang, len(ids))):
             sel.add(cid, "distractor")
 
+    return sel
+
+
+def extend(
+    chunks: list[ChunkMeta],
+    works: list[dict],
+    lang: str,
+    corpus_ids: set[str],
+    *,
+    seed: int = 0,
+    scripture_per_lang: int = 100,
+    unique_per_lang: int = 100,
+    neighbours: int = 2,
+) -> Selection:
+    """Pick targets for one more language without disturbing an existing corpus.
+
+    Scripture targets come first from translation groups already in the
+    corpus (so no new parallels are needed); unique targets bring their
+    neighbours. Uses its own random stream, so the result does not depend on
+    which languages were selected before.
+    """
+    rng = random.Random(f"{seed}:extend:{lang}")
+    sel = Selection()
+    chunks = sorted(chunks, key=lambda c: c.chunk_id)
+    by_group: dict[str, list[ChunkMeta]] = defaultdict(list)
+    by_work: dict[str, list[ChunkMeta]] = defaultdict(list)
+    for c in chunks:
+        if c.translation_group_id:
+            by_group[c.translation_group_id].append(c)
+        by_work[c.work_id].append(c)
+    for members in by_work.values():
+        members.sort(key=lambda c: c.chunk_index)
+
+    candidates = {
+        g: [c for c in members if c.language == lang and c.eligible]
+        for g, members in by_group.items()
+    }
+    candidates = {g: cs for g, cs in candidates.items() if cs}
+    present = sorted(g for g in candidates if any(c.chunk_id in corpus_ids for c in by_group[g]))
+    absent = sorted(set(candidates) - set(present))
+    rng.shuffle(present)
+    rng.shuffle(absent)
+    for g in (present + absent)[:scripture_per_lang]:
+        sel.targets.append(Target(rng.choice(candidates[g]).chunk_id, lang, "scripture"))
+        for c in by_group[g]:
+            sel.add(c.chunk_id, "parallel")
+
+    pools = []
+    for work_id in sorted(unique_works(works).get(lang, ())):
+        pool = [c for c in by_work.get(work_id, []) if c.eligible]
+        if pool:
+            rng.shuffle(pool)
+            pools.append(pool)
+    rng.shuffle(pools)
+    picked: list[ChunkMeta] = []
+    while pools and len(picked) < unique_per_lang:
+        pools = [p for p in pools if p]
+        for pool in pools:
+            if len(picked) < unique_per_lang and pool:
+                picked.append(pool.pop())
+    for c in picked:
+        sel.targets.append(Target(c.chunk_id, lang, "unique"))
+        sel.add(c.chunk_id, "target")
+        members = by_work[c.work_id]
+        i = next(k for k, m in enumerate(members) if m.chunk_id == c.chunk_id)
+        for m in members[max(0, i - neighbours): i + neighbours + 1]:
+            sel.add(m.chunk_id, "neighbour")
     return sel
