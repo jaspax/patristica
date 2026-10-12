@@ -5,7 +5,8 @@ Outputs data/validation_report.json.
 
 Checks (10 groups):
 1. Schema integrity — files parse cleanly as JSON lists of Chunk objects
-2. Text quality — no empty/short/HTML/mojibake/low-alpha text
+2. Text quality — no empty/short/HTML/mojibake/low-alpha text, no duplicated
+   leading section number
 3. Language/script consistency — valid ISO 639-3 codes, correct Unicode blocks
 4. Canonical reference integrity — format, no duplicates, sequential chunk_index
 5. ID uniqueness — no duplicate work_ids or chunk_ids globally
@@ -30,6 +31,7 @@ from typing import Any
 from tqdm import tqdm
 
 from patristica.period import COMPOSED_BY
+from patristica.section_numbers import leading_section_number
 
 log = logging.getLogger(__name__)
 
@@ -183,6 +185,33 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
         "text_has_html_tags": _result("warning", html, "many are OCR artifacts in OGLT PL/OGPG/Gallican"),
         "text_has_replacement_char": _result("warning", replacement, "U+FFFD indicates encoding failure"),
         "text_low_alpha_ratio": _result("warning", low_alpha, f"< {MIN_ALPHA_RATIO:.0%} alphabetic chars"),
+    }
+
+
+def _check_section_numbers(
+    chunks: list[dict], work_id_to_entry: dict[str, dict]
+) -> dict[str, CheckResult]:
+    """Prose chunks whose text still starts with the ref's own section number.
+
+    ``normalize.py`` strips these (#30), so a hit means the normalized data
+    predates that step or the text reached the corpus some other way.
+    Scripture is skipped: a verse may start with a numeral.
+    """
+    dup_number: list[str] = []
+    for c in chunks:
+        entry = work_id_to_entry.get(c.get("work_id", ""), {})
+        source_id = entry.get("source_id", "")
+        if source_id.startswith("scripture/"):
+            continue
+        prefix = leading_section_number(
+            c.get("text", ""), c.get("canonical_ref", ""), c.get("language"), source_id
+        )
+        if prefix:
+            dup_number.append(f"{c.get('chunk_id', '?')} ({prefix.strip()!r})")
+    return {
+        "text_starts_with_section_number": _result(
+            "warning", dup_number, "leading number repeats the ref's last segment; re-run normalize"
+        ),
     }
 
 
@@ -569,7 +598,10 @@ def main() -> None:
     log.info("Running checks…")
     checks: dict[str, dict[str, CheckResult]] = {
         "schema_integrity": _check_schema(parse_errors),
-        "text_quality": _check_text_quality(chunks),
+        "text_quality": {
+            **_check_text_quality(chunks),
+            **_check_section_numbers(chunks, work_id_to_entry),
+        },
         "language_script": _check_language_script(chunks),
         "canonical_refs": _check_canonical_refs(chunks, work_id_to_entry),
         "id_uniqueness": _check_id_uniqueness(works, chunks),

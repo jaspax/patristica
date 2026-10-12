@@ -24,8 +24,19 @@ from tqdm import tqdm
 
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period
+from patristica.section_numbers import strip_section_number
 
 log = logging.getLogger(__name__)
+
+
+def _prose_text(raw_text: str, ref: str, work: Work) -> str:
+    """Clean a prose/liturgical/council paragraph's text for its chunk.
+
+    Strips surrounding whitespace and a leading section number that repeats
+    the ref's last segment ("3. …" at ``….3``, see #30).  Scripture is not
+    passed through here: a verse may legitimately start with a numeral.
+    """
+    return strip_section_number(raw_text.strip(), ref, work.language, work.source_id)
 
 
 def normalize_scripture_work(
@@ -85,7 +96,7 @@ def normalize_liturgical_work(
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
         ref = para.get("ref", "")
-        text = para.get("text", "").strip()
+        text = _prose_text(para.get("text", ""), ref, work)
         if not text:
             continue
 
@@ -126,7 +137,7 @@ def normalize_patristic_work(
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
         ref = para.get("ref", "")
-        text = para.get("text", "").strip()
+        text = _prose_text(para.get("text", ""), ref, work)
         if not text:
             continue
 
@@ -163,7 +174,7 @@ def normalize_council_work(
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
         ref = para.get("ref", "")
-        text = para.get("text", "").strip()
+        text = _prose_text(para.get("text", ""), ref, work)
         if not text:
             continue
 
