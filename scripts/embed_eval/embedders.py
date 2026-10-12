@@ -181,10 +181,10 @@ class OpenAIEmbedder(ApiEmbedder):
 
 class VoyageEmbedder(ApiEmbedder):
     # Without a payment method Voyage allows 3 requests and 10k tokens a minute.
-    # cl100k only approximates Voyage's tokenizer, hence the margin.
-    max_batch_tokens = 7000
+    # Voyage counts rare scripts at up to ~2x cl100k, hence the wide margin.
+    max_batch_tokens = 4000
     rpm = 3
-    tpm = 7000
+    tpm = 4000
 
     def __init__(self, model: str = "voyage-4-large") -> None:
         super().__init__()
