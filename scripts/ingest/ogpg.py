@@ -684,9 +684,22 @@ def _make_work(repo_name: str, vol_nums: list[int], part: int | None, vol_slug: 
     )
 
 
+def _cols_label(parts: list[pgi.IndexRow], last_col: int | None) -> str:
+    spans = []
+    for r in parts:
+        end = r.col_end if r.col_end is not None else last_col
+        spans.append(f"{r.col_start}–{end}" if end and end != r.col_start else f"{r.col_start}")
+    if len(spans) > 3:
+        return f"cols. {spans[0].split('–')[0]}–{spans[-1].split('–')[-1]} (in {len(spans)} parts)"
+    return ("cols. " if len(spans) > 1 or "–" in spans[0] else "col. ") + ", ".join(spans)
+
+
 def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
-                     row: pgi.IndexRow, last_col: int | None, scan: str | None) -> Work:
-    """Work for one row of ``ogpg_index.csv``; missing dates come from the volume."""
+                     parts: list[pgi.IndexRow], last_col: int | None,
+                     scan: str | None) -> Work:
+    """Work for a slug of ``ogpg_index.csv`` (one or more column ranges); missing
+    dates come from the volume."""
+    row = parts[0]
     meta = pgv.lookup(vol_nums, part)
     date_composed, date_range, conf = row.date_composed, row.date_range, row.date_confidence
     if date_range is None and meta is not None:
@@ -695,11 +708,8 @@ def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
             date_composed = meta.date_composed
     if conf is None:
         conf = meta.date_confidence if meta is not None else "uncertain"
-    end = row.col_end if row.col_end is not None else last_col
-    cols_label = f"cols. {row.col_start}–{end}" if end and end != row.col_start \
-        else f"col. {row.col_start}"
     label = _vol_label(vol_nums, part).replace("PG Vol.", "vol.")
-    edition = f"{_EDITION}, {label}, {cols_label}"
+    edition = f"{_EDITION}, {label}, {_cols_label(parts, last_col)}"
     if row.cpg:
         edition += f" (CPG {row.cpg})"
     edition += _scan_note(scan)
@@ -869,21 +879,26 @@ def split_volume(
 
     owners = pgi.assign_works(paras, rows)
     last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
-    buckets: dict[int | None, list[dict]] = {}
+    buckets: dict[str | None, list[dict]] = {}
     for ref, para, owner in zip(refs, paras, owners):
-        buckets.setdefault(owner, []).append({"ref": ref, "text": para["text"]})
+        key = None if owner is None else rows[owner].slug
+        buckets.setdefault(key, []).append({"ref": ref, "text": para["text"]})
+    by_slug: dict[str, list[pgi.IndexRow]] = {}
+    for row in rows:
+        by_slug.setdefault(row.slug, []).append(row)
     out: list[tuple[str, Work, list[dict]]] = []
-    for k, row in enumerate(rows):
-        if k not in buckets:
-            log.warning("OPG %s/%s: no text found in cols %s–%s", vol_slug, row.slug,
-                        row.col_start, row.col_end)
+    for slug, parts in by_slug.items():
+        row = parts[0]
+        if slug not in buckets:
+            log.warning("OPG %s/%s: no text found in cols %s–%s", vol_slug, slug,
+                        row.col_start, parts[-1].col_end)
             continue
         if not row.in_period:
             log.info("OPG %s/%s: dropped (after the collection period, %s)",
-                     vol_slug, row.slug, row.date_range)
+                     vol_slug, slug, row.date_range)
             continue
-        work = _make_index_work(repo_name, vol_nums, part, row, last_col, scan)
-        out.append((f"{vol_slug}/{row.slug}.json", work, buckets[k]))
+        work = _make_index_work(repo_name, vol_nums, part, parts, last_col, scan)
+        out.append((f"{vol_slug}/{slug}.json", work, buckets[slug]))
     if None in buckets:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan, remainder=True)
         out.append((f"{vol_slug}/{pgi.REMAINDER_SLUG}.json", work, buckets[None]))

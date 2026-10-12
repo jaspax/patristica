@@ -12,6 +12,9 @@ module cuts that stream into works using the curated table
 ``slug``
     Short, stable id of the work within the volume; the work id is
     ``ogpg/{volume}/{slug}``.  Don't rename slugs: they are in reader URLs.
+    A slug may appear on several rows when a work is printed in pieces
+    (Pachymeres's paraphrase after every chapter of Pseudo-Dionysius); its
+    rows must then agree on everything but the columns and the note.
 ``col_start``, ``col_end``
     First and last Migne column of the work.  ``col_end`` may be empty: the
     work then runs to the column before the next row's ``col_start`` (or to
@@ -68,6 +71,9 @@ INDEX_PATH = Path(__file__).parent / "data" / "ogpg_index.csv"
 BASES = frozenset({"elenchus", "heads", "curated"})
 _CONFIDENCES = frozenset({"established", "approximate", "uncertain"})
 REMAINDER_SLUG = "other"
+# Columns that must agree between the rows of a work with several ranges.
+_WORK_FIELDS = ("author", "title", "cpg", "date_composed", "date_start", "date_end",
+                "date_confidence", "basis", "duplicate_of")
 
 
 class OgpgIndexError(ValueError):
@@ -113,17 +119,20 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
     """
     reader = csv.DictReader(line for line in lines if not line.startswith("#"))
     by_vol: dict[str, list[IndexRow]] = {}
-    seen: set[tuple[str, str]] = set()
+    seen: dict[tuple[str, str], tuple[str, ...]] = {}
     for n, rec in enumerate(reader, 2):
         where = f"ogpg_index.csv row {n}"
         vol, slug = rec["volume"].strip(), rec["slug"].strip()
         if not vol or not slug or not rec["title"].strip():
             raise OgpgIndexError(f"{where}: volume, slug and title are required")
-        if (vol, slug) in seen:
-            raise OgpgIndexError(f"{where}: duplicate slug {vol}/{slug}")
         if slug == REMAINDER_SLUG or "/" in slug or slug != slug.lower():
             raise OgpgIndexError(f"{where}: bad slug {slug!r}")
-        seen.add((vol, slug))
+        # A slug may repeat: the work then consists of several column ranges
+        # (e.g. a paraphrase printed after every chapter), with the same metadata.
+        meta = tuple(rec[k].strip() for k in _WORK_FIELDS)
+        if (vol, slug) in seen and seen[(vol, slug)] != meta:
+            raise OgpgIndexError(f"{where}: {vol}/{slug} repeats with different metadata")
+        seen[(vol, slug)] = meta
         basis = rec["basis"].strip()
         if basis not in BASES:
             raise OgpgIndexError(f"{where}: unknown basis {basis!r}")
