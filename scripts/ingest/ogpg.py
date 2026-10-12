@@ -28,9 +28,17 @@ Pipeline per volume:
 Secondary scans are fetched into the git object store only (the working tree
 keeps just the primary scan's preferred directory), ~5–15 MB per repo.
 
-Raw files record the pipeline version; re-running rebuilds a volume only when
-the version (threshold, lexicon, voting) changed, and rewrites the file only
-when its content changed.  ``--force`` additionally re-clones.
+Each volume's extraction is cached in ``_extract/{vol}.json`` with the
+pipeline version; re-running rebuilds a volume only when the version
+(threshold, lexicon, voting) changed.  ``--force`` additionally re-clones.
+
+Splitting (#67): the cached extraction is cut into works by
+``data/ogpg_index.csv`` (``_ogpg_index``), with each page mapped to its Migne
+columns (``_ogpg_columns``).  Refs are positional, ``ogpg.{vol}.c{column}.{n}``.
+An unsplit volume is written as ``{vol}.json`` (work ``ogpg/{vol}``), a split
+one as ``{vol}/{slug}.json`` plus ``{vol}/other.json`` for uncovered text.
+Edits to the CSV take effect on a plain run (no re-extraction); work files
+are rewritten only when their content changes, and stale ones are pruned.
 
 Usage::
 
@@ -695,6 +703,8 @@ def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
     if row.cpg:
         edition += f" (CPG {row.cpg})"
     edition += _scan_note(scan)
+    if row.duplicate_of:
+        edition += f"; a cleaner edition of this text is {row.duplicate_of}"
     return Work(
         work_id=f"ogpg/{row.volume}/{row.slug}",
         source_id=SOURCE_ID,

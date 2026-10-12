@@ -299,6 +299,12 @@ class TestSplitVolume:
         assert other.work_id == "ogpg/vol-045/other" and other.author is None
         assert [p["text"] for p in rest] == ["text 0"]     # front matter; "late" is dropped
 
+    def test_duplicate_named_in_edition(self):
+        rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,elenchus,"
+                      "pta/x/y/pta-grc1,")["vol-045"]
+        (_, work, _), = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
+        assert (work.edition or "").endswith("a cleaner edition of this text is pta/x/y/pta-grc1")
+
     def test_missing_dates_fall_back_to_volume(self):
         rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,elenchus,,"
                       )["vol-045"]
