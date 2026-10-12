@@ -47,6 +47,12 @@ class ApiError(RuntimeError):
     """An embedding API refused a request after retries (bad key, quota exhausted, ...)."""
 
 
+def _encoding() -> Any:
+    import tiktoken
+
+    return tiktoken.get_encoding("cl100k_base")
+
+
 def _env_key(name: str, env_file: Path = Path(".env")) -> str:
     if os.environ.get(name):
         return os.environ[name]
@@ -61,10 +67,20 @@ def _env_key(name: str, env_file: Path = Path(".env")) -> str:
 # --- API embedders ------------------------------------------------------------
 
 class ApiEmbedder:
-    """Base class: batches texts and POSTs them with retry/backoff."""
+    """Base class: batches texts and POSTs them with retry/backoff.
+
+    Batches are capped by count (``batch_size``) and by estimated tokens
+    (``max_batch_tokens``, counted with cl100k_base). ``rpm`` / ``tpm`` pace
+    requests to stay inside a plan's rate limits; ``max_input_tokens``
+    truncates single inputs locally for APIs that reject long ones.
+    """
 
     name: str
     batch_size: int = 64
+    max_batch_tokens: int | None = None
+    max_input_tokens: int | None = None
+    rpm: float | None = None
+    tpm: float | None = None
 
     def __init__(self) -> None:
         import httpx
@@ -99,12 +115,38 @@ class ApiEmbedder:
     def _embed(self, texts: list[str], kind: str) -> list[list[float]]:
         raise NotImplementedError
 
+    def _batches(self, texts: list[str]) -> list[tuple[list[str], int]]:
+        """Split *texts* into (batch, estimated tokens), truncating long inputs."""
+        enc = _encoding()
+        batches: list[tuple[list[str], int]] = []
+        cur: list[str] = []
+        cur_tokens = 0
+        for text in texts:
+            tokens = enc.encode(text)
+            if self.max_input_tokens and len(tokens) > self.max_input_tokens:
+                tokens = tokens[:self.max_input_tokens]
+                text = enc.decode(tokens)
+            n = len(tokens)
+            full = len(cur) >= self.batch_size or (
+                self.max_batch_tokens is not None and cur_tokens + n > self.max_batch_tokens)
+            if cur and full:
+                batches.append((cur, cur_tokens))
+                cur, cur_tokens = [], 0
+            cur.append(text)
+            cur_tokens += n
+        if cur:
+            batches.append((cur, cur_tokens))
+        return batches
+
     def _run(self, texts: list[str], kind: str) -> np.ndarray:
         import numpy as np
 
         out: list[list[float]] = []
-        for i in range(0, len(texts), self.batch_size):
-            out.extend(self._embed(texts[i:i + self.batch_size], kind))
+        for batch, tokens in self._batches(texts):
+            started = time.monotonic()
+            out.extend(self._embed(batch, kind))
+            wait = max(60 / self.rpm if self.rpm else 0, tokens * 60 / self.tpm if self.tpm else 0)
+            time.sleep(max(0.0, wait - (time.monotonic() - started)))
         return np.asarray(out, dtype=np.float32)
 
     def embed_documents(self, texts: list[str]) -> np.ndarray:
@@ -115,6 +157,9 @@ class ApiEmbedder:
 
 
 class OpenAIEmbedder(ApiEmbedder):
+    max_input_tokens = 8191  # exact: the model uses cl100k_base
+    max_batch_tokens = 250_000  # per-request limit is 300k
+
     def __init__(self, model: str = "text-embedding-3-large") -> None:
         super().__init__()
         self.model, self.name = model, f"openai/{model}"
@@ -128,6 +173,12 @@ class OpenAIEmbedder(ApiEmbedder):
 
 
 class VoyageEmbedder(ApiEmbedder):
+    # Without a payment method Voyage allows 3 requests and 10k tokens a minute.
+    # cl100k only approximates Voyage's tokenizer, hence the margin.
+    max_batch_tokens = 7000
+    rpm = 3
+    tpm = 7000
+
     def __init__(self, model: str = "voyage-4-large") -> None:
         super().__init__()
         self.model, self.name = model, f"voyage/{model}"
@@ -141,7 +192,11 @@ class VoyageEmbedder(ApiEmbedder):
 
 
 class CohereEmbedder(ApiEmbedder):
-    batch_size = 96  # API maximum; trial keys allow 1,000 calls a month
+    # 96 texts is the API maximum. Trial keys allow 100k tokens a minute and
+    # 1,000 calls a month, so batches are large and paced well under the limit.
+    batch_size = 96
+    max_batch_tokens = 20_000
+    tpm = 60_000
 
     def __init__(self, model: str = "embed-v4.0") -> None:
         super().__init__()
@@ -157,7 +212,12 @@ class CohereEmbedder(ApiEmbedder):
 
 
 class GeminiEmbedder(ApiEmbedder):
-    batch_size = 100  # batchEmbedContents maximum
+    # 100 texts is the batchEmbedContents maximum. The free tier counts every
+    # text as a request (100 a minute), so send at most one batch a minute.
+    batch_size = 100
+    max_batch_tokens = 24_000
+    rpm = 0.9
+    tpm = 24_000
 
     def __init__(self, model: str = "gemini-embedding-2") -> None:
         super().__init__()
@@ -191,8 +251,10 @@ class LocalEmbedder:
         document_prompt: str | None = None,
         trust_remote_code: bool = False,
     ) -> None:
+        import torch
         from sentence_transformers import SentenceTransformer
 
+        torch.set_num_threads(os.cpu_count() or 4)
         self.name = model_id
         self.model = SentenceTransformer(model_id, device="cpu",
                                          trust_remote_code=trust_remote_code)
@@ -221,7 +283,8 @@ class CachedEmbedder:
 
     def __init__(self, inner: Embedder, path: Path, batch_size: int | None = None) -> None:
         self.inner, self.name = inner, inner.name
-        self.batch_size = batch_size or getattr(inner, "batch_size", 64) * 4
+        # Large cache batches let sentence-transformers sort by length (less padding).
+        self.batch_size = batch_size or max(getattr(inner, "batch_size", 64) * 4, 256)
         path.parent.mkdir(parents=True, exist_ok=True)
         self.db = sqlite3.connect(path)
         self.db.execute("CREATE TABLE IF NOT EXISTS emb "

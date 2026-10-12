@@ -284,3 +284,23 @@ def test_build_and_bm25_run_end_to_end(tmp_path: Path):
     for scope in ("all", "lang"):
         exact = result["summaries"][scope][("exact", "grc", "scripture")]
         assert exact["R@1"] == 1.0
+
+
+def test_api_batches_respect_count_tokens_and_truncation():
+    from scripts.embed_eval.embedders import ApiEmbedder
+
+    class Fake(ApiEmbedder):
+        name = "fake/api"
+        batch_size = 3
+        max_batch_tokens = 10
+        max_input_tokens = 6
+
+        def __init__(self):  # no HTTP client needed
+            pass
+
+    texts = ["one two three four five six seven eight", "a", "b", "c", "d"]
+    batches = Fake()._batches(texts)
+    assert [len(b) for b, _ in batches] == [3, 2]  # long text truncated to 6, then count cap
+    assert batches[0][1] <= 10 and len(batches[0][0][0].split()) == 6
+    Fake.max_batch_tokens = 6
+    assert [len(b) for b, _ in Fake()._batches(texts)] == [1, 3, 1]
