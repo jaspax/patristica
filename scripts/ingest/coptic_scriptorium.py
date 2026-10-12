@@ -7,7 +7,11 @@ License: CC-BY 4.0 (some corpora CC-BY-SA 4.0 or CC-BY 3.0)
 
 Scope
 -----
-Ingests Coptic patristic and liturgical texts.  Excludes:
+Ingests Coptic patristic texts: homilies, saints' lives, Shenoute, letters,
+monastic texts and apocrypha.  None is a liturgy, so every work has genre
+``patristic`` (#40); the ``liturgical/`` source_id prefix is historical.
+
+Excludes:
   - Biblical NT/OT books (already in ``coptic_nt.py``)
   - Treebank/duplicate corpora (``coptic-treebank``, ``bohairic-treebank``)
   - Gnostic/apocryphal texts (Thomas, Pistis Sophia, Book of Bartholomew)
@@ -239,9 +243,12 @@ _CORPUS_META: dict[str, dict] = {
         "date_range": (569, 632),
         "date_confidence": "approximate",
     },
-    # Liturgical
+    # Apocrypha.  None of these is a liturgy, so they are ``patristic`` like
+    # the NT apocrypha in anf_works.py (#40).  The Lament of the Virgin
+    # (Pseudo-Gamaliel) is read in Holy Week, but it is a narrative homily,
+    # not a liturgical text.
     "dormition-john": {
-        "genre": "liturgical",
+        "genre": "patristic",
         "author": None,
         "title": "Dormition of John the Apostle (Coptic)",
         "date_composed": None,
@@ -249,7 +256,7 @@ _CORPUS_META: dict[str, dict] = {
         "date_confidence": "uncertain",
     },
     "lament-mary": {
-        "genre": "liturgical",
+        "genre": "patristic",
         "author": None,
         "title": "Lament of the Virgin Mary (Coptic)",
         "date_composed": None,
@@ -257,7 +264,7 @@ _CORPUS_META: dict[str, dict] = {
         "date_confidence": "uncertain",
     },
     "mysteries-john": {
-        "genre": "liturgical",
+        "genre": "patristic",
         "author": None,
         "title": "Mysteries of John (Coptic)",
         "date_composed": None,
