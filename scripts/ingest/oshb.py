@@ -34,13 +34,28 @@ REPO_ZIP_URL = "https://github.com/openscriptures/morphhb/archive/refs/heads/mas
 _OSIS_NS = "http://www.bibletechnologies.net/2003/OSIS/namespace"
 _OSIS = f"{{{_OSIS_NS}}}"
 
+# morphhb marks morpheme boundaries (prefix/stem/suffix) inside <w> text with
+# "/", e.g. "בְּ/רֵאשִׁ֖ית".  The WLC text itself never contains a slash.
+_MORPHEME_SEPARATOR = "/"
+
+
+def _word_text(w_el: etree._Element) -> str:
+    """Return the surface text of a morphhb ``<w>`` element.
+
+    Morpheme separators are removed (morphemes are joined with no space), and
+    text in nested ``<seg>`` children (large/small/suspended letters such as
+    the large ע and ד of Deut 6:4) is kept.
+    """
+    return "".join(w_el.itertext()).replace(_MORPHEME_SEPARATOR, "").strip()
+
 
 def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
     """Return list of (osisID, verse_text) from a morphhb OSIS XML book file.
 
     The morphhb XML stores each word as a ``<w>`` child of ``<verse>``.  This
-    function reconstructs verse text by joining word tokens, handling maqqef
-    connectors and discarding verse-end markers (sof-pasuq).
+    function reconstructs verse text by joining word tokens, stripping morpheme
+    separators, handling maqqef connectors and discarding verse-end markers
+    (sof-pasuq).
     """
     root = etree.fromstring(xml_bytes)
     verses: list[tuple[str, str]] = []
@@ -55,7 +70,7 @@ def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
             local = etree.QName(child.tag).localname
 
             if local == "w":
-                word = (child.text or "").strip()
+                word = _word_text(child)
                 if word:
                     tokens.append(word)
 
