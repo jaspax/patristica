@@ -8,9 +8,10 @@ language would. Writes per-query ranks and summaries to
 
 Retriever specs: ``bm25``, ``dense:NAME`` (see ``embedders.EMBEDDERS``), and
 ``hybrid:A+B`` for reciprocal rank fusion of any of those; ``hybrid:bm25@0.3+dense:NAME``
-weights a component (default 1). ``dense:NAME+tr:PATH@MODEL`` also embeds the
-English translations by MODEL in the translations JSONL at PATH, and scores
-each translated document by the better of its two vectors.
+weights a component (default 1). ``dense:NAME+tr:PATH`` also embeds the
+English translations in the translation store at PATH (e.g.
+``data/translations/gpt-6.1-sol.jsonl``) and scores each translated document by
+the better of its two vectors.
 
 Usage::
 
@@ -41,13 +42,20 @@ def load_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in f if line.strip()]
 
 
-def load_translations(path: Path, model: str) -> dict[str, str]:
-    """chunk_id → English translation by *model* from a translations JSONL."""
+def load_translations(path: Path, corpus: list[dict]) -> dict[str, str]:
+    """chunk_id → translation from a translation store, skipping stale rows.
+
+    A row is stale when the chunk's text no longer matches the hash it was
+    translated from.
+    """
+    from scripts.embed_eval.translate import TranslationStore
+
+    store = TranslationStore(path)
     out = {}
-    for line in path.open(encoding="utf-8"):
-        r = json.loads(line)
-        if r["model"] == model:
-            out[r["chunk_id"]] = r["translation"]
+    for c in corpus:
+        row = store.fresh(c["chunk_id"], c["text"])
+        if row:
+            out[c["chunk_id"]] = row["translation"]
     return out
 
 
@@ -69,10 +77,9 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
             safe = embedder.name.replace("/", "__")
             embedder = CachedEmbedder(embedder, cache_dir / f"{safe}.sqlite")
         if tr:
-            path, _, model = tr.rpartition("@")
-            translations = load_translations(Path(path), model)
+            translations = load_translations(Path(tr), corpus)
             alt = [translations.get(c["chunk_id"]) for c in corpus]
-            return Dense(embedder, texts, alt, alt_name=f"tr:{model}")
+            return Dense(embedder, texts, alt, alt_name=f"tr:{Path(tr).stem}")
         return Dense(embedder, texts)
     raise ValueError(f"Unknown retriever spec {spec!r}")
 

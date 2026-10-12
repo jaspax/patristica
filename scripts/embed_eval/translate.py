@@ -25,12 +25,15 @@ Usage::
 ``bulk`` translates every eval-corpus chunk in the given languages with one
 model, sending consecutive chunks of the same work together (up to
 ``BULK_MAX_CHARS``) so the model sees context and the per-request overhead is
-shared. Output goes to the same ``translations.jsonl``.
+shared. Output goes to the durable, tracked store
+``data/translations/{model_id}.jsonl``, keyed by chunk id and source-text
+hash, so the production pipeline (#93) can reuse it.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import random
@@ -79,6 +82,10 @@ LANGUAGE_NAMES = {
 }
 
 DEFAULT_DIR = Path("data/eval")
+DEFAULT_STORE = Path("data/translations")
+# Bump when BULK_SYSTEM or the grouping changes, so stored translations say
+# which prompt produced them.
+BULK_PROMPT_VERSION = "bulk-2026-10-12"
 DEFAULT_AUTHORED = Path("data/eval_authored")
 
 TRANSLATOR_SYSTEM = """\
@@ -302,6 +309,51 @@ class Store:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+def text_sha(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
+
+class TranslationStore:
+    """Durable translations for one model, keyed by chunk id (tracked in git).
+
+    Each row records the hash of the exact source text it translates, so a
+    translation is reused only while that text is unchanged (``fresh``).
+    ``compact`` rewrites the file sorted by chunk id, latest row per chunk.
+    """
+
+    def __init__(self, path: Path) -> None:
+        self.path, self.lock = path, threading.Lock()
+        self.rows: dict[str, dict] = {}
+        if path.exists():
+            for line in path.open(encoding="utf-8"):
+                if line.strip():
+                    r = json.loads(line)
+                    self.rows[r["chunk_id"]] = r
+
+    def fresh(self, chunk_id: str, text: str) -> dict | None:
+        r = self.rows.get(chunk_id)
+        return r if r and r["source_sha256"] == text_sha(text) else None
+
+    def put(self, row: dict) -> None:
+        with self.lock:
+            self.rows[row["chunk_id"]] = row
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            with self.path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+
+    def compact(self) -> None:
+        with self.lock:
+            tmp = self.path.with_suffix(".tmp")
+            with tmp.open("w", encoding="utf-8") as f:
+                for cid in sorted(self.rows):
+                    f.write(json.dumps(self.rows[cid], ensure_ascii=False, sort_keys=True) + "\n")
+            tmp.replace(self.path)
+
+
+def store_path(store_dir: Path, model: str) -> Path:
+    return store_dir / f"{MODELS[model].model_id}.jsonl"
+
+
 def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int | None,
                 workers: int, seed: int = 0) -> None:
     out_dir = eval_dir / "translation"
@@ -442,39 +494,52 @@ def bulk_groups(chunks: list[dict]) -> list[list[dict]]:
     return groups
 
 
-def run_bulk(eval_dir: Path, model: str, langs: list[str], workers: int) -> None:
-    out_dir = eval_dir / "translation"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    translations = Store(out_dir / "translations.jsonl")
+def run_bulk(eval_dir: Path, model: str, langs: list[str], workers: int,
+             store_dir: Path = DEFAULT_STORE, max_requests: int | None = None) -> None:
+    """Translate every eval-corpus chunk in *langs* that has no fresh translation."""
+    store = TranslationStore(store_path(store_dir, model))
     chunks = [c for c in map(json.loads, (eval_dir / "corpus.jsonl").open(encoding="utf-8"))
-              if c["language"] in langs and not translations.get(model, c["chunk_id"])]
+              if c["language"] in langs and not store.fresh(c["chunk_id"], c["text"])]
     groups = bulk_groups(chunks)
-    log.info("bulk %s: %d chunks in %d requests", model, len(chunks), len(groups))
+    if max_requests is not None:
+        rng = random.Random(0)
+        groups = rng.sample(groups, min(max_requests, len(groups)))
+    log.info("bulk %s: %d chunks in %d requests (%d already stored)",
+             model, len(chunks), len(groups), len(store.rows))
     clients = Clients()
+    today = time.strftime("%Y-%m-%d")
+    spent: list[dict] = []
 
     def one(group: list[dict]) -> None:
         lang = group[0]["language"]
         user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
         out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
                                   user, BulkTranslation)
+        spent.append(usage)
         got = {item.n: item.translation for item in out.items}
-        share = {k: round(v / len(group)) for k, v in usage.items() if k != "model"}
         for i, c in enumerate(group, start=1):
-            if i in got:
-                translations.put({"model": model, "chunk_id": c["chunk_id"],
-                                  "translation": got[i], "bulk": True,
-                                  "usage": {"model": model, **share}})
-            else:
+            if i not in got:
                 log.warning("%s: no translation for %s", model, c["chunk_id"])
+                continue
+            store.put({
+                "chunk_id": c["chunk_id"], "language": lang,
+                "source_sha256": text_sha(c["text"]), "translation": got[i],
+                "model": MODELS[model].model_id, "prompt_version": BULK_PROMPT_VERSION,
+                "date": today, "group_size": len(group),
+            })
 
     done = 0
-    with ThreadPoolExecutor(workers) as pool:
-        for _ in pool.map(_safe_group(one), groups):
-            done += 1
-            if done % 50 == 0:
-                log.info("bulk %s: %d/%d requests", model, done, len(groups))
-    tr = [r["usage"] for (m, _), r in translations.rows.items() if m == model and r.get("bulk")]
-    log.info("bulk %s: %d chunks translated, cost $%.2f", model, len(tr), cost(tr))
+    try:
+        with ThreadPoolExecutor(workers) as pool:
+            for _ in pool.map(_safe_group(one), groups):
+                done += 1
+                if done % 50 == 0:
+                    log.info("bulk %s: %d/%d requests, $%.2f so far",
+                             model, done, len(groups), cost(spent))
+    finally:
+        store.compact()
+    log.info("bulk %s: %d requests, $%.2f; %d translations stored",
+             model, len(spent), cost(spent), len(store.rows))
 
 
 def _safe_group(fn):
@@ -500,6 +565,8 @@ def main() -> None:
     b.add_argument("--model", required=True, choices=list(MODELS))
     b.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES))
     b.add_argument("--workers", type=int, default=8)
+    b.add_argument("--store", type=Path, default=DEFAULT_STORE)
+    b.add_argument("--max-requests", type=int, help="pilot: a random sample of N requests")
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     args = p.parse_args()
@@ -508,7 +575,8 @@ def main() -> None:
     if args.cmd == "quality":
         run_quality(args.eval_dir, args.authored, args.langs, args.limit, args.workers)
     elif args.cmd == "bulk":
-        run_bulk(args.eval_dir, args.model, args.langs, args.workers)
+        run_bulk(args.eval_dir, args.model, args.langs, args.workers, args.store,
+                 args.max_requests)
     else:
         summarize(args.eval_dir / "translation")
 

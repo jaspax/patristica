@@ -478,3 +478,23 @@ def test_apply_reviews(tmp_path: Path, monkeypatch):
     assert out[1]["text"] == "miracles" and out[1]["drafted_text"] == "Elijah at Zarephath"
     review.apply_reviews(tmp_path, authored)  # idempotent: already-reviewed rows are kept
     assert [json.loads(line) for line in (authored / "q.jsonl").open()] == out
+
+
+def test_translation_store_freshness_and_compaction(tmp_path: Path):
+    from scripts.embed_eval.run import load_translations
+    from scripts.embed_eval.translate import TranslationStore, text_sha
+
+    path = tmp_path / "m.jsonl"
+    store = TranslationStore(path)
+    row = {"chunk_id": "b#1", "language": "syc", "source_sha256": text_sha("ܫܠܡܐ"),
+           "translation": "peace", "model": "m", "prompt_version": "v", "date": "d"}
+    store.put(row)
+    store.put({**row, "chunk_id": "a#1", "source_sha256": text_sha("old text")})
+    store.compact()
+    assert [json.loads(line)["chunk_id"] for line in path.open()] == ["a#1", "b#1"]
+
+    reloaded = TranslationStore(path)
+    assert reloaded.fresh("b#1", "ܫܠܡܐ")["translation"] == "peace"
+    assert reloaded.fresh("a#1", "new text") is None  # source changed since translation
+    corpus = [{"chunk_id": "a#1", "text": "new text"}, {"chunk_id": "b#1", "text": "ܫܠܡܐ"}]
+    assert load_translations(path, corpus) == {"b#1": "peace"}
