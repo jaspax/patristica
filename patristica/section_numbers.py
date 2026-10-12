@@ -45,6 +45,8 @@ from __future__ import annotations
 import re
 
 #: Sources whose refs are synthetic sequence numbers, not edition numbering.
+#: OGPG refs (``ogpg.vol-045.c0009.3``) end in the paragraph's position on its
+#: Migne page, which the OCR text never prints, so a match is still chance.
 SERIAL_REF_SOURCES: frozenset[str] = frozenset({"patristic/ogpg"})
 
 _GREEK_VALUES: dict[str, int] = {

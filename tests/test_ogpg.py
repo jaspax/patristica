@@ -104,7 +104,7 @@ class TestVote:
         primary, texts, stats = ogpg._vote([a, b], LEXICON)
         assert primary.name == "hvd.1_ocr"
         assert stats.replaced == 1
-        assert texts[0] == CLEAN
+        assert texts[0] == (0, CLEAN)
 
     def test_replacement_must_be_at_same_position(self):
         garbled_variant = CLEAN[:70] + _NOISE

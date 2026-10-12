@@ -28,9 +28,17 @@ Pipeline per volume:
 Secondary scans are fetched into the git object store only (the working tree
 keeps just the primary scan's preferred directory), ~5–15 MB per repo.
 
-Raw files record the pipeline version; re-running rebuilds a volume only when
-the version (threshold, lexicon, voting) changed, and rewrites the file only
-when its content changed.  ``--force`` additionally re-clones.
+Each volume's extraction is cached in ``_extract/{vol}.json`` with the
+pipeline version; re-running rebuilds a volume only when the version
+(threshold, lexicon, voting) changed.  ``--force`` additionally re-clones.
+
+Splitting (#67): the cached extraction is cut into works by
+``data/ogpg_index.csv`` (``_ogpg_index``), with each page mapped to its Migne
+columns (``_ogpg_columns``).  Refs are positional, ``ogpg.{vol}.c{column}.{n}``.
+An unsplit volume is written as ``{vol}.json`` (work ``ogpg/{vol}``), a split
+one as ``{vol}/{slug}.json`` plus ``{vol}/other.json`` for uncovered text.
+Edits to the CSV take effect on a plain run (no re-extraction); work files
+are rewritten only when their content changes, and stale ones are pruned.
 
 Usage::
 
@@ -57,6 +65,8 @@ from tqdm import tqdm
 from patristica.models import Work
 from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
+from scripts.ingest import _ogpg_columns as cols
+from scripts.ingest import _ogpg_index as pgi
 from scripts.ingest import _ogpg_volumes as pgv
 
 log = logging.getLogger(__name__)
@@ -75,7 +85,7 @@ LEXICON_THRESHOLD = 0.65
 # Fetch every scan of a volume and vote across them.  Off → primary scan only.
 CROSS_SCAN = True
 
-_PIPELINE_VERSION = 2
+_PIPELINE_VERSION = 4
 
 # ---------------------------------------------------------------------------
 # Repo name parsing helpers
@@ -319,6 +329,8 @@ class Candidate:
     page: int                    # 0-based index of the page within the scan
     text: str
     score: lex.LexScore = field(default_factory=lambda: lex.LexScore(0, 0, 0))
+    stem: str = ""               # the page's file stem (``NNN`` of ``NNN.txt``)
+    title: str | None = None     # Greek capitals heading seen on the page just before
 
     @property
     def ok(self) -> bool:
@@ -333,35 +345,57 @@ def _passes_basic_filters(text: str) -> bool:
             and _has_function_words(text, min_count=2))
 
 
+def _is_title_line(line: str) -> bool:
+    """A heading in Greek capitals (``ΠΕΡΙ ΠΑΡΘΕΝΙΑΣ.``, ``ΛΟΓΟΣ Β'.``)."""
+    letters = [c for c in line if c.isalpha()]
+    greek = [c for c in letters if _is_greek(c)]
+    if len(greek) < 4 or len(greek) < 0.6 * len(letters):
+        return False
+    return sum(1 for c in greek if c.islower()) <= 0.1 * len(greek)
+
+
 def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     """OCR pages ``[(stem, text)]`` (sorted) → Greek paragraph candidates.
 
     Applies column separation and the basic filters, but not the dictionary
     filter.  Pages with numeric stem < 9 (title pages, front matter) are
-    skipped.
+    skipped.  Each candidate records its page stem, and the Greek capitals
+    heading lines seen on its page since the previous candidate (``title``);
+    work boundaries inside a page are placed at such headings.  Heading
+    detection does not change how paragraphs are built.
     """
     out: list[Candidate] = []
     current: list[str] = []
-    page_idx = 0
+    headings: list[str] = []
+    where = (0, "")                 # (page index, stem) of the current paragraph
 
     def _flush() -> None:
         text = " ".join(current).strip()
         current.clear()
         if _passes_basic_filters(text):
-            out.append(Candidate(page_idx, text))
+            out.append(Candidate(where[0], text, stem=where[1],
+                                 title=" ".join(headings) if headings else None))
+            headings.clear()
 
     for page_idx, (stem, raw) in enumerate(pages):
         if current:
             _flush()      # never join paragraphs across a page boundary
+        headings.clear()
         if stem.isdigit() and int(stem) < 9:
             continue
         for line in _fix_hyphenation(raw).splitlines():
             line = _clean_line(line)
+            if _is_title_line(line):
+                if len(line) < 12 and current:
+                    _flush()            # the heading belongs to the next paragraph
+                headings.append(line)
             if len(line) < 12:          # blank / short line ends a paragraph
                 if current:
                     _flush()
                 continue
             if _greek_ratio(line) >= 0.35:
+                if not current:
+                    where = (page_idx, stem)
                 current.append(line)
             elif current:
                 _flush()
@@ -486,6 +520,7 @@ class _Scan:
     name: str
     candidates: list[Candidate]
     n_pages: int
+    heads: list[tuple[str, list[int]]] = field(default_factory=list)
 
     @property
     def known_words(self) -> int:
@@ -504,10 +539,13 @@ class VoteStats:
     scans: int = 0
 
 
-def _vote(scans: list[_Scan], lexicon: frozenset[str]) -> tuple[_Scan, list[str], VoteStats]:
+def _vote(scans: list[_Scan], lexicon: frozenset[str]
+          ) -> tuple[_Scan, list[tuple[int, str]], VoteStats]:
     """Pick the primary scan and resolve its low-scoring paragraphs.
 
-    Returns (primary scan, final paragraph texts, stats).
+    Returns (primary scan, final paragraphs, stats).  Each final paragraph is
+    ``(index of the primary candidate it stands for, text)``: a replacement
+    from another scan keeps the position (page) of the paragraph it replaces.
     """
     primary = max(scans, key=lambda s: (s.known_words, -_scan_rank(s.name)))
     others = [s for s in scans if s is not primary]
@@ -527,11 +565,11 @@ def _vote(scans: list[_Scan], lexicon: frozenset[str]) -> tuple[_Scan, list[str]
 
     used: set[tuple[int, int]] = set()
     kept_tris = [(_known_trigrams(c.text, lexicon) if c.ok else set()) for c in primary.candidates]
-    texts: list[str] = []
+    texts: list[tuple[int, str]] = []
     for i, cand in enumerate(primary.candidates):
         if cand.ok:
             stats.kept += 1
-            texts.append(cand.text)
+            texts.append((i, cand.text))
             continue
         best = _best_replacement(cand, i, primary, others, index, tri_cache, used,
                                  kept_tris, lexicon)
@@ -540,7 +578,7 @@ def _vote(scans: list[_Scan], lexicon: frozenset[str]) -> tuple[_Scan, list[str]
             continue
         used.add(best)
         stats.replaced += 1
-        texts.append(others[best[0]].candidates[best[1]].text)
+        texts.append((i, others[best[0]].candidates[best[1]].text))
     return primary, texts, stats
 
 
@@ -604,8 +642,14 @@ def _vol_label(vol_nums: list[int], part: int | None) -> str:
     return label
 
 
+def _scan_note(scan: str | None) -> str:
+    return f"; OCR of scan {scan} (Open Greek and Latin, {_GITHUB_ORG})" if scan else ""
+
+
 def _make_work(repo_name: str, vol_nums: list[int], part: int | None, vol_slug: str,
-               scan: str | None = None) -> Work:
+               scan: str | None = None, remainder: bool = False) -> Work:
+    """Volume-level work: a whole unsplit volume, or (``remainder``) the text of a
+    split volume that no index row covers."""
     label = _vol_label(vol_nums, part)
     meta = pgv.lookup(vol_nums, part)
     if meta is None:
@@ -616,17 +660,59 @@ def _make_work(repo_name: str, vol_nums: list[int], part: int | None, vol_slug: 
         author = "; ".join(meta.authors[:3]) + (" et al." if len(meta.authors) > 3 else "")
         date_composed, date_range, date_conf = meta.date_composed, meta.date_range, \
             meta.date_confidence
-    edition = f"{_EDITION}, {label.replace('PG Vol.', 'vol.')}"
-    if scan:
-        edition += f"; OCR of scan {scan} (Open Greek and Latin, {_GITHUB_ORG})"
+    work_id = f"ogpg/{vol_slug}"
+    if remainder:
+        title = f"Other text in {label} (front matter, notes, unindexed pieces)"
+        author = None
+        work_id += f"/{pgi.REMAINDER_SLUG}"
+    edition = f"{_EDITION}, {label.replace('PG Vol.', 'vol.')}" + _scan_note(scan)
     return Work(
-        work_id=f"ogpg/{vol_slug}",
+        work_id=work_id,
         source_id=SOURCE_ID,
         author=author,
         title=title,
         date_composed=date_composed,
         date_range=date_range,
         date_confidence=date_conf,
+        genre="patristic",
+        language="grc",
+        tradition="greek",
+        license="public_domain",
+        provenance_url=f"https://github.com/{_GITHUB_ORG}/{repo_name}",
+        edition=edition,
+        translation_of=None,
+    )
+
+
+def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
+                     row: pgi.IndexRow, last_col: int | None, scan: str | None) -> Work:
+    """Work for one row of ``ogpg_index.csv``; missing dates come from the volume."""
+    meta = pgv.lookup(vol_nums, part)
+    date_composed, date_range, conf = row.date_composed, row.date_range, row.date_confidence
+    if date_range is None and meta is not None:
+        date_range = meta.date_range
+        if date_composed is None:
+            date_composed = meta.date_composed
+    if conf is None:
+        conf = meta.date_confidence if meta is not None else "uncertain"
+    end = row.col_end if row.col_end is not None else last_col
+    cols_label = f"cols. {row.col_start}–{end}" if end and end != row.col_start \
+        else f"col. {row.col_start}"
+    label = _vol_label(vol_nums, part).replace("PG Vol.", "vol.")
+    edition = f"{_EDITION}, {label}, {cols_label}"
+    if row.cpg:
+        edition += f" (CPG {row.cpg})"
+    edition += _scan_note(scan)
+    if row.duplicate_of:
+        edition += f"; a cleaner edition of this text is {row.duplicate_of}"
+    return Work(
+        work_id=f"ogpg/{row.volume}/{row.slug}",
+        source_id=SOURCE_ID,
+        author=row.author,
+        title=row.title,
+        date_composed=date_composed,
+        date_range=date_range,
+        date_confidence=conf,
         genre="patristic",
         language="grc",
         tradition="greek",
@@ -657,31 +743,29 @@ def _pipeline_id() -> dict[str, object]:
     }
 
 
-def _ingest_volume(
+def _extract_volume(
     repo_name: str,
     repos_dir: Path,
-    output_dir: Path,
+    extract_dir: Path,
     force: bool = False,
-) -> tuple[Work | None, VoteStats | None]:
-    vol_nums, vol_slug = _parse_repo(repo_name)
-    part = _parse_repo_part(repo_name)
-    out_path = output_dir / f"{vol_slug}.json"
-    pipeline = _pipeline_id()
+) -> dict | None:
+    """Extract one volume's Greek paragraphs (cached in ``extract_dir``).
 
-    # Out of scope: volumes whose contents were all composed after the collection
-    # period (PG 121+), consistent with the other sources.  Straddling volumes are
-    # kept and their chunks flagged out_of_period by date.
-    meta = pgv.lookup(vol_nums, part)
-    if meta is not None and not work_in_period(meta.date_range):
-        if out_path.exists():
-            log.info("Removing %s (all contents after the collection period)", out_path)
-            out_path.unlink()
-        return None, None
+    Returns ``{"repo", "pipeline", "page_heads", "paragraphs"}``.  Each
+    paragraph is ``{"stem", "title", "text"}``: its page in the primary scan,
+    the heading seen just before it on that page, and the text.
+    ``page_heads`` lists the column numbers found on every page of the
+    primary scan; ``split_volume`` maps pages to columns from them.  The
+    cache is reused while the pipeline id is unchanged; ``force`` re-clones.
+    """
+    vol_nums, vol_slug = _parse_repo(repo_name)
+    out_path = extract_dir / f"{vol_slug}.json"
+    pipeline = _pipeline_id()
 
     if out_path.exists() and not force:
         saved = json.loads(out_path.read_text(encoding="utf-8"))
         if saved.get("pipeline", {}).get("id") == pipeline:
-            return Work(**saved["work"]), None
+            return saved
 
     clone_dir = repos_dir / repo_name
     has_clone = clone_dir.exists() and (clone_dir / ".git").exists()
@@ -689,7 +773,7 @@ def _ingest_volume(
         if force and clone_dir.exists():
             shutil.rmtree(clone_dir)
         if not _sparse_clone(repo_name, clone_dir):
-            return None, None
+            return None
 
     # (clone_dir, scan_dir, files) for every scan of this volume, preferred first
     sources: list[tuple[Path, str, list[tuple[str, str]]]] = []
@@ -706,7 +790,7 @@ def _ingest_volume(
         sources = present[:1] or sources[:1]
     if not sources:
         log.warning("No OCR scans found for %s", repo_name)
-        return None, None
+        return None
     for rdir in {src[0] for src in sources}:
         _fetch_scans(rdir, [name for d, name, _ in sources if d == rdir])
 
@@ -718,48 +802,168 @@ def _ingest_volume(
         for c in cands:
             c.score = lex.score_text(c.text, lexicon)
         label = name if rdir == clone_dir else f"{rdir.name}/{name}"
-        scans.append(_Scan(label, cands, len(pages)))
+        heads = [(stem, sorted(cols.head_numbers(text))) for stem, text in pages]
+        scans.append(_Scan(label, cands, len(pages), heads))
 
-    primary, texts, stats = _vote(scans, lexicon)
-    if not texts:
+    primary, kept, stats = _vote(scans, lexicon)
+    if not kept:
         log.warning("No Greek paragraphs extracted from %s", repo_name)
         if out_path.exists():
             out_path.unlink()
-        return None, stats
+        return None
 
-    work = _make_work(repo_name, vol_nums, part, vol_slug, primary.name)
+    paragraphs = [
+        {"stem": primary.candidates[i].stem, "title": primary.candidates[i].title, "text": text}
+        for i, text in kept
+    ]
     payload = {
-        "work": work.model_dump(),
+        "repo": repo_name,
         "pipeline": {
             "id": pipeline,
             "primary_scan": primary.name,
             "scans": [s.name for s in scans],
             "stats": stats.__dict__,
         },
-        "paragraphs": [
-            {"ref": f"ogpg.{vol_slug}.{i:05d}", "text": t} for i, t in enumerate(texts, 1)
-        ],
+        # Column numbers in head position on every page of the primary scan,
+        # for the page → column mapping (``_ogpg_columns``).
+        "page_heads": primary.heads,
+        "paragraphs": paragraphs,
     }
-    content = json.dumps(payload, ensure_ascii=False, indent=2)
-    if not out_path.exists() or out_path.read_text(encoding="utf-8") != content:
-        out_path.write_text(content, encoding="utf-8")
+    _write_if_changed(out_path, payload)
     log.info("OPG %s: %d paragraphs (kept %d, replaced %d, dropped %d; primary %s of %d scans)",
-             vol_slug, len(texts), stats.kept, stats.replaced, stats.dropped,
-             primary.name, stats.scans)
-    return work, stats
+             vol_slug, len(kept), stats.kept, stats.replaced, stats.dropped, primary.name,
+             stats.scans)
+    return payload
+
+
+def _write_if_changed(path: Path, payload: dict) -> None:
+    content = json.dumps(payload, ensure_ascii=False, indent=2)
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+
+
+def split_volume(
+    repo_name: str,
+    extract: dict,
+    rows: list[pgi.IndexRow],
+) -> list[tuple[str, Work, list[dict]]]:
+    """Cut an extracted volume into works → ``[(relative path, work, paragraphs)]``.
+
+    Without index rows the volume is one work (``{vol}.json``).  With rows,
+    each in-period row becomes ``{vol}/{slug}.json`` and uncovered text goes
+    to ``{vol}/other.json``; rows dated after the collection period are
+    dropped (their text is not written).  Paragraphs are ``{"ref", "text"}``
+    with the positional refs of ``_ogpg_index.assign_refs``.
+    """
+    vol_nums, vol_slug = _parse_repo(repo_name)
+    part = _parse_repo_part(repo_name)
+    scan = extract["pipeline"].get("primary_scan")
+    cmap = cols.map_columns([(stem, nums) for stem, nums in extract["page_heads"]])
+    paras = [{**p, "cols": cmap.columns.get(p["stem"])} for p in extract["paragraphs"]]
+    refs = pgi.assign_refs(paras, vol_slug)
+    if not rows:
+        work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
+        return [(f"{vol_slug}.json", work,
+                 [{"ref": r, "text": p["text"]} for r, p in zip(refs, paras)])]
+
+    owners = pgi.assign_works(paras, rows)
+    last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
+    buckets: dict[int | None, list[dict]] = {}
+    for ref, para, owner in zip(refs, paras, owners):
+        buckets.setdefault(owner, []).append({"ref": ref, "text": para["text"]})
+    out: list[tuple[str, Work, list[dict]]] = []
+    for k, row in enumerate(rows):
+        if k not in buckets:
+            log.warning("OPG %s/%s: no text found in cols %s–%s", vol_slug, row.slug,
+                        row.col_start, row.col_end)
+            continue
+        if not row.in_period:
+            log.info("OPG %s/%s: dropped (after the collection period, %s)",
+                     vol_slug, row.slug, row.date_range)
+            continue
+        work = _make_index_work(repo_name, vol_nums, part, row, last_col, scan)
+        out.append((f"{vol_slug}/{row.slug}.json", work, buckets[k]))
+    if None in buckets:
+        work = _make_work(repo_name, vol_nums, part, vol_slug, scan, remainder=True)
+        out.append((f"{vol_slug}/{pgi.REMAINDER_SLUG}.json", work, buckets[None]))
+    return out
+
+
+def _ingest_volume(
+    repo_name: str,
+    repos_dir: Path,
+    output_dir: Path,
+    force: bool = False,
+) -> tuple[list[Work], set[str]]:
+    """Extract (or reuse) one volume and write its works.
+
+    Returns the works and the paths (relative to ``output_dir``) written.
+    """
+    vol_nums, vol_slug = _parse_repo(repo_name)
+    part = _parse_repo_part(repo_name)
+
+    # Out of scope: volumes whose contents were all composed after the collection
+    # period (PG 121+), consistent with the other sources.  Straddling volumes are
+    # kept and their chunks flagged out_of_period by date, or split by the index.
+    meta = pgv.lookup(vol_nums, part)
+    if meta is not None and not work_in_period(meta.date_range):
+        return [], set()
+
+    extract = _extract_volume(repo_name, repos_dir, output_dir / EXTRACT_DIR, force)
+    if extract is None:
+        return [], set()
+    pipeline = {k: v for k, v in extract["pipeline"].items() if k != "id"}
+    pipeline["column_pages"] = cols.map_columns(
+        [(stem, nums) for stem, nums in extract["page_heads"]]).numbered
+    works: list[Work] = []
+    written: set[str] = set()
+    for rel, work, paragraphs in split_volume(repo_name, extract,
+                                              pgi.load_index().get(vol_slug, [])):
+        _write_if_changed(output_dir / rel, {
+            "work": work.model_dump(),
+            "pipeline": pipeline,
+            "paragraphs": paragraphs,
+        })
+        works.append(work)
+        written.add(rel)
+    return works, written
+
+
+def _prune(output_dir: Path, written: set[str], vol_slugs: set[str] | None) -> None:
+    """Delete work files not written by this run (all, or only those of ``vol_slugs``)."""
+    for path in sorted(output_dir.rglob("*.json")):
+        rel = path.relative_to(output_dir).as_posix()
+        if rel.startswith("_") or rel in written:
+            continue
+        vol = rel.split("/")[0].removesuffix(".json")
+        if vol_slugs is not None and vol not in vol_slugs:
+            continue
+        log.info("Removing stale OPG output: %s", rel)
+        path.unlink()
+    for d in sorted((p for p in output_dir.iterdir() if p.is_dir()), reverse=True):
+        if not d.name.startswith("_") and not any(d.iterdir()):
+            d.rmdir()
 
 
 # ---------------------------------------------------------------------------
 # Main ingest function
 # ---------------------------------------------------------------------------
 
+EXTRACT_DIR = "_extract"
+
+
 def ingest(output_dir: Path, force: bool = False, only: list[str] | None = None) -> list[Work]:
     """Clone and process all OPG volumes. Returns list of Work records.
 
     ``output_dir`` is the raw data root (typically ``data/raw``).
-    Clones are stored under ``output_dir/_repos/ogpg/{repo_name}/``.
-    Output JSON files go to ``output_dir/patristic/ogpg/``.
-    ``only`` restricts processing to the named repos (no pruning then).
+    Clones are stored under ``output_dir/_repos/ogpg/{repo_name}/``; per-volume
+    extractions under ``output_dir/patristic/ogpg/_extract/``; work files under
+    ``output_dir/patristic/ogpg/`` (``vol-NNN.json`` for an unsplit volume,
+    ``vol-NNN/{slug}.json`` for the works of a split one).
+    ``only`` restricts processing (and pruning) to the named repos.
+    Edits to ``ogpg_index.csv`` are applied by a plain run, from the cached
+    extractions.
     """
     ogpg_dir = output_dir / "patristic" / "ogpg"
     ogpg_dir.mkdir(parents=True, exist_ok=True)
@@ -777,22 +981,28 @@ def ingest(output_dir: Path, force: bool = False, only: list[str] | None = None)
     selected = [r for r in repo_names if r not in pgv.EXCLUDED_REPOS]
     if only is not None:
         selected = [r for r in selected if r in only]
+    known = {_parse_repo(r)[1] for r in repo_names}
+    unknown = set(pgi.load_index()) - known
+    if unknown:
+        raise ValueError(f"ogpg_index.csv names unknown volumes: {sorted(unknown)}")
 
     works: list[Work] = []
+    written: set[str] = set()
     for repo_name in tqdm(selected, desc="ogpg volumes"):
         try:
-            w, _ = _ingest_volume(repo_name, repos_dir, ogpg_dir, force=force)
-            if w:
-                works.append(w)
+            w, paths = _ingest_volume(repo_name, repos_dir, ogpg_dir, force=force)
+            works.extend(w)
+            written |= paths
         except (subprocess.CalledProcessError, RuntimeError, OSError) as exc:
             log.error("Error processing %s: %s", repo_name, exc)
+            # keep whatever this volume had before
+            slug = _parse_repo(repo_name)[1]
+            written |= {p.relative_to(ogpg_dir).as_posix() for p in ogpg_dir.rglob("*.json")
+                        if p.relative_to(ogpg_dir).as_posix().split("/")[0]
+                        .removesuffix(".json") == slug}
 
-    if only is None:
-        produced = {f"{_parse_repo(r)[1]}.json" for r in selected}
-        for path in ogpg_dir.glob("vol-*.json"):
-            if path.name not in produced:
-                log.info("Removing raw output of excluded repo: %s", path.name)
-                path.unlink()
+    _prune(ogpg_dir, written,
+           None if only is None else {_parse_repo(r)[1] for r in selected})
 
     log.info("OPG ingestion complete: %d works from %d repos (%d repos excluded)",
              len(works), len(selected), len(pgv.EXCLUDED_REPOS))

@@ -287,12 +287,11 @@ def normalize_all(
 
     Returns the total number of chunks written.
     """
+    # Files and directories starting with "_" are caches and indexes
+    # (``_zips``, ``_repos``, ``_volumes.json``, ``ogpg/_extract``), not works.
     json_files = [
         p for p in raw_dir.rglob("*.json")
-        if "_zips" not in p.parts
-        and "_csvs" not in p.parts
-        and "_repos" not in p.parts
-        and not p.name.startswith("_")
+        if not any(part.startswith("_") for part in p.relative_to(raw_dir).parts)
     ]
 
     if not json_files:
