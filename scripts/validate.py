@@ -10,10 +10,11 @@ Checks (10 groups):
 4. Canonical reference integrity — format, no duplicates, sequential chunk_index
 5. ID uniqueness — no duplicate work_ids or chunk_ids globally
 6. Date plausibility — date range, out_of_period consistency
-7. Cross-reference integrity — work_ids exist, translation_of targets exist, groups ≥2
+7. Cross-reference integrity — work_ids exist (in _index.json and _works.jsonl),
+   translation_of targets exist, groups ≥2
 8. Metadata completeness — author, title, license, provenance_url
 9. Scripture coverage — books present/missing per translation
-10. Chunk count report — totals by genre and language
+10. Chunk count report — totals by Work.genre (from _works.jsonl) and language
 """
 from __future__ import annotations
 
@@ -125,6 +126,50 @@ def _load_works(data_dir: Path) -> tuple[list[dict], dict[str, dict]]:
     return works, by_id
 
 
+class ValidationInputError(Exception):
+    """Raised when an input validate.py needs (e.g. ``_works.jsonl``) is missing or malformed."""
+
+
+WORKS_MANIFEST = "_works.jsonl"
+UNKNOWN_GENRE = "unknown"
+
+
+def _load_work_records(data_dir: Path) -> dict[str, dict]:
+    """Return ``work_id → Work record`` from ``normalized/_works.jsonl``.
+
+    This manifest is the authoritative source of ``Work.genre`` and
+    ``Work.source_id``; the path prefix of a normalized file is a source-id
+    namespace and need not match the genre of the works in it.
+    """
+    manifest_path = data_dir / "normalized" / WORKS_MANIFEST
+    if not manifest_path.exists():
+        raise ValidationInputError(
+            f"{manifest_path} not found; run scripts.normalize to build it"
+        )
+    records: dict[str, dict] = {}
+    with manifest_path.open(encoding="utf-8") as f:
+        for lineno, line in enumerate(f, 1):
+            if not line.strip():
+                continue
+            try:
+                work = json.loads(line)["work"]
+                wid = work["work_id"]
+            except (json.JSONDecodeError, KeyError, TypeError) as exc:
+                raise ValidationInputError(
+                    f"{manifest_path}:{lineno}: malformed manifest line ({exc!r})"
+                ) from exc
+            records[wid] = work
+    return records
+
+
+def _genre_of(work_id: str, work_records: dict[str, dict]) -> str:
+    """``Work.genre`` for *work_id*, or ``UNKNOWN_GENRE`` if it has no manifest record."""
+    work = work_records.get(work_id)
+    if work is None:
+        return UNKNOWN_GENRE
+    return work.get("genre") or UNKNOWN_GENRE
+
+
 def _load_chunks(data_dir: Path) -> tuple[list[dict], list[str]]:
     """Returns (chunks, parse_error_paths)."""
     normalized_dir = data_dir / "normalized"
@@ -220,12 +265,11 @@ def _check_language_script(chunks: list[dict]) -> dict[str, CheckResult]:
 # ---------------------------------------------------------------------------
 
 def _check_canonical_refs(
-    chunks: list[dict], work_id_to_entry: dict[str, dict]
+    chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, CheckResult]:
     from scripts.ingest._scripture_meta import ALL_BOOKS as all_books
     scripture_work_ids = {
-        wid for wid, entry in work_id_to_entry.items()
-        if entry.get("path", "").startswith("scripture/")
+        wid for wid in work_records if _genre_of(wid, work_records) == "scripture"
     }
 
     empty_ref: list[str] = []
@@ -377,6 +421,28 @@ def _check_cross_references(
     }
 
 
+def _check_works_manifest(
+    chunks: list[dict], work_records: dict[str, dict]
+) -> dict[str, CheckResult]:
+    """Every chunk's work must have a ``_works.jsonl`` record with a genre."""
+    missing_ids = sorted({
+        c.get("work_id", "") for c in chunks if c.get("work_id", "") not in work_records
+    })
+    no_genre = sorted(wid for wid, w in work_records.items() if not w.get("genre"))
+    if missing_ids:
+        log.warning(
+            "%d work_ids have chunks but no %s record (counted as genre %r)",
+            len(missing_ids), WORKS_MANIFEST, UNKNOWN_GENRE,
+        )
+    return {
+        "work_missing_from_manifest": _result(
+            "error", missing_ids,
+            f"chunk work_id has no {WORKS_MANIFEST} record; genre counted as {UNKNOWN_GENRE!r}",
+        ),
+        "work_missing_genre": _result("error", no_genre),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Check group 8: Metadata completeness
 # ---------------------------------------------------------------------------
@@ -410,7 +476,7 @@ def _check_metadata_completeness(works: list[dict]) -> dict[str, CheckResult]:
 # ---------------------------------------------------------------------------
 
 def _check_scripture_coverage(
-    work_id_to_entry: dict[str, dict], chunks: list[dict]
+    work_records: dict[str, dict], chunks: list[dict]
 ) -> dict[str, Any]:
     from scripts.ingest._scripture_meta import PROTESTANT_BOOKS
     protestant_set = set(PROTESTANT_BOOKS)
@@ -419,13 +485,12 @@ def _check_scripture_coverage(
     source_book_counts: defaultdict[str, Counter] = defaultdict(Counter)
     for c in chunks:
         wid = c.get("work_id", "")
-        entry = work_id_to_entry.get(wid)
-        if entry is None or not entry.get("path", "").startswith("scripture/"):
+        if _genre_of(wid, work_records) != "scripture":
             continue
         ref = c.get("canonical_ref", "")
         book = ref.split(".")[0] if "." in ref else ""
         if book:
-            sid = entry.get("source_id", "unknown")
+            sid = work_records[wid].get("source_id", "unknown")
             source_book_counts[sid][book] += 1
 
     coverage: dict[str, dict] = {}
@@ -439,9 +504,9 @@ def _check_scripture_coverage(
 
     # Scripture sources with zero chunks
     all_scripture_source_ids = {
-        entry.get("source_id")
-        for entry in work_id_to_entry.values()
-        if entry.get("path", "").startswith("scripture/")
+        work.get("source_id")
+        for wid, work in work_records.items()
+        if _genre_of(wid, work_records) == "scripture"
     }
     zero_chunk_sources = sorted(all_scripture_source_ids - set(source_book_counts.keys()))
 
@@ -456,19 +521,18 @@ def _check_scripture_coverage(
 # ---------------------------------------------------------------------------
 
 def _chunk_count_report(
-    chunks: list[dict], work_id_to_entry: dict[str, dict]
+    chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, Any]:
+    """Count chunks by ``Work.genre`` (from ``_works.jsonl``) and by chunk language.
+
+    Chunks whose work has no manifest record are counted under
+    ``UNKNOWN_GENRE``; ``_check_works_manifest`` reports them as errors.
+    """
     by_genre: Counter = Counter()
     by_language: Counter = Counter()
 
     for c in chunks:
-        wid = c.get("work_id", "")
-        entry = work_id_to_entry.get(wid)
-        if entry:
-            genre = entry.get("path", "unknown").split("/")[0]
-        else:
-            genre = "unknown"
-        by_genre[genre] += 1
+        by_genre[_genre_of(c.get("work_id", ""), work_records)] += 1
         by_language[c.get("language", "unknown")] += 1
 
     return {
@@ -562,6 +626,9 @@ def main() -> None:
     works, work_id_to_entry = _load_works(data_dir)
     log.info("Loaded %d works from index", len(works))
 
+    work_records = _load_work_records(data_dir)
+    log.info("Loaded %d work records from %s", len(work_records), WORKS_MANIFEST)
+
     log.info("Loading chunks…")
     chunks, parse_errors = _load_chunks(data_dir)
     log.info("Loaded %d chunks (%d parse errors)", len(chunks), len(parse_errors))
@@ -571,15 +638,18 @@ def main() -> None:
         "schema_integrity": _check_schema(parse_errors),
         "text_quality": _check_text_quality(chunks),
         "language_script": _check_language_script(chunks),
-        "canonical_refs": _check_canonical_refs(chunks, work_id_to_entry),
+        "canonical_refs": _check_canonical_refs(chunks, work_records),
         "id_uniqueness": _check_id_uniqueness(works, chunks),
         "date_plausibility": _check_date_plausibility(chunks),
-        "cross_references": _check_cross_references(works, chunks, work_id_to_entry),
+        "cross_references": {
+            **_check_cross_references(works, chunks, work_id_to_entry),
+            **_check_works_manifest(chunks, work_records),
+        },
         "metadata_completeness": _check_metadata_completeness(works),
     }
 
-    coverage = _check_scripture_coverage(work_id_to_entry, chunks)
-    counts = _chunk_count_report(chunks, work_id_to_entry)
+    coverage = _check_scripture_coverage(work_records, chunks)
+    counts = _chunk_count_report(chunks, work_records)
     total_errors, total_warnings = _tally(checks)
 
     report = {
