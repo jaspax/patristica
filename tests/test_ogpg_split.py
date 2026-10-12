@@ -84,6 +84,32 @@ class TestMapColumns:
         assert m.columns["020"] == (533, 534)
         assert m.columns["030"] == (543, 544)
 
+    def test_misread_digits_do_not_pull_the_path_away(self):
+        # A stretch where "13xx" is often read "15xx": the misreadings agree
+        # with each other, but a 200-column jump needs much more evidence.
+        heads = _two_column_heads(60, 600, 1201)
+        for i, (stem, nums) in enumerate(heads[40:], 40):
+            col = 1201 + 2 * i
+            nums[:] = [col + 200] if i % 2 else ([col] if i % 3 == 0 else [])
+        m = oc.map_columns(heads)
+        assert m.columns["659"] == (1319, 1320)
+
+    def test_front_matter_numbers_are_dropped(self):
+        # Years in a Vita advance with the pages, like columns would, but the
+        # text proper restarts at column 1: the better-supported chain wins.
+        heads = [(f"{p:03d}", [300 + p] if p % 2 else []) for p in range(10, 40)]
+        heads += _two_column_heads(80, 40, 1)
+        m = oc.map_columns(heads)
+        assert m.columns["020"] is None
+        assert m.columns["040"] == (1, 2)
+
+    def test_nearest_switch_charges_for_distance(self):
+        cost, frm = oc._nearest_switch([0.0, 5.0, 3.0], [(2, -31), (2, 0), (2, 169)])
+        assert frm == [0, 1, 2]                   # nothing cheaper than staying
+        assert cost[1] == 5.0 + oc.SWITCH_COST
+        cost, frm = oc._nearest_switch([0.0, 9.0], [(2, 0), (2, 4)])
+        assert frm[1] == 0 and cost[1] == oc.SWITCH_COST + 4 * oc.JUMP_COST
+
     def test_no_evidence(self):
         m = oc.map_columns([("010", []), ("011", [8])])
         assert m.columns == {"010": None, "011": None}
@@ -298,3 +324,16 @@ def test_web_redirects_list_exactly_the_split_volumes():
     block = ts[ts.index("SPLIT_OGPG_VOLUMES"):]
     block = block[block.index("= ["):block.index("];")]
     assert set(re.findall(r'"(vol-[^"]+)"', block)) == set(pgi.load_index())
+
+
+def test_duplicate_of_targets_exist():
+    """``duplicate_of`` names works that are in the corpus (``_works.jsonl`` is tracked)."""
+    import json
+
+    manifest = Path(__file__).parents[1] / "data" / "normalized" / "_works.jsonl"
+    ids = {json.loads(line)["work"]["work_id"] for line in manifest.read_text().splitlines()
+           if line.strip()}
+    for rows in pgi.load_index().values():
+        for row in rows:
+            if row.duplicate_of:
+                assert row.duplicate_of in ids, (row.volume, row.slug, row.duplicate_of)
