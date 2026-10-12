@@ -26,6 +26,7 @@ dependencies = [
 dev = ["pytest", "pytest-mock", "ruff", "mypy"]
 usfm = ["usfm-grammar"]  # requires Node.js
 deploy = ["boto3"]  # scripts.upload_library (Cloudflare R2, S3 API)
+eval = ["numpy"]  # scripts.embed_eval dense retrieval
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
