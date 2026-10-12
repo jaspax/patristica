@@ -20,3 +20,15 @@ Fields: `query_id`, `mode` (`paraphrase` | `topical`), `text`, `query_lang`,
 
 Ge'ez queries (35 targets: 20 Scripture, 15 Ge'ez-only) were added the same
 day, after the eval set was extended with `build --extend gez`.
+
+**Review (#87, 2026-10-12).** GPT-6.1 Sol reviewed every target's queries
+against the original (`scripts.embed_eval.review`). It rated paraphrase
+accuracy, ignoring partial coverage, and topical relevance and specificity.
+A bigram-overlap check flagged Scripture paraphrases that echo an English
+Bible. Each query now carries:
+- `review`: `pass` (345), `corrected` (131) or `flagged` (20, overlap only);
+- `reviewed_by`;
+- for corrected queries, the original draft in `drafted_text`.
+
+Rerunning the eval with all, passing-only and corrected queries left every
+conclusion unchanged: no language cell moved by 0.20 or more.

@@ -17,6 +17,8 @@ Review the drafted paraphrase/topical queries (#87) without a human pass.
    reviewer's corrections).
 4. ``compare``: after ``run`` has scored each variant (``--authored`` /
    ``--results-dir``), shows whether the conclusions change.
+5. ``apply``: writes the outcome into the tracked query file (corrections,
+   with the draft kept, and a review status per query).
 
 Usage::
 
@@ -45,6 +47,7 @@ from scripts.embed_eval.translate import LANGUAGE_NAMES, Clients, cost
 log = logging.getLogger(__name__)
 
 REVIEWER = "sol"
+MODELS_REVIEWER = "gpt-6.1-sol"
 DEFAULT_DIR = Path("data/eval")
 DEFAULT_AUTHORED = Path("data/eval_authored")
 VARIANTS = ("all", "passing", "corrected")
@@ -288,6 +291,40 @@ def write_variants(eval_dir: Path, authored_dir: Path) -> None:
           f"corrected {len(out['corrected'])} ({replaced} replaced)")
 
 
+def apply_reviews(eval_dir: Path, authored_dir: Path) -> None:
+    """Write review outcomes into the tracked query file.
+
+    Queries that fail and have a correction take the corrected text (the draft
+    is kept in ``drafted_text``); every query records its ``review`` status:
+    ``pass``, ``corrected``, or ``flagged`` (failed without a correction, e.g.
+    only the English-Bible overlap check).
+    """
+    reviews = load_reviews(eval_dir)
+    overlaps = run_overlap(eval_dir, authored_dir)
+    for path in sorted(authored_dir.glob("*.jsonl")):
+        rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
+                if line.strip()]
+        counts: dict[str, int] = defaultdict(int)
+        for q in rows:
+            target = q["target_chunk_id"]
+            review = reviews.get(target)
+            if review is None or q.get("review"):
+                continue
+            if passes(q["mode"], review, overlaps.get(target, 0.0)):
+                q["review"] = "pass"
+            elif review[q["mode"]].get("corrected"):
+                q["drafted_text"], q["text"] = q["text"], review[q["mode"]]["corrected"]
+                q["review"] = "corrected"
+            else:
+                q["review"] = "flagged"
+            q["reviewed_by"] = MODELS_REVIEWER
+            counts[q["review"]] += 1
+        with path.open("w", encoding="utf-8") as f:
+            for q in rows:
+                f.write(json.dumps(q, ensure_ascii=False) + "\n")
+        print(f"{path}: {dict(counts)}")
+
+
 def compare(eval_dir: Path) -> None:
     """Mean score per retriever and mode for each variant, plus per-language deltas."""
     from scripts.embed_eval.report import THRESHOLDS
@@ -321,7 +358,8 @@ def main() -> None:
     p = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    p.add_argument("cmd", choices=("review", "summary", "overlap", "variants", "compare"))
+    p.add_argument("cmd",
+                   choices=("review", "summary", "overlap", "variants", "compare", "apply"))
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     p.add_argument("--workers", type=int, default=6)
@@ -336,6 +374,8 @@ def main() -> None:
         run_overlap(args.eval_dir, args.authored)
     elif args.cmd == "variants":
         write_variants(args.eval_dir, args.authored)
+    elif args.cmd == "apply":
+        apply_reviews(args.eval_dir, args.authored)
     else:
         compare(args.eval_dir)
 
