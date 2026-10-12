@@ -22,10 +22,20 @@ One Work is written per qualifying corpus.  All TEI XML files in
 
 TEI text extraction
 -------------------
-Coptic Scriptorium TEI files are linguistically annotated with ``<w>`` word
-elements inside ``<ab>`` and ``<p>`` containers.  We join word texts within
-each container to produce paragraph strings, skipping scholarly apparatus
-(``<note>``, ``<gap>``, ``<unclear>``, ``<supplied>``).
+The ``*_TEI`` directories hold two formats:
+
+- Standard TEI P5 (most corpora).  Each ``<w>`` is a *morpheme* (article,
+  preposition, verb prefix, …) and each ``<phr>`` is a *bound group*, the unit
+  Coptic writes as one word.  We write the ``<w>`` texts of a ``<phr>`` together
+  without spaces ("Ⲡ" + "ⲈⲠⲒⲤⲔⲞⲠⲞⲤ" → "ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ") and separate bound groups
+  with spaces.  Whitespace inside a ``<w>`` is manuscript line breaks and
+  markup layout, so it is dropped.
+- A custom ``<meta>``-rooted export (e.g. ``life-aphou``, ``besa-letters``),
+  where the bound group is the ``norm_group`` attribute of ``<norm_group>``.
+
+Both join bound groups within each ``<ab>``/``<p>`` container to produce
+paragraph strings, skipping scholarly apparatus (``<note>``, ``<gap>``,
+``<unclear>``, ``<supplied>``).
 
 Canonical references
 --------------------
@@ -64,6 +74,8 @@ _TEI = f"{{{_TEI_NS}}}"
 
 # Coptic Unicode block (U+2C80–U+2CFF) + Greek letters used in Coptic (U+0370–U+03FF)
 _COPTIC_RE = re.compile(r"[Ⲁ-⳿Ͱ-Ͽ]")
+
+_WS_RE = re.compile(r"\s+")
 
 # Tags whose text content we skip during extraction (scholarly apparatus)
 _SKIP_TAGS = frozenset({
@@ -423,14 +435,25 @@ def _collect_words(el: etree._Element, out: list[str]) -> None:
                 _collect_words(target, out)
         return
 
-    # Word element: use itertext() to handle split text across <lb> children
-    if tag == "w":
-        t = re.sub(r"\s+", " ", "".join(el.itertext())).strip()
-        if t:
-            out.append(t)
+    # Bound group (<phr>) and morpheme (<w>): written together as one word.
+    # Whitespace inside them is only markup layout (newlines between <w> and
+    # <m> elements, manuscript line breaks with or without <lb/>), so drop it
+    # rather than splitting the word.  Recursing (rather than itertext) keeps
+    # the <choice> and apparatus handling inside words.
+    if tag in ("phr", "w"):
+        parts: list[str] = []
+        _collect_children(el, parts)
+        word = _WS_RE.sub("", "".join(parts))
+        if word:
+            out.append(word)
         return
 
     # For any other element, recurse into children; also pick up direct PCDATA
+    _collect_children(el, out)
+
+
+def _collect_children(el: etree._Element, out: list[str]) -> None:
+    """Collect an element's own text, its children's words, and their tails."""
     if el.text and el.text.strip():
         out.append(el.text.strip())
     for child in el:
