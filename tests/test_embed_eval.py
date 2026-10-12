@@ -420,3 +420,30 @@ def test_bulk_groups_use_natural_order():
     chunks = [{"work_id": "w", "chunk_id": f"w#Gen.1.{v}", "text": "x"} for v in (10, 2, 1)]
     assert [c["chunk_id"] for c in translate.bulk_groups(chunks)[0]] == [
         "w#Gen.1.1", "w#Gen.1.2", "w#Gen.1.10"]
+
+
+def test_review_overlap_and_passes():
+    from scripts.embed_eval import review
+
+    kjv = "In the beginning God created the heaven and the earth."
+    assert review.overlap("In the beginning God created the heaven and the earth", [kjv]) == 1.0
+    assert review.overlap("At the start of everything the Lord made sky and land", [kjv]) == 0.0
+    assert review.overlap("", [kjv]) == 0.0
+    good = {"paraphrase": {"fidelity": 5}, "topical": {"relevance": 4, "specificity": "broad"}}
+    narrow = {"paraphrase": {"fidelity": 3}, "topical": {"relevance": 5, "specificity": "narrow"}}
+    assert review.passes("paraphrase", good, 0.1)
+    assert not review.passes("paraphrase", good, 0.9)  # echoes an English Bible
+    assert review.passes("topical", good, 0.0)
+    assert not review.passes("paraphrase", narrow, 0.0)
+    assert not review.passes("topical", narrow, 0.0)
+    assert not review.passes("topical", None, 0.0)
+
+
+def test_review_resolve_follows_coptic_rename():
+    from scripts.embed_eval.review import resolve
+
+    corpus = {"liturgical/coptic-scriptorium/x#1": {}, "a#1": {}}
+    assert resolve("a#1", corpus) == "a#1"
+    old = "liturgical/coptic-scriptorium/x#1"
+    assert resolve("patristic/coptic-scriptorium/x#1", corpus) == old
+    assert resolve("missing#1", corpus) is None
