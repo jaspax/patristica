@@ -7,14 +7,19 @@ from pathlib import Path
 
 import pytest
 
+from scripts import validate
 from scripts.validate import (
     UNKNOWN_GENRE,
     ValidationInputError,
     _check_canonical_refs,
+    _check_cross_references,
+    _check_id_uniqueness,
     _check_scripture_coverage,
     _check_works_manifest,
     _chunk_count_report,
+    _load_chunks,
     _load_work_records,
+    _load_works,
 )
 
 
@@ -136,3 +141,105 @@ class TestScriptureByGenre:
         )
         assert list(coverage["coverage_by_source"]) == ["other/bib"]
         assert coverage["sources_with_zero_chunks"] == []
+
+
+class TestWorksFromManifest:
+    """Work list, orphan and duplicate-ID checks read ``_works.jsonl`` (#75)."""
+
+    def test_load_works_keeps_one_record_per_line(self, tmp_path: Path):
+        data_dir = _write_manifest(tmp_path, [
+            ("a/src/w.json", _work("src/w", "a/src", "patristic")),
+            ("b/src/w.json", _work("src/w", "b/src", "patristic")),
+            ("a/src/v.json", _work("src/v", "a/src", "patristic")),
+        ])
+        works = _load_works(data_dir)
+        assert [w["work_id"] for w in works] == ["src/w", "src/w", "src/v"]
+        assert set(_load_work_records(data_dir)) == {"src/w", "src/v"}
+
+    def test_missing_manifest_raises(self, tmp_path: Path):
+        with pytest.raises(ValidationInputError, match="_works.jsonl"):
+            _load_works(tmp_path)
+
+    def test_duplicate_work_id_across_paths_is_an_error(self, tmp_path: Path):
+        data_dir = _write_manifest(tmp_path, [
+            ("a/src/w.json", _work("src/w", "a/src", "patristic")),
+            ("b/src/w.json", _work("src/w", "b/src", "patristic")),
+        ])
+        result = _check_id_uniqueness(_load_works(data_dir), [])
+        assert result["duplicate_work_ids"]["status"] == "fail"
+        assert result["duplicate_work_ids"]["examples"] == ["src/w ×2"]
+
+    def test_orphan_chunk_is_an_error(self, records: dict[str, dict]):
+        works = list(records.values())
+        chunks = [_chunk("src-a/hom", "Hom.1"), _chunk("nowhere/w", "W.1")]
+        result = _check_cross_references(works, chunks, records)
+        assert result["orphan_chunks"]["status"] == "fail"
+        assert result["orphan_chunks"]["examples"] == ["nowhere/w#W.1"]
+
+    def test_translation_of_checked_against_manifest(self, records: dict[str, dict]):
+        works = [
+            {**_work("x/eng", "x", "patristic"), "translation_of": "src-a/hom"},
+            {**_work("x/bad", "x", "patristic"), "translation_of": "missing/w"},
+        ]
+        result = _check_cross_references(works, [], records)
+        assert result["bad_translation_of"]["examples"] == ["x/bad → missing/w"]
+
+    def test_load_chunks_skips_underscore_files(self, tmp_path: Path):
+        norm = tmp_path / "normalized" / "patristic" / "src"
+        norm.mkdir(parents=True)
+        (norm / "w.json").write_text(json.dumps([_chunk("src/w", "W.1")]), encoding="utf-8")
+        (tmp_path / "normalized" / "_stale.json").write_text("{}", encoding="utf-8")
+        chunks, errors = _load_chunks(tmp_path)
+        assert [c["chunk_id"] for c in chunks] == ["src/w#W.1"]
+        assert errors == []
+
+
+class TestMain:
+    def _run(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[int, dict]:
+        out = tmp_path / "report.json"
+        monkeypatch.setattr(
+            "sys.argv", ["validate", "--data-dir", str(tmp_path), "--output", str(out)]
+        )
+        with pytest.raises(SystemExit) as exc:
+            validate.main()
+        report = json.loads(out.read_text(encoding="utf-8")) if out.exists() else {}
+        return exc.value.code, report
+
+    def _write_work(self, tmp_path: Path, rel: str, chunks: list[dict]) -> None:
+        path = tmp_path / "normalized" / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(chunks), encoding="utf-8")
+
+    def test_runs_from_manifest_alone(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+        _write_manifest(tmp_path, [
+            ("patristic/src/w.json", _work("src/w", "patristic/src", "patristic")),
+        ])
+        self._write_work(tmp_path, "patristic/src/w.json", [
+            _chunk("src/w", "W.1", 0), _chunk("src/w", "W.2", 1),
+        ])
+        code, report = self._run(tmp_path, monkeypatch)
+        assert not (tmp_path / "normalized" / "_index.json").exists()
+        assert code == 0
+        assert report["summary"]["total_works"] == 1
+        assert report["checks"]["cross_references"]["orphan_chunks"]["status"] == "pass"
+        assert report["checks"]["id_uniqueness"]["duplicate_work_ids"]["status"] == "pass"
+
+    def test_reports_orphans_and_duplicates(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ):
+        _write_manifest(tmp_path, [
+            ("patristic/a/w.json", _work("src/w", "patristic/a", "patristic")),
+            ("patristic/b/w.json", _work("src/w", "patristic/b", "patristic")),
+        ])
+        self._write_work(tmp_path, "patristic/a/w.json", [_chunk("src/w", "W.1")])
+        self._write_work(tmp_path, "patristic/b/o.json", [_chunk("src/orphan", "O.1")])
+        code, report = self._run(tmp_path, monkeypatch)
+        assert code == 1
+        xref = report["checks"]["cross_references"]
+        assert xref["orphan_chunks"]["examples"] == ["src/orphan#O.1"]
+        assert report["checks"]["id_uniqueness"]["duplicate_work_ids"]["examples"] == ["src/w ×2"]
+
+    def test_missing_manifest_exits(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+        code, report = self._run(tmp_path, monkeypatch)
+        assert code == 2
+        assert report == {}

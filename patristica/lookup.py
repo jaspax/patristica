@@ -2,8 +2,10 @@
 Library for looking up texts by canonical reference.
 
 Provides an index-backed query API over the normalized data in data/normalized/.
-The index (data/normalized/_index.json) is built automatically on first use and
-maps canonical_ref first-components to WorkEntry metadata.
+The index maps canonical_ref first-components to WorkEntry metadata.  It is
+built in memory on each call from ``_works.jsonl`` (the work manifest that
+``scripts.normalize`` maintains) plus the first chunk of each normalized file,
+so it can never go stale and nothing is written to disk.
 """
 
 from __future__ import annotations
@@ -11,13 +13,13 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import TypedDict
 
 log = logging.getLogger(__name__)
 
-INDEX_FILENAME = "_index.json"
+WORKS_MANIFEST = "_works.jsonl"
+_PEEK_BYTES = 1 << 16
 
 
 # ---------------------------------------------------------------------------
@@ -57,105 +59,109 @@ def _normalized_dir(data_dir: Path) -> Path:
     return data_dir / "normalized"
 
 
-def _raw_dir(data_dir: Path) -> Path:
-    return data_dir / "raw"
-
-
-def _index_path(data_dir: Path) -> Path:
-    return _normalized_dir(data_dir) / INDEX_FILENAME
-
-
 # ---------------------------------------------------------------------------
 # Index building
 # ---------------------------------------------------------------------------
 
-def _read_raw_work(raw_file: Path) -> dict | None:
-    """Return the 'work' dict from a raw JSON file, or None on failure."""
-    try:
-        data = json.loads(raw_file.read_text(encoding="utf-8"))
-        return data.get("work")
-    except (FileNotFoundError, json.JSONDecodeError, OSError):
-        return None
+class LookupIndexError(Exception):
+    """Raised when ``_works.jsonl`` is missing or malformed."""
 
 
-def _title_for_entry(
-    raw_work: dict | None,
-    canonical_prefix: str,
-    work_id: str,
-) -> str:
-    """Resolve title via three-tier fallback."""
-    if raw_work and raw_work.get("title"):
-        return raw_work["title"]
-    # Lazy import to avoid circular deps; _scripture_meta is scripts-only
-    try:
-        from scripts.ingest._scripture_meta import BOOK_TITLE  # type: ignore[import]
-        if canonical_prefix in BOOK_TITLE:
-            return BOOK_TITLE[canonical_prefix]
-    except ImportError:
-        pass
-    return work_id.split("/")[-1]
+def _read_manifest(norm_dir: Path) -> list[tuple[str, dict]]:
+    """Return ``(relative_path, work_dict)`` for every line of ``_works.jsonl``."""
+    manifest = norm_dir / WORKS_MANIFEST
+    if not manifest.exists():
+        raise LookupIndexError(f"{manifest} not found; run scripts.normalize to build it")
+    entries: list[tuple[str, dict]] = []
+    with manifest.open(encoding="utf-8") as f:
+        for lineno, line in enumerate(f, 1):
+            if not line.strip():
+                continue
+            try:
+                rec = json.loads(line)
+                entries.append((rec["path"], rec["work"]))
+            except (json.JSONDecodeError, KeyError, TypeError) as exc:
+                raise LookupIndexError(
+                    f"{manifest}:{lineno}: malformed manifest line ({exc!r})"
+                ) from exc
+    return entries
+
+
+def _first_chunk(path: Path) -> dict | None:
+    """Decode only the first element of a normalized chunk file (a JSON list).
+
+    Reads the file in growing blocks until the first object parses, so large
+    works are not loaded in full.  Returns None for an empty list.
+    """
+    decoder = json.JSONDecoder()
+    with path.open(encoding="utf-8") as f:
+        buf = ""
+        while True:
+            block = f.read(_PEEK_BYTES)
+            buf += block
+            head = buf.lstrip()
+            if not head.startswith("["):
+                if not block:
+                    raise ValueError(f"{path}: not a JSON list")
+                continue
+            body = head[1:].lstrip()
+            if body.startswith("]"):
+                return None
+            try:
+                obj, _ = decoder.raw_decode(body)
+            except json.JSONDecodeError:
+                if not block:
+                    raise
+                continue
+            if not isinstance(obj, dict):
+                raise ValueError(f"{path}: first element is not an object")
+            return obj
 
 
 def build_index(data_dir: Path) -> dict:
     """
-    Scan all normalized files and build the index dict.
-    Returns {"built_at": ..., "entries": {canonical_prefix: [WorkEntry, ...]}}.
+    Build the lookup index from ``_works.jsonl`` and each work's first chunk.
+    Returns {"entries": {canonical_prefix: [WorkEntry, ...]}}, deterministic
+    for given data (manifest order, which is sorted by path).
     """
     norm_dir = _normalized_dir(data_dir)
-    raw_base = _raw_dir(data_dir)
     entries: dict[str, list[WorkEntry]] = {}
     skipped = 0
 
-    json_files = [
-        p for p in norm_dir.rglob("*.json")
-        if not p.name.startswith("_")
-    ]
-    log.info("Building index from %d normalized files...", len(json_files))
-
-    for norm_file in sorted(json_files):
+    for rel_path, work in _read_manifest(norm_dir):
+        norm_file = norm_dir / rel_path
         try:
-            chunks = json.loads(norm_file.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError) as exc:
+            first = _first_chunk(norm_file)
+        except (OSError, ValueError) as exc:
             log.warning("Skipping %s: %s", norm_file, exc)
             skipped += 1
             continue
-
-        if not chunks:
+        if first is None:
             continue
 
-        first = chunks[0]
         canonical_ref: str = first.get("canonical_ref", "")
         if not canonical_ref:
             skipped += 1
             continue
 
         canonical_prefix = canonical_ref.split(".")[0]
-        work_id: str = first.get("work_id", "")
-        language: str = first.get("language", "")
-
-        rel_path = norm_file.relative_to(norm_dir)
-        raw_file = raw_base / rel_path
-        raw_work = _read_raw_work(raw_file)
-
+        work_id: str = work.get("work_id") or first.get("work_id", "")
         entry: WorkEntry = {
             "work_id": work_id,
-            "path": str(rel_path),
+            "path": rel_path,
             "canonical_prefix": canonical_prefix,
-            "language": language,
-            "title": _title_for_entry(raw_work, canonical_prefix, work_id),
-            "author": raw_work.get("author") if raw_work else None,
-            "source_id": (raw_work.get("source_id") or _source_id_from_work_id(work_id)),
-            "translation_of": raw_work.get("translation_of") if raw_work else None,
+            "language": first.get("language") or work.get("language", ""),
+            "title": work.get("title") or work_id.split("/")[-1],
+            "author": work.get("author"),
+            "source_id": work.get("source_id") or _source_id_from_work_id(work_id),
+            "translation_of": work.get("translation_of"),
         }
         entries.setdefault(canonical_prefix, []).append(entry)
 
     if skipped:
         log.warning("Skipped %d files during index build", skipped)
 
-    return {
-        "built_at": datetime.now(timezone.utc).isoformat(),
-        "entries": entries,
-    }
+    return {"entries": entries}
 
 
 def _source_id_from_work_id(work_id: str) -> str:
@@ -166,27 +172,9 @@ def _source_id_from_work_id(work_id: str) -> str:
     return work_id
 
 
-def save_index(index: dict, data_dir: Path) -> None:
-    """Write index to data/normalized/_index.json."""
-    path = _index_path(data_dir)
-    path.write_text(
-        json.dumps(index, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    log.info("Index saved to %s (%d prefixes)", path, len(index.get("entries", {})))
-
-
-def load_index(data_dir: Path, rebuild: bool = False) -> dict:
-    """
-    Load the index from disk, building it first if it doesn't exist or rebuild=True.
-    """
-    path = _index_path(data_dir)
-    if rebuild or not path.exists():
-        log.info("Building lookup index (this may take a moment)...")
-        index = build_index(data_dir)
-        save_index(index, data_dir)
-        return index
-    return json.loads(path.read_text(encoding="utf-8"))
+def load_index(data_dir: Path) -> dict:
+    """Build the lookup index for *data_dir* (see ``build_index``)."""
+    return build_index(data_dir)
 
 
 # ---------------------------------------------------------------------------
@@ -261,7 +249,6 @@ def lookup(
     *,
     lang: str | None = None,
     source_id: str | None = None,
-    rebuild_index: bool = False,
 ) -> list[WorkResult]:
     """
     Look up works by canonical reference query.
@@ -269,7 +256,7 @@ def lookup(
     Returns a list of WorkResult objects sorted by (language, source_id).
     Returns [] if no works match.
     """
-    index = load_index(data_dir, rebuild=rebuild_index)
+    index = load_index(data_dir)
     canonical_prefix, query_ref = parse_query(query)
 
     candidates: list[WorkEntry] = index.get("entries", {}).get(canonical_prefix, [])
@@ -295,10 +282,9 @@ def lookup(
 def list_translations(
     query: str,
     data_dir: Path,
-    rebuild_index: bool = False,
 ) -> list[WorkEntry]:
     """Return all WorkEntries for a query's canonical prefix, unfiltered by language."""
-    index = load_index(data_dir, rebuild=rebuild_index)
+    index = load_index(data_dir)
     canonical_prefix, _ = parse_query(query)
     return list(index.get("entries", {}).get(canonical_prefix, []))
 
@@ -309,7 +295,6 @@ def list_sections(
     *,
     lang: str | None = None,
     source_id: str | None = None,
-    rebuild_index: bool = False,
 ) -> list[SectionEntry]:
     """
     List the sections at the level immediately below *query*.
@@ -322,7 +307,7 @@ def list_sections(
 
     Results are sorted in the order the sections first appear in the data.
     """
-    index = load_index(data_dir, rebuild=rebuild_index)
+    index = load_index(data_dir)
     canonical_prefix, query_ref = parse_query(query)
 
     candidates: list[WorkEntry] = index.get("entries", {}).get(canonical_prefix, [])
@@ -385,13 +370,12 @@ def list_works(
     *,
     lang: str | None = None,
     source_id: str | None = None,
-    rebuild_index: bool = False,
 ) -> list[WorkEntry]:
     """
     Return all WorkEntries from the index, optionally filtered by language and/or source_id.
     Sorted by (source_id, canonical_prefix).
     """
-    index = load_index(data_dir, rebuild=rebuild_index)
+    index = load_index(data_dir)
     all_entries: list[WorkEntry] = []
     for entry_list in index.get("entries", {}).values():
         all_entries.extend(entry_list)

@@ -14,7 +14,6 @@ Usage
     python -m scripts.lookup --list-works
     python -m scripts.lookup --list-works --lang grc
     python -m scripts.lookup --list-works --source-id scripture/sblgnt
-    python -m scripts.lookup -q Gen --rebuild-index
 """
 
 from __future__ import annotations
@@ -25,6 +24,7 @@ import sys
 from pathlib import Path
 
 from patristica.lookup import (
+    LookupIndexError,
     format_results,
     list_sections,
     list_translations,
@@ -98,6 +98,14 @@ def _print_translations_table(entries: list) -> None:
 
 
 def main() -> None:
+    try:
+        _main()
+    except LookupIndexError as exc:
+        log.error("%s", exc)
+        sys.exit(2)
+
+
+def _main() -> None:
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
 
     parser = argparse.ArgumentParser(
@@ -141,11 +149,6 @@ def main() -> None:
         help="List all works in the index, then exit (combinable with --lang/--source-id)",
     )
     parser.add_argument(
-        "--rebuild-index",
-        action="store_true",
-        help="Force rebuild of the lookup index before querying",
-    )
-    parser.add_argument(
         "--data-dir",
         default="data",
         help="Root data directory (default: data)",
@@ -160,7 +163,6 @@ def main() -> None:
             data_dir,
             lang=args.lang,
             source_id=args.source_id,
-            rebuild_index=args.rebuild_index,
         )
         if not sections:
             print(f"No sections found for: {args.list_sections!r}", file=sys.stderr)
@@ -173,7 +175,6 @@ def main() -> None:
             data_dir,
             lang=args.lang,
             source_id=args.source_id,
-            rebuild_index=args.rebuild_index,
         )
         _print_works_table(entries)
         return
@@ -185,7 +186,6 @@ def main() -> None:
         entries = list_translations(
             args.query,
             data_dir,
-            rebuild_index=args.rebuild_index,
         )
         if not entries:
             print(f"No works found for query: {args.query!r}", file=sys.stderr)
@@ -198,7 +198,6 @@ def main() -> None:
         data_dir,
         lang=args.lang,
         source_id=args.source_id,
-        rebuild_index=args.rebuild_index,
     )
 
     if not results:

@@ -11,7 +11,7 @@ Checks (10 groups):
 4. Canonical reference integrity — format, no duplicates, sequential chunk_index
 5. ID uniqueness — no duplicate work_ids or chunk_ids globally
 6. Date plausibility — date range, out_of_period consistency
-7. Cross-reference integrity — work_ids exist (in _index.json and _works.jsonl),
+7. Cross-reference integrity — work_ids exist in _works.jsonl,
    translation_of targets exist, groups ≥2
 8. Metadata completeness — author, title, license, provenance_url
 9. Scripture coverage — books present/missing per translation
@@ -109,31 +109,39 @@ def _result(severity: str, violations: list[str], note: str = "") -> CheckResult
 # Data loading
 # ---------------------------------------------------------------------------
 
-def _load_works(data_dir: Path) -> tuple[list[dict], dict[str, dict]]:
-    """Returns (works_list, work_id_to_entry) from _index.json."""
-    index_path = data_dir / "normalized" / "_index.json"
-    if not index_path.exists():
-        log.warning("_index.json not found at %s", index_path)
-        return [], {}
-    with index_path.open() as f:
-        idx = json.load(f)
-    works: list[dict] = []
-    by_id: dict[str, dict] = {}
-    for prefix_works in idx.get("entries", {}).values():
-        for entry in prefix_works:
-            works.append(entry)
-            wid = entry.get("work_id", "")
-            if wid:
-                by_id[wid] = entry
-    return works, by_id
-
-
 class ValidationInputError(Exception):
     """Raised when an input validate.py needs (e.g. ``_works.jsonl``) is missing or malformed."""
 
 
 WORKS_MANIFEST = "_works.jsonl"
 UNKNOWN_GENRE = "unknown"
+
+
+def _load_works(data_dir: Path) -> list[dict]:
+    """Return every ``Work`` record in ``normalized/_works.jsonl``, one per line.
+
+    The manifest is keyed by normalized file path, so a work_id that appears
+    under two paths shows up twice here (see the duplicate_work_ids check).
+    """
+    manifest_path = data_dir / "normalized" / WORKS_MANIFEST
+    if not manifest_path.exists():
+        raise ValidationInputError(
+            f"{manifest_path} not found; run scripts.normalize to build it"
+        )
+    works: list[dict] = []
+    with manifest_path.open(encoding="utf-8") as f:
+        for lineno, line in enumerate(f, 1):
+            if not line.strip():
+                continue
+            try:
+                work = json.loads(line)["work"]
+                work["work_id"]
+            except (json.JSONDecodeError, KeyError, TypeError) as exc:
+                raise ValidationInputError(
+                    f"{manifest_path}:{lineno}: malformed manifest line ({exc!r})"
+                ) from exc
+            works.append(work)
+    return works
 
 
 def _load_work_records(data_dir: Path) -> dict[str, dict]:
@@ -143,25 +151,11 @@ def _load_work_records(data_dir: Path) -> dict[str, dict]:
     ``Work.source_id``; the path prefix of a normalized file is a source-id
     namespace and need not match the genre of the works in it.
     """
-    manifest_path = data_dir / "normalized" / WORKS_MANIFEST
-    if not manifest_path.exists():
-        raise ValidationInputError(
-            f"{manifest_path} not found; run scripts.normalize to build it"
-        )
-    records: dict[str, dict] = {}
-    with manifest_path.open(encoding="utf-8") as f:
-        for lineno, line in enumerate(f, 1):
-            if not line.strip():
-                continue
-            try:
-                work = json.loads(line)["work"]
-                wid = work["work_id"]
-            except (json.JSONDecodeError, KeyError, TypeError) as exc:
-                raise ValidationInputError(
-                    f"{manifest_path}:{lineno}: malformed manifest line ({exc!r})"
-                ) from exc
-            records[wid] = work
-    return records
+    return _records_by_id(_load_works(data_dir))
+
+
+def _records_by_id(works: list[dict]) -> dict[str, dict]:
+    return {w["work_id"]: w for w in works}
 
 
 def _genre_of(work_id: str, work_records: dict[str, dict]) -> str:
@@ -176,7 +170,7 @@ def _load_chunks(data_dir: Path) -> tuple[list[dict], list[str]]:
     """Returns (chunks, parse_error_paths)."""
     normalized_dir = data_dir / "normalized"
     json_files = sorted(
-        p for p in normalized_dir.rglob("*.json") if p.name != "_index.json"
+        p for p in normalized_dir.rglob("*.json") if not p.name.startswith("_")
     )
     chunks: list[dict] = []
     parse_errors: list[str] = []
@@ -234,7 +228,7 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
 
 
 def _check_section_numbers(
-    chunks: list[dict], work_id_to_entry: dict[str, dict]
+    chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, CheckResult]:
     """Prose chunks whose text still starts with the ref's own section number.
 
@@ -244,7 +238,7 @@ def _check_section_numbers(
     """
     dup_number: list[str] = []
     for c in chunks:
-        entry = work_id_to_entry.get(c.get("work_id", ""), {})
+        entry = work_records.get(c.get("work_id", ""), {})
         source_id = entry.get("source_id", "")
         if source_id.startswith("scripture/"):
             continue
@@ -412,9 +406,9 @@ def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
 # ---------------------------------------------------------------------------
 
 def _check_cross_references(
-    works: list[dict], chunks: list[dict], work_id_to_entry: dict[str, dict]
+    works: list[dict], chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, CheckResult]:
-    work_id_set = set(work_id_to_entry.keys())
+    work_id_set = set(work_records.keys())
 
     orphan_chunks = [
         c.get("chunk_id", "?")
@@ -651,12 +645,13 @@ def main() -> None:
 
     data_dir = Path(args.data_dir)
 
-    log.info("Loading index…")
-    works, work_id_to_entry = _load_works(data_dir)
-    log.info("Loaded %d works from index", len(works))
-
-    work_records = _load_work_records(data_dir)
-    log.info("Loaded %d work records from %s", len(work_records), WORKS_MANIFEST)
+    try:
+        works = _load_works(data_dir)
+    except ValidationInputError as exc:
+        log.error("%s", exc)
+        sys.exit(2)
+    work_records = _records_by_id(works)
+    log.info("Loaded %d work records from %s", len(works), WORKS_MANIFEST)
 
     log.info("Loading chunks…")
     chunks, parse_errors = _load_chunks(data_dir)
@@ -667,14 +662,14 @@ def main() -> None:
         "schema_integrity": _check_schema(parse_errors),
         "text_quality": {
             **_check_text_quality(chunks),
-            **_check_section_numbers(chunks, work_id_to_entry),
+            **_check_section_numbers(chunks, work_records),
         },
         "language_script": _check_language_script(chunks),
         "canonical_refs": _check_canonical_refs(chunks, work_records),
         "id_uniqueness": _check_id_uniqueness(works, chunks),
         "date_plausibility": _check_date_plausibility(chunks),
         "cross_references": {
-            **_check_cross_references(works, chunks, work_id_to_entry),
+            **_check_cross_references(works, chunks, work_records),
             **_check_works_manifest(chunks, work_records),
         },
         "metadata_completeness": _check_metadata_completeness(works),

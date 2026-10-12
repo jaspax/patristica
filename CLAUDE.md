@@ -175,6 +175,8 @@ uv run python -m scripts.export_library   # normalized → data/library/ (index.
 uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
 ```
 
+`_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
+
 ### Embedding eval (`scripts/embed_eval/`, #3)
 
 ```bash

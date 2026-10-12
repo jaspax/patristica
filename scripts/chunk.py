@@ -121,7 +121,7 @@ def chunk_all(
     Also deletes outputs in *output_dir* whose normalized source is gone.
     """
     json_files = sorted(
-        p for p in input_dir.rglob("*.json") if not p.name.startswith("_")  # skip _index.json
+        p for p in input_dir.rglob("*.json") if not p.name.startswith("_")
     )
     if not json_files:
         log.warning("No normalized JSON files found under %s", input_dir)

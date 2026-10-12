@@ -431,8 +431,7 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 | Path | Tracked | Contents |
 |---|---|---|
 | `data/normalized/{genre}/{source}/…/*.json` | yes | One file per work: a JSON list of `Chunk` records (`patristica/models.py`) — `chunk_id` (globally unique), `work_id`, `canonical_ref` (source-native numbering), `language`, `text`, `chunk_index` (0-based, sequential), dates, `out_of_period`. Context and translation groups are *not* filled here |
-| `data/normalized/_works.jsonl` | yes | One line per normalized file: `{"path": …, "work": {…}}` with the full `Work` record (title, author, dates, genre, language, tradition, license, provenance_url, edition, translation_of). The only tracked copy of work metadata (`data/raw` is gitignored); maintained by `scripts.normalize` |
-| `data/normalized/_index.json` | yes | Lookup index for `patristica/lookup.py` (ref prefix → works) |
+| `data/normalized/_works.jsonl` | yes | One line per normalized file: `{"path": …, "work": {…}}` with the full `Work` record (title, author, dates, genre, language, tradition, license, provenance_url, edition, translation_of). The only tracked copy of work metadata (`data/raw` is gitignored); maintained by `scripts.normalize`. `scripts.validate` and `patristica/lookup.py` read it (lookup builds its ref-prefix index in memory from it; the old tracked `_index.json` was removed in #75) |
 | `data/chunks/…` | no | Embedding-ready chunks: normalized chunks plus `context_before`/`context_after` (~50 tokens) and `translation_group_id` (Scripture only, versification-mapped). Regenerate with `uv run python -m scripts.chunk && uv run python -m scripts.link_translations` (~4 min) |
 
 **For the Phase 2 loader**
