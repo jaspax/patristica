@@ -64,7 +64,7 @@ from scripts.ingest._common import slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/coptic-scriptorium"
+SOURCE_ID = "patristic/coptic-scriptorium"
 
 _REPO_URL = "https://github.com/CopticScriptorium/corpora"
 
@@ -641,7 +641,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             continue
 
         work = Work(
-            work_id=f"liturgical/coptic-scriptorium/{corpus_slug}",
+            work_id=f"{SOURCE_ID}/{corpus_slug}",
             source_id=SOURCE_ID,
             author=meta["author"],
             title=meta["title"],

@@ -96,7 +96,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `patristic/ccel-anf` | Ante-Nicene Fathers (10 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `patristic/ccel-npnf1` | Nicene & Post-Nicene Fathers Series 1 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `patristic/ccel-npnf2` | Nicene & Post-Nicene Fathers Series 2 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `liturgical/coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (genre `patristic`; no liturgies, despite the historical id prefix) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
+| `patristic/coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (genre `patristic`; no liturgies; renamed from `liturgical/coptic-scriptorium` in #52, old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
 
 #### 3.3 Liturgical Texts
 

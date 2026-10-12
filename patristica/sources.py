@@ -26,6 +26,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Patristic
     "patristic/anf-works": "Ante-Nicene Fathers",
     "patristic/apostolic-constitutions": "Apostolic Constitutions (Ante-Nicene Fathers)",
+    "patristic/coptic-scriptorium": "Coptic Scriptorium",
     "patristic/didache": "Didache (Ante-Nicene Fathers)",
     "patristic/first1k": "First Thousand Years of Greek",
     "patristic/npnf-works": "Nicene and Post-Nicene Fathers",
@@ -38,7 +39,6 @@ SOURCE_LABELS: dict[str, str] = {
     "liturgical/adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "liturgical/armenian-liturgy": "Armenian Liturgy (Issaverdens)",
     "liturgical/cantus": "CANTUS Database",
-    "liturgical/coptic-scriptorium": "Coptic Scriptorium",
     "liturgical/cursus": "CURSUS Project",
     "liturgical/gallican": "Gallican Liturgy",
     "liturgical/gez-anaphoras": "Anaphoras of the Ethiopic Liturgy",
