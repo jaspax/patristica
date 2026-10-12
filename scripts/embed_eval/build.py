@@ -9,6 +9,9 @@ Reads ``data/chunks/`` (regenerate it first: ``scripts.chunk`` then
 - ``data/eval/queries.jsonl`` — one ``Query`` per line
 - ``data/eval/build.json``    — parameters and counts
 
+Targets of the authored queries in ``data/eval_authored/`` are always kept in
+the corpus, so rebuilding never orphans them.
+
 The output is deterministic for a given seed and input. It reads the chunk
 files twice (metadata first, then texts of the selected chunks only) to keep
 memory use low.
@@ -29,7 +32,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from scripts.embed_eval.queries import make_queries
+from scripts.embed_eval.queries import DEFAULT_AUTHORED, make_queries
 from scripts.embed_eval.select import ChunkMeta, select
 
 log = logging.getLogger(__name__)
@@ -67,6 +70,7 @@ def build(
     scripture_per_lang: int = 100,
     unique_per_lang: int = 100,
     distractors_per_lang: int = 2000,
+    authored_dir: Path = DEFAULT_AUTHORED,
 ) -> dict:
     works = load_works(works_path)
     genre = {w["work_id"]: w["genre"] for w in works}
@@ -88,9 +92,15 @@ def build(
         log.warning("Skipped chunks of %d works missing from %s (stale data/chunks?)",
                     len(unknown), works_path)
 
+    required = frozenset(
+        json.loads(line)["target_chunk_id"]
+        for path in sorted(authored_dir.glob("*.jsonl"))
+        for line in path.read_text(encoding="utf-8").splitlines() if line.strip()
+    )
     sel = select(
         metas, works, seed=seed, scripture_per_lang=scripture_per_lang,
         unique_per_lang=unique_per_lang, distractors_per_lang=distractors_per_lang,
+        required=required,
     )
     del metas
 
@@ -144,12 +154,14 @@ def main() -> None:
     p.add_argument("--scripture-per-lang", type=int, default=100)
     p.add_argument("--unique-per-lang", type=int, default=100)
     p.add_argument("--distractors-per-lang", type=int, default=2000)
+    p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED,
+                   help="authored query files whose targets must stay in the corpus")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     stats = build(
         args.chunks_dir, args.works, args.out_dir, seed=args.seed,
         scripture_per_lang=args.scripture_per_lang, unique_per_lang=args.unique_per_lang,
-        distractors_per_lang=args.distractors_per_lang,
+        distractors_per_lang=args.distractors_per_lang, authored_dir=args.authored,
     )
     log.info("Wrote %s\n%s", args.out_dir, json.dumps(stats, indent=2))
 

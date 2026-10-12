@@ -104,8 +104,13 @@ def select(
     unique_per_lang: int = 100,
     neighbours: int = 2,
     distractors_per_lang: int = 2000,
+    required: frozenset[str] = frozenset(),
 ) -> Selection:
-    """Pick targets and corpus members. Deterministic for a given *seed* and input."""
+    """Pick targets and corpus members. Deterministic for a given *seed* and input.
+
+    *required* chunk ids (targets of authored queries) are always in the
+    corpus, with the rest of their translation group.
+    """
     rng = random.Random(seed)
     sel = Selection()
     chunks = sorted(chunks, key=lambda c: c.chunk_id)
@@ -154,6 +159,12 @@ def select(
             i = next(k for k, m in enumerate(members) if m.chunk_id == c.chunk_id)
             for m in members[max(0, i - neighbours): i + neighbours + 1]:
                 sel.add(m.chunk_id, "neighbour")
+
+    for c in chunks:
+        if c.chunk_id in required:
+            sel.add(c.chunk_id, "authored")
+            for m in by_group.get(c.translation_group_id or "", []):
+                sel.add(m.chunk_id, "parallel")
 
     # Distractors from every language present.
     by_lang: dict[str, list[str]] = defaultdict(list)

@@ -21,9 +21,9 @@ import json
 import logging
 from pathlib import Path
 
-from scripts.embed_eval.embedders import get_embedder
+from scripts.embed_eval.embedders import CachedEmbedder, get_embedder
 from scripts.embed_eval.metrics import breakdown, first_rank, markdown_table
-from scripts.embed_eval.queries import Query
+from scripts.embed_eval.queries import DEFAULT_AUTHORED, Query, load_authored
 from scripts.embed_eval.retrieval import BM25, RRF, Dense, Retriever
 
 log = logging.getLogger(__name__)
@@ -48,8 +48,11 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
     if spec == "bm25":
         return BM25(texts)
     if spec.startswith("dense:"):
-        ids = [c["chunk_id"] for c in corpus]
-        return Dense(get_embedder(spec.removeprefix("dense:")), ids, texts, cache_dir)
+        embedder = get_embedder(spec.removeprefix("dense:"))
+        if cache_dir is not None:
+            safe = embedder.name.replace("/", "__")
+            embedder = CachedEmbedder(embedder, cache_dir / f"{safe}.sqlite")
+        return Dense(embedder, texts)
     raise ValueError(f"Unknown retriever spec {spec!r}")
 
 
@@ -84,21 +87,31 @@ def main() -> None:
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--retriever", action="append", required=True, help="repeatable")
     p.add_argument("--mode", action="append", help="only these query modes (repeatable)")
-    p.add_argument("--no-cache", action="store_true", help="don't cache document embeddings")
+    p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED,
+                   help="directory of authored query files (*.jsonl)")
+    p.add_argument("--no-cache", action="store_true", help="don't cache embeddings")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     corpus = load_jsonl(args.eval_dir / "corpus.jsonl")
     queries = [Query.from_json(d) for d in load_jsonl(args.eval_dir / "queries.jsonl")]
+    queries += load_authored(sorted(args.authored.glob("*.jsonl")), corpus)
     if args.mode:
         queries = [q for q in queries if q.mode in args.mode]
     cache_dir = None if args.no_cache else args.eval_dir / "embeddings"
     out_dir = args.eval_dir / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    failed = []
     for spec in args.retriever:
-        retriever = make_retriever(spec, corpus, cache_dir)
-        result = evaluate(retriever, corpus, queries)
+        try:
+            retriever = make_retriever(spec, corpus, cache_dir)
+            result = evaluate(retriever, corpus, queries)
+        except Exception:
+            # One model's quota or outage must not stop an overnight batch.
+            log.exception("%s failed; continuing with the next retriever", spec)
+            failed.append(spec)
+            continue
         path = out_dir / (retriever.name.replace("/", "__").replace(":", "_") + ".json")
         serial = {
             **result,
@@ -112,6 +125,9 @@ def main() -> None:
             print(f"\n## {retriever.name} — scope: {scope}\n")
             print(markdown_table(result["summaries"][scope], ("mode", "lang", "origin")))
         log.info("Wrote %s", path)
+    if failed:
+        log.error("Failed retrievers: %s", ", ".join(failed))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

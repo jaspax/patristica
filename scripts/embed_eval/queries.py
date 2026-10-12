@@ -16,13 +16,21 @@ Spans that occur in more than ``MAX_RELEVANT`` chunks are formulaic
 
 from __future__ import annotations
 
+import json
+import logging
 import random
 import re
 import unicodedata
 from collections.abc import Iterable
 from dataclasses import asdict, dataclass
+from pathlib import Path
 
 from patristica.textfold import squash
+
+log = logging.getLogger(__name__)
+
+# Authored (hand- or model-drafted) paraphrase and topical queries; tracked in git.
+DEFAULT_AUTHORED = Path("data/eval_authored")
 
 MIN_WORDS = 5
 MAX_WORDS = 9
@@ -139,4 +147,36 @@ def make_queries(
         )
         out.append(Query(f"exact:{chunk_id}", "exact", span, **common))
         out.append(Query(f"near:{chunk_id}", "near", perturb(span, lang, rng), **common))
+    return out
+
+
+def load_authored(paths: Iterable[Path], corpus: list[dict]) -> list[Query]:
+    """Load authored queries and attach relevance sets from *corpus*.
+
+    Each line holds ``query_id``, ``mode``, ``text``, ``query_lang``,
+    ``target_lang``, ``origin`` and ``target_chunk_id``. A query is answered by
+    its target, and for Scripture by any same-language chunk of the target's
+    translation group (the same verse in another edition).
+    """
+    by_id = {c["chunk_id"]: c for c in corpus}
+    by_group: dict[tuple[str, str], list[str]] = {}
+    for c in corpus:
+        if c.get("translation_group_id"):
+            by_group.setdefault((c["translation_group_id"], c["language"]), []).append(
+                c["chunk_id"])
+    out: list[Query] = []
+    for path in paths:
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            d = json.loads(line)
+            target = by_id.get(d["target_chunk_id"])
+            if target is None:
+                log.warning("%s: target %s not in corpus; skipped", path, d["target_chunk_id"])
+                continue
+            group = target.get("translation_group_id")
+            rel = by_group.get((group, target["language"]), []) if group else []
+            fields = {k: d[k] for k in ("query_id", "mode", "text", "query_lang",
+                                        "target_lang", "origin", "target_chunk_id")}
+            out.append(Query(**fields, relevant_ids=tuple(sorted({d["target_chunk_id"], *rel}))))
     return out

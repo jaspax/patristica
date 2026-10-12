@@ -7,8 +7,8 @@ query to a subset of positions (the language filter a user would set).
 
 - ``BM25`` — lexical baseline over ``textfold.fold`` tokens: the text index
   that quoted and near-verbatim search will use in production.
-- ``Dense`` — cosine similarity over embeddings from any ``Embedder``;
-  document embeddings are cached on disk per model and corpus.
+- ``Dense`` — cosine similarity over embeddings from any ``Embedder`` (wrap
+  it in ``embedders.CachedEmbedder`` to keep vectors across runs).
 - ``RRF`` — reciprocal rank fusion of several retrievers (hybrid search).
 
 Dense retrieval needs the ``eval`` extra (``uv sync --extra eval``).
@@ -16,13 +16,11 @@ Dense retrieval needs the ``eval`` extra (``uv sync --extra eval``).
 
 from __future__ import annotations
 
-import hashlib
 import heapq
 import logging
 import math
 from collections import Counter, defaultdict
 from collections.abc import Sequence
-from pathlib import Path
 from typing import TYPE_CHECKING, Protocol
 
 from patristica.textfold import fold
@@ -92,42 +90,14 @@ class BM25:
         return out
 
 
-def corpus_fingerprint(ids: list[str], texts: list[str]) -> str:
-    h = hashlib.sha256()
-    for cid, text in zip(ids, texts, strict=True):
-        h.update(cid.encode())
-        h.update(b"\0")
-        h.update(text.encode())
-        h.update(b"\1")
-    return h.hexdigest()[:16]
-
-
 class Dense:
-    def __init__(
-        self,
-        embedder: Embedder,
-        ids: list[str],
-        texts: list[str],
-        cache_dir: Path | None = None,
-    ) -> None:
+    def __init__(self, embedder: Embedder, texts: list[str]) -> None:
         import numpy as np
 
         self.name = f"dense:{embedder.name}"
         self.embedder = embedder
-        cache = None
-        if cache_dir is not None:
-            safe = embedder.name.replace("/", "__")
-            cache = cache_dir / f"{safe}-{corpus_fingerprint(ids, texts)}.npy"
-        if cache is not None and cache.exists():
-            log.info("%s: loading cached document embeddings %s", self.name, cache)
-            vecs = np.load(cache)
-        else:
-            log.info("%s: embedding %d documents", self.name, len(texts))
-            vecs = np.asarray(embedder.embed_documents(texts), dtype=np.float32)
-            if cache is not None:
-                cache.parent.mkdir(parents=True, exist_ok=True)
-                np.save(cache, vecs)
-        self.docs = _normalize(vecs)
+        log.info("%s: embedding %d documents", self.name, len(texts))
+        self.docs = _normalize(np.asarray(embedder.embed_documents(texts), dtype=np.float32))
 
     def search(self, queries: list[str], k: int, allowed: Allowed = None) -> list[list[int]]:
         import numpy as np

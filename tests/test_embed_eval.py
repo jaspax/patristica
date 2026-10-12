@@ -154,34 +154,91 @@ def test_rrf_merges_rankings():
     assert rrf.search(["q"], 3)[0] == [1, 0, 2]
 
 
-def test_dense_with_fake_embedder_and_cache(tmp_path: Path):
-    np = pytest.importorskip("numpy")
+class CharEmbedder:
+    """Deterministic toy embedder: character counts modulo 64."""
 
-    class CharEmbedder:
-        name = "fake/chars"
-        calls = 0
+    name = "fake/chars"
 
-        def _vec(self, texts):
-            m = np.zeros((len(texts), 64), dtype=np.float32)
-            for i, t in enumerate(texts):
-                for ch in t.lower():
-                    m[i, ord(ch) % 64] += 1
-            return m
+    def __init__(self):
+        self.calls = 0
 
-        def embed_documents(self, texts):
-            CharEmbedder.calls += 1
-            return self._vec(texts)
+    def _vec(self, texts):
+        import numpy as np
 
-        def embed_queries(self, texts):
-            return self._vec(texts)
+        m = np.zeros((len(texts), 64), dtype=np.float32)
+        for i, t in enumerate(texts):
+            for ch in t.lower():
+                m[i, ord(ch) % 64] += 1
+        return m
 
-    ids = [str(i) for i in range(len(DOCS))]
-    d = retrieval.Dense(CharEmbedder(), ids, DOCS, cache_dir=tmp_path)
+    def embed_documents(self, texts):
+        self.calls += 1
+        return self._vec(texts)
+
+    def embed_queries(self, texts):
+        self.calls += 1
+        return self._vec(texts)
+
+
+def test_dense_search_and_language_filter():
+    pytest.importorskip("numpy")
+    d = retrieval.Dense(CharEmbedder(), DOCS)
     assert d.name == "dense:fake/chars"
     assert d.search(["beati pauperes"], 1)[0] == [3]
     assert d.search(["beati pauperes"], 2, [frozenset({0, 1})])[0][0] in {0, 1}
-    retrieval.Dense(CharEmbedder(), ids, DOCS, cache_dir=tmp_path)
-    assert CharEmbedder.calls == 1  # second construction used the cache
+
+
+def test_cached_embedder_resumes(tmp_path: Path):
+    np = pytest.importorskip("numpy")
+    from scripts.embed_eval.embedders import CachedEmbedder
+
+    inner = CharEmbedder()
+    first = CachedEmbedder(inner, tmp_path / "c.sqlite", batch_size=2).embed_documents(DOCS[:3])
+    assert inner.calls == 2  # batches of 2
+    again = CachedEmbedder(inner, tmp_path / "c.sqlite").embed_documents(DOCS)
+    assert inner.calls == 3  # only DOCS[3] was missing
+    np.testing.assert_array_equal(first, again[:3])
+    CachedEmbedder(inner, tmp_path / "c.sqlite").embed_queries(DOCS[:1])
+    assert inner.calls == 4  # queries are cached separately from documents
+
+
+def test_load_authored_relevance():
+    corpus = [
+        {"chunk_id": "lxx#Ps.1.1", "language": "grc", "translation_group_id": "Ps.1.1"},
+        {"chunk_id": "rahlfs#Ps.1.1", "language": "grc", "translation_group_id": "Ps.1.1"},
+        {"chunk_id": "kjv#Ps.1.1", "language": "eng", "translation_group_id": "Ps.1.1"},
+        {"chunk_id": "shen#3", "language": "cop", "translation_group_id": None},
+    ]
+    base = {"mode": "paraphrase", "text": "q", "query_lang": "eng"}
+    rows = [
+        {**base, "query_id": "p1", "target_lang": "grc", "origin": "scripture",
+         "target_chunk_id": "lxx#Ps.1.1"},
+        {**base, "query_id": "p2", "target_lang": "cop", "origin": "unique",
+         "target_chunk_id": "shen#3"},
+        {**base, "query_id": "p3", "target_lang": "cop", "origin": "unique",
+         "target_chunk_id": "missing"},
+    ]
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        path = Path(d) / "a.jsonl"
+        path.write_text("".join(json.dumps(r) + "\n" for r in rows))
+        qs = queries.load_authored([path], corpus)
+    assert [q.query_id for q in qs] == ["p1", "p2"]
+    assert qs[0].relevant_ids == ("lxx#Ps.1.1", "rahlfs#Ps.1.1")
+    assert qs[1].relevant_ids == ("shen#3",)
+
+
+def test_api_key_from_env_file(tmp_path: Path, monkeypatch):
+    from scripts.embed_eval.embedders import _env_key
+
+    monkeypatch.delenv("FAKE_KEY", raising=False)
+    env = tmp_path / ".env"
+    env.write_text("# FAKE_KEY=no\nOTHER=1\nFAKE_KEY='abc'\n")
+    assert _env_key("FAKE_KEY", env) == "abc"
+    monkeypatch.setenv("FAKE_KEY", "fromenv")
+    assert _env_key("FAKE_KEY", env) == "fromenv"
+    with pytest.raises(KeyError):
+        _env_key("NOPE_KEY", env)
 
 
 def test_metrics():
