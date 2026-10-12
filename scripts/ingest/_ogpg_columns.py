@@ -20,9 +20,10 @@ So each number printed in head position votes for an offset, and a Viterbi
 pass picks a piecewise-constant offset sequence: a page whose votes include
 the state costs nothing, any other page costs 1, and changing the offset costs
 ``SWITCH_COST`` plus ``JUMP_COST`` per column of the jump (OCR misreads such
-as 1305 → 1505 agree with each other too, but sit hundreds of columns off).  Chapter numbers, footnote marks and other stray numbers vote
-for a different offset on every page, so they never add up to a state; real
-column numbers agree with each other across pages.  A state is a
+as 1305 → 1505 agree with each other too, but sit hundreds of columns off).
+Chapter numbers, footnote marks and other stray numbers vote for a different
+offset on every page, so they never add up to a state; real column numbers
+agree with each other across pages.  A state is a
 ``(k, offset)`` pair, so a volume may switch layout part way (PG 47 does).
 
 A number is in head position when it is the first or last token of a short
