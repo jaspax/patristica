@@ -17,3 +17,6 @@ the eval corpus.
 Fields: `query_id`, `mode` (`paraphrase` | `topical`), `text`, `query_lang`,
 `target_lang`, `origin` (`scripture` | `unique`), `target_chunk_id`,
 `confidence`.
+
+Ge'ez queries (35 targets: 20 Scripture, 15 Ge'ez-only) were added the same
+day, after the eval set was extended with `build --extend gez`.

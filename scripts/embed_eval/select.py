@@ -40,11 +40,12 @@ EXCLUDED_UNIQUE_WORKS: dict[str, str] = {
 # Explicit language-unique works, overriding the metadata rule in
 # ``unique_works``. Ge'ez Scripture books with no parallel elsewhere count as
 # unique; 1 Enoch is left out (Greek and Coptic fragments exist), as are the
-# works with open cleanup issues (#23, #24, #39) and the mislabelled 2 Kings (#66).
+# works with open cleanup issues (#23, #24, #39), the mislabelled 2 Kings (#66),
+# and "Apocalypse of Ezra" (really 1 Esdras) and Testament of Our Lord (#76).
 UNIQUE_WORKS: dict[str, tuple[str, ...]] = {
     "gez": (
         "scripture/gez/jub", "scripture/gez/1meq", "scripture/gez/3meq",
-        "scripture/gez/apez", "scripture/gez/clem", "scripture/gez/testld",
+        "scripture/gez/clem",
     ),
 }
 
