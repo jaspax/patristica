@@ -420,3 +420,61 @@ def test_bulk_groups_use_natural_order():
     chunks = [{"work_id": "w", "chunk_id": f"w#Gen.1.{v}", "text": "x"} for v in (10, 2, 1)]
     assert [c["chunk_id"] for c in translate.bulk_groups(chunks)[0]] == [
         "w#Gen.1.1", "w#Gen.1.2", "w#Gen.1.10"]
+
+
+def test_review_overlap_and_passes():
+    from scripts.embed_eval import review
+
+    kjv = "In the beginning God created the heaven and the earth."
+    assert review.overlap("In the beginning God created the heaven and the earth", [kjv]) == 1.0
+    assert review.overlap("At the start of everything the Lord made sky and land", [kjv]) == 0.0
+    assert review.overlap("", [kjv]) == 0.0
+    good = {"paraphrase": {"accuracy": 5}, "topical": {"relevance": 4, "specificity": "broad"}}
+    narrow = {"paraphrase": {"accuracy": 3}, "topical": {"relevance": 5, "specificity": "narrow"}}
+    assert review.passes("paraphrase", good, 0.1)
+    assert not review.passes("paraphrase", good, 0.9)  # echoes an English Bible
+    assert review.passes("topical", good, 0.0)
+    assert not review.passes("paraphrase", narrow, 0.0)
+    assert not review.passes("topical", narrow, 0.0)
+    assert not review.passes("topical", None, 0.0)
+
+
+def test_review_resolve_follows_coptic_rename():
+    from scripts.embed_eval.review import resolve
+
+    corpus = {"liturgical/coptic-scriptorium/x#1": {}, "a#1": {}}
+    assert resolve("a#1", corpus) == "a#1"
+    old = "liturgical/coptic-scriptorium/x#1"
+    assert resolve("patristic/coptic-scriptorium/x#1", corpus) == old
+    assert resolve("missing#1", corpus) is None
+
+
+def test_apply_reviews(tmp_path: Path, monkeypatch):
+    from scripts.embed_eval import review
+
+    authored = tmp_path / "authored"
+    authored.mkdir()
+    base = {"query_lang": "eng", "target_lang": "grc", "origin": "unique"}
+    rows = [
+        {**base, "query_id": "paraphrase:t#1", "mode": "paraphrase", "text": "p1",
+         "target_chunk_id": "t#1"},
+        {**base, "query_id": "topical:t#1", "mode": "topical", "text": "Elijah at Zarephath",
+         "target_chunk_id": "t#1"},
+        {**base, "query_id": "paraphrase:t#2", "mode": "paraphrase", "text": "p2",
+         "target_chunk_id": "t#2"},
+    ]
+    (authored / "q.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    reviews = {
+        "t#1": {"paraphrase": {"accuracy": 5, "corrected": None},
+                "topical": {"relevance": 5, "specificity": "narrow", "corrected": "miracles"}},
+        "t#2": {"paraphrase": {"accuracy": 5, "corrected": None},
+                "topical": {"relevance": 5, "specificity": "broad", "corrected": None}},
+    }
+    monkeypatch.setattr(review, "load_reviews", lambda _: reviews)
+    monkeypatch.setattr(review, "run_overlap", lambda *_: {"t#2": 0.9})
+    review.apply_reviews(tmp_path, authored)
+    out = [json.loads(line) for line in (authored / "q.jsonl").open()]
+    assert [q["review"] for q in out] == ["pass", "corrected", "flagged"]
+    assert out[1]["text"] == "miracles" and out[1]["drafted_text"] == "Elijah at Zarephath"
+    review.apply_reviews(tmp_path, authored)  # idempotent: already-reviewed rows are kept
+    assert [json.loads(line) for line in (authored / "q.jsonl").open()] == out

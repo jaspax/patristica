@@ -111,6 +111,8 @@ def main() -> None:
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED,
                    help="directory of authored query files (*.jsonl)")
     p.add_argument("--no-cache", action="store_true", help="don't cache embeddings")
+    p.add_argument("--results-dir", type=Path,
+                   help="where to write results (default: EVAL_DIR/results)")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
@@ -120,7 +122,7 @@ def main() -> None:
     if args.mode:
         queries = [q for q in queries if q.mode in args.mode]
     cache_dir = None if args.no_cache else args.eval_dir / "embeddings"
-    out_dir = args.eval_dir / "results"
+    out_dir = args.results_dir or args.eval_dir / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     failed = []
