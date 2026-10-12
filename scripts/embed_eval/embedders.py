@@ -180,11 +180,10 @@ class OpenAIEmbedder(ApiEmbedder):
 
 
 class VoyageEmbedder(ApiEmbedder):
-    # Without a payment method Voyage allows 3 requests and 10k tokens a minute.
-    # Voyage counts rare scripts at up to ~2x cl100k, hence the wide margin.
-    max_batch_tokens = 4000
-    rpm = 3
-    tpm = 4000
+    # Paid tier. Voyage caps a request at 120k of its own tokens and counts rare
+    # scripts at up to ~2x cl100k, hence 30k estimated. (Without a payment
+    # method the limits are 3 requests and 10k tokens a minute; #85.)
+    max_batch_tokens = 30_000
 
     def __init__(self, model: str = "voyage-4-large") -> None:
         super().__init__()
@@ -199,11 +198,10 @@ class VoyageEmbedder(ApiEmbedder):
 
 
 class CohereEmbedder(ApiEmbedder):
-    # 96 texts is the API maximum. Trial keys allow 100k tokens a minute and
-    # 1,000 calls a month, so batches are large and paced well under the limit.
+    # 96 texts is the API maximum. Production key; trial keys allow only 100k
+    # tokens a minute and 1,000 calls a month (#85).
     batch_size = 96
-    max_batch_tokens = 15_000
-    tpm = 40_000
+    max_batch_tokens = 40_000
 
     def __init__(self, model: str = "embed-v4.0") -> None:
         super().__init__()
@@ -219,12 +217,10 @@ class CohereEmbedder(ApiEmbedder):
 
 
 class GeminiEmbedder(ApiEmbedder):
-    # 100 texts is the batchEmbedContents maximum. The free tier counts every
-    # text as a request (100 a minute), so send at most one batch a minute.
+    # 100 texts is the batchEmbedContents maximum. Paid tier; the free tier
+    # counts every text as a request (100 a minute, 1,000 a day; #85).
     batch_size = 100
-    max_batch_tokens = 12_000
-    rpm = 0.9
-    tpm = 12_000
+    max_batch_tokens = 40_000
 
     def __init__(self, model: str = "gemini-embedding-2") -> None:
         super().__init__()
