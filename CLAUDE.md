@@ -30,7 +30,8 @@ patristica/
 ├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → R2 (no-op if unchanged)
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
-│   └── sources.py             # readable label for every source_id (SOURCE_LABELS)
+│   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
+│   └── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref
@@ -47,6 +48,7 @@ patristica/
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → Cloudflare R2 (deploy extra; skips unpublishable licences)
+│   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
@@ -172,6 +174,18 @@ uv run python -m scripts.catalog          # status table with last-run timestamp
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
 ```
+
+### Embedding eval (`scripts/embed_eval/`, #3)
+
+```bash
+uv sync --extra eval [--extra eval-local]       # eval-local: CPU torch + sentence-transformers
+uv run python -m scripts.embed_eval.build       # data/chunks → data/eval/{corpus,queries}.jsonl
+uv run python -m scripts.embed_eval.run --retriever bm25 --retriever dense:openai/text-embedding-3-large
+uv run python -m scripts.embed_eval.report      # one table per query mode
+uv run python -m scripts.embed_eval.translate quality   # translation-quality eval (Claude + OpenAI)
+```
+
+API keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `VOYAGE_API_KEY`, ...) are read from the environment or the repo-root `.env` (gitignored). `data/eval/` is gitignored scratch; embeddings are cached per text in `data/eval/embeddings/*.sqlite`. Authored queries (tracked) are in `data/eval_authored/`. Findings and decisions: `IMPLEMENTATION_PLAN.md` §2.5 and #3.
 
 All accept `--help`. `normalize.py` currently processes `genre: scripture` only; prose genres are stubbed for M3+.
 
