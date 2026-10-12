@@ -128,6 +128,65 @@ class TestSblgntParser:
 
 
 # ---------------------------------------------------------------------------
+# OSHB (morphhb) parser tests
+# ---------------------------------------------------------------------------
+
+class TestOshbParser:
+    # Gen 1:1 word text as in morphhb wlc/Gen.xml; the other "verses" combine real
+    # morphhb words to exercise suffix separators, maqqef, nested <seg> letters
+    # and ketiv/qere notes.
+    _XML = textwrap.dedent("""\
+        <?xml version="1.0" encoding="utf-8"?>
+        <osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+        <osisText><div type="book" osisID="Gen"><chapter osisID="Gen.1">
+          <verse osisID="Gen.1.1">
+            <w lemma="b/7225" morph="HR/Ncfsa" id="01xeN">בְּ/רֵאשִׁ֖ית</w>
+            <w lemma="1254 a" morph="HVqp3ms" id="01Nvk">בָּרָ֣א</w>
+            <w lemma="430" morph="HNcmpa" id="01TyA">אֱלֹהִ֑ים</w>
+            <w lemma="853" morph="HTo" id="01MAO">אֵ֥ת</w>
+            <w lemma="d/8064" morph="HTd/Ncmpa" id="01uQ6">הַ/שָּׁמַ֖יִם</w>
+            <w lemma="c/853" morph="HC/To" id="01EtS">וְ/אֵ֥ת</w>
+            <w lemma="d/776" morph="HTd/Ncbsa" id="01Eoc">הָ/אָֽרֶץ</w>
+            <seg type="x-sof-pasuq">׃</seg>
+          </verse>
+          <verse osisID="Gen.4.4">
+            <w lemma="854" morph="HR/Sp2fs" id="018F2">אִתָּ֑/ךְ</w>
+            <w lemma="5921 a" morph="HR" id="01cPC">עַל</w><seg type="x-maqqef">־</seg><w lemma="d/776" morph="HTd/Ncbsa" id="01Eod">הָ/אָ֖רֶץ</w>
+          </verse>
+          <verse osisID="Num.27.7">
+            <w lemma="4941" morph="HNcmsc/Sp3fp" id="04DbS">מִשְׁפָּטָ֖/<seg type="x-large">ן</seg></w>
+            <w lemma="7563" morph="HAampa" id="18wyD">רְשָׁ<seg type="x-suspended">עִ֣</seg>ים</w>
+          </verse>
+          <verse osisID="Gen.8.17">
+            <w type="x-ketiv" lemma="3318" morph="HVhv2ms" id="01Pdv">אהל/ה</w><note type="variant"><catchWord>אהל/ה</catchWord><rdg type="x-qere"><w lemma="168" morph="HNcmsc/Sp3ms" id="01Gdj">אָֽהֳל/וֹ֙</w></rdg></note>
+          </verse>
+        </chapter></div></osisText></osis>
+        """).encode("utf-8")
+
+    def _verses(self) -> dict[str, str]:
+        from scripts.ingest.oshb import _parse_oshb_xml
+        return dict(_parse_oshb_xml(self._XML))
+
+    def test_morpheme_separators_stripped(self) -> None:
+        verses = self._verses()
+        assert verses["Gen.1.1"] == "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ"
+        assert all("/" not in text for text in verses.values())
+
+    def test_suffix_separator_and_maqqef(self) -> None:
+        words = self._verses()["Gen.4.4"].split()
+        assert words[0] == "אִתָּ֑ךְ"
+        assert words[-1] == "הָאָ֖רֶץ"
+
+    def test_nested_seg_letters_kept(self) -> None:
+        # Large / suspended letters are <seg> children of <w>; they must not be dropped.
+        assert self._verses()["Num.27.7"] == "מִשְׁפָּטָ֖ן רְשָׁעִ֣ים"
+
+    def test_ketiv_note_not_included(self) -> None:
+        # The qere reading inside <note> is not part of the running text (yet).
+        assert self._verses()["Gen.8.17"] == "אהלה"
+
+
+# ---------------------------------------------------------------------------
 # Scrollmapper CSV parser tests
 # ---------------------------------------------------------------------------
 
