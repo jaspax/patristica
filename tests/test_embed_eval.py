@@ -429,8 +429,8 @@ def test_review_overlap_and_passes():
     assert review.overlap("In the beginning God created the heaven and the earth", [kjv]) == 1.0
     assert review.overlap("At the start of everything the Lord made sky and land", [kjv]) == 0.0
     assert review.overlap("", [kjv]) == 0.0
-    good = {"paraphrase": {"fidelity": 5}, "topical": {"relevance": 4, "specificity": "broad"}}
-    narrow = {"paraphrase": {"fidelity": 3}, "topical": {"relevance": 5, "specificity": "narrow"}}
+    good = {"paraphrase": {"accuracy": 5}, "topical": {"relevance": 4, "specificity": "broad"}}
+    narrow = {"paraphrase": {"accuracy": 3}, "topical": {"relevance": 5, "specificity": "narrow"}}
     assert review.passes("paraphrase", good, 0.1)
     assert not review.passes("paraphrase", good, 0.9)  # echoes an English Bible
     assert review.passes("topical", good, 0.0)

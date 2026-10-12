@@ -3,10 +3,11 @@ Review the drafted paraphrase/topical queries (#87) without a human pass.
 
 1. ``review``: an independent model (GPT-6.1 Sol; the queries were drafted by
    Claude) checks every target's queries against the original passage, plus
-   a published English translation for Scripture. A paraphrase gets a
-   fidelity score; a topical query gets a relevance score and a specificity
-   label. Each gets a corrected version when it falls short. Results are
-   cached in ``data/eval/review/reviews.jsonl``; reruns resume.
+   a published English translation for Scripture. A paraphrase gets an
+   accuracy score (misreadings and additions; partial coverage is fine); a
+   topical query gets a relevance score and a specificity label. Each gets a
+   corrected version when it falls short. Results are cached in
+   ``data/eval/review/reviews.jsonl``; reruns resume.
 2. ``overlap``: for Scripture paraphrases, measures how much wording they
    share with the corpus's English Bibles (KJV/ASV/WEB). High overlap would
    make the cross-lingual test too easy.
@@ -48,7 +49,7 @@ DEFAULT_DIR = Path("data/eval")
 DEFAULT_AUTHORED = Path("data/eval_authored")
 VARIANTS = ("all", "passing", "corrected")
 
-MIN_FIDELITY = 4
+MIN_ACCURACY = 4
 MIN_RELEVANCE = 4
 MAX_OVERLAP = 0.6  # share of a paraphrase's content-word bigrams found in an English Bible
 
@@ -65,9 +66,14 @@ a reasonable answer to.
 Check them against the original (a published English translation is included \
 for Scripture; the original governs where they differ).
 
-Paraphrase: rate fidelity 1-5 (5 = says what the passage says, nothing \
-misread, added or dropped that matters for finding it; 3 = gist right but \
-a clause misread or missing; 1 = wrong). List concrete problems.
+Paraphrase: a paraphrase query may cover only part of a long passage, as a \
+user's search would. Rate two things separately:
+- accuracy 1-5: is what the paraphrase does say right? (5 = nothing misread \
+or added; 3 = one clause misread or something added that is not in the \
+passage; 1 = mostly wrong). Leaving parts of the passage out does not lower \
+accuracy.
+- coverage: "most", "main point" or "minor part" of the passage.
+List concrete misreadings or additions only.
 
 Topical query: rate relevance 1-5 (5 = the passage is clearly about this \
 topic; 1 = unrelated). Rate specificity: "narrow" if the query practically \
@@ -75,13 +81,14 @@ names or quotes this passage (e.g. a named event plus its characters), \
 "medium" if it names a recognisable theme, "broad" if many passages would \
 match. List concrete problems.
 
-If a query scores below 4, or the topical query is narrow, give a corrected \
+If accuracy or relevance is below 4, or the topical query is narrow, give a corrected \
 query of the same kind; otherwise leave the correction null. Say how well you \
 can read the original."""
 
 
 class ParaphraseReview(BaseModel):
-    fidelity: int = Field(ge=1, le=5)
+    accuracy: int = Field(ge=1, le=5)
+    coverage: Literal["most", "main point", "minor part"]
     problems: list[str]
     corrected: str | None
 
@@ -197,8 +204,8 @@ def summarize(path: Path) -> None:
     for (lang, origin), rs in sorted(groups.items()):
         n = len(rs)
         print(f"{lang:4s} {origin:9s} {n:3d} "
-              f"{sum(r['paraphrase']['fidelity'] for r in rs) / n:5.2f} "
-              f"{sum(r['paraphrase']['fidelity'] < MIN_FIDELITY for r in rs):4d} "
+              f"{sum(r['paraphrase']['accuracy'] for r in rs) / n:5.2f} "
+              f"{sum(r['paraphrase']['accuracy'] < MIN_ACCURACY for r in rs):4d} "
               f"{sum(r['topical']['relevance'] for r in rs) / n:5.2f} "
               f"{sum(r['topical']['relevance'] < MIN_RELEVANCE for r in rs):4d} "
               f"{sum(r['topical']['specificity'] == 'narrow' for r in rs):6d} "
@@ -245,7 +252,7 @@ def passes(mode: str, review: dict | None, overlap_score: float) -> bool:
     if review is None:
         return False
     if mode == "paraphrase":
-        return review["paraphrase"]["fidelity"] >= MIN_FIDELITY and overlap_score <= MAX_OVERLAP
+        return review["paraphrase"]["accuracy"] >= MIN_ACCURACY and overlap_score <= MAX_OVERLAP
     t = review["topical"]
     return t["relevance"] >= MIN_RELEVANCE and t["specificity"] != "narrow"
 
