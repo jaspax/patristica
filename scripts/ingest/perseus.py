@@ -99,10 +99,10 @@ def _ensure_repo(repo_dir: Path, repo_url: str, label: str, force: bool) -> None
 def _build_first1k_ids(raw_dir: Path) -> set[str]:
     """Return the set of CTS work IDs already present in First1KGreek output.
 
-    Scans ``data/raw/patristic/first1k/`` for JSON files and extracts the
+    Scans ``data/raw/first1k/`` for JSON files and extracts the
     ``{author_id}.{work_id_short}`` pair from each filename stem.
     """
-    first1k_dir = raw_dir / "patristic" / "first1k"  # first1k migrates later (#102)
+    first1k_dir = raw_dir / "first1k"
     if not first1k_dir.exists():
         log.debug("First1KGreek output not found at %s; dedup disabled", first1k_dir)
         return set()

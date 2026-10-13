@@ -14,7 +14,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     date: null,
     date_range: null,
     date_confidence: "uncertain",
-    source_id: "patristic/pta",
+    source_id: "pta",
     edition: null,
     license: "cc-by-sa-4.0",
     provenance_url: null,
@@ -27,7 +27,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
 
 const index: LibraryIndex = {
   version: "",
-  sources: { "patristic/pta": "Patristic Text Archive", "scripture/lxx-rahlfs": "Septuagint (Rahlfs)" },
+  sources: { pta: "Patristic Text Archive", "lxx-rahlfs": "Septuagint (Rahlfs)" },
   works: [
     row({ id: "a", provenance_url: "https://github.com/pta/data/a.xml", edition: "pta-grc1" }),
     row({ id: "b", provenance_url: "https://github.com/pta/data/b.xml", edition: "pta-grc1", license: "cc-by-4.0" }),
@@ -35,7 +35,7 @@ const index: LibraryIndex = {
     row({ id: "d", provenance_url: "https://github.com/pta/data/d.xml", chunks: 5 }),
     row({
       id: "e",
-      source_id: "scripture/lxx-rahlfs",
+      source_id: "lxx-rahlfs",
       license: "cc-by-nc-sa-4.0",
       provenance_url: "https://github.com/eliranwong/LXX-Rahlfs-1935",
     }),

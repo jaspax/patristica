@@ -38,7 +38,7 @@ from scripts.ingest._ccel_common import _element_inner_text, _find_body, downloa
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/syriac-documents"
+SOURCE_ID = "syriac-documents"
 _ANF_VOL = "anf08"
 _EDITION = (
     "Ante-Nicene Fathers Vol. 8 (1886), \"Memoirs of Edessa and Other Ancient "
@@ -329,7 +329,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     # The volume is shared with ccel_anf's cache.  Use it as-is when present:
     # download_volume would issue a conditional GET, and CCEL answers 200 (not
     # 304), rewriting the cache on every run.
-    anf_cache = output_dir / "patristic" / "ccel-anf"
+    anf_cache = output_dir / "ccel-anf"
     xml_path = anf_cache / f"{_ANF_VOL}.xml"
     if force or not xml_path.exists():
         anf_cache.mkdir(parents=True, exist_ok=True)

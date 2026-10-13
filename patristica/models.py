@@ -42,10 +42,10 @@ License = Literal[
 
 class Work(BaseModel):
     work_id: str = Field(
-        description="Slug uniquely identifying this work, e.g. 'augustine/confessions'."
+        description="Slug uniquely identifying this work, '{source_id}/{local id}', e.g. 'oshb/gen'."
     )
     source_id: str = Field(
-        description="Identifies the ingestion source, e.g. 'ccel/npnf1-01'."
+        description="Identifies the ingestion source, the collection slug, e.g. 'oshb' or 'first1k'; also the work's directory under data/raw and data/normalized."
     )
     author: str | None = Field(
         default=None,

@@ -27,7 +27,7 @@ from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "councils/ecumenical"
+SOURCE_ID = "ecumenical"
 
 _NPNF214_URL = "https://ccel.org/ccel/s/schaff/npnf214.xml"
 
@@ -260,7 +260,7 @@ def _extract_council_paragraphs(
 
 def _make_work(info: _SynodInfo) -> Work:
     return Work(
-        work_id=f"councils/{info.slug}",
+        work_id=f"{SOURCE_ID}/{info.slug}",
         source_id=SOURCE_ID,
         author=None,
         title=info.title,
@@ -312,7 +312,7 @@ def _write_work(
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """Download and parse NPNF2-14, producing one Work per council/synod."""
-    out_dir = output_dir / "councils" / "ecumenical"
+    out_dir = output_dir / "ecumenical"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     xml_path = download_file(_NPNF214_URL, out_dir / "npnf214.xml", force=force)

@@ -18,7 +18,7 @@ from scripts.ingest._ccel_common import ingest_ccel_series
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/ccel-anf"
+SOURCE_ID = "ccel-anf"
 
 # ANF volumes 1–10
 _VOLUMES = [f"anf{i:02d}" for i in range(1, 11)]

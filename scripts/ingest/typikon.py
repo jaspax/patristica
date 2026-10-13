@@ -37,7 +37,7 @@ from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/typikon"
+SOURCE_ID = "typikon"
 _WORK_SLUG = "violakis-1900"
 _URL = "https://archive.org/download/typikontstou00orth/typikontstou00orth_djvu.txt"
 

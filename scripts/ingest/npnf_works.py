@@ -21,7 +21,7 @@ Every div taken here is registered in ``_ccel_common.EXCLUDED_DIVS`` (value
 ``"npnf-works"``); title pages, contents, indexes and the editors'
 apparatus are registered there as ``"non-text: …"``.  With both in place the
 generic NPNF ingestors produce no Works at all.  Councils in NPNF2 Vol. 14 are
-owned by ``councils/ecumenical``; only its appendix of canonical epistles is
+owned by ``ecumenical``; only its appendix of canonical epistles is
 taken here.  Extraction mechanics are in ``_ccel_works``.
 
 Output: ``data/raw/npnf-works/{volume}/{slug}.json``; work_id

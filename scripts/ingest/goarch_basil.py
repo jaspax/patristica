@@ -25,7 +25,7 @@ from scripts.ingest._goarch_common import fetch_dcs_html, parse_dcs_liturgy
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/goarch-basil"
+SOURCE_ID = "goarch-basil"
 
 _DCS_URL = (
     "https://dcs.goarch.org/goa/dcs/h/b/skeleton/liturgy/basil/gr-en/index.html"
@@ -57,7 +57,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         return []
 
     work = Work(
-        work_id="liturgical/goarch-basil/liturgy",
+        work_id=f"{SOURCE_ID}/liturgy",
         source_id=SOURCE_ID,
         author="Basil of Caesarea",
         title="Divine Liturgy of St. Basil the Great",

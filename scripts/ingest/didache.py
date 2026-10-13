@@ -17,7 +17,7 @@ New Testament, likely composed in Syria c. 50–120 CE. Its 16 chapters cover:
 The ANF07 XML is shared with the ccel_anf, syriac_james, adai_mari, and
 mark_liturgy ingestor caches.
 
-Note: ccel_anf.py already ingests this text as patristic/ccel-anf/anf07/008.json
+Note: ccel_anf.py already ingests this text as ccel-anf/anf07/008.json
 but with anonymous attribution and no date or tradition metadata. This dedicated
 ingestor supersedes that entry with correct metadata.
 """
@@ -41,7 +41,7 @@ from scripts.ingest._ccel_common import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/didache"
+SOURCE_ID = "didache"
 _ANF_VOL = "anf07"
 _WORK_SLUG = "didache"
 
@@ -79,7 +79,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     if out_path.exists() and not force:
         return [Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"])]
 
-    anf_cache = output_dir / "patristic" / "ccel-anf"
+    anf_cache = output_dir / "ccel-anf"
     anf_cache.mkdir(parents=True, exist_ok=True)
     xml_path = download_volume(_ANF_VOL, anf_cache, force=force)
 

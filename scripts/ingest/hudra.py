@@ -41,7 +41,7 @@ from patristica.models import Work
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/hudra"
+SOURCE_ID = "hudra"
 
 _API_KEY = "AIzaSyCgS9iRPMpwhCqTzI6JkrW9AIeJ_RzIpFU"
 _FIRESTORE_BASE = (

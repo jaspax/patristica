@@ -36,13 +36,6 @@ Two subcommands, both idempotent (a second run changes nothing) and both with
     ``data/translations/``.  Kept so that branches made before #102 can
     migrate data they add.
 
-**Transitional (#102 lands in several PRs).**  A source is migrated only
-once its ingestor's ``SOURCE_ID`` is the new id (``migrated_sources``); every
-function here leaves the other sources' ids and directories alone.  So
-``raw`` can be run after any of the #102 PRs, and again after the next one.
-The ingestors refuse to run while a migrated source's raw data is still at
-its old path (``pending_raw_moves``).
-
 The mapping is ``SOURCE_IDS`` (old → new source id) plus ``new_work_id``.
 Apart from dropping the genre, two ids change: Patrologia Latina's folder and
 work ids ``oglt_pl`` become ``oglt-pl`` (its source id was already
@@ -53,7 +46,6 @@ work ids ``oglt_pl`` become ``oglt-pl`` (its source id was already
 from __future__ import annotations
 
 import argparse
-import importlib
 import json
 import logging
 import re
@@ -129,40 +121,13 @@ SOURCE_DIRS: dict[str, str] = {
 
 _WORK_ID_PREFIXES = {"councils": "ecumenical", "oglt_pl": "oglt-pl"}
 
-ALL_SOURCES: frozenset[str] = frozenset(SOURCE_IDS.values())
-
-_migrated: frozenset[str] | None = None
-
-
-def migrated_sources() -> frozenset[str]:
-    """New source ids whose ingestor already uses the source-first layout."""
-    global _migrated
-    if _migrated is None:
-        found = set()
-        for new in sorted(ALL_SOURCES):
-            module = importlib.import_module(f"scripts.ingest.{new.replace('-', '_')}")
-            if getattr(module, "SOURCE_ID", None) == new:
-                found.add(new)
-        _migrated = frozenset(found)
-    return _migrated
-
-
-def _if_migrated(old: str, new: str) -> str:
-    """*new* if its source (first segment) is migrated, else *old*."""
-    return new if new.split("/")[0] in migrated_sources() else old
-
 
 def new_source_id(source_id: str) -> str:
     """The source-first id for *source_id* (unchanged if already migrated)."""
-    return _if_migrated(source_id, SOURCE_IDS.get(source_id, source_id))
+    return SOURCE_IDS.get(source_id, source_id)
 
 
 def new_work_id(work_id: str) -> str:
-    """``_new_work_id`` for migrated sources; other ids are unchanged."""
-    return _if_migrated(work_id, _new_work_id(work_id))
-
-
-def _new_work_id(work_id: str) -> str:
     """The ``{source_id}/{local id}`` form of *work_id*.
 
     ``scripture/kjv/gen`` → ``kjv/gen``; ``councils/nicaea1`` →
@@ -191,42 +156,7 @@ def new_path(rel: str) -> str:
     for n in (2, 1):
         old = "/".join(parts[:n])
         if old in SOURCE_DIRS:
-            return _if_migrated(rel, "/".join([SOURCE_DIRS[old], *parts[n:]]))
-    return rel
-
-
-def full_new_path(rel: str) -> str:
-    """``new_path`` for every source, migrated in code or not."""
-    parts = rel.split("/")
-    for n in (2, 1):
-        old = "/".join(parts[:n])
-        if old in SOURCE_DIRS:
             return "/".join([SOURCE_DIRS[old], *parts[n:]])
-    return rel
-
-
-def old_paths(rel: str) -> list[str]:
-    """The pre-#102 paths that ``full_new_path`` maps onto *rel*."""
-    head, _, rest = rel.partition("/")
-    return [f"{old}/{rest}" if rest else old for old, new in SOURCE_DIRS.items() if new == head]
-
-
-def source_dir(rel: str) -> str:
-    """The source directory part of *rel* (``scripture/kjv`` or ``kjv``)."""
-    parts = rel.split("/")
-    return "/".join(parts[:2] if parts[0] in GENRE_PREFIXES else parts[:1])
-
-
-def locate(rel: str, root: Path) -> str:
-    """Transitional: *rel* (either layout) as it is laid out under *root*.
-
-    Directories move in a separate step from the code (#102), so data/raw and
-    data/normalized can differ: this picks the candidate (*rel*, its new path,
-    or an old path) whose source directory exists under *root*, else *rel*.
-    """
-    for cand in dict.fromkeys([rel, full_new_path(rel), *old_paths(rel)]):
-        if (root / source_dir(cand)).is_dir():
-            return cand
     return rel
 
 
@@ -372,9 +302,6 @@ def move_source_dirs(root: Path, use_git: bool = False, dry_run: bool = False) -
         src, dst = root / old, root / new
         if not src.is_dir():
             continue
-        if new not in migrated_sources():
-            log.info("Leaving %s: its ingestor is not migrated yet", src)
-            continue
         if new in claimed or dst.exists():
             log.warning("Both %s and %s exist; leaving %s in place", src, dst, src)
             continue
@@ -387,28 +314,10 @@ def move_source_dirs(root: Path, use_git: bool = False, dry_run: bool = False) -
             if d.is_dir() and not any(d.iterdir()):
                 d.rmdir()
                 log.info("Removed empty %s", d)
+    leftovers = [p for g in GENRE_PREFIXES for p in sorted((root / g).glob("*")) if (root / g).is_dir()]
+    if leftovers and not dry_run:
+        log.warning("Not moved (unknown or conflicting): %s", ", ".join(map(str, leftovers)))
     return moved
-
-
-def pending_raw_moves(raw_dir: Path) -> list[tuple[str, str]]:
-    """``(old, new)`` raw directories of migrated sources still at the old path."""
-    return [
-        (old, new)
-        for old, new in SOURCE_DIRS.items()
-        if new in migrated_sources() and (raw_dir / old).is_dir() and not (raw_dir / new).exists()
-    ]
-
-
-def check_raw_layout(raw_dir: Path) -> None:
-    """Raise ``MigrationError`` if a migrated source's raw data is at its old path."""
-    pending = pending_raw_moves(raw_dir)
-    if pending:
-        moves = ", ".join(f"{raw_dir / old} → {raw_dir / new}" for old, new in pending)
-        raise MigrationError(
-            f"data/raw is in the pre-#102 layout for sources whose ingestors now use "
-            f"data/raw/{{source_id}} ({moves}). Run "
-            f"`uv run python -m scripts.migrate_layout raw` first."
-        )
 
 
 # ---------------------------------------------------------------------------
@@ -468,7 +377,7 @@ def migrate_raw(raw_dir: Path, dry_run: bool = False) -> tuple[int, int]:
     """
     moved = move_source_dirs(raw_dir, use_git=False, dry_run=dry_run)
     rewritten = 0
-    roots = set(SOURCE_DIRS.values()) & migrated_sources()
+    roots = set(SOURCE_DIRS.values())
     for name in sorted(roots):
         # In a dry run nothing has moved yet: look at the old directories.
         candidates = [raw_dir / name]
@@ -523,8 +432,7 @@ def migrate_tracked(data_dir: Path, use_git: bool = True, dry_run: bool = False)
         manifest,
         lambda r: {"path": new_path(r["path"]), "work": migrate_work(r["work"])},
         _jsonl_dumps,
-        # Partial migrations edit rows in place, so parallel #102 PRs don't conflict.
-        sort_key=(lambda r: r["path"]) if migrated_sources() == ALL_SOURCES else None,
+        sort_key=lambda r: r["path"],
         dry_run=dry_run,
     ):
         counts["manifest"] += 1
@@ -542,8 +450,9 @@ def migrate_tracked(data_dir: Path, use_git: bool = True, dry_run: bool = False)
     if translations.is_dir():
         # Model-level stores (scripts.embed_eval.translate): sorted by chunk id.
         for path in sorted(translations.glob("*.jsonl")):
-            sort_key = (lambda r: r["chunk_id"]) if migrated_sources() == ALL_SOURCES else None
-            if _rewrite_jsonl(path, migrate_translation_row, _jsonl_dumps, sort_key, dry_run):
+            if _rewrite_jsonl(
+                path, migrate_translation_row, _jsonl_dumps, lambda r: r["chunk_id"], dry_run
+            ):
                 counts["translations"] += 1
         # Per-work stores (#93), mirroring data/normalized.
         for path in sorted(translations.rglob("*.json")):
@@ -565,9 +474,7 @@ _OLD_ID_STRING_RE = re.compile(
 
 def rewrite_ids_in_text(text: str) -> str:
     """Rewrite every JSON string in *text* that is an old work or chunk id."""
-    return _OLD_ID_STRING_RE.sub(
-        lambda m: f'"{m.group(1)}{new_chunk_id(m.group(2))}"', text
-    )
+    return _OLD_ID_STRING_RE.sub(lambda m: f'"{m.group(1)}{new_chunk_id(m.group(2))}"', text)
 
 
 def migrate_eval(eval_dir: Path, dry_run: bool = False) -> int:

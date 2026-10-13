@@ -35,7 +35,7 @@ from scripts.ingest._common import download_file, slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/gez-anaphoras"
+SOURCE_ID = "gez-anaphoras"
 
 _IA_ID = "anaphorasofethio0000yait"
 _IA_DJVU_URL = f"https://archive.org/download/{_IA_ID}/{_IA_ID}_djvu.txt"

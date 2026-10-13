@@ -22,7 +22,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     date: null,
     date_range: null,
     date_confidence: "uncertain",
-    source_id: "patristic/pta",
+    source_id: "pta",
     edition: null,
     license: "unknown",
     provenance_url: null,
@@ -33,12 +33,12 @@ function row(overrides: Partial<WorkRow>): WorkRow {
   };
 }
 
-const sources = { "patristic/pta": "Patristic Text Archive", "scripture/kjv": "King James Version" };
+const sources = { pta: "Patristic Text Archive", kjv: "King James Version" };
 
 const rows = [
   row({ id: "a", author: "Augustinus", title: "Confessiones", date: 397, date_range: [397, 400] }),
   row({ id: "b", author: "Ἰωάννης Χρυσόστομος", title: "Homiliae", language: "grc", date: 390 }),
-  row({ id: "c", title: "Genesis", genre: "scripture", source_id: "scripture/kjv", language: "eng", date: -500 }),
+  row({ id: "c", title: "Genesis", genre: "scripture", source_id: "kjv", language: "eng", date: -500 }),
   row({ id: "d", author: "Basilius", title: "Epistulae" }),
 ];
 
@@ -63,7 +63,7 @@ describe("filterWorks", () => {
   it("filters by facets", () => {
     expect(ids(filterWorks(rows, view({ language: "grc" }), sources))).toEqual(["b"]);
     expect(ids(filterWorks(rows, view({ genre: "scripture" }), sources))).toEqual(["c"]);
-    expect(ids(filterWorks(rows, view({ source: "patristic/pta" }), sources))).toEqual(["a", "b", "d"]);
+    expect(ids(filterWorks(rows, view({ source: "pta" }), sources))).toEqual(["a", "b", "d"]);
   });
 
   it("filters by overlapping date range and drops undated works", () => {
@@ -105,5 +105,14 @@ describe("view state in the URL", () => {
     expect(parseViewState(new URLSearchParams("sort=bogus&dir=sideways&from=abc"))).toEqual(
       DEFAULT_VIEW,
     );
+  });
+
+  it("maps a source id from before #102 to its current id (#70)", () => {
+    expect(parseViewState(new URLSearchParams("source=scripture/kjv")).source).toBe("kjv");
+    expect(parseViewState(new URLSearchParams("source=liturgical/coptic-scriptorium")).source).toBe(
+      "coptic-scriptorium",
+    );
+    expect(parseViewState(new URLSearchParams("source=councils/ecumenical")).source).toBe("ecumenical");
+    expect(parseViewState(new URLSearchParams("source=pta")).source).toBe("pta");
   });
 });

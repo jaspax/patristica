@@ -45,9 +45,9 @@ def test_rows_well_formed() -> None:
 
 
 def test_council_divs_untouched() -> None:
-    """npnf214 council divs stay owned by councils/ecumenical."""
+    """npnf214 council divs stay owned by ecumenical."""
     for div in ("vii", "ix", "x", "xi", "xii", "xiii", "xiv", "xvi", "viii.iii", "xv.iii"):
-        assert EXCLUDED_DIVS["npnf214"][div] == "councils/ecumenical"
+        assert EXCLUDED_DIVS["npnf214"][div] == "ecumenical"
 
 
 def test_series_labels() -> None:
@@ -57,16 +57,6 @@ def test_series_labels() -> None:
 
 
 _RAW = Path("data/raw")
-
-
-def _raw_dir(source: str) -> Path:
-    """Transitional (#102): data/raw/{source}, or its pre-#102 path."""
-    new = _RAW / source
-    if new.exists():
-        return new
-    return _RAW / "patristic" / ("oglt_pl" if source == "oglt-pl" else source)
-
-
 _VOLUMES = (
     [("ccel-anf", f"anf{i:02d}") for i in range(1, 11)]
     + [("ccel-npnf1", f"npnf1{i:02d}") for i in range(1, 15)]
@@ -78,10 +68,10 @@ _VOLUMES = (
 def test_generic_blobs_fully_carved(series: str, volume: str) -> None:
     """With the carving tables and non-text exclusions, the generic per-div1
     ingestors leave nothing behind (every Work has its own title/author)."""
-    xml = _raw_dir(series) / f"{volume}.xml"
+    xml = _RAW / series / f"{volume}.xml"
     if not xml.exists():
         pytest.skip("CCEL XML not cached")
-    assert parse_thml_volume(xml, f"patristic/{series}", volume, volume) == []
+    assert parse_thml_volume(xml, series, volume, volume) == []
 
 
 def test_anf_table_still_registered() -> None:
@@ -91,7 +81,7 @@ def test_anf_table_still_registered() -> None:
 def _corpus_work_ids() -> set[str]:
     ids: set[str] = set()
     for src in ("first1k", "pta", "perseus", "oglt-pl"):
-        for f in _raw_dir(src).rglob("*.json"):
+        for f in (_RAW / src).rglob("*.json"):
             try:
                 ids.add(json.loads(f.read_text(encoding="utf-8"))["work"]["work_id"])
             except (KeyError, ValueError, TypeError):
@@ -102,7 +92,7 @@ def _corpus_work_ids() -> set[str]:
 @pytest.mark.parametrize("module", [anf_works, npnf_works])
 def test_translation_of_targets_exist(module) -> None:
     """Every translation_of resolves to an original-language Work in the corpus."""
-    if not _raw_dir("first1k").exists():
+    if not (_RAW / "first1k").exists():
         pytest.skip("original-language raw data not present")
     ids = _corpus_work_ids()
     linked = [s for s in module._WORKS if s.translation_of]

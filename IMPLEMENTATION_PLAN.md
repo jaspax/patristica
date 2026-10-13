@@ -173,7 +173,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 
 **Citation Format:**
 The primary reference shown to users must be the work title and author, not the collection or source database. The collection/edition is secondary provenance. Target format:
-> *Apology*, by Tertullian — found in ANF Vol. 3 (`patristic/ccel-anf/anf03/…`)
+> *Apology*, by Tertullian — found in ANF Vol. 3 (`ccel-anf/anf03/…`)
 
 This means `Work.title` and `Work.author` must be the individual work's identity, and `Work.edition` carries the anthology/volume label. The `source_id` and `work_id` are internal identifiers only, never shown directly to users. Wherever a canonical reference is displayed (search results, text view, AI synthesis citations), use `{author}, *{title}* {canonical_ref}` as the human-readable label, falling back to `*{title}* {canonical_ref}` when author is absent.
 
@@ -217,7 +217,7 @@ GET  /api/authors                      → Author list/browse
 Every text carries its licence in `Work.license` (and provenance in `Work.provenance_url` / `Work.edition`). The public site must honour these:
 - **Attribution:** display source edition, licence and provenance with every passage shown (search results, reader view, AI-generated syntheses that quote text). Most of the corpus is CC BY or CC BY-SA (PTA, First1KGreek, Perseus, OGL, Beta Masaheft, SBLGNT, Coptic Scriptorium); the versification mappings (`patristica/data/versification/`) are CC BY-SA too.
 - **ShareAlike:** any redistributed derivative of CC BY-SA material (downloads, exports, an API serving text) must stay under CC BY-SA.
-- **Non-commercial texts:** LXX Rahlfs (`scripture/lxx-rahlfs`, CC BY-NC-SA, with a CCAT user declaration) and the PTA Peshitta OT (CC BY-NC) may not be used commercially. If the site ever monetises (ads, paid tiers, API fees), filter these out or replace them (`scripture/pta-lxx` is a CC BY-SA Rahlfs alternative).
+- **Non-commercial texts:** LXX Rahlfs (`lxx-rahlfs`, CC BY-NC-SA, with a CCAT user declaration) and the PTA Peshitta OT (CC BY-NC) may not be used commercially. If the site ever monetises (ads, paid tiers, API fees), filter these out or replace them (`pta-lxx` is a CC BY-SA Rahlfs alternative).
 - **Licence page:** a page listing every source, its licence and required credit line, generated from the works manifest (`data/normalized/_works.jsonl`). *Status:* implemented as `/sources` in `web/`, generated from the library index (#31).
 - **Project licensing (decided, #31):** code is MIT. Texts pass through their source licences, and our changes to a text take that text's licence. Our own metadata is CC0. See `DATA_LICENSE.md`. Unverified licences are tracked in #32.
 

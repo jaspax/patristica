@@ -47,7 +47,7 @@ index, so it stays current as the corpus changes.
 
 The non-commercial texts mean that **Patristica as a whole may only be used and
 served non-commercially**: no ads, paid tiers or API fees. If that ever changes,
-remove or replace those texts first. For the Septuagint, `scripture/pta-lxx` is a
+remove or replace those texts first. For the Septuagint, `pta-lxx` is a
 CC BY-SA alternative to Rahlfs.
 
 If you reuse the data, filter on `Work.license` to keep only what your use permits.
