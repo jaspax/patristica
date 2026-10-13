@@ -85,7 +85,7 @@ LEXICON_THRESHOLD = 0.65
 # Fetch every scan of a volume and vote across them.  Off → primary scan only.
 CROSS_SCAN = True
 
-_PIPELINE_VERSION = 4
+_PIPELINE_VERSION = 5
 
 # ---------------------------------------------------------------------------
 # Repo name parsing helpers
@@ -426,8 +426,15 @@ def _scan_files(clone_dir: Path) -> dict[str, list[tuple[str, str]]]:
             continue
         scans.setdefault(top, []).append((name[:-4], meta.split()[2]))
     for files in scans.values():
-        files.sort()
+        # Numeric order: some scans have more than 999 pages ("1000.txt"), which
+        # sort between "100.txt" and "101.txt" as strings.
+        files.sort(key=_page_order)
     return scans
+
+
+def _page_order(item: tuple[str, str]) -> tuple[int, str]:
+    stem = item[0]
+    return (int(stem) if stem.isdigit() else 10**9, stem)
 
 
 def _missing_scans(clone_dir: Path, scans: list[str]) -> list[str]:

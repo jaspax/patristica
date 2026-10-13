@@ -361,3 +361,14 @@ def test_duplicate_of_targets_exist():
         for row in rows:
             if row.duplicate_of:
                 assert row.duplicate_of in ids, (row.volume, row.slug, row.duplicate_of)
+
+
+def test_scan_pages_sort_numerically():
+    files = [("1000", "a"), ("101", "b"), ("099", "c"), ("100", "d"), ("x", "e")]
+    assert [s for s, _ in sorted(files, key=ogpg._page_order)] == ["099", "100", "101", "1000", "x"]
+
+
+def test_map_columns_orders_pages_numerically():
+    heads = _two_column_heads(40, 990, 9)
+    shuffled = sorted(heads, key=lambda h: h[0])           # "1000" before "991"
+    assert oc.map_columns(shuffled).columns == oc.map_columns(heads).columns
