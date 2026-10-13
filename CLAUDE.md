@@ -46,6 +46,7 @@ patristica/
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
+│   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → Cloudflare R2 (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
@@ -60,8 +61,8 @@ patristica/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
     │   ├── _csvs/             # cached scrollmapper CSV files
-    │   └── {source_id}/       # per-book JSON files (e.g. scripture/oshb/Gen.json)
-    ├── normalized/            # normalized Chunk JSON (one file per work)
+    │   └── {source_id}/       # per-book JSON files (e.g. oshb/Gen.json)
+    ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work)
     ├── chunks/                # chunked records ready for embedding
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
@@ -71,6 +72,9 @@ patristica/
 See `patristica/models.py`. Key types:
 
 - **`Work`**: metadata for a single work (author, title, language, date, license, genre, tradition)
+  - `source_id` is the bare collection slug (`oshb`, `first1k`, `oglt-pl`), never a genre; it is also the work's directory under `data/raw/` and `data/normalized/`.
+  - `work_id` is `{source_id}/{local id}` (`oshb/gen`, `ogpg/vol-045/ad-graecos`); a chunk's `chunk_id` is `{work_id}#{canonical_ref}`.
+  - Genre lives only in `Work.genre`; a source may mix genres (`gez`, `anf-works`). Select works by genre from `_works.jsonl`, never by path or id prefix.
 - **`Chunk`**: one text unit (verse, paragraph, stanza) with `canonical_ref`, `language`, `text`, optional `translation_group_id`
 
 ### Language codes (ISO 639-3)
@@ -103,7 +107,7 @@ For prose/patristic sources (M3+), use `"paragraphs"` instead of `"verses"` with
 Every module in `scripts/ingest/` must implement:
 
 ```python
-SOURCE_ID = "scripture/oshb"   # required module-level constant
+SOURCE_ID = "oshb"   # required module-level constant: the bare collection slug
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """
@@ -130,13 +134,13 @@ This makes each module runnable directly: `python -m scripts.ingest.oshb [--forc
 uv run python -m scripts.ingest.all
 
 # One source by ID:
-uv run python -m scripts.ingest.all --source scripture/oshb
+uv run python -m scripts.ingest.all --source oshb
 
 # One source directly:
 uv run python -m scripts.ingest.oshb
 
 # Force re-download:
-uv run python -m scripts.ingest.all --source scripture/kjv --force
+uv run python -m scripts.ingest.all --source kjv --force
 ```
 
 ### Shared ingest helpers
@@ -157,9 +161,9 @@ Use the appropriate helper rather than duplicating logic:
 
 ### Source ID → module name mapping
 
-`all.py` uses the convention: take the last path component of the source_id and replace `-` with `_`.
-- `"scripture/lxx-rahlfs"` → `scripts.ingest.lxx_rahlfs`
-- `"scripture/coptic-nt"` → `scripts.ingest.coptic_nt`
+`all.py` uses the convention: replace `-` in the source_id with `_`.
+- `"lxx-rahlfs"` → `scripts.ingest.lxx_rahlfs`
+- `"coptic-nt"` → `scripts.ingest.coptic_nt`
 
 Keep module filenames consistent with this convention.
 
@@ -168,7 +172,7 @@ Keep module filenames consistent with this convention.
 ```bash
 uv run python -m scripts.normalize        # raw → Chunk objects; also maintains data/normalized/_works.jsonl
 uv run python -m scripts.chunk            # add 50-token context overlap
-uv run python -m scripts.link_translations # assign translation_group_id
+uv run python -m scripts.link_translations # assign translation_group_id (works with genre scripture)
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
@@ -294,6 +298,7 @@ Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source lic
 - **LXX Rahlfs** (eliranwong repo) requires a CCAT user declaration for redistribution. License is CC-BY-NC-SA. The word CSV has 3 columns (`idx\tidx\tword`); the verse index has the same start index in both columns — end index is inferred from the next verse's start.
 - **Wulfila** books are identified by `xml:id="B1"–"B18"` (German headings), not OSIS codes. The mapping is in `_BOOK_ID_TO_OSIS` in `wulfila.py`. Books B19–B21 (Skeireins, legal documents, calendar) are non-canonical and skipped.
 - **eBible USFM** files contain Strong's number annotations (`\w word|strong="H1234"\w*`) and footnote blocks (`\f...\f*`). Always pre-process with `_ebible_usfm._preprocess_usfm()` before calling `parse_usfm`.
+- **Source-first layout (#102)**: before #102, source ids, data paths and many work ids started with a genre (`scripture/oshb`, `data/raw/patristic/first1k/`, `councils/nicaea1`, `oglt_pl/…`). A local checkout made before then migrates once with `uv run python -m scripts.migrate_layout raw` (moves `data/raw/{genre}/{source}` to `data/raw/{source_id}` and rewrites the ids in the raw work records; `--dry-run` first) and `… migrate_layout eval` (ids in the local `data/eval/` scratch). A branch that adds tracked data in the old layout runs `… migrate_layout tracked`. Old reader URLs redirect (`web/src/lib/redirects.ts`), so never name a source `scripture`, `patristic`, `liturgical`, `councils` or `oglt_pl`.
 - **New sources need a label**: add every new `source_id` to `SOURCE_LABELS` in `patristica/sources.py`. Users see that label, not the id. `tests/test_export_library.py` fails if a source in `_works.jsonl` has no label.
 - **CCEL carve-outs**: a dedicated ingestor that extracts a section of a CCEL volume (ANF/NPNF) must register that div's `@id` in `_ccel_common.EXCLUDED_DIVS`, otherwise `ccel_anf`/`ccel_npnf*` keep ingesting it too and the text is in the corpus twice. `download_volume` reads the cached XML without network access unless `force=True`.
 - **Scripture versification**: `canonical_ref` is always in the source's *native* numbering; `link_translations.py` groups verses via `patristica/versification.py`, which maps refs onto org (BHS / Nestle-Aland) numbering. A new scripture source must be added to `SOURCE_SCHEMES` there (org / eng / lxx / vul) or linking raises `VersificationError` — check its per-chapter verse counts against the schemes' `maxVerses` to pick one.
