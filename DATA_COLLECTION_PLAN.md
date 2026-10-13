@@ -11,8 +11,8 @@ This document covers Phase 1 of the implementation plan: acquiring, normalizing,
 ```
 patristica/
 ├── data/
-│   ├── raw/            # Downloaded/scraped source files (gitignored if large)
-│   ├── normalized/     # Normalized JSON records, one file per work
+│   ├── raw/            # Downloaded/scraped source files, raw/{source_id}/… (gitignored)
+│   ├── normalized/     # Normalized JSON records, normalized/{source_id}/…, one file per work
 │   └── chunks/         # Chunked records ready for embedding
 ├── scripts/
 │   ├── ingest/         # One module per source (e.g. ingest_ccel.py)
@@ -35,8 +35,8 @@ Defined in `patristica/models.py` using Pydantic.
 ### Work record (one per work)
 ```python
 class Work(BaseModel):
-    work_id: str                  # slug: "augustine/confessions"
-    source_id: str                # "ccel/npnf1-01"
+    work_id: str                  # "{source_id}/{local id}": "oshb/gen", "npnf-works/augustine-confessions"
+    source_id: str                # bare collection slug: "oshb", "first1k" (no genre, #102)
     author: str | None
     title: str
     date_composed: int | None     # best single estimate (CE), negative = BCE
@@ -67,6 +67,8 @@ class Chunk(BaseModel):
 
 ## 3. Source Catalog
 
+The ID column is the `source_id`: the bare collection slug, which is also the source's directory under `data/raw/` and `data/normalized/`. Before #102 it carried a genre prefix (`scripture/oshb`); genre is now only a property of each work (`Work.genre`), and a source may mix genres.
+
 ### Tier 1 — Bulk download, structured format, clear license
 These should be ingested first. Data is available as GitHub repos or structured archives.
 
@@ -74,36 +76,36 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Text | Language | Source | Format | License | Notes |
 |----|------|----------|--------|--------|---------|-------|
-| `scripture/oshb` | Open Scriptures Hebrew Bible | Hebrew (`hbo`) | github.com/openscriptures/morphhb | OSIS XML (word-level) | CC-BY 4.0 | ZIP: morphhb-master.zip; words inside `<w>` with lemma/morph; text reconstructed by joining `<w>` children |
-| `scripture/sblgnt` | SBL Greek NT | Greek (`grc`) | github.com/LogosBible/SBLGNT | Custom Logos XML (NOT OSIS) | Non-commercial | ZIP: SBLGNT-master.zip; uses `<verse-number id="Book Ch:V">` + `<w>` + `<suffix>`; custom parser required |
-| `scripture/nestle1904` | Nestle 1904 GNT | Greek (`grc`) | github.com/biblicalhumanities/Nestle1904 | USFM/XML | Public domain | Not yet ingested (M2 deferred) |
-| `scripture/clementine` | Clementine Vulgate | Latin (`lat`) | ebible.org/Scriptures/ (`latVUC_usfm.zip`) | USFM | Public domain | 73 books incl. Deuterocanon; footnotes stripped via `_ebible_usfm` helper |
-| `scripture/lxx-rahlfs` | Septuagint (Rahlfs 1935) | Greek (`grc`) | github.com/eliranwong/LXX-Rahlfs-1935 | Word-list CSV + verse-index CSV | CC-BY-NC-SA 4.0 | CCAT user declaration required; word list 3-col (`idx\tidx\tword`); verse index start-only; 33 books produced |
-| `scripture/kjv` | King James Version | English (`eng`) | github.com/aruljohn/Bible-kjv | JSON per book (no spaces in filename: `1Samuel.json`) | Public domain | 66 books |
-| `scripture/asv` | American Standard Version | English (`eng`) | github.com/scrollmapper/bible_databases (`ASV.csv`) | CSV (`Book,Chapter,Verse,Text`) | Public domain | 48 books (scrollmapper ASV lacks some books — see gap below) |
-| `scripture/web` | World English Bible | English (`eng`) | ebible.org/Scriptures/ (`engwebp_usfm.zip`) | USFM | Public domain | `WEB.csv` does not exist in scrollmapper; use eBible USFM; Strong's annotations stripped |
-| `scripture/coptic-nt` | Sahidic Coptic NT | Coptic (`cop`) | github.com/scrollmapper/bible_databases (`CopSahBible2.csv`) | CSV | Public domain | 50 files (includes some OT books from this CSV) |
-| `scripture/wulfila` | Gothic Bible (Wulfila) | Gothic (`got`) | wulfila.be/gothic/text/gotica.xml | TEI P5 XML | Academic non-commercial | 18 books; identified by `xml:id="B1"–"B18"` with German headings; words in `<app><rdg><w>` |
+| `oshb` | Open Scriptures Hebrew Bible | Hebrew (`hbo`) | github.com/openscriptures/morphhb | OSIS XML (word-level) | CC-BY 4.0 | ZIP: morphhb-master.zip; words inside `<w>` with lemma/morph; text reconstructed by joining `<w>` children |
+| `sblgnt` | SBL Greek NT | Greek (`grc`) | github.com/LogosBible/SBLGNT | Custom Logos XML (NOT OSIS) | Non-commercial | ZIP: SBLGNT-master.zip; uses `<verse-number id="Book Ch:V">` + `<w>` + `<suffix>`; custom parser required |
+| `nestle1904` | Nestle 1904 GNT | Greek (`grc`) | github.com/biblicalhumanities/Nestle1904 | USFM/XML | Public domain | Not yet ingested (M2 deferred) |
+| `clementine` | Clementine Vulgate | Latin (`lat`) | ebible.org/Scriptures/ (`latVUC_usfm.zip`) | USFM | Public domain | 73 books incl. Deuterocanon; footnotes stripped via `_ebible_usfm` helper |
+| `lxx-rahlfs` | Septuagint (Rahlfs 1935) | Greek (`grc`) | github.com/eliranwong/LXX-Rahlfs-1935 | Word-list CSV + verse-index CSV | CC-BY-NC-SA 4.0 | CCAT user declaration required; word list 3-col (`idx\tidx\tword`); verse index start-only; 33 books produced |
+| `kjv` | King James Version | English (`eng`) | github.com/aruljohn/Bible-kjv | JSON per book (no spaces in filename: `1Samuel.json`) | Public domain | 66 books |
+| `asv` | American Standard Version | English (`eng`) | github.com/scrollmapper/bible_databases (`ASV.csv`) | CSV (`Book,Chapter,Verse,Text`) | Public domain | 48 books (scrollmapper ASV lacks some books — see gap below) |
+| `web` | World English Bible | English (`eng`) | ebible.org/Scriptures/ (`engwebp_usfm.zip`) | USFM | Public domain | `WEB.csv` does not exist in scrollmapper; use eBible USFM; Strong's annotations stripped |
+| `coptic-nt` | Sahidic Coptic NT | Coptic (`cop`) | github.com/scrollmapper/bible_databases (`CopSahBible2.csv`) | CSV | Public domain | 50 files (includes some OT books from this CSV) |
+| `wulfila` | Gothic Bible (Wulfila) | Gothic (`got`) | wulfila.be/gothic/text/gotica.xml | TEI P5 XML | Academic non-commercial | 18 books; identified by `xml:id="B1"–"B18"` with German headings; words in `<app><rdg><w>` |
 
 #### 3.2 Patristic Texts
 
 | ID | Collection | Language | Source | Format | License |
 |----|-----------|----------|--------|--------|---------|
-| `patristic/pta` | Patristic Text Archive | Greek (`grc`) | github.com/PatristicTextArchive | TEI P5 XML | CC-BY / CC-BY-SA |
-| `patristic/oglt-pl` | Open Patrologia Latina (OGLT) | Latin (`lat`) | github.com/OpenGreekAndLatin | TEI XML | Open Educational |
-| `patristic/first1k` | First1KGreek | Greek (`grc`) | github.com/OpenGreekAndLatin/First1KGreek | TEI XML | Open Educational |
-| `patristic/perseus` | Perseus Greek/Latin | Greek (`grc`), Latin (`lat`) | github.com/PerseusDL/canonical-greekLit + canonical-latinLit | TEI XML | CC |
-| `patristic/ccel-anf` | Ante-Nicene Fathers (10 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `patristic/ccel-npnf1` | Nicene & Post-Nicene Fathers Series 1 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `patristic/ccel-npnf2` | Nicene & Post-Nicene Fathers Series 2 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `patristic/coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (genre `patristic`; no liturgies; renamed from `liturgical/coptic-scriptorium` in #52, old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
+| `pta` | Patristic Text Archive | Greek (`grc`) | github.com/PatristicTextArchive | TEI P5 XML | CC-BY / CC-BY-SA |
+| `oglt-pl` | Open Patrologia Latina (OGLT) | Latin (`lat`) | github.com/OpenGreekAndLatin | TEI XML | Open Educational |
+| `first1k` | First1KGreek | Greek (`grc`) | github.com/OpenGreekAndLatin/First1KGreek | TEI XML | Open Educational |
+| `perseus` | Perseus Greek/Latin | Greek (`grc`), Latin (`lat`) | github.com/PerseusDL/canonical-greekLit + canonical-latinLit | TEI XML | CC |
+| `ccel-anf` | Ante-Nicene Fathers (10 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
+| `ccel-npnf1` | Nicene & Post-Nicene Fathers Series 1 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
+| `ccel-npnf2` | Nicene & Post-Nicene Fathers Series 2 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
+| `coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (genre `patristic`; no liturgies; `liturgical/coptic-scriptorium` until #52 and `patristic/coptic-scriptorium` until #102; old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
 
 #### 3.3 Liturgical Texts
 
 | ID | Text | Language | Source | Format | License |
 |----|------|----------|--------|--------|---------|
-| `liturgical/cantus` | CANTUS Latin Chant Database | Latin (`lat`) | cantusdatabase.org (API) | JSON (API) | Free |
-| `liturgical/cursus` | CURSUS Medieval Liturgical Texts | Latin (`lat`) | zenodo.org/records/5090613 | TEI P4 XML | Academic |
+| `cantus` | CANTUS Latin Chant Database | Latin (`lat`) | cantusdatabase.org (API) | JSON (API) | Free |
+| `cursus` | CURSUS Medieval Liturgical Texts | Latin (`lat`) | zenodo.org/records/5090613 | TEI P4 XML | Academic |
 
 ---
 
@@ -111,18 +113,18 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Text | Language | Source | Format | Notes |
 |----|------|----------|--------|--------|-------|
-| `scripture/peshitta` | Peshitta NT (SEDRA) | Syriac (`syc`) | sedra.bethmardutho.org + github.com/peshitta/sedrajs | DB/JS | **Superseded by `scripture/pta-peshitta` (clean TEI, 85 books)** |
-| `scripture/gez` | Ethiopic Bible (Ge'ez) | Ge'ez (`gez`) | github.com/LPettay/ethiopian-bible (Beta Masaheft data) | JSON chapter files | CC-BY-SA 4.0 |
-| `scripture/armenian` | Classical Armenian Bible (Zohrab 1895) | Armenian (`hye`) | arak29.org/bible/book/ (1895 Constantinople edition) | HTML per chapter | Public domain |
-| `scripture/vetus-latina` | Vetus Latina fragments | Latin (`lat`) | itseeweb.cal.bham.ac.uk | HTML | Check licensing; fragmentary |
-| `patristic/ogpg` | Open Patrologia Graeca (OCR) | Greek (`grc`) | github.com/OGL-PatrologiaGraecaDev | .txt/.hocr | Public domain; OCR noise |
-| `patristic/dco` | Documenta Catholica Omnia | Latin (`lat`) | documentacatholicaomnia.eu | PDF/DOC | Unclear license; Latin originals |
-| `liturgical/gallican` | Gallican Liturgy (Neale/Forbes 1855) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
-| `liturgical/mozarabic` | Mozarabic Rite (Ferotin editions) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
-| `liturgical/gez-anaphoras` | Ethiopian Anaphoras (14 anaphoras) | Ge'ez (`gez`) | ethiopianorthodox.org + Internet Archive | PDF | Public domain |
-| `liturgical/syriac-james` | Liturgy of St. James (Syriac) | Syriac (`syc`) | Internet Archive | PDF | Public domain |
-| `liturgical/armenian-liturgy` | Armenian Divine Liturgy | Armenian (`hye`) | Internet Archive | PDF | Public domain |
-| `councils/ecumenical` | Seven Ecumenical Councils | English/Greek (`eng`/`grc`) | CCEL / Internet Archive | HTML/PDF | Public domain |
+| `peshitta` | Peshitta NT (SEDRA) | Syriac (`syc`) | sedra.bethmardutho.org + github.com/peshitta/sedrajs | DB/JS | **Superseded by `pta-peshitta` (clean TEI, 85 books)** |
+| `gez` | Ethiopic Bible (Ge'ez) | Ge'ez (`gez`) | github.com/LPettay/ethiopian-bible (Beta Masaheft data) | JSON chapter files | CC-BY-SA 4.0 |
+| `armenian` | Classical Armenian Bible (Zohrab 1895) | Armenian (`hye`) | arak29.org/bible/book/ (1895 Constantinople edition) | HTML per chapter | Public domain |
+| `vetus-latina` | Vetus Latina fragments | Latin (`lat`) | itseeweb.cal.bham.ac.uk | HTML | Check licensing; fragmentary |
+| `ogpg` | Open Patrologia Graeca (OCR) | Greek (`grc`) | github.com/OGL-PatrologiaGraecaDev | .txt/.hocr | Public domain; OCR noise |
+| `dco` | Documenta Catholica Omnia | Latin (`lat`) | documentacatholicaomnia.eu | PDF/DOC | Unclear license; Latin originals |
+| `gallican` | Gallican Liturgy (Neale/Forbes 1855) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
+| `mozarabic` | Mozarabic Rite (Ferotin editions) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
+| `gez-anaphoras` | Ethiopian Anaphoras (14 anaphoras) | Ge'ez (`gez`) | ethiopianorthodox.org + Internet Archive | PDF | Public domain |
+| `syriac-james` | Liturgy of St. James (Syriac) | Syriac (`syc`) | Internet Archive | PDF | Public domain |
+| `armenian-liturgy` | Armenian Divine Liturgy | Armenian (`hye`) | Internet Archive | PDF | Public domain |
+| `ecumenical` | Seven Ecumenical Councils | English/Greek (`eng`/`grc`) | CCEL / Internet Archive | HTML/PDF | Public domain |
 
 ---
 
@@ -130,11 +132,11 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Text | Language | Source | Notes |
 |----|------|----------|--------|-------|
-| `liturgical/hudra` | East Syriac Hudra texts | Syriac (`syc`) | hudra.day | Free; may require scraping |
-| `liturgical/goarch-chrysostom` | Liturgy of St. John Chrysostom (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
-| `liturgical/goarch-basil` | Liturgy of St. Basil (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
-| `liturgical/typikon` | Greek Typikon (selected first-millennium sections) | Greek (`grc`) | Violakis 1900 ed. via archive.org/details/typikontstou00orth | OCR plain text; date filtering required via flag_liturgical.py second pass |
-| `patristic/tertullian` | Tertullian.org corpus | English (`eng`) | tertullian.org | HTML scrape |
+| `hudra` | East Syriac Hudra texts | Syriac (`syc`) | hudra.day | Free; may require scraping |
+| `goarch-chrysostom` | Liturgy of St. John Chrysostom (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
+| `goarch-basil` | Liturgy of St. Basil (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
+| `typikon` | Greek Typikon (selected first-millennium sections) | Greek (`grc`) | Violakis 1900 ed. via archive.org/details/typikontstou00orth | OCR plain text; date filtering required via flag_liturgical.py second pass |
+| `tertullian` | Tertullian.org corpus | English (`eng`) | tertullian.org | HTML scrape |
 
 ---
 
@@ -184,7 +186,7 @@ Each ingestor must also define a `SOURCE_ID` constant at module level (used by t
 uv run python -m scripts.ingest.all
 
 # Single source by ID:
-uv run python -m scripts.ingest.all --source scripture/oshb [--force]
+uv run python -m scripts.ingest.all --source oshb [--force]
 
 # Single source module directly:
 uv run python -m scripts.ingest.oshb [--force]
@@ -233,11 +235,11 @@ All chunks carry a `canonical_ref` in dot-separated form:
 
 ### Duplicated section numbers
 
-Many editions print the paragraph number at the start of the paragraph (`3 Αὐτοκράτορι…` in First1KGreek, `1. Great art Thou…` in NPNF, `α. Πᾶσαι…` in PTA, `[3] …` in ANF), and the ref already carries it. `normalize.py` strips such a prefix from non-scripture chunks, only when its value equals the ref's last segment (`patristica/section_numbers.py`, [#30](https://github.com/jaspax/patristica/issues/30)). It handles Arabic digits (bare, `3.`, `3)`, `[3]`, `(3)`), Greek numerals with a keraia or dot (Greek text only), and Roman numerals followed by `.` or `)`. Raw files keep the number. A bare number followed by a numbered book (`1 Cor.`, `1 Timothy`) or by `bis` or a Roman calendar word (`8 kal.`) is content and stays. `patristic/ogpg` is skipped: its refs end in a paragraph's position on its Migne page, a number the OCR text never prints, so a match there is coincidence. Not handled: printed numbers that differ from the ref, such as continuous paragraph numbering against chapter.section refs. They can't be told apart from content. `validate.py` warns (`text_starts_with_section_number`) about any chunk that still starts with its ref's number.
+Many editions print the paragraph number at the start of the paragraph (`3 Αὐτοκράτορι…` in First1KGreek, `1. Great art Thou…` in NPNF, `α. Πᾶσαι…` in PTA, `[3] …` in ANF), and the ref already carries it. `normalize.py` strips such a prefix from non-scripture chunks, only when its value equals the ref's last segment (`patristica/section_numbers.py`, [#30](https://github.com/jaspax/patristica/issues/30)). It handles Arabic digits (bare, `3.`, `3)`, `[3]`, `(3)`), Greek numerals with a keraia or dot (Greek text only), and Roman numerals followed by `.` or `)`. Raw files keep the number. A bare number followed by a numbered book (`1 Cor.`, `1 Timothy`) or by `bis` or a Roman calendar word (`8 kal.`) is content and stays. `ogpg` is skipped: its refs end in a paragraph's position on its Migne page, a number the OCR text never prints, so a match there is coincidence. Not handled: printed numbers that differ from the ref, such as continuous paragraph numbering against chapter.section refs. They can't be told apart from content. `validate.py` warns (`text_starts_with_section_number`) about any chunk that still starts with its ref's number.
 
 ### Patrologia Graeca: columns, refs and works
 
-The OGL PG repos are plain page OCR with no work boundaries ([#67](https://github.com/jaspax/patristica/issues/67)). `scripts/ingest/ogpg.py` extracts each volume once (cached in `data/raw/patristic/ogpg/_extract/`, with the column numbers found on every page of the primary scan) and then cuts it into works:
+The OGL PG repos are plain page OCR with no work boundaries ([#67](https://github.com/jaspax/patristica/issues/67)). `scripts/ingest/ogpg.py` extracts each volume once (cached in `data/raw/ogpg/_extract/`, with the column numbers found on every page of the primary scan) and then cuts it into works:
 
 - **Columns.** `_ogpg_columns.py` maps each scan page to the two Migne columns it prints, from the numbers in the running heads. Within a run of pages, `column = k × page + offset` (`k` = 2, or 1 in the Chrysostom volumes, where the Latin is on the facing page). A Viterbi pass picks a piecewise-constant offset path (switching costs more the further the offset jumps, so misread digits such as 1305 → 1505 don't pull it away), only the best-supported increasing chain of runs is kept (numbers in front matter, such as a Vita's years, are dropped), and long gaps are interpolated when their columns advance at 1 or 2 per page. Pages are read in numeric order (some scans have over 999 pages). Scans that repeat a run of pages confuse the mapping, since their column numbers go backwards (PG 18, PG 94); the rows there note it.
 - **Refs.** `ogpg.{vol}.c{first column:04d}.{n}`: the first column of the paragraph's page and the paragraph's number on that page (`ogpg.vol-045.c0009.1`). A page with no column uses the scan page, `p{page:04d}`. Refs are the same whether or not a volume is split.
@@ -472,12 +474,12 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 | `WEB.csv` does not exist in scrollmapper/bible_databases | Use eBible.org USFM (`engwebp_usfm.zip`) — already implemented |
 | SBLGNT is NOT OSIS XML — uses Logos custom format | Custom parser implemented in `sblgnt.py`; `parse_osis` will not work for it |
 | LXX Rahlfs (eliranwong repo) has CCAT user-declaration requirement | Non-commercial only; word CSV is 3-column, verse index is start-only — see `lxx_rahlfs.py` |
-| ASV from scrollmapper is only 48/66 books | Resolved: `data/raw/scripture/asv/` now has all 66 books |
+| ASV from scrollmapper is only 48/66 books | Resolved: `data/raw/asv/` now has all 66 books |
 | `beta2unicode` package does not exist on PyPI | Betacode conversion for any CCAT-sourced text (Tier 2) needs a custom solution at ingest time |
 | CCEL ANF/NPNF `translation_of` is null for all 343 works | English translations not yet linked to Greek/Latin originals. Tracked in [#11](https://github.com/jaspax/patristica/issues/11): match by author abbreviation + canonical ref structure against First1KGreek/PTA/Perseus. |
 | First1KGreek/Perseus TEI headers have no composition dates; both repos are mostly classical pagan literature | The −50 CE / late-date filters never fired (every work was `uncertain`), so ~1,700 classical works (Plutarch, Galen, Cicero, …), works after the period (Anna Comnena, Zonaras) and French/German translations tagged `grc` were ingested. Fixed by an author-ID allowlist in `scripts/ingest/_cts_scope.py` (Christian/Jewish first-millennium literature, plus Procopius) and strict edition-suffix language matching; ingestors prune previously written out-of-scope files. NT (`tlg0031`) and LXX (`tlg0527`) excluded as covered by scripture ingestors. Pagan authors writing about Christians (Julian, etc.) are a possible future expansion. |
 | arak29.org (Armenian) restarts verse numbering mid-chapter and has label typos | Mapped onto LXX versification via `_RESTART_RULES` in `armenian.py` (Ps 9 / 113 continue numbering, Ps 151 split out of the Ps 150 page, Prov 24:22a–e, Armenian-only Song 8:15–20); Exod 39 label typo fixed via `_LABEL_TYPOS`; Sirach's scrambled partial verses get letter suffixes (`Sir.16.13b`). Ref dedup across First1K/Perseus/PTA/OGLT PL now uses the shared `_common.dedupe_refs`. |
-| Perseus Latin repo contains `.tracking.json` files from the CTS system | Repos stored under `data/raw/_repos/` (not `data/raw/patristic/`) to prevent catalog and normalize.py from treating them as source files. Do not move repos back into `patristic/`. |
+| Perseus Latin repo contains `.tracking.json` files from the CTS system | Repos stored under `data/raw/_repos/` (not `data/raw/perseus/`) to prevent catalog and normalize.py from treating them as source files. Do not move repos back into the source directory. |
 | Clementine Vulgate eBible ID is `latVUC` not `latclv` | Corrected; `latVUC_usfm.zip` is the working URL |
 | Wulfila books B19–B21 (Skeireins, legal docs, calendar) skipped | Non-canonical; if needed, add mappings to `_BOOK_ID_TO_OSIS` in `wulfila.py` |
 | www.goarch.org returns 403 for automated requests | Resolved: ingestors retargeted to `dcs.goarch.org` (GOA Digital Chant Stand) which serves static HTML without bot-blocking. |

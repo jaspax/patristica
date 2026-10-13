@@ -443,16 +443,19 @@ def test_review_corpus_ids_follow_renames(tmp_path: Path):
     from scripts.embed_eval.review import load_corpus, resolve
 
     rows = [
+        {"chunk_id": "liturgical/coptic-scriptorium/x#1",
+         "work_id": "liturgical/coptic-scriptorium/x", "language": "cop", "text": "t"},
         {"chunk_id": "scripture/kjv/gen#Gen.1.1", "work_id": "scripture/kjv/gen",
          "language": "eng", "text": "t"},
         {"chunk_id": "a/b#1", "work_id": "a/b", "language": "eng", "text": "t"},
     ]
     (tmp_path / "corpus.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     corpus = load_corpus(tmp_path)
-    assert sorted(corpus) == ["a/b#1", "kjv/gen#Gen.1.1"]
+    assert sorted(corpus) == ["a/b#1", "coptic-scriptorium/x#1", "kjv/gen#Gen.1.1"]
     assert corpus["kjv/gen#Gen.1.1"]["work_id"] == "kjv/gen"
     assert resolve("a/b#1", corpus) == "a/b#1"
-    assert resolve("scripture/kjv/gen#Gen.1.1", corpus) == "kjv/gen#Gen.1.1"
+    assert resolve("patristic/coptic-scriptorium/x#1", corpus) == "coptic-scriptorium/x#1"
+    assert resolve("coptic-scriptorium/x#1", corpus) == "coptic-scriptorium/x#1"
     assert resolve("missing#1", corpus) is None
 
 

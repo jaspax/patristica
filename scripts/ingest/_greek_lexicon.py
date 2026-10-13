@@ -12,14 +12,14 @@ normalises OCR tokens.
 
 Sources (``data/normalized``, language ``grc`` only):
 
-* ``patristic/first1k``  — First1KGreek (CC-BY-SA 4.0)
+* ``first1k``  — First1KGreek (CC-BY-SA 4.0)
 * ``pta``      — Patristic Text Archive (CC-BY-SA 4.0)
 * ``perseus``  — Perseus canonical-greekLit (CC-BY-SA 4.0)
 * ``sblgnt``   — SBL Greek New Testament (CC-BY 4.0)
 * ``pta-lxx``  — PTA Septuagint (CC-BY-SA 4.0)
 
 Rahlfs LXX (CC-BY-NC-SA) is deliberately excluded so the derived list carries
-no non-commercial restriction.  ``patristic/ogpg`` (the OCR being scored) is of
+no non-commercial restriction.  ``ogpg`` (the OCR being scored) is of
 course excluded too.
 
 Token normalisation (shared by building and scoring, see ``normalize_token``):
@@ -56,7 +56,7 @@ LEXICON_PATH = Path(__file__).resolve().parent / "data" / "greek_wordforms.tsv.g
 DEFAULT_NORMALIZED_DIR = _REPO_ROOT / "data" / "normalized"
 
 LEXICON_SOURCES: tuple[str, ...] = (
-    "patristic/first1k",
+    "first1k",
     "pta",
     "perseus",
     "sblgnt",

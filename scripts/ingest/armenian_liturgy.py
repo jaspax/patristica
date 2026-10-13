@@ -30,7 +30,7 @@ from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/armenian-liturgy"
+SOURCE_ID = "armenian-liturgy"
 _WORK_SLUG = "issaverdens-1873"
 _URL = "https://archive.org/download/ArmenianRitual0104/Armenian_Ritual_01-04_djvu.txt"
 

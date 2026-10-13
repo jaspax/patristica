@@ -133,9 +133,9 @@ uv run python -m scripts.ingest.all
 Pass `--source` with the source ID (see the catalog for IDs):
 
 ```bash
-uv run python -m scripts.ingest.all --source scripture/oshb
-uv run python -m scripts.ingest.all --source scripture/kjv
-uv run python -m scripts.ingest.all --source scripture/lxx-rahlfs
+uv run python -m scripts.ingest.all --source oshb
+uv run python -m scripts.ingest.all --source kjv
+uv run python -m scripts.ingest.all --source lxx-rahlfs
 ```
 
 Each ingestor module can also be run directly:
@@ -149,7 +149,7 @@ uv run python -m scripts.ingest.kjv
 All ingestors are **idempotent** — re-running skips already-downloaded files. Use `--force` to re-download and re-parse:
 
 ```bash
-uv run python -m scripts.ingest.all --source scripture/wulfila --force
+uv run python -m scripts.ingest.all --source wulfila --force
 ```
 
 ### Normalize, chunk, and link translations
@@ -185,7 +185,7 @@ Each ingestor writes one JSON file per book to `data/raw/{source_id}/`:
 
 ```json
 {
-  "work": { "work_id": "scripture/oshb/gen", "language": "hbo", ... },
+  "work": { "work_id": "oshb/gen", "language": "hbo", ... },
   "verses": [
     { "ref": "Gen.1.1", "text": "בְּרֵאשִׁית בָּרָא אֱלֹהִים..." },
     ...

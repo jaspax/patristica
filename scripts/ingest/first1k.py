@@ -7,7 +7,7 @@ License: CC-BY-SA 4.0
 
 Acquisition
 -----------
-Shallow-clone the repo into ``data/raw/patristic/first1k/`` using git.
+Shallow-clone the repo into ``data/raw/first1k/`` using git.
 On ``force=True`` we pull the latest changes.
 
 File filtering
@@ -54,7 +54,7 @@ from scripts.ingest._cts_scope import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/first1k"
+SOURCE_ID = "first1k"
 
 _REPO_URL = "https://github.com/OpenGreekAndLatin/First1KGreek.git"
 
@@ -352,7 +352,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     -------
     List of ``Work`` records written.
     """
-    repo_dir = output_dir / "patristic" / "first1k"
+    repo_dir = output_dir / "first1k"
     _ensure_repo(repo_dir, force)
 
     data_dir = repo_dir / "data"
@@ -377,7 +377,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
     for xml_path in tqdm(xml_files, desc="First1KGreek ingest"):
         rel = xml_path.relative_to(data_dir)
-        out_path = output_dir / "patristic" / "first1k" / rel.with_suffix(".json")
+        out_path = output_dir / "first1k" / rel.with_suffix(".json")
 
         if out_path.exists() and not force:
             try:

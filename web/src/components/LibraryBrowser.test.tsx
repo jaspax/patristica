@@ -23,7 +23,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     date: null,
     date_range: null,
     date_confidence: "uncertain",
-    source_id: "patristic/pta",
+    source_id: "pta",
     edition: null,
     license: "unknown",
     provenance_url: null,
@@ -36,7 +36,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
 
 const index: LibraryIndex = {
   version: "0123456789abcdef",
-  sources: { "patristic/pta": "Patristic Text Archive" },
+  sources: { pta: "Patristic Text Archive" },
   works: [
     row({ id: "aug/conf", author: "Augustinus", title: "Confessiones", date: 397 }),
     row({ id: "bas/ep", author: "Basilius", title: "Epistulae", language: "grc", date: 370 }),

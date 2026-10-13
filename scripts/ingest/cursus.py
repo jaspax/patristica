@@ -53,7 +53,7 @@ from scripts.ingest._common import slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/cursus"
+SOURCE_ID = "cursus"
 
 _ZIP_NAME = "cursus.zip"
 _ZIP_URL = "https://zenodo.org/records/5090613/files/cursusProject.zip?download=1"
@@ -418,7 +418,7 @@ def _process_manuscript(
         return None
 
     work = Work(
-        work_id=f"liturgical/cursus/{ms_sigil}",
+        work_id=f"{SOURCE_ID}/{ms_sigil}",
         source_id=SOURCE_ID,
         author=None,
         title=f"{shortname} ({date_desc})",

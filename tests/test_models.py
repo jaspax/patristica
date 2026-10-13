@@ -17,8 +17,8 @@ class TestWork:
 
     def test_full_fields(self):
         w = Work(
-            work_id="scripture/gen",
-            source_id="scripture/oshb",
+            work_id="oshb/gen",
+            source_id="oshb",
             author=None,
             title="Genesis",
             date_composed=-450,

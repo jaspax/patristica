@@ -25,7 +25,6 @@ from tqdm import tqdm
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period
 from patristica.section_numbers import strip_section_number
-from scripts.migrate_layout import locate, source_dir
 
 log = logging.getLogger(__name__)
 
@@ -238,15 +237,9 @@ def normalize_file(
         return 0
 
     # Mirror the raw path structure under output_dir
-    # raw:  data/raw/scripture/oshb/Gen.json
-    # norm: data/normalized/scripture/oshb/Gen.json
-    try:
-        rel = raw_path.relative_to(raw_path.parents[3])  # strip data/raw prefix
-        # rel is now something like "scripture/oshb/Gen.json" or deeper
-    except ValueError:
-        rel = raw_path.name
-
-    # Determine source_id sub-path: strip the leading "raw/" component
+    # raw:  data/raw/oshb/Gen.json
+    # norm: data/normalized/oshb/Gen.json
+    # The path below the "raw" component starts with the source_id.
     rel_parts = raw_path.parts
     try:
         raw_idx = next(i for i, p in enumerate(rel_parts) if p == "raw")
@@ -254,9 +247,7 @@ def normalize_file(
     except StopIteration:
         sub_parts = (raw_path.name,)
 
-    # Transitional (#102): the normalized source directory may already have
-    # moved while data/raw has not (or the reverse).
-    out_path = output_dir / locate("/".join(sub_parts), output_dir)
+    out_path = output_dir.joinpath(*sub_parts)
 
     if (
         not force
@@ -342,7 +333,7 @@ def write_works_manifest(output_dir: Path) -> None:
         if norm_path.name.startswith("_"):
             continue
         rel = norm_path.relative_to(output_dir).as_posix()
-        raw_path = raw_root / locate(rel, raw_root)
+        raw_path = raw_root / rel
         work: dict | None = None
         if raw_path.exists():
             with raw_path.open(encoding="utf-8") as f:
@@ -372,11 +363,10 @@ def _prune_orphans(raw_dir: Path, output_dir: Path) -> None:
     removed = 0
     for norm_path in (output_dir / sub).rglob("*.json"):
         rel = norm_path.relative_to(output_dir)
-        # Transitional (#102): data/raw may still be in the other layout.
-        raw_rel = locate(rel.as_posix(), raw_root)
-        if norm_path.name.startswith("_") or raw_rel == source_dir(raw_rel):
+        if norm_path.name.startswith("_") or len(rel.parts) < 2:
             continue
-        if (raw_root / source_dir(raw_rel)).is_dir() and not (raw_root / raw_rel).exists():
+        source_dir = raw_root / rel.parts[0]
+        if source_dir.is_dir() and not (raw_root / rel).exists():
             norm_path.unlink()
             removed += 1
     if removed:

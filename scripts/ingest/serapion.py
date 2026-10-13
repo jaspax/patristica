@@ -33,7 +33,7 @@ from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/serapion"
+SOURCE_ID = "serapion"
 _WORK_SLUG = "wordsworth-1899"
 _URL = "https://archive.org/download/bishopsarapionsp06sera/bishopsarapionsp06sera_djvu.txt"
 

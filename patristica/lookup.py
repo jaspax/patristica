@@ -28,7 +28,7 @@ _PEEK_BYTES = 1 << 16
 
 class WorkEntry(TypedDict):
     work_id: str
-    path: str              # relative to normalized_dir, e.g. "scripture/sblgnt/1Cor.json"
+    path: str              # relative to normalized_dir, e.g. "sblgnt/1Cor.json"
     canonical_prefix: str  # first dot-component of canonical_ref
     language: str
     title: str
@@ -165,11 +165,8 @@ def build_index(data_dir: Path) -> dict:
 
 
 def _source_id_from_work_id(work_id: str) -> str:
-    """Derive a best-effort source_id from work_id by dropping the last component."""
-    parts = work_id.split("/")
-    if len(parts) > 1:
-        return "/".join(parts[:-1])
-    return work_id
+    """The source_id of *work_id*: its first component (``kjv/gen`` → ``kjv``)."""
+    return work_id.split("/")[0]
 
 
 def load_index(data_dir: Path) -> dict:

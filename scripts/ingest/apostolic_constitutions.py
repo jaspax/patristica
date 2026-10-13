@@ -27,7 +27,7 @@ the Byzantine rites.
 Each book is extracted as a separate section with book-keyed canonical refs
 (ApostConst.I, ApostConst.II, … ApostConst.VIII).
 
-Note: ccel_anf.py already ingests this as patristic/ccel-anf/anf07/009.json
+Note: ccel_anf.py already ingests this as ccel-anf/anf07/009.json
 in a single anonymous blob. This ingestor supersedes it with correct metadata
 and book-level structure.
 """
@@ -50,7 +50,7 @@ from scripts.ingest._ccel_common import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/apostolic-constitutions"
+SOURCE_ID = "apostolic-constitutions"
 _ANF_VOL = "anf07"
 _WORK_SLUG = "apostolic-constitutions"
 
@@ -95,7 +95,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     if out_path.exists() and not force:
         return [Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"])]
 
-    anf_cache = output_dir / "patristic" / "ccel-anf"
+    anf_cache = output_dir / "ccel-anf"
     anf_cache.mkdir(parents=True, exist_ok=True)
     xml_path = download_volume(_ANF_VOL, anf_cache, force=force)
 

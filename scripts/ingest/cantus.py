@@ -51,7 +51,7 @@ from scripts.ingest._common import slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/cantus"
+SOURCE_ID = "cantus"
 
 _BASE = "https://cantusdatabase.org"
 _POLITE_DELAY = 0.15  # seconds between requests
@@ -185,7 +185,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             # Build Work
             date_composed, date_range, date_confidence = _date_metadata(earliest_year)
             work = Work(
-                work_id=f"liturgical/cantus/{slug}",
+                work_id=f"{SOURCE_ID}/{slug}",
                 source_id=SOURCE_ID,
                 author=None,
                 title=meta.get("title") or siglum,

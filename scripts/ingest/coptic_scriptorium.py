@@ -9,7 +9,7 @@ Scope
 -----
 Ingests Coptic patristic texts: homilies, saints' lives, Shenoute, letters,
 monastic texts and apocrypha.  None is a liturgy, so every work has genre
-``patristic`` (#40); the ``liturgical/`` source_id prefix is historical.
+``patristic`` (#40).
 
 Excludes:
   - Biblical NT/OT books (already in ``coptic_nt.py``)
@@ -64,7 +64,7 @@ from scripts.ingest._common import slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/coptic-scriptorium"
+SOURCE_ID = "coptic-scriptorium"
 
 _REPO_URL = "https://github.com/CopticScriptorium/corpora"
 

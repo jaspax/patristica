@@ -48,16 +48,13 @@ def _write_manifest(tmp_path: Path, entries: list[tuple[str, dict]]) -> Path:
 
 @pytest.fixture()
 def records(tmp_path: Path) -> dict[str, dict]:
-    """Works whose path prefix deliberately disagrees with their genre."""
+    """Works whose genre can't be told from their path or source (#102)."""
     data_dir = _write_manifest(tmp_path, [
-        # A patristic work filed under a 'liturgical/' path prefix.
-        ("liturgical/src-a/hom.json", _work("src-a/hom", "liturgical/src-a", "patristic")),
-        # A council text filed under a 'patristic/' path prefix.
-        ("patristic/src-b/canons.json", _work("src-b/canons", "patristic/src-b", "council")),
-        # Scripture under an unrelated prefix.
-        ("other/bib/Gen.json", _work("other/bib/gen", "other/bib", "scripture")),
-        # A 'scripture/' path whose work is not scripture.
-        ("scripture/notes/x.json", _work("scripture/notes/x", "scripture/notes", "patristic")),
+        ("src-a/hom.json", _work("src-a/hom", "src-a", "patristic")),
+        ("src-b/canons.json", _work("src-b/canons", "src-b", "council")),
+        ("bib/Gen.json", _work("bib/gen", "bib", "scripture")),
+        # A non-scripture work from a Bible source (cf. gez/clem, #74).
+        ("bib/notes.json", _work("bib/notes", "bib", "patristic")),
     ])
     return _load_work_records(data_dir)
 
@@ -92,8 +89,8 @@ class TestChunkCountReport:
             _chunk("src-a/hom", "Hom.1", 0, "cop"),
             _chunk("src-a/hom", "Hom.2", 1, "cop"),
             _chunk("src-b/canons", "Can.1"),
-            _chunk("other/bib/gen", "Gen.1.1", 0, "hbo"),
-            _chunk("scripture/notes/x", "X.1"),
+            _chunk("bib/gen", "Gen.1.1", 0, "hbo"),
+            _chunk("bib/notes", "X.1"),
         ]
         report = _chunk_count_report(chunks, records)
         assert report["by_genre"] == {"patristic": 3, "council": 1, "scripture": 1}
@@ -124,22 +121,22 @@ class TestWorksManifestCheck:
 class TestScriptureByGenre:
     def test_scripture_ref_check_uses_genre(self, records: dict[str, dict]):
         chunks = [
-            # Scripture work under a non-'scripture/' prefix: strict ref check applies.
-            _chunk("other/bib/gen", "NotABook.1.1"),
-            # Non-scripture work under 'scripture/': prose rules apply.
-            _chunk("scripture/notes/x", "X.1"),
+            # Scripture work: strict ref check applies.
+            _chunk("bib/gen", "NotABook.1.1"),
+            # Non-scripture work from the same source: prose rules apply.
+            _chunk("bib/notes", "X.1"),
         ]
         result = _check_canonical_refs(chunks, records)
         assert result["scripture_ref_malformed"]["examples"] == [
-            "other/bib/gen#NotABook.1.1 ('NotABook.1.1')"
+            "bib/gen#NotABook.1.1 ('NotABook.1.1')"
         ]
         assert result["prose_ref_malformed"]["status"] == "pass"
 
     def test_coverage_uses_genre(self, records: dict[str, dict]):
         coverage = _check_scripture_coverage(
-            records, [_chunk("other/bib/gen", "Gen.1.1"), _chunk("scripture/notes/x", "X.1.1")]
+            records, [_chunk("bib/gen", "Gen.1.1"), _chunk("bib/notes", "X.1.1")]
         )
-        assert list(coverage["coverage_by_source"]) == ["other/bib"]
+        assert list(coverage["coverage_by_source"]) == ["bib"]
         assert coverage["sources_with_zero_chunks"] == []
 
 
@@ -185,7 +182,7 @@ class TestWorksFromManifest:
         assert result["bad_translation_of"]["examples"] == ["x/bad → missing/w"]
 
     def test_load_chunks_skips_underscore_files(self, tmp_path: Path):
-        norm = tmp_path / "normalized" / "patristic" / "src"
+        norm = tmp_path / "normalized" / "src"
         norm.mkdir(parents=True)
         (norm / "w.json").write_text(json.dumps([_chunk("src/w", "W.1")]), encoding="utf-8")
         (tmp_path / "normalized" / "_stale.json").write_text("{}", encoding="utf-8")
@@ -212,9 +209,9 @@ class TestMain:
 
     def test_runs_from_manifest_alone(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
         _write_manifest(tmp_path, [
-            ("patristic/src/w.json", _work("src/w", "patristic/src", "patristic")),
+            ("src/w.json", _work("src/w", "src", "patristic")),
         ])
-        self._write_work(tmp_path, "patristic/src/w.json", [
+        self._write_work(tmp_path, "src/w.json", [
             _chunk("src/w", "W.1", 0), _chunk("src/w", "W.2", 1),
         ])
         code, report = self._run(tmp_path, monkeypatch)
@@ -228,11 +225,11 @@ class TestMain:
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ):
         _write_manifest(tmp_path, [
-            ("patristic/a/w.json", _work("src/w", "patristic/a", "patristic")),
-            ("patristic/b/w.json", _work("src/w", "patristic/b", "patristic")),
+            ("a/w.json", _work("src/w", "a", "patristic")),
+            ("b/w.json", _work("src/w", "b", "patristic")),
         ])
-        self._write_work(tmp_path, "patristic/a/w.json", [_chunk("src/w", "W.1")])
-        self._write_work(tmp_path, "patristic/b/o.json", [_chunk("src/orphan", "O.1")])
+        self._write_work(tmp_path, "a/w.json", [_chunk("src/w", "W.1")])
+        self._write_work(tmp_path, "b/o.json", [_chunk("src/orphan", "O.1")])
         code, report = self._run(tmp_path, monkeypatch)
         assert code == 1
         xref = report["checks"]["cross_references"]

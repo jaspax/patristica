@@ -17,18 +17,13 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from scripts.migrate_layout import full_new_path, locate
-
-
-_LEGACY_GENRE_DIRS = frozenset({"scripture", "patristic", "liturgical", "councils"})
-
 
 def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     """Return {source_id: file_count} for *directory*.
 
-    Handles two-level source IDs stored as nested directories
-    (e.g. ``data/raw/scripture/oshb/`` → source_id ``"scripture/oshb"``).
-    Skips ``_zips``, ``_csvs``, and other cache directories.
+    Each top-level directory is one source (``data/raw/oshb/`` → source_id
+    ``"oshb"``).  Skips ``_zips``, ``_csvs``, and other cache directories, and
+    files under ``_``-prefixed subdirectories (``ogpg/_extract``).
     """
     counts: dict[str, int] = {}
     if not directory.exists():
@@ -37,23 +32,13 @@ def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     for child in sorted(directory.iterdir()):
         if not child.is_dir() or child.name.startswith("_"):
             continue
-        # Two-level nesting (e.g. scripture/oshb) only for the pre-#102 genre
-        # directories; a migrated source is one directory (anf-works/anf01/… is
-        # all anf-works).  Transitional until every source is migrated.
-        sub_dirs = [d for d in child.iterdir() if d.is_dir() and not d.name.startswith("_")]
-        if child.name in _LEGACY_GENRE_DIRS and sub_dirs:
-            for sub in sorted(sub_dirs):
-                # Keyed by the new directory, so raw and normalized line up
-                # while only one of them has moved.
-                source_id = full_new_path(f"{child.name}/{sub.name}")
-                n = sum(1 for f in sub.rglob(f"*{suffix}") if f.is_file())
-                if n:
-                    counts[source_id] = n
-        else:
-            source_id = child.name
-            n = sum(1 for f in child.rglob(f"*{suffix}") if f.is_file())
-            if n:
-                counts[source_id] = n
+        n = sum(
+            1
+            for f in child.rglob(f"*{suffix}")
+            if f.is_file() and not any(p.startswith("_") for p in f.relative_to(child).parts)
+        )
+        if n:
+            counts[child.name] = n
 
     return counts
 
@@ -63,9 +48,7 @@ def last_run_time(raw_dir: Path, source_id: str) -> datetime | None:
 
     Returns None if no files are found.
     """
-    # source_id may be "scripture/oshb" → path is raw_dir/scripture/oshb/
-    # (transitional, #102: or the other layout's directory for it)
-    source_path = raw_dir / locate(source_id, raw_dir)
+    source_path = raw_dir / source_id
     if not source_path.exists():
         return None
     json_files = list(source_path.rglob("*.json"))

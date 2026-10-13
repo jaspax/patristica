@@ -72,7 +72,7 @@ from scripts.ingest import _ogpg_volumes as pgv
 log = logging.getLogger(__name__)
 
 
-SOURCE_ID = "patristic/ogpg"
+SOURCE_ID = "ogpg"
 _GITHUB_ORG = "OGL-PatrologiaGraecaDev"
 _BASE_URL = f"https://github.com/{_GITHUB_ORG}"
 _API_BASE = "https://api.github.com"
@@ -980,14 +980,14 @@ def ingest(output_dir: Path, force: bool = False, only: list[str] | None = None)
 
     ``output_dir`` is the raw data root (typically ``data/raw``).
     Clones are stored under ``output_dir/_repos/ogpg/{repo_name}/``; per-volume
-    extractions under ``output_dir/patristic/ogpg/_extract/``; work files under
-    ``output_dir/patristic/ogpg/`` (``vol-NNN.json`` for an unsplit volume,
+    extractions under ``output_dir/ogpg/_extract/``; work files under
+    ``output_dir/ogpg/`` (``vol-NNN.json`` for an unsplit volume,
     ``vol-NNN/{slug}.json`` for the works of a split one).
     ``only`` restricts processing (and pruning) to the named repos.
     Edits to ``ogpg_index.csv`` are applied by a plain run, from the cached
     extractions.
     """
-    ogpg_dir = output_dir / "patristic" / "ogpg"
+    ogpg_dir = output_dir / "ogpg"
     ogpg_dir.mkdir(parents=True, exist_ok=True)
 
     repos_dir = output_dir / "_repos" / "ogpg"

@@ -13,7 +13,7 @@ Usage
     python -m scripts.lookup --list-sections Gen --lang hbo
     python -m scripts.lookup --list-works
     python -m scripts.lookup --list-works --lang grc
-    python -m scripts.lookup --list-works --source-id scripture/sblgnt
+    python -m scripts.lookup --list-works --source-id sblgnt
 """
 
 from __future__ import annotations
@@ -131,7 +131,7 @@ def _main() -> None:
         "--source-id",
         default=None,
         metavar="SOURCE_ID",
-        help='Restrict to a specific source (e.g. "scripture/kjv")',
+        help='Restrict to a specific source (e.g. "kjv")',
     )
     parser.add_argument(
         "--list-sections",
