@@ -121,6 +121,12 @@ export const SPLIT_OGPG_VOLUMES: readonly string[] = [
   "vol-110",
   "vol-112",
   "vol-113",
+  "vol-114",
+  "vol-115",
+  "vol-116",
+  "vol-117",
+  "vol-118",
+  "vol-120",
 ];
 
 export interface PermanentRedirect {
