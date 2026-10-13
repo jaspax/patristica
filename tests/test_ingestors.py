@@ -468,3 +468,30 @@ class TestLinkTranslations:
         from patristica.versification import VersificationError
         with pytest.raises(VersificationError):
             link_scripture_translations([self._chunk("scripture/nope/gen", "Gen.1.1", "eng", 0)])
+
+    def test_link_all_selects_works_by_genre(self, tmp_path: Path):
+        """Only works whose Work.genre is scripture are linked, wherever their
+        files are (#74, #102): a patristic work from a Bible source keeps None."""
+        from scripts.link_translations import link_all
+
+        chunks_dir = tmp_path / "chunks"
+        files = {
+            "oshb/Gen.json": ("scripture/oshb", "scripture",
+                              self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0)),
+            "scripture/kjv/Gen.json": ("scripture/kjv", "scripture",
+                                       self._chunk("scripture/kjv/gen", "Gen.1.1", "eng", 0)),
+            "gez/clem.json": ("scripture/gez", "patristic",
+                              self._chunk("scripture/gez/clem", "Gen.1.1", "gez", 0)),
+        }
+        lines = []
+        for rel, (source, genre, chunk) in files.items():
+            (chunks_dir / rel).parent.mkdir(parents=True, exist_ok=True)
+            (chunks_dir / rel).write_text(json.dumps([chunk.model_dump()]))
+            lines.append(json.dumps({"path": rel, "work": {"genre": genre, "source_id": source}}))
+        works = tmp_path / "_works.jsonl"
+        works.write_text("\n".join(lines) + "\n")
+
+        assert link_all(chunks_dir, works) == 2
+        group = lambda rel: json.loads((chunks_dir / rel).read_text())[0]["translation_group_id"]
+        assert group("oshb/Gen.json") == group("scripture/kjv/Gen.json") == "Gen.1.1"
+        assert group("gez/clem.json") is None

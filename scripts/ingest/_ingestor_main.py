@@ -46,5 +46,13 @@ def ingestor_main(
     )
     args = parser.parse_args()
 
+    # Transitional (#102): refuse to write a second copy next to old-layout raw data.
+    from scripts.migrate_layout import MigrationError, check_raw_layout
+
+    try:
+        check_raw_layout(Path(args.output_dir))
+    except MigrationError as exc:
+        parser.error(str(exc))
+
     works = ingest_fn(Path(args.output_dir), force=args.force)
     print(f"{source_id}: {len(works)} works written to {args.output_dir}")

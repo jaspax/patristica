@@ -132,6 +132,14 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Transitional (#102): refuse to write a second copy next to old-layout raw data.
+    from scripts.migrate_layout import MigrationError, check_raw_layout
+
+    try:
+        check_raw_layout(output_dir)
+    except MigrationError as exc:
+        parser.error(str(exc))
+
     if args.source:
         works = run_one(args.source, output_dir, force=args.force)
         print(f"Ingestion complete. {len(works)} works from {args.source}.")

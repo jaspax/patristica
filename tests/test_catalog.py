@@ -54,7 +54,7 @@ class TestCountFiles:
         (sub / "Gen.json").write_text("{}")
         (sub / "Exod.json").write_text("{}")
         result = count_files(tmp_path)
-        assert result == {"scripture/oshb": 2}
+        assert result == {"oshb": 2}  # keyed by the post-#102 directory
 
 
 class TestBuildCatalog:
