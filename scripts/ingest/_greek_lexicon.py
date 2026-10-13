@@ -13,10 +13,10 @@ normalises OCR tokens.
 Sources (``data/normalized``, language ``grc`` only):
 
 * ``patristic/first1k``  — First1KGreek (CC-BY-SA 4.0)
-* ``patristic/pta``      — Patristic Text Archive (CC-BY-SA 4.0)
-* ``patristic/perseus``  — Perseus canonical-greekLit (CC-BY-SA 4.0)
-* ``scripture/sblgnt``   — SBL Greek New Testament (CC-BY 4.0)
-* ``scripture/pta-lxx``  — PTA Septuagint (CC-BY-SA 4.0)
+* ``pta``      — Patristic Text Archive (CC-BY-SA 4.0)
+* ``perseus``  — Perseus canonical-greekLit (CC-BY-SA 4.0)
+* ``sblgnt``   — SBL Greek New Testament (CC-BY 4.0)
+* ``pta-lxx``  — PTA Septuagint (CC-BY-SA 4.0)
 
 Rahlfs LXX (CC-BY-NC-SA) is deliberately excluded so the derived list carries
 no non-commercial restriction.  ``patristic/ogpg`` (the OCR being scored) is of
@@ -57,10 +57,10 @@ DEFAULT_NORMALIZED_DIR = _REPO_ROOT / "data" / "normalized"
 
 LEXICON_SOURCES: tuple[str, ...] = (
     "patristic/first1k",
-    "patristic/pta",
-    "patristic/perseus",
-    "scripture/sblgnt",
-    "scripture/pta-lxx",
+    "pta",
+    "perseus",
+    "sblgnt",
+    "pta-lxx",
 )
 
 # Forms seen fewer times than this in the clean corpus are not trusted:

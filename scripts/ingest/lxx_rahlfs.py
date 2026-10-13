@@ -33,7 +33,7 @@ from scripts.ingest._scripture_meta import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/lxx-rahlfs"
+SOURCE_ID = "lxx-rahlfs"
 REPO_ZIP_URL = (
     "https://github.com/eliranwong/LXX-Rahlfs-1935/archive/refs/heads/master.zip"
 )

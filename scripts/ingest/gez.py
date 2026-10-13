@@ -36,7 +36,7 @@ from scripts.ingest._scripture_meta import BOOK_DATES, BOOK_TITLE
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/gez"
+SOURCE_ID = "gez"
 
 _REPO_URL = "https://github.com/LPettay/ethiopian-bible.git"
 # Books classified as patristic or liturgical rather than scripture
@@ -93,7 +93,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """
     Clone/update the LPettay/ethiopian-bible repo and extract Ge'ez verse text.
 
-    Writes one JSON file per book to ``output_dir/scripture/gez/``.
+    Writes one JSON file per book to ``output_dir/gez/``.
     Returns list of Work metadata records.
     """
     repo_dir = output_dir / "_repos" / "ethiopian-bible"
@@ -106,7 +106,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     books: list[dict] = json.loads(books_json.read_text(encoding="utf-8"))
     chapters_dir = repo_dir / "public" / "data" / "chapters"
 
-    dest_dir = output_dir / "scripture" / "gez"
+    dest_dir = output_dir / "gez"
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     works: list[Work] = []
@@ -139,7 +139,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         geez_name: str = book.get("geez_name") or book.get("geez") or ""
 
         work = Work(
-            work_id=f"scripture/gez/{abbrev.lower()}",
+            work_id=f"{SOURCE_ID}/{abbrev.lower()}",
             source_id=SOURCE_ID,
             title=title,
             author=None,

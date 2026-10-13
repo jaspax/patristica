@@ -13,7 +13,7 @@ from pathlib import Path
 from patristica.models import Work
 from scripts.ingest._ebible_usfm import ingest_ebible_usfm
 
-SOURCE_ID = "scripture/web"
+SOURCE_ID = "web"
 ZIP_URL = "https://ebible.org/Scriptures/engwebp_usfm.zip"
 
 

@@ -14,7 +14,7 @@ from pathlib import Path
 from patristica.models import Work
 from scripts.ingest._scrollmapper import ingest_scrollmapper
 
-SOURCE_ID = "scripture/coptic-nt"
+SOURCE_ID = "coptic-nt"
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:

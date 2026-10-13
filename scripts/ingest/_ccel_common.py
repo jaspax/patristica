@@ -500,7 +500,7 @@ _ANF_NON_TEXT: dict[str, dict[str, str]] = {
     },
 }
 for _vol, _ids in _ANF_WORKS_DIVS.items():
-    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/anf-works"))
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "anf-works"))
 for _reason, _per_vol in _ANF_NON_TEXT.items():
     for _vol, _ids in _per_vol.items():
         EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), f"non-text: {_reason}"))
@@ -745,7 +745,7 @@ _NPNF_NON_TEXT: dict[str, dict[str, str]] = {
     },
 }
 for _vol, _ids in _NPNF_WORKS_DIVS.items():
-    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/npnf-works"))
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "npnf-works"))
 for _reason, _per_vol in _NPNF_NON_TEXT.items():
     for _vol, _ids in _per_vol.items():
         for _id in _ids.split():

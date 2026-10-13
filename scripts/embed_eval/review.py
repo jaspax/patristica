@@ -43,6 +43,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from scripts.embed_eval.translate import LANGUAGE_NAMES, Clients, cost
+from scripts.migrate_layout import new_chunk_id, new_work_id
 
 log = logging.getLogger(__name__)
 
@@ -112,19 +113,22 @@ class Review(BaseModel):
 # --- inputs ---------------------------------------------------------------------
 
 def load_corpus(eval_dir: Path) -> dict[str, dict]:
-    return {c["chunk_id"]: c for c in map(json.loads, (eval_dir / "corpus.jsonl").open())}
+    """The eval corpus by chunk id, with ids in the current form (#102).
+
+    A local corpus built before #102 (or #69) has genre-prefixed ids; they are
+    migrated on load, so it matches the authored queries.
+    """
+    corpus = {}
+    for c in map(json.loads, (eval_dir / "corpus.jsonl").open()):
+        c = {**c, "chunk_id": new_chunk_id(c["chunk_id"]), "work_id": new_work_id(c["work_id"])}
+        corpus[c["chunk_id"]] = c
+    return corpus
 
 
 def resolve(chunk_id: str, corpus: dict[str, dict]) -> str | None:
-    """Map a drafted target id onto the local eval corpus.
-
-    The local corpus may predate the Coptic Scriptorium move from liturgical/
-    to patristic/ (#69); the chunk is the same, only the id prefix changed.
-    """
-    if chunk_id in corpus:
-        return chunk_id
-    old = chunk_id.replace("patristic/coptic-scriptorium/", "liturgical/coptic-scriptorium/")
-    return old if old in corpus else None
+    """Map a target id onto the eval corpus (``load_corpus``), migrating old ids."""
+    chunk_id = new_chunk_id(chunk_id)
+    return chunk_id if chunk_id in corpus else None
 
 
 def load_drafted(authored_dir: Path) -> list[dict]:
@@ -148,7 +152,7 @@ def targets(authored_dir: Path, corpus: dict[str, dict]) -> list[dict]:
         t = by_target.setdefault(q["target_chunk_id"], {
             "target_chunk_id": q["target_chunk_id"], "language": c["language"],
             "origin": q["origin"], "text": c["text"],
-            "references": {e["work_id"].split("/")[1]: e["text"]
+            "references": {e["work_id"].split("/")[0]: e["text"]
                            for e in eng.get(c.get("translation_group_id") or "", [])},
         })
         t[q["mode"]] = q["text"]

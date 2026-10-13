@@ -39,7 +39,7 @@ from scripts.ingest._scripture_meta import BOOK_DATES, BOOK_TITLE
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/armenian"
+SOURCE_ID = "armenian"
 
 _BASE_URL = "https://arak29.org/bible/book/"
 
@@ -321,7 +321,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     reused on subsequent runs unless ``force=True``.
     """
     cache_dir = output_dir / "_cache" / "arak29"
-    dest_dir = output_dir / "scripture" / "armenian"
+    dest_dir = output_dir / "armenian"
     dest_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
 
@@ -341,7 +341,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             dm = _date_meta(osis_abbrev)
 
             work = Work(
-                work_id=f"scripture/armenian/{osis_abbrev.lower()}",
+                work_id=f"{SOURCE_ID}/{osis_abbrev.lower()}",
                 source_id=SOURCE_ID,
                 title=title,
                 author=None,

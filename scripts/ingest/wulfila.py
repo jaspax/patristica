@@ -40,7 +40,7 @@ from scripts.ingest._scripture_meta import BOOK_TITLE, book_work_id
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/wulfila"
+SOURCE_ID = "wulfila"
 TEI_URL = "https://www.wulfila.be/gothic/text/gotica.xml"
 
 _TEI_NS = "http://www.tei-c.org/ns/1.0"

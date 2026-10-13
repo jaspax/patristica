@@ -12,7 +12,7 @@ from pathlib import Path
 from patristica.models import Work
 from scripts.ingest._scrollmapper import ingest_scrollmapper
 
-SOURCE_ID = "scripture/asv"
+SOURCE_ID = "asv"
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:

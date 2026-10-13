@@ -2,7 +2,7 @@
 Ingestor for the Syriac Peshitta from the Patristic Text Archive (PTA).
 
 Source: pta9999 Bible group in github.com/PatristicTextArchive/pta_data
-        (already cloned by ``pta.py`` into ``data/raw/patristic/pta/``)
+        (already cloned by ``pta.py`` into ``data/raw/pta/``)
 Language: Syriac (``syc``)
 Format: TEI P5 XML with verse-level structure:
     <div type="textpart" subtype="chapter" n="1">
@@ -20,7 +20,7 @@ Coverage:
     the Syriac tradition: Prayer of Manasseh (B), 3 Esdras, 4 Esdras,
     Letter of Baruch, Apocalypse of Baruch (2 Baruch), Psalms of Solomon.
 
-The PTA repo must already exist at ``data/raw/patristic/pta/``
+The PTA repo must already exist at ``data/raw/pta/``
 (cloned by the ``pta.py`` ingestor or manually).  This ingestor does NOT
 re-clone; it only reads from the existing checkout.
 """
@@ -41,7 +41,7 @@ from scripts.ingest._scripture_meta import BOOK_DATES
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/pta-peshitta"
+SOURCE_ID = "pta-peshitta"
 
 _TEI = "http://www.tei-c.org/ns/1.0"
 
@@ -222,21 +222,21 @@ def _book_dates(osis: str) -> tuple[int | None, tuple[int, int] | None, DateConf
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """Ingest Syriac Peshitta from the PTA git clone.
 
-    Reads from ``data/raw/patristic/pta/data/pta9999/``.
-    Writes to ``output_dir/scripture/pta-peshitta/{BookAbbrev}.json``.
+    Reads from ``data/raw/pta/data/pta9999/``.
+    Writes to ``output_dir/pta-peshitta/{BookAbbrev}.json``.
 
     The PTA repo must already be cloned (``pta.py`` handles the clone).
     """
-    repo_dir = output_dir / "patristic" / "pta"
+    repo_dir = output_dir / "pta"
     pta9999_dir = repo_dir / "data" / "pta9999"
 
     if not pta9999_dir.exists():
         raise FileNotFoundError(
             f"PTA repo not found at {repo_dir}. "
-            "Run the patristic/pta ingestor first to clone the repo."
+            "Run the pta ingestor first to clone the repo."
         )
 
-    out_base = output_dir / "scripture" / "pta-peshitta"
+    out_base = output_dir / "pta-peshitta"
     out_base.mkdir(parents=True, exist_ok=True)
 
     works: list[Work] = []
@@ -286,7 +286,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         date_composed, date_range, date_confidence = _book_dates(osis_abbrev)
 
         work = Work(
-            work_id=f"scripture/pta-peshitta/{osis_abbrev.lower()}",
+            work_id=f"{SOURCE_ID}/{osis_abbrev.lower()}",
             source_id=SOURCE_ID,
             author=None,
             title=f"{title} (Peshitta)",

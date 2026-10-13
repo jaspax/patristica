@@ -362,6 +362,6 @@ def book_abbrev(name: str) -> str | None:
 def book_work_id(source_id: str, abbrev: str) -> str:
     """Return the work_id slug for a given source and book abbreviation.
 
-    E.g. ``book_work_id("scripture/oshb", "Gen")`` → ``"scripture/oshb/gen"``.
+    E.g. ``book_work_id("oshb", "Gen")`` → ``"oshb/gen"``.
     """
     return f"{source_id}/{abbrev.lower()}"
