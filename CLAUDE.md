@@ -255,6 +255,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 - All work items live in **GitHub issues** on `jaspax/patristica` (`gh issue list`). Do **not** add checklists or TODO lists to the plan docs or other text files; open an issue instead (`gh issue create`), and link to it from the doc if the doc needs to mention it (`#12`).
 - Label issues by area: `phase-1: data`, `phase-2: database`, `phase-3: web`, `data-quality`, `ocr`, `infra` (plus GitHub's `bug` / `enhancement` / `documentation`).
+- Also label language-specific issues by language: `lang: greek`, `lang: latin`, `lang: hebrew`, `lang: syriac`, `lang: coptic`, `lang: geez`, `lang: armenian`, `lang: arabic`, `lang: slavonic`, `lang: gothic` (filter with `gh issue list --label "lang: geez"`). Give a multi-language issue every relevant language label, and leave general issues (pipeline, web, cross-language linking) without one. There is no `lang: english`: English is the general translation language, so tag the original language instead. `lang: arabic` and `lang: slavonic` exist before the corpus has any such text, so planned work can be filtered. Add a new `lang:` label when a new language enters the corpus.
 - If you discover a bug, gap or follow-up while working on something else, file an issue rather than widening the current change.
 - The milestone checklists in `DATA_COLLECTION_PLAN.md` §10 are a frozen historical record of Phase 1; don't add new items there.
 
