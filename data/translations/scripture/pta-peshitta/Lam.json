@@ -1,0 +1,79 @@
+{
+  "work_id": "scripture/pta-peshitta/lam",
+  "source_path": "scripture/pta-peshitta/Lam.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.1.2",
+      "source_sha256": "596b51b217395149",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "She wept in the night, and her tears ran down her cheeks. She has no comforter among all her lovers. All her friends betrayed her and became her enemies."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.1.13",
+      "source_sha256": "434d913ceac94a0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "From on high he sent fire into my bones and brought me down. He spread a net for my feet and turned me back. He left me desolate, and I am sick all day long."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.2.15",
+      "source_sha256": "c399450e2fa56036",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "All who pass along the road clap their hands at you. They hiss and shake their heads at the daughter of Jerusalem and say, “Is this the city they called perfect in beauty and the joy of the whole earth?”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.3.17",
+      "source_sha256": "5f79801cb94ed9d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "My soul has been made to forget peace, and I have forgotten good things."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.3.31",
+      "source_sha256": "02ad860559cdb7c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "For the Lord will not neglect forever."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.3.48",
+      "source_sha256": "b4df82a6efc211ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "My eyes poured out drops of water over the destruction of the daughter of my people."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.3.61",
+      "source_sha256": "7503c1b6062ced08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "You have heard their insults, Lord, and everything they plotted against me."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.4.20",
+      "source_sha256": "8aa70904282fc9b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "The breath of our nostrils, the Lord’s anointed, was caught in their pit—the one of whom we said, “In his shadow we will live among the nations.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/lam#Lam.5.5",
+      "source_sha256": "fee979886854625f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "We were pursued, with our pursuers at our necks; we grew weary and had no rest."
+    }
+  ]
+}

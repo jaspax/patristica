@@ -1,0 +1,37 @@
+{
+  "work_id": "scripture/armenian/phlm",
+  "source_path": "scripture/armenian/phlm.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/phlm#Phlm.1.8",
+      "source_sha256": "11b3ead257e42f4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "Therefore I have great boldness in Christ to command you to do what is right."
+    },
+    {
+      "chunk_id": "scripture/armenian/phlm#Phlm.1.20",
+      "source_sha256": "dee7099bc14b2f8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "Yes, brother, let me have this benefit from you in the Lord; refresh my heart in Christ."
+    },
+    {
+      "chunk_id": "scripture/armenian/phlm#Phlm.1.24",
+      "source_sha256": "6111657e2f615700",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "And Mark, Aristarchus, Demas, and Luke, my fellow workers."
+    }
+  ]
+}

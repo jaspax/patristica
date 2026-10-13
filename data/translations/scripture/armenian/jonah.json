@@ -1,0 +1,30 @@
+{
+  "work_id": "scripture/armenian/jonah",
+  "source_path": "scripture/armenian/jonah.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/jonah#Jonah.3.1",
+      "source_sha256": "75977acb40ab28f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "And the word of the Lord came to Jonah a second time, saying:"
+    },
+    {
+      "chunk_id": "scripture/armenian/jonah#Jonah.4.11",
+      "source_sha256": "80313d154edd9153",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Should I not spare Nineveh, the great city, in which live more than 120,000 people who do not know their right hand from their left, and many animals?"
+    }
+  ]
+}

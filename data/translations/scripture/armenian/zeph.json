@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/armenian/zeph",
+  "source_path": "scripture/armenian/zeph.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.1.2",
+      "source_sha256": "0b3e81815eb262c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Everything will utterly disappear from the face of the earth, says the Lord."
+    },
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.1.16",
+      "source_sha256": "463b613f90cf663a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "A day of trumpet blasts and shouting against fortified cities and against high corner towers."
+    },
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.2.3",
+      "source_sha256": "80dbcd88d5e62c41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Seek the Lord, all you humble people of the earth. Do justice, seek righteousness, and give them an answer, so that you may be hidden on the day of the Lord’s anger."
+    },
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.2.5",
+      "source_sha256": "229f1cb19810e179",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Woe to you who live in the coastal regions, inhabitants of Crete! The word of the Lord is against you, Canaan, land of the Philistines, and I will destroy you from your dwelling place."
+    },
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.2.8",
+      "source_sha256": "b46f6ac0001bba44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "I have heard the insults of Moab and the taunts of the children of Ammon, with which they insulted my people and boasted against my borders."
+    },
+    {
+      "chunk_id": "scripture/armenian/zeph#Zeph.3.3",
+      "source_sha256": "eec8de7f67f68d5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Her rulers will roar like lions, and her judges are like the wolves of Arabia, which leave nothing for the morning."
+    }
+  ]
+}

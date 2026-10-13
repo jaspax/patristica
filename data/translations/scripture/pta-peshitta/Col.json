@@ -1,0 +1,65 @@
+{
+  "work_id": "scripture/pta-peshitta/col",
+  "source_path": "scripture/pta-peshitta/Col.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.1.20",
+      "source_sha256": "031c0d0707917909",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And through him to reconcile everything to himself, making peace through the blood of his cross—through him—whether things on earth or things in heaven."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.1.24",
+      "source_sha256": "cdf67b2cbcd744cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And I rejoice in my sufferings for you, and in my flesh I fill up what is lacking in Christ’s afflictions, for the sake of his body, which is the church."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.1.25",
+      "source_sha256": "8b1c9506fa418c20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "I became its servant according to the stewardship from God that was given to me among you, to fulfill the word of God."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.2.1",
+      "source_sha256": "2dd402618cf3cf27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "But I want you to know what a struggle I have for you, for those in Laodicea, and for all the others who have not seen my face in person."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.2.13",
+      "source_sha256": "b838344a748b2048",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And you, who were dead in your sins and in the uncircumcision of your flesh, he made alive with him, and he forgave us all our sins."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.3.13",
+      "source_sha256": "c9bef707817ba425",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And bear with one another and forgive one another. If anyone has a complaint against another, forgive just as Christ forgave you."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/col#Col.4.11",
+      "source_sha256": "f9afb57ed616e136",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And Jesus, who is called Justus. These are of the circumcision, and they alone helped me in the kingdom of God, and they have been a comfort to me."
+    }
+  ]
+}

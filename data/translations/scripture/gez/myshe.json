@@ -1,0 +1,23 @@
+{
+  "work_id": "scripture/gez/myshe",
+  "source_path": "scripture/gez/myshe.json",
+  "source_language": "gez",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/gez/myshe#MysHE.3.1",
+      "source_sha256": "4258d34a2af8db00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 1,
+      "text": "The power and wonders that God showed to Saint Peter\n\nIn the name of the Father, let us begin to write of the power and wonders that God showed to blessed Peter, chief of the apostles, herald of the kingdom of heaven, the steward to whom his Master entrusted the keys of righteousness, so that he might unlock and open, and refuse whatever he wished to anyone unworthy, in righteousness and uprightness. And again, for anyone unworthy, he was to shut the gate of the kingdom of the heaven of heavens in his face."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/pta-peshitta/ruth",
+  "source_path": "scripture/pta-peshitta/Ruth.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.1.15",
+      "source_sha256": "4fe35c8644e4dde7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Her mother-in-law said to her, “Look, your sister-in-law has returned to her people and to her family’s home. You too should return after your sister-in-law.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.2.12",
+      "source_sha256": "4e262b19f6fa998f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "“May the Lord, the God of Israel, repay you and give you your reward, since you have come to take refuge under his wings.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.3.9",
+      "source_sha256": "1d0f40507ca5d072",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "He said to her, “What is your situation?” She said to him, “I am Ruth, your servant. But cover your servant with the edge of your cloak, because you are the one entitled to redeem the inheritance.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.4.2",
+      "source_sha256": "99adc5a92046ed51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "He chose ten men from the elders of the town and seated them beside him."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.4.4",
+      "source_sha256": "0ed7d6d8c36716d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "“I decided to disclose this and let you know, and to tell you: Buy it in the presence of these people sitting here. I am the one who has presented myself to speak and to buy in the presence of these elders of my people who are sitting here. Now, if you will redeem it, redeem it. If you will not redeem it, tell me, so that I may know that you are not acting as the redeemer, and I will redeem it.” He said, “I will redeem it.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/ruth#Ruth.4.6",
+      "source_sha256": "1e8da257171ae6ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "The redeemer said, “I cannot redeem it, lest I ruin my inheritance. You redeem it, because of the shortcomings of my own faithfulness, since I cannot redeem it.”"
+    }
+  ]
+}

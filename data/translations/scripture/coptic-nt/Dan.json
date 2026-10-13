@@ -1,0 +1,72 @@
+{
+  "work_id": "scripture/coptic-nt/dan",
+  "source_path": "scripture/coptic-nt/Dan.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.3.31",
+      "source_sha256": "aa8d44ec0f94c10d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "You handed us over to lawless enemies, apostates, and to a king who is oppressive and more wicked than anyone on the whole earth."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.3.63",
+      "source_sha256": "611a5dcd492838e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Stars of heaven, bless the Lord; bless him and exalt him forever. …"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.7.12",
+      "source_sha256": "e773faa7fb590d1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "And the rule and authority of the beasts were brought to an end, but they were granted life for a time and a season."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.9.11",
+      "source_sha256": "26acb4548577286d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "And all [?] transgressed your law and turned away, refusing to listen to your voice. The curse and the oath written in the law of Moses, the servant of God, came down upon us because we sinned against him."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.9.16",
+      "source_sha256": "34cb9dc8253eee63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Lord, in all your mercy, let your anger and your wrath turn away from [?], your holy mountain. For we have sinned, and because of our wrongdoing and that of our ancestors, Jerusalem and your people have become an object of reproach among all those around us."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.9.19",
+      "source_sha256": "c41d4f2fb33d9975",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Hear us, Lord! Forgive us, Lord! Pay attention, Lord! Act for your own sake, and do not delay, my God, because your name has been proclaimed over your city and over your people."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.9.23",
+      "source_sha256": "8af7bb06c94f09c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "At the beginning of your plea, the word went out, and I have come to tell you, because you are a dearly loved man. Consider the word and understand the revelation."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/dan#Dan.10.8",
+      "source_sha256": "0610e1c110d3f9d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But I was left alone and saw this great revelation. No strength remained in me; my glory [?] turned to ruin, and I could not retain any strength."
+    }
+  ]
+}

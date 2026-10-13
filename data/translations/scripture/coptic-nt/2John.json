@@ -1,0 +1,23 @@
+{
+  "work_id": "scripture/coptic-nt/2john",
+  "source_path": "scripture/coptic-nt/2John.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/2john#2John.1.11",
+      "source_sha256": "863e460baff153da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 1,
+      "text": "Whoever says to him, “Greetings,” shares in his evil deeds."
+    }
+  ]
+}

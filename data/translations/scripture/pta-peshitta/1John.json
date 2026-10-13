@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/pta-peshitta/1john",
+  "source_path": "scripture/pta-peshitta/1John.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.1.7",
+      "source_sha256": "bae6fe4c591bd08e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus his Son cleanses us from all our sins."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.2.2",
+      "source_sha256": "09eef727bc2a2e9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "For he is the atonement for our sins, and not for us alone, but also for the whole world."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.2.10",
+      "source_sha256": "692d359078ca5c4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "But whoever loves his brother remains in the light, and there is no cause of stumbling in him."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.2.28",
+      "source_sha256": "d12a62453f28879f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And now, my children, remain in him, so that when he is revealed, we will not be ashamed before him, but will have confidence at his coming."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.3.14",
+      "source_sha256": "6144372c920bbaf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "We know that we have passed from death to life because we love our brothers. Whoever does not love his brother remains in death."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/1john#1John.4.3",
+      "source_sha256": "17febc022fd055c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And every spirit that does not acknowledge that Jesus has come in the flesh is not from God. Rather, this is from the Antichrist, whom you have heard is coming, and who is already in the world now."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "work_id": "scripture/gez/testld",
+  "source_path": "scripture/gez/testld.json",
+  "source_language": "gez",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.7.1",
+      "source_sha256": "085eebaf782a14dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 7: Our Lord’s discourse to his disciples"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.14.1",
+      "source_sha256": "0e614a931e70d5aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 14: That he should teach in the church"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.17.1",
+      "source_sha256": "d04fc193a9be270c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 17: Prayers of the faithful during and after receiving"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.22.1",
+      "source_sha256": "04de6c2d633d46a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 22: Teaching on the mysteries"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.25.1",
+      "source_sha256": "4439e4f59979fcd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 25: That a priest should devote himself to the altar and prayer"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.39.1",
+      "source_sha256": "e232b5977104003a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 39: Ordination of a subdeacon"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.40.1",
+      "source_sha256": "d308aa453beaa40e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 40: Ordination of a reader"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.55.1",
+      "source_sha256": "cd02dc76385f0cc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 55: On the fruits that are offered"
+    },
+    {
+      "chunk_id": "scripture/gez/testld#TestLd.60.1",
+      "source_sha256": "6c719b0704014efb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 9,
+      "text": "Chapter 60: On the faithful receiving the Holy Eucharist"
+    }
+  ]
+}

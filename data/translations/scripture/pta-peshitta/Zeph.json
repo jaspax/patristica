@@ -1,0 +1,51 @@
+{
+  "work_id": "scripture/pta-peshitta/zeph",
+  "source_path": "scripture/pta-peshitta/Zeph.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/zeph#Zeph.1.16",
+      "source_sha256": "a7f1fe8fb79ee635",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "It is a day of the horn and the battle cry against fortified cities and high towers."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/zeph#Zeph.2.8",
+      "source_sha256": "e2c353fd00533eab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "I have heard the insults of Moab and the taunts of the Ammonites, who insulted my people and acted arrogantly against their territory."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/zeph#Zeph.2.13",
+      "source_sha256": "9f82ad49dddc1e43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "He will stretch out his hand against the north and destroy Assyria, and he will make Nineveh a ruin and a wasteland like the desert."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/zeph#Zeph.3.5",
+      "source_sha256": "4c627ac7cacb2abc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "The righteous Lord is in her midst and does no injustice. Morning after morning he brings his judgments to light and does not delay, but the unjust person knows no shame."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/zeph#Zeph.3.11",
+      "source_sha256": "2f2ab5b46fd299e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "On that day you will not be ashamed of all your deeds by which you acted unjustly against me. Then I will remove from you the strength of your pride, and you will no longer act arrogantly on my holy mountain."
+    }
+  ]
+}

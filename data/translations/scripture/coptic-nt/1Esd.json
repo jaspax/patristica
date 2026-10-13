@@ -1,0 +1,30 @@
+{
+  "work_id": "scripture/coptic-nt/1esd",
+  "source_path": "scripture/coptic-nt/1Esd.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/1esd#1Esd.1.20",
+      "source_sha256": "74234e98afe7498f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "[?]"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1esd#1Esd.3.6",
+      "source_sha256": "74234e98afe7498f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "[?]"
+    }
+  ]
+}

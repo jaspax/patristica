@@ -1,0 +1,44 @@
+{
+  "work_id": "scripture/pta-peshitta/letbar",
+  "source_path": "scripture/pta-peshitta/LetBar.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/letbar#LetBar.81.2",
+      "source_sha256": "a1fd85ef4de21f47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "For I was mourning over Zion and asking the Most High for mercy, and I said:"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/letbar#LetBar.82.1",
+      "source_sha256": "2dc30a0d1d2a5a7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "For this reason, my brothers, I have written to you, so that you may find comfort from your many troubles."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/letbar#LetBar.82.5",
+      "source_sha256": "ac5a2f17271a1e6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "And we see how firm their strength is, as they stand against the Mighty One at all times. But they will be regarded as spit."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/letbar#LetBar.85.7",
+      "source_sha256": "accbb61b6eced521",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Let all these things said earlier always be before your eyes, because we are still alive and have control over our freedom."
+    }
+  ]
+}

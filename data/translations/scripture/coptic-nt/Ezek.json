@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/coptic-nt/ezek",
+  "source_path": "scripture/coptic-nt/Ezek.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.4.7",
+      "source_sha256": "69eef60d1be2d09c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And you shall set your face toward the siege against [?]."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.4.10",
+      "source_sha256": "f602c73445f8dcd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And you shall eat your food in measured portions, twenty shekels by weight each day; you shall eat it from time to time."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.4.14",
+      "source_sha256": "de915ee0df184c44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And I said, “No, Lord God, [?]! For this is how my soul is: it has not been defiled with impurity. I have not eaten any animal torn by a wild beast, or meat from an animal that died, from my birth up to this day. Nor has any unclean meat entered my mouth.”"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.5.5",
+      "source_sha256": "d47127b10fe547dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "For this is what the Lord says: “This is Jerusalem, which I placed in the midst of the nations, with the countries surrounding it.”"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.5.9",
+      "source_sha256": "965fcf02ed0d2de1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And I will do within you things I have never done, and from now on I will never do anything like them."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/ezek#Ezek.5.15",
+      "source_sha256": "1feb149574411089",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And you will groan and be wretched among the nations surrounding you, when I carry out judgments within you in the vengeance of my wrath. I, the Lord, have spoken."
+    }
+  ]
+}

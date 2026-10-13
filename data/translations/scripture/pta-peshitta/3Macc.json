@@ -1,0 +1,65 @@
+{
+  "work_id": "scripture/pta-peshitta/3macc",
+  "source_path": "scripture/pta-peshitta/3Macc.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.2.8",
+      "source_sha256": "cbada382708c2230",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And when your servants saw, they praised you, Almighty."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.2.19",
+      "source_sha256": "9965867dc3196ff1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "But wipe away our sins, forgive our offenses, and let your face shine upon us at this hour."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.5.19",
+      "source_sha256": "b28aa1a29e55d494",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "He answered him, “I prepared and made ready everything you commanded during the night.” His friends also testified and said that he had done so."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.5.26",
+      "source_sha256": "068ae3014fe10f2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The king rose before sunrise and waited for his friends. Hermon approached and brought all the elephants before him, harnessed and armed according to the king’s command."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.5.30",
+      "source_sha256": "fa172d4438f6232e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "When he heard these things from them, he was filled with great anger, because God’s mercies had so willed and brought his whole plan to nothing. He looked sternly at Hermon, insulted him with harsh words, and said to him:"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.5.36",
+      "source_sha256": "ab4faf673a6f4ee0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "When the king had finished with these matters, he and all his friends went to the banquet."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/3macc#3Macc.6.14",
+      "source_sha256": "f508418b5a1d99fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "For look, this multitude of children and their families asks you and implores you with tears and great weeping."
+    }
+  ]
+}

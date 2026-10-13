@@ -20,24 +20,17 @@ Usage::
 
     python -m scripts.embed_eval.translate quality [--limit N] [--langs syc cop hye gez]
     python -m scripts.embed_eval.translate summary
-    python -m scripts.embed_eval.translate bulk --model sol [--langs ...]
 
-``bulk`` translates every eval-corpus chunk in the given languages with one
-model, sending consecutive chunks of the same work together (up to
-``BULK_MAX_CHARS``) so the model sees context and the per-request overhead is
-shared. Output goes to the durable, tracked store
-``data/translations/{model_id}.jsonl``, keyed by chunk id and source-text
-hash, so the production pipeline (#93) can reuse it.
+Bulk translation of the corpus for indexing is ``scripts.translate`` (#93),
+which reuses ``Clients`` and the translator prompt from here.
 """
 
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import random
-import re
 import string
 import threading
 import time
@@ -82,10 +75,6 @@ LANGUAGE_NAMES = {
 }
 
 DEFAULT_DIR = Path("data/eval")
-DEFAULT_STORE = Path("data/translations")
-# Bump when BULK_SYSTEM or the grouping changes, so stored translations say
-# which prompt produced them.
-BULK_PROMPT_VERSION = "bulk-2026-10-12"
 DEFAULT_AUTHORED = Path("data/eval_authored")
 
 TRANSLATOR_SYSTEM = """\
@@ -118,24 +107,6 @@ different textual tradition; do not penalise a candidate for matching the \
 original where the reference differs. Rate each candidate on its own merits, \
 not by comparison with the others. Say how confidently you can read the \
 original yourself."""
-
-
-BULK_MAX_CHARS = 3000
-BULK_MAX_ITEMS = 25
-
-BULK_SYSTEM = TRANSLATOR_SYSTEM.split("- Rate your confidence")[0] + """\
-- The passages are numbered consecutive pieces of one work. Translate each one \
-separately and return one item per number, in order; use the neighbouring \
-passages only as context."""
-
-
-class BulkItem(BaseModel):
-    n: int
-    translation: str
-
-
-class BulkTranslation(BaseModel):
-    items: list[BulkItem]
 
 
 class Translation(BaseModel):
@@ -185,16 +156,44 @@ def openai_schema(model: type[BaseModel]) -> dict:
 
 
 class Clients:
+    """API clients, created on first use, so a run that only calls one vendor
+    needs only that vendor's key (and the anthropic package only for Claude)."""
+
     def __init__(self) -> None:
-        import anthropic
-        import httpx
+        self._anthropic = None
+        self._openai_key: str | None = None
+        self._http = None
+        self._lock = threading.Lock()
 
-        from scripts.embed_eval.embedders import _env_key
+    @property
+    def anthropic(self):
+        with self._lock:
+            if self._anthropic is None:
+                import anthropic
 
-        self.anthropic = anthropic.Anthropic(api_key=_env_key("ANTHROPIC_API_KEY"),
-                                             max_retries=6)
-        self.openai_key = _env_key("OPENAI_API_KEY")
-        self.http = httpx.Client(timeout=900)
+                from scripts.embed_eval.embedders import _env_key
+
+                self._anthropic = anthropic.Anthropic(
+                    api_key=_env_key("ANTHROPIC_API_KEY"), max_retries=6)
+            return self._anthropic
+
+    @property
+    def openai_key(self) -> str:
+        with self._lock:
+            if self._openai_key is None:
+                from scripts.embed_eval.embedders import _env_key
+
+                self._openai_key = _env_key("OPENAI_API_KEY")
+            return self._openai_key
+
+    @property
+    def http(self):
+        with self._lock:
+            if self._http is None:
+                import httpx
+
+                self._http = httpx.Client(timeout=900)
+            return self._http
 
     def call(self, name: str, system: str, user: str, schema: type[BaseModel],
              effort: str | None = None) -> tuple[BaseModel, dict]:
@@ -307,51 +306,6 @@ class Store:
             self.rows[(row["model"], row["chunk_id"])] = row
             with self.path.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
-
-
-def text_sha(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
-
-
-class TranslationStore:
-    """Durable translations for one model, keyed by chunk id (tracked in git).
-
-    Each row records the hash of the exact source text it translates, so a
-    translation is reused only while that text is unchanged (``fresh``).
-    ``compact`` rewrites the file sorted by chunk id, latest row per chunk.
-    """
-
-    def __init__(self, path: Path) -> None:
-        self.path, self.lock = path, threading.Lock()
-        self.rows: dict[str, dict] = {}
-        if path.exists():
-            for line in path.open(encoding="utf-8"):
-                if line.strip():
-                    r = json.loads(line)
-                    self.rows[r["chunk_id"]] = r
-
-    def fresh(self, chunk_id: str, text: str) -> dict | None:
-        r = self.rows.get(chunk_id)
-        return r if r and r["source_sha256"] == text_sha(text) else None
-
-    def put(self, row: dict) -> None:
-        with self.lock:
-            self.rows[row["chunk_id"]] = row
-            self.path.parent.mkdir(parents=True, exist_ok=True)
-            with self.path.open("a", encoding="utf-8") as f:
-                f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
-
-    def compact(self) -> None:
-        with self.lock:
-            tmp = self.path.with_suffix(".tmp")
-            with tmp.open("w", encoding="utf-8") as f:
-                for cid in sorted(self.rows):
-                    f.write(json.dumps(self.rows[cid], ensure_ascii=False, sort_keys=True) + "\n")
-            tmp.replace(self.path)
-
-
-def store_path(store_dir: Path, model: str) -> Path:
-    return store_dir / f"{MODELS[model].model_id}.jsonl"
 
 
 def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int | None,
@@ -469,88 +423,6 @@ def summarize(out_dir: Path) -> None:
               f"exact {exact:.2f}, within one point {within1:.2f}")
 
 
-def _natural(s: str) -> list:
-    """Sort key that orders 'Gen.1.10' after 'Gen.1.2'."""
-    return [(0, int(p)) if p.isdigit() else (1, p) for p in re.split(r"(\d+)", s)]
-
-
-def bulk_groups(chunks: list[dict]) -> list[list[dict]]:
-    """Consecutive chunks of one work, up to BULK_MAX_CHARS / BULK_MAX_ITEMS each."""
-    by_work: dict[str, list[dict]] = defaultdict(list)
-    for c in chunks:
-        by_work[c["work_id"]].append(c)
-    groups = []
-    for work in sorted(by_work):
-        cur: list[dict] = []
-        size = 0
-        for c in sorted(by_work[work], key=lambda c: _natural(c["chunk_id"])):
-            if cur and (size + len(c["text"]) > BULK_MAX_CHARS or len(cur) >= BULK_MAX_ITEMS):
-                groups.append(cur)
-                cur, size = [], 0
-            cur.append(c)
-            size += len(c["text"])
-        if cur:
-            groups.append(cur)
-    return groups
-
-
-def run_bulk(eval_dir: Path, model: str, langs: list[str], workers: int,
-             store_dir: Path = DEFAULT_STORE, max_requests: int | None = None) -> None:
-    """Translate every eval-corpus chunk in *langs* that has no fresh translation."""
-    store = TranslationStore(store_path(store_dir, model))
-    chunks = [c for c in map(json.loads, (eval_dir / "corpus.jsonl").open(encoding="utf-8"))
-              if c["language"] in langs and not store.fresh(c["chunk_id"], c["text"])]
-    groups = bulk_groups(chunks)
-    if max_requests is not None:
-        rng = random.Random(0)
-        groups = rng.sample(groups, min(max_requests, len(groups)))
-    log.info("bulk %s: %d chunks in %d requests (%d already stored)",
-             model, len(chunks), len(groups), len(store.rows))
-    clients = Clients()
-    today = time.strftime("%Y-%m-%d")
-    spent: list[dict] = []
-
-    def one(group: list[dict]) -> None:
-        lang = group[0]["language"]
-        user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
-        out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
-                                  user, BulkTranslation)
-        spent.append(usage)
-        got = {item.n: item.translation for item in out.items}
-        for i, c in enumerate(group, start=1):
-            if i not in got:
-                log.warning("%s: no translation for %s", model, c["chunk_id"])
-                continue
-            store.put({
-                "chunk_id": c["chunk_id"], "language": lang,
-                "source_sha256": text_sha(c["text"]), "translation": got[i],
-                "model": MODELS[model].model_id, "prompt_version": BULK_PROMPT_VERSION,
-                "date": today, "group_size": len(group),
-            })
-
-    done = 0
-    try:
-        with ThreadPoolExecutor(workers) as pool:
-            for _ in pool.map(_safe_group(one), groups):
-                done += 1
-                if done % 50 == 0:
-                    log.info("bulk %s: %d/%d requests, $%.2f so far",
-                             model, done, len(groups), cost(spent))
-    finally:
-        store.compact()
-    log.info("bulk %s: %d requests, $%.2f; %d translations stored",
-             model, len(spent), cost(spent), len(store.rows))
-
-
-def _safe_group(fn):
-    def wrapped(group):
-        try:
-            fn(group)
-        except Exception as e:
-            log.error("group starting %s failed: %s", group[0]["chunk_id"], e)
-    return wrapped
-
-
 def main() -> None:
     p = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -561,12 +433,6 @@ def main() -> None:
     q.add_argument("--limit", type=int, help="at most N passages per language")
     q.add_argument("--workers", type=int, default=6)
     sub.add_parser("summary")
-    b = sub.add_parser("bulk")
-    b.add_argument("--model", required=True, choices=list(MODELS))
-    b.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES))
-    b.add_argument("--workers", type=int, default=8)
-    b.add_argument("--store", type=Path, default=DEFAULT_STORE)
-    b.add_argument("--max-requests", type=int, help="pilot: a random sample of N requests")
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     args = p.parse_args()
@@ -574,9 +440,6 @@ def main() -> None:
     logging.getLogger("httpx").setLevel(logging.WARNING)
     if args.cmd == "quality":
         run_quality(args.eval_dir, args.authored, args.langs, args.limit, args.workers)
-    elif args.cmd == "bulk":
-        run_bulk(args.eval_dir, args.model, args.langs, args.workers, args.store,
-                 args.max_requests)
     else:
         summarize(args.eval_dir / "translation")
 

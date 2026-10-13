@@ -1,0 +1,72 @@
+{
+  "work_id": "scripture/pta-peshitta/eph",
+  "source_path": "scripture/pta-peshitta/Eph.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.2.12",
+      "source_sha256": "ca7e11591a118c59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "At that time you were without Christ, alienated from the way of life of Israel and strangers to the covenant of promise. You were without hope and without God in the world."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.3.2",
+      "source_sha256": "f6674d42fc0e4ea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "If you have heard of the stewardship of God's grace that was given to me for you,"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.3.5",
+      "source_sha256": "c40cfe3952fb9174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "which in other generations was not made known to human beings as it has now been revealed to his holy apostles and prophets by the Spirit,"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.3.20",
+      "source_sha256": "e5cf2632a21b67e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Now to him who is able, through his power, to do for us far more than everything we ask or think, according to his power at work in us,"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.5.6",
+      "source_sha256": "945b8eadb5611b1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Do not let anyone deceive you with empty words, for because of these things God's wrath comes upon those who are disobedient."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.6.1",
+      "source_sha256": "4be8d7071ad651f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Children, obey your parents in our Lord, for this is right."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.6.2",
+      "source_sha256": "1ea4e085632e6592",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "And this is the first commandment with a promise: Honor your father and your mother."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/eph#Eph.6.8",
+      "source_sha256": "c1b5f7e2c3cf3b88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "You know that whatever good anyone does, he will receive repayment for it from our Lord, whether he is a slave or a free person."
+    }
+  ]
+}

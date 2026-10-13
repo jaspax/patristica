@@ -1,0 +1,30 @@
+{
+  "work_id": "scripture/pta-peshitta/sus",
+  "source_path": "scripture/pta-peshitta/Sus.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/sus#Sus.1.49",
+      "source_sha256": "5052e15cef93c31a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Return to the court, for you have falsely condemned this woman."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/sus#Sus.1.62",
+      "source_sha256": "26ac6192277b22ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "They dealt with them according to Moses’ command and put them to death. The Lord brought evil retribution upon them, as they deserved, and innocent blood was spared that day."
+    }
+  ]
+}

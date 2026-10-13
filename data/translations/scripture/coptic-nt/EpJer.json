@@ -1,0 +1,72 @@
+{
+  "work_id": "scripture/coptic-nt/epjer",
+  "source_path": "scripture/coptic-nt/EpJer.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.15",
+      "source_sha256": "0bd5dc1691b1f913",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For just as a person's vessel, once it is broken, is no longer useful for anything,"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.17",
+      "source_sha256": "60d4d1d6bbb62143",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "and just as a person who has offended a king secures his dwellings because he fears death, so the priests secure their houses with doors, locks, and bolts, so that robbers will not plunder them."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.27",
+      "source_sha256": "ed9ea384175b1d1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The priests divide their sacrifices among themselves. Likewise, their wives salt some of them and give none of them to anyone poor or weak."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.30",
+      "source_sha256": "5f8232d15cc0e59b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Their priests sit inside their houses with their clothes torn, their heads and beards shaved, and their heads uncovered."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.31",
+      "source_sha256": "2fa901c301ee8553",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "They cry out before their gods like people taking part in a funeral ceremony."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.32",
+      "source_sha256": "dd3f26ab1076c0e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The priests take some of their gods' clothes and put them on their wives and children."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.50",
+      "source_sha256": "ecbd67c99b8312be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For they are pieces of wood, gold, and silver. After these things, the nations will recognize that they are frauds. It will also become clear to kings that they are not gods but things made by human hands, with nothing divine in them."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/epjer#EpJer.1.65",
+      "source_sha256": "265400def363954f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For they cannot curse kings, nor can they bless them."
+    }
+  ]
+}

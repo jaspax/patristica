@@ -1,0 +1,30 @@
+{
+  "work_id": "scripture/coptic-nt/phlm",
+  "source_path": "scripture/coptic-nt/Phlm.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/phlm#Phlm.1.8",
+      "source_sha256": "09095d36fbee7540",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "For this reason, although I have great boldness in Christ to command you to do what is right,"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/phlm#Phlm.1.20",
+      "source_sha256": "3f8f279de95861d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Yes, brother, let me find comfort through you in the Lord. Refresh my heart in Christ."
+    }
+  ]
+}

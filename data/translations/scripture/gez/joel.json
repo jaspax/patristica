@@ -1,0 +1,86 @@
+{
+  "work_id": "scripture/gez/joel",
+  "source_path": "scripture/gez/joel.json",
+  "source_language": "gez",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/gez/joel#Joel.1.11",
+      "source_sha256": "55d09bb1746ed774",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Be ashamed, farmers, and weep, keepers of vineyards, over the wheat and barley, because the harvest has perished from the fields."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.1.13",
+      "source_sha256": "16fd8e6377cf4f84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Lament and put on sackcloth, priests; weep, you who offer sacrifices. Go and lie down in sackcloth, you who offer sacrifices to the Lord, because offerings and drink offerings have ceased from the house of the Lord."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.1",
+      "source_sha256": "781bd4c05b288ba5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Blow the horn in Zion and proclaim on my holy mountain. Let everyone who lives in the land tremble, because the day of the Lord has arrived and is near."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.4",
+      "source_sha256": "7492fbcdebdc4ab1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Their appearance is like that of horses, and they run like horses."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.19",
+      "source_sha256": "75255e808aa0c535",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "The Lord answered them and said to his people, “Look, I am sending you grain, wine, and oil, and you will be satisfied. I will not make you an object of contempt among the nations.”"
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.25",
+      "source_sha256": "21516392112520e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "I will compensate you for the years consumed by the locusts, worms, [?], and caterpillars—my army that I sent against you."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.27",
+      "source_sha256": "584bd300d20a1ca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "You will know [?] that I am among Israel, and that I am the Lord your God, and there is no other besides me. My people will never again be put to shame."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.2.32",
+      "source_sha256": "dfdbb64de4465cb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Everyone who calls on the Lord [?] will be saved. For on Mount Zion and in Jerusalem they will be saved, as the Lord has said, and [?] those whom the Lord has called."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.3.9",
+      "source_sha256": "394cba163de62dc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Proclaim this among the nations: prepare for war and rouse the warriors. Bring them out, and let all the fighting men go up."
+    },
+    {
+      "chunk_id": "scripture/gez/joel#Joel.3.15",
+      "source_sha256": "21c3b81d682b48de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "The sun and moon will grow dark, and the light of the stars will fade."
+    }
+  ]
+}

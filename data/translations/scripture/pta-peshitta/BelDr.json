@@ -1,0 +1,65 @@
+{
+  "work_id": "scripture/pta-peshitta/beldr",
+  "source_path": "scripture/pta-peshitta/BelDr.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.15",
+      "source_sha256": "7f4733a178a690f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The priests went in at night, as they were accustomed to do, with their wives and children. They ate everything that had been set out for Bel and drank the wine."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.17",
+      "source_sha256": "347071c99cb7ca3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The king said to Daniel, “Are the seals intact, Daniel?” Daniel said, “They are intact, my lord the king.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.24",
+      "source_sha256": "a99cd13e19ea8215",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The king said to Daniel, “Now you cannot say that this one is not a god. Worship him, because he is a living god.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.25",
+      "source_sha256": "ed84374d10470e3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Daniel said to the king, “I worship the Lord God, because he is the living God.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.27",
+      "source_sha256": "8b9ef6b960516e67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Daniel took pitch, hair, and fat, boiled them together, made balls from them, and threw them into the dragon’s mouth. The dragon swallowed them, burst open, and died. Daniel said, “Look at what you worship, Babylonians!”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.34",
+      "source_sha256": "852d613dbbd0c686",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The angel of the Lord said to him, “Go, take this food you are carrying to Daniel, who has been thrown into the lions’ den in Babylon.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/beldr#BelDr.1.37",
+      "source_sha256": "c4f0cb3cde595364",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Habakkuk called out and said, “Daniel, Daniel, get up and take this meal that God has sent you.”"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "work_id": "scripture/coptic-nt/jonah",
+  "source_path": "scripture/coptic-nt/Jonah.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/jonah#Jonah.2.1",
+      "source_sha256": "a0909dd3284e3dd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "And the Lord commanded a great sea creature to swallow Jonah. And Jonah was inside the sea creature for three days and three nights."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/jonah#Jonah.3.1",
+      "source_sha256": "7a66e397e4d41fa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "And the word of the Lord came to Jonah a second time, saying to him:"
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/jonah#Jonah.3.5",
+      "source_sha256": "a391ac7ddb1c9346",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "The people of Nineveh believed God, proclaimed a fast, and put on sackcloth, from the greatest to the least."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/jonah#Jonah.4.11",
+      "source_sha256": "6509ff8af467bb41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "So should I not have pity on Nineveh, the great city, in which there are more than a hundred and twenty thousand people who do not know their right hand from their left, and many animals?"
+    }
+  ]
+}

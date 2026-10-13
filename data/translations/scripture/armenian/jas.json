@@ -1,0 +1,51 @@
+{
+  "work_id": "scripture/armenian/jas",
+  "source_path": "scripture/armenian/jas.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/jas#Jas.1.26",
+      "source_sha256": "7731be7b345000da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "If anyone wishes to be religious but does not bridle his tongue and instead deceives his own heart, that person’s religion is worthless."
+    },
+    {
+      "chunk_id": "scripture/armenian/jas#Jas.2.1",
+      "source_sha256": "30df84e1262893ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "My brothers, do not hold faith in our Lord Jesus Christ, the Lord of glory, with partiality."
+    },
+    {
+      "chunk_id": "scripture/armenian/jas#Jas.3.4",
+      "source_sha256": "8615f9d1745a66ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "Look also at ships: how large they are, and how they are driven by fierce winds, yet they are turned by a small rudder wherever the pilot wishes."
+    },
+    {
+      "chunk_id": "scripture/armenian/jas#Jas.3.14",
+      "source_sha256": "91cbe087e0c05b44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "But if you have envy, bitterness, and strife in your hearts, do not boast and lie against the truth."
+    },
+    {
+      "chunk_id": "scripture/armenian/jas#Jas.4.15",
+      "source_sha256": "17465f11e3dd0b69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "What is your life like? For you are like a whirlwind that appears for a little while and then vanishes. Instead, you should say, “If the Lord wills, we shall live and do this or that.”"
+    }
+  ]
+}

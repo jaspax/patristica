@@ -1,0 +1,23 @@
+{
+  "work_id": "scripture/coptic-nt/zeph",
+  "source_path": "scripture/coptic-nt/Zeph.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/zeph#Zeph.1.16",
+      "source_sha256": "5f3d2c2785eaf9ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 1,
+      "text": "It is a day of trumpet blasts [?] and shouting against the great city and against the high mountains."
+    }
+  ]
+}

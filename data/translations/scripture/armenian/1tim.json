@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/armenian/1tim",
+  "source_path": "scripture/armenian/1tim.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.1.19",
+      "source_sha256": "49943c8ef39c17e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Hold to faith with a pure mind; some have rejected this and have been shipwrecked in the faith."
+    },
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.2.11",
+      "source_sha256": "1f5e04d2bb5605ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Let a woman learn quietly, with complete submission."
+    },
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.2.15",
+      "source_sha256": "2d7339ec7a4a6db6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "But she will be saved through childbearing, if they remain in faith and love and holiness, with self-control."
+    },
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.3.3",
+      "source_sha256": "ae9481f83baf9986",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Not abusive, not violent, but gentle; not quarrelsome, not a lover of money."
+    },
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.3.13",
+      "source_sha256": "8afdc2905a531ab1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "For those who serve well gain a good standing for themselves and great confidence in the faith that is in Christ Jesus."
+    },
+    {
+      "chunk_id": "scripture/armenian/1tim#1Tim.3.15",
+      "source_sha256": "d80d186fbc0b6be9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "But if I delay, so that you may know how you ought to conduct yourself in the house of God, which is the church of the living God, the pillar and foundation of the truth."
+    }
+  ]
+}

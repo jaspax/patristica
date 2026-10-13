@@ -1,0 +1,37 @@
+{
+  "work_id": "scripture/armenian/hag",
+  "source_path": "scripture/armenian/hag.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/hag#Hag.2.4",
+      "source_sha256": "e6fad80e0fab2cde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "And now be strong, Zerubbabel, says the Lord, and be strong, Joshua son of Jehozadak, the high priest, and let all the people of the land be strong, says the Lord. And work, for I am with you, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "scripture/armenian/hag#Hag.2.5",
+      "source_sha256": "e66bb9c745274d07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "And the word that I pledged to you when you came out of the land of the Egyptians, and my Spirit that remains among you—take courage."
+    },
+    {
+      "chunk_id": "scripture/armenian/hag#Hag.2.20",
+      "source_sha256": "abc02c316206f971",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "And the word of the Lord came a second time to Haggai the prophet on the twenty-fourth day of the month, saying:"
+    }
+  ]
+}

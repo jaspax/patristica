@@ -1,0 +1,65 @@
+{
+  "work_id": "scripture/pta-peshitta/mic",
+  "source_path": "scripture/pta-peshitta/Mic.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.1.3",
+      "source_sha256": "e7eb568d8abf4948",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "For look, the Lord is coming out of his place; he will come down and tread on the heights of the earth."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.2.7",
+      "source_sha256": "b024361c3ac2b727",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "It is said of the house of Jacob that it provoked the Spirit of the Lord with these deeds of its own. Look, my words do good to those who walk uprightly."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.2.11",
+      "source_sha256": "cb9412848d0a1e50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "A man who walks in a spirit of falsehood and deceit: “I will prophesy to you about wine and drunkenness,” and you will be among the [?] of this people."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.3.9",
+      "source_sha256": "857e3810c7e456a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "So hear this, heads of the house of Jacob and rulers of the house of Israel, who despise justice and twist everything that is right."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.5.9",
+      "source_sha256": "abff3a5158cd6d8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "On that day, says the Lord, I will destroy your horses from among you and destroy your chariots."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.5.12",
+      "source_sha256": "3f3c40680cd3f856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "I will destroy your carved images and your sacred pillars from among you, and you will no longer worship the work of your hands."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/mic#Mic.7.20",
+      "source_sha256": "732843a56cba7dec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "You will show faithfulness to Jacob and kindness to Abraham, as you swore to our ancestors in days long ago."
+    }
+  ]
+}

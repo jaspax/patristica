@@ -1,0 +1,58 @@
+{
+  "work_id": "scripture/armenian/col",
+  "source_path": "scripture/armenian/col.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/col#Col.1.3",
+      "source_sha256": "68c5692fa77bb4ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "We give thanks to God and the Father of our Lord Jesus Christ; I pray for you at all times."
+    },
+    {
+      "chunk_id": "scripture/armenian/col#Col.1.20",
+      "source_sha256": "0963c06fc59a04dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "And through him to reconcile all things to himself, making peace through the blood of his cross, whether things on earth or things in heaven."
+    },
+    {
+      "chunk_id": "scripture/armenian/col#Col.2.16",
+      "source_sha256": "6d4072c9745d89f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "From now on, let no one judge you about eating or drinking, or concerning festivals, new moons, or Sabbaths."
+    },
+    {
+      "chunk_id": "scripture/armenian/col#Col.2.21",
+      "source_sha256": "71bfac9bb54c5d31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Do not approach; do not taste; do not come near."
+    },
+    {
+      "chunk_id": "scripture/armenian/col#Col.2.23",
+      "source_sha256": "a449daab1c4f7d2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "These are regarded as a kind of wisdom, with self-imposed worship, humility, and neglect of the body, but they are of no value against bodily indulgence."
+    },
+    {
+      "chunk_id": "scripture/armenian/col#Col.3.20",
+      "source_sha256": "db7fba55c38501a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Children, obey your parents in everything, for this is pleasing to the Lord."
+    }
+  ]
+}

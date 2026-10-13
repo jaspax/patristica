@@ -1,0 +1,86 @@
+{
+  "work_id": "scripture/pta-peshitta/gal",
+  "source_path": "scripture/pta-peshitta/Gal.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.1.4",
+      "source_sha256": "291f4b69366b1934",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "He gave himself for our sins to rescue us from this evil world, according to the will of God our Father."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.2.1",
+      "source_sha256": "a30c3e3bbece10ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Then, after fourteen years, I went up to Jerusalem again with Barnabas, and I took Titus with me."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.2.21",
+      "source_sha256": "f46e6bd4a358dd38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "I do not reject the grace of God. For if righteousness comes through the law, Christ died for nothing."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.3.11",
+      "source_sha256": "dc751ea2df334b4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "It is clear that no one is made righteous before God by the law, because it is written, “The righteous person will live by faith.”"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.3.22",
+      "source_sha256": "1a740a619c913889",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "But Scripture confined everything under sin, so that the promise might be given through faith in Jesus Christ to those who believe."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.4.4",
+      "source_sha256": "bf45dbb5d6445401",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "But when the time had fully come, God sent his Son, who was born of a woman and came under the law,"
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.4.5",
+      "source_sha256": "d4ae32462b5aeb43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "to redeem those who are under the law, so that we might receive adoption as children."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.4.12",
+      "source_sha256": "b4ca7b18123dbe87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Become like me, because I too became like you. My brothers, I ask this of you. You have done me no wrong."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.5.1",
+      "source_sha256": "8f2a1924b05da113",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "So stand firm in the freedom with which Christ has set us free, and do not be yoked again with the yoke of slavery."
+    },
+    {
+      "chunk_id": "scripture/pta-peshitta/gal#Gal.6.18",
+      "source_sha256": "2181b651267279ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "The grace of our Lord Jesus Christ be with your spirit, my brothers. Amen."
+    }
+  ]
+}

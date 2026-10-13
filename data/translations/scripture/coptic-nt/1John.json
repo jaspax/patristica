@@ -1,0 +1,72 @@
+{
+  "work_id": "scripture/coptic-nt/1john",
+  "source_path": "scripture/coptic-nt/1John.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.1.7",
+      "source_sha256": "706752363e200520",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But if we walk in the light, just as he is in the light, then we have fellowship with one another, and the blood of Jesus his Son will cleanse us from every stain and every sin."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.1.8",
+      "source_sha256": "8868ca9518d55212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "So if we say that we have no sin, we deceive ourselves, and the truth is not in us."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.2.2",
+      "source_sha256": "082799687cf90073",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "And he is the one who intercedes for our sins, and not for ours alone, but also for those of the whole world."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.2.22",
+      "source_sha256": "e3ac2ffbb6f9255e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Who is the liar except the one who denies that Jesus is the Christ? This is the Antichrist, the one who denies the Father and the Son."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.3.11",
+      "source_sha256": "80075905018f4dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For this is the promise that we heard from the beginning: that we should love one another."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.4.3",
+      "source_sha256": "bceb156a7c7146ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "And every spirit that does not acknowledge Jesus Christ is not from God. And this is the Antichrist, whom you heard was coming, and who is already in the world now."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.4.5",
+      "source_sha256": "53cab300d57f27c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "They are from the world. For this reason they speak from the world, and the world listens to them."
+    },
+    {
+      "chunk_id": "scripture/coptic-nt/1john#1John.4.9",
+      "source_sha256": "6b514b2fd9a817a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "In this the love of God was revealed in us: God sent his only Son into the world so that we might live through him."
+    }
+  ]
+}

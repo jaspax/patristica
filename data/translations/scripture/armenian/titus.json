@@ -1,0 +1,51 @@
+{
+  "work_id": "scripture/armenian/titus",
+  "source_path": "scripture/armenian/titus.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "scripture/armenian/titus#Titus.1.9",
+      "source_sha256": "9e817be0ed03cf7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "An overseer is to be faithful to the word of teaching, so that he may be able both to encourage with sound teaching and to rebuke those who oppose it."
+    },
+    {
+      "chunk_id": "scripture/armenian/titus#Titus.1.16",
+      "source_sha256": "97018e2ba38026ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "They profess to know God, but deny him by their deeds. They are defiled and disobedient, unfit for any good work."
+    },
+    {
+      "chunk_id": "scripture/armenian/titus#Titus.2.10",
+      "source_sha256": "1ad26bc6789a9bc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "Not pilfering, but showing complete faithfulness with goodness, so that in everything they may adorn the teaching of God our Savior."
+    },
+    {
+      "chunk_id": "scripture/armenian/titus#Titus.2.13",
+      "source_sha256": "e02e8ea4705ec768",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "And let us await the blessed hope and the appearance of the glory of the great God and our Savior Jesus Christ."
+    },
+    {
+      "chunk_id": "scripture/armenian/titus#Titus.2.14",
+      "source_sha256": "b13974e7f60aaf8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "Who gave himself for us, so that he might redeem us from all lawlessness and purify for himself a people of his own, zealous for good works."
+    }
+  ]
+}
