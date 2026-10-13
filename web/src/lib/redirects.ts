@@ -24,6 +24,7 @@ export const SPLIT_OGPG_VOLUMES: readonly string[] = [
   "vol-003",
   "vol-004",
   "vol-005",
+  "vol-006",
   "vol-008",
   "vol-010",
   "vol-012",
