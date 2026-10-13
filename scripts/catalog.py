@@ -21,9 +21,9 @@ from pathlib import Path
 def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     """Return {source_id: file_count} for *directory*.
 
-    Handles two-level source IDs stored as nested directories
-    (e.g. ``data/raw/scripture/oshb/`` → source_id ``"scripture/oshb"``).
-    Skips ``_zips``, ``_csvs``, and other cache directories.
+    Each top-level directory is one source (``data/raw/oshb/`` → source_id
+    ``"oshb"``).  Skips ``_zips``, ``_csvs``, and other cache directories, and
+    files under ``_``-prefixed subdirectories (``ogpg/_extract``).
     """
     counts: dict[str, int] = {}
     if not directory.exists():
@@ -32,19 +32,13 @@ def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     for child in sorted(directory.iterdir()):
         if not child.is_dir() or child.name.startswith("_"):
             continue
-        # Check for two-level nesting (e.g. scripture/oshb)
-        sub_dirs = [d for d in child.iterdir() if d.is_dir() and not d.name.startswith("_")]
-        if sub_dirs:
-            for sub in sorted(sub_dirs):
-                source_id = f"{child.name}/{sub.name}"
-                n = sum(1 for f in sub.rglob(f"*{suffix}") if f.is_file())
-                if n:
-                    counts[source_id] = n
-        else:
-            source_id = child.name
-            n = sum(1 for f in child.rglob(f"*{suffix}") if f.is_file())
-            if n:
-                counts[source_id] = n
+        n = sum(
+            1
+            for f in child.rglob(f"*{suffix}")
+            if f.is_file() and not any(p.startswith("_") for p in f.relative_to(child).parts)
+        )
+        if n:
+            counts[child.name] = n
 
     return counts
 
@@ -54,8 +48,7 @@ def last_run_time(raw_dir: Path, source_id: str) -> datetime | None:
 
     Returns None if no files are found.
     """
-    # source_id may be "scripture/oshb" → path is raw_dir/scripture/oshb/
-    source_path = raw_dir.joinpath(*source_id.split("/"))
+    source_path = raw_dir / source_id
     if not source_path.exists():
         return None
     json_files = list(source_path.rglob("*.json"))

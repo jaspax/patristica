@@ -2,13 +2,45 @@
  * Permanent redirects for work ids that have been renamed or split.
  *
  * Work ids appear in reader URLs (`/works/{work_id}`), so renaming a source
- * breaks links to its works. Each entry maps an old id prefix to its new one;
- * `next.config.ts` turns them into `redirects`.
+ * breaks links to its works. Each entry maps an old id prefix (whole path
+ * segments) to its new one, or to "" when the prefix was dropped;
+ * `next.config.ts` turns them into `redirects`, first match first.
  */
 export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: string]> = [
-  // #52: every Coptic Scriptorium work is patristic, not liturgical.
-  ["liturgical/coptic-scriptorium", "patristic/coptic-scriptorium"],
+  // #102: ids no longer start with a genre (`scripture/kjv/gen` → `kjv/gen`).
+  // This also covers Coptic Scriptorium's older `liturgical/` and `patristic/`
+  // ids (#52) in one hop.
+  ["scripture", ""],
+  ["patristic", ""],
+  ["liturgical", ""],
+  // #102: council work ids are `{source_id}/…` (`councils/nicaea1` → `ecumenical/nicaea1`).
+  ["councils", "ecumenical"],
+  // #102: Patrologia Latina work ids are spelled like its source id.
+  ["oglt_pl", "oglt-pl"],
 ];
+
+/** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
+export const LEGACY_GENRE_PREFIXES: readonly string[] = ["scripture", "patristic", "liturgical", "councils"];
+
+/** The current id of a source id from an old link (`?source=` filters, #70). */
+export function currentSourceId(sourceId: string): string {
+  const slash = sourceId.indexOf("/");
+  if (slash > 0 && LEGACY_GENRE_PREFIXES.includes(sourceId.slice(0, slash))) {
+    return sourceId.slice(slash + 1);
+  }
+  return sourceId;
+}
+
+/** The current id of a work id from an old link, following `RENAMED_ID_PREFIXES`. */
+export function currentWorkId(workId: string): string {
+  for (const [from, to] of RENAMED_ID_PREFIXES) {
+    if (workId.startsWith(`${from}/`)) {
+      const rest = workId.slice(from.length + 1);
+      return to ? `${to}/${rest}` : rest;
+    }
+  }
+  return workId;
+}
 
 /**
  * Patrologia Graeca volumes split into individual works (#67). The volume's
@@ -156,7 +188,7 @@ export interface PermanentRedirect {
 export function legacyWorkRedirects(): PermanentRedirect[] {
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({
     source: `/works/${from}/:rest+`,
-    destination: `/works/${to}/:rest+`,
+    destination: to ? `/works/${to}/:rest+` : "/works/:rest+",
     permanent: true as const,
   }));
   const split = SPLIT_OGPG_VOLUMES.map((vol) => ({

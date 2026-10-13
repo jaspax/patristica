@@ -1,6 +1,7 @@
 // Client-side search, filtering and sorting of the work index.
 
 import type { WorkRow } from "./library";
+import { currentSourceId } from "./redirects";
 
 /** Lowercase and strip diacritics, so "Ἰωάννης" matches "ιωαννης" and "Basilius" matches "BASÍLIUS". */
 export function fold(text: string): string {
@@ -45,7 +46,8 @@ export function parseViewState(params: URLSearchParams): ViewState {
     q: params.get("q") ?? "",
     language: params.get("language") ?? "",
     genre: params.get("genre") ?? "",
-    source: params.get("source") ?? "",
+    // Old links may name a source by its pre-#102 id (`scripture/kjv`).
+    source: currentSourceId(params.get("source") ?? ""),
     from: parseYear(params.get("from")),
     to: parseYear(params.get("to")),
     sort: sort && SORT_KEYS.includes(sort) ? sort : DEFAULT_VIEW.sort,

@@ -28,7 +28,7 @@ from scripts.ingest._scripture_meta import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/sblgnt"
+SOURCE_ID = "sblgnt"
 REPO_ZIP_URL = "https://github.com/LogosBible/SBLGNT/archive/refs/heads/master.zip"
 
 # Pattern to extract chapter:verse from verse-number id strings like "1 John 1:1"

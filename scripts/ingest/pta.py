@@ -8,7 +8,7 @@ License: CC-BY / CC-BY-SA per file (stated in <availability>)
 Acquisition
 -----------
 The PTA GitHub zip archive (archive/refs/heads/main.zip) returns 404.
-Instead we shallow-clone the repo into ``data/raw/patristic/pta/`` using the
+Instead we shallow-clone the repo into ``data/raw/pta/`` using the
 git credentials available in the environment.  On ``force=True`` we pull the
 latest changes.
 
@@ -52,7 +52,7 @@ from scripts.ingest._common import dedupe_refs, slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/pta"
+SOURCE_ID = "pta"
 
 _REPO_URL = "https://github.com/PatristicTextArchive/pta_data.git"
 
@@ -358,7 +358,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     -------
     List of ``Work`` records written.
     """
-    repo_dir = output_dir / "patristic" / "pta"
+    repo_dir = output_dir / "pta"
     _ensure_repo(repo_dir, force)
 
     pta_data_dir = repo_dir / "data"
@@ -379,10 +379,10 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     skipped = 0
 
     for xml_path in tqdm(xml_files, desc="PTA ingest"):
-        # Derive output path: data/raw/patristic/pta/{author_id}/{work_id}/{file}.json
+        # Derive output path: data/raw/pta/{author_id}/{work_id}/{file}.json
         # Use relative path within pta_data_dir
         rel = xml_path.relative_to(pta_data_dir)  # e.g. pta0001/pta001/pta0001.pta001.pta-grc1.xml
-        out_path = output_dir / "patristic" / "pta" / rel.with_suffix(".json")
+        out_path = output_dir / "pta" / rel.with_suffix(".json")
 
         if out_path.exists() and not force:
             # Still need to return the work metadata; read it from the saved file

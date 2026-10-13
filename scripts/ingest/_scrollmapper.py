@@ -92,7 +92,7 @@ def ingest_scrollmapper(
     Parameters
     ----------
     translation:  scrollmapper CSV filename stem (e.g. ``"ASV"``, ``"WEB"``).
-    source_id:    Patristica source identifier (e.g. ``"scripture/asv"``).
+    source_id:    Patristica source identifier (e.g. ``"asv"``).
     language:     ISO 639-3 language code.
     license_:     License string from ``patristica.models.License``.
     edition:      Human-readable edition description.

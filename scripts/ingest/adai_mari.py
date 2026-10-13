@@ -43,7 +43,7 @@ from scripts.ingest._ccel_common import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/adai-mari"
+SOURCE_ID = "adai-mari"
 _ANF_VOL = "anf07"
 _WORK_SLUG = "liturgy-of-adai-and-mari"
 
@@ -85,7 +85,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         return [Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"])]
 
     # Share the ANF07 download cache with the ccel_anf ingestor.
-    anf_cache = output_dir / "patristic" / "ccel-anf"
+    anf_cache = output_dir / "ccel-anf"
     anf_cache.mkdir(parents=True, exist_ok=True)
     xml_path = download_volume(_ANF_VOL, anf_cache, force=force)
 

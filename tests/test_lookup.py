@@ -42,13 +42,13 @@ def _corpus(tmp_path: Path, works: list[tuple[str, dict, list[dict]]]) -> Path:
 @pytest.fixture()
 def data_dir(tmp_path: Path) -> Path:
     return _corpus(tmp_path, [
-        ("scripture/kjv/Gen.json", _work("scripture/kjv/gen", "scripture/kjv", "Genesis"),
-         _chunks("scripture/kjv/gen", ["Gen.1.1", "Gen.1.2", "Gen.2.1"])),
-        ("scripture/oshb/Gen.json",
-         _work("scripture/oshb/gen", "scripture/oshb", "Bereshit", language="hbo"),
-         _chunks("scripture/oshb/gen", ["Gen.1.1"], language="hbo")),
-        ("patristic/x/hom.json",
-         _work("x/hom", "patristic/x", "Homily", author="John", translation_of="x/orig"),
+        ("kjv/Gen.json", _work("kjv/gen", "kjv", "Genesis"),
+         _chunks("kjv/gen", ["Gen.1.1", "Gen.1.2", "Gen.2.1"])),
+        ("oshb/Gen.json",
+         _work("oshb/gen", "oshb", "Bereshit", language="hbo"),
+         _chunks("oshb/gen", ["Gen.1.1"], language="hbo")),
+        ("x/hom.json",
+         _work("x/hom", "x", "Homily", author="John", translation_of="x/orig"),
          _chunks("x/hom", ["Hom.1"])),
     ])
 
@@ -59,9 +59,9 @@ class TestBuildIndex:
         assert sorted(entries) == ["Gen", "Hom"]
         hom = entries["Hom"][0]
         assert hom == {
-            "work_id": "x/hom", "path": "patristic/x/hom.json", "canonical_prefix": "Hom",
+            "work_id": "x/hom", "path": "x/hom.json", "canonical_prefix": "Hom",
             "language": "eng", "title": "Homily", "author": "John",
-            "source_id": "patristic/x", "translation_of": "x/orig",
+            "source_id": "x", "translation_of": "x/orig",
         }
         assert [e["language"] for e in entries["Gen"]] == ["eng", "hbo"]
 
@@ -140,9 +140,9 @@ class TestQueries:
 
     def test_list_works(self, data_dir: Path):
         works = lk.list_works(data_dir, lang="hbo")
-        assert [w["work_id"] for w in works] == ["scripture/oshb/gen"]
+        assert [w["work_id"] for w in works] == ["oshb/gen"]
 
     def test_list_translations(self, data_dir: Path):
         assert {e["source_id"] for e in lk.list_translations("Gen.1.1", data_dir)} == {
-            "scripture/kjv", "scripture/oshb",
+            "kjv", "oshb",
         }

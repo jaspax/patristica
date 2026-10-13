@@ -98,7 +98,7 @@ def ingest_ebible_usfm(
     ----------
     zip_url:         Direct download URL for the USFM zip.
     zip_filename:    Local cache filename (stored under ``output_dir/_zips/``).
-    source_id:       Patristica source identifier (e.g. ``"scripture/web"``).
+    source_id:       Patristica source identifier (e.g. ``"web"``).
     language:        ISO 639-3 language code.
     license_:        License string.
     edition:         Human-readable edition description.

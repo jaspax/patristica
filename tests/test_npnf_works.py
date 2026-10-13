@@ -45,9 +45,9 @@ def test_rows_well_formed() -> None:
 
 
 def test_council_divs_untouched() -> None:
-    """npnf214 council divs stay owned by councils/ecumenical."""
+    """npnf214 council divs stay owned by ecumenical."""
     for div in ("vii", "ix", "x", "xi", "xii", "xiii", "xiv", "xvi", "viii.iii", "xv.iii"):
-        assert EXCLUDED_DIVS["npnf214"][div] == "councils/ecumenical"
+        assert EXCLUDED_DIVS["npnf214"][div] == "ecumenical"
 
 
 def test_series_labels() -> None:
@@ -56,7 +56,7 @@ def test_series_labels() -> None:
     assert _series("npnf214")[1] == "NPNF Series 2 Vol. 14"
 
 
-_RAW = Path("data/raw/patristic")
+_RAW = Path("data/raw")
 _VOLUMES = (
     [("ccel-anf", f"anf{i:02d}") for i in range(1, 11)]
     + [("ccel-npnf1", f"npnf1{i:02d}") for i in range(1, 15)]
@@ -71,11 +71,11 @@ def test_generic_blobs_fully_carved(series: str, volume: str) -> None:
     xml = _RAW / series / f"{volume}.xml"
     if not xml.exists():
         pytest.skip("CCEL XML not cached")
-    assert parse_thml_volume(xml, f"patristic/{series}", volume, volume) == []
+    assert parse_thml_volume(xml, series, volume, volume) == []
 
 
 def test_anf_table_still_registered() -> None:
-    assert anf_works.SOURCE_ID == "patristic/anf-works"
+    assert anf_works.SOURCE_ID == "anf-works"
 
 
 def _corpus_work_ids() -> set[str]:

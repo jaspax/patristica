@@ -237,15 +237,9 @@ def normalize_file(
         return 0
 
     # Mirror the raw path structure under output_dir
-    # raw:  data/raw/scripture/oshb/Gen.json
-    # norm: data/normalized/scripture/oshb/Gen.json
-    try:
-        rel = raw_path.relative_to(raw_path.parents[3])  # strip data/raw prefix
-        # rel is now something like "scripture/oshb/Gen.json" or deeper
-    except ValueError:
-        rel = raw_path.name
-
-    # Determine source_id sub-path: strip the leading "raw/" component
+    # raw:  data/raw/oshb/Gen.json
+    # norm: data/normalized/oshb/Gen.json
+    # The path below the "raw" component starts with the source_id.
     rel_parts = raw_path.parts
     try:
         raw_idx = next(i for i, p in enumerate(rel_parts) if p == "raw")
@@ -369,9 +363,9 @@ def _prune_orphans(raw_dir: Path, output_dir: Path) -> None:
     removed = 0
     for norm_path in (output_dir / sub).rglob("*.json"):
         rel = norm_path.relative_to(output_dir)
-        if norm_path.name.startswith("_") or len(rel.parts) < 3:
+        if norm_path.name.startswith("_") or len(rel.parts) < 2:
             continue
-        source_dir = raw_root / rel.parts[0] / rel.parts[1]
+        source_dir = raw_root / rel.parts[0]
         if source_dir.is_dir() and not (raw_root / rel).exists():
             norm_path.unlink()
             removed += 1

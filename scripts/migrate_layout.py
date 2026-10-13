@@ -20,6 +20,14 @@ Two subcommands, both idempotent (a second run changes nothing) and both with
         uv run python -m scripts.migrate_layout raw --dry-run
         uv run python -m scripts.migrate_layout raw
 
+``eval``
+    For an existing local ``data/eval`` (gitignored scratch of the embedding
+    eval): rewrites the old ids in every ``*.jsonl`` file there (corpus,
+    queries, reviews, translation caches), so the eval set need not be
+    re-sampled.  Embedding caches are keyed by text and need nothing::
+
+        uv run python -m scripts.migrate_layout eval
+
 ``tracked``
     The one-off migration of the tracked data, already applied in the #102
     PR: ``git mv`` of the ``data/normalized`` (and ``data/translations``)
@@ -457,6 +465,40 @@ def migrate_tracked(data_dir: Path, use_git: bool = True, dry_run: bool = False)
     return counts
 
 
+# A whole JSON string that is an old id, optionally behind a "mode:" prefix
+# (query ids): "scripture/kjv/gen#Gen.1.1", "exact:councils/nicaea1#…".
+_OLD_ID_STRING_RE = re.compile(
+    r'(?<!\\)"((?:[a-z]+:)?)((?:scripture|patristic|liturgical|councils|oglt_pl)/[^"\\]*)"'
+)
+
+
+def rewrite_ids_in_text(text: str) -> str:
+    """Rewrite every JSON string in *text* that is an old work or chunk id."""
+    return _OLD_ID_STRING_RE.sub(lambda m: f'"{m.group(1)}{new_chunk_id(m.group(2))}"', text)
+
+
+def migrate_eval(eval_dir: Path, dry_run: bool = False) -> int:
+    """Rewrite old ids in the ``*.jsonl`` files under *eval_dir*.
+
+    Returns the number of files rewritten (or that would be).
+    """
+    rewritten = 0
+    for path in sorted(eval_dir.rglob("*.jsonl")):
+        text = path.read_text(encoding="utf-8")
+        new_text = rewrite_ids_in_text(text)
+        if new_text == text:
+            continue
+        old_rows = [json.loads(line) for line in text.splitlines() if line.strip()]
+        new_rows = [json.loads(line) for line in new_text.splitlines() if line.strip()]
+        if len(old_rows) != len(new_rows):
+            raise MigrationError(f"{path}: rewriting ids changed the number of rows")
+        log.info("%s %s", "Would rewrite" if dry_run else "Rewriting", path)
+        if not dry_run:
+            path.write_text(new_text, encoding="utf-8")
+        rewritten += 1
+    return rewritten
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
@@ -464,6 +506,9 @@ def main() -> None:
     p_raw = sub.add_parser("raw", help="move data/raw to the source-first layout")
     p_raw.add_argument("--raw-dir", default="data/raw", type=Path)
     p_raw.add_argument("--dry-run", action="store_true")
+    p_ev = sub.add_parser("eval", help="rewrite old ids in data/eval/**/*.jsonl")
+    p_ev.add_argument("--eval-dir", default="data/eval", type=Path)
+    p_ev.add_argument("--dry-run", action="store_true")
     p_tr = sub.add_parser("tracked", help="migrate tracked data (normalized, eval, translations)")
     p_tr.add_argument("--data-dir", default="data", type=Path)
     p_tr.add_argument("--no-git", action="store_true", help="move with shutil, not git mv")
@@ -474,6 +519,11 @@ def main() -> None:
         if not args.raw_dir.is_dir():
             parser.error(f"{args.raw_dir} is not a directory")
         migrate_raw(args.raw_dir, dry_run=args.dry_run)
+    elif args.command == "eval":
+        if not args.eval_dir.is_dir():
+            parser.error(f"{args.eval_dir} is not a directory")
+        n = migrate_eval(args.eval_dir, dry_run=args.dry_run)
+        log.info("%s %d files", "Would rewrite" if args.dry_run else "Rewrote", n)
     else:
         migrate_tracked(args.data_dir, use_git=not args.no_git, dry_run=args.dry_run)
 

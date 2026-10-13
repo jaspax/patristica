@@ -119,10 +119,10 @@ class TestFullNameToAbbrev:
 
 class TestBookWorkId:
     def test_simple(self):
-        assert book_work_id("scripture/oshb", "Gen") == "scripture/oshb/gen"
+        assert book_work_id("oshb", "Gen") == "oshb/gen"
 
     def test_nt(self):
-        assert book_work_id("scripture/kjv", "Matt") == "scripture/kjv/matt"
+        assert book_work_id("kjv", "Matt") == "kjv/matt"
 
     def test_numbered_book(self):
-        assert book_work_id("scripture/asv", "1Cor") == "scripture/asv/1cor"
+        assert book_work_id("asv", "1Cor") == "asv/1cor"

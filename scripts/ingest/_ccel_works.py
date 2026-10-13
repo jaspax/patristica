@@ -60,9 +60,9 @@ _CANON_HEAD_RE = re.compile(r"^Canon [IVXL]+\.$")
 
 #: Volume-id prefix → (cache dir relative to the raw output dir, edition label)
 _SERIES: dict[str, tuple[Path, str]] = {
-    "anf": (Path("patristic") / "ccel-anf", "ANF Vol. {n}"),
-    "npnf1": (Path("patristic") / "ccel-npnf1", "NPNF Series 1 Vol. {n}"),
-    "npnf2": (Path("patristic") / "ccel-npnf2", "NPNF Series 2 Vol. {n}"),
+    "anf": (Path("ccel-anf"), "ANF Vol. {n}"),
+    "npnf1": (Path("ccel-npnf1"), "NPNF Series 1 Vol. {n}"),
+    "npnf2": (Path("ccel-npnf2"), "NPNF Series 2 Vol. {n}"),
 }
 
 
@@ -211,7 +211,7 @@ def extract_work(spec: _WorkSpec, ids: dict[str, etree._Element]) -> list[dict[s
 def make_work(spec: _WorkSpec, source_id: str) -> Work:
     _, edition = _series(spec.volume)
     return Work(
-        work_id=f"{source_id.split('/')[-1]}/{spec.slug}",
+        work_id=f"{source_id}/{spec.slug}",
         source_id=source_id,
         author=spec.author,
         title=spec.title,

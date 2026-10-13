@@ -44,8 +44,8 @@ EXCLUDED_UNIQUE_WORKS: dict[str, str] = {
 # and "Apocalypse of Ezra" (really 1 Esdras) and Testament of Our Lord (#76).
 UNIQUE_WORKS: dict[str, tuple[str, ...]] = {
     "gez": (
-        "scripture/gez/jub", "scripture/gez/1meq", "scripture/gez/3meq",
-        "scripture/gez/clem",
+        "gez/jub", "gez/1meq", "gez/3meq",
+        "gez/clem",
     ),
 }
 

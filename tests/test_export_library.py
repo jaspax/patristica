@@ -47,13 +47,13 @@ def corpus(tmp_path: Path) -> Path:
     """A tiny normalized corpus: two scripture books and one patristic work."""
     norm = tmp_path / "normalized"
     works = [
-        ("scripture/kjv/Gen.json", _work("scripture/kjv/gen", "scripture/kjv", date_composed=-500),
-         [_chunk("scripture/kjv/gen", "Gen.1.1", "In the beginning", 0),
-          _chunk("scripture/kjv/gen", "Gen.1.2", "And the earth", 1)]),
-        ("scripture/kjv/Exod.json", _work("scripture/kjv/exod", "scripture/kjv"),
-         [_chunk("scripture/kjv/exod", "Exod.1.1", "Now these are", 0)]),
-        ("patristic/pta/x.json",
-         _work("pta/x", "patristic/pta", genre="patristic", author="Anon", license="cc-by-sa-4.0"),
+        ("kjv/Gen.json", _work("kjv/gen", "kjv", date_composed=-500),
+         [_chunk("kjv/gen", "Gen.1.1", "In the beginning", 0),
+          _chunk("kjv/gen", "Gen.1.2", "And the earth", 1)]),
+        ("kjv/Exod.json", _work("kjv/exod", "kjv"),
+         [_chunk("kjv/exod", "Exod.1.1", "Now these are", 0)]),
+        ("pta/x.json",
+         _work("pta/x", "pta", genre="patristic", author="Anon", license="cc-by-sa-4.0"),
          # Out of order on disk; the second is out of period.
          [_chunk("pta/x", "pta1.pta2.2", "second", 1, out_of_period=True),
           _chunk("pta/x", "pta1.pta2.1", "first", 0)]),
@@ -97,13 +97,13 @@ class TestExport:
 
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         assert index["sources"] == {
-            "scripture/kjv": "King James Version",
-            "patristic/pta": "Patristic Text Archive",
+            "kjv": "King James Version",
+            "pta": "Patristic Text Archive",
         }
         rows = {r["id"]: r for r in index["works"]}
-        assert rows["scripture/kjv/gen"]["chunks"] == 2
-        assert rows["scripture/kjv/gen"]["date"] == -500
-        assert rows["scripture/kjv/gen"]["file"] == "works/scripture/kjv/Gen.json"
+        assert rows["kjv/gen"]["chunks"] == 2
+        assert rows["kjv/gen"]["date"] == -500
+        assert rows["kjv/gen"]["file"] == "works/kjv/Gen.json"
         assert rows["pta/x"]["author"] == "Anon"
         assert rows["pta/x"]["license"] == "cc-by-sa-4.0"
         for row in index["works"]:
@@ -112,13 +112,13 @@ class TestExport:
     def test_work_file(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         export_library(corpus, out)
-        gen = json.loads((out / "works/scripture/kjv/Gen.json").read_text(encoding="utf-8"))
+        gen = json.loads((out / "works/kjv/Gen.json").read_text(encoding="utf-8"))
         assert gen == {
-            "work_id": "scripture/kjv/gen",
+            "work_id": "kjv/gen",
             "ref_prefix": "Gen.1",
             "chunks": [["1", "In the beginning"], ["2", "And the earth"]],
         }
-        pta = json.loads((out / "works/patristic/pta/x.json").read_text(encoding="utf-8"))
+        pta = json.loads((out / "works/pta/x.json").read_text(encoding="utf-8"))
         # Sorted by chunk_index; out-of-period flag as third element.
         assert pta["chunks"] == [["1", "first"], ["2", "second", 1]]
 
@@ -137,8 +137,8 @@ class TestExport:
         export_library(corpus, out)
         before = json.loads((out / "index.json").read_text())["version"]
         # Same chunk count, different text: the index rows are unchanged.
-        src = corpus / "scripture/kjv/Exod.json"
-        src.write_text(json.dumps([_chunk("scripture/kjv/exod", "Exod.1.1", "Changed", 0)]))
+        src = corpus / "kjv/Exod.json"
+        src.write_text(json.dumps([_chunk("kjv/exod", "Exod.1.1", "Changed", 0)]))
         future = src.stat().st_mtime + 10
         os.utime(src, (future, future))
         export_library(corpus, out)
@@ -147,17 +147,17 @@ class TestExport:
     def test_rebuilds_changed_source(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         export_library(corpus, out)
-        src = corpus / "scripture/kjv/Exod.json"
+        src = corpus / "kjv/Exod.json"
         src.write_text(json.dumps([
-            _chunk("scripture/kjv/exod", "Exod.1.1", "Now these are", 0),
-            _chunk("scripture/kjv/exod", "Exod.1.2", "Reuben", 1),
+            _chunk("kjv/exod", "Exod.1.1", "Now these are", 0),
+            _chunk("kjv/exod", "Exod.1.2", "Reuben", 1),
         ]), encoding="utf-8")
         future = src.stat().st_mtime + 10
         os.utime(src, (future, future))
         counts = export_library(corpus, out)
         assert counts["written"] == 1
         rows = {r["id"]: r for r in json.loads((out / "index.json").read_text())["works"]}
-        assert rows["scripture/kjv/exod"]["chunks"] == 2
+        assert rows["kjv/exod"]["chunks"] == 2
 
     def test_force(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
@@ -177,14 +177,14 @@ class TestExport:
             export_library(tmp_path, tmp_path / "library")
 
     def test_missing_work_file(self, corpus: Path, tmp_path: Path):
-        (corpus / "scripture/kjv/Exod.json").unlink()
+        (corpus / "kjv/Exod.json").unlink()
         with pytest.raises(ExportError, match="missing"):
             export_library(corpus, tmp_path / "library")
 
 
 class TestSourceLabels:
     def test_fallback(self):
-        assert source_label("scripture/kjv") == "King James Version"
+        assert source_label("kjv") == "King James Version"
         assert source_label("nope/unknown") == "nope/unknown"
 
     def test_every_corpus_source_has_label(self):

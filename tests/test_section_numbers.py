@@ -78,7 +78,7 @@ def test_strips_matching_number(text: str, ref: str, lang: str, expected: str) -
         ("α Πᾶσαι", "a.1", "grc", None),
         ("a. Prima", "a.1", "lat", None),
         # serial-counter refs: any match is a coincidence
-        ("(90) Μεταεύ. Α Β μετά.", "ogpg.vol-046.00090", "grc", "patristic/ogpg"),
+        ("(90) Μεταεύ. Α Β μετά.", "ogpg.vol-046.00090", "grc", "ogpg"),
     ],
 )
 def test_leaves_content_alone(text: str, ref: str, lang: str, source_id: str | None) -> None:
@@ -127,7 +127,7 @@ def _raw(
 def test_normalize_strips_prose_numbers() -> None:
     raw = _raw(
         "patristic",
-        "patristic/npnf-works",
+        "npnf-works",
         "paragraphs",
         [
             ("Aug.Conf.I.I.1", "  1. Great art Thou, O Lord  "),
@@ -143,7 +143,7 @@ def test_normalize_strips_prose_numbers() -> None:
 
 
 def test_normalize_leaves_scripture_alone() -> None:
-    raw = _raw("scripture", "scripture/kjv", "verses", [("Num.1.3", "3 From twenty years old")])
+    raw = _raw("scripture", "kjv", "verses", [("Num.1.3", "3 From twenty years old")])
     _, chunks = normalize_scripture_work(raw)
     assert chunks[0].text == "3 From twenty years old"
 
@@ -172,7 +172,10 @@ def test_validate_flags_remaining_numbers() -> None:
             "text": "3 From twenty years old",
         },
     ]
-    entries = {"p/w": {"source_id": "patristic/npnf-works"}, "s/w": {"source_id": "scripture/kjv"}}
+    entries = {
+        "p/w": {"source_id": "npnf-works", "genre": "patristic"},
+        "s/w": {"source_id": "kjv", "genre": "scripture"},
+    }
     result = _check_section_numbers(chunks, entries)["text_starts_with_section_number"]
     assert result["status"] == "warn"
     assert result["violation_count"] == 1

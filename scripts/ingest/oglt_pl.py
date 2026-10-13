@@ -7,7 +7,7 @@ License: CC-BY-SA 4.0
 
 Acquisition
 -----------
-Shallow-clone the repo into ``data/raw/patristic/oglt_pl/`` using git.
+Shallow-clone the repo into ``data/raw/oglt-pl/`` using git.
 On ``force=True`` we pull the latest changes.
 
 File selection
@@ -95,7 +95,7 @@ from scripts.ingest._patristic_meta import AUTHORS
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/oglt-pl"
+SOURCE_ID = "oglt-pl"
 
 _REPO_URL = "https://github.com/OpenGreekAndLatin/patrologia_latina-dev.git"
 
@@ -192,9 +192,9 @@ def _filter_paragraphs(
 
 
 def _work_id(author: str | None, stem: str) -> str:
-    """``oglt_pl/{author_slug}/{stem}`` — the stem keeps it unique per split file."""
+    """``oglt-pl/{author_slug}/{stem}`` — the stem keeps it unique per split file."""
     author_slug = re.sub(r"[^a-z0-9]+", "-", (author or "unknown").lower()).strip("-")
-    return f"oglt_pl/{author_slug}/{stem.lower()}"
+    return f"{SOURCE_ID}/{author_slug}/{stem.lower()}"
 
 
 def _apply_pl_index(
@@ -526,7 +526,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     -------
     List of ``Work`` records written.
     """
-    repo_dir = output_dir / "patristic" / "oglt_pl"
+    repo_dir = output_dir / SOURCE_ID
     _ensure_repo(repo_dir, force)
 
     xml_files = _collect_xml_files(repo_dir)
@@ -541,7 +541,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
     for xml_path in tqdm(xml_files, desc="OGLT PL ingest"):
         rel = xml_path.relative_to(repo_dir)
-        out_path = output_dir / "patristic" / "oglt_pl" / rel.with_suffix(".json")
+        out_path = output_dir / SOURCE_ID / rel.with_suffix(".json")
 
         if out_path.exists() and not force:
             saved = json.loads(out_path.read_text(encoding="utf-8"))

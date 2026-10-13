@@ -2,8 +2,9 @@
 
 None of the Coptic Scriptorium works is a liturgy: they are homilies, saints'
 lives, Shenoute, letters, monastic texts and apocrypha, so every one is
-``patristic``, and so are the source_id and work ids (renamed from
-``liturgical/coptic-scriptorium`` in #52).
+``patristic``.  The source_id and work ids carried a genre until #102
+(``liturgical/coptic-scriptorium``, then ``patristic/coptic-scriptorium`` from
+#52); now they are just ``coptic-scriptorium``.
 """
 
 from __future__ import annotations
@@ -39,10 +40,11 @@ def test_apocrypha_formerly_liturgical(corpus: str) -> None:
     assert _corpus_meta(corpus)["genre"] == "patristic"
 
 
-def test_source_id_is_patristic() -> None:
-    assert SOURCE_ID == "patristic/coptic-scriptorium"
+def test_source_id_has_no_genre() -> None:
+    assert SOURCE_ID == "coptic-scriptorium"
     assert SOURCE_ID in SOURCE_LABELS
     assert "liturgical/coptic-scriptorium" not in SOURCE_LABELS
+    assert "patristic/coptic-scriptorium" not in SOURCE_LABELS
 
 
 def test_ingest_writes_work_ids_under_source_id(tmp_path: Path) -> None:
@@ -53,7 +55,7 @@ def test_ingest_writes_work_ids_under_source_id(tmp_path: Path) -> None:
 
     works = ingest(tmp_path)
 
-    assert [w.work_id for w in works] == ["patristic/coptic-scriptorium/dormition_john"]
+    assert [w.work_id for w in works] == ["coptic-scriptorium/dormition_john"]
     assert works[0].source_id == SOURCE_ID
-    out = tmp_path / "patristic" / "coptic-scriptorium" / "dormition_john.json"
+    out = tmp_path / "coptic-scriptorium" / "dormition_john.json"
     assert json.loads(out.read_text(encoding="utf-8"))["work"]["work_id"] == works[0].work_id

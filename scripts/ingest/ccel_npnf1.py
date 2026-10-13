@@ -18,7 +18,7 @@ from scripts.ingest._ccel_common import ingest_ccel_series
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/ccel-npnf1"
+SOURCE_ID = "ccel-npnf1"
 
 # NPNF Series 1 volumes 1–14
 _VOLUMES = [f"npnf1{i:02d}" for i in range(1, 15)]

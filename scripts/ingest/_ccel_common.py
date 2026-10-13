@@ -375,16 +375,16 @@ def _extract_paragraphs_from_div1(
 #: nested div is cut out of its parent div1's Work.
 EXCLUDED_DIVS: dict[str, dict[str, str]] = {
     "anf07": {
-        "viii.iii": "patristic/didache",
-        **{f"ix.{n}": "patristic/apostolic-constitutions"
+        "viii.iii": "didache",
+        **{f"ix.{n}": "apostolic-constitutions"
            for n in ("ii", "iii", "iv", "v", "vi", "vii", "viii", "ix")},
-        "xii.ii": "liturgical/syriac-james",
-        "xii.iii": "liturgical/mark-liturgy",
-        "xii.iv": "liturgical/adai-mari",
+        "xii.ii": "syriac-james",
+        "xii.iii": "mark-liturgy",
+        "xii.iv": "adai-mari",
     },
     "anf08": {
         # ANF08/009 Memoirs of Edessa — Syriac documents (dedicated ingestors)
-        **{d: "patristic/syriac-documents"
+        **{d: "syriac-documents"
            for d in ("ix.iii", "ix.iv", "ix.v", "ix.vi.i", "ix.vii", "ix.viii",
                      "ix.ix", "ix.xi", "ix.xii", "ix.xiii", "ix.xiv",
                      "ix.xvi", "ix.xvii", "ix.xviii")},
@@ -392,7 +392,7 @@ EXCLUDED_DIVS: dict[str, dict[str, str]] = {
            for d in ("ix.i", "ix.ii", "ix.vi.ii", "ix.x", "ix.xv", "ix.xix")},
     },
     "npnf214": {
-        **{d: "councils/ecumenical"
+        **{d: "ecumenical"
            for d in ("vii", "ix", "x", "xi", "xii", "xiii", "xiv", "xvi",
                      "viii.iii", "viii.iv", "viii.v", "viii.vi", "viii.vii",
                      "xv.iii", "xv.iv", "xv.v", "xv.vi")},
@@ -500,7 +500,7 @@ _ANF_NON_TEXT: dict[str, dict[str, str]] = {
     },
 }
 for _vol, _ids in _ANF_WORKS_DIVS.items():
-    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/anf-works"))
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "anf-works"))
 for _reason, _per_vol in _ANF_NON_TEXT.items():
     for _vol, _ids in _per_vol.items():
         EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), f"non-text: {_reason}"))
@@ -745,7 +745,7 @@ _NPNF_NON_TEXT: dict[str, dict[str, str]] = {
     },
 }
 for _vol, _ids in _NPNF_WORKS_DIVS.items():
-    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "patristic/npnf-works"))
+    EXCLUDED_DIVS.setdefault(_vol, {}).update(dict.fromkeys(_ids.split(), "npnf-works"))
 for _reason, _per_vol in _NPNF_NON_TEXT.items():
     for _vol, _ids in _per_vol.items():
         for _id in _ids.split():
@@ -768,7 +768,7 @@ def parse_thml_volume(
     Parameters
     ----------
     xml_path:     Path to the downloaded ThML XML file.
-    source_id:    Source ID string, e.g. ``"patristic/ccel-anf"``.
+    source_id:    Source ID string, e.g. ``"ccel-anf"``.
     volume_id:    Volume code, e.g. ``"anf01"``.
     volume_label: Human-readable label, e.g. ``"ANF Vol. 1"``.
     """

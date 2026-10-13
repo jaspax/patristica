@@ -28,7 +28,7 @@ from scripts.ingest._scripture_meta import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/kjv"
+SOURCE_ID = "kjv"
 REPO_ZIP_URL = "https://github.com/aruljohn/Bible-kjv/archive/refs/heads/master.zip"
 
 # The aruljohn repo uses "Song of Solomon" rather than "Song of Songs"

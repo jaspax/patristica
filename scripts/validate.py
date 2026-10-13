@@ -240,7 +240,7 @@ def _check_section_numbers(
     for c in chunks:
         entry = work_records.get(c.get("work_id", ""), {})
         source_id = entry.get("source_id", "")
-        if source_id.startswith("scripture/"):
+        if entry.get("genre") == "scripture":
             continue
         prefix = leading_section_number(
             c.get("text", ""), c.get("canonical_ref", ""), c.get("language"), source_id

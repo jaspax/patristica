@@ -53,7 +53,7 @@ from scripts.ingest._cts_scope import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/perseus"
+SOURCE_ID = "perseus"
 
 _GREEK_REPO_URL = "https://github.com/PerseusDL/canonical-greekLit.git"
 _LATIN_REPO_URL = "https://github.com/PerseusDL/canonical-latinLit.git"
@@ -99,10 +99,10 @@ def _ensure_repo(repo_dir: Path, repo_url: str, label: str, force: bool) -> None
 def _build_first1k_ids(raw_dir: Path) -> set[str]:
     """Return the set of CTS work IDs already present in First1KGreek output.
 
-    Scans ``data/raw/patristic/first1k/`` for JSON files and extracts the
+    Scans ``data/raw/first1k/`` for JSON files and extracts the
     ``{author_id}.{work_id_short}`` pair from each filename stem.
     """
-    first1k_dir = raw_dir / "patristic" / "first1k"
+    first1k_dir = raw_dir / "first1k"
     if not first1k_dir.exists():
         log.debug("First1KGreek output not found at %s; dedup disabled", first1k_dir)
         return set()
@@ -415,7 +415,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         (latin_repo_dir, "lat"),
     ]
 
-    pruned = prune_out_of_scope(output_dir / "patristic" / "perseus", ("grc", "lat"))
+    pruned = prune_out_of_scope(output_dir / "perseus", ("grc", "lat"))
     if pruned:
         log.info("Removed %d previously ingested out-of-scope Perseus files", pruned)
 
@@ -443,7 +443,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
         for xml_path in tqdm(xml_files, desc=f"Perseus {repo_lang} ingest"):
             rel = xml_path.relative_to(data_dir)
-            out_path = output_dir / "patristic" / "perseus" / rel.with_suffix(".json")
+            out_path = output_dir / "perseus" / rel.with_suffix(".json")
 
             if out_path.exists() and not force:
                 try:

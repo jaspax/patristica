@@ -38,7 +38,7 @@ from scripts.ingest._common import download_file, slugify_ref
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "liturgical/mozarabic"
+SOURCE_ID = "mozarabic"
 
 _IA_SEARCH = "https://archive.org/advancedsearch.php"
 _IA_DJVU_TMPL = "https://archive.org/download/{ia_id}/{ia_id}_djvu.txt"

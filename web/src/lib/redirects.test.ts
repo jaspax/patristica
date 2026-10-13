@@ -1,15 +1,49 @@
 import { describe, expect, it } from "vitest";
 
 import nextConfig from "../../next.config";
-import { legacyWorkRedirects, SPLIT_OGPG_VOLUMES } from "./redirects";
+import { currentSourceId, currentWorkId, legacyWorkRedirects, SPLIT_OGPG_VOLUMES } from "./redirects";
 
 describe("renamed work ids", () => {
-  it("builds permanent reader redirects that keep the rest of the path", () => {
+  it("drops the genre prefix that ids had before #102", () => {
     expect(legacyWorkRedirects()).toContainEqual({
-      source: "/works/liturgical/coptic-scriptorium/:rest+",
-      destination: "/works/patristic/coptic-scriptorium/:rest+",
+      source: "/works/scripture/:rest+",
+      destination: "/works/:rest+",
       permanent: true,
     });
+    expect(currentWorkId("scripture/kjv/gen")).toBe("kjv/gen");
+    expect(currentWorkId("liturgical/cursus/Bat")).toBe("cursus/Bat");
+  });
+
+  it("sends both old Coptic Scriptorium prefixes (#52, #102) to the current id in one hop", () => {
+    expect(currentWorkId("liturgical/coptic-scriptorium/AP")).toBe("coptic-scriptorium/AP");
+    expect(currentWorkId("patristic/coptic-scriptorium/AP")).toBe("coptic-scriptorium/AP");
+    const sources = legacyWorkRedirects().map((r) => r.source);
+    expect(sources).not.toContain("/works/liturgical/coptic-scriptorium/:rest+");
+  });
+
+  it("renames council and Patrologia Latina work ids to their source ids", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/councils/:rest+",
+      destination: "/works/ecumenical/:rest+",
+      permanent: true,
+    });
+    expect(currentWorkId("councils/nicaea1")).toBe("ecumenical/nicaea1");
+    expect(currentWorkId("oglt_pl/augustinus/pl32_5_s")).toBe("oglt-pl/augustinus/pl32_5_s");
+  });
+
+  it("leaves current ids alone", () => {
+    for (const id of ["kjv/gen", "ogpg/vol-045/ad-graecos", "first1k/tlg2042/tlg001/1st1K-grc1"]) {
+      expect(currentWorkId(id)).toBe(id);
+    }
+    expect(currentWorkId("scripturex/a")).toBe("scripturex/a");
+  });
+
+  it("maps old source ids to the bare collection slug (#70)", () => {
+    expect(currentSourceId("scripture/oshb")).toBe("oshb");
+    expect(currentSourceId("patristic/oglt-pl")).toBe("oglt-pl");
+    expect(currentSourceId("councils/ecumenical")).toBe("ecumenical");
+    expect(currentSourceId("ogpg")).toBe("ogpg");
+    expect(currentSourceId("")).toBe("");
   });
 
   it("matches only whole path segments under the old prefix", () => {

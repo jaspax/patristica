@@ -47,14 +47,22 @@ class TestCountFiles:
         assert count_files(tmp_path, suffix=".json") == {}
 
     def test_counts_nested_json(self, tmp_path):
-        # Two-level nesting: scripture/oshb/Gen.json → source_id "scripture/oshb"
-        src = tmp_path / "scripture"
-        sub = src / "oshb"
+        # Subdirectories belong to their top-level source: anf-works/anf01/x.json
+        sub = tmp_path / "anf-works" / "anf01"
         sub.mkdir(parents=True)
-        (sub / "Gen.json").write_text("{}")
-        (sub / "Exod.json").write_text("{}")
+        (sub / "a.json").write_text("{}")
+        (sub / "b.json").write_text("{}")
+        (tmp_path / "anf-works" / "c.json").write_text("{}")
         result = count_files(tmp_path)
-        assert result == {"scripture/oshb": 2}
+        assert result == {"anf-works": 3}
+
+    def test_skips_underscore_subdirectories(self, tmp_path):
+        src = tmp_path / "ogpg"
+        (src / "_extract").mkdir(parents=True)
+        (src / "_extract" / "vol-001.json").write_text("{}")
+        (src / "_volumes.json").write_text("{}")
+        (src / "vol-001.json").write_text("{}")
+        assert count_files(tmp_path) == {"ogpg": 1}
 
 
 class TestBuildCatalog:

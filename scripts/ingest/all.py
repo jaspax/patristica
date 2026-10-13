@@ -7,10 +7,10 @@ Usage
     python -m scripts.ingest.all
 
     # Run a single source:
-    python -m scripts.ingest.all --source scripture/oshb
+    python -m scripts.ingest.all --source oshb
 
     # Force re-download:
-    python -m scripts.ingest.all --source scripture/kjv --force
+    python -m scripts.ingest.all --source kjv --force
 
 Individual sources can also be run directly:
     python -m scripts.ingest.oshb
@@ -53,12 +53,12 @@ def discover_ingestors() -> list[str]:
 
 
 def _source_id_to_module(source_id: str) -> str:
-    """Convert a source_id like ``"scripture/oshb"`` to a module name.
+    """Convert a source_id like ``"oshb"`` to a module name.
 
     The mapping is: take the last path component, replace ``-`` with ``_``.
-    ``"scripture/oshb"`` → ``"scripts.ingest.oshb"``
-    ``"scripture/lxx-rahlfs"`` → ``"scripts.ingest.lxx_rahlfs"``
-    ``"scripture/coptic-nt"`` → ``"scripts.ingest.coptic_nt"``
+    ``"oshb"`` → ``"scripts.ingest.oshb"``
+    ``"lxx-rahlfs"`` → ``"scripts.ingest.lxx_rahlfs"``
+    ``"coptic-nt"`` → ``"scripts.ingest.coptic_nt"``
     """
     name = source_id.split("/")[-1].replace("-", "_")
     return f"scripts.ingest.{name}"
@@ -107,8 +107,8 @@ def main() -> None:
         epilog=(
             "Examples:\n"
             "  python -m scripts.ingest.all\n"
-            "  python -m scripts.ingest.all --source scripture/oshb\n"
-            "  python -m scripts.ingest.all --source scripture/kjv --force\n"
+            "  python -m scripts.ingest.all --source oshb\n"
+            "  python -m scripts.ingest.all --source kjv --force\n"
         ),
     )
     parser.add_argument(
@@ -120,7 +120,7 @@ def main() -> None:
         "--source",
         default=None,
         metavar="SOURCE_ID",
-        help="Run only this source (e.g. 'scripture/oshb'). Omit to run all.",
+        help="Run only this source (e.g. 'oshb'). Omit to run all.",
     )
     parser.add_argument(
         "--force",

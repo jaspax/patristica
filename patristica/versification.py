@@ -31,19 +31,19 @@ Scheme = str  # "org" | "eng" | "lxx" | "vul"
 #: Versification scheme per scripture source (sniffed from verse counts:
 #: each source matches its scheme on ≥ 97% of chapters unless noted).
 SOURCE_SCHEMES: dict[str, Scheme] = {
-    "scripture/oshb": "org",
-    "scripture/sblgnt": "org",
-    "scripture/pta-peshitta": "org",   # Hebrew verse numbering, incl. Psalm titles
-    "scripture/wulfila": "org",
-    "scripture/kjv": "eng",
-    "scripture/asv": "eng",
-    "scripture/web": "eng",
-    "scripture/clementine": "vul",
-    "scripture/armenian": "vul",       # Zohrab; closest fit (vul 96%, lxx 84%)
-    "scripture/lxx-rahlfs": "lxx",
-    "scripture/pta-lxx": "lxx",
-    "scripture/coptic-nt": "lxx",
-    "scripture/gez": "lxx",            # weak fit overall; see overrides
+    "oshb": "org",
+    "sblgnt": "org",
+    "pta-peshitta": "org",   # Hebrew verse numbering, incl. Psalm titles
+    "wulfila": "org",
+    "kjv": "eng",
+    "asv": "eng",
+    "web": "eng",
+    "clementine": "vul",
+    "armenian": "vul",       # Zohrab; closest fit (vul 96%, lxx 84%)
+    "lxx-rahlfs": "lxx",
+    "pta-lxx": "lxx",
+    "coptic-nt": "lxx",
+    "gez": "lxx",            # weak fit overall; see overrides
 }
 
 #: Books that follow a different scheme from their source's default.  Chosen
@@ -51,17 +51,17 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
 #: (a misaligned verse boundary destroys the correlation); each override beats
 #: the default by > 0.02.  Values in comments are default → override.
 BOOK_SCHEME_OVERRIDES: dict[tuple[str, str], Scheme] = {
-    ("scripture/armenian", "Num"): "eng",
-    ("scripture/armenian", "Neh"): "eng",     # 0.866 → 0.922
-    ("scripture/armenian", "Hag"): "org",     # 0.501 → 0.939
-    ("scripture/armenian", "Jonah"): "org",   # 0.826 → 0.913
-    ("scripture/clementine", "Jonah"): "org",  # 0.844 → 0.956; this edition breaks 1:17/2:1 as Hebrew
-    ("scripture/coptic-nt", "Eccl"): "vul",
-    ("scripture/coptic-nt", "Dan"): "vul",    # 0.475 → 0.660
-    ("scripture/coptic-nt", "Hos"): "eng",    # 0.367 → 0.412
-    ("scripture/gez", "Eccl"): "eng",         # 0.570 → 0.666
-    ("scripture/gez", "Joel"): "eng",         # 0.738 → 0.874; 3 chapters, English-style
-    ("scripture/gez", "Ezra"): "org",         # 0.752 → 0.900
+    ("armenian", "Num"): "eng",
+    ("armenian", "Neh"): "eng",     # 0.866 → 0.922
+    ("armenian", "Hag"): "org",     # 0.501 → 0.939
+    ("armenian", "Jonah"): "org",   # 0.826 → 0.913
+    ("clementine", "Jonah"): "org",  # 0.844 → 0.956; this edition breaks 1:17/2:1 as Hebrew
+    ("coptic-nt", "Eccl"): "vul",
+    ("coptic-nt", "Dan"): "vul",    # 0.475 → 0.660
+    ("coptic-nt", "Hos"): "eng",    # 0.367 → 0.412
+    ("gez", "Eccl"): "eng",         # 0.570 → 0.666
+    ("gez", "Joel"): "eng",         # 0.738 → 0.874; 3 chapters, English-style
+    ("gez", "Ezra"): "org",         # 0.752 → 0.900
 }
 
 #: OSIS-style book (as used in our canonical refs) → Paratext/USFM code.

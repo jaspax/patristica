@@ -13,7 +13,7 @@ from scripts.ingest import oglt_pl
 
 def _work(stem: str) -> Work:
     return Work(
-        work_id=f"oglt_pl/unknown/{stem.lower()}",
+        work_id=f"oglt-pl/unknown/{stem.lower()}",
         source_id=oglt_pl.SOURCE_ID,
         author=None,
         title=stem,
@@ -60,7 +60,7 @@ def test_apply_index_resolves_author_and_title() -> None:
     work = applied[0]
     assert work.author == "Hieronymus"
     assert work.title == "Liber de perpetua virginitate B. Mariae"
-    assert work.work_id == "oglt_pl/hieronymus/pl23_13_unknown"
+    assert work.work_id == "oglt-pl/hieronymus/pl23_13_unknown"
     assert work.date_range == (370, 420)
     assert work.date_composed == 395
     assert work.date_confidence == "approximate"
@@ -88,7 +88,7 @@ def test_apply_index_corrects_volume_level_header() -> None:
     applied = oglt_pl._apply_pl_index(work, "PL59_6_aA", [])
     assert applied is not None
     assert applied[0].author == "Avitus Viennensis"
-    assert applied[0].work_id == "oglt_pl/avitus-viennensis/pl59_6_aa"
+    assert applied[0].work_id == "oglt-pl/avitus-viennensis/pl59_6_aa"
 
 
 def test_apply_index_leaves_unindexed_work_alone() -> None:
