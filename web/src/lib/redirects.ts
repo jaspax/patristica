@@ -19,6 +19,8 @@ export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: stri
  * (`tests/test_ogpg_split.py` checks).
  */
 export const SPLIT_OGPG_VOLUMES: readonly string[] = [
+  "vol-003",
+  "vol-004",
   "vol-025",
   "vol-026",
   "vol-027",
