@@ -10,14 +10,18 @@ get ``"Ps.23.1"``).
 For Patristics (implemented in M3+), alignment requires a manual mapping table
 or a section-level heuristic.
 
-Reads and rewrites the JSON files under ``data/chunks/scripture/`` in-place
-(only Scripture is linked; patristic/liturgical refs are work-specific and
-must never be grouped by ref).  Singletons are reset to ``None`` so stale
-groups are cleared, and only files whose group IDs changed are rewritten.
+Reads and rewrites, in place, the chunk files of the works whose
+``Work.genre`` is ``scripture`` (from ``data/normalized/_works.jsonl``; a
+chunk file has the same path under ``data/chunks/`` as its normalized file).
+Only Scripture is linked: patristic/liturgical refs are work-specific and must
+never be grouped by ref, even when the work comes from a Bible source (#74).
+Singletons are reset to ``None`` so stale groups are cleared, and only files
+whose group IDs changed are rewritten.
 
 Usage::
 
-    python -m scripts.link_translations [--chunks-dir data/chunks] [--force]
+    python -m scripts.link_translations [--chunks-dir data/chunks]
+        [--works data/normalized/_works.jsonl] [--force]
 """
 
 from __future__ import annotations
@@ -36,8 +40,24 @@ from patristica.versification import to_org_ref
 log = logging.getLogger(__name__)
 
 
-def _load_chunks(chunks_dir: Path) -> tuple[list[Chunk], list[Path]]:
-    """Load all chunk JSON files from *chunks_dir*.
+def scripture_paths(works_path: Path) -> list[str]:
+    """Paths (relative to the chunks dir) of every work with genre ``scripture``."""
+    return sorted(scripture_works(works_path))
+
+
+def scripture_works(works_path: Path) -> dict[str, str]:
+    """``path → source_id`` of every work with genre ``scripture``."""
+    works = {}
+    for line in works_path.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            rec = json.loads(line)
+            if rec["work"].get("genre") == "scripture":
+                works[rec["path"]] = rec["work"].get("source_id", "")
+    return works
+
+
+def _load_chunks(json_files: list[Path]) -> tuple[list[Chunk], list[Path]]:
+    """Load the chunk JSON files *json_files* (missing files are skipped).
 
     Returns (all_chunks, list_of_source_paths_per_chunk) so we can rewrite
     files efficiently.
@@ -45,8 +65,10 @@ def _load_chunks(chunks_dir: Path) -> tuple[list[Chunk], list[Path]]:
     all_chunks: list[Chunk] = []
     chunk_paths: list[Path] = []  # parallel to all_chunks
 
-    json_files = sorted(chunks_dir.rglob("*.json"))
     for json_path in tqdm(json_files, desc="load chunks"):
+        if not json_path.exists():
+            log.warning("Skipping %s: no chunk file (run scripts.chunk)", json_path)
+            continue
         with json_path.open(encoding="utf-8") as f:
             try:
                 records = json.load(f)
@@ -65,19 +87,23 @@ def _load_chunks(chunks_dir: Path) -> tuple[list[Chunk], list[Path]]:
 
 def link_scripture_translations(
     chunks: list[Chunk],
+    source_ids: dict[str, str] | None = None,
 ) -> list[Chunk]:
     """Assign ``translation_group_id`` to scripture chunks by versification-mapped ref.
 
     Groups are only created when ≥2 chunks map to the same org ref (across
     different work_ids / languages).  Singletons are left with
-    ``translation_group_id=None``.  The source is the first two components of
-    ``work_id`` (``scripture/kjv/gen`` → ``scripture/kjv``); an unregistered
-    source raises ``VersificationError``.
+    ``translation_group_id=None``.  The source is ``source_ids[work_id]``
+    (from ``_works.jsonl``), else the first two components of ``work_id``
+    (``scripture/kjv/gen`` → ``scripture/kjv``); an unregistered source raises
+    ``VersificationError``.
     """
     ref_to_indices: dict[str, list[int]] = defaultdict(list)
     for i, chunk in enumerate(chunks):
         if chunk.canonical_ref:
-            source_id = "/".join(chunk.work_id.split("/")[:2])
+            source_id = (source_ids or {}).get(chunk.work_id) or "/".join(
+                chunk.work_id.split("/")[:2]
+            )
             ref_to_indices[to_org_ref(source_id, chunk.canonical_ref)].append(i)
 
     updated: list[Chunk] = list(chunks)  # shallow copy; we'll replace items
@@ -121,21 +147,24 @@ def rewrite_files(
         path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def link_all(chunks_dir: Path, force: bool = False) -> int:
-    """Load all chunks, assign translation groups, and rewrite files.
+def link_all(chunks_dir: Path, works_path: Path, force: bool = False) -> int:
+    """Load the Scripture chunks, assign translation groups, and rewrite files.
 
     Returns the number of chunks assigned a translation_group_id.
     """
-    scripture_dir = chunks_dir / "scripture"
-    log.info("Loading chunks from %s…", scripture_dir)
-    all_chunks, chunk_paths = _load_chunks(scripture_dir)
+    works = scripture_works(works_path)
+    rel_paths = sorted(works)
+    log.info("Loading chunks of %d Scripture works from %s…", len(rel_paths), chunks_dir)
+    all_chunks, chunk_paths = _load_chunks([chunks_dir / p for p in rel_paths])
+    by_path = {chunks_dir / p: src for p, src in works.items()}
+    source_ids = {c.work_id: by_path[p] for c, p in zip(all_chunks, chunk_paths) if by_path[p]}
 
     if not all_chunks:
-        log.warning("No chunks found in %s", scripture_dir)
+        log.warning("No Scripture chunks found in %s", chunks_dir)
         return 0
 
     log.info("Linking translation groups across %d chunks…", len(all_chunks))
-    updated = link_scripture_translations(all_chunks)
+    updated = link_scripture_translations(all_chunks, source_ids)
 
     n_linked = sum(1 for c in updated if c.translation_group_id is not None)
     log.info("%d chunks assigned a translation_group_id", n_linked)
@@ -155,10 +184,15 @@ def main() -> None:
         description="Assign translation_group_id across parallel chunks."
     )
     parser.add_argument("--chunks-dir", default="data/chunks")
+    parser.add_argument(
+        "--works",
+        default="data/normalized/_works.jsonl",
+        help="work manifest; only works with genre 'scripture' are linked",
+    )
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
-    link_all(chunks_dir=Path(args.chunks_dir), force=args.force)
+    link_all(chunks_dir=Path(args.chunks_dir), works_path=Path(args.works), force=args.force)
 
 
 if __name__ == "__main__":

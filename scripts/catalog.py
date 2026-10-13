@@ -17,6 +17,11 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+from scripts.migrate_layout import full_new_path, locate
+
+
+_LEGACY_GENRE_DIRS = frozenset({"scripture", "patristic", "liturgical", "councils"})
+
 
 def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     """Return {source_id: file_count} for *directory*.
@@ -32,11 +37,15 @@ def count_files(directory: Path, suffix: str = ".json") -> dict[str, int]:
     for child in sorted(directory.iterdir()):
         if not child.is_dir() or child.name.startswith("_"):
             continue
-        # Check for two-level nesting (e.g. scripture/oshb)
+        # Two-level nesting (e.g. scripture/oshb) only for the pre-#102 genre
+        # directories; a migrated source is one directory (anf-works/anf01/… is
+        # all anf-works).  Transitional until every source is migrated.
         sub_dirs = [d for d in child.iterdir() if d.is_dir() and not d.name.startswith("_")]
-        if sub_dirs:
+        if child.name in _LEGACY_GENRE_DIRS and sub_dirs:
             for sub in sorted(sub_dirs):
-                source_id = f"{child.name}/{sub.name}"
+                # Keyed by the new directory, so raw and normalized line up
+                # while only one of them has moved.
+                source_id = full_new_path(f"{child.name}/{sub.name}")
                 n = sum(1 for f in sub.rglob(f"*{suffix}") if f.is_file())
                 if n:
                     counts[source_id] = n
@@ -55,7 +64,8 @@ def last_run_time(raw_dir: Path, source_id: str) -> datetime | None:
     Returns None if no files are found.
     """
     # source_id may be "scripture/oshb" → path is raw_dir/scripture/oshb/
-    source_path = raw_dir.joinpath(*source_id.split("/"))
+    # (transitional, #102: or the other layout's directory for it)
+    source_path = raw_dir / locate(source_id, raw_dir)
     if not source_path.exists():
         return None
     json_files = list(source_path.rglob("*.json"))
