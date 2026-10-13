@@ -700,9 +700,9 @@ _WORKS: tuple[_WorkSpec, ...] = (
 # ---------------------------------------------------------------------------
 
 _F1K = "first1k/{}/1st1K-grc1"
-_AUG_PL = "oglt_pl/augustinus/{}"
-_JER_PL = "oglt_pl/hieronymus/{}"
-_AMB_PL = "oglt_pl/ambrosius/{}"
+_AUG_PL = "oglt-pl/augustinus/{}"
+_JER_PL = "oglt-pl/hieronymus/{}"
+_AMB_PL = "oglt-pl/ambrosius/{}"
 
 _ORIGINALS: dict[str, str] = {
     # NPNF1: Augustine (OGLT PL)
@@ -741,12 +741,12 @@ _ORIGINALS: dict[str, str] = {
     "sozomen-ecclesiastical-history": _F1K.format("tlg2048/tlg001"),
     "theodoret-ecclesiastical-history": _F1K.format("tlg4089/tlg003"),
     "jerome-lives-of-illustrious-men": _JER_PL.format("pl23_21_unknown"),
-    "gennadius-lives-of-illustrious-men": "oglt_pl/gennadius-massiliensis/pl58_25_li",
-    "rufinus-apology-to-anastasius": "oglt_pl/rufinus-aquileiensis/pl21_6_apo",
-    "anastasius-letter-to-john-of-jerusalem": "oglt_pl/anastasius-i/pl21_7_epi",
-    "rufinus-apology-against-jerome": "oglt_pl/rufinus-aquileiensis/pl21_5_ruf",
+    "gennadius-lives-of-illustrious-men": "oglt-pl/gennadius-massiliensis/pl58_25_li",
+    "rufinus-apology-to-anastasius": "oglt-pl/rufinus-aquileiensis/pl21_6_apo",
+    "anastasius-letter-to-john-of-jerusalem": "oglt-pl/anastasius-i/pl21_7_epi",
+    "rufinus-apology-against-jerome": "oglt-pl/rufinus-aquileiensis/pl21_5_ruf",
     "jerome-apology-against-rufinus": _JER_PL.format("pl23_17_unknown"),
-    "rufinus-commentary-on-the-apostles-creed": "oglt_pl/rufinus-aquileiensis/pl21_2_com",
+    "rufinus-commentary-on-the-apostles-creed": "oglt-pl/rufinus-aquileiensis/pl21_2_com",
     # NPNF2 vol. 4: Athanasius (PTA, Athanasius Werke)
     "athanasius-against-the-heathen": "pta/pta0022/pta001/pta-grc1",
     "athanasius-on-the-incarnation": "pta/pta0022/pta002/pta-grc1",
@@ -774,9 +774,9 @@ _ORIGINALS: dict[str, str] = {
     # NPNF2 vol. 8: Basil's letters (Perseus)
     "basil-letters": "perseus/tlg2040/tlg004/perseus-grc2",
     # NPNF2 vol. 9: Hilary (OGLT); the homilies are a selection of the Tractatus.
-    "hilary-de-synodis": "oglt_pl/hilarius-pictaviensis/pl10_2_457",
-    "hilary-on-the-trinity": "oglt_pl/hilarius-pictaviensis/pl10_0_san",
-    "hilary-homilies-on-psalms": "oglt_pl/hilarius-pictaviensis/pl9_10_san",
+    "hilary-de-synodis": "oglt-pl/hilarius-pictaviensis/pl10_2_457",
+    "hilary-on-the-trinity": "oglt-pl/hilarius-pictaviensis/pl10_0_san",
+    "hilary-homilies-on-psalms": "oglt-pl/hilarius-pictaviensis/pl9_10_san",
     # NPNF2 vol. 10: Ambrose (OGLT)
     "ambrose-on-the-duties-of-the-clergy": _AMB_PL.format("pl16_0_san"),
     "ambrose-on-the-holy-spirit": _AMB_PL.format("pl16_11_sa"),
@@ -787,13 +787,13 @@ _ORIGINALS: dict[str, str] = {
     "ambrose-concerning-virgins": _AMB_PL.format("pl16_1_san"),
     "ambrose-concerning-widows": _AMB_PL.format("pl16_2_san"),
     # NPNF2 vol. 11-13 (OGLT)
-    "vincent-of-lerins-commonitory": "oglt_pl/vincentius-lirinensis/pl50_7_unk",
-    "leo-letters": "oglt_pl/leo-i-magnus/pl54_3_san",
-    "leo-sermons": "oglt_pl/leo-i-magnus/pl54_0_ser",
-    "gregory-the-great-pastoral-rule": "oglt_pl/gregorius-i-magnus/pl77_0_san",
+    "vincent-of-lerins-commonitory": "oglt-pl/vincentius-lirinensis/pl50_7_unk",
+    "leo-letters": "oglt-pl/leo-i-magnus/pl54_3_san",
+    "leo-sermons": "oglt-pl/leo-i-magnus/pl54_0_ser",
+    "gregory-the-great-pastoral-rule": "oglt-pl/gregorius-i-magnus/pl77_0_san",
     # Both NPNF volumes translate a selection of the one PL Registrum.
-    "gregory-the-great-register-books-1-8": "oglt_pl/gregorius-i-magnus/pl77_9_",
-    "gregory-the-great-register-books-9-14": "oglt_pl/gregorius-i-magnus/pl77_9_",
+    "gregory-the-great-register-books-1-8": "oglt-pl/gregorius-i-magnus/pl77_9_",
+    "gregory-the-great-register-books-9-14": "oglt-pl/gregorius-i-magnus/pl77_9_",
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).

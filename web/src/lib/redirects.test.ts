@@ -25,6 +25,16 @@ describe("renamed work ids", () => {
   });
 });
 
+describe("Patrologia Latina work ids (#102)", () => {
+  it("renames oglt_pl/… to oglt-pl/…", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/oglt_pl/:rest+",
+      destination: "/works/oglt-pl/:rest+",
+      permanent: true,
+    });
+  });
+});
+
 describe("split Patrologia Graeca volumes", () => {
   it("sends the old volume URL to the index filtered to the volume's works", () => {
     expect(legacyWorkRedirects()).toContainEqual({
