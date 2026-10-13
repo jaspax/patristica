@@ -28,6 +28,14 @@ Columns are language plus **S** (Scripture) or **U** (unique). Small cells (n = 
 
 **"+ Sol translations":** every Syriac, Coptic, Armenian and Ge'ez chunk in the eval corpus also has an English vector, made from its GPT-6.1 Sol translation (11,239 chunks; `data/translations/`). A chunk scores the better of its two vectors.
 
+## Decision (2026-10-13)
+
+- **Translator:** GPT-6.1 Sol.
+- **Embedder:** Voyage `voyage-4-large`. Every Syriac, Coptic, Armenian and Ge'ez chunk gets a second vector made from its Sol translation, and a chunk scores the better of its two vectors.
+- **Quoted queries** go to the normalized keyword index (#86).
+- **Vector size** (1024 or 512 dims) is settled with hosting (#50).
+- **Production pipeline:** #93.
+
 ## Conclusions
 
 1. **Quotes go to the keyword index (#86).** BM25 over normalized text (`patristica.textfold`) gets 0.94 on exact and near-verbatim quotes. The best embedder gets 0.72 (Voyage). Translations don't change quote search at all: none of the 2,518 quote queries changed rank.

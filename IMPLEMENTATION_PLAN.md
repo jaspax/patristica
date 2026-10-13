@@ -89,7 +89,7 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 |---|---|---|
 | Relational DB | PostgreSQL 16+ | Mature, JSONB support, full-text search |
 | Vector store | pgvector extension | Keeps everything in one DB, simplifies ops |
-| Embeddings | Voyage `voyage-4-large` (leading; OpenAI `text-embedding-3-large` close behind), with rare languages also indexed through GPT-6.1 Sol English translations | `docs/embedding-eval.md`: with translations, paraphrase/topical recall 0.99/0.99 in every language; 1024-dim vectors |
+| Embeddings | **Decided (2026-10-13):** Voyage `voyage-4-large`. Syriac, Coptic, Armenian and Ge'ez chunks also get an English translation by GPT-6.1 Sol, embedded as a second vector | `docs/embedding-eval.md`: paraphrase/topical recall 0.99/0.99, every language ≥ 0.90; best at every vector size. Vector size, 1024 or 512 dims, is set with hosting (#50) |
 | ORM/migration | SQLAlchemy + Alembic | Python ecosystem |
 | Search layer | Custom (via pgvector + Postgres FTS) | Avoid unnecessary infra |
 
@@ -103,7 +103,7 @@ works (id, author_id, title, date_range, genre, language, license)
 text_chunks (
   id, work_id, canonical_ref, language,
   text, chunk_index,
-  embedding vector(1536),    -- or 3072 for large model
+  embedding halfvec(1024),   -- Voyage voyage-4-large; 512 if #50 needs the smaller size
   translation_group_id       -- links original + translations of same passage
 )
 translation_groups (id)      -- joins parallel chunks across languages
@@ -235,7 +235,7 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: evaluated (#3, #84; `docs/embedding-eval.md`). Voyage `voyage-4-large` + GPT-6.1 Sol translations leads, with OpenAI + translations as the close alternative. To confirm when the schema is built.
+- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vector size, 1024 or 512, is set together with hosting (#50).
 - **Hosting budget**: tracked in #50. Hetzner is ruled out (US hosting only); the choice waits on vector size.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable
 - **Transliteration**: Do we offer Hebrew/Greek in romanized form for accessibility?
