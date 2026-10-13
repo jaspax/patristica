@@ -279,6 +279,38 @@ class LocalEmbedder:
         return self._encode(texts, prompt=self.query_prompt)
 
 
+# --- shortened vectors -----------------------------------------------------------
+
+class Truncated:
+    """Keep the first *dims* components and renormalize (Matryoshka shortening).
+
+    For OpenAI text-embedding-3 this is documented as equivalent to requesting
+    ``dimensions``; for Voyage voyage-4-large it matches ``output_dimension``
+    (cosine 1.0 on a spot check). Wrap the cached embedder, so one cache
+    serves every size.
+    """
+
+    def __init__(self, inner: Embedder, dims: int) -> None:
+        self.inner, self.dims = inner, dims
+        self.name = f"{inner.name}@{dims}"
+
+    def _cut(self, vecs: np.ndarray) -> np.ndarray:
+        import numpy as np
+
+        v = np.asarray(vecs, dtype=np.float32)
+        if v.shape[1] < self.dims:
+            raise ValueError(f"{self.inner.name} has {v.shape[1]} dims, fewer than {self.dims}")
+        v = v[:, : self.dims]
+        norms = np.linalg.norm(v, axis=1, keepdims=True)
+        return v / np.where(norms == 0, 1, norms)
+
+    def embed_documents(self, texts: list[str]) -> np.ndarray:
+        return self._cut(self.inner.embed_documents(texts))
+
+    def embed_queries(self, texts: list[str]) -> np.ndarray:
+        return self._cut(self.inner.embed_queries(texts))
+
+
 # --- cache --------------------------------------------------------------------
 
 class CachedEmbedder:

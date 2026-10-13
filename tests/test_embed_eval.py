@@ -498,3 +498,16 @@ def test_translation_store_freshness_and_compaction(tmp_path: Path):
     assert reloaded.fresh("a#1", "new text") is None  # source changed since translation
     corpus = [{"chunk_id": "a#1", "text": "new text"}, {"chunk_id": "b#1", "text": "ܫܠܡܐ"}]
     assert load_translations(path, corpus) == {"b#1": "peace"}
+
+
+def test_truncated_embedder_shortens_and_renormalizes():
+    np = pytest.importorskip("numpy")
+    from scripts.embed_eval.embedders import Truncated
+
+    t = Truncated(CharEmbedder(), 8)
+    assert t.name == "fake/chars@8"
+    v = t.embed_documents(["@", "@@"])  # ord("@") % 64 == 0, inside the first 8 dims
+    assert v.shape == (2, 8)
+    np.testing.assert_allclose(np.linalg.norm(v, axis=1), 1.0, rtol=1e-6)
+    with pytest.raises(ValueError):
+        Truncated(CharEmbedder(), 999).embed_queries(["x"])

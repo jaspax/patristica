@@ -110,6 +110,27 @@ Columns are language plus **S** (Scripture) or **U** (unique). Small cells (n = 
 | BGE-M3 (local) + Sol translations | 0.45 | 0.74 | 0.80 | 0.89 | 0.50 | 0.55 | 1.00 | 0.90 | 1.00 | 0.75 | 0.81 | 0.65 | 0.95 | **0.77** |
 | *n* | 20 | 19 | 20 | 18 | 20 | 20 | 20 | 20 | 15 | 20 | 16 | 20 | 20 | |
 
+## Cost and vector size: OpenAI vs Voyage
+
+**Token counts.** Measured on a per-language sample, Voyage counts rare scripts at 0.55–0.70× OpenAI's tokens (Armenian and Ge'ez lowest) and English and Latin about equally.
+
+**Embedding the full corpus once** (about 972k chunks plus 133k translations) costs about the same either way:
+- **OpenAI:** about 339M tokens, ≈ $44 standard or $22 batch.
+- **Voyage:** about 288M tokens, ≈ $11 standard after the 200M free tokens, or $23 batch.
+
+**Shortened vectors.** Both models support Matryoshka shortening: keep the first N dimensions and renormalize. OpenAI documents this as equivalent to its `dimensions` option. For Voyage, truncated vectors matched `output_dimension` exactly (cosine 1.0). The table scores shortened vectors from the cached full-size ones (`dense:NAME@N`). Means are across language groups; "worst cell" is the lowest language/origin score on paraphrase or topical.
+
+| With Sol translations | Dims | Paraphrase R@3 | Topical R@100 | Worst cell | Exact R@1 | Vectors, full corpus (halfvec) |
+|---|---:|---:|---:|---:|---:|---:|
+| OpenAI text-embedding-3-large | 3072 | 0.98 | 0.94 | 0.85 | 0.50 | ≈ 6.8 GB |
+| OpenAI text-embedding-3-large | 1536 | 0.98 | 0.94 | 0.85 | 0.50 | ≈ 3.4 GB |
+| OpenAI text-embedding-3-large | 1024 | 0.98 | 0.93 | 0.80 | 0.49 | ≈ 2.3 GB |
+| Voyage voyage-4-large | 1024 | 0.99 | 0.99 | 0.90 | 0.72 | ≈ 2.3 GB |
+| Voyage voyage-4-large | 512 | 0.99 | 0.97 | 0.90 | 0.70 | ≈ 1.1 GB |
+| Voyage voyage-4-large | 256 | 0.99 | 0.97 | 0.90 | 0.66 | ≈ 0.6 GB |
+
+At full size, OpenAI's 3072-dim vectors would need a 16 GB database tier against 8 GB for 1024 dims, roughly $100 a month more on the managed hosts in #50. Shortening removes that gap. At any given size, Voyage scores at least as well as OpenAI, and it is clearly ahead on quotes.
+
 ## Translation quality (151 rare-language targets)
 
 Four models translated each target. Opus 5.5 and GPT-6.1 Sol judged every translation blind; the judges agreed exactly 74% of the time and within one point 99% of the time. Fidelity is on a 1–5 scale.

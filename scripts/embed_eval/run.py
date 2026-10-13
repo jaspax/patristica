@@ -11,7 +11,8 @@ Retriever specs: ``bm25``, ``dense:NAME`` (see ``embedders.EMBEDDERS``), and
 weights a component (default 1). ``dense:NAME+tr:PATH`` also embeds the
 English translations in the translation store at PATH (e.g.
 ``data/translations/gpt-6.1-sol.jsonl``) and scores each translated document by
-the better of its two vectors.
+the better of its two vectors. ``dense:NAME@N`` keeps the first N dimensions
+of each vector and renormalizes (shortened embeddings).
 
 Usage::
 
@@ -25,7 +26,7 @@ import json
 import logging
 from pathlib import Path
 
-from scripts.embed_eval.embedders import CachedEmbedder, get_embedder
+from scripts.embed_eval.embedders import CachedEmbedder, Truncated, get_embedder
 from scripts.embed_eval.metrics import breakdown, first_rank, markdown_table
 from scripts.embed_eval.queries import DEFAULT_AUTHORED, Query, load_authored
 from scripts.embed_eval.retrieval import BM25, RRF, Dense, Retriever
@@ -72,10 +73,13 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
         return BM25(texts)
     if spec.startswith("dense:"):
         name, _, tr = spec.removeprefix("dense:").partition("+tr:")
+        name, _, dims = name.partition("@")
         embedder = get_embedder(name)
         if cache_dir is not None:
             safe = embedder.name.replace("/", "__")
             embedder = CachedEmbedder(embedder, cache_dir / f"{safe}.sqlite")
+        if dims:
+            embedder = Truncated(embedder, int(dims))
         if tr:
             translations = load_translations(Path(tr), corpus)
             alt = [translations.get(c["chunk_id"]) for c in corpus]
