@@ -113,7 +113,7 @@ translation_groups (id)      -- joins parallel chunks across languages
 
 1. Load normalized JSON from Phase 1
 2. Insert author/work metadata into PostgreSQL
-3. Translate Syriac, Coptic, Armenian and Ge'ez chunks into English with GPT-6.1 Sol, and store each translation with model and date (#84)
+3. Translate Syriac, Coptic, Armenian and Ge'ez chunks into English with GPT-6.1 Sol (`scripts.translate`, #93). Translations are stored in `data/translations/`, one file per work, mirroring `data/normalized/`, with model, prompt version and date recorded per run.
 4. For each chunk: call embedding API → store chunk + embedding (plus a second embedding for the translation, where there is one)
 5. Build HNSW index on `text_chunks.embedding` via pgvector
 6. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)

@@ -186,7 +186,7 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
         by_lang[job.language] += len(g)
     n_chunks = sum(by_lang.values())
     log.info("%d chunks to translate in %d requests (%s); %d reused from identical text; "
-             "estimated $%.0f", n_chunks, len(requests),
+             "estimated $%.2f", n_chunks, len(requests),
              ", ".join(f"{k} {v}" for k, v in sorted(by_lang.items())) or "none",
              reused, n_chunks * COST_PER_CHUNK)
     if dry_run:
