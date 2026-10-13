@@ -80,7 +80,7 @@ def test_anf_table_still_registered() -> None:
 
 def _corpus_work_ids() -> set[str]:
     ids: set[str] = set()
-    for src in ("first1k", "pta", "perseus", "oglt_pl"):
+    for src in ("first1k", "pta", "perseus", "oglt-pl"):
         for f in (_RAW / src).rglob("*.json"):
             try:
                 ids.add(json.loads(f.read_text(encoding="utf-8"))["work"]["work_id"])
