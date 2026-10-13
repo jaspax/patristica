@@ -66,7 +66,7 @@ JUMP_COST = 0.25
 LAYOUT_COST = 4.0
 # A run of pages on one state is kept only if at least this fraction of its
 # pages that have any head numbers vote for it.
-_MIN_DENSITY = 0.25
+_MIN_DENSITY = 0.1
 
 
 def head_numbers(text: str) -> set[int]:
