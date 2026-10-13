@@ -66,7 +66,7 @@ JUMP_COST = 0.25
 LAYOUT_COST = 4.0
 # A run of pages on one state is kept only if at least this fraction of its
 # pages that have any head numbers vote for it.
-_MIN_DENSITY = 0.25
+_MIN_DENSITY = 0.1
 
 
 def head_numbers(text: str) -> set[int]:
@@ -207,7 +207,8 @@ def map_columns(heads: list[tuple[str, list[int]]]) -> ColumnMap:
     order (``head_numbers`` of the page text); stems are the page numbers of
     the scan's ``NNN.txt`` files.  Non-numeric stems get no column.
     """
-    numeric = [(stem, int(stem), nums) for stem, nums in heads if stem.isdigit()]
+    numeric = sorted(((stem, int(stem), nums) for stem, nums in heads if stem.isdigit()),
+                     key=lambda x: x[1])
     votes = [page_votes(set(nums), p) for _, p, nums in numeric]
     states, path = _viterbi(votes)
     columns: dict[str, tuple[int, int] | None] = {stem: None for stem, _ in heads}

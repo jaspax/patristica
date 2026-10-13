@@ -154,8 +154,14 @@ class TestParseIndex:
     def test_rejects_overlap_and_duplicates(self):
         with pytest.raises(pgi.OgpgIndexError, match="overlaps"):
             _index("vol-045,a,9,120,X,T,,,,,,elenchus,,", "vol-045,b,115,,X,T,,,,,,elenchus,,")
-        with pytest.raises(pgi.OgpgIndexError, match="duplicate"):
-            _index("vol-045,a,9,,X,T,,,,,,elenchus,,", "vol-045,a,15,,X,T,,,,,,elenchus,,")
+        with pytest.raises(pgi.OgpgIndexError, match="different metadata"):
+            _index("vol-045,a,9,,X,T,,,,,,elenchus,,", "vol-045,a,15,,Y,T,,,,,,elenchus,,")
+
+    def test_repeated_slug_is_one_work_in_several_ranges(self):
+        rows = _index("vol-003,ch,9,14,X,T,,,,,,heads,,", "vol-003,par,15,16,P,Q,,,,,,heads,,",
+                      "vol-003,ch,17,20,X,T,,,,,,heads,,note")["vol-003"]
+        assert [(r.slug, r.col_start, r.col_end) for r in rows] == [
+            ("ch", 9, 14), ("par", 15, 16), ("ch", 17, 20)]
 
     def test_out_of_period_row(self):
         rows = _index("vol-003,pach,700,,George Pachymeres,Paraphrasis,,1290,1280,1300,"
@@ -299,6 +305,18 @@ class TestSplitVolume:
         assert other.work_id == "ogpg/vol-045/other" and other.author is None
         assert [p["text"] for p in rest] == ["text 0"]     # front matter; "late" is dropped
 
+    def test_work_in_several_ranges(self):
+        rows = _index(
+            "vol-045,dion,9,12,Pseudo-Dionysius,De caelesti hierarchia,,500,480,520,,heads,,",
+            "vol-045,pach,13,14,George Pachymeres,Paraphrasis,,1290,1280,1300,,heads,,",
+            "vol-045,dion,15,18,Pseudo-Dionysius,De caelesti hierarchia,,500,480,520,,heads,,",
+        )["vol-045"]
+        out = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
+        assert [rel for rel, _, _ in out] == ["vol-045/dion.json"]      # pach is dropped
+        (_, work, paras), = out
+        assert [p["text"] for p in paras] == ["text 0", "text 1", "text 3", "text 4"]
+        assert "cols. 9–12, 15–18" in (work.edition or "")
+
     def test_duplicate_named_in_edition(self):
         rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,elenchus,"
                       "pta/x/y/pta-grc1,")["vol-045"]
@@ -343,3 +361,14 @@ def test_duplicate_of_targets_exist():
         for row in rows:
             if row.duplicate_of:
                 assert row.duplicate_of in ids, (row.volume, row.slug, row.duplicate_of)
+
+
+def test_scan_pages_sort_numerically():
+    files = [("1000", "a"), ("101", "b"), ("099", "c"), ("100", "d"), ("x", "e")]
+    assert [s for s, _ in sorted(files, key=ogpg._page_order)] == ["099", "100", "101", "1000", "x"]
+
+
+def test_map_columns_orders_pages_numerically():
+    heads = _two_column_heads(40, 990, 9)
+    shuffled = sorted(heads, key=lambda h: h[0])           # "1000" before "991"
+    assert oc.map_columns(shuffled).columns == oc.map_columns(heads).columns
