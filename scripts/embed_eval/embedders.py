@@ -180,11 +180,10 @@ class OpenAIEmbedder(ApiEmbedder):
 
 
 class VoyageEmbedder(ApiEmbedder):
-    # Without a payment method Voyage allows 3 requests and 10k tokens a minute.
-    # Voyage counts rare scripts at up to ~2x cl100k, hence the wide margin.
-    max_batch_tokens = 4000
-    rpm = 3
-    tpm = 4000
+    # Paid tier. Voyage caps a request at 120k of its own tokens and counts rare
+    # scripts at up to ~2x cl100k, hence 30k estimated. (Without a payment
+    # method the limits are 3 requests and 10k tokens a minute; #85.)
+    max_batch_tokens = 30_000
 
     def __init__(self, model: str = "voyage-4-large") -> None:
         super().__init__()
@@ -199,11 +198,10 @@ class VoyageEmbedder(ApiEmbedder):
 
 
 class CohereEmbedder(ApiEmbedder):
-    # 96 texts is the API maximum. Trial keys allow 100k tokens a minute and
-    # 1,000 calls a month, so batches are large and paced well under the limit.
+    # 96 texts is the API maximum. Production key; trial keys allow only 100k
+    # tokens a minute and 1,000 calls a month (#85).
     batch_size = 96
-    max_batch_tokens = 15_000
-    tpm = 40_000
+    max_batch_tokens = 40_000
 
     def __init__(self, model: str = "embed-v4.0") -> None:
         super().__init__()
@@ -219,12 +217,10 @@ class CohereEmbedder(ApiEmbedder):
 
 
 class GeminiEmbedder(ApiEmbedder):
-    # 100 texts is the batchEmbedContents maximum. The free tier counts every
-    # text as a request (100 a minute), so send at most one batch a minute.
+    # 100 texts is the batchEmbedContents maximum. Paid tier; the free tier
+    # counts every text as a request (100 a minute, 1,000 a day; #85).
     batch_size = 100
-    max_batch_tokens = 12_000
-    rpm = 0.9
-    tpm = 12_000
+    max_batch_tokens = 40_000
 
     def __init__(self, model: str = "gemini-embedding-2") -> None:
         super().__init__()
@@ -281,6 +277,38 @@ class LocalEmbedder:
         if self.query_prompt_name:
             return self._encode(texts, prompt_name=self.query_prompt_name)
         return self._encode(texts, prompt=self.query_prompt)
+
+
+# --- shortened vectors -----------------------------------------------------------
+
+class Truncated:
+    """Keep the first *dims* components and renormalize (Matryoshka shortening).
+
+    For OpenAI text-embedding-3 this is documented as equivalent to requesting
+    ``dimensions``; for Voyage voyage-4-large it matches ``output_dimension``
+    (cosine 1.0 on a spot check). Wrap the cached embedder, so one cache
+    serves every size.
+    """
+
+    def __init__(self, inner: Embedder, dims: int) -> None:
+        self.inner, self.dims = inner, dims
+        self.name = f"{inner.name}@{dims}"
+
+    def _cut(self, vecs: np.ndarray) -> np.ndarray:
+        import numpy as np
+
+        v = np.asarray(vecs, dtype=np.float32)
+        if v.shape[1] < self.dims:
+            raise ValueError(f"{self.inner.name} has {v.shape[1]} dims, fewer than {self.dims}")
+        v = v[:, : self.dims]
+        norms = np.linalg.norm(v, axis=1, keepdims=True)
+        return v / np.where(norms == 0, 1, norms)
+
+    def embed_documents(self, texts: list[str]) -> np.ndarray:
+        return self._cut(self.inner.embed_documents(texts))
+
+    def embed_queries(self, texts: list[str]) -> np.ndarray:
+        return self._cut(self.inner.embed_queries(texts))
 
 
 # --- cache --------------------------------------------------------------------

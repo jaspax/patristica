@@ -89,7 +89,7 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 |---|---|---|
 | Relational DB | PostgreSQL 16+ | Mature, JSONB support, full-text search |
 | Vector store | pgvector extension | Keeps everything in one DB, simplifies ops |
-| Embeddings | OpenAI `text-embedding-3-large` (leading candidate); rare languages indexed through English translations by GPT-6.1 Sol | Eval in #3: best on Greek/Latin/Hebrew; no embedder reaches Coptic/Syriac from English (see 2.5) |
+| Embeddings | **Decided (2026-10-13):** Voyage `voyage-4-large`. Syriac, Coptic, Armenian and Ge'ez chunks also get an English translation by GPT-6.1 Sol, embedded as a second vector | `docs/embedding-eval.md`: paraphrase/topical recall 0.99/0.99, every language ≥ 0.90; best at every vector size. Vector size, 1024 or 512 dims, is set with hosting (#50) |
 | ORM/migration | SQLAlchemy + Alembic | Python ecosystem |
 | Search layer | Custom (via pgvector + Postgres FTS) | Avoid unnecessary infra |
 
@@ -103,7 +103,7 @@ works (id, author_id, title, date_range, genre, language, license)
 text_chunks (
   id, work_id, canonical_ref, language,
   text, chunk_index,
-  embedding vector(1536),    -- or 3072 for large model
+  embedding halfvec(1024),   -- Voyage voyage-4-large; 512 if #50 needs the smaller size
   translation_group_id       -- links original + translations of same passage
 )
 translation_groups (id)      -- joins parallel chunks across languages
@@ -136,7 +136,7 @@ Inputs and the data contract are described in `DATA_COLLECTION_PLAN.md` → "Pha
    - **Greek, Latin and Hebrew** are well served from English by OpenAI `text-embedding-3-large`: paraphrase R@3 0.95–1.0, topical R@100 0.85–1.0.
    - **No embedder reaches Coptic or Syriac from English.** OpenAI doesn't reach Armenian or Ge'ez; BGE-M3 reaches them only partly.
    - **Rare languages are therefore indexed through English translations** (#84). GPT-6.1 Sol and Opus 5.5 translate them about equally well under independent judging (fidelity ≈ 4.4–4.5 of 5, no hallucinations), with Sol at about a third of the cost. Haiku 5.5 invents content in about a quarter of passages.
-   - **Still open:** whether the translations bring rare-language recall up to the Greek/Latin level (#84), and the models that need paid access to test (#85).
+   - **Translations confirmed (#84).** With Sol translations, every embedder reaches the rare languages from English: paraphrase R@3 0.94–0.99, topical R@100 0.77–0.99, Coptic and Syriac included. Best is Voyage `voyage-4-large` + translations (0.99 / 0.99); OpenAI + translations is close (0.98 / 0.94). Without translations, only Gemini `gemini-embedding-2` comes near (0.84 / 0.86). The full {language × embedder} matrix and method are in `docs/embedding-eval.md`. Production translation pipeline: #93.
 
 ### 2.4 Search API (internal)
 
@@ -235,7 +235,7 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: evaluated in #3 (see 2.5): OpenAI `text-embedding-3-large`, plus GPT-6.1 Sol translations for the rare languages. Final once #84 confirms recall.
+- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vector size, 1024 or 512, is set together with hosting (#50).
 - **Hosting budget**: tracked in #50. Hetzner is ruled out (US hosting only); the choice waits on vector size.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable
 - **Transliteration**: Do we offer Hebrew/Greek in romanized form for accessibility?
