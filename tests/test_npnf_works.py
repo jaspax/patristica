@@ -85,7 +85,7 @@ def test_generic_blobs_fully_carved(series: str, volume: str) -> None:
 
 
 def test_anf_table_still_registered() -> None:
-    assert anf_works.SOURCE_ID == "patristic/anf-works"
+    assert anf_works.SOURCE_ID == "anf-works"
 
 
 def _corpus_work_ids() -> set[str]:

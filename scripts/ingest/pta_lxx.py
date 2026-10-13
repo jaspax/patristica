@@ -2,7 +2,7 @@
 Ingestor for the Greek Septuagint (LXX) from the Patristic Text Archive (PTA).
 
 Source: pta9999 Bible group in github.com/PatristicTextArchive/pta_data
-        (already cloned by ``pta.py`` into ``data/raw/patristic/pta/``)
+        (already cloned by ``pta.py`` into ``data/raw/pta/``)
 Language: Greek (``grc``)
 License: CC-BY-SA 4.0 (OT); CC-BY 4.0 (NT, pta063–pta089)
 Edition: Rahlfs 1935, Septuaginta (Stuttgart: Württembergische Bibelanstalt)
@@ -25,7 +25,7 @@ Five books exist in two distinct Greek textual traditions:
 
 Each version is ingested as a separate Work with a distinct OSIS abbreviation.
 
-Relation to ``scripture/lxx-rahlfs``
+Relation to ``lxx-rahlfs``
 -------------------------------------
 ``lxx-rahlfs`` (eliranwong repo) covers only 33 books from a word-list CSV.
 This source provides the full 80-book Rahlfs text including the Deuterocanon.
@@ -52,7 +52,7 @@ from scripts.ingest._scripture_meta import BOOK_DATES
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/pta-lxx"
+SOURCE_ID = "pta-lxx"
 
 _TEI = "http://www.tei-c.org/ns/1.0"
 
@@ -250,21 +250,21 @@ def _book_dates(osis: str) -> tuple[int | None, tuple[int, int] | None, DateConf
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """Ingest the Greek LXX (Rahlfs 1935) from the PTA git clone.
 
-    Reads from ``data/raw/patristic/pta/data/pta9999/``.
-    Writes to ``output_dir/scripture/pta-lxx/{BookAbbrev}.json``.
+    Reads from ``data/raw/pta/data/pta9999/``.
+    Writes to ``output_dir/pta-lxx/{BookAbbrev}.json``.
 
     The PTA repo must already be cloned (``pta.py`` handles the clone).
     """
-    repo_dir = output_dir / "patristic" / "pta"
+    repo_dir = output_dir / "pta"
     pta9999_dir = repo_dir / "data" / "pta9999"
 
     if not pta9999_dir.exists():
         raise FileNotFoundError(
             f"PTA repo not found at {repo_dir}. "
-            "Run the patristic/pta ingestor first to clone the repo."
+            "Run the pta ingestor first to clone the repo."
         )
 
-    out_base = output_dir / "scripture" / "pta-lxx"
+    out_base = output_dir / "pta-lxx"
     out_base.mkdir(parents=True, exist_ok=True)
 
     works: list[Work] = []
@@ -315,7 +315,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         date_composed, date_range, date_confidence = _book_dates(osis_abbrev)
 
         work = Work(
-            work_id=f"scripture/pta-lxx/{osis_abbrev.lower()}",
+            work_id=f"{SOURCE_ID}/{osis_abbrev.lower()}",
             source_id=SOURCE_ID,
             author=None,
             title=f"{title} (LXX)",

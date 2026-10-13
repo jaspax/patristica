@@ -42,18 +42,13 @@ log = logging.getLogger(__name__)
 
 def scripture_paths(works_path: Path) -> list[str]:
     """Paths (relative to the chunks dir) of every work with genre ``scripture``."""
-    return sorted(scripture_works(works_path))
-
-
-def scripture_works(works_path: Path) -> dict[str, str]:
-    """``path → source_id`` of every work with genre ``scripture``."""
-    works = {}
+    paths = []
     for line in works_path.read_text(encoding="utf-8").splitlines():
         if line.strip():
             rec = json.loads(line)
             if rec["work"].get("genre") == "scripture":
-                works[rec["path"]] = rec["work"].get("source_id", "")
-    return works
+                paths.append(rec["path"])
+    return sorted(paths)
 
 
 def _load_chunks(json_files: list[Path]) -> tuple[list[Chunk], list[Path]]:
@@ -87,23 +82,19 @@ def _load_chunks(json_files: list[Path]) -> tuple[list[Chunk], list[Path]]:
 
 def link_scripture_translations(
     chunks: list[Chunk],
-    source_ids: dict[str, str] | None = None,
 ) -> list[Chunk]:
     """Assign ``translation_group_id`` to scripture chunks by versification-mapped ref.
 
     Groups are only created when ≥2 chunks map to the same org ref (across
     different work_ids / languages).  Singletons are left with
-    ``translation_group_id=None``.  The source is ``source_ids[work_id]``
-    (from ``_works.jsonl``), else the first two components of ``work_id``
-    (``scripture/kjv/gen`` → ``scripture/kjv``); an unregistered source raises
+    ``translation_group_id=None``.  The source is the first component of
+    ``work_id`` (``kjv/gen`` → ``kjv``); an unregistered source raises
     ``VersificationError``.
     """
     ref_to_indices: dict[str, list[int]] = defaultdict(list)
     for i, chunk in enumerate(chunks):
         if chunk.canonical_ref:
-            source_id = (source_ids or {}).get(chunk.work_id) or "/".join(
-                chunk.work_id.split("/")[:2]
-            )
+            source_id = chunk.work_id.split("/")[0]
             ref_to_indices[to_org_ref(source_id, chunk.canonical_ref)].append(i)
 
     updated: list[Chunk] = list(chunks)  # shallow copy; we'll replace items
@@ -152,19 +143,16 @@ def link_all(chunks_dir: Path, works_path: Path, force: bool = False) -> int:
 
     Returns the number of chunks assigned a translation_group_id.
     """
-    works = scripture_works(works_path)
-    rel_paths = sorted(works)
+    rel_paths = scripture_paths(works_path)
     log.info("Loading chunks of %d Scripture works from %s…", len(rel_paths), chunks_dir)
     all_chunks, chunk_paths = _load_chunks([chunks_dir / p for p in rel_paths])
-    by_path = {chunks_dir / p: src for p, src in works.items()}
-    source_ids = {c.work_id: by_path[p] for c, p in zip(all_chunks, chunk_paths) if by_path[p]}
 
     if not all_chunks:
         log.warning("No Scripture chunks found in %s", chunks_dir)
         return 0
 
     log.info("Linking translation groups across %d chunks…", len(all_chunks))
-    updated = link_scripture_translations(all_chunks, source_ids)
+    updated = link_scripture_translations(all_chunks)
 
     n_linked = sum(1 for c in updated if c.translation_group_id is not None)
     log.info("%d chunks assigned a translation_group_id", n_linked)

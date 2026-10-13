@@ -333,21 +333,21 @@ def test_extend_appends_language_without_touching_existing(tmp_path: Path):
     rows = []
     for v in range(6):
         g = f"Gen.1.{v + 1}"
-        for lang, wid, vocab in (("grc", "lxx/gen", grc), ("gez", "scripture/gez/gen", words)):
+        for lang, wid, vocab in (("grc", "lxx/gen", grc), ("gez", "gez/gen", words)):
             rows.append({"chunk_id": f"{wid}#{g}", "work_id": wid, "language": lang,
                          "text": " ".join(w + "ሀ" * (v + 1) if lang == "gez" else w + "α" * (v + 1)
                                           for w in vocab),
                          "chunk_index": v, "translation_group_id": g})
     for i in range(8):
-        rows.append({"chunk_id": f"scripture/gez/jub#Jub.1.{i}", "work_id": "scripture/gez/jub",
+        rows.append({"chunk_id": f"gez/jub#Jub.1.{i}", "work_id": "gez/jub",
                      "language": "gez", "chunk_index": i, "translation_group_id": None,
                      "text": " ".join(w + "ለ" * (i + 1) for w in words)})
     chunks_dir = tmp_path / "chunks"
     chunks_dir.mkdir()
     (chunks_dir / "c.json").write_text(json.dumps(rows, ensure_ascii=False))
     works = [{"work_id": "lxx/gen", "language": "grc", "genre": "scripture"},
-             {"work_id": "scripture/gez/gen", "language": "gez", "genre": "scripture"},
-             {"work_id": "scripture/gez/jub", "language": "gez", "genre": "scripture"}]
+             {"work_id": "gez/gen", "language": "gez", "genre": "scripture"},
+             {"work_id": "gez/jub", "language": "gez", "genre": "scripture"}]
     works_path = tmp_path / "works.jsonl"
     works_path.write_text("".join(json.dumps({"work": w}) + "\n" for w in works))
     out = tmp_path / "eval"
@@ -439,13 +439,20 @@ def test_review_overlap_and_passes():
     assert not review.passes("topical", None, 0.0)
 
 
-def test_review_resolve_follows_coptic_rename():
-    from scripts.embed_eval.review import resolve
+def test_review_corpus_ids_follow_renames(tmp_path: Path):
+    from scripts.embed_eval.review import load_corpus, resolve
 
-    corpus = {"liturgical/coptic-scriptorium/x#1": {}, "a#1": {}}
-    assert resolve("a#1", corpus) == "a#1"
-    old = "liturgical/coptic-scriptorium/x#1"
-    assert resolve("patristic/coptic-scriptorium/x#1", corpus) == old
+    rows = [
+        {"chunk_id": "scripture/kjv/gen#Gen.1.1", "work_id": "scripture/kjv/gen",
+         "language": "eng", "text": "t"},
+        {"chunk_id": "a/b#1", "work_id": "a/b", "language": "eng", "text": "t"},
+    ]
+    (tmp_path / "corpus.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    corpus = load_corpus(tmp_path)
+    assert sorted(corpus) == ["a/b#1", "kjv/gen#Gen.1.1"]
+    assert corpus["kjv/gen#Gen.1.1"]["work_id"] == "kjv/gen"
+    assert resolve("a/b#1", corpus) == "a/b#1"
+    assert resolve("scripture/kjv/gen#Gen.1.1", corpus) == "kjv/gen#Gen.1.1"
     assert resolve("missing#1", corpus) is None
 
 

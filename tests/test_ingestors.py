@@ -234,7 +234,7 @@ class TestScrollmapperParser:
         csv_content += "Genesis,1,2,The earth was formless\n"
         csv_content += "Matthew,1,1,The book of genealogy\n"
 
-        result = _parse_scrollmapper_csv(csv_content.encode(), "scripture/asv")
+        result = _parse_scrollmapper_csv(csv_content.encode(), "asv")
         assert "Gen" in result
         assert "Matt" in result
         assert len(result["Gen"]) == 2
@@ -289,8 +289,8 @@ class TestNormalizeScripture:
             verses = [{"ref": "Gen.1.1", "text": "In the beginning"}]
         return {
             "work": {
-                "work_id": "scripture/test/gen",
-                "source_id": "scripture/test",
+                "work_id": "test/gen",
+                "source_id": "test",
                 "title": "Genesis",
                 "genre": "scripture",
                 "language": lang,
@@ -303,7 +303,7 @@ class TestNormalizeScripture:
         work, chunks = normalize_scripture_work(self._raw_record())
         assert len(chunks) == 1
         c = chunks[0]
-        assert c.chunk_id == "scripture/test/gen#Gen.1.1"
+        assert c.chunk_id == "test/gen#Gen.1.1"
         assert c.canonical_ref == "Gen.1.1"
         assert c.text == "In the beginning"
         assert c.chunk_index == 0
@@ -405,9 +405,9 @@ class TestLinkTranslations:
 
     def test_parallel_verses_get_group_id(self):
         chunks = [
-            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
-            self._chunk("scripture/kjv/gen", "Gen.1.1", "eng", 0),
+            self._chunk("oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("pta-lxx/gen", "Gen.1.1", "grc", 0),
+            self._chunk("kjv/gen", "Gen.1.1", "eng", 0),
         ]
         result = link_scripture_translations(chunks)
         group_ids = [c.translation_group_id for c in result]
@@ -415,15 +415,15 @@ class TestLinkTranslations:
 
     def test_singleton_no_group_id(self):
         # Only one language has this verse
-        chunks = [self._chunk("scripture/wulfila/mark", "Mark.16.20", "got", 0)]
+        chunks = [self._chunk("wulfila/mark", "Mark.16.20", "got", 0)]
         result = link_scripture_translations(chunks)
         assert result[0].translation_group_id is None
 
     def test_mixed_refs(self):
         chunks = [
-            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
-            self._chunk("scripture/oshb/gen", "Gen.1.2", "hbo", 1),
+            self._chunk("oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("pta-lxx/gen", "Gen.1.1", "grc", 0),
+            self._chunk("oshb/gen", "Gen.1.2", "hbo", 1),
             # Gen.1.2 has only one language → no group
         ]
         result = link_scripture_translations(chunks)
@@ -434,8 +434,8 @@ class TestLinkTranslations:
     def test_original_chunks_unchanged(self):
         """link_scripture_translations must not mutate input."""
         chunks = [
-            self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0),
-            self._chunk("scripture/pta-lxx/gen", "Gen.1.1", "grc", 0),
+            self._chunk("oshb/gen", "Gen.1.1", "hbo", 0),
+            self._chunk("pta-lxx/gen", "Gen.1.1", "grc", 0),
         ]
         original_ids = [id(c) for c in chunks]
         result = link_scripture_translations(chunks)
@@ -447,10 +447,10 @@ class TestLinkTranslations:
         # Heb/Eng Ps 23 ("The LORD is my shepherd") = LXX/Vulgate Ps 22;
         # LXX Ps 23 ("The earth is the Lord's") = Heb Ps 24.
         chunks = [
-            self._chunk("scripture/kjv/ps", "Ps.23.1", "eng", 0),
-            self._chunk("scripture/pta-lxx/ps", "Ps.22.1", "grc", 0),
-            self._chunk("scripture/clementine/ps", "Ps.22.1", "lat", 0),
-            self._chunk("scripture/pta-lxx/ps", "Ps.23.1", "grc", 1),
+            self._chunk("kjv/ps", "Ps.23.1", "eng", 0),
+            self._chunk("pta-lxx/ps", "Ps.22.1", "grc", 0),
+            self._chunk("clementine/ps", "Ps.22.1", "lat", 0),
+            self._chunk("pta-lxx/ps", "Ps.23.1", "grc", 1),
         ]
         result = link_scripture_translations(chunks)
         assert [c.translation_group_id for c in result] == ["Ps.23.1", "Ps.23.1", "Ps.23.1", None]
@@ -458,8 +458,8 @@ class TestLinkTranslations:
     def test_english_psalm_titles_offset(self):
         # English Bibles leave the title unnumbered: KJV Ps 3:1 = Hebrew Ps 3:2.
         chunks = [
-            self._chunk("scripture/kjv/ps", "Ps.3.1", "eng", 0),
-            self._chunk("scripture/oshb/ps", "Ps.3.2", "hbo", 1),
+            self._chunk("kjv/ps", "Ps.3.1", "eng", 0),
+            self._chunk("oshb/ps", "Ps.3.2", "hbo", 1),
         ]
         result = link_scripture_translations(chunks)
         assert {c.translation_group_id for c in result} == {"Ps.3.2"}
@@ -467,31 +467,70 @@ class TestLinkTranslations:
     def test_unregistered_source_raises(self):
         from patristica.versification import VersificationError
         with pytest.raises(VersificationError):
-            link_scripture_translations([self._chunk("scripture/nope/gen", "Gen.1.1", "eng", 0)])
+            link_scripture_translations([self._chunk("nope/gen", "Gen.1.1", "eng", 0)])
 
     def test_link_all_selects_works_by_genre(self, tmp_path: Path):
-        """Only works whose Work.genre is scripture are linked, wherever their
-        files are (#74, #102): a patristic work from a Bible source keeps None."""
+        """Only works whose Work.genre is scripture are linked, whatever their
+        source (#74): a patristic work from a Bible source keeps None."""
         from scripts.link_translations import link_all
 
         chunks_dir = tmp_path / "chunks"
         files = {
-            "oshb/Gen.json": ("scripture/oshb", "scripture",
-                              self._chunk("scripture/oshb/gen", "Gen.1.1", "hbo", 0)),
-            "scripture/kjv/Gen.json": ("scripture/kjv", "scripture",
-                                       self._chunk("scripture/kjv/gen", "Gen.1.1", "eng", 0)),
-            "gez/clem.json": ("scripture/gez", "patristic",
-                              self._chunk("scripture/gez/clem", "Gen.1.1", "gez", 0)),
+            "oshb/Gen.json": [self._chunk("oshb/gen", "Gen.1.1", "hbo", 0)],
+            "kjv/Gen.json": [self._chunk("kjv/gen", "Gen.1.1", "eng", 0)],
+            # Ge'ez Clement: genre patristic, refs that are not Bible books.
+            "gez/clem.json": [self._chunk("gez/clem", "Gen.1.1", "gez", 0)],
         }
-        lines = []
-        for rel, (source, genre, chunk) in files.items():
+        for rel, chunks in files.items():
             (chunks_dir / rel).parent.mkdir(parents=True, exist_ok=True)
-            (chunks_dir / rel).write_text(json.dumps([chunk.model_dump()]))
-            lines.append(json.dumps({"path": rel, "work": {"genre": genre, "source_id": source}}))
+            (chunks_dir / rel).write_text(json.dumps([c.model_dump() for c in chunks]))
         works = tmp_path / "_works.jsonl"
-        works.write_text("\n".join(lines) + "\n")
+        works.write_text("".join(
+            json.dumps({"path": rel, "work": {"genre": genre}}) + "\n"
+            for rel, genre in (("oshb/Gen.json", "scripture"), ("kjv/Gen.json", "scripture"),
+                               ("gez/clem.json", "patristic"))
+        ))
 
         assert link_all(chunks_dir, works) == 2
         group = lambda rel: json.loads((chunks_dir / rel).read_text())[0]["translation_group_id"]
-        assert group("oshb/Gen.json") == group("scripture/kjv/Gen.json") == "Gen.1.1"
+        assert group("oshb/Gen.json") == group("kjv/Gen.json") == "Gen.1.1"
         assert group("gez/clem.json") is None
+
+
+# ---------------------------------------------------------------------------
+# normalize_all: source-first layout (#102)
+# ---------------------------------------------------------------------------
+
+class TestNormalizeLayout:
+    def _raw(self, raw: Path, rel: str, work_id: str) -> None:
+        source_id = rel.split("/")[0]
+        path = raw / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({
+            "work": {"work_id": work_id, "source_id": source_id, "title": "T",
+                     "genre": "patristic", "language": "eng", "license": "public_domain"},
+            "paragraphs": [{"ref": "T.1", "text": "Text"}],
+        }))
+
+    def test_mirrors_raw_paths_and_prunes_by_source(self, tmp_path: Path):
+        from scripts.normalize import normalize_all
+
+        raw, norm = tmp_path / "raw", tmp_path / "normalized"
+        self._raw(raw, "anf-works/anf01/a.json", "anf-works/a")
+        self._raw(raw, "didache/didache.json", "didache/didache")
+        self._raw(raw, "ogpg/_extract/vol-001.json", "ogpg/x")  # cache: not a work
+        normalize_all(raw, norm)
+        assert sorted(p.relative_to(norm).as_posix() for p in norm.rglob("*.json")) == [
+            "anf-works/anf01/a.json", "didache/didache.json"]
+        manifest = [json.loads(line) for line in (norm / "_works.jsonl").read_text().splitlines()]
+        assert [r["path"] for r in manifest] == ["anf-works/anf01/a.json", "didache/didache.json"]
+
+        # A normalized file whose raw file is gone is pruned, but only inside
+        # sources that have a raw directory.
+        (raw / "anf-works/anf01/a.json").unlink()
+        (norm / "pta").mkdir()
+        (norm / "pta" / "w.json").write_text("[]")
+        normalize_all(raw, norm)
+        assert not (norm / "anf-works/anf01/a.json").exists()
+        assert (norm / "didache/didache.json").exists()
+        assert (norm / "pta/w.json").exists()

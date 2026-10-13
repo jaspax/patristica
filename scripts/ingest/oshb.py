@@ -28,7 +28,7 @@ from scripts.ingest._scripture_meta import (
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "scripture/oshb"
+SOURCE_ID = "oshb"
 REPO_ZIP_URL = "https://github.com/openscriptures/morphhb/archive/refs/heads/master.zip"
 
 _OSIS_NS = "http://www.bibletechnologies.net/2003/OSIS/namespace"

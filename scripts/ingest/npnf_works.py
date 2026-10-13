@@ -18,13 +18,13 @@ author, date and tradition, driven by the ``_WORKS`` table below; the
 collection identity survives only in ``Work.edition`` ("NPNF Series 2 Vol. 4").
 
 Every div taken here is registered in ``_ccel_common.EXCLUDED_DIVS`` (value
-``"patristic/npnf-works"``); title pages, contents, indexes and the editors'
+``"npnf-works"``); title pages, contents, indexes and the editors'
 apparatus are registered there as ``"non-text: …"``.  With both in place the
 generic NPNF ingestors produce no Works at all.  Councils in NPNF2 Vol. 14 are
 owned by ``councils/ecumenical``; only its appendix of canonical epistles is
 taken here.  Extraction mechanics are in ``_ccel_works``.
 
-Output: ``data/raw/patristic/npnf-works/{volume}/{slug}.json``; work_id
+Output: ``data/raw/npnf-works/{volume}/{slug}.json``; work_id
 ``npnf-works/{slug}``.
 """
 
@@ -38,7 +38,7 @@ from scripts.ingest._ccel_works import P, W, _WorkSpec, ingest_table, link_origi
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/npnf-works"
+SOURCE_ID = "npnf-works"
 
 _AUG = "Augustine of Hippo"
 _CHRYS = "John Chrysostom"

@@ -16,13 +16,13 @@ distinct work with correct author, title, date, tradition and genre, driven by
 the ``_WORKS`` table below.
 
 Every div taken here is registered in ``_ccel_common.EXCLUDED_DIVS`` (value
-``"patristic/anf-works"``) so the text is not in the corpus twice; the
+``"anf-works"``) so the text is not in the corpus twice; the
 editors' apparatus (prefaces, introductory notices, elucidations) is
 registered there as ``"non-text: editorial"``.  With both in place the generic
 ``ccel_anf`` ingestor produces no Works at all.  Extraction mechanics (refs,
 nested editorial divs, output layout) are in ``_ccel_works``.
 
-Output: ``data/raw/patristic/anf-works/{volume}/{slug}.json``; work_id
+Output: ``data/raw/anf-works/{volume}/{slug}.json``; work_id
 ``anf-works/{slug}``.
 """
 
@@ -46,7 +46,7 @@ from scripts.ingest._ccel_works import (  # noqa: F401  (re-exported for tests)
 
 log = logging.getLogger(__name__)
 
-SOURCE_ID = "patristic/anf-works"
+SOURCE_ID = "anf-works"
 
 _TERT = "Tertullian"
 _PS_TERT = "Pseudo-Tertullian"

@@ -52,3 +52,13 @@ describe("split Patrologia Graeca volumes", () => {
     expect(sources.filter((s) => s.startsWith("/works/ogpg/")).every((s) => !s.includes(":"))).toBe(true);
   });
 });
+
+describe("Scripture ids without a genre (#102)", () => {
+  it("drops the scripture/ prefix", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/scripture/:rest+",
+      destination: "/works/:rest+",
+      permanent: true,
+    });
+  });
+});

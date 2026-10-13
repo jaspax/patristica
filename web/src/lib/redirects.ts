@@ -6,6 +6,9 @@
  * `next.config.ts` turns them into `redirects`.
  */
 export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: string]> = [
+  // #102: Scripture ids no longer start with a genre (`scripture/kjv/gen` → `kjv/gen`).
+  // An empty target drops the prefix.
+  ["scripture", ""],
   // #52: every Coptic Scriptorium work is patristic, not liturgical.
   ["liturgical/coptic-scriptorium", "patristic/coptic-scriptorium"],
   // #102: Patrologia Latina work ids are spelled like its source id.
@@ -158,7 +161,7 @@ export interface PermanentRedirect {
 export function legacyWorkRedirects(): PermanentRedirect[] {
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({
     source: `/works/${from}/:rest+`,
-    destination: `/works/${to}/:rest+`,
+    destination: to ? `/works/${to}/:rest+` : "/works/:rest+",
     permanent: true as const,
   }));
   const split = SPLIT_OGPG_VOLUMES.map((vol) => ({

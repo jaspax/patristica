@@ -277,7 +277,7 @@ def quality_targets(eval_dir: Path, authored_dir: Path, langs: list[str]) -> lis
             continue
         ref = None
         eng = eng_by_group.get(c.get("translation_group_id") or "", [])
-        for source in ("scripture/web/", "scripture/kjv/", "scripture/asv/"):
+        for source in ("web/", "kjv/", "asv/"):
             ref = next((e["text"] for e in eng if e["work_id"].startswith(source)), None)
             if ref:
                 break
