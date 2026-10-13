@@ -8,6 +8,8 @@
 export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: string]> = [
   // #52: every Coptic Scriptorium work is patristic, not liturgical.
   ["liturgical/coptic-scriptorium", "patristic/coptic-scriptorium"],
+  // #102: Patrologia Latina work ids are spelled like its source id.
+  ["oglt_pl", "oglt-pl"],
 ];
 
 /**

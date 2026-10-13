@@ -30,7 +30,7 @@ SOURCE_LABELS: dict[str, str] = {
     "patristic/didache": "Didache (Ante-Nicene Fathers)",
     "patristic/first1k": "First Thousand Years of Greek",
     "patristic/npnf-works": "Nicene and Post-Nicene Fathers",
-    "patristic/oglt-pl": "Patrologia Latina (Open Greek and Latin)",
+    "oglt-pl": "Patrologia Latina (Open Greek and Latin)",
     "patristic/ogpg": "Patrologia Graeca (Open Greek and Latin)",
     "patristic/perseus": "Perseus Digital Library",
     "patristic/pta": "Patristic Text Archive",

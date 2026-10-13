@@ -896,28 +896,28 @@ _ORIGINALS: dict[str, str] = {
     "tertullian-de-spectaculis": "perseus/stoa0275/stoa027/perseus-lat2",
     # Perseus files Ad Uxorem under stoa0276 ("Pseudo-Tertullian"); same text.
     "tertullian-to-his-wife": "perseus/stoa0276/stoa002/opp-lat1",
-    "passion-of-perpetua-and-felicitas": "oglt_pl/anonymus/pl3_0_pass",
+    "passion-of-perpetua-and-felicitas": "oglt-pl/anonymus/pl3_0_pass",
     "minucius-felix-octavius": "perseus/stoa0203/stoa001/perseus-lat2",
-    "commodian-instructions": "oglt_pl/commodianus/pl5_13_com",
+    "commodian-instructions": "oglt-pl/commodianus/pl5_13_com",
     "origen-against-celsus": "first1k/tlg2042/tlg001/perseus-grc1",
     "origen-letter-to-africanus": _F1K.format("tlg2042/tlg045"),
     # ANF05
     "hippolytus-refutation-of-all-heresies": "first1k/tlg2115/tlg060/opp-grc1",
-    "pontius-life-of-cyprian": "oglt_pl/pontius-diaconus/pl3_37_unk",
-    "seventh-council-of-carthage": "oglt_pl/concilia-carthaginiensia/pl3_24_ann",
+    "pontius-life-of-cyprian": "oglt-pl/pontius-diaconus/pl3_37_unk",
+    "seventh-council-of-carthage": "oglt-pl/concilia-carthaginiensia/pl3_24_ann",
     "caius-fragments": _F1K.format("tlg0572/tlg001"),
-    "muratorian-fragment": "oglt_pl/anonymus/pl3_1_unkn",
-    "novatian-on-the-trinity": "oglt_pl/novatianus/pl3_8_nova",
-    "novatian-on-the-jewish-meats": "oglt_pl/novatianus/pl3_9_nova",
-    "anonymous-against-novatian": "oglt_pl/pseudo-cyprian/pl3_36_ano",
-    "anonymous-on-rebaptism": "oglt_pl/pseudo-cyprian/pl3_34_ano",
+    "muratorian-fragment": "oglt-pl/anonymus/pl3_1_unkn",
+    "novatian-on-the-trinity": "oglt-pl/novatianus/pl3_8_nova",
+    "novatian-on-the-jewish-meats": "oglt-pl/novatianus/pl3_9_nova",
+    "anonymous-against-novatian": "oglt-pl/pseudo-cyprian/pl3_36_ano",
+    "anonymous-on-rebaptism": "oglt-pl/pseudo-cyprian/pl3_34_ano",
     # ANF06
     # The Greek survives only in fragments (via Epiphanius); same work.
     "acts-of-archelaus": _F1K.format("stoa0146d/stoa001"),
     "methodius-banquet-of-the-ten-virgins": "first1k/tlg2959/tlg001/opp-grc1",
     "methodius-concerning-free-will": "first1k/tlg2959/tlg002/opp-grc1",
     # ANF07
-    "venantius-on-easter": "oglt_pl/venantius-fortunatus/pl7_1_vena",
+    "venantius-on-easter": "oglt-pl/venantius-fortunatus/pl7_1_vena",
     "anonymous-against-the-montanists": _F1K.format("tlg1131/tlg001"),
     "second-clement": _F1K.format("tlg1271/tlg002"),
     # ANF08
