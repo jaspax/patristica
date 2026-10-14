@@ -214,8 +214,10 @@ class Clients:
             resp = self.anthropic.messages.parse(**kwargs)
         if resp.stop_reason in ("refusal", "max_tokens"):
             raise RuntimeError(f"{name}: stop_reason {resp.stop_reason}")
+        # With server-side fallback, a declined request can be served by another
+        # model; resp.model names the one that answered.
         usage = {"model": name, "input": resp.usage.input_tokens,
-                 "output": resp.usage.output_tokens}
+                 "output": resp.usage.output_tokens, "served_by": resp.model}
         return resp.parsed_output, usage
 
     def _openai(self, name, m, system, user, schema, effort):

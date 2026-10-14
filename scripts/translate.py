@@ -24,8 +24,14 @@ Usage::
     python -m scripts.translate --dry-run            # what would be sent, and the cost
     python -m scripts.translate --max-requests 20    # pilot
     python -m scripts.translate [--langs syc cop] [--work hudra/] [--max-cost 50]
+    python -m scripts.translate --model opus         # retry what Sol's filter blocked
 
-Needs ``OPENAI_API_KEY`` (environment or ``.env``).
+``--model`` picks the translator (default ``sol``). ``opus`` (Claude Opus 5.5,
+which scored as well as Sol in the #84 quality eval) is for the few requests
+Sol's content filter blocks; it needs ``ANTHROPIC_API_KEY``. Each row's
+provenance records the model that actually answered.
+
+Needs ``OPENAI_API_KEY`` (environment or ``.env``) for Sol.
 """
 
 from __future__ import annotations
@@ -55,13 +61,15 @@ from scripts.upload_library import EXCLUDED_LICENSES
 
 log = logging.getLogger(__name__)
 
-MODEL = "sol"
+DEFAULT_MODEL = "sol"
+TRANSLATORS = ("sol", "opus")  # both judged ≈4.4–4.5/5 fidelity in #84
 # Bump when BULK_SYSTEM or the grouping changes, so stored translations say
 # which prompt produced them.
 BULK_PROMPT_VERSION = "bulk-2026-10-12"
 BULK_MAX_CHARS = 3000
 BULK_MAX_ITEMS = 25
-# Measured on the #84 run (11,239 chunks, grouped): used only for --dry-run.
+# Measured with Sol on the #84 run (11,239 chunks, grouped): used only for
+# --dry-run, scaled by the model's output price for other translators.
 COST_PER_CHUNK = 0.0014
 
 BULK_SYSTEM = TRANSLATOR_SYSTEM.split("- Rate your confidence")[0] + """\
@@ -176,7 +184,7 @@ def has_stale_rows(store: tr.WorkTranslations, chunks: list[dict]) -> bool:
 
 def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[str],
         workers: int, max_requests: int | None, max_cost: float | None,
-        dry_run: bool, include_unpublishable: bool) -> None:
+        dry_run: bool, include_unpublishable: bool, model: str = DEFAULT_MODEL) -> None:
     jobs, reused = plan(input_dir, store_dir, langs, work_prefixes, include_unpublishable)
     requests = [(job, g) for job in jobs for g in job.groups]
     if max_requests is not None:
@@ -188,7 +196,8 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
     log.info("%d chunks to translate in %d requests (%s); %d reused from identical text; "
              "estimated $%.2f", n_chunks, len(requests),
              ", ".join(f"{k} {v}" for k, v in sorted(by_lang.items())) or "none",
-             reused, n_chunks * COST_PER_CHUNK)
+             reused, n_chunks * COST_PER_CHUNK * MODELS[model].price_out
+             / MODELS[DEFAULT_MODEL].price_out)
     if dry_run:
         return
 
@@ -198,8 +207,7 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
     spent: list[dict] = []
     stop = threading.Event()
     clients = Clients() if requests else None
-    provenance = tr.Provenance(model=MODELS[MODEL].model_id, prompt_version=BULK_PROMPT_VERSION,
-                               date=time.strftime("%Y-%m-%d"), script=__name__)
+    today = time.strftime("%Y-%m-%d")
 
     def write(job: WorkJob) -> None:
         tr.save(store_dir, job.store, job.chunks)
@@ -212,9 +220,12 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
                 return
             lang = group[0]["language"]
             user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
-            out, usage = clients.call(MODEL, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
+            out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
                                       user, BulkTranslation)
             got = {it.n: it.translation for it in out.items}
+            provenance = tr.Provenance(
+                model=usage.get("served_by") or MODELS[model].model_id,
+                prompt_version=BULK_PROMPT_VERSION, date=today, script=__name__)
             with lock:
                 spent.append(usage)
                 for i, c in enumerate(group, start=1):
@@ -262,6 +273,8 @@ def main() -> None:
                    choices=list(LANGUAGE_NAMES))
     p.add_argument("--work", action="append", default=[], metavar="PREFIX",
                    help="only works whose id starts with PREFIX (repeatable)")
+    p.add_argument("--model", choices=TRANSLATORS, default=DEFAULT_MODEL,
+                   help="translator (default %(default)s)")
     p.add_argument("--workers", type=int, default=8)
     p.add_argument("--max-requests", type=int, help="pilot: a random sample of N requests")
     p.add_argument("--max-cost", type=float, help="stop sending requests after $N")
@@ -272,7 +285,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     run(args.input_dir, args.store, args.langs, args.work, args.workers, args.max_requests,
-        args.max_cost, args.dry_run, args.include_unpublishable)
+        args.max_cost, args.dry_run, args.include_unpublishable, args.model)
 
 
 if __name__ == "__main__":
