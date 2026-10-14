@@ -9,15 +9,161 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.1",
+      "source_sha256": "ae72a625648de139",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the words that Baruch son of Neriah sent to the nine and a half tribes who were beyond the Euphrates River. The following was written in it:"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.2",
+      "source_sha256": "91944a4071d95c6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Thus says Baruch son of Neriah to the brothers who were taken captive: Mercy and peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.3",
+      "source_sha256": "7a37d028cb05ccae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I remember, my brothers, the love of him who led us, who loved us from long ago and never hated us, but instead disciplined us."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.4",
+      "source_sha256": "278e9ccc6d25ccf4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I know for certain that all twelve of us tribes are bound together by one bond, since we were born of one father."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.5",
+      "source_sha256": "cfc9c8aae8bda56c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I have been especially concerned to leave you the words of this letter before I die, so that you may be comforted about the troubles that have reached you, and also grieve over the disaster that befell your brothers. You should also acknowledge the justice of the judgment of him who decreed that you should be taken captive. For what you have suffered is less than what you have done, so that in the last days you may be found worthy of your fathers."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.6",
+      "source_sha256": "ec83e19b27cc7c43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, if you consider that you have suffered these things now for your own good, so that you will not be judged and tormented at the end, then you will receive everlasting hope, provided that you completely remove from your hearts the empty error because of which you went away from here."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.78.7",
+      "source_sha256": "15215e3d504e8d3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you act in this way, he will always remember you—he who has always promised on our behalf to those greater than us that he would not forget us or abandon us forever, but would gather the scattered again with great mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.79.1",
+      "source_sha256": "c3639771660c95c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, my brothers, first learn what happened to Zion: Nebuchadnezzar king of Babylon came up against us."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.79.2",
+      "source_sha256": "2003f8d0a14cb7f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we sinned against him who made us and did not keep the commandment he gave us."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.79.3",
+      "source_sha256": "4ca201816b2a8004",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what happened to you also overtook us, so that we should suffer still more. For it happened to us too."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.1",
+      "source_sha256": "c4afba27fa09eb00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, my brothers, I tell you that when the enemies surrounded the city, angels of the Most High were sent. They demolished the strongholds of the mighty wall and broke down the solid iron corners, which could not be uprooted."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.2",
+      "source_sha256": "326e9fae0334f03d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they hid some of the sacred vessels so that they would not be defiled by the enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.3",
+      "source_sha256": "167672dace22d93f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When they had done these things, they handed over to the enemies the wall already demolished, the house already plundered, the temple already burned, and the people defeated because they had been handed over. This was so that the enemies would not boast and say, “We have been so mighty in strength that we have even destroyed the house of the Most High in battle.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.4",
+      "source_sha256": "9122f9be2b592d3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They also bound your brothers and took them to Babylon, and settled them there."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.5",
+      "source_sha256": "1d6a9edd27eea9cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Only a very few of us were left here."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.6",
+      "source_sha256": "3571b7774ada47cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is the distress about which I have written to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.80.7",
+      "source_sha256": "79c501b415c43321",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I know for certain that Zion's inhabited state, as long as you knew that she was flourishing, comforted you more than your distance from her distressed you."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.81.1",
+      "source_sha256": "e81be87cd75b18da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But hear a word of comfort as well."
+    },
     {
       "chunk_id": "pta-peshitta/letbar#LetBar.81.2",
       "source_sha256": "a1fd85ef4de21f47",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "For I was mourning over Zion and asking the Most High for mercy, and I said:"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.81.3",
+      "source_sha256": "6c3a7a6e30f5677b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For how long will these things remain with us, and troubles keep coming upon us?"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.81.4",
+      "source_sha256": "e88c71a96c2d1c6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These things the Mighty One has done according to his abundant mercy, and the Most High according to the greatness of his grace. He revealed a word to me so that I might be comforted, and showed me a vision so that I would no longer be distressed. He made known to me the mystery of the times and showed me the coming of the seasons."
     },
     {
       "chunk_id": "pta-peshitta/letbar#LetBar.82.1",
@@ -27,6 +173,27 @@
       "text": "For this reason, my brothers, I have written to you, so that you may find comfort from your many troubles."
     },
     {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.2",
+      "source_sha256": "4e9e5b6870f185c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But know that our Maker will surely exact vengeance for us from all our enemies, according to everything they have done to us. Moreover, the fulfillment that the Most High will bring about is very near, as are his mercies that are to come, and the fulfillment of his judgment is not far away."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.3",
+      "source_sha256": "50ed7cc94fda5598",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For look, we now see the great prosperity of the nations, though they act wickedly. But they are like a breath."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.4",
+      "source_sha256": "50042c6c31b3b60f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We look at the vastness of their dominion, though they act unjustly. But they will be like a drop of water."
+    },
+    {
       "chunk_id": "pta-peshitta/letbar#LetBar.82.5",
       "source_sha256": "ac5a2f17271a1e6d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -34,11 +201,396 @@
       "text": "And we see how firm their strength is, as they stand against the Mighty One at all times. But they will be regarded as spit."
     },
     {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.6",
+      "source_sha256": "ca558a7baba50eab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We consider the glory of their greatness, though they do not keep the commandments of the Most High. But they will pass away like smoke."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.7",
+      "source_sha256": "58a841a983d2a30a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We reflect on the beauty of their lives, though they conduct themselves in uncleanness. But they will wither like grass in the heat."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.8",
+      "source_sha256": "cf946765a54eb4c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we consider the strength of their harshness, while they do not remember the end. But like a passing wave, they will be crushed."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.82.9",
+      "source_sha256": "03a3680372458fb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we reflect on the splendor of their power, while they deny the goodness of the one who gave it to them. But like a passing cloud, they will pass away."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.1",
+      "source_sha256": "648376e4f21fc8e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the Most High is surely hastening his times and bringing his appointed seasons."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.2",
+      "source_sha256": "57650b31ed3b8015",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he will certainly judge those in his world, and will truly examine everything by means of all their secret deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.3",
+      "source_sha256": "23a032583b3529ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he will thoroughly search out hidden thoughts and everything stored in the inner chamber of all a person's limbs, and bring it out into the open before everyone, with rebuke."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.4",
+      "source_sha256": "3ff4a71ce6ac53ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From now on, let none of these present things enter your hearts. Instead, let us wait all the more, because what was promised to us is coming."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.5",
+      "source_sha256": "ed48c0698c282078",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let us not look now at the luxury of the nations, but remember what has been promised to us at the end."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.6",
+      "source_sha256": "93749da652b6beae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the limits of the times and seasons are surely passing away, together with everything in them."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.7",
+      "source_sha256": "db414492aa32d4cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But at the end of the world, the great power of its ruler will be revealed, when everything comes to judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.8",
+      "source_sha256": "8db09ae3c9b35e56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You, therefore, make your hearts firm in what you believed from the beginning, lest you be held captive in both worlds: you have now been taken captive, and you would also be tormented again."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.9",
+      "source_sha256": "a23d81ca9c06b8bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For among all these things—what exists now, what has passed, or what is coming—neither is evil entirely evil, nor, in turn, is good completely good."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.10",
+      "source_sha256": "b856ba1944cf32db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all present health turns into sickness."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.11",
+      "source_sha256": "15bd3ec8ea5da216",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present might turns into weakness, and all present strength turns into infirmity."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.12",
+      "source_sha256": "ba1e34159d2b1ff9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the vigor of youth turns into old age and an end. And all the beauty of present loveliness fades and becomes repulsive."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.13",
+      "source_sha256": "7585ee369c0e7e8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present proud dominion turns into humiliation and shame."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.14",
+      "source_sha256": "32b19d28d97869f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the glory of present exaltation turns into the shame of silence. And all present arrogance and conceit turn into a quiet downfall."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.15",
+      "source_sha256": "e1c5067300bb0219",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present luxury and pleasures turn into worms and decay."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.16",
+      "source_sha256": "6fa749ac7a18cbd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And every present boastful shout turns into dust and silence."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.17",
+      "source_sha256": "4c7c19dd74f18a4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present possessions and wealth turn into Sheol alone."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.18",
+      "source_sha256": "a2faf8fb9d07533a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present acts of greedy plunder turn into death against their will. And all present craving for passions turns into a judgment of torment."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.19",
+      "source_sha256": "58c56ac48c874098",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all present cunning and trickery turn into rebuke by the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.20",
+      "source_sha256": "5ce63b69362b76c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the sweetness of present ointments turns into judgment and condemnation."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.21",
+      "source_sha256": "0419d6cfbc15fc15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all love of falsehood turns into disgrace through truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.22",
+      "source_sha256": "86489fb55f1bb80f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, while all these things are happening now, does anyone think they will not be called to account?"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.83.23",
+      "source_sha256": "52ca16422a3f8210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the end of everything will come to the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.1",
+      "source_sha256": "d42b11609896da30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I have now made this known to you while I am still alive. For I said that you should learn what is good. The Mighty One commanded me to instruct you and set before you a few of the commands of his judgment before I die."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.2",
+      "source_sha256": "6c517a555d0e5335",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember how Moses once called heaven and earth to witness against you and said, “If you transgress the law, you will be scattered; but if you keep it, you will be preserved.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.3",
+      "source_sha256": "1d8d3105167b6ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also told you other things when you were together in the wilderness as twelve tribes."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.4",
+      "source_sha256": "90e0be07ed836f63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But after his death you pushed these things away from you. That is why the things foretold have come upon you."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.5",
+      "source_sha256": "f614cca6bfb3e143",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now Moses told you beforehand, before these things happened to you. And look, they have happened to you, because you abandoned the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.6",
+      "source_sha256": "9f4c73b952bebd19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I too now tell you, after you have suffered, that if you obey what has been said to you, you will receive from the Mighty One everything that has been set aside and kept for you."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.7",
+      "source_sha256": "6f740ad204eeb167",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let this letter be a witness between me and you, so that you remember the commands of the Mighty One, and so that I too may find relief before the one who sent me."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.8",
+      "source_sha256": "434e76b8b6acc9e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember the law, Zion, the holy land, your brothers, and the covenant of your ancestors. Do not forget the festivals and the Sabbaths."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.9",
+      "source_sha256": "9af12bc4c47fde8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pass on this letter and the tradition of the law to your children after you, just as your ancestors passed them on to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.10",
+      "source_sha256": "9cf147a59f62f4e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At all times, continually plead and pray earnestly with your whole soul, so that the Mighty One may be reconciled to you and not count your many sins, but remember the uprightness of your ancestors."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.84.11",
+      "source_sha256": "825887b0e09604ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if he does not judge us according to his abundant mercy, woe to all of us who have been born!"
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.1",
+      "source_sha256": "7b44e9b4e0ea5dec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Know also that in former times and in generations long ago, our ancestors had helpers: righteous people and holy prophets."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.2",
+      "source_sha256": "17a5bfa237174af5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We too were still in our land, and they helped us when we sinned. They pleaded on our behalf with the one who made us, because they trusted in their deeds. The Mighty One heard their prayer and forgave us."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.3",
+      "source_sha256": "5c8fcc0560157667",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now the righteous have been gathered in, and the prophets have fallen asleep. We too have left the land, and Zion has been taken away from us. Now we have nothing except the Mighty One and his law."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.4",
+      "source_sha256": "68b1a690364c564a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So if we set our hearts straight and put them in order, we will receive everything we have lost, and things many times better than what we have lost."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.5",
+      "source_sha256": "5d194f915363d354",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what we have lost is perishable, but what we will receive does not perish."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.6",
+      "source_sha256": "c820de6865c94dfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have also written in this way to our brothers in Babylon, to testify to these same things to them as well."
+    },
+    {
       "chunk_id": "pta-peshitta/letbar#LetBar.85.7",
       "source_sha256": "accbb61b6eced521",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "Let all these things said earlier always be before your eyes, because we are still alive and have control over our freedom."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.8",
+      "source_sha256": "753da8522d441ea0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Moreover, the Most High has been patient with us here. He has made known to us what is to come and has not hidden from us what will happen at the end."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.9",
+      "source_sha256": "952d96079fa75509",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, before he exacts his judgment and the fulfillment of what is due to him, let us prepare ourselves to receive rather than to be taken away, to hope rather than to be put to shame, and to rest with our ancestors rather than to be tormented with our enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.10",
+      "source_sha256": "ce67a2b426b7ccce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the youth of the world has passed, and the strength of creation has already come to an end. The coming of the times is nearly over, and they have passed away. The pitcher is near the well, the ship near the harbor, the journey near the city, and life near its end."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.11",
+      "source_sha256": "a261522412c9497b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So prepare yourselves, so that when you have traveled and stepped off the ship, you may rest, and not be condemned when you depart."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.12",
+      "source_sha256": "90bcef3627166bf1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For when the Most High brings all these things, there will no longer be any place for repentance, any limit to the times, any extension of the periods, any change to relief, any place for petition, any sending of requests, any receiving of knowledge, any bestowing of love, any place for remorse, any plea concerning offenses, any petitions of the ancestors, any prayer of the prophets, or any help from the righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.13",
+      "source_sha256": "c4b55300da3ee12d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There will be a sentence of destruction there, a road of fire, and a path leading to Gehenna."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.14",
+      "source_sha256": "99e2c7e0ebae35a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore there is one law through one person, one world, and an end for everyone in it."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.85.15",
+      "source_sha256": "a436f327ca908dc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then he will give life to those whom he can forgive, and at the same time destroy those who are defiled by sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.86.1",
+      "source_sha256": "79178cb7b9df9edf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "Therefore, when you receive this letter of mine, read it carefully in your assemblies."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.86.2",
+      "source_sha256": "625461562a8e15de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "And meditate on it, especially on your days of fasting."
+    },
+    {
+      "chunk_id": "pta-peshitta/letbar#LetBar.86.3",
+      "source_sha256": "6a6835e9f26bc669",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "And remember me through this letter, just as I too remember you through it. And may you be in good health at all times."
     }
   ]
 }

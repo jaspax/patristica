@@ -9,9 +9,57 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.1",
+      "source_sha256": "f7a3c891c326117b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What existed from the beginning, what we heard, what we saw with our eyes and looked at, and what our hands touched, concerning the word of life."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.2",
+      "source_sha256": "8fda7ac0273de58f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the life was revealed. We saw it and bear witness, and we tell you about the eternal life that was with the Father and was revealed to us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.3",
+      "source_sha256": "f576dd66dd63bb2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What we saw and heard we also tell you, so that you too may have fellowship with us. And our fellowship together is with the Father and the Son, Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.4",
+      "source_sha256": "4c7ef021a5d4b782",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we are writing these things so that our joy may be complete."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.5",
+      "source_sha256": "ed3d727d43bcb37c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is the promise that we heard from him and tell you: God is light, and there is no darkness at all in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.6",
+      "source_sha256": "96fffab62f05b5da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we say that we have fellowship with him and walk in darkness, we are lying and are not practicing the truth."
+    },
     {
       "chunk_id": "coptic-nt/1john#1John.1.7",
       "source_sha256": "706752363e200520",
@@ -27,11 +75,165 @@
       "text": "So if we say that we have no sin, we deceive ourselves, and the truth is not in us."
     },
     {
+      "chunk_id": "coptic-nt/1john#1John.1.9",
+      "source_sha256": "f70230d465298d23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we confess our sins, he is faithful and just, so that he will forgive our sins and cleanse us from every wrongdoing."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.1.10",
+      "source_sha256": "abe9a7df31561632",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we say that we have not sinned, we make him a liar, and his word is not in us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.1",
+      "source_sha256": "fa8cd7eccd8faa8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, I am writing these things to you so that you will not sin. And if we sin, we have someone who pleads for us before the Father: Jesus Christ, the righteous one."
+    },
+    {
       "chunk_id": "coptic-nt/1john#1John.2.2",
       "source_sha256": "082799687cf90073",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "And he is the one who intercedes for our sins, and not for ours alone, but also for those of the whole world."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.3",
+      "source_sha256": "b66c42fae37eb5db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And by this we know that we have come to know him: if we keep his commandments."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.4",
+      "source_sha256": "bff55f611daa898e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anyone who says, “I have come to know him,” and does not keep his commandments is a liar, and the truth is in that person."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.5",
+      "source_sha256": "8b300ec816e4ab2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in anyone who keeps his word, the love of God has truly been made complete. And by this we know that we are in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.6",
+      "source_sha256": "632b1eae87132756",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anyone who says, “I am in him,” must also walk as he walks."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.7",
+      "source_sha256": "b04420f025a4417e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, I am not writing you a new commandment, but an old commandment that you have had from the beginning. The old commandment is the word that you heard."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.8",
+      "source_sha256": "33216dc51e3b8279",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, I am not writing you a new commandment. This is true in him and in you, because the darkness will pass away and the true light is already shining."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.9",
+      "source_sha256": "94809aa149495332",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anyone who says, “I am in the [?],” and hates his brother is still in darkness even now."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.10",
+      "source_sha256": "c4d50ddac8beb473",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But anyone who loves his brother is in the light, and there is no cause for stumbling in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.11",
+      "source_sha256": "722d6ff8500b79cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But anyone who hates his brother is in darkness and walks in darkness. He does not know where he is going, because the darkness has blinded his eyes."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.12",
+      "source_sha256": "bb3cda22b708d626",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am writing to you, little children, because your sins have been forgiven for the sake of his name."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.13",
+      "source_sha256": "06fc13dc192c94f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am writing to you, fathers, because you have come to know the one who has existed from the beginning. I am writing to you, young men, because you have overcome the evil one."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.14",
+      "source_sha256": "988a72809a3e3c30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I wrote to you, little children, because you have come to know the Father. I wrote to you, fathers, because you have come to know the one who has existed from the beginning. I wrote to you, young men, because you are strong, and the word is in you, and you have overcome the evil one."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.15",
+      "source_sha256": "306661767e6b1641",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not love the world or the things in the world. If anyone loves the world, the love of the Father is not in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.16",
+      "source_sha256": "35201957fa24e287",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything in the world—the desire of the flesh, the desire of the eyes, and pride in one's livelihood—does not come from the Father but comes from the world."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.17",
+      "source_sha256": "a8dd01c746090234",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the world will pass away, along with its desire. But anyone who does the will of God will remain forever, just like the one who exists forever."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.18",
+      "source_sha256": "c4f9944033103330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, it is the last hour. And just as you heard that the Antichrist is coming, many antichrists have now appeared. By this we know that it is the last hour."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.19",
+      "source_sha256": "a2378dacb9bb19f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They went out from among us, but they never belonged to us. For if they had belonged to us, they would have stayed with us. But they went out so that it would become clear that none of them belonged to us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.20",
+      "source_sha256": "bf8a84832f2e7a59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You yourselves have an anointing from the Holy One, and all of you know."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.21",
+      "source_sha256": "2b20394a439a2bd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have not written to you because you do not know the truth, but because you know it, and because no lie comes from the truth."
     },
     {
       "chunk_id": "coptic-nt/1john#1John.2.22",
@@ -41,11 +243,235 @@
       "text": "Who is the liar except the one who denies that Jesus is the Christ? This is the Antichrist, the one who denies the Father and the Son."
     },
     {
+      "chunk_id": "coptic-nt/1john#1John.2.23",
+      "source_sha256": "6516ba74746b27fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who denies the Son does not have the Father either. Whoever acknowledges the Son has the Father."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.24",
+      "source_sha256": "c7484de2d61f7fd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for you, let what you heard from the beginning remain in you. If what you heard from the beginning remains in you, you too will remain in the Son and in the Father."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.25",
+      "source_sha256": "56bcaddc5404ff97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is the promise he made to us: eternal life."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.26",
+      "source_sha256": "e2a8b05df206f806",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am writing these things to you about those who lead you astray."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.27",
+      "source_sha256": "b819859f20a305ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for you, the anointing you received from him remains in you, and you do not need anyone to teach you. But his anointing teaches you about everything, and it is true, and there is no lie in it. Just as it taught you, you remain in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.28",
+      "source_sha256": "8f880c6f1182c83f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, my children, remain in him, so that when he appears we may have confidence and not be put to shame by him at his coming."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.2.29",
+      "source_sha256": "6197bfe19328b98a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you know that he is righteous, then you will also know that everyone who does what is right has been born of him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.1",
+      "source_sha256": "b77aa34d33139e52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have seen how great the love is that the Father has given us, so that we should be called children of God—and that is what we are. This is why the world does not know us: it did not know him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.2",
+      "source_sha256": "5681679594491c04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear ones, we are now children of God, and what we will be has not yet been revealed. You know that when he appears, we will be like him, because we will see him as he is."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.3",
+      "source_sha256": "647f404dd542ab00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who has this hope in him purifies himself, just as he is pure."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.4",
+      "source_sha256": "bcb8fb04c326c42a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who commits sin also commits lawlessness, and sin is lawlessness."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.5",
+      "source_sha256": "96eaf44ec855ba7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we know that he appeared to take away sins, and there is no sin in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.6",
+      "source_sha256": "2635d3d7d69a0d43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who remains in him does not sin. Everyone who sins has neither seen him nor known him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.7",
+      "source_sha256": "7c8288cadeb47b2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, do not let anyone lead you astray. Whoever does what is right is righteous, just as he is righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.8",
+      "source_sha256": "b103a4cb276ed4e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever commits sin is from the devil, because the devil has been sinning from the beginning. This is why the Son of God appeared: to destroy the devil’s works."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.9",
+      "source_sha256": "d64e63d06ee9702e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who has been born of God does not sin, because God’s seed remains in him. He cannot sin, because he has been born of God."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.10",
+      "source_sha256": "3ade0c2a4774f926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is how the children of God and the children of the devil are revealed: everyone who is not righteous is not from God, nor is anyone who does not love his brother."
+    },
+    {
       "chunk_id": "coptic-nt/1john#1John.3.11",
       "source_sha256": "80075905018f4dc5",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "For this is the promise that we heard from the beginning: that we should love one another."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.12",
+      "source_sha256": "ea0424c95465f9bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not like Cain, who was from the evil one and slaughtered his brother. And why did he slaughter him? Because his own deeds were evil, while his brother’s deeds were righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.13",
+      "source_sha256": "5ef956fea6f03386",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be surprised, my brothers, that the world hates us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.14",
+      "source_sha256": "0ff29e27dd26692c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that we have passed from death into life because we love our brothers. Whoever does not love remains in death."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.15",
+      "source_sha256": "1844be83fffc905b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who hates his brother is a murderer, and you know that no murderer has eternal life remaining in him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.16",
+      "source_sha256": "37d489cbd1d12193",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is how we have come to know love: he laid down his life for us. We too ought to lay down our lives for our brothers."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.17",
+      "source_sha256": "96b4fc56d2b600da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone has this world's material resources and sees his brother in need but has no compassion for him, how can God's love live in him?"
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.18",
+      "source_sha256": "c3a5a403a52705a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, let us not love with words or with the tongue, but with actions and truth."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.19",
+      "source_sha256": "c273d2f50d368ee5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And by this we will know that we are from the truth, and we will reassure our hearts before him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.20",
+      "source_sha256": "b01469f110cf243e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if our hearts condemn us, God is greater than our hearts, and he knows everything."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.21",
+      "source_sha256": "c82834851b53bcba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, if our hearts do not condemn us, we have confidence before God."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.22",
+      "source_sha256": "789b539d34727530",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And whatever we ask, we will receive from him, because we keep his commandments and do what pleases him in his sight."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.23",
+      "source_sha256": "a585beac23bc0714",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is his commandment: that we believe in the name of his Son, Jesus Christ, and love one another, just as he commanded us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.3.24",
+      "source_sha256": "2db3b0f0914a28da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And whoever keeps his commandments lives in him, and he himself lives in that person. By this we know that he lives in us: by the Spirit he has given us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.1",
+      "source_sha256": "a54f99992d9f1fc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, do not believe every spirit, but test the spirits to see whether they are from God, because many false prophets have gone out into the world."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.2",
+      "source_sha256": "f5d7384b38d591a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this, recognize the Spirit of God and the spirit of error: every spirit that acknowledges that Jesus Christ has come in the flesh is from God."
     },
     {
       "chunk_id": "coptic-nt/1john#1John.4.3",
@@ -55,6 +481,13 @@
       "text": "And every spirit that does not acknowledge Jesus Christ is not from God. And this is the Antichrist, whom you heard was coming, and who is already in the world now."
     },
     {
+      "chunk_id": "coptic-nt/1john#1John.4.4",
+      "source_sha256": "96f24e956644b1d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You are born of God, and you have overcome them, because the one who is in you is greater than the one who is in the world."
+    },
+    {
       "chunk_id": "coptic-nt/1john#1John.4.5",
       "source_sha256": "53cab300d57f27c6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -62,11 +495,263 @@
       "text": "They are from the world. For this reason they speak from the world, and the world listens to them."
     },
     {
+      "chunk_id": "coptic-nt/1john#1John.4.6",
+      "source_sha256": "123ce90f0e4b523d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we are from God. Whoever knows God listens to us. Whoever is not from God does not listen to us. By this we recognize the spirit of truth and the spirit of error."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.7",
+      "source_sha256": "4a79ba211d0af330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, let us love one another, because love is from God, and everyone who loves is born of God and knows God."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.8",
+      "source_sha256": "5c38f1898a2dd3c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever does not love does not know God, because God is love."
+    },
+    {
       "chunk_id": "coptic-nt/1john#1John.4.9",
       "source_sha256": "6b514b2fd9a817a9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "In this the love of God was revealed in us: God sent his only Son into the world so that we might live through him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.10",
+      "source_sha256": "b1387b74d581fa84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God's love consists in this: it was not we who loved God, but he who loved us and sent his Son to forgive our sins."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.11",
+      "source_sha256": "cba3021ccc0f6caa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, if God loved us in this way, we too ought to love one another."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.12",
+      "source_sha256": "5b12f4e99efce717",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one has ever seen God. But if we love one another, then God lives in us, and his love is made complete in us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.13",
+      "source_sha256": "43d589b561c7a5fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know that we live in him and he lives in us: because he has given us of his Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.14",
+      "source_sha256": "2f57e8fa6bde6769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have seen and testified that the Father sent his Son as the [?] of the world."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.15",
+      "source_sha256": "9721865c5763787d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever acknowledges that Jesus is the Son of God, God lives in that person, and that person lives in God."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.16",
+      "source_sha256": "52570365c7d35e64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have known and believed in the love God has for us. God is love, and whoever lives in love lives in God, and God lives in that person."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.17",
+      "source_sha256": "b630c766e529eefb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this God's love has been made complete with you, so that we may have confidence on the day of judgment, so that, just as he is, we too may be in this world."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.18",
+      "source_sha256": "25d77a4f2faae6a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no fear in love, but complete love drives out fear, because fear involves punishment, and whoever is afraid has not been made complete in love."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.19",
+      "source_sha256": "454e1804861e21fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we know that he was the first to love us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.20",
+      "source_sha256": "ac16f5fe46f7fa31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone says, \"I love God,\" but hates his brother, he is a liar. For whoever does not love his brother, whom he sees, cannot love God, whom he has not seen."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.4.21",
+      "source_sha256": "81a0a379162556b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And we received this commandment from him: whoever loves God must love his brother."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.1",
+      "source_sha256": "ae00ef4ad1ebaf42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Everyone who believes that Jesus is the Christ has been born of God, and everyone who loves the one who was born also loves the one born from him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.2",
+      "source_sha256": "bc34e687f6077b7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And by this we know that we love the children of God: when we love God and obey his commandments."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.3",
+      "source_sha256": "8f34e4bd2c165ffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For this is love for God: that we keep his commandments. And his commandments are not difficult."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.4",
+      "source_sha256": "997dd04586116301",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For everyone born of God overcomes the world, and the victory that has overcome the world is faith."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.5",
+      "source_sha256": "b942e1e465fcc72a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Who overcomes the world except the one who believes that Jesus is the Son of God?"
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.6",
+      "source_sha256": "a5c0d6410e775da1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "This is the one who came through water and blood and Spirit, Christ Jesus—not through water alone, but through water and blood. And the Spirit is the one who testifies, because the Spirit is the truth."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.7",
+      "source_sha256": "eecc1ad2a6e9e42d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For there are three who testify:"
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.8",
+      "source_sha256": "bf8d473b62d288f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "the Spirit, the water, and the blood, and these three are one."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.9",
+      "source_sha256": "c2d0738007a8d305",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If we accept human testimony, God's testimony is greater, because this is God's testimony: he has testified about his Son."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.10",
+      "source_sha256": "8e9f54ef6737de2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Whoever believes in the Son of God has the testimony within him. Whoever does not believe in the Son of God makes God a liar, because he has not believed the testimony that God gave about his Son."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.11",
+      "source_sha256": "471dbce81089c352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And this is the testimony: God has given us eternal life, and this life is in his Son."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.12",
+      "source_sha256": "ae869cfa82322ae3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Whoever has the Son has life. Whoever does not have the Son of God does not have life."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.13",
+      "source_sha256": "2801e9d8237a8e69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I wrote these things to you so that you may know that you have eternal life—you who believe in the name of the Son of God."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.14",
+      "source_sha256": "76ee5b1c22f22764",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And this is the confidence we have toward him: whatever we ask according to his will, he will hear us."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.15",
+      "source_sha256": "c05678929f96f55c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And if we know that he hears us in what we ask, we know that we have the things we requested from him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.16",
+      "source_sha256": "49064b2b6f4333fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If anyone sees his brother committing a sin that does not lead to death, he should ask, and life will be given to him—to those whose sin does not lead to death. There is sin that leads to death. I am not saying that he should pray about that."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.17",
+      "source_sha256": "1b21c93ef22e0ec9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Every act of injustice is sin, and it is sin that leads to death."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.18",
+      "source_sha256": "b905f4f266fdda49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We know that everyone born of God does not sin, but the one born of God protects him, and the evil one does not touch him."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.19",
+      "source_sha256": "2c024d828f97d836",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We know that we are from God, and the whole world lies in the power of the evil one."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.20",
+      "source_sha256": "d3430b626d88ab25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And we know that the Son of God has come and given us understanding so that we may know the truth. And we are in the true one, in his Son Jesus Christ. This is the true God and eternal life."
+    },
+    {
+      "chunk_id": "coptic-nt/1john#1John.5.21",
+      "source_sha256": "a5481017a151e886",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "My children, keep yourselves away from idols."
     }
   ]
 }

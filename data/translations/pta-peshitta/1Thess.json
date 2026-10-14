@@ -9,15 +9,63 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.1",
+      "source_sha256": "dcee5a5ece671b6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Paul, Silvanus, and Timothy, to the church of the Thessalonians in God the Father and in our Lord Jesus Christ: Grace and peace be with you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.2",
+      "source_sha256": "dbc4cdc4e7f3f2a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "We always thank God for all of you and constantly remember you in our prayers."
+    },
     {
       "chunk_id": "pta-peshitta/1thess#1Thess.1.3",
       "source_sha256": "db30f51f90bb4457",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "And we remember before God the Father the works of your faith, the labor of your love, and the endurance of your hope in our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.4",
+      "source_sha256": "7bf9aed97bfea049",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For we know that you have been chosen, my brothers, beloved by God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.5",
+      "source_sha256": "7a89b87dcc29b94a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "because our proclamation of the good news came to you not in words alone, but also in power, in the Holy Spirit, and with firm conviction. You yourselves also know how we lived among you for your sake."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.6",
+      "source_sha256": "1bdbf33e1abd63f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And you imitated us and our Lord, receiving the word amid great suffering and with the joy of the Holy Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.7",
+      "source_sha256": "96d0188ba0cd75b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And you became an example to all the believers in Macedonia and Achaia."
     },
     {
       "chunk_id": "pta-peshitta/1thess#1Thess.1.8",
@@ -27,11 +75,389 @@
       "text": "For the word of our Lord has been heard from you, not only in Macedonia and Achaia, but your faith in God has been heard of everywhere, so that we have no need to say anything about you."
     },
     {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.9",
+      "source_sha256": "74b49d36498c5756",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For they themselves tell what kind of reception we had among you, and how you turned to God from the worship of idols, to serve the living and true God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.1.10",
+      "source_sha256": "670ee47014f7f419",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "while you await his Son from heaven, Jesus, whom he raised from the dead, who rescues us from the coming wrath."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.1",
+      "source_sha256": "6dd175f79ecadb80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "You yourselves know, my brothers, that our coming to you was not fruitless."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.2",
+      "source_sha256": "ce850a853ccc0b31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Rather, we had already suffered and been mistreated at Philippi, as you know. Then, amid great struggle, we spoke to you with boldness from our God, proclaiming the good news of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.3",
+      "source_sha256": "dafefc2e6213547a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For our appeal did not come from error or impurity, nor was it made with deceit."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.4",
+      "source_sha256": "6f16cac8e2d1ae9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Instead, just as God has approved us to be entrusted with his good news, so we speak—not to please people, but God, who examines our hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.5",
+      "source_sha256": "ffa197d4152be25e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For we never used flattering speech, as you know, nor a pretext for greed. God is our witness."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.6",
+      "source_sha256": "6f13ceb95285a883",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Nor did we seek praise from people, either from you or from others, although we could have been a burden as apostles of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.7",
+      "source_sha256": "d1d2968df6b452b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Instead, we were humble among you. And like a nursing mother who cherishes her children,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.8",
+      "source_sha256": "a6fc47724f9b0db4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "so we too love you and long to give you not only the good news of God but also our own lives, because you are dear to us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.9",
+      "source_sha256": "d65ea8e30288ad29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For you remember, our brothers, how we labored and toiled, working with our own hands night and day so that we would not burden any of you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.10",
+      "source_sha256": "c82036a16d28e795",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "You and God are witnesses to how we proclaimed God's good news to you purely and justly, and how we were blameless toward all the believers."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.11",
+      "source_sha256": "662ca5a1ce36aea7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "As you know, we appealed to each one of you as a father does to his children, encouraging you and solemnly urging you"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.12",
+      "source_sha256": "cd1e50be09ec0b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "to live in a manner worthy of God, who called you to his kingdom and his glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.13",
+      "source_sha256": "218783c0e620f103",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For this reason we too constantly thank God: when you received God's word from us, you accepted it not as a human word, but as it truly is, God's word, which is actively at work in you who believe."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.14",
+      "source_sha256": "3ad6b95ca994a0db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But you, my brothers, became imitators of the churches of God in Judea that are in Jesus Christ, because you too suffered from your own people just as they did from the Jews,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.15",
+      "source_sha256": "3785000d5498f80c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "who killed our Lord Jesus Christ and persecuted the prophets from among their own people, as well as us. They do not please God and are opposed to all people,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.16",
+      "source_sha256": "273b3dd85404aea6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "preventing us from speaking to the Gentiles so that they might have life. In this way they are always filling up the measure of their sins. But wrath has come upon them to the utmost."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.17",
+      "source_sha256": "ad9ffbcd7cc22eaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But we, our brothers, were left like orphans apart from you for a short time—in person, not in heart—and we made all the greater effort to see your faces, with great love."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.18",
+      "source_sha256": "3fba738d7fe04f56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We wanted to come to you—I, Paul, once and again—but Satan hindered me."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.19",
+      "source_sha256": "0338607c05f42fe9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For what is our hope or our joy or the crown we boast of, if not you before our Lord Jesus at his coming?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.2.20",
+      "source_sha256": "93bd7d8a17584558",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For you are our glory and our joy."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.1",
+      "source_sha256": "9d476f5c4d226529",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And because we could bear it no longer, we decided to remain alone in Athens"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.2",
+      "source_sha256": "299a50ea95c9ce56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and send you Timothy, our brother and God's servant and our helper in the good news of Christ, to strengthen you and encourage you in your faith,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.3",
+      "source_sha256": "847b45a9783a657a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "so that none of you would lose heart in these afflictions. For you yourselves know that this is what we are appointed for."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.4",
+      "source_sha256": "be685784c26c7a74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For even when we were with you, we told you beforehand that we were going to suffer affliction, just as you know happened."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.5",
+      "source_sha256": "db6aac370c095398",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this reason I too could bear it no longer, so I sent to find out about your faith, fearing that the tempter might have tempted you and our labor might prove empty."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.6",
+      "source_sha256": "87d4750021fff1cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But now Timothy has returned to us from you and brought us good news about your faith and your love, and that you always remember us fondly and long to see us, just as we long to see you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.7",
+      "source_sha256": "27ebfa070a5af484",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this reason, our brothers, we have been comforted concerning you in all our distress and afflictions because of your faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.8",
+      "source_sha256": "bcbdd7e204cb2864",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Now we are alive, if you stand firm in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.9",
+      "source_sha256": "7177957bb50b27b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For what thanks can we give back to God for you, for all the joy we have because of you,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.10",
+      "source_sha256": "cdfedfc18b1923ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "except to plead earnestly before God night and day that we may see your faces and supply what is lacking in your faith?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.11",
+      "source_sha256": "bdee3794f1a6210b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "May God our Father himself and our Lord Jesus Christ direct our way to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.12",
+      "source_sha256": "618cd33181ea0056",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And may he increase your love and make it overflow toward one another and toward everyone, just as we love you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.3.13",
+      "source_sha256": "d0fa4bd13ce4b59b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And may he establish your hearts blameless in holiness before God our Father at the coming of our Lord Jesus Christ with all his holy ones."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.1",
+      "source_sha256": "bca2c1ae92d92fb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Finally, my brothers, we ask you and plead with you in our Lord Jesus that, just as you received from us how you ought to live and please God, you should do so more and more."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.2",
+      "source_sha256": "d4d6966eb7cd9df7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For you know what commands we gave you through our Lord Jesus."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.3",
+      "source_sha256": "47f65e5e12f21cf2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this is God's will: your holiness, and that you keep away from all sexual immorality."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.4",
+      "source_sha256": "adc8e760095a6180",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Each of you should know how to possess his own body in holiness and honor,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.5",
+      "source_sha256": "d1cca6013ec715ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And not with lustful passions, like the rest of the nations who do not know God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.6",
+      "source_sha256": "0852a463755d60cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not dare to overstep and wrong your brother in this matter, because our Lord exacts punishment for all these things, just as we told you beforehand and solemnly warned you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.7",
+      "source_sha256": "7aa4bdfda2e1a9f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God did not call you to impurity, but to holiness."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.8",
+      "source_sha256": "c0da8d0a6be87318",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, whoever rejects this is not rejecting a human being, but God, who has put his Holy Spirit within you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.9",
+      "source_sha256": "535f96a04511674a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for love for your brothers, you have no need for anyone to write to you, for you yourselves are taught by God to love one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.10",
+      "source_sha256": "6a87bd308453e0ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, you do this toward all the brothers throughout Macedonia. But I ask you, my brothers, to grow still more"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.11",
+      "source_sha256": "82c381c262e2d7bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to make every effort to live quietly, attend to your own affairs, and work with your hands, just as we instructed you,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.12",
+      "source_sha256": "3503169da48f23c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you conduct yourselves properly toward outsiders and do not depend on anyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.13",
+      "source_sha256": "fad5dd871aea643d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I want you to know, my brothers, that you should not grieve over those who are asleep like the rest of the people who have no hope."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.14",
+      "source_sha256": "64067b98ab3a01c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if we believe that Jesus died and rose, so too God will bring with him those who have fallen asleep in Jesus."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.15",
+      "source_sha256": "6cf60ffad096accb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We tell you this by the word of our Lord: we who remain alive at the coming of our Lord will not precede those who have fallen asleep."
+    },
+    {
       "chunk_id": "pta-peshitta/1thess#1Thess.4.16",
       "source_sha256": "2dae1186d16957c1",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "For our Lord himself will descend from heaven with a command, with the voice of the archangel, and with the trumpet of God, and the dead in Christ will rise first."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.17",
+      "source_sha256": "3348c2e192c71535",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then we who remain alive will be caught up together with them in the clouds to meet our Lord in the air. And so we will always be with our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.4.18",
+      "source_sha256": "ef13967fb2791238",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, comfort one another with these words."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.1",
+      "source_sha256": "a52d6f99e093055f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for the times and seasons, my brothers, you have no need for anyone to write to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.2",
+      "source_sha256": "f72023ef05da5f84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you yourselves know very well that the day of our Lord comes like a thief in the night."
     },
     {
       "chunk_id": "pta-peshitta/1thess#1Thess.5.3",
@@ -41,11 +467,179 @@
       "text": "When they say, “There is peace and safety,” then destruction will suddenly come upon them, like labor pains upon a pregnant woman, and they will not escape."
     },
     {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.4",
+      "source_sha256": "23b04a13a883402a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you, my brothers, are not in darkness, so that that day should overtake you like a thief."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.5",
+      "source_sha256": "c04880a914329f62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you are all children of light and children of the day. You are not children of the night or children of darkness."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.6",
+      "source_sha256": "cb7815cb3b5e767b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, let us not sleep like the rest, but let us stay awake and sober."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.7",
+      "source_sha256": "28e7600e48289818",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who sleep do so at night, and those who get drunk do so at night."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.8",
+      "source_sha256": "38b1c81edbdb9ac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But since we are children of the day, let us be alert in our minds, wearing the breastplate of faith and love, and let us put on the helmet of the hope of salvation."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.9",
+      "source_sha256": "2822f3cf166d1241",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God has not appointed us for wrath, but to obtain salvation through our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.10",
+      "source_sha256": "ed9a7a8fad36a5dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who died for us so that, whether we are awake or asleep, we may live together with him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.11",
+      "source_sha256": "5ba3a5dfeefd52c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, comfort one another and build one another up, just as you are already doing."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.12",
+      "source_sha256": "90f8997c39661206",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we ask you, my brothers, to acknowledge those who labor among you, lead you in our Lord, and teach you,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.13",
+      "source_sha256": "b96f9de99231596a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to hold them in the highest esteem with love. Because of their work, live at peace with them."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.14",
+      "source_sha256": "1344f4146ac722e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Now we ask you, my brothers: admonish those who do wrong, encourage the fainthearted, support the weak, and be patient with everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.15",
+      "source_sha256": "db904be519387d02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Be careful that none of you repays evil for evil, but always pursue what is good for one another and for everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.16",
+      "source_sha256": "d61715edba94923b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Always be joyful."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.17",
+      "source_sha256": "01dfd10ad9d039ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And pray without ceasing."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.18",
+      "source_sha256": "99fc6c0584f20ef0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And give thanks in everything, for this is God's will for you in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.19",
+      "source_sha256": "7acd6fde2aa3a59b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Do not quench the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.20",
+      "source_sha256": "1d0114fe1ad0b604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Do not despise prophecies."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.21",
+      "source_sha256": "de8b26a4041d302b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Test everything, and hold on to what is good."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.22",
+      "source_sha256": "203c654938402cb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And flee from every evil thing."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.23",
+      "source_sha256": "7e3f8bc1dafd5e1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "May the God of peace himself make you completely holy in every part of you. May he preserve your entire spirit, soul, and body blameless for the coming of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.24",
+      "source_sha256": "e4f8ad2f8e149309",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "The one who called you is faithful, and he will do it."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.25",
+      "source_sha256": "8839bd1b9c013d2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "My brothers, pray for us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.26",
+      "source_sha256": "a4b0e687bc672198",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Greet all our brothers with a holy kiss."
+    },
+    {
       "chunk_id": "pta-peshitta/1thess#1Thess.5.27",
       "source_sha256": "bc3b7a707222da4f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "I put you under oath by our Lord to have this letter read to all the holy brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/1thess#1Thess.5.28",
+      "source_sha256": "634a9ad20acd583d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "The grace of our Lord Jesus Christ be with you. Amen."
     }
   ]
 }

@@ -9,9 +9,29 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0000",
+      "source_sha256": "f76de177944883c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He called the second man and said to him, “I know that you are more truthful than all these men. Tell me how many apostles took Jesus’ body from the tomb.” He said to him, “The eleven came with their other disciples.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0001",
+      "source_sha256": "b909c8c539c2ed2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They stole it.” He dismissed this man too."
+    },
     {
       "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0002",
       "source_sha256": "1ed1d08c1a4e46f8",
@@ -20,11 +40,144 @@
       "text": "He called the third man and said to him, “Look, I accept your testimony above that of many others. Who took Jesus’ body from the tomb?” He said to him, “It was Joseph and Nicodemus, together with all their relatives.”"
     },
     {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0003",
+      "source_sha256": "00a506ef52238035",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He called the fourth man and said to him, “You are the leader among them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0004",
+      "source_sha256": "fe40bceea4028326",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and I put all these men under your authority."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0005",
+      "source_sha256": "53e6f2af29b74049",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell me now what happened, that Jesus’ body was taken from the tomb while in your custody.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0006",
+      "source_sha256": "6010c3094def06f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to him, “Our lord, the governor, we were asleep and unaware,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0007",
+      "source_sha256": "07ffe8670f06cba0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and we did not know who took it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0008",
+      "source_sha256": "48b13670ff4a30ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We only know that we got up and searched, and we did not find him [?] below [?] them [?]. We said, ‘What is this disturbance?’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0009",
+      "source_sha256": "94b2c24ebc2da204",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pilate said to the Jews and the centurion, “These men"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0010",
+      "source_sha256": "94d85c75de879367",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "are disposed in this way, and their statements are divided by falsehood.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0011",
+      "source_sha256": "3a79e0e587cf9664",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he ordered the soldiers to be detained until he came to the tomb."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0012",
+      "source_sha256": "80bd43c57e1a7927",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Immediately he got up with the Jewish leaders, the centurion, and the chief priests. They came to the tomb and found the linen cloths lying there with no one in them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0013",
+      "source_sha256": "b645cd676e236092",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pilate said, “You people who hate your own lives!”"
+    },
+    {
       "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0014",
       "source_sha256": "307cd316f8c36049",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "If they had taken the body, they would have taken the shroud with it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0015",
+      "source_sha256": "67fb3fbb951ba595",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they said, “Do you yourself not see that these linen cloths are not his, but belong to someone else?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0016",
+      "source_sha256": "185d5c734f620881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Pilate remembered Jesus’ words: “Great wonders must take place in my tomb.” Pilate was the first to go into the tomb."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0017",
+      "source_sha256": "e8bfa829a0d93040",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took Jesus’ linen cloths."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0018",
+      "source_sha256": "bc2e102ef6365600",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He embraced them, wept over them, and kissed them for joy, as though Jesus were wrapped in them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0019",
+      "source_sha256": "d18a1ddc4f0f837d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also noticed the centurion standing at the entrance to the tomb. He had only one eye, because his other eye had been wounded in battle."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0020",
+      "source_sha256": "b4966ed5a9865f23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It had remained closed for some time, so that he could not see the light through it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.000.0021",
+      "source_sha256": "cc65fe99b1527657",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Pilate [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0000",
+      "source_sha256": "fcba428587d4b266",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] you by the life of the Lord:"
     },
     {
       "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0001",
@@ -60,6 +213,41 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "I am Gamaliel, and I too was following him in the company. They looked down into the water well and saw the dead man floating on one side of the well. The Jews cried out, “Pilate, look, here is the magician [?] like [?]”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0006",
+      "source_sha256": "973fc9fefeba210f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Is this the body of Jesus who died?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0007",
+      "source_sha256": "193abe77858b85c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they said, “Our lord, these linen cloths draped over you belong to Jesus."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0008",
+      "source_sha256": "ad4dadf00a7b75c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this body belongs to the thief who was crucified with Jesus.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0009",
+      "source_sha256": "a7c7ebe632c0f4b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The crowd of Jews rose up against Joseph and Nicodemus, wanting to throw them down into the well [?] where [?] Pilate [?]."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0010",
+      "source_sha256": "80970f6f3f7728b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 1,
+      "text": "[?] Jesus said to him, “The dead will rise in my tomb.”"
     },
     {
       "chunk_id": "coptic-scriptorium/lament_mary#CopScr.lament-mary.001.0011",

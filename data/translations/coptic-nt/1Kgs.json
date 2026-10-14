@@ -9,9 +9,22 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/1kgs#1Kgs.19.3",
+      "source_sha256": "e5900b1e26f10b3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "But Elijah was afraid. He got up and fled for his life until he came to Beersheba in Judah, and he left his young servant there."
+    },
     {
       "chunk_id": "coptic-nt/1kgs#1Kgs.19.4",
       "source_sha256": "631facd3675be4de",
@@ -20,11 +33,39 @@
       "text": "He came and sat under a tree called a broom tree, and he asked that he might die, saying, “Enough now, Lord! Take my life from me, for I am no better than my ancestors.”"
     },
     {
+      "chunk_id": "coptic-nt/1kgs#1Kgs.19.5",
+      "source_sha256": "e270875ef37895e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "He lay down and fell asleep there under the tree. And someone touched him, saying to him, “Get up and eat.”"
+    },
+    {
       "chunk_id": "coptic-nt/1kgs#1Kgs.19.6",
       "source_sha256": "f03f11c09161e2a3",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 2,
       "text": "Then Hylas turned over, and there at his head lay an unleavened loaf of spelt bread and a jar of water. He got up and ate, then turned over again and went to sleep."
+    },
+    {
+      "chunk_id": "coptic-nt/1kgs#1Kgs.19.7",
+      "source_sha256": "bc971002587cdbe2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "The angel of the Lord touched him a second time, saying, “Get up and eat, because you have a long journey ahead of you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/1kgs#1Kgs.19.8",
+      "source_sha256": "b3fe6c02d74560f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "He got up, ate, and drank. With the strength from that food, he walked for forty days and forty nights to Horeb, the mountain of God."
+    },
+    {
+      "chunk_id": "coptic-nt/1kgs#1Kgs.19.9",
+      "source_sha256": "d05dc5e2ea7a6786",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "He came and sat down in that place, and he stayed there in the cave."
     }
   ]
 }

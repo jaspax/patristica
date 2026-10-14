@@ -9,15 +9,329 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.1",
+      "source_sha256": "047f3f0238128673",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, the servant of Jesus Christ, called to be an apostle, set apart for the good news of God,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.2",
+      "source_sha256": "54899d8c6d271bc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which he promised beforehand through his prophets in the holy Scriptures,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.3",
+      "source_sha256": "a0eac0a2202b8169",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "concerning his Son, who came from David’s descendants according to the flesh,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.4",
+      "source_sha256": "f3ec005107e8a9ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who was appointed Son of God in power according to the Spirit of holiness through the resurrection of the dead—Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.5",
+      "source_sha256": "3a667166787fd0df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through him we received grace and apostleship to bring about the obedience of faith among all the nations for his name."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.6",
+      "source_sha256": "0f7245d858fe5d24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too are included among them, called in Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.7",
+      "source_sha256": "cbfd291be64d57f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To all who are in Rome, loved by God, called to be holy: Grace and peace to you from God our Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.8",
+      "source_sha256": "e2f52fe93dd40884",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "First, I thank my God through Jesus Christ for all of you, because your faith is being proclaimed throughout the whole world."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.9",
+      "source_sha256": "ba1a6718772c7dcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God, whom I serve in my spirit in the good news of his Son, is my witness that I remember you without ceasing,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.10",
+      "source_sha256": "7b4d504494157ed8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "always pleading in my prayers that, by God’s will, my way may be made straight to come to you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.11",
+      "source_sha256": "03f7a53b8403da24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I long to see you so that I may give you some spiritual gift to strengthen you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.12",
+      "source_sha256": "6c417b2d4c7e6fb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That is, so that we may encourage one another among you through the faith we share, yours and mine."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.13",
+      "source_sha256": "f7a7acba7b5812dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I want you to know, my brothers and sisters, that I have often planned to come to you, but have been prevented until now, so that I might have some fruit among you, just as among the other nations."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.14",
+      "source_sha256": "c61df56c10284e8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am indebted to Greeks and non-Greeks, to the wise and the foolish."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.15",
+      "source_sha256": "2303347e22de3ba5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I am eager to proclaim the good news to you too, who are in Rome."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.16",
+      "source_sha256": "66f09951364e2353",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I am not ashamed of the good news, because it is God’s power for the salvation of everyone who believes, Jews and [?]."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.17",
+      "source_sha256": "c73c1e7e242875f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God’s righteousness will be revealed in it, from faith to faith, just as it is written: “The righteous person will live by faith.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.18",
+      "source_sha256": "6fb6f2a57dbb4919",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God’s wrath will be revealed from heaven against all the ungodliness and injustice of people who suppress God’s truth through injustice."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.19",
+      "source_sha256": "77f084fc56e812c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because the knowledge of God is plain within them, for God has made it plain to them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.20",
+      "source_sha256": "190e0f8fa5e99124",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For since the creation of the world, his invisible qualities—his eternal power and his divinity—are seen and understood through the things he has made, so that they have no excuse."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.21",
+      "source_sha256": "4c2366b89cf836ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because, although they knew God, they did not glorify him as God or give thanks. Instead, their thoughts became futile, and their uncomprehending hearts were darkened."
+    },
     {
       "chunk_id": "coptic-nt/rom#Rom.1.22",
       "source_sha256": "3dde3a9ab3c1b013",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Claiming to be wise [?], they became fools."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.23",
+      "source_sha256": "5b4f8fd84eb7ec96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They exchanged the glory of the imperishable God for the likeness of an image of a perishable human being, and of birds, animals, and reptiles."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.24",
+      "source_sha256": "b894713a83e6d566",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, God gave them over, in the desires of their hearts, to impurity, so that they dishonored their bodies among themselves."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.25",
+      "source_sha256": "fdb60e0ec9f10810",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They exchanged God’s truth for a lie and worshiped and served the creation rather than the Creator, who is blessed forever. Amen."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.26",
+      "source_sha256": "ad4e83d9d1467f19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, God gave them over to shameful passions. For even their women exchanged their natural activity for what is contrary to their nature."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.27",
+      "source_sha256": "fa783fd10838b555",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, their men also abandoned natural relations with women and burned with desire for one another, men committing shameful acts with men and receiving in themselves the penalty their error deserved."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.28",
+      "source_sha256": "361686a50921eda7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And just as they did not consider it worthwhile to retain knowledge of God, God handed them over to a corrupt mind, to do things that are not fitting."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.29",
+      "source_sha256": "40dbbbeb463ca874",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are filled with every kind of injustice, malice, wickedness, and greed, full of envy, murder, strife, deceit, and evil-heartedness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.30",
+      "source_sha256": "2e3532a77d1ac6bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are gossips, slanderers, haters of God, insolent, arrogant, boastful, seekers of evil, and disobedient to their parents."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.31",
+      "source_sha256": "8727c4db4b5668c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are senseless, untrustworthy, hardhearted, and merciless."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.1.32",
+      "source_sha256": "b617e4c98b0fb9b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Although they know God's decree that those who do such things deserve death, they not only do them but also approve of those who do them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.1",
+      "source_sha256": "07e4654c444196ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore you have no excuse, whoever you are who judges. For when you judge someone else, you condemn yourself, because you who judge do the same things yourself."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.2",
+      "source_sha256": "888608ba53f85596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we know that God's judgment against those who do such things is based on truth."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.3",
+      "source_sha256": "0302e9de5d3b63e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But do you imagine, you who judge those who do such things while doing them yourself, that you will escape God's judgment?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.4",
+      "source_sha256": "f3890b7c91970011",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you despise the abundance of his kindness, restraint, and patience, not knowing that God's kindness leads you to repentance?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.5",
+      "source_sha256": "04c5f98a820e445f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But because of your stubbornness and your unrepentant heart, you are storing up wrath for yourself on the day of wrath and the revelation of God's just judgment."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.6",
+      "source_sha256": "261df0a80de65e3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He will repay each person according to their deeds:"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.7",
+      "source_sha256": "7676e44bb4d1c14f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "eternal life to those who persevere in doing good and seek glory, honor, and immortality;"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.8",
+      "source_sha256": "a81906b65e0115ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but wrath and anger to those who are contentious, disobey the truth, and obey injustice."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.9",
+      "source_sha256": "dcda0b6adce51980",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And there will be suffering and distress for every human soul that does evil, for the Jew first and also for the Greek."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.10",
+      "source_sha256": "6fe1f77d67bbedef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But glory, honor, and peace for everyone who does good, for the Jew first and also for the Greek."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.11",
+      "source_sha256": "dd1ab60292f84c9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God shows no favoritism."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.12",
+      "source_sha256": "9edd9f6f50ec0e15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who sinned without the law will also perish without the law, and those who sinned under the law will be judged by the law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.13",
+      "source_sha256": "123124b1694fd75d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is not those who hear the law who are righteous before God, but those who do what the law says who will be declared righteous."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.2.14",
@@ -27,11 +341,249 @@
       "text": "For when Gentiles who have no law naturally do what the law requires, these people, though they have no law, are a law to themselves."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.2.15",
+      "source_sha256": "294860f6f280252f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These show you the work of the law written in their hearts, while their conscience bears witness with them and their thoughts together accuse or defend them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.16",
+      "source_sha256": "dd5a9ffbf7035333",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On the day when God judges people's hidden secrets through Jesus Christ, according to my gospel."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.17",
+      "source_sha256": "e9dc6068eef3ce1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you are called a Jew, rely on the law, and boast in God,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.18",
+      "source_sha256": "e77e8902d93868fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and know his will and approve what is beneficial, being instructed from the law,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.19",
+      "source_sha256": "60cac1f60c65ec2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and are confident that you are a guide for the blind and a light for those in darkness,"
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.2.20",
       "source_sha256": "fa972d470b3b65c7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "An instructor of the foolish, a teacher of little children, having in the law the embodiment of knowledge and truth."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.21",
+      "source_sha256": "6df2313cc77d7494",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "then you who teach someone else, why do you not teach yourself? You who preach, \"Do not steal,\" do you steal?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.22",
+      "source_sha256": "717a2ed386559d34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who say, “Do not commit adultery,” do you commit adultery? You who detest idols, do you rob temples?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.23",
+      "source_sha256": "a832d7a5d1044c77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You boast in the law, but by breaking the law you dishonor God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.24",
+      "source_sha256": "21669a12ade9faeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God’s name is blasphemed among the nations because of you, just as it is written."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.25",
+      "source_sha256": "a4d46d53fb89e18a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Circumcision is beneficial if you obey the law. But if you are a lawbreaker, your circumcision has become uncircumcision."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.26",
+      "source_sha256": "748a3c65549ab71c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So if an uncircumcised person keeps the requirements of the law, will his uncircumcision not be counted as circumcision?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.27",
+      "source_sha256": "6081f0d8d6262d5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the person who is naturally uncircumcised but fulfills the law will judge you, who have the written law and circumcision but are a lawbreaker."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.28",
+      "source_sha256": "ce697464280791f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For someone who is a Jew outwardly is not a Jew, nor is outward circumcision in the flesh circumcision."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.2.29",
+      "source_sha256": "9375a2e521268ad5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, someone who is a Jew inwardly is a Jew, and circumcision is circumcision of the heart, by the Spirit, not by the written law. Such a person’s honor comes not from people but from God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.1",
+      "source_sha256": "5aec396d5632bc08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What advantage, then, does the Jew have? Or what benefit is there in circumcision?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.2",
+      "source_sha256": "b1b4395176fe95e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Much in every way! First of all, they were entrusted with the words of God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.3",
+      "source_sha256": "cd0c49efb381bd28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what happens if some did not believe? Will their unbelief nullify God’s faithfulness?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.4",
+      "source_sha256": "3214be1c96d34ca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Certainly not! Let God be truthful and every person a liar, just as it is written: “So that you may be shown to be right in your words and prevail when you pass judgment on me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.5",
+      "source_sha256": "4d7abfdb5d4963b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if our wrongdoing demonstrates God’s righteousness, what shall we say? Am I saying that God is unjust when he brings his wrath upon people?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.6",
+      "source_sha256": "ff20a6d178887ea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Certainly not! Otherwise, how will God judge the world?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.7",
+      "source_sha256": "b087b9fd6a482675",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if God’s truth has increased through my lie, to his glory, why am I still judged as a sinner?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.8",
+      "source_sha256": "e98bd0f5b8d909ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And why not say—as we are slanderously accused of saying, and as some claim we say—“Let us do evil so that good may come upon us”? Their condemnation is just."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.9",
+      "source_sha256": "6f30499c50d2672c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then? Are they better off than we are? No, for we have already accused both Jews and Greeks of all being under sin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.10",
+      "source_sha256": "2033c591db2a06f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as it is written: “There is no righteous person, not even one."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.11",
+      "source_sha256": "8311b6183e82e407",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no one who understands; there is no one who seeks God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.12",
+      "source_sha256": "16a3270c5917d59a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have all turned aside; together they have become useless. There is no one who does good, not even one."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.13",
+      "source_sha256": "ee02f5dccf711f8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their throat is an open grave; they have practiced deceit with their tongues. Snake venom is under their lips."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.14",
+      "source_sha256": "c3a271e2a396c249",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their mouth is full of curses and bitterness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.15",
+      "source_sha256": "c01dea8a1816bb10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their feet are quick to shed blood."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.16",
+      "source_sha256": "a5d858f91f22ea5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Destruction and misery are in their paths."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.17",
+      "source_sha256": "28e77086afafbc10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have not known the way of peace.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.18",
+      "source_sha256": "5962115f2f356f82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no [?] of God before their eyes."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.19",
+      "source_sha256": "e7198ff0c1f9d9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now we know that whatever the law says, it says to those under the law, so that every mouth may be silenced and the whole world may come under God's judgment."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.20",
+      "source_sha256": "5d16fabba68c3210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For no human being will be declared righteous before him through the works of the law, because through the law we came to know sin."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.3.21",
@@ -41,11 +593,172 @@
       "text": "But now God's righteousness has been revealed apart from the law, with the law and the prophets bearing witness to it."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.3.22",
+      "source_sha256": "91bf81b32cddc8f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God's righteousness comes through faith in Jesus Christ to everyone who believes, for there is no distinction."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.23",
+      "source_sha256": "214d867fab45ce2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they have all sinned and lack the glory of God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.24",
+      "source_sha256": "ad054be98eb4d336",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are declared righteous freely by his grace through the redemption in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.25",
+      "source_sha256": "ee88774fbc832896",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God appointed him beforehand as a means of forgiveness through faith in his blood, to reveal his righteousness, because of the forgiveness of the sins we committed before."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.26",
+      "source_sha256": "3c9656c74e95f905",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In God's patience, this was to reveal his righteousness at the present time, so that he might be righteous and declare righteous the person who has faith in Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.27",
+      "source_sha256": "01c7b63846376f5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Where, then, is boasting? It has been shut out. Through what law? The law of works? No, but through the law of faith in Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.28",
+      "source_sha256": "361e6f0b065cd724",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we say that a person will be declared righteous by faith apart from the works of the law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.29",
+      "source_sha256": "b8702f8c1c609967",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or is God the God of the Jews alone? Is he not also the God of the Gentiles? Yes, he is also the God of the Gentiles."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.30",
+      "source_sha256": "4bd08d7409a75060",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because God is one, he will declare the circumcised righteous on the basis of faith and the uncircumcised through faith."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.3.31",
+      "source_sha256": "6272fa598b845330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Are we, then, going to nullify the law through faith? Certainly not! Rather, we will uphold the law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.1",
+      "source_sha256": "7f4a0481dcb250c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say that Abraham, our ancestor by physical descent, discovered?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.2",
+      "source_sha256": "6f2f41a7c858a99d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if Abraham was declared righteous through works, he has something to boast about, but not before God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.3",
+      "source_sha256": "eeaad16132809460",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what does Scripture say? Abraham believed God, and it was credited to him as righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.4",
+      "source_sha256": "27c349144cf452be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now a worker's wages are not credited to him as a gift, but as something he has earned."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.5",
+      "source_sha256": "ee636a239baa2b38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But for the person who does not work but believes in the one who declares the ungodly righteous, his faith is credited to him as righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.6",
+      "source_sha256": "5ac5bfb312eb2dd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, David speaks of the blessedness of the person to whom God will credit righteousness apart from works:"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.7",
+      "source_sha256": "3d50a110077ce4d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are those whose lawless deeds have been forgiven and whose sins have been covered."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.8",
+      "source_sha256": "ec8e82e7cffcf78c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the person whose sin the Lord will not count against him."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.4.9",
       "source_sha256": "111bbcdcfeda44b0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Does this blessing, then, apply to the circumcised, or also to the uncircumcised? For we say that Abraham's faith was credited to him as righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.10",
+      "source_sha256": "f22c3a72ec37d52a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How, then, was it credited to him? Was he circumcised or uncircumcised? He was not circumcised, but uncircumcised."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.11",
+      "source_sha256": "3d43da146556f5a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he received the sign of circumcision as a seal of the righteousness of the faith he had while uncircumcised, so that he might become the father of all who believe while uncircumcised, so that righteousness might also be credited to them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.12",
+      "source_sha256": "a8d52d14bbe21d32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he became the father of the circumcised—not only those who are circumcised, but also those who follow the path of the faith our father Abraham had while uncircumcised."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.13",
+      "source_sha256": "29d813b561c4e577",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the promise to Abraham or his descendants that he would become heir of the world did not come through the law, but through the righteousness of faith."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.14",
+      "source_sha256": "78a5e50940dfa29e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if those who inherit do so through the law, then faith is empty and the promise has been nullified."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.4.15",
@@ -55,11 +768,354 @@
       "text": "For the law produces wrath, but where there is no law, there is no transgression either."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.4.16",
+      "source_sha256": "5a3ad6437b14435f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore it comes through faith, so that it may be according to grace and the promise may be secure for all the descendants—not only those who belong to the law, but also those who share Abraham’s faith. He is the father of us all."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.17",
+      "source_sha256": "7e2991dd55a65075",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written, “I have made you the father of many nations,” in the presence of the God in whom he believed, who gives life to the dead and calls things that do not exist as though they existed."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.18",
+      "source_sha256": "41720bb863226544",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Against hope, he believed in hope that he would become the father of many nations, according to what had been said: “This is how your descendants will be.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.19",
+      "source_sha256": "c5e37f9ee1eddaf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Without becoming weak in faith, he considered his body, which had completely lost its strength, since he was nearly a hundred years old, and the deadness of Sarah’s womb."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.20",
+      "source_sha256": "5145438b229ade68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he did not doubt God’s promise through unbelief. Instead, he grew strong in faith, giving glory to God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.21",
+      "source_sha256": "8b09439cd8361ef7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he was fully convinced that God was able to do what he had promised."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.22",
+      "source_sha256": "668cee905056973e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore it was credited to him as righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.23",
+      "source_sha256": "8ebc9ad36f9270a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the statement that it was credited to him was not written for his sake alone,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.24",
+      "source_sha256": "c0ed80723b80b0a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but also for our sake. It will be credited to us who believe in the one who raised Jesus our Lord from the dead."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.4.25",
+      "source_sha256": "a2f45a5d38109f99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was handed over because of our sins and rose because of our being made righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.1",
+      "source_sha256": "b2daccb77399a734",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, having been made righteous through faith, we have peace with God through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.2",
+      "source_sha256": "71d260cac97226c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through him we have gained access to this grace in which we stand, and we boast in the hope of God’s glory."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.3",
+      "source_sha256": "8a5f9294deadbc1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not only that, but we also boast in our sufferings, knowing that suffering produces endurance,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.4",
+      "source_sha256": "e1744f94c5b6ef22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and endurance produces proven character, and proven character produces hope."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.5",
+      "source_sha256": "dc6717df242e1443",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And hope does not bring shame, because God’s love has been poured out in our hearts through the Holy Spirit who was given to us."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.6",
+      "source_sha256": "d8ed03f2d1d77532",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if Christ, while we were still weak, died at the appointed time for the ungodly—"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.7",
+      "source_sha256": "ffc010654f2e0276",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for someone will hardly die for a righteous person, though perhaps someone might dare to die for a good person—"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.8",
+      "source_sha256": "99ef3e744927108f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God demonstrates his love toward us in that, while we were still sinners, Christ died for us."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.9",
+      "source_sha256": "7e3e65223c2d92a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How much more, then, now that we have been made righteous by his blood, will we be saved through him from wrath!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.10",
+      "source_sha256": "eba3f258dad8949b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if, while we were enemies, we were reconciled to God through the death of his Son, how much more, having been reconciled, will we be saved by his life!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.11",
+      "source_sha256": "5fda81f46192f826",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not only that, but we also boast in God through our Lord Jesus Christ, through whom we have now received reconciliation."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.12",
+      "source_sha256": "d749e8991b5bb135",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, just as sin entered the world through one man, and death through sin, and in this way death spread to every person, since they all sinned in him, so also life came through one man."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.13",
+      "source_sha256": "88504f76f2205a4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For until the law, sin was in the world, though it was dead; but sin was not counted when there was no law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.14",
+      "source_sha256": "c2c623a8008560f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nevertheless, death reigned from Adam to Moses over the others who had not sinned in the likeness of Adam’s transgression. He is a pattern of the one who was to come."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.15",
+      "source_sha256": "4128ac909cd7c95c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the gift is not like the trespass. For if many died through the trespass of that one man, much more did God's grace and the gift through the grace of the one man, Jesus Christ, overflow to many."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.16",
+      "source_sha256": "a0c45276dcb58ec1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And what brings justification is not like what came through the one who sinned. For judgment came from one trespass and led to condemnation, but the gift came from many sins and led to justification."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.17",
+      "source_sha256": "ed24e716fbf4e839",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if death ruled through the sin of that one man, much more will those who receive the abundance of grace and righteousness rule in life through the one, Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.18",
+      "source_sha256": "69703755a82126fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So then, just as the trespass came through one and brought condemnation to everyone, so also what brings justification comes through one and brings everyone justification that leads to life."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.19",
+      "source_sha256": "ec60d15b0db77488",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For just as many became sinners through the disobedience of that one man, so also through the obedience of the one, many will become righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.20",
+      "source_sha256": "f71f5a5c8468ea79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the law came in so that the trespass would increase. Where his sin increased, grace increased even more for him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.5.21",
+      "source_sha256": "08900017b5c26f07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that, just as sin ruled in death, grace might likewise rule through righteousness, leading to eternal life through Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.1",
+      "source_sha256": "e9c5adbf95a653d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then shall we say? Should we remain in sin so that grace may increase?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.2",
+      "source_sha256": "e00dbd08d5a11362",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Never! We who have died to sin—how can we go on living in it?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.3",
+      "source_sha256": "e7a5ca4bcb934c17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you not know that all of us who were baptized into Christ Jesus were baptized into his death?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.4",
+      "source_sha256": "6c1c307f96672e66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We were therefore buried with him through baptism into his death, so that, just as Christ rose from the dead through the glory of the Father, we too might walk in newness of life."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.6.5",
       "source_sha256": "ef8adf25ae6d5d21",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "For if we have been planted together in the likeness of his death, then we will also be united in his resurrection."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.6",
+      "source_sha256": "d75b5596b44c9db9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We understand this: our old self was crucified with him so that the body of sin might be made powerless, and we might no longer be slaves to sin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.7",
+      "source_sha256": "c2abc5a0b580a7db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one who has died has been freed from sin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.8",
+      "source_sha256": "2cf8438978aaddad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if we have died with Christ, we also believe that we will live with him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.9",
+      "source_sha256": "16eda5e7c3eb932e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that Christ has risen from the dead and will not die again. Death no longer has dominion over him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.10",
+      "source_sha256": "fbeaa92ef9df8ee3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the death he died, he died to sin once; but the life he lives, he lives in God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.11",
+      "source_sha256": "59991271a307ee50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, consider yourselves dead to sin but alive to God in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.12",
+      "source_sha256": "18b8a5d1648c82c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not let sin rule in your mortal body, making you obey its desires."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.13",
+      "source_sha256": "5556c49dd7936b1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not offer the parts of your body to sin as weapons of injustice. Instead, offer yourselves to God as people alive from the dead, and offer the parts of your body to God as weapons of righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.14",
+      "source_sha256": "21b9d4c8eda579dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For sin will not have dominion over you, because you are not under the law but under grace."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.15",
+      "source_sha256": "860a438079816cd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then? Should we sin because we are not under the law but under grace? Never!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.16",
+      "source_sha256": "6ae0dd48d1b17d38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you not know that when you offer yourselves to someone as slaves to obey, you are slaves of the one you obey—either of sin or of obedience that leads to righteousness?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.17",
+      "source_sha256": "9195b565465f91a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But thanks be to God that, though you were slaves to sin, you obeyed from your heart the pattern of teaching to which you were entrusted."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.18",
+      "source_sha256": "6b547b13755666db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And having been set free from sin, you became slaves to righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.19",
+      "source_sha256": "57f90197621ea3e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I speak in human terms because of the weakness of your flesh. For just as you offered the parts of your body as slaves to impurity and lawlessness, leading to more lawlessness, so now offer the parts of your body as slaves to righteousness, leading to purification."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.6.20",
@@ -69,11 +1125,165 @@
       "text": "For when you were slaves of sin, you were free from righteousness."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.6.21",
+      "source_sha256": "94f70842230e2918",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What fruit did you have then from the things you are now ashamed of? For the end of those things is death."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.22",
+      "source_sha256": "fc6d7d091d811535",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now that you have been freed from sin and have become slaves of God, you have your fruit leading to holiness, and the final outcome is eternal life."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.6.23",
+      "source_sha256": "dbd534758f07c2fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the wages of sin are death, but the gift of God is eternal life in Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.1",
+      "source_sha256": "cc9108d2040ce476",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you not know, brothers—for I am speaking to those who know the law—that the law rules over a person as long as that person lives?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.2",
+      "source_sha256": "090f1d503d7d8627",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a married woman is bound by the law to her husband while he is alive. But if her husband dies, she is released from the law concerning her husband."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.3",
+      "source_sha256": "9cb9ac2d5ff46d66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, while her husband is alive, she will be called an adulteress if she lives with another husband. But if her husband dies, she is free from the law, so that she will not be called an adulteress if she lives with another husband."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.4",
+      "source_sha256": "f966ba6d22f89772",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, my brothers, you too died to the law through the body of Jesus Christ, so that you might belong to another, the one who rose from the dead, so that we might bear fruit for God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.5",
+      "source_sha256": "29a957bbefcecf5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For when we were in the flesh, the sinful passions that arose through the law were at work in the parts of our bodies, causing us to bear fruit for death."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.6",
+      "source_sha256": "eb357929da12477c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now, having died, we have been released from the law in which we were held, so that we serve in the new way of the Spirit, not in the old way of the written text."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.7",
+      "source_sha256": "7153c1f2735730d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then shall we say? Is the law sin? Certainly not! But I would not have known sin except through the law. For I would not have known coveting if the law had not said, “You must not covet.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.8",
+      "source_sha256": "f75b23827c515d54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But sin seized an opportunity through the commandment and produced every kind of coveting in me. For apart from the law, sin is dead."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.7.9",
       "source_sha256": "8f266751987543eb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "I was once alive without the law, but when the commandment came, sin came to life."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.10",
+      "source_sha256": "0e7321e30ce69090",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I died, and the commandment that was meant for life was found to bring death to me."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.11",
+      "source_sha256": "3856fc810f47c7ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For sin seized an opportunity through the commandment, deceived me, and through it killed me."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.12",
+      "source_sha256": "23bfb731278c8083",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So the law is holy, and the commandment is holy, just, and good."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.13",
+      "source_sha256": "6a09f051dfeac102",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did what is good, then, become death to me? Certainly not! Rather, it was sin, so that it might be revealed as sin, producing death in me through what is good, so that through the commandment sin might become utterly sinful."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.14",
+      "source_sha256": "8690887351cde233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we know that the law is spiritual, but I am of the flesh, sold under sin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.15",
+      "source_sha256": "f1aea82656e0f1b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I do not understand what I do. I do not do what I want to do, but I do what I hate."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.16",
+      "source_sha256": "6494d83c0a17a884",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if I do what I do not want to do, I acknowledge that the law is good."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.17",
+      "source_sha256": "bb315ff3d6ec3aab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, then, it is no longer I who do it, but sin that lives in me."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.18",
+      "source_sha256": "20d27124d8b243a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I know that nothing good lives in me, that is, in my flesh. For the desire is there in me, but carrying out what is good is not."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.19",
+      "source_sha256": "1fee7b13adfe987a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I do not do the good that I want to do, but I do the evil that I do not want to do."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.20",
+      "source_sha256": "e959de4f886f72f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if I do what I do not want to do, then it is no longer I who do it, but sin that lives within me."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.7.21",
@@ -83,11 +1293,249 @@
       "text": "So I find concerning the law [?] that evil is present with me, who want to do good."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.7.22",
+      "source_sha256": "df1e3bc5aa3cf0a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in my inner self I delight in the law of God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.23",
+      "source_sha256": "ed67b7a72d16207f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I see another law in the parts of my body, fighting against the law of my mind and taking me captive under the law of sin that is in the parts of my body."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.24",
+      "source_sha256": "14a0c9708c180425",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What a miserable person I am! Who will rescue me from this body of death?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.7.25",
+      "source_sha256": "54d2cc5de5e52b95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Thanks be to God through Jesus Christ our Lord! So then, I myself serve God's law with my mind, but the law of sin with my flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.1",
+      "source_sha256": "952f594fe8356307",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So there is now no condemnation for those who are in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.2",
+      "source_sha256": "5b1014fdf7c357da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law of the Spirit of life in Christ Jesus has set me free from the law of sin and death."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.3",
+      "source_sha256": "f61bcbf9cb6d5110",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what the law was powerless to do, because it was weakened by the flesh, God did by sending his Son in the likeness of sinful flesh. And because of sin, he condemned sin in his flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.4",
+      "source_sha256": "b816b89c5782aeb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This was so that the righteous requirement of the law would be fulfilled in us, who do not live according to the flesh but according to the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.5",
+      "source_sha256": "102a2475ec85a2ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who live according to the flesh think about the things of the flesh, but those who live according to the Spirit think about the things of the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.6",
+      "source_sha256": "5a2c4fe8204e9f9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the mind set on the flesh is death, but the mind set on the Spirit is life and peace."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.7",
+      "source_sha256": "2fa7290b4bdb1440",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the mind set on the flesh is hostile to God. It does not submit to God's law, nor can it do so."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.8",
+      "source_sha256": "f99c23e9de73c3b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And those who are in the flesh cannot please God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.9",
+      "source_sha256": "8a2bcc8d8a2f4a46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you are not in the flesh; you are in the Spirit, if God's Spirit is in you. But if anyone does not have the Spirit of Christ, that person does not belong to him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.10",
+      "source_sha256": "cd7e0a583926d149",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if Christ is in you, then the body is dead because of sin, but the Spirit is life because of righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.11",
+      "source_sha256": "48cc21dabfe46d17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if the Spirit of the one who raised Jesus from the dead lives in you, the one who raised Christ from the dead will also raise your mortal bodies through his Spirit who lives in you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.12",
+      "source_sha256": "e21ebffe72cdc334",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So then, my brothers, we are not obligated to live according to the flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.13",
+      "source_sha256": "d72daa2ff18dd797",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you live according to the flesh, you will die. But if, through the Spirit, you put the deeds of the body to death, you will live."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.14",
+      "source_sha256": "580d56468cefc268",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who walk in the Spirit of God are God's children."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.15",
+      "source_sha256": "9f042b22a7d43c80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you did not receive a spirit of slavery that brings fear again. Instead, you received a Spirit of sonship, through whom we cry out, “Abba, Father!”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.16",
+      "source_sha256": "6ac2aa200f5b9c95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Spirit himself bears witness with our spirit that we are God's children."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.8.17",
       "source_sha256": "424af879bd433590",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "If we are children, then we are heirs—heirs of God and fellow heirs with Christ—if indeed we suffer with him so that we may also be glorified with him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.18",
+      "source_sha256": "6a28ec7b62a7d212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I consider that the sufferings of this present time are not worthy of the glory that will be revealed to us."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.19",
+      "source_sha256": "92e81915ec567973",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For creation eagerly waits for God's children to be revealed."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.20",
+      "source_sha256": "7c6c3a2e495bd003",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For creation was subjected to futility, not willingly, but because of the one who subjected it, in hope"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.21",
+      "source_sha256": "260a3fd026c895e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that creation itself will also be set free from slavery to decay into the glorious freedom of God's children."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.22",
+      "source_sha256": "c2329b2bf1a5c47e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we know that all creation has groaned with us and is suffering labor pains until now."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.23",
+      "source_sha256": "fb01d11d0788aecd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And not only creation, but we ourselves, who have received the firstfruits of the Spirit, groan within ourselves as we await our sonship, the redemption of our body."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.24",
+      "source_sha256": "9bb5a786561f2cf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we were saved in hope. But hope that is seen is not hope. For why does someone still wait for what they can see?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.25",
+      "source_sha256": "6eec7e26a378ce31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if we hope for what we do not see, then we wait for it patiently."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.26",
+      "source_sha256": "0a2bcca2b136e4ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Spirit also helps us in our weakness. For we do not know what to pray for as we should, but the Spirit himself intercedes for us with hidden groans."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.27",
+      "source_sha256": "ab86b57074dbba5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who searches our hearts knows what the Spirit has in mind, because he intercedes for the saints according to God's will."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.28",
+      "source_sha256": "cf60062c6853fb5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that God helps those who love him in everything for their good, those who are called according to his purpose."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.29",
+      "source_sha256": "35f2e0a6e69c7d5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those whom he knew beforehand, he also set apart beforehand to share the likeness of his Son's image, so that he would be the firstborn among many brothers."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.30",
+      "source_sha256": "5785af254b249516",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those whom he set apart beforehand, he also called; those whom he called, he also declared righteous; and those whom he declared righteous, he also glorified."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.31",
+      "source_sha256": "e3ede58eeb9bf645",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say in response to these things? If God is the one who fights for us, who can fight against us?"
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.8.32",
@@ -97,6 +1545,83 @@
       "text": "He who did not spare his own Son but gave him up for us all—how will he not also freely give us everything with him?"
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.8.33",
+      "source_sha256": "fc5a8b57341ea9d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who can bring an accusation against God's chosen people? God is the one who declares them righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.34",
+      "source_sha256": "b1cbe3351ae37d6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who can condemn? Christ is the one who died—or rather, who rose from the dead—who is also at God's right hand and intercedes for us."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.35",
+      "source_sha256": "1f439413959a0bfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who will separate us from God's love? Will trouble, distress, persecution, hunger, nakedness, danger, or a sword?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.36",
+      "source_sha256": "ba3f2470096948cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written: \"For your sake we are being killed all day long. We have been counted as sheep for slaughter.\""
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.37",
+      "source_sha256": "b68fb0af3e9123f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in all these things we are more than victorious through the one who loved us."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.38",
+      "source_sha256": "b3517d797acba061",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I am convinced that neither death nor life, neither angels nor rulers, neither present things nor things to come, nor powers,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.8.39",
+      "source_sha256": "6289cb9fd98ee7f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "nor height nor depth, nor any other created thing, will be able to separate us from God's love, which is in Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.1",
+      "source_sha256": "978cdc299d231b5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am speaking the truth in Christ; I am not lying. My conscience bears witness with me in the Holy Spirit"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.2",
+      "source_sha256": "945d66987d126532",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that I have great sorrow and unceasing anguish in my heart."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.3",
+      "source_sha256": "380f27c2b58cbff5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I could pray that I myself might be cast out, separated from Christ before God, for the sake of my brothers, my relatives according to the flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.4",
+      "source_sha256": "8a97ea62cd28a6bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are Israelites, and theirs are the adoption as children, the glory, the covenant, the giving of the law, the worship, and the promises."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.9.5",
       "source_sha256": "cb02833fdb5f9fd2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -104,11 +1629,599 @@
       "text": "The patriarchs belong to them, and Christ came from them according to the flesh, he who is God over everyone, blessed forever. Amen."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.9.6",
+      "source_sha256": "b20a9d0598f50a0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But it is not as though God's word has failed. For not everyone who comes from Israel is Israel."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.7",
+      "source_sha256": "8f1389dec3df1186",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor are they all children simply because they are Abraham's descendants. Rather, \"Through Isaac descendants will be named for you.\""
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.8",
+      "source_sha256": "92df2e828e86cc55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This means that it is not the children of the flesh who are God's children; rather, the children of the promise are counted as descendants."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.9",
+      "source_sha256": "f2693ed7337944ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is the word of the promise: \"I will come at this time, and Sarah will have a son.\""
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.10",
+      "source_sha256": "b8ca644c0dc746e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And not only that, but Rebecca also conceived by one man, our father Isaac."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.11",
+      "source_sha256": "dccbbd181d131549",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Before they had been born or had done anything good or evil, so that God's purpose according to his choice might stand,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.12",
+      "source_sha256": "58c4e6d9339ddfde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "not because of deeds but because of the one who calls, she was told, \"The older will serve the younger.\""
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.13",
+      "source_sha256": "9a70e1c5866823ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written: \"I loved Jacob, but I hated Esau.\""
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.14",
+      "source_sha256": "90a3a1511663dea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say? Is there injustice with God? Certainly not!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.15",
+      "source_sha256": "9e33f9a2a42c7e82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he says to Moses, “I will have mercy on whomever I have mercy on, and I will have compassion on whomever I have compassion on.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.16",
+      "source_sha256": "7dd5dc48d431c9dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So it does not depend on the person who wills or the person who runs, but on God who shows mercy."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.17",
+      "source_sha256": "b3af40087e860012",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Scripture says to Pharaoh, “I raised you up for this purpose: to reveal my power in you, and so that my name would be proclaimed throughout the whole earth.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.18",
+      "source_sha256": "504f37c9b1340c4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So he has mercy on whomever he wishes, and he hardens whomever he wishes."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.19",
+      "source_sha256": "d65c2f21981c089e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You will then say to me, “Why does he find fault? For who has resisted his will?”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.20",
+      "source_sha256": "b654a75f19fc4dc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Human being, who are you, in turn, to answer back to God? Will what has been formed say to the one who formed it, “Why did you make me this way?”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.21",
+      "source_sha256": "d2cae4801beb02a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or does the potter not have the authority to make from the same clay one vessel for honor and another for dishonor?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.22",
+      "source_sha256": "3814db2b8e58ac3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if God, wishing to reveal his wrath and make his power known, endured with great patience vessels of wrath prepared for destruction,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.23",
+      "source_sha256": "b849e7592e8f576c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that he might reveal the riches of his glory upon vessels of mercy, which he prepared beforehand for glory,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.24",
+      "source_sha256": "28e12a1775c018de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "these are also the ones he called—us—not only from among the Jews but also from among the Gentiles."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.9.25",
       "source_sha256": "253cc25015a750fa",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "As he also says in Hosea, 'I will call those who are not my people my people, and her who is not my beloved my beloved.'"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.26",
+      "source_sha256": "3f853db523235113",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“And it will happen that in the place where they were told, ‘You are not my people,’ there they will be called children of the living God.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.27",
+      "source_sha256": "a9714ca193fe0d3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Isaiah cries out concerning Israel, “Even if the number of the children of Israel is like the sand of the sea, only a remnant will be saved."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.28",
+      "source_sha256": "0c17746962ca52b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God will carry out his word on the earth, completing it and cutting it short.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.29",
+      "source_sha256": "69dc8edf03d5ae0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And as Isaiah said, “Unless the Lord of hosts had left us offspring, we would have become like Sodom and resembled Gomorrah.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.30",
+      "source_sha256": "21698ffe21f9d69a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say? That the Gentiles, who were not pursuing righteousness, attained righteousness—the righteousness that comes from faith."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.31",
+      "source_sha256": "429b5d3906e0a5d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Israel, pursuing the law of righteousness, did not attain the law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.32",
+      "source_sha256": "8144a60ee0f52b78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why? Because they pursued it not through faith, but as though it came through works. And they stumbled over the stumbling stone."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.9.33",
+      "source_sha256": "66e422176a61891c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written, “Look, I will place in Zion a stumbling stone and a rock that causes people to fall, and whoever believes in him will not be put to shame.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.1",
+      "source_sha256": "8f6500d31137bb72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers and sisters, my heart’s desire and my prayer to God for them are that they may be saved."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.2",
+      "source_sha256": "09bda64be3834141",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I testify that they have zeal for God, but it is not based on knowledge."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.3",
+      "source_sha256": "a94e17bdc5269df1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For, being ignorant of God’s righteousness and seeking to establish their own, they did not submit to God’s righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.4",
+      "source_sha256": "c97b11562050abbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Christ is the fulfillment of the law, bringing righteousness to everyone who believes."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.5",
+      "source_sha256": "fe1428b6ae0ebd0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Moses wrote, “As for the righteousness that comes from the law, the person who practices it will live by it.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.6",
+      "source_sha256": "a38b37b68adab8ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the righteousness that comes from faith speaks this way: “Do not say in your heart, ‘Who will go up to heaven?’” That is, to bring Christ down."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.7",
+      "source_sha256": "2fc71632b4b4400b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or who will go down into the abyss? That is, to bring Christ up from the dead."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.8",
+      "source_sha256": "063fe86559c638e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what does it say? “The word is near you, in your mouth and in your heart.” That is the word of faith that we proclaim."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.9",
+      "source_sha256": "05e56172c72acbb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you confess with your mouth the declaration, “Jesus is Lord,” and believe in your heart that God raised him from the dead, you will be saved."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.10",
+      "source_sha256": "602f682a8b029fa4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For one believes in him with the heart, leading to righteousness, and confesses him with the mouth, leading to salvation."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.11",
+      "source_sha256": "a9fe08fda5638eb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Scripture says, “Everyone who believes in him will not be put to shame.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.12",
+      "source_sha256": "ec109a7f63932a6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is no distinction between the Jew and the Greek [?], since the same Lord is Lord of them all, rich toward everyone—toward everyone who calls on him."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.13",
+      "source_sha256": "ca3523e686f8a3c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone who calls on the name of the Lord will be saved."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.14",
+      "source_sha256": "2517bf6c19c7ae11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But how will they call on someone they have not believed in? And how will they believe in someone they have not heard? And how will they hear without someone to proclaim the message?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.15",
+      "source_sha256": "9babe684766014b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And how will they proclaim the message unless they are sent? As it is written, “How beautiful are the feet of those who announce the good news of what is good!”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.16",
+      "source_sha256": "cc0c59ad80bcb35f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But not all of them obeyed the good news. For Isaiah says, “Lord, who has believed our message?”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.17",
+      "source_sha256": "e0bc143fed84f68a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So faith comes from hearing, and hearing comes through the word of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.18",
+      "source_sha256": "4206d4f73ddd6729",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Have they not heard? Certainly! “Their voice has gone out throughout the whole earth, and their words have reached the ends of the inhabited world.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.19",
+      "source_sha256": "b50e865531b51657",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Did Israel not understand? First Moses says, “I will make you jealous of those who are not a nation; I will make you angry at a foolish nation.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.20",
+      "source_sha256": "a8f8e62ca42204ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Isaiah boldly says, “I was found by those who were not seeking me; I revealed myself to those who were not asking about me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.10.21",
+      "source_sha256": "1844e2b929a57008",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But concerning Israel he says, “All day long I stretched out my hands to an unbelieving and argumentative people.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.1",
+      "source_sha256": "49869892bec89991",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I ask: Has God abandoned his people? Certainly not! For I myself am also an Israelite, a descendant of Abraham, of the tribe of Benjamin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.2",
+      "source_sha256": "b462836c3324261e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God has not abandoned his people, whom he knew from the beginning. Or do you not know what Scripture says in the passage about Elijah, how he appeals to God against Israel?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.3",
+      "source_sha256": "4f73d06896676780",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Lord, they have killed your prophets and torn down your altars. I alone am left, and they are seeking my life.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.4",
+      "source_sha256": "8301220d0c07b41c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what does the divine word say to him? “I have kept for myself seven thousand people who have not bowed the knee to Baal.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.5",
+      "source_sha256": "d784f57b50bed08f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So too, at this present time, there is a remnant chosen by grace."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.6",
+      "source_sha256": "6e91c98922b28d99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if it is by grace, then it is no longer based on works; otherwise grace would no longer be grace."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.7",
+      "source_sha256": "d8b35091479b1ffd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then? Israel did not obtain what it was seeking, but the chosen obtained it, while the rest became hardhearted."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.8",
+      "source_sha256": "bc55116e1a62812f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written, “God gave them a spirit of distress, eyes that do not see and ears that do not hear, down to this very day.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.9",
+      "source_sha256": "fda755a4c8947d75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "David also says, “Let their table become a snare and a trap, a stumbling block and a repayment to them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.10",
+      "source_sha256": "5134128882216c96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let their eyes be darkened so that they cannot see, and bend their backs forever.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.11",
+      "source_sha256": "366935857f276fcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I ask: Did they stumble so that they would fall? Certainly not! Rather, through their fall, salvation came to the Gentiles to make them jealous."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.12",
+      "source_sha256": "5d318ec8e9368449",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if their fall brought riches to the world, and their loss brought riches to the Gentiles, how much more will their fullness bring!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.13",
+      "source_sha256": "1bddb59292b7cd9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now I am speaking to you Gentiles. Since I am an apostle to the Gentiles, I honor my ministry,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.14",
+      "source_sha256": "8730395c0aa4e910",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in the hope that I may make my own people jealous and save some of them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.15",
+      "source_sha256": "81cd42a0b795bedb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if their rejection brought reconciliation to the world, what will their acceptance be but resurrection from the dead?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.16",
+      "source_sha256": "93cc1349c37646c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if the first portion is holy, the rest of the dough is also holy; and if the root is holy, its branches are too."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.17",
+      "source_sha256": "efbddba918c69dba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if some of the branches were cut off, and you, a wild olive tree, were grafted in among them and came to share in the richness of the olive tree’s root,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.18",
+      "source_sha256": "d21dd8e0a93428c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "do not boast over the branches. But if you do boast, it is not you who support the root, but the root that supports you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.19",
+      "source_sha256": "8a50fabe3cc3a667",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then you will say to me, “Branches were cut off so that I could be grafted in.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.20",
+      "source_sha256": "cdb38a9a18f1d1bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "True. They were cut off because of unbelief, but you stand through faith. So do not be arrogant, but be afraid."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.21",
+      "source_sha256": "d6c63f5291d4bee8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if God did not spare the branches that belonged to the tree, he will not spare you either."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.22",
+      "source_sha256": "ad81cd897187276a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider, then, God’s kindness and severity: severity toward those who fell, but God’s kindness toward you, if you remain in that kindness. Otherwise, you too will be cut off."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.23",
+      "source_sha256": "a140414cfa65c125",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The others too, if they do not remain in their unbelief, will be grafted in, for God is able to graft them in again."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.24",
+      "source_sha256": "e4e231626b2664f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you were cut from an actual wild olive tree and, contrary to your nature, were grafted into a cultivated olive tree, how much more will these, who are [?], be grafted into their own olive tree!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.25",
+      "source_sha256": "105640e9941c8e65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I want you, my brothers, to understand this mystery, so that you will not consider yourselves wise: some of Israel has become hard-hearted until the full number of the Gentiles comes in."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.26",
+      "source_sha256": "194439b5c6ac0a3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is how all Israel will be saved, as it is written: “The deliverer will come out of Zion and turn ungodliness away from Jacob."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.27",
+      "source_sha256": "04e96beda047a543",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is my covenant with them, when I forgive their sins.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.28",
+      "source_sha256": "11832f0584b0d177",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As far as the good news is concerned, they have become enemies for your sake; but as far as being chosen is concerned, they are loved because of their ancestors."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.29",
+      "source_sha256": "e7bcb870f6f4cfdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God does not regret his gifts or his calling."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.30",
+      "source_sha256": "0282f82c01787d0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For just as you once disobeyed God but have now received mercy through their disobedience,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.31",
+      "source_sha256": "94b992971fbd88a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so they too have now disobeyed because of the mercy shown to you, so that afterward they too may receive mercy."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.32",
+      "source_sha256": "0fb5291e0f34938d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God has shut everyone in disobedience so that he may have mercy on them all."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.33",
+      "source_sha256": "371064a29f8c7685",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, the depth of God’s riches, wisdom, and knowledge! How impossible it is to search out God’s judgments or trace his ways!"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.34",
+      "source_sha256": "43602ea7299f0242",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who has understood the Lord’s mind so as to instruct him? Or who has become his adviser?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.35",
+      "source_sha256": "71a19ebdbb1a5d66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or who has first given something to him, so that he should repay that person?"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.11.36",
+      "source_sha256": "3b943eb11cf3807c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all things are from him and through him, and they will return to him. Glory belongs to him forever. Amen."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.12.1",
@@ -125,11 +2238,193 @@
       "text": "Do not take on the form of this age, but be transformed through the renewal of your mind, so that you may discern what God's will is: what is good, pleasing to him, and perfect."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.12.3",
+      "source_sha256": "d2a725af435f5bd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through the grace given to me, I tell everyone among you not to think more highly of yourself than you should, but to think sensibly, each according to the measure of faith God has assigned to you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.4",
+      "source_sha256": "4586faf10d7407bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For just as we have many parts in one body, and not all the parts have the same function,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.5",
+      "source_sha256": "df98a641375cfc5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so all of us are one body in Christ, and individually we are parts of one another."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.6",
+      "source_sha256": "97d6fe4035cc2c0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have different gifts according to the grace given to us: if prophecy, according to the measure of faith;"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.7",
+      "source_sha256": "7ccc03585e930bf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if service, in serving; if someone teaches, in teaching;"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.8",
+      "source_sha256": "eb1da00d0b5d0ebf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if someone encourages, in encouragement; whoever gives, with generosity; whoever leads, with diligence; whoever shows mercy, with cheerfulness."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.9",
+      "source_sha256": "ba5205c2dc31303a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let love be without hypocrisy. Hate what is evil; hold firmly to what is good."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.10",
+      "source_sha256": "7fbcc8776f70bc2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be affectionate toward one another with brotherly love. Honor one another above yourselves."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.11",
+      "source_sha256": "e7f0e1fe1568f93b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be lazy in your diligence. Be fervent in spirit, serving the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.12",
+      "source_sha256": "b32d711ed78baaaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rejoice in hope, endure suffering, and persist in prayer."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.13",
+      "source_sha256": "83f7d00b062eb747",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Share in meeting the needs of the holy ones. Eagerly pursue hospitality."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.14",
+      "source_sha256": "0a8e6dcb5afb9e4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless those who persecute you. Bless them; do not curse them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.15",
+      "source_sha256": "3ba0cfb9c7e54011",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rejoice with those who rejoice; weep with those who weep."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.16",
+      "source_sha256": "1535d095e1f43037",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be of the same mind toward one another. Do not seek lofty status, but associate with the humble. Do not consider yourselves wise in your own eyes."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.17",
+      "source_sha256": "19be37d0ae6260b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not repay anyone evil for evil. Take care [?] to do what is good in everyone's sight."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.18",
+      "source_sha256": "364c70a10e090579",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If possible, as far as it depends on you, live in peace with everyone."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.19",
+      "source_sha256": "de94f8dc84638ffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not take revenge for yourselves, my beloved, but leave room for wrath. For it is written, “Leave judgment to me, and I will repay,” says the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.12.20",
+      "source_sha256": "3bf42b58a9ee92ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, if your enemy is hungry, feed him, and if he is thirsty, give him something to drink. For by doing this you will heap burning coals on his head."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.12.21",
       "source_sha256": "f1d1e88392a9ac03",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Do not be overcome by evil, but overcome evil with good."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.1",
+      "source_sha256": "787a2b1092607efb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let everyone submit to the governing authorities. For there is no authority except through God, and the authorities that exist have been appointed by God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.2",
+      "source_sha256": "a77fc41c6a5f806c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, whoever opposes authority opposes God's appointed order, and those who oppose it will bring judgment upon themselves."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.3",
+      "source_sha256": "5091693404b95d44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rulers are not a terror to good conduct, but to evil conduct. Do you want to have no fear of authority? Do what is good, and you will receive honor from it."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.4",
+      "source_sha256": "287586a4f0e2c372",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is God's servant for your good. But if you do evil, be afraid, for it does not carry the sword for nothing. It is God's servant, an avenger who brings wrath upon the person who does evil."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.5",
+      "source_sha256": "0b55058d5590dc13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, you must submit, not only because of wrath but also because of conscience."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.6",
+      "source_sha256": "2565c03b40c77f6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is also why you pay taxes: they are God's servants, devoting themselves to this work."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.7",
+      "source_sha256": "7ae99966ded76e68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Give everyone what you owe them: tribute to whom tribute is due, tax to whom tax is due, respect to whom respect is due, and honor to whom honor is due."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.8",
+      "source_sha256": "29e682a371b6c9b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Owe no one anything except to love one another, for whoever loves their neighbor has fulfilled the law."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.13.9",
@@ -139,11 +2434,305 @@
       "text": "For when he says, 'You must not commit adultery, you must not murder, you must not steal, you must not covet,' these and all the other commandments are fulfilled in this saying: 'You must love your neighbor as yourself.'"
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.13.10",
+      "source_sha256": "ee41aabeb0771406",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Love does no harm to its neighbor. Therefore, love is the fulfillment of the law."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.11",
+      "source_sha256": "d8dc4a570016929a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do this knowing the time: the hour has now come for us to wake from sleep, for our salvation is now nearer to us than when we believed."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.12",
+      "source_sha256": "0c45fc78aa0f3088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The night is far along, and the day is near. So let us put aside the works of darkness and put on the armor of light."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.13",
+      "source_sha256": "2ef40733b325308e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us behave decently, as in the daytime—not in revelry and drunkenness, not in sexual immorality and debauchery, not in quarrels and jealousy."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.13.14",
+      "source_sha256": "dae27b3cd156c5f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, put on our Lord Jesus Christ, and do not make provision for your flesh to satisfy its desires."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.1",
+      "source_sha256": "a300ccf034738bfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Welcome the person who is weak in faith, but not to argue over opinions."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.2",
+      "source_sha256": "7b606d5f21587dc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One person believes they may eat anything, while the person who is weak eats vegetables."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.3",
+      "source_sha256": "065c75f9b53fe92d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The person who eats must not despise the person who does not eat, and the person who does not eat must not judge the person who eats, for God has welcomed them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.4",
+      "source_sha256": "87cfc645d8aa3aba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who are you to judge a servant who is not yours? It is before their own master that they stand or fall. And they will stand, for the Lord is able to make them stand."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.5",
+      "source_sha256": "80cef755b1c29242",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One person regards one day as better than another, while another regards every day alike. Let each person be fully convinced in their own heart."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.6",
+      "source_sha256": "6b7c34f355e942f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The person who observes the day observes it for the Lord. The person who eats eats for the Lord, for they give thanks to God. And the person who does not eat abstains for the Lord and gives thanks to God."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.14.7",
       "source_sha256": "f9eed476b6732af2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "For none of us lives for himself, and none of us will die for himself."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.8",
+      "source_sha256": "561cc12f38a842e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if we live, we live for the Lord, and if we die, we die for the Lord. So whether we live or die, we belong to the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.9",
+      "source_sha256": "455bbea99931e8d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason Christ died and lived again: so that he might be Lord of both the dead and the living."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.10",
+      "source_sha256": "5abd244d427ffebd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But why do you judge your brother? Or why do you despise your brother? For we will all stand before God's judgment seat."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.11",
+      "source_sha256": "d328b61b26dd7d07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written: “As I live, says the Lord, every knee will bow to me, and every tongue will acknowledge God.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.12",
+      "source_sha256": "bd353dfdea00727b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So each of us will give an account of ourselves to God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.13",
+      "source_sha256": "a7c30972cab0721f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, let us no longer judge one another. Instead, decide this above all: not to put an obstacle or a stumbling block in your brother's way."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.14",
+      "source_sha256": "5a3355215da12a11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I know and am convinced in the Lord Jesus that nothing is unclean in itself. But if someone considers something unclean, it is unclean for that person."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.15",
+      "source_sha256": "a7e9c17d3fe37cd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if your brother is distressed because of food, you are no longer acting in love. Do not kill through your food the person for whom Christ died."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.16",
+      "source_sha256": "e395d7d9aedd9bd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not let our good be spoken of as evil."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.17",
+      "source_sha256": "3d4d075576049a0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the kingdom of God is not eating and drinking, but righteousness, peace, and joy in the Holy Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.18",
+      "source_sha256": "612d9c492b479362",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For whoever serves Christ in this way pleases God and is approved by people."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.19",
+      "source_sha256": "41229055daf4392d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So then, let us pursue the things that bring peace and the things that build one another up."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.20",
+      "source_sha256": "54da488200fdc446",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not destroy God's work for the sake of food. All foods are indeed clean, but it is wrong for someone to eat in a way that causes stumbling."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.21",
+      "source_sha256": "04629ead7b4435ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good not to eat meat or drink wine or do anything that causes your brother to stumble, take offense, or become weak."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.22",
+      "source_sha256": "26a43d2e8d0ed7e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have faith; keep it to yourself before God. Blessed is the person who does not condemn himself for what he approves."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.14.23",
+      "source_sha256": "2d42a121c4b98d1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But anyone who doubts is condemned if he eats, because he has not acted from faith. Everything that does not come from faith is sin."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.1",
+      "source_sha256": "a70683e64212e117",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We who are strong ought to bear the weaknesses of those who are not strong, and not please ourselves alone."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.2",
+      "source_sha256": "ce3cddda6e353022",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Each of us should please his neighbor for his good, to build him up."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.3",
+      "source_sha256": "2b921f9e6ff0cc3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For even Christ did not please himself, but as it is written, “The insults of those who insult you have fallen on me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.4",
+      "source_sha256": "61b7269c637f1690",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything that was written was written for our instruction, so that through endurance and the encouragement of the Scriptures we might have hope."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.5",
+      "source_sha256": "59b7ddac21669dd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of endurance and encouragement grant you to be of one mind with one another, in keeping with Christ Jesus,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.6",
+      "source_sha256": "71fe6e66a12a1127",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that together, with one voice, you may glorify the God and Father of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.7",
+      "source_sha256": "2049ebbd7236bac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore welcome one another, just as Christ welcomed us, to the glory of God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.8",
+      "source_sha256": "76399fe76e4545de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I say that Christ became a servant of the circumcised for the sake of God's truth, to confirm the promises made to the ancestors,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.9",
+      "source_sha256": "68032608486edc5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and so that the Gentiles might glorify God for his mercy, as it is written, “Therefore I will praise you among the Gentiles, and I will sing praises to your name.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.10",
+      "source_sha256": "7859116180c86afd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again he says, “Rejoice, you Gentiles, with his people.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.11",
+      "source_sha256": "173930d6dbf8da33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again he says, “Praise the Lord, all you Gentiles, and let all the peoples honor him.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.12",
+      "source_sha256": "2a1e7514a08f395f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Isaiah also says, “The root of Jesse will come, and the one who rises to rule the Gentiles; the Gentiles will put their hope in him.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.13",
+      "source_sha256": "399d9084f4594bb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of hope fill you with all joy and peace as you believe, so that you may abound in hope through the power of the Holy Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.14",
+      "source_sha256": "18a86bd86409d359",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I myself am convinced about you, my brothers, that you yourselves are full of goodness, filled with all knowledge, and also able to teach one another."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.15",
+      "source_sha256": "2e373ae59880dfec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have written to you boldly on some points, my brothers, to remind you, because of the grace given to me by God."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.15.16",
@@ -160,11 +2749,151 @@
       "text": "Therefore I have reason to boast in Christ Jesus before God."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.15.18",
+      "source_sha256": "60c8018b6c7f624e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I would not dare to speak of anything except what Christ has accomplished through me to bring the Gentiles to obedience, by word and deed,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.19",
+      "source_sha256": "d962186192eab052",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "through the power of signs and wonders, through the power of the Holy Spirit, so that from Jerusalem and its surrounding area all the way to Illyricum, I have fully proclaimed the good news of God."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.20",
+      "source_sha256": "004724d83596e6b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In this way I have made it my aim to preach the good news, not where Christ has already been proclaimed, so that I would not build on another foundation,"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.21",
+      "source_sha256": "920935c7afa71c78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but as it is written, “Those who were not told about him will see, and those who have not heard will understand.”"
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.22",
+      "source_sha256": "7844b81847a3219a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is why I have so often been prevented from coming to you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.23",
+      "source_sha256": "3a1772a5d175f917",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now I no longer have a place in these regions, and I have wanted to come to you for many years."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.24",
+      "source_sha256": "8a8ddf2b7fcdf66e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When I go to Spain, I hope to see you as I pass through and to be sent on there by you, after first enjoying your company for a while."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.25",
+      "source_sha256": "bf5280f103bb9d49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now I am going to Jerusalem to serve the saints."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.26",
+      "source_sha256": "d29b85aa7af57284",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the people of Macedonia and Achaia were pleased to make a contribution for the poor among the saints in Jerusalem."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.27",
+      "source_sha256": "30270ea66c60bcea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They were pleased to do this, and they owe it to them. For if the Gentiles have shared in their spiritual blessings, they should also serve them with material things."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.28",
+      "source_sha256": "17fd3f188964a84c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So when I have completed this and secured this contribution for them, I will go to Spain by way of you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.29",
+      "source_sha256": "cb63a88471f215ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I know that when I come to you, I will come with the full blessing of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.30",
+      "source_sha256": "cc87b8b8fff0a14c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I urge you, my brothers and sisters, through our Lord Jesus Christ and through the love of the Spirit, to struggle together with me in prayers to God on my behalf."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.31",
+      "source_sha256": "950e71da28ca8032",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pray that I may be rescued from the unbelievers in Judea and that my service in Jerusalem may be acceptable to the saints."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.32",
+      "source_sha256": "81d1c12277680711",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then, when I come to you with joy through God's will, I may find rest with you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.15.33",
+      "source_sha256": "2a8db259ad34e628",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of peace be with you all. Amen."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.1",
+      "source_sha256": "764715a4f7e9b5e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I commend to you our sister Phoebe, who is a servant of the church in Cenchreae."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.2",
+      "source_sha256": "447a2367b5335939",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Welcome her in the Lord in a manner worthy of the saints, and stand by her in whatever matters she may need you for. For she herself has stood by many people, including me."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.3",
+      "source_sha256": "8d4e3ad963bb06d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Prisca and Aquila, my fellow workers in Christ Jesus."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.16.4",
       "source_sha256": "9608232000b1d127",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "They risked their own necks for my life. Not only I thank them, but also all the churches of the Gentiles."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.5",
+      "source_sha256": "82e8dcdeb3a10cca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And greet the congregation in their house. Greet my beloved Epaenetus, who was the first in Asia to come to Christ."
     },
     {
       "chunk_id": "coptic-nt/rom#Rom.16.6",
@@ -174,11 +2903,144 @@
       "text": "Greet Mary, who worked very hard for you."
     },
     {
+      "chunk_id": "coptic-nt/rom#Rom.16.7",
+      "source_sha256": "1ba353d49bd1f2d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Andronicus and Junia, my relatives and fellow prisoners, who are distinguished among the apostles and were in Christ before me."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.8",
+      "source_sha256": "a2e9df58f0bd55c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Ampliatus, my beloved in the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.9",
+      "source_sha256": "4c4b35a9ca90a259",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Urbanus, our fellow worker in Christ, and my beloved Stachys."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.10",
+      "source_sha256": "e064cded0a1214fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Apelles, the chosen one in the Lord. Greet those of the household of Aristobulus."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.11",
+      "source_sha256": "dea79bdd4ea21c08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Herodion, my relative. Greet those of the household of Narcissus who are in the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.12",
+      "source_sha256": "7946bd89156c78f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Tryphosa and Tryphaena, who work hard in the Lord. Greet the beloved Persis, who has worked very hard in the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.13",
+      "source_sha256": "ddadd84a6704b364",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Rufus, the beloved in the Lord, and his mother, who is also mine."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.14",
+      "source_sha256": "7b9d7adc82ad7123",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Asyncritus, Phlegon, Hermes, Patrobas, Hermas, and all the brothers and sisters with them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.15",
+      "source_sha256": "f69034fa9249a23a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Philologus and Julia, Nereus and his sister, Olympas, and all the saints with them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.16",
+      "source_sha256": "e69b963ac8cf9a3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet one another with a holy kiss. All the churches of Christ greet you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.17",
+      "source_sha256": "cac52e240247843f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I urge you, my brothers and sisters, to watch out for those who cause divisions and stumbling blocks contrary to the teaching you have learned. Keep away from them."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.18",
+      "source_sha256": "622ef83894308a92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "For people like these do not serve our Lord Christ, but their own stomachs. Through their smooth talk and flattery, they deceive the hearts of the unsuspecting."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.19",
+      "source_sha256": "89b2358a3f7e2009",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "For your obedience has become known to everyone. So I rejoice over you, but I want you to be wise about what is good and innocent about what is evil."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.20",
+      "source_sha256": "2ed46342f55aa8b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "The God of peace will soon crush Satan under your feet. The grace of our Lord Jesus Christ be with you."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.21",
+      "source_sha256": "559e1e9b06f845f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Timothy, my fellow worker, greets you, as do Lucius, Jason, and Sosipater, my relatives."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.22",
+      "source_sha256": "374bd1f1e1f15c55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "I, Tertius, who wrote this letter, greet you in the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.23",
+      "source_sha256": "b4be7d8f24326681",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Gaius, who hosts me and the whole church, greets you. Erastus, the city treasurer, greets you, as does Quartus, our brother."
+    },
+    {
       "chunk_id": "coptic-nt/rom#Rom.16.25",
       "source_sha256": "69e881f64914eea3",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Now to him who is able to strengthen you according to my gospel and the proclamation of Jesus Christ, according to the revelation of the mystery that was kept silent for ages."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.26",
+      "source_sha256": "9b8646294c92418d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "But it has now been revealed through the writings of the prophets, according to the command of the eternal God, and made known to all nations to bring about the obedience of faith."
+    },
+    {
+      "chunk_id": "coptic-nt/rom#Rom.16.27",
+      "source_sha256": "0c3bf7100301a8f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "To God, who alone is wise, through Jesus Christ, to whom belongs glory forever. Amen."
     }
   ]
 }

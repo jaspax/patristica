@@ -9,15 +9,483 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.1",
+      "source_sha256": "0ac164a09c98bf28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The words of Qoheleth, son of David, king of Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.2",
+      "source_sha256": "c19aa89d27b9cda4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Utter futility, says Qoheleth, utter futility! Everything is futile."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.3",
+      "source_sha256": "71742358345c1114",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What does a person gain from all the work at which he toils under the sun?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.4",
+      "source_sha256": "2240b40b2d3e5e0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One generation goes and another generation comes, but the earth remains forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.5",
+      "source_sha256": "153911f391c628eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun rises and the sun sets, and it returns to the place where it rises, to rise again from there."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.6",
+      "source_sha256": "8205951e80359706",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wind goes south and turns north. Round and round it turns as it goes, and the wind returns to its circuits."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.7",
+      "source_sha256": "661ea0da813c7845",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the rivers flow into the sea, but the sea is not filled. To the place where the rivers go, there they return to go again."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.8",
+      "source_sha256": "5b2436cd7014d2f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All words are wearisome. A person is never satisfied with speaking; the eye is never satisfied with seeing, and the ear is never filled with hearing."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.9",
+      "source_sha256": "275a114fcfefd7ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What has happened is what happens, and what has been done is what is done. There is nothing new under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.10",
+      "source_sha256": "b978567c9623c371",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever someone may speak of and say, “Look, this is new,” already existed in the ages before us."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.11",
+      "source_sha256": "5799f1569ad91084",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no remembrance of those who came before, nor will those who come afterward be remembered by those who come later still."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.12",
+      "source_sha256": "13aa75b97bff5189",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I, Qoheleth, was king over Israel in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.13",
+      "source_sha256": "36d9289dcc4ad1d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I devoted my mind to seeking and examining with wisdom everything done under the sun. It is a grievous task that the Lord has given human beings to occupy themselves with."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.14",
+      "source_sha256": "5dcb010e49ea142f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw every deed done under the sun, and look, everything is futile and a distress to the spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.15",
+      "source_sha256": "2ae2a508fbbefdd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What is crooked cannot be straightened, and what is lacking cannot be made complete."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.16",
+      "source_sha256": "1044b2952edde3cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said to myself, “Look, I have grown great and gained more wisdom than all who were before me in Jerusalem. My mind has experienced much wisdom and knowledge.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.17",
+      "source_sha256": "12e04a2381a537dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I devoted my mind to knowing wisdom and knowledge, proverbs and foolishness. I learned that this too is a distress to the spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.1.18",
+      "source_sha256": "8a41b67737a59991",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For with much wisdom comes much frustration, and whoever increases knowledge increases pain."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.1",
+      "source_sha256": "7631b0794c7d661d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said to myself, “Come, I will test you with pleasure; enjoy good things.” But look, this too is futile."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.2",
+      "source_sha256": "28319aabdeebe505",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Of laughter I said, “What use is it?” And to pleasure, “What have you accomplished?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.3",
+      "source_sha256": "4fc4e670f58c905b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I considered in my mind how to refresh my body with wine, while my mind reflected with wisdom, and how to take hold of foolishness, until I could see what was good for human beings to do under the sun during the numbered days of their lives."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.4",
+      "source_sha256": "e59c79eba2a0293f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I increased my works. I built houses for myself and planted vineyards for myself."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.5",
+      "source_sha256": "1d170900bd2e698d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I made gardens and parks for myself and planted in them trees bearing every kind of fruit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.6",
+      "source_sha256": "dcebea32bee53838",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I made pools of water for myself to irrigate from them a forest of growing trees."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.7",
+      "source_sha256": "6c78f568b24b2782",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I acquired male and female slaves, and I had many servants born in my household. I also owned more cattle and sheep than all who were before me in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.8",
+      "source_sha256": "8b38887a9026e054",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I also gathered silver and gold for myself, and the treasures of kings and provinces. I provided myself with male and female singers, and the pleasures of human life; I provided myself with male and female cupbearers."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.9",
+      "source_sha256": "f4cbe994fa73362a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I became great and increased beyond everyone who had been before me in Jerusalem, and my wisdom also remained with me."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.10",
+      "source_sha256": "6af3bff3694f082e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever my eyes desired, I did not withhold from them. I did not keep my heart from any pleasure, because my heart rejoiced in all my labor, and this was my share from all my labor."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.11",
+      "source_sha256": "16a8d9f1a2c78450",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I looked at all the work my hands had done and all the labor I had put into doing it, and everything was futility and distress of spirit. There was no gain under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.12",
+      "source_sha256": "5b9eb3f8b697822a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned to consider wisdom, madness, and foolishness. For who is the man who can come after the king in judgment, [?] with the one who made him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.13",
+      "source_sha256": "9307fb8f045bbb7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw that wisdom has an advantage over foolishness, just as light has an advantage over darkness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.14",
+      "source_sha256": "d9a2d2ef2175fbe4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wise person has his eyes in his head, but the fool walks in darkness. Yet I knew that the same fate happens to them all."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.15",
+      "source_sha256": "6aca7a821b591704",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart, “If the fool’s fate will happen to me too, why have I become so very wise?” And I said in my heart that this too was futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.16",
+      "source_sha256": "64155d867cd69358",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the fool talks too much. Neither the wise person nor the fool is remembered forever: in the days that are now coming, everything will be forgotten. How can the wise person die along with the fool?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.17",
+      "source_sha256": "937ca3b7506a011a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I hated life, because the work done under the sun was grievous to me, for everything is futility and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.18",
+      "source_sha256": "7ad8d9961c58df50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I hated all the labor I had done under the sun, because I must leave it to the person who comes after me."
+    },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.2.19",
       "source_sha256": "541e995325b5dc4f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "And who knows whether he will be wise or foolish? Yet he will have control over all the work I have done and used my wisdom to accomplish under the sun. This too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.20",
+      "source_sha256": "32ae1360da5c8032",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned to giving my heart over to despair about all the labor I had done under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.21",
+      "source_sha256": "dde3ec5fe67e69da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For someone may labor with wisdom, knowledge, and skill, yet give the fruit of it as a share to someone who did not labor for it. This too is futility and a great evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.22",
+      "source_sha256": "d0fdf355d71d313d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what does a person gain from all his labor and the desires of his heart for which he labors under the sun?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.23",
+      "source_sha256": "eed4a2aac84cea2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all his days are pain, and his occupation is frustration. Even at night his heart does not rest. This too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.24",
+      "source_sha256": "15d1e728e830e36b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is nothing better for a person than to eat and drink and let himself enjoy good things from his labor. I also saw that this comes from the hand of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.25",
+      "source_sha256": "fb33afd8b5622ae8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who can eat, and who can drink, apart from him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.2.26",
+      "source_sha256": "33a7cb618e534a57",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For to the person who is good in his sight he gives wisdom, knowledge, and joy. But to sinners he gives the task of accumulating and gathering, to give to the one who is good before the Lord. This too is futility and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.1",
+      "source_sha256": "500478920a6c6167",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is a time for everything, and a time for every activity under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.2",
+      "source_sha256": "b68ad5b3889bd2fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to give birth and a time to die; a time to plant and a time to uproot what is planted."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.3",
+      "source_sha256": "f7a57b3a37408d93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to kill and a time to bring to life; a time to tear down and a time to build."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.4",
+      "source_sha256": "96c3bafa88c30c55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to weep and a time to laugh; a time to mourn and a time to dance."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.5",
+      "source_sha256": "be1ea5973e628400",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to throw stones and a time to gather stones; a time to embrace and a time to refrain from embracing."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.6",
+      "source_sha256": "7877b3bef674a769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to lose and a time to seek; a time to bind and a time to untie."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.7",
+      "source_sha256": "0ebd32fb37f3a96f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to tear and a time to sew; a time to be silent and a time to speak."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.8",
+      "source_sha256": "25ffb5354d586ea7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to love and a time to hate; a time for war and a time for peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.9",
+      "source_sha256": "9f3108f40a7394d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What does a person gain from the work at which he toils under the sun?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.10",
+      "source_sha256": "0d11dbaf8512252a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw the task that the Lord has given human beings to occupy themselves with."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.11",
+      "source_sha256": "b249196bd9fcecf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He has made everything beautiful in its time. He has also put toil in their hearts, so that no one can discover the work that the Lord has done from beginning to end."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.12",
+      "source_sha256": "967fe891b04626f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I knew that there is nothing better for them than to rejoice and do good during their lives."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.13",
+      "source_sha256": "cb5671d2f537b856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Also, that everyone should eat and drink and enjoy good things in all their toil—this is the Lord's gift."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.14",
+      "source_sha256": "b05472604d150028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I knew that everything the Lord does will last forever. Nothing can be added to it, and nothing can be taken away from it. The Lord has done this so that people will fear him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.15",
+      "source_sha256": "7e4e7bc83fdce36a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What has happened already exists, and whatever will happen happened long ago. God seeks out the one who is being pursued."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.16",
+      "source_sha256": "c48c6cb4688b64f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again I saw under the sun: in the place of judgment, wickedness was there, and in the place of righteousness, injustice was there."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.17",
+      "source_sha256": "800a01b3fea64e58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart, \"God will judge the righteous and the wicked, because there is a time for every matter and for every deed there.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.18",
+      "source_sha256": "f6813174d0c34e8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart concerning the speech of human beings that God created them, and would show that they are like animals."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.19",
+      "source_sha256": "16f879ab457a2dbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fate of human beings and the fate of animals comes upon them: one fate befalls them all. As one dies, so the other dies, and they all have the same breath. Human beings have no advantage over animals, because everything is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.20",
+      "source_sha256": "a6f4cb7c2bcb1da8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All go to one place. All came from dust, and all return to dust."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.21",
+      "source_sha256": "c9b7c492103ed7da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who knows whether the spirit of human beings goes upward, and the spirit of animals goes downward to the earth?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.3.22",
+      "source_sha256": "f85249129a58e8cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw that there is nothing better for them than for a person to rejoice in his work, because that is his share. For who will bring him to see everything that will happen after him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.1",
+      "source_sha256": "924c0eebd8c355ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned again and saw all the acts of oppression committed under the sun. Look at the tears of the oppressed! They have no one to comfort them. Power is in the hands of their oppressors, and they have no one to help them."
     },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.4.2",
@@ -27,11 +495,228 @@
       "text": "And I praised the dead, who have already died, more than the living, who are still alive."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.3",
+      "source_sha256": "d9d79282701bfe21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But better than both of these is the one who has not yet come into existence, because he has not seen the evil work done under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.4",
+      "source_sha256": "8abb87d69e14efd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw that all toil and all skill in work come from a person's envy of his neighbor. This too is futility and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.5",
+      "source_sha256": "b2498529007c5453",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fool folds his hands and eats his own flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.6",
+      "source_sha256": "bd1cd132234f1283",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Better one handful of rest than two handfuls of toil and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.7",
+      "source_sha256": "f5476b819a390604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned again and saw futility under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.8",
+      "source_sha256": "037cdcf2ff58f999",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is someone who is alone, with no companion. He has neither son nor brother, yet there is no end to all his toil, and his eyes are never satisfied with wealth. \"For whom am I toiling and depriving myself of good things?\" This too is futility and a miserable task."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.9",
+      "source_sha256": "14b0053536937142",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Two are better than one, because they have a good reward for their toil."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.10",
+      "source_sha256": "178b89b2a7379a9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if one falls, his companion lifts him up. But woe to someone who is alone: if he falls, there is no one to lift him up."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.11",
+      "source_sha256": "c5bccd32384a39ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If two lie down together, they will keep warm. But how can one keep warm alone?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.12",
+      "source_sha256": "d9773a051166ff4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If one person attacks, the two will stand against him, and a three-stranded cord is not quickly broken."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.13",
+      "source_sha256": "13a6e5f6b77dcce1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A poor but wise youth is better than an old, foolish king who no longer knows how to heed a warning."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.14",
+      "source_sha256": "c25ed642d6c654e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he came out of prison to become king, though he was born poor even in his own kingdom."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.15",
+      "source_sha256": "ff6c6d3325cf7159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the living who walk under the sun siding with the second young man, who would take his place."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.16",
+      "source_sha256": "6a9c2ed99ac368b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There was no end to all the people, to all who were before him. Yet those who come later will not rejoice in him either, for this too is futility and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.4.17",
+      "source_sha256": "90f274ed2c21cc00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Watch your step when you go to the house of God. Drawing near to listen is better than the sacrificial offerings of fools, for they do not know how to do good."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.1",
+      "source_sha256": "850479066efc555d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be hasty with your mouth, and do not let your heart hurry to utter a word before God, for God is in heaven and you are on earth. Therefore let your words be few."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.2",
+      "source_sha256": "39dc84302b9fbebf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a dream comes through much activity, and a fool's voice through many words."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.3",
+      "source_sha256": "86c10ca6593e0c71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When you make a vow to God, do not delay fulfilling it, for he takes no pleasure in fools. Pay what you vow."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.4",
+      "source_sha256": "5d015297d17c54c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is better not to make a vow than to make one and not fulfill it."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.5.5",
       "source_sha256": "d4a10b641144652a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "Do not let your mouth cause your body to sin, and do not say before God, “It was a mistake,” lest God become angry at your words and destroy the work of your hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.6",
+      "source_sha256": "aa2f2a7b27b5f803",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For amid many dreams, empty things, and many words, you must fear God."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.7",
+      "source_sha256": "00293393425a3aad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you see oppression of the poor, plunder, and judgment in a province, do not be astonished at the matter, for someone higher than the high official is watching, and there are higher ones over them."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.8",
+      "source_sha256": "9fe006c079f063fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The land's produce is for everyone; the king has the field cultivated."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.9",
+      "source_sha256": "44ce6602cff8c04c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever loves money will not be satisfied with money, and whoever loves wealth will not find it enough. This too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.10",
+      "source_sha256": "92ee51ae60aeb441",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When goods increase, those who consume them increase. What benefit does their owner have except to look at them with his eyes?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.11",
+      "source_sha256": "59b60c1a3c731153",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A worker's sleep is sweet, whether he eats little or much, but a rich person's fullness does not let him sleep."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.12",
+      "source_sha256": "a3ed110699740cbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is a sickening evil that I have seen under the sun: wealth kept by its owner to his own harm."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.13",
+      "source_sha256": "166bf66da7dcbccc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That wealth is lost through a bad venture. He has fathered a son, but has nothing in his hand."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.14",
+      "source_sha256": "7cdd1365208b31ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As he came out of his mother's womb, naked, so he will return and depart as he came. He will take nothing from his labor that he can carry away in his hand."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.15",
+      "source_sha256": "5ee0640357b52856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This too is a sickening evil: just as he came, so he goes. What benefit does he have from all his labor for the wind?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.16",
+      "source_sha256": "1b7a9c04cdbd47f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Moreover, all his days he eats in darkness, with much anger, fury, mourning, sickness, and fury."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.17",
+      "source_sha256": "3a5e6c26f69ef950",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is what I, the Teacher, have seen: it is good and fitting to eat, drink, and enjoy good in all the labor at which a person toils under the sun during the numbered days of his life that the Lord has given him, for this is his portion."
     },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.5.18",
@@ -41,6 +726,174 @@
       "text": "Also, everyone to whom the Lord has given wealth and possessions, and whom he has enabled to eat from them, to receive his share, and to rejoice in his work—this too is a gift from God."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.5.19",
+      "source_sha256": "732461e04bb7df63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he will not dwell much on the days of his life, because God keeps him occupied with joy in his heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.1",
+      "source_sha256": "b5259231a6d6a9dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is an evil that I have seen under the sun, and it weighs heavily on human beings."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.2",
+      "source_sha256": "665b25aae9e3d7b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A man to whom God gives wealth, possessions, and honor lacks nothing of all he desires, yet God does not enable him to enjoy it. Instead, a stranger will consume it after him. This is futility and sorrow."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.3",
+      "source_sha256": "a76d13853724c554",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a man fathers a hundred children and lives many years, and the days of his years are many, but he is not satisfied with good things and does not even receive a burial, I say that a stillborn child is better off than he is."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.4",
+      "source_sha256": "9533013842c09974",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it comes in futility and goes away in darkness, and its name is covered in darkness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.5",
+      "source_sha256": "0f1684eee6453745",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It has neither seen the sun nor known anything, yet it has more rest than that man."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.6",
+      "source_sha256": "88aa9105e323a9ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if he lived a thousand years twice over but experienced no good, does not everyone go to the same place?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.7",
+      "source_sha256": "bf7a8fd8abe611ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All a person's labor is for his mouth, yet his appetite is not satisfied."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.8",
+      "source_sha256": "34ecdf56c199d670",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the wise person has an advantage over the fool. What does it profit the poor person to know how to conduct himself among the living?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.9",
+      "source_sha256": "087ebe109c512450",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What the eyes see is better than the wandering of desire. This too is futility and distress of spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.10",
+      "source_sha256": "f3b67c11feafb2d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever has come to be was named long ago, and it is known that a person is human and cannot contend with one stronger than himself."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.11",
+      "source_sha256": "16ccdabd6ae7e2f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there are many words that increase futility. What advantage does a person gain?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.6.12",
+      "source_sha256": "9d34cb0201a4219c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who knows what is good for a person during his life, during the numbered days of his fleeting life, which he passes like a shadow? Who can tell a person what will happen after him under the sun?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.1",
+      "source_sha256": "d6cb89264d82ec91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A good name is better than fine oil, and the day of death is better than the day of birth."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.2",
+      "source_sha256": "01459a03657ed733",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is better to go to a house of weeping than to a house of feasting, because this is the end of all people, and the living person brings good to his heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.3",
+      "source_sha256": "fb060a271419f298",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anger is better than laughter, because a sad face makes the heart better."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.4",
+      "source_sha256": "0545181b65829607",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The heart of the wise is in the house of mourning, but the heart of fools is in the house of rejoicing."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.5",
+      "source_sha256": "4e690108fd1dd333",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is better to hear the rebuke of the wise than to be someone who listens to the song of fools."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.6",
+      "source_sha256": "d0ff6708b58b24f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the laughter of fools is like the crackling of thorns under a pot. This too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.7",
+      "source_sha256": "5b9d0eef73f70022",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For oppression destroys the wise person, and a bribe destroys the heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.8",
+      "source_sha256": "9612a2c9b483d620",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The end of a matter is better than its beginning, and patience is better than pride."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.9",
+      "source_sha256": "c85e1e797d4e489b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be quick in your spirit to become angry, because anger rests in the lap of fools."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.10",
+      "source_sha256": "96263f76f84d9011",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not say, “Why were the former days better than these?” For it is not out of wisdom that you ask about these things."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.11",
+      "source_sha256": "6035391732dcf047",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wisdom is better than weapons of war, and it is of greater benefit to those who see the sun."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.7.12",
       "source_sha256": "4d594acc21d2a56c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -48,11 +901,305 @@
       "text": "For the shelter of wisdom is like the shelter of money, but the advantage of knowledge is that wisdom gives life to its possessor."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.13",
+      "source_sha256": "d0f1bb202f44e2e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at the work of God, for who can straighten what he has made crooked?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.14",
+      "source_sha256": "e8e375fa8d2f591a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On a day of prosperity, enjoy the good, and on a day of adversity, examine yourself. God has made the one as well as the other, so that a person cannot discover anything that will come after him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.15",
+      "source_sha256": "9a9c8644e38844c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have seen everything during my fleeting days: there is a righteous person who perishes in his righteousness, and there is a wicked person who lives long in his wickedness."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.7.16",
       "source_sha256": "a00977ac04855380",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "Do not be excessively righteous, and do not be overly wise, lest you become bewildered."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.17",
+      "source_sha256": "91180e44db9c75c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be very wicked, lest you be greatly hated. Do not be a fool, lest you die before your time."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.18",
+      "source_sha256": "e711a36b7a47d876",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good to hold on to this and not let go of that either, because whoever fears God holds to them all."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.19",
+      "source_sha256": "e6dae00540f84050",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wisdom strengthens the wise more than ten rulers who are in a city."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.20",
+      "source_sha256": "c1a17017b0d3efd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is no righteous person on earth who does good and never sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.21",
+      "source_sha256": "bff8ca477088fa27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not pay attention to everything wicked people say, so that you do not hear your servant insulting you."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.22",
+      "source_sha256": "d65b390704097efa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For your heart knows that many times you too have insulted others."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.23",
+      "source_sha256": "8edfc682c38a5ad4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I tested all these things by wisdom. I said, “I will become wise,” but wisdom was far from me."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.24",
+      "source_sha256": "51f9357a86b64cf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Far beyond everything that exists, and deeper than the depths—who can find it?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.25",
+      "source_sha256": "b6c1c21716fc3f8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned, with all my heart, to know, to investigate, and to seek wisdom and an explanation, and to understand the wickedness of the fool, and folly and madness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.26",
+      "source_sha256": "a8cf41752a29256c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I found more bitter than death the woman who is a snare, whose heart is a trap, and whose hands are bonds. Whoever is good [?] whoever is good before God escapes from her, but whoever sins is caught by her."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.27",
+      "source_sha256": "9d5b1e78fe90b915",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Look, this is what I found,” says the Teacher, “examining one thing after another to find an explanation."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.28",
+      "source_sha256": "856c6b5015498bd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I continued searching, but did not find it. I found one man among a thousand, but among them all I did not find a woman."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.7.29",
+      "source_sha256": "dc57d8bb1815b6bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But look, this is what I found: God made human beings upright, but they have sought out many schemes.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.1",
+      "source_sha256": "eff2d93e9cfe3ea6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who is like the wise person, and who knows the interpretation of a matter? A person's wisdom makes his face shine, but an insolent face will be hated."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.2",
+      "source_sha256": "4ad4a5ea2c85716c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Obey the king's command because of the oaths made to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.3",
+      "source_sha256": "2509a190c2d21744",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be in a hurry to leave his presence, and do not persist in an evil matter, because he does whatever he wishes."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.4",
+      "source_sha256": "9f16efd99b4c039f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For when the king speaks, he has authority, and who can say to him, “What are you doing?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.5",
+      "source_sha256": "3947d441a29fde11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever keeps the command will experience no harm, and the heart of the wise knows the time and the judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.6",
+      "source_sha256": "e1dd27bd89c376f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every matter has a time and a judgment, though a person's trouble weighs heavily upon him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.7",
+      "source_sha256": "414b7c2b116e6387",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For no one knows what will happen, and who can tell him what will happen after him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.8",
+      "source_sha256": "d67a9b9143cc3c4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one has power over the wind to restrain the wind, and no one has authority over the day of death. There is no escape on the day of battle, and wickedness will not rescue those who practice it."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.9",
+      "source_sha256": "e25099407d5103d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all this and set my heart on understanding every deed done under the sun, and the time when one person exercises power over another to harm him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.10",
+      "source_sha256": "501b4037f41ad986",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then I saw wicked people who were buried and came, and went away from the holy place, and were forgotten in the city where they had acted this way. This too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.11",
+      "source_sha256": "ec7c34a7b472088c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because punishment is not quickly carried out against those who do evil, people's hearts are filled with the resolve to do evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.12",
+      "source_sha256": "b53e87a1392d0751",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A sinner may do evil a hundred times and have his life prolonged, yet I know that it will go well with those who fear the Lord, who stand in fear before him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.13",
+      "source_sha256": "68cd3a385ce55968",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But it will not go well with the wicked person, nor will he prolong his days like a shadow, because he does not stand in fear before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.14",
+      "source_sha256": "e07e026431cd5c6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is something futile that happens on earth: there are righteous people who receive what the deeds of the wicked deserve, and wicked people who receive what the deeds of the righteous deserve. I said that this too is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.15",
+      "source_sha256": "cc533e539dff4a59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I praised enjoyment, because there is nothing better for a person under the sun than to eat, drink, and be glad. This accompanies him in his labor throughout all the days of his life that God has given him under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.16",
+      "source_sha256": "a9d545bcecba6e2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I devoted my heart to knowing wisdom and observing the activity carried on upon the earth, for neither by day nor by night does a person see sleep with his eyes."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.8.17",
+      "source_sha256": "c334d91c18bef5af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the work of God: a person cannot comprehend the work done under the sun. However hard a person labors to search it out, he cannot discover it. Even if a wise person claims to know it, he cannot discover it."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.1",
+      "source_sha256": "be43a60409d9018d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I took all these things to heart, and my heart saw all this: the righteous, the wise, and their deeds are in God's hand. A person knows neither love nor hatred. Everything before him is futility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.2",
+      "source_sha256": "b81ddeff10d4c0db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everything is alike for everyone. The same fate comes to the righteous and the wicked, the good and the bad, the clean and the unclean, those who offer sacrifices and those who do not. As it is with the good person, so it is with the sinner; as it is with someone who swears an oath, so it is with someone who fears oaths."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.3",
+      "source_sha256": "52ca214c288a59b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is an evil in everything done under the sun: the same fate comes to everyone. Moreover, the human heart is filled with evil, and evil foolishness is in their hearts and in their lives, and their end is among the dead."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.4",
+      "source_sha256": "5fa88784bdd39b7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For anyone who is joined to all the living, there is hope, because a living dog is better than a dead lion."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.5",
+      "source_sha256": "fe85999320615bdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the living know that they will die, but the dead know nothing. They have no further reward, because their memory has been forgotten."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.6",
+      "source_sha256": "c336b2434c8899de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their love, their hatred, and their jealousy have already perished. They will never again have a share in anything done under the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.7",
+      "source_sha256": "1bb2f8470c1e6aa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Come, eat your bread with joy and drink your wine with a cheerful heart, because God has approved your deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.8",
+      "source_sha256": "8faba442e54a3fe7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let your clothes always be white, and let oil never be lacking on your head."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.9",
+      "source_sha256": "03f016fe5997d1f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Enjoy life with the woman you love throughout all the days of your futile life, because this is your share in life and in the labor at which you toil under the sun."
     },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.9.10",
@@ -69,11 +1216,193 @@
       "text": "Again I saw under the sun that the race does not belong to the swift, nor the battle to the mighty, nor bread to the wise, nor wealth to those with understanding, nor praise to the knowledgeable, because time and chance happen to them all."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.12",
+      "source_sha256": "21aa1d71061726a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a person does not know his time. Like fish caught in a deadly net and birds caught in a trap, people are caught in an evil time when it suddenly falls upon them."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.13",
+      "source_sha256": "894c2603ff229d68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I also saw this example of wisdom under the sun, and it seemed great to me."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.14",
+      "source_sha256": "23f5efd43bc62e4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There was a small city with few people in it. A great king came against it, surrounded it, and built siegeworks against it."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.15",
+      "source_sha256": "9f08c186df4e1fc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A poor but wise man was found in it, and that poor man saved the city by his wisdom. Yet no one remembered that poor man."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.16",
+      "source_sha256": "99f43536246ab31a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said, \"Wisdom is better than strength, yet the poor man's wisdom is despised, and his words are not heeded.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.17",
+      "source_sha256": "9ecea349cb942305",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The words of the wise spoken quietly are heeded more than the shouting of a ruler among fools."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.9.18",
+      "source_sha256": "62aa56434e479fc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wisdom is better than weapons of war, but one sin destroys many good things."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.1",
+      "source_sha256": "0b704f9685963f7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Dead flies make a vessel of fragrant oil stink. A little foolishness carries more weight than wisdom and abundant praise."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.2",
+      "source_sha256": "f537fa9d39ac6f63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wise person's heart is to his right, but the fool's heart is to his left."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.10.3",
       "source_sha256": "98639115d9e455d6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "Even when a fool walks along the road, he lacks sense, and everything he thinks is foolishness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.4",
+      "source_sha256": "c08b49df83d015ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a ruler's anger rises against you, do not leave your place, because laxness produces many sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.5",
+      "source_sha256": "11ab3186d49a8db4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is an evil I have seen under the sun, like an error that occurs in a ruler's presence:"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.6",
+      "source_sha256": "865807eff0b47fad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "a fool sits in a very high position, while the rich sit in lowly places."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.7",
+      "source_sha256": "3bf3c88d8afe5784",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw slaves on horses, and rulers walking on the ground like slaves."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.8",
+      "source_sha256": "2968656683b54b6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever digs a pit will fall into it, and whoever breaks through a wall will be bitten by a snake."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.9",
+      "source_sha256": "3234148be07ca988",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever moves stones will be hurt by them, and whoever splits wood will grow tired from it."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.10",
+      "source_sha256": "05a410719b50b3e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If the iron grows dull, it disfigures faces and increases the number of those killed; but wisdom is an advantage to the skillful."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.11",
+      "source_sha256": "b3bd970e964de7cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a snake bites before it is charmed, there is no advantage in the charmer."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.12",
+      "source_sha256": "f18cc5df72f0c5b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The words from a wise person's mouth bring praise, but a fool's lips drown him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.13",
+      "source_sha256": "454224ac79b69053",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The beginning of the words from his mouth is foolishness, and the end of his speech is wicked shamelessness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.14",
+      "source_sha256": "81987f70f95a8871",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A fool multiplies words. No one knows what will happen, and who can tell him what will happen after him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.15",
+      "source_sha256": "a2c8e3658d28907c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The toil of fools wears them out, because they do not know how to get to the city."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.16",
+      "source_sha256": "75aadfaefa24b9bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to you, city whose king is a child and whose officials eat in the morning!"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.17",
+      "source_sha256": "faeb846f503194eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Happy are you, city whose king is nobly born and whose officials eat at the proper time, with vigor and not with drinking!"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.18",
+      "source_sha256": "fec80cd96eb17eef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through laziness the roof sags, and through idle hands the house leaks."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.19",
+      "source_sha256": "69a8f5f8d756ff88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bread, wine, and oil are prepared for joy, to gladden the living; but money humbles them and leads them astray in everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.10.20",
+      "source_sha256": "39b2d55fc66d9846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not curse the king even in your thoughts, and do not curse the rich in your bedroom, because a bird of the sky will carry your voice, and a winged creature will report your words."
     },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.11.1",
@@ -83,11 +1412,53 @@
       "text": "Send your bread out over the surface of the water, because after many days you will find it."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.2",
+      "source_sha256": "40e5592c53ff003d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Give a share to seven, and even to eight, because you do not know what disaster will happen on the earth."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.11.3",
       "source_sha256": "482e98892147cc08",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "If the clouds are full of rain, they pour it out on the earth. And if a tree falls to the south or to the north, wherever the tree falls, there it will remain."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.4",
+      "source_sha256": "cb62139e48d59178",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever watches the wind will not sow, and whoever looks at the clouds will not reap."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.5",
+      "source_sha256": "6fcd461682d97c48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as you do not know the course of the wind or how a pregnant woman carries a child, so you do not know the works of the Lord, everything he will do."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.6",
+      "source_sha256": "f34695fda31eeb17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every morning sow your seed, and in the evening do not let your hand rest, because you do not know which will succeed, this one or that one, or whether both will be equally good."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.7",
+      "source_sha256": "075fb5032548485f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Light is sweet, and it is good for the eyes to see the sun."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.8",
+      "source_sha256": "817dd106d14680c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a person lives many years, let him rejoice in them all, and let him remember the days of darkness, because they will be many. Everything that is coming is a passing breath."
     },
     {
       "chunk_id": "pta-peshitta/eccl#Eccl.11.9",
@@ -97,11 +1468,109 @@
       "text": "Rejoice, young man, in the days of your youth, and let them be pleasant for you. Walk in the ways of your heart and according to what your eyes see, but know that for all these things the Lord will bring you to judgment."
     },
     {
+      "chunk_id": "pta-peshitta/eccl#Eccl.11.10",
+      "source_sha256": "7cd9a28e69624443",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remove anger from your heart and keep harm away from your body, because youth and ignorance are a passing breath."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.1",
+      "source_sha256": "aed5e689b12e0a6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember your Creator in the days of your youth, before the days of trouble come and the years draw near when you will say, \"I have no pleasure in them.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.2",
+      "source_sha256": "d6852439e2e5bde6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Before the sun and the light of the moon and stars grow dark, and the clouds return after the rain."
+    },
+    {
       "chunk_id": "pta-peshitta/eccl#Eccl.12.3",
       "source_sha256": "3c31af5181e6ab8c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "On the day when the keepers of the house tremble, and the strong men totter, and the women grinding cease because they are few, and the women looking through the windows grow dim."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.4",
+      "source_sha256": "cd3bda7a180e8f89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The doors in the streets will be shut as the sound of the grinding grows faint; he will rise at the sound of a bird, and all the daughters of song will grow faint."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.5",
+      "source_sha256": "5faffb9f797bb7b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He will also be afraid of heights and tremble on his journeys. Sleeplessness will come upon him, the [?] will blossom, the locust will multiply, the caper will be scattered, and misery will cease, because a person is going to the house of his toil, and the mourners have gone about in the streets."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.6",
+      "source_sha256": "271be5fb5c21bdf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "Before the silver cord is snapped, the golden apple is crushed, the pitcher is broken at the spring, and the wheel runs down at the well."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.7",
+      "source_sha256": "1950f593e34fadac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "And the dust returns to the earth as it was, and the spirit returns to the Lord who gave it."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.8",
+      "source_sha256": "c19aa89d27b9cda4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "“Utter futility,” says Qoheleth, “utter futility! Everything is futile.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.9",
+      "source_sha256": "7faa14b643f1a25b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "Besides being wise, Qoheleth taught the people knowledge. He listened, investigated, and arranged many proverbs."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.10",
+      "source_sha256": "03533f3b4bdf0688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "Qoheleth searched diligently to find pleasing words, and he wrote honestly, using words of truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.11",
+      "source_sha256": "1c624e2e61bef93e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "The words of the wise are like goads and like firmly fixed nails that hold doorframes in place; they were given by one shepherd."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.12",
+      "source_sha256": "4978804669c13552",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "Beyond these, my son, be warned: there is no end to writing many books, and much speaking wears out the body."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.13",
+      "source_sha256": "70ce170eefcc136c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "The conclusion of the matter, in sum: hear everything, fear the Lord, and keep his commandments, for this is what has been given to everyone by one maker."
+    },
+    {
+      "chunk_id": "pta-peshitta/eccl#Eccl.12.14",
+      "source_sha256": "0c63dc8d9b93d60c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 9,
+      "text": "For the Lord will bring every deed into judgment, everything hidden and revealed, whether good or evil."
     }
   ]
 }

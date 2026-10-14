@@ -9,15 +9,203 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.1",
+      "source_sha256": "d83a64467d6aa42d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The word of the Lord came to Jonah son of Amittai, saying:"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.2",
+      "source_sha256": "fb7b9782a0a5ea82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Get up and go to Nineveh, the great city, and proclaim in it that the time of its wickedness has come up before me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.3",
+      "source_sha256": "f28d4a6546dfdbc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jonah got up to flee to Tarshish, away from the Lord’s presence. He went down to Joppa and found a ship about to sail to Tarshish. He paid the fare and boarded it to sail with it to Tarshish, away from the Lord’s presence."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.4",
+      "source_sha256": "19c487410b95df6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord stirred up a great wind over the sea, and a great storm arose on it. The ship was in danger of being destroyed."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.5",
+      "source_sha256": "1935004c3d64904d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sailors were terribly afraid, and each cried out to his own god. They threw the cargo that was in the ship into the sea to lighten the ship for themselves. But Jonah had gone down into the hold of the ship, lain down, and fallen into a deep sleep."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.6",
+      "source_sha256": "aa64fc74b1767343",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The captain approached him and said to him, “Why are you sleeping so deeply? Get up and call on your god. Perhaps your god will save us, so that we do not die.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.7",
+      "source_sha256": "4533bee04a7fc67b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to one another, “Come, let us cast lots so that we may find out why this disaster has come upon us.” They cast lots, and the lot fell on Jonah."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.8",
+      "source_sha256": "a0c837d623e485ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to him, “Tell us why this disaster has come upon us. What is your occupation? Where have you come from? Where are you going? What are you? From what country and from what people?”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.9",
+      "source_sha256": "7b1ade758b48c052",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to them, “I am the Lord’s servant, and I worship the Lord, the God of heaven, who made the sea and the dry land.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.10",
+      "source_sha256": "7a0f8aaa3a7d7428",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The men were terribly afraid and said to him, “Why have you done this?” For the men knew that he had fled from the Lord’s presence, because he had told them."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.11",
+      "source_sha256": "2259d1a64f8addb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to him, “What should we do to you so that the sea will stop raging against us?” For the sea was rising higher and stirring up a great storm."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.12",
+      "source_sha256": "8b80812c12f3bdad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jonah said to them, “Pick me up and throw me into the sea, and it will stop raging against you. For I know that this great storm has come upon you because of me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.13",
+      "source_sha256": "53419675fa154263",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The men did all they could to return to the shore, but they could not return, because the sea was raging fiercely against them."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.14",
+      "source_sha256": "92e9a24d9b7338fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They cried out to the Lord, saying, “Do not be angry with us, Lord. Do not let us die because of this man’s life. Do not bring innocent blood upon us, for you, Lord, have done as you wished.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.15",
+      "source_sha256": "864a848bbd7c29f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They picked Jonah up and threw him into the sea, and the sea stopped raging."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.1.16",
+      "source_sha256": "3098ce5214ef3278",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The men feared the Lord greatly. They offered a sacrifice to the Lord and made vows."
+    },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.2.1",
       "source_sha256": "a0909dd3284e3dd7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "And the Lord commanded a great sea creature to swallow Jonah. And Jonah was inside the sea creature for three days and three nights."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.2",
+      "source_sha256": "0cc1916dedb6fb80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jonah prayed to the Lord his God while he was inside the sea creature,"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.3",
+      "source_sha256": "a658894a636f6c18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "saying, “In my distress I cried out to the Lord my God, and he heard me. I cried out from within the realm of the dead, and you heard my voice."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.4",
+      "source_sha256": "1a4260e487a0d429",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] You threw me down into the depths of the heart of the sea, and currents surrounded me. All your terrors and your waves came down over me."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.5",
+      "source_sha256": "d2044a4c65a4dc59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I too said, ‘I have been cast out from your presence. Will I then look again toward your holy temple?’"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.6",
+      "source_sha256": "4470c3d2761ca2b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Waters reached my very life. The deepest abyss surrounded me; vegetation wrapped around my head."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.7",
+      "source_sha256": "9019aac5620d1dc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I went down into the clefts of the mountains, down into a land whose bars hold fast forever. Yet you will bring [?] life up from destruction to yourself, Lord my God."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.8",
+      "source_sha256": "e11275f7201e4d9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When my soul grew weak within me, I remembered the Lord. Let my prayer come up to you, before your holy temple."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.9",
+      "source_sha256": "06a9cb7860a4c125",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who hold to what is empty and to lies have abandoned their mercy."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.10",
+      "source_sha256": "91c61d9bfdfa1779",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But with a voice of prayer and thanksgiving I will offer you a sacrifice for salvation. What I have vowed, I will give you for my salvation, Lord.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.2.11",
+      "source_sha256": "992405b8fc681994",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And he commanded the great fish, and it threw Jonah out onto dry land."
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.3.1",
@@ -27,11 +215,137 @@
       "text": "And the word of the Lord came to Jonah a second time, saying to him:"
     },
     {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.2",
+      "source_sha256": "eb68577e1d88402c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "“Get up and go to Nineveh, the great city, and proclaim to it the first message that I told you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.3",
+      "source_sha256": "cab1d5b3e8bb0e8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And Jonah got up and went to Nineveh, as the Lord had told him. Now Nineveh was a great city belonging to the Lord, requiring three days to walk through it."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.4",
+      "source_sha256": "3d7a81d698809314",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And Jonah began to go into the city, walking for one day, and he proclaimed, “Three more days, and Nineveh will be destroyed!”"
+    },
+    {
       "chunk_id": "coptic-nt/jonah#Jonah.3.5",
       "source_sha256": "a391ac7ddb1c9346",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "The people of Nineveh believed God, proclaimed a fast, and put on sackcloth, from the greatest to the least."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.6",
+      "source_sha256": "0b1bcb8d543c2a35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And the message reached the king of Nineveh. He rose from his throne, laid aside his robe, covered himself with sackcloth, and sat on ashes."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.7",
+      "source_sha256": "e9388c8cf597d940",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And a proclamation was made in Nineveh by authority of the king and his nobles, saying, “People and animals, cattle and sheep and cattle must not eat anything. Do not let them graze, and do not let them drink water.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.8",
+      "source_sha256": "1390ad57ea8ec4e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And the people and the animals covered themselves with sackcloth, fasted, and cried out earnestly to the Lord. And each one turned away from his evil way and from the violence in their hands."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.9",
+      "source_sha256": "f6dfc86d6043f9ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And he said, “Who can say whether God will relent and turn away from his fierce anger, so that we do not die?”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.3.10",
+      "source_sha256": "b2530eee003dbb95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And God saw their deeds, that they had turned away from their evil ways. And God relented concerning the harm he had said he would do to them, and he did not do it."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.1",
+      "source_sha256": "7b2538bb17d0ecf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And Jonah was greatly saddened and deeply distressed."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.2",
+      "source_sha256": "440838949a929e9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "He prayed to the Lord, saying, “O Lord, were these not my words while I was still in the land? That is why I first fled to Tarshish, because I knew that you are merciful and compassionate, slow to anger and abundant in mercy, and that you relent concerning calamities."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.3",
+      "source_sha256": "b2228458c90a8af5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "“So now, Lord, take my life from me, because it is better for me to die than to live.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.4",
+      "source_sha256": "32c8eaab9d565272",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And the Lord said to Jonah, “Are you deeply distressed?”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.5",
+      "source_sha256": "4a27496bc49d4493",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And Jonah went outside the city and sat facing the city. He made himself a shelter there and sat beneath it, taking shade beneath it until he could see what would happen in the city."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.6",
+      "source_sha256": "a6b885411d9373a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And the Lord commanded a gourd plant, and it grew over Jonah to give him shade from his suffering. And Jonah rejoiced greatly over the gourd plant."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.7",
+      "source_sha256": "0b9dccd4a4f92da8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And God commanded a worm at dawn the next day, and it struck the gourd plant, and the plant withered."
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.8",
+      "source_sha256": "d761203299020da8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And when the sun was about to rise, God commanded a scorching and [?] weakening wind. And the sun beat down on Jonah’s head, and he grew faint and gave up. He said, “It is better for me to die than to live.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.9",
+      "source_sha256": "e9d5015f9cc8b8ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "And the Lord God said to Jonah, “Are you deeply distressed over the gourd plant?” And he said, “I am deeply distressed, even to the point of death.”"
+    },
+    {
+      "chunk_id": "coptic-nt/jonah#Jonah.4.10",
+      "source_sha256": "431ef13ccb0f2e7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The Lord said to him, “You had compassion for the gourd plant, although you did not labor over it or nurture it. It grew in a [?] and died in a night.”"
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.4.11",

@@ -9,15 +9,98 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.1",
+      "source_sha256": "d6013a3b6ba52c19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle of Christ Jesus by the will of God, according to the promise of life in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.2",
+      "source_sha256": "f931ac083efc5fab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Writing to Timothy, my beloved son: Grace, mercy, and peace to you from God the Father and Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.3",
+      "source_sha256": "bd06f17746592d31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I give thanks to [?] my God, whom I serve as my ancestors did, with a pure conscience, as I remember you constantly in my prayers night and day."
+    },
     {
       "chunk_id": "coptic-nt/2tim#2Tim.1.4",
       "source_sha256": "8a76c2f87a2b9eeb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "I long to see you, remembering your tears, so that I may be filled with joy."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.5",
+      "source_sha256": "00a1987e187e6e37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I recall your sincere faith, which first lived in your grandmother Lois and your mother Eunice, and I am convinced that it lives in you too."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.6",
+      "source_sha256": "b9e8eaeedc153d3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I remind you to rekindle God's gift that is in you through the laying on of my hands."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.7",
+      "source_sha256": "5de58f26e0f5e1ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God did not give us a spirit of weakness, but of power, love, and sound judgment."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.8",
+      "source_sha256": "da69ea007fdf0f08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So do not be ashamed of the testimony about our Lord, or of me, his prisoner, but share in suffering for the gospel through God's power."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.9",
+      "source_sha256": "c9db09c551cb5f88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He saved us and called us with a holy calling, not according to our deeds, but according to his own purpose and his grace, which he gave us in Christ Jesus before the ages began."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.10",
+      "source_sha256": "b258a24cbeb57f11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this grace has now been revealed through the appearing of our Savior, Christ Jesus, who destroyed death and revealed life and immortality through the gospel."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.11",
+      "source_sha256": "d2f4c4577db9ab8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this gospel I was appointed a herald, an apostle, and a teacher among the Gentiles."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.12",
+      "source_sha256": "f5a3410db5a910a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I suffer these things, but I am not ashamed, for I know whom I have believed, and I am convinced that he is able to guard what I have entrusted to him until that day."
     },
     {
       "chunk_id": "coptic-nt/2tim#2Tim.1.13",
@@ -27,11 +110,32 @@
       "text": "Take as your pattern the sound words you heard from me, in the faith and love that are in Christ Jesus."
     },
     {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.14",
+      "source_sha256": "909e10c3dc181a3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Guard the good thing entrusted to you through the Holy Spirit who lives in us."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.15",
+      "source_sha256": "4e928d1e406474a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You know that everyone in Asia has abandoned me, including Phygelus and Hermogenes."
+    },
+    {
       "chunk_id": "coptic-nt/2tim#2Tim.1.16",
       "source_sha256": "f9d0674cb69fa475",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "May the Lord grant mercy to the household of Onesiphorus, because he often gave me relief and was not ashamed of my chains."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.1.17",
+      "source_sha256": "8a02d29bc02bfabf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when he came to Rome, he eagerly searched for me and found me."
     },
     {
       "chunk_id": "coptic-nt/2tim#2Tim.1.18",
@@ -41,11 +145,144 @@
       "text": "May the Lord grant him mercy before the Lord on that day. And you know very well everything he did for me in Ephesus."
     },
     {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.1",
+      "source_sha256": "dcb442ec11824e64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You, then, my son, be strong in the grace that is in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.2",
+      "source_sha256": "a7af27ce696e5ae2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And entrust the things you heard from me in the presence of many witnesses to faithful people who will be able to teach others."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.3",
+      "source_sha256": "3b68d6b2e2aa7825",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Endure suffering as a good soldier of Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.4",
+      "source_sha256": "46be28ce405251bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one serving as a soldier entangles himself in the affairs of everyday life, so that he may please the one who enlisted him."
+    },
+    {
       "chunk_id": "coptic-nt/2tim#2Tim.2.5",
       "source_sha256": "936a9a2d835c532d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "Furthermore, if someone competes in an athletic contest, he does not receive a crown unless he competes properly."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.6",
+      "source_sha256": "e4486e46c058a9ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The farmer who works hard is the first to receive a share of the crops."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.7",
+      "source_sha256": "f638214c7d52deac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider what I am saying, for the Lord will give you understanding in everything."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.8",
+      "source_sha256": "17e0c2e7117579ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember Jesus Christ, raised from the dead, a descendant of David, according to my gospel."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.9",
+      "source_sha256": "5bd632bde7700939",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this gospel I suffer, even to the point of being chained like a criminal. But God's word is not chained."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.10",
+      "source_sha256": "d47e0ac043b439a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I endure everything for the sake of the chosen ones, so that they too may receive life through Christ Jesus, along with heavenly glory."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.11",
+      "source_sha256": "276f4254a7679303",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The saying is trustworthy: For if we died with him, we will also live with him."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.12",
+      "source_sha256": "19a51eec07486ca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we endure, we will reign with him. If we deny him, he too will deny us."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.13",
+      "source_sha256": "8229c00fd8d874ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we are faithless, he remains faithful, for he cannot deny himself."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.14",
+      "source_sha256": "7f3c1e1e0f15c1d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remind them of these things, warning them before the Lord not to quarrel, since it brings no benefit and ruins those who listen."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.15",
+      "source_sha256": "eb923c5606879970",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Make every effort to present yourself to God as someone approved, a worker who has no reason to be ashamed, who divides the word of truth."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.16",
+      "source_sha256": "68ff05eecdb3f9a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not take up empty and profane talk, for ungodly people will advance still further."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.17",
+      "source_sha256": "331f0cf4a809fa28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And their message will eat away like gangrene. Among them are Hymenaeus and Philetus,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.18",
+      "source_sha256": "9893a67272b5e578",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who have strayed from the truth, saying that the resurrection has already happened, and are overturning the faith of some."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.19",
+      "source_sha256": "d1b594ae04b1bf01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet God's firm foundation stands, bearing this seal: “The Lord knows those who are his,” and, “Let everyone who speaks the Lord's name turn away from wrongdoing.”"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.20",
+      "source_sha256": "48bc25d0962c3b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In a large house there are not only gold and silver utensils, but also wooden and clay ones. Some are honored, while others are dishonored."
     },
     {
       "chunk_id": "coptic-nt/2tim#2Tim.2.21",
@@ -62,11 +299,179 @@
       "text": "Flee youthful desires. Instead, pursue righteousness, faith, love, and peace, together with everyone who calls on our Lord from a pure heart."
     },
     {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.23",
+      "source_sha256": "63b7aa2fb782ce07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Reject foolish and ignorant questions, knowing that they produce quarrels."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.24",
+      "source_sha256": "e985fe064c806197",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A servant of the Lord must not quarrel, but must be humble toward everyone, able to teach, and patient with wrongdoing,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.25",
+      "source_sha256": "4138e6b0d206645e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "gently instructing those who oppose him, so that God may grant them repentance leading to knowledge of the truth,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.2.26",
+      "source_sha256": "febe1f786d855158",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and they may come to their senses and escape the devil's trap, having been captured by him to do his will."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.1",
+      "source_sha256": "0526e39d005595b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Understand this: in the last days, difficult times will come."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.2",
+      "source_sha256": "85f27decdfa663c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For people will love their own comfort and love money. They will be boastful, proud, abusive, disobedient to their parents, ungrateful, and impure,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.3",
+      "source_sha256": "09347d737a935c3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "quarrelsome, stubborn, slanderous, without self-control, not gentle, and hating what is good."
+    },
+    {
       "chunk_id": "coptic-nt/2tim#2Tim.3.4",
       "source_sha256": "d6bd6ad74ec500e8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "Traitors, reckless and arrogant, loving pleasure more than loving God."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.5",
+      "source_sha256": "f293838c84e9bed8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have the appearance of godliness but deny its power. Keep away from such people."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.6",
+      "source_sha256": "0666ae2d816d41c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For among them are those who push their way into houses and take captive women who are corrupted by sins and driven by various desires,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.7",
+      "source_sha256": "d0a33be3a7028fc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "always learning but never able to come to knowledge of the truth."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.8",
+      "source_sha256": "5fedbc21a6b0ddfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as Jannes and Jambres opposed Moses, these people also oppose the truth. They are people whose minds are corrupted and who are worthless in matters of faith."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.9",
+      "source_sha256": "528b408ddcef5616",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they will not make much progress, for their ignorance is plain to everyone, just as the ignorance of those others became plain."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.10",
+      "source_sha256": "e4e2c7efcb78c248",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you have followed my teaching, my way of life, my purpose, my faith, my patience, my love, and my endurance,"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.11",
+      "source_sha256": "bd842e6a4ae1db9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "my persecutions and my sufferings, which happened to me in Antioch, Iconium, and Lystra—the persecutions I endured. And the Lord rescued me from them all."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.12",
+      "source_sha256": "6ee49ce2a7bcf7ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who wants to live a godly life in Christ Jesus will also be persecuted."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.13",
+      "source_sha256": "7e9e21f66f7f4c99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But evil people and deceivers will progress toward greater evil, being led astray and leading others astray."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.14",
+      "source_sha256": "01c45dc902dd5df9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you must remain in the things you have learned and become convinced of, knowing from whom you learned them."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.15",
+      "source_sha256": "8016df3fd1e05af7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And from your childhood you have known the holy Scriptures, which can teach you the way to salvation through faith in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.16",
+      "source_sha256": "a68efdadd0742f9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "All Scripture is breathed by God and is useful for teaching, rebuking, correcting, and training in righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.3.17",
+      "source_sha256": "cb619d7d12f93f64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "So that the person who belongs to God may be complete, equipped for every good work."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.1",
+      "source_sha256": "201dabf0e050a583",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I solemnly charge you before God and Christ Jesus, who will judge the living and the dead, in view of his appearing and his kingdom:"
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.2",
+      "source_sha256": "a4a270b28a92952f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Preach the word. Be persistent with them out of season; correct them in season. Urge them and rebuke them with all patience and instruction."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.3",
+      "source_sha256": "ff398a3d15645411",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For a time will come when they will not tolerate sound teaching. Instead, following their own desires, they will acquire teachers for themselves because their ears itch."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.4",
+      "source_sha256": "8907328efa5902e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And they will turn their ears away from the truth and turn to myths."
     },
     {
       "chunk_id": "coptic-nt/2tim#2Tim.4.5",
@@ -76,6 +481,90 @@
       "text": "But you must remain sober in everything, endure hardship, do the work of a preacher of the good news, and fulfill your ministry."
     },
     {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.6",
+      "source_sha256": "1b2a1462ecd6b8d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For my struggle is over, and the time of my departure has drawn near."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.7",
+      "source_sha256": "724e46cf588ad5e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I have fought the good fight, I have finished the race, and I have kept the faith."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.8",
+      "source_sha256": "36a33b94b60cf540",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Now, therefore, the crown of righteousness is stored up for me. The Lord, the righteous judge, will give it to me on that day—not only to me, but also to everyone who has loved his appearing."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.9",
+      "source_sha256": "80e667fb49d8ce93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Make every effort to come to me quickly."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.10",
+      "source_sha256": "3f606bb204e67abd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For Demas has deserted me because he loved this present age, and he has gone to Thessalonica. Crescens has gone to Gaul, and Titus to Dalmatia."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.11",
+      "source_sha256": "e92f4ead82baa4a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Only Luke is with me. Get Mark and bring him with you, for he is useful to me for ministry."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.12",
+      "source_sha256": "58b295e6d13cec3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I sent Tychicus to Ephesus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.13",
+      "source_sha256": "7ff7e6dcf41f1c98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "When you come, bring the cloak that I left with Carpus in Troas, along with the books, especially the parchments."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.14",
+      "source_sha256": "a4b94c84146b6b4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Alexander the coppersmith did me a great deal of harm. May the Lord repay him according to his deeds."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.15",
+      "source_sha256": "5530d7ce572140a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "You too must be on your guard against him, for he strongly opposed my words."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.16",
+      "source_sha256": "0aa8f4b28015f17a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "At my first defense, no one stood with me, but they all deserted me. May it not be counted against them."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.17",
+      "source_sha256": "1f5e55ec420adc7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But the Lord stood with me and gave me strength, so that through me the proclamation might be completed and all the Gentiles might hear. And I was rescued from the lion's mouth."
+    },
+    {
       "chunk_id": "coptic-nt/2tim#2Tim.4.18",
       "source_sha256": "9b5482870d4466e2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -83,11 +572,32 @@
       "text": "The Lord will rescue me from every evil deed and bring me safely into his kingdom in heaven. To him be glory forever and ever. Amen."
     },
     {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.19",
+      "source_sha256": "3089b6808ede10eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Greet Prisca and Aquila and the household of Onesiphorus."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.20",
+      "source_sha256": "3b94ce494ccf9c19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Erastus stayed in Corinth, but I left Trophimus sick in Miletus."
+    },
+    {
       "chunk_id": "coptic-nt/2tim#2Tim.4.21",
       "source_sha256": "c96264535d7ae738",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "Do your best to come to me before winter. Eubulus greets you, along with Pudens, Linus, Claudia, and all the brothers."
+    },
+    {
+      "chunk_id": "coptic-nt/2tim#2Tim.4.22",
+      "source_sha256": "bd5dde25a73cfccd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "The Lord be with your spirit."
     }
   ]
 }

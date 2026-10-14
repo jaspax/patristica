@@ -9,15 +9,63 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.1",
+      "source_sha256": "8684b3540839c20c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Paul, a prisoner of Jesus Christ, and Timothy our brother, to Philemon, our dear friend and fellow worker."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.2",
+      "source_sha256": "528e619eae0137de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And to our dear Apphia, to Archippus our fellow worker, and to the church in your house."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.3",
+      "source_sha256": "cf64155bd17afe21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Grace and peace be with you from God our Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.4",
+      "source_sha256": "00f381af0e9eda50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I always thank my God and remember you in my prayers,"
+    },
     {
       "chunk_id": "pta-peshitta/phlm#Phlm.1.5",
       "source_sha256": "9c048f2459f3520b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "Indeed, since I heard of your faith and the love you have for our Lord Jesus and for all the saints,"
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.6",
+      "source_sha256": "a1f1fafea412e629",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "so that the sharing of your faith may bear fruit in deeds and in the knowledge of every good thing you have in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.7",
+      "source_sha256": "6b34881e658d3be9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For we have great joy and comfort because the hearts of the saints have been refreshed through your love."
     },
     {
       "chunk_id": "pta-peshitta/phlm#Phlm.1.8",
@@ -34,11 +82,116 @@
       "text": "But because of love, I appeal to you—I, Paul, who am an old man, as you know, and now also a prisoner of Jesus Christ."
     },
     {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.10",
+      "source_sha256": "bf809a3deb0c5194",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And I appeal to you for my son Onesimus, whom I fathered during my imprisonment."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.11",
+      "source_sha256": "5ef00d71048c5f3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "He was once of no use to you, but now he is very useful to both you and me."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.12",
+      "source_sha256": "e866e7422ec490be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I have sent him to you. Receive him as you would my own child."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.13",
+      "source_sha256": "c3a541560905c57e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I wanted to keep him with me so that he could serve me on your behalf during my imprisonment for the gospel."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.14",
+      "source_sha256": "e3ae56afb2d115a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But I did not want to do anything without your consent, so that your good deed would not be forced but would be done willingly."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.15",
+      "source_sha256": "eb6cec4b2b73b7e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Perhaps this is why he went away for a little while, so that you might have him forever,"
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.16",
+      "source_sha256": "17a74faf379f35b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "no longer as a slave, but more than a slave: a brother dear to me, and how much more to you, both in the flesh and in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.17",
+      "source_sha256": "c8b0927a501195e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "So if you are my partner, welcome him as you would me."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.18",
+      "source_sha256": "d8a98a51921245da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "If he has caused you any loss or owes you anything, charge it to me."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.19",
+      "source_sha256": "f2f895783ca8a08a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I, Paul, have written this with my own hands: I will repay it—not to mention that you owe me your very self."
+    },
+    {
       "chunk_id": "pta-peshitta/phlm#Phlm.1.20",
       "source_sha256": "ce75d49e0ebaec16",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "Yes, my brother, let me find refreshment through you in our Lord. Refresh my heart in Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.21",
+      "source_sha256": "d100c8786ae924b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I have written to you because I am confident that you will listen to me, and I know that you will do more than I say."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.22",
+      "source_sha256": "8b6c620ba308c3d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "At the same time, prepare a place for me to stay, for I hope that through your prayers I will be given back to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.23",
+      "source_sha256": "c27f81d5a1238d11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Epaphras, my fellow prisoner in Jesus Christ, sends you greetings,"
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.24",
+      "source_sha256": "947e164f1c8a8020",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "as do Mark, Aristarchus, Demas, and Luke, my helpers."
+    },
+    {
+      "chunk_id": "pta-peshitta/phlm#Phlm.1.25",
+      "source_sha256": "88eeaa8c151777ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "The grace of our Lord Jesus Christ be with your spirit. Amen."
     }
   ]
 }

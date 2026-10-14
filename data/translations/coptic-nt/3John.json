@@ -9,15 +9,119 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.1",
+      "source_sha256": "641edef46687ebac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "The elder writes to the beloved Gaius, whom I love in truth."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.2",
+      "source_sha256": "add23a1f80a3dbed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "My beloved, I pray that you may prosper in everything and be in good health, just as your soul prospers."
+    },
     {
       "chunk_id": "coptic-nt/3john#3John.1.3",
       "source_sha256": "88707a7c499e5464",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 1,
       "text": "I was very glad when the brothers came and testified about your faithfulness to the truth, just as you yourself live by the truth."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.4",
+      "source_sha256": "6a7c244923857e56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "For I have no greater joy than this: to hear that my children walk in truth."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.5",
+      "source_sha256": "0afd0f321564621d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "My beloved, you are acting faithfully in whatever you do for the brothers, even for strangers."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.6",
+      "source_sha256": "e0730f6590b07f9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "They have testified to your love before the church. You will do well to send them on their way in a manner worthy of God."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.7",
+      "source_sha256": "8117691c7a2551bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "For they went out for the sake of the Name, taking nothing from the Gentiles."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.8",
+      "source_sha256": "90f3f788889f3b52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "We therefore ought to welcome such people, so that we may become fellow workers for the truth."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.9",
+      "source_sha256": "4c42101ff7c6de08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "You wrote something [?] to the church, because Diotrephes, who loves to be first among them, does not welcome us."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.10",
+      "source_sha256": "45c8f499b2ea00bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Therefore, if I come, I will remind you of the things he does, speaking malicious nonsense against us. And he is not content with this: he himself does not welcome the brothers, and he prevents those who welcome them and throws them out of the church."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.11",
+      "source_sha256": "4a7c453958ecbf62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "My beloved, do not imitate what is evil, but what is good. Whoever does good is from God. Whoever does evil has not seen God."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.12",
+      "source_sha256": "2f4d9895c7fe495a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Everyone has testified on behalf of Demetrius, and so has the truth. We too also testify, and you yourself know that our testimony is true."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.13",
+      "source_sha256": "5fa331368eb5b1ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "I have many things to write to you, but I do not want to write them to you with ink and a reed pen."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.14",
+      "source_sha256": "41390f657ea4aaad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "But I hope to see you soon, and we will speak with one another face to face."
+    },
+    {
+      "chunk_id": "coptic-nt/3john#3John.1.15",
+      "source_sha256": "a28c5f8650e71d4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "May peace be with you. Our friends greet you. Greet the friends by name."
     }
   ]
 }

@@ -154,3 +154,36 @@ def test_run_stops_at_max_cost(tmp_path: Path, monkeypatch):
                   include_unpublishable=False)
     assert len(fake.requests) == 1
     assert len(tr.load(tmp_path / "t", "src/a.json").translations) == 1
+
+
+def test_run_with_opus_records_the_model_that_answered(tmp_path: Path, monkeypatch):
+    from scripts import translate
+
+    class Served(FakeClients):
+        def call(self, name, system, user, schema, effort=None):
+            out, usage = super().call(name, system, user, schema, effort)
+            self.names = [*getattr(self, "names", []), name]
+            # first request answered by Opus, second by a server-side fallback model
+            served = "claude-opus-5-5" if len(self.requests) == 1 else "claude-fallback-x"
+            return out, {**usage, "model": name, "served_by": served}
+
+    fake = Served()
+    monkeypatch.setattr(translate, "Clients", lambda: fake)
+    monkeypatch.setattr(translate, "BULK_MAX_ITEMS", 1)
+    norm = write_corpus(tmp_path, {"a": ("public_domain", [chunk("1", "ܐ"), chunk("2", "ܒ")])})
+    translate.run(input_dir=norm, store_dir=tmp_path / "t", langs=["syc"], work_prefixes=[],
+                  workers=1, max_requests=None, max_cost=None, dry_run=False,
+                  include_unpublishable=False, model="opus")
+    assert fake.names == ["opus", "opus"]
+    a = tr.load(tmp_path / "t", "src/a.json")
+    assert {a.provenance[t.provenance].model for t in a.translations} == {
+        "claude-opus-5-5", "claude-fallback-x"}
+
+
+def test_clients_are_lazy_and_keep_their_dispatch_methods():
+    from scripts.embed_eval import translate as et
+
+    clients = et.Clients()
+    # The lazily created SDK client must not shadow the _anthropic/_openai methods.
+    assert callable(clients._anthropic) and callable(clients._openai)
+    assert clients._anthropic_client is None and clients._http is None

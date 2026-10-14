@@ -9,15 +9,336 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.1",
+      "source_sha256": "dc0904b7d96c8b41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Long ago, God spoke to our ancestors through the prophets in many parts and in many ways."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.2",
+      "source_sha256": "f7c7fc8c35886a93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In these last days he has spoken to us through the Son, whom he appointed heir of everything and through whom he made the ages."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.3",
+      "source_sha256": "10127e24c4df1c33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the radiance of God's glory and the image of his very being, sustaining everything by his powerful word. After he himself had purified us from our sins, he sat down at the right hand of the Majesty on high."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.4",
+      "source_sha256": "c984c57d3afa57eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is as much greater than the angels as the name he has inherited is more excellent than theirs."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.5",
+      "source_sha256": "b119c1bc11011b46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For to which of his angels did he ever say, “You are my Son; today I have fathered you”? And again, “I will be a father to him, and he will be a son to me”?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.6",
+      "source_sha256": "17e4cf74f88a431a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And when he again brings the firstborn into the world, he says, “Let all God's angels worship him.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.7",
+      "source_sha256": "b93306b7ec5f0e17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Concerning the angels he says, “He makes his angels spirits and his servants flames of fire.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.8",
+      "source_sha256": "b3fec37ba7af29ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But concerning the Son he says, “Your throne, O God, lasts forever and ever, and the scepter of your kingdom is a scepter of uprightness."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.9",
+      "source_sha256": "c2dcd46f6a43cd85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have loved righteousness and hated oppression. Therefore God, your God, has anointed you with the oil of joy beyond your companions.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.10",
+      "source_sha256": "4c5874b86dfd78c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And, “You, Lord, laid the foundation of the earth in the beginning, and the heavens are the work of your hands."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.11",
+      "source_sha256": "5f6406d85b83273a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They will perish, but you remain. They will all wear out like a garment."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.12",
+      "source_sha256": "e6e2ef9fc545d0b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You will fold them up like a cloak, and they will be changed. But you remain the same, and your years will never end.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.13",
+      "source_sha256": "7b797cf5b6ff5903",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But to which of his angels did he ever say, “Sit at my right hand until I make your enemies a footstool for your feet”?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.1.14",
+      "source_sha256": "209ee35a452a6eab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Are they not all serving spirits, sent out to serve those who will inherit salvation?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.1",
+      "source_sha256": "05756369823069a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore we must pay much closer attention to what we hear, so that we do not drift away."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.2",
+      "source_sha256": "939d91dd7a25a105",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if the message spoken through the angels proved binding, and every transgression and every act of disobedience received its deserved punishment,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.3",
+      "source_sha256": "def34e9b11089d5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "how will we escape if we neglect so great a salvation? It was first proclaimed by the Lord and was confirmed to us by those who heard him,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.4",
+      "source_sha256": "26273c1b60221463",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "while God testified along with them through signs, wonders, various miracles, and distributions of the Holy Spirit according to his will."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.5",
+      "source_sha256": "38a52e698067bca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he did not subject the world to come, about which we are speaking, to angels."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.6",
+      "source_sha256": "4f4f4e176359ed4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But someone testified somewhere, saying, “What is a human being that you remember him, or a son of man that you care for him?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.7",
+      "source_sha256": "c7decfeac5e2ffa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You made him a little lower than the angels, crowned him with glory and honor, and placed him over all the works of your hands."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.8",
+      "source_sha256": "eb9df7ed6155f8b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You subjected everything beneath his feet.” In subjecting everything to him, he left nothing that was not subject to him. But now we do not yet see everything subjected to him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.9",
+      "source_sha256": "d8ce3027c98fbaba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we see Jesus, who was made a little lower than the angels, crowned with glory and honor because he suffered death, so that by God's grace he might taste death for everyone."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.10",
+      "source_sha256": "f253d60b49f7733d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it was fitting that he, for whom everything exists and through whom everything came into being, should bring many sons into glory by making the leader of their salvation perfect through sufferings."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.11",
+      "source_sha256": "16b4d40486242d88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one who purifies and those who are purified all come from one. Therefore he is not ashamed to call them his brothers."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.12",
+      "source_sha256": "0cd68c652c32c03a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He says, “I will proclaim your name among my brothers and sisters; in the midst of the assembly I will praise you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.13",
+      "source_sha256": "5bce774b2185f5e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again, “I will trust in him.” And again, “Here I am, with the children God has given me.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.14",
+      "source_sha256": "fda7693575137281",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since the children share in blood and flesh, he himself likewise shared in these, so that through his death he might destroy the one who has power over death, that is, the devil."
+    },
     {
       "chunk_id": "coptic-nt/heb#Heb.2.15",
       "source_sha256": "f1451ff4bb89be7d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "And free those who, through fear of death, were subject to slavery throughout their entire lives."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.16",
+      "source_sha256": "059ac07e1297b882",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he does not take hold of angels, but he takes hold of Abraham’s descendants."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.17",
+      "source_sha256": "15f1b702df3437b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason he had to become like his brothers and sisters in every respect, so that he might become a merciful and faithful high priest before God, to forgive the sins of the people."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.2.18",
+      "source_sha256": "c648561ad543a63e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through the suffering he endured when he was tested, he is able to help those who are being tested."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.1",
+      "source_sha256": "7b211959e4cd28c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, holy brothers and sisters who share in the heavenly calling, consider Jesus, the apostle and high priest of our confession."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.2",
+      "source_sha256": "ee20367a0cd85190",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is faithful to the one who appointed him, just as Moses also was faithful in his house."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.3",
+      "source_sha256": "6baef373a3d7a7f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he was considered worthy of greater glory than Moses, just as the one who built a house has greater honor than the house."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.4",
+      "source_sha256": "cec5407e0711406b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every house is built by someone, but the one who built everything is God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.5",
+      "source_sha256": "f6960b3dfae27f28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Moses, for his part, was faithful in his whole house as a servant, as a testimony to the things that would be spoken."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.6",
+      "source_sha256": "b18c95ba973bf1eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Christ is over his house as a son. We are his house if we hold on to our confidence and the hope in which we take pride."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.7",
+      "source_sha256": "5c400acca5c5bd42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, as the Holy Spirit said, “Today, if you hear his voice,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.8",
+      "source_sha256": "de3ef2464180e165",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "do not harden your hearts as at the place of provocation, on the day of testing in the wilderness,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.9",
+      "source_sha256": "c2bcce9e266595fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "where your ancestors put him to the test and saw my works"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.10",
+      "source_sha256": "0d5f4a5e15d9f0fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for forty years. For this reason I hated that generation and said, ‘They always go astray in their hearts, and they have not known my ways.’"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.11",
+      "source_sha256": "cd5682b0cb561ae4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As I swore in my anger, ‘They will not enter my place of rest.’”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.12",
+      "source_sha256": "afa0160606df1aa0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So take care, brothers and sisters, that none of you has an evil, unbelieving heart that turns away from the living God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.13",
+      "source_sha256": "ae6cecd973d0d8ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, encourage one another every day, as long as it is called ‘today,’ so that none of you becomes hard-hearted through the deceitfulness of sin."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.14",
+      "source_sha256": "c15ef9f5a59dc456",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we have come to share in Christ, if we hold our original confidence firmly to the end."
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.3.15",
@@ -27,11 +348,256 @@
       "text": "When he says, “Today, if you hear his voice, do not harden your hearts as at the place of provocation.”"
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.3.16",
+      "source_sha256": "1bc16473ff76e00d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For some heard and provoked him, but not all those who came out of Egypt through Moses."
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.3.17",
       "source_sha256": "b88cecb897418cf3",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "And whom did he hate for forty years? Was it not those who sinned, whose corpses fell in the wilderness?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.18",
+      "source_sha256": "341e00c178f0549c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And to whom did he swear that they would not enter his place of rest, if not to those who did not believe?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.3.19",
+      "source_sha256": "881c8eb65708fe1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we see that they were unable to enter because of their unbelief."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.1",
+      "source_sha256": "accd4e4995c23a61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, let us also be afraid that, while the promise of entering his place of rest remains, any one of you might fall short of it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.2",
+      "source_sha256": "86f47138e56ec145",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the good news was preached to us just as it was to them, but the message they heard did not benefit them, because it was not mixed with faith in those who heard it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.3",
+      "source_sha256": "446925df2d2cea05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we who have believed will enter his place of rest, just as he said, “As I swore in my anger, they will not enter my place of rest,” although the works had been completed since the foundation of the world."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.4",
+      "source_sha256": "b3fc500f99814f28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For somewhere he spoke about the seventh day in this way: “God rested on the seventh day from all his works.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.5",
+      "source_sha256": "b1c796dcab7a05ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again: “They will not be able to enter my place of rest.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.6",
+      "source_sha256": "032943827da8a432",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since, then, it remains for some to enter it, and those who first received the good news did not enter because of their unbelief,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.7",
+      "source_sha256": "1c85aaf4697dcc7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "he again set apart a day, “Today,” speaking through David after so long a time, as he had said before: “Today, if you hear his voice, do not harden your hearts.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.8",
+      "source_sha256": "cbfc9525cc917e9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if Joshua had given them rest, he would not have spoken afterward about another day."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.9",
+      "source_sha256": "2225b198728091b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So a Sabbath rest remains for the people of God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.10",
+      "source_sha256": "e07756f587561c9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For whoever has entered his place of rest has also rested from his own works, just as God did from his."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.11",
+      "source_sha256": "d7046c1137fd5d2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore make every effort to enter that place of rest, so that no one falls through the same pattern of unbelief."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.12",
+      "source_sha256": "b185084a5a012272",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the word of God is alive and active, and sharper than any double-edged sword. It pierces as far as the division of soul and spirit, of joints and marrow, and judges the thoughts and intentions of the heart."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.13",
+      "source_sha256": "4824d3439924dfcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And no creature is hidden from his sight, but all are exposed and laid bare before him, the one to whom we must give an account."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.14",
+      "source_sha256": "25d6957ce9bf8af0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since, then, we have a great high priest who has passed through the heavens, Jesus the Son of God, let us hold firmly to our confession."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.15",
+      "source_sha256": "de9e0bc53028560a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the high priest we have is not unable to share in our suffering in our weaknesses. Rather, he has been tested in every way as we are, yet without sin."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.4.16",
+      "source_sha256": "28e34ab9591f7ed9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore approach the throne of grace with confidence, so that we may receive mercy and find grace to help us at the right time."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.1",
+      "source_sha256": "f7022a1eed74777c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every high priest taken from among human beings is appointed over people before God, to offer gifts and sacrifices for sins."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.2",
+      "source_sha256": "f563b687fe097741",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is able to share in the suffering of those who are ignorant and those who go astray, because he himself lives in weakness."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.3",
+      "source_sha256": "d38c03a058f18368",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And because of this, just as he offers sacrifices for the people, he must also offer them for himself, for his own sins."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.4",
+      "source_sha256": "d860103b717e6527",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one takes this honor for himself; rather, he is called by God, just as Aaron was."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.5",
+      "source_sha256": "b01d348ef84a7b13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, Christ did not glorify himself to become high priest. Rather, it was the one who said to him, “You are my Son; today I have fathered you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.6",
+      "source_sha256": "84ca17e018a3dd14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as he also says in another place, “You are a priest forever according to the order of Melchizedek.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.7",
+      "source_sha256": "5b9339411d042e57",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "During the days of his life in the flesh, he offered up prayers and pleas to the one who was able to save him from death, with loud cries and tears, and he was heard because of his reverent fear."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.8",
+      "source_sha256": "740643ef1fc2d123",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Although he was the Son, he learned obedience through what he suffered."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.9",
+      "source_sha256": "4f4ba895a77d3c99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And having been made perfect, he became the source of eternal salvation for everyone who obeys him,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.10",
+      "source_sha256": "c6dea2f26825c5e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "having been named by God as high priest according to the order of Melchizedek."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.11",
+      "source_sha256": "3e778be8fd1f3eec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have much to say about him, and it is difficult to explain, because your hearing has become dull."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.12",
+      "source_sha256": "a457d85651c38f44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For although you ought to be teachers by this time, you again need to be taught what the basic elements of God's words are. You have come to need milk, not solid food."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.13",
+      "source_sha256": "19556fc36f080b9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone who feeds on milk is unfamiliar with the teaching about righteousness, because he is a little child."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.5.14",
+      "source_sha256": "845f3808f26117da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But solid food belongs to the mature, whose senses have been trained through practice to distinguish between good and evil."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.1",
+      "source_sha256": "1dbf9143a8111558",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, leaving behind the elementary teaching about Christ, let us move on to maturity in him, without laying again a foundation of repentance from dead works and faith in God,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.2",
+      "source_sha256": "34934edb44590a53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and instruction about baptism, the laying on of hands, resurrection from the dead, and eternal judgment."
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.6.3",
@@ -48,11 +614,466 @@
       "text": "For it is impossible for those who were once enlightened, who tasted the heavenly gift and became sharers in the Holy Spirit"
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.6.5",
+      "source_sha256": "a05b9a16bb6dc3b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "having tasted the good word of God and the powers of the age to come,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.6",
+      "source_sha256": "32c4f2031b5a96be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and having fallen away, to renew them again to repentance, while they crucify the Son of God again for themselves and expose him to public disgrace."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.7",
+      "source_sha256": "c3f1b7d4201aa8c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For land that drinks the rain that often falls on it and produces crops useful to those for whose sake it is cultivated will receive a blessing from God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.8",
+      "source_sha256": "a51aed2526975126",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if it produces thorns and thistles, it is rejected and is close to being cursed. Its end will be to be burned."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.9",
+      "source_sha256": "b003581bfd3cb588",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we are convinced about you, beloved, that you are better and are close to salvation, even though we speak this way."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.10",
+      "source_sha256": "c58da06d5ec0347b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is not unjust, so as to forget your work and the love you have shown toward his name by serving the holy ones and continuing to serve them."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.11",
+      "source_sha256": "17bf8fb878435019",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we desire each one of you to show the same diligence toward full assurance of hope, firmly held to the end,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.12",
+      "source_sha256": "6561516c2c1888c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you will not become lazy, but will imitate those who will inherit the promises through their faith and patience."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.13",
+      "source_sha256": "7e92340de65972b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For when God made a promise to Abraham, because there was no one greater than himself by whom he could swear, he swore by himself,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.14",
+      "source_sha256": "cf7719ae7a7ff7c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "saying, \"I will surely bless you, and I will surely multiply you.\""
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.15",
+      "source_sha256": "a09e25c48a8f8b11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And so, after patiently waiting, he obtained the promise."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.16",
+      "source_sha256": "e2a9f9698c2853ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For people swear by someone greater than themselves, and an oath that confirms the matter for them ends every dispute."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.17",
+      "source_sha256": "fbe62da1e058276c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In this way, God, wishing to show the heirs of the promise more clearly that his purpose does not change, guaranteed it with an oath,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.18",
+      "source_sha256": "1cf4a1536755b455",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that through two unchangeable things, in which it is impossible for God to lie, we who have fled for refuge might receive strong encouragement to take hold of the hope set before us."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.19",
+      "source_sha256": "b8ff6a9031c522c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This hope is like an anchor for our soul, secure and firm, entering the inner place behind the curtain,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.6.20",
+      "source_sha256": "921c7f629b5e13ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "where Jesus, the forerunner, has entered on our behalf, having become a priest forever according to the order of Melchizedek."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.1",
+      "source_sha256": "b423c22fedc62edd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this Melchizedek is king of Salem and priest of God Most High. He met Abraham as he returned from the slaughter of the kings and blessed him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.2",
+      "source_sha256": "e3a3d0e8474e5338",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Abraham gave him a tenth of everything. First, his name is translated \"king of righteousness,\" and then he is also \"king of Salem,\" which means \"king of peace.\""
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.3",
+      "source_sha256": "b74b3cb1c537a841",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is without father and without mother; his ancestry is not spoken of. He has neither a beginning of days nor an end of life, but resembles the Son of God and remains a priest forever."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.4",
+      "source_sha256": "3ad6506de74f3929",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now consider how great this man is, to whom Abraham the patriarch gave a tenth of the spoils."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.5",
+      "source_sha256": "b0b18ab63dbfc4ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those from among the sons of Levi who receive the priesthood have a commandment under the law to collect a tenth from the people—that is, from their own brothers—even though they too are descended from Abraham."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.6",
+      "source_sha256": "e0f26a05158e8eea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this man, whose ancestry is not traced from them, collected a tenth from Abraham and blessed the one who had the promises."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.7",
+      "source_sha256": "4c49c273f054ca2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, beyond any dispute, the lesser person receives a blessing from the one who is greater."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.8",
+      "source_sha256": "7d484b5ea051f6b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here, people who die receive the tenths, but there, they are received by someone who is testified to be alive."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.9",
+      "source_sha256": "6f351bae8f3c267e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And, so to speak, through Abraham a tenth was paid even on behalf of Levi, who receives tenths."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.10",
+      "source_sha256": "603de8a8710a5caf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he was still in his father's loins when Melchizedek met him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.11",
+      "source_sha256": "aa20cd12494e5704",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If, then, perfection came through the Levitical priesthood—for the people received the law on the basis of it—what need was there for another priest to arise according to the order of Melchizedek, rather than being called a priest according to the order of Aaron?"
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.7.12",
       "source_sha256": "e2f96ade06f02a2c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "For when the priesthood is changed, a change in the law must also take place."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.13",
+      "source_sha256": "bb499b772b2e3664",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one about whom these things are said belonged to another tribe, from which no one served at the altar."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.14",
+      "source_sha256": "38039407720589c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is clear that our Lord arose from Judah, the tribe about which Moses said nothing concerning a priest coming from it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.15",
+      "source_sha256": "026235584a10b899",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is even clearer if another priest is to arise in the likeness of Melchizedek."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.16",
+      "source_sha256": "00647b9b4a6fbc60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He became a priest not according to the law of a bodily commandment, but according to the power of life that lasts forever."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.17",
+      "source_sha256": "f3cc54adc2fa3770",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this testimony is given about him: “You are a priest forever according to the order of Melchizedek.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.18",
+      "source_sha256": "7738ce2227d01328",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the former commandment was set aside because of its weakness and its uselessness."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.19",
+      "source_sha256": "78016dd1a7156f54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law made nothing perfect, but a better hope is brought in, through which we will draw near to God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.20",
+      "source_sha256": "badc48dea6cf3c4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this was not without an oath. For those others became priests without an oath."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.21",
+      "source_sha256": "41374fad819745d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this man became a priest with an oath, through the one who says to him: “The Lord has sworn and will not change his mind: You are a priest forever.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.22",
+      "source_sha256": "84970763ee913592",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To that extent, Jesus has become the guarantor of a better covenant."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.23",
+      "source_sha256": "df75e2b380b1335c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Among those others, many became priests, because death did not allow them to continue."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.24",
+      "source_sha256": "ad249527dc1dddfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this man, because he will remain forever, holds his priesthood without interruption."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.25",
+      "source_sha256": "a37a362d967a6127",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, he is also able at all times to save those who approach God through him, since he is always alive to intercede for them."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.26",
+      "source_sha256": "982836b63df433a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a high priest of this kind is fitting for us: holy, innocent, undefiled, separated from sins, and raised to the heavens."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.27",
+      "source_sha256": "045dc2a7cb8b205d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He has no daily need, like the high priests, to offer sacrifices first for their own sins and then for those of the people. For he did this once when he offered himself."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.7.28",
+      "source_sha256": "eb0ed58f42b5146f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law appoints as priests people who themselves are subject to weakness, but the word of the oath, which came after the law, appoints the Son, who is perfect forever."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.1",
+      "source_sha256": "bef90f4948e4a1cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now the main point of what we are saying is this: we have a high priest of this kind, who sat down at the right hand of the throne of the Majesty in the heavens."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.2",
+      "source_sha256": "e5f004dffa3bd550",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the minister of the sanctuary and of the true tent, which the Lord set up, not a human being."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.3",
+      "source_sha256": "05419afde8579e40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every high priest is appointed to offer gifts and sacrifices, so this one too must have something to offer."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.4",
+      "source_sha256": "d31923430c942cb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if he were on earth, he would not be a priest, since there are already people who offer gifts according to the law."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.5",
+      "source_sha256": "b27334caeff4e621",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They serve in a copy and shadow of the heavenly things, just as Moses was instructed when he was about to complete the tent. For he said, “See that you make everything according to the pattern shown to you on the mountain.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.6",
+      "source_sha256": "e6d4b4e4e7248ca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now he has received a more excellent ministry, just as he is also the mediator of a better covenant, established on better promises."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.7",
+      "source_sha256": "ffd59c4cf2fe69ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if the first covenant had been without fault, he would not have sought a place for a second."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.8",
+      "source_sha256": "72fea840a218e02d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he finds fault with them and says, “Look, days are coming, says the Lord, when I will establish a new covenant with the house of Israel and the house of Judah."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.9",
+      "source_sha256": "5b25c9222fb27498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It will not be like the covenant I made with their ancestors in the days when I took them by the hand to lead them out of the land of Egypt. For they did not remain in my covenant, and I too disregarded them, says the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.10",
+      "source_sha256": "482eefef55aca031",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is the covenant I will establish with the house of Israel after those days, says the Lord: I will put my laws in their minds and write them on their hearts. I will be their God, and they will be my people."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.11",
+      "source_sha256": "0748ef3ce927d98b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one will teach their neighbor or their brother, saying, ‘Know the Lord,’ because they will all know me, from the least of them to the greatest."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.12",
+      "source_sha256": "8c30669dfca571f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I will forgive their wrongdoing and will no longer remember their sins.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.8.13",
+      "source_sha256": "fcf90cbf074292d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By saying “new,” he has made the first covenant old. And what has become old and aged is close to disappearing."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.1",
+      "source_sha256": "f844abbffe6c4af5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The first covenant had regulations for worship and an earthly sanctuary."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.2",
+      "source_sha256": "2a57eeb7a8aeb13e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the first tent was constructed, containing the lampstand, the table, the bread set out before God, and the golden censer. It is called the Holy Place."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.3",
+      "source_sha256": "4e48683e6e724b89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Behind the second curtain is the tent called the Holy of Holies."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.4",
+      "source_sha256": "31a768e1f3cf9c21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It contains the ark of the covenant, covered with gold on every side. Inside it are the golden jar containing the manna, Aaron’s staff that sprouted, and the tablets of the covenant."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.5",
+      "source_sha256": "c95a4eea69229197",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Above it are the glorious cherubim, overshadowing the mercy seat. We do not now have the opportunity to describe these things one by one."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.6",
+      "source_sha256": "7e8b441bb1866407",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With these things arranged in this way, the priests regularly enter the first tent to carry out their worship duties."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.7",
+      "source_sha256": "c307b2e488dc02af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But only the high priest enters the second, once a year, and never without blood, which he offers for himself and for the sins the people commit in ignorance."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.8",
+      "source_sha256": "668dcfb1c0de7103",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Holy Spirit makes this clear: the way into the sanctuary has not yet been revealed while the first tent still stands."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.9",
+      "source_sha256": "1da216ce3e950dce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is a symbol for the present time, in which gifts and sacrifices are offered that cannot make the worshipers perfect in conscience."
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.9.10",
@@ -62,11 +1083,130 @@
       "text": "These concern only food and drink and various washings—regulations for the body imposed until the time of putting things right."
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.9.11",
+      "source_sha256": "5bd0229521f94c5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when Christ came as high priest of the good things to come, through the greater and perfect tent, not made by human hands—that is, not belonging to this creation—"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.12",
+      "source_sha256": "f25f37f1f9b08439",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "he entered the sanctuary once for all, not through the blood of goats and calves but through his own blood, having obtained eternal redemption."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.13",
+      "source_sha256": "60f2b33a1040f4f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if the blood of goats and calves and the ashes of heifers, sprinkled on those who are defiled, make them clean as far as bodily purification is concerned,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.14",
+      "source_sha256": "596b6dd7b60087ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "how much more will the blood of Christ, who through a holy spirit offered himself holy to God, cleanse your consciences from dead works so that you may serve the living God!"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.15",
+      "source_sha256": "dc4272a14d83d1f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And for this reason he is the mediator of a new covenant, so that, when a death has occurred to redeem the transgressions committed under the first covenant, those who are called may receive the promise of the eternal inheritance."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.16",
+      "source_sha256": "fd7761837802e2ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For where there is a will, the person who made it must die."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.17",
+      "source_sha256": "31da8df54c443dad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a will becomes valid when people have died, since it has no force while the person who made it is alive."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.18",
+      "source_sha256": "22ae0c13b38e0e97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That is why even the first covenant was not inaugurated without blood."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.19",
+      "source_sha256": "e91a60293ed5f3e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For when Moses had proclaimed every commandment according to the law to all the people, he took the blood of calves and goats, along with water, scarlet wool, and hyssop, and sprinkled both the book itself and all the people,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.20",
+      "source_sha256": "bc173ce26eb2392b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "saying, “This is the blood of the covenant that God has commanded for you.”"
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.9.21",
       "source_sha256": "c30e581cac9bd0a9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "He also sprinkled the tent and all the utensils used in worship with blood in the same way."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.22",
+      "source_sha256": "166a9650d90673d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And according to the law, almost everything is purified with blood, and without the shedding of blood there is no forgiveness."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.23",
+      "source_sha256": "51be10d30314b394",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was therefore necessary for the copies of the things in heaven to be purified with these things, but the heavenly things themselves with sacrifices better than these."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.24",
+      "source_sha256": "8c1243a1ca36a16d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Christ did not enter a sanctuary made by human hands, a copy of the true one, but heaven itself, to appear now before God on our behalf."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.25",
+      "source_sha256": "5a1e6e0e005e5ce0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did he enter to offer himself many times, as the high priest enters the Holy of Holies every year with blood that is not his own."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.26",
+      "source_sha256": "d00900dbbc639c59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Otherwise, he would have had to die many times since the foundation of the world. But now, at the end of the ages, he has appeared once to abolish sin through his sacrifice."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.27",
+      "source_sha256": "09d4957bd7cc820d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And just as people are appointed to die once, and after that comes judgment,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.9.28",
+      "source_sha256": "0d4b1fa569fc1f27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so also Christ, having offered himself once to bear the sins of many, will appear a second time, apart from sin, to bring salvation to those who are waiting for him."
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.10.1",
@@ -76,11 +1216,333 @@
       "text": "For the law has a shadow of the good things to come, not the actual image of those things. With the same sacrifices offered repeatedly every year, it can never make perfect those who approach them."
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.10.2",
+      "source_sha256": "f1226f9c717778f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Otherwise, would they not have stopped offering them, since the worshipers, once purified, would no longer have any consciousness of sins?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.3",
+      "source_sha256": "dff751720c5c9222",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in these sacrifices there is a reminder of sins every year."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.4",
+      "source_sha256": "182119ad735d2a58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is impossible for the blood of goats and calves to take away sins."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.5",
+      "source_sha256": "5b044f07b7bdb0f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That is why, when he comes into the world, he says, “You did not want sacrifice and offering, but you prepared a body for me."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.6",
+      "source_sha256": "f11097d44ee4306c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You took no pleasure in burnt offerings and offerings for sin."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.7",
+      "source_sha256": "794f44a8219b6efb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then I said, ‘Look, I have come—it is written about me in the scroll of the book—to do your will, O God.’”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.8",
+      "source_sha256": "46cece4ae1aec742",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Above, he says, “You did not want sacrifices and offerings and burnt offerings and offerings for sin, nor did you take pleasure in them”—these are offered according to the law."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.9",
+      "source_sha256": "fe4093c62c600854",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then he said, “Look, I have come to do your will.” He removes the first to establish the second."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.10",
+      "source_sha256": "130ac3af5f45e902",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this will we have been purified through the offering of the body of Jesus Christ once."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.11",
+      "source_sha256": "c9150fa4365a576d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every high priest stands daily, serving and offering the same sacrifices many times, sacrifices that can never take away sins."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.12",
+      "source_sha256": "ad8f9fa50e1a60c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he offered himself as one sacrifice for sins and sat down forever at God's right hand,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.13",
+      "source_sha256": "c2aa58fcb9124316",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "waiting until his enemies are placed beneath his feet."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.14",
+      "source_sha256": "afce9d97e0138f66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For by one offering he has perfected forever those who will be purified."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.15",
+      "source_sha256": "16bff81925f02580",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Holy Spirit also testifies to us, for after he says:"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.16",
+      "source_sha256": "fcd87e7c8153cd4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“This is the covenant that I will establish with them after those days, says the Lord: I will put my laws on their hearts and write them on their minds.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.17",
+      "source_sha256": "111ec00bb3859c32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Afterward he says, “I will no longer remember their sins and their lawless deeds.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.18",
+      "source_sha256": "774984c224ca821f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now where these are forgiven, there is no longer an offering for sin."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.19",
+      "source_sha256": "c04778e9a753717e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, my brothers and sisters, we have confidence to enter the sanctuary through the blood of Jesus,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.20",
+      "source_sha256": "1a9fb08e6c62f344",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "by the new and living way that he opened for us through the curtain, that is, his flesh,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.21",
+      "source_sha256": "85e770c85f0dbac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and we have a great priest over the house of God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.22",
+      "source_sha256": "1490547a4262a5a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us approach with a sincere heart and the full assurance of faith, with our hearts sprinkled clean from an evil conscience and our body washed with pure water."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.23",
+      "source_sha256": "aa585e8d3c005e9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us hold firmly to the confession of our hope without wavering, for the one who promised is faithful."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.24",
+      "source_sha256": "d3e2f4218e0cd86e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us look out for one another, encouraging love and good deeds,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.25",
+      "source_sha256": "8acb232caf8cfd6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "not abandoning our gathering together, as some habitually do, but encouraging one another, and all the more as you see the day approaching."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.26",
+      "source_sha256": "56418d2a898441bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if we sin deliberately after receiving the knowledge of the truth, no sacrifice for sin remains,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.27",
+      "source_sha256": "d617745792f2ba46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but a fearful expectation of judgment and the blazing fire that will consume the enemies."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.28",
+      "source_sha256": "a68ac1fe634f87f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone rejects the law of Moses, he dies without mercy on the testimony of two or three witnesses."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.29",
+      "source_sha256": "95815680eb08efac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then how much punishment do you think someone will deserve who tramples on the Son of God, considers the blood of the covenant by which he was made holy to be defiled, and insults the Spirit of grace?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.30",
+      "source_sha256": "06f6b7fe0557c9e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we know the one who said, “Leave vengeance to me, and I will repay,” and again, “The Lord will judge his people.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.31",
+      "source_sha256": "f0ccb55a044b92e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is a fearful thing to fall into the hands of the living God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.32",
+      "source_sha256": "5799ee9a65a63ea9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember the earlier days when you received the light and endured a great struggle of suffering."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.33",
+      "source_sha256": "396bd760414b38d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At times you were mocked with insults and afflictions, and at other times you became companions of those who were undergoing these things."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.34",
+      "source_sha256": "88169f947788e20a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you suffered with the prisoners and joyfully accepted the seizure of your possessions, knowing that you have better and lasting wealth."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.35",
+      "source_sha256": "8769875f325946bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not throw away your confidence, which has a great reward."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.36",
+      "source_sha256": "fa8bdcb0de755d47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you need endurance so that, after doing the will of God, you may receive what was promised."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.37",
+      "source_sha256": "1347e4564ef03907",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in just a very little while, the one who is coming will come and will not delay."
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.10.38",
       "source_sha256": "a97e5345439e3f8f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "But my righteous one will live by faith, and if he draws back, my soul takes no pleasure in him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.10.39",
+      "source_sha256": "63246bf6bfde5856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we do not belong to those who draw back to destruction, but to those who have faith for the salvation of our souls."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.1",
+      "source_sha256": "ea1a5f7564ceed74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now faith is the assurance of the things we hope for and the evidence of things we do not see."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.2",
+      "source_sha256": "ee66dc4a3a8e3b1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through this, the elders received a favorable testimony."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.3",
+      "source_sha256": "349acaa36d1eb809",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith we understand that the ages were established by the word of God, so that what we see came into being from what did not exist."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.4",
+      "source_sha256": "0845f4783189a754",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Abel offered God a better sacrifice than Cain. Through it he received testimony that he was righteous, as God testified concerning his gifts. And through it he still speaks, even after his death."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.5",
+      "source_sha256": "5298e22d173fb18d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Enoch was taken away so that he would not experience death. He could not be found because God had taken him away. For before he was taken away, he received testimony that he had pleased God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.6",
+      "source_sha256": "acdeb02eb27a0687",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But without faith it is impossible to please him. For anyone who approaches God must believe that he exists and that he will reward those who seek him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.7",
+      "source_sha256": "807611e0ff283989",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Noah, having been warned about things he could not see, acted in reverent fear and built an ark to save his household. Through it he condemned the world and became an heir of the righteousness that comes through faith."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.8",
+      "source_sha256": "a47092d3eea8eaf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Abraham, when he was called, obeyed and went out to the place he would receive as an inheritance. He went out without knowing where he was going."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.9",
+      "source_sha256": "695f909d422e8b4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith he lived as a foreigner in the promised land, living in tents with Isaac and Jacob, who were fellow heirs of the same promise."
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.11.10",
@@ -90,11 +1552,389 @@
       "text": "For he was waiting for the city that has foundations, whose architect and builder is God."
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.11.11",
+      "source_sha256": "d2c9c1550b1be6ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Sarah herself, though barren, received the power to conceive even beyond the time of her old age, because she trusted the one who had made the promise."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.12",
+      "source_sha256": "8dad04da22bd1e21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, from one man whose body had lost its strength, descendants were born as numerous as the stars of heaven and as countless as the sand along the seashore."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.13",
+      "source_sha256": "deb93a1509f6edd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All these died in faith without receiving the promises. But they saw them from far away and welcomed them, and they acknowledged that they were foreigners and strangers on the earth."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.14",
+      "source_sha256": "ca9858e267ffbf16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who say such things make it clear that they are seeking a city."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.15",
+      "source_sha256": "296d811dbb983bc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If they had been thinking of the one they had left, they would have had an opportunity to return to it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.16",
+      "source_sha256": "53a2d7bc23d38f94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now they desire the better one, the heavenly one. For this reason God is not ashamed of them or of being called their God, for he has prepared a city for them."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.17",
+      "source_sha256": "5e870d57c4f089d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Abraham offered up Isaac when he was being tested. The man who had received the promises offered up his only son."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.18",
+      "source_sha256": "a16006fc6ae920bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was the one to whom it had been said, “Through Isaac, descendants will be named for you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.19",
+      "source_sha256": "c67f0d6ea1a75bd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He reasoned that God was able to raise him from the dead. For this reason he also received him back, in a figurative sense."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.20",
+      "source_sha256": "dc38acdb550df712",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Isaac blessed Jacob and Esau concerning things that were to come."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.21",
+      "source_sha256": "7a58be4d36e13cdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Jacob, when he was about to die, blessed each of Joseph’s sons and worshiped over the top of his staff."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.22",
+      "source_sha256": "f0f2039bd5f47d78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Joseph, when he was about to die, spoke of the departure of the children of Israel and gave instructions concerning his bones."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.23",
+      "source_sha256": "2fd5349a6e792cb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Moses was hidden by his parents for three months after his birth, because they saw that the little child was beautiful. They were not afraid of the king’s decree."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.24",
+      "source_sha256": "7072a587d36a02fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Moses, when he grew up, refused to be called the son of Pharaoh’s daughter."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.25",
+      "source_sha256": "081dda252b956de1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He chose instead to suffer with God’s people rather than enjoy the pleasures of sin for a time."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.26",
+      "source_sha256": "e9ee38d107e00d17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He considered the disgrace of Christ greater wealth than the treasures of Egypt, for he was looking ahead to the payment of his reward."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.27",
+      "source_sha256": "500148508e16fe48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Moses left Egypt behind without fearing the king’s anger, for he held firmly to the one who cannot be seen as though he could see him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.28",
+      "source_sha256": "9d48cd46f9765418",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith he observed the Passover and the sprinkling of blood, so that the destroyer of the firstborn would not touch them."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.29",
+      "source_sha256": "ceeba49fd2e471ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith they crossed the Red Sea as though on dry land. When the Egyptians attempted this, they drowned."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.30",
+      "source_sha256": "6e98e775873b3f0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith the walls of Jericho fell after they had marched around them for seven days."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.31",
+      "source_sha256": "d96b607cc3a1529c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By faith Rahab the prostitute did not perish with those who disbelieved, because she welcomed the spies in peace."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.32",
+      "source_sha256": "cd7d6987e49f794d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What more shall I say? Time will run out if I speak about Gideon, Barak, Samson, Jephthah, David, Samuel, and the rest of the prophets."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.33",
+      "source_sha256": "8cf2c4b3656fd0b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through faith these people conquered kingdoms, practiced righteousness, obtained the promises, and shut the mouths of lions."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.34",
+      "source_sha256": "f2b94a85c64a4ffa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They quenched the power of fire, escaped the edge of the sword, gained strength in weakness, became mighty in war, and routed the armies of foreigners."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.35",
+      "source_sha256": "d22e10b07c68af6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Women received their dead back, raised to life for them. Others were put to death, refusing to accept the release of their bodies, so that they might receive a better resurrection."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.36",
+      "source_sha256": "6447f18e801b4b0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Others were tested by mockery and whipping, and also by chains and imprisonment."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.37",
+      "source_sha256": "3f372ba92fff8dac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They were sawn apart and stoned. They died by the sword. They went about in sheepskins and goatskins, deprived, oppressed, and suffering."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.38",
+      "source_sha256": "09e54925810d86f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The world was not worthy of these people. They wandered in deserts and mountains, in caves and holes in the ground."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.39",
+      "source_sha256": "b876a4aa4d153872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And although all of them received testimony in their favor through faith, they did not receive the promises."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.11.40",
+      "source_sha256": "d5c2575534ab7588",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God was looking ahead to something better for us, so that they would not be made complete without us."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.1",
+      "source_sha256": "5257ce03cacef9b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, since we too have this multitude of witnesses set before us, let us put aside all pride and the sin that stands against us, and run with endurance the race set before us."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.2",
+      "source_sha256": "b07e460fbdd38d06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us look to Jesus, the pioneer and perfecter of faith. Instead of the joy set before him, he endured the cross, disregarding its shame, and sat down at the right hand of the throne of God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.3",
+      "source_sha256": "bc23a1258651ad19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider in your hearts the one who endured such opposition from sinners, so that you do not grow weary in your souls and lose heart."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.4",
+      "source_sha256": "3c25aedf59b37640",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have not yet reached the point of shedding blood in your struggle against sin."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.5",
+      "source_sha256": "d50e04cd5c03ae6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you have forgotten the exhortation that speaks to you as children: “My son, do not take the Lord’s discipline lightly, and do not lose heart when you are rebuked by him."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.6",
+      "source_sha256": "956fd61bec9b94de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the Lord disciplines the one he loves, and he whips every son he accepts.”"
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.12.7",
       "source_sha256": "31cee60fa64d9ef4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "Endure discipline. God is treating you as children. For what child is there whose father does not discipline him?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.8",
+      "source_sha256": "325c8691f898600e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you are without the discipline in which everyone has shared, then you are illegitimate children, not sons."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.9",
+      "source_sha256": "f6b360b1c9fd6ee9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we had fathers of our flesh who disciplined us, and we respected them, should we not much more submit to the Father of spirits and live?"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.10",
+      "source_sha256": "e572dcd48907666b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they disciplined us for a few days as they wished, but he does so for our benefit, so that we may share in his holiness."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.11",
+      "source_sha256": "53013706ab83d57d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At the time, no discipline is a joy, but a sorrow. Afterward, however, it gives the peaceful fruit of righteousness to those who have been trained by it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.12",
+      "source_sha256": "c961fe4f30a03abb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, strengthen the drooping hands and the weak knees,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.13",
+      "source_sha256": "884828418c20e1d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and make straight paths for your feet, so that what is lame will not be dislocated but will instead be healed."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.14",
+      "source_sha256": "7a7ba5385940a6e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pursue peace with everyone, and holiness, without which no one will see the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.15",
+      "source_sha256": "41b67d283b4b8ce3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Watch carefully so that no one falls short of God's grace, and so that no root of bitterness grows up in bitter poison and defiles many through it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.16",
+      "source_sha256": "24bd229461ddb952",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See that no one is sexually immoral or defiled like Esau, who gave away his rights as the firstborn in exchange for a single meal."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.17",
+      "source_sha256": "1a7bf26b13e89919",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you know that afterward, when he wanted to inherit the blessing, he was rejected. He found no opportunity for repentance, even though he sought it with tears."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.18",
+      "source_sha256": "5331ff08aae71cb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have not approached something that can be touched, burning with fire, with gloom, darkness, and a storm,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.19",
+      "source_sha256": "2a05b586702e7c72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the sound of a trumpet and a voice speaking words. Those who heard that voice begged that no further word be spoken to them."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.20",
+      "source_sha256": "489683d55e16b475",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they could not bear what was said to them: “Even if an animal touches the mountain, it must be stoned.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.21",
+      "source_sha256": "2714460a18b94999",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What appeared to them was so terrifying that Moses said, “I am afraid and trembling.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.22",
+      "source_sha256": "6aad9aa9d6f8ce68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, you have approached Mount Zion and the city of the living God, the heavenly Jerusalem, and tens of thousands of angels,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.23",
+      "source_sha256": "3794f1a0b42d3c92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the festival and assembly of the firstborn who are registered in heaven, and God, the judge of everyone, and the spirits of the righteous who have been made perfect,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.24",
+      "source_sha256": "00342c7c8e39a79e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and Jesus, the mediator of the new covenant, and the sprinkled blood, which speaks better than Abel's blood."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.25",
+      "source_sha256": "2d3e985ee6ea6ad8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be careful, then: do not reject the one who speaks to you. For if those people did not escape when they rejected the one who spoke to them on earth, how much less will we escape if we turn away from the one who speaks from heaven!"
     },
     {
       "chunk_id": "coptic-nt/heb#Heb.12.26",
@@ -104,6 +1944,90 @@
       "text": "If he shook the earth with a voice at that time, now he has promised, saying, “Once more I will shake not only the earth but also heaven.”"
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.12.27",
+      "source_sha256": "167fbd09e6d3494e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then “once more” reveals the removal of the things that are shaken, since they were created, so that the things that are not shaken may remain."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.28",
+      "source_sha256": "e22ccd1966943725",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, since we have received a kingdom that stands firm, let us be thankful, and through this serve God in a way that pleases him, with fear and trembling."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.12.29",
+      "source_sha256": "4cafb46e67d04f6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For our God is a consuming fire."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.1",
+      "source_sha256": "577e2484b140970e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let love for one another continue."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.2",
+      "source_sha256": "36e9277d6a791211",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not forget hospitality to strangers, for through it some have welcomed angels without knowing it."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.3",
+      "source_sha256": "007d2a411275c8bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember those who are imprisoned as though you were imprisoned with them, and those who suffer, since you yourselves are also in the body."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.4",
+      "source_sha256": "ff2f764cf965b3a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Marriage is honorable in every respect, and the marriage bed is pure, for God will judge the sexually immoral and adulterers."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.5",
+      "source_sha256": "930da8d7ee44f7cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let your way of life be free from the love of money, and be content with what you have. For he himself has said, “I will not forget you or abandon you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.6",
+      "source_sha256": "7a5d9745af3cf471",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So you can say with confidence, “The Lord is my helper. I will not be afraid. What can anyone do to me?”"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.7",
+      "source_sha256": "e83a0f96ebab3845",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember your leaders, who spoke God's word to you. Consider the excellence of their way of life and imitate their faith."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.8",
+      "source_sha256": "9556c337029f09f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jesus Christ is the same yesterday, today, and forever."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.9",
+      "source_sha256": "b2d97d57104397d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be carried away by foreign and varied teachings. For it is good for the heart to be strengthened by grace, not by foods, which have not benefited those who follow such practices."
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.13.10",
       "source_sha256": "b7e9334b8ab6e6d4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -111,11 +2035,109 @@
       "text": "We have an altar from which those who serve in the tent have no right to eat."
     },
     {
+      "chunk_id": "coptic-nt/heb#Heb.13.11",
+      "source_sha256": "9cbc2ba400819766",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the animals whose blood the high priest brings into the Holy of Holies for sin have their bodies burned outside the camp."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.12",
+      "source_sha256": "238baf9e04934f1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "For this reason Jesus too died outside the gate, to make the people holy through his own blood."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.13",
+      "source_sha256": "10f99daa6afe5969",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "So let us go out to him outside the camp, bearing his disgrace."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.14",
+      "source_sha256": "daab6a31adad08e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "For we have no lasting city here, but we seek the city that is to come."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.15",
+      "source_sha256": "2463f64e33dd7dc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "So let us always offer sacrifices of praise to God through him—that is, the fruit of our lips as we acknowledge his name."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.16",
+      "source_sha256": "90b042558f2d81c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Do not forget to do good and to share, for sacrifices of this kind please God."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.17",
+      "source_sha256": "74404b5780d7ced3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Obey your leaders and submit to them, for they keep watch through the night over your souls as those who will give an account for you. Let them do this with joy and without groaning, for this is to your benefit."
+    },
+    {
       "chunk_id": "coptic-nt/heb#Heb.13.18",
       "source_sha256": "590f9dc25d3fa294",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 15,
       "text": "Pray for us, for we are convinced that we have a good conscience, wanting to conduct ourselves well in everything."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.19",
+      "source_sha256": "f754252bf51bc32f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "I urge you all the more to do this, so that I may be restored to you quickly."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.20",
+      "source_sha256": "c47091c725bd0f16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "May the God of peace, who brought up from the dead the great shepherd of the sheep through the blood of the eternal covenant, our Lord Jesus,"
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.21",
+      "source_sha256": "ea68fb9cebdfa356",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "equip you for every good work to do his will, working in us what pleases him through Jesus Christ, to whom belongs glory forever. Amen."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.22",
+      "source_sha256": "300259bc4d727ce1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "So I urge you, brothers and sisters, to bear with this word of exhortation, for I have written to you briefly."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.23",
+      "source_sha256": "02042c770a44961c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Know that I have sent our brother Timothy. If he comes soon, I will come with him to you."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.24",
+      "source_sha256": "fbc8360312de43f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Greet all your leaders and all the holy ones. Those from Italy greet you."
+    },
+    {
+      "chunk_id": "coptic-nt/heb#Heb.13.25",
+      "source_sha256": "53b327e6203ab435",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Grace be with you all."
     }
   ]
 }

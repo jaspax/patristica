@@ -9,9 +9,22 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "armenian/eph#Eph.1.1",
+      "source_sha256": "290f9527ca3f8299",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle of Jesus Christ by the will of God, to the saints who are in Ephesus and to those who believe in Christ."
+    },
     {
       "chunk_id": "armenian/eph#Eph.1.2",
       "source_sha256": "109e778c0af40d84",
@@ -20,11 +33,221 @@
       "text": "Grace to you and peace from God our Father and from the Lord Jesus Christ."
     },
     {
+      "chunk_id": "armenian/eph#Eph.1.3",
+      "source_sha256": "26c52afcca2f89b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the God and Father of our Lord Jesus Christ, who blessed us with every spiritual blessing in the heavenly places in Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.4",
+      "source_sha256": "c78268ede9d8f678",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as he chose us in him before the world came into being, so that we might be holy and blameless before him in love."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.5",
+      "source_sha256": "cceef512233bfe75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He destined us beforehand for adoption through Jesus Christ to himself, according to the good pleasure of his will."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.6",
+      "source_sha256": "c58b9c2ab0a255ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To the praise of the glory of his grace, with which he made us rejoice in the Beloved."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.7",
+      "source_sha256": "c9fef14449b80a30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we have redemption through his blood, the forgiveness of sins, according to the greatness of his grace."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.8",
+      "source_sha256": "e6e235af374a4829",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This grace abounded toward us in all wisdom and understanding."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.9",
+      "source_sha256": "527ffb76f9b6bfae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He revealed to us the mysteries of his will, according to his good pleasure, which he had established beforehand in him."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.10",
+      "source_sha256": "ce640ce72c2ffb98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the ordering of the fullness of time, to bring together all things in Christ, whatever is in heaven and whatever is on earth, in him."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.11",
+      "source_sha256": "25005ad1f5297d76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we also received an inheritance, having been called beforehand according to the purpose of God, who brings everything about according to the counsel of his will."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.12",
+      "source_sha256": "05713f63d7ae09dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that we, who were the first to hope in Christ, might be to the praise of his glory."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.13",
+      "source_sha256": "3c6d3b7eb6540465",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him you also, when you heard the word of truth, the gospel of your salvation, and believed in him, were sealed with the promised Holy Spirit."
+    },
+    {
       "chunk_id": "armenian/eph#Eph.1.14",
       "source_sha256": "e87e5fdbf50ffaf2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "Who is the pledge of our inheritance, for the redemption of the possession, to the praise of his glory."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.15",
+      "source_sha256": "1ea000efe67f3f2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I too, when I heard of your faith in the Lord Jesus and your love toward all the saints,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.16",
+      "source_sha256": "f5226713cba8011d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "do not cease giving thanks for you, remembering you in prayer,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.17",
+      "source_sha256": "d64c5a668ce384d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that the God of our Lord Jesus Christ, the Father of glory, may give you the spirit of wisdom and revelation in the knowledge of him,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.18",
+      "source_sha256": "41258c6b5af90812",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "enlightening the eyes of the heart so that we may know what is the hope of his calling and what is the greatness of the glory of his inheritance among the saints,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.19",
+      "source_sha256": "e11c1413f876590b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and what is the surpassing greatness of his power toward us who believe, according to the working of his mighty strength,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.20",
+      "source_sha256": "9002dbf0fe53f554",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which he brought about in Christ when he raised him from the dead and seated him at his right hand in the heavenly places,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.21",
+      "source_sha256": "7fb1495be3fc1fcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "above every authority and rule and power and dominion, and every name that is named, not only in this world but also in the world to come."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.22",
+      "source_sha256": "fc26f7a664edcbd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he subjected everything beneath his feet and appointed him as head over all things for the church,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.1.23",
+      "source_sha256": "d48474be432bd36b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which is his body, the fullness of him who fills all things in every way."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.1",
+      "source_sha256": "22116bf73ce9d9fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you, who were dead in your sins and transgressions,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.2",
+      "source_sha256": "2f4496bba0251a2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in which you once walked according to the age of this world, according to the ruler of the authority of this air, who has now entered the children of disobedience."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.3",
+      "source_sha256": "d493c1d86d221243",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Among them we too all once lived in the desires of our flesh, carrying out the wishes of the flesh and of the mind, and we were indeed children of wrath, like the others."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.4",
+      "source_sha256": "d40566e2bb3b326b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God, who is great in mercy, because of his abundant love with which he loved us,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.5",
+      "source_sha256": "fcc96f3fead904f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even when we were dead in our sins, he made us alive in Christ, for by grace we were saved."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.6",
+      "source_sha256": "9a724fedb1a0aa79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He raised us with him and seated us with him in the heavenly places in Christ Jesus,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.7",
+      "source_sha256": "ff92e0407deb3371",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that in the ages to come he might show the surpassing greatness of his grace through his kindness toward us in Christ Jesus."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.8",
+      "source_sha256": "0bedaf2fa21da049",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For by his grace you have been saved through faith, and this is not from yourselves but is God's gift,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.9",
+      "source_sha256": "ac7e9aa59e88c8b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "not from works, so that no one may boast."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.10",
+      "source_sha256": "eb7c3d617a5d7c6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we are his workmanship, created through Christ Jesus for good works, which God prepared beforehand for us to walk in."
     },
     {
       "chunk_id": "armenian/eph#Eph.2.11",
@@ -41,11 +264,130 @@
       "text": "For at that time you were without Christ, alienated from the commonwealth of Israel and strangers to the covenants of promise, having no hope and without God in the world."
     },
     {
+      "chunk_id": "armenian/eph#Eph.2.13",
+      "source_sha256": "e640b51f5fa9e6c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now, through Jesus Christ, you who were once far away have become near through the blood of Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.14",
+      "source_sha256": "b19bb806d31e29cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is our peace, who made both one and broke down the dividing wall of the barrier, the hostility, in his own flesh,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.15",
+      "source_sha256": "df8301f37c3e1636",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and abolished the law of commandments with its ordinances, so that he might create the two in himself as one new person and make peace,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.16",
+      "source_sha256": "4add91f28a97e6b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and reconcile both to God in one body through his cross, for he killed the hostility in himself."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.17",
+      "source_sha256": "839e077d14c360ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he came and proclaimed the good news of peace to you who were far away and peace to those who were near,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.18",
+      "source_sha256": "ccaf400293c822c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for through him we both have access to the Father by one Spirit."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.19",
+      "source_sha256": "a44af4ce0e1b9b79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So from now on you are no longer strangers and foreigners, but fellow citizens with the saints and members of God's household,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.20",
+      "source_sha256": "9b20ee57f263ea9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "built on the foundation of the apostles and prophets, whose cornerstone is Christ Jesus."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.21",
+      "source_sha256": "ed4eee36317b58fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him the whole building, joined and fitted together, grows into a holy temple in the Lord."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.2.22",
+      "source_sha256": "13b82f79c6bcfa3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him you too are being built together into a dwelling place for God through the Spirit."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.1",
+      "source_sha256": "1b64430f55d6ca05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I, Paul, a prisoner of Jesus Christ for you Gentiles—"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.2",
+      "source_sha256": "57c546106fffc4d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if indeed you have heard of the stewardship of God's grace that was given to me for you,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.3",
+      "source_sha256": "949c401344d7be00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that the mystery was shown to me by revelation, as I previously wrote to you briefly,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.4",
+      "source_sha256": "355835e6d8f5adf1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may be able to read and perceive my understanding of the mystery of Christ:"
+    },
+    {
       "chunk_id": "armenian/eph#Eph.3.5",
       "source_sha256": "1922e58bcd11a83e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "For in other generations it was not made known to human beings as it has now been revealed to his holy apostles and prophets by the Spirit."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.6",
+      "source_sha256": "3d24de80238a34cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that the Gentiles are fellow heirs, members of the same body, and sharers in the promise in Christ Jesus through the gospel."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.7",
+      "source_sha256": "bcefaf008e936bdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Of this I, Paul, became a servant according to the gift of God's grace that was given to me through the working of his power."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.8",
+      "source_sha256": "89401ad6a504d696",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To me, who am the least of all the saints, this grace was given: to proclaim to the Gentiles the unsearchable greatness of Christ,"
     },
     {
       "chunk_id": "armenian/eph#Eph.3.9",
@@ -55,11 +397,193 @@
       "text": "And to enlighten everyone about the administration of the mystery that was hidden throughout all ages in God, who created all things."
     },
     {
+      "chunk_id": "armenian/eph#Eph.3.10",
+      "source_sha256": "d2acda4adafb0f95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that now, through the church, the manifold wisdom of God might be made known to the authorities and rulers in heaven,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.11",
+      "source_sha256": "688b62abdabbddde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "according to the eternal purpose that he accomplished through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.12",
+      "source_sha256": "de3c442c32110201",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we have boldness and access with confidence through faith in him."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.13",
+      "source_sha256": "c06f914a64d930a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I ask you not to lose heart over our suffering for your sake, which is our glory."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.14",
+      "source_sha256": "79302d16230352cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I bow my knees before the Father of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.15",
+      "source_sha256": "8d6dadb1c88e0490",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "from whom every family in heaven and on earth takes its name,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.16",
+      "source_sha256": "b8c26f7d7db34e63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that, according to the greatness of his glory, he may grant you strength through his Spirit in your inner being,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.17",
+      "source_sha256": "b9b4d96faf1c5ff9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that Christ may dwell in your hearts through faith, as you are rooted and established in love,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.18",
+      "source_sha256": "3ef25466bc30a9ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may be able to grasp, together with all the saints, what the breadth and length and height and depth are,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.19",
+      "source_sha256": "156584545abcc417",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to know the love of Christ that surpasses knowledge, so that you may be filled with all the fullness of God."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.20",
+      "source_sha256": "5a5c652029a45498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now to him who is able to do far more abundantly than anything we ask or conceive, according to the power at work in us,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.3.21",
+      "source_sha256": "dd7c55838ff2fff4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to him be glory in the church and in Christ Jesus throughout all generations, forever and ever. Amen."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.1",
+      "source_sha256": "b7eceb08c1ed49c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I, a prisoner in the Lord, urge you to walk worthily of the calling to which you were called,"
+    },
+    {
       "chunk_id": "armenian/eph#Eph.4.2",
       "source_sha256": "7910be26273c5aa5",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "With all humility and gentleness and patience, bearing with one another in love."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.3",
+      "source_sha256": "01b6d95e511ea1d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "being eager to preserve the unity of the Spirit in the bond of peace."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.4",
+      "source_sha256": "0ad14bcb779c0dcf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is one body and one Spirit, just as you were also called to one hope belonging to your calling;"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.5",
+      "source_sha256": "ac511ac5e1346fad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "there is one Lord, one faith, one baptism,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.6",
+      "source_sha256": "12d5a3b4feab1086",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "one God and Father of all, who is over all and through all and in all of us."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.7",
+      "source_sha256": "6d0509ae3d01b31b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But grace has been given to each of us according to the measure of Christ’s gift."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.8",
+      "source_sha256": "afc7362e1b8045fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore he also says, “He ascended on high, took captivity captive, and gave gifts to people.”"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.9",
+      "source_sha256": "f3cd1c9bfcac2e41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What does “he ascended” mean except that he first descended into the lower regions of the earth?"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.10",
+      "source_sha256": "a3c2742a50604bae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who descended is also the one who ascended above all the heavens, so that he might fill everything."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.11",
+      "source_sha256": "4156a56e05234c31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he gave some as apostles, some as prophets, some as evangelists, and some as shepherds and teachers,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.12",
+      "source_sha256": "86cda6b9bccc28c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for the strengthening of the saints, for the work of ministry, for building up the body of Christ,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.13",
+      "source_sha256": "010aba8a698366ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "until we all attain unity in faith and in the knowledge of the Son of God, becoming a mature man, reaching the measure of the stature of Christ’s perfection,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.14",
+      "source_sha256": "9756d19682db399c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that we may no longer be children, tossed about and shaken by every wind of teaching, through human trickery and cunning that leads into deceptive error."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.15",
+      "source_sha256": "f8b3b5a2fbaa022c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, being truthful in love, let us cause everything to grow into him who is the head, Christ."
     },
     {
       "chunk_id": "armenian/eph#Eph.4.16",
@@ -69,11 +593,221 @@
       "text": "From whom the whole body, joined and fitted together through every joint that supplies it, according to the working of each individual part in its proper measure, brings about the growth of the body, building itself up in love."
     },
     {
+      "chunk_id": "armenian/eph#Eph.4.17",
+      "source_sha256": "1f2f4d7542b16e41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I say this and solemnly affirm it in the Lord: you must no longer walk as the other Gentiles walk, in the futility of their minds."
+    },
+    {
       "chunk_id": "armenian/eph#Eph.4.18",
       "source_sha256": "f8b377d89eebc073",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "Their hearts are darkened, and they are alienated from the life of God because of the ignorance within them, because of the blindness of their hearts."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.19",
+      "source_sha256": "8d1ab6aed20fce64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They cut off their own hope and gave themselves over to sensuality, greedily practicing every kind of impurity."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.20",
+      "source_sha256": "bd8555f762b12b69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you did not learn Christ in this way,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.21",
+      "source_sha256": "a9822e1e196f425c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if indeed you heard about him and were taught through him, as the truth is in Jesus:"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.22",
+      "source_sha256": "2cc21cac97332be3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to take off your old self, which belonged to your former way of life and was corrupted by deceitful desires,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.23",
+      "source_sha256": "b92f959c4079e881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to be renewed in the spirit of your minds,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.24",
+      "source_sha256": "9d080c7c795526b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to put on the new self, which was created according to God in righteousness and true holiness."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.25",
+      "source_sha256": "a7b3750ce21c7467",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, put away falsehood and let each of you speak the truth with your neighbor, because we are members of one another."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.26",
+      "source_sha256": "3f7d46474e8eb5d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be angry, but do not sin. Do not let the sun set on your anger."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.27",
+      "source_sha256": "cf593a50065ef604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not give Satan a foothold."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.28",
+      "source_sha256": "2605110c9353eab0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let anyone who used to steal steal no longer, but instead work, doing good work with their own hands, so that they have enough to give to anyone in need."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.29",
+      "source_sha256": "0c5e81d9982ac345",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no foul word come out of your mouth, but only what is good for building others up as needed, so that it may give grace to those who hear."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.30",
+      "source_sha256": "1774a7d827f19606",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not grieve the Holy Spirit of God, with whom you were sealed for the day of redemption."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.31",
+      "source_sha256": "c6b19837ac876c5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let all bitterness, anger, rage, shouting, and slander be removed from you, along with every kind of malice."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.4.32",
+      "source_sha256": "863cd08b1f9386fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be kind and compassionate toward one another, forgiving one another, just as God forgave us in Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.1",
+      "source_sha256": "da6c0141a4d0fd13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be imitators of God, as beloved children,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.2",
+      "source_sha256": "d1c55675a23b9eeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and walk in love, just as Christ loved us and gave himself up for us as an offering and sacrifice to God, a sweet fragrance."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.3",
+      "source_sha256": "5af055dd45733e42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But sexual immorality and every kind of impurity or greed must not even be named among you, as is fitting for the saints."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.4",
+      "source_sha256": "9e269ac5fb8e1c1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor should there be obscenity, foolish talk, or coarse joking, which are not fitting, but rather thanksgiving."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.5",
+      "source_sha256": "1b0ff5224e5612e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Know this with certainty: no sexually immoral person, impure person, or greedy person—who is an idolater—has an inheritance in the kingdom of Christ and God."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.6",
+      "source_sha256": "6a3c89c3165669f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one deceive you with empty words, for it is because of these things that the wrath of God comes upon the children of disobedience."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.7",
+      "source_sha256": "0ba1a7082cf3c7fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From now on, do not share in what they do."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.8",
+      "source_sha256": "321f75c6e09a621a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For although you were once darkness, now you are light in the Lord. Walk as children of light,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.9",
+      "source_sha256": "b47c85aaebcbefb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for the fruit of light consists in all goodness, righteousness, and truth."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.10",
+      "source_sha256": "eb65fe60a4d6b6f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Test what is pleasing to the Lord,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.11",
+      "source_sha256": "15a538fd1128e501",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and do not take part in the unfruitful works of darkness, but instead expose them."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.12",
+      "source_sha256": "f3a4f47d88ccc794",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is shameful even to speak of what is done secretly among them."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.13",
+      "source_sha256": "ffc28ce8100857fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But everything exposed by the light becomes visible, for everything that is visible is light."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.14",
+      "source_sha256": "cf2037be4483ad25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore he says, “Awake, you who sleep, and rise from the dead, and Christ will give you light.”"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.15",
+      "source_sha256": "0a95b90b8b342a9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See that you walk rightly, not as unwise people."
     },
     {
       "chunk_id": "armenian/eph#Eph.5.16",
@@ -83,11 +817,130 @@
       "text": "But as wise people, make the most of the time, because the days are evil."
     },
     {
+      "chunk_id": "armenian/eph#Eph.5.17",
+      "source_sha256": "de71c398f2c2b1cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore do not be foolish, but understand what the Lord’s will is."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.18",
+      "source_sha256": "ed9e1942af48a5f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not get drunk with wine, in which there is debauchery, but instead be filled with the Spirit,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.19",
+      "source_sha256": "4002a205bbfb4e2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "speaking in your hearts with psalms, hymns, and spiritual songs, singing and singing psalms in your hearts to the Lord."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.20",
+      "source_sha256": "f4c5309545b0c29a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Give thanks at all times for everything, in the name of our Lord Jesus Christ, to the Father and God."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.21",
+      "source_sha256": "89a3930f727b8755",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be subject to one another in the fear of Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.22",
+      "source_sha256": "11d612be52a6960f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let wives be subject to their own husbands as to the Lord,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.23",
+      "source_sha256": "d1798f5229c4884e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for the husband is the head of the wife, as Christ is also the head of the church, and he himself is the Savior of the body."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.24",
+      "source_sha256": "b83db99bf1bed390",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But as the church is subject to Christ, so also let wives be subject to their own husbands in everything."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.25",
+      "source_sha256": "4fff6be15e2b697d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Husbands, love your wives, as Christ also loved the church and gave himself up for her,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.26",
+      "source_sha256": "76b30df32db8cf61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to make her holy by cleansing her in the font through the word,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.27",
+      "source_sha256": "20bc849c7198f712",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that he might present the church to himself in glory, without any stain or impurity or anything of that kind, but holy and without blemish."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.28",
+      "source_sha256": "2ab7e62b744399ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, husbands ought to love their own wives as their own bodies. Whoever loves his wife loves himself,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.29",
+      "source_sha256": "cd89b91b24c77762",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for no one ever hated himself, but nourishes and cares for himself, as Christ also does for the church,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.30",
+      "source_sha256": "c758dac2f27ef02c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because we are members of his body, of his flesh and of his bones."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.31",
+      "source_sha256": "8eeaa3c01b72fdb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason a man will leave his father and mother and go after his wife, and the two will become one body."
+    },
+    {
       "chunk_id": "armenian/eph#Eph.5.32",
       "source_sha256": "4e565e949f1600e1",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "This mystery is great, but I am speaking of Christ and the church."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.5.33",
+      "source_sha256": "a9344115c9c1d9ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you also, each one individually, must love your own wife as yourself, and let the wife fear her husband."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.1",
+      "source_sha256": "cac8907bc34e3b70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Children, obey your parents in the Lord, for this is right."
     },
     {
       "chunk_id": "armenian/eph#Eph.6.2",
@@ -97,6 +950,55 @@
       "text": "Honor your father and your mother, which is the first commandment with a promise."
     },
     {
+      "chunk_id": "armenian/eph#Eph.6.3",
+      "source_sha256": "6fb9767ea1a08232",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that it may go well with you and you may live long on the earth."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.4",
+      "source_sha256": "d729c65861d64830",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Fathers, do not provoke your children to anger, but bring them up with the Lord’s discipline and instruction."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.5",
+      "source_sha256": "e585a572d3a18b3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Slaves, obey your earthly masters with fear and trembling and sincerity of heart, as you would Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.6",
+      "source_sha256": "dcd77963b67787f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not serve only when being watched, as people seeking to please others, but as slaves of Christ, doing the will of God."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.7",
+      "source_sha256": "80d541bb28b1d72a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Serve wholeheartedly, as serving the Lord and not people."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.8",
+      "source_sha256": "99b463f7dd183a02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Know that whatever good each person does, they will receive the same from the Lord, whether slave or free."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.9",
+      "source_sha256": "20c3886356c423e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "And you masters, do the same toward them, refraining from inflicting punishment. Know that both their Lord and yours is in heaven, and there is no favoritism with him."
+    },
+    {
       "chunk_id": "armenian/eph#Eph.6.10",
       "source_sha256": "390cbf01d494d1de",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -104,11 +1006,102 @@
       "text": "From now on, be strong in the Lord and in the might of his strength."
     },
     {
+      "chunk_id": "armenian/eph#Eph.6.11",
+      "source_sha256": "cee0f7ab9efd20cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "And put on the full armor of God, so that you may be able to stand against Satan’s schemes."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.12",
+      "source_sha256": "7387753e27b1cdcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "For our struggle is not against flesh and blood, but against authorities and powers, against the world rulers of this darkness, against evil spirits under heaven."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.13",
+      "source_sha256": "8fb7e76149053cbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Therefore take up the full armor of God, so that you may be able to withstand the evil one on the day of evil."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.14",
+      "source_sha256": "d1a0111e5b12a4b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "And when you have accomplished everything, stand firm. Hold your ground, with truth fastened around your waist and the breastplate of righteousness put on,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.15",
+      "source_sha256": "f397c0df7a8c11cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "and with your feet fitted with the readiness of the gospel of peace."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.16",
+      "source_sha256": "c165b9c0a31f3a07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "And above all, take up the shield of faith, with which you will be able to extinguish all the burning arrows of the evil one."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.17",
+      "source_sha256": "abe27d0c81cd7334",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "And take the helmet of salvation and the sword of the Spirit, which is the word of God."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.18",
+      "source_sha256": "dc594fe3cab9dea8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Pray at all times in the Spirit with every kind of prayer and petition, and remain watchful in this with all perseverance and petitions for all the saints,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.19",
+      "source_sha256": "6ca90782f149b5ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "and for me, so that words may be given to me when I open my mouth, to make known boldly the mysteries of the gospel,"
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.20",
+      "source_sha256": "977420e4222abcb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "for which I am an ambassador in these chains, so that I may speak boldly about it, as I ought to speak."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.21",
+      "source_sha256": "ca2b1f3ad10759d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "But so that you too may know about me and what I am doing, Tychicus, the beloved brother and faithful minister in the Lord, will tell you everything."
+    },
+    {
       "chunk_id": "armenian/eph#Eph.6.22",
       "source_sha256": "befcbddd0778eaff",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "I sent him to you for this very reason, so that you may know about us and he may comfort your hearts."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.23",
+      "source_sha256": "d6137ad0ff171e15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Peace to the brothers, and love together with faith, from God the Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/eph#Eph.6.24",
+      "source_sha256": "8c3b3df16adb2759",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Grace be with all who love our Lord Jesus Christ with incorruptible love. The letter to the Ephesians was written from Rome through Tychicus."
     }
   ]
 }

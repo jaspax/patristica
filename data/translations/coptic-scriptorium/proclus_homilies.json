@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -20,11 +26,158 @@
       "text": "Likewise, a homily delivered in Constantinople, in the church of Anthemius, by Proclus, bishop of Cyzicus, on the Sunday of Absolution, when they seated him on the archbishop’s throne, while Nestorius the heretic was present."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0001",
+      "source_sha256": "668dbe9fabe42223",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the wonder of our Savior’s feast surpass our words."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0002",
+      "source_sha256": "7590eed716c4b65b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let our tongue’s boastful speech grow weak before today’s wonder, because it cannot adequately proclaim the goodness of the one who was crucified for us as that goodness deserves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0003",
+      "source_sha256": "fd2635b490a29804",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what event like the one we now see through faith has ever happened since the beginning of time?"
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0004",
       "source_sha256": "803679d09fb37863",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "What mind has ever thought in this way before?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0005",
+      "source_sha256": "a095fc66110010e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what thought has ever pondered it?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0006",
+      "source_sha256": "4cd5508d7d8a5eb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what heart has imagined it?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0007",
+      "source_sha256": "b06f97ca4be38272",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what word has expressed it?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0008",
+      "source_sha256": "e299bbb1a0023c0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what eye has seen it?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0009",
+      "source_sha256": "05a0c68967578624",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what ear has heard this marvelous proclamation of this truth: that Christ truly took flesh and granted us life?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0010",
+      "source_sha256": "bbecaf5b1a58140e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun has never seen the devil nailed to the wood for us, upon the cross."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0011",
+      "source_sha256": "81524265d3cfc48f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor has it seen him taking on our nature under the curse."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0012",
+      "source_sha256": "983843a700841547",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor was he ever handed over for thirty pieces of silver to redeem the world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0013",
+      "source_sha256": "d2b70c6f41bfa57b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did suffering, or his own sinless death, ever become a place where sin is swallowed up."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0014",
+      "source_sha256": "4b053a0931f5236e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor was the tyrant ever mocked because he had no father according to the flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0015",
+      "source_sha256": "a77c2af6087e9b1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or because he was hung on the wood to draw everyone to himself, or to give them life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0016",
+      "source_sha256": "3b0c620c1f7877f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did his tomb ever become for him a [?] that plunders death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0017",
+      "source_sha256": "d423b4d51f021aeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sky never grew dark at midday because of that one, so that it would [?] see the outrage they dared commit against God, even touching his flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0018",
+      "source_sha256": "275b21b82669e8bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did Hades tremble because of that one whom it had swallowed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0019",
+      "source_sha256": "21df6daa479431c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor was the earth ever adorned with a life-giving tomb of his."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0020",
+      "source_sha256": "64ee2268d9b15c8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, not with a tomb, but with a bridal chamber."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0021",
+      "source_sha256": "2bb12e2de6b7098b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one buried in it did not decay; instead, the one who went down became a bridegroom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0022",
+      "source_sha256": "8df318cb38167d9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No being was ever born who spent three days and three nights in the earth and then rose, except the one who alone fashioned within the Virgin a temple for his body, in the way he himself knows. He is the one who rose on the third day."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0023",
@@ -34,11 +187,256 @@
       "text": "He raised up the temple that he had willingly destroyed through death."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0024",
+      "source_sha256": "071f9e5179bc2f17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He revealed the resurrection through the Virgin’s womb."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0025",
+      "source_sha256": "7c2056db88daeacf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here, indeed, time reaches the birth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0026",
+      "source_sha256": "24f41a553805822c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here, on the other hand, the one who is powerful is the one who proclaims swiftly."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0027",
+      "source_sha256": "d23ef1fb503a1a11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No sacrificial animal offered on the altar ever took away the sin of the world, except when God took the form of a slave."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0028",
+      "source_sha256": "0122127de8686489",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he formed the indescribable body."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0029",
+      "source_sha256": "bd57c6592e889134",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He clothed himself with it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0030",
+      "source_sha256": "8a716c418aecfc33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for this: his flesh is life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0031",
+      "source_sha256": "936561bb2fec3dce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And his blood is salvation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0032",
+      "source_sha256": "65a157defc88819a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the Spirit is the seal."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0033",
+      "source_sha256": "dec08882cd50ec99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the nature of God has no beginning."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0034",
+      "source_sha256": "cdc204f8324315f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So the blessed Paul rightly said, “The old things have passed away. Look, new things have come into being.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0035",
+      "source_sha256": "3677414a5b75c37a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is how the one who came down from it blessed our ascent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0036",
+      "source_sha256": "158d75f43002c253",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A new earth, which the one who was laid in a manger purified through the flesh that was planted in it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0037",
+      "source_sha256": "792ca702a142dea5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A new sea, surging or rising high."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0038",
+      "source_sha256": "4740387c9729ba7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No fleshly human footstep has walked upon it, nor has it been trampled by sin."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0039",
+      "source_sha256": "16ba303f9b3d6631",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A new life, against which he brought warfare to an end."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0040",
+      "source_sha256": "011994bbdac81074",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He filled it, bringing it to completion in peace."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0041",
+      "source_sha256": "4532f6490514e945",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A new humanity, which he immersed and washed in water."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0042",
+      "source_sha256": "72ab28e1a0fa19b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He refined it once more in the fire of the Holy Spirit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0043",
+      "source_sha256": "f5e0c41cb536d87c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A new worship: for there is no longer mockery or circumcision, but they worship in faith."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0044",
+      "source_sha256": "9eb5b8e120c5589a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They give glory in one substance, in three persons."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0045",
+      "source_sha256": "67b9c59ecaa83c97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the things the prophet proclaimed to us, saying, “On that day God will reveal counsel and glory upon the earth.”"
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0046",
       "source_sha256": "479604fe255c15c8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "On what day? Tell us, O prophet!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0047",
+      "source_sha256": "c2b45799d6c74edd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“On the day,” he said, “when God, who is above every nature, will take flesh from a woman in the way that he himself knows.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0048",
+      "source_sha256": "c8d509d6b9e4e661",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the virgin will give birth to the indescribable mystery without a man: a human being who loves humanity and does not change. He made death release me—death, which had swallowed me without my knowing. His tomb became a treasury of resurrection, and humanity’s captivity—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0049",
+      "source_sha256": "71c1e76f4ec7ac3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "he made it the mother of my freedom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0050",
+      "source_sha256": "f412cde192a77909",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And why am I prolonging my speech?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0051",
+      "source_sha256": "31eba8364b0b8731",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The suffering belongs to the flesh, but the power belongs to the divinity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0052",
+      "source_sha256": "c568d9363fea227d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But tell us, O prophet, how God will reveal himself upon the earth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0053",
+      "source_sha256": "0c43e49f3b3240d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Without humanity, then?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0054",
+      "source_sha256": "1941e02ce267a2b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then, without the flesh?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0055",
+      "source_sha256": "3a37be982ef9654f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Go away, heretic! Do not say this: “I am not speaking to you, prophet.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0056",
+      "source_sha256": "df0254f9d3bf0a2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if he had appeared without this—I mean the flesh—you new and empty dogmatist, your face or your eyes could not have endured his rays."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0057",
+      "source_sha256": "79c309fc301a8f44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Creation cannot conceal the divine nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0058",
+      "source_sha256": "438924287541ce5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The devil cannot rush at him to fight with him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0059",
+      "source_sha256": "21a8480f67856155",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he trembles before the Creator."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0060",
@@ -48,6 +446,13 @@
       "text": "Death cannot dare to swallow the incorruptible divine nature."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0061",
+      "source_sha256": "4ec61b8c17d03088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hades is afraid of God when he is stripped of the flesh."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0062",
       "source_sha256": "1f4f14a05f2c0f8f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -55,11 +460,445 @@
       "text": "For he is the one whom the seraphim do not see."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0063",
+      "source_sha256": "942c7e357ae925c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How could Hades fail to tremble before him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0064",
+      "source_sha256": "8011723b445ce02f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God's nature needs a veil, not to conceal that nature—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0065",
+      "source_sha256": "336f5f88853e042f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I mean the nature of the incorruptible Godhead—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0066",
+      "source_sha256": "6a3a1a5c60ad5769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but rather so that we may be amazed at the sight of him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0067",
+      "source_sha256": "797d94a40d435f28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is not a veil like that of Moses, for that one is a dark covering of ignorance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0068",
+      "source_sha256": "df21673659c51cdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is not an embroidered curtain."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0069",
+      "source_sha256": "1f81fe8bb2fe3565",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For his craftsmanship is far beyond various colors."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0070",
+      "source_sha256": "ca7fb7ea53dcca94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is not an atonement cover plated with gold."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0071",
+      "source_sha256": "ce4beb5e2db6f787",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For his craftsmanship is far beyond matter."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0072",
+      "source_sha256": "46442fb742754217",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is not a cherub fashioned by human hands."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0073",
+      "source_sha256": "aecaaef25427ea7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For his artistry is a marvel."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0074",
+      "source_sha256": "f041462a0fa6ff88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But sheep's clothing is needed so that he may use it to trap the man-eating wolf."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0075",
+      "source_sha256": "f0806de5c3f2781e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But once again this new Jew has opposed my words, and he mocks the greatness of the prophet's statement, fighting against the Holy Spirit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0076",
+      "source_sha256": "b2809c395aa2f84d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And what does he say?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0077",
+      "source_sha256": "c5fe9fe8d0221f78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I do not believe that God appeared on earth, that the one who has no shape took on a form in human likeness.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0078",
+      "source_sha256": "c7885fd8d074fd5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you mock the Law, Jew, and refuse to listen to the prophets, and despise the evangelists, and alter the apostles' words, then let us question the elements and learn from them who they acknowledge the Lord who died in the flesh to be."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0079",
+      "source_sha256": "4f082c545e1082ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Come, let us question the sun first."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0080",
+      "source_sha256": "2ade25eb5860c7e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell us, sun, why did you draw back your rays when they crucified the Lord?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0081",
+      "source_sha256": "2d15abbdb071eeb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why? Because the one they crucified was a mere man?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0082",
+      "source_sha256": "2ac278e5f5072191",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Were you not, then, able to do this for righteous Abel when he was being killed?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0083",
+      "source_sha256": "cefa9e17b6832f2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will question the sky again."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0084",
+      "source_sha256": "2732e5994880aee3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell us, O sky, why you clothed yourself in darkness at noon."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0085",
+      "source_sha256": "9e60577ebe79fca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because the Jews pierced the Lord’s side."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0086",
+      "source_sha256": "7f609dd9245109d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because the one being crucified for us was a mere man?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0087",
+      "source_sha256": "d9119a618c1ca6c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why, then, did you not take notice when Naboth the Israelite was being stoned?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0088",
+      "source_sha256": "5efcd96006a5c7bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell us, O earth, why you trembled when these people who fight against God committed this great outrage."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0089",
+      "source_sha256": "b634aee0bf658312",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because the one being crucified was a mere man?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0090",
+      "source_sha256": "e1385bdd93b37d9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why did you not tremble when you saw Isaiah being sawn apart by Manasseh?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0091",
+      "source_sha256": "bedb950e2059e25f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But let me question the temple itself as well."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0092",
       "source_sha256": "3be3f76d2bf30470",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Tell us, O temple, why did the curtain tear when they were about to crucify Christ?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0093",
+      "source_sha256": "68b32f547af6bd2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because the one they crucified was a mere man?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0094",
+      "source_sha256": "940548cab60788b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why did you not groan when they poured out Zechariah’s blood in your midst?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0095",
+      "source_sha256": "b5d40c9d695d10ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Give us your answer now, O entire creation, which cannot speak."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0096",
+      "source_sha256": "8d1a25770593459a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Did we not proclaim mourning for the Creator?” it said."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0097",
+      "source_sha256": "661ef0f164cd6c17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“It was not a fellow servant whom they put to death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0098",
+      "source_sha256": "e34affc1ff7666ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, we were disturbed and trembled when the Lord was being slaughtered.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0099",
+      "source_sha256": "5668e2a7f47eb083",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the sky cries out, “The one they crucified in the flesh was God, who became flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0100",
+      "source_sha256": "a9cd58c895128192",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I know this with certainty."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0101",
+      "source_sha256": "87047887c4977db9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I,” it said, “was the one who shook and came down.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0102",
+      "source_sha256": "88be327089eabcb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun cried out, “The one they crucified in the flesh was Jesus, my Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0103",
+      "source_sha256": "65c747fb761cf065",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I was afraid before the light of his divinity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0104",
+      "source_sha256": "8c7c06cd719869d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I drew my rays back into myself.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0105",
+      "source_sha256": "f718882ba56fdb9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The earth itself also cries out, “The one they crucified in the flesh was the Creator, who clothed himself in flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0106",
+      "source_sha256": "cb765e7e81212d9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For although I received his flesh into my bosom by swallowing him,” it said, “I could not contain his divinity within my grasp.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0107",
+      "source_sha256": "6499174b42ca4b08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sea cries out, “The one they crucified in the flesh is not my fellow servant.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0108",
+      "source_sha256": "55307724eccb6062",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For my fellow servant’s footsteps make my waters swell,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0109",
+      "source_sha256": "ffe9eac56b79bb91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“but my Lord’s feet purify my nature.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0110",
+      "source_sha256": "cedb75124d948561",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The temple cries out, saying, “The one worshiped within me from the beginning is the very one they despise in the flesh.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0111",
+      "source_sha256": "b006ef3261e7f787",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Therefore I could not bear the audacity of this outrage, and I tore my garment.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0112",
+      "source_sha256": "b8dc67ca7d2bbf03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hades shouted, “The one who came down to this place is not merely a human being.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0113",
+      "source_sha256": "becdd1bdba937891",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For I know,” he said, “what suffering I have undergone.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0114",
+      "source_sha256": "1ec191447d14a994",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For the one I took as a prisoner, I found to be the one who has power over everything.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0115",
+      "source_sha256": "52f70b57aa773f09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you do not believe the elements, then let us ask the powers of heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0116",
+      "source_sha256": "c30326a7aff607eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell us, angels and archangels and all the armies of heaven: who is the one who appeared on earth"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0117",
+      "source_sha256": "c542689826ee7baa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and whom they crucified in the flesh?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0118",
+      "source_sha256": "2b8adf390c3defa0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they will all answer, crying out with the prophet David, “The Lord of hosts—he is the King of glory!” To him belong glory and dominion forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0119",
+      "source_sha256": "a24d4b0d1ce92dad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Proclus the archbishop."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0000",
+      "source_sha256": "ff72b1622c111732",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A homily delivered by Proclus, bishop of Cyzicus, in the Great Church of Constantinople, with Nestorius the heretic present, concerning his doctrine, which is written as we are about to [?] enter the holy forty days."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0001",
+      "source_sha256": "a442fd14a1c9c9b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The mines of the wisdom of God’s grace are exceedingly rich."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0002",
+      "source_sha256": "aa8dc47c9956ad6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The benefit of this spiritual gathering is beyond counting."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0003",
+      "source_sha256": "bc1c404a98dfd085",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The trade of the church’s marketplace is honorable."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0004",
+      "source_sha256": "34e74559741c0542",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The festival of the altar flourishes."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0005",
+      "source_sha256": "e7bd04167e11e028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Savior’s exchange is exceedingly splendid."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0006",
@@ -97,6 +936,62 @@
       "text": "For from the beginning, our Lord Jesus Christ does not cease doing good to the human race."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0011",
+      "source_sha256": "53c926184c94fcd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one he originally exiled—that is, Adam—to the place of a condemned man, he took and seated with himself on his throne in heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0012",
+      "source_sha256": "623362060e671a4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He saw Abel slaughtered because of a sacrifice, and after his death he spoke in rebuke of his murder."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0013",
+      "source_sha256": "27626e09b3654101",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He saw Noah sailing on the waters of the flood and preserved him like a star for the human race."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0014",
+      "source_sha256": "50adcfd683776039",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He found Abraham a foreigner and made him the father of all the nations."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0015",
+      "source_sha256": "4a918dac53c8a784",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also saw Joseph in chains and raised him up as an image of a life of chastity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0016",
+      "source_sha256": "9fb26b289ce68de9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He saw Moses fleeing from Egypt and made him the guide of a people beyond counting."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0017",
+      "source_sha256": "db9b1843a3647d2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Joshua son of Nun became a scout of Palestine, reining in the course of the sun and the moon."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0018",
+      "source_sha256": "b1caffb50554c6a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took David from the sheepfolds and made him king over his people and father of the awe-inspiring mystery."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0019",
       "source_sha256": "ef3346aa8902536d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -132,6 +1027,174 @@
       "text": "He saw Elijah fleeing, took him up, and made him a citizen of heaven."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0024",
+      "source_sha256": "91d4928ba609cab5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made the flame of the furnace in Babylon become a pasture for the three young men."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0025",
+      "source_sha256": "0b16abad985f6dd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made the lions in the den become like disciples trained by Daniel."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0026",
+      "source_sha256": "8a1f6f61934a1ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made the belly of the sea monster become like a bridal chamber for the prophet."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0027",
+      "source_sha256": "3e4183cf51224c4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He transformed Rahab’s brothel into an altar through hospitality."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0028",
+      "source_sha256": "54eebaf43bb06a75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My tongue will not be sufficient to proclaim all his acts of goodness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0029",
+      "source_sha256": "7d82d1f7f91ff96e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the richness of his works surpasses my tongue."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0030",
+      "source_sha256": "b8d94edcd010838f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the feast of the church is filled with every gift for our salvation, as it is written: “Every good gift and every perfect gift is from—is from heaven, coming down from the Father of lights.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0031",
+      "source_sha256": "3164f44722b9282a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For here he gives those on earth the things of heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0032",
+      "source_sha256": "a5414b9951dda5f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here there is gain from hardships and the acquisition of virtues."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0033",
+      "source_sha256": "fc6795a32696ce5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here there is an offering through material wealth and a peaceful marketplace. I am speaking of the church."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0034",
+      "source_sha256": "d0981e42a9c5c1ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here are clouds that give [?] of rain through the Gospel’s waters of dew."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0035",
+      "source_sha256": "0e3fcd0c6f1d1309",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here are the trumpets of the apostles, proclaiming that the Trinity is not a created being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0036",
+      "source_sha256": "4ef80269d757a5af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here are spiritual harps opposing the tyranny of the passions, as we sound them in spiritual melodies."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0037",
+      "source_sha256": "5174fbfd430077b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here there is a laying aside of Adam, who is from the earth, while we put on the light from heaven, our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0038",
+      "source_sha256": "d388f73aa9bef52e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here we overthrow the ancient tyrant and worship the mystery that came from the virgin."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0039",
+      "source_sha256": "016c0ca37c9716a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here he tore up the written record of our sins and enrolled us in the register of freedom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0040",
+      "source_sha256": "6b8039a99984dce6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here he killed the passions and brought our souls back to life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0041",
+      "source_sha256": "43fccd01f3ae77fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O feast whose place is on earth, but whose benefit is in heaven!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0042",
+      "source_sha256": "a0eda8f8c4079356",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here they proclaimed with a loud voice the beneficial medicine of fasting, the holy forty days, the abundant reward of self-control, the angel-like nature of virginity, acceptable mercy, joy, blessedness, immeasurable wisdom, patience that resembles God, and tireless endurance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0043",
+      "source_sha256": "6a7d7b0355511983",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The impossibility of fathoming faith, the uncreated nature of the Trinity, and the incomprehensibility of the divine plan carried out in the flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0044",
+      "source_sha256": "207e7a2bd5bc4c4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For however you investigate the matter in your thoughts, you will find its wonder more exalted than any investigation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0045",
+      "source_sha256": "cff0c7a32605e61c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My mind will be bewildered as it asks how God became human, and how God, who cannot suffer, became one with clay, taking form in the flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0046",
+      "source_sha256": "80120ca6cf47936f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He who exists without beginning, from the Father, does not change."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0047",
+      "source_sha256": "d9fac8f4004eab68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He who came into being and was revealed through the Virgin in the last days."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0048",
       "source_sha256": "3bfcdc401cb11f3b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -146,11 +1209,102 @@
       "text": "For the one who came into being is not a phantom."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0050",
+      "source_sha256": "ea0590248f1265b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is truly God and truly human, of the same essence as the Father and as me, belonging to my race, since he became human without sin."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0051",
+      "source_sha256": "fb29411907936ca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God’s nature is not something created, and the nature he took from me is not an illusion. Rather, he is one single Son."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0052",
       "source_sha256": "e2b46a0cec5d7cd0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "We do not divide the natures into two hypostases. Rather, the two natures constitute one single hypostasis, from divinity and the humanity of the wondrous dispensation, which became one with him. After the indescribable union, he exists as the only-begotten Son."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0053",
+      "source_sha256": "75b5aa8b9884d74a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if the heretics rage, even if the Jews tear their hearts apart, even if the Greeks [?] themselves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0054",
+      "source_sha256": "3321c70aff4e5b0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is inseparable from the Father, and he was brought up among human beings."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0055",
+      "source_sha256": "d1902f786e097c96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took on flesh without changing."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0056",
+      "source_sha256": "0b4c77bf00528905",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He assumed the whole human being, not just a part."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0057",
+      "source_sha256": "bbbcf7be1e729727",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is wholly in heaven, wholly on earth, and wholly everywhere."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0058",
+      "source_sha256": "b79134bd7244b84a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God’s nature cannot be divided, and he endured sufferings in what he put on. But he freed me through the sufferings of what he assumed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0059",
+      "source_sha256": "b104b59a8cb2f4c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We call him the Son of God by grace, but [?] he is truly God the Word, because he is the Wisdom and the Mind, inseparable from the Father by nature, directing the works of God and of human beings."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0060",
+      "source_sha256": "cec580bb9a70deb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is his Father’s power, because he is the guardian of everything that has come into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0061",
+      "source_sha256": "4691da13ee0796d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the Truth, because he is the exact likeness of the Father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0062",
+      "source_sha256": "362c3da55591b283",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the Image, because he is of the same essence as the one who begot him, without change."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0063",
+      "source_sha256": "fad4e72037117bf4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is Light, because he is the sun of our souls."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0064",
@@ -160,11 +1314,186 @@
       "text": "He is life, because in him we live and exist and move."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0065",
+      "source_sha256": "75f884919c732b55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is Righteousness, because he gives each person what they deserve."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0066",
+      "source_sha256": "edfb0a79876f3b5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is Purification, because he puts sin to death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0067",
+      "source_sha256": "4c8f9c13e351d092",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is Redemption, because he bought the whole world with his blood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0068",
+      "source_sha256": "dbbd705a2184c688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the Resurrection, because he released those in the tombs and made them new again through his blood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0069",
+      "source_sha256": "b3a06426f975e903",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But tell me the rest,” you said, as I speak to you, O Jew. I am not ashamed to cry out in a loud voice."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0070",
+      "source_sha256": "ac576e2c79f01671",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the wondrous saving plan is my salvation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0071",
+      "source_sha256": "cb9ca54050f9e958",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what he is, he is in his own right."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0072",
+      "source_sha256": "1ea1c8a8e68b788c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what he became, he became for my sake. He performs miracles as God and endures many sufferings as a human being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0073",
+      "source_sha256": "27f1230c2333eec7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What he became, then, because of his compassion for me, is the human being whom he truly assumed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0074",
+      "source_sha256": "25122710733b6c45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since he is the firstfruits of the lump of dough."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0075",
+      "source_sha256": "b0974fca08cec39d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason he became the Son of Man."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0076",
+      "source_sha256": "08bb5ce6ec9ae2f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he truly took flesh from a woman, without a man."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0077",
+      "source_sha256": "34ed395e292163b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is a way, because he is the guide to his Father."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0078",
       "source_sha256": "7b32129cc17eb42b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "Then he is a door, because he is the guide into paradise."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0079",
+      "source_sha256": "57b1159595d5dd18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is a shepherd, because he seeks the sheep that was lost."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0080",
+      "source_sha256": "92f7b2219af42f1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is a sheep, because he was slaughtered for the whole world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0081",
+      "source_sha256": "bf776333bc8be29d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is a lamb, because he cleanses the world of its defilements."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0082",
+      "source_sha256": "ad12364ebaf6166a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For his dispensation is without form, and his nature is unchanging."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0083",
+      "source_sha256": "9ae15e339a78a96f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is a high priest, because he offered himself up for us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0084",
+      "source_sha256": "217ea4d926ea198a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the God who exists."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0085",
+      "source_sha256": "cb18e99049034cdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is without a mother [?] in heaven, with respect to [?] nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0086",
+      "source_sha256": "a45861bcc401fdec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is without a father among us, with respect to what belongs to our nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0087",
+      "source_sha256": "6176772042eb9926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His generation is indescribable in every respect and from every side."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0088",
+      "source_sha256": "e4b98baccee911cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It cannot be recounted in heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0089",
+      "source_sha256": "a46331f446ddc375",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It cannot be spoken of on earth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0090",
+      "source_sha256": "89bd3c06414fde50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It cannot be explained anywhere."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0091",
@@ -174,11 +1503,207 @@
       "text": "For he took a body, a soul, and a mind, so that through them he might accept death and redeem us from it."
     },
     {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0092",
+      "source_sha256": "103d75bcfa638c6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, be ashamed before the sufferings he endured for you, O Jew, and the wonders he performed for your sake."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0093",
+      "source_sha256": "61b25bba174e79be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the new Jew said, “Lord, what wonders did he perform?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0094",
+      "source_sha256": "70d28aba5a711d73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I too will tell you what wonders he performed among you, O fighters against God, just as he performed them among us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0095",
+      "source_sha256": "5d2f131d1b7cbf4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, are the great wonders at which you will marvel? Is it heaven? Is it heaven that rained bread, rather than God who took flesh?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0096",
+      "source_sha256": "f07928274c0ab16c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is it the sea that was divided and that you crossed, rather than the virgin who, after giving birth to the shoot, remained a virgin?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0097",
+      "source_sha256": "0b285c16232532f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is it the staff that made the rock become a sea, or the cross that cleanses the world?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0098",
+      "source_sha256": "d63e64a60a0bbcda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, be ashamed before these wonders now, O Jew, and worship the one who took flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0099",
+      "source_sha256": "19fdfeb8b5f75746",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the heretic said again, “What are the wonders?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0100",
+      "source_sha256": "a5d4c01c8ba195b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O Jew, if you want to know what the wonders are, listen, and I will tell you about them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0101",
+      "source_sha256": "b989f704d0dcc7f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A begetting without seed; childbirth without a bed or marriage."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0102",
+      "source_sha256": "96c8dabb87bac3aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A holy and undefiled virgin: the virgin, and the mother, and the virgin again."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0103",
+      "source_sha256": "ddfcdc5ff9a9d266",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The trembling and flight of the stars; the hymn of the angels; the fear of the shepherds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0104",
+      "source_sha256": "2a5d49b7d5bdd462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The gifts of the Magi; the obedience of the sea."
+    },
+    {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0105",
       "source_sha256": "94aa18e307d3b647",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "The rush of the winds, or its fierceness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0106",
+      "source_sha256": "d545d77a0ffcdb0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The walking on the lake; the calming of the waves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0107",
+      "source_sha256": "58ecd8d4d518460f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The sick man's leaping; the blind receiving their sight."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0108",
+      "source_sha256": "b750d268364c07cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The scourging of the demons."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0109",
+      "source_sha256": "5e28bdba761841b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The dead coming to life again."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0110",
+      "source_sha256": "d7c4ec299141496c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The trembling of creation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0111",
+      "source_sha256": "1479b4a9293d8673",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The mourning of heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0112",
+      "source_sha256": "4a113d0dd9cdadb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The sun that became dark."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0113",
+      "source_sha256": "3966b675d6378a7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The rocks that split; the tearing of the temple curtain."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0114",
+      "source_sha256": "1c456e6a34a67910",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The plundering of Hades."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0115",
+      "source_sha256": "ba2308295beb391a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The dead coming out of the tombs."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0116",
+      "source_sha256": "7244cf0effe2f00b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The conversion of the thief."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0117",
+      "source_sha256": "65386fe618ddbbe3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The nailing to the cross of the written record against us; the destruction of your synagogues."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0118",
+      "source_sha256": "c1677462671a3dc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The growth of the churches; the spread of godliness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0119",
+      "source_sha256": "8149397689327486",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "So, if you have abandoned your error and your folly, cry out yourself with Moses the lawgiver: “This is my God; I will glorify him.” His are the glory and the power forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0120",
+      "source_sha256": "2a16bbd4a4a067b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "◈ — ◈ — ◈ — ◈ — ◈ — ◈ Proclus the bishop. ◈ — ◈ — ◈ — ◈ — ◈ — ◈"
     }
   ]
 }

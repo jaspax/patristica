@@ -9,15 +9,91 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "armenian/1john#1John.1.1",
+      "source_sha256": "08bb1ace2146741f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What was from the beginning, what we heard, what we witnessed with our own eyes, what we looked upon and our hands touched, concerning the Word of life—"
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.2",
+      "source_sha256": "0521c6405887b802",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The life was revealed, and we saw it and bear witness and proclaim to you the eternal life that was with the Father and appeared to us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.3",
+      "source_sha256": "e8c7ffb5e1801f92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What we saw and heard we proclaim also to you, so that you too may have fellowship with us, and that our fellowship may be with the Father and with his Son, Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.4",
+      "source_sha256": "fc807dbafa79fe3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We write these things to you so that your joy may be complete."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.5",
+      "source_sha256": "0eef177f9ffe6cfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is the message that we heard from him and proclaim to you: God is light, and there is no darkness in him at all."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.6",
+      "source_sha256": "9f85eafdb9e6fb02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we say that we have fellowship with him and walk in darkness, we lie and do not practice the truth."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.7",
+      "source_sha256": "798cfe47ce9dd98e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus his Son cleanses us from every sin."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.8",
+      "source_sha256": "62786d5b483d1db9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we say that we have no sin, we deceive ourselves, and the truth is not in us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.1.9",
+      "source_sha256": "d828aff8aa3004d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if we confess our sins, he is faithful and just to forgive us our sins and cleanse us from all unrighteousness."
+    },
     {
       "chunk_id": "armenian/1john#1John.1.10",
       "source_sha256": "829067f30eee9a32",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "If we say that we have not sinned, we make him a liar, and his word is not in us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.1",
+      "source_sha256": "53db35f273446053",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My little children, I write these things to you so that you may not sin. And if anyone sins, we have an advocate with God, Jesus Christ, the righteous and blameless one."
     },
     {
       "chunk_id": "armenian/1john#1John.2.2",
@@ -27,11 +103,179 @@
       "text": "And he is the atoning sacrifice for our sins, and not only for ours but also for those of the whole world."
     },
     {
+      "chunk_id": "armenian/1john#1John.2.3",
+      "source_sha256": "cf8ba968086f832d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know that we have come to know him: if we keep his commandments."
+    },
+    {
       "chunk_id": "armenian/1john#1John.2.4",
       "source_sha256": "0287a1f456d4525a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "Whoever says, “I know him,” but does not keep his commandments is a liar, and the truth is not in him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.5",
+      "source_sha256": "854796ff309daddd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But whoever keeps his word, in that person the love of God has truly been made complete. By this we know that we are in him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.6",
+      "source_sha256": "f40fbb21a6b73239",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever says that he abides in him ought to walk as he walked."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.7",
+      "source_sha256": "0d1c3f7438153b29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Beloved, I am not writing a new commandment to you, but the old commandment that you had from the beginning. The old commandment is the word that you heard."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.8",
+      "source_sha256": "ad8c472181670ba2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, I am writing a new commandment to you, which is true in him and in you, because the darkness is passing away and the true light is already appearing."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.9",
+      "source_sha256": "ade23eef7a5dd4ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever says that he is in the light and hates his brother is a liar and is still in darkness."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.10",
+      "source_sha256": "66f98ad536d7bb0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever loves his brother abides in the light, and there is no cause for stumbling in him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.11",
+      "source_sha256": "c2af370d014e6428",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But whoever hates his brother is in darkness and walks in darkness, and does not know where he is going, because the darkness has blinded his eyes."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.12",
+      "source_sha256": "1197b95ae37693ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I write to you, little children, because your sins have been forgiven you for the sake of his name."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.13",
+      "source_sha256": "814e6c3fc77baa45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I write to you, fathers, because you have come to know him who is from the beginning. I write to you, young men, because you have overcome the evil one."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.14",
+      "source_sha256": "482d96753623f876",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I wrote to you, children, because you have come to know the Father. I wrote to you, fathers, because you have come to know him who is from the beginning. I wrote to you, young men, because you are strong, and the word of God abides in you, and you have overcome the evil one."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.15",
+      "source_sha256": "0061d8070ba44ffd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not love the world or anything that is in the world."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.16",
+      "source_sha256": "4d1e77d8f924c294",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If anyone loves the world, the love of the Father is not in him. For everything that is in the world—the desire of the flesh, the desire of the eyes, and the arrogance of this earthly life—is not from the Father but is from this world."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.17",
+      "source_sha256": "ab1be05c9ebf44c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Both the world and desire pass away, but whoever does the will of God remains forever."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.18",
+      "source_sha256": "893d66918d2fb47f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Little children, it is the last time. As you heard that the Antichrist is coming, even now many antichrists have come, by which we can know that it is the last time."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.19",
+      "source_sha256": "31eb0fa62e1d7563",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They went out from us, but they were not of us. For if they had been of us, they would have remained with us. But they went out so that it would become clear that none of them were of us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.20",
+      "source_sha256": "d9e76346f63a8353",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you have an anointing from the Holy One, and all of you know."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.21",
+      "source_sha256": "18e0ca627e922f65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have not written to you because you do not know the truth, but because you know it, and because no lie comes from the truth."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.22",
+      "source_sha256": "b814642d10cb7d85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who is the liar if not the one who denies Jesus, saying he is not the Christ? This is the Antichrist, who denies the Father and the Son."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.23",
+      "source_sha256": "2c0fd2a79eeb2e16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who denies the Son does not accept the Father either. But whoever confesses the Son also accepts the Father."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.24",
+      "source_sha256": "b6f8293abbaccb02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let what you heard from the beginning remain in you. For if what you heard from the beginning remains in you, you too will remain in the Son and in the Father."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.25",
+      "source_sha256": "8ca559aeaead56c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And these are the promises he proclaimed to us: eternal life."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.26",
+      "source_sha256": "0e0ac07d464a9e72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have written this to you so that no one may lead you astray."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.2.27",
+      "source_sha256": "95c7044ada385530",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let the anointing you received from him remain in you. You have no need for anyone to teach you. Rather, his anointing teaches you about everything, and it is true and is not a lie. And just as it taught you, remain in him."
     },
     {
       "chunk_id": "armenian/1john#1John.2.28",
@@ -41,6 +285,118 @@
       "text": "And now, little children, remain in him, so that when he appears we may have confidence and not be ashamed before him at his coming."
     },
     {
+      "chunk_id": "armenian/1john#1John.2.29",
+      "source_sha256": "84a91d4423b0a7c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you know that he is righteous, understand that everyone who does what is righteous has been born of him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.1",
+      "source_sha256": "dea09a1816a54fec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See what love the Father has given us, that we should be called children of God. This is why the world does not recognize us, because it did not recognize him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.2",
+      "source_sha256": "a1f2b3f6eca64e90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Beloved, we are now children of God, and what we will be has not yet been revealed. We know that when he is revealed, we will be like him, because we will see him as he is."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.3",
+      "source_sha256": "47b73ef65fbc3ced",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And everyone who has this hope within himself purifies himself, just as he is pure."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.4",
+      "source_sha256": "2a08d548b972e24a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who commits sin also commits lawlessness, and sin itself is lawlessness."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.5",
+      "source_sha256": "3ddd6c1c0b7bd909",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we know that he was revealed for this purpose: to take away sins. And there is no sin in him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.6",
+      "source_sha256": "246a6bb13081acc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who remains in him does not sin, and everyone who sins has neither seen him nor known him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.7",
+      "source_sha256": "a5cb434069989442",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Little children, let no one deceive you. Whoever does what is righteous is righteous, just as he is righteous."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.8",
+      "source_sha256": "598f992f460f6ffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And whoever commits sin is of Satan, because Satan has sinned from the beginning. For this reason the Son of God was revealed: to undo the works of Satan."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.9",
+      "source_sha256": "deeaf3ea64d8257d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who has been born of God does not commit sin, because God's seed remains in him. And he cannot sin, because he has been born of God."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.10",
+      "source_sha256": "9d6a5a92e8897e4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this the children of God and the children of Satan are distinguished from one another: everyone who does not do what is righteous is not of God, nor is anyone who does not love his brother."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.11",
+      "source_sha256": "95813a761524734f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is the commandment you heard from the beginning: that we should love one another."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.12",
+      "source_sha256": "4a549d6fe3988ceb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not like Cain, who was of the evil one and killed his brother. And why did he kill him? Because his own deeds were evil, and his brother's were good."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.13",
+      "source_sha256": "88b821ba35891ba6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not be surprised, brothers, if the world hates you."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.14",
+      "source_sha256": "ee17d2e206767256",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that we have passed from death to life because we love the brothers. But whoever does not love remains in death."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.15",
+      "source_sha256": "7bd1c4aa72e5dbc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who hates his brother is a murderer, and you know that no murderer has eternal life remaining within him."
+    },
+    {
       "chunk_id": "armenian/1john#1John.3.16",
       "source_sha256": "545557eef63a413e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -48,11 +404,74 @@
       "text": "By this we have known love: he laid down his life for us, and we ought to lay down our lives for our brothers."
     },
     {
+      "chunk_id": "armenian/1john#1John.3.17",
+      "source_sha256": "2fa836ce4c78f5aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone has this world’s possessions and sees his brother in need of something, but closes his heart against him, how can the love of God dwell in him?"
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.18",
+      "source_sha256": "245d6b1029b5b02a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Little children, let us love not with words and tongue, but with deeds and truth."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.19",
+      "source_sha256": "3866f6b5bb8d6162",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we will know that we are of the truth, and we will examine our hearts before him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.20",
+      "source_sha256": "54c5cfb8c4af8119",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If our hearts condemn us, God is greater than our hearts and knows everything."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.21",
+      "source_sha256": "6518fd664effe657",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Beloved, if our hearts do not condemn us, we have confidence before God."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.22",
+      "source_sha256": "3ee10c59ceba491e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And whatever we ask, we receive from him, because we keep his commandments and do what is pleasing before him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.23",
+      "source_sha256": "5c1edf93d23b8e86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is his commandment: that we believe in the name of his Son Jesus Christ and love one another, just as he commanded us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.3.24",
+      "source_sha256": "f79f70181de9ba14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever keeps his commandments remains in him, and he in that person. By this we know that he dwells in us: by the Spirit whom he gave us."
+    },
+    {
       "chunk_id": "armenian/1john#1John.4.1",
       "source_sha256": "6f3151bacb655796",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "Beloved, do not believe every spirit, but test the spirits to see whether they are from God, because many false prophets have gone out into the world."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.2",
+      "source_sha256": "800187a08706cad6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And by this we recognize the Spirit of God: every spirit that confesses that Jesus Christ has come in the flesh is from God."
     },
     {
       "chunk_id": "armenian/1john#1John.4.3",
@@ -69,11 +488,88 @@
       "text": "You are from God, little children, and have overcome them, because the one who is in you is greater than the one who is in the world."
     },
     {
+      "chunk_id": "armenian/1john#1John.4.5",
+      "source_sha256": "ec54de234f4a4088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are from the world; therefore they speak from the world, and the world listens to them."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.6",
+      "source_sha256": "1ae6601f9e3b4ad6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We are from God. Whoever knows God listens to us, and whoever is not from God does not listen to us. By this we recognize the Spirit of truth and the spirit of deception."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.7",
+      "source_sha256": "55996bfb27362174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Beloved, let us love one another, because love is from God, and everyone who loves is born of God and knows God."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.8",
+      "source_sha256": "169fb2cacbe222e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever does not love does not know God, because God is love."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.9",
+      "source_sha256": "350c90a00b8e1e73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The love of God was revealed among us in this: God sent his only-begotten Son into the world so that we might live through him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.10",
+      "source_sha256": "7f10e61071208d63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Love consists in this: not that we loved God, but that he loved us and sent his Son as an atonement for our sins."
+    },
+    {
       "chunk_id": "armenian/1john#1John.4.11",
       "source_sha256": "c3bc817c1014305a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "Beloved, if God loved us in this way, then we too ought to love one another."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.12",
+      "source_sha256": "d06408bb2df76118",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one has ever seen God. If we love one another, God dwells in us, and his love is made complete in us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.13",
+      "source_sha256": "d0ec9d8fd1de8918",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know that we dwell in him and he in us: because he has given us of his Spirit."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.14",
+      "source_sha256": "fe755412dc923ea9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have seen and testify that the Father sent his Son as the Savior of the world."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.15",
+      "source_sha256": "e19cbe771e18dc2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever confesses that Jesus is the Son of God, God dwells in him, and he in God."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.16",
+      "source_sha256": "75f68dec76fe9232",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have believed and known the love that God has for us. God is love, and whoever remains in love dwells in God, and God dwells in him."
     },
     {
       "chunk_id": "armenian/1john#1John.4.17",
@@ -83,6 +579,90 @@
       "text": "In this, love has been perfected among us, so that we have confidence on the day of judgment, because as he is, so are we in this world."
     },
     {
+      "chunk_id": "armenian/1john#1John.4.18",
+      "source_sha256": "8baff4afd8471dff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no fear in love, but perfect love casts out fear, because fear involves punishment. Whoever fears is not made complete in love."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.19",
+      "source_sha256": "ea28e1fad0513f14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us love God because he first loved us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.20",
+      "source_sha256": "31a7ceb90e8e1136",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone says, “I love God,” but hates his brother, he is a liar. Whoever does not love his brother, whom he sees, how can he love God, whom he has not seen?"
+    },
+    {
+      "chunk_id": "armenian/1john#1John.4.21",
+      "source_sha256": "624fa560fcedeba7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have this commandment from him: whoever loves God must also love his brother."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.1",
+      "source_sha256": "5b003b18b417f693",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everyone who believes that Jesus is the Christ is born of God, and everyone who loves the one who gave him birth also loves the one born of him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.2",
+      "source_sha256": "406c6c9e4ce1f5ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "By this we know that we love the Son of God: when we love God and carry out his commandments."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.3",
+      "source_sha256": "4cb225ed09231288",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "For this is the love of God: that we keep his commandments. And his commandments are not burdensome."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.4",
+      "source_sha256": "6323d49a5d046514",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "For everyone born of God overcomes the world, and this is the victory that overcomes the world: our faith."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.5",
+      "source_sha256": "6d7e243972cfdf56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "And who can overcome the world except the one who believes that Jesus is the Son of God?"
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.6",
+      "source_sha256": "e8a31eaf72685021",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "This is the one who came by water and Spirit and blood, Jesus Christ—not by water alone, but also by blood and water."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.7",
+      "source_sha256": "083f795a5552d87d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "And the Spirit is the one who bears witness, because the Spirit himself is truth."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.8",
+      "source_sha256": "26e58568e734a783",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "These are the three that bear witness: the Spirit, the water, and the blood. And the three are one."
+    },
+    {
       "chunk_id": "armenian/1john#1John.5.9",
       "source_sha256": "1abd61d0c2579e6f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -90,11 +670,88 @@
       "text": "If we accept human testimony, surely God's testimony is greater. This is God's testimony, which he has given concerning his Son."
     },
     {
+      "chunk_id": "armenian/1john#1John.5.10",
+      "source_sha256": "cd257ba326cfd73f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "The one who believes in the Son of God has this testimony within himself. The one who does not believe the Son of God makes him a liar, because he does not believe the testimony that God gave concerning his own Son."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.11",
+      "source_sha256": "9c6a8baaa3a3ee30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "And this is the testimony: God gave us eternal life, and this life is in his Son."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.12",
+      "source_sha256": "d3b5d379d06f8ee1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "The one who receives the Son also receives life, and the one who does not receive the Son of God does not receive life either."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.13",
+      "source_sha256": "25ad596d8f2a4b70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "I wrote this to you so that you may know that you have eternal life, and so that you may believe in the name of the Son of God."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.14",
+      "source_sha256": "8324214e92ccf1d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "And this is the confidence we have before him: whatever we ask according to his will, he hears us."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.15",
+      "source_sha256": "60926f054263d95f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "For if we know that he hears our requests, then we know that we receive what we ask of him."
+    },
+    {
       "chunk_id": "armenian/1john#1John.5.16",
       "source_sha256": "949c2c6064b7e6f5",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "If anyone sees his brother committing a sin that does not lead to death, he should ask, and he will give him life—for the one whose sin does not lead to death. There are sins that lead to death; I do not say that you should ask concerning those."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.17",
+      "source_sha256": "7f2e1803247ed7bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "All unrighteousness is sin, and there are sins that lead to death."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.18",
+      "source_sha256": "8b32807e99bbf6f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "We know that everyone born of God does not sin; rather, the one born of God guards himself, and the evil one does not come near him."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.19",
+      "source_sha256": "37bda2ebb9fc42d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "We know that we are from God, and the whole world lies in evil."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.20",
+      "source_sha256": "b40d258202542e59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "And we know that the Son of God has come and has given us understanding so that we may know the true one, and we are in the true one, his Son Jesus Christ, for he is the true God and eternal life."
+    },
+    {
+      "chunk_id": "armenian/1john#1John.5.21",
+      "source_sha256": "c1100fa8f0ba8bfc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 18,
+      "text": "Little children, guard yourselves against idolatry."
     }
   ]
 }

@@ -9,15 +9,126 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.0",
+      "source_sha256": "d5926f901cedb4d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "The Prayer of Manasseh."
+    },
     {
       "chunk_id": "pta-peshitta/prman#PrMan.1.1",
       "source_sha256": "7b34e894fae32fb9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 1,
       "text": "The Lord, the God of our fathers, the God of Abraham, Isaac, Jacob, and their righteous descendants."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.2",
+      "source_sha256": "2b8f2c997443abc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "He who made heaven and earth with all their adornment."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.3",
+      "source_sha256": "663ff2c8d0554135",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "He who bound the sea and established it by the command of his word; he who closed up the deep and sealed it with his fearsome and glorious name."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.4",
+      "source_sha256": "8fb9b94a451191af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "You before whose power everything is afraid and trembles."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.5",
+      "source_sha256": "8975fcb89a87a19d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "For the greatness of the splendor of your glory cannot be endured, and no one can endure standing before your anger and your wrath against sinners."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.6",
+      "source_sha256": "484bf9f1ae840d73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "But the mercies you have promised are boundless and immeasurable."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.7",
+      "source_sha256": "1bf0ce39a3668e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "For you are the Lord, patient, merciful, and abundantly gracious, and you relent over the evils of human beings. You, Lord, in the kindness of your grace, have promised forgiveness to those who repent of their sins. In the abundance of your mercies, you have established repentance so that sinners may live."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.8",
+      "source_sha256": "376e889ce294c00c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "You, therefore, Lord, God of the righteous, have not established repentance for the righteous—for Abraham, Isaac, and Jacob, who did not sin against you—but you have established repentance for me, a sinner."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.9",
+      "source_sha256": "4dc768117592adb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "For my sins have become more numerous than the sand of the sea, and I have no relief to lift my eyes because of my many wrongdoings. And now, Lord, I am justly afflicted and am battered as I deserve. For look, I am bound."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.10",
+      "source_sha256": "11c34e6d5f27900e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "I am bent down under many iron bonds, so that I cannot lift my head. Indeed, I am not worthy to raise my eyes and look and see the height of heaven, because of the great evil of my wicked deeds. For I have done evil before you, stirred up your wrath, set up idols, and multiplied defilement."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.11",
+      "source_sha256": "72f16b8aa7dd54d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "And now, look, I bend the knees of my heart before you and appeal to your kindness."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.12",
+      "source_sha256": "9e5b5157812013cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "I have sinned, Lord, I have sinned. And because I know my sins,"
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.13",
+      "source_sha256": "45f703cacf1325c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "I plead before you. Forgive me, Lord, and do not destroy me with my offenses. Do not be angry with me forever, and do not hold my evil deeds against me. Do not condemn me and cast me into the depths of the earth. For you are the God of those who repent."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.14",
+      "source_sha256": "257fa77cad07f9f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "So show your grace, my Lord. Though I am unworthy, you save me according to the abundance of your mercies."
+    },
+    {
+      "chunk_id": "pta-peshitta/prman#PrMan.1.15",
+      "source_sha256": "16dd689649e4aa5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Therefore I will praise you at all times and throughout all the days of my life, because all the hosts of heaven praise you and sing to you forever and ever."
     }
   ]
 }

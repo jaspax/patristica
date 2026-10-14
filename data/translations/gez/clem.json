@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -431,6 +437,13 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "If a man among the faithful has committed many sins and wishes to refrain from them, he must disclose them to the priests and to those learned in the Scriptures of God."
+    },
+    {
+      "chunk_id": "gez/clem#Clem.61.1",
+      "source_sha256": "dc8b12981501e498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 1,
+      "text": "A person with leprosy must not minister at the sacrifice to God, not because he is unclean—for no one is unclean after receiving baptism—but so that he does not impair God's priesthood. They said the same about a person who stammers, so that he does not hinder the service of God's house."
     },
     {
       "chunk_id": "gez/clem#Clem.62.1",

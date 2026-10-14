@@ -9,15 +9,231 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0000",
+      "source_sha256": "cb7b20babb94ece2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Ascetic Work of Father Ephrem. Bless us. 99."
+    },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0001",
       "source_sha256": "718876833c88210e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Suffering compels me to speak, and my unworthiness rebukes me, telling me to be silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0002",
+      "source_sha256": "5d59f6404d878618",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Once again, the sorrows of my heart torment me, urging me to speak, while my sins rebuke me, urging me to remain silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0003",
+      "source_sha256": "8ee4d203989acfc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since I am gripped by both, it is better for me to speak than to remain silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0004",
+      "source_sha256": "fc75e8fda4ca10eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will speak so that I may find relief from the sorrows of my heart. My soul is in anguish within me, and my eyes shed tears."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0005",
+      "source_sha256": "7324485203f002d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, who will give water to my head and a fountain of tears to my eyes, so that I may weep day and night over the wounds of my soul, over how the word of instruction has ceased to have power in our times, and how we are without understanding, because our sins have multiplied?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0006",
+      "source_sha256": "071a75acd0ca78af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For pride does not allow us to recognize what weighs upon us, so that we might stop sinning."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0007",
+      "source_sha256": "e3710695972cb46d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The instruction and teaching of our fathers used to shine like the lights of heaven, because they practiced every good way of life,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0008",
+      "source_sha256": "de2839936e4d424c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "especially since they were surrounded by thorns and thistles—I mean the pagans and heretics who lived in their times."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0009",
+      "source_sha256": "ddab0f7ef178104f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they themselves were honored like precious stones of great value."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0010",
+      "source_sha256": "2612d226c31a31e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Moreover, because of their truthful words and their way of life, their enemies and those who hated them were envious of them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0011",
+      "source_sha256": "c34223b30dbd6c9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who would see their humility and not be moved to compassion?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0012",
+      "source_sha256": "855bc0cd5cb7e808",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or who would see their gentleness and serenity and not marvel?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0013",
+      "source_sha256": "a285e5e725670071",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who would see their hatred of money and not hate the world?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0014",
+      "source_sha256": "8762cba38c9df4a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What greedy or proud person would see the dignity of their lives and not turn to what is right?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0015",
+      "source_sha256": "38d0ca876fac5873",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What sexually immoral or unclean person sees them standing in prayer"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0016",
+      "source_sha256": "09f68f89f3f6eebe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and has not become worthy and holy? What angry or fainthearted person would meet them and not immediately turn to gentleness?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0017",
+      "source_sha256": "06120fde3ce19f2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They struggled here and were given joy in the eternal realm."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0018",
+      "source_sha256": "2f053d7f3863709e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God was glorified in them, and many people were built up through them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0019",
+      "source_sha256": "174c6ac393008cab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Our own way of life, however, has stopped following straight roads and has followed roads that are difficult and wearisome."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0020",
+      "source_sha256": "f7e82a17b3a35dda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For nowadays no one leaves behind his possessions for God's sake."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0021",
+      "source_sha256": "e722a1ccd4adfe79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And no one practices renunciation for the sake of eternal life. Nowadays there is no gentle person, nor anyone who is humble."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0022",
+      "source_sha256": "d3513fdf5228d9e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nowadays no one endures being insulted."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0023",
+      "source_sha256": "69477df11f8a911b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor does anyone endure being provoked."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0024",
+      "source_sha256": "0d95ecdd6ef5452d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we have all become devoid of understanding."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0025",
+      "source_sha256": "3acdf7d29b339d34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have all become angry, quarrelsome, and envious."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0026",
+      "source_sha256": "1f9a430aba33e0ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have all become proud."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0027",
+      "source_sha256": "27694d9ab570f25b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have sought fine, beautiful clothes, being boastful, loving empty glory, and loving our own comfort."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0028",
+      "source_sha256": "6198335ebb529d1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For someone who comes in among the brothers to be instructed wants to lead others."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0029",
+      "source_sha256": "810cac23bb79ce53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wants to teach before he has been instructed in the teaching at all."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0030",
+      "source_sha256": "1ef31c1ee0f46b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wants to lay down the law before he has been instructed in the law at all."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0031",
@@ -27,11 +243,249 @@
       "text": "He wants to become a philosopher before he has learned a syllable."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0032",
+      "source_sha256": "a6b82970fb207bc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wants others to submit to him before he has learned to submit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0033",
+      "source_sha256": "16577494ea9bf706",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wants to give orders before he has learned to take orders."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0034",
+      "source_sha256": "6660b4fa1ec95e3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who is older gives orders with authority."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0035",
+      "source_sha256": "cbe623fefdc35114",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the young boy talks back and contradicts him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0036",
+      "source_sha256": "04b7a97824e93064",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a rich man comes in among the brothers, he demands greater honor from us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0037",
+      "source_sha256": "6531a4895de5b017",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a poor man comes in, he seeks a comfort he has never known."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0038",
+      "source_sha256": "801ef6f659417fb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he is a laborer in the world, he pampers his body to make it smooth and his fingers soft."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0039",
+      "source_sha256": "19771168d145d90d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O my beloved brothers, who would not weep—whoever looks at our way of life, which is not being put into practice?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0040",
+      "source_sha256": "3c7babf1dc195b94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who have renounced the world still think about worldly things."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0041",
+      "source_sha256": "1e916604ea1f85ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And those who say, “We have renounced earthly things,” desire them all the more."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0042",
+      "source_sha256": "671cd0c13adc18b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who say of themselves, “We are spiritual,” make even greater use of earthly things."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0043",
+      "source_sha256": "507b378221bdf182",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They think about the things of the flesh in the thoughts of their hearts. We do not know, O brothers, the task to which we have been called."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0044",
+      "source_sha256": "90cd0fecd48145ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We do not know, O my beloved ones, the honor into which we have entered."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0045",
+      "source_sha256": "96bc01d9675af663",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have been called to self-control, and we seek luxurious meals."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0046",
+      "source_sha256": "4d5709af0e2a2d53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have come in to go without clothes, and we concern ourselves with fine, beautifully made clothes."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0047",
+      "source_sha256": "03c339743f3463a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have come in to suffer with our Lord, and we seek our own comfort in everything."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0048",
+      "source_sha256": "e98befebc0e1f623",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have come in to submit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0049",
+      "source_sha256": "b05acd7c7c6622ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we all talk back; we are all disobedient. We have been called to gentleness, quietness, and knowledge."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0050",
+      "source_sha256": "9575890a11596acc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we are savage toward one another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0051",
+      "source_sha256": "11427c2e9851f493",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We read, but we do not understand what we read."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0052",
+      "source_sha256": "c01d964a613cab46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We hear, but the words do not enter the ears of our hearts."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0053",
       "source_sha256": "8254986a3ec836ae",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "When someone encounters a murderer on the road, his face changes and his heart trembles."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0054",
+      "source_sha256": "30ba7afdac8e59bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We too see and hear the words of the apostles who were killed and the prophets who were cut down and stoned. Instead of weeping and sighing,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0055",
+      "source_sha256": "acffff1b2e8ba390",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "we laugh and joke, and we feel nothing at all."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0056",
+      "source_sha256": "186f56638f7d1c7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every day we hear that the Word of God was persecuted."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0057",
+      "source_sha256": "c917dd40dc84556f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They mocked him and flogged him. They hung him on a tree and crucified him. They pierced him and killed him; he died for our sins."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0058",
+      "source_sha256": "1f573ddfb338b6e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet even at these things we are not afraid. Instead, our hearts go astray."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0059",
+      "source_sha256": "8090b11bcedf19d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we are careless, laughing amid our troubles."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0060",
+      "source_sha256": "8c810cbf2100095a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun could not bear its Lord being mocked. It grieved and turned its light into darkness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0061",
+      "source_sha256": "ac96fb270109b188",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we do not want to turn our hearts from darkness to light."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0062",
+      "source_sha256": "de3b292e8b2455aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The curtain of his temple, which had committed no sin, split down the middle."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0063",
+      "source_sha256": "4f21769914eaa59e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we do not want to stir our hearts and weep over our own sins."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0064",
+      "source_sha256": "d2c6f308f7593bca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The earth often shakes beneath us, and it trembles before the face of the Lord. But we are not afraid, though we are disobedient to the Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0065",
+      "source_sha256": "10466a59cc6f4369",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The earth opened and swallowed cities, closing over them because of God's anger. Even then we were not afraid."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0066",
+      "source_sha256": "d9fd645ff3485c2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun was eclipsed many times, and it became dark in the middle of the day. Darkness covered us at noon. Even then we were not afraid; our hearts felt nothing, nor were we disturbed. The wars of the Persians and the other barbarians"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0067",
@@ -41,11 +495,319 @@
       "text": "They killed the people, plundered the regions, and devastated the land."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0068",
+      "source_sha256": "92537740df1f8e2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "have spilled much blood so that we might see, become afraid, and run to God with weeping and repentance. Yet even after these things, we have not turned away from our evil ways."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0069",
       "source_sha256": "9838e0ac352a749b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Brothers, let us repent, lest the wrath of God come upon us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0070",
+      "source_sha256": "fc5374d92ae3ac80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O brothers, let us bow down and weep, so that we may avert God's anger and he may forgive us, for we have provoked him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0071",
+      "source_sha256": "d9009b3e52f8e1db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O brothers, let us humble our souls with fasting, hardship, and nights of keeping watch, and let us walk in truth, so that he may have mercy on us and fill the earth with joy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0072",
+      "source_sha256": "300d9fa3181f4062",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us mourn, so that the Holy Spirit may encourage us and comfort us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0073",
+      "source_sha256": "794108bbb6f3ae0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us throw our evil habits away from us"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0074",
+      "source_sha256": "25989b106c555e07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and clothe ourselves in good virtues, especially those of us who have been deemed worthy of the angels' way of life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0075",
+      "source_sha256": "a638db401242fba5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us establish a good standard and rule for ourselves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0076",
+      "source_sha256": "9a49a1fd36453e7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us strive to imitate the lives of our earliest fathers, persevering patiently."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0077",
+      "source_sha256": "23d68d638ae5a748",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not practice self-restraint today and give it up tomorrow."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0078",
+      "source_sha256": "3968a97978469162",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not walk barefoot today and then, when tomorrow comes, look for a fine sandal."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0079",
+      "source_sha256": "ce699af021a798a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not wear a simple tunic or sackcloth today, but tomorrow look for a fine, shining robe."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0080",
+      "source_sha256": "3fe53a2e29dfc23c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not live with discipline today and then live in laxity tomorrow."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0081",
+      "source_sha256": "2a0971e461a6442c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not live obediently today and then become disobedient tomorrow, raging harshly or barking."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0082",
+      "source_sha256": "4896515779687a5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not live humbly and gently today, and then in arrogance and pride tomorrow."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0083",
+      "source_sha256": "f4592f02fc5f7ad7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not weep or mourn over your sins today and then become careless tomorrow, living in frivolity and empty laughter."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0084",
+      "source_sha256": "1b4bdbc2abae9d0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not sleep on the ground today and then sleep on high beds tomorrow."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0085",
+      "source_sha256": "31fb5339f9658f75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I urge you, my brothers, to establish a measure for yourselves and a fixed rule, with endurance and perseverance, so that you can complete your lives in a way pleasing to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0086",
+      "source_sha256": "4e7b5809e43cbadd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let each of you help his neighbor in everything. Put your bodies to death through ascetic practices, and please your fathers and your brothers in accordance with God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0087",
+      "source_sha256": "12918b57cd2836f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen to the Lord saying, “As you want people to act toward you, act toward them in the same way.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0088",
+      "source_sha256": "e84a862dd033585d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, my beloved, persevere in your good work, remaining firm and not allowing yourself to be moved."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0089",
+      "source_sha256": "63072a3b052aa7f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For our fathers reached perfection, persevering in a single rule, and they completed the work they had begun with endurance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0090",
+      "source_sha256": "8879c07bddcdb739",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is someone who has spent forty-five years without changing their good practice of self-control."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0091",
+      "source_sha256": "0365a69b7b4fbb5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They abstained from varied foods, controlled their tongues, slept on the ground, and lived in humility, gentleness, faith, love, and singleness of heart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0092",
+      "source_sha256": "2a06ae4d545f20e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They loved their neighbors; this is the bond of spiritual perfection."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0093",
+      "source_sha256": "ad135959c4e04b90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Besides all these things, they acquired nothing for themselves on earth, keeping themselves free from the cares of this life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0094",
+      "source_sha256": "b1bf1ad3dedf1742",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They devoted themselves entirely to prayer and keeping vigil at night, with weeping and sighing."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0095",
+      "source_sha256": "219cf4d520d13192",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their bodies served them only for what was necessary, and they trampled on pride."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0096",
+      "source_sha256": "b4d439b4e813caba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They renounced anger; gold and silver were foreign to them. Through their toil and hardships, they purified themselves from every evil deed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0097",
+      "source_sha256": "60040d7186704062",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason God dwelt in them and was glorified in them. Everyone who meets them, and those who hear about them, benefit from them and give glory to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0098",
+      "source_sha256": "e5bf383779c2a7a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us also strive to imitate them and leave behind every evil deed, the things God hates, so that we may be purified and God may dwell in us too and save us from the evil one."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0099",
+      "source_sha256": "416cb0a1f635881a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell me about this matter thoughtfully."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0100",
+      "source_sha256": "0ad0f01da23076b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone throws you into a pit of mud and leaves you there, will you put up with him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0101",
+      "source_sha256": "4734c4793d8274e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you, then, are a worm and cannot bear this, how will God—the undefiled, the spotless, the holy one—dwell in you while you remain in the mud of filth and stench?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0102",
+      "source_sha256": "77b4a39cecc3b64c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore purify ourselves, my beloved, so that God will dwell in us and we may share in his promises."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0103",
+      "source_sha256": "bab5d8cf96db3308",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not dishonor his holy name, which has been pronounced over us, since we have been named after Christ and called Christians."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0104",
+      "source_sha256": "33fcc55fc3bc861f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us live in truth, for Christ is the truth, so that the Holy Spirit will dwell in us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0105",
+      "source_sha256": "067b0796a2e0c6da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For where Christ dwells, there is freedom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0106",
+      "source_sha256": "ea2feadc5cafe161",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us be sober, so that we recognize that he has invited us to his wedding."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0107",
+      "source_sha256": "54d1a94fc923aead",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us love him as he loved us. Let us strive in everything to be worthy of his bridal chamber."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0108",
+      "source_sha256": "af9d26b9433ffca3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not be careless, lest they find our clothing dirty, bind us, throw us out of the bridal chamber, and condemn us with a double judgment, because we have indeed left the world, yet we think about worldly things."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0109",
+      "source_sha256": "7d839a5713e05537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We flee from fleshly things, yet once again we seek the comfort they offer."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0110",
+      "source_sha256": "f99898f86571c45a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not delay, then, my beloved, but remember that the day of the Lord is coming like a thief."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0111",
+      "source_sha256": "66b7d44d67bddc6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us fear that that day may come upon us suddenly, and we may be found naked and become miserable."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0112",
+      "source_sha256": "aa6b1e834e9da8b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it will come in an instant, without our realizing it or taking heed. For, as he said, in the days of Noah they were eating and drinking, taking wives and living with husbands. They did not realize it until the flood came and destroyed them all."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0113",
@@ -55,11 +817,137 @@
       "text": "So let us be afraid, my beloved, and be prepared, lest they come upon me while we are unprepared, and no help comes to us."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0114",
+      "source_sha256": "e0133d55fe34d970",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The day has drawn near. The things written have been fulfilled; they have already happened, and nothing else remains except the deeds of the Antichrist."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0115",
+      "source_sha256": "1501e350ece099c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For his wickedness must reach its full extent when the rule of the Romans comes to an end."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0116",
+      "source_sha256": "0dcc414b30ebf6e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Already, the one who is coming is coming, and he will not delay."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0117",
       "source_sha256": "2689f724152d8066",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Whoever wants to reign with Christ the King must not neglect himself, because the time has drawn near, according to what is written in Revelation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0118",
+      "source_sha256": "b60872a2ba9313a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, whoever wants to escape the fire of Gehenna and the worm that never sleeps must strive well."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0119",
+      "source_sha256": "ae5e6179d9b79eb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let him be afraid and remain watchful."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0120",
+      "source_sha256": "b288ebf2c940d512",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever wants to be comforted must mourn now."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0121",
+      "source_sha256": "02fb9d091f9e8e7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever wants to be exalted in the kingdom of heaven must humble himself now, here."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0122",
+      "source_sha256": "f94999b32ca2c77d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever wants to rejoice with the angels must weep here now."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0123",
+      "source_sha256": "2b5dd722cffe9a05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be sober. Keep your lamp burning. Put oil in your vessels."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0124",
+      "source_sha256": "828fbdcb83662d64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Keep your clothing shining."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0125",
+      "source_sha256": "43fb963b84150b23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Stay watchful."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0126",
+      "source_sha256": "798040e800dadb65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not sleep, for the hour has"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0127",
+      "source_sha256": "20d076578bdcaca8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "drawn near, along with the bridal chamber, which is full of joy and gladness forever."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0128",
+      "source_sha256": "12efa4ded2a1bbac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the city of the King, the true bridal chamber, which is full of every good thing, is the heavenly Jerusalem."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0129",
+      "source_sha256": "4604be1bf15fe62a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is light, with no darkness in it. It is a spring full of living water."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0130",
+      "source_sha256": "efc6a722f4dcaf37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever wants to dwell in it with Christ the King must hurry and prepare himself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0131",
+      "source_sha256": "1fb5b2dd2422f382",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the time has grown short, and the day has declined. No human being knows what will happen to him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0132",
+      "source_sha256": "2721555848a0f1c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not fall asleep and have him shut the door on us and say, “I do not know you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0133",
@@ -69,11 +957,151 @@
       "text": "Should a dark cloud come over us, with a storm, roaring winds, thunder, lightning, and afflictions on every side, we would have no way to go anywhere."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0134",
+      "source_sha256": "bd5373a30f349856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O my brothers, let us repent. Let us not come under God's judgment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0135",
+      "source_sha256": "f4dc37911778257c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen to the writer of Proverbs saying, “When distress and calamity come upon you, you will call out to me,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0136",
+      "source_sha256": "91e218a0a9a5649e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but I will not listen to you, because I called to you and you did not listen to me."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0137",
+      "source_sha256": "69af7a53fe4e3349",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I spread out my words, but you paid no attention.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0138",
+      "source_sha256": "5525f8f278803e4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore obey the Lord."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0139",
       "source_sha256": "f6f88ec283287e10",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Let us understand that we are in a temporary lodging."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0140",
+      "source_sha256": "1020abb0ff1886b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us make every effort to go to our city."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0141",
+      "source_sha256": "54d1a42999c33c6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we, brothers, are spiritual merchants. Let us acquire for ourselves the pearl, Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0142",
+      "source_sha256": "6e0ed177d21ab6c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to anyone who does not acquire him for himself! Such a person has handed himself over to destruction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0143",
+      "source_sha256": "d9207cfd9a003eef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or are you unaware, brothers, that we are branches of the true vine, Christ, and that Christ's Father is the gardener?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0144",
+      "source_sha256": "8462af0a83581653",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Take care, then, brothers, that no one remains fruitless."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0145",
+      "source_sha256": "bc432a2a26b4398c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But understand that the Father is the one who tends the vine. He cleans those who bear fruit so that they may bear more fruit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0146",
+      "source_sha256": "68847db0632699b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who do not bear fruit he throws out of the vine, so that he may burn them in a fire."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0147",
+      "source_sha256": "c17a31d5e24e90a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore watch ourselves, brothers, lest we become careless and fruitless, and be cut out of the vine, become strangers to Christ, and be thrown into Gehenna and the unquenchable fire."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0148",
+      "source_sha256": "9b8c8bcf9da1035b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we, brothers, are good seed, which the Lord of the earth, Christ, sowed in his field."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0149",
+      "source_sha256": "2a3e49ffe3945661",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us therefore understand and recognize that the harvest has drawn near. The reapers have prepared their sickles and are awaiting God's command."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0150",
+      "source_sha256": "f7b22cf393d4d4cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Take care, then: let him not find weeds among us, so that we are bound into bundles to be burned."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0151",
+      "source_sha256": "c762b130793f1a52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you not know, brothers, that we are appointed to cross a terrifying sea?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0152",
+      "source_sha256": "597c533b09f85d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I am afraid that a wind may blow suddenly, and that they may find us unprepared, bind our arms, seize us, and take us to the place of judgment. We will find no defense and will weep there over our acts of negligence, seeing others rejoicing, exulting, and celebrating."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0153",
+      "source_sha256": "ec623a55e7a8046b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We ourselves, meanwhile, will be dragged to the underworld amid distress, hardships, hardships, anguish, and bitter groans. Why? Because of our negligence and our self-indulgence, because we did not prepare ourselves before they came for us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0154",
+      "source_sha256": "9a522408c34cee7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No, then, brothers, let us not be careless, for God's judgment is terrifying."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0155",
@@ -83,11 +1111,256 @@
       "text": "Do not let the passions of the flesh make us strangers to the city of Christ and cast us out of the bridal chamber, so that we fall down into the place of weeping and gnashing of teeth."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0156",
+      "source_sha256": "4d563841865e4b73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, let us be vigilant, brothers, and recognize that we have taken on the monastic habit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0157",
+      "source_sha256": "9fed884583233dd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us not find ourselves subject to the passions of the flesh, with them ruling over us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0158",
+      "source_sha256": "55e3b5dc5c18cadc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "amid them, in quarrels and mockery, in laughter [?] at shameful things. These reveal that we are stripped of God's glory."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0159",
+      "source_sha256": "d9247016d30ace6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anger, wrath, and the pride of life reveal that we are seeking defilement."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0160",
+      "source_sha256": "6b78734ea54df8f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Love of money and pride reveal that we do not love God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0161",
+      "source_sha256": "da5cd682ff9bbc9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Envy and fire show us that the love of God is not within us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0162",
+      "source_sha256": "810eb9e9dc0ce3a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The flesh that grows fat and soft through excessive washing and anointing exposes us as people who love the passions and are slaves to impurity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0163",
+      "source_sha256": "196badce5c24473b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Our mouth is open, and we never keep silent. Whatever words we want, whether good or bad, we pour them out without restraint."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.000.0164",
+      "source_sha256": "04a74de1729594be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have not paid attention to what is written: “Through a multitude of words you will not escape sin.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0000",
+      "source_sha256": "5663e25e6f47a47f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "While we still live in things of this kind, the monastic habit is useless and will not benefit us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0001",
+      "source_sha256": "1527a3d1ae8cd440",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, we are merely making a mockery of ourselves, while our hearts are occupied with things of this kind."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0002",
+      "source_sha256": "a84df9fc9dff6a0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O monk, do not trust in the monastic habit. Instead, realize that you are a stranger to the things of heaven, and your soul reveals that it is naked."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0003",
+      "source_sha256": "deba608991b97b85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Perhaps, then, someone will say: “The passions of the body are natural, and there is no blame for someone who becomes their slave.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0004",
+      "source_sha256": "f45fdf0dc2bd1874",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be careful, then, brother, not to bring an accusation upon yourself,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0005",
+      "source_sha256": "8ce6167ff373a5be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "turning the creations of the good God into things contrary to nature because of your desires and your negligence."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0006",
+      "source_sha256": "e3f932a35efd3f59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything God created is very good."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0007",
+      "source_sha256": "99c87f5e05ca1e3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He adorned their nature with qualities and uses appropriate to human beings, and with good activities."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0008",
+      "source_sha256": "b4a93c9565c869ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That is, someone may be hungry by nature, and there is no blame upon him if he eats in moderation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0009",
+      "source_sha256": "79c96456a84dd7b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if he eats greedily, he will be guilty of wrongdoing."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0010",
+      "source_sha256": "06a6a6163e05ee4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For [?] is natural."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0011",
+      "source_sha256": "070193796bf4c283",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, someone may be thirsty, and there is no blame upon him if he drinks in moderation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0012",
+      "source_sha256": "6a2b6a83469a1587",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if he drinks without restraint, he is found blameworthy, since this too is natural."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0013",
+      "source_sha256": "7a1406d3289dc840",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lack of restraint, however, is contrary to nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0014",
+      "source_sha256": "d106ea0ae14b8440",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone sleeps according to nature, there is no blame upon him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0015",
+      "source_sha256": "a777ae78631084da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if he sleeps beyond moderation, there is no honor for him in that, because he has relaxed his body excessively, placing it under the power of the passion of sleep and handing himself over to fantasies through negligence."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0016",
       "source_sha256": "c6b7c31b075a785a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "When the habit of sleep grows stronger, it gains mastery over one's natural disposition."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0017",
+      "source_sha256": "252d5a8482d9159f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For nature and habit are the heralds of the two sides."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0018",
+      "source_sha256": "a5e8f8e8577e2e1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nature reveals itself to be a slave, while habit reveals itself as belonging to choice. For the human being stands between the two sides."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0019",
+      "source_sha256": "47e94ac4fda2aa9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Choice, however, is its own master."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0020",
+      "source_sha256": "1dad286d3711e1f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is like a farmer who plants bad habits in nature, as well as good virtues. According to what he wants, he plants evil things."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0021",
+      "source_sha256": "6ebcfb25f0d8d4ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In this way, in hunger there is gluttony."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0022",
+      "source_sha256": "e4e20b0a2c36de59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In thirst, in turn, there is lust."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0023",
+      "source_sha256": "19ac541a4a9589bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In sleep, in turn, there is excessive laxity in deep sleep."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0024",
+      "source_sha256": "38f81c14c34f5bfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, in the sight of the eyes there are evil thoughts within the habit of lying."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0025",
+      "source_sha256": "39884e70039d7c23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also plants the good virtues in this same way."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0026",
+      "source_sha256": "18ac983caf4f756e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In thirst, endurance."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0027",
@@ -125,11 +1398,207 @@
       "text": "For this, in the blink of an eye, uproots evil habits and plants good virtues as it wishes, because it has overcome nature."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0032",
+      "source_sha256": "84a2328efaa8370f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For nature is like land that is cultivated."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0033",
+      "source_sha256": "b600c59ac02d2ee2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Its farmer is free choice."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0034",
+      "source_sha256": "4e6c2201be25e543",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Holy Scripture therefore teaches us and shows us which evil habits deserve to be uprooted, roots and all, and which good virtues should be planted and cultivated, while the farmer remains watchful."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0035",
+      "source_sha256": "5b3a6e9328d219a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the farmer who does not know the power of the Scriptures is powerless, and an ignorant man"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0036",
+      "source_sha256": "0a53ff0582ab871e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "he is. For the law of the Scriptures gives strength and wisdom, and produces good virtues from its own branches in this way."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0037",
+      "source_sha256": "720b3698cda87b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It gives him good faith to plant in his unbelief, and hope in distrust, and love in hatred, and knowledge in ignorance, diligence in negligence, honor and glory."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0038",
+      "source_sha256": "68127a589194986b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who suffers plants immortality, and divinity in his humanity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0039",
+      "source_sha256": "816a76f77311cad8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If, then, our farmer—that is, free choice—abandons his teacher, who instructs him—that is, Holy Scripture—he is found going astray."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0040",
+      "source_sha256": "ee080db94b035180",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he falls into evil thoughts, which gather evil habits within him, and he plants them in his nature, though they do not belong to it."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0041",
       "source_sha256": "620bd1e1a1d70b61",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "These are: unbelief, giving up on yourself, hatred, envy, love of empty glory, anger, arrogance, slander, contentiousness, and things like these."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0042",
+      "source_sha256": "eae2c45bb991ade5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These things happened to him because he abandoned the lawgiver."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0043",
+      "source_sha256": "16b7d49336d1a4e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if he comes to his senses and finds fault with himself, and hurries to bow down before the lawgiver, saying with tears, “I have sinned because I abandoned you,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0044",
+      "source_sha256": "1d4cf59382a8915c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the lawgiver immediately comes to meet him in his great love for humanity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0045",
+      "source_sha256": "22dc86d49c2cd385",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he gives him good wisdom and strength to cultivate the soil of nature again,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0046",
+      "source_sha256": "942c5dfddcfb3e91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to uproot the evil habits from it. He gives him excellent and good virtues to plant in place of the evil ones, and gives him crowns and many honors."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0047",
+      "source_sha256": "55564b3da8bda67d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He became hungry by nature, but he endured."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0048",
+      "source_sha256": "78035ea33fc8177e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He felt desire, but he became sober."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0049",
+      "source_sha256": "9ab9ad3b471e9b48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Sleep weighed heavily on him, but he struggled to keep watch through the night."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0050",
+      "source_sha256": "901dc94135e9a8cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is reluctant to sing psalms."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0051",
+      "source_sha256": "b8c86f834b5aabdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he opens his mouth and blesses God, forcing himself to do so."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0052",
+      "source_sha256": "0ddc8f932c602bb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So they place a crown on such a person and give him honor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0053",
+      "source_sha256": "e109ed7f10bd6a46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The crowns are because he struggled and overcame nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0054",
+      "source_sha256": "9661f519e78d5005",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The honors are because he acquired good virtues for himself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0055",
+      "source_sha256": "7a5d9c3123621dfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So let us now glorify God's love for humanity, and let us bless him and proclaim his goodness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0056",
+      "source_sha256": "d14c50f2a3a5b5a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us bow down and worship his compassion."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0057",
+      "source_sha256": "505a25aa0c11b848",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what father is compassionate in this way?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0058",
+      "source_sha256": "10f5f50ed1e460fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or what father loves his children as the Lord loves us, his servants?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0059",
+      "source_sha256": "985e85703979bcde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He has graciously given us great gifts, caring for us with generosity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0060",
+      "source_sha256": "63990fc6f566e6a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He forgives us mercifully, healing the wounds of the soul with compassion."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0061",
@@ -139,11 +1608,431 @@
       "text": "But we are ungrateful and will reject him."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0062",
+      "source_sha256": "72dc53b454c54be1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is patient with us and does not abandon us. For he wants everyone to be saved and to stop sinning and to stop sinning, so that they may inherit his kingdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0063",
+      "source_sha256": "2dbbb00ad412a426",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in his goodness he has healed all our painful and difficult illnesses."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0064",
+      "source_sha256": "3bf97b5c77e7015e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He makes the lazy person diligent, rousing him to sing hymns and psalms."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0065",
+      "source_sha256": "b23cccda7983c5be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He urges the sinner to repent, forgives him, and encourages him to pursue virtue with tears and humility."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0066",
       "source_sha256": "130b57a99b916232",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "He quickly listens to the weak person so that he does not become discouraged, and he grants the gift of the Spirit to those who persevere."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0067",
+      "source_sha256": "53ec7e97d125c786",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He gives honor to them all as a reward for their toil."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0068",
+      "source_sha256": "22844dddcff674b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He has the power to draw us to himself by force, but he does not want our free choice to be fruitless."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0069",
+      "source_sha256": "0cedd0f22b06903b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this good God!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0070",
+      "source_sha256": "3084a1af00d76d6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this God who loves humanity!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0071",
+      "source_sha256": "e6975881d1ea5bd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this indescribable God!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0072",
+      "source_sha256": "c3fbae67c8e0153e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet we show contempt and neglect to seek him, although he is our Lord. He is the one who created us, and because he loved us, he gave himself for us. Yet we are too lazy to call upon him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0073",
+      "source_sha256": "f637f90e74d41dd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He saved us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0074",
+      "source_sha256": "62ee0b1f99b3f596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He helped us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0075",
+      "source_sha256": "d9fe7b10e53c3104",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He enlightened the eyes of our mind."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0076",
+      "source_sha256": "fb67d65b58a92963",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He gave knowledge to our heart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0077",
+      "source_sha256": "6514372d4c79d79b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made us taste the sweetness of his love, which is delightful at all times."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0078",
+      "source_sha256": "b72a74dc70d0594e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed, then, is the person who will be filled with his love, for no other desire rules over him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0079",
+      "source_sha256": "2573009ff4c5e33c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen, then, my beloved brothers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0080",
+      "source_sha256": "9231877c3b24f1e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What wise person would not love such a Lord?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0081",
+      "source_sha256": "5b9c43f35e832307",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who would not worship him and give thanks to him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0082",
+      "source_sha256": "576beb2732ee3f92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I beg and urge you not to neglect to bless this joyful Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0083",
+      "source_sha256": "4a3e9a5e14e53d19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If we are negligent, then, you who love God, what will our defense be on the day of judgment? Or what will we say?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0084",
+      "source_sha256": "72d480ba8eb533a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Will we say, “We did not hear,” or “We did not understand,” or “No one told us”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0085",
+      "source_sha256": "ca471987f561c9c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe, woe! [?] lamentation over us!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0086",
+      "source_sha256": "e0aaeb16774dce91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “Voices were heard in the [?] of judgment.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0087",
+      "source_sha256": "b69f3133704894f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, are these voices, my brothers, other than weeping and the gnashing of teeth?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0088",
+      "source_sha256": "32640a8834d11ac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What has our Lord, who is in the bosom of his Father, not done for us?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0089",
+      "source_sha256": "dace6310221766d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He who is in indescribable exaltation—did he not humble himself and come down to us?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0090",
+      "source_sha256": "446c39db2d223004",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This invisible one—was he not seen for our sake?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0091",
+      "source_sha256": "fe2604e124561ca4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The immortal Word took on flesh and tasted death for us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0092",
+      "source_sha256": "7a207d98e7f15c00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He who honors everyone—was he not dishonored?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0093",
+      "source_sha256": "bd5845a37a1365f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did they not slap him in the face for your sake, so that he might set them free?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0094",
+      "source_sha256": "e3ab8e0defc4d2aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this awe-inspiring wonder!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0095",
+      "source_sha256": "ab5baa9d6473e2a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A hand of clay, a hand of earth and ashes, formed from the earth, dared to slap the face of Christ, who formed heaven and earth. And he endured it humbly."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0096",
+      "source_sha256": "b14050f5f73f9c0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we, these miserable, wretched people, though we are earth and ashes, cannot bear even one another’s words."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0097",
+      "source_sha256": "1b04b69f83a1f3f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This immortal one—did he not taste death and was he not buried for your sake, so that he might raise us up?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0098",
+      "source_sha256": "83d6f29530c20218",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did he not undo the enemy’s bonds, bind him, and hand him over to us so that we might mock him, giving us authority to trample on him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0099",
+      "source_sha256": "9dd3fc1761f7447a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On what days have we cried out to him and he has not listened to us?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0100",
+      "source_sha256": "c5bd766f6a0e94ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if we delay a little, he wants our reward to increase."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0101",
+      "source_sha256": "b926acf1da925c9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen, beloved brother, as I speak to you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0102",
+      "source_sha256": "49848cd43fbefaf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Monk, tell me: why did you renounce the world if you are going to seek the world’s comforts again? Will you not answer me, or will you not keep yourself alert?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0103",
+      "source_sha256": "b06dba8f3b1fdf8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you not know that you were called to afflictions and hardships, hunger and thirst, cold and nakedness?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0104",
+      "source_sha256": "025c3f9a30d8fa9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have been called, beloved, to prayers, nights of keeping watch, tears, and groans."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0105",
+      "source_sha256": "107ac7cd1a41c229",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet you, brother, live in pleasure, self-indulgence, and laughter. You do not restrain your mouth or your eyes, and you do not guard your heart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0106",
+      "source_sha256": "a89b2a53405cf7bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember, then, that you have been called to a heavenly inheritance, yet you are crazed with distraction, thinking about earthly things."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0107",
+      "source_sha256": "92eff8d2c771b534",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What will you say on the day of judgment?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0108",
+      "source_sha256": "5a5603ba36a7a7a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Will not the true judge say to you: Did I not suffer for your sake?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0109",
+      "source_sha256": "e7d736f092be3509",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I went hungry so that you might be satisfied. I was thirsty, and they gave me vinegar to drink."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0110",
+      "source_sha256": "fee1226c15fd004c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I was stripped naked on the cross."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0111",
+      "source_sha256": "9fab5ce851add205",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I gave my life for you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0112",
+      "source_sha256": "80b84056fc431430",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Are these words not written for you, brother?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0113",
+      "source_sha256": "c176c214a035001f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you not know that all creation will be brought before the judgment seat of Christ, and that everyone will be judged for every deed they have forgotten, whether good or evil?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0114",
+      "source_sha256": "6d2e8d71b2985d3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We will be rebuked in the midst of thousands upon thousands and tens of thousands upon tens of thousands of angels and archangels, with all the saints standing around him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0115",
+      "source_sha256": "4d4d42b620f360c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Will you be able to tell a lie at that time?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0116",
+      "source_sha256": "ddc558f87e0a6b3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be watchful, then, monk. Do not let your condemnation be doubled against you, so that you are disgraced because of your evil deeds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0117",
+      "source_sha256": "5a97873adc41afb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, I urge you: wake up from sleep, leave your forgetfulness behind, and prepare yourself for God's judgment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0118",
+      "source_sha256": "475018839663da87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Understand that it is near. The day is waning, and the hour has drawn near."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0119",
+      "source_sha256": "e5d3018fea354a8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Take notice and see: our brothers were with us yesterday; today they are no longer here."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0120",
+      "source_sha256": "07e3bbcfb17694bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For their Lord called for them, and they departed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0121",
+      "source_sha256": "ef44ce6f219e6edc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider yesterday and today, how it has passed like a flower of the grass or like a runner racing along."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0122",
+      "source_sha256": "ccf66216a7d5b39e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is how our days will pass without our realizing it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0123",
@@ -188,11 +2077,60 @@
       "text": "Send a prayer full of tears."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0129",
+      "source_sha256": "356190bd93bb7c00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Send ahead acts of charity from the labor of your hands."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0130",
+      "source_sha256": "f36b91f44afb2a93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Send ahead nights of keeping watch with psalms and hymns."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0131",
+      "source_sha256": "964a61ecbc8f8628",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Send ahead faith and love toward God, who has loved you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0132",
+      "source_sha256": "d925174b370e9413",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you have sent these things ahead of you in this way, then take courage, for you will go to a place of eternal rest."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0133",
+      "source_sha256": "765ab1057f91f7f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you have sent nothing ahead of you from among the things I have mentioned,"
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0134",
       "source_sha256": "d44190cf2c084efb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "At least do not oppress your neighbor. Do not be arrogant toward him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0135",
+      "source_sha256": "0f1bb9a19602ff52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "then why are you preoccupied with a tunic, a cloak, and food beyond what you need?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0136",
+      "source_sha256": "5e72de4ab4bfef27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O brother, you swear oaths, lie, and cheat in your dealings, in what you receive and what you give."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0137",
@@ -202,11 +2140,396 @@
       "text": "Will not the one who feeds the birds and the animals also feed you through his providence and the fruit of your hands?"
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0138",
+      "source_sha256": "c9ec663c546275f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not act this way, O monk, but look ahead to becoming an heir of God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0139",
+      "source_sha256": "1ce321751309e18b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet you worry about the material things of this age."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0140",
+      "source_sha256": "cae5feb65c18dac7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In keeping with your monastic habit, you say, “I have died to the world.” Yet again you think about the things of the world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0141",
+      "source_sha256": "753fb4b12cc8a020",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why do you deceive yourself?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0142",
+      "source_sha256": "700576d0805f3342",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why do you trick your own self?"
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0143",
       "source_sha256": "6d5880d819593666",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "The time for repentance is set before you, yet you are neglectful and find fault with the lawgiver."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0144",
+      "source_sha256": "e559d7381fa69686",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See, then, O wretched one: death will come in an instant. And what will you say?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0145",
+      "source_sha256": "d7104fb572e592ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Will you be able to say, “Leave me! Do not take me now! Leave me until I repent”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0146",
+      "source_sha256": "e6395b252ff3abbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be alert, O wretched one, because that hour is coming upon you like a snare. You will be terrified and say, “Oh, woe to me! My days have passed, and I did not realize it!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0147",
+      "source_sha256": "efd1c9e47859f360",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to me!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0148",
+      "source_sha256": "87b6d47d98663bef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What am I going to do?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0149",
+      "source_sha256": "743d9f3d98607761",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Death has surrounded me. There is no way to escape in any direction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0150",
+      "source_sha256": "43dd6899c8db21a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, then, my beloved, be alert and pay attention to what I am saying."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0151",
+      "source_sha256": "3ffa95043b095002",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen to what the Lord says."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0152",
+      "source_sha256": "3f7e59cfa5d9a118",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “Even for a single idle word, a person will give an account on the day of judgment.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0153",
+      "source_sha256": "459ab88835456dd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is enough to bring fear and trembling upon us concerning the day of Christ’s judgment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0154",
+      "source_sha256": "6af25ddd5d681cc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who, then, will not be astonished that the Lord of all calls out, yet there is no one who listens to him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0155",
+      "source_sha256": "be641f5de198e7e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “The wedding hall is ready. My calves and fattened animals have been slaughtered. Everything is ready.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0156",
+      "source_sha256": "0706218a26d32bcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Come to the wedding feast!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0157",
+      "source_sha256": "5456ae63fd1ac397",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Come! Look, the door is open!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0158",
+      "source_sha256": "c32600e43b9a0f5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Come! Do not remain outside, for"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0159",
+      "source_sha256": "6d12d757285a50b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if I shut it, there is no one who will open it for you. Whoever remains outside will have no one to bring him in."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0160",
+      "source_sha256": "f36d550cf665a668",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And after these calls, after all these pleas, no one listens, no one hurries, and no one is afraid. Instead, our hearts have been bound by empty deceit, and we do not want to listen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0161",
+      "source_sha256": "b9985514bb7d018d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us be alert."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0162",
+      "source_sha256": "db3d05ffc48e3e2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not let us be negligent and be carried off for nothing."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0163",
+      "source_sha256": "4e880b0b6558616f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the person who ran joyfully and went to the Lord, for he will stand confidently before him in the true bridal chamber."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0164",
+      "source_sha256": "5ec249a3a4e30cff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, woe to the person who was negligent!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0165",
+      "source_sha256": "c9c2b96097571ff8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that we must depart, and we know that he is coming with power and abundant glory, to crown those who obeyed him and worked well, and to rebuke those who were negligent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0166",
+      "source_sha256": "e9df726ab0f6983e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is like the middle of the night, when all humanity is oblivious, lying in a deep sleep, and a great noise comes from heaven, with terrifying thunderclaps, lightning flashes full of fire, and mighty winds full of tempest. Those who are sleeping wake in alarm, fear seizes them, and they are suddenly terrified. Each one remembers his own deeds, whether evil or good."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0167",
+      "source_sha256": "d52a89484e7c2cc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who have done evil will lament and beat their breasts, weeping and crying out, “Woe to us! Where is mercy?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0168",
+      "source_sha256": "c896e9236fb8adb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the earth will shake and give way beneath them. The thunderclaps will terrify them, the fiery lightning flashes will alarm them, and the winds will strike them and shake them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0169",
+      "source_sha256": "f6eff65b2e89f482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Dense gloom and darkness will bewilder them, with no way to flee in any direction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0170",
+      "source_sha256": "d57a2d715f5025bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fear of death terrifies them. The memory of their sins surrounds them. The rebuke of judgment convicts them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0171",
+      "source_sha256": "7ba2f4712d8dcb22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is how that hour will come."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0172",
+      "source_sha256": "1fb2fec204f27cf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A terrifying trumpet will sound in heaven, awakening with its terror those who sleep in the depths of the earth. It will make those who have died since the beginning of time rise up."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0173",
+      "source_sha256": "9cd8c5e87392b2e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the powers of the heavens will shake, and the foundations of the earth will sway, roaring like the sea. All the elements will tremble in fear of the Lord’s glory."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0174",
+      "source_sha256": "833ea2596eabbae8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a terrifying fire will go before him, cleansing the earth of the lawless deeds with which it was defiled [?]."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0175",
+      "source_sha256": "16c41380b003e40f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hades will open its gates in fear. Death will retreat and cease."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0176",
+      "source_sha256": "df1216c8beb1165f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then all human flesh that came from the earth—all those who have disintegrated—will hear the sound of the trumpet, and they will all live."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0177",
+      "source_sha256": "a19e2881d1332a20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this terrifying wonder! How, in the blink of an eye, the bones of all humanity will rise, live, and stand for judgment, crying out in fear and saying, “Glory to you, God, who raised us because of his love for humanity!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0178",
+      "source_sha256": "9b6f4b83a32b6526",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, blessed are the perfect and those who practiced ascetic discipline in purity, for they will rejoice when they see the reward for their labor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0179",
+      "source_sha256": "ca1df68ed9f4d7d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the martyrs will wear their crowns, and the prophets and apostles will clothe themselves, and they will all be in glory before the face of Christ."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0180",
+      "source_sha256": "e2e05955a3f556c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, blessed are those who will be worthy of that coming, for they will meet the angels, walking with the saints to meet the Lord in the air, in clouds of glory, and they will celebrate with the immortal bridegroom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0181",
+      "source_sha256": "6792e3a0f19f071d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For just as a bird that trusts in its wings flies up high by means of them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0182",
+      "source_sha256": "de94accc60a08917",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so each person sees in his own way."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0183",
+      "source_sha256": "034bb8acbaaa20f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The person whose heart is pure sees the glory of God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0184",
+      "source_sha256": "dc15943019d54ba3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Adam, the first man, will marvel on that day and say, “How did these great multitudes and these countless nations come from me?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0185",
+      "source_sha256": "4fb8b2e5e3b5cae4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He will be even more bewildered: “How is it that, from this single creation of all humanity, some are in the kingdom and some are in Hades?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0186",
+      "source_sha256": "d44297e19077944a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Glory to you, God, who alone are wise!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0187",
+      "source_sha256": "da10f3ea33c2de2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So then, brothers, let us remember that terrifying place of judgment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0188",
+      "source_sha256": "199da9d3158e63f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Truly, when I remembered him, trembling seized me. I was troubled, I sighed, and I wept as I looked at the paradise of joy, the furnace of Gehenna, and the terror of Christ’s judgment seat."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0189",
+      "source_sha256": "166747ff84d94be9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When I saw this, I sighed. My strength failed because I had spent my time in negligence and empty thoughts."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0190",
+      "source_sha256": "3d1fecb1b8262a57",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the things in which I exhausted my tears. And I did not notice how [?], how my days passed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0191",
+      "source_sha256": "a8228aebaf3a7f08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My days came to an end without my realizing it. My sins multiplied."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0192",
+      "source_sha256": "974a598e25b1f673",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to me, my beloved friends!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0193",
+      "source_sha256": "51cbe2aae6511ed1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What will I do about the shame that will overtake me on that terrifying day of true judgment?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0194",
@@ -216,11 +2539,298 @@
       "text": "When those who know me observe me wearing the monastic habit, they look at me and call us blessed. They do not know that my inner self is full of lawlessness and every kind of impurity, and that I have forgotten God, who examines hearts and minds."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0195",
+      "source_sha256": "7275644743131adf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Truly, the shame at that time is great, brothers. Above all, it is a great love, from which there is no escape."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0196",
+      "source_sha256": "bccd62116193a31f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Truly, the person who will be thrown out in shame on that day is miserable."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0197",
+      "source_sha256": "3ca4b1f19226d2b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who, then, will help him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0198",
+      "source_sha256": "606f2bcbea0577e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I implore you by your mercies, O God who loves humanity and is good: do not leave me excluded from you. Do not throw me out with the goats, those who have provoked you, and do not say, “I do not know you.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0199",
+      "source_sha256": "e8e03fa482397b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, because of your abundant mercy, give me the opportunity, as long as I am in the body, to continue weeping day and night, sighing over my sins, so that you may prepare my heart as a dwelling place for holy grace."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0200",
+      "source_sha256": "41a2926ba5784f42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even though I am an ungodly sinner, I will not stop knocking at the door of your mercy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0201",
+      "source_sha256": "e9e0b2eb70290688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even though I am negligent, I will not give up on your path, my God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0202",
+      "source_sha256": "727cad4dfed04040",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I beg you. My brothers,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0203",
+      "source_sha256": "eb7a54fa0ee83123",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I beg you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0204",
+      "source_sha256": "01b77c02cb9c44b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I urge you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0205",
+      "source_sha256": "38c7a4dd74d230e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us weep before him night and day with prayers, praises, and psalms, so that we do not fall into the place of weeping and gnashing of teeth, the sleepless worm, shame, rebuke, and the great, decisive judgment. Perhaps"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0206",
+      "source_sha256": "cd6f998212283f06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "through God’s mercies he will make us worthy of eternal life with the saints, in the place where there is no fear or destruction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0207",
+      "source_sha256": "7b81aa6e07fcecba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The place where there is no death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0208",
+      "source_sha256": "dc0ecae77c805624",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The place where there is no warfare from the adversary."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0209",
+      "source_sha256": "745f020c427d8fb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The place where there is no hatred or hostility, but lasting joy and gladness, and a table full of every spiritual good, filled with the sweetness of righteousness. And we will enter paradise, for we will inherit it forever and ever."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.001.0210",
+      "source_sha256": "55bdcd1299a407ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Glory and majesty to God, who is good and loves humanity, who has prepared his kingdom for us, forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0000",
+      "source_sha256": "1beed550771ea6f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, Apa Ephraim himself writes to a beloved friend of his who is receiving instruction from him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0001",
+      "source_sha256": "54af82a8bf195b02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My beloved in the Lord, first of all, in everything, keep humility on your lips, ready to answer, “Forgive me,” knowing that through humility all the enemy’s power fails."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0002",
+      "source_sha256": "68e84e974647a21a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you know the goodness of your Master, and what has been said about him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0003",
+      "source_sha256": "7c6848d6aa7eb537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He became humble and obedient to the point of death."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0004",
       "source_sha256": "444c775e36af39e8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "You too, my son, put humility in your mouth, your heart, and your neck. For when you come to humility, it has its commandments."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0005",
+      "source_sha256": "428192cc9fa249b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at David boasting of his humility."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0006",
+      "source_sha256": "7adf4aa2f4413ee6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said this: “I humbled myself, and the Lord saved me and did good to me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0007",
+      "source_sha256": "7190172ae50146bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too, my son, clothe yourself in humility, so that the virtues of God may be with you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0008",
+      "source_sha256": "a31c263800e6bf62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you live in humility, my son, no passion will be able to come near you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0009",
+      "source_sha256": "65e544629ee9e68e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A humble person's beauty has no measure."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0010",
+      "source_sha256": "172db1aee545cc31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for a humble person, no passion will be able to come near you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0011",
+      "source_sha256": "622a8ebf7ed06bbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A humble person's beauty has no measure."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0012",
+      "source_sha256": "ce8c36bd1a4bd337",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A humble person is a sacrifice to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0013",
+      "source_sha256": "aa6e8280e64c904e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God's heart is at ease with a humble person, as are his angels."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0014",
+      "source_sha256": "cb9fce7f30924239",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Furthermore, the angels honor him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0015",
+      "source_sha256": "6d855308172f3f85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is still a fault in someone who has acquired every virtue."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0016",
+      "source_sha256": "9309bfa33e03ea6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for someone who has acquired humility, you will no longer find any fault in him, because he has become humble."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0017",
+      "source_sha256": "4a791aedeb6c0beb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the virtues of humility, my son."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0018",
+      "source_sha256": "53aafc3c5d63ff06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be silent, my son, for it is written: “The wise person will be silent at that time.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0019",
+      "source_sha256": "b4130d94c15c4d31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too, be silent until you are asked."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0020",
+      "source_sha256": "966244b0597df4c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you are asked, speak gently and humbly."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0021",
+      "source_sha256": "b02d54fa4a844fba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not become upset at all."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0022",
+      "source_sha256": "e7c9d5537dcc1631",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone is older than you, sit down."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0023",
+      "source_sha256": "b6baf1e89a357f65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not speak. If they say harmful words, lie down and put it out of your mind, saying, “I did not hear any word, even a useful one.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0024",
+      "source_sha256": "c7b81adc636a25c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be all the more obedient to them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0025",
+      "source_sha256": "57e3dada8cff746b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written: “Be doers of the word and not merely hearers.” Otherwise you are deceiving yourself, my son in the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0026",
@@ -230,11 +2840,557 @@
       "text": "I entrust their commandments to you at your beginning."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0027",
+      "source_sha256": "704f7235c45ebf1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too, keep them in your youth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0028",
+      "source_sha256": "28f2553639c9c564",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at what Paul says."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0029",
+      "source_sha256": "373ca6c8122a32c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said this: “From your childhood you have known the holy writings, which are able to save you.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0030",
+      "source_sha256": "0f27746f18a2cfa0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Learn all the rules of monastic life yourself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0031",
+      "source_sha256": "3133692f2fe7125a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then you will be worthy of love in all your deeds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0032",
+      "source_sha256": "094ac50549b2e823",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you go to a monastery to settle there, and you are young,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0033",
+      "source_sha256": "094a36f115af28d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "attach yourself to someone older than you in whom God dwells. Do not abandon him in your deceitfulness and go to someone else."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0034",
+      "source_sha256": "4d5002089c7bcaa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the person to whom you attach yourself test you, so that you do not anger him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0035",
+      "source_sha256": "45e68cc74e82b2ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, “Is it a small thing for you to anger people?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0036",
+      "source_sha256": "f694255046a72284",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the monastery where you are, observe this rule: do not run from place to place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0037",
+      "source_sha256": "2e159862147845ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not invite anyone in for your own comfort and to satisfy the desires of your belly."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0038",
+      "source_sha256": "5de57dc63db638b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not make friends with a troublesome person,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0039",
+      "source_sha256": "568f524babf0e927",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may remain at peace and not be on the brothers’ lips."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0040",
+      "source_sha256": "d222c6363c2522a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I beg you, my beloved in the Lord: you are a beginner, so learn to obey, and you will find rest."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0041",
+      "source_sha256": "11f7944f7bf011ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, “Gain instruction, not silver.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0042",
+      "source_sha256": "e9fcffc59f7134d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Guard yourself against disobedience, so that the words spoken to Saul and the rebuke he received may not be fulfilled in you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0043",
+      "source_sha256": "8d75efb6a4895d30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is won over by obedience more than by sacrifice."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0044",
+      "source_sha256": "a6b95c98bf767af0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These, then, are the rules of monastic life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0045",
+      "source_sha256": "e01fc4936dcfc813",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When you are eating with brothers,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0046",
+      "source_sha256": "6d194fad665c481d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "do not raise your head until you have finished eating."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0047",
+      "source_sha256": "79d391e803ed0b75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Eat from the dish toward which you reach."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0048",
+      "source_sha256": "b347890245ebde8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you are passed over for anything at the table, do not say, “Bring it,” while someone older than you is sitting there."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0049",
+      "source_sha256": "a734ea111d85d3ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you want to drink from the cup, do not let your throat make a noise like worldly people do."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0050",
+      "source_sha256": "06ae222f380774e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you are sitting among the brothers and phlegm comes into your mouth, do not spit it out among them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0051",
+      "source_sha256": "56860b57fb6f9d34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Go away and spit it out."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0052",
+      "source_sha256": "42e02899ecce6074",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When you sleep in the same place as brothers, do not lie within a cubit of them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0053",
+      "source_sha256": "537e8218acfb8c15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If possible, do not sleep on the mat when there are two of you and you are a young boy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0054",
+      "source_sha256": "858a22d9933baac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not sleep uncovered or on your back, so that you will not be disturbed by dreams."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0055",
+      "source_sha256": "1323cba56287b18a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When you walk with brothers, keep apart from them so that you can pay attention to your heart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0056",
+      "source_sha256": "8281656a8cd69f3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you walk with a brother and have sandals on your feet, but the one walking with you has none, take yours off too and walk as he does."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0057",
+      "source_sha256": "e4c4792a26625ed0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, “Endure hardship.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0058",
+      "source_sha256": "ce3b29684fa716b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do the work of an evangelist."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0059",
+      "source_sha256": "a0259e4c1265a7d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do your best while you are in your dwelling."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0060",
+      "source_sha256": "49314eb54b3f75b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not eat while the sun is out."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0061",
+      "source_sha256": "c5536c8dfe05db4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not cook for yourself alone and take your ease."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0062",
+      "source_sha256": "4a9e1728d3fd7ffd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you are compelled to cook for yourself, invite a poor person who is on the mountain with you, so that you too may boast, “I did not eat my bread alone.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0063",
+      "source_sha256": "b4dc327ac575c2b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you are on a mountain or in a place where a brother is sick, visit him twice every day: in the morning, before you do your manual work, and in the evening."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0064",
+      "source_sha256": "5a198878126d7f82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, my beloved in the Lord, “I was sick, and you visited me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0065",
+      "source_sha256": "778dae57cd9a48fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a brother dies on the mountain where you are, do not remain in your cell when you hear about it. Go and sit beside him and weep over him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0066",
+      "source_sha256": "570fc8b55c93478d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, “Weep over a dead person.” Go out with him until they bury him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0067",
+      "source_sha256": "960f1156ac663cc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is the last commandment that a person will carry out for his brother. Kiss his body with compassion, saying, “Remember me before the Lord.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0068",
+      "source_sha256": "691d081c329c41e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My son, do your best to observe the things I have written for you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0069",
+      "source_sha256": "c6789c53f960a2ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they are all rules of monastic life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0070",
+      "source_sha256": "6d690f3c722081cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Keep death close to you day and night."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0071",
+      "source_sha256": "e037ae96443325c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you know the one you know, namely the one speaking with you, who says, “I never entertained the thought"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0072",
+      "source_sha256": "c714b4fed5000f9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "while my feet were inside the threshold, that I would live until I passed beyond the threshold of the door.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0073",
+      "source_sha256": "e647d4cf866bed95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you too, my son, place all your thoughts before God at all times, and all these thoughts of weakness will not lead you astray."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0074",
+      "source_sha256": "fcccb21a880a53ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Always reflect on the punishments."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0075",
+      "source_sha256": "ec9d161975f4a44f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Keep striving to be like God while you are in your dwelling."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0076",
+      "source_sha256": "ecf0d99eb2a02904",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a brother comes to you, rejoice with him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0077",
+      "source_sha256": "6c9db93a491aa830",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0078",
+      "source_sha256": "92a4915c66bf9854",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Put water on his feet so that you do not become proud."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0079",
+      "source_sha256": "828f67f14ed352ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let him pray, and then sit down."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0080",
+      "source_sha256": "bf92396c1a9ae3b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Kiss his hands and his feet."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0081",
+      "source_sha256": "d2a9ae3333820f1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not ask him, “Where are you coming from?”"
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0082",
       "source_sha256": "79acf46da7c9acad",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "For it is written: Through this, some received angels without knowing it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0083",
+      "source_sha256": "60dca51c9015be54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Believe that he has come to you as God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0084",
+      "source_sha256": "8cb086ee2defc2fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he is greater than you, say to him many times, “Grace has reached me, for I have seen you, my lord.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0085",
+      "source_sha256": "c0cd54e84bd85863",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lay down your mat and eat with him. Even if you are bound by a fast, release yourself from it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0086",
+      "source_sha256": "f9bed1b5e51ccb9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, my son, “I have become all things with everyone.” If he is about to leave,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0087",
+      "source_sha256": "eabf52d745a39e16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "escort him out, rejoicing with him and being glad."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0088",
+      "source_sha256": "5c3cb409c8f56888",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Make an effort to have him bless you three times, so that the blessing of the angel who walks with him may come upon you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0089",
+      "source_sha256": "b628e864a26526ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for the faith of the catholic Church, do not let them turn you away from it or separate you from it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0090",
+      "source_sha256": "dd6fd410a200934e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We believe in one God, the Father Almighty, and his only-begotten Son, Jesus Christ our Lord, through whom everything came into being, and the Holy Spirit. This is the blessed Trinity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0091",
+      "source_sha256": "d5721c56a31ab3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is the fullness of the divinity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0092",
+      "source_sha256": "1f259661000bd293",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is God in God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0093",
+      "source_sha256": "72a44967f6885f12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is light from light."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0094",
+      "source_sha256": "48807a47170f29a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is Lord from Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0095",
+      "source_sha256": "929e6dc48f49aeb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is begotten, not created."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0096",
+      "source_sha256": "fe88d42a70a5abd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was born as a human being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0097",
+      "source_sha256": "0f1dd46a6f5fe368",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is not a created being, but God, born through the holy virgin Mary, who gave birth to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0098",
+      "source_sha256": "79e6c1c8e5fe8e4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took a human body for our sake, until the earth could bear him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0099",
+      "source_sha256": "de8b9854de2dfe29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He appointed heralds for himself, namely his holy apostles, as it is written: “Their voice went out over the whole earth.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0100",
+      "source_sha256": "e41f105b50519a15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They crucified him and pierced him with a spear. Our salvation flowed out:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0101",
+      "source_sha256": "76984175d00b44e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "water and blood, which are baptism and the precious blood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0102",
+      "source_sha256": "c180811e1a61c9a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you do not receive baptism, you cannot receive the blood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0103",
+      "source_sha256": "b03a085da973b6b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too, my son, keep this faith, and the God of peace will be with you. He will save you and rescue you, and you will be at ease all your days."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0104",
+      "source_sha256": "aa0c1d46e97495c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Farewell in the Lord, my beloved son in the Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_ephrem#CopScr.pseudo-ephrem.002.0105",
+      "source_sha256": "5e82e499de48c040",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember me too, my beloved in the Lord, through Jesus our Lord, to whom belong glory and dominion forever and ever. Amen."
     }
   ]
 }

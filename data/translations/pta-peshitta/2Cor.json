@@ -9,9 +9,36 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.1",
+      "source_sha256": "52f55e7bb2e98d7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Paul, an apostle of Jesus Christ by the will of God, and Timothy our brother, to the church of God in Corinth and to all the holy people throughout Achaia."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.2",
+      "source_sha256": "373e52a775acfef7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Grace be with you, and peace from God our Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.3",
+      "source_sha256": "78aae147f225d192",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Blessed is God, the Father of our Lord Jesus Christ, the Father of mercies and the God of all comfort."
+    },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.1.4",
       "source_sha256": "e1928952d956e668",
@@ -20,11 +47,284 @@
       "text": "He comforts us in all our afflictions, so that we too can comfort those who share in all our afflictions, with the comfort we ourselves receive from God."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.5",
+      "source_sha256": "943b048d9d3dc596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For just as the sufferings of Christ overflow in us, so also our comfort overflows through Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.6",
+      "source_sha256": "20804a5d822e9625",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If we are afflicted, it is for your comfort, and we are afflicted for your salvation. And if we are comforted, it is so that you may be comforted and have the eagerness to endure the same sufferings that we also suffer."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.7",
+      "source_sha256": "4f4baf0aa06d0475",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Our hope for you is firm, for we know that if you share in the sufferings, you also share in the comfort."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.8",
+      "source_sha256": "4661fd4308480475",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We want you to know, our brothers, about the affliction that came upon us in Asia. We were afflicted severely, beyond our strength, so that we nearly lost our lives."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.9",
+      "source_sha256": "15b121cf1bc00a92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We passed a sentence of death on ourselves, so that we would not trust in ourselves but in God, who raises the dead."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.10",
+      "source_sha256": "ec07cb46e8578b37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "He rescued us from terrible deaths, and we hope that he will rescue us again."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.11",
+      "source_sha256": "56b8c9443369768f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "You help us by your prayers on our behalf, so that his gift to us may be a favor brought about through many people, and many may thank him on our behalf."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.12",
+      "source_sha256": "e6b966be617d25ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For this is our boast: the testimony of our conscience that we have conducted ourselves in the world with sincerity and purity and by the grace of God, not with worldly wisdom, and especially toward you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.13",
+      "source_sha256": "0667bf3ae29ac40a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We are not writing anything to you other than what you know and also understand. And I trust that you will understand to the end,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.14",
+      "source_sha256": "e76d92bfb7651142",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "just as you have already understood a little out of much: that we are your reason for boasting, just as you also are ours, on the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.15",
+      "source_sha256": "2635b5a3664498fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "With this confidence, I had intended to come to you first, so that you might receive a double blessing."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.16",
+      "source_sha256": "556a8e3aff1ef3cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I intended to pass through your way to the Macedonians, then come back to you from Macedonia, and have you send me on my way to Judea."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.17",
+      "source_sha256": "f3186c6a0e80b0be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "When I planned this, then, did I plan hastily? Or are the things I plan merely human plans, so that they must contain both “Yes, yes” and “No, no”?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.18",
+      "source_sha256": "c9d07c8446c06a2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But God is faithful: our word to you was not both yes and no."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.19",
+      "source_sha256": "0354233b0b05ee9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For the Son of God, Jesus Christ, who was proclaimed among you through us—through me, Silvanus, and Timothy—was not yes and no. Rather, in him there was yes."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.20",
+      "source_sha256": "460f9414f9fb2bee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For all the promises of God became yes in him, in Christ. That is why through him we say “Amen” to the glory of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.21",
+      "source_sha256": "c232e62b6227ddf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Now it is God who establishes us together with you in Christ, and he is the one who anointed us,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.22",
+      "source_sha256": "5ea3f53e2acc86cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "sealed us, and placed the pledge of his Spirit in our hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.23",
+      "source_sha256": "a3d0656636061fa6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But I call God as a witness against my own life that it was to spare you that I did not come to Corinth."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.1.24",
+      "source_sha256": "6e3114cedf95f0b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "It is not that we are masters of your faith, but we are helpers in your joy, for you stand firm by faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.1",
+      "source_sha256": "d18c7d2e8f1e1969",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But I decided this for myself: I would not come to you again in sorrow."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.2",
+      "source_sha256": "0a15170183860903",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For if I make you sad, who will make me glad except the very person I have saddened?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.3",
+      "source_sha256": "3c77b3080c85d391",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And I wrote this very thing to you so that, when I came, I would not be saddened by those who ought to make me glad. I am confident about all of you that my joy is the joy of you all."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.4",
+      "source_sha256": "9e3fd798d2416f38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I wrote these things to you out of great distress and anguish of heart, with many tears—not to make you sad, but so that you would know the great love I have for you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.5",
+      "source_sha256": "a4966c0fe16c103e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But if someone has caused sorrow, he has not saddened me, but, to a small extent, all of you—I say this so that my words will not weigh heavily on you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.6",
+      "source_sha256": "345104d2584e7210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "The rebuke given by many is enough for this person."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.7",
+      "source_sha256": "4382ac7e1e8b6ada",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Now, instead, you ought to forgive and comfort him, so that such a person is not swallowed up by excessive sorrow."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.8",
+      "source_sha256": "08ad92ecf5257489",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For this reason I ask you to reaffirm your love for him."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.9",
+      "source_sha256": "aed8b2824def1d9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For this is also why I wrote: to test you and find out whether you are obedient in everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.10",
+      "source_sha256": "9a2436678a71cb7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Anyone you forgive, I forgive too. For whatever I have forgiven, whoever it was I forgave, I forgave for your sake in the presence of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.11",
+      "source_sha256": "d12772728761d727",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This is so that Satan will not get the better of us, for we know his schemes."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.12",
+      "source_sha256": "bf195aeb9f402456",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But when I came to Troas with the good news of Christ, and a door was opened for me in the Lord,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.13",
+      "source_sha256": "a204e96cea6775e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I had no rest in my spirit because I did not find my brother Titus. So I said goodbye to them and set out for the Macedonians."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.14",
+      "source_sha256": "ff79c069ab157345",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But thanks be to God, who always puts us on display in Christ and through us reveals the fragrance of the knowledge of him everywhere."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.15",
+      "source_sha256": "49924ba8b4e8a025",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For in Christ we are a sweet fragrance to God among those who are being saved and among those who are perishing."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.2.16",
       "source_sha256": "24d99573df54a324",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "To some, a fragrance of death leading to death; to others, a fragrance of life leading to life. And who is equal to these things?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.2.17",
+      "source_sha256": "44a79abc6d8cbc46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For we are not like the rest, who dilute the words of God. Rather, we speak sincerely, as people sent from God, before God, in Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.1",
+      "source_sha256": "1d0141eb0fabaeca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Are we starting all over again to show you who we are? Or do we, like others, need letters of recommendation to be written to you about us, or need you to write recommendations for us?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.2",
+      "source_sha256": "7819c7816c53854c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "You yourselves are our letter, written in our hearts, known and read by everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.3",
+      "source_sha256": "7521b8060d908b61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For you know that you are Christ's letter, delivered through our ministry, written not with ink but with the Spirit of the living God, not on stone tablets but on tablets of human hearts."
     },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.3.4",
@@ -41,6 +341,125 @@
       "text": "Not that we are capable of thinking anything as though it came from ourselves, but our ability comes from God."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.6",
+      "source_sha256": "947ffeab422fa488",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "He is the one who made us worthy to be ministers of a new covenant, not of the written text but of the Spirit. For the written text kills, but the Spirit gives life."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.7",
+      "source_sha256": "2e061b22cba6deba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But if the ministry of death, engraved in writing on stones, came with glory, so that the Israelites could not gaze at Moses' face because of the glory of his face—a glory that came to an end—"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.8",
+      "source_sha256": "b4e4742116ef6fdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "how, then, will the ministry of the Spirit not have even greater glory?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.9",
+      "source_sha256": "46a2fb149acf3810",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For if the ministry of condemnation had glory, how much more will the ministry of righteousness surpass it in glory!"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.10",
+      "source_sha256": "985af5749350d238",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For what was glorified is as though it had no glory at all in comparison with this surpassing glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.11",
+      "source_sha256": "1dd3dbfcb3aba727",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For if what was done away with came with glory, how much more will what remains be glorious!"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.12",
+      "source_sha256": "a297a34843785754",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore, since we have this hope, we act with great openness."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.13",
+      "source_sha256": "018e582846c34c27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We are not like Moses, who used to put a veil over his face so that the Israelites would not look at the end of what was passing away."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.14",
+      "source_sha256": "332617af6686a996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But their minds were blinded. For to this very day, whenever the old covenant is read, that same veil remains over them and is not lifted, because it is through Christ that it is done away with."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.15",
+      "source_sha256": "91da38a8fd88cbf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And to this very day, whenever Moses is read, a veil lies over their hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.16",
+      "source_sha256": "30c0edb5cb8e1bb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But whenever one of them turns to the Lord, the veil is taken away from him."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.17",
+      "source_sha256": "ff802f241bd29c04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Now the Lord is the Spirit, and where the Spirit of the Lord is, there is freedom."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.3.18",
+      "source_sha256": "0457564c22841ed8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But all of us, with unveiled faces, see the glory of the Lord as in a mirror, and we are being transformed into that same image, from glory to glory, as from the Lord, the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.1",
+      "source_sha256": "9bef7a2d6157e05b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore we do not lose heart in this ministry that we hold through the mercy shown to us."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.2",
+      "source_sha256": "6563881837054ccb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Instead, we have rejected shameful, hidden practices. We do not act deceitfully or falsify the word of God. Rather, by openly revealing the truth, we present ourselves to every human conscience before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.3",
+      "source_sha256": "fff34fc4cd405352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But even if our gospel is veiled, it is veiled to those who are perishing."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.4",
+      "source_sha256": "740f5615c5ae06aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The god of this world has blinded their minds because they do not believe, so that the light of the gospel of the glory of Christ, who is the image of God, might not shine on them."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.4.5",
       "source_sha256": "f21710d1c7ea0a43",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -53,6 +472,34 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "For God, who said that light should shine out of darkness, has himself shone in our hearts, so that we may be enlightened with the knowledge of God’s glory in the face of Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.7",
+      "source_sha256": "6fb9aadf6f27f61a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But we have this treasure in a clay vessel, so that the greatness of the power may be from God and not from us."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.8",
+      "source_sha256": "9c5e1a6f59db8b77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For we are pressed in every way, but not crushed. We are shaken, but not defeated."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.9",
+      "source_sha256": "20cb95b912f146c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We are persecuted, but not abandoned. We are knocked down, but do not perish."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.10",
+      "source_sha256": "7cdde52aadf70e54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We always carry the death of Jesus in our bodies, so that the life of Jesus may also be revealed in our bodies."
     },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.4.11",
@@ -69,6 +516,174 @@
       "text": "So death is at work in us, but life in you."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.13",
+      "source_sha256": "379a19c0506a775c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore we too, since we have the same spirit of faith, as it is written, “I believed; therefore I also spoke,” believe and therefore also speak."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.14",
+      "source_sha256": "6b50763deb85252e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And we know that the one who raised our Lord Jesus will also raise us through Jesus and bring us together with you into his presence."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.15",
+      "source_sha256": "2ce1b558df9faded",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For everything is for your sake, so that as grace increases through many people, thanksgiving may increase to the glory of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.16",
+      "source_sha256": "c8e650b0afef49b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore we do not lose heart. For even if our outer self is wasting away, our inner self is being renewed day by day."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.17",
+      "source_sha256": "9e91aca41d1da4f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For the suffering of this present time, though very small and light, is preparing for us a great glory without limit, forever and ever."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.4.18",
+      "source_sha256": "a1966abbe406d555",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For we do not rejoice in the things that are seen, but in the things that are not seen. For the things that are seen are temporary, but the things that are not seen are eternal."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.1",
+      "source_sha256": "e329a0705a9e05a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we know that if this earthly house of ours, the body, is taken down, we have a building from God, an eternal house in heaven not made by human hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.2",
+      "source_sha256": "72a69f46b566bcd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason we also groan and long to put on our house from heaven,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.3",
+      "source_sha256": "59005f46fc023a79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "yet even when we have put it on, we will be found naked."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.4",
+      "source_sha256": "aa40278bdce202aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For while we are now in this house, we groan under its weight. We do not want to take it off, but to put another over it, so that its mortality may be swallowed up by life."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.5",
+      "source_sha256": "698e08a5ef70a337",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is God who has prepared us for this very thing, and he has given us his Spirit as a pledge."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.6",
+      "source_sha256": "1d08638ad414a7fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore we know and are convinced that as long as we live in the body, we are away from our Lord,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.7",
+      "source_sha256": "e569d1ef4f6efb1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for we walk by faith and not by sight."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.8",
+      "source_sha256": "4a98e55edd8eafc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason we are confident and long to leave the body and be with our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.9",
+      "source_sha256": "308cf03d2cd5f4d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we strive to please him, whether we are away or at home."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.10",
+      "source_sha256": "57b74ce384edf779",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we must all stand before the judgment seat of Christ, so that each person may be repaid in his body for what he has done, whether good or evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.11",
+      "source_sha256": "183950966370eac4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, because we know the fear of our Lord, we persuade people. But we are fully known to God, and I hope that we are also fully known to your consciences."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.12",
+      "source_sha256": "ecfe2a7acdc04c9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We are not praising ourselves to you again. Rather, we are giving you a reason to boast about us before those who boast about outward appearances and not about the heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.13",
+      "source_sha256": "ee683dac5fcc03aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if we are out of our minds, it is for God; and if we are in our right minds, it is for you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.14",
+      "source_sha256": "6eafcce296a469be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Christ’s love compels us, because we have reached this conclusion: one died for everyone, and therefore everyone died."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.15",
+      "source_sha256": "14a2b1caf1047bcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he died for everyone so that those who live should no longer live for themselves, but for the one who died and rose for them."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.16",
+      "source_sha256": "5ae8ca750a018825",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So from now on we know no one in bodily terms. Even if we once knew Christ in bodily terms, we no longer know him that way."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.17",
+      "source_sha256": "3e7152fb55f4c626",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, anyone who is in Christ is a new creation. The old things have passed away,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.18",
+      "source_sha256": "fbb2d7403844b508",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and everything has become new from God, who reconciled us to himself through Christ and gave us the ministry of reconciliation."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.5.19",
       "source_sha256": "055a33a7ff0e7e86",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -83,11 +698,319 @@
       "text": "We are therefore ambassadors on behalf of Christ, as though God were appealing to you through us. On behalf of Christ, then, we plead with you: be reconciled to God."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.5.21",
+      "source_sha256": "e35962ef7e32180f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he made the one who knew no sin to be sin for your sake, so that in him we might become the righteousness of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.1",
+      "source_sha256": "a03680038f5c36bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And as fellow workers, we ask you not to let the grace of God that you received become ineffective among you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.2",
+      "source_sha256": "700f71a453998c20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he said, “At an acceptable time I answered you, and on the day of salvation I helped you.” Look, now is the acceptable time! Look, now is the day of salvation!"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.3",
+      "source_sha256": "75514fb09219e7ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not give anyone any cause to stumble in anything, so that no fault may be found with our ministry."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.4",
+      "source_sha256": "437aeb4244e6e718",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, in everything let us show ourselves to be servants of God: through great endurance, in afflictions, in hardships, in confinement,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.5",
+      "source_sha256": "6a3d4e6214d0c938",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in beatings, in imprisonments, in riots, in toil, in sleeplessness, in fasting,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.6",
+      "source_sha256": "2c5cab191fdae6e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in purity, in knowledge, in patience, in kindness, in the Holy Spirit, in love without deceit."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.7",
+      "source_sha256": "04017de13f370cce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "By the word of truth, by the power of God, with the weapons of righteousness on the right and on the left;"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.8",
+      "source_sha256": "601d216e270b3001",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Through honor and dishonor, through praise and blame; regarded as deceivers, yet truthful;"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.9",
+      "source_sha256": "fbadbe923e1b2c88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "As unknown, yet we are known; as dying, yet look, we are alive; as being disciplined, yet we do not die;"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.10",
+      "source_sha256": "3502e1769af3d304",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "As sorrowful, yet always rejoicing; as poor, yet making many rich; as having nothing, yet possessing everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.11",
+      "source_sha256": "93cd4f237308ebe1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Our mouth is open to you, Corinthians, and our heart is wide open."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.12",
+      "source_sha256": "29d2cb31336c6738",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "You are not restricted by us, but you are restricted by your own affections."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.13",
+      "source_sha256": "eeea3b9b871627cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I speak to you as to children: return the love I have for you, and open wide your love toward me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.14",
+      "source_sha256": "6a2d310fe05460bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not be yoked together with those who do not believe. For what partnership does righteousness have with wickedness? Or what fellowship does light have with darkness?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.15",
+      "source_sha256": "649b259b68a85e8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Or what harmony does Christ have with Satan? Or what share does a believer have with an unbeliever?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.16",
+      "source_sha256": "f0df1fa9be3060cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And what agreement does the temple of God have with that of demons? You are the temple of the living God, as it has been said: “I will dwell in them and walk among them. I will be their God, and they will be my people.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.17",
+      "source_sha256": "141d48b69cff644f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "“Therefore come out from among them and separate yourselves from them,” says the Lord. “Do not go near unclean things, and I will receive you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.6.18",
+      "source_sha256": "5d462a32cd1cdac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I will be a father to you, and you will be sons and daughters to me,” says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.1",
+      "source_sha256": "c6635635a74194c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Since we have these promises, then, my dear friends, let us cleanse ourselves from every defilement of flesh and spirit, and practice holiness in the fear of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.2",
+      "source_sha256": "55cd82480ee3c941",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Bear with us, our brothers. We have wronged no one, corrupted no one, and taken advantage of no one."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.3",
+      "source_sha256": "14d9577a29e913b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I am not saying this to condemn you, for I have already said that you are in our hearts, to die together and to live together."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.4",
+      "source_sha256": "d6f92ae466635d12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I have great boldness toward you, and I boast greatly about you. I am filled with comfort, and my joy overflows in all my troubles."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.5",
+      "source_sha256": "c9cb543c5e940529",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For even when we came to the Macedonians, our bodies had no rest at all. Instead, we were troubled in every way: conflict outside and fear within."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.6",
+      "source_sha256": "9db99c286e9c699a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But God, who comforts the lowly, comforted us by the arrival of Titus."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.7",
+      "source_sha256": "01aa295f49126187",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And not only by his arrival, but also by the comfort he had received from you. For he told us about your love toward us, your mourning, and your zeal on our behalf. When I heard this, I was filled with great joy."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.8",
+      "source_sha256": "4633f2fdd1288556",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For even though I made you sorrowful with the letter, I do not regret it, even if I did regret it before. For I see that the letter, even though it made you sorrowful for a while,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.9",
+      "source_sha256": "e602bf62fad3b6ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "nevertheless brought me great joy—not because you were made sorrowful, but because your sorrow brought you to repentance. For you were sorrowful in a way pleasing to God, so that you would suffer no loss through us."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.10",
+      "source_sha256": "5a71e98c65d1a757",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For sorrow for God's sake produces repentance that does not turn back and leads to life, but the sorrow of the world produces death."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.7.11",
       "source_sha256": "f16d804076d3f297",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "Look at this very sorrow you experienced for God’s sake: how much earnestness it produced in you, what a defense of yourselves, what indignation, what fear, what love, what zeal, and what a demand for justice! In everything you showed yourselves to be innocent in this matter."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.12",
+      "source_sha256": "093de1a136fd1fa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But what I wrote to you was not for the sake of the wrongdoer, nor for the sake of the person who was wronged, but so that your concern for us might be made known before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.13",
+      "source_sha256": "652796b887571667",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Because of this we were comforted. And along with our comfort, we rejoiced even more at Titus’s joy, because his spirit had been refreshed among you all."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.14",
+      "source_sha256": "fe7a568cf21d6ba7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For I was not put to shame in anything I had boasted to him about you. Rather, just as everything we said to you was true, so our boasting to Titus also proved true."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.15",
+      "source_sha256": "cfdfcaf958419bff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "His affection for you has also grown even greater as he remembers the obedience of you all, and how you welcomed him with fear and trembling."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.7.16",
+      "source_sha256": "e8296036a0619722",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I rejoice that I can rely on you in everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.1",
+      "source_sha256": "193c80ab6547de58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Now we want you to know, our brothers and sisters, about the grace of God that has been given among the churches of Macedonia."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.2",
+      "source_sha256": "b9241fc1e35a2116",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "During the severe trial of their suffering, their joy overflowed, and their deep poverty overflowed in rich generosity."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.3",
+      "source_sha256": "c9bcd9b48b782a35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For I testify that, according to their ability and beyond their ability, of their own free will,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.4",
+      "source_sha256": "47986473c33d8799",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "they begged us earnestly to let them share in the privilege of serving the saints."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.5",
+      "source_sha256": "0a550bf5391079bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And it was not as we had expected: they first gave themselves to our Lord, and also to us, by the will of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.6",
+      "source_sha256": "cf3c6bdf7df96e2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "So we asked Titus that, just as he had begun, he should also complete this act of generosity among you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.7",
+      "source_sha256": "87716dc92ac77841",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But just as you excel in everything—in faith, in speech, in knowledge, in every kind of diligence, and in our love for you—so you should also excel in this act of generosity."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.8",
+      "source_sha256": "78d49d4079df0384",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I am not giving you a command, but I am testing the sincerity of your love by the diligence of your fellow believers."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.9",
+      "source_sha256": "b0a32aff9a19bf21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For you know the grace of our Lord Jesus Christ: although he was rich, he became poor for your sake, so that through his poverty you might become rich."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.10",
+      "source_sha256": "ab0fc9572a0ab3cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But I give you this advice for your benefit, because last year you began not only to desire to do this, but also to do it."
     },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.8.11",
@@ -97,6 +1020,181 @@
       "text": "Now finish doing what you wanted to do, so that just as you were eager to want it, you may also complete it in practice, according to what you have."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.12",
+      "source_sha256": "1685908e7ea904be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For if willingness is present, a person is accepted according to what he has, not according to what he does not have."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.13",
+      "source_sha256": "3ff6122228b5151a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this is not so that others may have relief while you suffer hardship,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.14",
+      "source_sha256": "f0025809acd33af3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "but so that there may be equality. At this time let your abundance supply their need, so that their abundance may also supply your need, and there may be equality."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.15",
+      "source_sha256": "8a65f0437aa8c960",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "As it is written: “The one who gathered much had nothing left over, and the one who gathered little had no shortage.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.16",
+      "source_sha256": "ea34c11db3be513a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But thanks be to God, who put this concern for you into Titus’s heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.17",
+      "source_sha256": "d636102969c02aaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For he accepted our request, and because he was deeply concerned, he set out to you of his own free will."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.18",
+      "source_sha256": "bfa4fd86940fbee8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We sent with him our brother who is praised throughout all the churches for his work in the gospel."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.19",
+      "source_sha256": "467bc7900b38ecb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Moreover, he was also chosen by the churches to travel with us in connection with this generous gift that we are administering for God’s own glory and for our own encouragement."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.20",
+      "source_sha256": "8cc0f2b1c5144de9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "We are taking care in this matter so that no one may find fault with us over this large gift that we are administering."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.21",
+      "source_sha256": "e767e7849ad0cb54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For we take care to do what is good, not only before God but also before people."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.22",
+      "source_sha256": "c197bbee3b5c1dd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "We have also sent with them our brother, whom we have tested on many occasions and found diligent. Now he is even more diligent because of his great confidence in you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.23",
+      "source_sha256": "75a2e592c9e8b930",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "As for Titus, he is my partner and helper among you. As for our other brothers, they are messengers of the churches, to the glory of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.8.24",
+      "source_sha256": "c379eb10e6a7b97e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "So show them proof of your love and of our reason for boasting about you, before all the churches."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.1",
+      "source_sha256": "3b4c2603d8c5790b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Now concerning the service for the saints, it is unnecessary for me to write to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.2",
+      "source_sha256": "edcfdd2c5e8e38ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For I know your willingness, and because of this I boasted about you to the Macedonians, saying that Achaia has been ready since last year. Your zeal has stirred up many."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.3",
+      "source_sha256": "6cd88df0e5205c45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But I have sent the brothers so that our boasting about you in this matter will not prove empty, and so that you will be ready, just as I said."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.4",
+      "source_sha256": "68436be96e547cec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Otherwise, if Macedonians come with me and find you unprepared, we—not to mention you—will be ashamed of the boasting we have done."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.5",
+      "source_sha256": "a4b152b0f8becbf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For this reason I thought it necessary to ask these brothers to come to you ahead of me and prepare the generous gift you previously agreed to give, so that it will be ready as a generous gift, not as something obtained through greed."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.6",
+      "source_sha256": "035099eda1afab6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Now this: whoever sows sparingly also reaps sparingly, and whoever sows generously will reap generously."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.7",
+      "source_sha256": "8f1304f33d344028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Each person should give as he has decided in his mind, not reluctantly or under compulsion, for God loves a cheerful giver."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.8",
+      "source_sha256": "7d4f56ee2b115e20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "God is able to make every grace abound among you, so that you will always have enough of everything and will abound in every good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.9",
+      "source_sha256": "640f53f0710fc6b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "As it is written, “He scattered his gifts and gave to the poor, and his righteousness endures forever.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.10",
+      "source_sha256": "3fc6f1a7797ee285",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "He who gives seed to the sower and bread for food will supply and multiply your seed and increase the fruits of your righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.11",
+      "source_sha256": "599fc95470baddce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "You will be enriched in everything for every kind of generosity, which through us produces thanksgiving to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.12",
+      "source_sha256": "30e24a7c88da7379",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For the work of this service not only meets the needs of the saints but also overflows in many expressions of thanksgiving to God."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.9.13",
       "source_sha256": "4820b0c7928e7d66",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -104,11 +1202,186 @@
       "text": "For through the proof given by this service, they glorify God because you have submitted to the confession of Christ’s good news and have shared generously with them and with everyone."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.14",
+      "source_sha256": "8c294c3ae4c0b733",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And they offer prayer for you with great love, because of the abundance of God's grace upon you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.9.15",
+      "source_sha256": "aa975be0197a8888",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Thanks be to God for his gift that cannot be expressed in words!"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.1",
+      "source_sha256": "90d339dffb0dfecd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Now I, Paul, appeal to you by the gentleness and humility of Christ—I who am humble toward you when face to face, but bold toward you when I am away."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.2",
+      "source_sha256": "b3f9cc34fd17978e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I ask you not to force me, when I come, to act boldly with the confidence I have, as I intend to act toward those who think that we live according to the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.3",
+      "source_sha256": "7def524fb82a7ec9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For although we live in the flesh, we do not wage war according to the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.4",
+      "source_sha256": "5332becc3c441829",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For the weapons of our warfare are not of the flesh, but of the power of God, and with them we conquer rebellious strongholds."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.5",
+      "source_sha256": "1a413ceceeeee927",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "We tear down arguments and every lofty thing raised against the knowledge of God, and we take every thought captive to obey Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.6",
+      "source_sha256": "c69be8ef024f4a21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "We are ready to punish those who disobey, once your obedience is complete."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.7",
+      "source_sha256": "35c876bf19957210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "You look at outward appearances. If anyone is confident that he belongs to Christ, let him recognize for himself that just as he belongs to Christ, so do we."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.8",
+      "source_sha256": "29440d40e8873f8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For even if I boast somewhat more about the authority our Lord gave me, I am not ashamed, because he gave it to us to build you up, not to tear you down."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.9",
+      "source_sha256": "4b010b6ea6ab38fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But I hold back, so that I will not seem to be frightening you with my letters."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.10",
+      "source_sha256": "bab5d322a6b1ee47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For some people say, “His letters are weighty and forceful, but his bodily presence is weak, and his speech is contemptible.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.11",
+      "source_sha256": "2749d45b7cf08863",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But anyone who says this should consider that what we are in the words of our letter when we are far away, we are also in our actions when we are present."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.12",
+      "source_sha256": "21f6cfc3e3e3630e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For we do not dare to count ourselves among, or compare ourselves with, those who boast about themselves. But because they compare themselves with themselves, they do not understand."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.13",
+      "source_sha256": "81959cbb1d3f2712",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "We, however, do not boast beyond our allotted measure, but within the limits of the territory God assigned us, which reaches as far as you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.14",
+      "source_sha256": "9c79609627d45da7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For we are not overextending ourselves as though we had not reached you, since we did reach you with the good news of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.15",
+      "source_sha256": "fc2b675c5c8dfc27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "We do not boast beyond our allotted measure in the work of others. Rather, we hope that as your faith grows among you, we will be enlarged within our allotted measure, and [?]"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.16",
+      "source_sha256": "e526adbc7a669066",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "to preach the good news even beyond you, not to boast within someone else’s allotted territory about things already accomplished."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.10.17",
       "source_sha256": "057271b65cb6ec3e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "But whoever boasts should boast in the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.10.18",
+      "source_sha256": "2b3af301ab318f65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For it is not the one who praises himself who is approved, but the one whom the Lord praises."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.1",
+      "source_sha256": "716640291eace2e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I wish you would put up with me a little as I speak foolishly. Indeed, you do put up with me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.2",
+      "source_sha256": "d71723ef25657233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I am jealous for you with God’s jealousy. I betrothed you to one husband, to present you to Christ as a pure virgin."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.3",
+      "source_sha256": "8147cb5afbf55f66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But I am afraid that, just as the serpent deceived Eve by his cunning, your minds may be corrupted and led away from sincerity toward Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.4",
+      "source_sha256": "c8ce7b3bf8c8c875",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For if someone came to you and proclaimed another Jesus whom we did not proclaim, or you received another spirit which you had not received, or another good news which you had not accepted, you would readily be persuaded."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.5",
+      "source_sha256": "4ca19f5fb3d6e4eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I consider that I am in no way inferior to those most outstanding apostles."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.6",
+      "source_sha256": "a19791dbf0c77bda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For even if I am untrained in speech, I am not untrained in knowledge. Rather, we have made ourselves known to you in everything."
     },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.11.7",
@@ -125,11 +1398,249 @@
       "text": "I robbed other churches, taking support from them to serve you."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.9",
+      "source_sha256": "6ef7f4c94704ec91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "When I came to you and was in need, I was not a burden to any of you, for the brothers who came from Macedonia supplied what I needed. In everything I kept myself from burdening you, and I continue to do so."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.11.10",
       "source_sha256": "4662e26e7a8c94c6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "The truth of Christ is in me: this boast of mine will not be silenced in the regions of Achaia."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.11",
+      "source_sha256": "ad115207aec12005",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Why? Because I do not love you? God knows."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.12",
+      "source_sha256": "a74d124f5209be2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But I will keep doing what I am doing, to cut off the opportunity of those who want an opportunity to be found equal to us in what they boast about."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.13",
+      "source_sha256": "581cfa2c37a77147",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For these people are false apostles and deceitful workers, disguising themselves as apostles of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.14",
+      "source_sha256": "36fa2f4e8bbc609e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "There is nothing surprising about this. For if Satan himself disguises himself as an angel of light,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.15",
+      "source_sha256": "7ce3bdbe4cd1dcba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "it is no great thing if his servants also disguise themselves as servants of righteousness. Their end will be in keeping with their deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.16",
+      "source_sha256": "69cc7c27ff14297f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Again I say: let no one think that I am a fool. But if you do, receive me even as a fool, so that I too may boast a little."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.17",
+      "source_sha256": "c332a4dda447a39b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "What I am saying, I am not saying in our Lord, but as though speaking foolishly in this matter of boasting."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.18",
+      "source_sha256": "f88dffe9460d0c38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Since many boast about the flesh, I too will boast."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.19",
+      "source_sha256": "6b967d1d102f6693",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For you are happy to listen to fools, since you yourselves are wise."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.20",
+      "source_sha256": "128438b6fe7ed80c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "You submit to anyone who enslaves you, anyone who devours you, anyone who takes from you, anyone who exalts himself over you, and anyone who strikes you in the face."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.21",
+      "source_sha256": "0d5f5d14a76d98f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I say this to our shame, as though we were weak. I am speaking foolishly: whatever anyone dares to do, I also dare to do."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.22",
+      "source_sha256": "aec31be81293b18d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If they are Hebrews, so am I. If they are Israelites, so am I. If they are Abraham's descendants, so am I."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.23",
+      "source_sha256": "e37ad1cb6d470192",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If they are servants of Christ—I am speaking foolishly—I am more than they are: in hard work, more than they; in beatings, more than they; in imprisonments, more than they; and many times facing death."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.24",
+      "source_sha256": "27d159263ec0b07c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Five times I received forty lashes less one from the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.25",
+      "source_sha256": "e97dfd6431b3d481",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Three times I was beaten with rods. Once I was stoned. Three times I was shipwrecked. I spent a day and a night in the sea without a ship."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.26",
+      "source_sha256": "7e00dff7ed40a9ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "On many journeys, I faced danger from rivers, danger from robbers, danger from my own people, and danger from the Gentiles. I was in danger in cities, in danger in the wilderness, in danger at sea, and in danger from false brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.27",
+      "source_sha256": "cd5ac0304eaaafff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "In toil and hard work, in many sleepless nights, in hunger and thirst, in frequent fasting, in cold and nakedness."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.28",
+      "source_sha256": "de8bbd664ede1c7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Besides the other things, there is the daily pressure upon me and my concern for all the churches."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.29",
+      "source_sha256": "923ebb8e3262745c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Who is weak without my being weak? Who is made to stumble without my burning?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.30",
+      "source_sha256": "1e01198071576522",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If I must boast, I will boast about my weaknesses."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.31",
+      "source_sha256": "c5a5b367c5da1cc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "God, the Father of our Lord Jesus Christ, who is blessed forever and ever, knows that I am not lying."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.32",
+      "source_sha256": "9192543479e24696",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "In Damascus, the military commander of King Aretas was guarding the city of the Damascenes to arrest me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.11.33",
+      "source_sha256": "acf62a429aefe6ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But they lowered me in a basket through a window in the wall, and I escaped from his hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.1",
+      "source_sha256": "ca302474ef32b575",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I must boast, though it does no good. For I will now come to visions and revelations of our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.2",
+      "source_sha256": "c9be73ad29b6f2a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I know a man in Christ who, fourteen years ago, was caught up to the third heaven. Whether in the body or outside the body, I do not know; God knows."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.3",
+      "source_sha256": "84b1f8b65b1f6d20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And I know this man—whether in the body or outside the body, I do not know; God knows—"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.4",
+      "source_sha256": "e96ef77747d5e529",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "who was caught up to Paradise and heard words that cannot be spoken, which no human being is permitted to utter."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.5",
+      "source_sha256": "991ca0f0871e7eec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I will boast about this man, but I will not boast about myself except about my weaknesses."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.6",
+      "source_sha256": "b81b6ec9a77557f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For if I wanted to boast, I would not be a fool, because I would be telling the truth. But I refrain, so that no one will think more of me than what he sees in me and hears from me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.7",
+      "source_sha256": "a1f453c5d02ba3cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "To keep me from becoming conceited because of the extraordinary revelations, I was given a thorn in my flesh, a messenger of Satan to strike me, so that I would not become conceited."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.8",
+      "source_sha256": "b9f3e6eb69c254ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Three times I pleaded with my Lord about this, asking that it would leave me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.9",
+      "source_sha256": "1085dbe0b88f7d1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And he said to me, “My grace is enough for you, for my power is made perfect in weakness.” Therefore I will gladly boast about my weaknesses, so that the power of Christ may rest upon me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.10",
+      "source_sha256": "054698552a551a75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For this reason I am content with weaknesses, insults, hardships, persecution, and imprisonment for Christ’s sake. For when I am weak, then I am strong."
     },
     {
       "chunk_id": "pta-peshitta/2cor#2Cor.12.11",
@@ -139,6 +1650,20 @@
       "text": "Look, I have become foolish in my boasting, but you forced me to it. You ought to have spoken in my favor, because I was in no way inferior to those most distinguished apostles, even though I was nothing."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.12",
+      "source_sha256": "611b8a050f7d41aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I performed the signs of apostles among you with complete endurance, with mighty deeds, wonders, and miracles."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.13",
+      "source_sha256": "b46d7bedcaa6d4fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For in what way were you treated as inferior to the other churches, except that I myself was not a burden to you? Forgive me this wrong!"
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.12.14",
       "source_sha256": "821a69f28d663d08",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -146,11 +1671,151 @@
       "text": "Look, this is the third time I am ready to come to you, and I will not burden you, because I do not seek what is yours, but you. For children are not obligated to store up treasures for their parents, but parents for their children."
     },
     {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.15",
+      "source_sha256": "ba6f358bfbc80967",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I will gladly spend what I have and even give myself for your souls, even if the more I love you, the less you love me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.16",
+      "source_sha256": "6d7955d34177a51c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But perhaps, although I was not a burden to you, I was a crafty man and caught you by deceit!"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.17",
+      "source_sha256": "f49454dc6ab3ec7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Did I take advantage of you through anyone else whom I sent to you?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.18",
+      "source_sha256": "ba6641bb0c4abe1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I urged Titus to go and sent the brothers with him. Did Titus take advantage of you in any way? Did we not walk in the same spirit and in the same footsteps?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.19",
+      "source_sha256": "15bce2bce5072989",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Do you think again that we are defending ourselves before you? We speak in Christ before God. And everything, my dear friends, is for your building up."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.20",
+      "source_sha256": "d841a76731d22ba9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I am afraid that when I come to you, I may not find you as I want you to be, and you may find me as you do not want me to be. I fear there may be quarreling, jealousy, anger, defiance, slander, grumbling, arrogance, and disorder."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.12.21",
+      "source_sha256": "dd7629d2bdf00b6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I fear that when I come to you, my God may humble me, and I will mourn over many who have sinned and have not repented of the impurity, sexual immorality, and shameless behavior they have practiced."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.1",
+      "source_sha256": "92101386d6cfc519",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "This is the third time I am coming to you. Every matter must be established by the testimony of two or three witnesses."
+    },
+    {
       "chunk_id": "pta-peshitta/2cor#2Cor.13.2",
       "source_sha256": "9e7ef999fa17c699",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 20,
       "text": "I told you before, and I tell you beforehand again, just as I told you both times I was with you. Now, while I am away, I also write to those who sinned and to all the others: if I come again, I will not spare anyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.3",
+      "source_sha256": "c5aea781ef170781",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Since you seek proof that Christ speaks through me, he is not weak among you but is powerful among you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.4",
+      "source_sha256": "b2ac327604c5fa95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For although he was crucified in weakness, he lives by the power of God. We too are weak with him, but we live with him by the power of God that is at work among you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.5",
+      "source_sha256": "79f711231c0145d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "Examine yourselves to see whether you stand in the faith. Test yourselves. Or do you not recognize that Jesus Christ is in you, unless you have failed the test?"
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.6",
+      "source_sha256": "8077b834b4be21c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "But I hope you will know that we have not failed the test."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.7",
+      "source_sha256": "5e0825e9494bfee9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "I ask God that there be nothing evil among you, so that our proven character may be seen, but rather that you do good and we be regarded as having failed the test."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.8",
+      "source_sha256": "9a7c6f21a659dbcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "For we can do nothing against the truth, but only for the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.9",
+      "source_sha256": "92fa8b8a843032aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "We rejoice when we are weak and you are strong. This is also what we pray for: that you may be made complete."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.10",
+      "source_sha256": "a639b1e55fc3ee5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "For this reason I write these things while I am away, so that when I come I will not act harshly, according to the authority my Lord gave me to build you up, not to tear you down."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.11",
+      "source_sha256": "2f839f5db91f0843",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "Finally, my brothers, rejoice, be made complete, and be encouraged. Let harmony and peace be among you, and the God of love and peace will be with you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.12",
+      "source_sha256": "bada7ff3cf8e24e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "Greet one another with a holy kiss."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.13",
+      "source_sha256": "ef6d63474f18525f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "All the saints greet you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2cor#2Cor.13.14",
+      "source_sha256": "0491bc9253680184",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 10,
+      "text": "The peace of our Lord Jesus Christ, the love of God, and the fellowship of the Holy Spirit be with you all. Amen."
     }
   ]
 }

@@ -9,15 +9,252 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0000",
+      "source_sha256": "c25eddc25b3f035c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A discourse by Apa Eusebius, bishop of Caesarea in Cappadocia, which he delivered concerning the Canaanite woman."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0001",
+      "source_sha256": "7304002932f684c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The storm was fierce, but it could not hinder the zeal of those who came."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0002",
+      "source_sha256": "7a9bc731e5750039",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The trials were many, but they did not undo your labor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0003",
+      "source_sha256": "12e4de7ca18b6ff4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The church will never cease to be attacked, and she will always be victorious."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0004",
+      "source_sha256": "1912b39f6d0fb76d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They plot against her, but she defeats them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0005",
+      "source_sha256": "94739759048e5fc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The more they devise evil against her, the more she grows."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0006",
+      "source_sha256": "3c19529c6290041f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The waves break against one another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0007",
+      "source_sha256": "3aba36c40b75ed62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But this rock stands immovable. The word of God is immovable."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0008",
+      "source_sha256": "87105f2d801ace5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is he who said, “The gates of Hades will not be able to overpower her.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0009",
+      "source_sha256": "6f3104409259b9b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who wages war destroys himself, while strengthening the church all the more."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0010",
+      "source_sha256": "7be761598d2fe936",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Job was good before his trial. But the days when his body was healthy were not like the days when his sores wove the crown and placed it on his head."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0011",
+      "source_sha256": "71f1681dbfeb2c81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Never be afraid of a trial if your soul is prepared."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0012",
+      "source_sha256": "4325080103c054e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as the furnace does not harm gold, so affliction does not harm the person who endures with strength."
+    },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0013",
       "source_sha256": "9cf8d41c3438e4df",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "What does the furnace do to gold? It purifies it even more."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0014",
+      "source_sha256": "c42479f90a521d53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So it is with the person who stands firm under affliction: endurance comes to him and raises him up."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0015",
+      "source_sha256": "1e86b8ed63682145",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Luxury weakens the soul, while a trial strengthens the laypeople."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0016",
+      "source_sha256": "ab407f040289dade",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Understand that those who opened their mouths [?] have been put to shame, and we too have opened our mouths with distinction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0017",
+      "source_sha256": "2b0d5e222891f79f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Where are those counted among them? They do not even show themselves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0018",
+      "source_sha256": "f4db4189c489c404",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I come out into the marketplace, and I see no one. They are leaves that the wind blew and scattered. They are chaff that has been winnowed away. The wheat has remained pure."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0019",
+      "source_sha256": "4c421d554564c650",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who is fighting against them? It is their conscience, which strikes them, that fights against them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0020",
+      "source_sha256": "1a17fd8800b25900",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We will set our table again."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0021",
+      "source_sha256": "527b1657c417b9a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yesterday Paul set his table before us. Today, in turn, it is Matthew."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0022",
+      "source_sha256": "ee48a50fba4dafdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yesterday it was the tentmaker. Today it is the tax collector."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0023",
+      "source_sha256": "f00b44563558b973",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yesterday it was the blasphemer. Today it is the listener."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0024",
+      "source_sha256": "a39cf68ac5c819ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yesterday it was the persecutor. Today it is the one who is especially loving."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0025",
+      "source_sha256": "6451b46d6a3d722f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the blasphemer did not remain a blasphemer. Instead, he became an apostle."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0026",
+      "source_sha256": "f851e34256d24a3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the plunderer did not remain rapacious; instead, he became an evangelist."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0027",
+      "source_sha256": "072a195e812b249f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will describe the former wickedness, and afterward the virtue."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0028",
+      "source_sha256": "2110ee7292692cbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your teachers were not free of sin at first, but in the end they shone in righteousness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0029",
+      "source_sha256": "14e71ce74910458a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For tax collectors and thieves are the locusts of the earth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0030",
+      "source_sha256": "ad617e664d5d084b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, is a tax collector’s office?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0031",
+      "source_sha256": "129b370c250fd6a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is a place where people are robbed in broad daylight."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0032",
+      "source_sha256": "9623f749fbf05a93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "According to the law, it is open oppression. It is also oppression backed by a law."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0033",
+      "source_sha256": "4245ac4176807698",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is the spokesman for the thieves."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0034",
@@ -27,11 +264,242 @@
       "text": "When a robber is caught stealing, he is ashamed. The tax collector, however, is brazen as he plunders."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0035",
+      "source_sha256": "de25c8fe8a5b3eab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in a moment he became an evangelist. How did this happen?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0036",
+      "source_sha256": "586a1244d117f47b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When Jesus passed by, he saw him sitting at his tax collector’s booth. He said to him, “Get up and follow me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0037",
+      "source_sha256": "871e26e5d88560b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, the power of the word! The wave came, transformed the captive, and equipped him as a soldier."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0038",
+      "source_sha256": "02702e075885659c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wave came and turned clay into gold. While he was in the pit of wickedness, it brought him to the [?] of virtue."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0039",
+      "source_sha256": "7bc80485485901b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one give up on his salvation, for evil deeds are never a matter of nature."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0040",
+      "source_sha256": "52c149bd8203011e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they too were created with freedom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0041",
+      "source_sha256": "523396e2575ac391",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if you are a tax collector, you can become an evangelist."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0042",
+      "source_sha256": "d92c351c6868865c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if you are a robber, you can dwell in paradise."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0043",
+      "source_sha256": "39213e6c47640edb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if you are a magus, you can worship your Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0044",
+      "source_sha256": "d81c157b47019fcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is no wickedness that repentance does not forgive."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0045",
+      "source_sha256": "640cb1d4e92754d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason God chose the greatest sinners on earth, so that no one would give up on himself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0046",
+      "source_sha256": "ecf9689c714afb2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not say, “I have sinned. What will happen?” For you have a physician who provides healing according to your willingness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0047",
+      "source_sha256": "a3221f07b85e8d01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did he not create you? You did not exist, and he brought you into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0048",
+      "source_sha256": "d8be26335df8a00b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did he not create you, just as in the beginning he took earth and shaped it into a human being?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0049",
+      "source_sha256": "2f6e8cba6ab4407e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, he caused the earth to change and become flesh, including sinews, bones, hair, teeth, eyes, [?], the chest, hands, feet, and everything else."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0050",
+      "source_sha256": "909d9515e0d72178",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is not the substance of all these things earth?"
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0051",
       "source_sha256": "1558747df3229e9e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "Art came in and fashioned all creation into a [?] form."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0052",
+      "source_sha256": "9ac21e0c1d777ef1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not inquire into how it happened, nor scrutinize what exists. Instead, believe all the more in the wonder."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0053",
+      "source_sha256": "62ccf4fa75392f1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Can you reproduce its form as they made it?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0054",
+      "source_sha256": "ef0e6036a0b6e226",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If fire comes upon thorns and burns them up,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0055",
+      "source_sha256": "f7688561d3b216a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "how much more do the words of God make sins dry up and burn away!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0056",
+      "source_sha256": "5dff8fcbf21d4aef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But even if you say, “I have sinned greatly,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0057",
+      "source_sha256": "f03c727dab52a621",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who, then, is without sin? I say this, and you yourself say it too. Confess your sins first, so that you may be justified."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0058",
+      "source_sha256": "d455ce571a91bf1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you have sinned, hurry and stand up. Be sorrowful, and let your heart gnaw at you. You too must pour out your tears."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0059",
+      "source_sha256": "5c5268b0e7838486",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For did the sinful woman do anything else before she poured out her tears and received repentance?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0060",
+      "source_sha256": "f3de612ef58ee90b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Jesus came out of the regions of Tyre and Sidon, and behold, a woman approached him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0061",
+      "source_sha256": "cd2066f63a3c3c4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The evangelist marvels."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0062",
+      "source_sha256": "54cbd4df8b540202",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Behold, a woman,” he said, “the devil’s great weapon, the mother of sin, the beginning of lawlessness, the one who cast herself out of paradise. This is her nature; this is the woman.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0063",
+      "source_sha256": "a73f4b3e068baf95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, these new and wonderful things!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0064",
+      "source_sha256": "56a4f61f1acbcb9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews run away, while the woman runs toward him, pleading with him and saying, “Son of David, have mercy on me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0065",
+      "source_sha256": "f8ae260ad32c0ab6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at this woman, and let us bring her forward as a preacher: see how she acknowledged God’s saving plan. She said, “Lord”—which refers to his divinity—“Son of David”—which refers to his taking on flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0066",
+      "source_sha256": "769a2eaa2fa02f99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me, because I have no good deed to my credit. I belong to this world.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0067",
+      "source_sha256": "b9424324d2321ad9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at this wise soul saying, “Have mercy on me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0068",
+      "source_sha256": "3d1e4bcd8bc17680",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I have no good way of life to my credit. I belong to this earthly life.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0069",
@@ -41,11 +509,368 @@
       "text": "When I [?], I ran to the Spirit."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0070",
+      "source_sha256": "3726aa121e63159a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Then will you not question me about my sins?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0071",
+      "source_sha256": "066fb796234845e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Just grant me salvation. Where there is mercy, people are not questioned about sins.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0072",
+      "source_sha256": "77bfd5fc4926e3f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O woman, what have you seen, you who are lawless and a prostitute?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0073",
+      "source_sha256": "dfa7ee3033125aea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How did you dare to approach him?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0074",
+      "source_sha256": "b9f3a22f781f07d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at this woman’s wisdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0075",
+      "source_sha256": "894f13fb311ea0cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She did not plead with the apostles, saying, “Bring me in to him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0076",
+      "source_sha256": "c5d55fdad0b885ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She did not beg Peter, nor did she need the others. “I do indeed need them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0077",
+      "source_sha256": "ef7f54ba84c55526",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but I do not need a person to come between us.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0078",
+      "source_sha256": "8a45b54920036df3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why? Because he came down and took on flesh so that people could speak with him in the flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0079",
+      "source_sha256": "2c181af58fdfef9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, this great love of God for humanity!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0080",
+      "source_sha256": "fbd42706c4f920dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A sinful woman is to stand on earth and speak with the one before whom the cherubim tremble in the heavens!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0081",
+      "source_sha256": "1cb5e3fb838ff6b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me,” she said. “This is why you took on flesh and set out and came into the world: for a sinner like me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0082",
+      "source_sha256": "cb9f36caed5c206a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They tremble before him in heaven; on earth they speak with him freely."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0083",
+      "source_sha256": "00b57e3e0cc618cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me.” “What do you want?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0084",
+      "source_sha256": "19a03f17323bc0f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I am seeking mercy.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0085",
+      "source_sha256": "fa0f14ca0a91b299",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“What for?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0086",
+      "source_sha256": "ffc0f8ea624dfce5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“My daughter is terribly tormented. This sorrow is unbearable.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0087",
+      "source_sha256": "8c9bafa2d6fea198",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Save my inward parts, for they are burning me. My insides bear [?]. Take care of me in this burning pain.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0088",
+      "source_sha256": "2fcdee1f34a08328",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“What am I to do? I am going to die.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0089",
+      "source_sha256": "392cc8471f12b4ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why did she not say, “Have mercy on my daughter”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0090",
+      "source_sha256": "ec3060b9ee377a74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, she said, “Have mercy on me. My daughter does not feel the pain of the illness, because she is possessed.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0091",
+      "source_sha256": "9ead1aba098e92cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“This great disgrace of an illness surrounds her, because she is unaware of herself.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0092",
+      "source_sha256": "7bca858c4166f35c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me, for I see this spectacle every day.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0093",
+      "source_sha256": "ae9c29345ed40602",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“My sorrow is great.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0094",
+      "source_sha256": "05c7d09f25455db3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“What shall I call her? Shall I call her a corpse? But she moves and is alive. Yet she does not know what she is doing.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0095",
+      "source_sha256": "083355d6e2d3435a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For I do not know its name, so that I might understand what kind of illness it is. If only my daughter had died!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0096",
+      "source_sha256": "563214a4ed99d0c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For death belongs to everyone.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0097",
+      "source_sha256": "6ea369f765bf2435",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“How could I look at the eyes closed by her trembling, the hands whose bones have come apart, the hair standing on end from the torment, and the mouth pouring out foam, while the one fighting against her batters her from within without being visible?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0098",
+      "source_sha256": "f23d26959c1378fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me. My storm is fierce.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0099",
+      "source_sha256": "76a340e8fc62fd08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Such is the nature of that sickness of mine, and the terror of the demon. Have mercy on me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0100",
+      "source_sha256": "b14137d9fcb96586",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at this woman's wisdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0101",
+      "source_sha256": "846111f7a8977797",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why did she not go to magicians, or exorcists, or women who summon the dead, or diviners—those who honor demons and cause the suffering of illnesses to increase and make the pain worse?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0102",
+      "source_sha256": "edfc53a4e8731c40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, she left the devil's court behind and came before the Savior of souls. “Have mercy on me. My daughter is terribly tormented.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0103",
+      "source_sha256": "35b6a354571ec9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have seen strength and perseverance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0104",
+      "source_sha256": "a343131f22caea67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And as this woman got up, he, however, did not answer her a word."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0105",
+      "source_sha256": "2f49c939aa33d1af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, these shared deeds!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0106",
+      "source_sha256": "e776ddc4225347f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She begs him, she knocks, she pleads, but he does not answer her a word."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0107",
+      "source_sha256": "76411613facf140c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The illness grows worse; the Master remains silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0108",
+      "source_sha256": "a1a404d90044161a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wound is closed and blocked; the Word remains silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0109",
+      "source_sha256": "6fc72723134e97b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The physician holds back his hand."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0110",
+      "source_sha256": "0d242a6377d3eddb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What is this new and astonishing thing?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0111",
+      "source_sha256": "e4222252ff094d43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You run after others, saying, “Come to me, and I will heal you.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0112",
+      "source_sha256": "cfb2ab9d48ba33ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when she too runs after you, you run away from her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0113",
+      "source_sha256": "2ffa0c794420ab23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Have mercy on me!” “I was not sent to anyone, to anyone except the lost sheep of the house of Israel.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0114",
+      "source_sha256": "e288701fe96c7022",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His disciples approached him and begged him, saying, “Send her away, because she is crying out behind us.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0115",
+      "source_sha256": "ba70383706d4ed63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You yourself see her outward cry; the cry of her heart before you is even greater."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0116",
+      "source_sha256": "e3e3b26c52ff297c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again they spoke to him as Lord and lover of humanity: “Give salvation to this woman.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0117",
+      "source_sha256": "40e3781d326a2b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“What am I to give? I was not sent to anyone except the lost sheep of the house of Israel.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0118",
+      "source_sha256": "5c7caa553efb80de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This, then, is the whole matter."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0119",
+      "source_sha256": "60a20abf3eeaa4cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was for this very reason that you took on flesh: to rescue a woman who was about to perish."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0120",
       "source_sha256": "469a0ece51d7e37c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "Will you not, then, leave the inhabited world desolate—the Scythians, the Arabs, the Elamites, Cilicia, Cappadocia, the Syrians, the people of Phoenicia, and every place on which the sun shines?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0121",
+      "source_sha256": "6fb12352932f9c03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then did you come here only for the Jews?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0122",
@@ -55,11 +880,291 @@
       "text": "And will you leave the nations desolate as well?"
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0123",
+      "source_sha256": "8a1c74a3f11528f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Will you then remain heedless while they revile your Father and worship idols?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0124",
+      "source_sha256": "906e36e2c8adafef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How does David say, according to the flesh, “Ask me, and I will give you nations as your inheritance, and your possession will reach to the ends of the earth”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0125",
+      "source_sha256": "c13faad67191b5fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise Isaiah, who saw the seraphim, says, “The root of Jesse will appear, and the one who rises to rule the nations; the nations will put their hope in him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0126",
+      "source_sha256": "7eed3f2c0797b372",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again: “Rulers will not disappear from Judah, nor a leader from his thighs, until the things reserved for him come; and he is the one whom the nations await.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0127",
+      "source_sha256": "b46d1dae1c34ec1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again: “All you nations, clap your hands.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0128",
+      "source_sha256": "fe52568f795c7d09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You yourself too, O lover of every soul, said to your disciples, “Go and baptize all the nations in the name of the Father and the Son and the Holy Spirit.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0129",
+      "source_sha256": "0a3e4ff2d33fb09e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since this woman was a Canaanite, she found the favorable [?] wind."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0130",
+      "source_sha256": "114cc5995beb73a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She came out of the place of madness and division, the place where idols are worshiped."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0131",
+      "source_sha256": "f8e959ac5331a5cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This poor woman came, pleading about the affliction that had overtaken her daughter. And you said, “I was not sent to anyone except the lost sheep of the house of Israel.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0132",
+      "source_sha256": "fe244c13484fa468",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when the centurion came to you, you said, “I will come and heal him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0133",
+      "source_sha256": "eb1d42f0d7bc8fdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again, in the case of the robber, you said to him, “Today you will be with me in my paradise.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0134",
+      "source_sha256": "624e3bd166ba6fc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again, the paralyzed man whom you made pick up his bed walked."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0135",
+      "source_sha256": "906ad95fa19e4fcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again, Lazarus, whom you called—it was his fourth day in the tomb."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0136",
+      "source_sha256": "5d540cd5b8cbfd7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You raise the dead; you bind together those who have fallen apart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0137",
+      "source_sha256": "6aec6a047acd1edb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You make prostitutes more righteous than virgins."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0138",
+      "source_sha256": "9198c5680d1d8e73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, is this poor Canaanite woman, that you did not answer her?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0139",
+      "source_sha256": "8432a0f01836ffe8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “[?] take the children’s bread and throw it to the dogs.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0140",
+      "source_sha256": "a4d0e5a90c307772",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, the care of this physician! He knows that she has been turned away."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0141",
+      "source_sha256": "8f5589ba41eb46b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All these words are a disgrace to the Jews, because they are called children."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0142",
+      "source_sha256": "11b8d387a6ff88dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have taken on the nature of dogs."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0143",
+      "source_sha256": "9a59d46fe5c8f45e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As Paul said, “Beware of the dogs.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0144",
+      "source_sha256": "5e4da7d8596cde65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Beware of those evil workers. Beware of mutilation.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0145",
+      "source_sha256": "f6db6830e3ab1b08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again she said, “Have mercy on me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0146",
+      "source_sha256": "bae9a0e8a4c9eb00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he said, “It is not right to take the children’s bread and throw it to the dogs.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0147",
+      "source_sha256": "8ffced94013795d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Yes, Lord, you call me a dog. I acknowledge it. You treat me like a dog.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0148",
+      "source_sha256": "5f561e8eae6bcb94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Lord, give to me as to a dog. I do not reject the [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0149",
+      "source_sha256": "f285f127843ff4d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“You, for your part, give me some of what is yours.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0150",
+      "source_sha256": "d7d956004fa33bdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“You call me a dog. Give me the crumbs.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0151",
+      "source_sha256": "a62f8974159008f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For even the dogs eat the crumbs that fall from their masters’ table.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0152",
+      "source_sha256": "1d548725bdaa144b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What did the one who had been refusing her until now say to her—the one who was driving her away and casting her out?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0153",
+      "source_sha256": "b2ccbb5c6d58a12e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“O woman!” You received honor immediately."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0154",
+      "source_sha256": "e18966ff8bdb46ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God says, “O woman!” Let those who pray listen when I say, “Appeal to God and plead with him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0155",
+      "source_sha256": "52a67b8d9623019d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you yourself say, “I appealed to him once, and I prayed twice and three times, and ten and twenty times I knelt.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0156",
+      "source_sha256": "90687d52b9991ccf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have indeed bent your knee, and your mouth speaks, but your heart is calculating interest. You are thinking about your friends and your possessions."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0157",
       "source_sha256": "051dae45592f5077",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "Set your soul at the door. Do not withdraw until you receive what you ask for."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0158",
+      "source_sha256": "2e3939ed9748d3e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For some people, when they go to church, recite tens of thousands of lines of words. But God does not need many words. He only needs your prayer, so that you may be like this Canaanite woman."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0159",
+      "source_sha256": "b79bd14e04b1b77b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pray in the place where you are."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0160",
+      "source_sha256": "da254ca7e2046795",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if you are in the bath or on the road, pray."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0161",
+      "source_sha256": "f414d95599f60b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even if they bring you before a judge, pray."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0162",
+      "source_sha256": "dc11962dd89d019d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The judge has sent for you: let your prayer go ahead of you to God. He is not looking for a place; rather, God is looking for a good disposition."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0163",
+      "source_sha256": "2d8ad0a955d4beb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When Jeremiah was in the muddy pit, he found God there and prayed to him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0164",
@@ -97,6 +1202,13 @@
       "text": "Make yourself like this Canaanite woman."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0169",
+      "source_sha256": "fb78b2bf8488909d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you enter the church with the Persians, the Goths, the Indians, and the Moors, you will hear Christ crying out, “Woman, great is your faith!”"
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0170",
       "source_sha256": "0a37a98ced447b8d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -132,11 +1244,515 @@
       "text": "When did the Canaanite woman cast out the demon?"
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0175",
+      "source_sha256": "c7414238587c437a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At the time when Christ said to her, “Woman, great is your faith!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0176",
+      "source_sha256": "713b8f64074228ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the Son of God was casting out demons. For is he a human being, so that someone must go to the place where he is? Rather, he is God, filling every place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0177",
+      "source_sha256": "cbd3726d1e6300d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he wants to go to a ruler on some occasion,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0178",
+      "source_sha256": "0f4f29a2c50297d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "let the one attending him answer you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0179",
+      "source_sha256": "1c625994304b1b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Otherwise, he will tell you, “He is not available,” or, “He is asleep.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0180",
+      "source_sha256": "9853b1acee0fc8e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God is not like this. Whenever you call to him, he will listen to you, at any time."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0181",
+      "source_sha256": "ac9703f040777532",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No eunuch prevents you, nor any steward."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0182",
+      "source_sha256": "78fee6cab96f7bc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too, say, “Have mercy on me,” like this Canaanite woman, and he will come to you immediately."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0183",
+      "source_sha256": "ecbe22719cdbc29a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at this saying, which reveals the Son of God as like his Father, comparing him to his Father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0184",
+      "source_sha256": "121c7e7eeb87d50c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, when God created heaven, he said, “Let there be a heaven,” and it came into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0185",
+      "source_sha256": "611b9538b74d2f32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And, “Let there be an earth,” and it came into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0186",
+      "source_sha256": "184cecc1fa31d366",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Let there be air,” and it came into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0187",
+      "source_sha256": "df1abf7c3eb27112",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Let the sun and the moon come into being,” and they came into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0188",
+      "source_sha256": "adf3838d4c7bf2cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, the goodness of God! He teaches us about the Son, who is equal to the good Father in everything, in divinity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0189",
+      "source_sha256": "86a9f86ce322fa5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Father said in the Old Testament, “Let them come into being,” and they came into being."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0190",
+      "source_sha256": "800f1b81df0c4b8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Son likewise said, “Let it be done for you as you wish,” and it happened. Her daughter was healed from that very moment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0191",
+      "source_sha256": "c1959790f3cd6275",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, does this mean? The Canaanite woman cast the demon out of her daughter, and she also cast out her own, according to the command of the Savior of souls."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0192",
+      "source_sha256": "e39e7276f4665c9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through the mercy and compassion of our God and his grace, ours too is healed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.000.0193",
+      "source_sha256": "fdbb1ebec824e991",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all these things, let us give thanks to God the Father and the Son, Jesus Christ, who taught us through his Holy Spirit: “I am in my Father, and my Father is in me.” To him belongs the glory forever and ever. Amen.\nEusebius, bishop."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0000",
+      "source_sha256": "c54890e8d66896b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, an exposition by Apa John, Archbishop of Constantinople, concerning the blessed Susanna."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0001",
+      "source_sha256": "512364278110c6d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have come to you again with great goodwill."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0002",
+      "source_sha256": "f8aa1ee3efed1795",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We are the ones who owe you a discourse."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0003",
+      "source_sha256": "625d606f40724927",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not that we can fulfill our obligation as we ought,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0004",
+      "source_sha256": "a5971ee83d2c81e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but so that we may give what we owe according to what we have."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0005",
+      "source_sha256": "08bd8c670397167c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Our eagerness indeed has an open hand, and it reaches out to give more than we owe."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0006",
+      "source_sha256": "4df22bf57f7f82ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the poverty of our words holds us back."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0007",
+      "source_sha256": "03622f892bd6653a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, we will ask you to accept small things instead of great ones."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0008",
+      "source_sha256": "054c73037ceeed40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if someone accepts small things and enlarges them through the eagerness of his heart, then we will not be lacking,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0009",
+      "source_sha256": "534a78bf11941262",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "since your eagerness supplies the part in which we fall short."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0010",
+      "source_sha256": "7dfe1d7136f0d7cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For both the meager offerings of the poor and the abundant offerings of the rich,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0011",
+      "source_sha256": "e9e2e3e6e1809410",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "when God sees them, he accepts them with equal honor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0012",
+      "source_sha256": "7fb852f2a275c0ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or perhaps he will honor those of the poor more, because he looks at the eagerness of the heart, not at the abundance of wealth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0013",
+      "source_sha256": "f388e113a56bc95d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the proof of these things come to you through the account of the poor widow who threw two small coins into the treasury."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0014",
+      "source_sha256": "1cad1ebfb5e1b66b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the honor of her offering grew greater before the Lord than that of the gold the rich brought in,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0015",
+      "source_sha256": "ef2db2167941ca66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because God did not need gold, but a pure heart and a will directed toward goodness."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0016",
       "source_sha256": "d23cda6580628bbd",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "And now, then, we too open our hearts in purity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0017",
+      "source_sha256": "69dc24472fdc617a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let us bring in the word of God, set it before ourselves, and deposit it in treasuries of the soul, so that we may give you what we owe."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0018",
+      "source_sha256": "5d154514e39f0192",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I remember that yesterday I promised you that I would proclaim the strength of Susanna’s chastity, so that these things might benefit many, just as Joseph’s contest in his chastity and his struggle benefited many."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0019",
+      "source_sha256": "e8d12786c1c3c196",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So let Susanna too now compete in the theater filled with crowds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0020",
+      "source_sha256": "45cf6d7e03bd4ef4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let her compete in the place where God and the angels, and men and women, watch her, so that she may teach young girls to despise death for the sake of chastity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0021",
+      "source_sha256": "8a6c29ee231acb0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Susanna, this blessed woman, was of noble birth and beautiful in appearance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0022",
+      "source_sha256": "cc7fffb181cbb15f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She had been secluded in her bedroom since childhood and had grown up leading a dignified life. But when Satan turned his attention to her youth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0023",
+      "source_sha256": "6c6395f6406ac04e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "she gave herself to the bond of marriage according to the law."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0024",
+      "source_sha256": "4b5f25d371c23578",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And she guarded her husband's marriage bed and the rightful bond of her marriage without violating it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0025",
+      "source_sha256": "82ff9d6c9edf00d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her eyes never lingered in a stare to examine the appearance of a young stranger."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0026",
+      "source_sha256": "9f653a04e89ad6d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did she ever allow her ears to listen to the melodies of obscene songs."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0027",
+      "source_sha256": "9cc13891c3a0a641",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did she allow her nostrils to take pleasure in the fragrance of clothes scented with incense."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0028",
+      "source_sha256": "2fbcad6ae44b51e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In short, she did not allow any of her senses to stray, lest the chastity guarded in her heart be destroyed and her soul slip down into the mire of pleasure through the harbors of deception."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0029",
+      "source_sha256": "186386b0ac8f8aa0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For most sins come upon the soul through the senses."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0030",
+      "source_sha256": "edf36429d9dd6b68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the soul lives in the heart like a virgin resting quietly in her bedroom, with the five senses serving as her servants."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0031",
+      "source_sha256": "7e12b662c11b353d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The senses are the eye, that is, sight, together with hearing, smell, taste, and touch. Now, if none of the senses goes astray or becomes corrupted,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0032",
+      "source_sha256": "efd74b38b14528de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the soul remains by herself, safe from harm."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0033",
+      "source_sha256": "698496e8a3340b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if the eye turns toward the appearance of a young man and the wave of desire surges upward, the storm of pleasure immediately strikes her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0034",
+      "source_sha256": "6f01700abbf3c64d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And it separates her from chastity, and she plunges recklessly into sin. She enters the flood that David entered,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0035",
+      "source_sha256": "c570a2a5216260c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "about which he then cried out, “I have come into the depths of the sea; a storm has submerged me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0036",
+      "source_sha256": "7b6baffe7902650f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, if hearing takes in the sweet sound and the deception of those obscene songs, and the heart turns toward them, they drag it down into their destruction."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0037",
+      "source_sha256": "bff822371960402f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, if taste gives itself over to abundant food and much wine, it drags the soul down into stupor and drunkenness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0038",
+      "source_sha256": "0411572998ff3be6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But smell, too, if it takes pleasure in the sweet fragrance of ointments and lilies, falls into deception."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0039",
+      "source_sha256": "6cd8005a7b115f2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And it binds the soul into that deception along with itself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0040",
+      "source_sha256": "ba52a4267ba38a74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So if the chaste soul becomes involved in these things, she becomes like a virgin betrayed by her servants"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0041",
+      "source_sha256": "383739578eb0dd86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and who has slipped down into sin and lack of self-control."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0042",
+      "source_sha256": "8dd8d86c5ccb8af2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if lack of self-control presses into the soul, it takes on the manner of a thief"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0043",
+      "source_sha256": "9b34e9384cea03eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and enters the chambers of the heart, makes it desolate, and leaves it stripped of chastity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0044",
+      "source_sha256": "1810bc5ff17b2705",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now this blessed woman, Susanna, had secured her eyes, her hands, her feet, her tongue, her nostrils, and the whole system of her senses."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0045",
+      "source_sha256": "7b1eaa250f3d8bb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And she truly was, according to the wise man's saying, like a locked garden and a sealed spring, so that no one would plunder her, destroy the dwelling place of lilies and chastity, and drain away from that place the beauty of the spring of chastity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0046",
+      "source_sha256": "abf4188e32e04c58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The two elders desired this woman—those who were thought to guide the people."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0047",
+      "source_sha256": "9f6c602ec9e9ae7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they were burning with their desire."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0048",
+      "source_sha256": "7d1e851cbe840102",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They were ashamed to tell each other about the fire burning in their hearts."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0049",
+      "source_sha256": "fe0c589552cbf71a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One day, each of them went secretly to turn his attention to Susanna."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0050",
+      "source_sha256": "3207b772dbee6d06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They met one another, and when they questioned each other, they confessed the matter to one another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0051",
+      "source_sha256": "9b821961a9dde799",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then they agreed with one another to carry out the sinful act and share in the wickedness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0052",
+      "source_sha256": "54051e8742943630",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They were watching for a time when they would find her alone."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0053",
+      "source_sha256": "285b76b27680c0b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One day Susanna went into her husband's garden to bathe there, as was her custom during the heat of the day."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0054",
@@ -146,11 +1762,249 @@
       "text": "And she sent her servants out to bring her soap and oil."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0055",
+      "source_sha256": "d2c73bf11f58e603",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The elders suddenly rushed at her like wolves attacking a flock of sheep."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0056",
+      "source_sha256": "a7e73015c53f3dbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They seized her, wanting to perform with her the filthy act prompted by their desire."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0057",
+      "source_sha256": "c808fe56e67f206a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Susanna was between the two elders, who were worse than the lions among which Daniel had been."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0058",
+      "source_sha256": "f35c8f27b75b4131",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There was no servant beside her, nor any neighbor, acquaintance, or young girl. There was no one to help her in any way except God alone, who was watching over her from heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0059",
+      "source_sha256": "a89f7c03af70565c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God certainly had the power to stop them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0060",
+      "source_sha256": "b1211f0a4b4a3f31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he allowed them to proceed so that the contest would take place and their hidden plans would be exposed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0061",
+      "source_sha256": "cb93caf3595630e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Susanna's chastity would expose the elders' lack of self-control."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0062",
+      "source_sha256": "01ceae8911df7d55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And in this way women would find a good lesson through Susanna's courage."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0063",
+      "source_sha256": "ab05bf48b83a4792",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A great battle was therefore unfolding, and a great contest."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0064",
+      "source_sha256": "025ce335647e348b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Susanna faced a task more difficult than Joseph's."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0065",
+      "source_sha256": "76f1d5bcfd766ee9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Joseph was a man fighting against just one woman."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0066",
+      "source_sha256": "87d341c6e942a768",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But she was a woman fighting against two men who were powerful in their position."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0067",
+      "source_sha256": "0e49c764f1897b1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the remarkable thing is that she was fighting against them in a garden, the place where the serpent had succeeded in deceiving their ancestors."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0068",
+      "source_sha256": "04d02f260ab0d79e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This spectacle was great and delightful. It was great because those fighting in this contest were elders who claimed to be leaders of the people."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0069",
+      "source_sha256": "de4065357793787d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was also delightful because of the chastity of a weak woman who succeeded in resisting these leaders. When they prepared to fight together,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0070",
+      "source_sha256": "de79036c3378995f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the heavens opened and the trumpets sounded."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0071",
+      "source_sha256": "006fa54aba3c8e2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The contest was ready, and the true judge of the contest looked down from heaven. The multitude of angels was watching from on high."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0072",
+      "source_sha256": "354ffa990016bf9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The serpent was at work in these lawless elders, while faith, for its part, was showing its strength in this chaste woman."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0073",
+      "source_sha256": "1e1497fed1e511ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There was great anxiety among them all at once."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0074",
+      "source_sha256": "75c22e9596b25110",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The elders, for their part, were anxious that a woman might defeat them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0075",
+      "source_sha256": "0601108d3010d0a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Susanna, for her part, [?] out of wisdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0076",
+      "source_sha256": "05d79e06c01179d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the demons were preparing the wages of these lawless men."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0077",
+      "source_sha256": "0d50b5c8b9771432",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The angels, for their part, were preparing their honors for Susanna from heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0078",
+      "source_sha256": "7f0852431dd4b21f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And these lawless men seized her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0079",
+      "source_sha256": "fb834401cb81f5cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They assailed her with their first words, saying, “We are the elders of the people."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0080",
       "source_sha256": "fc185bc362814abf",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "We have been entrusted with the law and the authority to loose and bind in every matter."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0081",
+      "source_sha256": "89957b0cf42b2cf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no one here who can see us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0082",
+      "source_sha256": "0012b107f5e8e8c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So obey us and be with us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0083",
+      "source_sha256": "0411dfe734cc9c86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we desire you. If you do not comply with us, we will testify falsely against you, saying that a young man was with you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0084",
+      "source_sha256": "5b0f8e138d35b329",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And that is why you sent your servants away.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0085",
+      "source_sha256": "84309c533b0ab2f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See, then, how many harsh things surrounded Susanna, this woman all alone:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0086",
+      "source_sha256": "e358b67fa8eb275e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "deceit, a defiling act,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0087",
+      "source_sha256": "2f604be92ed23e75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "a threat—they were threatening her with death—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0088",
+      "source_sha256": "2d0fa7df4cbbf1dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "condemnation that would make all the people laugh at her,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0089",
+      "source_sha256": "7cd6fe5d6c57d50f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "hatred that would make her husband and her relatives hate her."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0090",
@@ -160,6 +2014,90 @@
       "text": "A sorrow for her neighbors and the people of her household."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0091",
+      "source_sha256": "0d6cb8429dd7f24d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In short, nothing less than the destruction of her entire household."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0092",
+      "source_sha256": "70db4bdd490bca20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But none of these schemes could overcome this wise woman."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0093",
+      "source_sha256": "93dbbb4ae464742c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For her hope and her heart were firmly set on the God of heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0094",
+      "source_sha256": "a038117554c47070",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Susanna sighed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0095",
+      "source_sha256": "4f53cd047955933b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And she said, “I am hemmed in on every side."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0096",
+      "source_sha256": "796b53772d0b33ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if I do this, I will die."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0097",
+      "source_sha256": "89419d0fcdb2cea5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if I do not do it, I will not escape your hands."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0098",
+      "source_sha256": "c6d000ec7525beb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nevertheless, it is better for me not to do this and to fall into your hands than to sin before the Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0099",
+      "source_sha256": "6cf111cfa4601b32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to me! My shepherds, whom I thought were tending me!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0100",
+      "source_sha256": "8e83e5b18f3775bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I see them as wolves around me."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0101",
+      "source_sha256": "27a4c01e44a571ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I thought of them as pastures, where I could moor the ship of my soul.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0102",
+      "source_sha256": "12ced55e53f05fb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I found these overwhelming me more than a fierce storm."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0103",
       "source_sha256": "983ce189db95111f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -167,11 +2105,802 @@
       "text": "Do not think, then, that I will be afraid of you and obey you and defile my chastity."
     },
     {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0104",
+      "source_sha256": "24e894f8d30ce33d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will not bring shame on my parents."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0105",
+      "source_sha256": "5cd7554445f2e46e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will not disgrace my noble birth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0106",
+      "source_sha256": "c01cce05c2673437",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will not cause my husband grief."
+    },
+    {
       "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0107",
       "source_sha256": "1822d94dbda85cb8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 23,
       "text": "I will not untie the knot of my marriage while I am bound to him by it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0108",
+      "source_sha256": "7fdb4f24b94c6570",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will not listen to your ignorant words."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0109",
+      "source_sha256": "0a86831b3c79a5b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will choose to die a violent death rather than lie in a defiled bed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0110",
+      "source_sha256": "7e4b386a30dc7ffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My husband is with me, even if not in body, but in the desire of my heart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0111",
+      "source_sha256": "b37c89367dd2607c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And my parents’ faces are before me at all times."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0112",
+      "source_sha256": "781fb881ca3919fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So you too should fear God, who sees us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0113",
+      "source_sha256": "bf4b9106b9829a39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be ashamed before the angels who are with us night and day."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0114",
+      "source_sha256": "35a78f821038054c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Recognize who you are."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0115",
+      "source_sha256": "1ba918135084645b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Know the law that you read."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0116",
+      "source_sha256": "6cbbaeaf01a6321f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law cries out, “You must not desire to know your neighbor.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0117",
+      "source_sha256": "edadb089a1fbe971",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And after she said these things, she cried out, wanting witnesses to come and testify to their misconduct."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0118",
+      "source_sha256": "ee2cc487eb915a03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The elders also cried out."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0119",
+      "source_sha256": "f9cba549557535e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And then Susanna’s servants and her young daughters ran in and saw the elders arguing with her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0120",
+      "source_sha256": "35bd54dd571a27c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And when the elders spoke their words,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0121",
+      "source_sha256": "01132d6f563085f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the servants were deeply ashamed, because they had never heard anything like this said against Susanna."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0122",
+      "source_sha256": "e619a5bf33fc521a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The next day, a large crowd gathered."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0123",
+      "source_sha256": "1ae5fca50ee6e06b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the struggle still lay before victory, and the trial lay before the crown."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0124",
+      "source_sha256": "78c9e92becc2a104",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the people gathered together: men, women, and little children."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0125",
+      "source_sha256": "32ca4c92c7c98aeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The assembly of spectators became very large."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0126",
+      "source_sha256": "7df7a1383a49697c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The people below did not know what they were looking at."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0127",
+      "source_sha256": "88efbc8f5d54b01b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But those above understood everything."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0128",
+      "source_sha256": "27a1c7a3ecab49a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The elders came, full of lawlessness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0129",
+      "source_sha256": "629f80e27c8d1bff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they summoned Susanna. In the minds of those who summoned her, she was summoned to shame and death; in the mind of the true judge, she was summoned to life and everlasting glory."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0130",
+      "source_sha256": "af9787234d03d129",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then they said before the people, “Send for Susanna, the daughter of Hilkiah.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0131",
+      "source_sha256": "65e1554d397b90bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They sent for her, and she came with her parents, all her relatives, and her children."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0132",
+      "source_sha256": "934cb11e4d9e600f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Susanna came as though she deserved death because of her great innocence."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0133",
+      "source_sha256": "fbfb9f1cd9c32c48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And she was groaning and grieving, not because she was going to die,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0134",
+      "source_sha256": "e97766be7f7191e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but because she would leave her parents with a bad name and her entire family with disgrace."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0135",
+      "source_sha256": "f576b2ca14af6a56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For she had no witness to the deed they had accused her of in the garden."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0136",
+      "source_sha256": "01ece654e10f6a12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Many were groaning over her: her parents, her friends, her relatives, and her neighbors."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0137",
+      "source_sha256": "91a1fa40c95a57d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And her husband was mourning with his entire household; they were all lamenting."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0138",
+      "source_sha256": "b809b25dd49397b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She herself was distressed and downcast, weeping and troubled, in great humiliation."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0139",
+      "source_sha256": "9729984a9a2623de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She came and stood in the midst of everyone."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0140",
+      "source_sha256": "161b522049bd3482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the whole assembly stood looking at her, both the angels and the people."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0141",
+      "source_sha256": "30923cea138f062e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The two elders rose in their guise as shepherds, though they were wolves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0142",
+      "source_sha256": "474032e9e877b3be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the deceiving serpent was speaking within them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0143",
+      "source_sha256": "5c501441b87771e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They laid their hands on her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0144",
+      "source_sha256": "e17d50399f69c995",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they said, “Yesterday we were walking alone in the garden."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0145",
+      "source_sha256": "29df75c7bedee5ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This woman came in with two servant girls."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0146",
+      "source_sha256": "72802f8e77b6450c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She sent the servant girls away and shut the gates of the garden."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0147",
+      "source_sha256": "bf093fc8b0d40b13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A young man who had been hiding came in to her and had intercourse with her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0148",
+      "source_sha256": "1d5c63f77d346574",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When we saw this lawless act, while we were hiding in a bush in the garden, we ran toward them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0149",
+      "source_sha256": "01ac80ba57e46d50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We could not seize him, because he was stronger than we were."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0150",
+      "source_sha256": "f5ab047df38726e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He opened the gates and ran out."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0151",
+      "source_sha256": "d7dcebc16fe38702",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we seized this woman and asked her, ‘Who is this young man who was with you?’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0152",
+      "source_sha256": "beda5d352cc8ce09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She would not tell us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0153",
+      "source_sha256": "42b381d356f1eb73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And these are the things we testify to, having seen them.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0154",
+      "source_sha256": "f4f6c62d046dd0cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The whole assembly believed them as elders and judges, and they condemned her to death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0155",
+      "source_sha256": "b2d201be60cdf4a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So they were taking Susanna out to kill her, and no one was vindicating the truth except God alone."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0156",
+      "source_sha256": "562fc03cb21899de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He had allowed these things to happen so that, through the two of them, each one's conduct would be fully revealed: the wickedness, lack of self-control, and deceitfulness of the lawless men, on the one hand, and Susanna's steadfastness even to death, on the other."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0157",
+      "source_sha256": "d91ffde7a89e22dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You see how God forgets the faithful person."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0158",
+      "source_sha256": "33802086b5db96ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he leaves them alone to test them, like gold in a furnace, examining the righteous through various trials."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0159",
+      "source_sha256": "38c838fb841c4cef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is what he did to Abraham."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0160",
+      "source_sha256": "147e723399185b51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he took Isaac to offer him up as a burnt offering."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0161",
+      "source_sha256": "e6a9f2bfbbef9b3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He built the altar, and there was no sheep."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0162",
+      "source_sha256": "93daf56bbdbd731f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He piled the wood on it, and there was no ram there."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0163",
+      "source_sha256": "c1ce84e10de69255",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took the knife in his hands."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0164",
+      "source_sha256": "ccb09537e8edf508",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he turned his attention to Isaac to slaughter him, and immediately"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0165",
+      "source_sha256": "1e19653b4f2caca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God made him draw back his hand with a voice."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0166",
+      "source_sha256": "39b6922c7a8b39de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] these things, then, so that each of us, when tested and approaching death, should not lose hope in God's help,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0167",
+      "source_sha256": "32086be93878e10a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but should wait for it until it comes to him. Finally, then, they were taking Susanna out to destroy her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0168",
+      "source_sha256": "0f79a10713acb576",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And there was no help around her."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0169",
+      "source_sha256": "1e31362df447e29f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when she saw that there was no help from human beings,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0170",
+      "source_sha256": "0954f4e860d25100",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "she ran to the helper in heaven, the fearsome witness, the sleepless eye."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0171",
+      "source_sha256": "6c0075aff19550b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And she said, “Eternal God, you who understand what is hidden in the heart, who know all things before they happen,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0172",
+      "source_sha256": "bcf41d4a00ccb8e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "you alone know that these men have testified falsely against me."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0173",
+      "source_sha256": "c9f9587ffc28eb83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And look, I am about to die, although I have done none of the things about which these men testify falsely against me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0174",
+      "source_sha256": "d5989cac529260a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he heard her—the one who said, “While you are still speaking, I will say, ‘Look, I am here.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0175",
+      "source_sha256": "c954652542361bd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As they were taking her out to destroy her, God stirred up the Holy Spirit in a young boy whose name was Daniel."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0176",
+      "source_sha256": "3514f2b45b37b500",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he cried out in a loud voice, “I am innocent of this woman's blood!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0177",
+      "source_sha256": "521a6e53234e753c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the people turned toward him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0178",
+      "source_sha256": "de7df360d38175a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they said, “What is this that you are saying?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0179",
+      "source_sha256": "8d693f5f5c6ba6ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You. But he stood in their midst."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0180",
+      "source_sha256": "a21e72456246d913",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he said, “Are you so foolish, house of Israel? Return to the place of judgment."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0181",
+      "source_sha256": "ad493445685e5cc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For these men have testified falsely against her.” All the people returned in haste."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0182",
+      "source_sha256": "b64af3187afd6e44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Daniel said to them, “Separate them from one another so that I can question them.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0183",
+      "source_sha256": "203af29aa5d9a795",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he said to each of them individually, “You who have grown old in your evil days, now"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0184",
+      "source_sha256": "ae96a36a92bebefa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "your sins, which you have been committing from the beginning, have come upon you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0185",
+      "source_sha256": "373e2a4255efa93b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell me, under what kind of tree did you see them talking with one another?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0186",
+      "source_sha256": "88a6229b444e9c33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “Under a mastic tree.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0187",
+      "source_sha256": "7161952318282d32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Daniel said to him, “You have rightly brought a lie upon your own head."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0188",
+      "source_sha256": "6e7c81f1bb842830",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the angel of God is now standing with a sword in his hand, and he will cut you in half.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0189",
+      "source_sha256": "fcf8ce83496b2292",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then he had them put this man aside."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0190",
+      "source_sha256": "542a99ecc04cfb79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then he called the other man and said to him, “You offspring of Canaan, and not of Judah! Beauty has deceived you, and desire has torn your heart apart."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0191",
+      "source_sha256": "669705f85bc51dde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell me, under what kind of tree did you see them talking with one another?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0192",
+      "source_sha256": "dc1e1301f132f6e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “Under an oak tree.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0193",
+      "source_sha256": "ed1302e2e471ab5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Daniel said to him, “You too have brought a lie upon your own head."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0194",
+      "source_sha256": "ed5c229286efa589",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For look, the angel of God is standing with his sword in his hand to cut you in half.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0195",
+      "source_sha256": "f7fbb105fc408387",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the people cried out with a loud voice, saying, “Blessed is the Lord God, who saves everyone who hopes in him!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0196",
+      "source_sha256": "6005f2b15eac7b04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And innocent blood was saved that day."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0197",
+      "source_sha256": "ae86f036cd3f38dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And what David said was fulfilled concerning Susanna: “My soul has clung to you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0198",
+      "source_sha256": "55d7910612b930ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and it is your right hand that has taken hold of me.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0199",
+      "source_sha256": "51dac5cd2dff74c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But these lawless elders, who sought Susanna’s life,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0200",
+      "source_sha256": "fd0288687abee096",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "will go down into the earth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0201",
+      "source_sha256": "8c9490d29195d4e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They will be handed over to the sword, [?] become a portion for foxes, which are the demons."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0202",
+      "source_sha256": "ba8e6df98b11ea89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the king will rejoice in God—that is, Susanna."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0203",
+      "source_sha256": "d4ea952d4723fe87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And everyone who swears by him will receive honor—that is, everyone who believes in him—because the mouth of those who speak unjustly has been shut—that is, these lawless elders."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0204",
+      "source_sha256": "9cc3499e2b474a5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Then the sorrow of Susanna’s parents turned to joy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0205",
+      "source_sha256": "99d6fed5489d9c3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And her husband rejoiced and gave glory to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0206",
+      "source_sha256": "9e592d5b47e55a22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And all her relatives rejoiced."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0207",
+      "source_sha256": "04251ac689ad4bef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Her neighbors were glad, and her whole household rejoiced."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0208",
+      "source_sha256": "cb03ce641ce45361",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And, in short, joy came to them in the presence of God, the angels, and people."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0209",
+      "source_sha256": "5b585d8f24a1f1c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "You have seen the strength of Susanna’s soul."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0210",
+      "source_sha256": "117c5a952469406a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "You have seen the wisdom of this weak vessel."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0211",
+      "source_sha256": "9a1d74ec3c6e00d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "The noble soul endures, strong in immortality."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0212",
+      "source_sha256": "c0e2c866aa47755d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "It endures with flourishing fruit that never withers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0213",
+      "source_sha256": "c3059f731d637682",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "It endures in unwavering virtue, clothed in God’s help."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0214",
+      "source_sha256": "481fbb5538aaf3a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "So this woman received honor from people and was exalted by the angels."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0215",
+      "source_sha256": "cd092da51039e4c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "And she was crowned by God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0216",
+      "source_sha256": "5e9a3898f8db043c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Make yourselves like this woman, O women. Emulate her character, so that you yourselves too may be worthy of the honor she received from God in Christ Jesus our Lord. Glory to him forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_chrysostom#CopScr.pseudo-chrysostom.001.0217",
+      "source_sha256": "6457bbaddf9f9451",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 14,
+      "text": "Apa John, Archbishop."
     }
   ]
 }

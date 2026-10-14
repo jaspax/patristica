@@ -9,15 +9,154 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.1",
+      "source_sha256": "17fefe4ddb00c44b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul and Timothy, servants of Christ Jesus, write to all the holy people in Christ Jesus who are in Philippi, together with the overseers and deacons."
+    },
     {
       "chunk_id": "coptic-nt/phil#Phil.1.2",
       "source_sha256": "e1575658deced0ec",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Grace and peace to you from God our Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.3",
+      "source_sha256": "307b37e9e0daa1fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I thank my God whenever I remember you."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.4",
+      "source_sha256": "8e01acf2ef2b36d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In all my prayers, at all times, for all of you, I make my prayer with joy,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.5",
+      "source_sha256": "b6fa6aab16730d58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because of your partnership in the good news from the first day until now."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.6",
+      "source_sha256": "7c06f3062711d2eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am confident of this: the one who began the good work in you will bring it to completion by the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.7",
+      "source_sha256": "f4638174285f9c23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is right for me to think this about all of you, because you are in my heart. Both in my imprisonment and in my defense and confirmation of the good news, you all share in grace with me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.8",
+      "source_sha256": "0f6cc15bee073585",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is my witness to how I long for all of you with the compassion of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.9",
+      "source_sha256": "968d8b663843728a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I pray this: that your love may grow more and more in knowledge and every kind of discernment,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.10",
+      "source_sha256": "e764b01682337310",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may recognize what is best and be pure, with no sin charged against you on the day of Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.11",
+      "source_sha256": "b3bfb802ca148605",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "filled with the fruit of righteousness that comes through Jesus Christ, to the glory and honor of God."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.12",
+      "source_sha256": "65c99701f8320187",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I want you to know, my brothers and sisters, that the circumstances I am in have actually served to advance the good news."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.13",
+      "source_sha256": "4be4a0b6a7e4f019",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As a result, throughout the whole headquarters and among everyone else, it has become clear that my imprisonment is because of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.14",
+      "source_sha256": "12ec6481238671f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And most of the brothers and sisters in the Lord, encouraged by my imprisonment, are much bolder in speaking the word of God without fear."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.15",
+      "source_sha256": "5d17b2f4c970845d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Some proclaim Christ because of envy and rivalry, but others do so willingly."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.16",
+      "source_sha256": "441dbdf611953577",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Some do so out of love, knowing that I am appointed to defend the good news."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.17",
+      "source_sha256": "810f2cc40a09e015",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Others proclaim Christ out of rivalry, not with pure motives, thinking they will stir up distress for me in my imprisonment."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.18",
+      "source_sha256": "35c4848d5145f3da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What does it matter? In every way, whether in pretense or in truth, Christ is proclaimed, and I rejoice in this. And I will continue to rejoice."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.19",
+      "source_sha256": "ba5d5d0d4e00f3a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I know that this will lead to my deliverance through your prayers and the help supplied by the Spirit of Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.20",
+      "source_sha256": "e44422065db3cf43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This accords with my eager expectation and hope that I will not be put to shame in anything, but that with complete boldness, now as always, Christ will be exalted in my body, whether through my living or through my dying."
     },
     {
       "chunk_id": "coptic-nt/phil#Phil.1.21",
@@ -27,11 +166,179 @@
       "text": "For to me, living is Christ, and dying is gain."
     },
     {
+      "chunk_id": "coptic-nt/phil#Phil.1.22",
+      "source_sha256": "fb75afb400bce679",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if I live on in the flesh, this means fruitful work for me. Which, then, will I choose? I do not know."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.23",
+      "source_sha256": "c009cd26e71cbd42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am pulled between the two, having a desire for both. To depart and be with Christ is far better."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.24",
+      "source_sha256": "d7ba228fcd2315b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But remaining in the flesh is necessary for your sake."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.25",
+      "source_sha256": "cfad253745999743",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And being confident of this, I know that I will remain and continue with all of you for your progress and the joy of your faith,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.26",
+      "source_sha256": "43267d9024fdac78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that your boasting in Christ Jesus on my account may increase through my coming to you again."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.27",
+      "source_sha256": "5772b3bee6574482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Only live in a way worthy of the good news of Christ, so that whether I come and see you or am absent, I may hear about you that you stand firm in one spirit and with one soul, striving together for the faith of the good news."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.28",
+      "source_sha256": "eab8a1233f3724e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be frightened in any way by those who oppose us. This is a sign of their destruction, but of salvation for you, and this comes from God."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.29",
+      "source_sha256": "1831f01522641b83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have been granted, for Christ’s sake, not only to believe in him but also to suffer for him."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.30",
+      "source_sha256": "a11a3ae54553e4f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You face the same struggle that you saw in me and now hear that I am still facing."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.1",
+      "source_sha256": "ee05bb72d16083f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, if there is any encouragement in Christ, any comfort from love, any fellowship of the Spirit, any kindness and compassion,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.2",
+      "source_sha256": "7d63321b9a521c7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "make my joy complete by thinking alike, having the same love, and being united in heart and mind."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.3",
+      "source_sha256": "475105c9984b56bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do nothing out of rivalry or vanity, but in humility consider one another greater than yourselves."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.4",
+      "source_sha256": "8bf7b47e04b00d0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let each person seek not their own benefit, but the benefit of others."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.5",
+      "source_sha256": "673260a4038ec305",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Have this attitude among yourselves, which is also in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.6",
+      "source_sha256": "8a6c6f12c571a69f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was in the form of God and did not consider being equal with God an act of robbery."
+    },
+    {
       "chunk_id": "coptic-nt/phil#Phil.2.7",
       "source_sha256": "5d13a17d94e8962b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "But he emptied himself, taking the form of a slave and becoming like human beings. And in his outward appearance he was found to be a human being."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.8",
+      "source_sha256": "e90b4d684737fc79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He humbled himself and became obedient to the point of death—even death on a cross."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.9",
+      "source_sha256": "ba3b4f1c7bcf09fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore God also exalted him above all and granted him the name that is above every name,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.10",
+      "source_sha256": "0a5e3fca003824c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that at the name of Jesus every knee should bow, of those in heaven, those on earth, and those beneath the earth,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.11",
+      "source_sha256": "dd427ed33a49ef90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and every tongue should confess that Jesus Christ is Lord, to the glory of God the Father."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.12",
+      "source_sha256": "898272c4aee3ad23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, my beloved, just as you have always obeyed—not only when I was with you, but now even more when I am not with you—work out your salvation with fear and trembling."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.13",
+      "source_sha256": "b4cc1c1e61a1a428",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is the one who works in you both the desire and the fulfillment of that desire."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.14",
+      "source_sha256": "28118441180f1437",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do everything without grumbling or arguing,"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.15",
+      "source_sha256": "77617e2c35315d4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may become sinless and innocent, holy children of God in the midst of a crooked and perverse generation, among whom you shine like lights in the world."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.16",
+      "source_sha256": "d297cdf91e5a20f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hold firmly to the word of life, so that I may boast on the day of Christ that I did not run in vain or labor in vain."
     },
     {
       "chunk_id": "coptic-nt/phil#Phil.2.17",
@@ -41,11 +348,305 @@
       "text": "But even if I am being poured out over the sacrifice and service of your faith, I rejoice and will rejoice with all of you."
     },
     {
+      "chunk_id": "coptic-nt/phil#Phil.2.18",
+      "source_sha256": "1817761f140c2f93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too should rejoice and rejoice with me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.19",
+      "source_sha256": "57b68cfd029a7225",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I hope in the Lord Jesus to send Timothy to you soon, so that my heart too may be comforted when I learn how you are doing."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.20",
+      "source_sha256": "7dc874bda5133cf4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I have no one else who shares my heart and will genuinely care for you."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.21",
+      "source_sha256": "51d084e71f8b900f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone seeks their own interests, not those of Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.22",
+      "source_sha256": "2e02a23aab90a41d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you know his proven character: like a son with his father, he has served with me in the work of the good news."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.23",
+      "source_sha256": "71a67268774ab6bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I hope to send him as soon as I know how things stand with me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.24",
+      "source_sha256": "bcf8ca73760c160f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I trust in the Lord that I myself will also come to you soon."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.25",
+      "source_sha256": "ba11f9fc6afe843b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I considered it necessary to send you Epaphroditus, my brother, fellow worker, and fellow soldier, who is also your messenger and the one who serves my needs."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.26",
+      "source_sha256": "6de639bba4221dc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he longed for all of you and was distressed because you had heard that he was sick."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.27",
+      "source_sha256": "1dcc9bcdf05e9f0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, he was sick and came close to death. But God had mercy on him, and not only on him but also on me, so that I would not have sorrow upon sorrow."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.28",
+      "source_sha256": "579bb741b33c441d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I sent him quickly, so that when you see him you may rejoice again, and I too may be free from sorrow."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.29",
+      "source_sha256": "0140f7fe9be3e498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So welcome him in the Lord with all joy, and hold people like him in honor."
+    },
+    {
       "chunk_id": "coptic-nt/phil#Phil.2.30",
       "source_sha256": "11539c6ebd34cafb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "For he came close to death because of the work of Christ, risking his life to make up for what was lacking on your part and for your service to me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.1",
+      "source_sha256": "d8f3012edbc52743",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now then, my brothers and sisters, rejoice in the Lord. Writing these things to you again is no trouble for me, and it gives you security."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.2",
+      "source_sha256": "b57bfcbc666fb9af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilation."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.3",
+      "source_sha256": "455d065a7da5aad0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we are the circumcision, we who worship by the Spirit of God and boast in Christ Jesus and do not put our confidence in the flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.4",
+      "source_sha256": "5aa2629ce60e0e16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Although I too have grounds for confidence in the flesh. If anyone else thinks he can put his confidence in the flesh, I have even more."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.5",
+      "source_sha256": "9892dfd5cf30a80c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I was circumcised on my eighth day, of the people of Israel, of the tribe of Benjamin, a Hebrew born of Hebrews; as regards the law, a Pharisee."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.6",
+      "source_sha256": "c64e32cd110ba9a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As regards zeal, I persecuted the church; as regards the righteousness that is in the law, I was blameless."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.7",
+      "source_sha256": "fbdfd5047bbe5bf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But whatever things were gains to me, I counted as loss because of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.8",
+      "source_sha256": "ec79a205c6a15427",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, I count everything as loss because of the surpassing value of knowing Christ Jesus our Lord. Because of him I have suffered the loss of everything, and I count it all as nothing, so that I may gain Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.9",
+      "source_sha256": "8850a1534183542f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And be found in him, not having my own righteousness that comes from the law, but the righteousness that comes through faith in Christ, the righteousness from God based on faith."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.10",
+      "source_sha256": "64719683d63d8cac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To know him and the power of his resurrection and to share in his sufferings, becoming like him in his death."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.11",
+      "source_sha256": "cb36d2af9a29eb38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that I may attain the resurrection from the dead."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.12",
+      "source_sha256": "df08dcd641584556",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not that I have already received it or have already been made perfect, but I press on to take hold of it, just as Christ took hold of me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.13",
+      "source_sha256": "cd6af0613daea976",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers and sisters, I do not consider myself to have taken hold of it. But this one thing I do: forgetting what lies behind and reaching forward to what lies ahead."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.14",
+      "source_sha256": "ce50f0941c0dc87f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I press on toward the goal for the crown of God's heavenly calling in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.15",
+      "source_sha256": "8268cc350f12a1da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So let all of us who are mature think this way. And if you think differently about anything, God will reveal this to you as well."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.16",
+      "source_sha256": "38c27eb2e08719ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nevertheless, hold on to what you have attained."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.17",
+      "source_sha256": "ae05ec218559cab1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Imitate me, my brothers and sisters, and watch those who live this way, following the example we have given you."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.18",
+      "source_sha256": "ea8268f41f7e213e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For many live as enemies of the cross of Christ. I have often told you about them, and now I tell you again with tears."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.19",
+      "source_sha256": "36af2d23d2e57c14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their end is destruction, their god is their belly, and their glory is in their shame. They set their minds on earthly things."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.20",
+      "source_sha256": "16c2942376946cec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But our citizenship is in heaven, from where we eagerly await our Savior, the Lord Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.3.21",
+      "source_sha256": "f24c1430e1239871",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "He is the one who will transform our lowly body into the likeness of his glorious body, through the power that enables him to subject everything to himself."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.1",
+      "source_sha256": "66149af2ed1decfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Therefore, my beloved brothers and sisters, whom I long for, my joy and my crown, stand firm in the Lord in this way, my beloved."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.2",
+      "source_sha256": "c3f65edc6d92b8da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I urge Euodia, and I urge Syntyche, to be of one mind in the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.3",
+      "source_sha256": "9cdd8393d85124e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Yes, I ask you too, faithful companion, to help these women who served with me in the gospel, along with Clement and the rest of my fellow workers, whose names are in the book of life."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.4",
+      "source_sha256": "26b4af5648d7b4b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Rejoice in the Lord. I say it again: rejoice!"
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.5",
+      "source_sha256": "7570ab838ef5d9ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Let your gentleness be evident to everyone. The Lord has drawn near."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.6",
+      "source_sha256": "18115451de012a5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Do not worry about anything. Instead, at all times, through prayer and pleading, let your requests be made known to God with thanksgiving."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.7",
+      "source_sha256": "fe76767770431777",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And the peace of God, which surpasses every thought, will guard your hearts and your thoughts in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.8",
+      "source_sha256": "d92c4664428536d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Now then, brothers and sisters, whatever is true, whatever is honorable, whatever is right, whatever is holy, whatever is good, every blessing, every virtue, every honor—think about these things."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.9",
+      "source_sha256": "8e2e801485ce3f3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "These are the things you learned and received and heard and saw in me. Put them into practice, and the God of peace will be with you."
     },
     {
       "chunk_id": "coptic-nt/phil#Phil.4.10",
@@ -55,6 +656,34 @@
       "text": "I rejoiced greatly in the Lord because your concern for me has blossomed again. You were indeed concerned, but you did not have the opportunity."
     },
     {
+      "chunk_id": "coptic-nt/phil#Phil.4.11",
+      "source_sha256": "acd04c34005320e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I am not saying this because you were in need, for I have learned to be content in whatever circumstances I am in."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.12",
+      "source_sha256": "4648fd2d1b9fb46c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I know how to live humbly, and I know how to have more than enough. In every circumstance I have learned how to face them all: to be well fed, to be hungry, to have more than enough, and to be in need."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.13",
+      "source_sha256": "7a755b6c53ba054a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I can do everything through the one who gives me strength."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.14",
+      "source_sha256": "60bd69d2a32e0149",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Nevertheless, you did well to share with me in my suffering."
+    },
+    {
       "chunk_id": "coptic-nt/phil#Phil.4.15",
       "source_sha256": "3743c5e2c5bccbab",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -62,11 +691,60 @@
       "text": "You Philippians yourselves also know that at the beginning of the preaching, when I left Macedonia, no church shared with me in the matter of giving and receiving except you alone."
     },
     {
+      "chunk_id": "coptic-nt/phil#Phil.4.16",
+      "source_sha256": "d057cdcea2719200",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For even in Thessalonica you sent help for my needs once and then a second time."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.17",
+      "source_sha256": "3782f939b2f8c21e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Not that I am seeking the gift, but I am seeking the fruit that increases to your account."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.18",
+      "source_sha256": "da11e7f4df044f9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I have everything in full and more than enough. I am fully supplied, having received through Epaphroditus the things you sent: a sweet fragrance, an acceptable sacrifice pleasing to God."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.19",
+      "source_sha256": "1bfa5704924448a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And my God will supply all your needs according to their riches in glory in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.20",
+      "source_sha256": "0d25769d3b812c15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Glory to God our Father forever and ever. Amen."
+    },
+    {
       "chunk_id": "coptic-nt/phil#Phil.4.21",
       "source_sha256": "fce24c362ef76cc0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 7,
       "text": "Greet all the holy people in Christ Jesus. The brothers who are with me greet you."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.22",
+      "source_sha256": "1bc69f699f73e30f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "All the holy ones greet you, especially those of the king’s household."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.23",
+      "source_sha256": "db2149508f585a0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "The grace of our Lord Jesus Christ be with your spirit."
     }
   ]
 }

@@ -9,9 +9,302 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.0",
+      "source_sha256": "140914bd6dc0001c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again, the first song of praise of Moses."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.1",
+      "source_sha256": "51dae1a8d500f1eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Moses and the Israelites sang this song of praise to the Lord and said: Let us praise the exalted Lord, for he has triumphed over the horses and their riders; he threw them into the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.2",
+      "source_sha256": "58bbc1af8b0c05ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Strong and worthy of praise, the Lord shone forth and became our savior. This is my God, and I will praise him; my father’s God, and I will exalt him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.3",
+      "source_sha256": "769d4c0caa43059b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord is mighty and a warrior; the Lord is his name."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.4",
+      "source_sha256": "3973d5e8db8f95b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He threw Pharaoh’s chariots and his army into the sea, and he drowned his chosen warriors in the Red Sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.5",
+      "source_sha256": "94fd02a6a5df3fca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The depths covered them; they went down into the deep and sank like stones."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.6",
+      "source_sha256": "2987c1abf7de3712",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your right hand, Lord, is glorious in power; your right hand, Lord, shattered your enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.7",
+      "source_sha256": "e8733852545d824a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In your great might you overthrew those who hate you. You sent out your anger, and it consumed them like stubble."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.8",
+      "source_sha256": "af715bff361e1acf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At the breath of your nostrils the waters piled up. The flowing waters stood like waterskins; the depths congealed in the heart of the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.9",
+      "source_sha256": "f7c8f4f39e379135",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The enemy said, “I will pursue and overtake them, and I will divide the plunder. My appetite will devour them. I will draw my sword, and my hand will destroy them.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.10",
+      "source_sha256": "0110a41d5dfc81ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You blew your wind, and the sea covered them. They sank like lead in the mighty waters."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.11",
+      "source_sha256": "1089f12ac8a7b3ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who is like you, Lord? Who is like you, glorious in holiness, awe-inspiring and worthy of praise, working wonders?"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.12",
+      "source_sha256": "19d26f66aadcf0b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You raised your right hand, and the earth swallowed them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.13",
+      "source_sha256": "85c20e7da9a0e31a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In your kindness you led this people whom you redeemed. In your might you led them to your holy dwelling."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.14",
+      "source_sha256": "49b3c2e257406daf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The nations heard and trembled, and fear seized the inhabitants of Philistia."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.15",
+      "source_sha256": "de29a8c301c75bd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the leaders of Edom were afraid, and trembling seized the men of Moab. All the inhabitants of Canaan were shattered."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.16",
+      "source_sha256": "4bc1a06ecfd132b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May fear and terror fall upon them. By the greatness of your arm, may they sink like stones until your people pass through, Lord, until this people whom you redeemed pass through."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.17",
+      "source_sha256": "f1b5054f5c28c91b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You will bring them in and plant them on the mountain of your inheritance, the place you made for your dwelling, Lord—your sanctuary, Lord, which you established with your hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.18",
+      "source_sha256": "61b3c5e601a3cc37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord will reign forever and ever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.19",
+      "source_sha256": "6e17a19dd27c07cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Pharaoh’s horses, his chariots, and his horsemen went into the sea, and the Lord brought the waters of the sea back over them. But the Israelites walked on dry ground in the midst of the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.20",
+      "source_sha256": "c34e49164888fb05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Miriam the prophetess, Aaron’s sister, took a timbrel in her hand, and all the women went out after her with timbrels and tambourines."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.1.21",
+      "source_sha256": "17d30632aeb0b24f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Miriam sang in response to them: Praise the exalted Lord, for he has triumphed over the horses and their riders; he threw them into the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.0",
+      "source_sha256": "a6a8a31b3503549d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The second song of praise of Moses."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.1",
+      "source_sha256": "f58d8fa9d8bd2f0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen, heavens, and I will speak. Let the earth hear the words of my mouth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.2",
+      "source_sha256": "f433695e6ce53b83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May my teaching fall like rain, and my words descend like dew, like winds upon the tender grass and like showers upon the vegetation."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.3",
+      "source_sha256": "0a29ffcd2eaf2c1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I will call on the name of the Lord. Ascribe greatness to our God."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.4",
+      "source_sha256": "a7b140aeff035370",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Mighty One, whose deeds are without blemish, and all whose ways are just; a faithful God, without injustice, righteous and upright."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.5",
+      "source_sha256": "eb1b50513907dac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have acted corruptly; they are not his children, but blemished children, a crooked and twisted generation."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.6",
+      "source_sha256": "1bb7c7375a707bcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is this how you repay the Lord, foolish and unwise people? Is he not your father who acquired you? He made you and established you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.7",
+      "source_sha256": "f447de96d8aed271",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember the days of old; consider the years of generation after generation. Ask your father, and he will show you; ask your elders, and they will tell you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.8",
+      "source_sha256": "0c430716d059e17b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the Most High divided the nations, when he separated humanity, he established the boundaries of the peoples according to the number of the children of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.9",
+      "source_sha256": "50efc008228a247c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the Lord’s portion is his people, and Jacob is his allotted inheritance."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.10",
+      "source_sha256": "717ec5d5e3fc150b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He found him in a wilderness land, in the wasteland of Jeshimon. He surrounded him, cherished him, and guarded him like the pupil of an eye."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.11",
+      "source_sha256": "203b7f2b3f25a5c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Like an eagle flying over its nest and hovering over its young, he spread his wings, received them, and carried them on his powerful pinions."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.12",
+      "source_sha256": "3b91d5d189759ec6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord alone led him, and no foreign god was with him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.13",
+      "source_sha256": "108e40dbe4f1476c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He settled him on the mighty heights of the land and fed him the produce of the fields. He nursed him with honey from the rock and oil from flinty stone."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.14",
+      "source_sha256": "16aa9c3fd9e3f38a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Butter from cattle and milk from sheep, with the fat of fattened animals, rams, offspring of [?], and goats, with the fat and richness of wheat; and he gave him wine to drink, the blood of grapes."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.15",
+      "source_sha256": "32b04b40a0c3bd73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Israel grew fat and kicked. He grew fat and strong and acquired possessions. He forgot the God who made him and reviled the Mighty One who saved him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.16",
+      "source_sha256": "6f76ab67f541afce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made him jealous with foreign gods and angered him with idols."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.17",
+      "source_sha256": "0f89a4da61d5d6fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They sacrificed to demons that were not gods, gods they had not known, new ones that had only now been made, whom your ancestors had not feared."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.18",
+      "source_sha256": "711ce5b3a875eb10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You forgot the Mighty One who fathered you, and you were unmindful of the God who glorified you."
+    },
     {
       "chunk_id": "pta-peshitta/odes#Odes.2.19",
       "source_sha256": "d0ea2ce97594533a",
@@ -27,11 +320,270 @@
       "text": "He said, “I will turn my face away from them and see what their end will be, for they are a perverse generation, children with no faithfulness in them.”"
     },
     {
+      "chunk_id": "pta-peshitta/odes#Odes.2.21",
+      "source_sha256": "d2d5a4aceb0bccf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They made me jealous with what is no god and angered me with their idols. I too will make them jealous through those who are not my people, and I will anger them through a foolish nation."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.22",
+      "source_sha256": "5f39bc688785a479",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a fire is kindled in my anger and burns down to the lowest Sheol. It will consume the earth and its produce and burn the foundations of the mountains."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.23",
+      "source_sha256": "63d0f2ccfeea7709",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will heap disasters upon them and use up my arrows against them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.24",
+      "source_sha256": "3b78b35c70dc2c18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They will be ravaged by hunger, and evil spirits will be let loose upon them. I will hand them over to the birds. I will send fanged beasts against them, along with the venom of snakes that crawl in the dust."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.25",
+      "source_sha256": "53854e3bbe6d4572",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Outside, the sword will cut them down, and inside the rooms, terror: warriors and young women alike, children together with old men."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.26",
+      "source_sha256": "53bb092074656b63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said, “Where are they? I will erase their memory from among humanity.”"
+    },
+    {
       "chunk_id": "pta-peshitta/odes#Odes.2.27",
       "source_sha256": "8d55d433e4eacfc6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "Were it not for the enemy’s fierce anger, lest their enemies exalt themselves and say, “Our own hand has prevailed; it was not the Lord who did all this.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.28",
+      "source_sha256": "eaf830139a6f1931",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they are a people whose judgment is lost, and there is no understanding among them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.29",
+      "source_sha256": "648239099723ea1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If only they were wise and understood this, and considered their end!"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.30",
+      "source_sha256": "e3e488ab324a59c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One could pursue a thousand, and two could put ten thousand to flight, only because their Mighty One handed them over and the Lord shut them in."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.31",
+      "source_sha256": "480eaf38fd302e80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For their strength was not like our strength, and our enemies are judges."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.32",
+      "source_sha256": "e863b8f22f5014dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For their vine comes from the vine of Sodom and from the planting of Gomorrah. Their grapes are bitter grapes, and their clusters are bitter to them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.33",
+      "source_sha256": "a46195cfdadc7fdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their venom is the venom of a dragon and the deadly poison of an asp."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.34",
+      "source_sha256": "48e31abf4f4134ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, it is hidden away with me and sealed in the treasuries."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.35",
+      "source_sha256": "feb81473a1711310",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Vengeance is mine, and I will repay them when their foot slips. For the day of their destruction is near, and what is prepared for them is coming quickly."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.36",
+      "source_sha256": "c2f73da6d7864fed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the Lord will judge his people and take pity on his servants, because he has seen that the hand has prevailed, and there is no one to help or support."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.37",
+      "source_sha256": "651ddbde2be799dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I said, “Where are their gods, the mighty ones in whom they trusted,"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.38",
+      "source_sha256": "b531a34527ee45be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who ate the fat of their sacrifices and drank the wine of their drink offerings? Let them rise now and help you, and let them be your shelter."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.39",
+      "source_sha256": "21cf8a219a6fb0df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See, then, that I am he, and there is no God besides me. I put to death, and I give life. I wound, and I heal, and no one escapes from my hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.40",
+      "source_sha256": "ff3a5ca4ce14d715",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I raised my hand toward heaven and said, ‘I live forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.41",
+      "source_sha256": "e63901a6bc8cc1b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will sharpen the edge of my sword like lightning, and my hand will take hold of judgment. I will bring vengeance upon those who hate me and repay my enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.42",
+      "source_sha256": "40ea74abf2550f0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will make my arrows drunk with blood, and my sword will devour flesh—from the blood of the slain and the captives, and from the enemy’s crowned head.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.43",
+      "source_sha256": "3728819e6dedd216",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From now on, nations, praise his people, for he avenges the blood of his servants. He brings vengeance upon those who hate him and shows mercy to his land and his people."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.0",
+      "source_sha256": "f3435742d611caeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Isaiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.8",
+      "source_sha256": "11d3cf7e6d3d98ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the heavens rejoice from above, and let the clouds shower down righteousness. Let the earth open, let salvation increase, and let righteousness spring up together with it. I am the Lord, who created these things."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.10",
+      "source_sha256": "0c0c165726238cc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Sing a new song to the Lord, his praise from the ends of the earth, you who go down to the sea with all that fills it, the islands and those who live in them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.11",
+      "source_sha256": "f1ba31db6343f9c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the wilderness and its towns rejoice, and let Kedar become meadows. Let those who live among the cliffs sing praise, and let them shout from the mountaintops."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.12",
+      "source_sha256": "adbd5a23d500325f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let them give praise to the Lord and proclaim his praises in the islands."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.3.13",
+      "source_sha256": "7d6403ee039388a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord will go out like a mighty warrior, and like a man of war he will stir up his zeal. He will shout, show his might, and kill his enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.0",
+      "source_sha256": "b6677cfa11ac7749",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Hannah."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.1",
+      "source_sha256": "57a4323b3aff32a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My heart has grown strong in the Lord, and my horn has been lifted up in God my Savior. My mouth is opened against my enemies, because you have made me rejoice in your salvation."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.2",
+      "source_sha256": "47468c5f57b2dd28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no one holy like the Lord, and no one strong like our God, for there is no one besides him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.3",
+      "source_sha256": "d798ae2a65a90e2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not keep speaking boastfully, and let no arrogance come from your mouths, for the Lord is knowledge, and schemes cannot stand before him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.4",
+      "source_sha256": "280378bc4d65fdf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The bows of the mighty will be broken, and the weak have been strengthened with power."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.5",
+      "source_sha256": "37c200c54a5f0605",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who were full hired themselves out for bread, and the hungry grew rich. The barren woman gave birth and was satisfied, and the woman with many children wasted away."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.6",
+      "source_sha256": "c46640848768e60d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord puts to death and brings to life. He brings down to Sheol and raises up."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.7",
+      "source_sha256": "33c2793835de2fe0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord makes poor and makes rich; he brings low and also raises up."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.8",
+      "source_sha256": "e571edb169958da6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He raises the poor from the dust and lifts the wretched from the rubbish heap, to seat them with the leaders of the people and give them a throne of honor as their inheritance."
     },
     {
       "chunk_id": "pta-peshitta/odes#Odes.4.9",
@@ -41,11 +593,130 @@
       "text": "He hears the prayer of everyone who prays to him and blesses the years of the righteous, for a mighty man does not prevail by his own strength."
     },
     {
+      "chunk_id": "pta-peshitta/odes#Odes.4.10",
+      "source_sha256": "9187481cd61a57b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord will shatter those who provoke him, and he will thunder against them in heaven. Let the wise not boast in their wisdom, nor the mighty in their might, nor the rich in their wealth. Rather, let anyone who boasts boast in this: that they understand and know me, that I am the Lord, who practices kindness, righteousness, and justice on earth. The Lord will judge the ends of the earth, give strength to its kings, and raise the horn of his anointed one."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.0",
+      "source_sha256": "fac0c7c529ebe1a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Habakkuk."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.2",
+      "source_sha256": "d49d6f9ee5b8c642",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord, I heard the report of you and was afraid. Lord, I saw your works and was astonished. Between two living creatures you will be known. In the midst of the years you will show yourself, and when the time draws near you will be revealed. In anger, remember your mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.3",
+      "source_sha256": "ae1c6183e164bf0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God came from Teman, and the Holy One from Mount Paran. The heavens were covered by the splendor of the Glorious One, and the earth was filled with his praise."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.4",
+      "source_sha256": "9358397f70444659",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His radiance will be like light. In the [?] of his hands he will place his strength in [?]."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.5",
+      "source_sha256": "fe9c90158594e547",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The word will go before him, and discipline will go out at his feet."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.6",
+      "source_sha256": "6144cf6d617a5caf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He stood, and the earth shook. They looked, and the nations melted away. The ancient mountains melted away, and the age-old hills were brought low. The paths of old are his."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.7",
+      "source_sha256": "95e55ad12fcf0b38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The tents of the Cushites will be stretched out, and the tent curtains of Midian will tremble."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.8",
+      "source_sha256": "09b2ac3e56218de1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Were you angry with the rivers, Lord? Was your anger against the rivers, and your fury against the sea? You rode on horses and on the chariot of salvation."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.9",
+      "source_sha256": "13f52eaeea1b32df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your bow will surely be drawn, Lord, against the dominion of kingdoms. The earth will be plowed with rivers."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.10",
+      "source_sha256": "526f8f27661b6186",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The nations will see it and writhe like a woman giving birth. The deep raised its voice and lifted its hands high."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.11",
+      "source_sha256": "8edf76559be516a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun and moon stood in their dwellings. They move by the light of your arrows and by the radiance of your flashing spears."
+    },
+    {
       "chunk_id": "pta-peshitta/odes#Odes.5.12",
       "source_sha256": "43fa18de3bcb8b16",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "In your fury you will march over the earth, and in your anger you will thresh the nations."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.13",
+      "source_sha256": "b2ab45cc691c4122",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You went out to save your people and to save your anointed one. You cut off the head from the house of the unjust and stripped it bare from its foundations up to its neck forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.14",
+      "source_sha256": "fdc35a98bda481f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With a staff you pierced the head of his rulers, who trusted in their arrogance to devour the poor in secret."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.15",
+      "source_sha256": "35ebc0f233c6daab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You rode through the sea on horses, through the mass of mighty waters."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.16",
+      "source_sha256": "0112b9bb58414346",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I heard, and my belly trembled at the utterance of my lips. Trembling entered my bones, and my knees shook, because he made known to me and showed me the day of distress coming upon the people."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.17",
+      "source_sha256": "59144ecd03a7e95d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the fig tree has not sprouted, and there are no leaves on the vine. The olive's fruit has failed, and the threshing floors have produced no grain. The sheep have vanished from the fold, and there are no cattle in the herds."
     },
     {
       "chunk_id": "pta-peshitta/odes#Odes.5.18",
@@ -55,6 +726,307 @@
       "text": "But I will rejoice in the Lord and be glad in God my Savior."
     },
     {
+      "chunk_id": "pta-peshitta/odes#Odes.5.19",
+      "source_sha256": "6c4c101a94e14028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord of lords is my strength. He made my feet like those of a deer and set me on the heights, so that I might sing his praises."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.0",
+      "source_sha256": "f3435742d611caeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Isaiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.9",
+      "source_sha256": "04c215923571a5b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At night my soul longed for you; my spirit within me also seeks you early. For in accordance with your judgments on earth, the inhabitants of the world have learned righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.10",
+      "source_sha256": "9cb07aa90b07dad0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The unjust one has been removed, so that he may not learn righteousness, and correction is established on earth. Let the wicked one be taken away, so that he may not see the glory of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.11",
+      "source_sha256": "e0802b08aa5d9508",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord, when your hands are raised high, they will not see. They will see your zeal for your people and be ashamed. Like a furnace, you will consume your enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.12",
+      "source_sha256": "31e42b95ab506057",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord, preserve peace for us, for you have made provision for us according to all our deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.13",
+      "source_sha256": "a4f6e0696745b773",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord our God, take us as your own, for masters other than you have ruled over us. Your name alone will we remember."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.14",
+      "source_sha256": "c1df98e1815205fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The dead do not live, and the mighty do not rise. Therefore you punished them and cut them off, and destroyed all memory of them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.15",
+      "source_sha256": "a99c8d164984c0cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have increased your people, Lord; you have increased your people. You withdrew and drove away all the wicked of the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.16",
+      "source_sha256": "95419bc4c5d0893b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord, in distress they sought you, and in confinement they whispered of your discipline."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.17",
+      "source_sha256": "7661b5856c9dbe4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Like a pregnant woman who is close to giving birth, who writhes and cries out in her labor pains, so we were before you, Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.18",
+      "source_sha256": "ec806dec16e69528",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We conceived and suffered labor pains like women giving birth to wind. Save us so that we do not perish on the earth, and so that the inhabitants of the world do not fall."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.6.19",
+      "source_sha256": "26b9f73f831ce5cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The dead will live, and their bodies will rise. Those who sleep in the dust will awaken and sing praise, for your dew is a dew of light, and you will overthrow the land of the wicked."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.0",
+      "source_sha256": "477f82ebd50747bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Jonah."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.3",
+      "source_sha256": "90fa5947661f8b7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I called to the Lord in my distress, and he answered me. From the belly of Sheol I cried out, and you heard my voice."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.4",
+      "source_sha256": "73623d9cbb0d1f50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You cast me into the depths, into the heart of the sea, and the currents surrounded me. All your billows and waves passed over me."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.5",
+      "source_sha256": "5a31c03a72d48208",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then I said, 'I have been driven far from your sight. Yet I will look again toward your holy temple.'"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.6",
+      "source_sha256": "ba098476a2057465",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The waters surrounded me up to my throat, and the deep encircled me. My head was imprisoned at the bottom of the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.7",
+      "source_sha256": "6d17505d56c9aebd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I descended to the foundations of the mountains, and the earth closed its bars against me forever. But you brought my life up from destruction, Lord my God."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.8",
+      "source_sha256": "95538df33040e60b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When my soul grew faint, I remembered the Lord, and my prayer came before you, into your holy temple."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.9",
+      "source_sha256": "9392eadfbcc77705",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All who cling to worthless objects of worship abandon your mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.7.10",
+      "source_sha256": "1995d9f1be50ddab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I will sacrifice to you with a voice of thanksgiving, and I will fulfill what I have vowed. Repayment belongs to the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.0",
+      "source_sha256": "a48c795f41b90b14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Hananiah and His Companions."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.26",
+      "source_sha256": "e23180902c8c86c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you, Lord, God of our ancestors, and your name is exalted and praised forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.27",
+      "source_sha256": "7965df610e68149a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you are righteous in everything you have done to us. All your deeds are true, your ways are upright, and all your judgments are faithful."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.28",
+      "source_sha256": "fbd22a6df1839438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have dealt with us in true judgment in everything you have brought upon us and upon the holy city of our ancestors, Jerusalem. For you have justly brought all these things upon us because of our offenses and sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.29",
+      "source_sha256": "6b175120565b6b61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we have sinned and acted wickedly before you. We have turned away from you and transgressed your word, and we have sinned against you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.30",
+      "source_sha256": "b0a3bbf97ce33f0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have neither obeyed nor kept your commandments, nor have we done as you commanded us so that it might go well with us."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.31",
+      "source_sha256": "85c1211ca3719445",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everything you have done to us and everything you have brought upon us, you have done to us in just judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.32",
+      "source_sha256": "4307e34dd97c9624",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You handed us over to our enemies, lawless people who are far from you, and to the rule of a wicked kingdom, worse than all the kingdoms of the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.33",
+      "source_sha256": "9b754e7548b29072",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, Lord, we cannot open our mouths before you because of the shame and disgrace that have come upon your servants and those who fear you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.34",
+      "source_sha256": "8b63fb24ccbaaef1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For your name’s sake, do not give us up completely, and do not cancel your covenant."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.35",
+      "source_sha256": "248694c81395df14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not withdraw your mercy and kindness from us, for the sake of Abraham your friend, Isaac your servant, and Israel your holy one,"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.36",
+      "source_sha256": "ce403f3099b4ad6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to whom you promised that you would multiply their descendants like the stars in heaven and like the sand on the seashore."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.37",
+      "source_sha256": "07081711c703ef5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, Lord, see how we have been brought lower than all the nations. Today we are scattered throughout the earth because of our offenses and sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.38",
+      "source_sha256": "6a8ed3f794a9ae4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At this time there is no leader, ruler, prophet, or guide, no altar, sacrifice, or offering, and no place where we can offer incense or a sacrifice and find favor and mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.39",
+      "source_sha256": "e84a614be60fc96c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But with a broken heart and a humble spirit, here we are, offered up to the burning fire."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.40",
+      "source_sha256": "dbc164342cbd5532",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We ask that the offering of our lives before you today may be greater than bulls, rams, and many lambs. Do not let your servants be put to shame, for those who trust in you are not put to shame."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.41",
+      "source_sha256": "6225a4a37aaaac74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now we follow you wholeheartedly, and we seek your face, Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.42",
+      "source_sha256": "39bb49c306c0de4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not put us to shame, but deal with us according to your abundant kindness and your great mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.43",
+      "source_sha256": "1ebf696639f0d4b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Save us according to your many wonders, and bring glory to your name, Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.44",
+      "source_sha256": "c740aeb05efd17fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let all those who speak evil against your servants be put to shame. Let them be put to shame in all their might, and let their strength desert them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.45",
+      "source_sha256": "774cdd88b809b24d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let them know that you alone are the one God, and that you are praised in all your works."
+    },
+    {
       "chunk_id": "pta-peshitta/odes#Odes.8.46",
       "source_sha256": "0c7ede3d0389cd80",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -62,11 +1034,452 @@
       "text": "Those who were heating the fiery furnace did not stop, but kept throwing naphtha, pitch, sulfur, reeds, and vine branches into it."
     },
     {
+      "chunk_id": "pta-peshitta/odes#Odes.8.47",
+      "source_sha256": "a6a86d52dee7d8fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The flame of the fire roared and rose forty-nine cubits above the fiery furnace."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.48",
+      "source_sha256": "aba03dae81f41f2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fire burned and destroyed everyone it found around the furnace, both Chaldeans and accusers."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.49",
+      "source_sha256": "6eb57f6a295c4509",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the angel of the Lord went down into the fiery furnace with Hananiah, Azariah, and Mishael, and extinguished the flame of fire in the furnace."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.50",
+      "source_sha256": "84a04126de1d7b31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made the middle of the furnace like a dew-laden breeze. The fire did not come near them at all, nor did it hurt or distress them."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.51",
+      "source_sha256": "ba3a24556ed1936d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then all three, as though speaking with one mouth, praised and blessed God from within the fiery furnace, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.52",
+      "source_sha256": "194ac09e87af7aa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you, Lord, God of our ancestors. You are praised and exalted forever. Blessed is your holy, glorious name. You are praised and exalted forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.53",
+      "source_sha256": "c96c79db3cdfd233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you in your holy temple. You are praised and exalted forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.54",
+      "source_sha256": "34b652a297c6bb18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you who sit enthroned upon the cherubim and look into the depths. You are praised and exalted forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.55",
+      "source_sha256": "49de76cb0018fb1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you on your royal throne. You are praised and exalted forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.56",
+      "source_sha256": "52c3e6a79ef9d3ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you in the vault of heaven. You are praised and exalted forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.0",
+      "source_sha256": "dcb17474d1a4d222",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The prayer of Hananiah and his companions."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.57",
+      "source_sha256": "918de2ce6416dff6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All you works of the Lord, bless the Lord. Praise and exalt him forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.58",
+      "source_sha256": "736af3fd14ad151b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you angels of the Lord, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.59",
+      "source_sha256": "ba7a2d24051675c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you heavens."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.60",
+      "source_sha256": "fe1e63435a91eb9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you waters above the heavens."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.61",
+      "source_sha256": "d1d7dba2570fdfbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all you hosts of the Lord, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.62",
+      "source_sha256": "c9dab7a7b450f00d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you sun and moon."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.63",
+      "source_sha256": "c58fcbcc390f6133",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all you stars in the sky, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.64",
+      "source_sha256": "1f33f1150682b25c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you rain and dew."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.65",
+      "source_sha256": "b945409a92e456dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all you winds, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.66",
+      "source_sha256": "3f35370ba0dc5763",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless the Lord, you fire and heat."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.69",
+      "source_sha256": "1a3c00feaef89e04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you cold and heat."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.70",
+      "source_sha256": "0f8139842f115722",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You snow and ice, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.71",
+      "source_sha256": "6ece22ba02dd5829",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you night and day."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.72",
+      "source_sha256": "8771e1e0cf9d95de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You light and darkness, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.73",
+      "source_sha256": "8315416afd15b3c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless the Lord, you lightning and clouds."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.74",
+      "source_sha256": "bdfc24a6eda6edd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.75",
+      "source_sha256": "958560114fca7bdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you mountains and hills."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.76",
+      "source_sha256": "78d4aad22bfb7724",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And everything that grows on the earth, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.77",
+      "source_sha256": "be5a9c5d4a4b898f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all you springs of water, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.78",
+      "source_sha256": "a6711173858d544b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you seas and rivers."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.79",
+      "source_sha256": "2c30a45d9e982993",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless the Lord, you fish and everything that moves in the waters."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.80",
+      "source_sha256": "f24a11cb90dff5d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, all you birds of the sky."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.81",
+      "source_sha256": "fd34c9d0d5bc5c5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you wild animals, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.82",
+      "source_sha256": "b20ca0b175179da3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all you human beings, bless the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.83",
+      "source_sha256": "55cf49e9891eb0ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you people of the house of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.84",
+      "source_sha256": "e51ac7d1579cc1f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you priests."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.85",
+      "source_sha256": "a153d54190ff3e1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Servants of the Lord, the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.86",
+      "source_sha256": "ba6c05bad2359ff1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless, you spirits and souls of the righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.87",
+      "source_sha256": "6d2622ff7ef2f94a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You blameless and humble in heart, the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.9.88",
+      "source_sha256": "3d3484f65e4f0f1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless the Lord, Hananiah, Azariah, and Mishael. Bless the Lord, apostles and prophets, martyrs and confessors. Bless the Lord, all who stand in the house of the Lord. We bless the Father, the Son, and the Holy Spirit. We praise and exalt forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.0",
+      "source_sha256": "71f8ad975a19dd56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Prayer of Hezekiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.10",
+      "source_sha256": "a04dbf17087aca34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said, “In the middle of my days I am departing. At the gate of Sheol I have left the remainder of my years.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.11",
+      "source_sha256": "2e7df0b5ecb670d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said, “I will not see the Lord in the land of the living, nor will I see people again among those who dwell in [?].”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.12",
+      "source_sha256": "5dfcbe1f945de999",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My lifetime has been taken away and has passed from me like a shepherd’s tent. My life has been rolled up like [?], and like a web about to be cut off. From day until night you have brought me to an end."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.14",
+      "source_sha256": "3e2101312504b629",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I chirped like a chirping swallow and moaned like a dove. I raised my eyes to the heights. Lord, rescue me and heal me."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.15",
+      "source_sha256": "137705f5062c7671",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What shall I say? He spoke to me. He passed by and disturbed all my sleep because of the bitterness of my soul. Lord, by these things they will live."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.16",
+      "source_sha256": "e6da7eddd0c45b40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For these are the life of my spirit. Restore my health and give me life."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.17",
+      "source_sha256": "e1de93d4474f8677",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, instead of peace I suffered bitter anguish. But you delighted in my soul, so that it would not waste away in corruption, for you have cast all my sins behind you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.18",
+      "source_sha256": "8f764f14fc82f858",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Sheol will not give you thanks, nor will death praise you. Those who go down to the pit will not hope for your truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.19",
+      "source_sha256": "8615763cf178c5b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, the living will give you thanks, as I do today. A father will make your faithfulness known to his children."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.10.20",
+      "source_sha256": "9b3bde54f8499e39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord will save me, and we will sing his praises all the days of our lives in the house of the Lord..."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.0",
+      "source_sha256": "956099281bc2debe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Song of Praise of David."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.2",
+      "source_sha256": "0a5a1220dd2a3ae3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My God, you are my God; I will wait for you. My soul thirsts for you, and my body longs for you, like a thirsty and weary land that seeks water."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.3",
+      "source_sha256": "c1d379839d2be49c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I have looked upon you in truth, to see your strength and your glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.4",
+      "source_sha256": "278837e7f8b50cb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For your mercy is better than my life, and my lips will praise you."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.5",
+      "source_sha256": "21cc57d2abde67d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I will bless you throughout my life, and in your name I will lift up my hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.6",
+      "source_sha256": "e43028390647202a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My soul will be nourished as with oil and fat, and my mouth will praise you with lips of praise."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.7",
+      "source_sha256": "e33f4276d4d99070",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I remembered you on my bed, and during the nights I meditated on you."
+    },
+    {
       "chunk_id": "pta-peshitta/odes#Odes.11.8",
       "source_sha256": "4fe5a31822d0d647",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "For you have been my helper, and in the shadow of your wings I will glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.9",
+      "source_sha256": "677de4d2388796b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My soul followed after you, and your right hand supported me."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.10",
+      "source_sha256": "c8e95b05a1b6b22e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They sought to destroy my life, but they will enter the depths of the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.11",
+      "source_sha256": "b6d09cf223986b2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They will be handed over to the sword and become food for foxes."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.12",
+      "source_sha256": "26e39afffe75c46a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 1,
+      "text": "And the king will rejoice in God, and everyone who swears by him will boast, because the mouths of liars will be shut."
     }
   ]
 }

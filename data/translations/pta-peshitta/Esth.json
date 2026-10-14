@@ -9,15 +9,70 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.0",
+      "source_sha256": "9df78ebe34fcb09d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Book of Esther."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.1",
+      "source_sha256": "c6d70aec3bbb7c21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This happened in the days of Ahasuerus—the Ahasuerus who ruled from India to Cush over one hundred and twenty provinces."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.2",
+      "source_sha256": "7bf8aa93e7d67725",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In those days, when King Ahasuerus was sitting on his royal throne in Susa the citadel,"
+    },
     {
       "chunk_id": "pta-peshitta/esth#Esth.1.3",
       "source_sha256": "1e9fdf126113ed31",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "In the third year of his reign, he held a great banquet for all his officials and servants. The armies of the Persians, Medes, and Parthians, and the king’s officials, were before him."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.4",
+      "source_sha256": "397edce0eaba80ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the officials of the province, while he displayed the wealth and honor of his kingdom and the glorious splendor of his greatness for many days—one hundred and eighty days."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.5",
+      "source_sha256": "e446fa14034e40b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When those days were over, the king held a seven-day banquet for all the people who remained in Susa the citadel, from the least to the greatest, in the courtyard of the garden of the king’s palace."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.6",
+      "source_sha256": "9c79a1d649822a68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Curtains of cotton wool and blue cloth were hung and stretched out with cords of fine linen and purple cloth on silver rings and pillars of boxwood. Gold and silver couches were set on marble paving, with coverings of fine linen and [?]."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.7",
+      "source_sha256": "cb021adc6efec1d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Drinks were served in gold vessels, each vessel different from the others, and there was royal wine in abundance, in keeping with the king’s generosity."
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.1.8",
@@ -27,11 +82,207 @@
       "text": "The drinking was according to the rule, and no one was compelled, for the king had instructed everyone in charge of his household to let each person do as they wished."
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.1.9",
+      "source_sha256": "a0079be89e0d0cc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Queen Vashti also held a great banquet for all the women in King Ahasuerus’s royal palace."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.10",
+      "source_sha256": "010d99274fcff208",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On the seventh day, when the king’s heart was cheerful with wine, he told the eunuchs—Biztha, Harbona, Bigtha, Abagtha, Teresh, Zethar, and Carcas, the seven eunuchs who served King Ahasuerus—"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.11",
+      "source_sha256": "08c6bf0916dae9c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to bring Queen Vashti before the king wearing her royal crown, to show the peoples and the officials her beauty, for she was beautiful to look at."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.12",
+      "source_sha256": "9d5bf6e3934302cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Queen Vashti refused to come in at the command he had sent her through the eunuchs. The king became very angry, and his fury blazed."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.13",
+      "source_sha256": "ddbe5edd8aaebddd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king spoke to the wise men who understood the times, for this was the king’s custom: he would speak before all those who knew the laws and judgments,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.14",
+      "source_sha256": "777081584c7b5a1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to those close to him: Barshi, Shethar, Armath, Mus, Tarshish, Marsia, and Memucan, the seven officials of Persia and Media who sat before the king and appeared in his presence at the royal court."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.15",
+      "source_sha256": "5b32c86873c779bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said, “What should be done to Queen Vashti because she did not obey the command of King Ahasuerus that he sent through the eunuchs?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.16",
+      "source_sha256": "acef0c96698e1361",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Memucan said before the king and the officials, “Queen Vashti has shown contempt not only for the king, but also for all the officials and all the peoples in all the provinces of King Ahasuerus."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.17",
+      "source_sha256": "8af0113d3d844fba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When news of this matter reaches all the women, they will look down on their husbands and despise them. They will say, ‘King Ahasuerus ordered Queen Vashti to be brought before him, but she did not come.’"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.18",
+      "source_sha256": "8cc9bf068a9326f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This very day the officials of Persia and Media who have heard the queen’s response will speak [?] all the king’s officials, and there will be nothing but contempt and anger."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.19",
+      "source_sha256": "7367a8f9b6110cea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If it pleases the king, let a royal decree be issued by him and written into the law of Media and Persia, so that it cannot be revoked: Queen Vashti must never again come before King Ahasuerus. Let the king give her royal position to another woman who is better than she is."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.20",
+      "source_sha256": "ba507114f4d3cb93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the king’s decree be heard and circulated throughout his whole kingdom, vast as it is, and all women will honor their husbands, from the greatest to the least.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.21",
+      "source_sha256": "7dc60e1825ac8b33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This proposal pleased the king and his officials, and the king did as Memucan had proposed."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.1.22",
+      "source_sha256": "da1dad0ffb96a1df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He sent letters to all the king’s provinces, to each province in its own script and to each people in its own language, declaring that every man should rule his own household and speak the language of his own people."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.1",
+      "source_sha256": "bc0d1445f72fd73a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After these events, when King Ahasuerus’s spirit had calmed, he remembered Queen Vashti, everything she had done, and everything that had been decreed against her."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.2",
+      "source_sha256": "806b43ace84bbf0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king’s young attendants and servants said to him, “Let beautiful young women be sought for the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.3",
+      "source_sha256": "b10b2dbe7b7fd5f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the king issue a command throughout all the provinces, and let them gather all the beautiful young virgins into the women’s quarters, under the care of Hegai, the eunuch in charge of the women, and [?] their beauty treatments."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.4",
+      "source_sha256": "ef08dcf64f480185",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the young woman who pleases the king become queen in Vashti’s place.” The proposal pleased the king, and he did so."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.5",
+      "source_sha256": "6fece81345f9b9cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There was a Jewish man in the citadel of Susa named Mordecai, son of Jair, son of Shimei, son of Kish, from the tribe of Benjamin."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.6",
+      "source_sha256": "093c249256ac7141",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He had been exiled from Jerusalem among the captives taken into exile with Jeconiah king of Judah, whom Nebuchadnezzar king of Babylon had taken into exile."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.7",
+      "source_sha256": "27693c3a501293db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was bringing up Hadassah, that is, Esther, his uncle’s daughter, because she had neither father nor mother. The young woman had a lovely figure and was beautiful to look at. When her father and mother died, Mordecai took her as his own daughter."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.8",
+      "source_sha256": "efb5a4ee39eef08d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the king’s decree and his command were announced, and many virgins were being gathered in the citadel of Susa under the care of Hegai the eunuch, Esther too was taken to the king’s palace, under the care of Hegai, the guardian of the women."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.9",
+      "source_sha256": "42e6fcf135a297b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The young woman pleased him and won his favor. He hurried to provide her with beauty treatments and her portions of food, and with the seven young women who were to be assigned to her from the king’s palace. He gave her and her young women preferential treatment over all the other women."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.10",
+      "source_sha256": "39db7b90525fecf1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther did not reveal her people or her ancestry, because Mordecai had commanded her not to reveal them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.11",
+      "source_sha256": "90389385ad9356d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every day Mordecai walked in front of the courtyard of the women’s quarters to learn how Esther was and what was happening to her."
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.2.12",
       "source_sha256": "33ee2831b246fc64",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "When the time came for one of the young women to enter before King Ahasuerus, after she had completed twelve days according to the rule for the women—for this was how their days of beauty treatment were completed: six days with oil of myrrh, and six days with perfumes and women’s beauty treatments—"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.13",
+      "source_sha256": "f4c513975b1cf9cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This was how a young woman went before the king: whatever she asked for was given to her to take with her from the women’s quarters to the king’s palace."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.14",
+      "source_sha256": "f7da3d6de747899b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She went in during the evening, and in the morning she returned to the women’s quarters under the care of Shaashgaz, the king’s eunuch, the guardian of the concubines. She did not go before the king again unless the king desired her and summoned her by name."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.15",
+      "source_sha256": "24e3bf22de3b71ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the turn came for Esther, daughter of Abihail, the uncle of Mordecai, who had taken her as his own daughter, to go before the king, she asked for nothing except what Hegai, the king’s eunuch and guardian of the women, recommended. Esther won favor in the eyes of everyone who saw her."
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.2.16",
@@ -41,11 +292,179 @@
       "text": "Esther entered before King Ahasuerus in the royal palace in the tenth month, which is Second Kanun, in the fourth year of his reign."
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.2.17",
+      "source_sha256": "48b44b3ea85f214d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king loved Esther more than all the other women, and she won his favor more than all the other virgins. She received the royal crown on her head and became queen in place of Vashti."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.18",
+      "source_sha256": "434a90c65e5632f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king held a great banquet for all his nobles. He held a banquet for Esther, granted relief to the provinces, and gave gifts with royal generosity."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.19",
+      "source_sha256": "a1c52145367058a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the virgins were gathered a second time, Mordecai was sitting at the king’s gate."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.20",
+      "source_sha256": "c8e81ee0a01d5d98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther had not revealed her ancestry or her people, as Mordecai had commanded her. Esther continued to obey Mordecai’s command, just as she had when she was in his care."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.21",
+      "source_sha256": "e095be8bba3e869e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "During those [?], Mordecai was sitting at the king’s gate. Bigthan and Teresh, two of the king’s eunuchs who guarded the entrance, became angry and sought to lay hands on King Ahasuerus."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.22",
+      "source_sha256": "7283572d6d3df98f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The matter became known to Mordecai, and he revealed it to Queen Esther. Esther told the king in Mordecai’s name."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.2.23",
+      "source_sha256": "d9a088c27ea152e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The matter was investigated and confirmed, and both men were crucified on stakes. It was recorded in the book of the chronicles in the king’s presence."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.1",
+      "source_sha256": "b9a3a5dbbe7df75c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After these events, King Ahasuerus promoted Haman son of Hammedatha the Agagite and elevated him. He set his seat above those of all the nobles who were with him."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.2",
+      "source_sha256": "9226e9ee7f98cf73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the king’s servants at the king’s gate knelt and bowed down to Haman, because the king had commanded this concerning him. But Mordecai would not kneel or bow down."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.3",
+      "source_sha256": "5cc2bb55002e637b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king’s servants at the king’s gate said to Mordecai, “Why do you disobey the king’s command?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.4",
+      "source_sha256": "88a0d80960ccebfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They spoke to him every day, but he would not listen to them. So they told Haman, to find out whether Mordecai’s words would stand, because he had told them that he was a Jew."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.5",
+      "source_sha256": "6be188b73d588e53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman saw that Mordecai would not kneel or bow down to him, and Haman was filled with rage against Mordecai."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.6",
+      "source_sha256": "0f44e2658acad4a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It seemed too small a matter to lay hands on Mordecai alone, because they had told him who Mordecai’s people were. So Haman sought to attack all the Jews throughout the kingdom of Ahasuerus, the people of Mordecai."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.7",
+      "source_sha256": "c01d667dc412b6ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the first month, which is Nisan, in the twelfth year of King Ahasuerus, they cast lots. The lots were before Haman, from day to day and from month to month, in the twelfth month, which is Adar."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.8",
+      "source_sha256": "53b9940381aa3fc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman said to King Ahasuerus, “There is a certain people scattered and dispersed throughout all the provinces of King Ahasuerus. Their laws differ from those of every other people, and they do not obey the king’s law. It is not fitting for the king to leave them alone.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.9",
+      "source_sha256": "e79788ec5604746a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If it pleases the king, let us write an order for them to be destroyed. I will weigh out ten thousand talents of silver into the hands of those doing the work, to bring into the king’s treasury."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.10",
+      "source_sha256": "0f2cef26cfc466a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king took his signet ring from his hand and gave it to Haman son of Hammedatha the Agagite, the enemy of the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.11",
+      "source_sha256": "332e0df7ec95a5e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said, “Your silver is given to you, and the people as well, to do with them whatever seems good to you.”"
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.3.12",
       "source_sha256": "2211b02dd745457f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "The king’s scribes were summoned at that time, in the first month, on the thirteenth day of the month. Everything Haman commanded was written to the king’s military commanders, to the governors in every province, and to the officials of the peoples—to each province in its own script and to each people in its own language. It was written in the name of King Ahasuerus and sealed with the king’s signet ring."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.13",
+      "source_sha256": "b5e9b6d2d3fe4c60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Letters were sent by couriers to all the king’s provinces, to devastate, kill, and destroy all the Jews, from young to old, including children and women, in a single day, on the thirteenth of the month of Adar, and to plunder their property in a single day. It was written on the thirteenth of the month of Adar."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.14",
+      "source_sha256": "943b3b9bb1da3516",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A copy of the document was issued in every province, commanding all the peoples to be ready for that day."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.3.15",
+      "source_sha256": "3f20416c2f9b4352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The couriers went out hurriedly at the king’s command, and the decree was proclaimed in the citadel of Susa. The king and Haman sat down to drink together, while the city of Susa was in turmoil."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.1",
+      "source_sha256": "639022aa0fd2b58e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai learned everything that had been done. He tore his clothes, wrapped himself in sackcloth, and covered himself with ashes. He went out into the city, wailing loudly and bitterly."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.2",
+      "source_sha256": "8984b8b0d4945a49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He came as far as the king’s gate, but it was not lawful for anyone wearing sackcloth to come to the king’s gate."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.3",
+      "source_sha256": "b3f4360ed00c2d33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In every province where the king’s decree arrived, there was great mourning among the Jews, with fasting, weeping, and lamentation. Sackcloth and ashes were spread out for many."
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.4.4",
@@ -55,11 +474,67 @@
       "text": "Esther’s eunuchs and maidservants came in and told her. The queen [?] was deeply disturbed. She sent clothes for Mordecai to wear and to remove his sackcloth, but he would not accept them."
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.4.5",
+      "source_sha256": "f8933541252a09d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther summoned Hathach, one of the king’s eunuchs who attended her, and sent him to Mordecai to find out what this was and why it was happening."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.6",
+      "source_sha256": "93a524d962c27a62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hathach went out to Mordecai in the city square in front of the king’s gate."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.7",
+      "source_sha256": "0a1cc3604f65375f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai told him everything that had happened to him, and the amount of silver Haman had promised to weigh out and bring into the treasury for the destruction of the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.8",
+      "source_sha256": "7ab249ef1e58ab71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He gave him a copy of what had been decreed in the citadel of Susa to show Esther, and told him to instruct her to go in to the king, petition him, and plead with him for the people."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.9",
+      "source_sha256": "727d845730277b1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hathach went in and told Esther what Mordecai had said."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.10",
+      "source_sha256": "1b4c6451d26fb195",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther spoke to Hathach and instructed him to take a message to Mordecai."
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.4.11",
       "source_sha256": "454092df5af9502f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "All the king’s servants know that any man or woman who enters before the king in the inner courtyard without being summoned faces one [?]: the person who comes is to be put to death, except anyone to whom the king extends the golden scepter, who may live. I have not been summoned to enter before the king for three days now."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.12",
+      "source_sha256": "2ed9ed3fa181689f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He told Mordecai what Esther had said."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.13",
+      "source_sha256": "c1700765c5c5b6e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai said, “Tell Esther: ‘Do not think to yourself that because you are in the king’s palace, you alone of all the Jews will escape.’”"
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.4.14",
@@ -69,11 +544,522 @@
       "text": "If you remain silent at this time, relief and deliverance will come to the Jews from another place, but you and your father’s household will perish. And who knows whether it was for this very time that you were called and brought to royal power?"
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.4.15",
+      "source_sha256": "6e4adf55c5102c7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther said, “Tell Mordecai:"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.16",
+      "source_sha256": "ebef7fead2d7875d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "‘Go, gather all the Jews who are in the citadel of Susa, and fast for me. Do not eat or drink for three days, night or day. My young women and I will fast in the same way. Then I will go before the king, contrary to the law. If I have acted, I have acted.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.4.17",
+      "source_sha256": "b9d98b0bdce1c3b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai went and did everything Esther had sent word for him to do."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.1",
+      "source_sha256": "fdb3d5b57e058fdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On the third day, Esther put on royal clothing and stood in the inner courtyard of the king’s palace, opposite the royal residence. The king was sitting on his royal throne, facing the entrance to the building."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.2",
+      "source_sha256": "700975fd2a016aa2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the king saw Queen Esther standing in the courtyard, she found favor with him. The king held out to Esther the gold scepter in his hand. Esther approached and took hold of the tip of the gold scepter."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.3",
+      "source_sha256": "c12071f253de660d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said to her, “What is it, Queen Esther? What is your request? Even up to half the kingdom will be given to you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.4",
+      "source_sha256": "3e242f53c2279923",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther said, “If it pleases the king, let the king and Haman come to the banquet I have prepared for him.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.5",
+      "source_sha256": "acd760e7b40ecb23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said, “Find Haman quickly, so that we may do as Esther says.” So the king and Haman came to the banquet."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.6",
+      "source_sha256": "ae8b6148e0a77b2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At the wine banquet, the king said to Esther, “What is your request? It will be granted to you. And what is your petition? Even up to half the kingdom will be given to you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.7",
+      "source_sha256": "20b673eaf7ea6f91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther answered, “My request and my petition are these:"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.8",
+      "source_sha256": "0c1683d119d52a82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If I have found favor in your eyes, O king, and if it pleases you, O king, to grant my request and fulfill my petition, let the king and Haman come to the banquet that I will prepare for them tomorrow, according to the king’s word.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.9",
+      "source_sha256": "2e1e9be19cee4a90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman went out that day happy and glad at heart. But when Haman saw Mordecai sitting at the king’s gate, and he neither stood up nor stirred before him, Haman was filled with anger against Mordecai."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.10",
+      "source_sha256": "8f370f0b17914262",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Haman restrained himself and went home. He sent [?] for all his friends and for his wife Zeresh."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.11",
+      "source_sha256": "9df7dbc4793ed297",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman told them about the splendor of his wealth and his many sons, and how the king had made him great and raised him above the officials and the king’s servants."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.12",
+      "source_sha256": "a819aaf4bac8a946",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman said, “Esther invited no one but me to the banquet with the king. And tomorrow too I am invited to her banquet with the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.13",
+      "source_sha256": "a2c422361f186c9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet all this is worth nothing to me whenever I see Mordecai the Jew sitting at the king’s gate.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.5.14",
+      "source_sha256": "9238198aaae89e20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His wife Zeresh and all his friends said to him, “Have a wooden stake made, fifty cubits high. In the morning, speak to the king, and have Mordecai hung on it. Then go happily to the banquet with the king.” The suggestion pleased Haman very much, and he had the wooden stake made."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.1",
+      "source_sha256": "48fe3231709510e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That night the king could not sleep. He ordered the book recording the daily events to be brought in, and they read it aloud before the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.2",
+      "source_sha256": "1848fc6fea5fb17e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was found written that Mordecai had reported Bigthan and Teresh, two of the king’s eunuchs who guarded the gate, who had sought to lay hands on King Ahasuerus."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.3",
+      "source_sha256": "4c9690d35bdb4827",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said, “What honor and distinction were given to Mordecai for this?” The king’s young attendants and servants said to him, “Nothing has been done for him.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.4",
+      "source_sha256": "74343563bf73ee5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said, “Who is in the courtyard?” Now Haman had come to the outer courtyard of the king’s palace to tell the king to have Mordecai hung on the wooden stake he had prepared for him."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.5",
+      "source_sha256": "44a9ed775f6aa037",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king’s young attendants said to him, “Haman is standing in the courtyard.” The king said, “Let him come in.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.6",
+      "source_sha256": "3ee9d18d64387803",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman came in, and the king said to him, “What should be done for a man whom the king wishes to honor?” Haman said to himself, “Whom would the king wish to honor more than me?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.7",
+      "source_sha256": "2ee0da05e7b6550f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman said to the king, “For the man whom the king wishes to honor,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.8",
+      "source_sha256": "c071508ab91b94e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "let them bring a royal robe that the king has worn and a horse that the king has ridden, while you place a royal crown on his head."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.9",
+      "source_sha256": "34dfb843305bf09a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the robe and the horse be entrusted to one of the king’s Parthian nobles. Let them dress the man whom the king wishes to honor, mount him on the horse, and lead him around through the city streets, proclaiming before him, ‘This is what is done for the man whom the king wishes to honor!’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.10",
+      "source_sha256": "c8e9d78580e86ca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said to Haman, “Quickly take the robe and lead out the horse, as you have said, and do this for Mordecai the Jew, who sits at the king’s gate. Leave out nothing of all you have said.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.11",
+      "source_sha256": "7edf83ae1b202c85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman took the robe and the horse, dressed Mordecai, and led him around through the city square, proclaiming before him, “This is what is done for the man whom the king wishes to honor!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.12",
+      "source_sha256": "33bd4fb18609849f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai returned to the king’s gate, while Haman went home mourning, with his head covered."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.13",
+      "source_sha256": "5375e38258cc286b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Haman told his wife Zeresh everything that had happened to him. His friends and his wife Zeresh said to him, “If Mordecai is of Jewish descent, and you have begun to fall before him, you cannot overcome him. Instead, you will fall before him again.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.6.14",
+      "source_sha256": "6b9c4610d1f57fe6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "While he was still speaking with them, the king’s eunuchs arrived and hurried Haman to the banquet Esther had prepared."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.1",
+      "source_sha256": "4f81e97f2dbde935",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king and Haman went in to the banquet that Queen Esther had prepared."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.2",
+      "source_sha256": "76493f9fa37dccd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On that same day, at the wine banquet, the king again said to Esther, “What is your request, and what is your petition? Even up to half the kingdom, it will be done for you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.3",
+      "source_sha256": "bf39ded2c3bddbbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Queen Esther answered, “If I have found favor in your eyes, O king, and if it pleases the king, let my life be granted at my request, and my people at my plea."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.4",
+      "source_sha256": "15d32de6447d4ea3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I and my people have been sold to slaughter, destruction, and annihilation. If we had been sold to be acquired as male and female slaves, I would have kept silent. For the enemy does not stop [?] the king.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.5",
+      "source_sha256": "0ba34672ed4820cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "King Ahasuerus answered Queen Esther, “Who is this? Who has dared in his heart to do such a thing?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.6",
+      "source_sha256": "9c82c3517edb9058",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther said, “The oppressor and enemy is this wicked Haman!” Haman trembled before the king and queen."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.7",
+      "source_sha256": "5d864ff0102ba2d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king rose in anger from the wine banquet to go out into the palace garden. Haman stood up to plead with Queen Esther for his life, because he saw that disaster had been determined against him by the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.8",
+      "source_sha256": "86bd7c2304b18897",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king returned from the palace garden to the banquet hall. Haman had thrown himself onto the couch where Esther was sitting. The king said, “Will he even assault the queen here in the house with me present?” As the words left the king’s mouth, Haman’s face was covered."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.9",
+      "source_sha256": "ac97887658024975",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Harbona, one of the eunuchs, spoke before the king: “Look, there is also the pole Haman prepared for hanging Mordecai, who spoke for the king’s welfare. It stands at Haman’s house, fifty cubits high.” The king said, “Hang him on it!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.7.10",
+      "source_sha256": "3b7812c1eadde4d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They hanged Haman on the pole he had prepared for Mordecai, and the king’s anger subsided."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.1",
+      "source_sha256": "9aac68195f77f307",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That day King Ahasuerus gave Queen Esther the estate of Haman, the enemy of the Jews. Mordecai came before the king, because Esther had revealed how he was related to her."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.2",
+      "source_sha256": "9f3b2fd60a079329",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king took the signet ring he had taken from Haman and gave it to Mordecai. Esther put Mordecai in charge of Haman’s estate."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.3",
+      "source_sha256": "d76cad526cc8f74f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther spoke before the king again. She fell at his feet, pleading and begging him to undo the evil of Haman the Agagite and the scheme he had devised against the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.4",
+      "source_sha256": "be7b5e9755a613a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king held out the golden scepter to Esther. Esther approached him, stood before the king, and said:"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.5",
+      "source_sha256": "d6b3bf915cb60fbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“If it pleases the king, if I have found favor in his eyes, and if the proposal seems good to the king, let him write to revoke the letters and the schemes of Haman the Agagite, who wrote to destroy all the Jews throughout the king’s realm."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.6",
+      "source_sha256": "f551765a10651a3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For how can I bear to see the disaster that will befall my people? How can I bear to see the destruction of my family?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.7",
+      "source_sha256": "5636e7566d1c93c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "King Ahasuerus said to Queen Esther, “Look, I have given you Haman’s estate, and they have hanged him on the pole because he raised his hand against the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.8",
+      "source_sha256": "337690b115baf3a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for you, concerning the Jews, do as you see fit in the king’s name, and seal it with the king’s signet ring. A document written in the king’s name and sealed with the king’s signet ring—the king’s [?]—cannot be revoked.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.9",
+      "source_sha256": "760d319f27a7eff0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king’s scribes were summoned at that time, on the twenty-third day of the third month, which is Haziran. Everything Mordecai wrote concerning the Jews was written to the military commanders, governors, and provincial officials, from Judah to Cush, one hundred and twenty-seven provinces: to each province in its own script, to each people in its own language, and to the Jews in their own script and language."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.10",
+      "source_sha256": "0e80e064ed333685",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was written in the name of King Ahasuerus and sealed with the king’s signet ring. He sent the letters by runners and mounted couriers riding horses bred from mares."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.11",
+      "source_sha256": "776a1f8ca8295ae0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The letters the king wrote concerning the Jews in every province authorized them to assemble and defend themselves, and to destroy, kill, and annihilate anyone who oppressed them, including children and women, and to plunder their possessions."
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.8.12",
       "source_sha256": "4b753c92506a40d3",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "On one day, throughout all the provinces of King Ahasuerus, on the thirteenth day of the twelfth month, which is Adar."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.13",
+      "source_sha256": "980becbc97e3fd4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A copy of the document was issued in every province. It directed all the peoples that the Jews should be ready for this day to take revenge on their enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.14",
+      "source_sha256": "756a03ee3e942220",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The runners and mounted couriers riding horses went out in haste, in accordance with the decree and command issued in the citadel of Susa."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.15",
+      "source_sha256": "25ec69e636ba52ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai went out from the king’s presence wearing royal robes of blue and fine linen, with a gold crown, and wrapped in fine linen and purple. The city of Susa rejoiced and was glad."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.16",
+      "source_sha256": "6a63038830d87eea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the Jews there was light and joy, honor and rejoicing."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.8.17",
+      "source_sha256": "3665ef0f1d304ee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In every province and every town, wherever the king’s decree and command arrived, there was great joy among the Jews, with feasting and celebration. Many of the peoples of the land were [?], because fear of the Jews had fallen upon them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.1",
+      "source_sha256": "68083b25cb781396",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On the thirteenth day of the twelfth month, which is Adar, when the time came for the king’s decree and command to be carried out against their enemies, the situation was reversed, so that the Jews gained power over those who hated them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.2",
+      "source_sha256": "56cdd867a7488412",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews gathered in their towns throughout all the provinces of King Ahasuerus to strike those who sought to harm them. No one could stand against them, because fear of them had fallen on all the peoples."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.3",
+      "source_sha256": "ec81f692acb24e6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the provincial officials, military commanders, governors, and those who carried out the king’s work honored the Jews, because fear of the king had fallen on them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.4",
+      "source_sha256": "b65c3e505061ae24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Mordecai had become powerful in the royal court, and his fame spread throughout all the kingdoms, because the man Mordecai kept growing more powerful."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.5",
+      "source_sha256": "4958ba9bf08823eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews struck all their enemies with the sword, killing and destroying them. They did as they pleased to those who hated them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.6",
+      "source_sha256": "60c673164b4d2bb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the citadel of Susa, the Jews killed and destroyed five hundred men,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.7",
+      "source_sha256": "b4a490431c44e035",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and Parshandatha, Dalphon, and Aspatha,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.8",
+      "source_sha256": "83a76cb67cb015bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and Poratha, Adalia, and Aridatha,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.9",
+      "source_sha256": "b89472e7d29b3804",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and Parmashta, Arisai, Aridai, and Vaizatha."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.10",
+      "source_sha256": "28cc41d9f88b3428",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They killed the ten sons of Haman son of Hammedatha, the Agagite, the enemy of the Jews. But they did not lay their hands on the plunder that day."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.11",
+      "source_sha256": "09995f232365427d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The number of those killed in the citadel of Susa was reported to the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.12",
+      "source_sha256": "7a0fcce2fa20e71a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said to Queen Esther, “In the citadel of Susa, the Jews have killed and destroyed five hundred men, as well as Haman’s ten sons. What have they done in the rest of the provinces? What is your petition? It will be granted to you. What is your request? It will be done for you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.13",
+      "source_sha256": "726c6483a17738a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Esther said, “Let the Jews in Susa be permitted to do tomorrow as they have done today, and let Haman’s ten sons be hung on wooden poles.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.14",
+      "source_sha256": "bccac8c252768715",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said that this should be done. An order was issued in Susa, and they hung Haman’s ten sons."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.15",
+      "source_sha256": "7edf78cdb7d59b22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews in Susa gathered again on the fourteenth day of the month and killed three hundred men in Susa. But they did not lay their hands on the plunder."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.16",
+      "source_sha256": "a6f3861716dcdcc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The rest of the Jews in the king’s provinces gathered and defended themselves. They gained relief from their enemies and killed seventy-five thousand of those who hated them. But they did not lay their hands on the plunder."
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.9.17",
@@ -83,11 +1069,67 @@
       "text": "On the thirteenth day of the month of Adar, and they rested on the fourteenth day of that month."
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.9.18",
+      "source_sha256": "d43cc7b083433014",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They made it a day of feasting and joy."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.19",
+      "source_sha256": "dfb31eba3decb8f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, the Jews scattered among the outlying villages observe the fourteenth of Adar with joy and feasting, as a holiday, and send portions of food to one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.20",
+      "source_sha256": "9fb11f5850fccde4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mordecai wrote these things and sent letters to all the Jews in all the provinces of King Ahasuerus, both near and far,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.21",
+      "source_sha256": "b76f937559ebc832",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "requiring them to undertake to observe the fourteenth and [?] of Adar every year,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.22",
+      "source_sha256": "c4f0d0e6b56bbc61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "as the days on which the Jews gained relief from their enemies, and as the month that was changed for them from sorrow to joy and from mourning to a holiday. They were to make them days of feasting and joy, sending portions of food to one another and gifts to the needy."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.23",
+      "source_sha256": "733b0c52b20e5c78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews undertook to continue what they had begun to do and what Mordecai had written."
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.9.24",
       "source_sha256": "58b7b55846aba4a9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "Because Haman son of Hammedatha, the Agagite, the enemy of all the Jews, plotted against the Jews to destroy them and cast lots to ruin and destroy them."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.25",
+      "source_sha256": "82c292d5252e725e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When Esther came before the king, the scribe said, “Let the evil plans return upon the head of the one who plotted against the Jews, and let him and his sons be hung on wooden poles.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.26",
+      "source_sha256": "3e1c6936e2b85f47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason they called these days Purim, after the name [?], because of the words of this letter, what they had seen, and what had happened to them."
     },
     {
       "chunk_id": "pta-peshitta/esth#Esth.9.27",
@@ -97,11 +1139,60 @@
       "text": "The Jews undertook, for themselves, their descendants, and everyone who joined them, that they would never stop observing these two days, as prescribed in writing, at their appointed time every year."
     },
     {
+      "chunk_id": "pta-peshitta/esth#Esth.9.28",
+      "source_sha256": "69d6d24bf6b165f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These days are remembered and observed throughout all generations, provinces, and towns. These days of Purim must not pass away from among the Jews, and their remembrance must not disappear among their descendants."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.29",
+      "source_sha256": "9617960cd9493d75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Queen Esther, daughter of Abihail, and Mordecai the Jew wrote down all the facts to confirm this letter about Purim."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.30",
+      "source_sha256": "adfa26ee290eed51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "He sent letters to all the Jews in the 127 provinces of King Ahasuerus’s kingdom, with words of truth and peace,"
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.9.31",
+      "source_sha256": "1938bf480069e6f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "to confirm these days of Purim at their appointed times, as Mordecai the Jew and Queen Esther had prescribed for them, and as they themselves had accepted the command for themselves and their children, along with their fasting and prayer."
+    },
+    {
       "chunk_id": "pta-peshitta/esth#Esth.9.32",
       "source_sha256": "29baf30f20800c85",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 13,
       "text": "Esther’s decree confirmed these provisions concerning Purim, which were written in the book."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.10.1",
+      "source_sha256": "0722f4f4de746621",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "King Ahasuerus imposed a tax on the whole land and on the islands of the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.10.2",
+      "source_sha256": "11a566fc5ec36b4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "All the [?] of his power and might, and the glory of the greatness of Mordecai, whom the king had promoted, are recorded in the book of the chronicles of the kings of Media and Persia."
+    },
+    {
+      "chunk_id": "pta-peshitta/esth#Esth.10.3",
+      "source_sha256": "808054117ac1ad5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "For Mordecai the Jew was second to King Ahasuerus. He was great among the Jews, sought the good of his people, and spoke on behalf of all his descendants."
     }
   ]
 }

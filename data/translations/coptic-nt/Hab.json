@@ -9,15 +9,63 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.2",
+      "source_sha256": "1d3c7ec20de17d06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "How long, Lord, will I cry out to you and you not listen to me? How long will I call out to you while suffering violence and you not rescue me?"
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.3",
+      "source_sha256": "82340ff644c6878d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Why have you shown me suffering and distress, making me look upon misery and ungodliness? A judgment has taken place before me, and the judge takes [?]."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.4",
+      "source_sha256": "81becb1a44977598",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Because of this, the law has been cast aside, and no upright judgment has been given. The ungodly person oppresses the righteous person; because of this, judgment will come out distorted."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.5",
+      "source_sha256": "6b766a1548749840",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Look, you who are contemptuous! Pay attention, see wonders, and perish! For I will do something in your days that you will not believe even if someone tells you about it."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.6",
+      "source_sha256": "b5f07657a20044cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "For look, I will raise up against you the Chaldean warriors, that bitter and swift nation that travels across the regions of the earth to take possession of dwellings that are not its own."
+    },
     {
       "chunk_id": "coptic-nt/hab#Hab.1.7",
       "source_sha256": "8b2323f4e88664fe",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "He is fearsome and renowned. His judgment will come from himself, and his authority will proceed from him."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.1.8",
+      "source_sha256": "b87a2a4299500501",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Its horses will rush forward faster than leopards, and its horsemen are faster than the wolves of Arabia. Their horsemen will leap on their horses and rush forward from far away, flying like an eagle ready to eat."
     },
     {
       "chunk_id": "coptic-nt/hab#Hab.1.9",
@@ -34,11 +82,88 @@
       "text": "He will revel among kings and take pleasure among tyrants. He will laugh at every fortified place, heap earth against them, and conquer them."
     },
     {
+      "chunk_id": "coptic-nt/hab#Hab.1.11",
+      "source_sha256": "e382dc6bc8572e2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Then [?] will turn, go on, and forgive [?]."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.2",
+      "source_sha256": "2a71bafb97fd1faa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "Lord, I heard your voice and was afraid. I recognized your works and was amazed. In the midst of two living creatures, they will know you. When people from far away draw near, they will understand you. When [?]."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.3",
+      "source_sha256": "f4f41617578dc6a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "God will come from Teman, and the Holy One from Mount Paran, thick with trees and covered in shade. The beauty of his glory covered the heavens, and the inhabited world is full of his praise."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.4",
+      "source_sha256": "b6e6c5598666fb16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "His lamp will be like the light, and there are horns in his hands. He established a firm love in his power."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.5",
+      "source_sha256": "3b7bcb138e14b296",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The word will go before him, and birds will come out into the fields, following him."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.6",
+      "source_sha256": "8f0a58cc0fbe47a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "He stood upon the fields, and the earth shook. He looked, and the nations fell apart. The mountains were shattered violently, and the everlasting hills dissolved."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.7",
+      "source_sha256": "10118ca094b69f56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "In place of suffering, I saw the tents of the Ethiopians."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.9",
+      "source_sha256": "e2996960cfa69021",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The land of the rivers will split open, and their waters fled."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.10",
+      "source_sha256": "fcfc4da448ef67c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "The peoples will see you and be in labor. The scattering of the rainwaters in their courses; the deep raised its voice at the height of its appearance."
+    },
+    {
       "chunk_id": "coptic-nt/hab#Hab.3.11",
       "source_sha256": "eb2f090139cda8f9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 4,
       "text": "The sun rose, and the moon stood in its appointed place. Your arrows will go forth into view, and so will the light of the flashes of your weapons."
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.12",
+      "source_sha256": "b2c7c53ba293072d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "In your anger you will lay the earth low, and in your fury"
+    },
+    {
+      "chunk_id": "coptic-nt/hab#Hab.3.13",
+      "source_sha256": "d8e400851ae6551c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 17,
+      "text": "you will bring down the nations. You came out to save your people, to rescue your anointed ones. You cast death upon the head."
     }
   ]
 }

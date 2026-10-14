@@ -9,9 +9,64 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.1",
+      "source_sha256": "b41e0018bf693c7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "War"
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.2",
+      "source_sha256": "7e27711d94c81525",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Look, I have made you small among the nations; you are exceedingly [?]."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.3",
+      "source_sha256": "89e468afdff44597",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "The pride of your heart has lifted you up. You live in the clefts of the rock, making your dwelling high, and saying in your heart, “Who will drag me down?”"
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.4",
+      "source_sha256": "b6c52531b5a5e4da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Even if you rise high like an eagle, and even if you place your [?]"
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.5",
+      "source_sha256": "493b8fbb3f075b90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "[?] Would they not have taken what pleased them? And if grape gatherers had come to you, would they not have left gleanings behind?"
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.6",
+      "source_sha256": "2e07d3691cfe426b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "How Esau has been searched out! His hidden things have been found."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.7",
+      "source_sha256": "8e0bc19af1e9605c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Everyone has sent you out as far as the boundaries of your covenant. They have risen against you. The people who were at peace with you have overpowered you. They have fought against you and placed a trap beneath you. There is no understanding in them."
+    },
     {
       "chunk_id": "coptic-nt/obad#Obad.1.8",
       "source_sha256": "fceadf17ea31cfd6",
@@ -20,11 +75,74 @@
       "text": "On that day, the Lord said, “I will destroy the wise in Judea and understanding from the mountain of Esau.”"
     },
     {
+      "chunk_id": "coptic-nt/obad#Obad.1.9",
+      "source_sha256": "40068c8d3f796de2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "The warriors of Teman will be thrown into confusion, so that they may destroy everyone from the mountain of Esau."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.10",
+      "source_sha256": "7c5e6a4fe6bbff55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Because of the murder and ungodliness you committed against your brother Jacob, shame will cover you, and you will be removed from there forever."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.11",
+      "source_sha256": "03fb775dfcf7818e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "From the day you stood against him, in the days when foreigners carried off his forces as captives, and foreigners entered the [?] and cast lots over Jerusalem, you too were like one of them."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.12",
+      "source_sha256": "e2e3f42c027cbc51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Do not look on your brother’s day, on the day of their destruction, and do not speak boastfully on the day of their distress."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.13",
+      "source_sha256": "0065fc74e78fbc93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Do not enter the gate of my people on the day when others gather against them. You too must not look on their gathering on the day when they are cast out, nor take your stand over their forces on the day of their destruction."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.14",
+      "source_sha256": "e24e87d7c0f6354f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Do not stand at the entrances to their escape routes to destroy those escaping from among them, nor lie in wait for their survivors on the day of their distress."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.15",
+      "source_sha256": "9152e2783f6b0515",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "For the day of the Lord is near, coming upon all the nations. Just as you have done, they will do to you. Your repayment for these things will come back upon you."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.16",
+      "source_sha256": "9c7a3af7ab557d80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "For just as you drank on my holy mountain, all the nations will drink wine. They will drink and fall down and become like those who do not exist."
+    },
+    {
       "chunk_id": "coptic-nt/obad#Obad.1.17",
       "source_sha256": "f38cb3776d31a7f0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 2,
       "text": "But there will be deliverance on Mount Zion, and it will be holy, and the house of Jacob will take possession of those who took possession of them."
+    },
+    {
+      "chunk_id": "coptic-nt/obad#Obad.1.18",
+      "source_sha256": "127ee72efcd5bd8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "The house of Jacob will be like a fire, and the house of Joseph like a flame of fire, but the house of Esau will be like straw. It will set them ablaze and consume them, so that no one remains in the house of Esau, for the Lord has spoken."
     }
   ]
 }
