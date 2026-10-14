@@ -8,8 +8,9 @@ License: CC-BY 4.0 (some corpora CC-BY-SA 4.0 or CC-BY 3.0)
 Scope
 -----
 Ingests Coptic patristic texts: homilies, saints' lives, Shenoute, letters,
-monastic texts and apocrypha.  None is a liturgy, so every work has genre
-``patristic`` (#40).
+monastic texts and apocrypha.  The ingestor gives every work genre
+``patristic`` (#40); ``patristica/data/genre_overrides.csv`` then makes the
+apocrypha ``apocrypha`` and the Lament of the Virgin ``liturgical`` (#103).
 
 Excludes:
   - Biblical NT/OT books (already in ``coptic_nt.py``)

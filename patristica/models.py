@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 
 Language = Literal["grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "eng"]
 
-Genre = Literal["scripture", "patristic", "liturgical", "council"]
+Genre = Literal["scripture", "patristic", "liturgical", "council", "apocrypha"]
 
 Tradition = Literal[
     "greek",
