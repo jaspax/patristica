@@ -41,7 +41,7 @@ class Work(BaseModel):
     title: str
     date_composed: int | None     # best single estimate (CE), negative = BCE
     date_range: tuple[int, int] | None
-    genre: str                    # "scripture", "patristic", "liturgical", "council"
+    genre: str                    # "scripture", "patristic", "liturgical", "council", "apocrypha" (#103)
     language: str                 # ISO 639-3 code: "grc", "lat", "hbo", "syc", "cop", "gez", ...
     tradition: str | None         # "greek", "latin", "syriac", "ethiopic", "coptic", "armenian"
     license: str                  # "public_domain", "cc-by-4.0", "cc-by-nc-sa-4.0", etc.
@@ -98,7 +98,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `ccel-anf` | Ante-Nicene Fathers (10 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `ccel-npnf1` | Nicene & Post-Nicene Fathers Series 1 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `ccel-npnf2` | Nicene & Post-Nicene Fathers Series 2 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (genre `patristic`; no liturgies; `liturgical/coptic-scriptorium` until #52 and `patristic/coptic-scriptorium` until #102; old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
+| `coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (ingested as genre `patristic`; the apocrypha become `apocrypha` and the Lament of the Virgin `liturgical` via `patristica/data/genre_overrides.csv`, #103; `liturgical/coptic-scriptorium` until #52 and `patristic/coptic-scriptorium` until #102; old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
 
 #### 3.3 Liturgical Texts
 
@@ -221,6 +221,7 @@ python -m scripts.validate        # check output
 | Scripture | Verse | 1 verse (varies) | None (verse = atomic) |
 | Scripture (context) | Paragraph/pericope | 300–500 | 1 verse |
 | Patristic prose | Paragraph / `<div>` section | 400–600 | 50 tokens |
+| Apocrypha | Paragraph / `<div>` section (as patristic prose) | 400–600 | 50 tokens |
 | Liturgical prose | Prayer / collect / strophe | 200–400 | 1 sentence |
 | Liturgical poetry/hymnody | Stanza | 1 stanza | None |
 | Council acts | Paragraph / canon | 300–500 | 50 tokens |
