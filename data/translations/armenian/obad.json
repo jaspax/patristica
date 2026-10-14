@@ -1,0 +1,30 @@
+{
+  "work_id": "armenian/obad",
+  "source_path": "armenian/obad.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/obad#Obad.1.8",
+      "source_sha256": "e7d38943eed2be62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "On that day, says the Lord, I will destroy wisdom from the land of Edom and understanding from the mountain of Esau."
+    },
+    {
+      "chunk_id": "armenian/obad#Obad.1.20",
+      "source_sha256": "080e5495ec5b4577",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "And this shall be the beginning of the exile for the children of Israel: the land of the Canaanites as far as Zarephath, and the exile of Jerusalem as far as Ephrathah; and they shall inherit the cities of the Negeb."
+    }
+  ]
+}

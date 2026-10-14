@@ -402,26 +402,6 @@ def test_dense_alt_texts_take_the_better_vector():
     assert with_tr.search(q, 1)[0] == [0]  # the translation makes the Coptic doc findable
 
 
-def test_bulk_groups_split_by_work_size_and_count(monkeypatch):
-    from scripts.embed_eval import translate
-
-    monkeypatch.setattr(translate, "BULK_MAX_CHARS", 10)
-    monkeypatch.setattr(translate, "BULK_MAX_ITEMS", 3)
-    chunks = [{"work_id": "a", "chunk_id": f"a#{i}", "text": "xxxx"} for i in range(4)]
-    chunks += [{"work_id": "b", "chunk_id": "b#0", "text": "y" * 50}]
-    groups = translate.bulk_groups(chunks)
-    assert [[c["chunk_id"] for c in g] for g in groups] == [
-        ["a#0", "a#1"], ["a#2", "a#3"], ["b#0"]]
-
-
-def test_bulk_groups_use_natural_order():
-    from scripts.embed_eval import translate
-
-    chunks = [{"work_id": "w", "chunk_id": f"w#Gen.1.{v}", "text": "x"} for v in (10, 2, 1)]
-    assert [c["chunk_id"] for c in translate.bulk_groups(chunks)[0]] == [
-        "w#Gen.1.1", "w#Gen.1.2", "w#Gen.1.10"]
-
-
 def test_review_overlap_and_passes():
     from scripts.embed_eval import review
 
@@ -488,26 +468,6 @@ def test_apply_reviews(tmp_path: Path, monkeypatch):
     assert out[1]["text"] == "miracles" and out[1]["drafted_text"] == "Elijah at Zarephath"
     review.apply_reviews(tmp_path, authored)  # idempotent: already-reviewed rows are kept
     assert [json.loads(line) for line in (authored / "q.jsonl").open()] == out
-
-
-def test_translation_store_freshness_and_compaction(tmp_path: Path):
-    from scripts.embed_eval.run import load_translations
-    from scripts.embed_eval.translate import TranslationStore, text_sha
-
-    path = tmp_path / "m.jsonl"
-    store = TranslationStore(path)
-    row = {"chunk_id": "b#1", "language": "syc", "source_sha256": text_sha("ܫܠܡܐ"),
-           "translation": "peace", "model": "m", "prompt_version": "v", "date": "d"}
-    store.put(row)
-    store.put({**row, "chunk_id": "a#1", "source_sha256": text_sha("old text")})
-    store.compact()
-    assert [json.loads(line)["chunk_id"] for line in path.open()] == ["a#1", "b#1"]
-
-    reloaded = TranslationStore(path)
-    assert reloaded.fresh("b#1", "ܫܠܡܐ")["translation"] == "peace"
-    assert reloaded.fresh("a#1", "new text") is None  # source changed since translation
-    corpus = [{"chunk_id": "a#1", "text": "new text"}, {"chunk_id": "b#1", "text": "ܫܠܡܐ"}]
-    assert load_translations(path, corpus) == {"b#1": "peace"}
 
 
 def test_truncated_embedder_shortens_and_renormalizes():

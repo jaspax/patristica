@@ -45,6 +45,7 @@ patristica/
 │   ├── chunk.py               # normalized → chunked records (adds context overlap)
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
+│   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
@@ -64,6 +65,7 @@ patristica/
     │   └── {source_id}/       # per-book JSON files (e.g. oshb/Gen.json)
     ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work)
     ├── chunks/                # chunked records ready for embedding
+    ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 
@@ -174,6 +176,7 @@ uv run python -m scripts.normalize        # raw → Chunk objects; also maintain
 uv run python -m scripts.chunk            # add 50-token context overlap
 uv run python -m scripts.link_translations # assign translation_group_id (works with genre scripture)
 uv run python -m scripts.validate         # QC report (stub until M7)
+uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
@@ -191,7 +194,7 @@ uv run python -m scripts.embed_eval.report      # one table per query mode
 uv run python -m scripts.embed_eval.translate quality   # translation-quality eval (Claude + OpenAI)
 ```
 
-API keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `VOYAGE_API_KEY`, ...) are read from the environment or the repo-root `.env` (gitignored). `data/eval/` is gitignored scratch; embeddings are cached per text in `data/eval/embeddings/*.sqlite`. Authored queries (tracked) are in `data/eval_authored/`. Findings and decisions: `docs/embedding-eval.md` (full results matrix) and `IMPLEMENTATION_PLAN.md` §2.5. Machine translations are tracked in `data/translations/` (see its README).
+API keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `VOYAGE_API_KEY`, ...) are read from the environment or the repo-root `.env` (gitignored). `data/eval/` is gitignored scratch; embeddings are cached per text in `data/eval/embeddings/*.sqlite`. Authored queries (tracked) are in `data/eval_authored/`. Findings and decisions: `docs/embedding-eval.md` (full results matrix) and `IMPLEMENTATION_PLAN.md` §2.5. Machine translations are tracked in `data/translations/`, one file per work at its normalized path (`patristica/translations.py`; see the README there), and produced by `scripts.translate`.
 
 All accept `--help`. `normalize.py` currently processes `genre: scripture` only; prose genres are stubbed for M3+.
 

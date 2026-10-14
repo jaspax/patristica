@@ -1,0 +1,30 @@
+{
+  "work_id": "coptic-nt/hag",
+  "source_path": "coptic-nt/Hag.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/hag#Hag.2.14",
+      "source_sha256": "7b65ea91f5660f62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Haggai answered, saying, “This is how this nation is before me, says the Lord Almighty, and this is how all the works of their hands are. Those who come near them will be defiled; they will become unclean. Because of the early yield, they will be distressed in the face of their hardships, and you hate rebukes at the gates.”"
+    },
+    {
+      "chunk_id": "coptic-nt/hag#Hag.2.16",
+      "source_sha256": "1e9c8004ebc1c476",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "For how were things for you when you piled up a heap of twenty measures of barley, and it amounted to ten measures of barley? And you used to go to the wine vat to draw fifty measures of wine from it, but it amounted to twenty."
+    }
+  ]
+}

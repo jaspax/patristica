@@ -1,0 +1,279 @@
+"""
+Translate the rare-language chunks of the corpus into English (#93).
+
+Syriac, Coptic, Armenian and Ge'ez are indexed for search through English
+translations by GPT-6.1 Sol (decided in #84; see ``docs/embedding-eval.md``).
+This step reads ``data/normalized/`` and writes ``data/translations/``, one
+file per work at the work's normalized path (format: ``patristica.translations``).
+
+It is resumable and idempotent. A chunk is skipped while its stored
+translation was made from exactly its current text. A chunk with no fresh
+translation reuses any stored translation of identical text in the same
+language (renamed works, repeated refrains). Only the rest are sent to the
+model, as consecutive chunks of one work per request (up to
+``BULK_MAX_CHARS`` / ``BULK_MAX_ITEMS``), so it sees context and the
+per-request overhead is shared. Works are written as their requests finish,
+and on exit, so an interrupted run loses at most the requests in flight.
+
+Works whose licence is in ``upload_library.EXCLUDED_LICENSES`` (``unknown``)
+are kept out of the search index, so they are skipped unless
+``--include-unpublishable`` is given.
+
+Usage::
+
+    python -m scripts.translate --dry-run            # what would be sent, and the cost
+    python -m scripts.translate --max-requests 20    # pilot
+    python -m scripts.translate [--langs syc cop] [--work hudra/] [--max-cost 50]
+
+Needs ``OPENAI_API_KEY`` (environment or ``.env``).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import random
+import threading
+import time
+from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
+from dataclasses import dataclass, field
+from pathlib import Path
+
+from pydantic import BaseModel
+
+from patristica import translations as tr
+from scripts.embed_eval.translate import (
+    LANGUAGE_NAMES,
+    MODELS,
+    TRANSLATOR_SYSTEM,
+    Clients,
+    cost,
+)
+from scripts.upload_library import EXCLUDED_LICENSES
+
+log = logging.getLogger(__name__)
+
+MODEL = "sol"
+# Bump when BULK_SYSTEM or the grouping changes, so stored translations say
+# which prompt produced them.
+BULK_PROMPT_VERSION = "bulk-2026-10-12"
+BULK_MAX_CHARS = 3000
+BULK_MAX_ITEMS = 25
+# Measured on the #84 run (11,239 chunks, grouped): used only for --dry-run.
+COST_PER_CHUNK = 0.0014
+
+BULK_SYSTEM = TRANSLATOR_SYSTEM.split("- Rate your confidence")[0] + """\
+- The passages are numbered consecutive pieces of one work. Translate each one \
+separately and return one item per number, in order; use the neighbouring \
+passages only as context."""
+
+
+class BulkItem(BaseModel):
+    n: int
+    translation: str
+
+
+class BulkTranslation(BaseModel):
+    items: list[BulkItem]
+
+
+@dataclass
+class WorkJob:
+    """One work's chunks, stored translations and outstanding requests."""
+
+    work_id: str
+    source_path: str
+    language: str
+    chunks: list[dict]
+    store: tr.WorkTranslations
+    groups: list[list[dict]] = field(default_factory=list)
+    pending: int = 0
+    dirty: bool = False
+
+
+def load_works(input_dir: Path) -> list[dict]:
+    with (input_dir / "_works.jsonl").open(encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
+
+
+def make_groups(chunks: list[dict]) -> list[list[dict]]:
+    """Split *chunks* (one work, in order) into requests of one language each."""
+    groups: list[list[dict]] = []
+    cur: list[dict] = []
+    size = 0
+    for c in chunks:
+        if cur and (size + len(c["text"]) > BULK_MAX_CHARS or len(cur) >= BULK_MAX_ITEMS
+                    or c["language"] != cur[0]["language"]):
+            groups.append(cur)
+            cur, size = [], 0
+        cur.append(c)
+        size += len(c["text"])
+    if cur:
+        groups.append(cur)
+    return groups
+
+
+def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[str],
+         include_unpublishable: bool) -> tuple[list[WorkJob], int]:
+    """Load every in-scope work; fill in reusable translations; group the rest.
+
+    Returns the jobs and the number of chunks filled by reusing identical text.
+    """
+    by_text: dict[tuple[str, str], tuple[tr.ChunkTranslation, tr.Provenance]] = {}
+    for stored in tr.iter_store(store_dir):
+        for t in stored.translations:
+            by_text[(stored.source_language, t.source_sha256)] = (
+                t, stored.provenance[t.provenance])
+
+    jobs = []
+    reused = 0
+    for entry in load_works(input_dir):
+        work = entry["work"]
+        if work["language"] not in langs:
+            continue
+        if work_prefixes and not any(work["work_id"].startswith(p) for p in work_prefixes):
+            continue
+        if work["license"] in EXCLUDED_LICENSES and not include_unpublishable:
+            log.info("skipping %s (licence %s)", work["work_id"], work["license"])
+            continue
+        chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
+        store = tr.load(store_dir, entry["path"]) or tr.WorkTranslations(
+            work_id=work["work_id"], source_path=entry["path"],
+            source_language=work["language"])
+        job = WorkJob(work["work_id"], entry["path"], work["language"], chunks, store)
+        rows = store.by_chunk()
+        todo = []
+        for c in chunks:
+            if c["language"] != work["language"] or not c["text"].strip():
+                continue
+            sha = tr.text_sha(c["text"])
+            row = rows.get(c["chunk_id"])
+            if row is not None and row.source_sha256 == sha:
+                continue
+            hit = by_text.get((c["language"], sha))
+            if hit is not None:
+                t, prov = hit
+                store.put(t.model_copy(update={"chunk_id": c["chunk_id"]}), prov)
+                job.dirty = True
+                reused += 1
+                continue
+            todo.append(c)
+        job.groups = make_groups(todo)
+        if job.dirty or job.groups or has_stale_rows(store, chunks):
+            jobs.append(job)
+    return jobs, reused
+
+
+def has_stale_rows(store: tr.WorkTranslations, chunks: list[dict]) -> bool:
+    """True when the stored file has rows for changed or vanished chunks."""
+    if not store.translations:
+        return False
+    current = {c["chunk_id"]: tr.text_sha(c["text"]) for c in chunks}
+    return any(current.get(t.chunk_id) != t.source_sha256 for t in store.translations)
+
+
+def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[str],
+        workers: int, max_requests: int | None, max_cost: float | None,
+        dry_run: bool, include_unpublishable: bool) -> None:
+    jobs, reused = plan(input_dir, store_dir, langs, work_prefixes, include_unpublishable)
+    requests = [(job, g) for job in jobs for g in job.groups]
+    if max_requests is not None:
+        requests = random.Random(0).sample(requests, min(max_requests, len(requests)))
+    by_lang: dict[str, int] = defaultdict(int)
+    for job, g in requests:
+        by_lang[job.language] += len(g)
+    n_chunks = sum(by_lang.values())
+    log.info("%d chunks to translate in %d requests (%s); %d reused from identical text; "
+             "estimated $%.2f", n_chunks, len(requests),
+             ", ".join(f"{k} {v}" for k, v in sorted(by_lang.items())) or "none",
+             reused, n_chunks * COST_PER_CHUNK)
+    if dry_run:
+        return
+
+    for job, _ in requests:
+        job.pending += 1
+    lock = threading.Lock()
+    spent: list[dict] = []
+    stop = threading.Event()
+    clients = Clients() if requests else None
+    provenance = tr.Provenance(model=MODELS[MODEL].model_id, prompt_version=BULK_PROMPT_VERSION,
+                               date=time.strftime("%Y-%m-%d"), script=__name__)
+
+    def write(job: WorkJob) -> None:
+        tr.save(store_dir, job.store, job.chunks)
+        job.dirty = False
+
+    def one(item: tuple[WorkJob, list[dict]]) -> None:
+        job, group = item
+        try:
+            if stop.is_set():
+                return
+            lang = group[0]["language"]
+            user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
+            out, usage = clients.call(MODEL, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
+                                      user, BulkTranslation)
+            got = {it.n: it.translation for it in out.items}
+            with lock:
+                spent.append(usage)
+                for i, c in enumerate(group, start=1):
+                    if i not in got:
+                        log.warning("no translation for %s", c["chunk_id"])
+                        continue
+                    job.store.put(tr.ChunkTranslation(
+                        chunk_id=c["chunk_id"], source_sha256=tr.text_sha(c["text"]),
+                        provenance=provenance.key, group_size=len(group), text=got[i],
+                    ), provenance)
+                    job.dirty = True
+                if max_cost is not None and cost(spent) >= max_cost and not stop.is_set():
+                    log.warning("reached --max-cost $%.2f; finishing requests in flight",
+                                max_cost)
+                    stop.set()
+        except Exception as e:
+            log.error("request starting %s failed: %s", group[0]["chunk_id"], e)
+        finally:
+            with lock:
+                job.pending -= 1
+                if job.pending == 0 and job.dirty:
+                    write(job)
+
+    done = 0
+    try:
+        with ThreadPoolExecutor(workers) as pool:
+            for _ in pool.map(one, requests):
+                done += 1
+                if done % 50 == 0:
+                    log.info("%d/%d requests, $%.2f so far", done, len(requests), cost(spent))
+    finally:
+        with lock:
+            for job in jobs:
+                if job.dirty or not job.groups:
+                    write(job)
+    log.info("%d requests, $%.2f", len(spent), cost(spent))
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("--input-dir", type=Path, default=Path("data/normalized"))
+    p.add_argument("--store", type=Path, default=tr.DEFAULT_DIR)
+    p.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES),
+                   choices=list(LANGUAGE_NAMES))
+    p.add_argument("--work", action="append", default=[], metavar="PREFIX",
+                   help="only works whose id starts with PREFIX (repeatable)")
+    p.add_argument("--workers", type=int, default=8)
+    p.add_argument("--max-requests", type=int, help="pilot: a random sample of N requests")
+    p.add_argument("--max-cost", type=float, help="stop sending requests after $N")
+    p.add_argument("--dry-run", action="store_true", help="report the work and cost only")
+    p.add_argument("--include-unpublishable", action="store_true",
+                   help="also translate works whose licence keeps them out of the index")
+    args = p.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    run(args.input_dir, args.store, args.langs, args.work, args.workers, args.max_requests,
+        args.max_cost, args.dry_run, args.include_unpublishable)
+
+
+if __name__ == "__main__":
+    main()

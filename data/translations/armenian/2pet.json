@@ -1,0 +1,30 @@
+{
+  "work_id": "armenian/2pet",
+  "source_path": "armenian/2pet.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/2pet#2Pet.2.7",
+      "source_sha256": "10c3c1ea2ea101ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "And he rescued righteous Lot, who was distressed by lawless, lustful conduct."
+    },
+    {
+      "chunk_id": "armenian/2pet#2Pet.3.2",
+      "source_sha256": "c97647376680d5a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "To remember the words previously spoken by the holy prophets and the commands of the Lord and Savior given by your apostles."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "work_id": "coptic-nt/titus",
+  "source_path": "coptic-nt/Titus.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/titus#Titus.1.8",
+      "source_sha256": "7f74fbc0e35f6f1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Rather, he must be hospitable, a lover of what is good, sensible, just, holy, and self-controlled."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.1.14",
+      "source_sha256": "66101459d7e14eca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "They must not pay attention to Jewish myths or to commands from people who turn away from the truth."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.1.16",
+      "source_sha256": "c464ae1430eb7f9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "They profess to know God, but they deny him by their actions. They are detestable and disobedient, unfit for any good work."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.2.10",
+      "source_sha256": "53233f9fea5b0019",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "They must not steal anything, but must show complete trustworthiness, so that in everything they may adorn the teaching of God our Savior."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.2.14",
+      "source_sha256": "dc11dbb6b64d048b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "He gave himself for us to redeem us from all lawlessness and to purify us for himself as a special people, eager to do good works."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.2.15",
+      "source_sha256": "89584224968d2e74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Speak these things, encourage, and rebuke with all authority. Do not let anyone look down on you."
+    },
+    {
+      "chunk_id": "coptic-nt/titus#Titus.3.15",
+      "source_sha256": "53496a175bffe6f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Everyone with me sends you greetings. Greet those who love us in the faith. Grace be with you all."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "work_id": "gez/jonah",
+  "source_path": "gez/jonah.json",
+  "source_language": "gez",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "gez/jonah#Jonah.1.10",
+      "source_sha256": "30fd5abe2ca7bea3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The men were terribly afraid and said to him, “What have you done?” The men knew that he had fled from the presence of the Lord, because he had told them."
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.1.15",
+      "source_sha256": "af904648a74b0fb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "They picked up Jonah [?] and threw him into the sea, and the sea became calm."
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.2.2",
+      "source_sha256": "45bb8ce3c4971eaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Jonah prayed to the Lord his God from inside the belly of the great sea creature."
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.2.6",
+      "source_sha256": "848595c4a16c6f61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Water poured in, threatening my life. The deep trapped me below, and my head was submerged."
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.3.1",
+      "source_sha256": "d8084d85752b7aeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The word of the Lord came [?] to Jonah [?], and he said to him:"
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.3.3",
+      "source_sha256": "5f3de89ff228ec1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Jonah [?] got up and went to Nineveh, as the Lord had told him. Nineveh was an exceedingly great city in God’s sight, a journey of three days on foot."
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.4.8",
+      "source_sha256": "c63afbf0989972d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "When the sun rose, God commanded a scorching hot wind, and the sun beat painfully on Jonah’s head. He grew faint and was angry about his life. He said, “It is better for me to die than to live.”"
+    },
+    {
+      "chunk_id": "gez/jonah#Jonah.4.11",
+      "source_sha256": "31962924186c7d16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "“And should I not have compassion on Nineveh, the great city, where there are more than one hundred and twenty thousand people who do not know their left hand from their right, and many animals?”"
+    }
+  ]
+}

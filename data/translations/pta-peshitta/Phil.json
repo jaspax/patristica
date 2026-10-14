@@ -1,0 +1,107 @@
+{
+  "work_id": "pta-peshitta/phil",
+  "source_path": "pta-peshitta/Phil.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.1.6",
+      "source_sha256": "8409beca9e0f7102",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "For I am confident of this: the one who began good works in you will bring them to completion by the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.1.19",
+      "source_sha256": "ad151b204eaad5e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "For I know that these things will lead to my salvation through your prayers and the gift of the Spirit of Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.1.21",
+      "source_sha256": "6b55f06ceebfc0cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "For my life is Christ, and if I die, it is gain for me."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.1.27",
+      "source_sha256": "661315aec0e25331",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "Conduct yourselves in a way worthy of the good news of Christ, so that whether I come and see you or am away and hear about you, you are standing firm in one spirit and with one soul, striving together in the faith of the gospel."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.2.16",
+      "source_sha256": "dbdccd8cb28b92a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "You serve as life for them, so that I may boast on the day of Christ that I did not run in vain or labor fruitlessly."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.3.3",
+      "source_sha256": "922957761d7d6430",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "For we are the circumcision, we who worship God in the Spirit, boast in Jesus Christ, and do not put our confidence in the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.3.7",
+      "source_sha256": "80495b4b05d9ebdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "But the things that were gains for me, I counted as loss for the sake of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.3.15",
+      "source_sha256": "9b350549fde7aa09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "Therefore, let those who are mature think this way. And if you think differently about anything, God will reveal this to you as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.4.2",
+      "source_sha256": "d956d7ada53f9649",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "I ask Euodia and Syntyche to be of one mind in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.4.10",
+      "source_sha256": "9ff3dfffdd3e6483",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "I rejoiced greatly in our Lord that you renewed your care for me. Indeed, you had been concerned, but you had no opportunity."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.4.13",
+      "source_sha256": "90e932e252f826ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "For I have strength to do everything through Christ, who strengthens me."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.4.18",
+      "source_sha256": "c13fe25795f7a544",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "I have received everything, and I have more than enough. I am fully supplied, having received everything you sent me through Epaphroditus—a sweet fragrance and an acceptable sacrifice pleasing to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/phil#Phil.4.19",
+      "source_sha256": "a75263830ba56994",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 13,
+      "text": "And my God will meet all your needs according to his riches in the glory of Jesus Christ."
+    }
+  ]
+}

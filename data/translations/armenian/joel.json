@@ -1,0 +1,65 @@
+{
+  "work_id": "armenian/joel",
+  "source_path": "armenian/joel.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/joel#Joel.2.11",
+      "source_sha256": "d1b097a83d93a9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And the Lord will raise his voice before his army, for his camp is very large, and mighty is his work of war. For the day of the Lord is great, great and very glorious, and who can withstand it?"
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.2.19",
+      "source_sha256": "48090e8c935e99ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And the Lord answered his people and said, “Look, I am sending you grain, wine, and oil, and you will be filled with them. I will no longer make you an object of reproach among the nations.”"
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.2.27",
+      "source_sha256": "11c534754edbbc83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And you will know that I am in the midst of Israel, and that I am the Lord your God, and there is no one besides me. And my people will never be put to shame."
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.3.9",
+      "source_sha256": "9abf5d96499cb4b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Proclaim this among the nations: appoint a time for battle; awaken the warriors. Gather together and go up, all you men of war."
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.3.12",
+      "source_sha256": "1a9b414f24913555",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Let all the nations awaken and go up to the Valley of Jehoshaphat, for there I will sit to judge all the surrounding nations."
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.3.14",
+      "source_sha256": "8d84e1177f152910",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Voices resounded in the Valley of Judgment, for the day of the Lord is near in the Valley of Judgment."
+    },
+    {
+      "chunk_id": "armenian/joel#Joel.3.15",
+      "source_sha256": "c3c4a9b482fb055f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "The sun and moon will grow dark, and the stars will hide their light."
+    }
+  ]
+}

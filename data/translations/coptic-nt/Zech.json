@@ -1,0 +1,65 @@
+{
+  "work_id": "coptic-nt/zech",
+  "source_path": "coptic-nt/Zech.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/zech#Zech.1.16",
+      "source_sha256": "460c2411cd7d35fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Therefore, this is what the Lord says: “I will return to Jerusalem with compassion, and my house will be rebuilt in it,” says the Lord Almighty, “and a measuring line will again be stretched out over Jerusalem.”"
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.1.17",
+      "source_sha256": "9fff3a058adc8246",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And the angel who spoke within me said to me, “Cry out, saying: ‘The cities will again overflow with good things, and the Lord will again have mercy on Zion and love Jerusalem.’”"
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.3.9",
+      "source_sha256": "5b950571b3905637",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "“For the stone that I placed before Joshua—on that one stone are seven eyes. And look, I will dig a pit,” says the Lord Almighty, “and I will overcome all the injustice of that land in a single day.”"
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.4.9",
+      "source_sha256": "aa0dee30a7912fc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "“The hands of Zerubbabel laid the foundation of this house, and his hands will complete it. And you will know that the Lord Almighty sent me to you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.9.13",
+      "source_sha256": "613f732c9551db79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "“For, Judah, I have bent you for myself as a bow; I have filled Ephraim. And I will raise up your sons, Zion, against the sons of [?], and I will make them strong like a warrior’s sword.”"
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.14.7",
+      "source_sha256": "ec3dc9511849ce3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And that day is known to the Lord. It is neither day nor night, and at evening light will shine."
+    },
+    {
+      "chunk_id": "coptic-nt/zech#Zech.14.11",
+      "source_sha256": "8bf6dfd8dcc2d74e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "And they will live in it and will no longer be under a curse, and [?] will be inhabited securely [?]."
+    }
+  ]
+}

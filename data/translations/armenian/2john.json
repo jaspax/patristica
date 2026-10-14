@@ -1,0 +1,30 @@
+{
+  "work_id": "armenian/2john",
+  "source_path": "armenian/2john.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/2john#2John.1.7",
+      "source_sha256": "c686c278b55af2ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "For many deceivers have gone out into the world. Whoever does not confess that Jesus Christ has come in the flesh is a deceiver and the Antichrist."
+    },
+    {
+      "chunk_id": "armenian/2john#2John.1.11",
+      "source_sha256": "a37e1fa589fac20a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Whoever says to him, “Greetings,” will share in his evil deeds."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "work_id": "coptic-nt/hos",
+  "source_path": "coptic-nt/Hos.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/hos#Hos.2.18",
+      "source_sha256": "ac86aad1b24bd534",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "And on that day, says the Lord, she will call me “My husband,” and from now on she will no longer call me “Baalim.”"
+    },
+    {
+      "chunk_id": "coptic-nt/hos#Hos.2.20",
+      "source_sha256": "41d7588288c91bd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "And on that day I will make a covenant for them with the wild animals of the field, the birds of the sky, and the creeping creatures of the earth. I will destroy the bow, the sword, and war from the earth, and I will make her live on the land in hope."
+    },
+    {
+      "chunk_id": "coptic-nt/hos#Hos.4.6",
+      "source_sha256": "0cab0fddaf932a32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "My people have become like someone who has no knowledge. Because you have rejected knowledge, I too will reject you, so that you cannot serve me. And because you have forgotten the law of your God, I too will forget your children."
+    },
+    {
+      "chunk_id": "coptic-nt/hos#Hos.4.9",
+      "source_sha256": "131c13b023b793a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "And the priest will become like the people. I will punish him for his lawless deeds, and I will repay him for the thoughts of his heart."
+    },
+    {
+      "chunk_id": "coptic-nt/hos#Hos.4.18",
+      "source_sha256": "1ec507479b675a42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "He rivaled the Canaanites in prostitution. They prostituted themselves because of me; they loved disgrace because of his pride."
+    }
+  ]
+}

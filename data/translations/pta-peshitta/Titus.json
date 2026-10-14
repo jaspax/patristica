@@ -1,0 +1,86 @@
+{
+  "work_id": "pta-peshitta/titus",
+  "source_path": "pta-peshitta/Titus.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.9",
+      "source_sha256": "c614de6261e7651d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "And he must be devoted to the teaching of the word of faith, so that he can both encourage others with his sound teaching and rebuke those who argue against it."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.16",
+      "source_sha256": "438e783a8d0355e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "They profess to know God, but by their deeds they deny him. They are detestable and disobedient, and unfit for any good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.5",
+      "source_sha256": "dbb898d6c8fd0bd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "They should be modest and holy, care well for their homes, and submit to their husbands, so that no one speaks against the word of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.10",
+      "source_sha256": "5def5c47dd86a591",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "They should not steal, but should show their good faithfulness in everything, so that in everything they may adorn the teaching of God our Savior."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.12",
+      "source_sha256": "b12988372a5fb7d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "And it trains us to reject wickedness and worldly desires, and to live in this world with self-control, righteousness, and reverence for God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.14",
+      "source_sha256": "5075a4f6b02086af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "who gave himself for us to redeem us from all wrongdoing and purify for himself a new people eager to do good works."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.15",
+      "source_sha256": "cf03b9da01283e55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Speak these things, urge them, and rebuke with full authority. Let no one despise you."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.12",
+      "source_sha256": "81ab7ad498647ee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "When I send Artemas or Tychicus to you, make every effort to come to me at Nicopolis, for I have decided to spend the winter there."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.14",
+      "source_sha256": "ddb5d79d46a70a34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "Let our people also learn to do good works to meet pressing needs, so that they may not be unfruitful."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.15",
+      "source_sha256": "c970dc4b69ac3961",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 10,
+      "text": "All those who are with me greet you. Greet all those who love us in the faith. Grace be with you all. Amen."
+    }
+  ]
+}

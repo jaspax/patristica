@@ -1,0 +1,23 @@
+{
+  "work_id": "pta-peshitta/epjer",
+  "source_path": "pta-peshitta/EpJer.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/epjer#EpJer.1.50",
+      "source_sha256": "cda37da8882a7221",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 1,
+      "text": "For the things made of wood, silver, and gold will in the end be known to all nations as false. To the king, however, it will be clearly apparent that they are not gods, but the work of human hands. There is nothing of the works of God in them."
+    }
+  ]
+}

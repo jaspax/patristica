@@ -1,0 +1,44 @@
+{
+  "work_id": "pta-peshitta/nah",
+  "source_path": "pta-peshitta/Nah.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/nah#Nah.1.12",
+      "source_sha256": "dedf0fd77b687c91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Thus says the Lord concerning the heads of the many waters that flowed and passed away: Though I afflicted you, I will not afflict you again."
+    },
+    {
+      "chunk_id": "pta-peshitta/nah#Nah.3.7",
+      "source_sha256": "1458e116c8f4be10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Everyone who sees you will flee from you and say, “Nineveh has been plundered! Who will grieve for you? Where shall I seek a comforter for you?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/nah#Nah.3.13",
+      "source_sha256": "52ca3f7a9d7703dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Your people within you are like women. The gates of your land will be opened to your enemies, and fire will consume your gate bars."
+    },
+    {
+      "chunk_id": "pta-peshitta/nah#Nah.3.15",
+      "source_sha256": "2934cf0c9e5ece7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "There fire will consume you, and the sword will destroy you. It will consume you like caterpillars, because you grew strong like caterpillars and multiplied like locusts."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "work_id": "pta-peshitta/odes",
+  "source_path": "pta-peshitta/Odes.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.19",
+      "source_sha256": "d0ea2ce97594533a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The Lord saw and became angry, because his sons and daughters had provoked him."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.20",
+      "source_sha256": "6b387dd8631656a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "He said, “I will turn my face away from them and see what their end will be, for they are a perverse generation, children with no faithfulness in them.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.2.27",
+      "source_sha256": "8d55d433e4eacfc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Were it not for the enemy’s fierce anger, lest their enemies exalt themselves and say, “Our own hand has prevailed; it was not the Lord who did all this.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.4.9",
+      "source_sha256": "c3d7b5f7a55bfe6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "He hears the prayer of everyone who prays to him and blesses the years of the righteous, for a mighty man does not prevail by his own strength."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.12",
+      "source_sha256": "43fa18de3bcb8b16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "In your fury you will march over the earth, and in your anger you will thresh the nations."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.5.18",
+      "source_sha256": "59dd00b0faaed220",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But I will rejoice in the Lord and be glad in God my Savior."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.8.46",
+      "source_sha256": "0c7ede3d0389cd80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Those who were heating the fiery furnace did not stop, but kept throwing naphtha, pitch, sulfur, reeds, and vine branches into it."
+    },
+    {
+      "chunk_id": "pta-peshitta/odes#Odes.11.8",
+      "source_sha256": "4fe5a31822d0d647",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For you have been my helper, and in the shadow of your wings I will glory."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "work_id": "armenian/nah",
+  "source_path": "armenian/nah.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/nah#Nah.1.11",
+      "source_sha256": "360ffc45feaacea2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "From you will come a plot to devise evil against the Lord in defiance."
+    },
+    {
+      "chunk_id": "armenian/nah#Nah.2.12",
+      "source_sha256": "f91f3f9bc12b715b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "The lion hunted enough for his cubs and strangled prey for his cubs. He filled his lairs with prey and his dwelling with plunder."
+    },
+    {
+      "chunk_id": "armenian/nah#Nah.3.7",
+      "source_sha256": "c136a71e7c770028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "And everyone who sees you will go down and say, “Alas for you, Nineveh! Who will mourn for you? Where shall we seek comfort for you?”"
+    },
+    {
+      "chunk_id": "armenian/nah#Nah.3.19",
+      "source_sha256": "edae54ef49a2414a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Your wounds have festered, and there is no healing for your brokenness. All who hear the bad news about you will clap their hands over you, for upon whom has your wickedness not come continually?"
+    }
+  ]
+}

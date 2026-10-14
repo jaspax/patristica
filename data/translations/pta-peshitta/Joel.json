@@ -1,0 +1,72 @@
+{
+  "work_id": "pta-peshitta/joel",
+  "source_path": "pta-peshitta/Joel.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.1.14",
+      "source_sha256": "ee10de2d52fea072",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Consecrate a fast; call an assembly. Gather together, elders and all inhabitants of the land, at the house of the LORD your God. Cry out to the LORD your God and say:"
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.2.11",
+      "source_sha256": "6057e13fdeecd8aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The LORD raises his voice before his army, because his camp is very large, and the one who carries out his command is mighty. For the day of the LORD is great and very terrifying. Who can endure it?"
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.2.15",
+      "source_sha256": "6a2ec4c5cdbd0a22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Blow the trumpet in Zion; consecrate a fast; call an assembly."
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.2.19",
+      "source_sha256": "d842bfac9c5bba22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The LORD answered and said to his people, “Look, I am sending you grain, wine, and oil so that you may be satisfied. I will no longer make you an object of disgrace among the nations.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.2.27",
+      "source_sha256": "59e2ab2b25bba327",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "You will know that I am in the midst of Israel. I, I am the LORD your God, and there is no other besides me. My people will never be put to shame."
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.3.2",
+      "source_sha256": "e600a6919143132f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Even on male slaves and female slaves I will pour out my Spirit in those days."
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.4.7",
+      "source_sha256": "c59801b761351a44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Look, I am rousing them from the place to which you sold them, and I will bring your repayment back upon your own heads."
+    },
+    {
+      "chunk_id": "pta-peshitta/joel#Joel.4.15",
+      "source_sha256": "d0d9a609318afdd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "The sun and moon have grown dark, and the light of the stars has faded."
+    }
+  ]
+}
