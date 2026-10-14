@@ -1,0 +1,58 @@
+{
+  "work_id": "pta-peshitta/hab",
+  "source_path": "pta-peshitta/Hab.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.1.7",
+      "source_sha256": "6a061066fb94120a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "He is mighty and fearsome; his judgment comes from himself, and he displays his splendor."
+    },
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.1.9",
+      "source_sha256": "e7d7a8c2ee6667bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "They all come to plunder. Their faces look fierce, and they gather captives like sand."
+    },
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.2.8",
+      "source_sha256": "839d57716037818c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Because you plundered many nations, the nations that remain will plunder you, because of human bloodshed and violence against the land, the city, and all its inhabitants."
+    },
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.2.14",
+      "source_sha256": "6e912168ad5f2023",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "For the earth will be filled with the knowledge of the glory of the Lord, as the waters cover the sea."
+    },
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.3.2",
+      "source_sha256": "f5330208fa7a4160",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "Lord, I heard your name and was afraid. Lord, [?] your works in the midst of the years of life; in the midst of the years you will be known. In wrath, remember your mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/hab#Hab.3.10",
+      "source_sha256": "05a37c225ab3bb1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 6,
+      "text": "The mountains saw you and trembled. A torrent of water swept past; the deep raised its voice and lifted its hands high."
+    }
+  ]
+}

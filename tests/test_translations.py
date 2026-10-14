@@ -83,7 +83,7 @@ def write_corpus(root: Path, works: dict[str, tuple[str, list[dict]]]) -> Path:
     norm = root / "normalized"
     lines = []
     for wid, (lic, chunks) in works.items():
-        path = f"patristic/{wid}.json"
+        path = f"src/{wid}.json"
         (norm / path).parent.mkdir(parents=True, exist_ok=True)
         (norm / path).write_text(json.dumps(
             [{**c, "chunk_id": c["chunk_id"].replace("w#", f"{wid}#")} for c in chunks]))
@@ -119,7 +119,7 @@ def test_run_translates_reuses_and_is_idempotent(tmp_path: Path, monkeypatch):
         "h": ("unknown", [chunk("1", "ܚܘܕܪܐ")]),        # kept out of the index
     })
     # b#1 was translated before; a#1 has the same text, so it is reused.
-    b = tr.WorkTranslations(work_id="b", source_path="patristic/b.json", source_language="syc")
+    b = tr.WorkTranslations(work_id="b", source_path="src/b.json", source_language="syc")
     b.put(tr.ChunkTranslation(chunk_id="b#1", source_sha256=tr.text_sha("ܫܠܡܐ"),
                               provenance=PROV.key, group_size=1, text="peace"), PROV)
     tr.save(store, b, [{"chunk_id": "b#1", "text": "ܫܠܡܐ"}])
@@ -127,15 +127,15 @@ def test_run_translates_reuses_and_is_idempotent(tmp_path: Path, monkeypatch):
     args = dict(input_dir=norm, store_dir=store, langs=["syc"], work_prefixes=[], workers=2,
                 max_requests=None, max_cost=None, include_unpublishable=False)
     translate.run(dry_run=True, **args)
-    assert fake.requests == [] and not (store / "patristic/a.json").exists()
+    assert fake.requests == [] and not (store / "src/a.json").exists()
 
     translate.run(dry_run=False, **args)
     assert fake.requests == ["[1]\nܐܠܗܐ"]   # only a#2: a#1 reused, eng/blank/unknown skipped
-    a = tr.load(store, "patristic/a.json")
+    a = tr.load(store, "src/a.json")
     assert [(t.chunk_id, t.text) for t in a.translations] == [("a#1", "peace"), ("a#2", "EN 1")]
     assert a.provenance[a.translations[0].provenance] == PROV
     assert a.provenance[a.translations[1].provenance].model == "gpt-6.1-sol"
-    assert not (store / "patristic/h.json").exists()
+    assert not (store / "src/h.json").exists()
 
     translate.run(dry_run=False, **args)    # nothing left to do
     assert len(fake.requests) == 1
@@ -153,4 +153,4 @@ def test_run_stops_at_max_cost(tmp_path: Path, monkeypatch):
                   workers=1, max_requests=None, max_cost=0.0001, dry_run=False,
                   include_unpublishable=False)
     assert len(fake.requests) == 1
-    assert len(tr.load(tmp_path / "t", "patristic/a.json").translations) == 1
+    assert len(tr.load(tmp_path / "t", "src/a.json").translations) == 1

@@ -1,0 +1,730 @@
+{
+  "work_id": "pta-peshitta/gen",
+  "source_path": "pta-peshitta/Gen.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.1.5",
+      "source_sha256": "6b3a0a40a2096bb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "God called the light day, and he called the darkness night. There was evening, and there was morning—one day."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.1.16",
+      "source_sha256": "dd9c019cff8e77d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "God made two great lights: the greater light to rule the day, and the smaller light to rule the night, and the stars."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.1.17",
+      "source_sha256": "0e0be8be32e205b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "God placed them in the expanse of the heavens to give light on the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.1.20",
+      "source_sha256": "527fb921cc268699",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "God said, “Let the waters swarm with living creatures, and let birds fly above the earth across the face of the expanse of the heavens.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.1.24",
+      "source_sha256": "788b3279b4ebe00e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "God said, “Let the earth bring forth living creatures according to their kinds: livestock, crawling creatures, and wild animals of the earth according to their kinds.” And it was so."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.2.5",
+      "source_sha256": "200f33072b477d50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "None of the trees of the field were yet on the earth, and none of the plants of the field had yet sprouted, because the Lord God had not sent rain upon the earth, and there was no man to cultivate the ground."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.2.24",
+      "source_sha256": "1da5f98cc1bcab97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "For this reason a man will leave his father and mother and join himself to his wife, and the two of them will become one flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.3.6",
+      "source_sha256": "464d87dc698d223f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The woman saw that the tree was good for food, that it was a delight to the eyes, and that the tree was desirable to look at. She took some of its fruit and ate it. She also gave some to her husband, who was with her, and he ate."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.3.16",
+      "source_sha256": "d21bc2b7ae6812f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "To the woman he said, “I will greatly increase your pain and your pregnancies. In pain you will give birth to children. You will turn toward your husband, and he will rule over you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.3.20",
+      "source_sha256": "3c4022fc801c78cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Adam named his wife Eve, because she was the mother of everyone living."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.3.23",
+      "source_sha256": "1c4b0c53781e7dc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The Lord God sent him out of the garden of Eden to cultivate the ground from which he had been taken."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.4.19",
+      "source_sha256": "7379e7fc0d1d57f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Lamech took two wives for himself. The name of one was Adah, and the name of the other was Zillah."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.4.26",
+      "source_sha256": "0869ddb5d3e218a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "A son was also born to Seth, and he named him Enosh. Then he began to call on the name of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.5.3",
+      "source_sha256": "b79e8088ee5252a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Adam lived 130 years and fathered a son in his likeness, according to his image, and named him Seth."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.5.17",
+      "source_sha256": "6c7cd3b90feced7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "All the days of Mahalalel were 895 years, and he died."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.5.27",
+      "source_sha256": "c5c7102b4a753d42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "All the days of Methuselah were 969 years, and he died."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.7.10",
+      "source_sha256": "71df04dba33b68c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "After seven days, the floodwaters came upon the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.9.10",
+      "source_sha256": "7f2777668cdc9fc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And with every living creature that is with you—with the birds, with the livestock, and with every wild animal of the earth that is with you—with all those that came out of the ark, and with every wild animal of the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.11.1",
+      "source_sha256": "5e81987cdc2583e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The whole earth had one language and one form of speech."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.11.6",
+      "source_sha256": "5720a2ea2d3d0463",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The Lord said, “Look, they are one people, and they all have one language, and this is what they have planned to do. From now on, nothing they plan to do will be beyond their reach.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.11.7",
+      "source_sha256": "81efce32277bb099",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Come, let us go down and divide the languages there, so that no one will understand the language of his fellow.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.11.11",
+      "source_sha256": "0869c0db88cafd8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "After fathering Arphaxad, Shem lived 500 years and fathered sons and daughters."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.13.6",
+      "source_sha256": "71e93444fb18d629",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "That land could not support them living together, because their possessions were very great, and they could not live together."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.14.20",
+      "source_sha256": "5066d0543e3664ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Blessed is God Most High, who delivered your enemies into your hands.” And he gave him a tenth of everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.15.1",
+      "source_sha256": "923f6800d4062bc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "After these things, the word of the Lord came to Abram in a vision, and he said to him, “Do not be afraid, Abram. I will help you. Your reward is very great.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.15.4",
+      "source_sha256": "65083c00a4c835ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And the Lord said to him, “This man will not be your heir. Instead, your own son, who comes from your body, will be your heir.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.15.11",
+      "source_sha256": "b3c28281f14452b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And birds came down on the carcasses, and Abram drove them away."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.18.8",
+      "source_sha256": "31725156ae5e3ca5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And he took butter, milk, and the calf he had prepared and set them before them. He stood beside them under the tree while they ate."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.18.15",
+      "source_sha256": "d8558b619121cc7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And Sarah denied it, saying, “I did not laugh,” because she was afraid. But he said, “No, you did laugh.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.18.16",
+      "source_sha256": "da4f958dd88807bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And the men rose from there and looked toward Sodom. Abraham went with them to see them on their way."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.19.16",
+      "source_sha256": "fff05c59722768d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And Lot lingered. The angels took him by the hand, along with his wife and his two daughters, because the Lord had compassion on him. They brought him out and set him outside the town."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.19.22",
+      "source_sha256": "f4513d34ba8d1e26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Hurry and escape there, because I cannot do anything until you enter it.” For this reason he named the town Zoar."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.19.23",
+      "source_sha256": "4c89f24ebc46677b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The sun had risen over the land when Lot entered Zoar."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.19.36",
+      "source_sha256": "ee395f013d8e85a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And both of Lot’s daughters became pregnant by their father."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.20.3",
+      "source_sha256": "d01305763a106ebc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And God came to Abimelech in a dream at night and said to him, “Look, you are going to die because of the woman you have taken, for she is another man’s wife.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.21.12",
+      "source_sha256": "54369b7a0f196c5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And God said to Abraham, “Do not be distressed about the boy and your slave woman. Listen to everything Sarah tells you, because it is through Isaac that your descendants will be named.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.21.19",
+      "source_sha256": "b1b5efda5da02dc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And God opened her eyes, and she saw a well of water. She went and filled the waterskin with water and gave the boy a drink."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.21.34",
+      "source_sha256": "c2c29e491dfbcc6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And Abraham lived in the land of the Philistines for many days."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.22.5",
+      "source_sha256": "2a828f09829acc2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And he said to his servants, “Stay here with the donkey. The boy and I will go over there, worship, and return to you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.24.14",
+      "source_sha256": "2b79c3ab469eeec3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“And the young woman to whom I say, ‘Lower your jar for me so that I may drink,’ and who says to me, ‘Drink, and I will also water your camels’—let her be the one you have prepared for your servant Isaac. By this I will know that you are showing kindness and faithfulness to my master.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.1",
+      "source_sha256": "e8b67df233069622",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And Abraham took another wife, whose name was Keturah."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.7",
+      "source_sha256": "ce88933b3bb3c1a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And these were the years of Abraham’s life that he lived: one hundred and seventy-five years."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.12",
+      "source_sha256": "4aa6f3c2484bf0f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And these are the descendants of Ishmael, Abraham’s son, whom Hagar the Egyptian, Sarah’s slave woman, bore to Abraham."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.23",
+      "source_sha256": "c9fd88a58a50cb70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And the Lord said to her, “Two peoples are in your womb, and two nations will separate from your womb. One nation will be stronger than the other, and the older will serve the younger.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.24",
+      "source_sha256": "073f066b303c5984",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And when her time to give birth was complete, there were twins in her womb."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.25.26",
+      "source_sha256": "f07fc596bd9a105f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And afterward his brother came out, his hand holding Esau’s heel, and he named him Jacob. Isaac was sixty years old when she gave birth to them."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.26.3",
+      "source_sha256": "4c2dde84fec8418c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Live in this land, and I will be with you and bless you, because I will give all these kingdoms to you and your descendants. I will fulfill the oaths I swore to Abraham your father.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.26.18",
+      "source_sha256": "1b57f2d43c558523",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And Isaac dug again the wells of water that his father’s servants had dug in the days of Abraham his father, and that the Philistines had filled in after Abraham died. He gave them the same names his father had given them."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.9",
+      "source_sha256": "612a2c7dd7ea5284",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Go to the flock and bring me two good young goats from there, and I will prepare them as a dish for your father, just as he likes.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.14",
+      "source_sha256": "e8f0d9d87fa460cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And he went, took them, and brought them to his mother. His mother prepared a dish just as his father liked."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.19",
+      "source_sha256": "a4edc6a874aeec74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Jacob said to his father, “I am Esau, your firstborn son. I have done as you told me. Get up, sit down, and eat some of my game, so that your soul may bless me.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.32",
+      "source_sha256": "5d01eb2eb2ab72af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "His father Isaac said to him, “Who are you?” He said, “I am Esau, your firstborn son.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.35",
+      "source_sha256": "215f6d37248402e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "His father said to him, “Your brother came deceitfully and took your blessings.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.27.40",
+      "source_sha256": "ee357b2c03ad193d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“You will live by your sword and serve your brother. But if you turn back, his yoke will be removed from your neck.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.28.1",
+      "source_sha256": "fa932059314efb6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Isaac called Jacob, blessed him, and instructed him, saying, “Do not take a wife from the daughters of Canaan.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.28.21",
+      "source_sha256": "6fb5d048065d76b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“And I return safely to my father’s house, the Lord will be my God.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.29.29",
+      "source_sha256": "d20a5d6acecd90cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Laban gave his servant Bilhah to his daughter Rachel as her servant."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.30.37",
+      "source_sha256": "0ef609f0c9d76b88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Jacob took fresh white rods from almond and plane trees. He peeled white strips in them, exposing the white wood of the rods."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.30.39",
+      "source_sha256": "4857fc2f898fb1b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The flocks mated in front of the rods, and the flocks gave birth to white-marked and speckled young."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.31.5",
+      "source_sha256": "781a4f0d131c3568",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He said to them, “I see that your father’s attitude toward me is not what it was yesterday and the day before. But the God of my father has been with me.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.31.18",
+      "source_sha256": "728bc5ccf9bbb3fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He drove away all his livestock and took all the possessions he had acquired in Paddan-aram, to go to his father Isaac in the land of Canaan."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.31.22",
+      "source_sha256": "4a712bfa7a7c738c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "On the third day, Laban was told that Jacob had fled."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.32.13",
+      "source_sha256": "48d23e2338dc6b37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“You said, ‘I will surely do good to you and make your descendants like the sand of the sea, which cannot be counted because it is so plentiful.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.32.24",
+      "source_sha256": "530c78e668569131",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He took them and brought them across the stream, and he brought across everything he had."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.32.29",
+      "source_sha256": "8757524e9c5d3462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He said to him, “Your name will no longer be called Jacob, but Israel, because you have held your own against an angel and against a man and have prevailed.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.33.7",
+      "source_sha256": "18f9edb8d9910a4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Leah and her children also approached and bowed down. Afterward, Rachel and Joseph also approached and bowed down."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.33.13",
+      "source_sha256": "bb14be0ba5cb6bba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Jacob said to him, “My lord knows that the children are young, and that the sheep and cattle nursing their young are in my care. If I drive them hard for even one day, the whole flock will die.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.35.1",
+      "source_sha256": "6d008e9a5d7b3f91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The Lord said to Jacob, “Get up, go up to Bethel, and settle there. Make an altar there to God, who appeared to you when you were fleeing from your brother Esau.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.35.12",
+      "source_sha256": "c1642626069cde45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“The land that I promised on oath to Abraham and Isaac I will give to you, and I will give the land to your descendants after you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.35.16",
+      "source_sha256": "d1f6f36b0e9549c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He set out from Bethel and traveled on, with about a parasang of land still to cross before reaching Ephrath. Rachel gave birth, and her labor was difficult."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.36.39",
+      "source_sha256": "0c56428c2cf6c597",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Baal-hanan son of Achbor [?] died, and Hadad became king after him. The name of his city was Pau, and the name of his wife was Mehetabel, daughter of Matred, son of Me-zahab."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.38.4",
+      "source_sha256": "4820511758d48477",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "She conceived again and gave birth to a son, and he named him Onan."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.38.9",
+      "source_sha256": "83c8cea9a04b6299",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Onan knew that the offspring would not be his. Whenever he had intercourse with his brother’s wife, he spilled his semen on the ground so that he would not provide offspring for his brother."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.39.6",
+      "source_sha256": "77df2b4925c6d0a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He left everything he had in Joseph’s hands and did not concern himself with anything in Joseph’s care except the food he ate. Joseph was handsome in form and attractive in appearance."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.39.18",
+      "source_sha256": "101071f5e8670627",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“When I raised my voice and shouted, he left his garment in my hands and fled outside.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.41.19",
+      "source_sha256": "597ca1a9106499f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "And look, seven other cows came up after them, scrawny, ugly, and very thin. I had never seen cows as bad as these in all the land of Egypt."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.41.20",
+      "source_sha256": "c94d614726193c9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The thin, ugly cows ate the first seven fat cows."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.41.43",
+      "source_sha256": "6295037a45777301",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He seated him in his second chariot, and they called out before him, “Father and ruler!” He gave him authority over all the land of Egypt."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.41.50",
+      "source_sha256": "bd91828fae2a299d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Two sons were born to Joseph before the year of famine came. Asenath, daughter of Potiphera, priest of On, bore them to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.42.14",
+      "source_sha256": "2375639877c287c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Joseph said to them, “It is just as I told you: you are spies.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.42.23",
+      "source_sha256": "ac8f4b3aab57e72a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "They did not know that Joseph understood, because an interpreter stood between them."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.43.6",
+      "source_sha256": "fa61e9a6214e93f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Their father Israel said to them, “Why did you bring this trouble on me by telling the man that you had a brother?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.43.13",
+      "source_sha256": "9dd2e699dc548933",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Take your brother, get up, and return to the man.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.43.17",
+      "source_sha256": "213773df475cea93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The servant did as Joseph had said and brought the men into Joseph’s house."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.43.23",
+      "source_sha256": "02ceac07293be325",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He said to them, “Peace to you. Do not be afraid. Your God, the God of your father, put treasure in your sacks for you. I received your money.” Then he brought Simeon out to them."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.43.34",
+      "source_sha256": "799c1d8ec798614b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "They received portions from his table, and Benjamin’s portion was five times larger than the portions of all the others. They drank and became drunk with him."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.44.16",
+      "source_sha256": "b55024b46722180d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Judah said, “What can we say to my lord? What can we tell him? How can we prove our innocence? Your servants’ sin has been discovered before God. Here we are, my lord’s slaves, both we and the one in whose possession the cup was found.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.44.27",
+      "source_sha256": "597e455f085f7d9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Your servant, our father, said to us, ‘You know that my wife bore me two sons.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.44.28",
+      "source_sha256": "da6c50f7f422247c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“‘One went away from me, and I said, “He has certainly been killed.” I have not seen him to this day.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.44.32",
+      "source_sha256": "dd86e79907e24c10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“For your servant pledged himself to our father as guarantor for the boy, saying, ‘If I do not bring him back to you, I will bear the guilt before my father all my life.’”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.45.20",
+      "source_sha256": "86f419ec579a46b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“Do not be concerned about leaving your belongings, because the best of all the land of Egypt is yours.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.45.27",
+      "source_sha256": "a89757a49b9a3968",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "They told him everything Joseph had said to them. Jacob saw the wagons Joseph had sent to carry him, and the spirit of their father Jacob was refreshed."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.46.20",
+      "source_sha256": "0efb3cbe0234c57b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Manasseh and Ephraim were born to Joseph in the land of Egypt. Asenath, daughter of Potiphera, priest of On, bore them to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.46.21",
+      "source_sha256": "d1031ebafbe3f805",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "The sons of Benjamin were Bela, Acbar [?], Ashkel [?], Gera, Naaman, Ahi, Rosh, Muppim, Huppim, and Ard."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.47.12",
+      "source_sha256": "7e1888809c8389da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Joseph supplied his father, his brothers, and his father’s entire household with grain according to the size of each family."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.47.17",
+      "source_sha256": "e776358a570d293e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "They brought him their livestock, and Joseph gave them grain in exchange for horses, flocks, cattle, and donkeys. That year he supplied them with food in exchange for all their livestock."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.47.20",
+      "source_sha256": "934a90a1a45afe33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "Joseph bought all the land of Egypt for Pharaoh, because the Egyptians each sold their fields, since the famine had become severe upon them. So the land became Pharaoh’s."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.47.30",
+      "source_sha256": "2aceae24ef5fe799",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "“When I lie down with my fathers, carry me out of Egypt and bury me in their tomb.” Joseph said, “I will do as you say.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.48.2",
+      "source_sha256": "caa3ede813fcc26e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "They told Jacob, “Look, your son Joseph has come to you.” Israel gathered his strength and sat up on the bed."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.48.20",
+      "source_sha256": "bb99e10ad79cea7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 25,
+      "text": "He blessed them that day and said, “Through you Israel will be blessed, and they will say, ‘May God make you like Ephraim and Manasseh.’” He placed Ephraim before Manasseh."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.49.22",
+      "source_sha256": "cbb4a752037bb1e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "Joseph is a flourishing son, a flourishing son watered by a spring, a sturdy structure that rises along the wall."
+    },
+    {
+      "chunk_id": "pta-peshitta/gen#Gen.50.20",
+      "source_sha256": "eb0efd7a8ee2ddbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 2,
+      "text": "You intended evil against me, but God intended it for good, to bring about what has happened today and keep many people alive."
+    }
+  ]
+}

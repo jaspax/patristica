@@ -65,7 +65,7 @@ patristica/
     │   └── {source_id}/       # per-book JSON files (e.g. oshb/Gen.json)
     ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work)
     ├── chunks/                # chunked records ready for embedding
-    ├── translations/          # machine translations, one file per work, mirroring normalized/ (tracked)
+    ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 

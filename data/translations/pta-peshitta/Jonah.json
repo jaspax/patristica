@@ -1,0 +1,44 @@
+{
+  "work_id": "pta-peshitta/jonah",
+  "source_path": "pta-peshitta/Jonah.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/jonah#Jonah.1.6",
+      "source_sha256": "e89bb36a831fb574",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "The captain approached him and said to him, “Why are you sleeping? Get up and call on your god. Perhaps God will rescue us, and we will not perish.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/jonah#Jonah.2.3",
+      "source_sha256": "898d800ecf1c3bce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "And he said, “I called to the Lord in my distress, and he answered me. From the depths of Sheol I cried out, and you heard my voice.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/jonah#Jonah.3.1",
+      "source_sha256": "73a5f53e7d4aa106",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "The word of the Lord came to Jonah a second time, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/jonah#Jonah.4.11",
+      "source_sha256": "70425e143ab5a8fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "“Should I not have pity on Nineveh, the great city, where there are more than one hundred and twenty thousand people who do not know their right hand from their left, and many livestock?”"
+    }
+  ]
+}

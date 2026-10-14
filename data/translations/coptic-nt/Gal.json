@@ -1,0 +1,37 @@
+{
+  "work_id": "coptic-nt/gal",
+  "source_path": "coptic-nt/Gal.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.1",
+      "source_sha256": "c4e73c251439965c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "Then, after fourteen years, I went up to Jerusalem again with Barnabas, taking Titus with me too."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.14",
+      "source_sha256": "a4b8f01d909b04b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "But when I saw that they were not acting in line with the truth of the gospel, I said to Cephas in front of them all, “If you, a Jew, live like a Gentile and not like a Jew, how can you force the Gentiles to live like Jews?”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.31",
+      "source_sha256": "8009e1ca4169782c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "Therefore, brothers, we are not children of the slave woman, but of the free woman."
+    }
+  ]
+}

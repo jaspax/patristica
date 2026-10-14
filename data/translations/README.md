@@ -8,8 +8,9 @@ index those languages for search (#84, #93). Format and helpers:
 
 This directory mirrors `data/normalized/`. The translations of the work at
 `data/normalized/{path}` are in `data/translations/{path}`, where `path` is the
-work's `path` in `_works.jsonl`. Only works with translated chunks have a
-file. The model is part of each file's metadata, not of the path.
+work's `path` in `_works.jsonl`. Like the normalized data, it is organized by
+source collection (#102): `coptic-scriptorium/AP.json`,
+`pta-peshitta/Gen.json`. Only works with translated chunks have a file. The model is part of each file's metadata, not of the path.
 
 ## File format
 

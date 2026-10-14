@@ -1,0 +1,72 @@
+{
+  "work_id": "coptic-nt/phil",
+  "source_path": "coptic-nt/Phil.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.2",
+      "source_sha256": "e1575658deced0ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "Grace and peace to you from God our Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.1.21",
+      "source_sha256": "d29a593407cba768",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "For to me, living is Christ, and dying is gain."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.7",
+      "source_sha256": "5d13a17d94e8962b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "But he emptied himself, taking the form of a slave and becoming like human beings. And in his outward appearance he was found to be a human being."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.17",
+      "source_sha256": "85f3b4b300cd8f45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "But even if I am being poured out over the sacrifice and service of your faith, I rejoice and will rejoice with all of you."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.2.30",
+      "source_sha256": "11539c6ebd34cafb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "For he came close to death because of the work of Christ, risking his life to make up for what was lacking on your part and for your service to me."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.10",
+      "source_sha256": "8dc4baca22837a38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "I rejoiced greatly in the Lord because your concern for me has blossomed again. You were indeed concerned, but you did not have the opportunity."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.15",
+      "source_sha256": "3743c5e2c5bccbab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "You Philippians yourselves also know that at the beginning of the preaching, when I left Macedonia, no church shared with me in the matter of giving and receiving except you alone."
+    },
+    {
+      "chunk_id": "coptic-nt/phil#Phil.4.21",
+      "source_sha256": "fce24c362ef76cc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 7,
+      "text": "Greet all the holy people in Christ Jesus. The brothers who are with me greet you."
+    }
+  ]
+}

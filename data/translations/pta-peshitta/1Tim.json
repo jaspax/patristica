@@ -1,0 +1,51 @@
+{
+  "work_id": "pta-peshitta/1tim",
+  "source_path": "pta-peshitta/1Tim.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.11",
+      "source_sha256": "96791adac691af34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "A woman should learn quietly, with complete submission."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.3",
+      "source_sha256": "20728640717aa8b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "He must not be given to wine, and his hand must not be quick to strike. Instead, he should be gentle, not quarrelsome, and not a lover of money."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.12",
+      "source_sha256": "de731d5012cb0ad4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "Deacons should each be the husband of one wife and manage their children and households well."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.25",
+      "source_sha256": "387b6ed7c67eb77d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "Likewise, good deeds are evident, and those that are otherwise cannot remain hidden."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.6",
+      "source_sha256": "3cc285a658f2b645",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 5,
+      "text": "For reverence for God, with contentment, is great gain for us."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "work_id": "coptic-nt/1thess",
+  "source_path": "coptic-nt/1Thess.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.1.3",
+      "source_sha256": "551541d9d1c2f3d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "We remember the work of your faith, the labor of your love, and the endurance of your hope in our Lord Jesus Christ before God our Father."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.1.8",
+      "source_sha256": "6d2bde7154c99f0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For the word of God has sounded out from you, not only in Macedonia and Achaia, but your faith in God has become known everywhere, so that we have no need to say anything to them."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.2.9",
+      "source_sha256": "c617e2c3ee2cd82d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "For you remember, brothers and sisters, our labor and hardship. We worked day and night so that we would not burden any of you, and we proclaimed the good news of God to you."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.3.2",
+      "source_sha256": "a260b137feff59d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "We sent Timothy to you, our brother and God’s servant in the good news of Christ, to strengthen you and urge you on in your faith,"
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.3.3",
+      "source_sha256": "48777e434d9e597c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "so that no one would be shaken by these afflictions. For you yourselves know that we are appointed to this."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.5.6",
+      "source_sha256": "30cec3b50ab9634d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "So then, let us not sleep like the rest, but let us stay awake and be sober."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.5.21",
+      "source_sha256": "bef277336d433b59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But test everything; hold on to what is good."
+    },
+    {
+      "chunk_id": "coptic-nt/1thess#1Thess.5.27",
+      "source_sha256": "bbb2cc7b3d8dab9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "I charge you by the Lord to read this letter aloud to all the brothers and sisters."
+    }
+  ]
+}

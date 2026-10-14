@@ -1,0 +1,23 @@
+{
+  "work_id": "pta-peshitta/hag",
+  "source_path": "pta-peshitta/Hag.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/hag#Hag.1.15",
+      "source_sha256": "3bdf815ca6033e5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 1,
+      "text": "On the twenty-fourth day of the sixth month, in the second year of King Darius."
+    }
+  ]
+}

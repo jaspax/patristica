@@ -1,0 +1,37 @@
+{
+  "work_id": "armenian/jude",
+  "source_path": "armenian/jude.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/jude#Jude.1.5",
+      "source_sha256": "493aad48b5710aaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "I now wish to remind you, who know all things, that God once saved the people from Egypt, but afterward destroyed those who did not believe."
+    },
+    {
+      "chunk_id": "armenian/jude#Jude.1.16",
+      "source_sha256": "7c74caa33d1bcf14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "These are grumblers and complainers, following their own desires. Their mouths speak arrogant things, and they flatter people for their own advantage."
+    },
+    {
+      "chunk_id": "armenian/jude#Jude.1.25",
+      "source_sha256": "d26926d0de2ce7b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 3,
+      "text": "To the only God and our Savior, Jesus Christ our Lord, be glory, greatness, power, and authority, before all ages, both now and for all ages. Amen."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "work_id": "pta-peshitta/2pet",
+  "source_path": "pta-peshitta/2Pet.json",
+  "source_language": "syc",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "pta-peshitta/2pet#2Pet.1.21",
+      "source_sha256": "782d19d1f5c57dc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "For prophecy never came by human will, but holy men of God spoke as they were moved by the Holy Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/2pet#2Pet.2.10",
+      "source_sha256": "248aad8c09ea1744",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "Especially those who follow the flesh with a desire for impurity and despise authority—bold and self-willed people who do not tremble when they blaspheme glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/2pet#2Pet.3.9",
+      "source_sha256": "c200fc9fa528f27a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "The Lord is not slow to fulfill his promises, as some consider slowness, but he is patient with you, because he does not want anyone to perish, but everyone to come to repentance."
+    },
+    {
+      "chunk_id": "pta-peshitta/2pet#2Pet.3.12",
+      "source_sha256": "8c00642cefbdfdf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 4,
+      "text": "As you wait and long for the coming of the day of God, on which the heavens will be dissolved as they are heated by fire, and the elements will melt as they burn."
+    }
+  ]
+}

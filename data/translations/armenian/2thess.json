@@ -1,0 +1,79 @@
+{
+  "work_id": "armenian/2thess",
+  "source_path": "armenian/2thess.json",
+  "source_language": "hye",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-12",
+      "script": "scripts.embed_eval.translate"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.1",
+      "source_sha256": "8f4db0a5ae0e4d56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Paul, Silvanus, and Timothy, to the church of the Thessalonians in God our Father and in the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.2",
+      "source_sha256": "109e778c0af40d84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 14,
+      "text": "Grace to you and peace from God our Father and from the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.10",
+      "source_sha256": "92b5b2a4c6a427cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "When he comes on that day to be glorified among his saints and marveled at among all who have believed, because our testimony was believed among you."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.1",
+      "source_sha256": "8c2370b78ce3028c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "I appeal to you, brothers, concerning the coming of our Lord Jesus Christ and our gathering together to him."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.2",
+      "source_sha256": "6234fcf3e085913d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "Do not be quickly shaken in your minds or alarmed, whether by a spirit, a spoken message, or letters supposedly from us, as though the day of the Lord had already arrived."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.12",
+      "source_sha256": "71c9fd7ac739b92e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But we must always thank God for you, brothers loved by the Lord, because God chose us from the beginning for salvation through sanctification by the Spirit and faith in the truth."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.5",
+      "source_sha256": "8e23429c57f0a5f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "May the Lord direct your hearts into the love of God and the patient endurance of Christ."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.6",
+      "source_sha256": "e0e37cefd5f7cc3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "I command you, brothers, in the name of our Lord Jesus Christ, to keep away from every brother who lives in a disorderly way and not according to the tradition you received from us."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.13",
+      "source_sha256": "0d592478fe1df498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "group_size": 8,
+      "text": "But you, brothers, do not grow weary of doing good."
+    }
+  ]
+}
