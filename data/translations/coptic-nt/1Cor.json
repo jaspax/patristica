@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-14": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -19,6 +25,118 @@
   },
   "translations": [
     {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.1",
+      "source_sha256": "0c3a29be4d9226f6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, the apostle called of Christ Jesus through the will of God, and Sosthenes the brother,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.2",
+      "source_sha256": "2da198ab07fa17b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "writing to the church of God which is in Corinth, those sanctified in Christ Jesus, called to be saints, with everyone who calls upon the name of our Lord Jesus Christ in every place, theirs and ours:"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.3",
+      "source_sha256": "a47be57547b90409",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Grace to you and peace from God our Father and our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.4",
+      "source_sha256": "39af8df3c1886106",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I give thanks to my God at all times concerning you, for the grace of God which was given to you in Christ Jesus,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.5",
+      "source_sha256": "88f9bea8a68bbe34",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that in everything you have been made rich in him, in every word and all knowledge,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.6",
+      "source_sha256": "9e2739dad6ef7602",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "just as the testimony of God was confirmed among you,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.7",
+      "source_sha256": "b2ec2effd08935c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you lack no gift, as you wait for the revelation of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.8",
+      "source_sha256": "54e0bfd140b4be01",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who will establish you to be perfect, with no sin charged against you, until the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.9",
+      "source_sha256": "223befb6548806f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God is faithful, who called you through him into the fellowship of his Son Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.10",
+      "source_sha256": "a3858eccd268850f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now we exhort you, brothers, through the name of our Lord Jesus Christ, that you all speak the same word, and that no division be among you, but that you be prepared in the same heart and the same mind."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.11",
+      "source_sha256": "e95166499f29cca1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it has been told to me concerning you, my brothers, by those of Chloe, that there are quarrels among you."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.12",
+      "source_sha256": "5f50186eacd29915",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now I say this: that each one of you says, \"I belong to Paul,\" \"I belong to Apollos,\" \"I belong to Cephas,\" \"I belong to Christ.\""
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.13",
+      "source_sha256": "8f048c17e4fae3a4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Has Christ been divided? Was Paul crucified for you? Or were you baptized in the name of Paul?"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.14",
+      "source_sha256": "f10484fa122b13a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I give thanks that I baptized none of you except Crispus and Gaius,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.15",
+      "source_sha256": "9628a9eb05b9147a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that no one may say that you were baptized in my name."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.16",
+      "source_sha256": "09f05b6b798ee8d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I also baptized the household of Stephanas; beyond that I do not know whether I baptized anyone else."
+    },
+    {
       "chunk_id": "coptic-nt/1cor#1Cor.1.17",
       "source_sha256": "e8721e560e68e41a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -31,6 +149,13 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "For the message of the cross is foolishness to those who are going to perish, but to us who are going to be saved, it is the power of God."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.19",
+      "source_sha256": "963f2b8a2dd85476",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written, \"I will destroy the wisdom of the wise, and I will set aside the understanding of the understanding.\""
     },
     {
       "chunk_id": "coptic-nt/1cor#1Cor.1.20",
@@ -47,11 +172,67 @@
       "text": "For since, in the wisdom of God, the world did not know God through wisdom, God was pleased to save those who believe through the foolishness of preaching."
     },
     {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.22",
+      "source_sha256": "cc00522f4cdb8d8c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Since the Jews ask for signs and the Greeks seek wisdom,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.23",
+      "source_sha256": "2fdd5ad02633cb3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but we preach Christ crucified, to the Jews a stumbling block and to the Gentiles foolishness,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.24",
+      "source_sha256": "fb4e639875530581",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but to those who are called, both Jews and Greeks, Christ is the power of God and the wisdom of God."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.25",
+      "source_sha256": "2ac049484826dad1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the foolishness of God is wiser than men, and the weakness of God is stronger than men."
+    },
+    {
       "chunk_id": "coptic-nt/1cor#1Cor.1.26",
       "source_sha256": "03149ee56c387c11",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 24,
       "text": "For consider your calling, my brothers: not many of you are wise by human standards, not many are powerful, and not many are of noble birth."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.27",
+      "source_sha256": "c346a769a1fe8ac2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the foolish things of the world God chose in order to put the wise to shame, and the weak things of the world God chose in order to put the strong to shame;"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.28",
+      "source_sha256": "4ee54bf7954091f6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the poor things of the world and the despised God chose, the things that are not, in order to abolish the things that are,"
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.29",
+      "source_sha256": "33eed89007e5ed28",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that no flesh may boast before God."
+    },
+    {
+      "chunk_id": "coptic-nt/1cor#1Cor.1.30",
+      "source_sha256": "9309d2cda3510952",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you are from him in Christ Jesus, who became for us wisdom from God, and righteousness, and sanctification, and redemption,"
     },
     {
       "chunk_id": "coptic-nt/1cor#1Cor.1.31",
