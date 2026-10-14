@@ -9,15 +9,70 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.1",
+      "source_sha256": "06b5324e6fff7d75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle of Christ Jesus by the will of God, writes to the holy people who are in Ephesus and to those who are faithful in Christ Jesus."
+    },
     {
       "chunk_id": "coptic-nt/eph#Eph.1.2",
       "source_sha256": "e1575658deced0ec",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Grace and peace to you from God our Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.3",
+      "source_sha256": "60595afbf1715dad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the God and Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in the heavens in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.4",
+      "source_sha256": "8520edd980eebaef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as he chose us in him before the foundation of the world, so that we would be holy and blameless before him in love."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.5",
+      "source_sha256": "8cde81d42611b93f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We were set apart from the beginning to become his children through Jesus Christ, according to the good pleasure of his will."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.6",
+      "source_sha256": "906e74b8d1f9f71b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the praise of the glory of his grace, which he freely bestowed on us in his beloved Son."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.7",
+      "source_sha256": "8c31e4957f76638c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we received redemption through his blood, the forgiveness of sins, according to the riches of his grace."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.8",
+      "source_sha256": "87271b0277037c9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made this grace overflow toward us in all wisdom and understanding."
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.1.9",
@@ -34,11 +89,46 @@
       "text": "For the plan to be carried out when the times reach their fulfillment: to bring everything together in Christ, both the things in heaven and the things on earth, in him."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.1.11",
+      "source_sha256": "abcee8590b0e2573",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we received our allotted inheritance, having been set apart from the beginning according to the purpose of God, who works everything according to the counsel of his will."
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.1.12",
       "source_sha256": "aad186c4f0d5595d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "So that we who believed in Christ Jesus from the beginning might be for the praise of his glory."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.13",
+      "source_sha256": "58d509a23b13fcfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him you too heard the word of truth, the good news of your salvation. In him you also believed, and you were sealed with the promised Holy Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.14",
+      "source_sha256": "ffd9c1a679ac0caf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This Spirit is the guarantee of our inheritance, for the redemption that brings salvation, to the praise of his glory."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.15",
+      "source_sha256": "94d6990ae0f6c8a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, I too have heard of your faith in the Lord Jesus Christ and the love you show toward all the holy people."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.16",
+      "source_sha256": "b8884a1295078953",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I do not stop giving thanks for you, remembering you in my prayers."
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.1.17",
@@ -48,11 +138,123 @@
       "text": "So that the God of our Lord Jesus Christ, the Father of glory, may give you a spirit of wisdom and revelation in knowing him."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.1.18",
+      "source_sha256": "98b7d04eed6d134a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the eyes of your heart receive light, so that you may know what the hope of his calling is, and what the riches of the glory of his inheritance among the holy people are."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.19",
+      "source_sha256": "eb1746fdf3a65e78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And how surpassingly great his power is toward us who believe, according to the working of his mighty strength."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.20",
+      "source_sha256": "3095411020ee4180",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He exercised this power in Christ when he raised him from the dead and seated him at his right hand in the heavens."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.21",
+      "source_sha256": "b9edb93fcd341a83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is above every rule, every authority, every power, every dominion, and every name that is named, not only in this age but also in the next."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.22",
+      "source_sha256": "fa42f89619f99628",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He subjected everything beneath his feet and gave him to the church as head over everything."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.1.23",
+      "source_sha256": "9147bd9916831589",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The church is his body, the fullness of the one who fills everything in all."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.1",
+      "source_sha256": "ed58aa5b7e65c0fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you were dead in your transgressions and your sins."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.2",
+      "source_sha256": "b96b20d6771ccab6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You once lived in these, following the age of this world, following the ruler of the authority of the air, the spirit who now works in the children of disobedience."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.3",
+      "source_sha256": "79ca61d5af39be5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We too once lived among these people in the desires of our flesh, doing what the flesh and our thoughts wanted. By nature we were children of wrath, like the rest of humanity."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.4",
+      "source_sha256": "775ec56f7a95cac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God is rich in mercy, because of the great love with which he loved us."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.5",
+      "source_sha256": "44b048d778fbd1c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even when we were dead in our transgressions, he made us alive in Christ, for you have been saved by grace."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.6",
+      "source_sha256": "d525826ca0bf9d04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He raised us with him, and we were seated with him in the heavens in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.7",
+      "source_sha256": "d0c1dcf32ec49dea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that in the coming ages he might reveal the surpassing riches of his grace through his kindness toward us in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.8",
+      "source_sha256": "ce348e4dfb8ce091",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have been saved by his grace through faith, and this does not come from you; it is God's gift."
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.2.9",
       "source_sha256": "2129d9429f654cf8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "It is not from works, so that no one may boast."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.10",
+      "source_sha256": "cec784964793b1eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we are his handiwork, created in Christ Jesus for good works, which God prepared beforehand for us to live by."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.11",
+      "source_sha256": "655ae9660e07090d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, remember that you were once Gentiles in the flesh, called 'the uncircumcision' by those called 'the circumcision,' performed by human hands in the flesh."
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.2.12",
@@ -62,11 +264,186 @@
       "text": "For at that time you were without Christ, excluded from the citizenship of Israel and strangers to the covenants of the promise, having no hope and being without God in the world."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.2.13",
+      "source_sha256": "644e27567d8bd30d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now, in Christ Jesus, you who were once far away have been brought near through the blood of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.14",
+      "source_sha256": "c0032f7e636b5d65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is our peace. He made the two one and broke down the dividing wall, the barrier of hostility, in his flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.15",
+      "source_sha256": "7f9299062c4bef42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He abolished the law of commandments expressed in regulations, so that he might create the two in himself as one new person, making peace,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.16",
+      "source_sha256": "46428df6872439a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and reconcile both to God in one body through the cross, having put the hostility to death through it."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.17",
+      "source_sha256": "68603b2d99fccd49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He came and proclaimed the good news of peace to you who were far away, and peace to those who were near."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.18",
+      "source_sha256": "8ea9f335c00d9c2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through him we both have access to the Father in one Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.19",
+      "source_sha256": "02890131d467a6d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So you are no longer strangers and foreigners, but fellow citizens with the holy ones and members of God's household."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.20",
+      "source_sha256": "4239033da0b36a29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have been built on the foundation of the apostles and prophets, with Christ Jesus as the cornerstone."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.21",
+      "source_sha256": "22072e8d91105b5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him the whole building is fitted together and grows into a holy temple of the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.2.22",
+      "source_sha256": "fb3fb7422193dfac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him you too are being built together into a dwelling place for God in the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.1",
+      "source_sha256": "b609a4ea0875066d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I, Paul, the prisoner of Christ for you Gentiles—"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.2",
+      "source_sha256": "bfdf392247861f87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if indeed you have heard about the responsibility for God's grace that was given to me for you,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.3",
+      "source_sha256": "36dc1a9ca795717d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that the mystery was made known to me through a revelation, as I wrote briefly before."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.4",
+      "source_sha256": "c4da42d3b070fa0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By reading this, you will be able to understand my insight into the mystery of Christ:"
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.3.5",
       "source_sha256": "99fd8d2b9aacd5be",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "This was not made known to human beings in other generations as it has now been revealed to his holy apostles and the prophets through the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.6",
+      "source_sha256": "f84f66bd4299c81c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that the Gentiles are fellow heirs, members of one body, and fellow sharers in the promise of Christ Jesus through the good news."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.7",
+      "source_sha256": "0aac1150b68b82a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I became a servant of this good news according to the gift of grace given to me through the working of his power."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.8",
+      "source_sha256": "171cc5904e37f366",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This grace was given to me, the least of all the holy ones, to proclaim to the Gentiles the abundant riches of Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.9",
+      "source_sha256": "563d52cb8017d5fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to make everyone understand the administration of the mystery hidden for ages in God, who created everything,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.10",
+      "source_sha256": "48d584f4f31bbd30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that now, through the church, God's many-sided wisdom might be made known to the rulers and authorities in the heavens,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.11",
+      "source_sha256": "5664ea96076c0096",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "according to the eternal purpose that he established in Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.12",
+      "source_sha256": "0c6bc70ae532ec18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we have boldness and access with confidence through faith in him."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.13",
+      "source_sha256": "67b237f9c8e37528",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, I ask you not to lose heart over my sufferings for you, which are your glory."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.14",
+      "source_sha256": "3e3b604faf9c83ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I bend my knees before the Father,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.15",
+      "source_sha256": "e2b6f3653432a1fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "from whom every fatherhood in heaven and on earth takes its name,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.16",
+      "source_sha256": "af6d42efde83c017",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that, according to the riches of his glory, he may grant you strength through his Spirit,"
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.3.17",
@@ -76,11 +453,396 @@
       "text": "So that Christ may dwell in the inner person, in your hearts, through faith."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.3.18",
+      "source_sha256": "144b80a6e4c76ca8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "with you rooted and founded in love, so that you may be able to understand, together with all the holy ones, what the breadth, length, height, and depth are,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.19",
+      "source_sha256": "8301b67c3ae110a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to know the love of Christ that surpasses knowledge, so that the entire fullness of God may be fulfilled."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.20",
+      "source_sha256": "87fa85274245f892",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now to the one who is able to do more than everything we ask or think, according to the power at work in us,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.3.21",
+      "source_sha256": "17e3875c9343afca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to him be glory in the church in Christ Jesus, through every generation, forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.1",
+      "source_sha256": "75bf896a4ef6fb36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I, the prisoner in the Lord, urge you to live in a way worthy of the calling with which you were called,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.2",
+      "source_sha256": "e306560d1debaeca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "with complete humility and gentleness, with patience, bearing with one another in love,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.3",
+      "source_sha256": "2828030ba51490dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "making every effort to preserve the unity of the Spirit in the bond of peace."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.4",
+      "source_sha256": "02919f7ab24d626e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You are one body and one spirit, just as you were called in one faith of your calling:"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.5",
+      "source_sha256": "fc7e6340e611b216",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "one Lord, one faith, one baptism,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.6",
+      "source_sha256": "e423ec56d00b21bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "one God, the Father of all, who is over all, through them all, and in all."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.7",
+      "source_sha256": "00551b392791f1b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But grace was given to each one of us according to the measure of Christ’s gift."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.8",
+      "source_sha256": "023c35b7109c7231",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason he says, “He ascended on high, took captives captive, and gave gifts to people.”"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.9",
+      "source_sha256": "6a9660a3e18a906d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now what does “he went up” mean except that he first went down?"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.10",
+      "source_sha256": "ae8a1e7bab067e7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who went down into the depths of the earth is also the one who went up above the heavens, so that he might fill everything."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.11",
+      "source_sha256": "946f1bd589513795",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he himself gave some as apostles, others as prophets, some as proclaimers of the good news, and others as shepherds and teachers,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.12",
+      "source_sha256": "4c4df6460b9ad027",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to prepare the holy ones for the work of service, for building up the body of Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.13",
+      "source_sha256": "8d279624e6251ea9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "until we all reach unity of mind in faith and in the knowledge of the Son of God, becoming a mature person, reaching the measure of the stature of Christ’s fullness,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.14",
+      "source_sha256": "4e08e1005eca49b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that we may no longer be little children, tossed about by waves and blown around by every wind of teaching, by people’s deceit and cunning in their schemes of deception."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.15",
+      "source_sha256": "30d09d3d71b8be10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, speaking the truth in love, let us grow in every way into him who is the head, Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.16",
+      "source_sha256": "585fda7d1f0a8c8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From him the whole body is knit together and grows through every joint that supplies it, according to the activity appropriate to each individual part, so that the body grows and builds itself up in love."
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.4.17",
       "source_sha256": "8693ad862726b994",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "So I say this and testify in the Lord: you must no longer live as the Gentiles live, in the emptiness of their hearts, with their thoughts darkened."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.18",
+      "source_sha256": "e81f2c92c4e55a71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are alienated from the life of God because of the ignorance within them, because of the closedness of their hearts."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.19",
+      "source_sha256": "bc5dd4024fa22ad4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These people, who did not want to feel distress, handed themselves over to defilement, to practice every kind of impurity with increasing greed."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.20",
+      "source_sha256": "620a360086fc420d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you did not learn Christ in this way."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.21",
+      "source_sha256": "3277aebf2cba9423",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If indeed you heard him and were taught in him, just as the truth is in Jesus,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.22",
+      "source_sha256": "47691396ba44114c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "put off your old self, with its former deeds, which is being corrupted by deceitful desires,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.23",
+      "source_sha256": "4930084040936fcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and be renewed in the spirit of your mind,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.24",
+      "source_sha256": "7d23026e332a8a72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and put on the new self, which was created according to God in righteousness and true holiness."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.25",
+      "source_sha256": "884b60b26ec694f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, having put away falsehood, speak the truth, each one with his neighbor, because we are members of one another."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.26",
+      "source_sha256": "d70f0e0377abe95a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be angry, but do not sin. Do not let the sun set on your anger,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.27",
+      "source_sha256": "e361703eac384f6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and do not give the devil any room."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.28",
+      "source_sha256": "c340500e23ad7c9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the thief steal no longer, but instead let him labor, working with his hands, so that he may have something good to give to anyone in need."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.29",
+      "source_sha256": "d7202a391696d3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not let any evil words come out of your mouth, but only words that are good for building up as needed, so that they may give grace to those who hear."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.30",
+      "source_sha256": "ae1780b9d598d365",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not grieve the Holy Spirit of God, in whom you were sealed for the day of redemption."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.31",
+      "source_sha256": "56c791e7a6a146b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remove from yourselves all bitterness, all anger, all wrath, all shouting and slander, along with all malice."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.4.32",
+      "source_sha256": "d82984b5f15ca952",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But be kind and compassionate toward one another, forgiving one another just as God forgave you in Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.1",
+      "source_sha256": "aa85f866d8f1167d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, imitate God as beloved children,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.2",
+      "source_sha256": "1385985125bbea04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and live in love, just as Christ loved you and gave himself for you as an offering and a sacrifice to God, a fragrant aroma."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.3",
+      "source_sha256": "4e009080f64835ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But do not let any sexual immorality, impurity, or greed even be named among you, as is fitting for the saints,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.4",
+      "source_sha256": "a3744d31bd959711",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "nor obscenity, foolish talk, or coarse joking, which are inappropriate, but rather thanksgiving."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.5",
+      "source_sha256": "bd6a67f9c6225c02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you know and understand this: no sexually immoral person, impure person, or greedy person—who is an idol worshiper—has any inheritance in the kingdom of Christ and God."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.6",
+      "source_sha256": "1796c6108abfebf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not let anyone deceive you with empty words, for because of these things God's wrath is coming upon the children of unbelief."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.7",
+      "source_sha256": "5e488cbef386d53a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not become their partners."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.8",
+      "source_sha256": "461378f344df1247",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you were once darkness, but now you are light in the Lord. Live as children of the light,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.9",
+      "source_sha256": "f48f6e20baaa4bc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for the fruit of the light consists in all goodness, righteousness, and truth,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.10",
+      "source_sha256": "a590521c7db971cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "testing what is pleasing to the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.11",
+      "source_sha256": "9a681991a34df746",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not participate in the fruitless deeds of darkness, but instead expose them."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.12",
+      "source_sha256": "809cb00ac8dbde38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the things they do in secret are shameful even to speak of."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.13",
+      "source_sha256": "47f370db1389fd1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But everything exposed by the light becomes visible, for everything made visible is light."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.14",
+      "source_sha256": "696cd24a99c2d1a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason he says, “Wake up, you who sleep, and rise from among the dead, and Christ will shine on you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.15",
+      "source_sha256": "40c23b506a675497",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So pay careful attention to how you live, not as foolish people but as wise people,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.16",
+      "source_sha256": "a9b9bffb03ac363a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "making the most of the time, because the days are evil."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.17",
+      "source_sha256": "83bb5c052fcd8d85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, do not be foolish, but understand what the Lord’s will is."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.18",
+      "source_sha256": "31c35bb78fc6fb8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not get drunk on wine, which involves reckless indulgence, but be filled with the Spirit,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.19",
+      "source_sha256": "dbd4536a5f5eb7cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "speaking to one another in psalms, hymns, and spiritual songs, singing and making music in your hearts to the Lord,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.20",
+      "source_sha256": "3181605e20246610",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "always giving thanks for everything to God the Father in the name of our Lord Jesus Christ."
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.5.21",
@@ -90,11 +852,46 @@
       "text": "Submit to one another out of reverence for Christ."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.5.22",
+      "source_sha256": "4ac4a75f9d038453",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let wives submit to their husbands as to the Lord."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.23",
+      "source_sha256": "f3e24765a2cdfdd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the husband is the head of the wife, just as Christ is the head of the church; he is the Savior of the body."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.24",
+      "source_sha256": "40c843e9365b06b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But just as the church submits to Christ, so let wives also submit to their husbands in everything."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.25",
+      "source_sha256": "1866fbae7179edb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Husbands, love your wives just as Christ loved the church and gave himself for her,"
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.5.26",
       "source_sha256": "43ce79dc7a2a4209",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "So that he might make her holy, having cleansed her by the word and the washing with water."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.27",
+      "source_sha256": "7c04f9d83be8fc07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that he might present the church to himself in glory, without any stain or blemish or anything of that kind, but so that she might be holy and without blemish."
     },
     {
       "chunk_id": "coptic-nt/eph#Eph.5.28",
@@ -104,6 +901,48 @@
       "text": "Husbands, too, ought to love their wives in this way, as their own bodies. Whoever loves his wife loves himself."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.5.29",
+      "source_sha256": "7c9acef7e9b508d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For no one has ever hated his own flesh; instead, he nourishes and cares for it, just as Christ does for the church,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.30",
+      "source_sha256": "fbaf6e22dac6bfb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because we are members of his body."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.31",
+      "source_sha256": "6daff550bb0d6b96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason a man will leave his father and mother and join himself to his wife, and the two will become one flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.32",
+      "source_sha256": "79ea179ac375abe5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This mystery is great, but I am speaking about Christ and the church."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.5.33",
+      "source_sha256": "cb1d6fd1d582bb3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nevertheless, each one of you must also love his wife as himself, and the wife must fear her husband."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.1",
+      "source_sha256": "f77f924573aa6e8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Children, obey your parents in the Lord, for this is right."
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.6.2",
       "source_sha256": "0ad3a7f7ab1a5fec",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -111,11 +950,158 @@
       "text": "Honor your father and your mother, which is the first commandment with a promise."
     },
     {
+      "chunk_id": "coptic-nt/eph#Eph.6.3",
+      "source_sha256": "47997783adc21135",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that things may go well for you and you may live a long time on the earth."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.4",
+      "source_sha256": "2d22130b66b7f4a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Fathers, do not provoke your children to anger, but bring them up with the Lord’s discipline and instruction."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.5",
+      "source_sha256": "058362d463adba30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Slaves, obey your earthly masters with fear and trembling, with sincerity of heart, as you serve Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.6",
+      "source_sha256": "7bb92e66c08ccc70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "not serving only when watched, as people who seek to please others, but as slaves of Christ, doing God’s will with your whole soul,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.7",
+      "source_sha256": "2704af76c9f1774b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "serving willingly, as slaves of the Lord and not of people,"
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.8",
+      "source_sha256": "f54ac463eb0b5ec8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "knowing that whatever good each person does, he will receive it back from the Lord, whether he is a slave or free."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.9",
+      "source_sha256": "71334fcf01ccc331",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Masters, you too must treat them in the same way, giving up your anger, knowing that your Master and theirs is in heaven, and that he shows no favoritism."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.10",
+      "source_sha256": "1f29201fca27b99b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "From now on, be strong in the Lord and in the might of his power."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.11",
+      "source_sha256": "6f0dd4960296bb7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Put on the full armor of God so that you can stand against the devil’s schemes."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.12",
+      "source_sha256": "ef279b9c1cac3f37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "For our struggle is not against blood and flesh, but against the rulers, against the authorities, against the world rulers of this darkness, against the spiritual forces of evil in the heavens."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.13",
+      "source_sha256": "589d21c4e21fd6d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Therefore, take up the full armor of God so that you can stand your ground on the evil day and, after accomplishing everything, stand firm."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.14",
+      "source_sha256": "dffb7c4ef9d0dc6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Stand firm, then, with truth fastened around your waist and with the breastplate of righteousness on."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.15",
+      "source_sha256": "f41eabbf9fe7a703",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "And with your feet fitted with the readiness of the good news of peace."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.16",
+      "source_sha256": "1c2d32017449e987",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "In everything, take up the shield of faith, with which you will be able to extinguish every burning arrow of the evil one."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.17",
+      "source_sha256": "440dc1901eac702b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "And take the helmet of salvation and the sword of the Spirit, which is the word of God."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.18",
+      "source_sha256": "6df4548383f09403",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "With every kind of prayer and plea, pray at all times in the Spirit. To this end, stay alert with all perseverance and every kind of plea for all the holy ones."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.19",
+      "source_sha256": "e1261224c9c6fce1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "And pray for me, so that words may be given to me when I open my mouth to make known the mystery of the good news boldly."
+    },
+    {
       "chunk_id": "coptic-nt/eph#Eph.6.20",
       "source_sha256": "9bb5a80b05fd6595",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 14,
       "text": "For this I serve as an ambassador in chains, so that I may speak boldly about it, as I ought to speak."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.21",
+      "source_sha256": "fbd58d7d45b26e03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "So that you too may know my circumstances and what I am doing, Tychicus, the beloved brother and faithful servant in the Lord, will tell you everything."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.22",
+      "source_sha256": "c3eb65e73e257453",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "I have sent him to you for this very purpose, so that you may know our circumstances and he may encourage your hearts."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.23",
+      "source_sha256": "cbae13e5ae3a96d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Peace to the brothers, and love with faith, from God the Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/eph#Eph.6.24",
+      "source_sha256": "8a9f8fa9b9cd0e07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 15,
+      "text": "Grace be with everyone who loves our Lord Jesus Christ with an undying love."
     }
   ]
 }

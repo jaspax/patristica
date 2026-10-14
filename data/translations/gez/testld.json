@@ -9,15 +9,105 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "gez/testld#TestLd.1.1",
+      "source_sha256": "e148d962c82660f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 1: The Holy Spirit"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.2.1",
+      "source_sha256": "7b0bb83743ab3d0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 2: The Signs of the End of the World"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.3.1",
+      "source_sha256": "300e9a25ab74dcbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 3: The Wonders That Will Happen"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.4.1",
+      "source_sha256": "aa2fa2de00041b77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 4: The Elect in the Last Days"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.5.1",
+      "source_sha256": "4046faf9036a884a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 5: What Will Happen to the Countries"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.6.1",
+      "source_sha256": "8189e7679a360877",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 6: The Antichrist"
+    },
     {
       "chunk_id": "gez/testld#TestLd.7.1",
       "source_sha256": "085eebaf782a14dd",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Chapter 7: Our Lord’s discourse to his disciples"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.8.1",
+      "source_sha256": "d8c3272208031a70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 8: Our Lord’s Reply to Mary, Martha, and Salome"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.9.1",
+      "source_sha256": "1aa3063202e5718e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 9: What Will Be Given to the Strong"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.10.1",
+      "source_sha256": "e02b415f7a9bf3cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 10: Building a Church"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.11.1",
+      "source_sha256": "f3cd6361b687811a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 11: Ordaining a Bishop"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.12.1",
+      "source_sha256": "15850e250b63fb46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 12: Prayer at the Ordination of a Bishop"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.13.1",
+      "source_sha256": "d01a5e3dc6787594",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 13: A Bishop Must Be Diligent in Sacrifice and Prayer"
     },
     {
       "chunk_id": "gez/testld#TestLd.14.1",
@@ -27,11 +117,53 @@
       "text": "Chapter 14: That he should teach in the church"
     },
     {
+      "chunk_id": "gez/testld#TestLd.15.1",
+      "source_sha256": "aef0f86bdab15c40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 15: Teaching the Fundamental Doctrines of Christianity"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.16.1",
+      "source_sha256": "57f2ac98ec7f92cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 16: The Order of the Holy Eucharist"
+    },
+    {
       "chunk_id": "gez/testld#TestLd.17.1",
       "source_sha256": "d04fc193a9be270c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Chapter 17: Prayers of the faithful during and after receiving"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.18.1",
+      "source_sha256": "899fe507a30eab9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 18: The Deacon’s Prayer After All the People Have Received Communion"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.19.1",
+      "source_sha256": "66b169bc8de481df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 19: The Bishop’s Prayer"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.20.1",
+      "source_sha256": "f05350fd798a36cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 20: Prayer over the Oil for Anointing the Sick"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.21.1",
+      "source_sha256": "67c1b4ff9e307c06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 21: The Praises of the Congregation"
     },
     {
       "chunk_id": "gez/testld#TestLd.22.1",
@@ -41,11 +173,116 @@
       "text": "Chapter 22: Teaching on the mysteries"
     },
     {
+      "chunk_id": "gez/testld#TestLd.23.1",
+      "source_sha256": "a093754d96fecadd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 23: Ordination of a Priest"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.24.1",
+      "source_sha256": "41b57e9de9012b49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 24: Prayer at the Ordination of a Priest"
+    },
+    {
       "chunk_id": "gez/testld#TestLd.25.1",
       "source_sha256": "4439e4f59979fcd7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Chapter 25: That a priest should devote himself to the altar and prayer"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.26.1",
+      "source_sha256": "ebdb89f98e5cd288",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 26: The Rule of the Priest"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.27.1",
+      "source_sha256": "ac1ed6aa17ff5872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 27: Those Who Listen and Are Diligent"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.28.1",
+      "source_sha256": "ff4f7850280fd8e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 28: Those Who Are Saved and Those Who Perished"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.29.1",
+      "source_sha256": "e89b98a5daa1f5e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 29: The Priest Must Visit the Sick"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.30.1",
+      "source_sha256": "564b4ec3bb7408ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 30: Ordination of a Deacon"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.31.1",
+      "source_sha256": "9a55140168351590",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 31: The duties of a deacon"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.32.1",
+      "source_sha256": "005f715a67ba5590",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 32: The number of priests, deacons, and subdeacons in a church"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.33.1",
+      "source_sha256": "497ff05c6bee09d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 33: The order of service in church"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.34.1",
+      "source_sha256": "942b9de7da77fc89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 34: Those who arrive late for the service"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.35.1",
+      "source_sha256": "30587371624c019d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 35: The ordination of a deacon"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.36.1",
+      "source_sha256": "535337f09e3c32df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 36: Widows attached to the service of the church"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.37.1",
+      "source_sha256": "33b9f9c441fc08a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 37: Prayer for the widows"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.38.1",
+      "source_sha256": "02a8459505d1a3fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 38: Prayer of the widows"
     },
     {
       "chunk_id": "gez/testld#TestLd.39.1",
@@ -62,11 +299,137 @@
       "text": "Chapter 40: Ordination of a reader"
     },
     {
+      "chunk_id": "gez/testld#TestLd.41.1",
+      "source_sha256": "2c0dc70ee3026f97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 41: Virgins"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.42.1",
+      "source_sha256": "cde68eb8be2e1568",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 42: The laity"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.43.1",
+      "source_sha256": "ccc8762b65c4eaeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 43: How they should be received"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.44.1",
+      "source_sha256": "ec353fd8d0aa7847",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 44: How they should be admitted to baptism"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.45.1",
+      "source_sha256": "5aebbbe7074226fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 45: The kiss of peace"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.46.1",
+      "source_sha256": "09937ab74ed150cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 46: Women should be covered during prayer"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.47.1",
+      "source_sha256": "eb5cc1303e511dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 47: The laying on of hands on catechumens or new converts"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.48.1",
+      "source_sha256": "d2e468cb30069d0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 48: The examination of catechumens or new converts"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.49.1",
+      "source_sha256": "7f6851b30a0894be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 49: The exorcism to be pronounced over new converts"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.50.1",
+      "source_sha256": "9f854b02d30cddd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 50: The order of baptism"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.51.1",
+      "source_sha256": "9830bf4bbe5c9bf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 51: Prayer for anointing (after baptism)"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.52.1",
+      "source_sha256": "16884fd8395ff212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 52: The order of the Holy Eucharist"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.53.1",
+      "source_sha256": "c465c6a620dcee0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 53: Pentecost"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.54.1",
+      "source_sha256": "e0a380e993e4d95c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 54: Those invited to join the bishop (to consume the holy elements)"
+    },
+    {
       "chunk_id": "gez/testld#TestLd.55.1",
       "source_sha256": "cd02dc76385f0cc3",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Chapter 55: On the fruits that are offered"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.56.1",
+      "source_sha256": "677c2a23b693206f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 56: The order of a wedding"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.57.1",
+      "source_sha256": "976467a0f21955ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 57: The Eucharist is to be sent to a new convert who is sick"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.58.1",
+      "source_sha256": "75c08067c03c8cc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Chapter 58: Those who die in poverty"
+    },
+    {
+      "chunk_id": "gez/testld#TestLd.59.1",
+      "source_sha256": "57850529e1617142",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 1,
+      "text": "Chapter 59: The Prayers of the People"
     },
     {
       "chunk_id": "gez/testld#TestLd.60.1",

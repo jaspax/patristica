@@ -9,15 +9,91 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.1",
+      "source_sha256": "f4f13c7549e92b1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The vision of the words of the Lord concerning Israel, through Malachi."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.2",
+      "source_sha256": "e86027a981b060cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I have loved you,” says the Lord. But you say, “How have you loved us?” “Was not Esau Jacob’s brother?” says the Lord. “Yet I loved Jacob,"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.3",
+      "source_sha256": "a4c31b35ad219096",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and I hated Esau. I made his mountains a ruin and his inheritance a home for the inhabitants of the wilderness."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.4",
+      "source_sha256": "09e19bba61a61c8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If the Edomites say, “We have become poor, but we will rebuild the ruins,” this is what the Lord says: “They may build, but I will tear down. They will be called the territory of wickedness and the people with whom the Lord is angry forever.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.5",
+      "source_sha256": "28754ae7d0f18c86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your eyes will see it, and you will say, “May the Lord be exalted beyond the borders of Israel!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.6",
+      "source_sha256": "7507fc5d8e893ad4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“A son honors his father, and a servant his master. If I am a father, where is the honor you give me? If I am a master, where is your fear of me?” says the Lord Almighty to you priests who despise my name. “But you say, ‘How have we despised your name?’"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.7",
+      "source_sha256": "10792c89bb0efce9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“By offering defiled bread on my altar. And if you say, ‘How have we defiled you?’ it is by saying, ‘The Lord’s table is contemptible.’"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.8",
+      "source_sha256": "eeaea5d3b2d2294a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“When you offer a blind animal for sacrifice, is that not wrong? When you offer a lame or sick animal, is that not wrong? Present it to your governor! Will he be pleased with you or show you favor?” says the Lord Almighty."
+    },
     {
       "chunk_id": "pta-peshitta/mal#Mal.1.9",
       "source_sha256": "c6a22fc59eebf743",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "Now pray before the Lord, that he may have mercy on us. This has happened at your hands. I will not show you favor, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.10",
+      "source_sha256": "26d63e0cbbaab29d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Who is there among you who will shut my doors, so that you will not make offerings on my altar in vain? I take no pleasure in you,” says the Lord Almighty, “and I will not accept an offering from you."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.11",
+      "source_sha256": "a14b75028ff20cb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For from the rising of the sun to its setting, my name is great among the nations. In every place incense is set out and pure offerings are presented to my name, because my name is great among the nations,” says the Lord Almighty."
     },
     {
       "chunk_id": "pta-peshitta/mal#Mal.1.12",
@@ -27,11 +103,95 @@
       "text": "But you defile it by saying that the Lord’s table is defiled and its food is despised."
     },
     {
+      "chunk_id": "pta-peshitta/mal#Mal.1.13",
+      "source_sha256": "2f07506d6302bbea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But you say, ‘This comes from our misery,’ and you have blown at them,” says the Lord Almighty. “You bring stolen offerings, lame and sick animals. I will not accept them from your hands,” says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.1.14",
+      "source_sha256": "6a5e942f35c01713",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Cursed is anyone who has a male animal in his flock and makes a vow, but sacrifices a sick animal to the Lord. For I am a great king,” says the Lord Almighty, “and my name is feared among the nations."
+    },
+    {
       "chunk_id": "pta-peshitta/mal#Mal.2.1",
       "source_sha256": "42656e30e259f020",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "Now this command is for you, priests."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.2",
+      "source_sha256": "bef6a691c3e9bb29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“If you will not listen, and if you will not take it to heart to give honor to my name,” says the Lord Almighty, “I will send curses upon you and curse your blessings, because you do not take it to heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.3",
+      "source_sha256": "4af1057c4f0dd0cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Look, I am rebuking the seed of the land. I will scatter dung on your faces, and dung on your festivals, and I will carry you away with it."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.4",
+      "source_sha256": "04e3c4baf95b7d9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“You will know that I sent you this command so that there may be a covenant with Levi,” says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.5",
+      "source_sha256": "df5cada95bdd0cc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“My covenant with him was life and peace. I gave them to him for reverence, and he feared me and trembled before my name."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.6",
+      "source_sha256": "d36ed76d225c2c80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“The law of truth was in his mouth, and no wrongdoing was found on his lips. He walked with me in peace and uprightness, and turned many away from wrongdoing."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.7",
+      "source_sha256": "bfb498aafc017eff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“For a priest’s lips preserve knowledge, and people seek the law from his mouth, because he is the messenger of the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.8",
+      "source_sha256": "e68a08894631ebd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But you have turned aside from the way and caused many to stumble away from the law. You have corrupted the covenant of Levi,” says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.9",
+      "source_sha256": "7751480121a7bc71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“So I have made you despised and humiliated among all the people, because you have not kept my ways and have shown partiality in applying the law.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.10",
+      "source_sha256": "d59be8b2ffdb5157",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do we not all have one father? Did not one God create us? Why do we act treacherously toward one another and defile the covenant of our ancestors?"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.11",
+      "source_sha256": "a272c65184b80304",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Judah has acted treacherously, and defilement has been committed in Israel and Jerusalem. For Judah has defiled the holy place of the Lord Almighty and has loved and served foreign gods."
     },
     {
       "chunk_id": "pta-peshitta/mal#Mal.2.12",
@@ -41,6 +201,13 @@
       "text": "May the Lord destroy the man who does this, his son, and his grandson from the tent of Jacob, and may he have no one to present an offering to the Lord Almighty."
     },
     {
+      "chunk_id": "pta-peshitta/mal#Mal.2.13",
+      "source_sha256": "565cfb9535ead0a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is another thing you have done: tears have covered the Lord’s house, along with weeping and sighs, because he no longer pays attention to your offerings or accepts them with favor from your hands."
+    },
+    {
       "chunk_id": "pta-peshitta/mal#Mal.2.14",
       "source_sha256": "81c09ea66a9131f5",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -48,11 +215,193 @@
       "text": "And if you say, “Why?” it is because the Lord has been a witness between you and the wife of your youth, whom you have betrayed, though she is your companion and the wife of your covenant."
     },
     {
+      "chunk_id": "pta-peshitta/mal#Mal.2.15",
+      "source_sha256": "3fd5ed9ac8eac942",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Was there not one man, and the rest of the spirits belonged to him? One sought offspring from God. Guard your spirit, and let no one act treacherously toward the wife of his youth."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.16",
+      "source_sha256": "19519a49bd1c6ffa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Says the Lord Almighty, the God of Israel: “Let him not cover wrongdoing with his garment,” says the Lord Almighty. “Guard your spirit, and do not act treacherously.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.2.17",
+      "source_sha256": "99be5d4cda431228",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You have wearied the Lord with your words. Yet you say, “How have we wearied him?” By saying, “Everyone who does evil is good in the Lord’s eyes, and he delights in them,” or, “Where is the God who administers justice?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.1",
+      "source_sha256": "40eb3eb55eb004ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Look, I am sending my messenger, and he will clear the way before me. The Lord whom you await will suddenly come to his temple, and the messenger of the covenant whom you desire—look, he is coming, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.2",
+      "source_sha256": "846d9f19115a27a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Who can endure the day of his coming? Or who can stand when he appears? For he is like a refiner’s fire and like the sulfur used by a bleacher."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.3",
+      "source_sha256": "4848dc35fde549ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He will turn to refining and purifying as with silver. He will purify the sons of Levi and refine them like gold and silver, and they will present offerings to the Lord in righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.4",
+      "source_sha256": "c5a2bc9134553c88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Then the offering of Judah and Jerusalem will please the Lord, as in the days of old and as in former years."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.5",
+      "source_sha256": "0bb067e309c18095",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I will approach you in judgment, and I will be a swift witness against sorcerers, adulterers, those who swear falsely, those who withhold the wages of the hired worker, the foreign resident, the orphan, and the widow, and those who turn against anyone who turns toward me and do not fear me, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.6",
+      "source_sha256": "efd21f3c8d8569f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For I am the Lord, and I have not changed; and you, sons of Jacob, have not turned away from your wickedness."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.7",
+      "source_sha256": "953457a729ff84c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Since the days of your ancestors you have strayed from my commandments and have not obeyed them. Return to me, and I will return to you, says the Lord Almighty. Yet you say, “How are we to return?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.8",
+      "source_sha256": "8f6a27f97c4e17b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Does a human being rob God, as you are robbing me? Yet you say, “How have we robbed you?” In tithes and firstfruits."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.9",
+      "source_sha256": "229f81e99f5b631c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You are cursed with curses, yet you are robbing me—the whole nation."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.10",
+      "source_sha256": "904efb03ec94cfb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Bring the tithes into my storehouses, so that there may be food in my house. Put me to the test in this, says the Lord Almighty, and I will open the windows of heaven for you and pour out blessings for you until you say, “Enough!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.11",
+      "source_sha256": "6e771e5d4e11064a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I will rebuke the devourer so that it does not destroy the produce of the land, and not even one vine in your land will perish, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.12",
+      "source_sha256": "0f5941d9c72d3e76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "All the nations will praise you, for you will be a land in which I delight, says the Lord Almighty."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.13",
+      "source_sha256": "f8fe19709e458720",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Your words against me have been harsh, says the Lord. Yet you say, “What have we said against you?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.14",
+      "source_sha256": "52af72690a64ea14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You have said, “We have served the Lord for nothing. What have we gained by keeping his requirements and walking humbly before the Lord Almighty?"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.15",
+      "source_sha256": "cd9faebec20a7bee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "From now on we call the wicked blessed. Those who commit sin prosper; they put God to the test and escape.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.16",
+      "source_sha256": "8456efbb193cf872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Those who feared the Lord spoke these things to one another. The Lord listened and heard, and he wrote in a book of remembrance before him concerning those who fear him and those who praise his name."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.17",
+      "source_sha256": "808010d86f9931f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "They will be mine, says the Lord Almighty, on the day when I make a gathering. I will have compassion on them as a man has compassion on his son who serves him."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.18",
+      "source_sha256": "1d5921bc0a1a10ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Then you will again see the distinction between the righteous and the wicked, and between those who have served God and those who have not served him."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.19",
+      "source_sha256": "4bcadd0467110128",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For look, the days are coming, and my wrath will burn like a furnace. All the wicked and all who commit sin will be stubble, and the coming day will burn them up, says the Lord Almighty, leaving them neither root nor branch."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.20",
+      "source_sha256": "8adcdd0d47e80782",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But for you who fear my name, the sun of righteousness will rise, with healing on its tongue. You will go out and leap like calves of the herd."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.21",
+      "source_sha256": "6e80ed6412dc4617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You will trample the wicked, for they will be ashes beneath the soles of your feet on the day when I act, says the Lord Almighty."
+    },
+    {
       "chunk_id": "pta-peshitta/mal#Mal.3.22",
       "source_sha256": "9b2c2b849250d070",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "Remember the law of Moses my servant, the commandments and judgments that I commanded him at Horeb for all Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.23",
+      "source_sha256": "705b9affd86505b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Look, I am sending you Elijah the prophet before the great and dreadful day of the Lord comes."
+    },
+    {
+      "chunk_id": "pta-peshitta/mal#Mal.3.24",
+      "source_sha256": "1f42110228cf7304",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He will turn the hearts of fathers toward their children and the hearts of children toward their fathers, before I come and strike the land with destruction."
     }
   ]
 }

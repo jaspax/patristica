@@ -9,15 +9,539 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.16",
+      "source_sha256": "82ce373a1e0c50b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] will be more than you need; give all of it as alms, and do not begrudge giving alms."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.17",
+      "source_sha256": "91efbe50c544a643",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] and do not give them to sinners."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.18",
+      "source_sha256": "02919004d607418c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Take advice from every wise person, and do not despise any useful instruction."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.19",
+      "source_sha256": "2b867a6d33e81266",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Bless the Lord God at all times, and ask him to make your roads straight and all your paths and plans prosper. For no nation possesses counsel, but the Lord himself gives every good thing, and he will humble whomever he wishes, as he pleases. Now then, my son, remember the commandments, and do not let them be erased from your heart."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.20",
+      "source_sha256": "67fe83ee85196a68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now I am telling you about the ten talents of silver that I entrusted to Gabael, the son of Gabrias, in Rages in Media."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.4.21",
+      "source_sha256": "f6d086a74424fc82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not be afraid, my son, because I have become poor. For you have much if you fear God and keep yourself away from every sin, doing what pleases him in his sight."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.1",
+      "source_sha256": "7de2dd78e1ce58d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobias answered, saying, “My father, I will do everything you have instructed me to do.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.2",
+      "source_sha256": "aaa5bce077e60006",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But how will I receive the ten talents? I do not know the man.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.3",
+      "source_sha256": "d7b04ce521aa5e8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He gave him the written receipt and said to him, “Look for a man to go with you, and I will pay him his wages while I am still alive. Go and collect the money.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.4",
+      "source_sha256": "2419a7fcf6e88d13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobias went to look for a man, and he found Raphael. He was an angel, but Tobias did not know it."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.5",
+      "source_sha256": "2342a916b22e2e6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to him, “Can I go with you to Rages in Media? Do you know that place?”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.6",
+      "source_sha256": "3ff82800ab4374f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The angel said, “I will go with you, and I know the road. I have stayed with Gabael, our brother.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.7",
+      "source_sha256": "37fdd93be68ad6e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobias said to him, “Wait for me while I get my father’s permission.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.8",
+      "source_sha256": "bbbc53a84f239f1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to him, “Go, and do not delay.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.9",
+      "source_sha256": "109577d315c8cef6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When Tobias went inside, he told his father, “I have found someone to go with me.” His father [?]"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.16",
+      "source_sha256": "b1387e233db61b77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobit went out to meet his daughter-in-law, rejoicing and blessing God, near the gate of Nineveh. Those who saw him were amazed that he could see."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.17",
+      "source_sha256": "f3e9e337120d7da0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobit acknowledged before them that God had shown him mercy. When Tobit reached Sarah, his daughter-in-law, he blessed her, saying, “Welcome, my daughter! Blessed is God, who brought you to us, and blessed are your father and your mother.” All his relatives in Nineveh rejoiced."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.18",
+      "source_sha256": "35af60134cadea88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ahikar came, along with Asbas, his brother’s son."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.5.19",
+      "source_sha256": "6783cea0213d8eb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They celebrated Tobias’s wedding joyfully for seven days."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.11.15",
+      "source_sha256": "ef540cd1f759e71a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] that had happened to him in Media."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.1",
+      "source_sha256": "ad4e76d6978fb597",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tobit called Tobias, his son, and said to him, “My son, see about the wages to give the man who went with you. It is right to give him something extra as well.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.2",
+      "source_sha256": "bb45ca6c3f888a7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to him, “My father, I urge you to give him half of what I have brought.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.3",
+      "source_sha256": "595e6eb81f8ee4c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“He brought me back to you safely, healed my wife, and brought me the money. He also healed you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.4",
+      "source_sha256": "8f3e2c8e2411d22f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His father said to him, “He deserves it.”"
+    },
     {
       "chunk_id": "coptic-nt/tob#Tob.12.5",
       "source_sha256": "705029c106f998b1",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 1,
       "text": "And he called the angel and said to him, “Take half of everything I have brought, and go safely.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.6",
+      "source_sha256": "b0932a1d168a3621",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the angel called them aside privately and said to them, “Bless God, give thanks to him, and exalt him before all the living for what he has done for you. It is good to bless God and exalt his name. Make God’s words and his deeds known in a worthy manner, and do not delay in giving thanks to him.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.7",
+      "source_sha256": "b292ea16498aebbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good to keep a king’s secret hidden, but it is good to reveal God’s deeds with glory. Do what is good, and evil will not overtake you."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.8",
+      "source_sha256": "e5b57ce8cbd67ae2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Prayer with fasting, charity, and righteousness is good. A little acquired through righteousness is better than much acquired through injustice. It is better to give to charity than to gather gold."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.9",
+      "source_sha256": "9b66e646fe9bca97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For charity saves a person from death, and it cleanses every sin. Those who practice charity and righteousness will be filled with life."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.10",
+      "source_sha256": "513ce36e35be44bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But those who commit sin are fighting against their own lives."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.11",
+      "source_sha256": "2a1f0a3bbeda6bea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will not hide anything from you. I have said that it is good to keep a king’s secret hidden, but to reveal God’s deeds in a worthy manner."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.12",
+      "source_sha256": "c0c26d09ec32e391",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, when you and your wife Sarah prayed, I was the one who brought the remembrance of your prayer before the Holy One. And on the days when you buried the dead, I was also with you."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.13",
+      "source_sha256": "fa39d426f393e0dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And when you did not hesitate to get up, leaving your meal behind to go and carry away the bodies of the dead, your good deeds were not hidden from me. Rather, I was with you in everything you did."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.14",
+      "source_sha256": "36f67c030b2cf3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now God has sent me to heal you and your wife Sarah."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.15",
+      "source_sha256": "fd384b71a612f984",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am Raphael, one of the seven angels who carry things up and enter before the glory of the Holy One."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.16",
+      "source_sha256": "b1aff7f9dc41e5bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Both of them were shaken and fell facedown because they were afraid."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.17",
+      "source_sha256": "06eea98c5e6c5e14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the angel said to them, “Do not be afraid. May peace be with you. Bless God every day, forever."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.18",
+      "source_sha256": "3d9245149973d16f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I was with you not through my own favor, but through God’s will. Therefore bless him forever and ever."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.19",
+      "source_sha256": "7b085b791ccfdd97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "During all the days when I appeared to you, I ate nothing and drank nothing. Rather, what you saw was an appearance."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.20",
+      "source_sha256": "e7a592ecb3e14be2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, then, give thanks to God, for I am going up to the one who sent me. Write down in a book all the things that have happened.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.21",
+      "source_sha256": "678e8160e763b511",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They looked up, but they did not see him again."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.12.22",
+      "source_sha256": "262c9651b77408f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They gave thanks for his great deeds and wonders, and for how God’s angel had appeared to them."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.1",
+      "source_sha256": "a13f7621efab23ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Tobit wrote a prayer, rejoicing and saying, “Blessed is God, who lives forever, and blessed is his kingdom."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.2",
+      "source_sha256": "c698f5ebfb43428c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he is the one who punishes and shows mercy. He brings people down to the underworld and brings them up again, and no one can escape his hands."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.3",
+      "source_sha256": "fe75ff6c8297da6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Declare him, children of [?], before all the nations, for he is the one who scattered us among them."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.4",
+      "source_sha256": "26a322f3bb440889",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Declare his greatness and exalt him before all the living, for he is our Lord and our God. He is the Father of all the ages."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.5",
+      "source_sha256": "119ccb6d29e6dde6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He will not punish us unjustly, and he will show us mercy again. He gathers us together from all the nations, wherever you have been scattered."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.6",
+      "source_sha256": "0dac5b49d01ea86b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you turn to him with all your heart and all your soul, acting truthfully before him, he too will turn to you. You will see what he will do for you. Give thanks to him with your whole mouth, bless the Lord of righteousness, and exalt the King of the ages. I too will give thanks to him in the land of my captivity and declare his power and greatness to the sinful nations. Turn back, turn back, you sinners, and practice righteousness before him. Who knows whether he will accept you and show you mercy?"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.7",
+      "source_sha256": "63aea2c6b8387734",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will exalt my God, and my soul will bless the King of heaven. Rejoice in his greatness."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.8",
+      "source_sha256": "7908f9683631af5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let everyone proclaim it and give thanks to him in Jerusalem."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.9",
+      "source_sha256": "849dbd1e24bbc57c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jerusalem, city of the holy ones, he will punish their children because of their deeds, and he will again show mercy to the children of the righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.10",
+      "source_sha256": "4d9831f243f7abee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Give thanks to the Lord with goodness, and bless the King of the ages, so that his dwelling may be rebuilt for you with joy, and he may gladden your captives and love those who have suffered among you, throughout all generations forever."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.11",
+      "source_sha256": "aeec8e5f3ee85129",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Again, many nations will come from far away to the name of the Son of God, with gifts in their hands to offer as gifts to the King of heaven. Throughout generations upon generations [?], they will bless him with heartfelt rejoicing."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.12",
+      "source_sha256": "316df6fe10e5e901",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Everyone who hates you will be cursed, and everyone who loves you will be blessed forever."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.13",
+      "source_sha256": "f91d41cbad26ca64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Rejoice and celebrate over the children of the righteous."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.14",
+      "source_sha256": "dc31d3a3557d3ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Blessed are those who love you; they will rejoice over your peace. Blessed are those who grieved over all your afflictions, for they will rejoice over you when they see all your glory, and they will be glad forever."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.15",
+      "source_sha256": "cf2cb3e2f984b834",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "My soul, bless my God, the great King of heaven and earth."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.16",
+      "source_sha256": "ecde5666350e0ff7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For Jerusalem will be built with sapphire stone, and your walls with precious stone, and your towers and battlements with pure gold."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.17",
+      "source_sha256": "fbafa6221acf43a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Your gates and your squares will be paved with beryl, ruby, and every kind of stone from Ophir."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.13.18",
+      "source_sha256": "bc37561eb8da1d32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "All her streets will say, “Hallelujah,” saying, “Blessed is God, who is exalted throughout all ages.”"
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.1",
+      "source_sha256": "78d169d32cec4305",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And Tobit finished giving thanks."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.2",
+      "source_sha256": "3c6ebf2b1a288544",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "He was fifty-eight years old when he lost his sight, and after eight years he regained his sight. He practiced charity and continued to fear God and give thanks to him."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.3",
+      "source_sha256": "972ea22c79b9f233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "He became very old and called his son and his six children. He said to him, “My son, take your children, for look, I have grown old and am close to departing."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.4",
+      "source_sha256": "03f2f32ffd516fc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Go, my son, to Media, for I believe what the prophet Jonah said about Nineveh: it will be destroyed. There will be greater peace in Media for a time, because our brothers will be scattered from the good land. Jerusalem will become deserted, and the house of God will be burned down within her, and she will remain a wilderness for a time."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.5",
+      "source_sha256": "95670185b74b3efe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Then God will again have mercy on her and bring them back into her, and bring them back into her, and rebuild the house as it was before, until the time of the age is completed. Again, after these things, they will return from captivity and rebuild Jerusalem in glory. The house of God will be built within her for all generations forever, as a splendid building, just as the prophets said."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.6",
+      "source_sha256": "f2c2e6caab4bd60f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "All the nations will turn in truth to fear the Lord God, and they will bury their idols."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.7",
+      "source_sha256": "317b0a5cc6c23952",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "All the nations will bless the Lord, and his people will give thanks to God, and his people will bless the Lord. The Lord will exalt his people, and everyone who has loved the Lord God in truth and righteousness, showing mercy to their brothers, will rejoice."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.8",
+      "source_sha256": "24c5c4d6a04d01e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Now then, my son, flee from Nineveh, for all the things the prophets said will surely [?] come to pass."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.9",
+      "source_sha256": "12185ce5e6920d5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But you, my son, keep God's law and his commandments, and be merciful and righteous, so that good may come to you."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.10",
+      "source_sha256": "31885544f788baff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Bury me properly, and bury your mother with me, and do not continue living in Nineveh. My son, see what Adar did to Ahikar, who had raised him, how he brought him out of the light into darkness. God saved Ahikar, but repaid that man with retribution, and it was he who went down into darkness. Manasseh showed mercy and escaped the death trap that Ada had set for him, but Adas himself fell into the trap and died."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.11",
+      "source_sha256": "aed43825f0cc3707",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Now then, my children, consider what mercy does, and whom righteousness saves.” While saying these words, he died on his bed. He was one hundred fifty-eight years old, and they buried him with honor."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.12",
+      "source_sha256": "58ff2698189037ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "When Anna also died, he buried her beside his father. Tobias went with his wife and his children up to Ecbatana, to Raguel, his father-in-law."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.13",
+      "source_sha256": "e010f386d3b5e043",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "He grew old, reaching a good old age. His parents-in-law were buried with honor, and he inherited their property as well as that of his father Tobit."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.14",
+      "source_sha256": "acf670b49b6d6432",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "Tobias himself also died, at the age of one hundred and seventy, in Ecbatana in Media."
+    },
+    {
+      "chunk_id": "coptic-nt/tob#Tob.14.15",
+      "source_sha256": "73ebd5b027f64b2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "Before he died, he heard about the destruction of Nineveh, which Nebuchadnezzar and Ahasuerus had captured. They had marched against Nineveh."
     }
   ]
 }

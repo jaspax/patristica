@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -27,11 +33,74 @@
       "text": "Grace to you and peace from God our Father and from the Lord Jesus Christ."
     },
     {
+      "chunk_id": "armenian/2thess#2Thess.1.3",
+      "source_sha256": "c45f50cf42f9e486",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We must always thank God for you, brothers, as is fitting, because your faith is growing more and more, and the love each of you has for one another is increasing."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.4",
+      "source_sha256": "c21ec6fd397f3370",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So that we [?] boast about you in the churches of God because of your endurance and faith amid all your persecutions and the afflictions you endure."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.5",
+      "source_sha256": "27c8305bb2bacba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is evidence of God's righteous judgment, that you may be considered worthy of the kingdom of God, for which you also bear this suffering."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.6",
+      "source_sha256": "073aa2ec3d170418",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is right before God to repay those who afflict you with affliction,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.7",
+      "source_sha256": "f26beeba7a20f1cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to give you who are afflicted relief with us when our Lord Jesus is revealed from heaven with his mighty angels,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.8",
+      "source_sha256": "a0c14a6104f50d11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in flaming fire, taking vengeance on those who do not know God and those who do not obey the gospel of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.9",
+      "source_sha256": "426f0e630f61cefb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They will pay the penalty of eternal destruction, away from the presence of the Lord and the glory of his power."
+    },
+    {
       "chunk_id": "armenian/2thess#2Thess.1.10",
       "source_sha256": "92b5b2a4c6a427cc",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "When he comes on that day to be glorified among his saints and marveled at among all who have believed, because our testimony was believed among you."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.11",
+      "source_sha256": "e6c09b433eb053b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this we also pray for you at all times, that God may make you worthy of your calling and bring every desire for goodness and every work of faith to fulfillment by his power,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.1.12",
+      "source_sha256": "a433005c0dfd269d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that the name of our Lord Jesus Christ may be glorified in you, and you in him, according to the grace of our God and the Lord Jesus Christ."
     },
     {
       "chunk_id": "armenian/2thess#2Thess.2.1",
@@ -48,11 +117,130 @@
       "text": "Do not be quickly shaken in your minds or alarmed, whether by a spirit, a spoken message, or letters supposedly from us, as though the day of the Lord had already arrived."
     },
     {
+      "chunk_id": "armenian/2thess#2Thess.2.3",
+      "source_sha256": "885ce4ad132cfcd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one deceive you in any way, for unless the rebellion comes first and the man of lawlessness is revealed, the son of destruction,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.4",
+      "source_sha256": "b8379e711212c488",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the adversary who exalts himself above everything called God or worshiped, so that he sits in the temple of God and presents himself as God."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.5",
+      "source_sha256": "88d6c22d8325bcf1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you not remember that when I was still with you, I told you these things?"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.6",
+      "source_sha256": "fd44a65efbef713a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now you yourselves know what restrains him, so that he may be revealed in his own time."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.7",
+      "source_sha256": "16eeac83c519016a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the mystery of lawlessness is already at work, but only until the one who now restrains it is removed from the midst."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.8",
+      "source_sha256": "976d0c6a82a935e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And then the lawless one will be revealed, whom the Lord Jesus will destroy with the breath of his mouth and bring to nothing by the manifestation of his coming."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.9",
+      "source_sha256": "05440dbd23707bcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "His coming is through the activity of Satan, with every kind of power, signs, and false wonders,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.10",
+      "source_sha256": "5b195d2b93624bb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and every unrighteous deception directed at those who are perishing, because they did not accept the love of the truth so that they might be saved. For this reason God will send them the working of delusion, so that they believe the lie,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.11",
+      "source_sha256": "8e4fe66e2f4a790b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that all who did not believe the truth but took pleasure in lawlessness may be condemned."
+    },
+    {
       "chunk_id": "armenian/2thess#2Thess.2.12",
       "source_sha256": "71c9fd7ac739b92e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "But we must always thank God for you, brothers loved by the Lord, because God chose us from the beginning for salvation through sanctification by the Spirit and faith in the truth."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.13",
+      "source_sha256": "694b4df6758969b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To this he also called you through our gospel, for the salvation of the glory of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.14",
+      "source_sha256": "21968322e9d2147f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, brothers, stand firm and hold fast to the traditions you learned, whether through our spoken word or our letter."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.15",
+      "source_sha256": "4e4d9775ed777e5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now may our Lord Jesus Christ himself, and God our Father, who loved us and gave us eternal comfort and good hope through grace,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.2.16",
+      "source_sha256": "e4fb6e78580547ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "comfort your hearts and strengthen you in every good word and deed."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.1",
+      "source_sha256": "4bbb7bddba5dafda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Finally, brothers, pray for us, that the word of the Lord may spread and be glorified everywhere, as it has among you,"
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.2",
+      "source_sha256": "5980d42a5bfa9bd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and that we may be delivered from lawless and wicked people, for not everyone has faith."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.3",
+      "source_sha256": "1ce683519c80288a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the Lord is faithful, and he will strengthen you and protect you from evil."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.4",
+      "source_sha256": "ebde6c1b8c8dd626",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "We are confident in the Lord concerning you that you both do and will do what we commanded you."
     },
     {
       "chunk_id": "armenian/2thess#2Thess.3.5",
@@ -69,11 +257,88 @@
       "text": "I command you, brothers, in the name of our Lord Jesus Christ, to keep away from every brother who lives in a disorderly way and not according to the tradition you received from us."
     },
     {
+      "chunk_id": "armenian/2thess#2Thess.3.7",
+      "source_sha256": "a1aae7966fcd2c27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "For you yourselves know how you ought to imitate us, because we never behaved in a disorderly way among you."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.8",
+      "source_sha256": "fbc2641bba722aca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Nor did we eat anyone’s bread without paying for it, but with toil and labor we worked night and day so that we would not burden any of you."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.9",
+      "source_sha256": "71aa1fb282fee88e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Not that we did not have the right, but so that we might make ourselves an example for you to imitate."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.10",
+      "source_sha256": "7609b66c74fce13f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "For even when we were with you, we gave you this command: If anyone is unwilling to work, neither should he eat."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.11",
+      "source_sha256": "50de8a8d8c4ab7bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Now we hear that some among you live in a disorderly way, doing no work but idly going about meddling in others’ affairs."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.12",
+      "source_sha256": "a22578d56ca1441e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Such people we command and urge in the Lord Jesus Christ to work quietly and eat their own bread."
+    },
+    {
       "chunk_id": "armenian/2thess#2Thess.3.13",
       "source_sha256": "0d592478fe1df498",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "But you, brothers, do not grow weary of doing good."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.14",
+      "source_sha256": "ec6ecc7be7018f73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "But if anyone does not obey our word in this letter, take note of him and do not associate with him, so that he may be ashamed."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.15",
+      "source_sha256": "7226086314c598bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "But do not regard him as an enemy; rather, admonish him as a brother."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.16",
+      "source_sha256": "84c0a22c6cc5004f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "May the Lord of peace himself give you peace at all times and in all circumstances. The Lord be with all of you."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.17",
+      "source_sha256": "930790ce3c35878b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "This greeting is in my own hand, Paul’s. This is the identifying mark in every letter; this is how I write."
+    },
+    {
+      "chunk_id": "armenian/2thess#2Thess.3.18",
+      "source_sha256": "02b222cc9e3fdda3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "The grace of our Lord Jesus Christ be with all of you. The second letter to the Thessalonians was written from Athens."
     }
   ]
 }

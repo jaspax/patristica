@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -20,6 +26,20 @@
       "text": "James, a servant of God and of our Lord Jesus Christ, to the twelve tribes scattered among the nations: Greetings."
     },
     {
+      "chunk_id": "pta-peshitta/jas#Jas.1.2",
+      "source_sha256": "bf55342f69b74482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers, let it be pure joy for you when you encounter many different trials."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.3",
+      "source_sha256": "98fc8d6a40ad4a2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you know that the testing of faith produces endurance in you."
+    },
+    {
       "chunk_id": "pta-peshitta/jas#Jas.1.4",
       "source_sha256": "ee73b359ef2d0bab",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -27,11 +47,228 @@
       "text": "But let endurance complete its work, so that you may be mature and complete, lacking nothing."
     },
     {
+      "chunk_id": "pta-peshitta/jas#Jas.1.5",
+      "source_sha256": "6f81bbd1ed8beea2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if any of you lacks wisdom, let him ask God, who gives generously to everyone without reproach, and it will be given to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.6",
+      "source_sha256": "adde29dd5fe88435",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But let him ask in faith, without doubting. For someone who doubts is like the waves of the sea stirred up by the wind."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.7",
+      "source_sha256": "6a675e63216c40d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That person should not expect to receive anything from the Lord—"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.8",
+      "source_sha256": "a7c2d14804870cef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "someone whose mind is divided and who is unstable in all his ways."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.9",
+      "source_sha256": "75de0cb146a2b8a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the lowly brother boast in his exaltation,"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.10",
+      "source_sha256": "b8b38971355a1349",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the rich man in his humiliation, because he will pass away like a flower of the grass."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.11",
+      "source_sha256": "a40a29915acef34c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the sun rises with its heat and dries up the grass. Its flower falls, and its beautiful appearance perishes. In the same way, the rich man also withers amid his pursuits."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.12",
+      "source_sha256": "075ed08a41be4e92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the man who endures trials, because when he has been tested, he will receive the crown of life that God has promised to those who love him."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.13",
+      "source_sha256": "0cf50603fd43d07f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one say when he is tempted, “I am being tempted by God.” For God is not tempted by evil, and he himself tempts no one."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.14",
+      "source_sha256": "693d0a206ab6bcfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, each person is tempted by his own desire, enticed and drawn away."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.15",
+      "source_sha256": "bc9883dbd0148a1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This desire conceives and gives birth to sin, and sin, when it has fully developed, gives birth to death."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.16",
+      "source_sha256": "3d7aaa06dbee6f81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be led astray, my beloved brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.17",
+      "source_sha256": "3464e5321c0e6317",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every good and perfect gift comes down from above, from the Father of lights, with whom there is no change at all, nor any shadow of turning."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.18",
+      "source_sha256": "af0b4975fcfadb55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He himself chose to give us birth through the word of truth, so that we might be the firstfruits of his creatures."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.19",
+      "source_sha256": "1e65fd03ce75a438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you, my beloved brothers, let each of you be quick to listen, slow to speak, and slow to become angry."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.20",
+      "source_sha256": "7204fa1a979c187b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For human anger does not produce the righteousness of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.21",
+      "source_sha256": "cb2525ca80c59b2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, put away from yourselves all filth and the abundance of wickedness, and humbly receive the word planted in our nature, which is able to save your souls."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.22",
+      "source_sha256": "ad4e295552969639",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But be people who do what the word says, not merely people who hear it, and do not deceive yourselves."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.23",
+      "source_sha256": "3ae7dd91078f79e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if someone hears the word but does not do what it says, he is like someone who looks at his face in a mirror."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.24",
+      "source_sha256": "e722e3c47e90c4d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he looks at himself, goes away, and forgets what he looked like."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.25",
+      "source_sha256": "31cb74b4970caaef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But anyone who looks closely into the perfect law of freedom and continues in it is not a listener who forgets what he hears, but someone who acts on it. This person will be blessed in what he does."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.26",
+      "source_sha256": "f873a599e41c8018",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone thinks he serves God but does not control his tongue, and his heart deceives him, that person's service is empty."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.1.27",
+      "source_sha256": "5e70368274a673ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For pure and holy service before God the Father is this: to care for orphans and widows in their distress, and to keep oneself unstained by the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.1",
+      "source_sha256": "bad3126c3bd25f76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "My brothers and sisters, do not hold to faith in the glory of our Lord Jesus Christ while showing favoritism."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.2",
+      "source_sha256": "7a3df53f4bee4688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For if someone enters your assembly wearing gold rings or fine clothes, and a poor person enters in filthy clothes,"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.3",
+      "source_sha256": "985f6f8f6ebba699",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and you pay attention to the one wearing fine clothes and say, “Sit here in a good place,” but say to the poor person, “Stand over there,” or, “Sit here in front of our footstool,”"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.4",
+      "source_sha256": "a546bd8137e29600",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "have you not made distinctions among yourselves and become judges with evil thoughts?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.5",
+      "source_sha256": "4d7fbc37ee0be02e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Listen, my beloved brothers and sisters. Has not God chosen those who are poor in the world but rich in faith to be heirs of the kingdom that God promised to those who love him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.6",
+      "source_sha256": "0d0ae86c16a51ee8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But you have dishonored the poor person. Is it not the rich who oppress you and drag you into court?"
+    },
+    {
       "chunk_id": "pta-peshitta/jas#Jas.2.7",
       "source_sha256": "e84f71bfde0652aa",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Are they not the ones who blaspheme the good name that has been invoked over you?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.8",
+      "source_sha256": "9e61a43228216725",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And if in this you fulfill God's law, as it is written, “Love your neighbor as yourself,” you are doing well."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.9",
+      "source_sha256": "220666a8e36aba36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But if you show favoritism, you are committing sin and are convicted by the law as lawbreakers."
     },
     {
       "chunk_id": "pta-peshitta/jas#Jas.2.10",
@@ -48,11 +285,151 @@
       "text": "For the one who said, “Do not commit adultery,” also said, “Do not murder.” If you do not commit adultery but do murder, you have become a lawbreaker."
     },
     {
+      "chunk_id": "pta-peshitta/jas#Jas.2.12",
+      "source_sha256": "f91d22770b9cf525",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Speak and act as people who are going to be judged by the law of freedom."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.13",
+      "source_sha256": "59d01ffbbf410a91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For judgment is without mercy toward anyone who does not show mercy. Through mercy you triumph over judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.14",
+      "source_sha256": "20c8a71f04afd17a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "What good is it, my brothers and sisters, if someone says, “I have faith,” but has no deeds? Can that person's faith save them?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.15",
+      "source_sha256": "16d2f2f83d70c6d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If a brother or sister is naked and lacks daily food,"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.16",
+      "source_sha256": "05ae2d989d3a7a0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and one of you says to them, “Go in peace; keep warm and eat your fill,” but you do not give them what their bodies need, what good is it?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.17",
+      "source_sha256": "b0ac437abc6eea5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "So also faith without deeds is dead by itself."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.18",
+      "source_sha256": "7145bce9aac0050c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For someone says, “You have faith, and I have deeds.” Show me your faith without deeds, and I will show you my faith by my deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.19",
+      "source_sha256": "cdf33683c6281898",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You believe that God is one. You do well. Even the demons believe and tremble."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.20",
+      "source_sha256": "36e2049e445cae7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But do you want to know, you weak person, that faith without deeds is dead?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.21",
+      "source_sha256": "1f4ffe964c822791",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Was not our father Abraham justified by deeds when he offered his son Isaac on the altar?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.22",
+      "source_sha256": "b6c8f737cb0c4067",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You see that his faith helped his deeds, and through deeds his faith was made complete."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.23",
+      "source_sha256": "54bfe7bbe209ec58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And the Scripture was fulfilled that says, “Abraham believed God, and it was credited to him as righteousness,” and he was called God's friend."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.24",
+      "source_sha256": "60be370bfc37aee0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You see that a person is justified by deeds and not by faith alone."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.25",
+      "source_sha256": "cc3ac9e60d0bfc28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Likewise, was not Rahab the prostitute also justified by deeds when she welcomed the spies and sent them out by another way?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.2.26",
+      "source_sha256": "eb698443c2e0eb09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Just as the body without the spirit is dead, so also faith without deeds is dead."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.1",
+      "source_sha256": "20b2e2a31d94e91a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Not many of you should become teachers, my brothers and sisters. Rather, know that we are subject to stricter judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.2",
+      "source_sha256": "1422a79492b56607",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For we all stumble in many ways. Anyone who does not stumble in speech is a mature person, able to control his whole body as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.3",
+      "source_sha256": "5015c84b91313793",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For look, we put bits into horses’ mouths so that they will obey us, and we turn their whole bodies."
+    },
+    {
       "chunk_id": "pta-peshitta/jas#Jas.3.4",
       "source_sha256": "65e48f255fbc0ea4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Even mighty ships, driven by fierce winds, are steered by a small rudder wherever the person steering them wishes."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.5",
+      "source_sha256": "d61e8d45b47e155e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "So too the tongue is a small part of the body, yet it boasts. Even a small fire burns up great forests."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.6",
+      "source_sha256": "8d0738ce2e330177",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The tongue is a fire, and the world of sin is like a forest. The tongue, situated among our body parts, stains our whole body. It sets fire to the successive courses of our generations, which run like wheels, and it too burns in the fire."
     },
     {
       "chunk_id": "pta-peshitta/jas#Jas.3.7",
@@ -62,6 +439,230 @@
       "text": "For all kinds of animals and birds, and creatures that move about in the sea and on dry land, are brought under human control."
     },
     {
+      "chunk_id": "pta-peshitta/jas#Jas.3.8",
+      "source_sha256": "789fdb57ac0c4a4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But no one has been able to tame the tongue. It is an evil that cannot be controlled. It is full of deadly poison."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.9",
+      "source_sha256": "18f43560eb061a48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "With it we bless the Lord and Father, and with it we curse human beings who are made in God’s likeness."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.10",
+      "source_sha256": "b374142bd0869745",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Blessings and curses come out of the same mouth. My brothers, these things should not happen this way."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.11",
+      "source_sha256": "34774ef66f11bfb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Can sweet and bitter water come out of a single spring?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.12",
+      "source_sha256": "db4c4e79e0146913",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Or can a fig tree, my brothers, produce olives, or a grapevine figs? In the same way, salt water cannot become sweet."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.13",
+      "source_sha256": "a451e1837ccabefd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Who among you is wise and well instructed? Let him show his deeds through good conduct, with humble wisdom."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.14",
+      "source_sha256": "a44cd9f41d0d5e72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But if you have bitter envy within you, or rivalry in your hearts, do not boast against the truth and lie."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.15",
+      "source_sha256": "d210caf7d2ebfcdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this wisdom has not come down from above. Rather, it is earthly, coming from the thoughts of the soul and from demons."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.16",
+      "source_sha256": "a31b840f909fc30d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For where there are envy and rivalry, there are also disorder and every evil thing."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.17",
+      "source_sha256": "3ed8e4de4d2c2e5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But the wisdom from above is pure and full of peace, gentle and willing to listen, full of mercy and good fruits. It is free from doubt and shows no favoritism."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.3.18",
+      "source_sha256": "0d2cf16cd349e4fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The fruits of righteousness are sown in peace for those who make peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.1",
+      "source_sha256": "47c4d57d81ca03ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Where do the battles and quarrels among you come from? Is it not from the desires that wage war in your bodies?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.2",
+      "source_sha256": "b719e7e60f2534d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You desire and do not have. You kill and are jealous, yet you cannot obtain what you want. You quarrel and wage war, yet you do not have, because you do not ask."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.3",
+      "source_sha256": "b6a40da3582902c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You ask and do not receive, because you ask with evil intentions, so that you may feed your desires."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.4",
+      "source_sha256": "8ed32b82f8185028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You adulterers! Do you not know that friendship with this world is hostility toward God? Therefore, anyone who wants to be a friend of this world becomes an enemy of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.5",
+      "source_sha256": "4b3763262326cb8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Or do you think that Scripture speaks in vain when it says, “The spirit that lives in us longs jealously”?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.6",
+      "source_sha256": "bc8f97959bb97821",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But our Lord has given us greater grace. Therefore he said, “God humbles the proud and gives grace to the humble.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.7",
+      "source_sha256": "12fc924cee31e2fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore submit to God. Stand against Satan, and he will flee from you."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.8",
+      "source_sha256": "a8ead5c77d4bd881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Draw near to God, and he will draw near to you. Cleanse your hands, you sinners! Make your hearts holy, you who are divided in mind!"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.9",
+      "source_sha256": "c81b535af23a9117",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Humble yourselves and mourn. Let your laughter turn to mourning and your joy to sorrow."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.10",
+      "source_sha256": "2679a83b34f6d404",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Humble yourselves before the Lord, and he will lift you up."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.11",
+      "source_sha256": "792c3d0501938159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Do not speak against one another, my brothers. For whoever speaks against his brother or judges his brother speaks against the law and judges the law. And if you judge the law, you are not someone who obeys the law, but its judge."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.12",
+      "source_sha256": "f0ec11875e032e7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "There is one lawgiver and judge, who is able to save and destroy. But who are you to judge your neighbor?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.13",
+      "source_sha256": "d72929b3fea0572f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And what shall we also say about those who say, “Today or tomorrow we will go to such and such a city, spend a year there, trade, and make a profit”?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.14",
+      "source_sha256": "515d628bbb278782",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "They do not know what will happen tomorrow. For what are our lives but a vapor that appears for a little while, then vanishes and disappears?"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.15",
+      "source_sha256": "943be86b1ff31472",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Instead of saying, “If the Lord wills and we live, we will do this or that,”"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.16",
+      "source_sha256": "64672a6e3ad1c517",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "they boast in their arrogance. All such boasting is evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.4.17",
+      "source_sha256": "41dcdf24787a5332",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Anyone who knows what is good and does not do it is guilty of sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.1",
+      "source_sha256": "ecbb49e214713f42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You rich people, wail and weep over the miseries coming upon you."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.2",
+      "source_sha256": "55c5972cdd3436df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For your wealth has decayed and rotted, and your clothes have been eaten by moths."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.3",
+      "source_sha256": "27d6ee85a3d342aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Your gold and silver have corroded, and their corrosion will be a witness against you. It will eat your flesh. You have stored up fire for yourselves for the last days."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.4",
+      "source_sha256": "35b2b2e2c8ef500c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Look! The wages you withheld from the workers who harvested your fields are crying out, and the outcry of the harvesters has reached the ears of the Lord of hosts."
+    },
+    {
       "chunk_id": "pta-peshitta/jas#Jas.5.5",
       "source_sha256": "e16e5d3c001e2d4d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -69,11 +670,109 @@
       "text": "For you have lived in pleasure on the earth and indulged yourselves. You have fed your bodies as if for a day of slaughter."
     },
     {
+      "chunk_id": "pta-peshitta/jas#Jas.5.6",
+      "source_sha256": "be9bbdd75d2df2c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You condemned and killed the righteous man, and he did not resist you."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.7",
+      "source_sha256": "1b3cd8595778f2f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But you, my brothers, be patient until the coming of the Lord, like the farmer who waits for the precious crops of his land and is patient over them until he receives the early and late rains."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.8",
+      "source_sha256": "3ab013e00e0d227a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "In the same way, you too must be patient and strengthen your hearts, for the coming of our Lord is near."
+    },
+    {
       "chunk_id": "pta-peshitta/jas#Jas.5.9",
       "source_sha256": "5011d26206516235",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Do not grumble against one another, my brothers, so that you will not be judged. For look, the Judge is standing at the door."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.10",
+      "source_sha256": "f4b22c60a4436d17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "My brothers, take the prophets who spoke in the name of the Lord as your example of patience in your afflictions."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.11",
+      "source_sha256": "0f6082ee7f8f6dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For look, we call those who endured blessed. You have heard of Job’s endurance and have seen the outcome the Lord brought about for him, because the Lord is merciful and compassionate."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.12",
+      "source_sha256": "d617f6416abbaac7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But above all, my brothers, do not swear, either by heaven or by earth or by any other oath. Instead, let your words be “Yes, yes” and “No, no,” so that you do not fall under condemnation."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.13",
+      "source_sha256": "156ef0a44ea72a79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If anyone among you is suffering, let him pray. If he is happy, let him sing praises."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.14",
+      "source_sha256": "a029da5e973b98d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If he is sick, let him call for the elders of the church, and let them pray over him and anoint him with oil in the name of our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.15",
+      "source_sha256": "1963c7a51696204e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The prayer of faith will heal the sick person, and our Lord will raise him up. And if he has committed sins, they will be forgiven him."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.16",
+      "source_sha256": "4084308161f05d05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Confess your faults to one another, and pray for one another so that you may be healed. For great is the power of the prayer that a righteous person prays."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.17",
+      "source_sha256": "0e52aabd62c36ba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Elijah too was a human being subject to suffering like us. He prayed that rain would not fall on the earth, and it did not fall for three years and six months."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.18",
+      "source_sha256": "c1f2e2fa56bb3e18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He prayed again, and the heavens gave rain, and the earth produced its fruit."
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.19",
+      "source_sha256": "b3d85049bcca3cb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 2,
+      "text": "My brothers, if anyone among you strays from the way of truth, and someone turns him back from his error,"
+    },
+    {
+      "chunk_id": "pta-peshitta/jas#Jas.5.20",
+      "source_sha256": "1ee001a280f8b617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 2,
+      "text": "let him know that whoever turns a sinner back from his mistaken way saves his soul from death and covers a multitude of his sins."
     }
   ]
 }

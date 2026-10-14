@@ -9,15 +9,98 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.1",
+      "source_sha256": "caf7464fc23cc443",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How the city once full of people sits alone! She has become like a widow, she who was great among the nations. The foremost of cities has become subject to tribute."
+    },
     {
       "chunk_id": "pta-peshitta/lam#Lam.1.2",
       "source_sha256": "596b51b217395149",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "She wept in the night, and her tears ran down her cheeks. She has no comforter among all her lovers. All her friends betrayed her and became her enemies."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.3",
+      "source_sha256": "a7f85ef35e974f53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Judah has gone into exile because of oppression and heavy slavery. She lives among the nations and has found no rest for herself. All her pursuers have overtaken her amid distress."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.4",
+      "source_sha256": "763d7e005deb9e84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The roads to Zion mourn because no one comes to the festival. All her gates are deserted, and her priests groan. Her young women are humiliated, and she is in bitter sorrow."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.5",
+      "source_sha256": "7e750dd5201617f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her oppressors have become her masters, and her enemies are at ease, because the Lord has humbled her for her many sins. Her children have gone into captivity before the oppressor."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.6",
+      "source_sha256": "8baba03c9b5dd364",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All her splendor has departed from daughter Zion. Her princes have become like deer that find no pasture. They have gone away without strength before the pursuer."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.7",
+      "source_sha256": "1ecbf08741e8f33d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jerusalem remembered the days of her oppression and her punishment, and all the precious things she had in former days. When her people fell into the oppressor's hands, there was no one to help her. Her oppressors saw her and laughed at her ruin."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.8",
+      "source_sha256": "aae52de898c51ce8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jerusalem has sinned grievously; therefore she has become unclean. All who honored her have despised her because they have seen her nakedness. She too groaned and turned away."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.9",
+      "source_sha256": "57194747e6450111",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her uncleanness is on the hems of her clothing, and she did not consider her end. Her glory has sunk down, and she has no comforter. Look, Lord, at my oppression, for the enemy has risen high."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.10",
+      "source_sha256": "93e90c5c5e75c3ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The oppressor stretched out his hands over all her precious things. I saw nations enter your sanctuary, those whom you commanded not to enter your assembly."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.11",
+      "source_sha256": "8088dd4b81ce5d05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the people groan and search for bread. They have traded their precious things for food to restore their lives. Look, Lord, and see how despised I have become."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.12",
+      "source_sha256": "8a30088a6b1369b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May this not happen to you, all you who pass along the road! Consider and see whether there is any pain like my pain, which the Lord has brought upon me. The Lord humbled me on the day of his fierce anger."
     },
     {
       "chunk_id": "pta-peshitta/lam#Lam.1.13",
@@ -27,11 +110,333 @@
       "text": "From on high he sent fire into my bones and brought me down. He spread a net for my feet and turned me back. He left me desolate, and I am sick all day long."
     },
     {
+      "chunk_id": "pta-peshitta/lam#Lam.1.14",
+      "source_sha256": "448d2428e9bfc622",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My sins have risen up against me. By his hands his yokes have been fastened upon my neck, and my strength has failed. The Lord has handed me over to someone whose strength I cannot withstand."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.15",
+      "source_sha256": "195bf5519b5bdfe4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord has crushed all my mighty men within me. He called a festival against me to destroy my young warriors. The Lord has trodden the virgin daughter Judah as in a winepress."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.16",
+      "source_sha256": "e76d7ab1c84287be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For these things I weep, and my eyes stream with water, because a comforter who could restore my life is far from me. My children have become desolate because the enemy has grown strong."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.17",
+      "source_sha256": "78ea835b7d8391c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Zion has stretched out her hands, but she has no comforter. The Lord gave a command against Jacob, and his oppressors surrounded him. Jerusalem has become unclean among them."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.18",
+      "source_sha256": "17685eeddabdce87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord is righteous, for I have rebelled against him. Listen, all you nations, and see my pain. My young women and my young warriors have gone into captivity."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.19",
+      "source_sha256": "0238505863245ca1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I called to my friends, but they deceived me. My priests and my elders perished within, while searching for food to restore their lives, but they found none."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.20",
+      "source_sha256": "abb686b880d849ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, Lord, for I am in distress, and my inward parts are in turmoil. My heart is overturned within me because I have rebelled so grievously. Outside the sword has destroyed, and inside there is death."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.21",
+      "source_sha256": "95eab96bb98c8f1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hear how I groan, with no one to comfort me. All my enemies have heard of my calamity and rejoiced that you have done this to me. Bring the day you proclaimed, so that they may become like me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.1.22",
+      "source_sha256": "7ffd8b108728751a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let all their wickedness come before you. Strike them as you have struck me for all my sins, for my groans are many and my heart is sick."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.1",
+      "source_sha256": "68dcc2f6f1300aeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How the Lord in his anger has covered daughter Zion with a cloud! He has thrown the glory of Israel from heaven to earth. He did not remember his footstool on the day of his fierce anger."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.2",
+      "source_sha256": "2e1814056d175a03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord has engulfed all Jacob's dwelling place without pity. In his fury he has demolished the fortress of daughter Judah. He has thrown her slain—her kings and her princes—to the ground."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.3",
+      "source_sha256": "73276a38348ace25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In his fierce anger he has cut off every horn of Israel. He has withdrawn his right hand before the enemy. He has unleashed fire in Jacob, and the flame has consumed his hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.4",
+      "source_sha256": "85b82cfd041f1183",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He drew his bow like an oppressor and raised his right hand like an enemy. He killed everyone pleasing to the eye in the tent of daughter Zion. He poured out his anger like fire."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.5",
+      "source_sha256": "3093d4be63b82f45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord has become an enemy and has engulfed Israel. He has engulfed all his palaces and destroyed his fortresses. He has multiplied mourning and lamentation in daughter Judah."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.6",
+      "source_sha256": "8a1275fe8dce1005",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He uprooted her shelter like a garden and destroyed her festivals. The Lord made festivals and Sabbaths forgotten in Zion, and in his furious anger he rejected kings and priests."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.7",
+      "source_sha256": "cb395f11f2dda3d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord forgot his sanctuary and rejected his altar. He handed over the walls of his courts to the enemy. They raised a shout in the Lord’s house as on a festival day."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.8",
+      "source_sha256": "2992d862fd05da35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord planned to destroy the walls of Daughter Zion. He stretched out a measuring line and did not withdraw his hand from engulfing her. He made her ramparts mourn, and her walls became desolate together."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.9",
+      "source_sha256": "1a2c1ef057b21777",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her gates sank into the ground. Her bars were destroyed and broken. Her kings and officials are among the nations. There is no law, and her prophets have found no vision from the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.10",
+      "source_sha256": "f4c2fdb4b85885d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The elders of Daughter Zion sat on the ground in silence. They put dust on their heads and wrapped themselves in sackcloth. The young women of Jerusalem bowed their heads to the ground."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.11",
+      "source_sha256": "9dbdfea075f38198",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My eyes grew dim with tears, and my insides were in turmoil. My honor was brought down to the ground because of the ruin of the daughter of my people, as children and infants fainted in the city’s streets."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.12",
+      "source_sha256": "c854012b75018e8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They say to their mothers, “Where are grain, wine, and oil?” They faint like the slain in the city’s streets, as their lives pour away in their mothers’ arms."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.13",
+      "source_sha256": "0cb461738a820a66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What can I testify to you? To whom can I compare you, Daughter Jerusalem? What can I liken to you to comfort you, virgin Daughter Zion? Your ruin is as vast as the sea. Who can bind up your wound?"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.14",
+      "source_sha256": "195fa3bee0658b0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your prophets saw falsehood and deception for you. They did not expose your sins to you so that you might repent and I might restore your captives. They saw false and misleading prophecies for you."
+    },
+    {
       "chunk_id": "pta-peshitta/lam#Lam.2.15",
       "source_sha256": "c399450e2fa56036",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "All who pass along the road clap their hands at you. They hiss and shake their heads at the daughter of Jerusalem and say, “Is this the city they called perfect in beauty and the joy of the whole earth?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.16",
+      "source_sha256": "2262762259100c41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All your enemies opened their mouths against you. They hissed and ground their teeth, saying, “We have swallowed her up! This is indeed the day we waited for! We have found it; we have seen it!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.17",
+      "source_sha256": "bf99e46c4124ab11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord did what he planned and fulfilled his word, as he commanded long ago. He overthrew her without pity. He made your enemies rejoice over you and raised the horn of your oppressors."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.18",
+      "source_sha256": "50e649eee12c473b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their hearts cried out to the Lord of the walls of Daughter Zion. Let tears stream down like a torrent, day and night. Give yourself no relief, and do not let the pupil of your eye rest."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.19",
+      "source_sha256": "decd1cf2b399312d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rise and offer praise in the night, at the beginning of the watch. Pour out your heart like water before the Lord. Lift your hands to him for the lives of your infants, who faint from hunger at the head of every street."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.20",
+      "source_sha256": "6fa8c0ef7a4917db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, Lord, and consider whom you have treated this way! Should women eat their own offspring, the infants they cradle? Should priest and prophet be killed in the Lord’s sanctuary?"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.21",
+      "source_sha256": "920ffc9e388000c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Young and old lay on the ground in the streets. My young women and my warriors fell by the sword. You killed on the day of your anger; you slaughtered without pity."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.2.22",
+      "source_sha256": "046a4af54643ac6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You summoned my enemies from all around me, as on a festival day. On the day of the Lord’s anger, no one escaped or survived. Those I carried and raised, my enemies destroyed."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.1",
+      "source_sha256": "516e937c9185a205",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] A mighty man sees my oppression under the rod of his anger."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.2",
+      "source_sha256": "c1a10f629ffe30f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He led me and made me walk in darkness, not in light."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.3",
+      "source_sha256": "b4473f64f69109a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, he turns his hand against me again and again, all day long."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.4",
+      "source_sha256": "fb98d14a471be425",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wore out my skin and my flesh and broke my bones."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.5",
+      "source_sha256": "460b9c95645da289",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He built against me and surrounded me with rebellion and ruin."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.6",
+      "source_sha256": "4a6a910d4545c1b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made me dwell in darkness, like someone dead forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.7",
+      "source_sha256": "cac7a6aa92294a4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He fenced me in so that I could not get out, and he strengthened my bonds."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.8",
+      "source_sha256": "4ff4849a788f6b2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even when I plead and pray, he does not hear my prayer."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.9",
+      "source_sha256": "519d2e34da63943a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He blocked my roads with thorns and twisted my paths."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.10",
+      "source_sha256": "a3d4f532ddc34606",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was a wolf lying in wait for me, and a lion in hiding."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.11",
+      "source_sha256": "7b414d759d8f640a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He twisted my paths, tore me apart, and consigned me to destruction."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.12",
+      "source_sha256": "02422f0c444330fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He drew his bow and set me up as a target for arrows."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.13",
+      "source_sha256": "292dfa25d44d7359",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, he drove his arrows into my kidneys."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.14",
+      "source_sha256": "7a6ba288bebdda1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I became a laughingstock among all the nations, and the subject of their songs all day long."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.15",
+      "source_sha256": "fca4f4e9247d9dc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He filled me with bitter things and made me drunk with wormwood."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.16",
+      "source_sha256": "a0b7ed911afff5bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He broke my teeth with stones and covered me with ashes."
     },
     {
       "chunk_id": "pta-peshitta/lam#Lam.3.17",
@@ -41,11 +446,214 @@
       "text": "My soul has been made to forget peace, and I have forgotten good things."
     },
     {
+      "chunk_id": "pta-peshitta/lam#Lam.3.18",
+      "source_sha256": "b02c524bd4ae75f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said, “My victories have perished, and so has my hope from the Lord.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.19",
+      "source_sha256": "77721594fa25d44e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember my oppression and my chastisement, the bitterness and the wormwood."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.20",
+      "source_sha256": "89a2141649bef5db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember, and restore my soul to me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.21",
+      "source_sha256": "2f083d8269c554bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will bring this to mind; therefore I will wait for him."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.22",
+      "source_sha256": "3eafb1e38ae24729",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord’s acts of kindness do not cease, and his compassion does not come to an end."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.23",
+      "source_sha256": "f510ed7cb5fd2f0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As morning comes again, great is your faithfulness, Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.24",
+      "source_sha256": "23802dededbf8604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My soul said, “He is my portion; therefore I will wait for him.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.25",
+      "source_sha256": "025d21d591417aba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord is good to whoever waits for him, and to the soul that seeks him."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.26",
+      "source_sha256": "63b600d7c3be550c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good for someone to hope faithfully for the Lord’s salvation."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.27",
+      "source_sha256": "11975522f5b3fd53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good for a man to bear your yoke in his youth."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.28",
+      "source_sha256": "c24fccbb5c358b5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let him sit alone and be silent, because he has taken your yoke upon himself."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.29",
+      "source_sha256": "f346023e07750d78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let him put his mouth in the dust, because there is hope."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.30",
+      "source_sha256": "315722eb322d3bef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let him offer his cheek to whoever strikes him, and let him be filled with disgrace."
+    },
+    {
       "chunk_id": "pta-peshitta/lam#Lam.3.31",
       "source_sha256": "02ad860559cdb7c0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "For the Lord will not neglect forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.32",
+      "source_sha256": "2e8fc9da11f7a6ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But he humbles and shows compassion according to the abundance of his mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.33",
+      "source_sha256": "df742cbc424650a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he does not willingly afflict or humble the children of mighty men."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.34",
+      "source_sha256": "e6a57218a461c1a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To crush beneath his feet all the prisoners of the earth,"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.35",
+      "source_sha256": "e99fafed36cd8779",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to pervert a man’s justice before the Most High,"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.36",
+      "source_sha256": "5d94631ad2a358d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to condemn a person in his lawsuit—the Lord does not approve."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.37",
+      "source_sha256": "0d4c16299e37583c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who has spoken and brought something about when the Lord has not commanded it?"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.38",
+      "source_sha256": "8fd16ef4600c230f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not both bad and good things come from the mouth of the Most High?"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.39",
+      "source_sha256": "2552224fee004f7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why does a living person brood, a man over his sins?"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.40",
+      "source_sha256": "63d6ba3fa7f62256",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us search and examine our ways and return to the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.41",
+      "source_sha256": "ce2baf28977efec9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let us lift our hearts upon our hands to God in heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.42",
+      "source_sha256": "63c0eb7e8be35b19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We have acted wickedly and provoked you, and you have not forgiven us."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.43",
+      "source_sha256": "3912beea3ab8b5fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You covered yourself in your anger and pursued us; you killed without pity."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.44",
+      "source_sha256": "085ea0406975331f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You covered yourself with your cloud and turned away our prayer."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.45",
+      "source_sha256": "8a6861296186f2a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have made us uprooted and despised among the nations."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.46",
+      "source_sha256": "29c017a81666ecc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All my enemies have opened their mouths against me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.47",
+      "source_sha256": "749579dd08f20393",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Terror and trembling have come upon us, a pit and destruction."
     },
     {
       "chunk_id": "pta-peshitta/lam#Lam.3.48",
@@ -55,11 +663,263 @@
       "text": "My eyes poured out drops of water over the destruction of the daughter of my people."
     },
     {
+      "chunk_id": "pta-peshitta/lam#Lam.3.49",
+      "source_sha256": "a4f6de8bbb71197a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My eye weeps without stopping, for there is no relief."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.50",
+      "source_sha256": "661e6c38c840aca6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Until the Lord looks down and sees from heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.51",
+      "source_sha256": "acaff183026d1ef1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My eye is distressed over my life because of all the daughters of my towns."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.52",
+      "source_sha256": "9d15210a90cb494c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My enemies hunted me like a bird, without cause."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.53",
+      "source_sha256": "cdccad0103226cca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They silenced my life in the pit; they threw stones at me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.54",
+      "source_sha256": "ed72b2f9500baa94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Waters rose above my head; I said, “I have been cast far away.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.55",
+      "source_sha256": "245ef8badfcc1a93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I called on your name, Lord, from the deepest pit."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.56",
+      "source_sha256": "9b20138f306006b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You heard my voice. Do not turn your ear away, but give me relief and save me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.57",
+      "source_sha256": "5f9ba4e10e2d10eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You came near on the day I called to you, and you said to me, “Do not be afraid.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.58",
+      "source_sha256": "d6c09674cd1a602e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord, you have pleaded my case and redeemed my life."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.59",
+      "source_sha256": "957646a51ac7b2c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have seen my humiliation, Lord; you have judged my case."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.60",
+      "source_sha256": "b6222f3073b5fac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have seen all their vengeance and everything they plotted against me."
+    },
+    {
       "chunk_id": "pta-peshitta/lam#Lam.3.61",
       "source_sha256": "7503c1b6062ced08",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "You have heard their insults, Lord, and everything they plotted against me."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.62",
+      "source_sha256": "becd788064e652d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lips rise up and mutter against me all day long."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.63",
+      "source_sha256": "e5a3f646c7f2b1db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have discerned their sitting down and their rising up from their muttering."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.64",
+      "source_sha256": "bf63f2920dc627fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Repay them, Lord, according to what their hands have done."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.65",
+      "source_sha256": "a8e689b1365c8230",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Give them sorrow of heart, and let your blow fall upon them."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.3.66",
+      "source_sha256": "d96d5fcbb1e98238",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pursue them, and in your anger destroy them from beneath your heavens, Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.1",
+      "source_sha256": "157456a007798102",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How fine gold has become worthless, and its beautiful color has changed! The stones of the sanctuary lie scattered at the head of every street."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.2",
+      "source_sha256": "41d8015610fc42ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The precious children of Zion, who were valued above precious stones—how they have come to be regarded as clay pots, the work of a potter’s hands!"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.3",
+      "source_sha256": "59869b8cc44627da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Like jackals, they bare their breasts and nurse their young. The daughter of my people has become a wound for which there is no healing, and like an ostrich in the wilderness."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.4",
+      "source_sha256": "1bd1ea66abb0712c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The infant’s tongue sticks to the roof of its mouth from thirst. Children ask for bread, but no one breaks any off and gives it to them."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.5",
+      "source_sha256": "8ec9e7c2e43dcc24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who used to eat delicacies now lie in the streets. Those brought up on scarlet now sleep on rubbish heaps."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.6",
+      "source_sha256": "13637376c9f921f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The guilt of the daughter of my people is greater than the sin of Sodom, which was overthrown suddenly, without hands laboring against it."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.7",
+      "source_sha256": "cf297ddc64458003",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her Nazirites were purer than snow and whiter than milk in their pastures. Their bones were redder than sardius, and their bodies redder than sapphire."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.8",
+      "source_sha256": "8fbb8a857d373d34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their appearance has become darker than soot, and they are not recognized in the streets. Their skin has shriveled over their bones; it has dried up and become like wood."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.9",
+      "source_sha256": "78a642f9dccb192b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those killed by the sword were better off than those killed by hunger, who wasted away like those struck down and left lying in the fields."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.10",
+      "source_sha256": "38d4d2f81d079352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The hands of compassionate women cooked their own children. They became their food during the destruction of the daughter of my people."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.11",
+      "source_sha256": "1ae25c7a4bc21a6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord has fully unleashed his fury and poured out his fierce anger. He set fire to Zion, and it consumed her foundations."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.12",
+      "source_sha256": "ad87ef1bf5ce9b18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The kings of the earth and all the inhabitants of the world did not believe that an enemy and oppressor would come and enter the gates of Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.13",
+      "source_sha256": "8bf3cb54b9730324",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was because of the sins of her prophets and the wrongdoing of her priests, who shed the blood of the righteous within her."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.14",
+      "source_sha256": "c3f311b69aaac3f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Her nobles wandered through her streets, stained with blood, so that no one could touch their clothes."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.15",
+      "source_sha256": "4cb363edcce0cad4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Keep away from them!” They called them unclean. “Go away, go away! Do not come near them!” For they trembled and were driven about. Among the nations people said, “They shall no longer live here.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.16",
+      "source_sha256": "b9ad414a1d4d0fa2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Lord’s presence has scattered them, and he will no longer look upon them. They showed no respect for priests and no compassion for the elderly."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.17",
+      "source_sha256": "63fb23e4e4def7e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "While we were still standing, our eyes grew dim waiting for help. In vain our lookouts watched for a nation that could not save."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.18",
+      "source_sha256": "7f0f24f81fb307b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They hunted our little children as they walked in the street. Our end drew near; our days were completed, for our time had come."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.19",
+      "source_sha256": "76146a6362ba219a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Our pursuers were swifter than the eagles of the sky. They chased us over the mountains and lay in ambush for us in the wilderness."
     },
     {
       "chunk_id": "pta-peshitta/lam#Lam.4.20",
@@ -69,11 +929,172 @@
       "text": "The breath of our nostrils, the Lord’s anointed, was caught in their pit—the one of whom we said, “In his shadow we will live among the nations.”"
     },
     {
+      "chunk_id": "pta-peshitta/lam#Lam.4.21",
+      "source_sha256": "988a97f6ba27226b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rejoice and be glad, daughter Edom, who lives in the land of Uz! The cup will reach you too, so that you will grow sick and be thrown into turmoil."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.4.22",
+      "source_sha256": "e4e1194fcd9fa042",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your sins have come to an end, daughter Zion; he will not exile you again. Your offenses have been called to account, daughter Edom; your sins have been exposed."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.1",
+      "source_sha256": "d2db4fbed251449b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember, Lord, what has happened to us. Look and see our disgrace."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.2",
+      "source_sha256": "4efe5d74a76b55f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Our inheritance has passed to strangers, and our houses to foreigners."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.3",
+      "source_sha256": "3c11e57904d90497",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "We have become orphans without a father, and our mothers are like widows."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.4",
+      "source_sha256": "22f3d7801d76be7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "We drink our water for money, and our wood comes at a price."
+    },
+    {
       "chunk_id": "pta-peshitta/lam#Lam.5.5",
       "source_sha256": "fee979886854625f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "We were pursued, with our pursuers at our necks; we grew weary and had no rest."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.6",
+      "source_sha256": "0a24135629a0db14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "The Egyptians and Assyrians gave a helping hand so that we could have enough bread."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.7",
+      "source_sha256": "820a7484e78f94af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Our fathers sinned and are no more, and we bear their sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.8",
+      "source_sha256": "f1b4d2e04fc2d7fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Slaves rule over us, and there is no one to rescue us from their hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.9",
+      "source_sha256": "1eeba918c68c659c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "We bring in bread at the risk of our lives because of the sword in the wilderness."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.10",
+      "source_sha256": "11329e2dc163201a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Our skin has shriveled as though from an oven and has turned dark because of the torment of hunger."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.11",
+      "source_sha256": "1871bf3d08e94b57",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "They raped women in Zion and virgins in the towns of Judah."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.12",
+      "source_sha256": "321f6c597507dad1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Princes were hung by their hands, and elders were shown no respect."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.13",
+      "source_sha256": "9588158a66045f31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Young men ground at the mill, and youths stumbled under loads of wood."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.14",
+      "source_sha256": "f2dab8c49eacece0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "The elders have ceased gathering at the gate, and the young men have ceased their rejoicing."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.15",
+      "source_sha256": "4db762371f97fac3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "The joy of our hearts has ceased; our rejoicing has turned to mourning."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.16",
+      "source_sha256": "f08954b8b1c028f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "The crown has fallen from our head. Woe to us, for we have sinned!"
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.17",
+      "source_sha256": "e785189c18f5818d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Because of this, our hearts are sick; because of this, our eyes have grown dim."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.18",
+      "source_sha256": "9b329f9e856b75a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Because Mount Zion lies in ruins, and foxes roam over it."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.19",
+      "source_sha256": "9d4369fc6b7276d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "But you, Lord, remain forever, and your throne endures from generation to generation."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.20",
+      "source_sha256": "88281d0284fe9abc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Do not abandon us forever or forget us for so many days."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.21",
+      "source_sha256": "a6db185a7d66cdbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "Turn us back to you, Lord, and we will return. Renew our days as they were long ago."
+    },
+    {
+      "chunk_id": "pta-peshitta/lam#Lam.5.22",
+      "source_sha256": "6167960672b215d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 20,
+      "text": "For you have utterly rejected us and have been very angry with us."
     }
   ]
 }

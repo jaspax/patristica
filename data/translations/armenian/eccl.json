@@ -9,15 +9,56 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.1",
+      "source_sha256": "52d9719078c8bac1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The words of the Preacher, son of David, king of Israel in Jerusalem."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.2",
+      "source_sha256": "3075fe5a723d2763",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Vanity of vanities, said the Preacher, vanity of vanities! Everything is vain."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.3",
+      "source_sha256": "bbdbea1d152d2bd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What does a person gain from all the labor at which he toils under the sun?"
+    },
     {
       "chunk_id": "armenian/eccl#Eccl.1.4",
       "source_sha256": "f1abee3fdc95b8dc",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "A generation goes and a generation comes, but the earth remains forever."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.5",
+      "source_sha256": "a164477fba22ae4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sun rises and the sun sets, and it hastens to its place to rise again."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.6",
+      "source_sha256": "9ce0f06011dc2346",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It goes toward the south and turns toward the north. Turning round and round, the wind goes, and the wind returns to its circuits."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.1.7",
@@ -27,11 +68,249 @@
       "text": "All streams flow into the sea, yet the sea is not filled. To the place where the streams flow, there they return to flow again."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.1.8",
+      "source_sha256": "df11892d1de11b5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All things are wearisome, and no one can express them. The eye is not satisfied with seeing, nor is the ear filled with hearing."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.9",
+      "source_sha256": "2ec8a78acca1c579",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What has been is what will be, and what has been done is what will be done."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.10",
+      "source_sha256": "bb057106a8b7b863",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is nothing new under the sun. Whatever someone speaks of and says, “Look, this is new,” has already existed in the ages that came before us."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.11",
+      "source_sha256": "f54655c43ab5087d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no remembrance of those who came before, nor will there be remembrance of those who come afterward among those who come last."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.12",
+      "source_sha256": "532c11e08ab730a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I, the Preacher, was king over Israel in Jerusalem."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.1.13",
       "source_sha256": "02453a3d00a865ad",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "I set my heart on seeking and examining with wisdom everything that has happened under the sun, for God has given human beings a grievous task to occupy themselves with under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.14",
+      "source_sha256": "34b35d269be0f437",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the deeds done under the sun, and behold, everything is vanity and striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.15",
+      "source_sha256": "85e5629540050695",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What is crooked cannot be straightened, and what is lacking cannot be counted."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.16",
+      "source_sha256": "176d48bf1d440d9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart, “I have grown greater and increased in wisdom beyond all who were before me in Jerusalem, and my heart has seen much wisdom and knowledge.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.17",
+      "source_sha256": "52a3fe1829f156dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I devoted my heart to knowing wisdom and knowledge, parables and wisdom. I learned that this too is striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.1.18",
+      "source_sha256": "4555c2fc0aaa46b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For much wisdom means much knowledge, and whoever increases in knowledge will increase in sorrow."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.1",
+      "source_sha256": "516db397856a125f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart, “Come, I will test you with joy and experience good things.” And behold, this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.2",
+      "source_sha256": "6e8ec4aaddb0fb21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said of laughter, “Diversion,” and to joy, “Why are you doing this?”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.3",
+      "source_sha256": "cc45d0913c9fc4a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I considered how my heart might draw my body along like wine, while my heart guided me with wisdom, and how to grow strong in joy, until I could see what is good for human beings to do under the sun during the numbered days of their lives."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.4",
+      "source_sha256": "3aece2fd12294ce9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I multiplied my works. I built palaces for myself and planted vineyards for myself."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.5",
+      "source_sha256": "1d78386720d389e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I made gardens and parks for myself and planted in them trees bearing every kind of fruit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.6",
+      "source_sha256": "ecedfb5e5377eaae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I made pools of water for myself to water thick groves of trees from them."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.7",
+      "source_sha256": "469d06dc34253d11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I acquired male and female slaves, and I had slaves born in my household. I also had more cattle and flocks than all who had been before me in Jerusalem."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.8",
+      "source_sha256": "4fc58c87e5644713",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I gathered silver and gold for myself, and many treasures of kings and provinces. I provided myself with minstrels and singers, men and women, and with the luxuries of human beings; I provided myself with male and female cupbearers."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.9",
+      "source_sha256": "411b7af60737ce17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I became greater than all who were before me in Jerusalem, and my wisdom also increased."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.10",
+      "source_sha256": "7eece294c44fecc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever my eyes desired, I did not withhold from them, and I did not restrain my heart from any joy, for my heart rejoiced in all my labor. This was my portion from all my labor."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.11",
+      "source_sha256": "fb72b2ad11ab36dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I looked at all the works my hands had done and at the labor I had labored to accomplish, and behold, everything is vanity and striving of the spirit, and there is no gain under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.12",
+      "source_sha256": "ef5ab754c4f1075d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I turned to consider wisdom, folly, and foolishness. For who is the person who will follow the counsel concerning what he has done?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.13",
+      "source_sha256": "ec48e2ba84b1a22c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I saw that wisdom has an advantage over foolishness, just as light has an advantage over darkness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.14",
+      "source_sha256": "33bddc7dbf247aaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The wise person's eyes are in his head, but the fool walks in darkness. And I knew that the same fate would befall them all."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.15",
+      "source_sha256": "d0568acf68250a32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I said in my heart, “As the fool's fate befalls him, so the same will befall me. And why did I become wise?” And I spoke at length in my heart, saying that this too is vanity, for the fool speaks at length."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.16",
+      "source_sha256": "f96a7c475d98ab3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is no lasting remembrance of the wise person or the fool, because in the days to come everything will indeed be forgotten. And how can the wise person die along with the fool?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.17",
+      "source_sha256": "fccacd4974890fe0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I hated my life, because the work done under the sun was grievous to me, for everything is vanity and striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.18",
+      "source_sha256": "5fe13f94c6397cb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I hated all my labor at which I toiled under the sun, because I must leave it to the person who will come after me."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.19",
+      "source_sha256": "76ad18b144857e87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And who knows whether he will be wise or foolish, or whether he will rule over all the fruits of my labor, for which I labored and used my wisdom under the sun? Yet this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.20",
+      "source_sha256": "bffd38cb506a1b9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I turned away, giving up in my heart on all the labor at which I had labored under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.21",
+      "source_sha256": "0590af87e2af3cd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is a person whose labor is done with wisdom, knowledge, and strength, yet his share will be given to a person who has not labored for it. Yet this too is vanity and a great evil."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.22",
+      "source_sha256": "1bc37e34f2fe19ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what does a person receive from all his labor and from the striving of his heart, with which he toils under the sun?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.23",
+      "source_sha256": "d6c58fcc40aa9ab8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all his days are full of pain, and his occupation is sorrow; even at night his heart does not sleep. Yet this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.2.24",
+      "source_sha256": "26f415cd7ca88520",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And there is nothing good for a person except to eat and drink and let himself enjoy the good of his labor. Yet I also saw that this is from the hand of God."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.2.25",
@@ -41,11 +320,235 @@
       "text": "For who can eat and drink without him?"
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.2.26",
+      "source_sha256": "768c55573f9bcf4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For to the person who is good in his sight he gave wisdom, knowledge, and joy, but to the sinner he gave the task of increasing and gathering, to give to the person who is good in God's sight. Yet this too is vanity and striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.1",
+      "source_sha256": "97d2cf92203c804c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is a time for everything, and a season for every matter under heaven."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.2",
+      "source_sha256": "15656a725b5dbb73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to be born and a time to die; a time to plant and a time to uproot what has been planted."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.3",
+      "source_sha256": "b1ce2328eeff547b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to kill and a time to heal; a time to tear down and a time to build."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.4",
+      "source_sha256": "1851af1f29b413a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to weep and a time to laugh; a time to mourn and a time to dance."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.5",
+      "source_sha256": "4cb23e056285d7f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to cast away stones and a time to gather stones; a time to embrace and a time to refrain from embracing."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.6",
+      "source_sha256": "f1e628aeb13b3365",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to seek and a time to lose; a time to keep and a time to throw away."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.7",
+      "source_sha256": "f1fec3debcd44657",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to tear and a time to mend; a time to be silent and a time to speak."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.8",
+      "source_sha256": "1ce205a03c7de587",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A time to love and a time to hate; a time for war and a time for peace."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.9",
+      "source_sha256": "07b5ecdb2329e23a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now what gain does the worker have from that for which he toils?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.10",
+      "source_sha256": "f016fd6bdd18d378",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the work that God gave human beings to occupy themselves with."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.11",
+      "source_sha256": "af193eb1a8054cc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everything he made is good in its own time. He also placed all eternity in their hearts, so that no one can discover the work God has done from beginning to end."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.12",
+      "source_sha256": "0dc0ec915bcc45e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I knew that there is nothing good for them except to rejoice and do good during their lives."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.13",
+      "source_sha256": "b7b0d7384b78827b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone who eats and drinks and enjoys good things in all their labor receives a gift from God."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.14",
+      "source_sha256": "bbec922f8657585a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I knew that everything God has made remains forever. Nothing can be added to these things, and nothing can be taken away from them. God has done this so that people will fear him."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.15",
+      "source_sha256": "07e39b65a9bcaee9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What has happened is already here, and what was going to happen has already happened. God will seek what has been driven away."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.16",
+      "source_sha256": "c078791318132787",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again I saw under the sun the place of judgment, and there was an ungodly person; and the place of the righteous, and there was a godly person."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.17",
+      "source_sha256": "58007d5c9d67f6a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart, “God will judge the righteous and the ungodly, for there is a time for every matter, and a season and a time there for every deed.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.18",
+      "source_sha256": "a6a06838b7799913",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said in my heart concerning the words of human beings, “God judges them to show that they are animals.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.19",
+      "source_sha256": "0ff9a3cee200dfd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet among them there is a fate for human beings and a fate for animals, and one fate for them all. As one dies, so the other dies, and all have breath. What advantage does a human being have over an animal? None, for everything is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.20",
+      "source_sha256": "4755d963d7857bfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everything goes to one place. Everything came from dust, and everything returns to dust."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.21",
+      "source_sha256": "ef012789b5c075a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who knows whether the spirits of human beings rise upward, and whether the breath of animals goes downward into the earth?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.3.22",
+      "source_sha256": "0ef61bedeb384cbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw that there is nothing good except for a person to rejoice in their own work, for that is their portion. For who will bring them to see what will happen after them?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.1",
+      "source_sha256": "d1ca8af53ba73f59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned and saw all the acts of oppression that take place under the sun. Look, there were the tears of the oppressed, and there was no one to comfort them; and power was in the hands of their oppressors."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.4.2",
       "source_sha256": "3edb502c488a44fe",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "I praised all the dead, who had died before, more than the living, who are still alive."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.3",
+      "source_sha256": "12d4ab5d4659a9cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Better than both of them is the one who has not yet come into being, who has not seen all the evil deeds done under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.4",
+      "source_sha256": "f23a62d14cf052c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all labor and all skill in work, and that a person is envied by their neighbor for it. Yet this too is vanity and a striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.5",
+      "source_sha256": "ab8cece743e84da1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fool folds his arms and eats his own flesh."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.6",
+      "source_sha256": "06d417f5de71e3f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "One handful with rest is better than two full handfuls with toil and a striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.7",
+      "source_sha256": "e0b9ee6e1865ae17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned and saw vanity under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.8",
+      "source_sha256": "ab22571b2f03938b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is one person with no companion, who has neither son nor brother. There is no end to all his labor, yet his eye is not satisfied with wealth. “For whom, then, am I toiling and depriving myself of good things?” This too is vanity and an evil occupation."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.9",
+      "source_sha256": "de21fc4351a6459b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Two are better than one, for they have a good reward for their labor."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.10",
+      "source_sha256": "2a07620fabcaf03c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if one falls, their companion will lift them up. But woe to the one who falls when there is no other person to raise them!"
     },
     {
       "chunk_id": "armenian/eccl#Eccl.4.11",
@@ -55,11 +558,172 @@
       "text": "For if two lie down together, they warm one another, but how can one person keep warm?"
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.4.12",
+      "source_sha256": "ae958e3ab2917168",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If one is overpowered, the two will stand against the attacker, and a threefold cord will not quickly break."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.13",
+      "source_sha256": "da63744c29e3a121",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A poor and wise youth is better than an old and foolish king who no longer knows how to take heed."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.14",
+      "source_sha256": "c91ea9cda9c96f60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he comes out of prison to reign, he became poor in his own kingdom."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.15",
+      "source_sha256": "21703e65bad364de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the living who walk under the sun with the second youth, who will rise in his place."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.16",
+      "source_sha256": "96f9769b241b827c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no end to all the people, to all who were before them. Even those who come afterward will not rejoice over him, for this too is vanity and striving of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.17",
+      "source_sha256": "8f5458848af49bec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Watch your step when you go to the house of God."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.4.18",
+      "source_sha256": "21b07a8585593bd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And draw near to listen, for your sacrifice is more valuable than the gifts of fools, since they have no knowledge of doing good."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.1",
+      "source_sha256": "136b2d2c2bdccf24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be hasty with your mouth, and do not let your heart hurry to utter words before God, for God is in heaven and you are on earth. Therefore let your words be few."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.2",
+      "source_sha256": "a8b42bb2437f3cfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For a dream comes through many trials, and a fool’s voice through many words."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.3",
+      "source_sha256": "a2f70f4c8196cf07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whenever you make a vow to God, do not delay in fulfilling it, for there is no pleasure in the hands of fools. Fulfill whatever you vow."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.4",
+      "source_sha256": "587c445c6d468bc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is better for you not to vow than to vow and not fulfill it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.5",
+      "source_sha256": "dec516d07ec0fccb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not allow your mouth to cause your body to sin, and do not say before God, “It was ignorance,” lest God become angry at your words and destroy the works of your hands."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.6",
+      "source_sha256": "93449ab28b4c899f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For with many dreams there is also the vanity of many words. But you must fear God."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.7",
+      "source_sha256": "9a3163ca178aa14d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you see the oppression of the poor and the plundering of justice and righteousness in the land, do not be astonished at the matter, for one who is high watches over another who is high, and there are higher ones over them, and the abundance of the land."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.8",
+      "source_sha256": "343a135db9bf29fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Over everything is a king over the cultivated field. And be faithful in everything, [?] from grievous plundering."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.9",
+      "source_sha256": "0d553cfcf9f40f7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever loves silver will not be satisfied with silver; and whoever has loved revenue amid his abundance—this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.10",
+      "source_sha256": "e08fafc83e4a8b1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With an abundance of righteousness, those who ate it were satisfied. And what benefit does he gain from it? For his own eyes are the beginning of seeing."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.11",
+      "source_sha256": "ba0771fcf500e7bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sleep of a laborer is sweet, whether he eats little or much, but one who is sated through abundance has no freedom to fall asleep."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.12",
+      "source_sha256": "6ae544619cd6756c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is a lesson that I saw under the sun: wealth kept by someone to his own harm."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.13",
+      "source_sha256": "baff0a2ae3b416db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And his wealth will be lost, and he is engaged in harmful business. He fathered a son, and there is nothing at all in his hand."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.5.14",
       "source_sha256": "4bf8e26556703b17",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "As he came out of his mother's womb, naked, so he will return and depart just as he came. He will take nothing from his labor to carry away in his hand."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.15",
+      "source_sha256": "1941c3c26d7cd952",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This too is an evil affliction: just as he came, so he will go. And what benefit will he have from his labors, for which he toils for the wind?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.16",
+      "source_sha256": "c27defb4a78ce792",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all his days are darkness and mourning, with much vexation, sickness, and anger."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.5.17",
+      "source_sha256": "7dd6399502017394",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, this is what I have seen: it is good to eat and drink and enjoy good in all one’s labor at which one toils under the sun during the days of life that God has given, for that is one’s portion."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.5.18",
@@ -69,11 +733,354 @@
       "text": "For every person to whom God has given wealth and possessions, and whom he has enabled to eat from them, to receive his share, and to rejoice in his labor—this is a gift of God."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.5.19",
+      "source_sha256": "f952d95bfab7264d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he will remember many days of his life, because God delights him with the joy of his heart."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.1",
+      "source_sha256": "38f9c98275256493",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is an evil that I saw under the sun, and it weighs very heavily upon humanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.2",
+      "source_sha256": "25f27b476c06e55b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A man to whom God gives wealth, possessions, and honor lacks nothing of all that he desires, yet God does not give him the power to enjoy it, for a stranger will consume it. This is vanity and an evil affliction."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.3",
+      "source_sha256": "9b94376b6f49418a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a man fathers a hundred children and lives many years, and the days of his years are many, but his soul is not satisfied with good things and he does not even receive a burial, I say that a stillborn child is better off than he is."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.4",
+      "source_sha256": "bc2ef1b919eefe4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it came in vanity and departed in darkness, and its name will be covered in darkness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.5",
+      "source_sha256": "86bbfda6649c6036",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it did not see the sun or know what it was. This one has more rest than that one."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.6",
+      "source_sha256": "acd9844eade3773a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And even if he lived out a thousand years and saw nothing good, would not everyone go to the same place?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.7",
+      "source_sha256": "238dac4aec97225c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All a person's labor is for his mouth, yet his soul is not satisfied."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.6.8",
       "source_sha256": "1408c22ab07486ea",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "What advantage does the wise person have over the fool? For the poor person knows how to go about his life."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.9",
+      "source_sha256": "48c45d7e6e203756",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What the eyes see is better than wandering in spirit. Yet this too is vanity and a desire of the spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.10",
+      "source_sha256": "54780745d5387c0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever has come into being has already been named, and it has become clear what a human being is. He cannot contend with the One who is mightier than he."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.6.11",
+      "source_sha256": "59c77b79bc4d68af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there are many words that increase vanity. What advantage does a person have?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.1",
+      "source_sha256": "e6ccef8abc6961d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who knows what is good for a person in his life, during the numbered days of his vain life, which he spends like a shadow? For who can tell a person what will happen after him under the sun?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.2",
+      "source_sha256": "5f2248d02c8ad25e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A good name is better than good oil, and the day of one's death is better than the day of one's birth."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.3",
+      "source_sha256": "8c15a5a4e84df6c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is better to go to a house of mourning than to go to a house of drunkenness, because that is the end of every person, and the living should put goodness into their hearts."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.4",
+      "source_sha256": "c2beb3ea083db52d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anger is better than laughter, for through a troubled face the heart becomes glad."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.5",
+      "source_sha256": "cbbfbb8903fcafc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The heart of the wise is in the house of mourning, and the heart of the foolish is in the house of rejoicing."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.6",
+      "source_sha256": "a4aa44b5f636bc1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is better for a person to hear the correction of the wise than to hear the songs of fools."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.7",
+      "source_sha256": "87bb5e02d03cf4cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the laughter of fools is like the sound of thorns beneath a pot. Yet this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.8",
+      "source_sha256": "9146ef83a84413b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Slander unsettles the wise and destroys the nobility of his heart."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.9",
+      "source_sha256": "5b0f66bd0d402983",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The end of matters is better than their beginning. A patient person is better than one who is proud in spirit."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.10",
+      "source_sha256": "5f5d5b51f46435cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be quick to become angry in your spirit, for anger rests in the bosom of fools."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.11",
+      "source_sha256": "8e320eddec790b1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not say, “Why were the former days better than these?” For it is not with wisdom that you ask about this."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.12",
+      "source_sha256": "9ca61b0c48acd1ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wisdom is good with an inheritance, and an added benefit to those who see the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.13",
+      "source_sha256": "3792ad238302e53f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For wisdom is under its shelter, like the shelter of money; and the advantage of the knowledge of wisdom is that it gives life to the one who has it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.14",
+      "source_sha256": "98a4accb25cf4229",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look at the works of God, for who can put right what God has disrupted?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.15",
+      "source_sha256": "9c3a6fac70c686c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In a day of prosperity, live well and look; in a day of adversity, look. Yet God made this in harmony with that, for the sake of what is said, so that a person should find nothing after himself."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.16",
+      "source_sha256": "7736038ecd10cda4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have seen everything in the days of my vanity: there is a righteous person who perishes in his righteousness, and there is a wicked person who lives on in his wickedness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.17",
+      "source_sha256": "78d8ba726d9e554c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be excessively righteous, and do not make yourself excessively wise, lest you go astray."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.18",
+      "source_sha256": "20b8f2e12214c34a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be excessively wicked, and do not be harsh, lest you die before your time."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.19",
+      "source_sha256": "2461b3fc93472af6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good if you side with these, but do not defile your hand in this either, for the one who fears God will pass through everything."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.20",
+      "source_sha256": "7b5f5560605c4ae7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wisdom will help the wise person more than ten rulers who are in a city."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.21",
+      "source_sha256": "a7a7d3a61fc6f265",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is no righteous person on earth who does good and does not sin."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.22",
+      "source_sha256": "07559d2d01fe42ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nevertheless, do not take to heart everything the wicked say, lest you hear curses from your servant who curses you."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.23",
+      "source_sha256": "0c4ea927d8ca98b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he will often bear ill will toward you and repeatedly torment your heart. Nevertheless, you too must not curse others."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.24",
+      "source_sha256": "5ffefafc2a705d82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I tested all this through wisdom and said, “Indeed, I have become wise!” But wisdom went far away from me."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.25",
+      "source_sha256": "788486f43f2b4e77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is farther away than it was, and who can fathom the depth of depths?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.26",
+      "source_sha256": "d46db05744523518",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I turned, together with my heart, to understand it, to reflect, to seek wisdom and understanding, and to know the joy of the wicked, their torments, and their turmoil."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.27",
+      "source_sha256": "1a0f8407b13fa73d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I found it, and I say: “More bitter than death is [?] being with the woman whose heart is a snare and a trap and whose hands are chains. Whoever is good in God's sight will escape from her, but the sinner will be caught by her.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.28",
+      "source_sha256": "e7bc53aac48c27d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Look, I found all this,” says Ecclesiastes, “taking one thing at a time to discover the reasoning,"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.29",
+      "source_sha256": "de0022d3c5840af1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which my soul sought but I did not find. I found one man among a thousand, but no woman at all."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.7.30",
+      "source_sha256": "7e5293ada1b3095e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, this is what I found: God made humanity upright, but they sought schemes of wickedness.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.1",
+      "source_sha256": "70e98d5549982707",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who knows the wise, and who knows the interpretation of words? A person's wisdom makes his face shine, but whoever is insolent in his expression will be hated."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.2",
+      "source_sha256": "e3f4d0bbc0ff2fb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pay heed to the king's words and to the oath made to God."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.3",
+      "source_sha256": "b6ed43c758e86111",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not hurry to leave his presence, and do not persist in an evil matter, for he will do whatever he wishes."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.4",
+      "source_sha256": "4c1fce2f9139fae8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He speaks with authority as a king, and who can say to him, “What have you done?”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.5",
+      "source_sha256": "70c2e4201f4c4ffa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever keeps the commandment will experience no evil, and the heart of the wise recognizes the time for judgment."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.6",
+      "source_sha256": "bd19e19bf581a84b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every matter has its time and judgment, because human ignorance weighs heavily upon a person."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.7",
+      "source_sha256": "e15ad525273f0e35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he does not know what will happen, and who can tell him how it will happen?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.8",
+      "source_sha256": "7a9678133a08836e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one has power over the spirit to restrain the spirit, nor does anyone have authority on the day of death. There is no sending of messengers on the day of battle, and wickedness will not save those associated with it."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.8.9",
@@ -83,11 +1090,109 @@
       "text": "All this I saw, and I set my heart on all the deeds done under the sun, whenever one person exercised power over another to cause him suffering."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.8.10",
+      "source_sha256": "e59daf0a7e3f45ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then I saw the wicked brought into graves. They departed from the holy places, and they mourned in the city because they had acted this way. Yet this too is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.11",
+      "source_sha256": "71e0038e19324706",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because there is no opposition to those who are quick to do evil, the hearts of human beings have become bold within them to do evil."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.12",
+      "source_sha256": "ad5c64c2126436f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sinner [?] did evil from then onward and from long ago, for I too know what is good for those who fear God, because they fear him."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.13",
+      "source_sha256": "fe574228c3103e2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is nothing good for the wicked, nor will he prolong his days as though under his shadow, since he does not fear God."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.14",
+      "source_sha256": "791f18c3b22a8942",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is a vanity that occurs on earth: there are righteous people who fare according to the deeds of the wicked, and there are wicked people who fare according to the deeds of the righteous. And I said, “Yet this too is vanity.”"
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.8.15",
       "source_sha256": "d9d1af25d2df245e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "I praised joy, for there is nothing good for people under the sun except eating, drinking, and rejoicing. This will accompany a person in his toil throughout the days of his life, however many God has given him under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.16",
+      "source_sha256": "847730094fd9627b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When I set my heart to know wisdom and to see the activity carried on upon the earth—for neither by day nor by night do his eyes see sleep—"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.8.17",
+      "source_sha256": "b6ea859fab57fa5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw all the works of God: a person cannot discover the work done under the sun. However much a person strives to seek it, he will not find it; and however much the wise person claims to know, he cannot discover it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.1",
+      "source_sha256": "861e5fea24711a09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For I took all this to heart, and my heart saw all this: the righteous and the wise and their deeds are in God's hands. For a person knows neither love nor hatred; everything lies before him."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.2",
+      "source_sha256": "61625e95e29971d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And there is vanity in everything. The same event happens to the righteous and the wicked, to the good and the evil, to the clean and the unclean, to one who offers a sacrifice and one who does not. It is the same for the good person and the sinner, for one who swears an oath and one who fears an oath."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.3",
+      "source_sha256": "feabe6f05345e097",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "This is the evil in everything done under the sun: the same event happens to everyone. For the hearts of human beings are filled with evil, and confusion is in their hearts during their lives, and afterward they go to the dead."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.4",
+      "source_sha256": "e8b50ca322484dfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For who is counted among all the living? There is hope, for a living dog is better than a dead lion."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.5",
+      "source_sha256": "ff24be984f80e8fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For the living know that they will die, but the dead know nothing at all, and they no longer have any reward, because their memory has been forgotten."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.6",
+      "source_sha256": "b9daadee6adb9ebb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Their love, their hatred, and their envy have now perished, and they no longer have any share forever in anything done under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.7",
+      "source_sha256": "84b8df5056d2bc99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Come, eat your bread with joy and drink your wine with a glad heart, for God has already approved your deeds."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.9.8",
@@ -97,11 +1202,109 @@
       "text": "Let your clothes always be white, and let oil never be lacking on your head."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.9.9",
+      "source_sha256": "86692565ddbb8bfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Enjoy life with your wife, whom you love, throughout all the days of your vain life that have been given to you under the sun, until the days of your end. For that is your portion in your life and in the work at which you labor under the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.10",
+      "source_sha256": "d92f7b8c1a5a6bc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Whatever your hand finds to do, do it to the extent of your ability, for there will be no work, planning, knowledge, or wisdom in the realm of the dead, where you are going."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.11",
+      "source_sha256": "52594f24d6d974f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Again I saw under the sun that the race does not belong to the swift, nor the battle to the strong, nor bread to the wise, nor wealth to the intelligent, nor favor to the knowledgeable, for time and chance happen to them all."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.12",
+      "source_sha256": "a09276d13c4b79ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For a person does not even know his own time. Like fish caught in deadly nets and birds caught in snares, so human beings are caught in traps at an evil time, when it suddenly falls upon them."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.13",
+      "source_sha256": "e5cbf1261af4dc2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Yet I also saw this wisdom under the sun, and it seemed great to me."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.14",
+      "source_sha256": "dc67dee90cfef0a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "There was a small city with few men in it. A great king came against it, surrounded it, and built great siegeworks against it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.15",
+      "source_sha256": "acb3942e5197a4ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "A poor but wise man was found in it, and he saved the city by his wisdom. Yet no one remembered that poor man."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.16",
+      "source_sha256": "4605d464dde86656",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And I said, \"Wisdom is better than strength, but the poor man's wisdom is despised, and his words are not heard.\""
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.17",
+      "source_sha256": "0d502f2ed6e71fbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The words of the wise, spoken gently, are heard more than the shouting of rulers acting foolishly."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.9.18",
+      "source_sha256": "8866d532d720cbf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Wisdom is better than weapons of war, and one wrongdoer destroys much strength."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.1",
+      "source_sha256": "11e8aac919a8b6b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Dead flies make fragrant oils foul. A little wisdom is more precious than great glory accompanied by foolishness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.2",
+      "source_sha256": "547cdd148368fab9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The heart of the wise person is on his right, and the heart of the fool is on his left."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.10.3",
       "source_sha256": "608ac3d710ec0c6d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "For even when the fool walks along the road, his understanding fails him, and everything he thinks is foolishness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.4",
+      "source_sha256": "de32f176078fe530",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If the ruler's anger rises against you, do not leave your place, for a soothing response turns away great offenses."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.5",
+      "source_sha256": "70bab576c0739092",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "There is an evil that I saw under the sun, which came from the ruler as though unintentionally."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.10.6",
@@ -111,11 +1314,102 @@
       "text": "The fool has been placed in very high positions, while the rich will sit in low positions."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.10.7",
+      "source_sha256": "c8ce1fb7dddc38f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I saw servants riding horses and rulers walking on the ground like servants."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.8",
+      "source_sha256": "9d356aaadc245ddb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Whoever digs a pit will fall into it, and whoever breaks down a fence will be bitten by a snake."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.9",
+      "source_sha256": "db731092e69d2ca5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Whoever lifts stones will be hurt by them, and whoever splits wood will struggle with it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.10",
+      "source_sha256": "e507cc05b679dde5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If the iron also falls and he looks troubled, strength will strengthen him, and there is an advantage in excellent wisdom."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.11",
+      "source_sha256": "093142e220a9d284",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a snake bites during charming, the charmer has no advantage."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.12",
+      "source_sha256": "d2a0ffae9f800337",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The words of a wise person's mouth are gracious, but the lips of a fool engulf him."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.13",
+      "source_sha256": "3909b4d43170a1c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The beginning of the words of his mouth is foolishness, and their end is a surge of wickedness."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.14",
+      "source_sha256": "004e285a4177e418",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fool multiplies words. A person does not know what has happened or what will happen, for who will tell him what comes after him?"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.15",
+      "source_sha256": "b4ebbf8c58bb5cf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fool's toil will torment him, for he does not know how to go to the city."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.16",
+      "source_sha256": "7f6c814530bea8cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to you, city, whose king is a child and whose princes eat in the morning!"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.17",
+      "source_sha256": "91348f659def55c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you, land, whose king is the son of a nobleman and whose princes eat at the proper time, with strength, and will not be ashamed!"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.18",
+      "source_sha256": "f4d1c1f976d4ae16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through laziness the beams will sag, and through idle hands the house will leak."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.10.19",
       "source_sha256": "ea8c2ac9f74e0a3c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "Bread is prepared for merriment, and wine and oil make the living glad, and everything obeys money."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.10.20",
+      "source_sha256": "45fbfbc2a2a15f82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Yet do not curse the king even in your thoughts, and do not curse a great man in your private chambers, for the birds of heaven will carry your voice, and those with wings will report your words."
     },
     {
       "chunk_id": "armenian/eccl#Eccl.11.1",
@@ -132,6 +1426,125 @@
       "text": "Give a share to seven, and also to eight, because you do not know what calamity will happen on the earth."
     },
     {
+      "chunk_id": "armenian/eccl#Eccl.11.3",
+      "source_sha256": "07c4cd0a4194b23a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If the clouds are filled with rain, they pour it out upon the earth. If a tree falls to the south or toward the north, wherever the tree falls, there it will remain."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.4",
+      "source_sha256": "cf9045ded7e4232b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever watches the winds does not sow, and whoever looks at the clouds will not reap."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.5",
+      "source_sha256": "6a4b1cdd4fd5a9d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as it is impossible to know the path of the wind, as with the bones in a pregnant woman's womb, so you will not know the works of God, who makes everything."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.6",
+      "source_sha256": "4394d4ccb460144d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Sow your seed in the morning, and in the evening do not let your hands rest, for you do not know which will succeed, this or that, or whether both together will be good."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.7",
+      "source_sha256": "753ed04b71f455b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Light is sweet, and it is good for the eyes to see the sun."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.8",
+      "source_sha256": "0944940bd4fd7308",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if a person lives many years, let him rejoice in them all, and let him remember the days of darkness, for they will be many. Everything that is to come is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.9",
+      "source_sha256": "42a29d9ae5e653d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rejoice, young man, in your youth, and let your heart delight you in the days of your youth. Walk blamelessly in the ways of your heart and according to what your eyes see, and know that for all these things God will bring you to judgment."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.11.10",
+      "source_sha256": "cd37120b1636e60e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remove anger from your heart and put away evil from your body, for youth and foolishness are vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.1",
+      "source_sha256": "e40f6ec5cbf06e9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember your Creator in the days of your youth, before the days of evil arrive and the years come in which you will say, “I have no pleasure in them.”"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.2",
+      "source_sha256": "c1b1a8b84882b8b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Before the sun and the light and the moon and the stars grow dark, and the clouds return after the rains;"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.3",
+      "source_sha256": "50953825cf1cccb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "on the day when the keepers of the house tremble, and the strong men bend, and the mills stand idle because they have become few, and those who look through the openings grow dim;"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.4",
+      "source_sha256": "7d8b2e73af7b313e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and they shut the doors to the streets because the sound of the mill is faint, and they rise at the sound of a bird, and all the daughters of song are brought low;"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.5",
+      "source_sha256": "487d0df407ca6e4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and they look toward the heights, and there is terror on the road, and the almond tree blossoms, and the grasshopper grows heavy, and the caper spreads, for the person has gone to his eternal home, and the mourners have gone about in the streets."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.6",
+      "source_sha256": "0d2b42bd54acba40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Before the silver cord is destroyed, and the golden necklace is broken, and the pitcher is shattered at the spring, and the wheel falls back into the pit;"
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.7",
+      "source_sha256": "afcc50a2bcd20b31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the dust returns to the earth as it was, and the spirit returns to God who gave it."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.8",
+      "source_sha256": "64575867ef4d1cb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "Vanity of vanities, said the Preacher; everything is vanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.9",
+      "source_sha256": "4713d82979914743",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "And furthermore, because the Preacher was wise, he taught the people knowledge, and the ear examines the arrangement of proverbs."
+    },
+    {
       "chunk_id": "armenian/eccl#Eccl.12.10",
       "source_sha256": "dd33c1d3338fff3a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -144,6 +1557,27 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 19,
       "text": "The words of the wise are like goads for oxen and like nails driven in; from written records they were given by one shepherd."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.12",
+      "source_sha256": "05802efd714d41c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "And beyond these, my son, be careful: there is no end to acquiring many books, and much study is weariness to the body."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.13",
+      "source_sha256": "287eb1383e659b4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "The conclusion of the matter: hear everything. Fear God and keep his commandments, for this is the whole duty of humanity."
+    },
+    {
+      "chunk_id": "armenian/eccl#Eccl.12.14",
+      "source_sha256": "07588ea00f6f7e5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "For God will bring every deed into judgment, including everything done unseen, whether good or evil."
     }
   ]
 }

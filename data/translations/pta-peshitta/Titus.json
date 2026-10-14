@@ -9,15 +9,119 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.1",
+      "source_sha256": "0c8a969446455fe2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Paul, a servant of God and an apostle of Jesus Christ, in the faith of God's chosen people and the knowledge of the truth that accords with reverence for God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.2",
+      "source_sha256": "0817ef6eb80515b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "in the hope of eternal life, which the truthful God promised before the ages of the world,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.3",
+      "source_sha256": "f67e4ba454742346",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "and revealed his word at its proper time through our preaching, which I was entrusted with by the command of God our Savior,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.4",
+      "source_sha256": "67a602790effb5d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "to Titus, a true son in our shared faith: Grace and peace from God the Father and from our Lord Jesus Christ our Savior."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.5",
+      "source_sha256": "c5da8961816e3c88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This is why I left you in Crete: to put in order what was lacking and appoint elders in every city, as I instructed you."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.6",
+      "source_sha256": "e7040a898f20bd9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "An elder must be blameless, the husband of one wife, and have believing children who do not behave disgracefully or live in reckless disobedience."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.7",
+      "source_sha256": "1cc5b419a8d9a2c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For an elder must be blameless as the manager of God's household. He must not be self-willed or quick-tempered, drink excessively, be quick to strike, or love dishonest gain."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.8",
+      "source_sha256": "6a78c191300af44b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Instead, he must welcome strangers, love what is good, be modest, just, and holy, and restrain himself from evil desires."
+    },
     {
       "chunk_id": "pta-peshitta/titus#Titus.1.9",
       "source_sha256": "c614de6261e7651d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "And he must be devoted to the teaching of the word of faith, so that he can both encourage others with his sound teaching and rebuke those who argue against it."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.10",
+      "source_sha256": "aed8a14a74136ae9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For there are many who are insubordinate, whose words are empty, and who mislead people's minds, especially those who belong to the circumcision."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.11",
+      "source_sha256": "ab21000041025576",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Their mouths must be stopped, because they ruin many households, teaching what they should not for dishonest gain."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.12",
+      "source_sha256": "9591d0a7006ba11c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "One of them, a prophet of their own, said, “Cretans are always liars, evil beasts, and lazy bellies.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.13",
+      "source_sha256": "ede0a8d7bf7e0075",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This testimony is true. Therefore, rebuke them sharply so that they may be sound in the faith"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.14",
+      "source_sha256": "659c27e12ca1a6be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "and not give themselves over to Jewish tales and the commands of people who hate the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.1.15",
+      "source_sha256": "28cc852c1ec55790",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For everything is pure to the pure. But to those who are defiled and do not believe, nothing is pure; rather, both their mind and their conscience are defiled."
     },
     {
       "chunk_id": "pta-peshitta/titus#Titus.1.16",
@@ -27,11 +131,67 @@
       "text": "They profess to know God, but by their deeds they deny him. They are detestable and disobedient, and unfit for any good work."
     },
     {
+      "chunk_id": "pta-peshitta/titus#Titus.2.1",
+      "source_sha256": "8d5aa66f5dae8416",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But you must speak what is fitting for sound teaching."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.2",
+      "source_sha256": "96426c84a2d7e1aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Teach the older men to be alert in their minds, modest, pure, and sound in faith, love, and endurance."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.3",
+      "source_sha256": "63e10a6c4b1ba76c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Likewise, the older women must conduct themselves in a way fitting for reverence for God. They must not be slanderers or enslaved to much wine, but must teach what is good"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.4",
+      "source_sha256": "3f73d958cf6e6ab1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "and train the younger women to be modest, to love their husbands and their children."
+    },
+    {
       "chunk_id": "pta-peshitta/titus#Titus.2.5",
       "source_sha256": "dbb898d6c8fd0bd2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "They should be modest and holy, care well for their homes, and submit to their husbands, so that no one speaks against the word of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.6",
+      "source_sha256": "5abce53f5b88f6a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Likewise, urge the younger men to be modest."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.7",
+      "source_sha256": "d6b43d20721dfab4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "In everything, show yourself as an example in every good deed, and in your teaching let your speech be sound,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.8",
+      "source_sha256": "673d939e415d68bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "dignified and uncorrupted, so that no one can despise it and anyone who opposes us may be ashamed, being unable to say anything evil about us."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.9",
+      "source_sha256": "96908666244a1b6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Slaves must submit to their masters in everything and try to please them, without arguing."
     },
     {
       "chunk_id": "pta-peshitta/titus#Titus.2.10",
@@ -41,11 +201,25 @@
       "text": "They should not steal, but should show their good faithfulness in everything, so that in everything they may adorn the teaching of God our Savior."
     },
     {
+      "chunk_id": "pta-peshitta/titus#Titus.2.11",
+      "source_sha256": "9a4fcef577c97005",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For the grace of God, which gives life to all, has been revealed to all people."
+    },
+    {
       "chunk_id": "pta-peshitta/titus#Titus.2.12",
       "source_sha256": "b12988372a5fb7d4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "And it trains us to reject wickedness and worldly desires, and to live in this world with self-control, righteousness, and reverence for God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.2.13",
+      "source_sha256": "66e3ea0028e6cf84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "As we await the blessed hope and the revelation of the glory of the great God and our Savior Jesus Christ."
     },
     {
       "chunk_id": "pta-peshitta/titus#Titus.2.14",
@@ -62,11 +236,95 @@
       "text": "Speak these things, urge them, and rebuke with full authority. Let no one despise you."
     },
     {
+      "chunk_id": "pta-peshitta/titus#Titus.3.1",
+      "source_sha256": "767ed2eafda3bd78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Keep reminding them to obey rulers and authorities and submit to them, and to be ready for every good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.2",
+      "source_sha256": "5bec0d3fc6dc596f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "They must speak evil of no one and must not be quarrelsome, but humble, showing kindness in everything toward all people."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.3",
+      "source_sha256": "64293c2160042b90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "For we too were once foolish and disobedient. We were going astray and were enslaved to various desires. We lived in wickedness and envy, and we were hateful, hating one another as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.4",
+      "source_sha256": "510a048fd94b5026",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "But when the kindness and compassion of God our Savior were revealed,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.5",
+      "source_sha256": "eb3810d6bc66b841",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "he saved us, not because of righteous deeds we had done, but through his own mercy, through the washing of rebirth and the renewal of the Holy Spirit,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.6",
+      "source_sha256": "b031866d0d0e887e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "whom he poured out on us abundantly through Jesus Christ our Savior,"
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.7",
+      "source_sha256": "0d9a957883134005",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "so that we might be justified by his grace and become heirs in the hope of eternal life."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.8",
+      "source_sha256": "61fbed24e422fc26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "This saying is trustworthy. I want you to keep affirming these things to them, so that those who have believed in God will take care to do good works. These things are good and beneficial to people."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.9",
+      "source_sha256": "80718af4cedebd58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "But avoid foolish inquiries, accounts of genealogies, quarrels, and the disputes of scribes, for there is no benefit in them, and they are empty."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.10",
+      "source_sha256": "557f90b41d76279e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Avoid a heretical person after warning him once and twice."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.11",
+      "source_sha256": "af72f47b5f6cb85d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "Know that such a person is perverted and sinful, and has condemned himself."
+    },
+    {
       "chunk_id": "pta-peshitta/titus#Titus.3.12",
       "source_sha256": "81ab7ad498647ee4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "When I send Artemas or Tychicus to you, make every effort to come to me at Nicopolis, for I have decided to spend the winter there."
+    },
+    {
+      "chunk_id": "pta-peshitta/titus#Titus.3.13",
+      "source_sha256": "87d045edb4a7adbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 13,
+      "text": "As for Zenas the scribe and Apollos, take care to send them on their way well supplied, so that they lack nothing."
     },
     {
       "chunk_id": "pta-peshitta/titus#Titus.3.14",

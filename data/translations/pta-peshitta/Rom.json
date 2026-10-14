@@ -9,15 +9,77 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.1",
+      "source_sha256": "f05b7ccc7e6a0b11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, a servant of Jesus Christ, called to be an apostle, set apart for the good news of God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.2",
+      "source_sha256": "3c67383382a469bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which he promised beforehand through his prophets in the holy Scriptures,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.3",
+      "source_sha256": "05fdab6e582cd5f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "concerning his Son, who was born in the flesh from the descendants of the house of David,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.4",
+      "source_sha256": "a648882bdf8bce02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and was made known as the Son of God in power and in the Spirit of holiness, by rising from the dead: Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.5",
+      "source_sha256": "0f07ec928c0823c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through him we have received grace and apostleship among all nations, so that they may obey the faith in his name."
+    },
     {
       "chunk_id": "pta-peshitta/rom#Rom.1.6",
       "source_sha256": "2b2a1c98a4748ec0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "You too are among them, called in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.7",
+      "source_sha256": "a46dbba5e22adcf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To all those in Rome, loved by God, called and holy: peace and grace be with you from God our Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.8",
+      "source_sha256": "f6fdd9c76d52384b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "First, I thank my God through Jesus Christ for all of you, because your faith has been heard of throughout the whole world."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.9",
+      "source_sha256": "6241d5be7af8baee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God, whom I serve in spirit in the good news of his Son, is my witness that I constantly remember you in my prayers, without ceasing."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.1.10",
@@ -27,11 +89,116 @@
       "text": "And I pray that now, by God's will, a way may be opened for me to come to you."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.1.11",
+      "source_sha256": "2bd6e7b3f33dbdab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I greatly long to see you and give you a spiritual gift by which you may be strengthened,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.12",
+      "source_sha256": "be42a4bde3070275",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and that together we may be encouraged by your faith and mine."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.1.13",
       "source_sha256": "94005e139e517ec7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "I want you to know, my brothers, that I have often wanted to come to you, but have been prevented until now, so that I might have fruit among you too, as among the other nations."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.14",
+      "source_sha256": "87755e4be5c10f24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greeks and non-Greeks, the wise and the foolish—I am under an obligation to proclaim the message to everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.15",
+      "source_sha256": "015c396b1da52bbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I am eager to proclaim the good news to you in Rome as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.16",
+      "source_sha256": "f6f5dc82b6751201",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I am not ashamed of the good news, because it is the power of God for life for all who believe in it, whether Jews first or Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.17",
+      "source_sha256": "8f7ea2a243843f3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in it God's righteousness is revealed, from faith to faith, as it is written: “The righteous person will live by faith.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.18",
+      "source_sha256": "7353db392e78fab4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God's anger is revealed from heaven against all the injustice and wickedness of people who suppress the truth through injustice."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.19",
+      "source_sha256": "785062145de0fd4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For knowledge of God is evident among them, because God has revealed it among them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.20",
+      "source_sha256": "10f730224773217c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For since the foundation of the world, God's hidden qualities—his eternal power and divinity—have been visible to his creatures through understanding, so that they have no excuse."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.21",
+      "source_sha256": "38cecbd34a0844d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they knew God but did not glorify him as God or give him thanks. Instead, their thoughts became empty, and their uncomprehending hearts were darkened."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.22",
+      "source_sha256": "ff865fc2e1d37e98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "While thinking themselves wise, they became foolish."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.23",
+      "source_sha256": "21f2b1e22918f686",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They exchanged the glory of God, who does not decay, for the likeness of an image of a human being who decays, and for likenesses of birds, four-legged animals, and creatures that crawl on the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.24",
+      "source_sha256": "81bfd1184b9a702b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, God handed them over to the impure desires of their hearts, so that they would dishonor their bodies among themselves."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.25",
+      "source_sha256": "eb49f8933299da3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They exchanged God's truth for falsehood, and worshiped and served created things rather than their Creator, to whom belong praises and blessings forever and ever. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.26",
+      "source_sha256": "18ea075536796079",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, God handed them over to degrading passions. For their females exchanged their natural sexual relations and engaged in what is unnatural."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.1.27",
@@ -41,11 +208,221 @@
       "text": "Likewise, their males also abandoned natural relations with females and burned with desire for one another. Males committed shameful acts with males and received in themselves the penalty that their error deserved."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.1.28",
+      "source_sha256": "0e2a01f3cce69163",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And just as they did not consider it worthwhile to know God, God handed them over to a worthless mind, so that they would do what is improper."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.29",
+      "source_sha256": "e7d672ddb7af1d25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are filled with every kind of injustice, sexual immorality, bitterness, wickedness, greed, envy, murder, strife, deceit, and evil thoughts."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.30",
+      "source_sha256": "406f182a2df80701",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And grumblers and slanderers, hateful to God, abusive, arrogant, boastful, inventors of evil, lacking understanding, disobedient to their parents."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.31",
+      "source_sha256": "3acb69ef35e3de12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "They do not keep agreements, and they have no love, no peace, and no mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.1.32",
+      "source_sha256": "05a7e917305aac0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Although they know God's judgment, that he condemns those who do such things to death, they not only do these things but also join those who do them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.1",
+      "source_sha256": "1e6a9a5ce86e485f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Therefore you have no excuse, you who judge another person. For when you judge another, you condemn yourself, because you who judge also practice the same things."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.2",
+      "source_sha256": "95fc81e8505a1cac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "We know that God's judgment against those who practice such things is according to the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.3",
+      "source_sha256": "336e386bacfeb321",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But what are you thinking, you who judge those who practice such things while you practice them yourself? Do you think you will escape God's judgment?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.4",
+      "source_sha256": "3c9d27568186c7fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Or do you presume upon his abundant kindness, his patience, and the opportunity he has given you, not knowing that God's kindness leads you to repentance?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.5",
+      "source_sha256": "ede52bd26322f7f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But because of your hard and unrepentant heart, you are storing up wrath for yourself for the day of wrath and the revelation of God's righteous judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.6",
+      "source_sha256": "c417d15b52f1d103",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "He repays everyone according to their deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.7",
+      "source_sha256": "8aec0b90532fdfd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "To those who seek glory, honor, and immortality by persevering in good deeds, he gives eternal life."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.8",
+      "source_sha256": "bf0477144a1fe6af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But those who are defiant and do not obey the truth, but obey wickedness, he will repay with wrath and fury,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.9",
+      "source_sha256": "575d9bebc878b565",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "and suffering and distress, for every person who does evil, for the Jews first and also for the Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.10",
+      "source_sha256": "1f7bbf6b022ed185",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But glory, honor, and peace for everyone who does good, for the Jews first and also for the Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.11",
+      "source_sha256": "f9c47df15547b1c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For there is no partiality with God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.12",
+      "source_sha256": "729bd027a9f38eb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For those who sinned without the law will also perish without the law, and those who sinned under the law will be judged by the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.13",
+      "source_sha256": "9768dbbf554869e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For it is not those who hear the law who are righteous before God, but those who do what the law says will be declared righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.14",
+      "source_sha256": "92d7d24ac50b013f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For if Gentiles who do not have the law do by nature what the law requires, they have become a law to themselves, even though they did not have the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.15",
+      "source_sha256": "739b0e87eac2183e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "They show the work of the law written on their hearts. Their conscience bears witness about them, while their thoughts accuse or excuse one another,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.16",
+      "source_sha256": "fa86cf304688fced",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "on the day when God judges people's secrets through Jesus Christ, according to my gospel."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.17",
+      "source_sha256": "fcbe15ec30b59a88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But if you are called a Jew, rely on the law, and boast in God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.18",
+      "source_sha256": "dfba8bc270cf8123",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "knowing his will and discerning what is right because you have been taught from the law,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.19",
+      "source_sha256": "4d326b3a68e0da9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "and are confident that you are a guide for the blind and a light for those who are in darkness,"
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.2.20",
       "source_sha256": "bd8d10053fe7117d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And an instructor of those who lack understanding, a teacher of children, and you have in the law the pattern of knowledge and truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.21",
+      "source_sha256": "b4f0bdd24f07f30e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "then you who teach others, do you not teach yourself? You who proclaim that people must not steal, do you steal?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.22",
+      "source_sha256": "44740b35692e73cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who say that people must not commit adultery, do you commit adultery? And you who despise idols, do you plunder the temple?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.23",
+      "source_sha256": "d6fc13df5b3616f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who boast in the law dishonor God by breaking the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.24",
+      "source_sha256": "11a6bc3237c6d3ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God's name is blasphemed among the nations because of you, as it is written."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.25",
+      "source_sha256": "299a53f0df857356",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For circumcision is beneficial if you fulfill the law. But if you break the law, your circumcision has become uncircumcision."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.2.26",
+      "source_sha256": "6c5aa492cfc02aba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if an uncircumcised person keeps the law's commandment, will not that person's uncircumcision be counted as circumcision?"
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.2.27",
@@ -62,11 +439,123 @@
       "text": "For a person is not a Jew merely outwardly, nor is circumcision what is visible in the flesh."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.2.29",
+      "source_sha256": "36517bec9296701f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, a Jew is someone who is one inwardly, and circumcision is that of the heart, in spirit and not in writing. Its praise comes not from human beings but from God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.1",
+      "source_sha256": "ba89dba87a1ede59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What advantage, then, does a Jew have? Or what benefit is there in circumcision?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.2",
+      "source_sha256": "2925fc1902bb9ced",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Much in every way. First, he was entrusted with the words of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.3",
+      "source_sha256": "347811a93091bfe4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if some of them did not believe, did their unbelief nullify God's faithfulness?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.4",
+      "source_sha256": "8e1d29606884bd24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Certainly not! For God is truthful, and every human being is a liar, as it is written: “So that you may be proved right in your words and prevail when you are judged.”"
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.3.5",
       "source_sha256": "2abad8cc2c42324c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "But if our wrongdoing establishes God's righteousness, what shall we say? Is God unjust when he brings his wrath? I am speaking in human terms."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.6",
+      "source_sha256": "2aefcf0301430ee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Certainly not! Otherwise, how could God judge the world?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.7",
+      "source_sha256": "f68ae20c9e3085bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if God's truth has increased through my falsehood to his glory, why, then, am I still judged as a sinner?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.8",
+      "source_sha256": "804f560204da1dc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or should we, as people slanderously claim we say, do evil things so that good things may come? Their condemnation is justly kept in store."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.9",
+      "source_sha256": "dd84955e89b2a339",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What advantage, then, do we have? For we have already declared that Jews and Gentiles are all under sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.10",
+      "source_sha256": "9f76adf5bed84d97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written: “There is no one righteous, not even one."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.11",
+      "source_sha256": "9156384317b435ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no one who understands and no one who seeks God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.12",
+      "source_sha256": "3146ae6305c2b108",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have all turned aside and together become worthless. There is no one who does good, not even one."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.13",
+      "source_sha256": "2a8baebeecd56f0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their throats are open graves, and their tongues are deceitful. The venom of asps is under their lips."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.14",
+      "source_sha256": "4ca379d38c66a174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their mouths are full of cursing and bitterness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.15",
+      "source_sha256": "44f62cec5434a5e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their feet are swift to shed blood."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.16",
+      "source_sha256": "9b8bbbba55e898f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Destruction and misery are in their paths."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.3.17",
@@ -76,11 +565,452 @@
       "text": "And they have not known the way of peace."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.3.18",
+      "source_sha256": "e198c35be6b9d029",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no fear of God before their eyes.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.19",
+      "source_sha256": "3abe2e3bedd34992",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now we know that whatever the law says, it says to those who are under the law, so that every mouth may be silenced and the whole world may be held guilty before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.20",
+      "source_sha256": "9fb73d1542dfff69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For no human being is justified before him by the works of the law, because through the law sin became known."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.21",
+      "source_sha256": "2b1e1f3b01dbc3ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now God's righteousness has been revealed apart from the law, and the law itself and the prophets bear witness to it."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.22",
+      "source_sha256": "e24bbed77f5b5f19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God's righteousness is through faith in Jesus Christ, to everyone and upon everyone who believes in him. For there is no distinction,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.23",
+      "source_sha256": "f0e00888d57dbcac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because all have sinned and fall short of God's glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.24",
+      "source_sha256": "739c34777e6ed226",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they are justified freely by grace and through the redemption that is in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.25",
+      "source_sha256": "e1bef305482a51df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God appointed him beforehand as an atonement through faith in his blood, because of the sins we committed in the past,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.26",
+      "source_sha256": "e9568b097a8cf1f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "during the respite God gave us in his patience, to demonstrate his righteousness at this present time, so that he might be righteous and might righteously justify whoever has faith in our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.27",
+      "source_sha256": "5b026afd4e3bf75d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Where, then, is boasting? It has been ruled out. By what law? A law of works? No, but by the law of faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.28",
+      "source_sha256": "a433261cd4bc4ca5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We therefore conclude that a person is justified by faith and not by works of the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.29",
+      "source_sha256": "a61ce8a020e5ae45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or is God the God of the Jews alone, and not of the Gentiles? Yes, he is also the God of the Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.30",
+      "source_sha256": "8db3bd6a8aec6afe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is one, and he justifies the circumcised by faith and the uncircumcised by that same faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.3.31",
+      "source_sha256": "eb63c3d3b161ed0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do we then nullify the law through faith? Certainly not! Rather, we uphold the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.1",
+      "source_sha256": "eab31110f31fb7de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, do we say about Abraham, the chief of the patriarchs, and what he found according to the flesh?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.2",
+      "source_sha256": "c0967ce244f3aa3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if Abraham was justified by works, he had something to boast about—but not before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.3",
+      "source_sha256": "2ffa67ec6d12113b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what does Scripture say? “Abraham believed God, and it was credited to him as righteousness.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.4",
+      "source_sha256": "8fc4af7965422fe2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now for someone who works, his wages are not counted as a gift, but as something owed to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.5",
+      "source_sha256": "4008e82289f865cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But for someone who does not work, but only believes in the one who justifies sinners, his faith is credited to him as righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.6",
+      "source_sha256": "aba55258901ce94c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "David also speaks of the blessedness of the person to whom God credits righteousness apart from works, when he says:"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.7",
+      "source_sha256": "b7fe02117577bd51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Blessed are those whose wrongdoing has been forgiven and whose sins have been covered."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.8",
+      "source_sha256": "2cc0ce45269c3e3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And blessed is the person whose sin God will not count against him.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.9",
+      "source_sha256": "131aa8488da05cc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is this blessing, then, for the circumcised or for the uncircumcised? For we say that Abraham's faith was credited to him as righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.10",
+      "source_sha256": "b810ba0b1b0917f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How, then, was it credited to him? While he was circumcised or uncircumcised? Not while circumcised, but while uncircumcised."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.11",
+      "source_sha256": "d87368a91621a649",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he received circumcision as a sign and a seal of the righteousness of his faith while he was uncircumcised, so that he might be the father of all who believe while uncircumcised, so that it might also be credited to them as righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.12",
+      "source_sha256": "57d7964ecd723455",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he is the father of the circumcised—not only those who are circumcised, but also those who follow in the footsteps of the faith our father Abraham had while uncircumcised."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.13",
+      "source_sha256": "4f83f8e8e305b0a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the promise to Abraham and his descendants that he would inherit the world did not come through the law, but through the righteousness of his faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.14",
+      "source_sha256": "d38047f8701aca86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if those who belong to the law were the heirs, faith would be empty and the promise would be nullified."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.15",
+      "source_sha256": "2178cb74b64395e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law brings about wrath, and where there is no law, there is no violation of the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.16",
+      "source_sha256": "b85a6dbd969c5fb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this reason, we are justified by faith through grace, so that the promise may be secure for all his descendants—not only those who belong to the law, but also those who share the faith of Abraham, who is the father of us all."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.17",
+      "source_sha256": "741de10d02524831",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "As it is written, “I have made you the father of many nations,” before God, the one in whom you believed, who gives life to the dead and calls things that do not exist as though they existed."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.18",
+      "source_sha256": "a674158b7a6e41cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "When there was no hope, he believed in hope that he would become the father of many nations, as it is written, “So shall your descendants be.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.19",
+      "source_sha256": "ac82fe428676791a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He did not grow weak in his faith when he considered his own dead body, since he was a hundred years old, and Sarah’s dead womb."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.20",
+      "source_sha256": "c15f65e7f534975b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He did not doubt God’s promise like someone lacking faith. Instead, he grew strong in faith and gave glory to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.21",
+      "source_sha256": "55afe451c8082903",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He was certain that God was able to fulfill what he had promised him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.22",
+      "source_sha256": "5cac18cd255e15af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this reason, it was credited to him as righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.23",
+      "source_sha256": "4bd8847d23869385",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "This statement, that his faith was credited as righteousness, was not written for his sake alone,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.24",
+      "source_sha256": "e7258aa593a573e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "but also for ours. For he will also credit it to us who have believed in the one who raised our Lord Jesus Christ from the dead."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.4.25",
+      "source_sha256": "fd2da329434d2a92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "He was handed over because of our sins and rose to make us righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.1",
+      "source_sha256": "fe7b2cdda1d86b59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore, since we have been made righteous by faith, let us have peace with God through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.2",
+      "source_sha256": "6570086e17a903a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Through him we have drawn near by faith to this grace in which we stand, and we boast in the hope of God’s glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.3",
+      "source_sha256": "5244cae0cc9ededd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Not only that, but we also boast in our sufferings, knowing that suffering develops endurance in us,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.4",
+      "source_sha256": "e15b1645fa5a784a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and endurance develops proven character, and proven character develops hope."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.5",
+      "source_sha256": "c21fe36de7231c7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Hope does not put us to shame, because God’s love is poured out upon our hearts through the Holy Spirit who has been given to us."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.6",
+      "source_sha256": "f9ee3b10aae5f85b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But if Christ, because of our weakness, died at this time for the wicked—"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.7",
+      "source_sha256": "29421925da92b22e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "for someone will hardly die for wicked people, though someone might perhaps dare to die for good people—"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.8",
+      "source_sha256": "f8cf492d54bd900e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "here God shows his love toward us: if Christ died for us while we were still sinners,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.9",
+      "source_sha256": "f56f09bd9dba60c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "how much more, then, will we now be made righteous by his blood and be rescued through him from wrath!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.10",
+      "source_sha256": "aee205cae476d5b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For if, while we were enemies, God was reconciled with us through the death of his Son, how much more, then, through reconciliation with him, will we live by his life!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.11",
+      "source_sha256": "a4425d85dfeb58e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Not only that, but we will also boast in God through our Lord Jesus Christ, through whom we have now received reconciliation."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.12",
+      "source_sha256": "1308dbb92573c365",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For just as sin entered the world through one man, and death through sin, so death spread to all human beings, because they all sinned."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.13",
+      "source_sha256": "5a9d378a43857b4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For before the law, although sin was in the world, sin was not counted, because there was no law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.14",
+      "source_sha256": "5d6de61b2b4eeb4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Nevertheless, death reigned from Adam to Moses, even over those who had not sinned in the same way that Adam broke the law. He is a likeness of the one who was to come."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.15",
+      "source_sha256": "669fb8eac05924c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But the gift is not like the trespass. For if many died because of one man's trespass, how much more will God's grace and his gift abound to many because of the one man, Jesus Christ."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.5.16",
       "source_sha256": "1f2f48f2be4fe9f6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And the gift is not like the offense of one person. For the judgment that came from one person led to condemnation, but the gift, following many sins, led to justification."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.17",
+      "source_sha256": "ab1a1b0b441797de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For if death reigned because of one man's wrongdoing, much more will those who have received the abundance of grace, of the gift, and of righteousness reign in life through the one, Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.18",
+      "source_sha256": "90380621cb41e524",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "So then, just as one man's wrongdoing brought condemnation to all people, so one man's righteousness will bring acquittal leading to life for all people."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.19",
+      "source_sha256": "7cfd38f28306c1b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For just as many became sinners because of one man's disobedience, so also many become righteous because of the obedience of one."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.20",
+      "source_sha256": "72f7b280cef067d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Now the law came in so that sin would increase, but where sin increased, grace abounded."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.5.21",
+      "source_sha256": "b5c1fd98f9e6cfb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "So that just as sin reigned in death, so grace would reign through righteousness, leading to eternal life through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.1",
+      "source_sha256": "8de623767781c780",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "What then shall we say? Shall we remain in sin so that grace may abound?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.2",
+      "source_sha256": "c15d0e1ef63e8990",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Certainly not! For how can we who died to sin live in it again?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.3",
+      "source_sha256": "708d6a31aeb564e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Or do you not know that we who were baptized into Jesus Christ were baptized into his death?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.4",
+      "source_sha256": "288f58c6f1364f8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "We were buried with him through baptism into death, so that just as Jesus Christ rose from the dead through the glory of his Father, we too might walk in new life."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.6.5",
@@ -90,11 +1020,123 @@
       "text": "For if we have been planted together with him in the likeness of his death, we will also be so in his resurrection."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.6.6",
+      "source_sha256": "ac8080ddbaef026f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For we know that our old self was crucified with him so that the body of sin might be rendered powerless, so that we would no longer serve sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.7",
+      "source_sha256": "bf92ae268ce2cc11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For whoever has died has been freed from sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.8",
+      "source_sha256": "292cb0236b5ddaef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If, then, we died with Christ, let us believe that we will live with him, with Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.9",
+      "source_sha256": "f2e972c0bbfa5de7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For we know that Christ rose from the dead and no longer dies, and death has no power over him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.10",
+      "source_sha256": "905228dbb355e7e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For in dying, he died to sin once, and in living, he lives to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.11",
+      "source_sha256": "2193af0fcf2986aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "In the same way, you too must consider yourselves dead to sin and alive to God in our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.12",
+      "source_sha256": "b8aa8d733f807c8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Therefore, do not let sin reign in your mortal body so that you obey its desires."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.13",
+      "source_sha256": "3ef0481e5b1c0330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And do not offer the parts of your body to sin as weapons of wrongdoing. Instead, offer yourselves to God as people who have come to life from the dead, and let the parts of your body be weapons for God's righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.14",
+      "source_sha256": "e784be82a661c8e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And sin has no power over you, for you are not under the law but under grace."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.15",
+      "source_sha256": "1cef0f944eeff9a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "What then? Shall we sin because we are not under the law but under grace? Certainly not!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.16",
+      "source_sha256": "8690f670b4faebbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Do you not know that when you offer yourselves to someone as slaves to obey him, you are slaves of the one you obey, whether of sin or of obedience to righteousness?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.17",
+      "source_sha256": "3b2076c9742264db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But thanks be to God that, though you were slaves of sin, you obeyed from the heart the pattern of teaching to which you were entrusted."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.18",
+      "source_sha256": "6f0bca4f1849ec60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And when you were freed from sin, you became slaves of righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.19",
+      "source_sha256": "7630148bf2e0a76a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I am speaking in human terms because of the weakness of your flesh. Just as you offered the parts of your bodies as slaves to impurity and wickedness, so now offer the parts of your bodies as slaves to righteousness and holiness."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.6.20",
       "source_sha256": "33eb0eec7d8b1b5d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "For when you were slaves of sin, you were free from righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.21",
+      "source_sha256": "f3af78d0c4c9ac95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "What benefit did you have then from what you are now ashamed of? Its outcome is death."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.6.22",
+      "source_sha256": "0902399d22bd2eaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But now that you have been freed from sin and have become slaves of God, you have holy fruit, whose outcome is eternal life."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.6.23",
@@ -104,11 +1146,95 @@
       "text": "The wages of sin are death, but God's gift is eternal life in our Lord Jesus Christ."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.7.1",
+      "source_sha256": "a6f3bee8f01d6ecc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Or do you not know, my brothers—for I am speaking to those who know the law—that the law has authority over a person as long as he lives?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.2",
+      "source_sha256": "5a85ebf78842c6ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For example, a woman is bound by law to her husband as long as he lives. But if her husband dies, she is freed from the law concerning her husband."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.3",
+      "source_sha256": "462a504c1eb6543b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But if she joins herself to another man while her husband is alive, she becomes an adulteress. If her husband dies, however, she is freed from the law and is not an adulteress if she becomes another man's wife."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.4",
+      "source_sha256": "bd17728973f9074d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And now, my brothers, you too have died to the law through the body of Christ, so that you may belong to another, the one who rose from the dead, so that you may bear fruit for God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.5",
+      "source_sha256": "ab5915dfc9432736",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For when we were in the flesh, the sinful passions that came through the law were at work in the parts of our bodies, so that we bore fruit for death."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.6",
+      "source_sha256": "008f5a3cd7b8c36c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But now we have been released from the law and have died to what held us captive, so that from now on we may serve in the newness of the Spirit and not in the oldness of the written code."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.7",
+      "source_sha256": "57f9cfd4d835d65e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "What then are we saying? Is the law sin? Certainly not! Yet I would not have learned what sin was except through the law. For I would not have known what coveting was if the law had not said, \"Do not covet.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.8",
+      "source_sha256": "8e61f8cda10d06bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Through this commandment, sin found an opportunity and produced every kind of coveting in me. For without the law, sin was dead."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.9",
+      "source_sha256": "0587dbf7922c9f02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "I was once alive without the law. But when the commandment came, sin came to life, and I died."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.7.10",
       "source_sha256": "899f2bf4b9306346",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And I found that the commandment meant for life brought death."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.11",
+      "source_sha256": "f4e58bd627ed7f77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For sin, through the opportunity it found in the commandment, deceived me and through it killed me."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.12",
+      "source_sha256": "4ee0008d14f9af74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "So the law is holy, and the commandment is holy and just and good."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.13",
+      "source_sha256": "05155ace46aabe39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Did what is good, then, become death for me? Certainly not! Rather, it was sin, so that it might be seen to be sin, producing death in me through what is good, so that sin might be condemned all the more through the commandment."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.7.14",
@@ -118,11 +1244,529 @@
       "text": "For we know that the law is spiritual, but I am of the flesh and am sold to sin."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.7.15",
+      "source_sha256": "6a661c6b426fa7f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I do not understand what I am doing. I do not do what I want to do; instead, I do what I hate."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.16",
+      "source_sha256": "1013c26319c5259a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And if I do what I do not want to do, I testify that the law is good."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.17",
+      "source_sha256": "63101aece6e2e6f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But now it is no longer I who do this, but sin that lives in me."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.18",
+      "source_sha256": "ce5f202e3dd3d968",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I know that nothing good lives in me, that is, in my flesh. It is easy for me to want what is good, but I am unable to carry it out."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.19",
+      "source_sha256": "6d76990e9b84801f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For I do not do the good that I want to do. Instead, I do the evil that I do not want to do."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.20",
+      "source_sha256": "f94a3e91d3fe3a6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And if I do what I do not want to do, it is no longer I who do it, but sin that lives in me."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.21",
+      "source_sha256": "0ed92bc6c466782b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So I find the law agreeing with my mind, which wants to do good, because evil is close at hand for me."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.22",
+      "source_sha256": "338f9820d929feb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in my inner self I delight in God's law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.23",
+      "source_sha256": "883336da250e0369",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I see another law in the parts of my body, waging war against the law of my mind and taking me captive to the law of sin that is in the parts of my body."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.24",
+      "source_sha256": "2906cb460fadf1ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What a miserable person I am! Who will rescue me from this body of death?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.7.25",
+      "source_sha256": "dda47eb106927028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I thank God through our Lord Jesus Christ. So then, in my mind I am a slave to God's law, but in my flesh I am a slave to the law of sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.1",
+      "source_sha256": "9492db611f144aff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is therefore now no condemnation for those in Jesus Christ who do not live according to the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.2",
+      "source_sha256": "64dc795bde8c678b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the law of the Spirit of life in Jesus Christ has set you free from the law of sin and death."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.3",
+      "source_sha256": "dc9a929d8f651112",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For because the law was powerless through the weakness of the flesh, God sent his Son in the likeness of sinful flesh, on account of sin, to condemn sin in his flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.4",
+      "source_sha256": "a1970ec6bb709aa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This was so that the righteousness of the law might be fulfilled in us, who live not according to the flesh but according to the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.5",
+      "source_sha256": "c427605805232664",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who are in the flesh set their minds on the things of the flesh, and those who belong to the Spirit set their minds on the things of the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.6",
+      "source_sha256": "0582bcf32c5f8632",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the mindset of the flesh is death, but the mindset of the Spirit is life and peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.7",
+      "source_sha256": "7048bb21b493a314",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the mindset of the flesh is hostility toward God. It does not submit to God's law, because it cannot."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.8",
+      "source_sha256": "acd0f0de2d149e43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And those who are in the flesh cannot please God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.9",
+      "source_sha256": "265ce1b25500ae41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you are not in the flesh but in the Spirit, if God's Spirit truly lives in you. If anyone does not have the Spirit of Christ, that person does not belong to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.10",
+      "source_sha256": "b47231a282138da2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if Christ is in you, the body is dead because of sin, but the spirit is alive because of righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.11",
+      "source_sha256": "ef6b95ea8ffd8415",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if the Spirit of the one who raised our Lord Jesus Christ from the dead lives in you, the one who raised Jesus Christ from the dead will also give life to your dead bodies because of his Spirit who lives in you."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.12",
+      "source_sha256": "83aef21b5f4c9073",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So now, my brothers, we are under an obligation, but not to the flesh, to live according to the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.13",
+      "source_sha256": "6b43d0943d18dec1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you live according to the flesh, you will die. But if by the Spirit you put the body's practices to death, you will live."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.14",
+      "source_sha256": "bce8b66d8394af61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who are led by God's Spirit are God's children."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.15",
+      "source_sha256": "12d72a6fe695b396",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you did not receive a spirit of slavery to bring you back into fear, but you received the Spirit of adoption as children, by whom we cry out, “Abba, our Father!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.16",
+      "source_sha256": "3b0f7439fd7c81a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the Spirit herself testifies to our spirit that we are God's children."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.17",
+      "source_sha256": "99d89297cf299873",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if we are children, we are also heirs—heirs of God and fellow heirs with Jesus Christ—if we suffer with him, so that we may also be glorified with him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.18",
+      "source_sha256": "663ab9766aeb3d22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I consider that the sufferings of this present time are not comparable to the glory that is to be revealed in us."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.19",
+      "source_sha256": "44cc5046578f6314",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For all creation hopes and waits for the revealing of God's children."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.20",
+      "source_sha256": "b8db96aa4511bbd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For creation was subjected to futility, not willingly, but because of the one who subjected it in hope."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.21",
+      "source_sha256": "ea22a699f3006dea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That creation itself will also be freed from slavery to decay into the glorious freedom of the children of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.22",
+      "source_sha256": "9f80b05f0d1f46cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we know that all created things are groaning and suffering labor pains to this day."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.23",
+      "source_sha256": "246c437fb2dcac9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And not only they, but we ourselves, who have the firstfruits of the Spirit, groan within ourselves as we wait for adoption as children and for the redemption of our bodies."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.24",
+      "source_sha256": "8eaefff9343f8bb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we have been saved in hope. But hope that is seen is not hope. For if we see it, why do we wait for it?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.25",
+      "source_sha256": "b720c33d53d35ecc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if we hope for something that is not seen, we wait patiently."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.26",
+      "source_sha256": "2d2aba2d89542251",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, the Spirit also helps our weakness. For we do not know what to pray for as we should, but the Spirit itself prays on our behalf with groans that cannot be expressed."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.27",
+      "source_sha256": "3aca27775f59cd8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the one who searches hearts knows the mind of the Spirit, because it prays on behalf of the holy ones according to God's will."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.28",
+      "source_sha256": "c7bee2e851204afa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we know that he helps those who love God in everything for their good—those whom he appointed beforehand to be called."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.29",
+      "source_sha256": "9d79cf205610c211",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He knew them beforehand and marked them out in the likeness of his Son's image, so that he would be the firstborn among many brothers."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.8.30",
       "source_sha256": "67340a151d138382",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Those whom he marked out beforehand, he also called; those whom he called, he also justified; and those whom he justified, he also glorified."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.31",
+      "source_sha256": "71ad0d4b96424d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say about these things? If God is for us, who is against us?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.32",
+      "source_sha256": "635d99d3c3b214be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if he did not spare his Son but handed him over for us all, how will he not also give us everything along with him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.33",
+      "source_sha256": "4d494538ac8721dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who will bring an accusation against God's chosen ones? God declares them righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.34",
+      "source_sha256": "5b52a4cc3f225d54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who condemns them? Christ died and rose, and he is at God's right hand and pleads on our behalf."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.35",
+      "source_sha256": "e686bb60b3e25c5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who will separate us from Christ's love? Will suffering, or imprisonment, or persecution, or famine, or nakedness, or danger, or the sword?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.36",
+      "source_sha256": "bfaee5cd961ed5f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written: “For your sake we die all day long, and we are regarded as sheep for slaughter.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.37",
+      "source_sha256": "7ffffd3ddd044081",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in all these things we are victorious through the one who loved us."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.38",
+      "source_sha256": "74fa826fa621167f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I am convinced that neither death, nor life, nor angels, nor rulers, nor powers, nor present things, nor things to come,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.8.39",
+      "source_sha256": "49a51c420be726f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "nor height, nor depth, nor any other created thing will be able to separate us from God's love, which is in our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.1",
+      "source_sha256": "0c7c78ed6dcfbeef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I speak the truth in Christ, and I am not lying; my conscience bears witness for me in the Holy Spirit,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.2",
+      "source_sha256": "5e9bf9b8a66a61a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that I have great sorrow, and the pain in my heart does not cease."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.3",
+      "source_sha256": "5b05f25435ed6cd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I would pray that I myself might be accursed and separated from Christ for the sake of my brothers and my relatives according to the flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.4",
+      "source_sha256": "5e30c9b4d0b921d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are the people of Israel. Theirs were the adoption as children, the glory, the covenants, the law, the worship prescribed in it, and the promises,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.5",
+      "source_sha256": "1e00fd8693905621",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the ancestors. From them Christ appeared in the flesh. He is God over all, to whom belong praises and blessings forever and ever. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.6",
+      "source_sha256": "adce65447db7049f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But it is not that God's word has failed. For not all who descend from Israel are Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.7",
+      "source_sha256": "67f05f05a21e8e79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor are they all children simply because they are Abraham's descendants. For it was said, “Through Isaac your descendants will be named.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.8",
+      "source_sha256": "2376d11887dda967",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "That is, it is not the children of the flesh who are children of God, but the children of the promise are counted as offspring."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.9",
+      "source_sha256": "ab9e659f6fce4a6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is the word of promise: “At this time I will come, and Sarah will have a son.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.10",
+      "source_sha256": "6f43a98e7ea6877c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And not only this, but also Rebecca, when she had relations with one man, our father Isaac—"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.11",
+      "source_sha256": "f516cce9fa7c4a7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "before her sons were born or had done anything good or bad, God's choice was made known beforehand, so that it would stand, not through deeds but through the one who called."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.12",
+      "source_sha256": "c8d3e89103f89233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it was said, “The older will be a servant to the younger.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.13",
+      "source_sha256": "999afedb259d96ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written, “I loved Jacob, but I hated Esau.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.14",
+      "source_sha256": "4cc593fe502836c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say? Is there injustice with God? Certainly not!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.15",
+      "source_sha256": "8f77863c13f49c5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, he also said to Moses, “I will have mercy on whomever I have mercy, and I will show favor to whomever I show favor.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.16",
+      "source_sha256": "c8067648cc7e17e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So it is not in the hands of the one who wills or the one who runs, but in the hands of God, who has mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.17",
+      "source_sha256": "ae95f04bb2beba73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he said to Pharaoh in Scripture, “For this very purpose I raised you up: to show my power through you, and so that my name might be proclaimed throughout the whole earth.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.18",
+      "source_sha256": "1659a823b296260b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So he has mercy on whomever he wishes, and he hardens whomever he wishes."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.19",
+      "source_sha256": "d24a4782b1446b75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And perhaps you will say, “Why does he find fault? For who can resist his will?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.20",
+      "source_sha256": "a56bb2a33b078513",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But who are you, a human being, to answer back to God? Does what is molded say to the one who molded it, “Why did you mold me this way?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.21",
+      "source_sha256": "594cab80c0696c9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or does the potter not have authority over his clay, to make vessels from the same lump, one for honor and another for dishonor?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.22",
+      "source_sha256": "61604986b2506894",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if God wished to display his wrath and make his power known, he brought wrath, with great patience, upon vessels of wrath ready for destruction,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.23",
+      "source_sha256": "a6b2e08aa685901b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and poured out his mercy abundantly on vessels of mercy, which had been prepared for God for glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.24",
+      "source_sha256": "ec010e5eddb6aaa9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We are those who are called, not only from among the Jews but also from among the Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.25",
+      "source_sha256": "5b3bf379d2c5c65f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As he also said in Hosea, “I will call those who were not my people ‘My people,’ and her who was not loved ‘Loved.’”"
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.9.26",
@@ -132,11 +1776,221 @@
       "text": "For in the place where they were called 'Not my people,' there they will be called children of the living God."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.9.27",
+      "source_sha256": "453e21382c86af24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Isaiah proclaimed concerning the children of Israel, “Even if the number of the children of Israel is like the sand in the sea, a remnant of them will be saved.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.28",
+      "source_sha256": "0f5ae5900605e14c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he has determined and settled the matter, and the Lord will carry it out on the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.29",
+      "source_sha256": "600bcfd0b815f39e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And as Isaiah himself said beforehand, “If the Lord of hosts had not left us a remnant, we would have become like Sodom and resembled Gomorrah.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.30",
+      "source_sha256": "3d81e43e9b80ecfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, shall we say? That the Gentiles, who were not pursuing righteousness, attained righteousness—the righteousness that comes from faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.31",
+      "source_sha256": "87694874eab87841",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Israel, which was pursuing the law of righteousness, did not attain the law of righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.32",
+      "source_sha256": "08151abf02d9c18a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Why? Because it was not through faith, but through the deeds of the law. For they stumbled over the stumbling stone,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.9.33",
+      "source_sha256": "0c2cec4d07d0c181",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "as it is written, “Look, I am laying in Zion a stumbling stone and a rock that causes people to fall, and whoever believes in it will not be put to shame.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.1",
+      "source_sha256": "ba6ee2ab3120671e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers, my heart's desire and my prayer to God for them is that they may be saved."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.2",
+      "source_sha256": "616a984b09fa113f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I testify about them that they have zeal for God, but not according to knowledge."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.3",
+      "source_sha256": "35ba2e581281eaf6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For they did not know God's righteousness, but sought to establish their own righteousness. Because of this, they did not submit to God's righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.4",
+      "source_sha256": "99fb66e5790fb55a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Christ is the goal of the law, bringing righteousness to everyone who believes."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.5",
+      "source_sha256": "37689df55f6737dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Moses wrote this about the righteousness that is in the law: \"Whoever does these things will live by them.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.6",
+      "source_sha256": "7ca02123d3b21694",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the righteousness that is through faith speaks this way: \"Do not say in your heart, 'Who has gone up to heaven and brought Christ down?'\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.7",
+      "source_sha256": "bc463f360c17e854",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "\"Or, 'Who has gone down into the depths of Sheol and brought Christ up from the dead?'\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.8",
+      "source_sha256": "622b6f2c625c7335",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what does it say? \"The word is near you, in your mouth and in your heart.\" This is the word of faith that we proclaim."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.9",
+      "source_sha256": "441e5628a0fd2e82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if you confess our Lord Jesus with your mouth and believe in your heart that God raised him from the dead, you will be saved."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.10",
+      "source_sha256": "f690a7f1235c0ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For with the heart one believes and is made righteous, and with the mouth one confesses and is saved."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.11",
+      "source_sha256": "30ac1a52cb9c67cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Scripture says, \"Everyone who believes in him will not be put to shame.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.12",
+      "source_sha256": "33a62d9bcb564e86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And in this it makes no distinction between Jews and Gentiles, for the same Lord is Lord of them all, and he is generous to everyone who calls on him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.13",
+      "source_sha256": "37bee86a035a80f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone who calls on the name of the Lord will be saved."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.14",
+      "source_sha256": "0e5ad692a01209d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "How, then, will they call on someone in whom they have not believed? Or how will they believe in someone whom they have not heard? Or how will they hear without a preacher?"
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.10.15",
       "source_sha256": "f39a6aeb66f5911b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And how can they preach unless they are sent? As it is written, 'How beautiful are the feet of those who bring good news of peace and those who bring good news of good things!'"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.16",
+      "source_sha256": "3669f116ec9cabff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But not all of them obeyed the good news of the gospel. For Isaiah said, \"Lord, who has believed our message?\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.17",
+      "source_sha256": "5693d201c13c64c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So faith comes from hearing, and hearing comes through the word of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.18",
+      "source_sha256": "cc14847d1825acbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Have they not heard? Indeed, \"Their voice has gone out through all the earth, and their words to the ends of the world.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.19",
+      "source_sha256": "977df225dc63a0d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Did Israel not know? First Moses said this: \"I will make you jealous through a people who are not a people, and I will make you angry through a disobedient nation.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.20",
+      "source_sha256": "a4851213d7ba7e62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Isaiah boldly said, \"I appeared to those who did not seek me, and I was found by those who did not ask about me.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.10.21",
+      "source_sha256": "47de3e38d07441fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But to Israel he said, \"All day long I stretched out my hands toward a people who argue and refuse to obey.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.1",
+      "source_sha256": "b85343433ea46eee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Has God rejected his people? Certainly not! For I too am an Israelite, a descendant of Abraham, from the tribe of Benjamin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.2",
+      "source_sha256": "2d1061f680c0aa1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "God has not rejected his people, whom he knew beforehand. Or do you not know what Elijah said in Scripture when he complained to God about Israel, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.3",
+      "source_sha256": "f46617f757f2b7b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "\"Lord, they have killed your prophets and torn down your altars. I alone am left, and they are seeking my life.\""
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.11.4",
@@ -146,11 +2000,102 @@
       "text": "And it was said to him in a revelation, 'Look, I have kept for myself seven thousand men who have not knelt on their knees or worshiped Baal.'"
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.11.5",
+      "source_sha256": "78da9ce3c0654f5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So too at this present time, a remnant remains, chosen by grace."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.6",
+      "source_sha256": "e1a930da79e6107c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if it is by grace, it is not on the basis of works; otherwise, grace is no longer grace. But if it is by works, it is not on the basis of grace; otherwise, work is no longer work."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.7",
+      "source_sha256": "6a2609ef253526ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What then? Israel did not obtain what it was seeking, but the chosen did obtain it. The rest were blinded in their hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.8",
+      "source_sha256": "f0b6f211da3c1b0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As it is written, “God gave them a spirit of stupor, eyes that could not see and ears that could not hear, down to this very day.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.9",
+      "source_sha256": "b3cfabf95c42db22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And David also says, “Let their table before them become a snare, and their repayment a stumbling block."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.10",
+      "source_sha256": "38753f83123d1e90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let their eyes be darkened so that they cannot see, and let their backs always be bent.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.11",
+      "source_sha256": "fd6aa5b30036daf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I ask: Did they stumble so that they would fall? Certainly not! Rather, through their stumbling, salvation came to the Gentiles, to make them jealous."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.12",
+      "source_sha256": "d2c802c270882736",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if their stumbling became riches for the world, and their guilt riches for the Gentiles, how much more will their fullness bring!"
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.11.13",
       "source_sha256": "f99026fa01582559",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "But I am speaking to you Gentiles. As an apostle to the Gentiles, I honor my ministry."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.14",
+      "source_sha256": "9465c30b90ddb6a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Perhaps I may make my own flesh and blood jealous and save some of them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.15",
+      "source_sha256": "4a69b8d677166a5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if their rejection brought reconciliation to the world, what will their return be but life from the dead?"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.16",
+      "source_sha256": "4c7756abf4df1b34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If the first portion is holy, so is the whole batch of dough. And if the root is holy, so are the branches."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.17",
+      "source_sha256": "9131c46e6d622a45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if some of the branches were broken off, and you, a wild olive tree, were grafted in their place and came to share in the root and richness of the olive tree,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.18",
+      "source_sha256": "ab7e923d1a866aec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "do not boast over the branches. But if you do boast, it is not you who support the root; the root supports you."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.11.19",
@@ -160,11 +2105,109 @@
       "text": "And perhaps you will say, 'The branches were broken off so that I might be grafted in their places.'"
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.11.20",
+      "source_sha256": "06b8afb32cdcfc06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Very well. They were broken off because they did not believe, but you stand through faith. Do not be arrogant in your thinking, but be afraid."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.21",
+      "source_sha256": "45e2bb68da30eb55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if God did not spare the natural branches, perhaps he will not spare you either."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.22",
+      "source_sha256": "53be437ac27cd7d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider, then, God's kindness and severity: severity toward those who fell, but kindness toward you, if you continue in that kindness. Otherwise, you too will be broken off."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.23",
+      "source_sha256": "f5b6f283ef06936d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if they do not persist in their lack of faith, they too will be grafted in, for God is able to graft them in again."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.24",
+      "source_sha256": "1a6cc81898c663fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if you were cut off from the wild olive tree to which you naturally belonged and, contrary to your nature, were grafted into a good olive tree, how much more will they be grafted into their own natural olive tree!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.25",
+      "source_sha256": "f90499ccd1dfc95c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I want you to know this mystery, my brothers, so that you will not be wise in your own eyes: blindness of heart has come upon Israel in part, until the full number of the Gentiles comes in."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.26",
+      "source_sha256": "e9a082a1438abc07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And then all Israel will be saved, as it is written: “The deliverer will come from Zion and turn wickedness away from Jacob."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.27",
+      "source_sha256": "27bd498be5925bfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And then this will be my covenant with them, when I forgive their sins.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.28",
+      "source_sha256": "2daae114820b8c6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As far as the gospel is concerned, they are enemies for your sake; but as far as God's choice is concerned, they are beloved for the sake of the fathers."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.29",
+      "source_sha256": "05b5cf5fd0457ec0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God does not go back on his gift or his calling."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.30",
+      "source_sha256": "284f35a2d401e2d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For just as you too were formerly disobedient to God, but have now received mercy because of their disobedience,"
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.11.31",
       "source_sha256": "285f270c4568be37",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Likewise, these too have now been disobedient to the mercy shown to you, so that they too may receive mercy."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.32",
+      "source_sha256": "3ea25cb2079348ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for God has confined everyone in disobedience so that he may have mercy on everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.33",
+      "source_sha256": "df8febbf20048634",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Oh, the depth of God's riches and wisdom and knowledge! No one can fathom his judgments, and his ways cannot be traced!"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.11.34",
+      "source_sha256": "803aaad6461d1dd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For who has known the mind of the Lord? Or who has been his counselor?"
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.11.35",
@@ -181,11 +2224,144 @@
       "text": "For everything is from him, everything is in him, and everything is through his hand. To him be praises and blessings forever and ever. Amen."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.12.1",
+      "source_sha256": "36f71a60c937e464",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Therefore I appeal to you, my brothers, by the mercies of God, to present your bodies as a living, holy sacrifice acceptable to God, in reasonable service."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.12.2",
       "source_sha256": "333563ee2c2f5253",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And do not conform to this world, but be transformed by the renewal of your minds, so that you may discern what God's will is: good, acceptable, and perfect."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.3",
+      "source_sha256": "39da72b541ace2dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "By the grace given to me, I tell all of you not to think more highly than you ought to think, but to think modestly, each according to the measure of faith God has allotted him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.4",
+      "source_sha256": "0e6ed36f3c72dabf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For just as we have many parts in one body, and not all the parts have the same function,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.5",
+      "source_sha256": "979a9a1f312e33be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "so we too, though we are many, are one body in Christ, and individually we are parts of one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.6",
+      "source_sha256": "259e4ababaa4dc2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But we have different gifts, according to the grace given to us. If someone has prophecy, let him prophesy according to the measure of his faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.7",
+      "source_sha256": "42a1a21f9bac4483",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If someone has a ministry, let him carry out his ministry; if someone is a teacher, let him teach."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.8",
+      "source_sha256": "724c46cc94b19374",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If someone is a comforter, let him give comfort. Whoever gives should do so sincerely; whoever leads, diligently; and whoever shows mercy, cheerfully."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.9",
+      "source_sha256": "6b0e9591023dfc2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not let your love be deceitful. Rather, hate what is evil and hold fast to what is good."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.10",
+      "source_sha256": "56104abc7335c881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Be affectionate toward your brothers and love one another. Take the lead in honoring one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.11",
+      "source_sha256": "53d84cb951df31ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Be diligent, not lazy. Be fervent in spirit. Serve your Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.12",
+      "source_sha256": "7ad889c5639aed6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Rejoice in your hope. Endure your troubles. Persevere in prayer."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.13",
+      "source_sha256": "06105f129d8685e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Share in meeting the needs of the holy ones. Show love to strangers."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.14",
+      "source_sha256": "321b2bf75a3ade28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Bless those who persecute you. Bless, and do not curse."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.15",
+      "source_sha256": "8e0323d87233f8eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Rejoice with those who rejoice, and weep with those who weep."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.16",
+      "source_sha256": "4d66e3b59ae07a62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Think of your brothers as you think of yourselves. Do not be proud in your thinking, but associate with the humble. Do not be wise in your own estimation."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.17",
+      "source_sha256": "dd8f3bc065663bf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not repay anyone evil for evil. Instead, take care to do what is good before all people."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.18",
+      "source_sha256": "0fa8684722ccba20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If possible, as far as it depends on you, make peace with everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.19",
+      "source_sha256": "a980469d97e9eaa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not avenge yourselves, my dear friends, but leave room for wrath. For it is written: “If you do not exact justice for yourself, I will exact justice for you,” says God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.12.20",
+      "source_sha256": "50038fdd7359f637",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If your enemy is hungry, feed him; if he is thirsty, give him a drink. If you do these things for him, you will heap burning coals on his head."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.12.21",
@@ -195,11 +2371,480 @@
       "text": "Do not let evil overcome you, but overcome evil with good."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.13.1",
+      "source_sha256": "81599f323d44f112",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Let every person submit to the ruling authorities. For there is no authority that is not from God, and the authorities that exist have been appointed by God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.2",
+      "source_sha256": "b52746a38e3e830a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Therefore, whoever opposes authority opposes God's command, and those who oppose them will receive judgment."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.3",
+      "source_sha256": "69b54605c00e2815",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For judges are not a terror to good deeds, but to evil ones. Do you want to have no fear of authority? Do what is good, and you will receive praise from it."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.4",
+      "source_sha256": "ca0436715850e6b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For he is God's servant, but for your good. If you do evil, be afraid, for he does not wear the sword for nothing. He is God's servant, an avenger who brings wrath on those who do evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.5",
+      "source_sha256": "562dfb730154a18a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For this reason we must submit, not only because of wrath but also because of our conscience."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.6",
+      "source_sha256": "d6e40b35adf37989",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This is also why you pay the poll tax, for they are God's servants who attend to these matters."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.7",
+      "source_sha256": "414b9b7b1da37a46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "So pay everyone what is owed to them: poll tax to whom poll tax is owed, customs duty to whom customs duty is owed, fear to whom fear is owed, and honor to whom honor is owed."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.8",
+      "source_sha256": "a8b54bb542b63d68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Owe no one anything except to love one another. For whoever loves his neighbor has fulfilled the law."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.13.9",
       "source_sha256": "b900aeed633d720e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "For what he said—“Do not commit adultery,” “Do not murder,” “Do not steal,” and “Do not covet”—and any other commandment is fulfilled in this saying: “Love your neighbor as yourself.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.10",
+      "source_sha256": "af7633a45eac8be3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Love does no harm to its neighbor, because love is the fulfillment of the law."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.11",
+      "source_sha256": "5d3c12be7acc5688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Know this too: the time has come, and it is now the hour for us to wake from our sleep. For our salvation is now nearer to us than when we believed."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.12",
+      "source_sha256": "fd3d39a10d252d4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "The night has now passed, and the day has drawn near. So let us put away the deeds of darkness and put on the armor of light."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.13",
+      "source_sha256": "49c18f19a191299c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Let us conduct ourselves decently, as in the daytime, not in revelry or drunkenness, not in sexual immorality, and not in envy and quarreling."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.13.14",
+      "source_sha256": "d4888b585672ae73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Instead, put on our Lord Jesus Christ, and do not make provision for your flesh to satisfy its desires."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.1",
+      "source_sha256": "a44ff65e0cadc4b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Give a helping hand to anyone who is weak in faith, and do not be divided in your thoughts."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.2",
+      "source_sha256": "fd1853531317f60e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For one person believes he may eat anything, while the person who is weak eats vegetables."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.3",
+      "source_sha256": "2adb6b7a3d2e7e00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "The one who eats must not despise the one who does not eat, and the one who does not eat must not judge the one who eats, for God has welcomed him."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.4",
+      "source_sha256": "a6523db4dceb7d00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Who are you to judge a servant who is not yours? If he stands, he stands before his own master, and if he falls, he falls before his own master. But he will indeed stand, for his master has the power to make him stand."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.5",
+      "source_sha256": "d90ebc2a10e891e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "One person judges one day to be different from another, while another regards all days alike. Let each person be fully convinced in his own mind."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.6",
+      "source_sha256": "ad049bdd917c9e8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Whoever observes a day observes it for his Lord, and whoever does not observe a day does not observe it for his Lord. Whoever eats eats for his Lord and gives thanks to God. Whoever does not eat abstains for his Lord and gives thanks to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.7",
+      "source_sha256": "ac9e02e90909f865",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For none of us lives for himself, and no one dies for himself."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.8",
+      "source_sha256": "b7dc9a0528fbfe94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For if we live, we live for our Lord, and if we die, we die for our Lord. So whether we live or die, we belong to our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.9",
+      "source_sha256": "281d8262bda5eb31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For this reason Christ also died, came to life, and rose, so that he might be Lord of the dead and the living."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.10",
+      "source_sha256": "c48049d7ba82095e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But you, why do you judge your brother? Or you, why do you despise your brother? For we will all stand before the judgment seat of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.11",
+      "source_sha256": "a053debdbcab4fde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "As it is written: “As I live, says the Lord, every knee will bow to me, and every tongue will acknowledge me.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.12",
+      "source_sha256": "5b07a09cc5743011",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "So each of us will give an account of himself to God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.13",
+      "source_sha256": "61812997c2ddfe75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Let us no longer judge one another. Instead, resolve above all not to put a stumbling block in your brother's way."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.14",
+      "source_sha256": "2d5ba49ab7bc7f3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I know and am convinced in the Lord Jesus that nothing is unclean in itself. But for someone who considers something unclean, it is unclean for that person alone."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.15",
+      "source_sha256": "d4f93156178f59b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you distress your brother because of food, you are no longer walking in love. Do not destroy by your food someone for whom Christ died."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.16",
+      "source_sha256": "1522246db5d78cd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not let what is good among us be slandered."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.17",
+      "source_sha256": "95ecc9e711bacd19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the kingdom of God is not food and drink, but righteousness and peace and joy in the Holy Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.18",
+      "source_sha256": "a7a5b49f28b11034",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For whoever serves Christ in these things pleases God and is approved by people."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.19",
+      "source_sha256": "f6d51ba0ce83de11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So now let us pursue peace and the building up of one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.20",
+      "source_sha256": "8c8b0fa6912e9cf6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let us not tear down God's works because of food. For everything is clean, but it is wrong for a person to eat in a way that causes stumbling."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.21",
+      "source_sha256": "0366ff51bb527996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is good for us not to eat meat or drink wine or do anything that causes our brother to stumble."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.22",
+      "source_sha256": "ab855409dc76cf69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who have faith, keep it to yourself before God. Blessed is the person who does not condemn himself in what he has chosen."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.14.23",
+      "source_sha256": "91895428635c26d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For whoever doubts and eats stands condemned, because it is not done in faith. For everything that does not come from faith is sin."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.1",
+      "source_sha256": "c98182393c39b7e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So we who are strong ought to bear the weakness of those who are weak, and not please ourselves."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.2",
+      "source_sha256": "bd49ad890af63e92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, each of us should please his neighbor in what is good, to build him up."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.3",
+      "source_sha256": "6942761a84e94474",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For even Christ did not please himself, but as it is written, \"The insults of those who insult you fell on me.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.4",
+      "source_sha256": "6e9f0fd7631b0fcf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything written in the past was written for our instruction, so that through endurance and through the encouragement of the Scriptures we might have hope."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.5",
+      "source_sha256": "e7c144ccfd5c5bf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of endurance and encouragement grant you to think in harmony with one another in Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.6",
+      "source_sha256": "1bc71de17a83c084",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that with one mind and one mouth you may praise God, the Father of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.7",
+      "source_sha256": "6a9619b294fe9476",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, welcome and bear with one another, just as Christ also welcomed you, to the glory of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.8",
+      "source_sha256": "a8f57167d510a572",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now I say that Jesus Christ served the circumcised on behalf of God's truth, to confirm the promises made to the ancestors,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.9",
+      "source_sha256": "494c8d739e64ef6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and that the Gentiles might praise God for the mercy shown to them. As it is written, \"I will give thanks to you among the Gentiles, and sing praises to your name.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.10",
+      "source_sha256": "f688fa3c3f87a5f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again he said, \"Rejoice, you Gentiles, with his people.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.11",
+      "source_sha256": "13041799edc63074",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again he said, \"Praise the Lord, all you Gentiles; praise him, all you nations.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.12",
+      "source_sha256": "22dc59939ddec268",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And again Isaiah said, \"There will be a root of Jesse, and the one who rises will be ruler over the Gentiles, and in him the Gentiles will hope.\""
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.13",
+      "source_sha256": "c57c57b6c5116cac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of hope fill you with all joy and peace in faith, so that you may abound in his hope through the power of the Holy Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.14",
+      "source_sha256": "3baa5fea34382c57",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I myself am also convinced about you, my brothers, that you yourselves are full of goodness, filled with all knowledge, and able to instruct others as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.15",
+      "source_sha256": "ed65e923f89348f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I have written to you somewhat boldly, my brothers, to remind you, through the grace given to me by God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.16",
+      "source_sha256": "273d22f1797b89a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that I might be a minister of Jesus Christ among the Gentiles and serve the gospel of God, so that the offering of the Gentiles might be acceptable and sanctified by the Holy Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.17",
+      "source_sha256": "da4b90944cca428b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I have reason to boast in Jesus Christ in matters concerning God."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.18",
+      "source_sha256": "4d7df8e820ac14cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I do not dare to speak of anything except what Christ has accomplished through me to bring the Gentiles to obedience, by word and deeds,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.19",
+      "source_sha256": "79db99d2c0909b35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "by the power of signs and wonders, and by the power of the Spirit of God. Thus I have traveled from Jerusalem all the way around to Illyricum and fully proclaimed the good news of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.20",
+      "source_sha256": "856b7867987da4f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have made it my aim to proclaim the good news where Christ's name has not been proclaimed, so that I would not build on someone else's foundation."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.21",
+      "source_sha256": "747b361afa30346f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, as it is written, “Those who were not told about him will see him, and those who have not heard will be persuaded.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.22",
+      "source_sha256": "d1b02fa0ee0c2a29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I have often been prevented from coming to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.23",
+      "source_sha256": "7c557d3fc7325c1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now, since I no longer have a place in these regions, and for many years I have longed to come to you,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.24",
+      "source_sha256": "976a71cecf78221d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "when I go to Spain, I hope to come and see you, and that you will help me on my journey there, after I have enjoyed at least a little of your company."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.25",
+      "source_sha256": "26813ae5eed5040b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now I am going to Jerusalem to serve the saints."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.26",
+      "source_sha256": "3c0733fd051c2f38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those in Macedonia and Achaia have been pleased to share with the poor saints in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.27",
+      "source_sha256": "561141e6c25fa62c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They were pleased to do this because they are also indebted to them. For if the Gentiles have shared in their spiritual things, they are obligated to serve them in material things as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.28",
+      "source_sha256": "6e6649663e19f71a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So, when I have completed this and securely delivered this contribution to them, I will pass through your region on my way to Spain."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.29",
+      "source_sha256": "c87eca7e864e7947",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I know that when I come to you, I will come with the full blessing of the gospel of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.30",
+      "source_sha256": "e31651fd505d837f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I appeal to you, my brothers, through our Lord Jesus Christ and through the love of the Spirit, to struggle together with me in prayer to God on my behalf,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.15.31",
+      "source_sha256": "6e0ca3dc9f6ceb65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that I may be rescued from those in Judea who refuse to believe, and that the service I am bringing to the saints in Jerusalem may be well received."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.15.32",
@@ -209,11 +2854,172 @@
       "text": "And may I come to you with joy, by the will of God, and find rest with you."
     },
     {
+      "chunk_id": "pta-peshitta/rom#Rom.15.33",
+      "source_sha256": "19cf55f7eca89fe2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May the God of peace be with you all. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.1",
+      "source_sha256": "70e960bc96a96651",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I commend to you our sister Phoebe, who is a deacon of the church in Cenchreae,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.2",
+      "source_sha256": "556ec63c0755d82c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may welcome her in our Lord as is fitting for the saints, and assist her in whatever matter she needs from you. For she herself has been a helper to many, including me."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.3",
+      "source_sha256": "5414d45e52212331",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Priscilla and Aquila, my fellow workers in Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.4",
+      "source_sha256": "418eeb386492dd46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who risked their necks for my life. Not only I thank them, but also all the churches of the Gentiles."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.5",
+      "source_sha256": "d2d9337e92d3f06e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And greet the church in their house. Greet my dear Epaenetus, who was the first in Achaia to belong to Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.6",
+      "source_sha256": "e73160f775ff68c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Mary, who has worked very hard among you."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.7",
+      "source_sha256": "7e200f4fddd2e512",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Andronicus and Junia, my relatives, who were fellow prisoners with me. They are well known among the apostles, and they belonged to Christ before I did."
+    },
+    {
       "chunk_id": "pta-peshitta/rom#Rom.16.8",
       "source_sha256": "4d278fbaf552fa31",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "Greet Amplias, my beloved in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.9",
+      "source_sha256": "eb3baa4784db4f82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Greet Urbanus, our fellow worker in Christ, and my dear Stachys."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.10",
+      "source_sha256": "b046ee456fd2e3fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Apelles, who is chosen in our Lord. Greet the members of Aristobulus’s household."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.11",
+      "source_sha256": "32b14a4938a49e72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Herodion, my relative. Greet those members of Narcissus’s household who are in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.12",
+      "source_sha256": "ee6cfd2aa7ca1a10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Tryphaena and Tryphosa, who work hard in our Lord. Greet my beloved Persis, who has worked very hard in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.13",
+      "source_sha256": "3686e268c816a8e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Rufus, who is chosen in our Lord, and his mother, who is also mine."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.14",
+      "source_sha256": "3bc4f56138107e19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Asyncritus, Phlegon, Hermas, Patrobas, Hermes, and the brothers who are with them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.15",
+      "source_sha256": "2d5d93c56a57d2c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet Philologus, Julia, Nereus and his sister, Olympas, and all the holy ones who are with them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.16",
+      "source_sha256": "e0e9fbbebf338810",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Greet one another with a holy kiss. All the churches of Christ greet you."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.17",
+      "source_sha256": "0068240615520f39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Now I urge you, my brothers, to watch out for those who cause divisions and stumbling blocks contrary to the teaching you learned, and to keep away from them."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.18",
+      "source_sha256": "4972f095ae76a87a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "For people like these do not serve our Lord Jesus Christ, but their own stomachs. With sweet words and blessings they deceive the hearts of the unsuspecting."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.19",
+      "source_sha256": "5f79e7f0946c8cb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Your obedience has become known to everyone, so I rejoice over you. I want you to be wise about good things and innocent about evil things."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.20",
+      "source_sha256": "0624ef644e9e8e28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "The God of peace will soon crush Satan under your feet. May the grace of our Lord Jesus Christ be with you."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.21",
+      "source_sha256": "b8d5c567c386b1f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Timothy, my fellow worker, greets you, as do Lucius, Jason, and Sosipater, my relatives."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.22",
+      "source_sha256": "52c8c9534207291d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "I, Tertius, who wrote the letter, greet you in our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.23",
+      "source_sha256": "56a73053a942f47f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "Gaius, who hosts me and the whole church, greets you. Erastus, the city treasurer, greets you, as does Quartus, the brother."
     },
     {
       "chunk_id": "pta-peshitta/rom#Rom.16.24",
@@ -228,6 +3034,20 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "But it has now been revealed through the writings of the prophets, and by the command of the eternal God it has been made known to all nations for the obedience of faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.26",
+      "source_sha256": "9dbb7c4ec3c6219b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "To him who alone is wise be glory through Jesus Christ forever and ever. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/rom#Rom.16.27",
+      "source_sha256": "8764456b25cf934b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 16,
+      "text": "The grace of our Lord Jesus Christ be with you all. Amen."
     }
   ]
 }

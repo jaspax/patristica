@@ -9,15 +9,301 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.0",
+      "source_sha256": "d526208ea5a78ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Next we append the First Book of Ezra. This is according to the version of the Seventy."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.1",
+      "source_sha256": "b2b7e3d11095f94c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Josiah celebrated the Passover in Jerusalem for his Lord, and he slaughtered the Passover offerings on the fourteenth day of the first month."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.2",
+      "source_sha256": "21065d7fca370bf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He appointed the priests to the service of their assigned days, clothed in robes in the house of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.3",
+      "source_sha256": "5dd92b56d6e2010b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to the Levites, the priests, the men of Israel, “Consecrate yourselves to the Lord by placing [?] the holy ark of the Lord. Put the holy ark in the house that King Solomon, David’s son, built.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.4",
+      "source_sha256": "9965743fb1416a2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Josiah said, “You no longer need to carry it on your shoulders. Now, therefore, serve the Lord your God and give rest to his people Israel. Prepare the house according to your clans and your assigned days of service, according to what was written by David king of Israel and by King Solomon his son."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.5",
+      "source_sha256": "02197546605fdd0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Stand in the sanctuary according to the divisions of your ancestral households, you Levites who are before your brothers, the Israelites, with the allotted portion of the ancestral household of the Levites in its proper order."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.6",
+      "source_sha256": "33d9fb532210738a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Slaughter the Passover offerings as sacrifices. Make preparations for your brothers, and celebrate the Passover according to the Lord’s commandment that was given to Moses.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.7",
+      "source_sha256": "5c1da99ef2a8ce56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Josiah contributed to the people who were present thirty thousand sheep, lambs, and young goats for the Passover, and three thousand bulls. These animals were given from the king’s own possessions. His officials also contributed to the people, the priests, and the Levites."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.8",
+      "source_sha256": "61bdc560542b0354",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Hilkiah, Zechariah, and Hazael, the officials of the house of God, gave to the priests. For the Passover they gave two thousand six hundred sheep, lambs, and young goats, and three hundred bulls."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.9",
+      "source_sha256": "1573ee43bb27fd07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Benaiah, Shemaiah, Nethanel his brother, Hashkiah, Ahiel, and Jozabar, the leaders of the Levites, contributed to the Levites for the Passover one thousand sheep and seven hundred bulls."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.10",
+      "source_sha256": "a707a9e542454996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When these things had been properly arranged, the priests and Levites took their places in the proper manner, with unleavened bread, according to their clans and the leadership of their ancestral divisions, before the people, to make offerings to the Lord according to what is written in the book of Moses. They did likewise in the morning."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.11",
+      "source_sha256": "7d5e4097f3173917",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They roasted the Passover offering over the fire as required, and cooked the sacrifices in cauldrons and pots with a pleasing aroma. They brought them to all the people."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.12",
+      "source_sha256": "9397451d76a5a65c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After these things, they also made preparations for themselves and for their brothers the priests, the descendants of Aaron."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.13",
+      "source_sha256": "c37451263340a753",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the priests were offering up the fat until night, so the Levites made preparations for themselves and for their brothers the priests, the descendants of Aaron."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.14",
+      "source_sha256": "c739b951127cabe9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The singers, the priests descended from Asaph, were at their assigned posts according to the arrangements made by David, Asaph, Zechariah, and Eddinus, who belonged to the royal household."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.15",
+      "source_sha256": "9bf3cbae63ba5e05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The gatekeepers were at each of the gateways. None had to leave his assigned daily service, because their brothers the Levites made preparations for them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.16",
+      "source_sha256": "6cfabb622e91f6e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Everything pertaining to the Lord’s sacrifice was completed that day, to celebrate the Passover and offer sacrifices before the Lord’s altar, according to King Josiah’s decree."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.17",
+      "source_sha256": "770672a0778ed098",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Israelites who were present at that time celebrated the Passover and the Festival of Unleavened Bread for seven days."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.18",
+      "source_sha256": "b9bc679a227a562f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No Passover like this had been celebrated in Israel since the days of Samuel the prophet."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.19",
+      "source_sha256": "012dd1c901edc8fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "None of the kings of Israel had celebrated a Passover like this one celebrated by Josiah, the priests, the Levites, the Judeans, and all Israel who were present at their royal residence in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.20",
+      "source_sha256": "093fee31b29a99d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This Passover took place in the eighteenth year of Josiah’s reign."
+    },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.1.21",
       "source_sha256": "48235b0fcf29f435",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And Josiah’s deeds were upright before his Lord, with a heart full of reverent devotion."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.22",
+      "source_sha256": "3acffe25c525778a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The things concerning him were written in earlier times, concerning those who sinned and acted wickedly against the Lord more than any people or kingdom, and those who visibly distressed him. The words of the Lord stood against Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.23",
+      "source_sha256": "9bb7c5eecde65c7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After all these deeds of Josiah, it happened that Pharaoh king of Egypt came to wage war at Carchemish on the Euphrates, and Josiah went out to meet him."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.24",
+      "source_sha256": "801358200b804f28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king of Egypt sent word to him, saying, “What have I to do with you, king of Judah?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.25",
+      "source_sha256": "04e60141bf2434d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I have not been sent against you by the Lord God, for my war is on the Euphrates. Now the Lord is with me. Withdraw, and do not oppose the Lord.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.26",
+      "source_sha256": "b176e9a5380de452",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Josiah did not turn back in his chariot, but sought to fight against him, paying no attention to the words of Jeremiah the prophet, which came from the mouth of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.27",
+      "source_sha256": "79e12f9e8d0939d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, he engaged him in battle in the plain of Megiddo, and the commanders came down against King Josiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.28",
+      "source_sha256": "89ccbebec912b8f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king said to his servants, “Take me away from the fighting, for I have become very weak.” His servants immediately took him away from the battle line."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.29",
+      "source_sha256": "a78161c380376d50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He got into his second chariot, and when he was brought back to Jerusalem, he departed this life and was buried in his ancestral tomb."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.30",
+      "source_sha256": "1a7877e46bd253c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Throughout Judah there was mourning for Josiah. Jeremiah the prophet lamented Josiah, and those who occupied the foremost seats, together with their wives, lamented him down to this day. This was established as a perpetual practice throughout the whole people of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.31",
+      "source_sha256": "a0b93fa13b9dbb41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These things are written in the book of the histories of the kings of Judah. Every deed of Josiah, his praiseworthy conduct, and his understanding of the law of the Lord—both his earlier deeds and his recent ones—are recorded in the book of the kings of Israel and Judah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.32",
+      "source_sha256": "d67b116f39de6f87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The people took Jehoahaz, Josiah’s son, and appointed him king in place of his father Josiah, when he was twenty-three years old."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.33",
+      "source_sha256": "40d594d542165dc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He reigned over Israel in Jerusalem for three months, and the king of Egypt removed him from reigning in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.34",
+      "source_sha256": "c6f0db3645c7c2fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He exacted from the people a hundred talents of silver and one talent of gold."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.35",
+      "source_sha256": "b42585bc547d9cf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king of Egypt appointed his brother Jehoiakim king over Judah and Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.36",
+      "source_sha256": "c220d9d394d1a13d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jehoiakim imprisoned the nobles, and he seized his brother Zahrion and brought him up from Egypt."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.37",
+      "source_sha256": "95a0771eae3d0e2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jehoiakim was twenty-five years old when he became king over Judah in Jerusalem, and he did what was evil before the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.38",
+      "source_sha256": "1124b97619b41bea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Afterward Nebuchadnezzar, king of Babylon, came up, bound him with bronze shackles, and took him to Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.39",
+      "source_sha256": "a194ae497352c397",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nebuchadnezzar also took some of the Lord’s sacred vessels, carried them away, and placed them in his temple in Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.40",
+      "source_sha256": "4ec9f7172c2e2fbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The things recorded about him, his uncleanness, and his wicked impiety are written in the book of the chronicles of the kings."
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.1.41",
@@ -27,6 +313,153 @@
       "text": "His son Jehoiakim became king in his place, for when he was presented, he was eight years old."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.42",
+      "source_sha256": "1c9403553b9e09af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He reigned in Jerusalem for three months and ten days, and did what was evil before the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.43",
+      "source_sha256": "5920881fb104c044",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After a year, Nebuchadnezzar sent and had him taken to Babylon, together with the Lord’s sacred vessels."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.44",
+      "source_sha256": "0fad5389afcbe6bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He appointed Zedekiah king over Judah and Jerusalem when he was twenty-one years old, and he reigned for eleven years."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.45",
+      "source_sha256": "54ec6b0c227e201a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He did what was evil before the Lord and was not ashamed at the words spoken by Jeremiah the prophet from the mouth of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.46",
+      "source_sha256": "0e49a50884f56bbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Although Nebuchadnezzar had made him swear in the name of the Lord, he broke his oaths and turned away. He stiffened his neck and hardened his heart, and transgressed the laws of the Lord, the God of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.47",
+      "source_sha256": "e8324af390ebd981",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The leaders of the people and of the priests committed many wicked and unjust deeds, exceeding all the abominations of all the nations, and defiled the Lord’s temple, which had been consecrated in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.48",
+      "source_sha256": "90aaac980306d476",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The God of their ancestors sent through his messenger to turn them back, because he had compassion on them and on his dwelling."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.49",
+      "source_sha256": "cdcaa260ee104926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But they mocked his messenger, and on the day when the Lord spoke, they were ridiculing his prophets, until he became angry with his people because of their wicked impiety and ordered the kings of the Chaldeans to come up against them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.50",
+      "source_sha256": "3ce35b939a3958c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They killed their young men with the sword, even in the precincts of his holy temple. He had no pity on young man or virgin, old man or child, but handed them all over into their hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.51",
+      "source_sha256": "595aabe58ecea5a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They took all the Lord’s sacred vessels, large and small, the Lord’s ark, and the royal treasuries, and carried them away to Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.52",
+      "source_sha256": "66fdf06356dd559e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They burned the house of the Lord, tore down the walls of Jerusalem, and burned its palaces with fire."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.53",
+      "source_sha256": "c21c63ab21d692c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They completely destroyed all its splendid things and led those who remained away to Babylon at swordpoint."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.54",
+      "source_sha256": "7fe71efd1514434d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They became servants to him and his sons until the Persians came to power, fulfilling the word of the Lord spoken by Jeremiah,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.1.55",
+      "source_sha256": "fe534ddf77dcc1e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "until the land had enjoyed its Sabbaths. Throughout the time of its desolation it would rest, until seventy years were completed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.1",
+      "source_sha256": "cad70e05603a16c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the first year of the reign of Cyrus king of the Persians, to fulfill the word of the Lord spoken through Jeremiah,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.2",
+      "source_sha256": "4afdbcde7cb36dff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the Lord stirred the spirit of Cyrus king of the Persians, and he made a proclamation throughout his kingdom, also putting it in writing, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.3",
+      "source_sha256": "df852343e463303c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“This is what Cyrus king of the Persians says: The Lord of Israel, the Most High Lord, has declared me king of the inhabited world,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.4",
+      "source_sha256": "d136272d84bea475",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and has instructed me to build him a house in Jerusalem, which is in Judah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.5",
+      "source_sha256": "e1cd00664f77283d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever among you belongs to your people, may his Lord be with him. Let him go up to Jerusalem, which is in Judah, and build the house of the Lord of Israel. This is the Lord who dwells in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.6",
+      "source_sha256": "e790065a922b63bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone living anywhere, let the people of his locality help him with gold and silver, with gifts, horses, and livestock, besides the other things added as vowed offerings for the temple of the Lord in Jerusalem.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.7",
+      "source_sha256": "2431b3a099dc76f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the heads of the tribe of the family of Judah and of the tribe of Benjamin arose, along with the priests, the Levites, and everyone whose spirit the Lord had stirred to go up and build a house for the Lord in Jerusalem."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.2.8",
       "source_sha256": "69ae0684c5e2f345",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -34,11 +467,88 @@
       "text": "Those around them helped them in every way, with silver and gold, horses and livestock, and many offerings from the many whose spirits had been stirred."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.9",
+      "source_sha256": "17c1f0df68592ba1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "King Cyrus brought out the sacred vessels of the Lord, which Nebuchadnezzar had removed from Jerusalem and placed in his temple of the idols of the Persians."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.10",
+      "source_sha256": "b62bb17d94e89948",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He handed them over to Mithridates, his treasurer."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.11",
+      "source_sha256": "d3d55c6cecae5dc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through him they were handed over to Shalmaneser, the governor of Judah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.12",
+      "source_sha256": "981cfcc9ec6aea6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their number was a thousand gold [?], twenty-nine silver dishes, thirty gold bowls, two thousand four hundred and ten silver bowls, and thousands of other vessels."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.13",
+      "source_sha256": "96e5284b900a2261",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the gold and silver vessels that were taken numbered five thousand four hundred and sixty-nine."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.14",
+      "source_sha256": "00ef0d71de1d2fee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They went up from Shalmaneser with the captives from Babylon to Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.15",
+      "source_sha256": "2a2d00cce3edab61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the time of Artaxerxes king of the Persians, Belemus, Mithridates, Tullius, Rathumus, Beeltethmus, Samellius the scribe, and the rest of their associates, who lived in Samaria and other places, wrote against those living in Judah and Jerusalem the letter written below:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.16",
+      "source_sha256": "3d2bf5fa46922e78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“To King Artaxerxes our lord: Your servants Rathumus, the official in charge of affairs, Samellius the scribe, the rest of their council, and the judges in Coele-Syria and Phoenicia."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.17",
+      "source_sha256": "3d29778d05f8bffb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now let our lord the king know that the Jews who came up from you to us have arrived in Jerusalem and are rebuilding that rebellious and wicked city. They are repairing its streets and walls and laying the foundations of a very lofty temple."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.18",
+      "source_sha256": "de03a119b9c8f86c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If this city is rebuilt and its walls completed, they will refuse to pay tribute and will instead rise against the kings. Because these things concerning the temple are being done, we think it right not to neglect such a matter, but to inform our lord the king, so that, if it seems right to you, a search may be made in the records of your ancestors."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.2.19",
       "source_sha256": "7b72af880df4f191",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "You will find the records written about this and learn that this city was rebellious and caused trouble for kings and cities, and that the Jews were rebels who had engaged in warfare there from ancient times. For this reason this city was destroyed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.20",
+      "source_sha256": "d78e111d0fb8ae47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We therefore now inform you, our lord the king, that if this city is rebuilt and its walls erected, you will no longer have access to Coele-Syria and Phoenicia."
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.2.21",
@@ -55,11 +565,116 @@
       "text": "I have read the letter you sent me. I therefore ordered an investigation and found that this city has acted against kings from ancient times."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.23",
+      "source_sha256": "4c078df07b3ce000",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "People carry out rebellions and wars in it, and there were powerful and harsh kings in Jerusalem who ruled and collected tribute from Coele-Syria and Phoenicia.”"
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.2.24",
       "source_sha256": "822a599dc2878d76",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Now, therefore, I have ordered those men to be stopped from rebuilding the city, and care to be taken that nothing beyond these orders happens, and that these wicked activities do not spread further and cause trouble for kings."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.2.25",
+      "source_sha256": "311868aaa4aabd7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then, when what King Artaxerxes had written was read, Rathumus, Samellius the scribe, and their associates hurried back to Jerusalem with horses and a crowd. They immediately began stopping those who were building, and the construction of the temple in Jerusalem ceased until the second year of the reign of Darius king of the Persians."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.1",
+      "source_sha256": "94a727b7bd126e87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "King Darius held a great banquet for all those under him, all the members of his household, and all the nobles of Media and Persia."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.2",
+      "source_sha256": "c45130f4a9981ea3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And to all the satraps, generals, and local governors under him, from India to Ethiopia, in the 127 satrapies."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.3",
+      "source_sha256": "9f7245f15561a2d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They ate and drank, and when they had eaten their fill, they left. King Darius returned to his bedroom and slept, and then woke up."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.4",
+      "source_sha256": "bb59e413b56f593d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the three young men who were bodyguards, those who guarded the king’s person, said to one another:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.5",
+      "source_sha256": "e558f96bcca04a18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Let each of us make a statement about what is strongest. If anyone’s statement is judged wiser than his companion’s, King Darius will give him great gifts and great rewards for his victory:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.6",
+      "source_sha256": "a2bfda9a0e18474f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Purple robes to wear; he will drink from gold vessels and sleep on gold; his riding chariot will be gold; and he will have a fine linen turban and a necklace around his neck."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.7",
+      "source_sha256": "e6a6e6732db1916c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“He will sit next to Darius because of his wisdom and will be called a relative of Darius.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.8",
+      "source_sha256": "c203e53282199936",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then each wrote down his statement, sealed it, and placed it beneath King Darius’s pillows. They said:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.9",
+      "source_sha256": "746b7884e71f07bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“When the king wakes up, they will give him the document. Whoever’s statement the king and the three nobles of Persia judge to be wisest will receive the reward for victory, as it is written.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.10",
+      "source_sha256": "973b67c122c6da26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So they wrote, one by one: “Wine is strongest.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.11",
+      "source_sha256": "c18ad9bb3e207a91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Another wrote: “The king is strongest.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.12",
+      "source_sha256": "60e0c04cdea3e632",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The third wrote: “Women are strongest, but truth prevails over everything.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.13",
+      "source_sha256": "5e6506567de0eff5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the king woke up, they took the document, gave it to him, and he read it."
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.3.14",
@@ -69,11 +684,298 @@
       "text": "He sent for all the nobles of Persia and Media, the satraps, generals, district governors, and consuls. They sat in the audience hall, and the document was read before them."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.15",
+      "source_sha256": "2df6f693f2faa132",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said, “Call the young men, and let them explain their statements.” They were called and came in."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.16",
+      "source_sha256": "6874aed75ead2e1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to them, “Explain to us what you have written.” The first, who had spoken about the strength of wine, began and said:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.17",
+      "source_sha256": "fb2d26fbc2f19239",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Gentlemen, how can wine not be strongest? It leads astray the minds of all the people who drink it."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.18",
+      "source_sha256": "01ed8b1647d71182",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“It makes the mind of the king and the orphan the same, and likewise those of the household servant, the freeborn, the poor, and the rich."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.19",
+      "source_sha256": "a520bb428ee52776",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“It changes every mind to pleasure and joy, and a person forgets every sorrow and every debt."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.20",
+      "source_sha256": "867328fd718cc769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“It makes every heart feel rich, and a person gives no thought to king or satrap. It makes him speak of everything in terms of talents of money."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.21",
+      "source_sha256": "3ee5c01672b86cf1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“When people drink, they forget to love their friends and brothers, and before long they draw their swords."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.22",
+      "source_sha256": "fb3c88b0445032a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“When they recover from the wine, they do not remember what they have done."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.3.23",
+      "source_sha256": "dd9d9d79fd494420",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Gentlemen, is wine not strongest, since it compels people to act this way?” When he had said this, he fell silent."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.1",
+      "source_sha256": "6bbb6380030ad894",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The second, who had spoken about the king’s strength, began to speak:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.2",
+      "source_sha256": "f4377624ef101892",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Gentlemen, are human beings not strongest, since they rule over the land and the sea and everything in them?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.3",
+      "source_sha256": "a3bae31851c305d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But the king is powerful and rules over them. He is their master, and they obey whatever he tells them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.4",
+      "source_sha256": "0dd92f30bb3d64e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“If he tells them to wage war against one another, they do so. If he sends them against enemies, they march out and make their way over mountains, walls, and towers."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.5",
+      "source_sha256": "7915b96fb54f27a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They kill and are killed, but they do not disobey the king's command. If they win, they bring everything to the king, including whatever they plunder and all these other things."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.6",
+      "source_sha256": "c35b718592254424",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those who do not serve in the army or fight, but cultivate the land, also bring to the king what they have sown and harvested. Urging one another on, they pay tribute to the king."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.7",
+      "source_sha256": "e4fbad797f2beeac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He is only one man. If he orders them to kill, they kill; if he orders them to spare, they spare."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.8",
+      "source_sha256": "6bdf20f6d96bc907",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he orders them to strike, they strike; if he orders them to destroy, they destroy; if he orders them to build, they build."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.9",
+      "source_sha256": "353adec7945326dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If he orders them to cut down, they cut down; if he orders them to plant, they plant."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.10",
+      "source_sha256": "a919f84904aacc5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All his people and his armies obey him. Yet while all this happens, he reclines, eating, drinking, and sleeping."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.11",
+      "source_sha256": "04b8beade6c3cec3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Meanwhile, they keep watch around him. None of them can go away to attend to his own affairs, nor do they disobey him."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.12",
+      "source_sha256": "9696586a0fd00073",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Men, is not the king more powerful, since he is obeyed like this?” And he fell silent."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.13",
+      "source_sha256": "c183bd5fcd0dadb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the third man, who had spoken about women and truth—this was Zerubbabel, son of Shealtiel, from the tribe of Judah—began to speak:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.14",
+      "source_sha256": "066e4e29470c8323",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Men, is not the king great, are not human beings numerous, and is not wine powerful? Who, then, overcomes them, or who rules over them?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.15",
+      "source_sha256": "44003e67b4c9d25d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is it not women who give birth to kings and to all the people who rule over sea and land?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.16",
+      "source_sha256": "db8010e2d2cc393c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They came from women, and women raise those who planted the vineyards from which wine comes."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.4.17",
       "source_sha256": "613f6aca709b0dd0",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "They make men’s robes, and they bring men glory, and men cannot exist apart from women."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.18",
+      "source_sha256": "5eb7d2947faf3901",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if they gather gold and silver and every fine thing, and then see a single woman beautiful in appearance and form,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.19",
+      "source_sha256": "795d16d160a67d8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "they leave all these things and marvel at her. They stare at her with their mouths open, and they all love her more than these things, or gold and silver and every fine thing."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.20",
+      "source_sha256": "050f8358be87943c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A man leaves his own father, who raised him, and his own country, and clings to his wife."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.21",
+      "source_sha256": "c40af52bf2ee06ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He gives himself over to his wife and remembers neither father nor mother nor country."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.22",
+      "source_sha256": "f92932888bfa1289",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From this you ought to know that women rule over you. Do you not toil and grow weary, and give and bring everything to women?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.23",
+      "source_sha256": "4ea743df975c819a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A man takes his sword in his hand to go traveling, robbing, and stealing, and to sail on the sea and rivers."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.24",
+      "source_sha256": "a93159d3ae6d2915",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He faces a lion and walks in darkness, and whatever he steals, seizes, and plunders, he brings to his beloved."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.25",
+      "source_sha256": "3e64c107115448cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A man loves a woman far more than his father and mother."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.26",
+      "source_sha256": "5857c0fcd1be96fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Many have lost their minds because of women and have become slaves because of them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.27",
+      "source_sha256": "1010b99362c326e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Many have perished, become bewildered, and gone astray because of women."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.28",
+      "source_sha256": "d70a1585037a5e5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, do you not believe me? Is not the king great in his authority? Are not all countries afraid to lay hands on him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.29",
+      "source_sha256": "9b2a44f5ae3dc87e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I saw him with Apame, the daughter of the great Artax, that renowned man, who was the king's concubine."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.30",
+      "source_sha256": "8c6058924f681d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She was lifting the crown from his head and putting it on herself, and striking the king on his left side."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.31",
+      "source_sha256": "4d4ecac43dd54785",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Meanwhile, the king stared at her with his mouth open. If she smiled at him, he smiled; but if she became angry with him, he would coax her so that she would be reconciled to him."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.32",
+      "source_sha256": "54d1599e3dfa8567",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Men, how can women not be powerful, when they do such things?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.33",
+      "source_sha256": "4a795cbfb1cbb3e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then the king and the nobles looked at one another and began to speak about truth."
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.4.34",
@@ -83,11 +985,53 @@
       "text": "Men, are women not powerful? The earth is vast, heaven is high, and the sun is swift in its course, for it travels around the circuit of heaven and returns to its own place in a single day."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.35",
+      "source_sha256": "c9523c6b32bce34e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is not the one who made these things great? And truth is great and far more powerful than everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.36",
+      "source_sha256": "b292e095a690eb20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The whole earth calls upon truth, and heaven blesses it. All things tremble and quake, and there is no injustice with it at all."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.37",
+      "source_sha256": "5a4f82b38549c584",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king is unjust, women are unjust, all human beings are unjust, and all their deeds are unjust—all deeds like these. There is no truth in them, and they perish in their injustice."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.4.38",
       "source_sha256": "c16df502208b6bd4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "But truth stands firm and is powerful forever, and holds sway forever and ever."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.39",
+      "source_sha256": "e5b83da095ec290c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With truth there is no favoritism or partiality. Instead, it does what is right, unlike all those who are unjust and wicked, and everyone is well pleased with its deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.40",
+      "source_sha256": "7c61c4dcea144f49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no injustice at all in its judgment. To it belong power, kingship, authority, and the greatness of all nations. Blessed is the God of truth!"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.41",
+      "source_sha256": "8b8420b52d8a23e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He stopped speaking, and then all the people cried out, saying, “Truth is great and more powerful!”"
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.4.42",
@@ -111,6 +1055,76 @@
       "text": "and to send back all the vessels taken from Jerusalem, which Cyrus had set apart when he vowed to send them there.”"
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.45",
+      "source_sha256": "249457d4b2e305f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You vowed to build there the temple that the Edomites burned when Judah was devastated by the Chaldeans."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.46",
+      "source_sha256": "46da03b083b19274",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now this is what I plead with you for, my lord the king, and what I ask of you. This, then, is the honor I seek from you: that you fulfill the vow you made with your own mouth to the King of heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.47",
+      "source_sha256": "fcc6942accebea6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then King Darius stood up, kissed him, and wrote letters for him to all the administrators, district governors, military commanders, and satraps, instructing them to escort him and everyone with him who was going up to rebuild Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.48",
+      "source_sha256": "110f9a158d720148",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wrote letters to all the district governors in Coele-Syria and Phoenicia and to those in Lebanon, instructing them to transport cedar timber from Lebanon to Jerusalem and to help him rebuild the city."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.49",
+      "source_sha256": "6cd0eed41311af1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wrote concerning the freedom of all the Jews going up from the kingdom to Judah, ordering that no ruler, satrap, district governor, or administrator should come to their doors."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.50",
+      "source_sha256": "335705511d4a3c32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every place they occupied was to be exempt from tribute, and the Edomites were to give up the villages they held that belonged to the Jews."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.51",
+      "source_sha256": "5e161dd338748f8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Twenty talents of silver were to be given every year for the construction of the temple until it was built."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.52",
+      "source_sha256": "f421c77264fd6b16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whole burnt offerings were to be offered on the altar every day, as they had been commanded to offer them, with another ten talents provided every year."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.53",
+      "source_sha256": "a70892e4f8d3df1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those setting out from Babylon to rebuild the city were to have freedom, both they and their children, as were all the priests who were setting out."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.54",
+      "source_sha256": "e6f15d7dd91c60b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also wrote instructions for providing necessities and the priestly robe in which they ministered."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.4.55",
       "source_sha256": "27a3c5d76f9ac2d8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -118,11 +1132,403 @@
       "text": "He also wrote that the Levites should be given what they needed until the day the house was completed and Jerusalem rebuilt."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.56",
+      "source_sha256": "b6ee705ade1d406b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He wrote instructions that all those guarding the city should be given allotments and provisions."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.57",
+      "source_sha256": "d4d2a65f7374f8b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He sent all the vessels that King Cyrus had set apart from Babylon. Everything that Cyrus had said should be done, he too ordered to be done and sent to Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.58",
+      "source_sha256": "a9370afe07b8fd61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then that young man [?] went out, lifted his face toward heaven in the direction of Jerusalem, and blessed the King of heaven, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.59",
+      "source_sha256": "81e45d02a514dbcf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Victory comes from you, and wisdom comes from you. Yours is the glory, and I am a member of your household."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.60",
+      "source_sha256": "233c0554ce11de05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed are you, who have given me wisdom. I thank you, Lord of our ancestors.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.61",
+      "source_sha256": "1c12b20a927c0611",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He took the letters, departed, and came to Babylon, where he informed all his brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.62",
+      "source_sha256": "0d00772f55e29e14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they blessed the God of their ancestors because he had given them rest and release,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.4.63",
+      "source_sha256": "9178cd94910add08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to go up and rebuild Jerusalem and the temple that bore his name. They drank with music and rejoicing for seven days."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.1",
+      "source_sha256": "162aea41ea9e21d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After this, the heads of the ancestral families were chosen to go up according to their tribes, together with their wives, sons, daughters, male servants, female servants, and livestock."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.5.2",
       "source_sha256": "9bf2985045ce7185",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "Darius sent a thousand horsemen with them to bring them safely to Jerusalem, together with musicians, [?], and flutes."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.3",
+      "source_sha256": "95ca7e300f838225",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All their brothers were making merry, and he had them go up together with them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.4",
+      "source_sha256": "a56a09047ca01ebc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the names of the men who were going up, according to their leadership:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.5",
+      "source_sha256": "2f652a7db4a130dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The priests, descendants of Phinehas son of Aaron: Koa [?], son of Jozadak, son of Seraiah; and Joiakim, son of Zerubbabel, son of Shealtiel, from the house of David, from the lineage of Perez, of the tribe of Judah,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.6",
+      "source_sha256": "48f4742a8c729697",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who spoke wise words before Darius king of the Persians in the second year of his reign, in Nisan, the first month."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.7",
+      "source_sha256": "9f982f75e10bd494",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the people from Judah who came up from captivity, from their residence abroad, whom Nebuchadnezzar king of Babylon had deported to Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.8",
+      "source_sha256": "350ca411fc69be90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They returned to Jerusalem and the rest of Judah, each to his own town. They came with Zerubbabel and Jeshua, Nehemiah, Zerahiah, Reesaiah, Hananiah, Mordecai, Beelsarus, Aspharas, Borealia [?], Roim, and Baanah, their leaders."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.9",
+      "source_sha256": "4f4fc4e2ffea57ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The number of those from the people and their leaders: the descendants of Perez, 2,172; the descendants of Shephat, 372;"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.10",
+      "source_sha256": "22f817d90c29c0cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the descendants of Arush, 756;"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.11",
+      "source_sha256": "8c38a985df53669f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the descendants of Phali, the leader of Moab and son of Jeshua and Hobad, 1,802;"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.12",
+      "source_sha256": "d51f24cf21e81559",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the descendants of Jolham, two; the descendants of Azatu, 970; the descendants of Korba, 633; the descendants of Bani, 648;"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.13",
+      "source_sha256": "e577560c2095e2ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the descendants of Bebai, 705; the descendants of Argu, 1,322;"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.14",
+      "source_sha256": "24dec091a4eeecbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "the descendants of Adonikam, 37; the descendants of Baasha, 2,606; the descendants of Asahel, 454."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.40",
+      "source_sha256": "2299dad1e8927b88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nehemiah said to them, “You must not share in the holy offerings until we appoint a high priest clothed in revelation and truth.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.41",
+      "source_sha256": "32a072de02e5c90f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those of Israel who were twelve years old and older, excluding male and female servants, numbered 42,460. Their male and female servants numbered 7,337; psalm singers and singers, 245."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.42",
+      "source_sha256": "97cb94c8ed5e481b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Camels, 435; horses, 7,036; mules, 245; donkeys, 5,525."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.43",
+      "source_sha256": "591e5af721026188",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Some of the leaders of the families, when they came to the temple of God in Jerusalem, vowed to rebuild the house on its own site, and their temple."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.44",
+      "source_sha256": "09f6b09ebb1b6cec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the priestly treasury for the work [?]: 1,000 minas of gold, 5,000 minas of silver, and 100 priestly robes."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.45",
+      "source_sha256": "4147dd73c2d69274",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The priests, the Levites, and those of his people settled in Jerusalem and the surrounding region, and the priestly singers and the gatekeepers [?], and all Israel, in their villages."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.46",
+      "source_sha256": "3db35669ee1428bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the seventh month began, while the Israelites were each in their own places, they gathered together in the square at the first gate, the one facing east."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.47",
+      "source_sha256": "8dee3016e654b5f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jeshua son of Jozadak and his fellow priests, and Zerubbabel son of Shealtiel and his brothers, arose and prepared the altar of God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.48",
+      "source_sha256": "aff545e54a1a4078",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to offer whole burnt offerings on it in accordance with what is stated in the book of Moses, the man of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.49",
+      "source_sha256": "b88b0341e7f309e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They all gathered from among the other peoples of the land and set up the altar on its site, because all those peoples in the land were hostile to them. They took courage and offered sacrifices at the appointed time and whole burnt offerings to the Lord in the morning and evening."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.50",
+      "source_sha256": "aa9d3739b358f72e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They celebrated the Feast of Booths as prescribed in the law, offering sacrifices each day as required."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.51",
+      "source_sha256": "3f4a456cad11239b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After these came the regular offerings and the sacrifices for the Sabbaths, the new moons, and all the sacred festivals."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.52",
+      "source_sha256": "68e20d614c3e01d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all those who had made a vow to God began offering sacrifices to God from the first day of the seventh month, although the temple of God had not yet been built."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.53",
+      "source_sha256": "43746c78da3a5846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They gave money to the stonecutters and carpenters, and drink, food, and joy to the Sidonians and Tyrians, to bring them cedar timber from Lebanon and transport it on rafts to the harbor of Joppa, according to the decree issued to them in writing by King Cyrus."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.54",
+      "source_sha256": "324b7599030370e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the second year after the arrival at the temple of God in Jerusalem, in the second month, Zerubbabel son of Shealtiel and Jeshua son of Jozadak began, together with their brothers, the priests and Levites, and all those who had come from captivity to Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.55",
+      "source_sha256": "3c6e5210ebf4aaaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They laid the foundation of the temple of God on the first day of the second month of the second year after they came to Judea and Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.56",
+      "source_sha256": "5f32e47cef0186c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They appointed Levites twenty years old and over to supervise the work of the Lord. Jeshua, his sons and brothers, Zamuel his brother, the sons of Jeshua, Amidabun, the sons of Judah, and Eliada with his sons and brothers—all Levites—stood together to oversee the workers engaged in the work on the Lord’s house. And the builders built the temple of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.57",
+      "source_sha256": "892f8517e4ecb40e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The priests stood dressed in robes, with musical instruments and trumpets, and the Levites, the descendants of Asaph, had cymbals. They praised and blessed the Lord in the manner of David king of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.58",
+      "source_sha256": "ba53e22771fa3313",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They cried out in songs of praise, blessing the Lord because his kindness and praise rest forever upon all Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.59",
+      "source_sha256": "30cea87c4173fe5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All the people cheered and shouted loudly, praising the Lord because the Lord’s house was being established."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.60",
+      "source_sha256": "0b37f1e7f87df64b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Some of the priests and Levites and the heads of the ancestral households, according to their families—the elderly men who had seen the former house—came to the construction of this house with loud cries and weeping."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.61",
+      "source_sha256": "fe16365d0bd34b12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And many others sounded trumpets and rejoiced loudly."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.62",
+      "source_sha256": "9ed9c6310c00b580",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The people could not hear the trumpets because of the people’s weeping, for the assembly was cheering so loudly that it could be heard from far away."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.63",
+      "source_sha256": "34b4ac728a9f86c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When the enemies of the tribes of Judah and Benjamin heard this, they came to find out what the sound of the trumpets meant."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.64",
+      "source_sha256": "438d106d6262549b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They learned that those who had returned from captivity were building a temple for the Lord, the God of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.65",
+      "source_sha256": "e331891fb729ec5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They approached Zerubbabel, Jeshua, and the leaders of the tribes and said to them, “Let us build with you."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.66",
+      "source_sha256": "5d88863e04787ea1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we obey your Lord just as you do, and we have sacrificed to him since the days of Ashtaqpath, king of the Assyrians, who brought us here.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.67",
+      "source_sha256": "63cb053b0699f07a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Zerubbabel, Jeshua, and the leaders of the tribes of Israel said to them, “It is not for you and us together to build a house for the Lord our God."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.68",
+      "source_sha256": "4d4225e3b0aafd07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We alone will build for the Lord our God, the God of Israel, in accordance with what Cyrus king of the Persians commanded us.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.69",
+      "source_sha256": "203f7bf822899cb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the peoples of the land who were arrayed against those in Judea and hemmed them in with warfare kept them from building."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.5.70",
+      "source_sha256": "9f737d0eb62072e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By making plans, bringing in people, and holding assemblies, they prevented them from building and completing the structure throughout the lifetime of King Cyrus. They were kept from building for two years, until the reign of Darius."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.1",
+      "source_sha256": "82855c4c7a773438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The prophets Haggai and Zechariah son of Iddo prophesied to the Jews in Judea and Jerusalem in the name of the Lord, the God of Israel, who was over them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.2",
+      "source_sha256": "ec6071580006a630",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Zerubbabel son of Shealtiel and Jeshua son of Jozadak arose and began to build the house of God in Jerusalem. The prophets of the Lord were with them, helping them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.3",
+      "source_sha256": "27217707664d5a5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "At that time Sisinnes, the governor of Syria and Phoenicia, Sathrabuzanes, and their associates approached them and said to them,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.4",
+      "source_sha256": "4ce7e9e8d8d205cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Who commanded you to build this house and complete this roof and all these other things? And who are the builders carrying out this work?”"
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.6.5",
@@ -139,11 +1545,347 @@
       "text": "They were not prevented from building until Darius was informed about them and a report was made to him."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.7",
+      "source_sha256": "6b71d12611827109",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Copy of the letter that Sisinnes, governor of Syria and Phoenicia, Sathrabuzanes, and their fellow officials in Syria and Phoenicia wrote and sent to Darius: To King Darius, greetings."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.8",
+      "source_sha256": "95f443c8954c43fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let everything be made known to our lord the king. When we came to the land of Judah and entered the city of Jerusalem, we found the elders of the Jewish exiles in Jerusalem building a new house for the great Lord, with costly cut stones and timber being laid in the buildings."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.9",
+      "source_sha256": "8bf54c0ee4caf5e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These works were being carried out diligently, and the work was prospering in their hands and being diligently completed with every splendor."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.10",
+      "source_sha256": "190699ade009c09a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then we questioned those elders, saying, “Who commanded you to build this house and lay the foundations for these works?”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.11",
+      "source_sha256": "e661e6c72f063226",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We therefore questioned them so that we could inform you and write down for you the men who were their leaders. We asked them for a written list of the names of their foremost leaders."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.12",
+      "source_sha256": "8cbd50ef3837ef1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They answered us, saying, “We are servants of the Lord who created heaven and earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.13",
+      "source_sha256": "1d216ce35ba53a1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The house was built many years ago by a great and powerful king of Israel, and it was completed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.14",
+      "source_sha256": "27c08190b91b8aad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But because our ancestors provoked the heavenly Lord of Israel and sinned against him, he handed them over to Nebuchadnezzar, king of Babylon, king of the Chaldeans."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.15",
+      "source_sha256": "572f9f7c9e24e17b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They demolished and burned the house and took the people captive to Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.16",
+      "source_sha256": "1aed854a3d37d44c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But in the first year, when Cyrus was king, [?] to build this house."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.17",
+      "source_sha256": "928fb0a5afcb9328",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The gold and silver sacred vessels that Nebuchadnezzar had taken from the temple in Jerusalem and placed in his own temple, King Cyrus brought out again from the temple in Babylon. They were handed over to Zerubbabel and to Sheshbazzar the governor."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.18",
+      "source_sha256": "74df6c3476703c10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He was given orders, and he brought all these vessels to be placed in the temple in Jerusalem, and the Lord’s temple was to be rebuilt on its own site."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.19",
+      "source_sha256": "23272d8cdba8186f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Sheshbazzar came and laid the foundations of the Lord’s house in Jerusalem. From that time until now it has been under construction and has not been completed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.20",
+      "source_sha256": "1836ed36530ea241",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now therefore, if you consider it right, O king, let a search be made in the repository of the royal records of King Cyrus in Babylon."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.21",
+      "source_sha256": "90768fd2329fe63a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you find that the construction of the Lord’s house in Jerusalem took place by the command of King Cyrus, and if our lord the king considers it right, let him send us a notification concerning these matters.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.22",
+      "source_sha256": "40b23cc8bcf3315e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then King Darius ordered a search of the repository of the records kept in Babylon. At Ecbatana, in the citadel in the land of Media, a document was found in which the following matters were recorded:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.23",
+      "source_sha256": "18f6816d74c35986",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the first year of King Cyrus’s reign, Cyrus commanded that the Lord’s house in Jerusalem be rebuilt, where sacrifices are continually offered by fire."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.24",
+      "source_sha256": "1a6905b2aedbad66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Its height is to be sixty cubits and its width sixty cubits, with three courses of cut stone and one course of new timber from the land. The expense is to be paid from the treasury of King Cyrus."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.25",
+      "source_sha256": "b3c0dfe163166bda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The gold and silver sacred vessels of the Lord’s house, which Nebuchadnezzar took from the house in Jerusalem and carried to Babylon, are to be returned to the house in Jerusalem, to the place where they had been kept, so that they may be placed there."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.26",
+      "source_sha256": "6293c2767af9bf90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He also ordered that Sisinnes, governor of Syria and Phoenicia, Sathrabuzanes, their colleagues, and the appointed officials in Syria and Phoenicia should take care to keep away from the site. They were to allow Zerubbabel, the Lord’s servant and governor of Judah, and the elders of the Jews to build that house on its site."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.27",
+      "source_sha256": "715932ef1741cbe9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“I too have commanded that it be rebuilt completely, and that care be taken over what is to be done for the exiles of Judah until the Lord’s house is completed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.28",
+      "source_sha256": "78d440cb2b88342d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the tribute of Coele-Syria and Phoenicia, an allowance is to be diligently provided to those men, to Zerubbabel the governor, for sacrifices to the Lord—for bulls, rams, and lambs."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.29",
+      "source_sha256": "6fdd6593200eb8e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, wheat, salt, wine, and oil are to be supplied continually each year, as the priests in Jerusalem specify is spent each day, without hesitation,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.30",
+      "source_sha256": "2c300db13a90169e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that offerings may be presented to the Most High God on behalf of the king and his servants, and that they may pray for their lives."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.31",
+      "source_sha256": "2140e14e0fcc609a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You are to command that if anyone transgresses any of these written provisions or annuls them, a beam is to be taken from his property, and he is to be hung upon it, and his possessions are to become royal property.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.32",
+      "source_sha256": "70740e60f58982a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For these reasons, may the Lord, whose name is invoked there, overthrow every king and people who stretches out a hand to hinder or damage the house of the Lord in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.6.33",
+      "source_sha256": "1c01f1750342b308",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I, King Darius, have expressly commanded that these things be done."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.1",
+      "source_sha256": "52340152b34df429",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Sisinnes, governor of Coele-Syria and Phoenicia, and Shethar-bozenai and their associates together followed the orders issued by King Darius."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.2",
+      "source_sha256": "c922e43fba8e55fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They supervised the sacred work, very diligently helping the elders of the Jews and the officials responsible for the sacred work."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.3",
+      "source_sha256": "7bf06a3864a1d53e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sacred work prospered while the prophets Haggai and Zechariah prophesied."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.4",
+      "source_sha256": "9d61751e40cd1a70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They completed these things by the command of the Lord, the God of Israel, and by the command of Cyrus, Darius, and Artaxerxes, kings of Persia."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.5",
+      "source_sha256": "2b345bef21ec7a3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By the sixth year of Darius, king of Persia, the holy house was completed, by the twenty-third day of the month of Adar in the sixth year of King Darius."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.6",
+      "source_sha256": "17786e1a088514de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Israelites, the priests, the Levites, and the rest of those from captivity who had joined them acted in accordance with what was written in the book of Moses."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.7",
+      "source_sha256": "3e67eb9709120d01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the dedication of the Lord’s temple, they offered one hundred bulls, two hundred rams, and four hundred lambs,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.8",
+      "source_sha256": "8f86e15f523e1791",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and twelve male goats as a sin offering for all Israel, corresponding to the number of the twelve tribal chiefs of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.9",
+      "source_sha256": "f991a7396bd46e34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The priests and Levites took their places, dressed in robes according to their tribes, for the service of the Lord, the God of Israel, in accordance with the book of Moses, with gatekeepers at each gate."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.10",
+      "source_sha256": "f29fbbf33d33bc36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Israelites who had returned from captivity celebrated the Passover on the fourteenth day of the first month, because the priests and Levites had purified themselves together."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.11",
+      "source_sha256": "add1df6ec6a84c46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not all those who had returned from captivity had purified themselves, but all the Levites had purified themselves together."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.12",
+      "source_sha256": "5c3cad0b602b7169",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They slaughtered the Passover sacrifice for all those who had returned from captivity, for their fellow priests, and for themselves."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.13",
+      "source_sha256": "7544fb0d7d33c89e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Israelites who had returned from captivity ate it, together with all who had separated themselves from the uncleanness of the peoples of the land and sought the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.7.14",
+      "source_sha256": "4eeeefae58aec5f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They celebrated the Festival of Unleavened Bread for seven days, rejoicing before the Lord."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.7.15",
       "source_sha256": "a2dba3c0c930f150",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "For he had changed the disposition of the king of the Assyrians toward them, to strengthen their hands for the work of the Lord, the God of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.1",
+      "source_sha256": "719615cf558c4f8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And [?] after these things, while Artaxerxes, king of Persia, was reigning, Ezra came, of the family of Seraiah, son of Azariah, son of Hilkiah, son of Shallum,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.2",
+      "source_sha256": "6453f3fddffe0b11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "son of Zadok, son of Ahitub, son of Amariah, son of Uzziah, son of Meremoth, son of Zerah, son of Savias, son of Bukki, son of Abishua, son of Phinehas, son of Eleazar, son of Aaron, the first priest."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.3",
+      "source_sha256": "e81e841b0278ecf2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This Ezra came up from Babylon. He was a scribe skilled in the law of Moses, which had been given by the God of Israel."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.4",
+      "source_sha256": "ddb169cfc21a4a25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The king honored him, since he had found favor with him in all his requests."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.5",
+      "source_sha256": "11abfee194283542",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Some of the Israelites, priests, Levites, singers for the sacred services, gatekeepers, and servants of the priests went up with him to Jerusalem,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.6",
+      "source_sha256": "0545294fcb26934b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in the seventh year of the reign of Artaxerxes, in the fifth month. This was the king’s seventh year. They departed from Babylon on the first day of the first month and came to Jerusalem on the first day of the fifth month, in keeping with the success granted them by the Lord, which rested on him."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.7",
+      "source_sha256": "ee6ceacb651dd791",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he [?] held firmly to great knowledge, so that he would neglect nothing in the law of the Lord or in the commandments, and would teach all Israel the statutes and judgments."
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.8.8",
@@ -153,11 +1895,403 @@
       "text": "Now came the decree written by King Artaxerxes to Ezra, the priest and reader of the law of the Lord, a copy of which is set out here."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.9",
+      "source_sha256": "d59a7ab50773c78f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "King Artaxerxes to Ezra, the priest and reader of the law of the Lord: Greetings."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.10",
+      "source_sha256": "17bc7e91823b0a39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Having decided on these acts of kindness, I have commanded that any of the Jewish people, priests, or Levites who are in our kingdom and wish and desire to go with you to Jerusalem may do so."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.11",
+      "source_sha256": "63e36895eb487cbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those, therefore, who intend to go shall depart, as seemed good to me and to the seven friends and counselors,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.12",
+      "source_sha256": "831f469eb8a3afcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to investigate matters concerning Judah and Jerusalem in accordance with what is in the law of the Lord,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.13",
+      "source_sha256": "71a33703993b3cff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to bring to Jerusalem the offerings to the Lord that I and my friends have vowed, and all the gold and silver that may be found in the land of Babylon for the Lord in Jerusalem, together with what the people have offered for the temple of their Lord in Jerusalem,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.14",
+      "source_sha256": "42171d9610483d82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to collect gold and silver for bulls, rams, and lambs, and for the things that accompany them,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.15",
+      "source_sha256": "0a3adb27e054fccb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that sacrifices may be offered on the altar of their Lord in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.16",
+      "source_sha256": "643a5f4807a26a11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whatever else you and your brothers wish to do with the gold and silver, carry it out according to the will of your God."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.17",
+      "source_sha256": "4a056f690132a149",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the priestly vessels of the Lord that are given for the service of the temple of your God in Jerusalem, and whatever other things you may need for the service of the temple of your God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.18",
+      "source_sha256": "449c7dc8df0f3370",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "you shall provide from the royal treasury."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.19",
+      "source_sha256": "725aef1cc4011506",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I myself, King Artaxerxes, have also commanded the treasurers of Syria and Phoenicia to provide diligently whatever Ezra, the priest and reader of the law of God Most High, may send for, up to one hundred talents of silver,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.20",
+      "source_sha256": "f48a7a1dda9b5df5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and likewise up to one hundred kors of wheat, one hundred measures of wine, and other things."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.21",
+      "source_sha256": "a80b553037a1638e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let these things be carried out for God Most High according to the law of God, so that wrath may not come upon the kingdom of the king and his sons."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.22",
+      "source_sha256": "e0294f159750677a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You are also told that no tribute or other levy is to be imposed on any of the priests, Levites, singers of the priestly services, gatekeepers [?], servants of the priests, or scribes of this temple. No one shall have authority to impose these on them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.23",
+      "source_sha256": "50134617b7088d1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you, Ezra, according to the wisdom of God, designate judges and legal officers to judge throughout Syria and Phoenicia all those who transgress the law of your God. Teach those who do not know it."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.24",
+      "source_sha256": "df07f158e99480d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those who transgress the law of your God and the royal law shall be duly punished, whether by death, corporal punishment, loss of money, or exile."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.25",
+      "source_sha256": "4515086a85f7299b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ezra the scribe said, “Blessed is the Lord alone, who put these things into the king’s heart, to glorify his house in Jerusalem,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.26",
+      "source_sha256": "7d2aadeb0e159d92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and who honored me before the king, those who advise him, and all his friends and nobles."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.27",
+      "source_sha256": "23c9184cacad6942",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I took great courage through the help of the Lord my God, and I gathered men from Israel to go up with me."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.28",
+      "source_sha256": "1e08276b218fbb8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These are the principal leaders, according to their families, and the heads of the divisions who went up with me from Babylon during the reign of King Artaxerxes:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.29",
+      "source_sha256": "e4992cc597f3c769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Parosh: Tarosh [?], who was of Tamush [?]. From the descendants of Ataroth: Gamalusi [?]. From the descendants of David:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.30",
+      "source_sha256": "bc90f2734f601edf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Perez [?], Zechariah, and with him, according to the register, 150 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.31",
+      "source_sha256": "413d35c335a06014",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Maath-moab [?]: Elhanan son of Zerah, and with him 200 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.32",
+      "source_sha256": "75605c9f71098e4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Zaitoua [?]: Jeconiah of Attilu [?], and with him 200 men. From the descendants of Adin: [?] Jonathan, and with him 250 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.33",
+      "source_sha256": "b820808804542faf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Lemaasiah [?]: Athaliah, and with him 270 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.34",
+      "source_sha256": "d837bc2c6c121748",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Shephatiah: Zerana [?], of Michael, and with him 70 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.35",
+      "source_sha256": "2b56850e7cc956d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Joab: Obadiah son of Hezekiel, and with him 212 men."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.8.36",
       "source_sha256": "490706bc8c260380",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "From the men of [?], Shelomith, son of Josiphiah, and with him 160 men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.37",
+      "source_sha256": "6ac701125b97e500",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Becher: Zechariah of Bebel, and with him twenty-eight men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.38",
+      "source_sha256": "4eb5fcc37144f62d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Ashdoth: John son of Akta, and with him one hundred and ten men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.39",
+      "source_sha256": "490a0effc5b84cb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Adonikam, those who came last, whose names were Eliphelet, the one from Galul [?], and Shemaiah; and with them seventy men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.40",
+      "source_sha256": "38c1753e714019a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Bani: the one in Ekron, and with him seventy men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.41",
+      "source_sha256": "6ef60b60a61e9b48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I gathered them at the river called Tharan, and we camped there for three days, and I inspected them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.42",
+      "source_sha256": "fd00cc1ff05c19fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I found none of the priests or Levites there."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.43",
+      "source_sha256": "eaee9c2ac6fac1d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I sent to Eliezer; and when he came, Agon, Maasman, Seltan, Shemaiah, Noriban, Nathanan, [?], Zechariah, and Moshiah, to the house of the leaders and learned men [?]."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.44",
+      "source_sha256": "7715261ccd647ba3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I told them to go to Ladan, the leader who was at the place where the treasury was kept."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.45",
+      "source_sha256": "b4e84530823c15c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I instructed them to speak to Ladan and his brothers and to those at the place where the treasury was kept, asking them to send us people to serve as priests in the house of our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.46",
+      "source_sha256": "6dfbe296c1e79089",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Through the firm hand of the Lord our God, he brought us knowledgeable men from the descendants of Mahli, the Levite of Israel: Shabachiah and his sons and brothers, eighteen in all."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.47",
+      "source_sha256": "d0f5cbb1000177b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Also Hashabiah, Hanuna, and Aatan, from the brothers of the descendants of the Canaanite, and their sons—twenty men."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.48",
+      "source_sha256": "b957fd889cadfcdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the priests’ servants, whom David and the leaders had assigned to the service of the Levites, there were two hundred and twenty priests’ servants. I learned the written record of all their names."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.49",
+      "source_sha256": "48691874411c97d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There I vowed a fast, [?], before the Lord our God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.50",
+      "source_sha256": "aef725dbc21c842c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to ask him for success for us and for the children and livestock that were with us."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.51",
+      "source_sha256": "6e662e93e0948b73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I had refrained from asking the king for horsemen and foot soldiers to escort us as a precaution against those who opposed us."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.52",
+      "source_sha256": "a85ba009d8968491",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we had told the king, “The power of the Lord our God is with those who seek him in complete uprightness.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.53",
+      "source_sha256": "21a87268b85939d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And concerning all these things [?], we again pleaded before the Lord our God, and we were granted forgiveness."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.54",
+      "source_sha256": "05861ba0f6bee3eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I selected twelve distinguished men from the heads of the priestly families, and Shemaiah, and with them ten of their brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.55",
+      "source_sha256": "84b00cf1e346fef2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I weighed out for them the silver, the gold, and the priestly vessels for the house of our Lord, which the king, his counselors, the officials, and all Israel had donated."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.56",
+      "source_sha256": "f062dd042183a68d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I handed over to them, after weighing it, seven hundred and fifty talents of silver, silver vessels weighing one hundred talents, one hundred talents of gold, twenty gold vessels, and twelve bronze vessels made of fine, shining bronze."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.57",
+      "source_sha256": "f19a5774cfa480a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I said to them, “You yourselves are holy to the Lord, and the vessels are holy. The gold and silver are a vowed offering to the Lord, the God of your ancestors."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.58",
+      "source_sha256": "a446b78151e2826b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Keep watch and guard them until you hand them over to the families of the priests and Levites and to the heads of Israel’s families in Jerusalem, in the treasury of the house of our Lord.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.59",
+      "source_sha256": "a004601af34cf0c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The priests and Levites who received the silver, the gold, and the vessels brought them into the Lord’s temple in Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.60",
+      "source_sha256": "01e07d2f9da974d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We set out from the river Tartha on the twelfth day of the first month and came to Jerusalem, through the firm hand of the Lord our God that was upon us. It delivered us from attack by every enemy, and we came to Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.61",
+      "source_sha256": "bb19cce723d794ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "After we had been there three days, on the fourth day the silver and gold were weighed and handed over in the house of the Lord our God to Anremoth son of Uriah the priest."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.62",
+      "source_sha256": "cd2db1cbbc609d66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With him was Eleazar, the son of Phinehas. With them were Jozabad, Jeshua son of Mahud [?], the Levites. Everything was [?] by number and weight, and the total weight [?] at that very hour."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.63",
+      "source_sha256": "52875c4a51a9b5c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who had returned from captivity offered sacrifices to the God of Israel: ninety-six lambs, two hundred and seventy-six goats, and twelve calves for redemption—all of them sacrifices to the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.64",
+      "source_sha256": "8c318f54d09bd506",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They delivered the king’s orders to the royal administrators and to the governors of Coele-Syria and Phoenicia, and they honored the people and the temple of the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.65",
+      "source_sha256": "f5c3879a181f1178",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When these things had been completed, the leaders approached me and said:"
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.8.66",
@@ -167,11 +2301,249 @@
       "text": "The people of Israel, the leaders, the priests, and the Levites have not separated themselves from the foreign peoples of the land and their impurities: the Canaanites, Hittites, Perizzites, Jebusites, Moabites, and Egyptians."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.67",
+      "source_sha256": "bcc62f801603e397",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“They and their sons have been living with those peoples’ daughters, and the holy offspring have become mixed with the foreign peoples of the land. The foremost leaders and the officials have shared in this lawlessness from the beginning of the affair.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.68",
+      "source_sha256": "c046b58d50a30ee6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As soon as I heard these things, I tore my clothes and my priestly robe, pulled out hair from my head and beard, and sat down, stunned and distressed."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.69",
+      "source_sha256": "5eed4e2b2471f2a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those who trembled at the word of the Lord, the God of Israel, at that time gathered around me while I mourned over this lawlessness. I sat there distressed until the evening sacrifice."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.70",
+      "source_sha256": "7acffdbb0e372ab6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "When I rose from fasting, with my clothes and priestly robe torn, I bent my knees and stretched out my hands toward the Lord, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.71",
+      "source_sha256": "0278455feabdcd6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“Lord, I am ashamed and shrink from your presence."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.72",
+      "source_sha256": "190b909ff3bc7a64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For our sins have become more numerous than the hairs on our heads, and our ignorant offenses reach up to heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.73",
+      "source_sha256": "48a7b8b8f9ba8248",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Indeed, from the days of our ancestors until this day, we have been deeply sinful."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.74",
+      "source_sha256": "fb33dbecd908ddd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of our sins and those of our ancestors, we, together with our brothers, our kings, and our priests, have been handed over to our kings—to the sword, captivity, plunder, and shame—to this very day."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.75",
+      "source_sha256": "6f1370153506743e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, [?], we have received a little mercy from you, Lord, so that a root and a name might be left to us in the place of your sanctuary,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.76",
+      "source_sha256": "c320e0a5e51be6a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that your light might be revealed in the house of the Lord our God, to give us sustenance during our slavery. Even while we were serving as slaves, we were not abandoned by the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.77",
+      "source_sha256": "5fb79c3be0b22fa9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, he showed us kindness before the Persian kings, to give us sustenance."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.8.78",
       "source_sha256": "3f4d0aa36034a615",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "and to glorify the temple of our Lord, to restore ruined Zion, and to give us security in Judah and Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.79",
+      "source_sha256": "e6ae0076676f1dbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now, Lord, what can we say? Despite having these things, we have transgressed your commandments, which you gave through your servants the prophets, saying:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.80",
+      "source_sha256": "fe6b7f2b41896023",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "‘The land you are entering to possess is a land defiled by the defilement of the foreign peoples of the land. With their uncleanness they have filled it with uncleanness."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.81",
+      "source_sha256": "7c31c55e61325520",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now, do not have their daughters live with your sons, and do not give your daughters to their sons."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.82",
+      "source_sha256": "4b863178d7a47889",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Never seek peace with them, so that you may become strong, eat the good things of the land, and leave it as an inheritance to your children forever.’"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.83",
+      "source_sha256": "311c5f9f0f4ea09b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All these things that have happened to us were because of our evil deeds, our evil sins, and these great sins. Yet you, Lord, have lightened our sins"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.84",
+      "source_sha256": "2a10a83c3a3bf719",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and have given us such a root. Yet we have again turned to transgressing your law by mingling with the uncleanness of the peoples of the land."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.85",
+      "source_sha256": "d75fccb8f21af334",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Were you not angry with us, to destroy us until no root, offspring, or name of ours remained?"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.86",
+      "source_sha256": "96c2c654b52102f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Lord of lords, God of Israel, you are faithful. A root has been left to us today."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.87",
+      "source_sha256": "fc318ac70e6be442",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here we are now before you in our lawlessness, for we cannot stand before you any longer with these things.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.88",
+      "source_sha256": "b556330a1f1eca8c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "While Ezra was praying and confessing, weeping and lying on the ground before the temple, a very large crowd from Jerusalem gathered around him—men, women, young people, and children—for there was very great weeping."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.89",
+      "source_sha256": "7905710eaf799674",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jeconiah, who had come in from among the Israelites, cried out and said, “Ezra, we have sinned against the Lord and have brought foreign women from the people of the land to live with us. Yet even now there is hope for Israel"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.90",
+      "source_sha256": "5109531e42ea8327",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "concerning these things. Let us therefore swear an oath before the Lord to send away all our foreign wives, together with their children, as you have decided, along with all those who obey the Lord’s law.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.91",
+      "source_sha256": "0cdc9e6b1032e90c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They stood up and said to Ezra, “Get up and carry this through, for the matter is your responsibility, and we are with you. Be strong and act!”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.8.92",
+      "source_sha256": "c8c009a1e3bb99a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ezra stood up and made the heads of the families of the priests and the Levites, and all the Israelites, swear to act accordingly. And they swore."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.1",
+      "source_sha256": "19b5e448022c28d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ezra rose from the temple courtyard and went to the treasury chamber of Jonathan son of Eliashib."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.2",
+      "source_sha256": "2d117e35010e63e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He spent the night there without tasting bread or drinking water, mourning over these great acts of lawlessness committed by the multitude."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.3",
+      "source_sha256": "513b76593c20eb59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A proclamation was made throughout Judah and Jerusalem to all those who had returned from captivity, telling them to come to Jerusalem."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.4",
+      "source_sha256": "9428890028d2fd11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anyone who did not appear within these two or three days, according to the decision of the elders and the leaders of the assembly, would have their livestock devoted to the sanctuary and would be excluded from the community of those who had returned from captivity."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.5",
+      "source_sha256": "60aa4640d014431d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All those from the tribes of Judah and Benjamin gathered in Jerusalem within three days. It was the twentieth day of the ninth month."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.6",
+      "source_sha256": "b56db187b464ca25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The whole multitude sat together in the streets around the temple, trembling because winter weather had set in."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.7",
+      "source_sha256": "0a90d933a9b2d73c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ezra stood up and said to them, “You have acted wickedly and brought foreign women to live with you, adding to Israel’s sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.8",
+      "source_sha256": "254342283c98b73f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Even now, give confession and praise to the Lord, the God of our ancestors,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.9",
+      "source_sha256": "30830523bde97aa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and do his will. Separate yourselves from the peoples of the land and from these foreign women.”"
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.9.10",
@@ -181,11 +2553,277 @@
       "text": "The multitude cried out and said in a loud voice, “We will do as you have said.”"
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.11",
+      "source_sha256": "80f57a20873c4f7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "“But the multitude is large, and it is the winter season. We cannot stand out in the open. This is not a task for us to complete in one or two days, for we have sinned greatly in these matters."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.12",
+      "source_sha256": "1b25e23c47105c9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the chief leaders of the multitude take charge, and let all those in our settlements who have foreign wives come at appointed times,"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.13",
+      "source_sha256": "ab71e816cd640847",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "along with the elders and judges from each place, until the Lord’s anger over this matter is turned away.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.14",
+      "source_sha256": "f5a31b11df7b9b6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jonathan son of Hazael and Haziah son of Tiknah accepted these arrangements. Moses, Inab, Levi, and Shabbethai acted as mediators among them."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.15",
+      "source_sha256": "86632d9a3ca4326b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Those who had returned from captivity acted in accordance with all these things."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.16",
+      "source_sha256": "71d501ceb3c5ea37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Ezra the priest selected men who were heads of their families, all designated by name. They sat down together on the first day of the tenth month to investigate the matter."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.17",
+      "source_sha256": "51faae89c61e0ef6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The cases concerning the men who had married foreign women were brought to completion by the first day of the first month."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.18",
+      "source_sha256": "88a7eb6e8665311e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Among the priests who had assembled, some were found to have foreign wives:"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.19",
+      "source_sha256": "0cb65a87bc49ee34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "from the descendants of Jeshua son of Jozadak and from his brothers: Mattathias, Eleazar, Jorib, and Jonadab."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.20",
+      "source_sha256": "39c5a10cbc738c8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They pledged to send away their wives and to offer rams as atonement for their unwitting offense."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.21",
+      "source_sha256": "81ce392a3996677c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Amariah: Hananiah, Zebadiah, Maani, and Shemaiah. From the descendants of Oman: Maaseiah, Maana, Shemaiah, Neriel, and Azariah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.22",
+      "source_sha256": "6824dc319f6d9dce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Pashhur: Elhanan, Maaseiah, Ishmael, Nethanel, Cainirus, and Shaatha."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.23",
+      "source_sha256": "95a405c26257f719",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the Levites: Zabad, Shimei, and Kelaiah, who is Calitas, and Pethosh, Judah, and Jonah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.24",
+      "source_sha256": "1b938dcd57edf34c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the priestly singers: Eliashib the firstborn."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.25",
+      "source_sha256": "13b21fd057713589",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the daughters of Shallum and Toblan."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.26",
+      "source_sha256": "187477d126a6f38c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From Israel: from the descendants of Parosh: Jeremiah, Jedaiah, Malchi, Michael, Eleazar, Hashabliah, and Benaiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.27",
+      "source_sha256": "f64faea66ad36ed6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Ulla, Mattaniah, and Zechariah: Azarel, Joadiah, Jeremoth, and Jedaiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.28",
+      "source_sha256": "70fe266f1b1a4e79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Tattum: Eliada, Elishama, Othniel, Tarimus, Shekathiah, and Zerdiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.29",
+      "source_sha256": "3e99d5c17fb5d787",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Bebel: Johanan, Hananiah, Zechariah, and Hamathiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.30",
+      "source_sha256": "30a0881af5317908",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from Benjamin: Olam, Malluch, Jedaiah, Jashub, Agilush, and Jeremoth."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.31",
+      "source_sha256": "107fcf733a26a390",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Addi: Nahathush, Basaus, Ismu, Sisael, Baanah, and Manasseh."
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.9.32",
       "source_sha256": "63ed0e14fb743ede",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 25,
       "text": "And from the sons of Hanan: Elionas, Aseas, Malchias, Sabbeus, Simon, [?]."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.33",
+      "source_sha256": "6d3c1fed72ee6a7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Hashum: Mattaniah, Mattanah, Benaiah, Eliphelet, Manasseh, and Shimei."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.34",
+      "source_sha256": "1c41b75f988b8f9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the descendants of Bani: Jeremiah, Moadash, Ishmael son of Elmada, Pishiah, Hazo, Abizahion, Elitashua, Amtilimus, Elishish, Banus, Elishmish, Shelemiah, and Nethaniah. And from the descendants of Zerah: Shishi, Azbariah, Hazael, Shammoth, Zimri, and Joseph."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.35",
+      "source_sha256": "e174fb9dac8b2db0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the descendants of Nooma: Martiah, Zebadiah, Hadiah, Joathar, and Benaiah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.36",
+      "source_sha256": "cb9ed9214c35c607",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All these had women of foreign descent living with them, and they named them along with their children."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.37",
+      "source_sha256": "72f0d3d664006b2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the priests and Levites who were from Israel lived in Jerusalem at the new moon of the seventh month, and the Israelites lived in their own dwellings."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.38",
+      "source_sha256": "584d492b5c3fc9ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the whole assembly gathered together in the square to the east of the priestly threshold."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.39",
+      "source_sha256": "c01404f67ac36478",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they said to Ezra, the chief priest and reader, “Bring the Law of Moses, which was given by the Lord, the God of Israel.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.40",
+      "source_sha256": "200eb661a4cc926f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Ezra the chief priest brought the Law to their whole assembly, both men and women, and to all the priests, to hear the Law at the new moon of the seventh month."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.41",
+      "source_sha256": "664d3782cfcdfda1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he read in the square before the priestly gate from morning until noon, before the men and women, and the whole assembly gave their attention to the Law."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.42",
+      "source_sha256": "3103252240ab3c65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Ezra, the priest and reader of the Law, stood on the wooden platform that had been prepared."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.43",
+      "source_sha256": "893913786c337aba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And with him on the right stood Mattathias, Shammua, Hananiah, Azariah, Uriah, Hezekiah, and Baalshamush."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.44",
+      "source_sha256": "dbc2dfff8e7c98a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And on the left: Paldana, Mishael, Malchiah, Dutha, Tasub, Nabralash, and Zechariah."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.45",
+      "source_sha256": "58db55358a7a7b0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And when Ezra took the book of the Law before the assembly—for he was seated in honor at the head, before them all—"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.46",
+      "source_sha256": "52dcd0e1441c7f98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and when he opened the Law, they all stood upright. And Ezra blessed the Lord Most High, ruler of all."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.47",
+      "source_sha256": "4a8f69458f27ffe0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the people cried out, “Amen, amen!” And raising their hands upward, they fell to the ground and worshiped the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.48",
+      "source_sha256": "4a1b84f075b37f0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Jeshua, Benaiah, Sherebiah, Naraniah, Akkub, Shabbethai, Hodiah, Maanah, Kelita, Azariah, Jozabad, Hananiah, and Pethosh, the Levites, taught the Law of the Lord, and they read the Law of the Lord to the assembly, while they were [?] together, and for the reading."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.49",
+      "source_sha256": "5d57e8d471bfe499",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "And Attharates said to Ezra, the chief priest and reader, and to the Levites who were teaching the multitude, addressing everyone:"
     },
     {
       "chunk_id": "pta-peshitta/3esr#3Esr.9.50",
@@ -195,11 +2833,39 @@
       "text": "This day is holy to the Lord, and they were all weeping when they heard the Law."
     },
     {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.51",
+      "source_sha256": "87d659956a637b05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "“Go, eat rich foods and drink sweet drinks, and send portions to those who have nothing."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.52",
+      "source_sha256": "ddda50908a36c86d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "For the day is holy to the Lord. Do not be distressed, for the Lord will glorify you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.53",
+      "source_sha256": "90d60a03f30fdb82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "And the Levites were instructing the whole assembly, saying, “This day is holy. Do not be distressed.”"
+    },
+    {
       "chunk_id": "pta-peshitta/3esr#3Esr.9.54",
       "source_sha256": "f7a17b38d458c9f8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 2,
       "text": "And they all went to eat and drink, to enjoy themselves, to send portions to those who had nothing, and to rejoice greatly."
+    },
+    {
+      "chunk_id": "pta-peshitta/3esr#3Esr.9.55",
+      "source_sha256": "9ac8e656d365cdbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 5,
+      "text": "For they had been inspired by these words that they had learned. And they assembled.\n\nThis book too is finished. It is the first book of Ezra. Because we did not find it in the Peshitta text, we copied it according to the Septuagint."
     }
   ]
 }

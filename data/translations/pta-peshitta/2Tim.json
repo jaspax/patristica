@@ -9,9 +9,92 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.1",
+      "source_sha256": "4ebbf5ab610e5ac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle of Jesus Christ by the will of God and according to the promise of life that is in Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.2",
+      "source_sha256": "9006755c9af4095a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To Timothy, a beloved son: Grace, mercy, and peace from God the Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.3",
+      "source_sha256": "38dae02fa5be9b80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I thank God, whom I serve with a pure conscience as my ancestors did, as I constantly remember you in my prayers night and day."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.4",
+      "source_sha256": "d31e593d109b9f3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I long to see you, remembering your tears, so that I may be filled with joy,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.5",
+      "source_sha256": "655e0e78898ba46d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "as I recall your sincere faith, which first lived in your grandmother Lois and your mother Eunice, and, I am convinced, in you as well."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.6",
+      "source_sha256": "a015b07a54d680ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I remind you to stir up the gift of God that is in you through the laying on of my hands."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.7",
+      "source_sha256": "5d156a621de918a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God has not given us a spirit of fear, but of power, love, and discipline."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.8",
+      "source_sha256": "77ce386b94bd0e91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not be ashamed of the testimony about our Lord, or of me, his prisoner. Instead, share in suffering for the gospel through the power of God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.9",
+      "source_sha256": "23c938a6b5d665c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who saved us and called us with a holy calling, not according to our deeds but according to his will and his grace, which was given to us in Jesus Christ before the ages began,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.10",
+      "source_sha256": "4d8f327b01842774",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and has now been revealed through the appearing of our Savior Jesus Christ, who abolished death and revealed life and immortality through the gospel,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.11",
+      "source_sha256": "212ed39580a0ba17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for which I was appointed a preacher, an apostle, and a teacher of the Gentiles."
+    },
     {
       "chunk_id": "pta-peshitta/2tim#2Tim.1.12",
       "source_sha256": "de76e2db90fa454b",
@@ -27,11 +110,116 @@
       "text": "Let the sound words you heard from me be your pattern, in the faith and love that are in Jesus Christ."
     },
     {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.14",
+      "source_sha256": "7e379679d5e69dd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Guard the good thing entrusted to you through the Holy Spirit who lives in us."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.15",
+      "source_sha256": "57a0973b6378d598",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You know this: everyone in Asia has turned away from me, including Phygelus and Hermogenes."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.16",
+      "source_sha256": "73458f50c692d6bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May our Lord grant mercy to the household of Onesiphorus, because he often refreshed me and was not ashamed of the chains of my imprisonment."
+    },
+    {
       "chunk_id": "pta-peshitta/2tim#2Tim.1.17",
       "source_sha256": "99d175b8cde6b905",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "But when he came to Rome, he searched diligently for me and found me."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.1.18",
+      "source_sha256": "78f5a49185702ba6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "May our Lord grant that he find mercy with our Lord on that day. And you know very well how much he served me in Ephesus."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.1",
+      "source_sha256": "ab74699fc10c4317",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You, then, my son, be strengthened by the grace that is in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.2",
+      "source_sha256": "9b7e0fd9deda507b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Entrust what you have heard from me through many witnesses to trustworthy people who will also be able to teach others."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.3",
+      "source_sha256": "3e24d3537626563f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Endure suffering like a good soldier of Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.4",
+      "source_sha256": "e5dcd5b451a91ee5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one serving as a soldier becomes entangled in the affairs of the world, so that he may please the one who enlisted him."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.5",
+      "source_sha256": "d11e80cbc218b461",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And if someone competes, he is not crowned unless he competes according to the rules."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.6",
+      "source_sha256": "4cde53882bc5384d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The farmer who works hard ought to be the first to eat from his produce."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.7",
+      "source_sha256": "d329e1acdf032219",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider what I am saying. May our Lord give you wisdom in everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.8",
+      "source_sha256": "bdc5149cdad58c98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Remember Jesus Christ, who rose from the dead and is a descendant of David, according to my gospel,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.9",
+      "source_sha256": "18e96566c5c9ddf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for which I suffer hardship, even imprisonment like a criminal. But the word of God is not imprisoned."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.10",
+      "source_sha256": "e55e517489ddd97c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I endure everything for the sake of the chosen, so that they too may obtain the salvation that is in Jesus Christ, with eternal glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.11",
+      "source_sha256": "0ea4e5d7c91245a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This saying is trustworthy: For if we died with him, we will also live with him."
     },
     {
       "chunk_id": "pta-peshitta/2tim#2Tim.2.12",
@@ -41,11 +229,123 @@
       "text": "If we endure, we will also reign with him. But if we deny him, he will also deny us."
     },
     {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.13",
+      "source_sha256": "266ab04ca3e517b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And if we do not believe in him, he remains faithful, for he cannot deny himself."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.14",
+      "source_sha256": "6de12529b4d8b087",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Keep reminding them of these things, and solemnly charge them before our Lord not to quarrel over words that bring no benefit but ruin those who hear them."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.15",
+      "source_sha256": "d0e89f4ec191615c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Take care to present yourself fully before God as a worker who has no reason to be ashamed, rightly proclaiming the word of truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.16",
+      "source_sha256": "9ee47054a7ba14d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Avoid empty talk that serves no purpose, for those who engage in it will increase still further in wickedness."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.17",
+      "source_sha256": "d92cfa09d0c3b220",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Their talk will spread like gangrene and take hold of many. One of them is Hymenaeus, and another is Philetus."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.18",
+      "source_sha256": "7ae4f8f083061a96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "These have strayed from the truth by saying that the resurrection of the dead has already taken place, and they overturn the faith of some."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.19",
+      "source_sha256": "f43126bae6e2585c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But God's firm foundation stands, bearing this seal: “The Lord knows those who belong to him,” and “Let everyone who calls on the name of the Lord turn away from wrongdoing.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.20",
+      "source_sha256": "57d32859918c4ca5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "In a large house there are not only vessels of gold or silver, but also of wood and clay, some for honorable use and some for dishonorable use."
+    },
+    {
       "chunk_id": "pta-peshitta/2tim#2Tim.2.21",
       "source_sha256": "12562f56fc0b5aea",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "Therefore, if anyone cleanses himself from these things, he becomes a clean vessel for honorable use, suitable for his master's use and prepared for every good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.22",
+      "source_sha256": "767359805225970d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Flee all youthful desires, and pursue righteousness, faith, love, and peace with those who call on our Lord with a pure heart."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.23",
+      "source_sha256": "294cf696bf7dfad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Avoid foolish, undisciplined arguments, for you know that they breed fights."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.24",
+      "source_sha256": "6ec2f4631b96133b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But our Lord's servant must not fight. Instead, he must be gentle toward everyone, able to teach, and patient."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.25",
+      "source_sha256": "c1b5c8e61acd660f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "He must gently correct those who argue against him, in the hope that God may grant them repentance and they may come to know the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.2.26",
+      "source_sha256": "8b2127081ec0072c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Then they may come to their senses and escape from Satan's trap, in which they were captured to do his will."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.1",
+      "source_sha256": "e9b648eed919fd58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But know this: in the last days difficult times will come."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.2",
+      "source_sha256": "9c447afc4d99c6c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "People will be lovers of themselves, lovers of money, boastful, arrogant, blasphemous, disobedient to their families, ungrateful, and wicked."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.3",
+      "source_sha256": "3330b3a70fbe6cf2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "They will be slanderers, enslaved to desire, brutal, and haters of good things."
     },
     {
       "chunk_id": "pta-peshitta/2tim#2Tim.3.4",
@@ -55,11 +355,81 @@
       "text": "Traitors, reckless, arrogant, loving pleasures more than they love God,"
     },
     {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.5",
+      "source_sha256": "3fd65f0131a38b07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "They have the outward appearance of reverence for God, but are far from his power. Keep such people away from you."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.6",
+      "source_sha256": "dad14ae11c8cd5dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For among them are those who creep into households and take captive women who are buried in sins and driven by various desires."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.7",
+      "source_sha256": "d43b072062a0deba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "These women are always learning but are never able to come to the knowledge of the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.8",
+      "source_sha256": "42291f857226c515",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Just as Jannes and Jambres opposed Moses, so these people also oppose the truth—people whose minds are corrupt and who are rejected with regard to the faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.9",
+      "source_sha256": "cd0bd1ec69eee4f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But they will make no further progress, for their foolishness will become evident to everyone, just as the foolishness of those men became evident."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.10",
+      "source_sha256": "15985db7bba15ca7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But you have followed my teaching, my conduct, my purpose, my faith, my patience, my love, and my endurance."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.11",
+      "source_sha256": "44414947b559b5f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and after my persecution and after my sufferings. You know what I endured in Antioch, Iconium, and Lystra—what persecution I endured. And my Lord rescued me from all of it."
+    },
+    {
       "chunk_id": "pta-peshitta/2tim#2Tim.3.12",
       "source_sha256": "11314b5d248350fa",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "And all who want to live in the fear of God in Jesus Christ will be persecuted."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.13",
+      "source_sha256": "478a08e8addf6d90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But evil people and deceivers will grow worse, going astray and leading others astray."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.14",
+      "source_sha256": "599c4eabbb63e6e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But you, continue in what you have learned and become convinced of, for you know from whom you learned it,"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.15",
+      "source_sha256": "df05a7fbdcc80d4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and that from your childhood you have learned the holy Scriptures, which can make you wise for life through faith in Jesus Christ."
     },
     {
       "chunk_id": "pta-peshitta/2tim#2Tim.3.16",
@@ -69,11 +439,130 @@
       "text": "Every scripture written by the Spirit is useful for teaching, for reproof, for correction, and for training in righteousness,"
     },
     {
+      "chunk_id": "pta-peshitta/2tim#2Tim.3.17",
+      "source_sha256": "9a6db61260d0fa5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "so that the person of God may be complete, fully equipped for every good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.1",
+      "source_sha256": "70a186e45bde4f01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I solemnly charge you before God and our Lord Jesus Christ, who is to judge the living and the dead at the revelation of his kingdom:"
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.2",
+      "source_sha256": "360b7300d101cc91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Proclaim the word, and be diligent whether the time is favorable or not. Reprove and correct with complete patience and teaching."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.3",
+      "source_sha256": "67a668189286658b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For a time will come when they will not listen to sound teaching. Instead, following their own desires, they will gather many teachers for themselves to satisfy their itching ears."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.4",
+      "source_sha256": "4c9af7ed730e40ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "They will turn their ears away from the truth and turn aside to myths."
+    },
+    {
       "chunk_id": "pta-peshitta/2tim#2Tim.4.5",
       "source_sha256": "a6394bd117108980",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "But you, be alert in everything, endure hardships, do the work of a preacher of the good news, and fulfill your ministry."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.6",
+      "source_sha256": "d37fb1d363eb9951",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For I am now being offered as a sacrifice, and the time for my departure has arrived."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.7",
+      "source_sha256": "ebc890d6086f6f36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I have fought the good fight, I have finished my race, and I have kept my faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.8",
+      "source_sha256": "7cd7f93879a50857",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "From now on, the crown of righteousness is kept for me, which my Lord, the righteous judge, will award me on that day—and not only to me, but also to those who have loved his appearing."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.9",
+      "source_sha256": "0975c1834b9e2b13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Make every effort to come to me soon."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.10",
+      "source_sha256": "07edb0117b654462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For Demas has deserted me, having loved this world, and has gone to Thessalonica. Crescens has gone to Galatia, and Titus to Dalmatia."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.11",
+      "source_sha256": "7a1a82790f5fa46b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Only Luke is with me. Take Mark and bring him with you, for he is useful to me in ministry."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.12",
+      "source_sha256": "8ddcae6610bb6640",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I have sent Tychicus to Ephesus."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.13",
+      "source_sha256": "671cfbec102d96b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "When you come, bring the book chest that I left with Carpus in Troas, and the books, especially the parchment scrolls."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.14",
+      "source_sha256": "a7208e14c05f7f0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Alexander the metalworker did me much harm. May our Lord repay him according to his deeds."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.15",
+      "source_sha256": "55efc9e05d6e7358",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "You too should beware of him, for he strongly opposes our words."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.16",
+      "source_sha256": "326c50e170a6026f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "At my first defense, no one was with me; everyone deserted me. May this not be counted against them."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.17",
+      "source_sha256": "2161d34263e55edb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But my Lord stood by me and strengthened me, so that through me the proclamation might be completed and all the nations might hear. And I was rescued from the lion’s mouth."
     },
     {
       "chunk_id": "pta-peshitta/2tim#2Tim.4.18",
@@ -83,11 +572,32 @@
       "text": "And my Lord will rescue me from every evil deed and save me in his heavenly kingdom. To him be glory forever and ever. Amen."
     },
     {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.19",
+      "source_sha256": "384670fd82ac8d94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Greet Priscilla and Aquila and the household of Onesiphorus."
+    },
+    {
       "chunk_id": "pta-peshitta/2tim#2Tim.4.20",
       "source_sha256": "492d5a26c61d7aaf",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "Erastus stayed in Corinth, but I left Trophimus sick in the city of Miletus."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.21",
+      "source_sha256": "1507c397e79223aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Make every effort to come before winter. Eubulus, Pudens, Linus, Claudia, and all the brothers send you greetings."
+    },
+    {
+      "chunk_id": "pta-peshitta/2tim#2Tim.4.22",
+      "source_sha256": "484313f88063c46d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Our Lord Jesus Christ be with your spirit. Grace be with you. Amen."
     }
   ]
 }

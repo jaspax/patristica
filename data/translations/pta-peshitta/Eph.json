@@ -9,15 +9,336 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.1",
+      "source_sha256": "9b8dc930673dfaf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle of Jesus Christ by the will of God, to those in Ephesus who are holy and faithful in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.2",
+      "source_sha256": "598c20bcf3f3814b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Peace be with you, and grace from God our Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.3",
+      "source_sha256": "4c681f1dfdb3fd65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is God, the Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in heaven in Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.4",
+      "source_sha256": "d84cafb38ec35ce2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He chose us beforehand in him, before the foundations of the world, so that we would be holy and without blemish before him. In love he marked us out beforehand for himself,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.5",
+      "source_sha256": "7020fe2d74b11313",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and appointed us to be his children through Jesus Christ, as pleased his will,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.6",
+      "source_sha256": "bb9c8c49bc4e2424",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that the glory of his grace might be praised—the grace he poured out upon us through his beloved."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.7",
+      "source_sha256": "1c83b6bcb593b7b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we have redemption, and through his blood the forgiveness of sins, according to the riches of his grace,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.8",
+      "source_sha256": "8bfd4d5d5a116f0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which overflowed among us in all wisdom and all understanding."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.9",
+      "source_sha256": "61bc9ac5abd4902e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He made known to us the mystery of his will, which he had determined beforehand to carry out in him,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.10",
+      "source_sha256": "5f175a0c1e2b5845",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "as the arrangement for the fulfillment of the times: that everything in heaven and on earth should be renewed in Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.11",
+      "source_sha256": "66e9cdee12464c68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we too were chosen, just as he marked us out beforehand and willed it—he who does everything according to the purpose of his will—"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.12",
+      "source_sha256": "8d698617ae4a9d90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that we, who were the first to hope in Christ, might be for the glory of his praise."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.13",
+      "source_sha256": "8a93d72807418d3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him you too heard the word of truth, which is the good news of your salvation. In him you believed and were sealed with the Holy Spirit who had been promised,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.14",
+      "source_sha256": "539e87b8f8bf941d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who is the pledge of our inheritance, for the redemption of those who live and for the praise of his glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.15",
+      "source_sha256": "1bd77193d2bb09e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I too, ever since I heard of your faith in our Lord Jesus Christ and your love toward the holy ones,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.16",
+      "source_sha256": "08d96a86e12be716",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "have not stopped giving thanks for you and remembering you in my prayers,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.17",
+      "source_sha256": "ff81da848904825a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that the God of our Lord Jesus Christ, the Father of glory, may give you a spirit of wisdom and revelation in knowing him,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.18",
+      "source_sha256": "52a1e230b4bcdeda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and that the eyes of your hearts may be enlightened, so that you may know what the hope of his calling is, and what the glorious riches of his inheritance among the holy ones are,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.19",
+      "source_sha256": "836aa724839047b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and what the surpassing greatness of his power is in us who believe, according to the working of his mighty strength,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.20",
+      "source_sha256": "fe8c15d47a18f8ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which he exercised in Christ when he raised him from the dead and seated him at his right hand in heaven,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.21",
+      "source_sha256": "faf527ba9b834ceb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "above all rulers and authorities, powers and dominions, and above every name that is named, not only in this age but also in the age to come."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.22",
+      "source_sha256": "b7ea0822da0fbb79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He subjected everything beneath his feet, and gave him, who is above all, as head to the church,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.1.23",
+      "source_sha256": "173234b085402618",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "which is his body and the fullness of him who fills everything in every way."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.1",
+      "source_sha256": "f1daf6ba112e37ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you too, who were dead in your sins and offenses,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.2",
+      "source_sha256": "cd188dec74ced100",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "in which you formerly walked, following the ways of this world and the will of the ruler of the authority of the air, and of this spirit that is active among the children of disobedience."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.3",
+      "source_sha256": "7314e89bca613670",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We too once lived in those deeds, following the desires of our flesh and doing what our flesh and our minds wanted. We were entirely children of wrath, like the rest."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.4",
+      "source_sha256": "225b8be3abcb3cda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But God, who is rich in mercy, because of the great love with which he loved us,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.5",
+      "source_sha256": "9b958b25784d1d3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "even when we were dead in our sins, made us alive with Christ. By his grace he saved us."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.6",
+      "source_sha256": "eaf8dcaf9a1c99b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He raised us with him and seated us with him in heaven, in Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.7",
+      "source_sha256": "153aee16c9bda80f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that in the ages to come he might show the greatness of the riches of his grace and his kindness toward us in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.8",
+      "source_sha256": "a776cfec673a7996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is by his grace that we have been saved, through faith. This did not come from you; it is God's gift."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.9",
+      "source_sha256": "593e8e44dd28682b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It does not come from deeds, so that no one may boast."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.10",
+      "source_sha256": "b8364b6d7542bda8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we are his creation, created in Jesus Christ for good deeds, which God prepared beforehand for us to live by."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.11",
+      "source_sha256": "840b6df0408392c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore remember that you were once Gentiles in the flesh, and were called “the uncircumcision” by what is called “the circumcision,” which is something done by human hands in the flesh."
+    },
     {
       "chunk_id": "pta-peshitta/eph#Eph.2.12",
       "source_sha256": "ca7e11591a118c59",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "At that time you were without Christ, alienated from the way of life of Israel and strangers to the covenant of promise. You were without hope and without God in the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.13",
+      "source_sha256": "45131e81881e7d5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now, in Jesus Christ, you who were once far away have come near through the blood of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.14",
+      "source_sha256": "b6d2c848a41e73f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he himself is our peace. He made the two one and tore down the barrier that stood between them,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.15",
+      "source_sha256": "a9632335ca032ad3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the hostility, through his flesh. He abolished the law of commandments with its ordinances, so that in himself he might create the two as one new person, making peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.16",
+      "source_sha256": "5a7246965da42839",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He reconciled both to God in one body, and through his cross he killed the hostility."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.17",
+      "source_sha256": "0de89ab99b5bcc09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He came and proclaimed the good news of peace to you who were far away and to those who were near."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.18",
+      "source_sha256": "91fb3543dcf5ccf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through him both of us have access to the Father in one Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.19",
+      "source_sha256": "25e9969dd6abb7af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So you are no longer strangers or foreign residents, but fellow citizens with the holy ones and members of God's household."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.20",
+      "source_sha256": "a919c3008e3369c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have been built on the foundation of the apostles and prophets, with Jesus Christ himself as the cornerstone of the building."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.21",
+      "source_sha256": "8adeb1e8a1fdd7ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him the whole building is fitted together and grows into a holy temple in the Lord,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.2.22",
+      "source_sha256": "1c7913fedc5f3776",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and in him you too are being built into a dwelling place for God in the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.1",
+      "source_sha256": "7519a416b0272bd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I, Paul, am a prisoner of Jesus Christ for your sake, you Gentiles,"
     },
     {
       "chunk_id": "pta-peshitta/eph#Eph.3.2",
@@ -27,11 +348,123 @@
       "text": "If you have heard of the stewardship of God's grace that was given to me for you,"
     },
     {
+      "chunk_id": "pta-peshitta/eph#Eph.3.3",
+      "source_sha256": "b7859b8e80fde219",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because the mystery was made known to me by revelation, as I wrote to you briefly,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.4",
+      "source_sha256": "fd11414fc74956e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that when you read, you can understand my knowledge of the mystery of Christ."
+    },
+    {
       "chunk_id": "pta-peshitta/eph#Eph.3.5",
       "source_sha256": "c40cfe3952fb9174",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "which in other generations was not made known to human beings as it has now been revealed to his holy apostles and prophets by the Spirit,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.6",
+      "source_sha256": "8cd98ae482e81495",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is that the Gentiles should be heirs of his inheritance, sharing in his body and in the promise given in him through the gospel,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.7",
+      "source_sha256": "5badd15d6ede2d0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "of which I became a servant according to the gift of God's grace, given to me through the working of his power."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.8",
+      "source_sha256": "2fa5a944d419e750",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To me, the least of all the holy ones, this grace was given: to proclaim among the Gentiles the unfathomable riches of Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.9",
+      "source_sha256": "96d2a091be192a49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And to enlighten everyone about the administration of the mystery that had been hidden for ages in God, who created everything,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.10",
+      "source_sha256": "7c006b5879925ef0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that through the church God's wisdom, in all its variety, might be made known to the rulers and authorities in heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.11",
+      "source_sha256": "890618d642096ddc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This he had prepared for ages and accomplished in Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.12",
+      "source_sha256": "2b51f7ce7c2308dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In him we have boldness and access with confidence through faith in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.13",
+      "source_sha256": "244ade20dcd11838",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason I ask that I may not grow weary in my sufferings for you, for this is your glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.14",
+      "source_sha256": "a7a4854841b9e55b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And I bend my knees before the Father of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.15",
+      "source_sha256": "f6b760441f942d44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "from whom every fatherhood in heaven and on earth receives its name,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.16",
+      "source_sha256": "eaa943c2506a95bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that according to the riches of his glory he may grant you strength through his Spirit, so that in your inner [?] self"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.17",
+      "source_sha256": "134d739d80d91c8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Christ may dwell through faith, and in your hearts through love, with your root and foundation firmly established,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.18",
+      "source_sha256": "f3faf3226e24edea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may be able to grasp, with all the holy ones, what the height and depth and length and breadth are,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.3.19",
+      "source_sha256": "9c5d3dc4a33692db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and know the greatness of the knowledge of Christ's love, and be filled with all the fullness of God."
     },
     {
       "chunk_id": "pta-peshitta/eph#Eph.3.20",
@@ -41,11 +474,466 @@
       "text": "Now to him who is able, through his power, to do for us far more than everything we ask or think, according to his power at work in us,"
     },
     {
+      "chunk_id": "pta-peshitta/eph#Eph.3.21",
+      "source_sha256": "704811bb7269a7ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "To him be glory in his church through Jesus Christ, throughout all generations, forever and ever. Amen[?]."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.1",
+      "source_sha256": "21ab74319fbf0701",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I, a prisoner in our Lord, ask you to live in a manner worthy of the calling with which you were called,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.2",
+      "source_sha256": "ed2bb6c0a86ed598",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "with complete humility, gentleness, and patience, bearing with one another in love."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.3",
+      "source_sha256": "f8043a7e6ee56a49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be diligent in preserving the unity of the Spirit in the bond of peace,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.4",
+      "source_sha256": "26467eb2752859d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "so that you may be in one body and one Spirit, just as you were called in the one hope of your calling."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.5",
+      "source_sha256": "42c1396afe4df170",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is one Lord, one faith, and one baptism,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.6",
+      "source_sha256": "735845ecda686b47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and one God, the Father of all, who is over all and through all and in us all."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.7",
+      "source_sha256": "1a1954260e707e4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But grace was given to each one of us according to the measure of Christ's gift."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.8",
+      "source_sha256": "643b85247c95a4c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason it is said: “He ascended on high, took captives, and gave gifts to human beings.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.9",
+      "source_sha256": "52530b87d4e83ad6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now what does “he ascended” mean, except that he also first descended to the lower parts of the earth?"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.10",
+      "source_sha256": "8a975eaab7032108",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The one who descended is the very one who also ascended above all the heavens, to bring everything to completion."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.11",
+      "source_sha256": "5717a67cb7070c5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And he gave some as apostles, some as prophets, some as proclaimers of the good news, some as shepherds, and some as teachers,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.12",
+      "source_sha256": "9ce8ab5360a2c90c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to bring the holy ones to maturity, for the work of ministry, for building up the body of Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.13",
+      "source_sha256": "f25358a7aa86e0c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "until we all become one in faith and in the knowledge of the Son of God, one mature person, measuring up to the stature of the fullness of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.14",
+      "source_sha256": "7bb772a215786bbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And let us not be children, shaken and carried about by every wind of deceptive human teachings, by people who cunningly devise schemes to lead others astray."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.15",
+      "source_sha256": "6d056daaab327046",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, let us be steadfast in our love, so that in every respect we may grow in Christ, who is the head."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.16",
+      "source_sha256": "d57ced84e01f0bc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From him the whole body is fitted together and held together through every joint, according to the gift given in due measure to each part, so that the body grows and is fully built up in love."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.17",
+      "source_sha256": "a7e1d9db0d3921a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This, then, I say and testify in the Lord: from now on you must not live like the rest of the Gentiles, who live in the emptiness of their thinking."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.18",
+      "source_sha256": "d2c054a7a2a67c92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Their understanding is darkened, and they are estranged from the life of God because they have no knowledge and because of the blindness of their hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.19",
+      "source_sha256": "d258447e3eb62b2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They have given up hope and surrendered themselves to shameless behavior and to practicing every kind of impurity in their greed."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.20",
+      "source_sha256": "924b69cc81b612cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But that is not how you learned Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.21",
+      "source_sha256": "cd9e12006ecb3b6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "if you have truly heard him and been taught in him, according to the truth that is in Jesus."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.22",
+      "source_sha256": "4c7b7b8c597bf1d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Rather, you were taught to put away your former conduct, the old person who is being corrupted by deceitful desires,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.23",
+      "source_sha256": "ab6ee5e5c2f1d500",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to be renewed in the spirit of your minds,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.24",
+      "source_sha256": "9de1de3154ebc686",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to put on the new person, who was created by God in righteousness and true holiness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.25",
+      "source_sha256": "79c19a5dd2bbd82b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, put away falsehood and let each person speak the truth with their neighbor, for we are members of one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.26",
+      "source_sha256": "443fdf6f4d112670",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be angry, but do not sin, and do not let the sun set on your anger."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.27",
+      "source_sha256": "8b75d9773782a506",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not give the devil any room."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.28",
+      "source_sha256": "a02c92fc96f42c1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Anyone who used to steal must no longer steal, but must labor with their own hands and do good work, so that they have something to give to anyone in need."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.29",
+      "source_sha256": "f5684f4a6c9525d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no foul speech come out of your mouths, but only what is good and useful for building others up, so that it may give grace to those who hear."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.30",
+      "source_sha256": "af4d666ce8c60bd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not grieve the Holy Spirit of God, in whom you were sealed for the day of redemption."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.31",
+      "source_sha256": "1ea69dbb06e4f4c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let all bitterness, rage, anger, shouting, and slander be removed from you, along with all malice."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.4.32",
+      "source_sha256": "43328662c1b1a15e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be kind and compassionate toward one another, and forgive one another, just as God forgave us in Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.1",
+      "source_sha256": "33d43a12e206b909",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, imitate God as beloved children."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.2",
+      "source_sha256": "27d60b2e1c063321",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And live in love, just as Christ also loved us and gave himself up for us as an offering and sacrifice to God, a pleasing fragrance."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.3",
+      "source_sha256": "9ba823e940254565",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But sexual immorality, impurity of every kind, and greed must not even be named among you, as is fitting for holy people."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.4",
+      "source_sha256": "4888ae561c34c4c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor should there be abusive language, foolish talk, mockery, or joking, which are inappropriate, but instead thanksgiving."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.5",
+      "source_sha256": "9d0520118f64d92c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Know this: no one who is sexually immoral, impure, or greedy—that is, an idol worshiper—has an inheritance in the kingdom of Christ and of God."
+    },
+    {
       "chunk_id": "pta-peshitta/eph#Eph.5.6",
       "source_sha256": "945b8eadb5611b1a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "Do not let anyone deceive you with empty words, for because of these things God's wrath comes upon those who are disobedient."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.7",
+      "source_sha256": "b81900ec73b387af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, do not become their partners."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.8",
+      "source_sha256": "4facedf5300a0cb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you were once darkness, but now you are light in our Lord. Therefore live as children of light."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.9",
+      "source_sha256": "0ffa3a6e82a282e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the fruits of light consist in all goodness, righteousness, and truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.10",
+      "source_sha256": "c66af88ece62747e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Discern what is pleasing to our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.11",
+      "source_sha256": "ec09944b0c124b4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not take part in the fruitless deeds of darkness, but instead expose them."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.12",
+      "source_sha256": "0e43dd3d3c28192c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For what they do in secret is shameful even to speak about."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.13",
+      "source_sha256": "d70e91a550a9b2ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything is exposed by the light and made visible, and everything that is visible is light."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.14",
+      "source_sha256": "2aeb7042f35590d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason it is said: “Wake up, sleeper, and rise from among the dead, and Christ will shine on you.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.15",
+      "source_sha256": "a7b42985446f16ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore take care how you live, not as foolish people but as wise people,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.16",
+      "source_sha256": "5a3a0032604ce94d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who make the most of their opportunity, because the days are evil."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.17",
+      "source_sha256": "fdcf3663e743a8ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason, do not be senseless, but understand what God's will is."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.18",
+      "source_sha256": "3cf5e9294fc4015c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not get drunk on wine, in which there is debauchery, but be filled with the Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.19",
+      "source_sha256": "249cb75aac449f31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Speak to one another in psalms and hymns and spiritual songs, singing in your hearts to the Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.20",
+      "source_sha256": "d32c4f0ef8c7fb97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Always give thanks for everyone to God the Father in the name of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.21",
+      "source_sha256": "0b61f91a722f9a06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Submit to one another in the love of Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.22",
+      "source_sha256": "b7467d5e601d78cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Wives, submit to your husbands as to our Lord,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.23",
+      "source_sha256": "d6073d7554f1fbf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because the husband is the head of the wife, just as Christ is the head of the church, and he is the Savior of the body."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.24",
+      "source_sha256": "1a7940508a605a25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But just as the church submits to Christ, so also wives should submit to their husbands in everything."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.25",
+      "source_sha256": "014fdfed6d4360a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Husbands, love your wives, just as Christ loved his church and gave himself up for her,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.26",
+      "source_sha256": "31931d7ff6519853",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to make her holy and cleanse her by the washing of water and by the word,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.27",
+      "source_sha256": "0b451c5410cf8d49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and to present the church to himself in glory, without stain or wrinkle or anything like these, but holy and without blemish."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.28",
+      "source_sha256": "a804c127df0fd38f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, husbands ought to love their wives as their own bodies. For whoever loves his wife loves himself."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.29",
+      "source_sha256": "9d9d6e642a77fbbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For no one ever hates his own body, but nourishes it and cares for it, just as Christ does for his church,"
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.30",
+      "source_sha256": "22e316b1f4f6dc82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "because we are members of his body, and we are of his flesh and of his bones."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.31",
+      "source_sha256": "79fc706da4d3b26a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this reason a man will leave his father and mother and join himself to his wife, and the two will become one flesh."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.32",
+      "source_sha256": "bc536b9e369ac2fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is a great mystery, but I am speaking about Christ and his church."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.5.33",
+      "source_sha256": "9314a3d93fd2cbb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Nevertheless, each one of you must love his wife as himself, and the wife must respect her husband."
     },
     {
       "chunk_id": "pta-peshitta/eph#Eph.6.1",
@@ -62,11 +950,158 @@
       "text": "And this is the first commandment with a promise: Honor your father and your mother."
     },
     {
+      "chunk_id": "pta-peshitta/eph#Eph.6.3",
+      "source_sha256": "ffd9424c3d9c4032",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "So that it may go well with you and your life may be long on the earth."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.4",
+      "source_sha256": "ff5de275cf97228d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Fathers, do not provoke your children to anger, but bring them up in the discipline and teaching of our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.5",
+      "source_sha256": "839ec67e4414443a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Slaves, obey your earthly masters with fear and trembling and with sincerity of heart, as you would Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.6",
+      "source_sha256": "b4600977094d7525",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not serve only when you are being watched, as though you were trying to please people, but as slaves of Christ who do the will of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.7",
+      "source_sha256": "794aba2f0d0852d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Serve them wholeheartedly, with love, as you would our Lord and not merely human beings."
+    },
+    {
       "chunk_id": "pta-peshitta/eph#Eph.6.8",
       "source_sha256": "c1b5f7e2c3cf3b88",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 8,
       "text": "You know that whatever good anyone does, he will receive repayment for it from our Lord, whether he is a slave or a free person."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.9",
+      "source_sha256": "259acd595cd3a5e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "You masters must treat your slaves in the same way. Forgive their offenses, knowing that your own Master is also in heaven, and he shows no partiality."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.10",
+      "source_sha256": "a2ebd32d6f0ba3d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "From now on, my brothers, be strong in our Lord and in the might of his power."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.11",
+      "source_sha256": "65ae17c225518ba2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Put on the whole armor of God so that you can stand against the devil’s schemes."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.12",
+      "source_sha256": "88ca38f08ff8dfa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For your struggle is not against flesh and blood, but against rulers, against authorities, against the world rulers of this darkness, and against evil spirits beneath heaven."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.13",
+      "source_sha256": "b29f97e903f5babb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Therefore, put on the whole armor of God so that you can confront evil and, fully prepared in every way, stand firm."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.14",
+      "source_sha256": "8d2b97a524f491aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Stand firm, then, fastening truth around your waist and putting on the breastplate of righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.15",
+      "source_sha256": "33de9ad169b02a1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Put on your feet the readiness of the good news of peace."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.16",
+      "source_sha256": "7739d77a767e6979",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Along with these, take up the shield of faith, through which you will have the strength to extinguish all the flaming arrows of the evil one."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.17",
+      "source_sha256": "34b8da2691310cf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Put on the helmet of salvation, and take hold of the sword of the Spirit, which is the word of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.18",
+      "source_sha256": "5e0fa016c79ed3cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "With every kind of prayer and petition, pray at all times in the Spirit. Stay watchful in prayer at every moment, praying continually and pleading on behalf of all the saints."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.19",
+      "source_sha256": "6b7b18f2bae6f9a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Pray also for me, that words may be given to me when I open my mouth, so that I may openly proclaim the mystery of the good news."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.20",
+      "source_sha256": "daea418af5c8bffe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For this I am an ambassador in chains, so that I may speak of it boldly, as I ought to speak."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.21",
+      "source_sha256": "6208418497063a1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "So that you too may know my circumstances and what I am doing, Tychicus, our dear brother and faithful servant in our Lord, will tell you."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.22",
+      "source_sha256": "792847f5291f2181",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I have sent him to you for this very purpose, so that you may know my circumstances and he may comfort your hearts."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.23",
+      "source_sha256": "1bcb9cfa8b36508d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Peace be with our brothers, and love with faith, from God the Father and from our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/eph#Eph.6.24",
+      "source_sha256": "f4917f18e0f4e61d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Grace be with all who love our Lord Jesus Christ with an undying love. Amen."
     }
   ]
 }

@@ -9,15 +9,273 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.1",
+      "source_sha256": "0c231855a850334e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Paul, an apostle of Jesus Christ by the command of God our Savior and of Christ Jesus our hope,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.2",
+      "source_sha256": "eb568a9062524cf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "to Timothy, a true son in the faith: grace, mercy, and peace from God our Father and Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.3",
+      "source_sha256": "2aec559697b3a69a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "When I was leaving for Macedonia, I asked you to remain in Ephesus and instruct certain people not to teach different doctrines"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.4",
+      "source_sha256": "3165ea4feea9fa23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "or devote themselves to myths and endless accounts of family lines. These produce disputes rather than a building up in the faith of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.5",
+      "source_sha256": "098f2aeecc74b996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "The goal of the command is love that comes from a pure heart, a good conscience, and genuine faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.6",
+      "source_sha256": "1679f7025d4eb759",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Some people have strayed from these things and turned aside to empty talk,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.7",
+      "source_sha256": "906a7949d26e5f31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "wanting to be teachers of the law, although they understand neither what they are saying nor what they are arguing about."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.8",
+      "source_sha256": "b46ab323b21c1acf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But we know that the law is good if someone uses it in accordance with the law,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.9",
+      "source_sha256": "a572326e2bd1ac56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "knowing that the law is not laid down for the righteous, but for the unjust, the rebellious, the wicked, sinners, the ungodly, the impure, those who strike their fathers, those who strike their mothers, and murderers,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.10",
+      "source_sha256": "f2ddb5eafb3c99a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "and for the sexually immoral, those who sleep with males, those who kidnap free people, liars, those who break their oaths, and anything contrary to the sound teaching"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.11",
+      "source_sha256": "231be027bdb0ea8a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "of the gospel of the glory of the blessed God, which was entrusted to me."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.12",
+      "source_sha256": "35a5965b00a73789",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I thank the one who strengthened me, our Lord Jesus Christ, because he considered me faithful and appointed me to his service,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.13",
+      "source_sha256": "e8ae4988e798f2f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "although I was formerly a blasphemer, a persecutor, and an abusive man. But I was shown mercy because I acted ignorantly, without faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.14",
+      "source_sha256": "dc6fac0e840ea028",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But the grace of our Lord overflowed in me, along with the faith and love that are in Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.15",
+      "source_sha256": "6696d89945bfb11a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "This saying is trustworthy and deserves acceptance: Jesus Christ came into the world to save sinners, of whom I am the foremost."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.16",
+      "source_sha256": "967fb1034d7beed5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But for this reason he had mercy on me, so that in me, the foremost, Jesus Christ might demonstrate all his patience as an example for those who would believe in him for eternal life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.17",
+      "source_sha256": "5bc3f54d7fc9ce6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Now to the King of the ages, who is imperishable and invisible, who is the one God, be honor and glory forever and ever. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.18",
+      "source_sha256": "ffc509bc580b9182",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I entrust this command to you, my son Timothy, in accordance with the earlier prophecies concerning you, so that through them you may fight this good fight,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.19",
+      "source_sha256": "9e4df12c920c55db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "with faith and a good conscience. For those who have pushed this conscience away have been emptied of faith,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.1.20",
+      "source_sha256": "91dcf4c0c1b9990a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "such as Hymenaeus and Alexander, whom I handed over to Satan so that they might be disciplined not to blaspheme."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.1",
+      "source_sha256": "c156fe7dc8f2ed66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore I ask you, first of all, to offer requests, prayers, pleas, and thanksgiving to God on behalf of all people,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.2",
+      "source_sha256": "fa4afa7c6ee33c92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "on behalf of kings and rulers, so that we may live a quiet and peaceful life in complete reverence for God and purity."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.3",
+      "source_sha256": "9945fc5f8123618a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this is good and acceptable before God our Savior,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.4",
+      "source_sha256": "09fb8840303b0c61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "who desires all people to be saved and to turn to the knowledge of the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.5",
+      "source_sha256": "31895d3446e944d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For there is one God, and one mediator between God and humanity, the man Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.6",
+      "source_sha256": "4bc6f9b6607615ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who gave himself as a ransom for everyone—a testimony that came at its proper time."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.7",
+      "source_sha256": "eff92ad2cdd0a6c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this testimony I was appointed its herald and apostle—I am telling the truth and not lying—and became a teacher of the nations in the true faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.8",
+      "source_sha256": "772b7953ebfadd20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore I want men everywhere to pray, lifting their hands in purity, without anger or doubts."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.9",
+      "source_sha256": "11eaa5c395c6efb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, women should dress modestly, adorning themselves with reserve and decency, not with braided hair and gold, or pearls, or fine clothes,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.10",
+      "source_sha256": "d950522b05457112",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but with good deeds, as is fitting for women who profess reverence for God."
+    },
     {
       "chunk_id": "pta-peshitta/1tim#1Tim.2.11",
       "source_sha256": "96791adac691af34",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "A woman should learn quietly, with complete submission."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.12",
+      "source_sha256": "51bc5af7e82c449a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I do not permit a woman to teach or to domineer over a man; rather, she should remain quiet."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.13",
+      "source_sha256": "37ad4780590f3e61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For Adam was formed first, and then Eve."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.14",
+      "source_sha256": "3ca28ff9046677fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And Adam did not go astray, but the woman went astray and broke the commandment."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.2.15",
+      "source_sha256": "7d01697cf0e0be5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But she will be saved through her children, if they continue in faith, love, holiness, and modesty."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.1",
+      "source_sha256": "7de437a645878c93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This saying is trustworthy: if anyone desires the office of elder, he desires good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.2",
+      "source_sha256": "a2a21815d44a49a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "An elder must be someone in whom no fault is found, the husband of one wife, alert in mind, modest, orderly, welcoming to strangers, and able to teach."
     },
     {
       "chunk_id": "pta-peshitta/1tim#1Tim.3.3",
@@ -27,11 +285,375 @@
       "text": "He must not be given to wine, and his hand must not be quick to strike. Instead, he should be gentle, not quarrelsome, and not a lover of money."
     },
     {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.4",
+      "source_sha256": "bcc6dcba44c8bbbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He must manage his household well and keep his children obedient in all purity."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.5",
+      "source_sha256": "e4b6856bbf0babb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if he does not know how to manage his own household well, how can he manage God's church?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.6",
+      "source_sha256": "770b97ebb7760f26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He must not be a new disciple, so that he does not become proud and fall under Satan's condemnation."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.7",
+      "source_sha256": "5bbaed893dedf4c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He must also have a good reputation among outsiders, so that he does not fall into disgrace and Satan's snares."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.8",
+      "source_sha256": "aadeca79ac19f876",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, deacons must be pure. They must not be double-tongued, addicted to much wine, or fond of dishonest gain,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.9",
+      "source_sha256": "20836446ad13dc08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "but must hold to the mystery of the faith with a pure conscience."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.10",
+      "source_sha256": "9fcbf3be46de4fe4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They themselves must first be examined, and then, if they are free from accusation, let them serve."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.11",
+      "source_sha256": "fa1aa3fcd3f748a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, women must be modest, alert in mind, and faithful in everything, and must not be slanderers."
+    },
+    {
       "chunk_id": "pta-peshitta/1tim#1Tim.3.12",
       "source_sha256": "de731d5012cb0ad4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "Deacons should each be the husband of one wife and manage their children and households well."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.13",
+      "source_sha256": "a13741fcf5b3b4fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who have served well gain a good standing for themselves and great confidence in the faith of Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.14",
+      "source_sha256": "caa6f1453527062b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am writing these things to you while hoping to come to you soon."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.15",
+      "source_sha256": "bb916d60c31a48d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if I am delayed, you will know how one ought to behave in God's household, which is the church of the living God, the pillar and foundation of the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.3.16",
+      "source_sha256": "57a499c10bf0874a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Truly, this mystery of righteousness is great: he was revealed in the flesh, vindicated in the Spirit, seen by angels, proclaimed among the nations, believed in throughout the world, and taken up in glory."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.1",
+      "source_sha256": "53075facf3833e4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the Spirit says plainly that in the last times some people will depart from the faith and follow misleading spirits and the teachings of demons."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.2",
+      "source_sha256": "2fea4971e8491b3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These people lead others astray under a false appearance and speak lies, and their consciences are seared."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.3",
+      "source_sha256": "957b15146bd1b97b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They forbid marriage and require abstinence from foods that God created for use and thanksgiving by those who believe and know the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.4",
+      "source_sha256": "0416d90b0e05ba17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everything God has created is good, and nothing is to be rejected if it is received with thanksgiving."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.5",
+      "source_sha256": "75e25620cdd964b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is made holy through the word of God and through prayer."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.6",
+      "source_sha256": "ee22aecf68a54d5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you teach these things to your brothers, you will be a good servant of Jesus Christ, nourished by the words of faith and by the good teaching you have learned."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.7",
+      "source_sha256": "3689cbba4851d1ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But keep away from the foolish tales of old women, and train yourself in righteousness."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.8",
+      "source_sha256": "1a29bc6325b8d1f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For bodily training is beneficial for a short time, but righteousness is beneficial in everything, and it has the promise of life, both in this present time and in the time to come."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.9",
+      "source_sha256": "b7b9920e5cdf176e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This saying is trustworthy and worthy of acceptance."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.10",
+      "source_sha256": "d334be7b57683e05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For this is why we labor and suffer insults: because we place our hope in the living God, who is the Savior of all people, especially of believers."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.11",
+      "source_sha256": "f5f0f47bec39e105",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Teach and command these things."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.12",
+      "source_sha256": "d4594c91530ca3a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one look down on you because of your youth, but be an example to believers in speech, conduct, love, faith, and purity."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.13",
+      "source_sha256": "4d29f801e225e8df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Until I come, devote yourself to reading, supplication, and teaching."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.14",
+      "source_sha256": "325ddbd1e2561110",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not neglect the gift that is in you, which was given to you through prophecy and the laying on of hands by the council of elders."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.15",
+      "source_sha256": "27e1a2bc4a48dd9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Reflect on these things and immerse yourself in them, so that everyone may know that you are making progress."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.4.16",
+      "source_sha256": "f09d3aa8fccfeb81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Pay careful attention to yourself and your teaching, and persevere in them. For by doing these things, you will save both yourself and those who listen to you."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.1",
+      "source_sha256": "8952c90609c95e61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not rebuke an older man, but appeal to him as to a father, and to younger men as to your brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.2",
+      "source_sha256": "5e2b030da6825cc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Treat older women as mothers, and younger women as your sisters, with complete purity."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.3",
+      "source_sha256": "ecca30eea9d9a9be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Honor widows who are truly widows."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.4",
+      "source_sha256": "77a691e10f6d85a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a widow has children or grandchildren, let them first learn to act rightly toward their own household and repay what they owe their parents, for this is acceptable before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.5",
+      "source_sha256": "b407605573913e7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the woman who is truly a widow and is left alone places her hope in God and continues in prayers and supplications night and day."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.6",
+      "source_sha256": "e14712a635bd86ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the woman who devotes herself to luxury is dead even while she lives."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.7",
+      "source_sha256": "d676b3ec2e83f412",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Keep giving them these instructions so that they may be beyond reproach."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.8",
+      "source_sha256": "897f129c1a83f711",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if anyone does not care for his own people, especially those who belong to the household of faith, he has denied the faith and is worse than those who do not believe."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.9",
+      "source_sha256": "1ea9b500b3d00026",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, select as a widow a woman who is at least sixty years old and who has been the wife of one husband."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.10",
+      "source_sha256": "7048839221a12044",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "She must have a reputation for good works: whether she has raised children, welcomed strangers, washed the feet of the saints, relieved those in distress, and devoted herself to every good work."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.11",
+      "source_sha256": "d7a4da7dcdb5a5f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But refuse younger widows, for they rebel against Christ and want to marry."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.12",
+      "source_sha256": "2708dbc421ff8be1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Their condemnation stands because they have rejected their former faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.13",
+      "source_sha256": "e85be48193f30af4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "They also learn idleness as they go around from house to house—and not only idleness, but also excessive talking, meddling in pointless matters, and saying things they should not."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.14",
+      "source_sha256": "7f0708aa0738f1d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Therefore I want the younger women to marry, bear children, and manage their households, giving the adversary no opportunity at all for slander."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.15",
+      "source_sha256": "6f67a18b4f8f0995",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For some have already begun to turn aside to follow Satan."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.16",
+      "source_sha256": "b2e2df49d7ad681e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "If any believing man or woman has widows, let them support them, so that they do not burden the church and it can provide for those who are truly widows."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.17",
+      "source_sha256": "696526d541385884",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Let the elders who conduct themselves well be considered worthy of double honor, especially those who labor in the word and in teaching."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.18",
+      "source_sha256": "bbf4d41e14385be9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For Scripture says, “Do not muzzle an ox while it is threshing,” and, “The worker deserves his wages.”"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.19",
+      "source_sha256": "5eab33b0b8e5a48a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not accept an accusation against an elder except on the testimony of two or three witnesses."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.20",
+      "source_sha256": "7eb50190a65d5b6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Rebuke those who sin in front of everyone, so that the rest will also be afraid."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.21",
+      "source_sha256": "644b5f432e556a95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I solemnly charge you before God, our Lord Jesus Christ, and his chosen angels to observe these things. Do not prejudge anything, and do nothing out of favoritism."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.22",
+      "source_sha256": "ee42d3b838d70255",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not lay hands on anyone hastily, and do not share in the sins of others. Keep yourself pure."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.23",
+      "source_sha256": "134955b4cf768bd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "From now on, do not drink water, but drink a little wine for the sake of your stomach and your frequent illnesses."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.5.24",
+      "source_sha256": "2b83ce2cb505ab20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Some people's sins are well known and go ahead of them to judgment, while those of others follow after them."
     },
     {
       "chunk_id": "pta-peshitta/1tim#1Tim.5.25",
@@ -41,11 +663,151 @@
       "text": "Likewise, good deeds are evident, and those that are otherwise cannot remain hidden."
     },
     {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.1",
+      "source_sha256": "778750e502758767",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Let those who are under the yoke of slavery regard their masters as worthy of all honor, so that God's name and his teaching are not blasphemed."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.2",
+      "source_sha256": "d950873ddf9e7590",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Those who have believing masters must not despise them because they are their brothers. Instead, they should serve them all the more, because those who benefit from their service are believers and beloved. Teach these things and urge them to follow them."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.3",
+      "source_sha256": "a1781630a9705544",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But if anyone teaches a different teaching and does not accept the sound words of our Lord Jesus Christ and the teaching of the fear of God,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.4",
+      "source_sha256": "7dcdb50be12a604f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "that person is conceited and knows nothing, but has a sick obsession with disputes and questions about words. From these come envy, quarrels, slander, and evil suspicions,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.5",
+      "source_sha256": "a72e7ecc37ae0a67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "and friction among people whose minds are corrupted, who are deprived of the truth, and who think that the fear of God is a means of making money. But you must keep away from such people."
+    },
+    {
       "chunk_id": "pta-peshitta/1tim#1Tim.6.6",
       "source_sha256": "3cc285a658f2b645",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "For reverence for God, with contentment, is great gain for us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.7",
+      "source_sha256": "63f8a08eede54eb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For we brought nothing into the world, and it is clear that we cannot take anything out of it."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.8",
+      "source_sha256": "58c46c8e0f9e751f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Therefore, food and clothing are enough for us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.9",
+      "source_sha256": "563dfc5007d584d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But those who want to become rich fall into temptations and traps and many foolish and harmful desires that plunge people into ruin and destruction."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.10",
+      "source_sha256": "3dbda1a743a73ed6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "For the love of money is the root of all evils. Some have craved it and strayed from the faith, bringing many sorrows upon themselves."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.11",
+      "source_sha256": "19e42d53aa9faf43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "But you, man of God, flee from these things. Pursue righteousness, uprightness, faith, love, endurance, and humility."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.12",
+      "source_sha256": "ef9a455e488741ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Fight the good fight of faith, and take hold of the eternal life to which you were called, when you made the good confession before many witnesses."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.13",
+      "source_sha256": "65e1ca600409cd1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "I charge you before God, who gives life to everything, and Jesus Christ, who gave the good testimony before Pontius Pilate,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.14",
+      "source_sha256": "86d576e7bfdf0e28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "to keep the commandment without stain or blemish until the appearing of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.15",
+      "source_sha256": "c5753b12ba597b80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "whom God, the blessed and only mighty ruler, the King of kings and Lord of lords, will reveal at the proper time."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.16",
+      "source_sha256": "6ca69da3a3d38fa2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "He alone is immortal and lives in light that no one can approach. No human being has seen him or can see him. To him belong honor and authority forever and ever. Amen."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.17",
+      "source_sha256": "7f9d38c501dbab72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "Command those who are rich in this world not to be arrogant or to rely on wealth, which cannot be relied upon, but on the living God, who richly gives us everything for our enjoyment."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.18",
+      "source_sha256": "5527f8cb973e18a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "They should do good works, be rich in good deeds, and be ready to give and to share."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.19",
+      "source_sha256": "8fd90fe052dbad94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "They should lay a good foundation for themselves for what is to come, so that they may take hold of true life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.20",
+      "source_sha256": "3fb3728551a4c225",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "O Timothy, guard what has been entrusted to you. Flee from empty talk and the contradictions of false knowledge."
+    },
+    {
+      "chunk_id": "pta-peshitta/1tim#1Tim.6.21",
+      "source_sha256": "9b0e1a246edc1aab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 12,
+      "text": "For those who profess it have strayed from the faith. Grace be with you. Amen."
     }
   ]
 }

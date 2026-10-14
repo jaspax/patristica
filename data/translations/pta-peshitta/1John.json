@@ -9,15 +9,91 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.1",
+      "source_sha256": "aa4ba4eb5dd3692f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "We proclaim to you the one who existed from the beginning, whom we heard and saw with our own eyes. We looked at him and touched him with our hands—the one who is the Word of life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.2",
+      "source_sha256": "7971fab6b9879c22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And life was revealed. We saw it and bear witness, and we proclaim to you the eternal life that was with the Father and was revealed to us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.3",
+      "source_sha256": "7bd06a3c78c00f29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "What we have seen and heard we also make known to you, so that you too may have fellowship with us. And our fellowship is with the Father and with his Son, Jesus Christ."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.4",
+      "source_sha256": "2ffce457caadd26c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "We write these things to you so that our joy in you may be complete."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.5",
+      "source_sha256": "0ec8d613a9c732e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "This is the message we heard from him and proclaim to you: God is light, and there is absolutely no darkness in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.6",
+      "source_sha256": "9b5fb6be286f63c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If we say that we have fellowship with him while we walk in darkness, we are liars and do not live according to the truth."
+    },
     {
       "chunk_id": "pta-peshitta/1john#1John.1.7",
       "source_sha256": "bae6fe4c591bd08e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus his Son cleanses us from all our sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.8",
+      "source_sha256": "f79b9ace49cc9334",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If we say that we have no sin, we deceive ourselves, and the truth is not in us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.9",
+      "source_sha256": "59de532ce5cda6cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But if we confess our sins, he is faithful and just to forgive us our sins and cleanse us from all our wrongdoing."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.1.10",
+      "source_sha256": "c93edeaf7bfd5637",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If we say that we have not sinned, we make him a liar, and his word is not with us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.1",
+      "source_sha256": "c21b093cdaa2f651",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "My children, I write these things to you so that you will not sin. But if anyone sins, we have an advocate with the Father: Jesus Christ, the righteous one."
     },
     {
       "chunk_id": "pta-peshitta/1john#1John.2.2",
@@ -27,11 +103,179 @@
       "text": "For he is the atonement for our sins, and not for us alone, but also for the whole world."
     },
     {
+      "chunk_id": "pta-peshitta/1john#1John.2.3",
+      "source_sha256": "97bbcb556cbafe01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "By this we recognize that we know him: if we keep his commandments."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.4",
+      "source_sha256": "96c0e03cfd257a08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For whoever says, “I know him,” but does not keep his commandments is a liar, and the truth is not in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.5",
+      "source_sha256": "6afdeee2e8ab42e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But whoever keeps his word, in that person the love of God is truly made complete. For by this we know that we are in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.6",
+      "source_sha256": "b0caa63fc26f180b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Whoever says, “I am in him,” ought to live as he lived."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.7",
+      "source_sha256": "0e256c9a735e877b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "My dear friends, I am not writing you a new commandment, but an old commandment that you have had from the beginning. The old commandment is the word that you heard."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.8",
+      "source_sha256": "61312ef99e77ed52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Yet I am writing you a new commandment, which is true in him and in you, because the darkness has passed and the true light has begun to appear."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.9",
+      "source_sha256": "7a4534e445d8a149",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "So whoever says that he is in the light but hates his brother is still in darkness."
+    },
+    {
       "chunk_id": "pta-peshitta/1john#1John.2.10",
       "source_sha256": "692d359078ca5c4d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "But whoever loves his brother remains in the light, and there is no cause of stumbling in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.11",
+      "source_sha256": "4cc34607f979e1bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But whoever hates his brother is in darkness and walks in darkness. He does not know where he is going, because the darkness has blinded his eyes."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.12",
+      "source_sha256": "e49fddbcf452ede8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I am writing to you, children, because your sins have been forgiven for his name’s sake."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.13",
+      "source_sha256": "4fda0ab06e411c9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I am writing to you, fathers, because you know the one who existed from the beginning. I am writing to you, young men, because you have overcome the evil one. I have written to you, little children, because you know the Father."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.14",
+      "source_sha256": "7f3097045858da3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I have written to you, fathers, because you know the one who is from the beginning. I have written to you, young men, because you are strong, and the word of God lives in you, and you have overcome the evil one."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.15",
+      "source_sha256": "5a85cf96118dc452",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Do not love the world or anything in it. For whoever loves the world does not have the love of the Father in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.16",
+      "source_sha256": "c1697e64229dfb9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For everything in the world is the desire of the body, the desire of the eyes, and worldly pride. These things are not from the Father but from the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.17",
+      "source_sha256": "13158dd7f0a3c893",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "The world is passing away, along with its desire. But whoever does God's will remains forever."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.18",
+      "source_sha256": "8e4653455cbe988f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "My children, this is the last time. Just as you heard that a false Christ is coming, so now many false Christs have appeared. From this we know that this is the last time."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.19",
+      "source_sha256": "f2830b38971392de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "They went out from us, but they did not belong to us. For if they had belonged to us, they would have stayed with us. But they went out from us so that it would become known that they did not belong to us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.20",
+      "source_sha256": "6a30dc6fd11edc6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But you have an anointing from the Holy One, and you can discern everyone."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.21",
+      "source_sha256": "5ff0c1391244d01a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I have not written to you because you do not know the truth, but because you know it, and because no falsehood comes from the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.22",
+      "source_sha256": "cdc7f483165670f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Who is the liar except the one who denies that Jesus is the Christ? This is the false Christ. Whoever denies the Father also denies the Son."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.23",
+      "source_sha256": "e8e9afc02f3f05a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Whoever denies the Son does not believe in the Father either. Whoever acknowledges the Son also acknowledges the Father."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.24",
+      "source_sha256": "982712de1fa86eea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "As for you, let what you heard from the beginning remain with you. For if what you heard from the beginning remains with you, you too will remain in the Father and in the Son."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.25",
+      "source_sha256": "0076af1eea0691ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "And this is the promise he made to us: eternal life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.26",
+      "source_sha256": "36c6944eab9abd7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "I have written these things to you about those who are leading you astray."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.2.27",
+      "source_sha256": "524ab6022f224aca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "As for you, if the anointing you received from him remains with you, you do not need anyone to teach you. Rather, the anointing that comes from God teaches you about everything. It is true, and there is no falsehood in it. And just as he taught you, remain in him."
     },
     {
       "chunk_id": "pta-peshitta/1john#1John.2.28",
@@ -41,6 +285,104 @@
       "text": "And now, my children, remain in him, so that when he is revealed, we will not be ashamed before him, but will have confidence at his coming."
     },
     {
+      "chunk_id": "pta-peshitta/1john#1John.2.29",
+      "source_sha256": "a74c198bb409c59e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "If you know that he is righteous, know that everyone who practices righteousness is also from him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.1",
+      "source_sha256": "53d0db95bcfbc33d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "See how great the Father's love for us is: he has called us children and has also made us children. This is why the world does not know us, because it did not know him either."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.2",
+      "source_sha256": "852e23bcdab03930",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "My dear ones, we are now God's children. What we will be has not yet been revealed. But we know that when he is revealed, we will be like him, and we will see him as he is."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.3",
+      "source_sha256": "76bfafe760e5c98c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Everyone who has this hope in him purifies himself, just as he is pure."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.4",
+      "source_sha256": "9a36b395ccd61c48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "But whoever commits sin does wrong, for all sin is wrongdoing."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.5",
+      "source_sha256": "31a5323db12b881e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "You know that he was revealed to take away our sins, and there is no sin in him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.6",
+      "source_sha256": "7bd731bf5993f4fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Everyone who remains in him does not sin. Everyone who sins has neither seen him nor known him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.7",
+      "source_sha256": "8724fde7a626445a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "My children, let no one lead you astray. Whoever practices righteousness is righteous, just as Christ himself is righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.8",
+      "source_sha256": "3988ae7ab05fb75b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Whoever commits sin is from Satan, because Satan has been a sinner from the beginning. For this reason the Son of God appeared: to undo Satan's works."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.9",
+      "source_sha256": "f170c4521f3ee513",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "Everyone who has been born of God does not commit sin, because God's seed is in him. He cannot sin, because he has been born of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.10",
+      "source_sha256": "7af41c02003a32eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "By this God's children are distinguished from Satan's children: everyone who does not practice righteousness and does not love his brother is not from God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.11",
+      "source_sha256": "719519e77fc7bb1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 23,
+      "text": "For this is the commandment you heard from the beginning: that you should love one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.12",
+      "source_sha256": "001177fb6cc47a79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Not like Cain, who belonged to the evil one and killed his brother. And why did he kill him? Because his own deeds were evil, while his brother’s were righteous."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.13",
+      "source_sha256": "ceb193088c5354c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And do not be surprised, my brothers, if the world hates you."
+    },
+    {
       "chunk_id": "pta-peshitta/1john#1John.3.14",
       "source_sha256": "6144372c920bbaf7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -48,11 +390,368 @@
       "text": "We know that we have passed from death to life because we love our brothers. Whoever does not love his brother remains in death."
     },
     {
+      "chunk_id": "pta-peshitta/1john#1John.3.15",
+      "source_sha256": "eb2cbddd864705ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For everyone who hates his brother is a murderer. And you know that eternal life cannot remain in any murderer."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.16",
+      "source_sha256": "2b9252db3b238767",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know his love for us: he gave his life for us. We too ought to give our lives for our brothers."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.17",
+      "source_sha256": "29e1dbbbe9707cb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If someone has worldly possessions and sees his brother in need but shuts off his compassion from him, how can God’s love be in him?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.18",
+      "source_sha256": "84ad158825908024",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, let us not love one another with words and speech, but with deeds and truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.19",
+      "source_sha256": "6f39e73823c17279",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know that we belong to the truth, and we reassure our hearts before he comes."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.20",
+      "source_sha256": "0b27445855151946",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if our own hearts condemn us, how much more God, who is greater than our hearts and knows everything!"
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.21",
+      "source_sha256": "7a31cbdc46dac9bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, if our hearts do not condemn us, we have confidence before God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.22",
+      "source_sha256": "6a08d51f74d78c47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And whatever we ask, we receive from him, because we keep his commandments and do what is pleasing before him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.23",
+      "source_sha256": "37094d39fdb6560e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And this is his commandment: that we believe in the name of his Son Jesus Christ and love one another, as he commanded us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.3.24",
+      "source_sha256": "d9051a5bcb23f145",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever keeps his commandments is kept in him, and he dwells in that person. And by this we understand that he dwells in us: by his Spirit, which he has given us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.1",
+      "source_sha256": "38a85d3ae0f3b159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, do not believe every spirit, but examine the spirits to see whether they are from God, because many false prophets have gone out into the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.2",
+      "source_sha256": "e6bda16785829419",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this the Spirit of God is recognized: every spirit that acknowledges that Jesus Christ has come in the flesh is from God."
+    },
+    {
       "chunk_id": "pta-peshitta/1john#1John.4.3",
       "source_sha256": "17febc022fd055c7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
       "text": "And every spirit that does not acknowledge that Jesus has come in the flesh is not from God. Rather, this is from the Antichrist, whom you have heard is coming, and who is already in the world now."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.4",
+      "source_sha256": "f215f451db52bbe6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you, children, are from God and have overcome them, because the one who is in you is greater than the one who is in the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.5",
+      "source_sha256": "2245b40e8826b53b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are from the world. That is why they speak from the world, and the world listens to them."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.6",
+      "source_sha256": "9bb80e7455e48ef0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But we are from God. Whoever knows God listens to us, and whoever is not from God does not listen to us. By this we distinguish the spirit of truth from the spirit of deception."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.7",
+      "source_sha256": "983d1d24f90b0eac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, let us love one another, because love is from God. Everyone who loves is born of God and knows God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.8",
+      "source_sha256": "f1dcbb167cd21ad0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For God is love, and whoever does not love does not know God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.9",
+      "source_sha256": "c7370f01ae2d8bbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this God’s love for us was revealed: God sent his only Son into the world so that we might live through him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.10",
+      "source_sha256": "331b8458a8ccf285",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This is love: not that we loved God, but that he loved us and sent his Son as an atonement for our sins."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.11",
+      "source_sha256": "e4156bc26eda8f60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My dear friends, if God loved us in this way, we too ought to love one another."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.12",
+      "source_sha256": "99c9b00a05eeb78f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "No one has ever seen God. But if we love one another, God remains in us, and his love is made complete in us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.13",
+      "source_sha256": "2583d4f0af6eb406",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By this we know that we remain in him and he remains in us: he has given us of his Spirit."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.14",
+      "source_sha256": "312c30b3c50dfdbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And we have seen and testify that the Father sent his Son as Savior of the world."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.15",
+      "source_sha256": "7d86c445765d13f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Whoever acknowledges that Jesus is the Son of God, God remains in him, and he remains in God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.16",
+      "source_sha256": "224c1fc87ecda165",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And we have believed and known the love that God has for us. For God is love, and everyone who remains in love remains in God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.17",
+      "source_sha256": "62d37218371cffa7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And in this his love is made complete with us, so that we may have confidence on the day of judgment, because just as he was, so we too are in this world."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.18",
+      "source_sha256": "3b19548fc7aeaf8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "There is no fear in love. Rather, complete love drives fear out, because fear involves torment. But whoever is afraid is not complete in love."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.19",
+      "source_sha256": "dca32b616698a2a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Therefore, let us love God, because he loved us first."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.20",
+      "source_sha256": "853a8a96fe35317b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "But if someone says, “I love God,” and hates his brother, he is a liar. For whoever does not love his brother, who can be seen, how can he love God, who cannot be seen?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.4.21",
+      "source_sha256": "49456889bd6bad07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And we have received this commandment from him: everyone who loves God must also love his brother."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.1",
+      "source_sha256": "073abf2657a7c604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Everyone who believes that Jesus is the Messiah is born of God. And everyone who loves the parent also loves the one born of him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.2",
+      "source_sha256": "38960ae706aa72d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And by this we know that we love God's children: when we love God and carry out his commandments."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.3",
+      "source_sha256": "4267dd7ee8fa1f70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For this is love for God: that we keep his commandments. And his commandments are not burdensome."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.4",
+      "source_sha256": "33ec2cc4ef41ea11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Because everyone who is born of God overcomes the world. And this is the victory that has overcome the world: our faith."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.5",
+      "source_sha256": "f5b0f49412350e49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For who overcomes the world except the one who believes that Jesus is the Son of God?"
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.6",
+      "source_sha256": "75f80c70579f851d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "This is the one who came through water and blood, Jesus the Messiah—not by water alone, but by water and blood."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.7",
+      "source_sha256": "e689cf5bad46929c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And the Spirit testifies, because the Spirit is the truth."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.8",
+      "source_sha256": "acdbba0a8c783ac4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And there are three that testify: the Spirit, the water, and the blood. And all three are in agreement."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.9",
+      "source_sha256": "ffec3a50880f6928",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If we accept human testimony, how much greater is God's testimony! And this is God's testimony: he has testified about his Son."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.10",
+      "source_sha256": "fb232c747f2b585f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Everyone who believes in the Son of God has this testimony within himself. Everyone who does not believe has made God a liar, because he has not believed the testimony that God has given about his Son."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.11",
+      "source_sha256": "f59604cb1f9fbe5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And this is the testimony: God has given us eternal life, and this life is in his Son."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.12",
+      "source_sha256": "1f8a4cd7c5ba03c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "Everyone who holds on to the Son also holds on to life. And everyone who does not hold on to the Son of God does not have life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.13",
+      "source_sha256": "2f023e602eb67faa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "I have written these things to you so that you may know that you have eternal life—you who have believed in the name of the Son of God."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.14",
+      "source_sha256": "dafe75063c0257fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And this is the confidence we have before him: whatever we ask him according to his will, he hears us."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.15",
+      "source_sha256": "5e817a9830721dc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "And if we are certain that he hears us concerning whatever we ask of him, we are confident that we have already received the things we requested from him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.16",
+      "source_sha256": "bb0a308e14ddceed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "If anyone sees his brother committing a sin that does not deserve death, let him ask, and life will be given to him—to those whose sins are not deserving of death. For there is a sin that brings death. I am not saying that anyone should pray about that."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.17",
+      "source_sha256": "6e16bea079272221",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 24,
+      "text": "For all wrongdoing is sin, and there is sin that does not bring death."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.18",
+      "source_sha256": "18392f2f2204f18c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "And we know that everyone born of God does not sin. For the one born of God guards himself, and the evil one does not come near him."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.19",
+      "source_sha256": "ccbd7199ce101929",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "We know that we are from God, and the whole world lies under the power of the evil one."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.20",
+      "source_sha256": "f84e72f2d6b5cb1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "And we know that the Son of God has come and has given us understanding so that we may know the true one and be in the true one, in his Son Jesus Christ. This is the true God and eternal life."
+    },
+    {
+      "chunk_id": "pta-peshitta/1john#1John.5.21",
+      "source_sha256": "1b88e701f77c9885",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "My children, guard yourselves against the worship of idols."
     }
   ]
 }

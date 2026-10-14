@@ -9,9 +9,22 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0000",
+      "source_sha256": "2173e1db238f4671",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "so that he may kill him, or hide him inside himself so that he does not appear."
+    },
     {
       "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0001",
       "source_sha256": "825f81934420bd7d",
@@ -46,6 +59,27 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 9,
       "text": "Do not think that the one speaking with you is one of them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0006",
+      "source_sha256": "c3912efa50a19392",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "It is not he, nor anyone else you can think of, who will wipe away your tears again as you groan like a bear. You are those whose judgment has not departed from them since the beginning, and whose blood has not been wiped away, because it is not poured out on the ground for soil to cover it, but is poured out on a smooth rock."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0007",
+      "source_sha256": "69b384f110dddf43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "This saying is true, because what he said against us from the beginning, and again now, is true: “You have done improper deeds in these synagogues.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0008",
+      "source_sha256": "c21a1236fd43a0ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "You did them in secret, in hidden places in the corners of these synagogues and inside the houses."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0009",

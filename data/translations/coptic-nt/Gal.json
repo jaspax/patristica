@@ -9,15 +9,273 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.1",
+      "source_sha256": "bd49fc0f786dfc0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Paul, an apostle—not from human beings or through a human being, but through Jesus Christ and God the Father, who raised him from the dead—"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.2",
+      "source_sha256": "5d15d5523bbb49b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and all the brothers who are with me, writing to the churches of Galatia:"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.3",
+      "source_sha256": "52f6e12ab5829a81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Grace and peace to you from God the Father and our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.4",
+      "source_sha256": "7d3d812cac674d20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "who gave himself for our sins to rescue us from this evil age, according to the will of God our Father,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.5",
+      "source_sha256": "9d894c3b05b7e4a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to whom belongs glory forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.6",
+      "source_sha256": "094cf031911f0ffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am amazed that you are so quickly turning away from the one who called you through the grace of Christ Jesus, to another gospel."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.7",
+      "source_sha256": "97a83c970d99aa79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is no other gospel, but there are some people who are troubling you and want to distort the gospel of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.8",
+      "source_sha256": "7962d1961b5a224e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But even if we or an angel from heaven should preach to you something different from what we preached to you, let that one be cursed."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.9",
+      "source_sha256": "74effcdc9b4c7ce8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As we said before, I now say again: Whoever preaches to you something different from what you received, let that one be cursed."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.10",
+      "source_sha256": "43a18a7c4782f8a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For am I now trying to persuade people or God? Or am I seeking to please people? If I were still pleasing people, I would not be Christ’s slave."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.11",
+      "source_sha256": "d6e8dbc1c4b1d7a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I am telling you, brothers, that the gospel preached through me is not of human origin."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.12",
+      "source_sha256": "1243209710b0da0f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For I did not receive it from a human being, nor was I taught it, but I received it through a revelation of Jesus Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.13",
+      "source_sha256": "83427eaba13e1e3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have heard about my conduct in the past, when I was in Judaism: how fiercely I persecuted the church of God and tried to destroy it."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.14",
+      "source_sha256": "c9db212150e1a761",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I was advancing in Judaism beyond many people my own age among my people, being far more zealous for the traditions of my ancestors."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.15",
+      "source_sha256": "75462ce0b93f1dae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when God, who set me apart while I was still in my mother’s womb and called me through his grace, was pleased"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.16",
+      "source_sha256": "1de342faaf61a1f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to reveal his Son in me so that I might preach him among the Gentiles, I did not immediately consult flesh and blood."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.17",
+      "source_sha256": "3d5efe0becbf62b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Nor did I go to Jerusalem to the apostles who were before me. Instead, I went to Arabia and returned again to Damascus."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.18",
+      "source_sha256": "2c4ede08a1305214",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then, after three years, I went up to Jerusalem to see Cephas, and I stayed with him for fifteen days."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.19",
+      "source_sha256": "b2dcd96f31672073",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I saw none of the other apostles except James, the Lord’s brother."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.20",
+      "source_sha256": "31ac20396740b7ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for what I am writing to you, look: before God, I am not lying."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.21",
+      "source_sha256": "bf937d934883834b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Afterward I went to the regions of Syria and Cilicia."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.22",
+      "source_sha256": "b7d87fee4af7fb72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the churches of Judea that are in Christ did not know me by sight."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.23",
+      "source_sha256": "7665c8515fbde605",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They only heard, “The one who used to persecute us is now preaching the faith he once tried to destroy.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.1.24",
+      "source_sha256": "903a0941a640350c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And they glorified God because of me."
+    },
     {
       "chunk_id": "coptic-nt/gal#Gal.2.1",
       "source_sha256": "c4e73c251439965c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Then, after fourteen years, I went up to Jerusalem again with Barnabas, taking Titus with me too."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.2",
+      "source_sha256": "7a05d589ea7dbda8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I went up in response to a revelation and laid before them the gospel I preach among the Gentiles, but privately before those who said, “We are the ones,” lest I should be running, or have run, in vain."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.3",
+      "source_sha256": "4852da971bd5af9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But even Titus, who was with me, was not forced to be circumcised, although he was a Greek."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.4",
+      "source_sha256": "2f6f3a3524904662",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This was because of the false brothers who had slipped in to spy on the freedom we have in Christ Jesus, so that they could make us slaves."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.5",
+      "source_sha256": "7f06402c0973a0e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We did not submit to them even for a single moment, so that the truth of the gospel might remain with you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.6",
+      "source_sha256": "5a409a63c8f0cdff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "As for those who say they are important—whatever they are makes no difference to me; God does not show favoritism—those who say they are important added nothing to me."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.7",
+      "source_sha256": "8a254f3368245268",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, when they saw that I had been entrusted with the gospel for the uncircumcised, just as Peter had been entrusted with it for the circumcised—"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.8",
+      "source_sha256": "e12de4fb7831985d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for the one who worked through Peter in his apostleship to the circumcised also worked through me for the Gentiles—"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.9",
+      "source_sha256": "8bbb470e954f10a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and when James, Cephas, and John, who were said to be pillars, recognized the grace that had been given to me, they gave Barnabas and me their right hands in fellowship, so that we would go to the Gentiles and they to the circumcised."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.10",
+      "source_sha256": "39b7cec5f3f28f86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They asked only that we remember the poor, which was the very thing I was eager to do."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.11",
+      "source_sha256": "09820030eaff0895",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when Cephas came to Antioch, I stood against him because he had been found at fault."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.12",
+      "source_sha256": "c882d4ea5e8d3f11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For before some people came from James, he used to eat with the Gentiles. But when they came, he drew back and separated himself from them, because he was afraid of those who belonged to the circumcision."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.13",
+      "source_sha256": "c12d169e531b7b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The rest of the Jews also joined him in his hypocrisy, so that even Barnabas was carried along in their hypocrisy."
     },
     {
       "chunk_id": "coptic-nt/gal#Gal.2.14",
@@ -27,11 +285,781 @@
       "text": "But when I saw that they were not acting in line with the truth of the gospel, I said to Cephas in front of them all, “If you, a Jew, live like a Gentile and not like a Jew, how can you force the Gentiles to live like Jews?”"
     },
     {
+      "chunk_id": "coptic-nt/gal#Gal.2.15",
+      "source_sha256": "34b168f79f6bc881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We are Jews by birth, not sinners from among the Gentiles."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.16",
+      "source_sha256": "de326efe74bd95fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "We know that a person will not be made righteous by doing what the law requires, but through faith in Jesus Christ. We too were baptized into Jesus Christ, so that we might be made righteous through faith in Christ and not by doing what the law requires, because no human being will be made righteous by doing what the law requires."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.17",
+      "source_sha256": "e2ddbcc9b9e1bf36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if, while seeking to be made righteous in Christ, we ourselves are also found to be sinners, does that mean Christ is a servant of sin? Certainly not!"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.18",
+      "source_sha256": "a15a3eb3918b20dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if I rebuild the things I tore down, I show myself to be a lawbreaker."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.19",
+      "source_sha256": "6d19ff5545e70660",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through the law I died to the law, so that I might live for God. I have been crucified with Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.20",
+      "source_sha256": "512c0cf9ab42fadd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So it is no longer I who live, but Christ lives in me. The life I live in the flesh, I live by faith in the Son of God, who loved me and gave himself for me."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.2.21",
+      "source_sha256": "18287fcede8ef4d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I do not reject the grace of God, for if righteousness comes through the law, then Christ died for nothing."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.1",
+      "source_sha256": "330216e7fec61135",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "O foolish Galatians! Who has cast an evil eye on you? Before your very eyes Jesus Christ was clearly portrayed as crucified."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.2",
+      "source_sha256": "c2cf2b6c03381359",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I want to learn only this from you: did you receive the Spirit by doing what the law requires, or by hearing with faith?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.3",
+      "source_sha256": "55ecf3c5020bf8ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Are you so foolish? Having begun with the Spirit, are you now finishing with the flesh?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.4",
+      "source_sha256": "81fdb7f59b4398b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Did you suffer so much for nothing—if it really was for nothing?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.5",
+      "source_sha256": "a9b82cbd37635ab8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Does the one who supplies you with the Spirit and works miracles among you do so because you do what the law requires, or because you hear with faith?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.6",
+      "source_sha256": "feec897938764e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as Abraham believed God, and it was counted to him as righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.7",
+      "source_sha256": "a9104847105aaf35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You understand, then, that those who live by faith are the children of Abraham."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.8",
+      "source_sha256": "b9a55e40917008a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Scripture, knowing beforehand that God would make the Gentiles righteous through faith, announced the good news to Abraham in advance: “All the nations will be blessed through you.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.9",
+      "source_sha256": "8d1f36fada999789",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So those who live by faith will be blessed along with Abraham, who had faith."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.10",
+      "source_sha256": "7546a8bab1b586c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For those who rely on the works of the law are under a curse, for it is written: “Everyone who does not continue to do everything written in the book of the law is cursed.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.11",
+      "source_sha256": "b3a0d66e3f4fb585",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It is clear that no one will be made righteous before God by the law, because “The righteous person will live by faith.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.12",
+      "source_sha256": "b1b997b7b6331435",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the law is not based on faith. Instead, “The person who does these things will live by them.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.13",
+      "source_sha256": "1ea32bc5f96edd76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Christ redeemed us from the curse of the law by becoming a curse for us, because it is written: “Everyone who is hung on a tree is cursed.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.14",
+      "source_sha256": "ccd411a5ab7c14fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This was so that Abraham’s blessing would come upon the Gentiles in Christ Jesus, and so that we would receive the promised Spirit through faith."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.15",
+      "source_sha256": "10b3c63b56bfb4c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Brothers and sisters, I am speaking in human terms: even when a human covenant has been confirmed, no one cancels it or adds provisions to it."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.16",
+      "source_sha256": "fea6faef6d974105",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now the promises were spoken to Abraham and his offspring. It does not say “your descendants,” as though referring to many, but “and your descendant,” as though referring to one, who is Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.17",
+      "source_sha256": "f638856da9ed8303",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What I am saying is this: the law, which came four hundred and thirty years later, cannot cancel a covenant that God had confirmed beforehand and so make the promise ineffective."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.18",
+      "source_sha256": "5b34282a71da4058",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if the inheritance comes through the law, then it does not come through the promise. But God freely gave it to Abraham through the promise."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.19",
+      "source_sha256": "0a9246445d03429f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What, then, is the law? It was established because of transgressions, until the offspring to whom the promise had been made should come. It was ordained through angels by the hand of a mediator."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.20",
+      "source_sha256": "9ba36c2bd7fd1c94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Now a mediator does not represent just one party, but God is one."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.21",
+      "source_sha256": "c3db249d2019384b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is the law, then, opposed to God’s promises? Certainly not! For if a law had been given that could give life, righteousness would truly have come through the law."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.22",
+      "source_sha256": "e0bc9c0e8536aa39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Scripture confined everyone under sin, so that he would give the promise through faith in Jesus Christ to those who believe."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.23",
+      "source_sha256": "1400785149c30200",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Before faith came, we were kept under guard beneath the law, confined until the faith that was to be revealed."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.24",
+      "source_sha256": "fc7c008ef30db360",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So the law became our guardian to lead us to Christ Jesus, so that we would be made righteous through faith."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.25",
+      "source_sha256": "681ec5a1d2d84418",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now that faith has come, we are no longer under a guardian."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.26",
+      "source_sha256": "bd7ef3ebc895475e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you are all children of God through faith in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.27",
+      "source_sha256": "43194b4ce653df71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you who were baptized into Christ have clothed yourselves with Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.28",
+      "source_sha256": "452059a81b7dff74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is neither Jew nor Greek, neither slave nor free person, neither male nor female, for you are all one in Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.3.29",
+      "source_sha256": "a91987ce608d6bec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If you belong to Christ, then you are Abraham’s offspring, heirs according to the promise."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.1",
+      "source_sha256": "eb2e45cfcb809490",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What I am saying is that, as long as the heir is a child, he is no different from a slave, even though he is the owner of everything."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.2",
+      "source_sha256": "c4c7cc13c3194df2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Instead, he is under guardians and managers until the time set by his father."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.3",
+      "source_sha256": "914e76326d1e49a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "It was the same with us: when we were children, we were enslaved under the elements of the world."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.4",
+      "source_sha256": "0e4a5b75dab0f999",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But when the time had fully come, God sent his Son, born of a woman, born under the law,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.5",
+      "source_sha256": "6506ed9b79d40195",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to redeem those under the law, so that we might receive adoption as sons."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.6",
+      "source_sha256": "a0d4720f209651e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And because you are sons, God sent the Spirit of his Son into our hearts, crying out, “Abba, Father!”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.7",
+      "source_sha256": "a29e38d0217c80b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So you are no longer a slave but a son, and if you are a son, then you are also an heir through Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.8",
+      "source_sha256": "88db7c394b8b24e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But formerly, when you did not know God, you were slaves to those who by nature are not gods."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.9",
+      "source_sha256": "efa2ee8d99b910ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now that you know God—or rather, that God knows you—how can you turn back again to the weak and impoverished elements, wanting to become their slaves once more?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.10",
+      "source_sha256": "d099ff3c07a9e856",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You observe days, months, seasons, and years."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.11",
+      "source_sha256": "d4693536780fd72d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I am afraid for you, that perhaps my hard work for you has been in vain."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.12",
+      "source_sha256": "9be1ccb774522ed8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Become like me, because I too have become like you. Brothers and sisters, I beg you. You have done me no wrong."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.13",
+      "source_sha256": "faf6a408059cb580",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You know that it was because of bodily weakness that I first preached the good news to you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.14",
+      "source_sha256": "4e3ea405252c2443",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And you did not despise or reject the trial in my body, but welcomed me as an angel of God, as Christ Jesus."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.15",
+      "source_sha256": "36387f13e8158bc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Where, then, is your happiness? For I testify about you that, if it had been possible [?], you would have torn out your eyes and given them to me."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.16",
+      "source_sha256": "c6092a975c29a946",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "So have I become your enemy because I told you the truth?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.17",
+      "source_sha256": "5632a3a07324a44d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They are eager to win you over, but not for a good purpose. Instead, they want to shut you out so that you will be eager for them."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.18",
+      "source_sha256": "dce06cfa112af1e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is good to be eagerly sought for a good purpose at all times, and not only when I am with you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.19",
+      "source_sha256": "f46265f5aac8584b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My children, for whom I am again suffering labor pains until Christ takes shape in you!"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.20",
+      "source_sha256": "fc8dc728d2774e08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I wish I could be with you now and change my tone, because I am bewildered about you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.21",
+      "source_sha256": "621ce5c09ba6a40c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Tell me, you who want to be under the law: do you not read the law?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.22",
+      "source_sha256": "709656ec1de7af13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written that Abraham had two sons, one by the slave woman and one by the free woman."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.23",
+      "source_sha256": "94a8ddd49fa86380",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the son of the slave woman was born according to the flesh, while the birth from the free woman came through the promise."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.24",
+      "source_sha256": "c39b8f1e73bee3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "These things have a symbolic meaning, for they are two covenants. One comes from Mount Sinai and gives birth to slavery; this is Hagar."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.25",
+      "source_sha256": "b85d7f79adee987a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Mount Sinai is in Arabia, and it corresponds to this Jerusalem, for she is enslaved along with her children."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.26",
+      "source_sha256": "dc86fe5aa3487e73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the Jerusalem above is free, and she is our mother."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.27",
+      "source_sha256": "b86006d8c8ad61b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For it is written: “Rejoice, barren woman who does not give birth! Cry out and shout, you who do not suffer labor pains! For the woman who has no husband has more children than the woman who has a husband.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.28",
+      "source_sha256": "fd81a9181e9b4c73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you, brothers and sisters, are children of the promise, like Isaac."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.29",
+      "source_sha256": "95054f1a617bbbed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But just as the one born according to the flesh persecuted the one born according to the Spirit at that time, so it is now."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.4.30",
+      "source_sha256": "cca9cbabc2b134cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But what does Scripture say? “Throw out the slave woman and her son, for the slave woman’s son will not inherit along with the free woman’s son.”"
+    },
+    {
       "chunk_id": "coptic-nt/gal#Gal.4.31",
       "source_sha256": "8009e1ca4169782c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Therefore, brothers, we are not children of the slave woman, but of the free woman."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.1",
+      "source_sha256": "16a140c31c5bd17f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Christ has set us free for freedom. So stand firm, and do not come under the yoke of slavery again."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.2",
+      "source_sha256": "03038c887c0f3350",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, I, Paul, tell you that if you have yourselves circumcised, Christ will be of no benefit to you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.3",
+      "source_sha256": "b82289827f9c6a12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Again I testify to every man who is circumcised that he is obligated to keep the whole law."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.4",
+      "source_sha256": "466465ac3281bc51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who are justified by the law have been cut off from Christ; you have fallen away from grace."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.5",
+      "source_sha256": "9ea9298981ead55d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For through the Spirit, by faith, we eagerly await the hope of righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.6",
+      "source_sha256": "7738a821cb1b7bfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For in Christ Jesus neither circumcision nor uncircumcision has any power, but faith working through love does."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.7",
+      "source_sha256": "360581209eab9fe2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You were running well. Who hindered you from obeying the truth?"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.8",
+      "source_sha256": "8fe890c128800cdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This persuasion does not come from the one who called you."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.9",
+      "source_sha256": "cffcddb9f2861d23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "A little yeast makes the whole batch of dough rise."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.10",
+      "source_sha256": "aa357b0c3fa59115",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I have confidence in you in the Lord that you will not think differently. But whoever is troubling you will bear the judgment, whoever he is."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.11",
+      "source_sha256": "f12140771e8779c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Brothers and sisters, if I still preach circumcision, why am I still being persecuted? In that case, the offense of the cross has been removed."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.12",
+      "source_sha256": "254a72a082ede802",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I wish those who are troubling you would even castrate themselves!"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.13",
+      "source_sha256": "f563e51daed56e98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you were called to freedom, brothers and sisters. Only do not let your freedom become an opportunity for the flesh, but serve one another through the love of the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.14",
+      "source_sha256": "573e0341c6d07cce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the whole law is fulfilled in one statement: “You shall love your neighbor as yourself.”"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.15",
+      "source_sha256": "5c459710a697852f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you bite and devour one another, watch out that you are not destroyed by one another."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.16",
+      "source_sha256": "1ac9ca9be8172362",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But I say, walk in the Spirit, and you will not fulfill the desire of the flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.17",
+      "source_sha256": "4700f10a8ddd97bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the flesh desires what is against the Spirit, and the Spirit what is against the flesh. These oppose one another, so that you do not do what you want."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.18",
+      "source_sha256": "822bc71797c5d679",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you walk in the Spirit, then you are not under the law."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.19",
+      "source_sha256": "40a9dc993b8320f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The works of the flesh are evident. They are sexual immorality, impurity, indecency,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.20",
+      "source_sha256": "03ad2fb563863191",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "idolatry, sorcery, hostility, strife, jealousy, anger, contentiousness, divisions, factions,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.21",
+      "source_sha256": "b4c2c978df97908d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "envy, drunkenness, wild partying, and things like these. I warn you about them, just as I warned you before, that those who do such things will not inherit the kingdom of God."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.22",
+      "source_sha256": "ed72e122404364df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness,"
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.23",
+      "source_sha256": "19fb9e473312e812",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "gentleness, self-control. The law does not oppose things of this kind."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.24",
+      "source_sha256": "0a6995aa41f87f7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But those who belong to Christ Jesus have crucified the flesh with its passions and desires."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.25",
+      "source_sha256": "0142760b7aad08cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "If we live by the Spirit, let us also follow the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.5.26",
+      "source_sha256": "c9571a0ea671c0bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Let us not become conceited, provoking one another and envying one another."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.1",
+      "source_sha256": "47e6d1231f330ea6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Brothers, if someone among you is caught in a wrongdoing, you who are spiritual should restore such a person in a spirit of gentleness. Watch yourself too, so that you are not tempted."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.2",
+      "source_sha256": "8edb69867c8ccae4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Carry one another’s burdens, and in this way you will fulfill the law of God."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.3",
+      "source_sha256": "332207acd98c38be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For if someone says, “I am something,” when he is nothing, he is deceiving himself."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.4",
+      "source_sha256": "fbf61bea6c0aa68d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But let each person examine his own work, and then his reason for boasting will be in himself, not in someone else."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.5",
+      "source_sha256": "1466be7d691c567d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For each person will carry his own load."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.6",
+      "source_sha256": "4d07e4029ec83d15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Let the person who is taught the word share all good things with the person who teaches him."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.7",
+      "source_sha256": "2c4b5a172cbcaead",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Do not be deceived. God cannot be mocked. For whatever a person sows, that is also what he will reap."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.8",
+      "source_sha256": "834d5ba013d7c128",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For the person who sows to his flesh will reap destruction from the flesh, but the person who sows to the Spirit will reap eternal life from the Spirit."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.9",
+      "source_sha256": "72794f4d0aaa1846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Let us not grow weary of doing good, for we will reap at our appointed time if we do not give up."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.10",
+      "source_sha256": "e5b6c633a7d83b2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "So then, while we have the opportunity, let us do good to everyone, especially to those who belong to the household of faith."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.11",
+      "source_sha256": "1d95eb9e14feed25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Look at how large the letters are that I have written to you with my own hand."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.12",
+      "source_sha256": "09065c4567aa5bb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "Those who want to make a good outward impression in the flesh are the ones who compel you to be circumcised, solely so that they will not be persecuted because of the cross of Christ."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.13",
+      "source_sha256": "f14d54cef54f73e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For those who are circumcised do not keep the law themselves, but they want you to be circumcised so that they can boast about your flesh."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.14",
+      "source_sha256": "1eb8e606d7987e2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "But may I never boast except in the cross of our Lord Jesus Christ, through whom the world has been crucified to me, and I in turn to the world."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.15",
+      "source_sha256": "7b22d9e0ea37b555",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "For neither circumcision nor uncircumcision counts, but a new creation does."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.16",
+      "source_sha256": "3b4eedbb806b6928",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "And may peace and mercy be upon those who follow this rule, and upon the Israel of God."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.17",
+      "source_sha256": "d046bdd4ea665fea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "From now on, let no one cause me trouble, for I carry the marks of the Lord Jesus Christ in my body."
+    },
+    {
+      "chunk_id": "coptic-nt/gal#Gal.6.18",
+      "source_sha256": "db2149508f585a0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 21,
+      "text": "May the grace of our Lord Jesus Christ be with your spirit."
     }
   ]
 }

@@ -9,9 +9,29 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0000",
+      "source_sha256": "c46c92adde82a88c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "[?], and not elsewhere."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0001",
+      "source_sha256": "27891d5d8db27a8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For the shepherd of people is not this man who is in the desert, who is not always with them in the congregation, and who does not [?] his bread [?] there."
+    },
     {
       "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0002",
       "source_sha256": "a51b6bf51186e50c",
@@ -46,6 +66,97 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "[?] to his work."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0007",
+      "source_sha256": "4ab26c6f17a043d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For we are all brothers, and it is one shepherd who tends the sheep."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0008",
+      "source_sha256": "7c71b5a587828d3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Quarreling is one thing; acting in an orderly way is another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0009",
+      "source_sha256": "7dca7ff74dacf36d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For those who said, “He is the one who appointed some as apostles and others as prophets,” are not hidden from one another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0010",
+      "source_sha256": "608678328056a29c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Each one speaks his own words at his own time, while they are in this same place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0011",
+      "source_sha256": "7bea2ee8d300406f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And this is the way of the saints [?]: they speak while they [?], as it is written."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0012",
+      "source_sha256": "bd9e1eac17178165",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "[?] prophets [?] the state of [?], but [?] and [?]."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0013",
+      "source_sha256": "33f9e001e191bf69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Paul spoke with Barnabas, and [?], while they were silent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0014",
+      "source_sha256": "bfda839cadf2406e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "James answered."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0015",
+      "source_sha256": "b1493496b6ba3449",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Sometimes they speak one at a time, not separated from one another but together."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0016",
+      "source_sha256": "d783eb822736cede",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And this is the way of those whom the Lord Jesus sends out two by two, and also of the great prophet from ancient times, Moses, together with Aaron."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0017",
+      "source_sha256": "bd1a62caf97717b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Sometimes Moses speaks, and sometimes Aaron speaks, while they are together."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0018",
+      "source_sha256": "eaf14725595b7f6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Sometimes Moses raises the staff, and sometimes Aaron raises the staff, but not without Moses. All these things are done by God's command, [?] submission [?], in an orderly way."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0019",
+      "source_sha256": "0b2a47d27af95eaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But if someone says, “These are brothers,” and, “They are at ease about this matter,” and, “This is how no malicious jealousy stirs them,”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0020",
@@ -83,11 +194,60 @@
       "text": "So if this does not please the arrogant man, let him remember that a time is coming when God and his Christ Jesus, who is above everyone and in whose hands heaven and earth and everything in them are like these insignificant things, will issue a command, and he will give it to the saints so that they may judge the whole world."
     },
     {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0025",
+      "source_sha256": "36bab47da752f0fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "[?] the land [?] it is death [?] dwelling in them [?] gather together and look for someone who will care for their souls, and appoint him as their leader. For everything proceeds through him and those who come after him, namely, those who govern these congregations, together with all their other companions appointed with them, and the house leaders and those appointed with them, and the elders and [?]. They will be like a single person, and they will not hide any matter or any object at all from one another, down to the smallest bit of straw."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0026",
+      "source_sha256": "36c1c85c2ab257b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And the other truly faithful people appointed with them will not do anything without consulting one another. They will examine their words and deeds together every ten days [?], or at any time."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0027",
+      "source_sha256": "84527b1e124cb6bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "[?] find their [?]."
+    },
+    {
       "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0028",
       "source_sha256": "a59b472a82b46a8f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 11,
       "text": "If [?] pleases him to [?] righteousness [?] out, this is [?] that is at the doorway. They will [?] beside one another every Sabbath."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0029",
+      "source_sha256": "633d894df32d0a54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "They are to speak with the people who have come and care for them in every matter, including everything that ought to take place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0030",
+      "source_sha256": "3ef610ee0628ffd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And they will always act in the way I prescribe for them as long as I live."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0031",
+      "source_sha256": "981a99b4b3570b86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "And they will not say to them, “Each person will give an account to God for himself or for his own place.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_true#CopScr.shenoute-true.000.0032",
+      "source_sha256": "549bc3d17a821347",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Instead, they will say, “You will give an account for these places,” and, “God will demand the souls of those who dwell in these [?].”"
     }
   ]
 }

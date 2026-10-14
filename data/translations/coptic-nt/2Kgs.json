@@ -1,0 +1,30 @@
+{
+  "work_id": "coptic-nt/2kgs",
+  "source_path": "coptic-nt/2Kgs.json",
+  "source_language": "cop",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "coptic-nt/2kgs#2Kgs.2.14",
+      "source_sha256": "b0c6aed049deeeb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 2,
+      "text": "Elijah’s cloak, which had fallen on him—he struck the water with it, but the water did not divide. Elisha said, “Where, then, is the God of Elijah now? Now he himself is the God of the waters of the rivers.” He struck them again, and they divided to one side and the other, and Elisha crossed them."
+    },
+    {
+      "chunk_id": "coptic-nt/2kgs#2Kgs.2.15",
+      "source_sha256": "04a72246f323c5f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 2,
+      "text": "The sons of the prophets who were in Jericho saw him and said to one another, “The spirit of Elijah has rested on Elisha.”"
+    }
+  ]
+}

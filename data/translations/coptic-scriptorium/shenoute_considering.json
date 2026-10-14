@@ -9,9 +9,29 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0000",
+      "source_sha256": "da29d7108ed32ce4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "Of Shenoute."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0001",
+      "source_sha256": "096f617217048e5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "For years now I have been considering how to keep anyone from finding anything to say against me in any way."
+    },
     {
       "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0002",
       "source_sha256": "f9863210ba81f820",
@@ -81,6 +101,20 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 10,
       "text": "where they ask for a little wine."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0012",
+      "source_sha256": "52742a47d4ca16fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "They will also look after these others, and they will also stay at the place of service, so that whoever governs or will govern these places at any time may give them what they need, after the person's condition and illness have been examined through thirteen people among us at all times. These people serve as witnesses for those who have come to have these needs. In this way they will give them what they need in the proper measure, with fear."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0013",
+      "source_sha256": "a1f8197b0152b9b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 4,
+      "text": "[?] we all come into his hands together, when no one, whether male or female, in these congregations will be able to think about sleeping."
     }
   ]
 }

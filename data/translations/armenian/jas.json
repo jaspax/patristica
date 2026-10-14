@@ -9,15 +9,203 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "armenian/jas#Jas.1.1",
+      "source_sha256": "82b27c08de1a5867",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "James, a servant of God and of the Lord Jesus Christ, to the twelve tribes scattered abroad: greetings."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.2",
+      "source_sha256": "813ff164887bd8fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Consider it entirely a cause for joy, brothers, whenever you fall into various trials,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.3",
+      "source_sha256": "2c401e8d90db7c75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "knowing that the testing of your faith works to develop endurance."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.4",
+      "source_sha256": "2a853a32346fd3fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But let endurance complete its work, so that you may be whole and perfect, lacking nothing."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.5",
+      "source_sha256": "211f84d931afe80f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If any of you lacks wisdom, let him ask God, who gives generously to everyone without reproach, and it will be given to him."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.6",
+      "source_sha256": "a94785dcb119df7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But let him ask in faith without doubting, for the one who doubts is like a wave of the sea, driven and tossed by the wind."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.7",
+      "source_sha256": "dba0ede307e9d2be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let that person not expect to receive anything from God,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.8",
+      "source_sha256": "8b2b172b0de34576",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "for a double-minded man is unstable in all his ways."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.9",
+      "source_sha256": "2e6d262a8bd93892",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let the lowly brother boast in his exaltation,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.10",
+      "source_sha256": "67018906e560aa24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and the rich man in his humiliation, because he will pass away like a flower of the grass."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.11",
+      "source_sha256": "4606ba4498a093d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the sun rose with scorching heat and dried up the grass; its flower fell, and the beauty of its appearance perished. In the same way, the rich man will wither away along with his profits."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.12",
+      "source_sha256": "a445811328db6792",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Blessed is the man who endures trials, for if he is found approved, he will receive the crown of life that the Lord promised to those who love him."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.13",
+      "source_sha256": "55c2a4d206abd96e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Let no one undergoing temptation say, “I am being tempted by God,” for God cannot be tempted by evil, and he tempts no one."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.14",
+      "source_sha256": "444567b5c47fbf64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Each person is tempted when he is drawn away and enticed by his own desires."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.15",
+      "source_sha256": "f97cbcb487ccb881",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then desire conceives and gives birth to sin, and sin, when fully developed, gives birth to death."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.16",
+      "source_sha256": "6242f592be45cdef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not be deceived, my beloved brothers."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.17",
+      "source_sha256": "bfdb7c11728ff2a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For every good gift and every perfect gift comes down from above, from the Father of light, in whom there is no change or shadow caused by turning."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.18",
+      "source_sha256": "d3b58ceda7ccb6e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "By his own will he gave birth to us through the word of truth, so that we might be a kind of fruit of his creation."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.19",
+      "source_sha256": "73fd50f15400a44e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Know this, my beloved brothers: let everyone be quick to listen, slow to speak, and slow to become angry."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.20",
+      "source_sha256": "5d9b519645b81c44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For human anger does not produce the righteousness of God."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.21",
+      "source_sha256": "5b29104970418465",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Therefore, cast off all filth and the abundance of evil, and receive with gentleness the implanted word, which is able to save your souls."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.22",
+      "source_sha256": "aeebbfa6e49ed7e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be doers of the word, and do not regard yourselves as hearers only."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.23",
+      "source_sha256": "7da5c9cc793bff56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For if someone is only a hearer of the word and not a doer, he is like a person who gazes intently in a mirror at the face he was born with."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.24",
+      "source_sha256": "febde4bd2b0a8eff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For he looked at himself and went away, and immediately forgot what he was like."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.25",
+      "source_sha256": "d776c1d29f272618",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But whoever looks intently into the perfect law of freedom and remains in it, becoming not a forgetful hearer but a doer of the work, will be blessed in what he does."
+    },
     {
       "chunk_id": "armenian/jas#Jas.1.26",
       "source_sha256": "7731be7b345000da",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "If anyone wishes to be religious but does not bridle his tongue and instead deceives his own heart, that person’s religion is worthless."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.1.27",
+      "source_sha256": "92d33144f9bb4e0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Holy and undefiled religion before God and the Father is this: to care for orphans and widows in their distress and to keep oneself undefiled by the world."
     },
     {
       "chunk_id": "armenian/jas#Jas.2.1",
@@ -27,11 +215,270 @@
       "text": "My brothers, do not hold faith in our Lord Jesus Christ, the Lord of glory, with partiality."
     },
     {
+      "chunk_id": "armenian/jas#Jas.2.2",
+      "source_sha256": "0fed0ae457933f50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a man wearing a gold ring and splendid clothes enters your assembly, and a poor person in filthy clothes also enters,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.3",
+      "source_sha256": "3e2085a38175c705",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and you pay attention to the one wearing the splendid clothes and say, “Sit here in a place of honor,” but say to the poor person, “Stand over there,” or, “Come, sit by my footstool,”"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.4",
+      "source_sha256": "037f513ff17ee98c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "have you not made distinctions among yourselves and become judges with evil thoughts?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.5",
+      "source_sha256": "f39c338f0aeffd70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen to me, my beloved brothers: has not God chosen the poor of this world, who are rich in faith and heirs of the kingdom he promised to those who love him?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.6",
+      "source_sha256": "688e2f8ae4983146",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But you dishonor the poor. Is it not the rich who oppress you and drag you into court?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.7",
+      "source_sha256": "5fc6f9f7d175757f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is it not they who blaspheme the good name that has been invoked over you?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.8",
+      "source_sha256": "3b973fc31982691d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If, however, you fulfill the royal law according to the Scriptures, “You shall love your neighbor as yourself,” you do well."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.9",
+      "source_sha256": "d4044a60a431cfce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But if you show partiality, you commit sin and are convicted by the law as transgressors."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.10",
+      "source_sha256": "2552e34574f67c46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever keeps the whole law but stumbles in any one thing becomes guilty of breaking the whole law."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.11",
+      "source_sha256": "e4e6b8f8ce7e8e77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For the one who said, “Do not murder,” also said, “Do not commit adultery.” If you do not murder but commit adultery, you have become a transgressor of the law."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.12",
+      "source_sha256": "1dac53f93e728233",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Speak and act as those who are to be judged by the law of freedom."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.13",
+      "source_sha256": "7a549867ff2621f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For judgment without mercy awaits the one who shows no mercy, because mercy triumphs over judgment."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.14",
+      "source_sha256": "6461cddc656f857e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "What good is it, my brothers, if someone says he has faith but has no works? Can that faith save him?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.15",
+      "source_sha256": "1f41c34e925cbce9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "If a brother or sister is naked or lacks daily food,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.16",
+      "source_sha256": "21e827a1e83e01dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and one of you says to them, “Go in peace; be warmed and filled,” but you do not give them what their bodies need, what good is it?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.17",
+      "source_sha256": "95c1101115e2aeab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, faith, if it has no works, is dead by itself."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.18",
+      "source_sha256": "393a8a654479fdf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But perhaps someone will say, “You have faith, and I have works.” Show me your faith without works, and I will show you my faith by my works."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.19",
+      "source_sha256": "c77aa3ed9581c9af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You believe that God is one. You do well. Even the demons believe and tremble."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.20",
+      "source_sha256": "77347ae0bcf658bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you want to know, you foolish person, that faith without works is empty?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.21",
+      "source_sha256": "5085fa14658dd769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Was not Abraham our father justified by works when he offered his son Isaac as a sacrifice on the altar?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.22",
+      "source_sha256": "166cdfd4d35565f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you see that faith worked together with his works, and through his works his faith was made complete?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.23",
+      "source_sha256": "e03b814cd821ac34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the Scripture was fulfilled that says, “Abraham believed God, and it was credited to him as righteousness,” and he was called a friend of God."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.24",
+      "source_sha256": "a5292059e0e9d85a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do you see that a person is justified by works and not by faith alone?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.25",
+      "source_sha256": "e5f08c856ae4e808",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "In the same way, was not Rahab the prostitute also justified by works when she received the spies and sent them away by another road?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.2.26",
+      "source_sha256": "b5d7dd6720075a86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Just as the body without the spirit is dead, so faith without works is dead."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.1",
+      "source_sha256": "f148eccd94deac5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers, not many of you should become teachers, knowing that we will receive a stricter judgment."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.2",
+      "source_sha256": "0fdb1c8c935e6fd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For we all stumble in many ways. If anyone does not stumble in speech, he is a perfect person, able to bridle his whole body."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.3",
+      "source_sha256": "116956f02ec6f85d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "See, we put bits into horses’ mouths to make them obey us, and we control their whole bodies."
+    },
+    {
       "chunk_id": "armenian/jas#Jas.3.4",
       "source_sha256": "8615f9d1745a66ea",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "Look also at ships: how large they are, and how they are driven by fierce winds, yet they are turned by a small rudder wherever the pilot wishes."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.5",
+      "source_sha256": "ce6d048d552fdcc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Likewise, the tongue is a small part of the body, yet it boasts of great things. Look how large a forest a little fire burns!"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.6",
+      "source_sha256": "55e42973828b89f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The tongue is a fire, a world of unrighteousness. The tongue is set among our bodily parts, defiling the whole body and setting the wheel of life on fire, and it is itself set ablaze by Gehenna."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.7",
+      "source_sha256": "e868c8adf29b9c3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Every kind of beast, bird, reptile, and creature in the sea has been tamed and is tamed by humankind."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.8",
+      "source_sha256": "a9dd99619e9ac537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But no human being can tame the tongue, that evil and unruly thing, full of deadly poison."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.9",
+      "source_sha256": "6b2712c71e4362e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "With it we bless the Lord and Father, and with it we curse people who were made in the likeness of God."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.10",
+      "source_sha256": "d010996500cf6ad2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From the same mouth come blessings and curses. My brothers, this should not be so."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.11",
+      "source_sha256": "d6f5fb793e645568",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Does a spring pour out both sweet and bitter water from the same opening?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.12",
+      "source_sha256": "a7d53a37309d294b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "My brothers, can a fig tree bear olives, or a vine bear figs? Nor can a salty source produce sweet water."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.13",
+      "source_sha256": "9487e3fcbedc4852",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Who among you is wise and understanding? Let him show his works through good conduct, with the gentleness of wisdom."
     },
     {
       "chunk_id": "armenian/jas#Jas.3.14",
@@ -41,11 +488,291 @@
       "text": "But if you have envy, bitterness, and strife in your hearts, do not boast and lie against the truth."
     },
     {
+      "chunk_id": "armenian/jas#Jas.3.15",
+      "source_sha256": "860443226328b738",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "This wisdom has not come down from above, but is earthly, unspiritual, and demonic."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.16",
+      "source_sha256": "663991b18d5ee1d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For where there are strife and envy, there are disorder and every evil thing."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.17",
+      "source_sha256": "838f593aefa95ab2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But the wisdom from above is first pure, then peace-making, gentle, open to persuasion, full of mercy and good fruits, impartial, and without hypocrisy."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.3.18",
+      "source_sha256": "8ba874d399008b08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The fruit of righteousness is sown in peace by those who make peace."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.1",
+      "source_sha256": "d5207debe0666bac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Where do wars and quarrels among you come from? Is it not from those desires of yours that wage war within your bodily parts?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.2",
+      "source_sha256": "b25714419716d8bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You desire and do not have. You kill and envy, yet cannot obtain. You wage war and quarrel, and you do not have because you do not ask."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.3",
+      "source_sha256": "61822d2477922ad3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You ask and do not receive because you ask wrongly, so that you may spend it on your desires."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.4",
+      "source_sha256": "190b10f9a01d8abe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You adulterers, do you not know that love of this world is hostility toward God? Whoever wishes to love the world makes himself an enemy of God."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.5",
+      "source_sha256": "c4e0ac282fdfa664",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Or do you think that Scripture speaks in vain when it says, “The spirit that dwelt in us longs jealously"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.6",
+      "source_sha256": "cab83f9f2c3492b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "to give greater grace”? Therefore it says, “The Lord opposes the proud; he gives grace to the humble.”"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.7",
+      "source_sha256": "0c60565af4738732",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Submit yourselves, then, to God, and resist the devil, and he will flee from you."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.8",
+      "source_sha256": "0bcdab1dcfeac9b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Draw near to God, and he will draw near to you. Cleanse your hands, you sinners, and set your hearts right, you double-minded."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.9",
+      "source_sha256": "3497fb1b66304f7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be distressed, mourn, and weep. Let your laughter turn to mourning and your joy to sorrow."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.10",
+      "source_sha256": "2ee3416d880cb98b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Humble yourselves before the Lord, and he will lift you up."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.11",
+      "source_sha256": "a1c116f07284781c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not speak against one another, brothers. Whoever speaks against his brother or judges his brother speaks against the law and judges the law. But if you judge the law, you are not someone who carries out the law, but a judge."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.12",
+      "source_sha256": "9958aa045592185f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "There is one Lawgiver and Judge, who is able to save and to destroy. Who are you to judge your neighbor?"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.13",
+      "source_sha256": "5a25b62d7e18c1d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Here are those who say, “Today and tomorrow we will go to such-and-such a city, stay there for a year, trade, and make a profit.”"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.14",
+      "source_sha256": "ada08e415534b93d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who do not know about tomorrow."
+    },
+    {
       "chunk_id": "armenian/jas#Jas.4.15",
       "source_sha256": "17465f11e3dd0b69",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 5,
       "text": "What is your life like? For you are like a whirlwind that appears for a little while and then vanishes. Instead, you should say, “If the Lord wills, we shall live and do this or that.”"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.16",
+      "source_sha256": "7c689146343a3e79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But now you boast in your arrogance. All such boasting is evil."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.4.17",
+      "source_sha256": "af980ee3380ebb25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Whoever knows what is good and does not do it commits a sin."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.1",
+      "source_sha256": "b8f0078fb17868c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "From now on, then, you rich people, weep and mourn over the miseries that are coming upon you."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.2",
+      "source_sha256": "c60a801336535673",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For your wealth has come to nothing, and your clothes are food for moths."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.3",
+      "source_sha256": "3cc13ca58c012a0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Your silver and gold are corroded, and their corrosion will be a testimony against you and will eat your flesh like fire. You have stored up treasure for the last days."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.4",
+      "source_sha256": "8eb6eae9d15a701c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, the wages of the laborers who work your fields remain in your possession, withheld by you, and cry out. The outcry of the reapers has reached the ears of the Lord of hosts."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.5",
+      "source_sha256": "d7411e56d1bb5009",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have lived in luxury on earth and indulged yourselves. You fatten your hearts as on a day of slaughter."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.6",
+      "source_sha256": "1b95ff7b6fe726be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You have oppressed and killed the righteous person, who did not resist you."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.7",
+      "source_sha256": "5ae1f7c703b1f2cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Be patient, my brothers, until the coming of the Lord. Look, the farmer patiently waits for the precious fruit of the earth until he receives the early and late rains."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.8",
+      "source_sha256": "10c482957e84ea3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You too must be patient. Strengthen your hearts, for the coming of the Lord is near."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.9",
+      "source_sha256": "f5b15352815b36e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not distress one another, brothers, so that you will not be judged. Look, the Judge is standing at the doors."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.10",
+      "source_sha256": "609880419b78751c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Brothers, take as an example of suffering and patience the prophets who spoke in the name of the Lord."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.11",
+      "source_sha256": "bcc59ee91942c367",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Look, we call those who endure blessed. You have heard of Job’s endurance, and you see the outcome brought about by the Lord, for the Lord is full of compassion and merciful."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.12",
+      "source_sha256": "882a9eaab9a07dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Above all, my brothers, do not swear, either by heaven or by earth or by any other oath. Instead, let your yes be yes and your no be no, so that you do not fall into hypocrisy."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.13",
+      "source_sha256": "93e11bd3c33e389d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is anyone among you suffering? Let him pray. Is anyone joyful? Let him sing psalms."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.14",
+      "source_sha256": "4048811b7088e3b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Is anyone among you sick? Let him call the elders of the church, and let them pray over him and anoint him with oil in the name of the Lord."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.15",
+      "source_sha256": "8ab2fb5180638903",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The prayers offered in faith will save the suffering person, and the Lord will raise him up. If he has committed any sins, he will be forgiven."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.16",
+      "source_sha256": "a8c4fec0e23f3855",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Confess your sins to one another and pray for one another so that you may be healed, for the prayers of a righteous person are very powerful in bringing help."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.17",
+      "source_sha256": "9b640019f74d58f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Elijah was a man subject to suffering like us. He prayed, and it did not rain on the earth for three years and six months."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.18",
+      "source_sha256": "4d8100e7da6bf6ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "And again he stood in prayer, and the heavens gave rain, and the earth brought forth its fruit."
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.19",
+      "source_sha256": "a1f2041bc1dcbd6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "My brothers, if any of you strays from the path of truth and someone brings him back,"
+    },
+    {
+      "chunk_id": "armenian/jas#Jas.5.20",
+      "source_sha256": "88fe7be18a947cb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 3,
+      "text": "let him know that whoever turns a sinner back from the error of his way will save his soul from death and cover a multitude of sins."
     }
   ]
 }

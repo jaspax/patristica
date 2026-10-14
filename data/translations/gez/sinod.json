@@ -9,15 +9,154 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "gez/sinod#Sinod.1.1",
+      "source_sha256": "3589ea857c31189b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Church Canons"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.2.1",
+      "source_sha256": "dd7c28d8f361560a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "History of the Episcopate of Alexandria"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.3.1",
+      "source_sha256": "3d415ed8fa9b9ed1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Letter 70 of Cyprian of Carthage"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.4.1",
+      "source_sha256": "0f0cc61e27047ff2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Apostolic Tradition"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.5.1",
+      "source_sha256": "cde40a82089c9e73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Section Parallel to Book VIII of the Apostolic Constitutions"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.6.1",
+      "source_sha256": "08bb86f43dc3e67b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On Spiritual Gifts"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.7.1",
+      "source_sha256": "660b1ca894c5fb8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "List of Apostles and Disciples"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.8.1",
+      "source_sha256": "bf90f0c092809975",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Names of the Months"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.9.1",
+      "source_sha256": "5280efcab0be3252",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Baptismal Ritual"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.10.1",
+      "source_sha256": "f4ae26bf51752055",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Prayer Book"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.11.1",
+      "source_sha256": "45f3e2a1dfa238ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "81 Apostolic Canons"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.12.1",
+      "source_sha256": "454156006de98399",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Council of Nicaea and the Names of Its Fathers"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.13.1",
+      "source_sha256": "a70ac60725108c00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Canons of the Council of Nicaea"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.14.1",
+      "source_sha256": "dfc85e94eb2a18ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Letter of Constantine to the Alexandrians"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.15.1",
+      "source_sha256": "63d265bd05de4d76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Letter of Constantine on Arius"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.16.1",
+      "source_sha256": "c7ed7279c308f7b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Letter of Athanasius to Epictetus"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.17.1",
+      "source_sha256": "0794d846cfeaa21f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On the Only Judge"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.18.1",
+      "source_sha256": "fd6eb6ab61593298",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Council of Sardica and the Names of Its Fathers"
+    },
     {
       "chunk_id": "gez/sinod#Sinod.19.1",
       "source_sha256": "d6be19182738beb2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Canons of the Council of Serdica"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.20.1",
+      "source_sha256": "dbaa3deabd4f95d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Canons of the Council of Neocaesarea"
     },
     {
       "chunk_id": "gez/sinod#Sinod.21.1",
@@ -27,11 +166,109 @@
       "text": "Canons of the Council of Ancyra"
     },
     {
+      "chunk_id": "gez/sinod#Sinod.22.1",
+      "source_sha256": "dbaa3deabd4f95d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Canons of the Council of Neocaesarea"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.23.1",
+      "source_sha256": "8ebec3d6b88f2d20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Council of Gangra"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.24.1",
+      "source_sha256": "f8f81a20a6ee7963",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Canons of the Council of Gangra"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.25.1",
+      "source_sha256": "276b53680b8bca05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Council of Antioch"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.26.1",
+      "source_sha256": "83be58aacdb43cac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Canons of the Council of Antioch"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.27.1",
+      "source_sha256": "6413161c252cdcaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Council and Canons of Laodicea"
+    },
+    {
       "chunk_id": "gez/sinod#Sinod.28.1",
       "source_sha256": "374952cb5842c231",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 3,
       "text": "Canons of the Council of Chalcedon"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.29.1",
+      "source_sha256": "e018b54d27c40735",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Canons of the Council of Constantinople"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.30.1",
+      "source_sha256": "28d66bb53c307770",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Council of Ephesus"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.31.1",
+      "source_sha256": "d17f4814c1eaae2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Letter to the Alexandrians"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.32.1",
+      "source_sha256": "aedddd54a9a6da0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Letter to the Constantinopolitans"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.33.1",
+      "source_sha256": "179d1e869fe9ae40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Twelve Chapters of Cyril of Alexandria"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.34.1",
+      "source_sha256": "891c7243b500c3c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Refutation of the Council of Chalcedon"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.35.1",
+      "source_sha256": "a70ca086132451e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Treatises of Gregory of Nazianzus"
+    },
+    {
+      "chunk_id": "gez/sinod#Sinod.36.1",
+      "source_sha256": "e9d94afd733156e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 8,
+      "text": "Canonical Answers of Peter of Alexandria"
     }
   ]
 }

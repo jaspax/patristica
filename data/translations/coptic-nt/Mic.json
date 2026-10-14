@@ -9,9 +9,92 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.1",
+      "source_sha256": "de4ed0aa76044feb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The word of the Lord came to Micah, the son of Moresheth, in the days of Jotham, Ahaz, and Hezekiah, kings of Judah—the things he saw concerning Jerusalem and Samaria."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.2",
+      "source_sha256": "018f9344d5619bf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Listen to the word of the Lord, all you peoples, and let the earth pay attention, along with everyone living in it. The Lord will be a witness among you; the Lord will come out of his holy temple."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.3",
+      "source_sha256": "7e9557fef91e14b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For look, the Lord will come out of his place and come down upon the high places of the earth."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.4",
+      "source_sha256": "4d86e58e7ea36187",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The mountains and the earth beneath him will shake, and the valleys will dissolve like wax before a fire and like water flowing down from its source."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.5",
+      "source_sha256": "85b1ee17b8dc9927",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "All this is because of Jacob’s ungodliness and the sin of the house of Israel. What is Jacob’s ungodliness? Is it not Samaria? And what is the sin of the house of Judah? Is it not Jerusalem?"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.6",
+      "source_sha256": "2fed65393d763574",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will make Samaria like a watchpost in a field and a place for planting vineyards. I will cast her stones to the ground and expose her foundations."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.7",
+      "source_sha256": "6d9d3517a13b2d6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "I will break all her carved images into small pieces. All her earnings will be burned in a fire, and I will leave all her idols destroyed, because she gathered them together from a prostitute’s earnings."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.8",
+      "source_sha256": "f85b6d29915494ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, she will mourn and lament. She will walk naked and barefoot. She will make a lament like the dragons and mourn like the daughters of the sirens."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.9",
+      "source_sha256": "bd80f29592152985",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For her wound has taken hold of her, because it has come as far as Judah and drawn near to the gate of my people, as far as Jerusalem."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.10",
+      "source_sha256": "078790619c757cc8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who are in Gath, do not exalt yourselves. You who are in Akim, do not raise your laughter. Scatter dust from your house over yourselves; you have your laughter."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.11",
+      "source_sha256": "11a393fa94edd596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You who live well, I will demolish her cities. Shame has not gone out from you. You who live in Shinar, you will lament for the house near her. She will receive from among you a painful blow."
+    },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.12",
       "source_sha256": "a23c1599e23eea1a",
@@ -20,11 +103,312 @@
       "text": "For calamities have come from the Lord upon the gates of [?]."
     },
     {
+      "chunk_id": "coptic-nt/mic#Mic.1.13",
+      "source_sha256": "c763f33699adeb9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The sound of the chariots and those riding the horses. You who live in Lachish, the daughter of Zion is the originator of her sin, for the ungodly acts of Israel were found in you."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.14",
+      "source_sha256": "53ee51af2f5d5d70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, she will give what she is going to send as far as the inheritance of Gath. Empty houses have become a useless thing for the kings of Israel."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.15",
+      "source_sha256": "32b3e062a0cdddd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Until they bring the heirs, you who live in Lachish, the inheritance will reach as far as Adullam, the glory of the daughter of Zion."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.1.16",
+      "source_sha256": "339036ae888c7d36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Shave your head and shear it because of your cherished children. Increase your widowhood like that of an eagle, because they have been taken captive from you."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.1",
+      "source_sha256": "26f2d94d2c787dd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Woe to those who devise oppression and plan evil on their beds. They carried it out at once in the daytime, because they did not lift their hands to God."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.2",
+      "source_sha256": "19d1a13de0f6437d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They coveted fields and seized them. They oppressed orphans and widows. They robbed a man and his house, a man and his inheritance."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.3",
+      "source_sha256": "003248df0c7c2a87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, this is what the Lord says: Look, I myself will devise disasters against this tribe, under which you will not be able to lift your heads. You will scarcely walk upright, because it is an evil time."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.4",
+      "source_sha256": "fd4ec46daa2d428a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "On that day they will take up a taunt against you and sing a lament in a measured rhythm, saying, “We have suffered terribly! The portion of my people has been measured out with a measuring cord. Alas! There was no one to prevent him from turning back. Your fields have been measured out.”"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.5",
+      "source_sha256": "add8bfd176db32b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, you will have no one in the assembly of the Lord to stretch out a measuring cord for an allotment."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.6",
+      "source_sha256": "996ccf7412a9ad76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Do not weep tears, nor let your eyes weep over these things. He will not cast away the reproaches."
+    },
+    {
       "chunk_id": "coptic-nt/mic#Mic.2.7",
       "source_sha256": "83808115f7e55fa4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 2,
       "text": "The one who says, “The house of Jacob has provoked the Lord’s [?].” If his deeds were like these, would his words not be good with him? And he walked uprightly."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.8",
+      "source_sha256": "edb1385021c3ba6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And from the beginning my people stood in hostility against his peace. They stripped the skin from him to take away hope from there—a destruction of war."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.9",
+      "source_sha256": "886baefa2dab1309",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Because of this, the great men of my people will be thrown out of their luxurious houses. Because of their evil deeds, they have been cast out from among you into the mountains forever."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.10",
+      "source_sha256": "26f1d6684006d83a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Get up and go, because this is not your resting place. Because of defilement, you have been utterly destroyed."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.11",
+      "source_sha256": "245c5fbb63d20d95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They pursued you when there was no one pursuing you. A liar stood up and dripped wine and beer for you. And she will come from the drippings of this people."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.12",
+      "source_sha256": "af7fd07bcde43db6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Jacob will surely be gathered together with everyone. I will surely gather to myself the remnant of [?] together. I will place his flock like a flock of sheep in humiliation, and like a herd in the middle of its enclosure. They will rush out from among the people."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.2.13",
+      "source_sha256": "87f417fff12e437e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "The one who breaks through will come up before them. They will break through and enter the gate and come out through it. The king will walk before them, and the Lord will lead them."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.1",
+      "source_sha256": "a15db44a7a23f0cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "In the last days, the mountain of the Lord will appear, established on the summit of the mountains. It will rise above the hills, and a people will hurry to it."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.2",
+      "source_sha256": "2584ea2650dfcb7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Many nations will go and say, “Come, let us go up to the mountain of the Lord and up to the house of the God of Jacob. Let them teach us his ways, and let us walk in his paths. For the law will come out of Zion, and the word of the Lord from [?].”"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.3",
+      "source_sha256": "2463a4ed5024d380",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "He will judge between many peoples and rebuke strong nations as far as the ends of the earth. They will beat their swords into plowshares and their spears into sickles. Nation will no longer lift a sword against nation, and they will no longer learn to fight."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.4",
+      "source_sha256": "00fd47ece8bf8084",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Each person will rest under his own grapevine, and each under his own fig tree, with no one to frighten them, for the mouth of the Lord Almighty has spoken these things."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.5",
+      "source_sha256": "009e64785881447e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For all the peoples will walk, each in his own way, but we will walk in the name of the Lord our God forever and ever."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.6",
+      "source_sha256": "ee3e1e3190fbc4ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "“On that day,” says the Lord, “I will gather the one who was crushed, and I will receive to myself the one who was cast out, and the one who was afflicted.”"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.4.7",
+      "source_sha256": "b8033fba1d0085fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "“I will make the one who was crushed into a remnant, and the one who was cast out into a strong nation, and the Lord will reign over them.”"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.1",
+      "source_sha256": "72baefd9dbc1dd18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Woe to me! I have become like someone gathering stalks at harvest, and like someone gleaning grapes at the vintage, when there is no cluster of the first-ripe fruit to eat. Woe to me, my soul!"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.2",
+      "source_sha256": "efbd453d73593ed9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For the sinner has perished from the earth, and there is no upright person among humanity. They all set traps for blood; each oppresses his neighbor with oppression."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.3",
+      "source_sha256": "57ced56645301983",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "They prepare their hands for evil. The ruler demands, and the judge accepts gifts. He speaks and utters peaceful words, while the powerful man has spoken the desire of his soul. And I will take away their good things,"
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.4",
+      "source_sha256": "695b54b825fb97dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "like a moth eating away and moving along a measuring rod. On the day of watching, woe, woe! Retribution has arrived. Now their weeping will begin."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.5",
+      "source_sha256": "56a778c4bcb958ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Do not confide in your friends, and do not trust those who are over you. Guard yourself against your wife, so that you tell her nothing."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.6",
+      "source_sha256": "5e65661c866c0f6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "For a son will dishonor his father, and a daughter will rise against her mother, and a daughter-in-law against her mother-in-law. A person's enemies are all the people in his own house."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.7",
+      "source_sha256": "2065522f85188d9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "But I will look up to the Lord. I will wait patiently for God my Savior. My God will hear me."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.8",
+      "source_sha256": "3faf52684e1bfa60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "My enemy, do not rejoice over me because I have fallen. I will rise again. Even if I sit in darkness, the Lord will give me light."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.9",
+      "source_sha256": "83e87918d39195ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "I will bear the Lord's anger, because I have sinned against him, until he vindicates my [?]. He will carry out [?] retribution. He will [?] into the light. I will see his righteousness."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.10",
+      "source_sha256": "83f4c877947e4d3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "My enemy will see me, and shame will cover her who says to me, “Where is the Lord your God?” My eyes will gaze their fill at her. Now she will be trampled like mud in the streets."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.11",
+      "source_sha256": "49e290fb8e55943b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "That day is a day of kindled fire. It will destroy the ordinances of my people."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.12",
+      "source_sha256": "79ecac0aaaf4b3e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "Your cities will be leveled, and the land of the Assyrians will be divided. Your cities will be divided from Tyre to the river of Syria, and from sea to sea, and from mountain to mountain."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.13",
+      "source_sha256": "1c883b463fc96fae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 22,
+      "text": "The land will become a wasteland, together with those who live in it, because of the fruit of their wicked deeds."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.14",
+      "source_sha256": "4e1b1f135d5c37c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Shepherd your people with your staff, your tribe, the sheep of your inheritance, who live by themselves in the forest in the midst of Carmel. They will graze in Bashan and Gilead as in the days of old."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.15",
+      "source_sha256": "8708c0e732d9df36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "And as in the days when you came out of the land of Egypt, I will show them wonders."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.16",
+      "source_sha256": "09e5d736b74baea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "The nations will see and be ashamed of all their strength. They will put their hands over their mouths and stop their ears."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.17",
+      "source_sha256": "d167f26837eac6a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "They will lick the earth like snakes crawling along the ground. They will gather into their holes. They will also be amazed at the Lord our God and be afraid before him."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.18",
+      "source_sha256": "384ec1391b92244f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Who is a god besides you, taking away lawlessness and forgetting the wickedness of the remnant of his inheritance? He has not held on to his anger so as to leave it as a testimony, because he delights in mercy."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.19",
+      "source_sha256": "a5098a069f1d365f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "He will turn back and have compassion on us, and he will cover our sins. He will throw all our other acts of lawlessness [?] down into the depths of the sea."
+    },
+    {
+      "chunk_id": "coptic-nt/mic#Mic.7.20",
+      "source_sha256": "83336ba987783ded",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "You will give truth to Jacob and mercy to Abraham, just as you swore to your fathers from the earliest days."
     }
   ]
 }

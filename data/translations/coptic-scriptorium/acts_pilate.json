@@ -9,15 +9,126 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0000",
+      "source_sha256": "9163498fa4a3f3d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "that a revolt had broken out."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0001",
+      "source_sha256": "e488665c2b60af69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to him again, “We know that this man is righteous.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0002",
+      "source_sha256": "36e80792bf559f8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They, too, were shouting."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0003",
+      "source_sha256": "78955170fc40101f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But Pilate summoned the whole crowd of Jews."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0004",
+      "source_sha256": "b7bf0678683e78ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to them, “You have a law requiring me to release someone to you at the festival."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0005",
+      "source_sha256": "1764fd48f93fc203",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "For you have a prisoner who is a murderer, whose name is Barabbas.”"
+    },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0006",
       "source_sha256": "656c8b17db54c884",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "And Jesus, who stands before you, in whom I have found no grounds for a death sentence—whom do you want me to release for you out of these two?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0007",
+      "source_sha256": "a24d80343968533f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They shouted, “Release Barabbas to us!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0008",
+      "source_sha256": "58a8649b43cd073e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to them again, “Then what should I do with Jesus, who is called the Christ?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0009",
+      "source_sha256": "96966975cdbc2bc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They said to him, “Crucify him!” Some others among the Jews were saying, “If you release this man, you are not the emperor’s friend, because he said, ‘I am a son of God,’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0010",
+      "source_sha256": "3a15365b2ea079f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and also, ‘I am a king.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0011",
+      "source_sha256": "38d61c4a0ea850fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Perhaps you want this man to rule over us instead of the emperor Caesar!” Pilate became angry."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0012",
+      "source_sha256": "1db8a459a6f50ba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to the Jews, “Truly, your nation is always rebelling,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0013",
+      "source_sha256": "758f5d50681d99bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and you oppose those who do good to you.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0014",
+      "source_sha256": "700d97a77cda8dfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "The Jews said, “What good things?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0015",
+      "source_sha256": "1b773897cca56129",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He said to them, “Your God brought you out of harsh slavery, out of the land of Egypt."
     },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0016",
@@ -53,6 +164,181 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "And he gave you a law."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0021",
+      "source_sha256": "262acf2d832c4584",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "But despite all this, you provoked your God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0022",
+      "source_sha256": "360148c6eb5ba406",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "You made a calf in the wilderness"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0023",
+      "source_sha256": "399243c785d6a0c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "and worshiped it. And he sought to kill you, until Moses pleaded on your behalf so that you would not die."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0024",
+      "source_sha256": "2e59ccc23c52b90b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And now you are saying to me, ‘You hate the emperor Caesar!’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0025",
+      "source_sha256": "23b62d374afff34a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "Then Pilate immediately rose from the judgment seat."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0026",
+      "source_sha256": "ec2d15a00e5a137c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "He sought to withdraw."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.000.0027",
+      "source_sha256": "b2e5b1c80a4f48ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "They shouted."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000",
+      "source_sha256": "3b196e189f6d371c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "[?] And the soldiers divided his clothes among themselves. And all the people stood watching him. The chief priests and the rulers were mocking him, saying, “He saved others. Can he not save himself, if he is God’s chosen Son?” The soldiers also mocked him, approaching him with vinegar and saying, “If you are the Son of God, save yourself!” After the sentence, Pilate ordered that the charge against him be written on a sign, in Hebrew, Latin, and Greek, according to what the Jews had said. One of the robbers crucified with him, whose name was Gestas, said to him, “If you are the Son of God, save yourself and us too!” The other, whose name was Dimas, answered and rebuked him, saying, “Do you not fear God, since we are under the same sentence as he is? We are justly receiving what our deeds deserve. But this man has done nothing wrong, and, being deserving of death, he was brought here.” Then Dimas turned again and said to Jesus, “My Lord, remember me when you come into your holy and glorious kingdom.” Jesus said to him, “Truly I tell you, today you will be with me in my paradise.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0001",
+      "source_sha256": "3542f0ed3cf5f2a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And all the people stood watching him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0002",
+      "source_sha256": "b17124202a532502",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 25,
+      "text": "And the chief priests were mocking him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0003",
+      "source_sha256": "4519f65344c71ed9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "and the rulers, saying, “He saved others."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0004",
+      "source_sha256": "c52a40e02dc0bc94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "Then he cannot save himself, if this is the chosen Son of God.” And the soldiers were mocking him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0005",
+      "source_sha256": "8ddc3c1422eb4461",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "having approached him with vinegar, saying, “If you are the Son of God, save yourself.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0006",
+      "source_sha256": "8c51151c64b08b99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "Pilate gave orders,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0007",
+      "source_sha256": "72f4896cb1a2afe6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "after the sentence, to write the charge against him on an inscription, written in Hebrew,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0008",
+      "source_sha256": "246d0a6e54fa7553",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "Latin, and Greek, as the Jews had said."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0009",
+      "source_sha256": "35976b2e03ded1a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "One of the robbers who had been crucified with him, whose name was Gestas,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0010",
+      "source_sha256": "a21b904b599d4c80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "said to him, “If you are the Son of God, save yourself and us too.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0011",
+      "source_sha256": "e5f806dd45cd2f7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The other, whose name was Demas, answered."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0012",
+      "source_sha256": "c91114eaddf80b02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "He rebuked him, saying, “Do you not fear God, then, since we are under the same sentence as he is?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0013",
+      "source_sha256": "86f3b9c926f0ac6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "For we are rightly receiving what our deeds deserve. But this man has done nothing wrong,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0014",
+      "source_sha256": "2fb6d18011bbf55d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "and he deserves death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0015",
+      "source_sha256": "96a26fa1d4197499",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "They brought him to this place.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0016",
+      "source_sha256": "ed9c27df33c0b7dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "Then Demas turned again and said to Jesus, “My Lord, remember me when you come into your holy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0017",
+      "source_sha256": "914b6c9be79f87f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "and glorious kingdom.”"
     },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0018",
@@ -95,6 +381,34 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 12,
       "text": "Abi, Adakh, Ephkidrou, Adonai, Aroa, Sabel, Louel, Eloi, Elemas, Abakdanei, Orioth, Mioth, Ouaath, Soun, Perineth, Iothat [?]. The Savior’s prayer on the cross for Adam. At the moment when the Savior said these things,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0024",
+      "source_sha256": "ea36511c6c6aa1bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The air changed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0025",
+      "source_sha256": "fd6cc070eed0c0d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The place became dark."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0026",
+      "source_sha256": "125153a1a31bded0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The abyss split open."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0027",
+      "source_sha256": "e027dd212b4dd707",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 19,
+      "text": "The firmament was shaken."
     }
   ]
 }

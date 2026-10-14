@@ -1,0 +1,65 @@
+{
+  "work_id": "gez/lef",
+  "source_path": "gez/lef.json",
+  "source_language": "gez",
+  "target_language": "eng",
+  "provenance": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "gez/lef#Lef.1.1",
+      "source_sha256": "16822341e2c9f942",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "First Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.2.1",
+      "source_sha256": "beda03b510a87b2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Second Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.3.1",
+      "source_sha256": "00ba99bcd81e5a63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Third Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.4.1",
+      "source_sha256": "dd4c4b16442102e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Fourth Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.5.1",
+      "source_sha256": "00407f9cae7f7463",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Fifth Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.6.1",
+      "source_sha256": "66cf27dae6bdfcba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Sixth Prayer"
+    },
+    {
+      "chunk_id": "gez/lef#Lef.7.1",
+      "source_sha256": "c3667985666ca50f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 7,
+      "text": "Seventh Prayer"
+    }
+  ]
+}

@@ -9,15 +9,63 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-12",
       "script": "scripts.embed_eval.translate"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-14",
+      "script": "__main__"
     }
   },
   "translations": [
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.1.14",
+      "source_sha256": "bc0e275b81928dc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "Look, the great day of the Lord has drawn near. It is near and will come immediately. The Lord’s voice has been appointed; it is bitter, harsh, and powerful."
+    },
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.1.15",
+      "source_sha256": "03cec6acb3b5c791",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "That day is a day of wrath, a day of distress and hardship, a day of darkness and gloom, a day of clouds and thick darkness."
+    },
     {
       "chunk_id": "coptic-nt/zeph#Zeph.1.16",
       "source_sha256": "5f3d2c2785eaf9ab",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 1,
       "text": "It is a day of trumpet blasts [?] and shouting against the great city and against the high mountains."
+    },
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.1.17",
+      "source_sha256": "a88f637c8923392b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "And I will trouble people, and they will walk like blind people because of their many sins before the Lord. He will pour out their blood like dust, and their flesh like pigs."
+    },
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.1.18",
+      "source_sha256": "a65483e8a5ec571c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "And neither their silver nor their gold will be able to save them on the day of the Lord’s wrath, because the whole earth has perished in the flame of his anger and his fire. Look, the Lord will bring an end and turmoil upon those who live on the earth."
+    },
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.2.1",
+      "source_sha256": "26971f5679ae9d15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "Gather together and plead together, all you nations without instruction."
+    },
+    {
+      "chunk_id": "coptic-nt/zeph#Zeph.2.2",
+      "source_sha256": "ddfe33af3668da6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "group_size": 6,
+      "text": "Before you become like a flower that withers, before the Lord’s wrath and his anger come upon you."
     }
   ]
 }
