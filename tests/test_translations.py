@@ -178,3 +178,12 @@ def test_run_with_opus_records_the_model_that_answered(tmp_path: Path, monkeypat
     a = tr.load(tmp_path / "t", "src/a.json")
     assert {a.provenance[t.provenance].model for t in a.translations} == {
         "claude-opus-5-5", "claude-fallback-x"}
+
+
+def test_clients_are_lazy_and_keep_their_dispatch_methods():
+    from scripts.embed_eval import translate as et
+
+    clients = et.Clients()
+    # The lazily created SDK client must not shadow the _anthropic/_openai methods.
+    assert callable(clients._anthropic) and callable(clients._openai)
+    assert clients._anthropic_client is None and clients._http is None

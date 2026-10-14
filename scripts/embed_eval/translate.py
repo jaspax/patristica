@@ -160,7 +160,7 @@ class Clients:
     needs only that vendor's key (and the anthropic package only for Claude)."""
 
     def __init__(self) -> None:
-        self._anthropic = None
+        self._anthropic_client = None
         self._openai_key: str | None = None
         self._http = None
         self._lock = threading.Lock()
@@ -168,14 +168,14 @@ class Clients:
     @property
     def anthropic(self):
         with self._lock:
-            if self._anthropic is None:
+            if self._anthropic_client is None:
                 import anthropic
 
                 from scripts.embed_eval.embedders import _env_key
 
-                self._anthropic = anthropic.Anthropic(
+                self._anthropic_client = anthropic.Anthropic(
                     api_key=_env_key("ANTHROPIC_API_KEY"), max_retries=6)
-            return self._anthropic
+            return self._anthropic_client
 
     @property
     def openai_key(self) -> str:
