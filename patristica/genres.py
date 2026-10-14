@@ -9,8 +9,11 @@ per work with the reason for it, and ``scripts.normalize`` applies them, so
 the ingestor's genre to record a deliberate decision (e.g. the Shepherd of
 Hermas stays ``patristic``).
 
-The rules (from #103): a work canonical in any tradition is ``scripture``; a
-work with any liturgical use is ``liturgical``; other apocryphal gospels, acts,
+The rules (from #103): genre is decided per work, not per book.  A work
+canonical in the tradition it belongs to (its language and edition) is
+``scripture``, so one book can be ``scripture`` in one witness and
+``apocrypha`` in another (Ge'ez vs Greek 1 Enoch); a work with any liturgical
+use is ``liturgical``; other apocryphal gospels, acts,
 apocalypses, testaments and Old Testament pseudepigrapha are ``apocrypha``.
 Patristic works about apocrypha, hagiography and martyr acts stay
 ``patristic``.
