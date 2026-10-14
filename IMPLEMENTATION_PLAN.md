@@ -89,7 +89,7 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 |---|---|---|
 | Relational DB | PostgreSQL 16+ | Mature, JSONB support, full-text search |
 | Vector store | pgvector extension | Keeps everything in one DB, simplifies ops |
-| Embeddings | **Decided (2026-10-13):** Voyage `voyage-4-large`. Syriac, Coptic, Armenian and Ge'ez chunks also get an English translation by GPT-6.1 Sol, embedded as a second vector | `docs/embedding-eval.md`: paraphrase/topical recall 0.99/0.99, every language ≥ 0.90; best at every vector size. Vector size, 1024 or 512 dims, is set with hosting (#50) |
+| Embeddings | **Decided (2026-10-13):** Voyage `voyage-4-large`. Syriac, Coptic, Armenian and Ge'ez chunks also get an English translation by GPT-6.1 Sol, embedded as a second vector | `docs/embedding-eval.md`: paraphrase/topical recall 0.99/0.99, every language ≥ 0.90; best at every vector size. 1024-dim `halfvec` (decided 2026-10-14, #50) |
 | ORM/migration | SQLAlchemy + Alembic | Python ecosystem |
 | Search layer | Custom (via pgvector + Postgres FTS) | Avoid unnecessary infra |
 
@@ -103,7 +103,7 @@ works (id, author_id, title, date_range, genre, language, license)
 text_chunks (
   id, work_id, canonical_ref, language,
   text, chunk_index,
-  embedding halfvec(1024),   -- Voyage voyage-4-large; 512 if #50 needs the smaller size
+  embedding halfvec(1024),   -- Voyage voyage-4-large (#50)
   translation_group_id       -- links original + translations of same passage
 )
 translation_groups (id)      -- joins parallel chunks across languages
@@ -160,7 +160,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 | Backend API | FastAPI (Python) |
 | Frontend | Next.js 16 (React, TypeScript), in `web/` |
 | Auth | Optional at launch; add later for saved searches/notes |
-| Deployment | Docker Compose (dev), cloud VM + managed Postgres (prod) |
+| Deployment | Docker Compose: dev, and prod on one DigitalOcean VM (Postgres + API); Next.js on Vercel (#50) |
 | AI features | Claude API (Anthropic) |
 
 ### 3.2 Core Features
@@ -207,6 +207,7 @@ GET  /api/authors                      → Author list/browse
 ### 3.4 Deployment
 
 - Docker Compose: `web` (Next.js), `api` (FastAPI), `db` (PostgreSQL + pgvector)
+- Production (#50): `web` stays on Vercel; `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB), with a nightly `pg_dump` to R2
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
@@ -235,7 +236,11 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vector size, 1024 or 512, is set together with hosting (#50).
-- **Hosting budget**: tracked in #50. Hetzner is ruled out (US hosting only); the choice waits on vector size.
+- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vectors are 1024-dim `halfvec` (#50).
+- **Database hosting**: *decided 2026-10-14* (#50). Postgres 16 + pgvector and the FastAPI service run together under Docker Compose on one self-managed DigitalOcean Basic droplet in NYC (8 GB RAM, 4 vCPU, ~$48/mo), close to Vercel's `iad1` functions. Reasons:
+  - **Size.** ~1.1M vectors × 1024 dims as `halfvec` take ≈ 2.3 GB, and the HNSW index ≈ 2.5–3 GB, which fits in 8 GB alongside the API. If the index stops fitting in memory, the next step is the 16 GB droplet (~$96/mo).
+  - **The database is derived data.** Text and translations are in git, and the Voyage vectors are kept as a file in R2, so a lost database is rebuilt without re-embedding. Managed hosts mostly sell backups, failover and point-in-time recovery, which don't matter until the app stores user data. Backup is a nightly `pg_dump` to R2.
+  - **Alternatives (Oct 2026 prices).** Supabase Pro + Large (8 GB) ~$125/mo; Neon is cheap with scale-to-zero, but the HNSW index has to reload after every pause, so the first queries are slow (~$77/mo for 4 GB always on); RDS / DO Managed Postgres $100–245/mo. Hetzner's US regions are no cheaper after its June 2026 price increase.
+  - **Revisit** when Phase 3 adds accounts or saved searches. Moving to managed Postgres (Supabase Large) is a dump and restore.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable
 - **Transliteration**: Do we offer Hebrew/Greek in romanized form for accessibility?
