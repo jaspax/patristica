@@ -180,3 +180,131 @@ def test_validate_flags_remaining_numbers() -> None:
     assert result["status"] == "warn"
     assert result["violation_count"] == 1
     assert result["examples"] == ["p/w#a.3 ('3.')"]
+
+
+# --- #121: superscript and glued numbers -------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("text", "ref", "lang", "expected"),
+    [
+        # superscript digits, glued or followed by a space
+        ("⁴καὶ ὁ θεὸς τοῦ αἰῶνος", "tlg1463.tlg001.1.4", "grc", "καὶ ὁ θεὸς τοῦ αἰῶνος"),
+        ("¹¹ Καὶ εἶπεν Μιχαὴλ", "tlg1463.tlg001.10.11", "grc", "Καὶ εἶπεν Μιχαὴλ"),
+        ("²AI δὲ ἐν γαστρὶ", "tlg1463.tlg001.7.2", "grc", "AI δὲ ἐν γαστρὶ"),
+        # mixed runs where OCR lost the superscript on one digit
+        ("¹7τὸ ἔδαφος αὐτοῦ", "tlg1463.tlg001.14.17", "grc", "τὸ ἔδαφος αὐτοῦ"),
+        ("1¹καὶ αἱ στέγαι", "tlg1463.tlg001.14.11", "grc", "καὶ αἱ στέγαι"),
+        # Arabic digits glued to the word
+        ("3Καὶ περὶ τῶν ἐκλεκτῶν", "tlg1463.tlg001.1.3", "grc", "Καὶ περὶ τῶν ἐκλεκτῶν"),
+        ("18Ἐθεώρουν δὲ", "tlg1463.tlg001.14.18", "grc", "Ἐθεώρουν δὲ"),
+        ("2.δι’ ἣν καὶ ἀπετάξατο", "tlg1271.tlg010.1.4.2", "grc", "δι’ ἣν καὶ ἀπετάξατο"),
+        ("4.Principium vero", "tlg2042.tlg021.17.4", "lat", "Principium vero"),
+        ("29.Virga enim furoris", "PL83.21.10.1.29", "lat", "Virga enim furoris"),
+        ("[3]And when Jesus came", "a.3", "eng", "And when Jesus came"),
+        ("(3)Καὶ πάλιν", "a.3", "grc", "Καὶ πάλιν"),
+    ],
+)
+def test_strips_superscript_and_glued_numbers(
+    text: str, ref: str, lang: str, expected: str
+) -> None:
+    assert strip_section_number(text, ref, lang) == expected
+    # idempotent
+    assert strip_section_number(expected, ref, lang) == expected
+
+
+@pytest.mark.parametrize(
+    ("text", "ref", "lang", "source_id"),
+    [
+        # damaged superscript that does not equal the ref: left for validate
+        ("⁰Καὶ ἀναλαβὼν", "tlg1463.tlg001.1.2", "grc", None),
+        ("²⁸καὶ καθαρισθήσεται", "tlg1463.tlg001.10.22", "grc", None),
+        # glued number that differs from the ref
+        ("420Η πολλῷ πλέον", "tlg2042.tlg005.32.382", "grc", None),
+        # English ordinals and lettered numbers
+        ("1st. That Joseph was only putatively", "Jer.Helv.1", "eng", None),
+        ("2d. That the brethren", "Jer.Helv.2", "eng", None),
+        ("3rd of the month", "a.3", "eng", None),
+        ("4th day", "a.4", "eng", None),
+        ("3a. I have wandered", "Jer.Ep.CXXVIII.3", "eng", None),
+        ("3o. What, then", "a.3", "eng", None),
+        # one-letter note marker and short abbreviations after a glued number
+        ("1.a Tantis exstantibus", "PL48.III.3.1", "lat", None),
+        ("4.col.a. ὅτε δὲ ὡς ἐν πυρὶ", "tlg1750.tlg002.4.4", "grc", None),
+        # glued citation
+        ("1Cor. 13, 4", "a.1", "eng", None),
+        # decimals and glued numbers followed by digits
+        ("3.5 cubits", "a.3", "eng", None),
+        ("3²", "a.3", "eng", None),
+        # mid-chunk superscripts are never touched
+        ("κρίμα ὲ́νδικόν ἐστι².", "tlg2021.tlg002.26.11.2", "grc", None),
+        # serial-counter refs
+        ("¹ῑ μάθημα τι", "ogpg.vol-003.p0294.1", "grc", "ogpg"),
+        ("1νιι, c. l9", "ogpg.vol-005.c0231.1", "grc", "ogpg"),
+    ],
+)
+def test_leaves_superscript_and_glued_content_alone(
+    text: str, ref: str, lang: str, source_id: str | None
+) -> None:
+    assert leading_section_number(text, ref, lang, source_id) is None
+
+
+def test_normalize_strips_superscript_numbers_in_apocrypha() -> None:
+    raw = _raw(
+        "apocrypha",
+        "first1k",
+        "paragraphs",
+        [
+            ("tlg1463.tlg001.1.2", "⁰Καὶ ἀναλαβὼν"),
+            ("tlg1463.tlg001.1.3", "3Καὶ περὶ τῶν ἐκλεκτῶν"),
+            ("tlg1463.tlg001.1.4", "⁴καὶ ὁ θεὸς"),
+        ],
+        lang="grc",
+    )
+    _, chunks = normalize_patristic_work(raw)
+    assert [c.text for c in chunks] == ["⁰Καὶ ἀναλαβὼν", "Καὶ περὶ τῶν ἐκλεκτῶν", "καὶ ὁ θεὸς"]
+
+
+def test_validate_flags_superscript_forms_and_stray_digits() -> None:
+    chunks = [
+        {
+            "chunk_id": "p/w#a.4",
+            "work_id": "p/w",
+            "canonical_ref": "a.4",
+            "language": "grc",
+            "text": "⁴καὶ ὁ θεὸς",
+        },
+        {
+            "chunk_id": "p/w#a.5",
+            "work_id": "p/w",
+            "canonical_ref": "a.5",
+            "language": "grc",
+            "text": "⁰καὶ ἤρξαντο",
+        },
+        {
+            "chunk_id": "p/w#a.6",
+            "work_id": "p/w",
+            "canonical_ref": "a.6",
+            "language": "grc",
+            "text": "Clean",
+        },
+        {
+            "chunk_id": "s/w#Num.1.3",
+            "work_id": "s/w",
+            "canonical_ref": "Num.1.3",
+            "language": "cop",
+            "text": "ⲡⲉϫⲁϥ · ¹ ϯⲣⲁϣⲉ",
+        },
+    ]
+    entries = {
+        "p/w": {"source_id": "first1k", "genre": "apocrypha"},
+        "s/w": {"source_id": "coptic-nt", "genre": "scripture"},
+    }
+    result = _check_section_numbers(chunks, entries)
+    dup = result["text_starts_with_section_number"]
+    assert dup["violation_count"] == 1
+    assert dup["examples"] == ["p/w#a.4 ('⁴')"]
+    stray = result["text_has_superscript_digits"]
+    assert stray["status"] == "warn"
+    assert stray["violation_count"] == 3
+    assert [e.split(" ")[0] for e in stray["examples"]] == ["p/w#a.4", "p/w#a.5", "s/w#Num.1.3"]
