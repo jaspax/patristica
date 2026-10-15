@@ -96,7 +96,7 @@ def _chunk(ref: str, text: str, i: int) -> Chunk:
 
 def test_versify_chunks_derives_refs_and_keeps_metadata():
     chunks = [_chunk("1", "Titulus.", 0), _chunk("2", " ".join([LATIN] * 3), 2)]
-    out = versify_chunks(chunks, "patristic")
+    out = versify_chunks(chunks)
     assert out[0] == chunks[0]
     derived = out[1:]
     assert [c.canonical_ref for c in derived] == [f"2.s{n}" for n in range(1, len(derived) + 1)]
@@ -108,13 +108,13 @@ def test_versify_chunks_derives_refs_and_keeps_metadata():
 
 def test_versify_chunks_is_idempotent():
     chunks = [_chunk("1", " ".join([LATIN] * 3), 0)]
-    once = versify_chunks(chunks, "patristic")
-    assert versify_chunks(once, "patristic") == once
+    once = versify_chunks(chunks)
+    assert versify_chunks(once) == once
 
 
-def test_scripture_is_never_split():
+def test_standard_versification_is_never_split():
     chunks = [_chunk("Gen.1.1", " ".join([LATIN] * 3), 0)]
-    assert versify_chunks(chunks, "scripture") == chunks
+    assert versify_chunks(chunks, standard=True) == chunks
 
 
 def test_is_derived_ref():

@@ -8,6 +8,9 @@ import { parseWork, type Section, type Unit } from "@/lib/render";
 
 import styles from "./WorkText.module.css";
 
+const DERIVED_TITLE =
+  "Verse numbers in this style are added by Patristica to make search results precise; they are not part of the source edition.";
+
 interface Props {
   work: WorkFile;
   genre: string;
@@ -80,7 +83,24 @@ function Paragraph({ unit }: { unit: Unit }) {
       <a className={styles.marker} href={`#${unit.ref}`} aria-label={`Paragraph ${unit.n}`}>
         {unit.n}
       </a>
-      {unit.text}
+      {unit.parts
+        ? unit.parts.map((part, i) => (
+            <span key={part.ref} id={part.ref}>
+              {i > 0 && " "}
+              <a
+                className={styles.derived}
+                href={`#${part.ref}`}
+                title={DERIVED_TITLE}
+                aria-label={`Verse ${part.n}, added by Patristica`}
+                dir="ltr"
+                lang="en"
+              >
+                {part.n}
+              </a>
+              {part.text}
+            </span>
+          ))
+        : unit.text}
     </p>
   );
 }

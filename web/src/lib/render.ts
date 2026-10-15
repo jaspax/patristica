@@ -9,14 +9,29 @@
 // of a section (`0002.0000` in the liturgies, psalm superscriptions). Sources
 // such as Coptic Scriptorium number ordinary sentences from zero, even in
 // their liturgical works (the Lament of the Virgin, #103).
+//
+// A ref ending in `sN` (`3.2.s1`, `3.2.s2`) is a derived verse: a piece of the
+// source's unit `3.2`, cut by the pipeline so search can point at a passage
+// about a verse long (patristica/versify.py). The derived verses of one
+// source unit are rendered together as that unit, each with its own anchor.
 
 import type { WorkFile } from "./library";
+
+/** A derived verse: a piece of a source unit cut by the pipeline. */
+export interface Part {
+  /** Derived verse number within its unit ("3" for `….s3`). */
+  n: string;
+  ref: string;
+  text: string;
+}
 
 export interface Unit {
   /** Unit number for display (the last ref segment, leading zeros dropped). */
   n: string;
   ref: string;
   text: string;
+  /** The unit's derived verses, if the pipeline split it; their texts make up `text`. */
+  parts?: Part[];
   outOfPeriod: boolean;
   /** Short all-caps line in a liturgical text: a speaker or rubric label. */
   rubric: boolean;
@@ -63,6 +78,17 @@ function sectionLabel(path: string[], genre: string): string | null {
   return shown.join(".");
 }
 
+const DERIVED = /^s(\d+)$/;
+
+/** True if a ref names a derived verse rather than a unit of the source. */
+export function isDerivedRef(ref: string): boolean {
+  return DERIVED.test(ref.slice(ref.lastIndexOf(".") + 1));
+}
+
+function joinRef(prefix: string, suffix: string): string {
+  return [prefix, suffix].filter(Boolean).join(".");
+}
+
 function samePath(a: string[], b: string[]): boolean {
   return a.length === b.length && a.every((s, i) => s === b[i]);
 }
@@ -90,8 +116,37 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     return section;
   };
 
+  const prefixLast = work.ref_prefix.split(".").pop() ?? "";
+  let previousBase: string | null = null;
+
   for (let i = 0; i < work.chunks.length; i++) {
     const [suffix, text, oop] = work.chunks[i];
+    const derived = DERIVED.exec(suffix.slice(suffix.lastIndexOf(".") + 1));
+    if (derived) {
+      const base = suffix.split(".").slice(0, -1);
+      const baseRef = joinRef(work.ref_prefix, base.join("."));
+      const part: Part = { n: derived[1], ref: joinRef(work.ref_prefix, suffix), text };
+      const path = base.slice(0, -1);
+      const last = current?.units[current.units.length - 1];
+      if (last?.parts && previousBase === baseRef) {
+        last.parts.push(part);
+        last.text = `${last.text} ${text}`;
+        last.outOfPeriod ||= oop === 1;
+      } else {
+        if (current === null || !samePath(current.path, path)) current = open(path, null);
+        current.units.push({
+          n: displaySegment(base[base.length - 1] ?? prefixLast),
+          ref: baseRef,
+          text,
+          parts: [part],
+          outOfPeriod: oop === 1,
+          rubric: false,
+        });
+      }
+      previousBase = baseRef;
+      continue;
+    }
+    previousBase = null;
     const segments = suffix.split(".");
     const next = work.chunks[i + 1]?.[0];
     if (next !== undefined && next.startsWith(`${suffix}.`)) {
@@ -109,7 +164,7 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     }
     current.units.push({
       n: displaySegment(last),
-      ref: work.ref_prefix ? `${work.ref_prefix}.${suffix}` : suffix,
+      ref: joinRef(work.ref_prefix, suffix),
       text,
       outOfPeriod: oop === 1,
       rubric: liturgical && isRubric(text),

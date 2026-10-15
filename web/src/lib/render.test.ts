@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { ChunkRow, WorkFile } from "./library";
-import { displaySegment, isRubric, parseWork } from "./render";
+import { displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
 
 function work(ref_prefix: string, chunks: ChunkRow[]): WorkFile {
   return { work_id: "test/work", ref_prefix, chunks };
@@ -39,6 +39,47 @@ describe("parseWork", () => {
       ["Canon I", 2],
       ["Canon II", 1],
     ]);
+  });
+
+  it("joins derived verses back into their source paragraph", () => {
+    const sections = parseWork(
+      work("Aug.Ep", [
+        ["1.1", "Short paragraph."],
+        ["1.2.s1", "First sentence."],
+        ["1.2.s2", "Second sentence."],
+        ["1.3.s1", "Another."],
+        ["1.3.s2", "Paragraph.", 1],
+        ["2.1", "Next chapter."],
+      ]),
+      "patristic",
+    );
+    expect(sections.map((s) => s.units.map((u) => u.n))).toEqual([["1", "2", "3"], ["1"]]);
+    const [plain, split, late] = sections[0].units;
+    expect(plain.parts).toBeUndefined();
+    expect(split.ref).toBe("Aug.Ep.1.2");
+    expect(split.text).toBe("First sentence. Second sentence.");
+    expect(split.parts).toEqual([
+      { n: "1", ref: "Aug.Ep.1.2.s1", text: "First sentence." },
+      { n: "2", ref: "Aug.Ep.1.2.s2", text: "Second sentence." },
+    ]);
+    expect(late.parts?.map((p) => p.ref)).toEqual(["Aug.Ep.1.3.s1", "Aug.Ep.1.3.s2"]);
+    expect(late.outOfPeriod).toBe(true);
+  });
+
+  it("numbers a whole-work paragraph from the ref prefix", () => {
+    const sections = parseWork(
+      work("stoa0058.stoa006.1", [
+        ["s1", "Christianam fidem."],
+        ["s2", "Haec autem."],
+      ]),
+      "patristic",
+    );
+    expect(sections).toHaveLength(1);
+    expect(sections[0].label).toBeNull();
+    const [unit] = sections[0].units;
+    expect(unit.n).toBe("1");
+    expect(unit.ref).toBe("stoa0058.stoa006.1");
+    expect(unit.parts?.map((p) => p.ref)).toEqual(["stoa0058.stoa006.1.s1", "stoa0058.stoa006.1.s2"]);
   });
 
   it("nests headings by depth", () => {
@@ -162,5 +203,15 @@ describe("displaySegment", () => {
     expect(displaySegment("0012")).toBe("12");
     expect(displaySegment("0000")).toBe("0");
     expect(displaySegment("iv")).toBe("iv");
+  });
+});
+
+describe("isDerivedRef", () => {
+  it("recognises sN as the last segment only", () => {
+    expect(isDerivedRef("Aug.Conf.1.1.s3")).toBe(true);
+    expect(isDerivedRef("s1")).toBe(true);
+    expect(isDerivedRef("Aug.Conf.1.1.3")).toBe(false);
+    expect(isDerivedRef("c12.p4")).toBe(false);
+    expect(isDerivedRef("Aug.s1.2")).toBe(false);
   });
 });

@@ -16,7 +16,8 @@ verse is ~31 ``cl100k_base`` tokens and a Coptic one ~221.
 **Refs.** The derived verses of the chunk at ``ref`` are ``ref.s1``,
 ``ref.s2``, …. The ``s`` marks a unit we made, as opposed to one numbered by
 the source (:func:`is_derived_ref`); no source uses ``s<digits>`` segments.
-Chunks that are already about a verse long keep their ref.
+Chunks that are already about a verse long keep their ref, and works that
+come with a standard versification are never split (:func:`versify_chunks`).
 
 **Stability.** Derived refs are in reader URLs and translation keys, so the
 split must be repeatable: it depends only on the chunk's text and language,
@@ -48,9 +49,6 @@ VERSE_TOKENS: dict[str, int] = {
     "gez": 201,
     "cop": 221,
 }
-
-#: Genres whose units are a standard versification, never split.
-STANDARD_GENRES: frozenset[str] = frozenset({"scripture"})
 
 #: A unit is at most this many verses long, unless it is a single word.
 MAX_VERSES = 3.0
@@ -116,6 +114,12 @@ def count_tokens(text: str) -> int:
     return len(_encoding().encode_ordinary(text))
 
 
+@lru_cache(maxsize=1 << 20)
+def _word_tokens(word: str) -> int:
+    # Cached: words repeat a lot, and one encode call per word is the main cost.
+    return len(_encoding().encode_ordinary(word))
+
+
 def _atoms(text: str) -> list[str]:
     """Split *text* into words, each keeping the whitespace before it.
 
@@ -156,7 +160,7 @@ def split_text(text: str, language: str) -> list[str]:
     atoms = _atoms(text)
     if len(atoms) < 2:
         return [text]
-    tokens = [len(t) for t in _encoding().encode_ordinary_batch(atoms)]
+    tokens = [_word_tokens(a) for a in atoms]
     total = sum(tokens)
     if total <= target:
         return [text]
@@ -227,15 +231,16 @@ def _candidate_ends(tokens: Sequence[int], strengths: Sequence[int], target: int
     return ends
 
 
-def versify_chunks(chunks: Sequence[Chunk], genre: str) -> list[Chunk]:
+def versify_chunks(chunks: Sequence[Chunk], standard: bool = False) -> list[Chunk]:
     """Replace each long chunk of a work with its derived verses.
 
     A derived verse copies its chunk's metadata, with ref ``ref.sN``.
-    ``chunk_index`` is renumbered when anything was split. Works of a
-    :data:`STANDARD_GENRES` genre, and chunks that are already derived
-    verses, are left alone, so this is idempotent.
+    ``chunk_index`` is renumbered when anything was split. A work whose units
+    are a *standard* versification (Scripture, and any work ingested as
+    verses, such as apocrypha from a Bible edition) is left alone, and so are
+    chunks that are already derived verses, so this is idempotent.
     """
-    if genre in STANDARD_GENRES:
+    if standard:
         return list(chunks)
     out: list[Chunk] = []
     split = False
