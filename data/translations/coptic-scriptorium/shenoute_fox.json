@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -691,11 +697,18 @@
       "text": "And are these the only hardships you inflict on them through your bricks, your pressed wine, all your burdens, and your acts of oppression?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_fox#CopScr.shenoute-fox.000.0096",
-      "source_sha256": "6f7e26c11d707906",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "O people whom the voice threatens, saying, “For those who are contentious, who disobey the truth but obey injustice, there will be wrath and anger, affliction and distress upon every human soul that does evil.”"
+      "chunk_id": "coptic-scriptorium/shenoute_fox#CopScr.shenoute-fox.000.0096.s1",
+      "source_sha256": "422abfc8ab9edbd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "O people whom this voice threatens, saying, “For those who act out of selfish ambition, who disobey the truth but obey injustice,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_fox#CopScr.shenoute-fox.000.0096.s2",
+      "source_sha256": "3ffe7024b045351c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "there will be wrath and anger, distress and anguish upon every human being who does evil.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_fox#CopScr.shenoute-fox.000.0097",

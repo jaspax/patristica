@@ -6,7 +6,9 @@ Reads raw work files from ``data/raw/`` (one JSON file per book/work, each with
 
 Writes one normalized JSON file per work to ``data/normalized/{source_id}/``.
 Each normalized file is a JSON array of ``Chunk`` objects (without context
-overlap — that is added by ``chunk.py``).
+overlap — that is added by ``chunk.py``).  Long prose chunks are split into
+verse-sized derived verses (``patristica.versify``, #2); Scripture and other
+works ingested as verses keep their own verses.
 
 Usage::
 
@@ -26,6 +28,7 @@ from patristica.genres import apply_genre_override
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period
 from patristica.section_numbers import strip_section_number
+from patristica.versify import versify_chunks
 
 log = logging.getLogger(__name__)
 
@@ -247,6 +250,10 @@ def normalize_file(
     if not chunks:
         log.warning("No chunks produced from %s", raw_path)
         return 0
+    # Works with a standard versification keep it: Scripture, and anything an
+    # ingestor delivered as verses whatever its curated genre (#103).
+    standard = work.genre == "scripture" or bool(raw_record.get("verses"))
+    chunks = versify_chunks(chunks, standard=standard)
 
     # Mirror the raw path structure under output_dir
     # raw:  data/raw/oshb/Gen.json

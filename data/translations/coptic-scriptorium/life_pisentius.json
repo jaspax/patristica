@@ -15,29 +15,56 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0000",
-      "source_sha256": "23bb08f5b2b1a48f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0000.s1",
+      "source_sha256": "69385abb3e6dc177",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The life and way of life of our holy and honored father Apa Pisentius, the bishop and hermit of the mountain of Tsenti, recounted by John the priest on the day of his holy commemoration, which is the thirteenth of the month of Epip. In the peace of God. Amen."
+      "text": "The life and conduct of our holy and honored father Apa Pisentius, the bishop and hermit"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0001",
-      "source_sha256": "bb8781bedacd834e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0000.s2",
+      "source_sha256": "2539f396ae316392",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The theme of this feast is full of joy on the day of our holy father, the Christ-bearer Apa Pisentius, who is full of light and gives off a sweet fragrance at all times—not only by day, but also by night."
+      "text": "of the mountain of Tsenti, recorded by Joseph the priest on the day of his holy commemoration, which is the thirteenth of the month of Epip. In the peace of God. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0002",
-      "source_sha256": "1dd71cf8fc66a1b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0001.s1",
+      "source_sha256": "9544e48b1678b5e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "All the animals of the earth and the birds of the sky rejoice, leaping and celebrating on the day of his honored festival, which came upon them, as the account will tell us as we go on."
+      "text": "The theme of this festival is full of joy on the day of our holy, Christ-bearing father Apa Pisentius,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0001.s2",
+      "source_sha256": "c3ed1bfd0475a381",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who is full of light, spreading a sweet fragrance at all times—not only by day, but also by night."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0002.s1",
+      "source_sha256": "483f1756b3f244c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "All the animals of the earth and the birds of the sky rejoice, leaping and exulting on the day of his honored festival,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0002.s2",
+      "source_sha256": "f662e897e5c6470b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which has come upon them, as the account will tell us as we proceed."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0003",
@@ -47,11 +74,18 @@
       "text": "I swore to remain silent and not speak of your achievements, because you have fled from human glory ever since you became a monk, before you became a bishop."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0004",
-      "source_sha256": "d428ca1570db44a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0004.s1",
+      "source_sha256": "929c9bfbe95c02de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And truly, when we all gather together, one person has a prophecy, another has knowledge, another has discernment, and another has a revelation, so that all these things may serve to build us up."
+      "text": "And truly, if we all gather together, each one having a prophecy, another having knowledge,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0004.s2",
+      "source_sha256": "7a0fe54f89ccdeba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "another discernment, and another a revelation, so that all may be built up—"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0005",
@@ -306,11 +340,18 @@
       "text": "When they came to him, they heard him reciting the words of holy Jeremiah with great calm and diligence."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0041",
-      "source_sha256": "028a799de5eaba13",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0041.s1",
+      "source_sha256": "fd9173bd804cd159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They sat outside his dwelling for a little while, saying, “It is neither right nor fitting for us to call in to the holy man until he has finished meditating and praying.”"
+      "text": "they sat outside his dwelling for a little while, saying, “It is not right, nor is it fitting"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0041.s2",
+      "source_sha256": "a404c6e061825a17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for us to call in to the holy man until he has finished meditating and praying.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0042",
@@ -530,11 +571,18 @@
       "text": "By an opportunity provided by God, when he pulled the door’s bolt, he called inside according to the brothers’ rule, “Bless me.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0073",
-      "source_sha256": "4b403bab0366381e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0073.s1",
+      "source_sha256": "a26bfb82c0404a20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For on that day it had so happened that the holy Father Elijah the Tishbite, of Mount Carmel, was beside him, visiting him. He had been sent by God to comfort him with his words."
+      "text": "For on that day, [?], the holy Apa Elijah the Tishbite, from Mount Carmel, was beside him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0073.s2",
+      "source_sha256": "1c9875a8188d027a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "visiting him, for he had been sent by God to comfort him with his words."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0074",
@@ -803,11 +851,25 @@
       "text": "I beg you, my God-loving brother, do not reveal this mystery to anyone until the day of my death, so that you do not cause me grief."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0112",
-      "source_sha256": "1493d1d341fec217",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0112.s1",
+      "source_sha256": "ad0f1908fddefbb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the brother heard these things, he felt great joy and comfort. He did not reveal the mystery to anyone until the day when the God-loving clergy of the Christ-loving city of Coptos took hold of the man who was truly worthy of the office of bishop, intending to bring him to the holy patriarch Apa Damian, the archbishop, so that he would ordain him as bishop."
+      "text": "When the brother heard these things, he felt great joy and comfort."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0112.s2",
+      "source_sha256": "f0d4e6269cac440e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And he did not reveal the mystery to anyone until the day when the God-loving clergy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0112.s3",
+      "source_sha256": "75e5f4cfa904d49a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of the Christ-loving city of Coptos seized the man truly worthy of the episcopate, intending to take him to the holy patriarch Apa Damian, the archbishop, so that he might ordain him bishop."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0113",
@@ -831,11 +893,18 @@
       "text": "If not, listen to the Scriptures inspired by God. They will open your eyes as they should, and in accordance with the statements we have made"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0116",
-      "source_sha256": "595d67029e39aa8f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0116.s1",
+      "source_sha256": "4d3dc6e691ebc4c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "about our lord and father, the bishop Apa Pisenthius, whom God revealed in our times as a protector not only of our district, but of the whole land of the Orthodox Christians."
+      "text": "Concerning our lord and father, the bishop Apa Pisentius,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0116.s2",
+      "source_sha256": "2e6ac673bd3c688e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whom God revealed in our times as a protector not only of our district, but of the whole land of orthodox Christians."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0117",
@@ -859,11 +928,18 @@
       "text": "“Look, your brother is angry with you because of the blessing with which Isaac, your father, blessed you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0120",
-      "source_sha256": "0e4c8f2a1ec64a55",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0120.s1",
+      "source_sha256": "f7744430fceef150",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“Now get up and go to Mesopotamia in Syria, to my brother Laban, and stay with him until your brother’s furious anger turns away from you, lest I lose both of you together in a single day.”"
+      "text": "“Now then, get up and go to Mesopotamia in Syria, to my brother Laban, and stay with him until your brother’s furious anger"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0120.s2",
+      "source_sha256": "83ad33d5a2e73f23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "turns away from you, lest I be bereaved of you both on a single day, all at once.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0121",
@@ -957,11 +1033,18 @@
       "text": "Then Jacob returned with his two wives, Leah and Rachel, and their children and livestock."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0134",
-      "source_sha256": "58dfec0e33246102",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0134.s1",
+      "source_sha256": "a9c90c8d367b8b7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When he reached the river to cross it, according to the words of holy Genesis written by the holy author Moses, he said, “A man encountered him and wrestled with him until dawn.”"
+      "text": "When he reached the river to cross it, according to the words of holy Genesis, which the holy writer Moses wrote,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0134.s2",
+      "source_sha256": "a292642d857bcf99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he said, “A man grappled with him and wrestled with him until dawn.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0135",
@@ -1048,11 +1131,18 @@
       "text": "But we too, my beloved, ought to do so."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0147",
-      "source_sha256": "5a0ac3aefaed01c8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0147.s1",
+      "source_sha256": "800d4d0443d268b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If God deigned to come down into the world and spoke with his creation to establish the salvation of their souls, how much more will he send his saints to comfort them in their sufferings?"
+      "text": "If God deemed him worthy, came down into the world, and spoke with his own creation to establish"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0147.s2",
+      "source_sha256": "8a6017aa7d372bd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the salvation of their souls, how much more will he send his saints to comfort them in their sufferings!"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0148",
@@ -1153,11 +1243,18 @@
       "text": "He spoke with her, saying, “Your faith has saved you. Go in peace.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0162",
-      "source_sha256": "01ae53c0ab0fbc07",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0162.s1",
+      "source_sha256": "f734d71365eeedd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He also spoke with the disciples: “If you have faith the size of a mustard seed, you will say to this mountain, ‘Move from this place to that one,’ and it will move, and nothing will be impossible for you.”"
+      "text": "He also spoke to the disciples, saying, “If you have faith"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0162.s2",
+      "source_sha256": "386ea5ad117ce212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the size of a mustard seed, you will say to this mountain, ‘Move from here to there,’ and it will move, and nothing will be impossible for you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0163",
@@ -1167,11 +1264,18 @@
       "text": "And again: “You will say to this mulberry tree, ‘Be uprooted and planted in the sea,’ and it will obey you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0164",
-      "source_sha256": "29002616049202c7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0164.s1",
+      "source_sha256": "b73b823bee2b431b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They also said about the holy Apa Pisentios himself that, when he was young and tending his father’s sheep, God opened his eyes, and he saw a pillar of fire before him."
+      "text": "They also said about the holy Apa Pisentius that it happened when he was a child,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0164.s2",
+      "source_sha256": "28f428fbabb37f4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while he was tending his father’s sheep, that God opened his eyes, and he saw a pillar of fire before him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0165",
@@ -1216,11 +1320,18 @@
       "text": "You see, then, my beloved, that when God chose Moses from his childhood, he spoke with him from a pillar of fire, from the bush."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0171",
-      "source_sha256": "96006ea27e5417fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0171.s1",
+      "source_sha256": "77ea121310a82cc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As for Apa Pisentios, God came to him from his childhood, choosing him like Samuel, whom his mother gave to the Lord’s temple according to her vow. As David, the sacred psalmist, said: “Holy Moses and Aaron were among his priests, and Samuel among those who call upon his name.”"
+      "text": "As for Apa Pisentius, God had come to him from his childhood, choosing him like Samuel, whose mother gave him, according to her vow, to the temple"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0171.s2",
+      "source_sha256": "5159eb7a39f40bd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of the Lord, just as the sacred psalmist David said: “Moses is holy, and Aaron is among his priests, and Samuel among those who call on his name.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0172",
@@ -1237,11 +1348,18 @@
       "text": "There was also a brother on the mountain of Tsenti who was very ill. His body had wasted away because his illness had lasted so long."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0174",
-      "source_sha256": "68006e0d7751cdcf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0174.s1",
+      "source_sha256": "34a4d09b11bc3b79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "One day he longed for a little fish. He said to the holy Apa Pisentios, who was still a monk at that time and had not yet become a bishop, “I long for a little fish, but I have not found any.”"
+      "text": "One day he longed for a little fish and told the holy Apa Pisentius,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0174.s2",
+      "source_sha256": "5f92f36865698636",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who was still a monk at that time and had not yet become a bishop, “I long for a little fish, but I have not found any.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0175",
@@ -1293,18 +1411,32 @@
       "text": "He saw a large fish swimming in the water and wriggling."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0182",
-      "source_sha256": "73f911e0c39014b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0182.s1",
+      "source_sha256": "dc7a9a4629cd660b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, this great wonder of God! Instead of the blessed Apa Pisentios going out into the water and pulling the fish to the bank, the floodwater and the water of the canals drew it along and brought it to that place."
+      "text": "Oh, this great miracle of God! Instead of the blessed Apa Pisentius going out into the water and dragging the fish to the bank,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0183",
-      "source_sha256": "bc09ca70ce280058",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0182.s2",
+      "source_sha256": "619f33c8b75c4828",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He was still about to fill his pitcher with water, as he told us with his own mouth, bearing witness to us. So he took the fish and gave it to the brother, saying to him, “God has fulfilled your request.”"
+      "text": "the water of [?] and the water of the canals swept it along and brought it to that place,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0183.s1",
+      "source_sha256": "113bdafa7f7db487",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while he was still about to fill his jar with water, as he told us with his own mouth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0183.s2",
+      "source_sha256": "ba05b36b272c977c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "testifying to us. So he took it and gave it to the brother, saying to him, “God has fulfilled your request.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0184",
@@ -1391,11 +1523,18 @@
       "text": "The Lord said to Moses, “I have heard your grumbling—the grumbling of the children of Israel that they directed against you."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0196",
-      "source_sha256": "2cd5952fb7ae5fe8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0196.s1",
+      "source_sha256": "82182155880d10b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Command the children of Israel, saying, ‘Prepare yourselves for tomorrow, and you will eat meat. You will eat not for two days, nor for three, nor for ten days, but for a whole month, until it comes out of your nostrils.’”"
+      "text": "“Give orders to the children of Israel, saying, ‘Prepare yourselves for tomorrow, and you will eat meat.’ It will not be for two days,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0196.s2",
+      "source_sha256": "17e22ceba02d5092",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "nor for three, nor for ten days: you will eat for a whole month, until it comes out of your nostrils.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0197",
@@ -1426,11 +1565,18 @@
       "text": "Likewise, the lawgiver of the new covenant, Apa Pisentios,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0201",
-      "source_sha256": "926c00a90de54ccb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0201.s1",
+      "source_sha256": "0213b91592833cea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "the moment he pleaded with the Lord on behalf of the brother who was a monk, the Lord did not cause him sorrow, but fulfilled his request, as it is written in the Psalms: “May the Lord fulfill all your requests.”"
+      "text": "As soon as he pleaded with the Lord on behalf of the brother who was a monk, he did not cause him sorrow."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0201.s2",
+      "source_sha256": "0899b40fcab2cba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, he fulfilled his request, as it is written in the Psalms: “May the Lord fulfill all your requests.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0202",
@@ -1454,11 +1600,18 @@
       "text": "When he went to the well, he forgot the rope and the bucket and did not take them with him."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0205",
-      "source_sha256": "5b079295dc6d9822",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0205.s1",
+      "source_sha256": "b1589a085612e1cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When he stood beside the well, he prayed to the Lord according to the brothers’ custom and said, “Lord, you know that I do not have the strength to return to the monastery again to get the rope."
+      "text": "When he stood at the well, he prayed to the Lord according to the custom of the brothers,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0205.s2",
+      "source_sha256": "adf3b2035b628510",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and said, “Lord, you know that I cannot return to the monastery again to get the rope.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0206",
@@ -1524,11 +1677,18 @@
       "text": "He who spoke to the rock, and it poured out streams of water."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0215",
-      "source_sha256": "f85716e2bc179f1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0215.s1",
+      "source_sha256": "66a0463057e60ea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You too, O holy one, your prayer rose to the vault of heaven. The scripture was fulfilled which says, “He is the one who spoke, and they came into being; he is the one who commanded, and they were created.”"
+      "text": "You too, O holy one, your prayer rose to the vault of heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0215.s2",
+      "source_sha256": "489eefd011a49f7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The scripture was fulfilled which says, “He spoke, and they came into being; he commanded, and they were created.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0216",
@@ -1552,11 +1712,18 @@
       "text": "God entrusted you with a multitude of souls."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0219",
-      "source_sha256": "80f56cacb8132ff5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0219.s1",
+      "source_sha256": "9377558f3b397ac4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You preached the good news like Paul, and you proclaimed it with your wisdom in the orthodox faith. You raised your voice in your discourses like a herald, calling out with your wisdom like a trumpet."
+      "text": "You proclaimed the good news like Paul, and you preached with your wisdom in the orthodox faith."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0219.s2",
+      "source_sha256": "c7b4087931f07766",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And you raised your voice in your discourses like a herald, crying out in your wisdom like a trumpet."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0220",
@@ -1636,11 +1803,18 @@
       "text": "You sought pasture and a good grazing place. For this reason, you also cared for the poor at all times."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0231",
-      "source_sha256": "0174c8af56807bb5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0231.s1",
+      "source_sha256": "3e2f8c6eeecd589d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You grasped the benefits of serving God. For this reason, you became a navigator on the sea of the holy mysteries, and holy like the three young men."
+      "text": "You took hold of the rudders of devotion to God. Therefore you became a pilot on the sea"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0231.s2",
+      "source_sha256": "42747b11d750230a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of the holy and sacred mysteries, like the three young children."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0232",
@@ -1797,11 +1971,18 @@
       "text": "He said to us, “One day we saw a fire blazing in his house. We said to one another, ‘Why would little Pisenthius be lighting a fire at these hours?’”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0254",
-      "source_sha256": "742d6c01a1f6a4fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0254.s1",
+      "source_sha256": "8bff1c789f8605c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They went up and looked at him through the wall. They saw him standing in prayer, with his hands stretched upward toward heaven. His ten fingers were like ten fiery lamps, shining very brightly."
+      "text": "They climbed up and looked at him over the wall. They saw him standing in prayer, with his hands stretched out toward heaven,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0254.s2",
+      "source_sha256": "fa06071e3754ce7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his ten fingers were like ten flaming torches, shining very brightly."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0255",
@@ -1811,11 +1992,18 @@
       "text": "But when God called him to this ordination to the priesthood, of which he was worthy, he went and hid himself because he understood its weight."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0256",
-      "source_sha256": "ef407f566b02d726",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0256.s1",
+      "source_sha256": "af0038d22a58351b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the God-loving clergy sought him to seat him on the throne of the high priesthood, of which he was truly worthy, they searched for him and found him hiding in the region of Jeme."
+      "text": "When the God-loving clergy asked him to take his seat on the throne of the high priesthood,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0256.s2",
+      "source_sha256": "756b808f36585e4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is what he truly deserves. They searched for him and found him hiding in the region of Jeme."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0257",
@@ -1846,11 +2034,18 @@
       "text": "He did not pursue honor; rather, honor pursued him. Those who seized him testified to us, saying, “He acknowledged it to us with his own mouth.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0261",
-      "source_sha256": "045d3d1921827f2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0261.s1",
+      "source_sha256": "5d9487fd8cb6aa0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“Except that I must not disobey the one who sends me to this, even if you cut off my head or throw me into the sea, I will not obey you and abandon this quiet that God loves.”"
+      "text": "“Rather than disobey the one who sent me—even if you cut off my head"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0261.s2",
+      "source_sha256": "5889b8fffd7c02ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or throw me into the sea, I will not obey you and abandon Peschrat, which God loves.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0262",
@@ -1874,11 +2069,18 @@
       "text": "They consulted with one another, saying, “Let us send word to the holy Apa Colluthus, a great man. He will reveal the matter to him and will not hide the affair from him.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0265",
-      "source_sha256": "cf78ac1886fd1520",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0265.s1",
+      "source_sha256": "49e5b3e3468381db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Then they went to the holy Apa Colluthus and said to him, “Our father, when we took our father Apa Pisenthius to ordain him as bishop, he did not want to undertake the ministry to which he had been appointed.”"
+      "text": "Then they went to the holy Apa Colluthus and said to him, “Our father, when we brought our father Apa Pisentius"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0265.s2",
+      "source_sha256": "273ce8e8925680a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to ordain him as bishop, he refused to undertake the ministry to which he had been appointed.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0266",
@@ -1916,18 +2118,32 @@
       "text": "For this matter is extraordinary.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0271",
-      "source_sha256": "f52567b7d0a53304",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0271.s1",
+      "source_sha256": "1419952034547614",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Then the holy Apa Colluthus asked him, “The God-loving clergy said, ‘Your Holiness said openly, “I will not disobey the one who sent me, for it is not my wish to hold an office of this kind.”’"
+      "text": "The holy Apa Colluthus asked him, “The God-loving clergy said"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0272",
-      "source_sha256": "e65304da491625b1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0271.s2",
+      "source_sha256": "628f6e0ae441e684",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Who, then, is it?” The holy Apa Pisentius answered, “Before the clergy came in to my humble self, I dozed for a little while. A voice came to me three times, saying, ‘Pisentius, Pisentius, Pisentius!"
+      "text": "that Your Holiness said, ‘Rather than disobey the one who sent me, for it is not my wish to hold this sort of office.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0272.s1",
+      "source_sha256": "9977dd2034935966",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Who, then, is he?” The holy Apa Pisentius answered, “Before the clergy came in to my lowly self,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0272.s2",
+      "source_sha256": "87048b0694894aa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I dozed off for a little while, and a voice came to me three times: ‘Pisentius! Pisentius! Pisentius!’”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.000.0273",
@@ -1972,11 +2188,18 @@
       "text": "You have therefore understood, my beloved, that these words of the wise Paul are true, when he says, “No one takes the honor for himself, but he is called by God,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0004",
-      "source_sha256": "d70db388089c49df",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0004.s1",
+      "source_sha256": "0e5b40af64cb35d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "just as Aaron was.” So too Christ did not glorify himself alone to become high priest, but it was the one who spoke to him, saying, “I have begotten you today,” and again, “You are a priest forever according to the order of Melchizedek.”"
+      "text": "As with Aaron, so it was with Christ: he did not give himself the honor of becoming high priest."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0004.s2",
+      "source_sha256": "9c7a703ab9693d16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Rather, it was the one who spoke to him, saying, “Today I have fathered you,” and again, “You are a priest forever according to the order of Melchizedek.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0005",
@@ -2014,18 +2237,32 @@
       "text": "You also know that, before today, he made do with the small offering given to him to distribute alms in every city and village, as far south as Syene."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0010",
-      "source_sha256": "c9851d88a9aa977e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0010.s1",
+      "source_sha256": "2fa2e97e77daec97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Whatever was brought to him each year according to the canons of the apostles, he would secretly send to God-fearing people in every city and village, so that they could give it to the poor during the winter, when the poor lack bread. He never forgot any poor person, as you know."
+      "text": "What was brought to him each year according to the canons of the apostles, he would secretly send to God-fearing people in each city"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0011",
-      "source_sha256": "40534652e93e975d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0010.s2",
+      "source_sha256": "d0627f138f434c02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "After some time, while our holy father Apa Pisentius was tending his flock with great care, he sent a letter to all the people of the district of Coptos, exhorting them: “Stop committing these great and grievous sins, as we have been informed,"
+      "text": "and each village, for them to give to the poor during the winter, when the poor lack bread. He never forgot any poor person, as you know."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0011.s1",
+      "source_sha256": "045400a89b5c70a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After some time, while our holy father Apa Pisentius was tending his flock with great care,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0011.s2",
+      "source_sha256": "51639d7bbe8a9cb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he sent a letter to all the people of the district of Coptos, admonishing them: “Stop committing these great and grievous sins of which we have been informed."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0012",
@@ -2063,11 +2300,18 @@
       "text": "He will afflict you with sufferings like the plagues of Pharaoh in former times, until he throws all ten of them into the sea and his memory openly perishes."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0017",
-      "source_sha256": "337c84da2df2df61",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0017.s1",
+      "source_sha256": "e0e00d683655e290",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Therefore let repentance remain constantly with you in your dwellings at all times. Let there be sighs in your hearts, and let fasting increase upon your lips at all times.”"
+      "text": "Therefore, let repentance remain firmly with you in your dwellings at all times,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0017.s2",
+      "source_sha256": "5dbf452380cf9c3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and [?] be in your hearts, and let fasting increase in your mouth at all times."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0018",
@@ -2161,11 +2405,18 @@
       "text": "Now he is comforted here, while you are tormented. You did not show mercy; will mercy be shown to you? You had no compassion for the poor man."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0031",
-      "source_sha256": "19a0acb4029cdfad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0031.s1",
+      "source_sha256": "d04e0967b0fe1892",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You lived luxuriously on birds, [?], and other animals, eating the produce of your land alone, with insatiable appetite and inhumanity, drinking choice wine from bowls."
+      "text": "You grow fat on geese, ducks, and other animals, consuming your earthly provisions all by yourself,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0031.s2",
+      "source_sha256": "d3965f2d80172cf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with insatiable greed and inhumanity, drinking choice wine from bowls.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0032",
@@ -2231,25 +2482,46 @@
       "text": "Rather, let us appeal to him to provide us with the material needed to deliver this praise, according to the measure of our lowliness."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0041",
-      "source_sha256": "25543c3e308dd531",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0041.s1",
+      "source_sha256": "c2640d4a6b0d6524",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We are not capable of reaching the height of his virtues. O good ascetic, adorned with the virtues of the Holy Spirit, with righteous deeds and all the commandments that are full of life!"
+      "text": "We are not capable of reaching the height of his virtues. O good ascetic,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0042",
-      "source_sha256": "6f3cf5c00ddf73bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0041.s2",
+      "source_sha256": "fe9d057b54d10726",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Truly, even if I became entirely a tongue, I would not be able to honor you according to one ten-thousandth of your virtues. Even the little that we have managed to deposit in the treasury was prepared for us by your grace."
+      "text": "you who are also adorned with the virtues of the Holy Spirit, the man of all the life-filled ordinances and commandments!"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0043",
-      "source_sha256": "1edd6b1cecd91b67",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0042.s1",
+      "source_sha256": "aa260046bc51dcb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For we know that you have no need of our feeble tongue to speak a few words of praise to you, because your citizenship is in heaven, according to the words of Paul's sweet-smelling tongue: “But our citizenship is in heaven, the place from which we wait expectantly.”"
+      "text": "Truly, even if I became entirely a tongue, I would not be able to honor you for one ten-thousandth of your virtues."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0042.s2",
+      "source_sha256": "5d81295b5fc919b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Even the little that we have been able to deposit in the treasury was provided for us by your grace."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0043.s1",
+      "source_sha256": "a1377c5ade31c4c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For we know that you do not need our feeble tongue to address a few words of praise to you, because your citizenship"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0043.s2",
+      "source_sha256": "7539b1083f58fbad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "is in heaven, according to the words of the sweet-scented tongue, Paul: “But our citizenship is in heaven, from where we await.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0044",
@@ -2259,11 +2531,18 @@
       "text": "Nevertheless, let us say a few things about the saint, to the glory of God."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0045",
-      "source_sha256": "1068fcb19f3c521b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0045.s1",
+      "source_sha256": "4321458c88bda607",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now, at the time when God brought the Persian nation against us because of our sins, Apa Pesynthius went to the mountain of Jeme and hid there because of the Persians."
+      "text": "Now it happened at the time when God brought the Persian nation against us because of our sins,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0045.s2",
+      "source_sha256": "0219a4eff776cbfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that Apa Pisentius went to the mountain of Djeme and hid there because of the Persians."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0046",
@@ -2287,11 +2566,25 @@
       "text": "I took some water containers and put them in the place where we were hiding, so that we would have them available for our needs throughout all the days we would spend in hiding."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0049",
-      "source_sha256": "346915ee6981aced",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0049.s1",
+      "source_sha256": "ab81ba46ce504882",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Pay close attention to the account, so that you may marvel and give glory to God, who performs these great wonders through his holy ones, just as God did for the children of Israel in former times through Moses. He said to him, “Raise your staff and strike the rock, and it will pour out water for the people to drink.”"
+      "text": "Pay close attention to this account, so that you may marvel and give glory to God, who performs these great wonders"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0049.s2",
+      "source_sha256": "7afb59f61d0309b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through his saints, just as God did for the children of Israel in former times through Moses,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0049.s3",
+      "source_sha256": "c72c5a728988039b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when he told him, “Lift up your staff and strike the rock, so that it may pour out water and the people may drink.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0050",
@@ -2301,11 +2594,18 @@
       "text": "That is also how it happened here."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0051",
-      "source_sha256": "ef1205e75df086e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0051.s1",
+      "source_sha256": "c7278f64bc620c49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When he went again to his hiding place, I too was walking with him. We stayed in the place where we were hidden, and we spent many days there. All the little water we had left ran out. I said to my father, “We have no more water.”"
+      "text": "When he went again to his hiding place, I too was traveling with him. We stayed in the place where we were hiding, and we spent many days there."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0051.s2",
+      "source_sha256": "0323a732ef9fe707",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "All the little water we had left ran out. I said to my father, “We have no more water.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0052",
@@ -2469,11 +2769,18 @@
       "text": "became stable, and I stopped being thirsty.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0075",
-      "source_sha256": "49362b90bf134ff5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0075.s1",
+      "source_sha256": "8d19048cf711fbd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He answered me, “If you have suffered like this for two days, then how much suffering falls upon those who are in the darkness of Hades, with the worm that never sleeps, the outer darkness, and the river of fire that flows before the true Judge, in which we will be tested!”"
+      "text": "He answered me, “If you have suffered like this for two days, then how much suffering must there be for those in the gloom"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0075.s2",
+      "source_sha256": "47d644394d5665f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of Hades, with the worm that never sleeps, the outer darkness, and the river of fire that flows before the true Judge, in which we will be tested!”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0076",
@@ -2518,11 +2825,18 @@
       "text": "Then I went and asked my father, “I found the containers full of water. Where does it come from, my lord and father?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0082",
-      "source_sha256": "dba576069015828b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0082.s1",
+      "source_sha256": "fed73775fe0d0e18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He answered me, “Be silent, my son. The one who provides food for the ravens, which neither sow nor reap nor gather into a storehouse, is the one who has provided us with this water that we need."
+      "text": "He answered me, “Be quiet, my son. The one who supplies food for the ravens, which neither sow nor reap,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0082.s2",
+      "source_sha256": "b64d1a8d42ce2b37",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "nor gather into storehouses, is the one who has supplied us with this water that we need.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0083",
@@ -2532,11 +2846,18 @@
       "text": "For whoever casts his cares upon Jesus, Jesus will take care of him wherever he goes.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0084",
-      "source_sha256": "e8ee4a6dc4751514",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0084.s1",
+      "source_sha256": "c6104dd5276eaeb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "So you have understood, my beloved, that wherever he goes, his entire hope is Jesus, as he remembers what is written in Jeremiah the prophet: “Cursed is the person whose hope rests upon a human being.”"
+      "text": "You see, then, my beloved, that wherever he goes, all his hope is in Jesus, as he remembers what is written"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0084.s2",
+      "source_sha256": "ad61f92a537dfc5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in Jeremiah the prophet: “Cursed is the person whose hope rests on a human being.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0085",
@@ -2581,11 +2902,18 @@
       "text": "I will compare you to Abel, who became the beginning of devotion to God and of the high priesthood of God, being the first to offer up his sacrifices and his offerings."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0091",
-      "source_sha256": "9c6a2aedd57c40b2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0091.s1",
+      "source_sha256": "13456f7668ca204c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Therefore I will call your holy fatherhood blessed, because you became a father to orphans, and the widow’s mouth blessed you, O holy bishop Apa Pisenthius."
+      "text": "Therefore I will call your holy fatherhood blessed, because you have become a father to orphans."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0091.s2",
+      "source_sha256": "692f7098ff73a77e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And the widow’s mouth has blessed you, O holy bishop Apa Pisentius."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0092",
@@ -3064,11 +3392,18 @@
       "text": "I shall compare you to Joseph, to whom God gave the key to the kingdom."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0160",
-      "source_sha256": "b5f77c060920f290",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0160.s1",
+      "source_sha256": "aa4d1e46cce1d45c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I shall compare you to Samuel, who [?] the gifts of the high priesthood. I shall compare you to Samuel, who became a priest, to whom God gave the promise of the priesthood from his childhood, and also the gift of prophecy."
+      "text": "I will compare you to Samuel, who [?] the gifts of the high priesthood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0160.s2",
+      "source_sha256": "e0ca0c410b13eba0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will compare you to Samuel, who became a priest, God having given him the promise of the priesthood from his childhood, and also the gift of prophecy."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0161",
@@ -3162,11 +3497,18 @@
       "text": "O blessed is the womb that bore you!"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0174",
-      "source_sha256": "88186c4600c7befe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0174.s1",
+      "source_sha256": "5b7ffa93af15e8d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If, then, I wish to recount all your accomplishments, I enlist scribes, like Moses the lawgiver and maker of laws, until I reveal your mighty deeds, O perfect saint, Apa Pisentios."
+      "text": "If, then, I wish to recount all your achievements, I enlist scribes to help me, like Moses the lawgiver"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0174.s2",
+      "source_sha256": "3f0eb919e4477f84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and establisher of the law, until I reveal your mighty deeds, O holy and perfect Apa Pisentius."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0175",
@@ -3190,18 +3532,46 @@
       "text": "Who is as fit for the throne of the priesthood as you?"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0178",
-      "source_sha256": "8a6217f115701181",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0178.s1",
+      "source_sha256": "20029de2003f7317",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As for your wondrous mighty deeds, no one can comprehend them fully and recount them with ease. But what we have seen with our eyes and heard with our ears [?] an account of one of his mighty deeds—this is what we will recount now."
+      "text": "No one can fully comprehend your wondrous mighty deeds so as to recount them easily. But the things we have seen with our eyes"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0179",
-      "source_sha256": "339f177c855576e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0178.s2",
+      "source_sha256": "7cfe373d16e799c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For you God-loving children know that when the days of the forty-day Paschal observance draw near, the holy archbishops of Alexandria send a proclamation south throughout Egypt, informing the bishops, the clergy, and all the orthodox people: \"Prepare yourselves, for the days of the Paschal observance have drawn near.\" It also states on which day of which month you are to begin the holy forty days, and at what hour you are to end them."
+      "text": "and heard with our ears, O lovers of the word—this is one of his mighty deeds that we will recount now."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0179.s1",
+      "source_sha256": "1fdac6e838fdfd09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For, my God-loving children, you know that when the days of the Paschal observance"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0179.s2",
+      "source_sha256": "eb763e978a94527b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of forty days draw near, the holy archbishops of Alexandria send a proclamation southward throughout all Egypt,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0179.s3",
+      "source_sha256": "0e6d1adf0fdffde7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "notifying the bishops, the clergy, and all the orthodox people: “Prepare yourselves, for the days of Easter have drawn near.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0179.s4",
+      "source_sha256": "fda997fb56682e08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And: “You are to begin the holy forty days on such-and-such a day of such-and-such a month, and you are to break the fast at such-and-such an hour.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0180",
@@ -3239,11 +3609,18 @@
       "text": "A man belonging to our district, a shepherd who tended his sheep, came to him that day to receive a blessing from him."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0185",
-      "source_sha256": "7d29b62f9a268855",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0185.s1",
+      "source_sha256": "4e70c20438f1f5aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "At an opportune moment provided by God, the shepherd went inside after finding the door open. He bowed down at Apa Pisenthius's feet while the patriarch's clergy were beside him."
+      "text": "At a favorable time appointed by God, the shepherd went inside after finding the door open."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0185.s2",
+      "source_sha256": "b055673941030dd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He fell down at the feet of Apa Pisenthius, while the patriarch’s clergy were beside him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0186",
@@ -3351,11 +3728,18 @@
       "text": "I very nearly fell flat on my face.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0201",
-      "source_sha256": "3afbea6c24732472",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0201.s1",
+      "source_sha256": "6059989d5d8934c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "That shepherd had brought some cheeses in a basket. He said to me, “Please take these few cheeses from me and distribute them to these people beside you. Since I have brought them, do not grieve me.”"
+      "text": "That shepherd had brought some cheeses in a basket."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0201.s2",
+      "source_sha256": "1cba3af1147d5aee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He said to me, “Please take these little cheeses from me and distribute them to these men beside you. Since I have brought them, do not disappoint me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0202",
@@ -3421,11 +3805,18 @@
       "text": "When he looked at them, he said to me, “Bring me a platter here.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0211",
-      "source_sha256": "48481b7a97b58c0e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0211.s1",
+      "source_sha256": "1a48c1f7badd4cab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He then told this riddle: “A man today has his eyes open, with no darkness coming from them, yet he covers his eyes day and night and walks like a blind man, although his eyes have light."
+      "text": "And he spoke this riddle, saying, “A man today has his eyes open, with no darkness coming out of them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0211.s2",
+      "source_sha256": "0fa43b1ab6ffe925",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "yet he covers his eyes by day and by night and walks like a blind man, even though his eyes are bright.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0212",
@@ -3519,11 +3910,18 @@
       "text": "He answered, saying, “Do not let the sinner’s oil anoint my head."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0225",
-      "source_sha256": "ccf8965686b2dba5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0225.s1",
+      "source_sha256": "ecd1a5d0494a95ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Paul, the voice of the good news, also says in his letter to the Corinthians, ‘I wrote to you in the letter not to associate with sexually immoral people.’ And again, ‘This [?], if he is sexually immoral, do not eat with him.’"
+      "text": "Paul too, the tongue of the good news, says in his letter to the Corinthians, “I wrote to you in the letter,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0225.s2",
+      "source_sha256": "59ef0e82bf2e6e9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘Do not associate with sexually immoral people.’ And again, ‘This [?]: if he is sexually immoral, do not eat with him.’”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.001.0226",
@@ -3729,11 +4127,18 @@
       "text": "You see, then, my beloved friends, that he knew about everything that happened. Wherever he was, he knew about what happened."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0015",
-      "source_sha256": "a4db26e6c8d3ee7d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0015.s1",
+      "source_sha256": "7b918cafeb285bab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But he kept himself hidden through his way of life. He did not want to receive honor from people, just as the wise Paul said, “I do not seek glory from people, either from you or from others.”"
+      "text": "But he concealed himself through his way of life, for he did not want to receive human glory."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0015.s2",
+      "source_sha256": "b307af0af6640aa9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As the wise Paul said, “I do not seek glory from people, either from you or from others.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0016",
@@ -3743,11 +4148,18 @@
       "text": "If I wished to tell you all the deeds we witnessed through the blessed elder Apa Pisentius, the account would become very long."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0017",
-      "source_sha256": "57d272e4c5ef598e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0017.s1",
+      "source_sha256": "867d469b8ce68b27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But since Scripture writes to us, “It is good to make God's works known to everyone,” I will tell you a few things out of many about the virtues of this perfect man. After that, we will bring the account to an end."
+      "text": "But since Scripture writes to us, “It is good to reveal the works of God to everyone,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0017.s2",
+      "source_sha256": "70a8381d1ac07926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will tell you a few things out of many about the virtues of this perfect man. After that, we will bring the discourse to an end."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0018",
@@ -3834,11 +4246,18 @@
       "text": "Indeed, I will not allow him to join in worship until he marries her."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0030",
-      "source_sha256": "1aedf7033cc46b0b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0030.s1",
+      "source_sha256": "439a5c674e78d0d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the law commands that if a man sleeps with a young woman who has not been betrothed, taking her by force, he must marry her and live with her, giving her the bride-price appropriate for virgins."
+      "text": "For the law commands, “If a man sleeps with a young woman who has not been betrothed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0030.s2",
+      "source_sha256": "8869e16bc408164e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "taking her by force and having intercourse with her, he must give her the bride-price appropriate for virgins.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0031",
@@ -3869,11 +4288,25 @@
       "text": "For even if you join him to the sacred marriage and he falls into another sin, the blood of such a person will rest upon him alone."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0035",
-      "source_sha256": "6b97fa22e0f7932f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0035.s1",
+      "source_sha256": "60503a98305276ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Do not let him bring an accusation against you yourself before Christ’s judgment seat, saying, ‘My father did not find a wife for me,’ so that the entire responsibility for his sin falls upon you because you instructed him negligently, as the holy Scriptures indicate concerning Eli the priest: he instructed his sons negligently.”"
+      "text": "Do not let him bring an accusation against you alone before the judgment seat of Christ,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0035.s2",
+      "source_sha256": "8bfd0e888dd82d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "saying, “My father did not get me a wife,” so that the entire share in his sin falls upon you because you instructed him carelessly, as was stated"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0035.s3",
+      "source_sha256": "02b533b21f74b874",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in the holy Scriptures about Eli the priest: he instructed his sons carelessly."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0036",
@@ -3911,11 +4344,18 @@
       "text": "Another day, our holy father Apa Pisentius, the bishop, was traveling through the villages, visiting his churches."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0041",
-      "source_sha256": "b2fb960db02855a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0041.s1",
+      "source_sha256": "258160729fcb8ee3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When he had finished visiting them and was about to return to the monastery, he passed along the road by the [?], outside the canal. A farmer brought him a cow belonging to him, so that he would make the sign of the cross over her."
+      "text": "When he had finished visiting them and was about to return to the monastery, he passed along the monastery road outside the canal. A farmer"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0041.s2",
+      "source_sha256": "e83da210d2d730fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "was bringing him a cow of his own so that he would mark it with the seal."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0042",
@@ -3960,18 +4400,39 @@
       "text": "Come, then, you whose hearts are directed toward God and the saint."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0048",
-      "source_sha256": "760a8a134634b316",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0048.s1",
+      "source_sha256": "7fc8d5838556747b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Beg him with tears and repentance, so that he may appeal to Christ to have mercy on us when we meet him. For it is a fearful thing to fall into the hands of the living God."
+      "text": "And plead with him with tears and acts of repentance,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0049",
-      "source_sha256": "c7b4ef2407026a33",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0048.s2",
+      "source_sha256": "c892dac4150ee316",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If any of you dares to question the statement that I have dared to make—that the holy bishop Apa Pisentios is Christ’s friend—let him now come to the passage in the holy Gospel according to John and listen to God crying out through the mouth of his beloved saint, John the evangelist, saying, “You are my friends if you do what I command you.”"
+      "text": "so that he may appeal to Christ to have mercy on us when we meet him. For it is terrifying to fall into the hands of the living God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0049.s1",
+      "source_sha256": "820253b3caf44588",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If any of you dares to question the statement that I have dared to make—that the holy bishop Apa Pisenthius is Christ’s friend—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0049.s2",
+      "source_sha256": "06e1a6ace9cce384",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "let him now come to the [?] of the holy Gospel according to John and listen to God crying out through the mouth of his beloved, Saint John the Evangelist,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0049.s3",
+      "source_sha256": "d6a2ceaa6e36ebe5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "saying, “You are my friends if you do what I command you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0050",
@@ -3995,11 +4456,18 @@
       "text": "“And I appointed you so that your fruit might endure, living forever.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0053",
-      "source_sha256": "e0b74aaacbafa041",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0053.s1",
+      "source_sha256": "94bd68db5cf4e9f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You understand, then, my beloved, that whoever does God’s will is his friend and his brother, just as he said in the holy Gospel: “Whoever does the will of my Father in heaven is my brother and my sister and my mother.”"
+      "text": "So you have understood, my beloved, that whoever does the will of God is his friend and his brother."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0053.s2",
+      "source_sha256": "dc9c68cdd49f1877",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As he said in the holy Gospel, “Whoever does the will of my Father in heaven is my brother and my sister and my mother.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0054",
@@ -4086,18 +4554,32 @@
       "text": "The saint made the sign of the cross over the water with his finger, in the name of the Father and the Son and the Holy Spirit."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0066",
-      "source_sha256": "787b0984ef757b5d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0066.s1",
+      "source_sha256": "e5e1804892ce34f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He gave the water to the boy’s father, saying to him, “Take your son and go home. Give him some of this holy water to drink, which I have given you from the basin in the church. Believe in Christ, and he will heal him.”"
+      "text": "He gave the water to his father, saying to him, “Take your son and go home."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0067",
-      "source_sha256": "391bdfc4e1d08bff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "My father did this so that he would not give him a drink himself with his own hands, and the demons come out immediately, and people boast about him, saying, “Apa Pisenthius has cast the demon out of so-and-so’s son.” For he did not want to receive praise from people."
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0066.s2",
+      "source_sha256": "baeb889a1eaba3ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Give him some of this holy water to drink, which I gave you from the basin of the gathering, and believe in Christ, and he will heal him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0067.s1",
+      "source_sha256": "ba68164f55085101",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Our father did this so that he would not give him the drink himself with his own hands and the demon come out immediately,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0067.s2",
+      "source_sha256": "a660418b7f0552e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and people boast about him, saying, “Apa Pisentius drove the demon out of so-and-so’s son.” For he did not want to receive honor from people."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0068",
@@ -4107,11 +4589,18 @@
       "text": "When the man took his son to go home, according to what the man himself told me when he returned to us a few days later: “While I was still walking with my son,”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0069",
-      "source_sha256": "4d265deef77c167c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0069.s1",
+      "source_sha256": "bb0015cd67146efa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“when I had gone some distance away from you, the demon immediately threw him down onto the ground and made him thrash about. It cried out from within him, ‘Pisentios, are you going to drive me out of my dwelling place through the sign of the cross made by your finger?’”"
+      "text": "“But when I went away from you, the demon threw him down on the ground and immediately convulsed him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0069.s2",
+      "source_sha256": "74a9ec3b6a755790",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It cried out within him, ‘Pisentius, are you going to drive me out of my dwelling place through the seal of your finger?’”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0070",
@@ -4156,11 +4645,18 @@
       "text": "He answered, “Everything is possible for the one who believes. In particular, the water of the altar heals everyone who believes."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0076",
-      "source_sha256": "62ee4366033c0bfc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0076.s1",
+      "source_sha256": "35a49fd5f1791f0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And do not think that this gift of healing is attributable to me. No, certainly not! Rather, it is the power of God present in his holy places for those who go to them with sincere faith and a heart without unbelief."
+      "text": "“And do not think that this gift of healing belongs to me. No, certainly not!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0076.s2",
+      "source_sha256": "a970951be5651f4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Rather, it is the power of God that is present in his holy places for those who go to them with sincere faith and a heart without unbelief.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0077",
@@ -4219,11 +4715,18 @@
       "text": "His father and mother made every effort, but they could not persuade the man to live with her."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0085",
-      "source_sha256": "72c71d9184d6e55c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0085.s1",
+      "source_sha256": "1c8fc265513cbfbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As the wise Solomon said, “Her husband’s heart is full of jealousy.” Not to prolong the account further, word reached the clergy of his village, and they barred him from receiving the holy mysteries."
+      "text": "As the wise Solomon said, “The husband’s heart is full of jealousy.” Let us not prolong the discussion any further."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0085.s2",
+      "source_sha256": "bd45965868e31f03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then the report reached the ears of the clergy of his village, and they excluded him from communion in the holy mysteries."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0086",
@@ -4569,11 +5072,18 @@
       "text": "But if you want to put her under oath, I do not forbid you, for God's law commanded this:"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0135",
-      "source_sha256": "605771981b9e6851",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0135.s1",
+      "source_sha256": "b0b27bed737403cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "‘If a man's wife transgresses, and he neglects her through forgetfulness, and someone sleeps with her, having sexual intercourse with her, and she conceals it from her husband so that he does not know about her, and she has not conceived, and no witnesses stand against her, they shall bring her before the priest. He shall put her under oath and give her the water of the curse to drink.’"
+      "text": "“If a man’s wife transgresses, and he neglects to watch over her, and someone sleeps with her, having sexual intercourse with her, and she conceals it from her husband,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0135.s2",
+      "source_sha256": "8d6b849ac7d1a11b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and he does not know about her, and she has not become pregnant, and there are no witnesses testifying against her, they are to bring her before the priest. He is to put her under oath and give her the water of the curse to drink.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0136",
@@ -4639,11 +5149,18 @@
       "text": "He stayed with her from that day until the day of his death."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0145",
-      "source_sha256": "efdd625df1dc7f61",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0145.s1",
+      "source_sha256": "1806a24f54834b24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The holy man performed three interconnected miracles: the woman whom he saved from the false accusation made against her; the man whom he set free; and her husband's heart, which he purified of the schemes of the one whose power is over the [?] within him, namely Satan."
+      "text": "The holy man performed three miracles, each greater than the other. These were: the woman whom he saved from the false accusation they had devised against her,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0145.s2",
+      "source_sha256": "b383169aa31add03",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the man whom he set free, and her husband’s heart, which he cleansed of the deceit of the one whose power rests upon the navel of his belly, namely Satan."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0146",
@@ -4674,18 +5191,32 @@
       "text": "As for those that happened through your hands after you became a bishop—those concerning which you give orders and do not want anyone to know—no one can reach the end of them."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0150",
-      "source_sha256": "09bec8ea1d7d7b96",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0150.s1",
+      "source_sha256": "73894754bed9ef86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But do not let the soul of that blessed man find fault with me because I have spoken these few words of praise about him. And I think we have gone beyond the proper measure in speaking these few, very insignificant words."
+      "text": "But do not let the soul of that blessed man find fault with me because I have spoken these few words of praise about him."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0151",
-      "source_sha256": "be24fecb24044317",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0150.s2",
+      "source_sha256": "521f4121d2cb13d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But let us obey the apostle’s instruction, by which he commands us, saying, “Give everyone what you owe them: tribute to whom tribute is owed, tax to whom tax is owed, fear to whom fear is owed, and honor to whom honor is owed.”"
+      "text": "And I think that we have gone beyond measure in uttering these few insignificant words."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0151.s1",
+      "source_sha256": "dd4788746eca0035",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But let us obey the apostle’s ordinance, as he commands us, saying:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0151.s2",
+      "source_sha256": "48c2b96aeae7a7c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Give everyone what you owe them: tribute to whom tribute is due, tax to whom tax is due, respect to whom respect is due, honor to whom honor is due.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0152",
@@ -4702,11 +5233,18 @@
       "text": "Listen also to this other great wonder, and give glory to Christ."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0154",
-      "source_sha256": "d153eaa66e8f69db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0154.s1",
+      "source_sha256": "c818253cd80fd908",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It happened again that a man came to him and pleaded with him, saying, “Please be kind and help me, my [?] father, for I owe a man [?] gold coins, and they are pressing me for them."
+      "text": "It happened again that a man came to him and implored him, saying, “Please be so kind as to help me, my [?] father,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0154.s2",
+      "source_sha256": "1219380350904f77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for I owe a man a debt amounting to [?] gold solidi, and they are pressing me to repay them.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0155",
@@ -4842,18 +5380,39 @@
       "text": "and took them from him, saying, ‘I brought them to give as charity for the salvation of my soul.’”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0174",
-      "source_sha256": "b4279f07c5036fc1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0174.s1",
+      "source_sha256": "2b48b9c9b116e118",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Truly I tell you, even if they give the whole world in charity on your behalf, you will find no mercy unless your blood is shed, just as you shed your neighbor’s blood. As it is written, “Whoever sheds a person’s blood, his own blood will be shed in return, because humanity was made in the image of God.”"
+      "text": "“Truly I tell you, even if they give the whole world in charity on your behalf, you will find no mercy,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0175",
-      "source_sha256": "03d413b5c00a780a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0174.s2",
+      "source_sha256": "10c7286f591685d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the man heard these things, he was utterly astonished. He had thought that the matter would be hidden from the new Elisha, not realizing that the same Spirit speaks through the prophets and the apostles."
+      "text": "unless your blood is poured out just as you poured out your neighbor’s blood, as it is written: ‘Whoever pours out a person’s blood, his own blood will be poured out in return,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0174.s3",
+      "source_sha256": "ae6b23fa603a2b60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because humanity was made in the image of God.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0175.s1",
+      "source_sha256": "7a85b10415aa0ac6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When the man heard these things, he was utterly astonished, for he had thought that the matter would be hidden from the new Elisha."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0175.s2",
+      "source_sha256": "ee11ebcecba01205",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Nor does he understand that it is the same Spirit who speaks through the prophets and the apostles."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0176",
@@ -4863,11 +5422,18 @@
       "text": "For this God hears these things."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0177",
-      "source_sha256": "ad248d60f55b7488",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0177.s1",
+      "source_sha256": "3034b744db906c4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He left him weeping and went home deeply distressed. You now understand that I did not lie at the beginning of this eulogy when I said that the blessed Apa Pisentios, too, was a bearer of the Spirit."
+      "text": "He left him weeping and went home deeply distressed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0177.s2",
+      "source_sha256": "120ce8fa794b9e71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You have understood that I did not lie at the beginning of this tribute when I said that the blessed Apa Pisentius was himself a bearer of the Spirit."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0178",
@@ -4961,18 +5527,32 @@
       "text": "He called me and said to me, “I think God has struck down the dragon.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0191",
-      "source_sha256": "2ddd315f1105300b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0191.s1",
+      "source_sha256": "310e25d90c8e6d9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He spoke again and said, “Why do you not pay attention to the sayings of the Scriptures and understand them, as the wise David said: ‘You have made the Most High your refuge. No evil will be able to approach you,"
+      "text": "He spoke again and said, “Why do you never pay attention to the sayings of the Scriptures"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0192",
-      "source_sha256": "04c0ec5967da5d61",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0191.s2",
+      "source_sha256": "c97ff6c1029dd988",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "nor will any plague be able to approach your dwellings. You will step upon a snake and an adder, and you will trample a lion and a dragon. Because he has trusted in me, I will save him. I will shelter him because he has known my name."
+      "text": "and understand them, as the wise David said: ‘You have made the Most High your refuge. Evil will not be able to approach you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0192.s1",
+      "source_sha256": "302fa7608b2e0baf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "nor will any plague be able to approach your dwellings. You will tread on a snake and a basilisk,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0192.s2",
+      "source_sha256": "f881a353227d2c5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and trample a lion and a dragon. Because he has trusted in me, I will save him. I will shelter him because he has known my name.’”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0193",
@@ -4982,18 +5562,32 @@
       "text": "He will cry out to me, and I will hear him.’”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0194",
-      "source_sha256": "3618c023b54b0054",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0194.s1",
+      "source_sha256": "14a2f7e732a262ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When God wished to transfer him to the dwelling of those who rejoice, the place from which pain, sorrow, and sighing have fled, the dwelling of the prophets, the patriarchs, and the apostles—"
+      "text": "Now it happened, when God wished to take him away to the dwelling place of those who rejoice,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0195",
-      "source_sha256": "d86ba1b2d75d0a9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0194.s2",
+      "source_sha256": "117b809385c908c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "for he is a patriarch like Abraham, and he is an apostle like the apostles; he is an apostle and a prophet among the prophets, like Samuel and the one after him."
+      "text": "the place from which pain, sorrow, and sighing have fled, the dwelling place of the prophets, the patriarchs, and the apostles—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0195.s1",
+      "source_sha256": "f1c4bf1221a9a15d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for he is a patriarch like Abraham, and he is an apostle like the apostles;"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0195.s2",
+      "source_sha256": "8266c980314c9094",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he is an apostle and a prophet among the prophets, like Samuel and the one after him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0196",
@@ -5045,11 +5639,18 @@
       "text": "Take good care of my papers, because you will need them, and your [?], that is, the [?] there.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0203",
-      "source_sha256": "d64a8d4425eb19a1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "He turned again to Elisha the priest and said to him, “Elisha, take good care of the brothers, and hold firmly to the things I have entrusted to you. Ring the bell at the proper times, so that the brothers will say their prayers according to the cycles of the seasons and their souls will benefit through you.”"
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0203.s1",
+      "source_sha256": "b5ee06f0f7c14726",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He turned again to Elisha the priest and said to him, “Elisha, take good care of the brothers and watch over those whom I have entrusted to you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0203.s2",
+      "source_sha256": "76da906ea6c1ff55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Sound the clapper every hour so that the brothers may say their prayers according to the courses of the stars, and their souls may benefit through you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0204",
@@ -5150,18 +5751,32 @@
       "text": "When my father said these things to us, a great cry of weeping immediately arose among us, because we were going to be deprived of such a good father, one who comforted those in sorrow and offered repentance."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0218",
-      "source_sha256": "e8c6592a8a73a707",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0218.s1",
+      "source_sha256": "b2cc7e22b2c9d403",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I declare to you before the Lord that, when my father heard about the Persians, he kept none of the poor’s possessions for himself. Even the [?] beside his head—he had it taken apart and gave it as alms to the poor."
+      "text": "I declare to you before the Lord that, when my father heard about the Persian, he kept none of the poor people’s property for himself."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0219",
-      "source_sha256": "63568917dd321b8a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0218.s2",
+      "source_sha256": "e312a77163c99309",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The things he gave with his own hands, those he instructed me to give and I gave, and those he sent through trustworthy people from village to village, distributing them according to each person’s need—no one can know their full amount,"
+      "text": "Even the [?] beside his head—he had it taken apart and gave it as alms to the poor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0219.s1",
+      "source_sha256": "bf9a53e642e87682",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "What he gave with his own hands, what he instructed me to give and I gave, and what he sent through trustworthy people"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0219.s2",
+      "source_sha256": "989b8685e3aac2b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "from village to village, to be distributed according to each person’s need—no one can know the total."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0220",
@@ -5171,11 +5786,18 @@
       "text": "except God alone, who will give him glory for them all."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0221",
-      "source_sha256": "5341c2ecaf7bf44a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0221.s1",
+      "source_sha256": "81765aa819815d81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I said to my holy, Christ-bearing father, Apa Pisentios, “Perhaps, my father, you think we will not return, since this time you have left no possessions stored away for us?”"
+      "text": "I said to my holy, Christ-bearing father, Apa Pisentius, “Perhaps, my father,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0221.s2",
+      "source_sha256": "a5fa8920c63503e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you think that we will not go on living? You have left no property in reserve for us.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0222",
@@ -5206,11 +5828,18 @@
       "text": "But let us return to his laying his body down."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0226",
-      "source_sha256": "efcb422b115008d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0226.s1",
+      "source_sha256": "f97f5c0b8caa52f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For he had spent three days without eating or drinking or speaking with us or turning from one side to the other. Instead, he lay like the dead in the place of the great cell."
+      "text": "For he had spent three days without eating or drinking or speaking with us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0226.s2",
+      "source_sha256": "1811c648907eaaf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Nor had he turned from one side to the other, but he lay like the dead in the place of the large cell."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0227",
@@ -5276,11 +5905,18 @@
       "text": "until I go to Christ and break my fast in his presence."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0236",
-      "source_sha256": "7c1540f8e9d89679",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "When dawn broke on the thirteenth of Epip, he said to me, while other important men were sitting beside him, “John, you know that I have completed everything, for I have left nothing belonging to the bishopric of the city of Coptos still attached to me.”"
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0236.s1",
+      "source_sha256": "a296297ca9075fcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When dawn broke on the thirteenth of Epiph,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0236.s2",
+      "source_sha256": "5910130ca1ab6d1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he said to me, while other prominent men were sitting beside him, “Joseph, you know the full extent of my affairs: I have kept nothing belonging to the bishopric of the city of Coptos in my possession."
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0237",
@@ -5304,11 +5940,18 @@
       "text": "and have them say, ‘You have gone beyond what is proper.’"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0240",
-      "source_sha256": "90b45d6cf6cf132d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0240.s1",
+      "source_sha256": "e2075503ec2b290e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But you, Joseph, use it to buy a shroud for my body. Do not put anything else on me except the tunic they clothed me in, my monastic habit, my hood, my belt, and my cloak. Prepare my body and bury me."
+      "text": "But you, Joseph, receive my body clothed, and put nothing else on me"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0240.s2",
+      "source_sha256": "29b3fb300ac2eae2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "except the tunic in which I have been wrapped, my monastic habit, my hood, my belt, and my cloak alone. Prepare my body and bury me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0241",
@@ -5395,32 +6038,74 @@
       "text": "Written in Thoth, in the fourth indiction, in year 722 reckoned from the holy martyrs, year [?]."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0253",
-      "source_sha256": "f155c3d8567f02fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I, Victor, the least of deacons, son of the blessed Mercurius, deacon, son of the blessed Eponychus, archdeacon of Saint Mercurius the great commander, from the city of Latopolis, wrote this book. Everyone who reads the book, pray for me, so that the Lord may bring my pitiable life to a pleasing end. Amen."
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0253.s1",
+      "source_sha256": "f3dd0a4a08baea3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "I, Victor, the humblest deacon, son of the blessed Mercurius, deacon, son of the blessed Eponychus, archdeacon of Saint Mercurius the great commander, from"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0254",
-      "source_sha256": "8642e79f3bda6a6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "[?] Through the diligence and care of our God-loving brothers, who do not love charity: Michael, the archdeacon and monk, and our brother Zechariah, the second deacon and monk of Saint Mercurius the commander, on the mountain of Tbo."
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0253.s2",
+      "source_sha256": "3cb2870a3982cde7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "the city of Latopolis, wrote this book. All who read this book, pray for me, so that the Lord may guide my wretched life to become pleasing [?]. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0255",
-      "source_sha256": "c8d7e2b31a847f79",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "They prepared this book and placed it in their monastery so that it might be read for the benefit and full assurance of those who listen attentively. May the Lord Jesus Christ grant them a long life and endurance, and save them from the snares of the devil and from wicked people."
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0254.s1",
+      "source_sha256": "8ae60e796f2ab265",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Through the diligence and care of our God-loving brothers, who love charity [?], Michael the archdeacon and monk,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0256",
-      "source_sha256": "749f46d834b62d25",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "May he place blessing, abundance, and salvation in their monastery. May he preserve the life of our father, the superior, Abba Abraham, and the whole assembly of the cross-bearing brothers who live in their monastery, each one by name. May he bring their holy blessings down upon my lowliness. For when they leave the body, may they receive an inheritance with the fathers of the community: Apa Pachomius, Apa Theodore, Apa Palamon, Apa Petronius, Apa Horsiesius, and all the fathers of the community. Amen. May it be so for all of us. Amen."
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0254.s2",
+      "source_sha256": "66315cf3c7195134",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "and our brother Zechariah, the second deacon and monk of Saint Mercurius the commander, whose monastery is on the mountain of Tbo,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0255.s1",
+      "source_sha256": "d12795dd321b3e0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "they prepared this book and placed it in their monastery so that it might be read for the benefit and assurance of those who listen attentively. May the Lord Jesus Christ grant them a long life and endurance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0255.s2",
+      "source_sha256": "d4957317664e11cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "May he save them from the snares of the devil and from wicked people."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0256.s1",
+      "source_sha256": "51ba3b4fd7c27733",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "May he place blessing, abundance, and salvation in their monastery."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0256.s2",
+      "source_sha256": "aa03792e87ae6ca6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "May he preserve the life of our father, the superior, Abba Abraham, and the entire community of cross-bearing brothers who live in their monastery, each one by name."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0256.s3",
+      "source_sha256": "90bf6586f35b9bfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "May he bring their holy blessings down upon my humble self. And when they leave the body, may they receive an inheritance with the fathers of the community: Apa Pachomius"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_pisentius#CopScr.life-pisentius.002.0256.s4",
+      "source_sha256": "b71d26350a43c933",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "and Apa Theodore and Apa Palamon and Apa Petronius and Apa Horsiesius and all the fathers of the community. Amen. May it be so for us all. Amen."
     }
   ]
 }

@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -68,11 +74,18 @@
       "text": "or, even if he tells it, he will tell it in another way."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0007",
-      "source_sha256": "d6580772804e4f7a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Do not think that, just as it is a blessing to see the forms and appearance of this sword, so it is with the sword about which the prophet spoke [?], saying, “Sword, sword, be sharpened and become angry! Be sharpened to slaughter many, so that you may flash,"
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0007.s1",
+      "source_sha256": "6853731250fc4f4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "Do not think that the sword whose forms and appearance it is a blessing to see is like the sword that the prophet spoke about [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0007.s2",
+      "source_sha256": "1e30fadf63195898",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "it: “Sword, sword, be sharp and rage, so that you may slaughter victims! Be sharp so that you may flash!”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0008",
@@ -96,11 +109,18 @@
       "text": "But this sword itself is in control."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0011",
-      "source_sha256": "d53a0d312cf747c7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "As it is said, “The sword has been sharpened and is ready to be placed in the hand of the one who will strike.” But this sword itself controls the person, and the person is in its hands. It uses the person to strike those whom it strikes; the person does not strike with it. It is not the person who turns it toward the place where he wishes to strike. Rather, it is the sword itself that turns the person toward the place where it wishes to strike."
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0011.s1",
+      "source_sha256": "e7772a5330b701cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "As it is said, “The sword has been sharpened and is ready to be placed in the hand of the one who will slaughter.” But this sword itself takes hold of the person, and the person is placed in its hand. It uses the person to slaughter those it slaughters; the person does not use it to slaughter."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0011.s2",
+      "source_sha256": "4cb310481ec3ada6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "It is not the person who turns it toward the place where he wants to slaughter. Rather, it is the sword itself that turns the person toward the place where it wants to slaughter."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0012",
@@ -166,11 +186,18 @@
       "text": "This is not the occasion or the time to speak about these things,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0021",
-      "source_sha256": "8a655079427991f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "but rather to speak, in part, of the appearance or nature of the sword that revealed itself as a testimony against those who commit these abominations among us. Neither [?] anyone who tells it, “Strike,” nor is there anyone who tells it, “Stop striking.”"
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0021.s1",
+      "source_sha256": "9dff88faf0d2c848",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "But rather, to speak in part about the appearance or nature of the sword that revealed itself as a testimony against those who commit these defilements among us, neither [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0021.s2",
+      "source_sha256": "fd18b172da3ee758",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "is there anyone who tells it, “Slaughter,” nor is there anyone who tells it, “Stop slaughtering.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0022",
@@ -334,18 +361,32 @@
       "text": "The sun's coming up in its place, before it rises high or spreads out, is what is in its unveiling, because no one can bear the rays of its light."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0045",
-      "source_sha256": "6a96cfc876bb12f1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Patience and forbearance are what is in its unveiling. Its appearing is not for vengeance in the places where it has stood, so that it might pierce innocent people along with sinners. Rather, it hands over those who have sinned in those places to vengeance, in the days of vengeance about which the Lord said in the Gospel, “For these are the days of vengeance.”"
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0045.s1",
+      "source_sha256": "53a374015874680e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "Patience and restraint are present in its revelation. It did not reveal itself to take vengeance in the places where it stood, lest it slaughter innocent people along with sinners, but"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0046",
-      "source_sha256": "500c170a2697261c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "No sword can move from a place unless it is moved by those who have authority. This one, however, not only has its authority within itself, enabling it to go wherever it wants to go, but can also carry away what it pierces, or what is pierced by it, moving it from the places where it is to other places."
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0045.s2",
+      "source_sha256": "0c197f1d60e684dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "rather to hand over those who sinned in those places to vengeance in the days of vengeance, about which the Lord said in the Gospel, “For these are the days of vengeance.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0046.s1",
+      "source_sha256": "780eecff164abcc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "No sword can move from a place unless it is moved by those who have authority. But this sword not only has authority from within itself"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0046.s2",
+      "source_sha256": "09967926672a0db2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "to go to the place where it wants to go, but also to carry the person through whom it slaughters, or who slaughters with it, moving him from the places where he is to other places."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0047",
@@ -474,11 +515,18 @@
       "text": "In it they said this: “The word of God is living"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0065",
-      "source_sha256": "ffb583287121f737",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "and active, and sharper than any two-edged sword.” Through it they commanded the soldiers of Christ to take the helmet of salvation and the sword of the Spirit, which is the word of God, and to be strong in battle, striking down those who oppose them in it, as they taught those who have grown."
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0065.s1",
+      "source_sha256": "581c12ec5784b115",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "And through it he is active and cuts more sharply than any double-edged sword. Thus it was commanded that the soldiers of Christ take the helmet of salvation"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_errs#CopScr.shenoute-errs.000.0065.s2",
+      "source_sha256": "96af52de2a72efec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 12,
+      "text": "and the sword of the Spirit, which is the word of God, so that we may be strong in battle and strike down with it those who oppose them, as the strong have been taught."
     }
   ]
 }

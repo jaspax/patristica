@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -47,11 +53,25 @@
       "text": "Yet they did see it, and the Lord added this other statement about them: they will rise on the day of judgment and condemn this generation. What, then, will we do before the rebuke of these multitudes of saints,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0004",
-      "source_sha256": "ebe216773bc2a401",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "who proclaimed to us the ways of life and the deeds of salvation, and who themselves gave their blood for us, like God, who gave his own for us—Jesus, to whom belongs all judgment, the judgment in the mouths of those who were promised that they would pass it upon us? He is the one who will command those whom he promised that they would sit on thrones and judge the twelve tribes of Israel, and judge every human being who has lived on earth, and judge angels. On what grounds will they judge them?"
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0004.s1",
+      "source_sha256": "ef15712f03d362e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "who proclaimed to us the ways of life and the works of salvation, and who also gave their blood for us, like God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0004.s2",
+      "source_sha256": "d4d2b6f2380b78fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "who gave his own blood for us—Jesus, to whom all judgment belongs, which is on the lips of those who were promised that they would pass judgment on us, the one who will command those to whom he promised that they would sit"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0004.s3",
+      "source_sha256": "b179b71e4f093794",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "on the thrones and judge the twelve tribes of Israel, and judge every human being who has lived on earth, and judge angels. On what grounds will they judge them?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0005",
@@ -201,11 +221,18 @@
       "text": "Punish them! Punish them in that place!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0026",
-      "source_sha256": "e3bc4ee21f0ef76d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "If those whom blind Beliar made blind cried out together, “Do not release this man,” and their voices prevailed, then how will the thousands upon thousands and tens of thousands upon tens of thousands of archangels, together with the entire multitude of his chosen ones, not cry out together, “Do not release these people from their eternal punishment”?"
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0026.s1",
+      "source_sha256": "12c90efd9ae27ffa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "If those whom blind Beliar had blinded cried out together, “Do not release this man,” and their voices prevailed, then how will they not cry"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0026.s2",
+      "source_sha256": "ddfe1cbd5dd42dc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "out together—the thousands upon thousands and tens of thousands upon tens of thousands of archangels, and the entire multitude of his chosen ones—“Do not release these people from their eternal punishment”?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0027",
@@ -334,18 +361,32 @@
       "text": "But he did not reveal his divinity in its fullness, lest he destroy the earth in his anger from that very day because of those who were doing evil to him."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0045",
-      "source_sha256": "209f9334f7adb551",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "How will his kingdom become still more filled with good and righteous people, with sinless multitudes, and with sinners who have all repented through the preaching of the Gospel?"
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0045.s1",
+      "source_sha256": "6dae6f8f92770f5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "How will his kingdom be filled even more with good and righteous people and sinless multitudes,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0046",
-      "source_sha256": "947292f0fbf056dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Yet amid the hostility and hatred that the scribes, Pharisees, chief priests, elders, and all the people there directed against him, the love and all the peace of his church and all his congregations increased."
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0045.s2",
+      "source_sha256": "3329c59072352f3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "and sinners who have all repented through the preaching of the gospel?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0046.s1",
+      "source_sha256": "329867cad72b6599",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "Yet amid the hostility and hatred of the scribes, the Pharisees, the chief priests, the elders, and all the people there, which they directed against him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0046.s2",
+      "source_sha256": "a13a21f254554edd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "the love and all the peace of his church and all his congregations increased."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0047",
@@ -355,11 +396,25 @@
       "text": "And he will again increase his peace upon us; he will again add to his love for us, and we too will add to our love for one another."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0048",
-      "source_sha256": "a6e78fa371c209fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Anyone who does not take these words to heart so as to renounce the devil and keep sin away from his soul, lest it ruin it like a boar, and who rages like a male goat, does not know that wisdom has an advantage over foolishness, just as light has an advantage over darkness, as Ecclesiastes said."
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0048.s1",
+      "source_sha256": "57ded67994ba0070",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "Anyone who does not pay attention to these words so as to renounce the devil and keep sin away from his soul, lest it destroy his soul like a boar"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0048.s2",
+      "source_sha256": "cefe9c7183dbf0de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "and he go mad like a male donkey, is unaware that wisdom has an advantage"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0048.s3",
+      "source_sha256": "4496165603303aba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "over foolishness, just as light has an advantage over darkness, as Ecclesiastes said."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0049",
@@ -558,11 +613,18 @@
       "text": "I therefore beg anyone who has not [?] sinned to continue guarding himself."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0077",
-      "source_sha256": "75843d0cc4ecae64",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "And I also beg anyone who is entangled in it to flee from it, as one being freed from it through these words; and anyone who has resolved in his heart not to sin after hearing these words, not to continue doing it."
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0077.s1",
+      "source_sha256": "55599a054f1edbfc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "And anyone who is also inwardly encouraged to flee from him, as though being set free by these words,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0077.s2",
+      "source_sha256": "fb797466e725f785",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 14,
+      "text": "and anyone who has resolved in his heart not to sin after hearing these words, so as not to let himself go on doing"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_seeks#CopScr.shenoute-seeks.000.0078",

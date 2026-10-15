@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -61,11 +67,18 @@
       "text": "Do not think that the one speaking with you is one of them."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0006",
-      "source_sha256": "c3912efa50a19392",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "It is not he, nor anyone else you can think of, who will wipe away your tears again as you groan like a bear. You are those whose judgment has not departed from them since the beginning, and whose blood has not been wiped away, because it is not poured out on the ground for soil to cover it, but is poured out on a smooth rock."
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0006.s1",
+      "source_sha256": "2508cf1a286a566a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "Neither he nor anyone else you might think of will wipe away your tears once again when you groan like a bear."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0006.s2",
+      "source_sha256": "3158aec97a9321eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "You are the ones from whom judgment has not withdrawn since the beginning, and whose blood has not been quenched, because it has not been poured out on the ground for earth to cover it, but is poured out on a smooth rock."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_witness#CopScr.shenoute-witness.000.0007",

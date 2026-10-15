@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -26,11 +32,18 @@
       "text": "This is the life of the blessed John, the perfect monk, whose parents had a Gospel made for him in gold."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0001",
-      "source_sha256": "7a7b14f2d6580996",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0001.s1",
+      "source_sha256": "8593969b5379aec4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He completed his good life in perfection and admirable endurance, in peace, on the fourth day of the month of Mechir. May God bless us all. Amen."
+      "text": "Having completed his good life in perfection and steadfast endurance,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0001.s2",
+      "source_sha256": "0e8f41edbc3de39a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "on the fourth day of the month of Mechir, in peace. May God bless us all. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0002",
@@ -103,11 +116,18 @@
       "text": "He was also instructed in the things of God, and he was devoted to the church, seeking God day and night."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0012",
-      "source_sha256": "6eaae64c62677d7d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0012.s1",
+      "source_sha256": "b58173f4153b6f7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "One day, a brother who was a monk from the monastery in the interior, called the monastery of Those Who Do Not Sleep, passed by him. He wanted to go to Jerusalem to pray in the holy places."
+      "text": "One day, a brother, a monk from the monastery farther inland, passed by him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0012.s2",
+      "source_sha256": "c59bd6e175d93df2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This monastery is called “the Sleepless Ones.” He wanted to go to Jerusalem to pray in the holy places."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0013",
@@ -201,11 +221,18 @@
       "text": "And after this, he wants to arrange a marriage for me."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0026",
-      "source_sha256": "f082d5c9e87c99a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0026.s1",
+      "source_sha256": "53389610c4efff3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But I myself went to church and heard them reading a passage, saying, ‘All the glory of this world is something to laugh at,’ and, ‘Anyone who despises this world and follows Christ with an upright heart will scarcely be saved.’”"
+      "text": "I too went to church and heard them reading a passage that said, “All the glory of this world is a laughingstock,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0026.s2",
+      "source_sha256": "7bbd77f552b66b6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and, “Whoever despises this world and follows Christ with an upright heart will be saved only with difficulty.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0027",
@@ -257,11 +284,18 @@
       "text": "He came to his parents’ house."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0034",
-      "source_sha256": "32a216810d8454a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0034.s1",
+      "source_sha256": "90376b8673dffd53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He offered them a pretext of this kind, saying, “Look, my parents, I am in [?] among my fellow students, because they are all at school with a gold Gospel book in each one’s hands, which their parents have provided for them to read."
+      "text": "He offered them an explanation of this kind, saying, “Look, my parents,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0034.s2",
+      "source_sha256": "fff3ff6b5cfff3ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I am in need among my fellow students, because everyone at school has a golden Gospel book that their parents have provided for them, and they read from it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0035",
@@ -467,11 +501,18 @@
       "text": "After John had said these things to the captain, he came to the place where the brother who was a monk was staying."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0064",
-      "source_sha256": "de24e6d556aef15b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0064.s1",
+      "source_sha256": "dd704f0c0e61f52d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He said to him, “My father, the boat's fare is high, and the right thing for you is for us to leave quickly. Otherwise, they may come upon us, recognize us, and seize us, and we will be put to shame because we ran away secretly.”"
+      "text": "He said to him, “My father, the ship’s fare is high, and you ought to let us leave quickly,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0064.s2",
+      "source_sha256": "9f02f999dba2bb06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that they do not come upon us, recognize us, and seize us, and we are put to shame because we ran away secretly.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0065",
@@ -502,11 +543,18 @@
       "text": "She said to him, “Whatever you want, my son, ask me for it, and I will fulfill it for you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0069",
-      "source_sha256": "8d8b0281a5702785",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0069.s1",
+      "source_sha256": "2be601f917e4f360",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "John said to his mother, “You know that all the boys who are with me at school have treated me to meals, not just once or twice, using what belongs to them, and I have eaten their food."
+      "text": "John said to his mother, “You know that all the children who are with me at school—it is not just once"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0069.s2",
+      "source_sha256": "308640a7b8b54513",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or twice that they have given me breakfast from what they have, and I have eaten their food.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0070",
@@ -572,11 +620,18 @@
       "text": "They also assigned the servant to him."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0079",
-      "source_sha256": "855fa80e404bf75b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0079.s1",
+      "source_sha256": "02bfc51f7d3b21fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When John had received the gold coins, he came to the place where the monk was, together with the servant who accompanied him. He said to him, “My lord and brother, this servant whom you see belongs to me.”"
+      "text": "When John had taken the gold coins, he came to the place where the monk was,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0079.s2",
+      "source_sha256": "c09c7fdd654ef40d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "along with the servant who was traveling with him. He said to him, “My lord and brother, this servant you see belongs to me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0080",
@@ -614,11 +669,18 @@
       "text": "He said to him, “I beg you, my lord and brother, to prepare the ship so that we can leave quickly, my brother and I.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0085",
-      "source_sha256": "1e60c080c57e4b35",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0085.s1",
+      "source_sha256": "930f270d697ac495",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the captain heard this—that he wanted to leave secretly—he said to him, “I have already prepared my boat, and I have already told you once before that the fare for my boat is high.”"
+      "text": "When the sailor heard that he wanted to leave secretly, the sailor said to him, “I have already prepared my ship,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0085.s2",
+      "source_sha256": "71a2d2e934fba058",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and I have already told you before that the fare on my ship is high.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0086",
@@ -964,11 +1026,18 @@
       "text": "He begged him to send out an order throughout his kingdom so that they would search for him and perhaps find him."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0135",
-      "source_sha256": "953484ab91d3b77f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0135.s1",
+      "source_sha256": "b9e256f2511d46ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the king heard these things, he was deeply saddened and grieved at heart, because he loved him very much for his wisdom and knowledge, and because he used to eat with him at his tables, owing to his great affection for him."
+      "text": "When the king heard this, he was deeply distressed and grieved at heart, because he loved him very much for his wisdom"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0135.s2",
+      "source_sha256": "112626b1d671cdf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his knowledge, and because he used to eat with him at his tables, because of his great affection for him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0136",
@@ -1020,11 +1089,18 @@
       "text": "“Now, my son, everyone who wishes to renounce this world spends forty days under probation, persevering. Afterward, they shave the hair from their heads and put the monastic habit on them.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0143",
-      "source_sha256": "6e055c06f23315eb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0143.s1",
+      "source_sha256": "2337cf3c0406a37b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "John said to him, “I implore you, my holy father, by the holy Trinity of one substance and by the prayers of the monastery, to shave my head today, because God knows that my heart aches with longing for the monastic life and the angelic habit.”"
+      "text": "John said to him, “I implore you, my holy father, by the holy Trinity, of one substance, and by the prayers of the monastery, give me the tonsure today,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0143.s2",
+      "source_sha256": "6e5874688bb6397e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for God knows that my heart longs for the monastic life and the angelic habit.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0144",
@@ -1034,11 +1110,18 @@
       "text": "The archimandrite immediately agreed to pray over him, and he clothed him in the angelic habit."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0145",
-      "source_sha256": "6f664518f645d710",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0145.s1",
+      "source_sha256": "9013dc6cd75f0cdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "His heart rejoiced greatly, and he pleaded with God day and night with great persistence, so that his prayers, his way of life, and his ascetic practices far surpassed those of many around him."
+      "text": "His heart rejoiced greatly, and he prayed to God day and night with great exertion, so that his prayer and his way of life"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0145.s2",
+      "source_sha256": "3c1a57728a12eb18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his ascetic practices far surpassed those of many around him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0146",
@@ -1062,11 +1145,18 @@
       "text": "When the archimandrite saw him, he was greatly amazed."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0149",
-      "source_sha256": "1c93b080af623717",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0149.s1",
+      "source_sha256": "34ca9f7bfae28248",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The archimandrite said to him, “My son, you are a young boy, and yet I see you undertaking many severe ascetic practices, mortifying your own body so that you cannot stand for prayer and fasting.”"
+      "text": "The archimandrite said to him, “My son, you are a young boy,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0149.s2",
+      "source_sha256": "0a3b90ba1f9ca7cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and yet I see you undertaking many severe ascetic practices, wearing down your own body until you cannot stand for prayer and fasting.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0150",
@@ -1132,11 +1222,18 @@
       "text": "But you have become weak through this great deprivation."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0007",
-      "source_sha256": "10279a2f1d12a5ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0007.s1",
+      "source_sha256": "7ca4eebb62084079",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "John said to him, “Forgive me, my lord and father. It is not ascetic practice that has made me weak, but the memory of my parents that Satan has thrown into my heart, and the [?] in my home."
+      "text": "But John said to him, “Forgive me, my lord and father. It is not asceticism that has made me weak.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0007.s2",
+      "source_sha256": "d46ed51ed029812e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "But it was the memory of my parents that Satan cast into my heart, along with the [?] in my house."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0008",
@@ -1195,11 +1292,18 @@
       "text": "He fell at his feet and wept, saying, “My lord and father, I want to see my parents."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0016",
-      "source_sha256": "2e74f1cb5d4757a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "But I beg you not to cease praying steadfastly for me in my lowliness, so that God may bring me to a good fulfillment in endurance until I trample all the enemy’s power. Now give me permission to go.”"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0016.s1",
+      "source_sha256": "69ce23b3cd4c1231",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "But I beg you: will you not continue steadfastly in prayer for me in my wretchedness?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0016.s2",
+      "source_sha256": "06e0a71be3982254",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "May God bring me to a good completion through endurance, until I trample on all the enemy’s power. Now give me permission to leave."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0017",
@@ -1559,11 +1663,18 @@
       "text": "His father sent him food from his table every day, without knowing that he was his son."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0068",
-      "source_sha256": "7edb0df1513a2de9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "His father would say, “As the Lord lives, my heart aches for this weak man, because he lives among these flies, naked like this, with no clothing on him, day and night.”"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0068.s1",
+      "source_sha256": "27e3b5b3217ad5ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "And his father said, “As the Lord lives, my heart aches for this weak man,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0068.s2",
+      "source_sha256": "27d1250a84dcc074",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "because he stays out in this cold, naked like this, with no clothing on him, day or night.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0069",
@@ -1664,11 +1775,18 @@
       "text": "He did not go so far as to leave the place, but stayed close to the gateway."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0083",
-      "source_sha256": "927a3a74c35195fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When the doorkeeper saw him, he argued with him, saying, “Go away from here, man, because of my mistress, so that she will not see you. She would threaten me because of you.”"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0083.s1",
+      "source_sha256": "6a8a47cd4f02457a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "When the doorkeeper saw him, he quarreled with him, saying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0083.s2",
+      "source_sha256": "f566a0cbe7299bfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "“Go away from here, man, because of my mistress! She must not see you, or she will threaten me on your account.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0084",
@@ -1713,11 +1831,18 @@
       "text": "John’s body became extremely weak because of his many ascetic practices, so that each of his bones could be seen individually."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0090",
-      "source_sha256": "3d4478b071dfebc3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "After ten years had passed, when the good God saw his great endurance, his ascetic practices, and his strength, the Lord appeared to him at night in a vision, saying to him, “Greetings, John!"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0090.s1",
+      "source_sha256": "4fdc7cfb9c12a1af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "After ten years had passed, when the good God saw his great endurance and his ascetic practices"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0090.s2",
+      "source_sha256": "bf131479eeb09823",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "and his perseverance, the Lord appeared to him at night in a vision, saying to him, “Greetings, John!”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0091",
@@ -2133,11 +2258,18 @@
       "text": "When his parents heard this, their hearts were deeply troubled. They could not hold back their tears, but wept bitterly."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0150",
-      "source_sha256": "689af477f67598bd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Then they fell upon his chest and embraced him for a long time, from the first watch of the night until the sixth hour. All the nobles of the palace came and wept with them, because they had found John in such great abasement."
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0150.s1",
+      "source_sha256": "cf2c45d0926f5fbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "Then they threw themselves onto his chest and embraced him for a long time, from the first watch of the night"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0150.s2",
+      "source_sha256": "815eba559708277a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "until six o’clock, so that all the dignitaries of the palace came and wept with them, because they had found John in such great humiliation."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0151",
@@ -2238,11 +2370,18 @@
       "text": "And immediately the spasms in her feet stopped."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0165",
-      "source_sha256": "a474a6f3fa39447d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She raised her voice and wept in great anguish, saying, “Woe is me, my beloved son John! Oh, what has happened to you, the light of my eyes, that you have sunk to abasement as great as this and such great poverty?”"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0165.s1",
+      "source_sha256": "18175dc46a1a12e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "And she raised her voice and wept in great anguish, saying, “Alas for me, my beloved son John!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0165.s2",
+      "source_sha256": "e29584d09252e0db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "Oh, what has happened to you, the light of my eyes, that you have come down to such great humiliation and such great poverty?”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0166",
@@ -2315,32 +2454,81 @@
       "text": "Written on Mechir 23, in the first indiction, in the year 363 from the holy martyrs, [?]."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0176",
-      "source_sha256": "785c24b6e803eced",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0176.s1",
+      "source_sha256": "d58e6914fab80a11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 24,
-      "text": "I, the wretched sinner Victor, the least of deacons, son of the blessed [?], deacon, son of the blessed Eponychus, archdeacon of Saint Mercurius the great general, from Pollaton, wrote this book. Remember me, Lord, when you come into your kingdom. On day [?]."
+      "text": "I, the wretched sinner Victor, the least of deacons, son of the blessed Mercurius the deacon, son of the blessed Eponychus the archdeacon"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0177",
-      "source_sha256": "9f4044944597af95",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Through the zeal and care of our God-loving brother, the [?] Zechariah, the deacon and monk of Saint Mercurius on the mountain of Tbo, he produced this book through his own labors and donated it to the monastery of Saint Mercurius on the mountain of Tbo,"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0176.s2",
+      "source_sha256": "1076cb237209eb62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "of Saint Mercurius, the great commander, from the city of Laton, wrote this book. Remember me, Lord, when you come into your kingdom. [?]"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0178",
-      "source_sha256": "7546a512a1a6562c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "where he lives, for the salvation of his soul, so that Saint Mercurius and all the other saints whose commemorations we have written in this book, each by name, may bless him with every spiritual and heavenly blessing. May he grant him endurance and save him from all the snares of the devil and of wicked people. May he enable him to carry out the service of the holy place and the office allotted to him, namely that of deacon and monk."
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0177.s1",
+      "source_sha256": "23ccfccac0654e90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "Through the diligence and care of our honored, God-loving brother Zacharias, the deacon and monk of Saint Mercurius on the mountain of Tbo,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0179",
-      "source_sha256": "e9d81b21ced9c4be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "When he completes the course of this life, according to what is appointed for every person, may Saint Mercurius and the other saints whose names have been written in this book intercede with Christ for him. May he place him in the bosom of Abraham, Isaac, and Jacob, and may he receive an inheritance with the fathers of the community: Apa Palamon, Pachomius, Horsiesius, Apa Petronius, Theodore, and Apa Shenoute, and with all the saints. May he be worthy to hear:"
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0177.s2",
+      "source_sha256": "0506149f4baaf947",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "he prepared this book through his own labors and donated it to the monastery of Saint Mercurius on the mountain of Tbo,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0178.s1",
+      "source_sha256": "be5c52678ab4f70d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "where he lives, for the salvation of his soul, so that Saint Mercurius and all the other saints whose commemorations we have written in this book, each by name,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0178.s2",
+      "source_sha256": "8d21850413dcf2e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "will bless him with every spiritual and heavenly blessing, grant him endurance, and save him from all the snares of the devil and of wicked people,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0178.s3",
+      "source_sha256": "9d79d97328b757ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "and enable him to fulfill the service of the holy place and the office to which he has been appointed, namely that of deacon and monk."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0179.s1",
+      "source_sha256": "259c09b0fb0d3286",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "When he has completed the course of this life, according to what is appointed for everyone,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0179.s2",
+      "source_sha256": "ab96d4642817c17a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "Saint Mercurius and the other saints whose names have been written in this book will plead with Christ on his behalf,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0179.s3",
+      "source_sha256": "a0a5b808670849f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "so that he may place him in the bosom of Abraham, Isaac, and Jacob, and he may receive an inheritance with the fathers of the community: Apa Palamon and Pachomius,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0179.s4",
+      "source_sha256": "f9d7eea78cd3c194",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 24,
+      "text": "and Horsiesius, and Apa Petronius, and Theodore, and Apa Shenoute, and all the saints, and may be worthy to hear"
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.001.0180",

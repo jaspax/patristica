@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -96,11 +102,18 @@
       "text": "Why do you go back and forth around them in the apparitions of dreams of many kinds?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0011",
-      "source_sha256": "42a3855ec984236e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0011.s1",
+      "source_sha256": "4bf5677eff59b9bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If you want to fight, do not set up another device in which you wage war against the person who truly trusts in God and is free of your defilements, ready to fight you, you apostate from whom effeminacy originated and who rages after defilements of every kind."
+      "text": "If you want to fight, do not leave aside anything else you use to wage war against someone who truly puts his trust in God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0011.s2",
+      "source_sha256": "f768282007be4a4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who is free from your defilements and fights against you, you apostate, from whom effeminacy originated and who lusts after defilements of every kind."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0012",
@@ -194,18 +207,46 @@
       "text": "What do you have to do with heaven, the air, and the light, that you should assume their appearance?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0025",
-      "source_sha256": "1dfaff150b945929",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0025.s1",
+      "source_sha256": "8d01ff4e7d541b2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Likewise, you portray what will happen at the end with fire, an earthquake, a great flame, and smoke rushing across the earth, as though the whole inhabited world were going to be destroyed by the false darkness spreading over the entire world. Together with your demons, you also assume the appearance of crowds of people, running and shouting, 'It is the end!' You cause confusion, falling, getting up, and striking the ground—all this so that you may deceive those who see your ungodly apparitions in dreams."
+      "text": "So too you regularly portray what will happen at the end, with fire and [?] and a great blaze,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0026",
-      "source_sha256": "f79d787b4fa71ce3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0025.s2",
+      "source_sha256": "55ad3bfb2e07cda0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "This is how you have often proclaimed since the beginning of time, among those who belong to you, 'It is the end!' when it is not. They lie through you, and you lie through them, while they think that the one through whom they see is an angel of light."
+      "text": "and smoke spreading over the earth, as though the whole inhabited world were about to perish through the darkness of falsehood spreading over the entire world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0025.s3",
+      "source_sha256": "26c9e9100167dacc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You produce a deceptive spectacle [?] of crowds of people together with your demons. You run about shouting, “It is the end!” You cause turmoil,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0025.s4",
+      "source_sha256": "bb104a0c7b4dd227",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "falling down, getting up, and striking the ground—all this so that you may deceive those who see your ungodly apparitions in dreams."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0026.s1",
+      "source_sha256": "4b864fcf5bd8f210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is how you have often proclaimed from the beginning of the age, through those who belong to you, “It is the end!” when it is not. They tell lies through you, and you tell lies through them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0026.s2",
+      "source_sha256": "35012d5d0183d3b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while they think that it is through an angel of light that they see."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0027",
@@ -306,11 +347,18 @@
       "text": "For even if they act as though they want to raise their hands against you, [?] like someone who has fallen among them."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0041",
-      "source_sha256": "77dfa7e6aa49a844",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0041.s1",
+      "source_sha256": "e4fa86780266b089",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For those whom God's providence never leaves recognize the true angel, and every true dream and every true deed, and every true word and every true form, among all those things by which you tempt people."
+      "text": "For those from whom God's providence is never distant recognize the true angel,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0041.s2",
+      "source_sha256": "d20e84bb7804361c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and every true dream and every true deed, and every true word and every true form, among all those things by which you tempt people."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0042",
@@ -327,11 +375,18 @@
       "text": "Otherwise, the vessel that is mad [?]"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0044",
-      "source_sha256": "34c1042994e49180",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0044.s1",
+      "source_sha256": "819479f8044af5e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Why should we be foolish enough to wait for an angel or a spirit to appear to us outwardly or to speak with us, when God and his Spirit and his angels speak with us inwardly?"
+      "text": "Why should we be foolish enough to look expectantly for an angel or a spirit to appear to us outwardly,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0044.s2",
+      "source_sha256": "3557c2874ebe6485",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or to speak with us, when God and his Spirit and his angels speak with us inwardly?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0045",
@@ -355,11 +410,18 @@
       "text": "For what is there in which you have not made godless people your slaves, so that they might be free of these other things?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0048",
-      "source_sha256": "ff21849a0740e7b7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 18,
-      "text": "Blessed are those who will see your destruction without being destroyed with you, on the day when the wrath of the one whose handiwork you destroyed will grind you down like a potsherd, throw you down, and scatter you in Hades."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0048.s1",
+      "source_sha256": "ce05e2f17e292a7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Blessed are those who will see your destruction without being destroyed along with you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0048.s2",
+      "source_sha256": "8591172def53e5a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "on the day when the wrath of the one whose handiwork you destroyed will sweep you away like stubble, and cast you down and scatter you in Hades."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0049",
@@ -376,11 +438,25 @@
       "text": "Woe to those who have not recognized your manner of speaking or your deceit, because they have not recognized the voice of the Scriptures that has gone out over the whole earth!"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0051",
-      "source_sha256": "2006a88b8bc175c9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0051.s1",
+      "source_sha256": "d957127a1c222426",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Blessed are those who have recognized you and your hidden schemes, especially your defilements, which even little children can recognize and which are not hidden from those who examine you and your impurities: the crooked one who taught all those who walk in crookedness, the one who was rejected after causing many peoples to be rejected."
+      "text": "Blessed are those who have recognized you and your hidden schemes, especially your defilements, which even little children can recognize,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0051.s2",
+      "source_sha256": "8de6dfd7fec41227",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and which are not hidden from those who mock you and your defilements, you crooked one who taught all who walk in crookedness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0051.s3",
+      "source_sha256": "11c68dfbb4fef4ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you who were turned back after causing many peoples to turn away."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0052",
@@ -390,11 +466,18 @@
       "text": "From where, then, will they say to the human race, “Call them rejected silver, because the Lord has rejected them”?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0053",
-      "source_sha256": "d7cecc51fce9132e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0053.s1",
+      "source_sha256": "aac775d762e35b39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If I say that the leech was created so that you might be compared to it—this creature whose daughters have not been satisfied—indeed, you surpass it and exceed it, and it cannot match you in insatiability."
+      "text": "If I say that the leech was created so that you might be compared to it—the creature whose daughters have not satisfied it—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0053.s2",
+      "source_sha256": "98ac864c4d26d8e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you truly surpass it and exceed it, and it cannot match you in insatiability."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0054",
@@ -404,11 +487,18 @@
       "text": "Three things have been named that are truly never satisfied by the desire that feeds them."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0055",
-      "source_sha256": "576efb54b9d73442",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0055.s1",
+      "source_sha256": "b1953bc805d65758",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But you have not been satisfied by the bloodshedder, the idol worshiper, the pagan, the heretic, the oppressor, the sexually immoral person, the effeminate man, the unbeliever, or all those who have abandoned God, you murderer!"
+      "text": "But neither the bloodshedder, nor the idol worshiper, nor the pagan, nor the heretic,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0055.s2",
+      "source_sha256": "2b6a2c50107392b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "nor the oppressor, nor the fornicator, nor the effeminate man, nor the unbeliever, nor all those who have abandoned God have satisfied you, you murderer!"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0056",
@@ -425,11 +515,18 @@
       "text": "For the ways of eating that you share with them are the same."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0058",
-      "source_sha256": "08ec4a3180a40852",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0058.s1",
+      "source_sha256": "8d37adaedca98242",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Blessed also are those who have lodged in your throat, whom you could not swallow because of their large bones—that is, those with whom you are angry and whom you pursue, although you cannot overcome them because of their faith in God and their goodness."
+      "text": "Blessed, too, are those who have become lodged in your throat, whom you have been unable to swallow because of their great bones."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0058.s2",
+      "source_sha256": "0b74a14b825bd870",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "These are the ones with whom you are angry and after whom you gnash your teeth, but whom you cannot overpower because of their faith in God and their goodness."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.000.0059",
@@ -593,11 +690,18 @@
       "text": "Thus those whom you have made permanently blind are miserable and wretched."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0006",
-      "source_sha256": "0ed4c93fecf10e1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0006.s1",
+      "source_sha256": "ada4dbae6cb98cc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For just as your tyranny is great over those who have fallen beneath you, whom you have trampled, so too your weakness before those beneath whom you fall, who trample you, cannot be described."
+      "text": "For just as your tyranny is great over those who have fallen beneath you and whom you have trampled,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0006.s2",
+      "source_sha256": "e1a1b0be0053a892",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so too your weakness before those beneath whom you fall and who trample you is beyond description."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0007",
@@ -607,11 +711,25 @@
       "text": "You have no other power or anything else to do to them in your ungodliness, except to rage against the outside of their bodies with diseases that vary in many ways, as we have said."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0008",
-      "source_sha256": "2d837c73f9c556b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 18,
-      "text": "For if you had been able to drag them and bring them down into your abominations, what would you have gained by fighting them with apparitions of many kinds, so that you do not let them sleep, while they see you utterly filthy, with every kind of filth around you, as you change into your abominations and your abominations change into you, so that they vomit while asleep or when they wake up?"
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0008.s1",
+      "source_sha256": "f1d9c60d39a96a4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "For if you really could have drawn them into your abominations, why would you have needed to fight them with apparitions of many kinds,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0008.s2",
+      "source_sha256": "d489631c7408eee8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "so as not to let them sleep, while they see you utterly filthy, with every kind of filth around you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0008.s3",
+      "source_sha256": "2416e795306b4a59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "as you change into your abominations and your abominations change into you, so that they lose heart while asleep or when they get up?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0009",
@@ -656,11 +774,18 @@
       "text": "have no other power except the soldiers of your sins."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0015",
-      "source_sha256": "74aab9cfd7cd6822",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For you are maimed and diminished more than the snake. Not only has God made you poor in these things, but he has also crushed your bodily form, as it is written and as we recognize you through your weakness."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0015.s1",
+      "source_sha256": "cfb71c7043b691cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "For you are deprived and stripped bare, more than the serpent. Not only has God made you wretched in these things,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0015.s2",
+      "source_sha256": "947d707a4a53d4f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "but he has also crushed your bodily form, as it is written, and as we recognize you by your weakness."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0016",
@@ -712,11 +837,18 @@
       "text": "I will tell everyone what you are and what has been done to you."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0023",
-      "source_sha256": "37ad1830edf4d2e7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For you are like a soldier whose hands and feet the king cut off, and whose sword, weapons, and all his military equipment he took away. He banished him from his home and his city because he had opposed him. And because of his patience,"
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0023.s1",
+      "source_sha256": "3fab8251b3cb7e61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "For you are like a soldier whose hands and feet the king has cut off, taking away his sword and his weapons,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0023.s2",
+      "source_sha256": "c9cb58f9ce497635",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "and all his military equipment, and banishing him from his home and his city because he opposed him and because of his stubbornness."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0024",
@@ -733,11 +865,18 @@
       "text": "This is what has been done to you."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0026",
-      "source_sha256": "3d51c5efeed6aa81",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "This is how you were cut down and thrown out of heaven and out of its entire army of angels, because you dared, you fool and blind one, not realizing that clay cannot oppose the one who fashioned it into a despised vessel, and not an honored vessel, from that time onward."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0026.s1",
+      "source_sha256": "95ca132ff8daf277",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "This is how you were stripped bare and thrown out of heaven and out of its entire army of angels,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0026.s2",
+      "source_sha256": "9543d01584242851",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "because you dared, you fool and blind one, not realizing that clay would oppose the one who had fashioned it into a dishonorable vessel, and not an honored vessel, from that moment on."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0027",
@@ -803,11 +942,18 @@
       "text": "But since it is clear that you are of this kind,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0036",
-      "source_sha256": "bfe860764e316aa1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "you no longer have armor, or a sword and axe, or a sapphire belt, or a long robe, or a javelin, or the appearance of lightning, or equipment. Nor have you had armor from that time onward like that of Raphael and Gabriel, and that of the great archangel Michael, and that of all the angels."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0036.s1",
+      "source_sha256": "8b299a278aa63ad5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "No longer is there armor, or sword or axe, or a sapphire belt, or a full-length robe, or a cloak, or a lightning-like appearance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0036.s2",
+      "source_sha256": "c040a3084b594d11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "From this moment on, you have no equipment or armor like those belonging to Raphael and Gabriel, to the great archangel Michael, and to all the angels."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0037",
@@ -824,18 +970,39 @@
       "text": "Instead of an angel's armor and a belt, you have put on a devil's armor, and you have girded yourself with a belt of falsehood."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0039",
-      "source_sha256": "6fa1c5449bcb8ef2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Instead of a shining appearance and a garment that gives light, you have an appearance of darkness, and the garment you wear is one of darkness, gloom, and filth, you utter darkness!"
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0039.s1",
+      "source_sha256": "b61f52bf7a541238",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "Instead of a lightning-like appearance and shining clothing, you have an appearance of darkness,"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0040",
-      "source_sha256": "07507ec5cae69ec3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Instead of an angel's sword and the power of the Holy Spirit, you have powerlessness, ruin, and every defilement. All your deeds arise from violence, adultery, pollution, jealousy, and your other acts of godlessness, which we do not need to name one by one."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0039.s2",
+      "source_sha256": "01fe05f910056a15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "and what clothes you is a garment of blackness, murk, and gloom—utter darkness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0040.s1",
+      "source_sha256": "ee15160467d8741d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "Instead of an angel's sword and holy spiritual power, you have powerlessness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0040.s2",
+      "source_sha256": "b2280ae838fd9ebf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "and brokenness and every kind of defilement, and all your deeds that arise from violence and adultery,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0040.s3",
+      "source_sha256": "c00ddd822029b60b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "and pollution and envy, and your other ungodly acts, which we have no need to mention one by one."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0041",
@@ -950,11 +1117,18 @@
       "text": "You have not found anything you can do to me."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0057",
-      "source_sha256": "ee23e7c74de25010",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 18,
-      "text": "For if you had power, and if it were not for Christ’s help, you would not delay. It is no victory for you that you have filled the body of the [?] with evil. If this is your power, whom do you overcome except those whom you have cast down into unnatural acts of every kind, knowingly and not in ignorance?"
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0057.s1",
+      "source_sha256": "067fe95e282ff635",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "For if you had any power, and if it were not for Christ's help, you would not have held back. It was no victory for you to fill the body with a malignant sore, if this is your power."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0057.s2",
+      "source_sha256": "e0c30f5d8ed7a72e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "Whom have you conquered except those whom you have cast down into unnatural acts of every kind, knowingly and not in ignorance?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0058",
@@ -971,11 +1145,18 @@
       "text": "For everyone who has not yet known you and your magic has forgiveness before the Lord."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0060",
-      "source_sha256": "8684e2ccd8091222",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Or are you a judge, you master of deceit? Sometimes you persuade those whom you lead into sin that God will not call them to account; sometimes you trouble the hearts of those who want to escape your evils by saying that God will not forgive them."
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0060.s1",
+      "source_sha256": "852a350fcd2a96ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "Or you act as a judge, you master of crooked schemes: sometimes you persuade those you lead into sin that God will not call them to account;"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0060.s2",
+      "source_sha256": "b080a09e8ef482f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 20,
+      "text": "sometimes you trouble the hearts of those who want to escape your evil deeds by telling them that God will not forgive them."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_prince#CopScr.shenoute-prince.001.0061",

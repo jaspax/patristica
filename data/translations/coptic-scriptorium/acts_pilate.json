@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -215,11 +221,81 @@
       "text": "They shouted."
     },
     {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000",
-      "source_sha256": "3b196e189f6d371c",
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s1",
+      "source_sha256": "49ca51b4e2fb9d51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "[?] And the soldiers divided his clothes among themselves. And all the people stood watching him. And they were mocking"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s2",
+      "source_sha256": "fa7c5d340ca13c5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "him—the chief priests and the rulers—saying, “He saved others.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s3",
+      "source_sha256": "c52a40e02dc0bc94",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "[?] And the soldiers divided his clothes among themselves. And all the people stood watching him. The chief priests and the rulers were mocking him, saying, “He saved others. Can he not save himself, if he is God’s chosen Son?” The soldiers also mocked him, approaching him with vinegar and saying, “If you are the Son of God, save yourself!” After the sentence, Pilate ordered that the charge against him be written on a sign, in Hebrew, Latin, and Greek, according to what the Jews had said. One of the robbers crucified with him, whose name was Gestas, said to him, “If you are the Son of God, save yourself and us too!” The other, whose name was Dimas, answered and rebuked him, saying, “Do you not fear God, since we are under the same sentence as he is? We are justly receiving what our deeds deserve. But this man has done nothing wrong, and, being deserving of death, he was brought here.” Then Dimas turned again and said to Jesus, “My Lord, remember me when you come into your holy and glorious kingdom.” Jesus said to him, “Truly I tell you, today you will be with me in my paradise.”"
+      "group_size": 19,
+      "text": "Then he cannot save himself, if this is the chosen Son of God.” And the soldiers were mocking him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s4",
+      "source_sha256": "d904e32ec8195ca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "They gave him vinegar and salt, saying, “If you are the Son of God, save yourself.” Pilate ordered,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s5",
+      "source_sha256": "f8495483d103c7f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "after the verdict, that the charge against him be written on a notice in Hebrew, Latin, and Greek,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s6",
+      "source_sha256": "fcc843af596ec446",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "according to what the Jews had said. Now one of the robbers crucified with him, whose name was Gestas,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s7",
+      "source_sha256": "968560d42b27540a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "said to him, “If you are the Son of God, save yourself and us too.” The other, whose name was Demas, answered and rebuked him, saying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s8",
+      "source_sha256": "16cc622df1978f43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "“Then do you not fear God, since we are under the same sentence as he is? For we are justly receiving what we deserve"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s9",
+      "source_sha256": "b35f398686485a20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "for what we have done. But this man has done nothing wrong or deserving of death."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s10",
+      "source_sha256": "16d2e743cf9c7f44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "They brought him to this place.” Then Demas turned and said to Jesus, “My Lord, remember me when you come in your holy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s11",
+      "source_sha256": "e5204ff541692e31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "and glorious kingdom.” Jesus said to him, “Truly I tell you, today you will be with me in my paradise.”"
     },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0001",
@@ -376,11 +452,25 @@
       "text": "Jesus cried out in a loud voice, “My Father!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0023",
-      "source_sha256": "51ad59ce4389b1fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "Abi, Adakh, Ephkidrou, Adonai, Aroa, Sabel, Louel, Eloi, Elemas, Abakdanei, Orioth, Mioth, Ouaath, Soun, Perineth, Iothat [?]. The Savior’s prayer on the cross for Adam. At the moment when the Savior said these things,"
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0023.s1",
+      "source_sha256": "14fe6fa37bd10f46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "Abi, Adakh, Ephkidrou, Adonai, Aroa, Sabel, Louel, Eloi."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0023.s2",
+      "source_sha256": "65c5bee8ea9caec7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "Elemas, Abakdanei, Orioth, Mioth, Ouaath, Soun, Perineth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0023.s3",
+      "source_sha256": "50ba8e1eeb54e970",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 13,
+      "text": "Iothat. The Savior’s prayer on the cross concerning Adam. At the moment when the Savior said these things,"
     },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0024",

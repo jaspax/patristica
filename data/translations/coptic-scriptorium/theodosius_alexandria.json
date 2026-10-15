@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -138,11 +144,25 @@
       "text": "Moses, Aaron, Joshua son of Nun, Gideon, Barak, Samson, and the kings David, Solomon, and Hezekiah;"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0017",
-      "source_sha256": "1cff92bbe6f3faf8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0017.s1",
+      "source_sha256": "0380d6967487900b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Isaiah, Jeremiah, Ezekiel, Daniel, the three holy ones, and Elijah and Elisha, these great prophets; Zechariah and John his son; the twelve apostles; Stephen the archdeacon; the holy elder and priest, Father Simeon; the martyrs; and all the righteous."
+      "text": "Isaiah, Jeremiah, Ezekiel, Daniel, the three holy ones, Elijah, and Elisha—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0017.s2",
+      "source_sha256": "19704d2b12fe3b67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "these great prophets—and Zechariah and his son John, and the twelve apostles,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0017.s3",
+      "source_sha256": "e7b481a0b5a0f5dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and Stephen the archdeacon, and the holy elder and priest, Apa Simeon, and the martyrs and all the righteous."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0018",
@@ -481,11 +501,18 @@
       "text": "Likewise, all the hosts of heaven, according to their order and their ranks."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0066",
-      "source_sha256": "52a3e75ec3239b54",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0066.s1",
+      "source_sha256": "70d6200d65a1f899",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Last of all, the Master said to Mastema, which means hatred, “Come, you too, and worship the work of my hands, my likeness and my image, like all your companions.”"
+      "text": "After all these, the master of Mastema, which means hatred, said:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0066.s2",
+      "source_sha256": "d24d47a29dfe2f44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“You too, come and worship the work of my hands, my likeness and my image, like all your companions."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0067",
@@ -824,11 +851,18 @@
       "text": "Stretch out your hand and take this staff of light for yourself."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0115",
-      "source_sha256": "c501a9686e7264dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0115.s1",
+      "source_sha256": "bec06108f1e8587b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Become commander-in-chief in place of the commander-in-chief of shame. O Michael, stretch out your hand and take this staff for yourself, and become commander-in-chief in place of the accuser of shame. O Michael, stretch out your left hand."
+      "text": "Become commander-in-chief in place of the shameful commander-in-chief. O Michael, stretch out your hand, take the staff for yourself, and become commander-in-chief in place of the accuser"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0115.s2",
+      "source_sha256": "794913791ec035c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of shame. O Michael, stretch out your left hand."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0116",
@@ -957,11 +991,18 @@
       "text": "the archangel? This whole world beneath my throne—"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0134",
-      "source_sha256": "0279e34bd6979b20",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0134.s1",
+      "source_sha256": "af99e4eecf7f1176",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I will have it populated with the likeness of Adam, which is my image. Now, O Michael, look: I have appointed you steward over my kingdom, so that you may serve with compassion"
+      "text": "I will establish it in the likeness of Adam, which is my image. But now, O Michael,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0134.s2",
+      "source_sha256": "b18024a889b1a5c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "look, I have appointed you steward over my kingdom, so that you may serve with compassion."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0135",
@@ -978,11 +1019,18 @@
       "text": "O Michael, Adam’s descendants will know my name through you."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0137",
-      "source_sha256": "c283de8e558ae59f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0137.s1",
+      "source_sha256": "f101b298311d9e62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "O Michael, you are the commander of the heavenly host. O Michael, ruler of those in heaven and those on earth. O Michael, you are the sweet fragrance at the time of my holy sacrifice."
+      "text": "O Michael, you are the commander-in-chief of the power of heaven. O Michael, ruler"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0137.s2",
+      "source_sha256": "62cd742ec23f2afd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of those in heaven and those on earth, O Michael, you are the sweet fragrance at the time of my holy sacrifice.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0138",
@@ -1041,11 +1089,18 @@
       "text": "He placed three seals on him in the form of the Holy Trinity, with the likeness of his image on the seals,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0146",
-      "source_sha256": "cf5a2d7fba6eed76",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0146.s1",
+      "source_sha256": "9f18c808184d5b32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so that the archangel would continually plead with God on behalf of his image. This, then, is why I have come to this festival, Michael’s banquet today. I am Adam, your father."
+      "text": "So that the archangel may continually plead with God on behalf of his image. That, then, is why I came to this festival,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0146.s2",
+      "source_sha256": "e92de71f608d07c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which is Michael’s banquet today. I am Adam, your father."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.000.0147",
@@ -2119,11 +2174,18 @@
       "text": "That is why we rejoice today.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0055",
-      "source_sha256": "40134d67696f44cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0055.s1",
+      "source_sha256": "f993b0ac0e91366a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "All the ranks of heaven also rejoice with us today at the feast of the holy archangel Michael. “Yes,” they said, “all the joy is indeed ours, since our Creator did away with the proud one and appointed over us the humble one, the great and holy archangel Michael. That is why we rejoice today.”"
+      "text": "All the heavenly orders also rejoice with us today at the festival of the holy archangel Michael. “Yes,” they said, “all the joy is ours, from the time"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0055.s2",
+      "source_sha256": "433e85800bbde5d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when our Creator overthrew the proud one and established over us the humble one, the great holy archangel Michael. That is why we rejoice today.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0056",
@@ -2133,11 +2195,18 @@
       "text": "Truly, my beloved, great is the honor of this feast today, which is spread out for us not only on earth but also in heaven. Now then, you listeners who love learning,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0057",
-      "source_sha256": "d0c06ec70f4147ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0057.s1",
+      "source_sha256": "9e0ee01cbe1a8f5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "let us too make every effort to be found at Michael’s feast, so that we too may eat of the abundance of good things laid out before us, together with all the saints whose names we have mentioned."
+      "text": "Let us too make every effort to be found at Michael’s festival, so that we too may eat"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0057.s2",
+      "source_sha256": "f5773d7a4a29c8db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of the countless good things laid up for us, together with all the saints whose names we have mentioned."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0058",
@@ -2168,11 +2237,18 @@
       "text": "And after suspicion of this kind, they would throw us out. For these are certainly the words that those who are properly dressed will say to us: “You foolish people! Are you not ashamed to be like this?"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0062",
-      "source_sha256": "3570e18aff8f41a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0062.s1",
+      "source_sha256": "7205a062e8b2ce0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And even if you are not ashamed, do you not fear the true King, Jesus Christ, and his holy archangel Michael? Do you not know whose court this is,"
+      "text": "And even if you feel no shame, do you not fear the true King, Jesus Christ,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0062.s2",
+      "source_sha256": "5a85407de9a362d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his holy archangel Michael? Do you not know whose courtyard this is?"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0063",
@@ -2707,11 +2783,25 @@
       "text": "They had many livestock and a great deal of money for the needs of this world."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0139",
-      "source_sha256": "1528b850a0bb78c1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0139.s1",
+      "source_sha256": "1ba9807ac2870edb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "These holy people, Dorotheus and his wife Theopiste, had a custom in honor of the holy archangel Michael. Whenever the twelfth day of each month approached, they would prepare the offering on the eleventh. Early in the morning of the twelfth, they would joyfully send the firstfruits and the offering to the archangel’s shrine."
+      "text": "Now these holy people, Dorotheus and his wife Theopiste, had a custom of honoring the holy archangel Michael: whenever the twelfth day of each month approached,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0139.s2",
+      "source_sha256": "7d0388dddfc42201",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "they would prepare the offering on the eleventh, for the following day, the twelfth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0139.s3",
+      "source_sha256": "0f1d92dd65866db2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "early in the morning, and send the firstfruits and the offering to the archangel’s sanctuary with joy."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0140",
@@ -2777,11 +2867,18 @@
       "text": "You have come to us today."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0149",
-      "source_sha256": "98197367a9064ead",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0149.s1",
+      "source_sha256": "dd4ae78778449e7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They did these things on every twelfth day, so that their sweet fragrance and their charity might rise to God in heaven. Everyone honored them throughout their lives because of their excellence."
+      "text": "They did these things every twelfth day, so that their sweet fragrance and their love would rise to God in heaven,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0149.s2",
+      "source_sha256": "c11e74cdad41bc60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while everyone honored them throughout their lives because of their excellence."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0150",
@@ -2847,11 +2944,25 @@
       "text": "Then many people and animals died,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0159",
-      "source_sha256": "c8dc044e4a896e3a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0159.s1",
+      "source_sha256": "c1c7eb5fecfe9a1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "because water had not come over the land for three consecutive years. But the holy man and his wife did not stop doing what they did each month, pleading with God and the holy archangel Michael: “Do not let your love feast and your offering cease through our hands, we who are your servants.” While they were in this condition,"
+      "text": "Because no rain had come upon the earth for three consecutive years, the holy man, however,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0159.s2",
+      "source_sha256": "54321baba3c30249",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He and his wife did not stop what they did every month, pleading with God and the holy archangel Michael:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0159.s3",
+      "source_sha256": "eec3c37751c1a372",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Do not let your charity and your offering cease in our hands, we who are your servants.” They were in this situation."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0160",
@@ -2994,18 +3105,32 @@
       "text": "by day and by night, in tears, saying, “Holy archangel Michael, plead with God on our behalf,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0180",
-      "source_sha256": "f4a5358f6a77ea01",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0180.s1",
+      "source_sha256": "ad052700d1d3215c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so that he may open his hand of blessing to us, so that the hope of his love feast and his sacrifice, which we offer in his name, may not depart from you. O Michael, great and holy archangel, you know our hearts and our devotion to you,"
+      "text": "May he open his hand of blessing to us, so that the hope of his charity and his sacrifice, which we offer in his name, may not fail you."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0181",
-      "source_sha256": "b643095097b93845",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0180.s2",
+      "source_sha256": "52f85629cdd7a6e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and that we have no protection except you. You have been our protector from our childhood until now, interceding for us before God our king. Now we appeal to you, Michael, our good guardian."
+      "text": "O Michael, great and holy archangel, you are the one who knows our heart and our devotion to you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0181.s1",
+      "source_sha256": "0c97502ec2d8d4d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and that we have no protection except you. You have been our protector from our childhood until now,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0181.s2",
+      "source_sha256": "669b376588a56576",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "interceding for us before God our king. Now we appeal to you, Michael, our good guardian."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.001.0182",
@@ -3568,11 +3693,18 @@
       "text": "Will you deprive me of remembering the holy archangel Michael?"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0017",
-      "source_sha256": "dfe01e090f569fcb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0017.s1",
+      "source_sha256": "fc4269f21678bc90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "No, my brother, do not think in your heart that I have abandoned my devotion to the holy archangel Michael. Indeed, the apostle said, teaching us, ‘There is neither male nor female in Christ.’”"
+      "text": "No, my brother, do not think this in your heart:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0017.s2",
+      "source_sha256": "61b2da01a347474d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that I have abandoned my devotion to the holy archangel Michael. Indeed, the apostle said, teaching us, “There is neither male nor female in Christ.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0018",
@@ -3848,11 +3980,18 @@
       "text": "Michael said to one of the angels who were walking with him"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0057",
-      "source_sha256": "8019e6ba66606c6b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0057.s1",
+      "source_sha256": "4815eb07ade1485e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "in the appearance of soldiers, “Walk with Dorotheus and go to this shepherd. Tell him, ‘The governor who just passed you says: Send me a sheep for one tremissis."
+      "text": "in the form of a soldier, saying, “Walk with Dorotheus and go to this shepherd. Tell him:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0057.s2",
+      "source_sha256": "593a4e317939c1a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘The governor who passed right by you says, “Send me a sheep for a tremissis.”’”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0058",
@@ -4051,11 +4190,18 @@
       "text": "In short, he was pondering these things."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0086",
-      "source_sha256": "157dafd7c6125484",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0086.s1",
+      "source_sha256": "520e1ade795cbf01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He was pleading with God with all his heart, saying, “Holy archangel Michael, my protector, stand with your servants today. For you know, my lord, that I am doing all these things in your name and in that of your Lord.”"
+      "text": "He was pleading with God with all his heart, saying, “Holy archangel Michael,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0086.s2",
+      "source_sha256": "9fc2ee0a4e0a62e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "my protector, stand with your servants today, for you know, my lord, that I do all these things in your name and that of your Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0087",
@@ -4982,11 +5128,18 @@
       "text": "and the welfare of my lord the king, you will take them all, together with their interest."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0219",
-      "source_sha256": "0ecc6bf5efb82e01",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0219.s1",
+      "source_sha256": "535fa3b06b09b600",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Perhaps you are afraid that the king might hear and threaten you. I am the one who will defend you before my lord the king, so that you may take them all, and I will have him give you another great honor."
+      "text": "Were you perhaps afraid that the king might hear and threaten you? I am the one who will defend you before my lord the king,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0219.s2",
+      "source_sha256": "572c4dce5e7a3482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that you will receive them all, and I will have him give you further great honors."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.002.0220",
@@ -6361,11 +6514,18 @@
       "text": "You know, our protector, that we are earth and ashes."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0130",
-      "source_sha256": "26e50ac982eb07c6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0130.s1",
+      "source_sha256": "045072137dc87dc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And our nature is prone to stumble. But God is merciful and forgiving. Our part is to sin; your part is to plead for us before God, so that he may forgive us our sins. Our part is to plead with God."
+      "text": "Our nature is prone to stumble, but God is merciful and forgiving. It is ours to sin;"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0130.s2",
+      "source_sha256": "34daffd678edb292",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "it is yours, in turn, to intercede for us before God, so that he may forgive us our sins. It is ours to plead with God."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0131",
@@ -6634,11 +6794,18 @@
       "text": "help me, so that I may be rescued from the midst of the boundless sea and return to you on the shore safely."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0169",
-      "source_sha256": "d97cc05cd9052ffe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0169.s1",
+      "source_sha256": "422cdd850b8d95c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For I have begun to speak to you in this praise, and of the honors that befit the one whose festival you celebrate today, the great archangel Michael. But my tongue is a tongue of flesh,"
+      "text": "Since I began to speak with you in this eulogy and of the honors fitting for the one whose feast you are celebrating today,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0169.s2",
+      "source_sha256": "0a882a5e3e6f0629",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the great archangel Michael. But my tongue is a tongue of flesh."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0170",
@@ -6648,11 +6815,18 @@
       "text": "and my body is a body of earth."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0171",
-      "source_sha256": "964cd4b5f2485d9a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0171.s1",
+      "source_sha256": "d70871e0f92674cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I have not been able to reach the measure of his glory and the fullness of his holy dignity. O my lord, second only to God! O Michael, the delight of my heart! O holy archangel, the comfort of my heart! O holy commander-in-chief, the comfort of my tongue! O Michael, the word upon my lips"
+      "text": "I have not been able to reach the measure of his glory and the fullness of his holy dignity. O my lord, second only to God! O Michael, the joy of my heart!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0171.s2",
+      "source_sha256": "acb9966d8b4d9b94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "O holy archangel, the comfort of my heart! O holy commander-in-chief, the comfort of my tongue! O Michael, the word upon my lips!"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0172",
@@ -6788,11 +6962,18 @@
       "text": "the remembrance of your archangelic name at every moment—"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0191",
-      "source_sha256": "561af724536417ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0191.s1",
+      "source_sha256": "8dd68204494f7b9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I will not be without reward and fruit before God. Remembering your name, holy archangel Michael, is sweet in my mouth, like honey in my mouth."
+      "text": "I will not be without reward and without fruit before God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0191.s2",
+      "source_sha256": "c42fdb02bee1088f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The remembrance of your name, O holy archangel Michael, is sweet upon my lips, like honey in my mouth."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0192",
@@ -6809,11 +6990,18 @@
       "text": "Holy archangel Michael, the race of Adam has gained confidence before God because of you, holy archangel."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0194",
-      "source_sha256": "f2c8e1747bab2514",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0194.s1",
+      "source_sha256": "6413cf38ac0e2c05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Michael, our incense and our prayers rise to God because of you. Michael, holy archangel, you are the one who carries them up to God until he has compassion on us."
+      "text": "O Michael, our incense offerings and our prayers ascend to God through you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0194.s2",
+      "source_sha256": "7afe8431b449d825",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "O Michael, holy archangel, you are the one who carries them up to God until he has mercy on us,"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0195",
@@ -6865,11 +7053,18 @@
       "text": "and through the intercessions of the Lady of us all, the holy Mother of God, Mary,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0202",
-      "source_sha256": "707c0fd5f88ad0bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0202.s1",
+      "source_sha256": "58596ac277fb2872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and through the prayers of the holy archangel Gabriel, the herald of the realms of light, through the grace and love for humanity of our Lord Jesus Christ. Glory to him and his good Father and the holy, life-giving Spirit, who is of the same substance, now"
+      "text": "together with the prayers of the holy archangel Gabriel, the bearer of good news of the aeons of light. Through grace and love for humanity"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0202.s2",
+      "source_sha256": "dc39e5e94b01289e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Of our Lord Jesus Christ. Glory to him, together with his good Father and the holy, life-giving Spirit, who is of the same essence, now."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.003.0203",
@@ -6886,11 +7081,18 @@
       "text": "A eulogy delivered by our holy father."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0001",
-      "source_sha256": "3ca22d649c0d70f1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0001.s1",
+      "source_sha256": "a0cc7fc37780380a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Honored in every way, Apa Theodosius, the archbishop of Alexandria, who delivered it at the feast of the holy archangel Michael, which is the twelfth day of the month of Hathor. He delivered many compositions."
+      "text": "Apa Theodosius, the archbishop of Alexandria, honored in every way. He delivered it at the festival of the holy archangel Michael."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0001.s2",
+      "source_sha256": "504704ad95cab1b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Which is the twelfth day of the month of Hathor. He delivered many compositions."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0002",
@@ -7096,11 +7298,18 @@
       "text": "drinking, or praying? There is a measure in everything, just as the teacher Paul said: “Godliness with contentment is great gain.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0031",
-      "source_sha256": "a507c201c3eaa2d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0031.s1",
+      "source_sha256": "55b9da7f714d4a95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I too will answer you frankly, beloved friend: You have indeed spoken well, for you have shown concern. But I will dare to speak like the friend"
+      "text": "I too will answer you plainly, beloved friend: you have indeed spoken well."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0031.s2",
+      "source_sha256": "0ca8d205ee58e9af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For you have shown concern. But I will dare to speak as a friend."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0032",
@@ -7460,11 +7669,18 @@
       "text": "He is not an earthly servant who will pass away."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0083",
-      "source_sha256": "845dc2fed5adff72",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0083.s1",
+      "source_sha256": "624e3807695a7ccf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Rather, he is a minister of a flame of fire. He is not an earthly ruler who will pass away, but an archangel in the heavens. He is not an earthly commander-in-chief who will be dismissed, whom the king replaces whenever he wishes."
+      "text": "But he is a minister of a fiery flame, not an earthly ruler who will pass away, but an archangel"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0083.s2",
+      "source_sha256": "6af8dc0f19cb0262",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in heaven. He is not an earthly commander-in-chief who will perish, whom the king replaces whenever he wishes."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.004.0084",
@@ -8230,11 +8446,25 @@
       "text": "who has set the heavens before us as the table of his great feast,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0006",
-      "source_sha256": "8499a344ba1e08aa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0006.s1",
+      "source_sha256": "9711ca932df1d67e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "which is spread out for us today in heaven and [?], according to the command of our Lord Jesus Christ. For there is one God, one Lord, and one kingdom that endures, serving as an image of the Holy Trinity. There is one essence, with the Father, the Son, and the Holy Spirit: inseparable, unchanging, indivisible, unfathomable, unsearchable, and impossible to contain."
+      "text": "This one who is spread out for us today in heaven and [?], according to the command of our Lord Jesus Christ. For there is one God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0006.s2",
+      "source_sha256": "6cc43cf9f74a0364",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "There is one Lord. There is one enduring kingdom, existing as an image of the Holy Trinity. There is one essence, with the Father"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0006.s3",
+      "source_sha256": "930023b4d182b28d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the Son and the Holy Spirit: inseparable, unchanging, indivisible, whose limits cannot be found, which cannot be searched out or comprehended."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0007",
@@ -8356,11 +8586,18 @@
       "text": "There is Isaiah, with Jeremiah and Ezekiel, and the three holy ones, and Elijah and Daniel,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0024",
-      "source_sha256": "d485c2ab7b122c57",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0024.s1",
+      "source_sha256": "044abe092ba47360",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "these great prophets. There is Zechariah the priest, with John his son, and the twelve apostles, and Stephen the archdeacon, and Simeon, the holy old man and priest, and the martyrs"
+      "text": "These great prophets: Zechariah the priest and John his son, and the twelve apostles,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0024.s2",
+      "source_sha256": "e94b154b2119d85a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and Stephen the archdeacon, and the holy elder and priest Simeon, and the martyrs."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0025",
@@ -8489,11 +8726,18 @@
       "text": "Let me say to him, “My lord and father, did not all these things happen, and did not all the angels bow down before you, except for one alone and his rank?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0043",
-      "source_sha256": "a0498e34c4118e9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0043.s1",
+      "source_sha256": "d3635d9e15acc677",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He answered, “Yes, my Lord made everything submit to me before placing me, when he placed me in paradise.” I will dare to say to him, “Then what have you to do with this festival today, since no angel is higher than you? You are the likeness and the entire image of God."
+      "text": "He answered, “Yes, my Lord made everything subject to me, even before he placed me in [?], when he placed me in paradise.” I will dare to say to him, “And what concern do you have with this festival today,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0043.s2",
+      "source_sha256": "03de20a4e3bbff7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "since no angel is higher than you? You are the likeness and the complete image of God.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0044",
@@ -8559,11 +8803,18 @@
       "text": "But he was there [?] there, being the first-created."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0053",
-      "source_sha256": "207b5da87aad7641",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0053.s1",
+      "source_sha256": "e0b952c66926714e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "That is Satanael, the one called the Devil, who was himself an archangel. Then, when the command came from God's mouth, Michael the archangel, one of the seven archangels, came with his rank of angels. He came and first bowed down to God, our King Jesus Christ."
+      "text": "That is Satanael, the one called the devil. He too was an archangel. Then, when the command came from the mouth of God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0053.s2",
+      "source_sha256": "3fe3fdf3c960b56b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Michael the archangel, one of the seven archangels, came with his company. He came and first worshiped God, our king Jesus Christ."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0054",
@@ -8958,11 +9209,18 @@
       "text": "which I took from the enemy’s head. Stretch out your hand and take this staff for yourself, and become—become commander-in-chief in place of the shameful accuser."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0110",
-      "source_sha256": "6575e99ea6ad2652",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0110.s1",
+      "source_sha256": "cecf8283469c61b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "O Michael, stretch out your left hand and take this great weapon for yourself. Prepare yourself to fight the enemies of your king. O Michael, take the sapphire helmet for your head,"
+      "text": "“Michael, stretch out your left hand and take this great weapon for yourself."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0110.s2",
+      "source_sha256": "4b48d84fe2083d9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Prepare yourself to fight the enemies of your king. Michael, take the sapphire ring and put it on your finger.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0111",
@@ -9273,11 +9531,18 @@
       "text": "of the whole world with my hands,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0155",
-      "source_sha256": "ac56241d115f67d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0155.s1",
+      "source_sha256": "7141727fbe4fc158",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "my very own. Michael the holy archangel is the one who brings them before God, giving them good things [?] sins too, and pleading with him on their behalf to forgive those of my race."
+      "text": "Myself. Michael, the holy archangel, is the one who brings them in to God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0155.s2",
+      "source_sha256": "744657f0a1c44833",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while he in turn gives them good things for sins [?], pleading with him on their behalf to forgive those of my race."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0156",
@@ -10568,11 +10833,18 @@
       "text": "Now then, brothers, get up and withdraw to the outer court, a little way from the gate, so that when our lord the king enters with his great holy archangel,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0082",
-      "source_sha256": "7d8d3dfa88353699",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0082.s1",
+      "source_sha256": "b6899b22fb715508",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "we may beg him, and perhaps he will have a little mercy on us, like the others who receive alms at the gate of the court. For the archangel whose feast you celebrate is merciful; he will not leave you without anything. But keep yourselves safe outside."
+      "text": "Let us plead with him; perhaps he will show us a little mercy, as he does the others who collect alms at the courtyard door."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0082.s2",
+      "source_sha256": "80df9cf91437a937",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For the archangel is merciful. If you celebrate a festival for him, he will not leave you in need of anything, but will keep you safe outside."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0083",
@@ -11240,11 +11512,18 @@
       "text": "But this holy man"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0178",
-      "source_sha256": "635e6d1bd4e41107",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0178.s1",
+      "source_sha256": "7e9cf6b9ee087174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and his wife did not stop doing what they did each month. They pleaded with God and the holy archangel Michael, saying, “Do not let your charitable meal and your offering cease to come from our hands, the hands of your servants.”"
+      "text": "He and his wife did not stop what they were doing every month, pleading with God and the holy archangel Michael,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0178.s2",
+      "source_sha256": "ddf9a46f502fe7c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "saying, “Do not let your love and your offering fail in the hands of us, your servants.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0179",
@@ -11394,11 +11673,18 @@
       "text": "And they prayed and praised God day and night with tears, saying, “Holy archangel Michael, appeal to God on our behalf,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0200",
-      "source_sha256": "bee5b653f9c29358",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0200.s1",
+      "source_sha256": "987baee6261af15a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so that he may open his hand of blessing to us, so that we may not lose hope of his love-feast and his sacrifice, which we offer in his name. O Michael, great and holy archangel, you know our hearts and our devotion to you,"
+      "text": "May he open his hand of blessing to us, so that our hope for his love and his sacrifice, which we offer in his name, may not fail us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0200.s2",
+      "source_sha256": "295f80257ef0c4c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "O Michael, the great holy archangel, you know our hearts and our intentions toward you."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0201",
@@ -11415,11 +11701,18 @@
       "text": "[?] apart from you. You have been our protector from our childhood until now, interceding for us before God our king."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0203",
-      "source_sha256": "262656fda1faac36",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0203.s1",
+      "source_sha256": "26609743e21d02c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now we appeal to you, Michael, our good protector: if indeed this great [?] is upon us at our end, and these covenants that we made with you and with God, not to neglect your sacrifice and your love feast."
+      "text": "Now we appeal to you, our good guardian Michael: if indeed [?], this great [?] of heart, look [?] upon us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0203.s2",
+      "source_sha256": "5c6557c89c108dfc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "at our end, and these covenants that we established with you and with God, who does not neglect your sacrifice and your love,"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0204",
@@ -11597,11 +11890,18 @@
       "text": "kept saying as they persevered in pleading with God"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0229",
-      "source_sha256": "be89f13f5a358593",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0229.s1",
+      "source_sha256": "11acc1407d222e7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and his holy archangel Michael, from the twelfth of Paopi until the ninth hour on the twelfth of Hathor, which is the great feast of the holy archangel Michael."
+      "text": "and with his holy archangel Michael, from the twelfth of Paopi until the ninth hour on the twelfth of Hathor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0229.s2",
+      "source_sha256": "7a11e55a61bd030b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which is the great feast of the holy archangel Michael."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0230",
@@ -11674,11 +11974,18 @@
       "text": "No, my sister, do not give up our hope. God is able to do everything.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0240",
-      "source_sha256": "261539800d689bb5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0240.s1",
+      "source_sha256": "c3dd6bbf6a1c9aea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Listen also to the comforting words that this blessed woman spoke wisely to her husband. She said to him: “Welcome, my lord and brother. You have come to me now with the consolation of our wealth, which is the joy of our souls together. Truly, O my brother,”"
+      "text": "Listen, in turn, to the comforting words that this blessed woman speaks wisely to her husband. She said to him, “Welcome, my lord and brother!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0240.s2",
+      "source_sha256": "840b95e761f822f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You have come to me now most welcome, together with the comfort of our wealth, which is the shared joy of our souls. Truly, my brother,"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0241",
@@ -11702,11 +12009,18 @@
       "text": "my inner being because of the thought of the feast of our protector"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0244",
-      "source_sha256": "34df6f2dedcd5b62",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0244.s1",
+      "source_sha256": "404f58341e71ae15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and our intercessor, the holy archangel Michael. Now then, my brother, consider what we are going to do, so that our offering does not fail through our fault and we lose the little we have."
+      "text": "and our intercessor, the holy archangel Michael. Now then, my brother,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0244.s2",
+      "source_sha256": "6778bab9e53983f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "consider what we are to do, lest [?] your offerings [?] from us, and we lose the little I have.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.006.0245",
@@ -11968,11 +12282,18 @@
       "text": "how will you attend the service on this great feast day today?"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0011",
-      "source_sha256": "3c8b1035ac7019ca",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0011.s1",
+      "source_sha256": "f81085acd588be2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For I am a man, and I can go everywhere like this. But a woman ought to cover her body, especially in church.” She raised her voice"
+      "text": "“For I am a man, and I go everywhere like this. But a woman ought to cover herself"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0011.s2",
+      "source_sha256": "f57a76328652f08b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in her body, especially in church.” But she uncovered her face."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0012",
@@ -13704,11 +14025,18 @@
       "text": "so that he may grant you other great honors."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0259",
-      "source_sha256": "d59f1025dac0a5f9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0259.s1",
+      "source_sha256": "eeb0588da78db98b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And if you wish to [?] your heart, these are not the only things you will obtain from me. Rather, this is the interest. But when I return to my city, by God's will,"
+      "text": "“And if you wish, [?] your heart, these are not the only things you will obtain from me."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0259.s2",
+      "source_sha256": "b0f16afcdf86e0c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Rather, this is the interest. But when I return to my city, by God’s will—"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0260",
@@ -14061,11 +14389,18 @@
       "text": "in my name since your childhood—I have not forgotten any of them."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0310",
-      "source_sha256": "5bad4d4990bbb43b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0310.s1",
+      "source_sha256": "a7e3444561579b05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Rather, I have offered them all to God on your behalf. I have truly received your sacrifices and your gifts from your hands, like Abel’s, because you gave them with upright hearts. O Dorotheus and Theopiste, blessed are you!"
+      "text": "But I have offered them all to God on your behalf. Truly, I received your sacrifices from you in truth, and your gifts,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0310.s2",
+      "source_sha256": "16f1f69d79a3806e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "like those of Abel, because you gave them with integrity. O Dorotheus and Theopiste, blessed are you!"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0311",
@@ -14082,11 +14417,18 @@
       "text": "And as your name is, so too is your blessing."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0313",
-      "source_sha256": "4bc682087baaa31b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0313.s1",
+      "source_sha256": "b9ff9aa3c96f94a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Dorotheus means ‘gift of God,’ and Theopiste means ‘she who believes in God.’ I am Michael the archangel, whom you have appointed as your protector before God. I am Michael,"
+      "text": "Dorotheus is ‘the gift of God,’ and Theopiste is ‘she who believes in God.’ I am Michael,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0313.s2",
+      "source_sha256": "2bdcff7bbb2d9aef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the archangel whom you appointed as your protector before God. I am Michael.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.007.0314",
@@ -14768,11 +15110,18 @@
       "text": "He forgave them their transgression. The love that he showed to Abel the righteous."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0084",
-      "source_sha256": "8e7e38a9589d1486",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "He accepted his offering from him through Michael’s prayers. It was also an act of mercy that God performed for Enoch: he took him away so that he would not see death, through the prayers of Michael and his host. It was also an act of love that God performed for Noah."
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0084.s1",
+      "source_sha256": "ce9640b3933a9fad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He accepted his sacrifice from him through Michael’s supplications. It was also an act of mercy that God performed for Enoch: he took him away"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0084.s2",
+      "source_sha256": "79899a6c8d37a115",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that he would not see death, through the supplications of Michael and his angelic order. It was also an act of love that God performed for Noah."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0085",
@@ -15223,11 +15572,18 @@
       "text": "and our nature is prone to stumble."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0149",
-      "source_sha256": "260008d181e16f92",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0149.s1",
+      "source_sha256": "e60e7a8dd466f6f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But God is merciful and forgiving. It is ours to sin; it is yours to plead for us before God, so that he may forgive us our sins. It is ours to plead with God; it is yours, Michael, to appeal to God for us, so that he may forgive us. O Michael, our ruler, it is ours to stumble;"
+      "text": "But God is merciful and forgiving. Ours is to sin; yours is to intercede for us before God, so that he may forgive us our sins."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0149.s2",
+      "source_sha256": "00eb7338b5c895ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Ours is to plead with God; yours, O Michael, is to appeal to God on our behalf so that he may forgive us. O Michael, our ruler, ours is to slaughter the sacrifice."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0150",
@@ -15629,11 +15985,18 @@
       "text": "and I am very weak in my deeds."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0207",
-      "source_sha256": "6338d6b2269334f5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0207.s1",
+      "source_sha256": "301f71da2cc993d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I appeal to you, O Michael, my helper: accept from me too my prayer and my plea, which are my small, humble gift that I have been able to give you at your feast."
+      "text": "I appeal to you, O Michael, my helper: accept from me too my prayer"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0207.s2",
+      "source_sha256": "c301d6d41533d383",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and my supplication, which is my small, feeble gift that I was able to give you at your feast,"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0208",
@@ -15713,11 +16076,39 @@
       "text": "I will not be without reward"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219",
-      "source_sha256": "aae058efac8744c6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219.s1",
+      "source_sha256": "bc721cff1ff34fc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "or without fruit before God. Remembering [?] your name, O holy archangel Michael, is sweet in my mouth, like honey in my mouth. Remembering your holy name, O holy archangel Michael, is a robe for me when I lie down and when I rise. O great holy archangel Michael, the race of Adam has gained confidence before God through you. O holy archangel Michael, the fragrance of our prayers rises to God through you. O Michael, holy archangel, you are the one who carries them up to God until he has mercy on us."
+      "text": "and without fruit before God. Remembering your name, O holy archangel Michael, is sweet in my mouth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219.s2",
+      "source_sha256": "aa64366b6965e4ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "like honey in my mouth. Remembering your holy name, O holy archangel Michael, [?]. What are these robes?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219.s3",
+      "source_sha256": "c213b62d48444df9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "In my falling and my rising, O great holy archangel Michael, the race of Adam has gained confidence before God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219.s4",
+      "source_sha256": "8e88433f6e50ccd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "Because of you, O holy archangel Michael, the fragrance of our prayers rises to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0219.s5",
+      "source_sha256": "2e44cc1a77390915",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "Because of you, O Michael, the holy archangel—you are the one who carries them up to God until he has mercy on us."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0220",
@@ -15748,11 +16139,18 @@
       "text": "and that he may save us from the devil’s snares and establish us before him as a kingdom and a priesthood, a holy nation, a people destined for life,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0224",
-      "source_sha256": "74a2ccf658818c58",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "through the prayers offered for us by the great holy archangel Michael, whose feast we celebrate today, and through the intercessions made for us by our Lady,"
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0224.s1",
+      "source_sha256": "c316043af32f649f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "Through the supplications that the great holy archangel Michael makes on our behalf,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0224.s2",
+      "source_sha256": "b74515e7bc223e0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "whose feast we celebrate today, and the intercessions that our Lady makes on our behalf."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0225",
@@ -15790,11 +16188,18 @@
       "text": "who is of the same essence, now and always, forever. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0230",
-      "source_sha256": "902e75626620711d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "✠ Through the diligence and care of our honored, God-loving brother Sire, son of the blessed Pheu, who lives in the southern plain of the city of Esna, in the village called Pkourose,"
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0230.s1",
+      "source_sha256": "4e389783add09320",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "✠ Through the zeal and care of our honored, God-loving brother Sire, the son of the blessed Pheu,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0230.s2",
+      "source_sha256": "98ea87b1e3b57525",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "who lives in the [?] of the city of Esna, in the village called Pkourose."
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0231",
@@ -15832,11 +16237,18 @@
       "text": "And when he leaves the body,"
     },
     {
-      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0236",
-      "source_sha256": "4b5675a3296b6446",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "may he be worthy to hear the voice full of joy saying, “Come, you who are blessed by my Father, and inherit the kingdom prepared for you since the foundation of the world.”"
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0236.s1",
+      "source_sha256": "a201dfb24d46bf00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "May he be worthy to hear the voice full of joy: “Come, you who are blessed by my Father,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0236.s2",
+      "source_sha256": "429455e98f1baacd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "and inherit the kingdom prepared for you since the foundation of the world.”"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.008.0237",

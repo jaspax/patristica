@@ -15,15 +15,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0000",
-      "source_sha256": "08dd6e688e729a09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0000.s1",
+      "source_sha256": "2ac75ac41ddee95c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The life and conduct of our holy father, honored in every way, Saint Apa Cyrus, the truly perfect man, as recorded by Apa Pambo, the priest of the church of Scetis. Saint Apa Cyrus entered his rest on the eighth day of the month of Epiphi, in the peace of God."
+      "text": "The life and conduct of our holy father, honored in every way, Saint Apa Cyrus, the truly perfect man, as recorded"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0000.s2",
+      "source_sha256": "e393bfb173aeb0af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "by Apa Pambo, the priest of the church of Scetis. Saint Apa Cyrus went to his rest on the eighth day of the month of Epip, in the peace of God."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0001",
@@ -54,11 +67,18 @@
       "text": "You will find a great hermit of whom the whole world is not worthy of a single sandal strap on his feet."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0005",
-      "source_sha256": "5d29d2038c72a26a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0005.s1",
+      "source_sha256": "e3f262f27397d2c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The blessed Apa Pambo got up and walked into the mountain through the power of God, who was with him, just as he was with the blessed Anthony when he traveled to the blessed Apa Paul the Second."
+      "text": "The blessed Apa Pambo rose and traveled into the mountain through the power of God that was with him, as with the blessed Anthony."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0005.s2",
+      "source_sha256": "8bfb8a913eb86e75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "During his journey, he went to the blessed Apa Paul the Second."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0006",
@@ -194,11 +214,18 @@
       "text": "I called inside according to the rule of the monastic brothers."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0025",
-      "source_sha256": "50e36f5e8c81443a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0025.s1",
+      "source_sha256": "8822a58edc629235",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "While I was still standing outside, the brother answered me from inside, saying, “Greetings, Apa Pambo, priest of the church of Scetis, and the great ship sailing through the waterless desert."
+      "text": "While I was still standing outside, the brother answered me from inside, saying, “Greetings, Apa Pambo,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0025.s2",
+      "source_sha256": "82493dd3bdf9fa35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "priest of the church of Scetis, and great ship sailing through the waterless desert!”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0026",
@@ -271,11 +298,18 @@
       "text": "Apa Pamoun the Naked—for this alone was his name—said to me, “My beloved brother, Apa Pambo,”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0036",
-      "source_sha256": "9ed53ea4f662d580",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0036.s1",
+      "source_sha256": "ba9ad0b51ab4402f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“Believe me, my beloved father: for twenty years, ever since I came to this place, this one garment is what I have found keeps me warm in winter and in the different temperature of the air in summer.”"
+      "text": "“Believe me, my beloved father, it has been twenty years"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0036.s2",
+      "source_sha256": "d6f0244ec761f33e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "since I came to this place. This one garment is all I have to wrap myself in during winter and also in the summer weather.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0037",
@@ -355,11 +389,25 @@
       "text": "“Only, my father, remember me until I receive that brother's blessing.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0048",
-      "source_sha256": "41cda744651ac040",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0048.s1",
+      "source_sha256": "299327cea5baac24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When I had walked more than a mile farther into the mountain, I—I, Pambo, the least of all—swear to you by God's fearsome judgment seat that I am not lying in what I am about to say now: the one who seized the prophet Habakkuk long ago and brought him, along with the meal in his hands, carrying him to the lions' den and giving it to Daniel in the lions' den,"
+      "text": "When I had traveled more than a mile into the mountain—I, Pambo, the least of all, swear to you by the fearsome judgment seat of God"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0048.s2",
+      "source_sha256": "aa584fada53e6698",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that I am not lying in what I am about to say now—the one who once took hold of the prophet Habakkuk and brought him with the meal he was carrying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0048.s3",
+      "source_sha256": "47828612c91c18fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "brought him over the lions’ den and gave it to Daniel in the lions’ den."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0049",
@@ -425,11 +473,18 @@
       "text": "When I saw him, I was utterly amazed."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0058",
-      "source_sha256": "eede1dde2f37776b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0058.s1",
+      "source_sha256": "80222f6102713823",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But I remembered the patriarch Jacob, who likewise, when he fled from his brother Esau, went to Mesopotamia in Syria and came to the place where Laban’s sheep were."
+      "text": "But I remembered the patriarch Jacob, how he too, when he fled from Esau,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0058.s2",
+      "source_sha256": "aadf5482cb680de0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "his brother, went to Mesopotamia in Syria and came to the place where Laban’s sheep were."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0059",
@@ -460,11 +515,18 @@
       "text": "He said, “My name is Cyrus."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0063",
-      "source_sha256": "c08806628017fdeb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0063.s1",
+      "source_sha256": "7d98ae253fd82ca1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I am the brother of Emperor Theodosius, and I was brought up with Arcadius and Honorius, sharing the same table with them. Indeed, Honorius often said to me, ‘Take me into the wilderness with you so that I may become a monk.’"
+      "text": "“I am the brother of Emperor Theodosius, and I was brought up with Arcadius and Honorius, sharing the same table with them. Indeed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0063.s2",
+      "source_sha256": "1781ae190def81ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Honorius said to me many times, ‘Take me into the desert with you so that I may become a monk.’"
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0064",
@@ -474,11 +536,18 @@
       "text": "But I could not receive him, because he is the king’s son."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0065",
-      "source_sha256": "1cd1446f98c78204",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0065.s1",
+      "source_sha256": "e9e11824a516886c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But when we saw that oppression had increased, that kings were acting lawlessly, that rulers were oppressing the poor, and that everyone had turned aside and corrupted their way before God, I got up, left, and came to this desert. I have lived here because of my many sins,"
+      "text": "But when we saw that violence had increased, that kings were acting lawlessly, that officials were oppressing the poor, and that everyone had turned aside and corrupted"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0065.s2",
+      "source_sha256": "0bb316dc8efce13c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "their way before God, I rose, left everything behind, came to this desert, and lived in it because of my many sins.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.000.0066",
@@ -614,11 +683,18 @@
       "text": "While he was still saying these things, behold, Christ opened the door of the cell and came in. Immediately the door opened by itself."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0013",
-      "source_sha256": "8738486014cc02ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0013.s1",
+      "source_sha256": "993d9d78c39fb48d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When he came in—believe me, my brothers and my fathers—I, Pambo, the least of all, saw Christ approach that brother and kiss him lip to lip, like a brother who had returned from a foreign land and met his companion."
+      "text": "And when he came in—believe me, my brothers and my fathers—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0013.s2",
+      "source_sha256": "98485c490d9d001d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I, Pambo, the least of all, saw Christ approach that brother and kiss him on the mouth, like a brother who had returned from abroad and met his companion."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0014",
@@ -733,11 +809,18 @@
       "text": "I said to him, “My beloved father, are you too afraid, after all the ascetic disciplines you have endured in the world?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0030",
-      "source_sha256": "6aae3aa377078e8d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 15,
-      "text": "He said to me, “As for ascetic disciplines, I performed a few in accordance with what God appointed for me. But why should we not be afraid, since we have been shown through many testimonies that a river of fire flows before the Judge?”"
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0030.s1",
+      "source_sha256": "e04b81e6fe2935c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He said to me, “As for ascetic practices, I have performed a few, according to what God appointed for me."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0030.s2",
+      "source_sha256": "ffa6a7cb8401591a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But why should we not be afraid, when we are repeatedly warned through many testimonies that a river of fire flows before the Judge?”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0031",
@@ -768,11 +851,18 @@
       "text": "He said to me, “I greet you in the Lord, my beloved brother.” Then he prayed, reciting the prayer from the Gospel. He opened his mouth and gave up his spirit, like someone drifting off to sleep."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0035",
-      "source_sha256": "3870e5bba0c20cb0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0035.s1",
+      "source_sha256": "f08d2e00d2598be3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I sat and remained there weeping over him. While I was weeping over him, behold, Christ opened the door of the cell and came in. He stood over the body of the blessed Apa Cyrus and wept over him. I too wept over him."
+      "text": "I sat down and remained there weeping over him. While I was weeping over him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0035.s2",
+      "source_sha256": "4d165dcb42444f3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Christ opened the door of the dwelling, came in, and stood over the body of the blessed Apa Cyrus. He wept over him, and I too wept over him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0036",
@@ -845,11 +935,18 @@
       "text": "May their holy forms be with us. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0046",
-      "source_sha256": "836d7cf2069e9a99",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 12,
-      "text": "After this, I was troubled within myself, wondering how I would prepare the blessed man’s body, or where I would find a shroud to put on him. The Savior came out through the doorway of the chamber and closed the door."
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0046.s1",
+      "source_sha256": "132a914255f90793",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After this, I wondered within myself, “What am I to do with the blessed man’s body?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0046.s2",
+      "source_sha256": "2535e3870d6939e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or where will I find a shroud to put on him?” The Savior came out through the door of the dwelling and shut the door."
     },
     {
       "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0047",
@@ -901,11 +998,18 @@
       "text": "After this, I went to my monastery in Scetis and wrote the life of the blessed Apa Cyrus."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0054",
-      "source_sha256": "cccebb1327f30bee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 12,
-      "text": "I left it in the church of Scetis for the benefit and comfort of those who would hear it, to the glory of the Holy Trinity—the Father, the Son, and the Holy Spirit—forever and ever. Amen. 7 ◈ 7 ◈ 7 ◈ 7 ◈ 7"
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0054.s1",
+      "source_sha256": "8794c742f626275b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "I placed it in the church of Scetis for the benefit and comfort of those who will hear it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_cyrus#CopScr.life-cyrus.001.0054.s2",
+      "source_sha256": "e887927fc569e1e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "To the glory of the Holy Trinity—the Father, the Son, and the Holy Spirit—forever and ever. Amen. 7 ◈ 7 ◈ 7 ◈ 7 ◈ 7"
     }
   ]
 }

@@ -15,15 +15,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0000",
-      "source_sha256": "8d5ad5270f17a582",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 24,
-      "text": "Likewise, a homily delivered in Constantinople, in the church of Anthemius, by Proclus, bishop of Cyzicus, on the Sunday of Absolution, when they seated him on the archbishop’s throne, while Nestorius the heretic was present."
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0000.s1",
+      "source_sha256": "d4d13204a3657a81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Likewise, a homily delivered in Constantinople, in the church of Anthemius, by Proclus, bishop of Cyzicus, on the Sunday of Release."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0000.s2",
+      "source_sha256": "64ad476105e24c3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When they seated him on the archbishop’s throne, with Nestorius the heretic present."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0001",
@@ -33,11 +46,18 @@
       "text": "Let the wonder of our Savior’s feast surpass our words."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0002",
-      "source_sha256": "7590eed716c4b65b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0002.s1",
+      "source_sha256": "6fbd47c0bb47f203",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let our tongue’s boastful speech grow weak before today’s wonder, because it cannot adequately proclaim the goodness of the one who was crucified for us as that goodness deserves."
+      "text": "Let our tongue’s grand words falter before today’s wonder."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0002.s2",
+      "source_sha256": "e345fa36d524eff8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it cannot adequately proclaim the goodness of the one who was crucified for us, as that goodness deserves."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0003",
@@ -173,11 +193,18 @@
       "text": "For the one buried in it did not decay; instead, the one who went down became a bridegroom."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0022",
-      "source_sha256": "8df318cb38167d9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0022.s1",
+      "source_sha256": "f01ad923ed9de0b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "No being was ever born who spent three days and three nights in the earth and then rose, except the one who alone fashioned within the Virgin a temple for his body, in the way he himself knows. He is the one who rose on the third day."
+      "text": "No being has ever been born who spent three days and three nights in the earth and then rose,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0022.s2",
+      "source_sha256": "972dda28dd4d1ea1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "except the one who formed for himself, within the virgin, the temple of his body, in the way he himself knows. He is the one who rose on the third day."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0023",
@@ -355,11 +382,18 @@
       "text": "“On the day,” he said, “when God, who is above every nature, will take flesh from a woman in the way that he himself knows.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0048",
-      "source_sha256": "c8d509d6b9e4e661",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0048.s1",
+      "source_sha256": "08356b76226c8139",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And the virgin will give birth to the indescribable mystery without a man: a human being who loves humanity and does not change. He made death release me—death, which had swallowed me without my knowing. His tomb became a treasury of resurrection, and humanity’s captivity—"
+      "text": "And the virgin bore the indescribable mystery without a man: a man who loves humanity and does not change, who made death release me—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0048.s2",
+      "source_sha256": "827b7c4acbcd006b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the death that had swallowed me without my knowing it. His tomb became a treasury of resurrection and of humanity’s captivity."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0049",
@@ -565,11 +599,18 @@
       "text": "“I do not believe that God appeared on earth, that the one who has no shape took on a form in human likeness.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0078",
-      "source_sha256": "c7885fd8d074fd5e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0078.s1",
+      "source_sha256": "2dbabb7ffa8efef3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But if you mock the Law, Jew, and refuse to listen to the prophets, and despise the evangelists, and alter the apostles' words, then let us question the elements and learn from them who they acknowledge the Lord who died in the flesh to be."
+      "text": "But if you mock the Law, O Jew, and refuse to listen to the prophets, and despise the evangelists and distort the words of the apostles,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0078.s2",
+      "source_sha256": "3053698cce2d63c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then let us question the elements and learn from them who they confess the Lord who died in the flesh to be."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0079",
@@ -845,11 +886,18 @@
       "text": "and whom they crucified in the flesh?"
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0118",
-      "source_sha256": "2b8adf390c3defa0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0118.s1",
+      "source_sha256": "decc327397418253",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And they will all answer, crying out with the prophet David, “The Lord of hosts—he is the King of glory!” To him belong glory and dominion forever and ever. Amen."
+      "text": "And they will all answer, crying out with the prophet David: “The Lord of hosts—he is the King of glory!”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0118.s2",
+      "source_sha256": "362436b6cad2dfaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "To him belong glory and dominion forever and ever. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.000.0119",
@@ -859,11 +907,18 @@
       "text": "Proclus the archbishop."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0000",
-      "source_sha256": "ff72b1622c111732",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0000.s1",
+      "source_sha256": "50da756305b2fb27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "A homily delivered by Proclus, bishop of Cyzicus, in the Great Church of Constantinople, with Nestorius the heretic present, concerning his doctrine, which is written as we are about to [?] enter the holy forty days."
+      "text": "A homily delivered by Proclus, bishop of Cyzicus, in the Great Church of Constantinople, with Nestorius present,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0000.s2",
+      "source_sha256": "25a325b87c6146dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the heretic, concerning his written decree [?] concerning the holy forty days."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0001",
@@ -915,11 +970,18 @@
       "text": "It is ungrudging, and great is the treasury of gifts stored up in heaven."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0008",
-      "source_sha256": "ba1cddbcf984c5fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 24,
-      "text": "This grace knows no poverty, for Christ is the one who gives this grace. And if you wish, beloved, look at the holy Scriptures, and you will know the immeasurable wealth with which he gives great gifts."
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0008.s1",
+      "source_sha256": "4e7fc7b83bd52f97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This grace knows no poverty, for Christ is the one who gives this grace. And if you wish, beloved, look at the holy Scriptures,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0008.s2",
+      "source_sha256": "20ab2c86fda35a45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and you will know the immeasurable wealth, as he gives great gifts."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0009",
@@ -1069,11 +1131,18 @@
       "text": "For the richness of his works surpasses my tongue."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0030",
-      "source_sha256": "b8d94edcd010838f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0030.s1",
+      "source_sha256": "beadb7532d0fa698",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the feast of the church is filled with every gift for our salvation, as it is written: “Every good gift and every perfect gift is from—is from heaven, coming down from the Father of lights.”"
+      "text": "For the Church’s feast is filled with every gift for our salvation, as it is written: “Every good gift"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0030.s2",
+      "source_sha256": "00bda94588ef9adf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and every perfect gift is from—is from heaven, coming down from the Father of lights.”"
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0031",
@@ -1153,11 +1222,25 @@
       "text": "O feast whose place is on earth, but whose benefit is in heaven!"
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0042",
-      "source_sha256": "a0eda8f8c4079356",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0042.s1",
+      "source_sha256": "ce04aa7761c1e66e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Here they proclaimed with a loud voice the beneficial medicine of fasting, the holy forty days, the abundant reward of self-control, the angel-like nature of virginity, acceptable mercy, joy, blessedness, immeasurable wisdom, patience that resembles God, and tireless endurance."
+      "text": "Here the beneficial medicine of fasting was proclaimed in a loud voice: the holy forty days,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0042.s2",
+      "source_sha256": "0be245d45e2bd8ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the abundant reward of self-control, virginity’s equality with the angels, acceptable mercy, cheerfulness, blessedness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0042.s3",
+      "source_sha256": "ea33e17092f0f2ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "immeasurable wisdom, patience that resembles God, the tirelessness of endurance."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0043",
@@ -1223,11 +1306,18 @@
       "text": "God’s nature is not something created, and the nature he took from me is not an illusion. Rather, he is one single Son."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0052",
-      "source_sha256": "e2b46a0cec5d7cd0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 24,
-      "text": "We do not divide the natures into two hypostases. Rather, the two natures constitute one single hypostasis, from divinity and the humanity of the wondrous dispensation, which became one with him. After the indescribable union, he exists as the only-begotten Son."
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0052.s1",
+      "source_sha256": "bf811666d9fd55d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We do not divide the natures into two hypostases; rather, the two natures are one single hypostasis,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0052.s2",
+      "source_sha256": "0805dd554591135a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "from divinity and the humanity of the wondrous incarnation, which became one with him. After the indescribable union, he exists as the only-begotten Son."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0053",
@@ -1272,11 +1362,18 @@
       "text": "For God’s nature cannot be divided, and he endured sufferings in what he put on. But he freed me through the sufferings of what he assumed."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0059",
-      "source_sha256": "b104b59a8cb2f4c9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0059.s1",
+      "source_sha256": "4780471d1dad0a9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We call him the Son of God by grace, but [?] he is truly God the Word, because he is the Wisdom and the Mind, inseparable from the Father by nature, directing the works of God and of human beings."
+      "text": "We call him the Son of God [by grace, but [?]] he is truly God the Word."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0059.s2",
+      "source_sha256": "b61df2663aea8da4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For he is the Wisdom and Mind inseparable from the Father by nature, as the charioteer directing the affairs of God and humanity."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0060",
@@ -1692,11 +1789,18 @@
       "text": "The growth of the churches; the spread of godliness."
     },
     {
-      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0119",
-      "source_sha256": "8149397689327486",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 17,
-      "text": "So, if you have abandoned your error and your folly, cry out yourself with Moses the lawgiver: “This is my God; I will glorify him.” His are the glory and the power forever and ever. Amen."
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0119.s1",
+      "source_sha256": "e1d7c84297e8a6cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "So, if you have abandoned your error and your vanity, cry out, you too, with Moses the lawgiver: “This is my God; I will glorify him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0119.s2",
+      "source_sha256": "584d10eea08c5be7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 2,
+      "text": "To him belong glory and dominion for all ages of ages. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/proclus_homilies#CopScr.proclus-homilies.001.0120",

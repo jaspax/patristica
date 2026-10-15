@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -26,11 +32,25 @@
       "text": "She deceives herself and many senseless people, like animals, [?] the Scriptures."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0001",
-      "source_sha256": "76dd0f2cda21d1c7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0001.s1",
+      "source_sha256": "9ce5384164bf40a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It is only because of pride, as I said earlier, and disobedience that all these multitudes are going down to the underworld, whether male or female. For it was also because of pride and disobedience, as we said earlier, that the devil was cast out of heaven at the beginning."
+      "text": "Only because of pride, as I said before,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0001.s2",
+      "source_sha256": "6b74a0807ab44015",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and disobedience, all these multitudes are going down to the underworld, whether men or women. For it was also because of pride and disobedience, as we said before,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0001.s3",
+      "source_sha256": "643caac6eba28888",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that the devil was thrown out of heaven at the beginning."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0002",
@@ -187,11 +207,18 @@
       "text": "They will proclaim their end through their curse.” We have said these things knowing that, just as the love of money is the root of every evil, according to the words of the Scriptures,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0024",
-      "source_sha256": "c7920c19d9c3a4b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0024.s1",
+      "source_sha256": "72a8cef22a7ee537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so disobedience is also the root of every evil, according to the words of the Scriptures, especially for those who harbor hatred against their neighbors without cause, carrying out their murders in their hearts instead of with their hands."
+      "text": "This, too, is how disobedience is the root of every evil,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0024.s2",
+      "source_sha256": "e70cec51cbb9c1ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "according also to the words of the Scriptures—especially those who harbor hatred toward their neighbors without cause, committing their murders in their hearts instead of with their hands."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0025",
@@ -642,11 +669,18 @@
       "text": "Then again, the great Abraham, with whom God established a covenant, to multiply his descendants like the stars of heaven"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0089",
-      "source_sha256": "db0590daf69f97d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0089.s1",
+      "source_sha256": "48bd23b809e675d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and like the sand on the seashore, which cannot be counted, and to have his descendants inherit the cities of their enemies, and to have all nations receive a blessing through him—as we know that the old covenant and the new covenant came into being through him and his descendants."
+      "text": "and like the sand on the seashore, which cannot be counted, and that his descendants should inherit the cities of their enemies,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0089.s2",
+      "source_sha256": "46853b459a94b511",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and that all the nations should be blessed through him, as we know that the old covenant and the new came into being through him and his descendants."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0090",
@@ -838,11 +872,18 @@
       "text": "You did not allow us to kiss my sons and daughters. Now you have acted foolishly."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0117",
-      "source_sha256": "6a6b279e2690c38e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0117.s1",
+      "source_sha256": "0dc1825d2161ef43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And now I have the power to harm you, but your father's God said to me yesterday, ‘Be careful not to say anything evil to Jacob.’” Likewise, Jacob also said to Laban when he was arguing with him, “If the God of my father Abraham had not been with me,"
+      "text": "“And now I have the power to harm you, but the God of your father said to me yesterday, ‘Be careful not to speak to Jacob"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0117.s2",
+      "source_sha256": "111a901961d97bd7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with evil words.’” Likewise, Jacob himself also spoke to Laban when he was arguing with him: “If the God of my father Abraham had not been on my side,”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0118",
@@ -866,18 +907,32 @@
       "text": "He rebuked you yesterday.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0121",
-      "source_sha256": "df05c2873a547e1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0121.s1",
+      "source_sha256": "f03e9d3f048440f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We said these things so that we might understand that not only do the angels travel with him, but the Lord is also not far from him: he is with him wherever he goes. As he also spoke with him elsewhere, just as he appeared to him when he was coming down to Egypt with him,"
+      "text": "We said these things so that we might understand that not only do the angels walk with him, but the Lord is also not far from him, being with him wherever he goes,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0122",
-      "source_sha256": "23677c923f09d779",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0121.s2",
+      "source_sha256": "549a3d9951282aa7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“And I will bring you back up, and Joseph will place his hand over your eyes.” Then there are also Jacob's sons, whose descendants God made like the stars of heaven and like the sand on the seashore, which cannot be counted."
+      "text": "just as he also spoke with him elsewhere, when he appeared to him as he was going down to Egypt with him:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0122.s1",
+      "source_sha256": "a398479f4b94fac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“And I myself will bring you back up, and Joseph will lay his hand upon your eyes.” Then again, the sons of Jacob,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0122.s2",
+      "source_sha256": "04bf3e6e532dcbbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whose descendants God made like the stars of heaven and like the sand on the seashore, which cannot be counted."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0123",
@@ -943,11 +998,18 @@
       "text": "and also bless the produce of his land."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0132",
-      "source_sha256": "5ab925e5a1553a00",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0132.s1",
+      "source_sha256": "c410ca7742d6a435",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And it is also fitting for someone secluded as a monk and an ascetic to work with his hands for his food and clothing, and to do God's will through deeds of godliness, so that he may receive a blessing from the Lord on earth"
+      "text": "It is also right for someone who has committed himself as a monk and an ascetic to work with his hands"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0132.s2",
+      "source_sha256": "6e5b01c357bdc63b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for his food and clothing, and to do God's will through godly deeds, so that he may receive a blessing from the Lord upon the earth."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.000.0133",
@@ -999,11 +1061,18 @@
       "text": "Day and night are darkness to him in the chambers of his heart, because his deeds are not evident."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.001.0005",
-      "source_sha256": "162abcb1f2572c72",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.001.0005.s1",
+      "source_sha256": "9ce5a5b56269b20d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Concerning this sin, the Holy Spirit spoke, knowing that [?] this [?] is greater than all lawlessness, concerning those who do these things: “The person who speaks peaceful words with his neighbor, while hostility, envy, and hatred are in his heart—"
+      "text": "Because of my sin, the Holy Spirit said, knowing that [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.001.0005.s2",
+      "source_sha256": "443381a9763d6d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "more than all acts of lawlessness, concerning those who do these things: “The person who speaks peaceful words to his neighbor while hostility, jealousy, and hatred are in his heart.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.001.0006",
@@ -1083,11 +1152,18 @@
       "text": "rejoicing over your neighbor’s destruction—but the Scripture of God stands against it."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0002",
-      "source_sha256": "e9181d7cb2a15063",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0002.s1",
+      "source_sha256": "ba86c7b25c944070",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And what it has said from the beginning concerning those who do these things is to bring it down and scatter it like things that do not exist, at the moment and the time when it will give its spirit into the hands of the one who hates it,"
+      "text": "And the things she said from the beginning about those who do these things, to send her down and wipe her out,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0002.s2",
+      "source_sha256": "45e5fa7a4ca17e1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "like those who do not exist, at the time and hour when she will give her spirit into the hands of the one who hates her."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0003",
@@ -1097,18 +1173,39 @@
       "text": "Christ, along with all its other bitter deeds, as it is written: “The person who rejoices over someone who is going to perish will not escape evil.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0004",
-      "source_sha256": "f3a0ffe86491d7e9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0004.s1",
+      "source_sha256": "3a02dd00adee0adf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For indeed, when the Lord became a man among human beings—he is God and the Son of God, the one who commanded Adam in paradise not to eat from the tree, the one who commanded Abraham and his household to undergo circumcision of the flesh, the one who spoke with Moses at the bush and performed all these mighty deeds through his staff, the staff about which he spoke with Moses, saying, “Take this staff in your hand,"
+      "text": "For indeed, when the Lord became a human being among human beings—God and the Son of God—"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0005",
-      "source_sha256": "aafe415e4e49e6d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0004.s2",
+      "source_sha256": "912f10fc2d5c8380",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "with which you will perform all these signs”—he went further and carried them out before Pharaoh and all the Egyptians through the power of his arm, as it is written: “The one who brought Israel out of the land of Egypt with a mighty hand and an uplifted arm.”"
+      "text": "he is the one who commanded Adam in paradise not to eat from the tree. He is the one who commanded Abraham and his household to undergo circumcision of the flesh. He is the one who spoke with Moses at the bush,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0004.s3",
+      "source_sha256": "90ed39476ad544f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "having performed all these miracles through his staff, about which he spoke to Moses, saying, “Take this staff in your hand,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0005.s1",
+      "source_sha256": "7c037b3c56d24d25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with which you will perform all these signs.” He went on to carry them out before Pharaoh and all the Egyptians,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0005.s2",
+      "source_sha256": "3ab56f28be94abcf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "by the power of his arm, as it is written: “The one who brought Israel out of the land of Egypt with a strong hand and an uplifted arm.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0006",
@@ -1118,11 +1215,18 @@
       "text": "He is the one who gave the law to Moses in the wilderness, and the one through whom every commandment and every law came into being."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0007",
-      "source_sha256": "20c9982083550e27",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0007.s1",
+      "source_sha256": "a1dc78fa8af7ba51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He is the one who did these things and far, far more than the things we have mentioned, with no measure to his mighty deeds and no end to his wonders. So when he became a man among human beings—he is God and the Son of God—"
+      "text": "He is the one who did these things, having done far, far more than what we have said, for there is no limit to his mighty deeds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0007.s2",
+      "source_sha256": "30e7f5c4c50c74f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And there is no end to his wonders. So when he became human among human beings, he was God and the Son of God."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.002.0008",
@@ -1412,11 +1516,18 @@
       "text": "And we will weep in the place of weeping, where many have wept since the beginning."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0036",
-      "source_sha256": "d3cebea31df6ca88",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0036.s1",
+      "source_sha256": "59aac32c66e2ad18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If it is because of you, O love of humanity and love, that this entire multitude will receive glory when the King comes in his glory with all his angels, as we said before,"
+      "text": "If it is because of you, O love for humanity and love, that this whole multitude will receive glory when the King comes"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0036.s2",
+      "source_sha256": "fc69d4bb3714e1c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in his glory, with all his angels with him, as we said before,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0037",
@@ -1426,11 +1537,18 @@
       "text": "and they will enter eternal life,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0038",
-      "source_sha256": "17619ea4dbf49e92",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0038.s1",
+      "source_sha256": "b3a776ff2827167f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "then you are blessed, and blessed is the Lord of glory, Jesus, because he sowed you for himself in the hearts of the wise, so that they might inherit eternal life with every honor and every glory, with great confidence in heaven."
+      "text": "blessed are you, and blessed is the Lord of glory, Jesus, because he has sown you for himself in the hearts of the wise,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0038.s2",
+      "source_sha256": "21291af42b25ae8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that they may inherit life forever, with every honor and all glory, with great confidence in heaven,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0039",
@@ -1440,11 +1558,18 @@
       "text": "And if it is because of you, in turn, O hatred of humanity, that this entire multitude and these numerous peoples, from the beginning of the world until now and until the end of the age, will receive disgrace,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0040",
-      "source_sha256": "e6bd4f27bb7cbb69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0040.s1",
+      "source_sha256": "0aef06065370d121",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the king comes in his glory to judge between these and the others, between those on the right because of love, mercy, and the fullness of kindness toward others, and those on the left because of jealousy, hatred, and mercilessness."
+      "text": "when the King comes in his glory to judge between these and the others, between those on the right because of love and mercy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0040.s2",
+      "source_sha256": "f0e8102819d75a62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and perfect love for humanity, and those on the left because of envy and hatred and mercilessness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0041",
@@ -1461,11 +1586,18 @@
       "text": "the devil, who sowed you for himself as an evil seed in the hearts of the foolish."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0043",
-      "source_sha256": "bc3d3cb238ee7f75",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0043.s1",
+      "source_sha256": "7e69b1788e3e780c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For it was he, the dragon, who nourished you with the abundance of poisons coming out of his mouth, until he led very many astray without their realizing that he had led them away from the road to the city where they would dwell. He brought them out of the light into darkness, without their realizing that it is darkness"
+      "text": "For it is he, the dragon, who fought against you with the abundance of poisons coming from his mouth, until he led very many astray without their realizing that he had led them astray"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0043.s2",
+      "source_sha256": "74a58cff02201e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "from the road leading to the city where they were to live, having brought them out of the light into darkness, without their realizing that it was darkness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0044",
@@ -1503,11 +1635,18 @@
       "text": "according to the decree of judgment written in the Gospels."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0049",
-      "source_sha256": "f8cfbecd11c4b4bd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0049.s1",
+      "source_sha256": "6d1817a0eed1f958",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The one who did not wish anyone in his creation to perish made this known to us beforehand: “This is how I will act when I come, according to what those on the right deserve for their deeds done with every kind of love for humanity.”"
+      "text": "This is what he foretold to us—the one who does not wish anything in his creation to perish—saying, “This is how I will act"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0049.s2",
+      "source_sha256": "81d705c8806977db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when I come, according to what those on the right deserve, according to their deeds in every kind of love for humanity."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0050",
@@ -1517,11 +1656,18 @@
       "text": "And again: “This is the decree concerning those on the left when he comes, according to what they deserve:"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0051",
-      "source_sha256": "749bc4884398dc6a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0051.s1",
+      "source_sha256": "b25e5a29867e86b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Go now, you wretched, miserable people, together with the one you loved and worked with in jealousy and hatred and in utter mercilessness, down into the fire of Gehenna—not for days or years, but forever and ever.”"
+      "text": "Receive now, you wretched, miserable people, together with the one you loved and with whom you worked in envy and hatred"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0051.s2",
+      "source_sha256": "3c9e97068bb9880d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and in utter mercilessness, down in the fire of Gehenna, not for days and years, but forever and ever.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0052",
@@ -1573,11 +1719,18 @@
       "text": "Oh, what turmoil there will be on that day for those standing on the left, before those on the right who are in glory!"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0059",
-      "source_sha256": "a9b8485d3607e7f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0059.s1",
+      "source_sha256": "64959b6958f5bf9d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, what weeping there will be on that day among all the nations that did not know God, and all the heretics, each individually in the error into which deceit led them!"
+      "text": "Oh, what weeping there will be on that day among all the nations that did not know God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0059.s2",
+      "source_sha256": "bf202125308ff5d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and all the heretics, each one separately in the error into which deceit led them astray,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0060",
@@ -1594,11 +1747,18 @@
       "text": "because they did not recognize the calling with which they were called, or the grace that reached them."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0062",
-      "source_sha256": "e5977e7a90e04da6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0062.s1",
+      "source_sha256": "7df42eee26e24a5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Especially those who bear the name and wear the habit and live in holy places: they too are entangled in these things under that wrath, because they did not listen to the voice of the Scriptures, which went out over the whole earth,"
+      "text": "especially those who bear the name and wear the garb and live in the holy places,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0062.s2",
+      "source_sha256": "d23ead8c61f8395d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "they too being mixed with these in that wrath, because they did not listen to the voice of the Scriptures, which went out over the whole earth:"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0063",
@@ -1664,11 +1824,18 @@
       "text": "“Depart from me,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0072",
-      "source_sha256": "5d94f1e4211e4a2e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0072.s1",
+      "source_sha256": "c955ec6d2567f3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "you who are cursed, into the eternal fire prepared for the devil and his angels, because you did not act according to what I commanded you. Not only did you fail to love your neighbor because it seemed too difficult to you—"
+      "text": "“You who are cursed, into the eternal fire prepared for the devil and his angels,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0072.s2",
+      "source_sha256": "d8a64e50fecabbe9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because you did not act according to what I commanded you, not merely because you did not love your neighbor because the task was difficult for you."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0073",
@@ -1685,11 +1852,32 @@
       "text": "You twisted what I told you into things I did not tell you, in every kind of lawlessness."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0075",
-      "source_sha256": "02c70f781e1519f4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0075.s1",
+      "source_sha256": "7aa59a612c9e9ab2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now receive what you deserve, according to the wickedness of your deeds, down in the fire of Gehenna, along with the one who turned your affection into hatred, your love into mercilessness, and your purity into defilement and sexual immorality in many forms that are disgusting to describe and shameful to hear. He turned the fullness of godliness into the fullness of every kind of ungodliness during the days you were on earth."
+      "text": "Receive now according to what you deserve and according to the wickedness of your deeds,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0075.s2",
+      "source_sha256": "e9c888c9f6f0d133",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "down in the fire of Gehenna, together with the one who turned your will into hatred and your love into mercilessness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0075.s3",
+      "source_sha256": "f47698f40725e586",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and your purity into defilement and sexual immorality in various forms that are loathsome to mention and shameful to hear about,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0075.s4",
+      "source_sha256": "2fac8c8bf6786009",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the one who turned complete godliness into complete ungodliness of every kind during your days on earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.003.0076",
@@ -1699,11 +1887,18 @@
       "text": "You did not listen to me as I cried out through the mouths of my servants.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0000",
-      "source_sha256": "5533794a3a6215a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0000.s1",
+      "source_sha256": "70b8a588ae6a1c12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The prophets: “Turn to me so that you may live”—these words have been spoken since the beginning of the earth—or, “Turn to me, and I will heal your wounds,” or, “Come out from among them and separate yourselves from them."
+      "text": "The prophets: “Return to me so that you may live”—those from the beginning of the world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0000.s2",
+      "source_sha256": "2351dfd937906380",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or, “Return to me, and I will heal your brokenness.” Or, “Come out from among them and separate yourselves from them.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0001",
@@ -1727,18 +1922,32 @@
       "text": "For if the one who is pure and those who are being purified all come from one, according to the Scriptures—that is, from God—"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0004",
-      "source_sha256": "cc22b404e03abd33",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0004.s1",
+      "source_sha256": "88ad474593f3490c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "then surely the one who is defiled, the devil, and those whom he defiles also all come from one—that is, from him. Whether demons, or all the impure, deceitful spirits with him, or women who are prostitutes and men who are worthless in every way, they all come from him, the devil—everyone who sins in any way."
+      "text": "So the defiled one, the devil, and those who defile themselves all come from one, namely him—whether a demon or any of the unclean, deceitful spirits that are with him;"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0005",
-      "source_sha256": "184950aeeb770e68",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0004.s2",
+      "source_sha256": "93db33c24e7ec77c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "What, then, will happen after the judgment of the Almighty Jesus and the Son of the Almighty Sabaoth has been completed, as he sits upon the cherubim, with the seraphim of light standing before him, together with the holy archangels, with great glory, and all his saints, according to what is written: “The saints will judge the world”?"
+      "text": "whether prostitutes or men who are worthless in every way, they all come from him, the devil—everyone who sins in any way."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0005.s1",
+      "source_sha256": "7b4c76cd5a805645",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "What, then, will happen after the execution of the judgment of the Almighty Jesus and the Son of the Almighty Sabaoth is finished, as he sits upon the cherubim,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0005.s2",
+      "source_sha256": "08d96d233e76b109",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with the shining seraphim standing before him, together with the holy archangels, with great glory, and all his saints, as it is written: “The saints are the ones who will judge the world”?"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0006",
@@ -1755,11 +1964,18 @@
       "text": "What, then, does remembering these things from this moment mean before God?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0008",
-      "source_sha256": "cf6d4415455362fb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0008.s1",
+      "source_sha256": "6d9829f495d9a6b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, the great anguish and the great sorrow of anyone who understands these things that will happen on that day! For we did not obey the Scriptures, but forgot and threw their words behind us,"
+      "text": "Oh, the great anguish and the great sorrow of anyone who understands these things that will happen on that day!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0008.s2",
+      "source_sha256": "6a369bfbb75468ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For we did not obey the Scriptures, but forgot and cast their words behind us."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0009",
@@ -1825,18 +2041,32 @@
       "text": "Furthermore, continuing to strengthen the practice of love for humanity and to put envy and hatred to shame,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0018",
-      "source_sha256": "241867e9b193edef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0018.s1",
+      "source_sha256": "23e5505114b921fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "he says, “But I tell you: Love your enemies and pray for those who persecute you, so that you may become children of your Father in heaven. For he makes his sun rise upon the good and the wicked, and he sends rain upon the righteous and the unjust.”"
+      "text": "He says, “But I tell you: Love your enemies and pray for those who persecute you,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0019",
-      "source_sha256": "683c1da23eab9f95",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0018.s2",
+      "source_sha256": "5c55bcd69b712eb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“For if you love those who love you,” he said, “what reward do you have? Do not the tax collectors themselves do the same? And if you greet only your brothers, what more are you doing? The other nations"
+      "text": "so that you may become children of your Father in heaven. For he makes his sun rise upon the good and the evil, and he sends rain upon the righteous and the wrongdoers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0019.s1",
+      "source_sha256": "10f827fa6c3b8cef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For if you love those who love you,” he said, “what reward do you have?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0019.s2",
+      "source_sha256": "065dee9d07566fc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Do not the tax collectors themselves do the same? And if you greet only your brothers, what more are you doing than the other Gentiles?”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0020",
@@ -1867,11 +2097,18 @@
       "text": "him ahead of himself to guide the people toward love for humanity and love,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0024",
-      "source_sha256": "8fd5b1286aa615fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0024.s1",
+      "source_sha256": "141a02682f618ce3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "since nothing among all the virtues is greater than these. When the crowd came out to receive baptism from him, they asked him, “What shall we do?” He told them, “Whoever has two garments should give one to someone who has none, and whoever has bread should do likewise.”"
+      "text": "Since among all the virtues there is none greater than these, when the crowd came out to receive baptism from him, they asked him, “What should we do?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0024.s2",
+      "source_sha256": "87092a5f5ea846ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He told them, “Let anyone who has two garments give one to someone who has none, and let anyone who has bread do likewise.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0025",
@@ -1923,11 +2160,18 @@
       "text": "is a crown upon its head. It greatly frightens its enemies as it goes to stand before God."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0032",
-      "source_sha256": "f16121997c59661b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0032.s1",
+      "source_sha256": "c435c55d6e3d124a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And the devil trembles before her at all times, filled with shame in her presence, seeing the likeness of Christ upon her and the sign of his holy cross. For it was because of his love for humanity and his mercy toward human beings that he endured the cross."
+      "text": "And the devil always trembles before her, filled with shame in her presence, when he sees the likeness of Christ clothing her, and the sign of his holy cross."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0032.s2",
+      "source_sha256": "4a408076f9cbac0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it was because of his love for humanity and his mercy toward humankind that he endured the cross."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0033",
@@ -1958,11 +2202,18 @@
       "text": "Since we have spoken about the prophet,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0037",
-      "source_sha256": "f3e85d0b25f8853f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0037.s1",
+      "source_sha256": "b6a6bb0852104217",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "he says in the fury of his wrath, as we said before, “Look, I will refine them.” Where, then, will he refine them? “And I will test them, for I will act in the face of the wickedness of the daughter of my people."
+      "text": "He says in his furious anger, as we said before, “Look, I will refine them.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0037.s2",
+      "source_sha256": "162cecf822659010",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Where, then, will he refine them? “And I will test them, for I will act in the face of the wickedness of the daughter of my people.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0038",
@@ -1993,18 +2244,32 @@
       "text": "So that we may know that all the words of Scripture oppose this practice from the beginning."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0042",
-      "source_sha256": "95a1c2c21f24c179",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0042.s1",
+      "source_sha256": "6a9ff34a1661a148",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The Old Testament and the New Testament. Now, since we know everything—our death and our life, our fullness and our lack, our proper approach to God by wisely observing what he has said, and our descent to Hades by foolishly transgressing what he has said—"
+      "text": "The Old Testament and the New Testament. Now, since we have learned everything—our death and our life, our fullness and our lack, our going into God's presence rightly"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0043",
-      "source_sha256": "72355bf193e10488",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0042.s2",
+      "source_sha256": "a89e118f0b03fbb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "let us therefore now consider the difference between these things and the others, before the day we do not know and the hour we do not recognize arrive, and we receive according to our deeds, each according to what he deserves and according to the fruit of his deeds."
+      "text": "by wisely observing what he has said, and our going down to Hades by foolishly transgressing what he has said—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0043.s1",
+      "source_sha256": "0f942dd0e13dc151",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "let us therefore now consider these things and the others, before the day comes that we do not know,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0043.s2",
+      "source_sha256": "aa37089a947991f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the hour that we do not recognize, and we receive according to our deeds, each one according to what he deserves and according to the fruit of his deeds."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0044",
@@ -2028,18 +2293,39 @@
       "text": "The true and good Savior commands, “Do not let your left hand know what your right hand is doing"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0047",
-      "source_sha256": "aa17933f5f70fabd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0047.s1",
+      "source_sha256": "f34f8f1f437c73f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "when you give alms.” What he said is good. Again, in another place, he makes the good person’s deeds known, saying, “Let them see your good deeds and glorify your Father in heaven.” Consequently, it is impossible for a person’s good deeds to remain hidden."
+      "text": "“Whenever you perform an act of mercy”—and what he said is good."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0048",
-      "source_sha256": "29a4d5f809adbec8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0047.s2",
+      "source_sha256": "e3a8d53920d88121",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For it is like a person who has fragrant storax resin inside his clothing: even though he is not spreading much perfume around, he cannot restrain its fragrance and prevent people from smelling the fragrance within him whenever he passes them."
+      "text": "Elsewhere, again revealing the deeds of a good person, he says, “Let them see your good deeds and glorify your Father in heaven.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0047.s3",
+      "source_sha256": "3acd13a15acc7159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So, then, there is no way for a person's good deeds to remain hidden."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0048.s1",
+      "source_sha256": "616fbe1ca891e6bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it is like a person who has fragrant perfume beneath his garment, without greatly [?] it outwardly:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0048.s2",
+      "source_sha256": "cec3d64a93813370",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he cannot restrain its fragrance and prevent people from smelling the fragrance within him whenever he passes them."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0049",
@@ -2063,11 +2349,18 @@
       "text": "Again, it is like a person who has a great stench within him: he gives off a very strong foul smell unwillingly, and he does not want people to smell it when he passes them."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0052",
-      "source_sha256": "aec10b373382203d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0052.s1",
+      "source_sha256": "841400751ecee475",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But this is unavoidable because of the overpowering stench. So too with the person who performs deeds that do not please God and are abominations in people’s eyes, even if he does them at night in the dark."
+      "text": "But it is unavoidable, because it gives off an even greater stench. This is how it is with a person who does deeds"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0052.s2",
+      "source_sha256": "e86947f5cd023964",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that do not please God and are detestable in people's eyes, even if he does them at night, in the darkness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0053",
@@ -2077,11 +2370,18 @@
       "text": "They must be revealed, as the apostle said: “Those that are otherwise cannot remain hidden.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0054",
-      "source_sha256": "1d5404585466e894",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0054.s1",
+      "source_sha256": "bbd310b0a431a24a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Strive, then, beloved brothers, and let us complete the task for which we have gathered together, namely purification, along with the other commandments given to us by God through our holy father, so that we may receive honor on earth before both the good and the wicked."
+      "text": "Strive, then, my beloved brothers, so that we may accomplish the work for which we have gathered together: purification and the other commandments given to us by God"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0054.s2",
+      "source_sha256": "373d9e125bab4f3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through our holy father, so that we may receive honor on earth before both good and evil people."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0055",
@@ -2105,25 +2405,46 @@
       "text": "For our holy father Apa Athanasius says, “Preserve the honorable human likeness, for they will not call you a human being,” he said, “if you do the deeds of irrational creatures.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0058",
-      "source_sha256": "c2eef65515991535",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0058.s1",
+      "source_sha256": "89d74fdadff18394",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now then, beloved brothers, dear to the Lord, we take great pride in you everywhere we go, boasting about you when people tell us about your earlier deeds, saying, “Here is a chosen people, adorned"
+      "text": "Now then, beloved brothers, dear to the Lord, we have great pride in you everywhere we go, boasting about you,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0000",
-      "source_sha256": "528dc0840b23011e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.004.0058.s2",
+      "source_sha256": "260f59e281c1c3ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "with wisdom, fearing God and keeping the commandments of their fathers.” We hear of no fighting among them, nor any sound of fighting; instead, people proclaim your faith everywhere. Do those outside live with us, so that they would know what each of us"
+      "text": "as people tell us about your former deeds, saying, “Here is a people who are chosen and adorned"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0001",
-      "source_sha256": "e19f18202096ebcd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0000.s1",
+      "source_sha256": "616bc3c33aea3fb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "is like in his deeds? Rather, they see the garden around us and its fragrance—the righteousness of our fathers—which shines around our congregation, shining more brightly than the sun and giving off a fragrance sweeter than all perfumes. Because of this they honor us all the more and add to our good reputation."
+      "text": "with wisdom, who fear God and also keep their fathers' commandments. We hear of no war among them"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0000.s2",
+      "source_sha256": "68dcf6be1144161f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or sound of war; instead, they make their faith known everywhere.” Do outsiders live with us, so that they would know how each one of us"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0001.s1",
+      "source_sha256": "720922bd392a89f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "conducts himself in his deeds? Rather, they see the [?] around us and its fragrance—the righteousness of our fathers—which shines around our congregation,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0001.s2",
+      "source_sha256": "2c5a1b1c7fc0bb05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "shining brighter than the sun and giving off a fragrance greater than all perfumes. Because of this, they honor us even more and add to our good reputation."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0002",
@@ -2203,11 +2524,18 @@
       "text": "“A human being is great, and a holy person is even more excellent.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0013",
-      "source_sha256": "151cc72ea14caf05",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0013.s1",
+      "source_sha256": "87e9b0649aa9574b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let us therefore complete the work of godliness in every respect, whether in all our spiritual activities or in bodily activities through the work of our hands, so that we may receive a blessing from the Lord,"
+      "text": "Let us therefore carry out the work of godliness in every respect, whether in all spiritual activities"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0013.s2",
+      "source_sha256": "d59df0b8ba13596a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or in bodily activity through our manual labor, so that we may receive a blessing from the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0014",
@@ -2259,11 +2587,18 @@
       "text": "And the word of Scripture will call you blessed still more: “Blessed are the people who know the shout of joy.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0021",
-      "source_sha256": "2cb1e31047cfc19d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0021.s1",
+      "source_sha256": "86c56f2b16795453",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Lord, they will walk in the light of your face, and they will rejoice in your name all day long. They will be exalted through your righteousness, for you are the glory of their strength. Our horn will be exalted through your righteousness."
+      "text": "Lord, they will walk in the light of your face, and they will rejoice in your name all day long."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0021.s2",
+      "source_sha256": "26374526e29158ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They will be exalted through your righteousness, for you are the glory of their strength. Our horn will be exalted through your righteousness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0022",
@@ -2273,18 +2608,32 @@
       "text": "And so that you too may be able to speak confidently about yourselves on this basis: the Lord is our protector, and the Holy One of Israel is our king."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0023",
-      "source_sha256": "89743f5879ffa3ae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0023.s1",
+      "source_sha256": "35d00ac9caf79d97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, blessed are people like us who will be called blessed on earth by the mouths of many, and will also be called blessed in heaven by the mouths of tens of thousands upon tens of thousands in the heavens."
+      "text": "Oh, blessed are people like us, whom many mouths will call blessed on earth,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0024",
-      "source_sha256": "f9f3575ee2861cd1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0023.s2",
+      "source_sha256": "e37e20843ce1b564",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, truly woe to people who live as we do in God's congregations, whom those on earth call blessed, but whom those in heaven regard as strangers because of their deeds—vast multitudes!"
+      "text": "and whom the mouths of tens of thousands upon tens of thousands in the heavens will also call blessed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0024.s1",
+      "source_sha256": "39f0d329421be9a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Oh, truly, woe to people who live as we do in God's congregations, whom those on earth will call blessed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0024.s2",
+      "source_sha256": "80ac1a9df55dd25e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while those in heaven—vast multitudes—disown them because of their deeds."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0025",
@@ -2364,11 +2713,18 @@
       "text": "and their good conduct, through which they have acquired for themselves a hope in heaven and indescribable wealth forever."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0036",
-      "source_sha256": "d8785853f70ab20b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0036.s1",
+      "source_sha256": "0b90d524a833fb8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And woe to people who have no hope in heaven and do not know what it is that they trust in, because of these deeds—these deeds, again—because of their foolishness and their disobedience. These things of this kind have acquired for them misery and poverty"
+      "text": "And woe to people who have no hope in heaven and do not know what it is that they trust in."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0036.s2",
+      "source_sha256": "709f09c73dd33b36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Why? Because of these deeds—these deeds again—because of their foolishness and their disobedience, since people like these have brought misery and poverty upon themselves."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0037",
@@ -2399,11 +2755,18 @@
       "text": "when the days of each one of us have come to an end. If we speak, we will have much to say about the misery of those who will be negligent."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0041",
-      "source_sha256": "c34b2f1b80bb0369",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0041.s1",
+      "source_sha256": "8e85f906d584d792",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And again, if we speak, we will have much to say about those who will become rich through their diligence, by doing their work rightly and healing themselves through repentance after they have fallen. For the work lies before every person on earth at all times, for anyone who wishes to be saved."
+      "text": "And again, if we speak, we will say much about those who will become rich through their diligence,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0041.s2",
+      "source_sha256": "88d37f299c11fb05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "by setting their conduct right and healing themselves through repentance after they have fallen. For the work is open to everyone on earth at all times, to anyone who wishes to be saved."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0042",
@@ -2427,18 +2790,39 @@
       "text": "And, “Unless the Lord guards a city, its guardian has spent a night keeping watch in vain.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0045",
-      "source_sha256": "fc4e4120b2e974b6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0045.s1",
+      "source_sha256": "d81e3b57781f2ff0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And again, “No one can say, ‘Jesus is Lord,’ except through a holy spirit.” And again, Jesus, the Lord of glory, says, “Without me you can do no work.” So, if God does not work with a person, that person cannot work alone for their salvation. For when a person works with God through good actions and good deeds,"
+      "text": "Again, “No one can say, ‘Jesus is Lord,’ except through the Holy Spirit.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0046",
-      "source_sha256": "88eefbed3ecdf267",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0045.s2",
+      "source_sha256": "dac22b3952381b7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "God himself works with him through every blessing and makes him grow in the fruits of righteousness. Who has ever placed his hope in God from the beginning and been abandoned by God, according to the things we read?"
+      "text": "And again, Jesus, the Lord of glory, says, “Without me you can do nothing.” Therefore, unless God works with a person,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0045.s3",
+      "source_sha256": "28bb10f84ce9b020",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that person cannot work toward his salvation on his own. For when a person works with God in virtuous conduct and good deeds,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0046.s1",
+      "source_sha256": "de233ffc477258cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "God, in turn, works with him in every blessing and makes him grow in the fruits of righteousness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0046.s2",
+      "source_sha256": "1beaba0f44aff664",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Who has ever put his hope in God from the beginning and been abandoned by God, according to what we read?"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.005.0047",
@@ -2483,11 +2867,25 @@
       "text": "for, “It is a cheerful giver whom God loves.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0001",
-      "source_sha256": "7740402fdc42dd99",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0001.s1",
+      "source_sha256": "a67f1310e1a1b326",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "What, then, is a giver? Not merely someone who gives bread and clothing to his neighbor. Rather, whatever you do among the works of righteousness, you should carry them out cheerfully—whether prayer, ascetic discipline, or purity of heart and purity of body—you should do them all cheerfully, or whether it is blessing God by day and by night. You should understand for whom you do these things, and also understand from whom you will receive their reward, knowing"
+      "text": "What, then, is a giver? It is not merely someone who gives bread and clothing to his neighbor, but whatever you do among the works of righteousness, completing them joyfully,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0001.s2",
+      "source_sha256": "16908fbdb0f9751e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whether prayer, ascetic discipline, purity of heart and purity of body—doing all these joyfully—or praising God by day and by night,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0001.s3",
+      "source_sha256": "794da353c53bf96a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "knowing for whom you do them, and also knowing from whom you will receive their reward. He knows."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0002",
@@ -2581,11 +2979,18 @@
       "text": "For this reason Scripture says, “Let everyone who utters the name of the Lord turn away from oppression.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0015",
-      "source_sha256": "ce6d96a19081b894",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0015.s1",
+      "source_sha256": "b4d37aaf88d82aa2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Likewise, our holy father did not hold back words in his holy letters about slander, saying these things and others: “Woe to those who are partners with one another in slander, running to one another with a great desire to carry it out together.”"
+      "text": "This, too, is how our holy father did not hold back his words about slander in his holy letters, saying these things and others:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0015.s2",
+      "source_sha256": "6ab33f6a0cf80604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Woe to those who join one another in slander, running to one another with a strong desire to carry it out together!"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0016",
@@ -2623,11 +3028,18 @@
       "text": "Is it not written, “The person who says, ‘I am a worshiper of God,’ but does not bridle his tongue—his worship is worthless”?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0021",
-      "source_sha256": "9f67264ba6327c05",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0021.s1",
+      "source_sha256": "7d08eb78d13546ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For whoever is a companion of slander and whispering is a companion of sexual immorality without knowing it. The man who has illicit sex and the woman with whom he has it look anxiously this way and that, lest people see them before they finish their acts of sexual immorality."
+      "text": "For whoever takes part in slander and grumbling takes part in sexual immorality without knowing it. The man who commits sexual immorality"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0021.s2",
+      "source_sha256": "e1aa5152671f7aeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the woman with whom he commits it look anxiously this way and that, so that people will not see them, until they have carried out their sexual acts."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0022",
@@ -2679,11 +3091,18 @@
       "text": "so it is also with slander."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0029",
-      "source_sha256": "a3c953f0f782ec94",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0029.s1",
+      "source_sha256": "de62bc97e9a7832b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Even if the heart of the ungodly person is filled with defilement from it, he cannot carry out his impurities with his mouth unless he finds someone like himself, under this same curse, burning to hear of his neighbor’s wickedness and disgrace."
+      "text": "Even if the ungodly man's heart is full of its filth, he cannot carry out his impure acts with his mouth unless he finds someone like himself, under this same curse,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0029.s2",
+      "source_sha256": "16d129b1c3087e16",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "burning to hear about his neighbor's filth and disgrace,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0030",
@@ -2721,11 +3140,25 @@
       "text": "This is how the listener looks out after the other man has gotten up and left him, having carried out all his sexual immorality with his mouth in the listener's ears,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0035",
-      "source_sha256": "bcaf343a4ab4db36",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0035.s1",
+      "source_sha256": "39a46667069f9109",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "like the person who practices sexual immorality, who carries out all his sexual immorality with his mouth in the listener's ears, like the person who practices sexual immorality, who carries out all his sexual immorality in the lap of the wicked woman. He looks out, with his evil heart burning, to see whether someone else is coming again to speak to him as the one who left had spoken."
+      "text": "like someone committing sexual immorality, carrying out all his sexual immorality with his mouth into the listener's ears,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0035.s2",
+      "source_sha256": "02c9d809f626ea40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "like someone committing sexual immorality, carrying out all his sexual immorality in the lap of the wicked woman, who looks out with the burning desire of his wicked heart"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0035.s3",
+      "source_sha256": "a85ee38a4e1ad1d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to see whether someone else is also coming to tell him things, just as the one who got up told him."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0036",
@@ -2735,11 +3168,18 @@
       "text": "So that he may take still greater pleasure in insulting many people who are better than he is, just like the prostitute who displays herself in the streets, serving as a snare."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0037",
-      "source_sha256": "cafdbcc08a697ca9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0037.s1",
+      "source_sha256": "6d0a8e471089edfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "A crowd of wretches. After this man has gotten up and left her, having carried out his sexual immorality with her, she again looks for another man or others, to see about those she will find who will bring her again into this same curse,"
+      "text": "A multitude of wretches! After this man gets up from beside her, having carried out his sexual immorality with her,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0037.s2",
+      "source_sha256": "2a06a2e3dc052ef2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "she looks for another, or for others, to see whom she will find who are like her, under this same curse,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0038",
@@ -2756,11 +3196,18 @@
       "text": "better if people of this kind—the slanderer and the listener—had sought only their own glory and boasted in it,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0040",
-      "source_sha256": "75653a54e651f0e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0040.s1",
+      "source_sha256": "9429e5248611b335",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "rather than seeking the humiliation of their neighbors and the disgrace of their fellow servants of God, since it is the same God whom they worship and the same Lord whom they serve."
+      "text": "all the more eager to seek out their neighbors' disgrace and the shame of their fellow servants of God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0040.s2",
+      "source_sha256": "349c26bcd4eba3b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "since it is the same God whom they worship, and the same Lord whom they serve."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0041",
@@ -2819,11 +3266,18 @@
       "text": "What, then, is the portion of these people, or what is the lot of those others?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0049",
-      "source_sha256": "3d50a3e26b15d7f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0049.s1",
+      "source_sha256": "20efec18c659bff7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If all the angry words of Scripture, which it spoke through God, come down upon them: “I cast out the one who secretly slanders his neighbor,” or, “You sat slandering your brother and putting a stumbling block in the way of your mother’s son.”"
+      "text": "If all the words of anger that Scripture has spoken through God come down upon them: “I cast out the one who slanders"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0049.s2",
+      "source_sha256": "0df7f99b9b95c11d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "his neighbor secretly,” or, “You sat slandering your brother, and you laid a stumbling block for your mother's son.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.006.0050",
@@ -2924,11 +3378,18 @@
       "text": "it grows, becoming prickly and harming those who walk past. If you sow the seed of the [?] in the earth, does it not grow? And how does it grow?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0012",
-      "source_sha256": "c8440028153fbc64",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0012.s1",
+      "source_sha256": "34f2bee1a962357f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It and all the other good and choice trees in the garden—how their owner surrounds them with fences! He also prunes them and watches over their fruit, because they are good to eat and benefit people."
+      "text": "It, and all the other good and choice trees in the garden—how their owner surrounds them with walls!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0012.s2",
+      "source_sha256": "b664164a936a9ade",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He fences them in and watches over their fruit, because they are good to eat and benefit people."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0013",
@@ -2945,11 +3406,18 @@
       "text": "and because it brings joy to those who drink it, especially those who are sick."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0015",
-      "source_sha256": "99ba32eabb5ee4bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0015.s1",
+      "source_sha256": "e85d9b620c1e4eb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But look also at the seeds of thorn bushes, if you sow them in the earth, along with weeds and every prickly wild tree: how they grow without the caretakers surrounding them with fences!"
+      "text": "But look also at the thorn shoots, when you plant them in the ground, and at weeds"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0015.s2",
+      "source_sha256": "09df0637ff4cfa09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and every harmful wild tree: how they grow without caretakers surrounding them with walls!"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0016",
@@ -2994,18 +3462,32 @@
       "text": "You have put their stench to work as they sink into the hearts of the foolish. Those who hate their own souls are not wise. Those who love their own souls—[?]—until you make them strangers to life. How many will you cast away, and how many will you leave?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0022",
-      "source_sha256": "59b21f527a8a1c2b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0022.s1",
+      "source_sha256": "e6a5d7ffbc4de97e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But this path, this very one that you have prepared for those who bear the name and the outward appearance, and who are in the places of Christ, especially throughout the whole land among those who wish to devote themselves to God—"
+      "text": "But this is the mire, this very mire, that you have prepared for those who bear the name and wear the habit."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0023",
-      "source_sha256": "1368d2989a95b378",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0022.s2",
+      "source_sha256": "f9b820c02782a2ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "it is hidden and worse than all your paths, like idolatry and the heretics. For you have darkened their hearts until you lead them astray and make them blind, preventing them from knowing the God who created them."
+      "text": "and those in the places of Christ, especially throughout the whole land among those who wish to devote themselves to God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0023.s1",
+      "source_sha256": "cae87897e27edd96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It is hidden and obscure to all your villages, just as idolatry and the heretics are too."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0023.s2",
+      "source_sha256": "3f20b809b0b36857",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For you have darkened their hearts until you led them astray and made them blind, so that they would not know the God who created them."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0024",
@@ -3064,11 +3546,18 @@
       "text": "And the listener too—if the person being slandered comes upon them or hears them without their knowing, after they have completed all their wickedness"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0032",
-      "source_sha256": "a99e724dba344b48",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0032.s1",
+      "source_sha256": "6b6d7edf144c4a17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "and the words of envy and hatred in their mouths, and they look beside them and see him standing there, listening to them without their knowing, and they look behind them and see him after everything they have said—"
+      "text": "and the words of envy and hatred in their mouths. Let them look beside them"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0032.s2",
+      "source_sha256": "c6b86e936416a3ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and see him standing there, listening to them without their knowing it. And let them look behind them and see him in everything they have said."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0033",
@@ -3092,11 +3581,18 @@
       "text": "is the fate of the slanderer and the listener."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0036",
-      "source_sha256": "62a03354efb77299",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0036.s1",
+      "source_sha256": "166288effbcf95f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If your face changed and your heart melted because the person you were slandering and speaking against heard you, then how greatly will you be shaken, or how greatly will your face be filled with shame, when those you do not know come for you"
+      "text": "If your face has changed and your heart has melted because the person you are slandering has heard you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0036.s2",
+      "source_sha256": "84138fe2c7c8a20a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then how disturbed will you be, or how full of shame will your face be, when those you do not know come after you?"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0037",
@@ -3106,18 +3602,32 @@
       "text": "and bring you before the one you have never seen, Christ, to punish you according to your deeds? He is the one who loved humanity, the one who did not curse when he was cursed,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0038",
-      "source_sha256": "3d46e135b43f5a20",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0038.s1",
+      "source_sha256": "e5cb3820801c09be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "the one who offered himself as a holy sacrifice to his Father, not for one person or two, nor for just one nation, but for the whole world of those who wish to be saved. He is the one who gave us confidence and enabled us to call upon him at all times."
+      "text": "He who offered himself up as a holy sacrifice to his Father, not for one or two people, nor for just one nation,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0039",
-      "source_sha256": "21d291986aa01b89",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0038.s2",
+      "source_sha256": "17f01bd9ea7ea2b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Recognize his words to you, O human being, and his love for everyone alike, just as he taught us to call upon him and his Father when he taught us to pray: “Our Father in heaven.”"
+      "text": "but for the whole world—for those who wish to be saved—has given us confidence and enabled us to cry out to him at all times."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0039.s1",
+      "source_sha256": "8c22fe87cf1ac090",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Recognize his speaking with you, O human being, and his love for all people alike,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0039.s2",
+      "source_sha256": "61cae720419cd759",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "just as he taught us to cry out to him and his Father when he taught us to pray, “Our Father who is in heaven.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0040",
@@ -3204,11 +3714,18 @@
       "text": "Then recognize Christ’s love, as we said before: he makes his entire creation one in their prayer, wanting us to love one another, whether in our living together or in our conduct,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0052",
-      "source_sha256": "df0efe6f2b391344",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0052.s1",
+      "source_sha256": "91dc263d91e885c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "or in our going to church, or in our partaking of the Lord’s body and blood, being a single unity in love and of one mind in Christ, praying for one another in love,"
+      "text": "Whether it is our going to church or our partaking of the body and blood of the Lord,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0052.s2",
+      "source_sha256": "fc7b681ba3f0ee3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "we are united in love and of one mind in Christ, praying for one another in love,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0053",
@@ -3323,11 +3840,18 @@
       "text": "But as children of their holy Father, and as brothers of the blessed Christ, the King of heaven and earth,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0069",
-      "source_sha256": "27a6ca29ba4ef0a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0069.s1",
+      "source_sha256": "2dbd056df0fd8500",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "according to what he said with his truthful mouth: “Whoever does the will of my Father in heaven.” When they asked him, “Look, your mother and your brothers are standing outside, wanting to speak with you,” the one speaking to him answered, “Who is my mother,"
+      "text": "in accordance with what he said with his truthful mouth: “Whoever does the will of my Father who is in heaven”—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0069.s2",
+      "source_sha256": "817fc34fc8ef6bda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when they asked him, “Look, your mother and your brothers are standing outside, wanting to speak with you,” and the one speaking to him answered, “Who is my mother?”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0070",
@@ -3414,11 +3938,18 @@
       "text": "nor will we appear before you at all."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0082",
-      "source_sha256": "d323c87855ed9a42",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0082.s1",
+      "source_sha256": "92c154c9e80bb2df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But we beg you, God of hosts, who performed all these wonders in Israel from the beginning for the sake of Abraham, Isaac, and Jacob, to perform them again among us now, for the sake of your holy name and your holy, beloved Son Jesus, our Savior and our life."
+      "text": "But we beg you, God of hosts, who performed all these wonders in Israel from the beginning for the sake of Abraham, Isaac, and Jacob,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0082.s2",
+      "source_sha256": "93c854b53c5a2057",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to perform them again among us now, for the sake of your holy name and for the sake of your holy, beloved Son, Jesus, our Savior and our life."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.007.0083",
@@ -3428,11 +3959,25 @@
       "text": "Do not keep an account against us, for we are flesh, and"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0000",
-      "source_sha256": "01249edce98c727f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0000.s1",
+      "source_sha256": "1e4ce3dc4799c533",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "we are dust, as you said from the beginning to the first human being, Adam: “You are dust, and you will return to dust.” Forgive us, for we are clay and the works of your hands. Have compassion on us, God of hosts, and forgive us, for we are grass, as you said through your mouth—your prophets: “All flesh is grass.”"
+      "text": "We are dust, according to what you said from the beginning to the first human being, Adam: “You are dust, and you will return to dust.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0000.s2",
+      "source_sha256": "35e829f890170210",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Forgive us, for we are clay and the work of your hands. Have mercy on us, God of hosts."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0000.s3",
+      "source_sha256": "9485f2d186687c3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Forgive us, for we are grass, according to what you said with your own mouth through your prophets: “All flesh is grass.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0001",
@@ -3456,11 +4001,18 @@
       "text": "O God of hosts and Lord of glory, Jesus, if you do not have compassion on us, who will have compassion on us? If you do not show us mercy, who will show us mercy?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0004",
-      "source_sha256": "f16a1350a7c06336",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0004.s1",
+      "source_sha256": "3726e4cf0ba5009c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For you know our powerlessness and our weakness, and the frailty of our body is not hidden from you. You are blessed, Lord, and you are holy. And blessed is the name of your holy glory forever and ever."
+      "text": "For you know our powerlessness and our weakness, and the frailty of our body is not hidden from you. You are blessed, Lord, and you are holy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0004.s2",
+      "source_sha256": "057c3151ec14ca98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And blessed is the name of your holy glory forever and ever."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0005",
@@ -3533,11 +4085,18 @@
       "text": "We moved it to serve as a lasting memorial."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0015",
-      "source_sha256": "de52549220326497",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0015.s1",
+      "source_sha256": "3387a2889a71070c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We placed it under the authority of our fathers in the desert, so that it would remain under the authority of the church of the Virgin Mary on the mountain, in the days when Father Menas and my father Zechariah were its stewards, so that anyone seeking this holy rule could receive it from them, find comfort in its words, and return it to them."
+      "text": "We placed it under the authority of our fathers in the desert, so that it would remain under the authority of the church of the Virgin Mary on the mountain, in the days when Father Menas"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0015.s2",
+      "source_sha256": "771ab4d677314888",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and my father Zechariah were its stewards, so that everyone who asks for this holy book of rules may receive it from them, find comfort in its words, and give it back to them."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.008.0016",
@@ -3568,11 +4127,18 @@
       "text": "The poor will honor her who gave birth to the one who willingly became poor for our sake, so that he might make us rich in righteous deeds."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0002",
-      "source_sha256": "5e3abae353a29e94",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0002.s1",
+      "source_sha256": "391738c155337865",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Slaves will honor her who gave birth to the one who emptied himself, taking the form of a slave for our sake, by showing genuine service to their earthly masters."
+      "text": "The slaves will honor her who bore the one who emptied himself, taking the form of a slave for your sake."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0002.s2",
+      "source_sha256": "60f89d81b9fb3797",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when they show their genuine service to their earthly masters."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0003",
@@ -3617,11 +4183,18 @@
       "text": "But all of us together, whether priests or laypeople,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0009",
-      "source_sha256": "0a8f46e0a6896440",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0009.s1",
+      "source_sha256": "a96c98eb544ea6e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "let us appeal and pray with all our heart to her who has greater power than all the saints to intercede for us before God: the holy Mother of God, Mary, whom God has honored in heaven and on earth above all creation,"
+      "text": "Let us appeal and pray with all our heart,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0009.s2",
+      "source_sha256": "e0e364f3346ae2e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that she who can intercede for us before God more than all the saints may do so: the holy Mother of God, Mary, whom God has honored in heaven and on earth above all creation."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.009.0010",
@@ -3680,11 +4253,18 @@
       "text": "in the fire of Gehenna?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0005",
-      "source_sha256": "a577a7da4385f9da",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0005.s1",
+      "source_sha256": "791f8e6cd57acf7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We want to understand that sinners do not laugh at one another, or at the devil and his demons down in Hades, nor do the pagans, heretics, barbarians, and Jews who do not believe in the Lord Jesus, because they are all alike in the fire and with the worm that never sleeps."
+      "text": "We want to understand that sinners are no different from one another—from the devil and his demons down in Hades, and the pagans and the heretics"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0005.s2",
+      "source_sha256": "2c92430a8ed30cff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the barbarians and the Jews who do not believe in the Lord Jesus—for they are all alike in the fire and the worm that never sleeps."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0006",
@@ -3708,11 +4288,18 @@
       "text": "And every tree that grows on the earth, with whatever blessing [?], down to thorns and reeds."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0009",
-      "source_sha256": "65bdf6f36ede3f18",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0009.s1",
+      "source_sha256": "da6994fb1571edf2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And [?] all of them. Take some from all of them and throw them into a dry, open place. Apply fire [?], with a strong wind blowing behind them by God's command, and see how the appearance of their smoke and their burning differ from one another [?]."
+      "text": "And [?] all of them, and take from all of them and throw them down into the place that is dry and spread out, and set fire [?], while a wind"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0009.s2",
+      "source_sha256": "9993e0ff4ecb41fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "blows strongly behind them at God's command, and see how the appearance of their smoke and their burning differs from one another in what way."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.010.0010",
@@ -3890,11 +4477,25 @@
       "text": "the sea and everything in it—will he not be angry?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0018",
-      "source_sha256": "617683e12efff797",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0018.s1",
+      "source_sha256": "22c67a043540f05b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "can anyone restrain the fury of his anger against any person—whether male or female, small or great, priest or monk, king or ruler, or any leader of the people—who rejects the Lord's commands and his law, his statutes and his judgments, and his testimonies? These are the things he testified to us from the beginning through the mouths of his holy prophets and through the mouth of his holy, only-begotten Son, Jesus, as the apostle says: \"In many portions and in many ways, God spoke to our ancestors long ago through the prophets."
+      "text": "Or can anyone restrain his fierce anger against every person, whether male or female, small or great, priest or monk, king or ruler, or any leader of a people"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0018.s2",
+      "source_sha256": "474cde62d4729457",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who turns away from the Lord's commands and his law, his ordinances, his judgments, and his testimonies, which he testified to us from the beginning through the mouths of his holy prophets"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0018.s3",
+      "source_sha256": "d5faadf388dee152",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and through the mouth of his holy, only-begotten Son, Jesus, as the apostle says: “In many parts and in many ways, God spoke to our ancestors long ago through the prophets.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0019",
@@ -4079,11 +4680,18 @@
       "text": "What, then, have those who remain negligent until they die in defilement not harmed?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0045",
-      "source_sha256": "d4ac7a137a5b1581",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0045.s1",
+      "source_sha256": "8c61a69a7d933efc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They have spoiled the angels’ gracious coming to them on the day of their visitation, to greet them joyfully and sing hymns with them with a voice of gladness and rejoicing, as it is written: I remembered these things and poured out my soul within me,"
+      "text": "They have forfeited being warmly welcomed by the angels on the day of their visitation, when they would greet them with joy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0045.s2",
+      "source_sha256": "c7a0cbd87f8fad95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and sing hymns with them with a voice of gladness and rejoicing, as it is written: “I remembered these things and poured out my soul within me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.011.0046",
@@ -4149,11 +4757,18 @@
       "text": "You know [?] who they are."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0003",
-      "source_sha256": "a49d26ac298cc2ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0003.s1",
+      "source_sha256": "a8c3ce6730bf37ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "These are the ones who died in sin before coming out of it. You have lost God's paradise of delight [?] you will [?] equally [?] out [?] and [?] and the beauty of the fruit and its sweetness."
+      "text": "Those who died in sin before escaping from it—you have forfeited God's paradise of delight. [?] You will [?] it is fitting [?] out with the [?] you [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0003.s2",
+      "source_sha256": "4986f4f359e77f4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to [?] and [?] and the beauty of the fruit and its sweetness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0004",
@@ -4170,11 +4785,18 @@
       "text": "From this time onward."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0006",
-      "source_sha256": "b98591c6291bf69f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0006.s1",
+      "source_sha256": "d1550e0eefbc52a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You have also lost the sight of the tree of life and the opportunity to take some of its fruit and [?], just as the righteous and all the saints will eat from the tree of life [?] prayer to God [?] the righteous and all the saints."
+      "text": "You have also forfeited seeing the tree of life, so that you might take some of its fruit and [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0006.s2",
+      "source_sha256": "55e89a3417c56773",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "just as the righteous and all the saints will eat from the tree of life. [?] prayer [?] of God [?] the righteous and all the saints."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.012.0007",
@@ -4240,11 +4862,18 @@
       "text": "And those who"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0000",
-      "source_sha256": "2b0604198ce5116e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0000.s1",
+      "source_sha256": "06c6219679b5ece5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Because of the good things he does for us—that is, his great patience, since he has not wiped us out, even us who do evil on earth among those who do good in his sight."
+      "text": "because of the good things he does for us, namely, his great patience in not destroying us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0000.s2",
+      "source_sha256": "2748d6ee735bd5eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "we too who do evil on earth among those who do good in his sight."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0001",
@@ -4254,11 +4883,18 @@
       "text": "But the time of harvest is coming, when he will gather the good into their resting place."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0002",
-      "source_sha256": "95dc77ddc06f4e9e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0002.s1",
+      "source_sha256": "de1b3c757f46da34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And he will also gather the evil through the holy angels, to throw them down into Hades, into the fire of Gehenna, or else out into the outer darkness, where there will be weeping and gnashing of teeth."
+      "text": "And he will also gather the wicked through the holy angels, to throw them down into Hades, into the fire of Gehenna, or out into the outer darkness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0002.s2",
+      "source_sha256": "10631f1f15718e64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the place where there will be weeping and gnashing of teeth."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0003",
@@ -4310,11 +4946,18 @@
       "text": "The words of Scripture are also more than a rod for a person, so that we may listen to them and continue in our conduct in every matter according to what pleases God."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0010",
-      "source_sha256": "b78e872407bc4b1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Or does Scripture not say, “A whip for a horse, and a bridle for a donkey, but a rod for a foolish nation”? What is the rod for the foolish nation if not the words of Scripture, according to what is written?"
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0010.s1",
+      "source_sha256": "1583b563fe98b5a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or does Scripture not say, “A whip for a horse,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0010.s2",
+      "source_sha256": "6ac4d019e1271883",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and a goad for a donkey, but a rod for a foolish nation”? What is the rod for the foolish nation, if not the words of the Scriptures, as it is written:"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0011",
@@ -4331,11 +4974,18 @@
       "text": "Oh, this great sorrow that I am about to express! It is a disgrace to us who neglect to listen to God when he calls us,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0013",
-      "source_sha256": "c1951435abfc7665",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "saying, “Come out of your sins and come to me with a few small good deeds, and I will receive you to myself. I will be a father to you, and you will be sons and daughters to me, says the Lord Almighty.”"
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0013.s1",
+      "source_sha256": "05cc3127508036e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Come out of your sins and come to me with a few small good deeds done, and I will welcome you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0013.s2",
+      "source_sha256": "528140cfc5ca6c28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will be a father to you, and you will be sons and daughters to me,” says the Lord Almighty."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0014",
@@ -4345,25 +4995,53 @@
       "text": "Is the snake not a vicious beast? Yet in a short moment, when the charmer charms it,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0015",
-      "source_sha256": "62d6ef083ad7ad50",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "this kind of wild reptile abandons the wildness of its nature and takes on a gentleness contrary to its nature. It comes out into the hands of the one charming it with great gentleness, because of the few words it heard from the charmer’s mouth."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0015.s1",
+      "source_sha256": "ddb20de1e94ac846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Wild animals of this kind abandon the wildness of their nature and acquire a gentleness contrary to their nature."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0016",
-      "source_sha256": "217c69f6192e54dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "But we, whose hearts have become closed, have not obeyed all the words of the Scriptures—those of the Old Testament and those of the New Testament, and those of all the saints, especially those of our holy father. They all call us to abandon the sins that are contrary to our nature, because of which we will die, and to do good deeds according to our nature, because of which we will be saved."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0015.s2",
+      "source_sha256": "7de18a8ede3b5b0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and come into the hands of the one calling him with great gentleness, because of the few words he heard from the mouth of the caller."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0017",
-      "source_sha256": "93ac94dbdfab15ad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "And we have not listened even until now. Instead, we have become like a deaf snake that stops its ears and does not hear the voice of those charming it, or a charm performed by a wise man, according to the Scriptures."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0016.s1",
+      "source_sha256": "d013ea7993c740cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We too are those whose hearts have closed up, and we have not listened to all the words of the Scriptures—those of the Old Testament and the New Testament, and those of all the saints,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0016.s2",
+      "source_sha256": "324cf2e5aa13e45f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "especially those of our holy father. They all call us to abandon the sins that are contrary to our nature,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0016.s3",
+      "source_sha256": "799f1a67ab66be20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because of which we will die, and to do good things in keeping with our nature, because of which we will be saved."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0017.s1",
+      "source_sha256": "34fd01c4921dbee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Yet we have not listened even now. Instead, we have become like a deaf snake that stops its ears and does not hear the voice of those calling it,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0017.s2",
+      "source_sha256": "05d1d3dcbd1384b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or a charm worked by a wise person, as the Scriptures say."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0018",
@@ -4373,11 +5051,18 @@
       "text": "What must happen, then, before we come out of our evil deeds?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0019",
-      "source_sha256": "2965ed0973c4d560",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "We are the ones who commit acts of lawlessness, although we cannot bear the anger of God’s wrath. We provoke him constantly through our evil deeds, especially we who live in the places of Christ—the priests and the monks."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0019.s1",
+      "source_sha256": "721c718aa17cb6b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We are the ones who commit lawless acts, although we cannot endure the fury of God's wrath,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0019.s2",
+      "source_sha256": "e21b44f2d9540e54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whom we constantly provoke by our evil deeds—especially we priests and monks who live in Christ's places."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0020",
@@ -4394,11 +5079,18 @@
       "text": "As it is written, “The one who does not heal himself in his deeds is the brother of the one who destroys himself.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0022",
-      "source_sha256": "bc3ad7425fd7e0ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "“If a fool asks,” he said, “it will be counted as wisdom for him.” And again, wishing to honor those who will abandon their sins and repent quickly, he says, “The one who heals himself in his own deeds—the name of the Lord is revealed in the greatness of his power.”"
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0022.s1",
+      "source_sha256": "da75fa61881b5508",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“If a fool asks questions,” he said, “it will be counted as wisdom for him.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0022.s2",
+      "source_sha256": "1bef0926cf6699c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Again, wishing also to honor [?] those who will abandon their sins and repent quickly, he says, “As for the one who provokes him by his own deeds, the name of the Lord is revealed in the greatness of his power.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0023",
@@ -4415,11 +5107,25 @@
       "text": "Or do you not know that it is a great sorrow before God for people to sin in his holy places, especially if they do not quickly abandon their sins?"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0025",
-      "source_sha256": "d79759814a4118ed",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "If God said to Moses at that time, when he spoke with him at the bush, “Remove the sandals from your feet, for the place where you stand is holy ground”—although they were only sandals—then how much more will he say to us who live in his holy places, “Remove from yourselves all these lawless deeds: defilement and impurity, theft and lies, envy and hatred, fighting and quarrels, and all the other sins that are detestable before me, for the place where you live is holy ground.”"
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0025.s1",
+      "source_sha256": "cde6ce36be2c29d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If God said to Moses at that time, when he spoke with him at the bush, “Take off the sandals on your feet, for the place where you are standing is holy ground”—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0025.s2",
+      "source_sha256": "4663f277ac5f2957",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "although it was only a sandal—then how much more will he say to us who live in his holy places,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0025.s3",
+      "source_sha256": "2b00c50e34987540",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Strip yourselves of all these lawless acts: defilement and pollution, theft and lies, envy and murders, fighting and rivalries, and all the other sins that are hateful before me, because the place where you live is holy ground.”"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0026",
@@ -4464,11 +5170,18 @@
       "text": "so that the one in heaven will laugh at them."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0032",
-      "source_sha256": "d7810c596fd1d3a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0032.s1",
+      "source_sha256": "e0deece0f82e8ca9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And may the Lord mock them, speak to them in his anger, and terrify them in his wrath, so that the enemy and his accursed demons will not continue to seize or hinder those who want to leave their sins and repent quickly,"
+      "text": "And may the Lord mock them, speak to them in his wrath, and terrify them in his fury, so that the enemy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0032.s2",
+      "source_sha256": "34c2229f0f5adb38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his accursed demons may no longer persist in holding back or hindering those who want to leave their sins and repent quickly."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0033",
@@ -4562,18 +5275,32 @@
       "text": "You are counted among those whom the Lord swept away in a flood of water in the beginning because they began doing evil from their youth."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0046",
-      "source_sha256": "c6c06340e98b5da0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0046.s1",
+      "source_sha256": "87a97d3b1a5e9385",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And the earth was filled with violence because of them, according to the words of Scripture. They did not obey righteous Noah when he advised them. He built an ark for himself to save his household. Through it he condemned the world and became an heir of righteousness according to faith."
+      "text": "And the earth had become filled with violence because of them, according to the words of Scripture, since they had not listened to righteous Noah as he counseled them."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0047",
-      "source_sha256": "8b99eb6f34bb1b0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0046.s2",
+      "source_sha256": "cba660a38143a0d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And as for what the word says, “Through it he condemned the world,” he did not condemn the world because they saw him building the ark, three hundred cubits long, fifty cubits wide, and thirty cubits high, building it [?], with a first, second, and third story, coating it on the inside"
+      "text": "He built an ark for the salvation of his household. Through it he condemned the world and became an heir of the righteousness that comes through faith."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0047.s1",
+      "source_sha256": "c52e5072726fff22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And as for what the text says, “Through it he condemned the world,” he did not condemn the world because they saw him building the ark, which measured three hundred cubits long, fifty cubits wide, and thirty cubits high,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0047.s2",
+      "source_sha256": "6bd96e59dc066ce1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "building it joint by joint [?], with one story, a second, and a third, and coating it on the inside."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0048",
@@ -4597,11 +5324,18 @@
       "text": "and until this great destruction and annihilation came upon the earth."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0051",
-      "source_sha256": "d33c4a38bf7221a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0051.s1",
+      "source_sha256": "c48e8e4b6565b13e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "There was no son to cover a father’s body and bury him, nor any father to cover his children amid the floodwaters, when the deep burst open and the floodgates of heaven opened. Nor were there wives to cover their husbands,"
+      "text": "There was no son protecting his father's body so that he could bury him, nor was there a father protecting his children so that he could cover them amid the waters of the rivers,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0051.s2",
+      "source_sha256": "1c97c91891d6e14e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when the deep burst open and the floodgates of heaven opened. Nor were there women protecting their husbands,"
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0052",
@@ -4618,11 +5352,18 @@
       "text": "Instead, this one destruction came upon them all at once. Nor was there any memorial offering going up on their behalf to commemorate them,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0054",
-      "source_sha256": "cecf78ae1e4ec484",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0054.s1",
+      "source_sha256": "e489c230536098be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "or tears and lamentations offered in remembrance of those who had died. Instead, they were all swept away in destruction, except Noah alone, who survived with his wife and his children in the ark. He offered offerings on the altar after coming out of the ark, and the Lord smelled a pleasing fragrance."
+      "text": "or tears and mourning, with sacrifices being offered in remembrance of those who had died. Instead, they were all swept away in destruction, except Noah alone, who remained with his wife and his sons in the ark."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0054.s2",
+      "source_sha256": "f6c75eb34b5ebdfb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After he came out of the ark, he offered burnt offerings on the altar, and the Lord smelled a sweet fragrance."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0055",
@@ -4639,11 +5380,25 @@
       "text": "Likewise, we have not taken heed of those among the people of old whom he destroyed before us."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0057",
-      "source_sha256": "0ca1121fd570ac6e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0057.s1",
+      "source_sha256": "9e672dd7b66cd21b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Nor did we envy our brothers who do good through hunger and thirst, through many fasts, through frequent nights of keeping watch, through purity—the great subject we are discussing—through renunciation, and through all the good deeds they do, which bear witness to their love for God, because he himself, the Lord, the good Savior, loved them even more, to the point of death,"
+      "text": "Nor have we envied our brothers who do good through hunger and thirst, through many fasts, through frequent nights of keeping watch,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0057.s2",
+      "source_sha256": "d12c00f3b9f0d72e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through purity—the great main point we are discussing—through renunciation, and through all the good deeds they do."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0057.s3",
+      "source_sha256": "78114f02ade4287f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "bearing witness to their love for God, because he himself, the Lord, the good Savior, loved them even more, to the point of death."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0058",
@@ -4667,11 +5422,25 @@
       "text": "Nor did we listen when told that a destruction would come that is no different from the waters of the flood—I am speaking of death."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0061",
-      "source_sha256": "b590736840a1ef46",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Just as the ancient giants and all the people who perished were not spared to see Noah and his entire household, who were saved, so sinful people or lawless brothers will not be spared to see righteous brothers in their rest and their joy, when they themselves die in their evil deeds."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0061.s1",
+      "source_sha256": "6534de387ee9d30e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Just as the giants of old and all the people whom he destroyed were not permitted to see Noah"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0061.s2",
+      "source_sha256": "5fe5380b57308dc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "and his whole household, which was saved, so sinful people or lawless brothers will not be permitted to see righteous brothers in their rest"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0061.s3",
+      "source_sha256": "d2b2f4ed3a5defb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "and their joy, when they die in their wickedness."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0062",
@@ -4695,11 +5464,18 @@
       "text": "As he spoke with them through the holy prophet Moses and Aaron,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0065",
-      "source_sha256": "00d2049a7441025a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "You are counted with all those whom the Lord struck down in the wilderness with various kinds of death because they disobeyed him instead of acting according to everything he had commanded them, while they traveled with the people of God at that time, whom God protected until he brought them into the land of their inheritance."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0065.s1",
+      "source_sha256": "4e8d5111522a23d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "You are counted among all those whom the Lord struck down in the wilderness with various kinds of death because they disobeyed him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0065.s2",
+      "source_sha256": "bbb2fdc8467f8e10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "rather than doing everything he had commanded them, while they were traveling with the people of God at that time, whom God protected until he brought them into the land of their inheritance."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0066",
@@ -4786,11 +5562,18 @@
       "text": "Our holy father, through whom God spoke, said in his holy letters,"
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0078",
-      "source_sha256": "6f7716b374ea15dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“If a pagan, a heretic, or a bloodshed-loving person from the nations turns to God, God is more likely to accept him than this kind of brother who commits these abominations in his holy places, while the holy name of God and the habit are upon them.”"
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0078.s1",
+      "source_sha256": "96f14aab2fd913aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "For if a pagan, a heretic, or a blood-shedding Gentile turns to God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0078.s2",
+      "source_sha256": "0392f0b1c5c9c9b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "God is more likely to accept him than this kind of brother who commits these abominations in his holy places, while bearing the holy name of God and wearing the monastic habit."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0079",
@@ -4828,11 +5611,18 @@
       "text": "And he also told us this other thing in his holy writings."
     },
     {
-      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0084",
-      "source_sha256": "41db0b569ad0e608",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 15,
-      "text": "For all the sinners who have died from Cain down to the present, and those who will die until the end of the age, are taken down to Hades, as the Gospel says."
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0084.s1",
+      "source_sha256": "7350f52e963952cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "For all the sinners who have died from Cain until now, and those who will die until the end of the age,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0084.s2",
+      "source_sha256": "c46ab42f52990281",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "are taken down to Hades, as the gospel says."
     },
     {
       "chunk_id": "coptic-scriptorium/johannes_canons#CopScr.johannes-canons.013.0085",

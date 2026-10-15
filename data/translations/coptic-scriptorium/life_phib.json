@@ -4,152 +4,944 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0000",
-      "source_sha256": "9acef13226930771",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "The Life of Our Holy Father Apa Phib, the Holy Hermit, as recorded by Papohe, the disciple of Apa Apollo, the blessed and perfect man. The blessed Apa Phib entered into rest on the twenty-fifth day of the month of Paopi, in the peace of God. May his blessings be with us. Amen."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0000.s1",
+      "source_sha256": "17043e407434f129",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The life of our holy father Apa Phib, the holy hermit, as recorded by Papohe, the disciple of Apa Apollo, the perfect and blessed man. The blessed Apa Phib entered into rest"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0001",
-      "source_sha256": "628307a352f814de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "Truly, the words of the holy psalmist David are true when he cries out, saying, “The righteous will be remembered forever,” and again, “The righteous will grow tall like a palm tree and spread out like the cedar in Lebanon.” This was fulfilled in this holy man."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0000.s2",
+      "source_sha256": "4b3679b42dbe51ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "on the twenty-fifth day of the month of Paope, in the peace of God. May his blessings be with us. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0002",
-      "source_sha256": "05a188d1896612aa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "There was a brother whose name was Apa Phib. He was from Psinemon, in the district of Hermopolis. He came to my holy father Apa Apollo and became a monk under him. They stayed together for [?] years. Afterward, Apa Peter brought the two of them and left them together on the mountain of Titkooh. He went away until the day he entered into rest. The two of them lived together, practicing great acts of ascetic discipline that no one could count. Nor can we recount them, because there were so many."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0001.s1",
+      "source_sha256": "97eb9c695267d860",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Truly, the words of the holy psalmist David are true, as he cries out, saying, “The righteous will be remembered forever.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003",
-      "source_sha256": "8fdd9c71321007a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "Listen to me, my beloved brothers in the Lord, and I will tell you about the miracles and the life-giving teachings of our blessed father Apa Apollo, the man of God, who offered up his body as a holy sacrifice to God, who became a dwelling place for the Father, a resting place for the Son, and a gathering place for the Holy Spirit. I, Papohe, the steward, the least of all, was a little child, small in my parents’ house. God sent his angel, who brought me out of my father’s house and guided me along the paths of righteousness. He brought me to the good shepherd who saves souls. I came to anchor in the harbor of salvation, where there are no robbers—that is, our beloved father, the blessed Apa Apollo, the true Israelite in whom there is no deceit."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0001.s2",
+      "source_sha256": "3dc35cb1615407d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And again, “The righteous will grow tall like a palm tree and spread out like the cedar in Lebanon.” This was fulfilled in this holy man."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004",
-      "source_sha256": "06a618d30392bdbe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "He was living on this mountain at first, before the Lord revealed his glory upon him. I called at the door, and he immediately came out to me, his face full of smiles. For my father was a cheerful man, kindly disposed toward everyone and exceedingly good in every way before God and people. He welcomed me joyfully and made me a monk at his side. I was worthy to remain under the shelter of his holy prayers and his fatherly care. Our beloved brother, the devout Apa Phib, was there, living beside him. The two of them practiced great austerities and followed countless rigorous disciplines. Apa Phib was a man who loved solitude and always wanted to remain in the desert, practicing his way of life. My father, however, was a peaceful man who loved the whole image of God as though it were a single person. The brothers gathered around him like swarms of bees clustering around their mother, listening to the words of life and his holy commandments, and marveling at the mighty works of God accomplished through our father."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0002.s1",
+      "source_sha256": "495ddb1f9aa2e08a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "There was a brother whose name was Apa Phib. He was from Psinemoun, in the district of Hermopolis. He came to my holy father Apa Apollo and became a monk under his guidance."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005",
-      "source_sha256": "259d17bdd1102c96",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "I spent a year with them on this mountain. Afterward we left that place and continued wandering through all the mountains like wild animals. Wherever we stayed, whenever the brothers heard about my father, they would come to him and receive instruction from him in the things of godliness. He spoke to them until their souls were satisfied, comforting them all with his sweet words, and they glorified God. I spent a year living with him through my father. After this, Apa Phib still remained a man who always loved solitude, while my father was an ascetic. I, for my part, went about attending to the work required by the needs of this world, taking care of the administration of the holy ones. For this reason he called me Papohe the steward."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0002.s2",
+      "source_sha256": "ef91daf68bb7aba2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They stayed together for [?] years. Afterward, Apa Petra"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006",
-      "source_sha256": "2bf266ef5a6d6d09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "One day, when the three of us were gathered together, glorifying God, my father turned to Apa Phib with a radiant face and said to him, “I see, my son, that you love solitude and hate the empty glory that comes from people. For it is written in the Gospel: ‘A city situated on a mountain cannot be hidden. Nor do people light a lamp and put it under a measuring basket; instead, they put it on the lampstand, and it gives light to everyone in the house.’ You, then, my son, are the hidden lamp that will be placed on the lampstand and give light to everyone in the house. A sweet fragrance will spread throughout the whole world, along with a gift of forgiveness of sins on your day each year.” Immediately Apa Phib bowed down and pleaded with my father. Then my father answered him, saying, “Get up, my son. It is not I who am speaking, but the Holy Spirit, who foretells what will happen before it happens. Now, then, keep this mystery until the time when it will be revealed. For it is written in the Deuteronomy of Moses: ‘The hidden things belong to the Lord your God, but the things that are revealed belong to you and your children.’”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0002.s3",
+      "source_sha256": "082aecdb9cb5fee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "left the two of them together on the mountain of Titkooh and went away until the day he entered into rest. The two of them lived together, performing great feats of ascetic discipline,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007",
-      "source_sha256": "81f6534de91de288",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "Father Phib answered and said, “Allow me to say something to you, and do not be angry with me. Truly, I will not say it out of pride or empty vanity, but because I marvel at the Holy Spirit who is in the people honored by God and who makes them agree with one another in their words.” The blessed Father Apollo said to him, “Say what you have to say, my son.” Father Phib answered, saying, “One day, when I was young and living in my parents’ house, I was tending their sheep in the fields. A holy old man of God passed by me in the fields. It was evening, and I brought him into the place where the sheep were. I kept urging him to eat some bread. He agreed to my request and ate the bread. I showed him a little kindness, and he slept beside me until morning. When morning came and he was about to leave, I bowed before him for his blessing. He, too, said to me the very same words that you said to me: ‘A day of forgiveness of sins will come about in your name.’ Now I marvel at this, because I do not know what will happen. Then, one day, I was found worthy, and the Lord called me to you, my father. So, as it pleases the Lord, may his good will be done.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0002.s4",
+      "source_sha256": "034c6d559c514ef4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which no one could count. Nor can we recount them, because there were so many."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008",
-      "source_sha256": "af89df079be73f31",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "Father Apollo, Christ’s warrior, victorious on the right and on the left, answered, “Listen to me, and I will tell you this, for it was the Lord who told it to me. I, too, will not speak out of pride, but to tell you what will happen to all of us together. My Savior said to me, ‘These words that Paul spoke when writing to the Corinthians: “As for our brother Apollos, I strongly urged him to come to you, but perhaps it was not ordained that he should come to you now. He will come when he finds the opportunity.” For this reason the Holy Spirit kept urging my Father, “Let him come now.” My Father answered, “He will come when he finds the opportunity.”’ Now, my children, we are ready to undertake everything that the Lord commands us. May his will be done. Glory to him forever and ever. Amen.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003.s1",
+      "source_sha256": "3049f3a5211d4b0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Listen to me, my beloved brothers in the Lord, and I will tell you about the miracles and life-giving teachings of our blessed father Apa Apollo, the man of God, who offered up his body as a holy sacrifice to God,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009",
-      "source_sha256": "2b7d45b20817bd2f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "After all these things, we came to a desert mountain north of a village called Tahrouj. We found caves in the rock there. We made small dwellings and settled in them, and we engaged in many ascetic practices. When all the brothers heard that my father was in that place, they came to him and heard the words of life from his mouth. The place was a desert with no water in it. My father said to me, “My son Papohe, dig in the ground, and let us see whether God will give us water for the brothers who come to us.” When we had dug down four cubits, a spring of water burst up. Its water was good and very sweet to drink. For two years we drank from it, together with those who came to us. Then my father said to me, “Let us make a well and leave it for the brothers who come to us. The Lord has already told us, ‘Every place where you settle, I will make it endure forever.’”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003.s2",
+      "source_sha256": "078a6d68fe3d36b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who became a dwelling place for the Father, a resting place for the Son, and a gathering place for the Holy Spirit."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0010",
-      "source_sha256": "15011212a5dcdff0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "When we had made it, we left that place to go to a place in the south called Father Pamin. While we were still traveling, we came to the mountain of Titkooh, the mountain where God ordained his blessing, life forever. We met some brothers who loved God and lived on that mountain. They showed us great kindness. Our blessed brother Father Phib died there on the twenty-fifth of Paope, at the third hour of the day. We grieved deeply, mourning him with great sorrow, and buried him there."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003.s3",
+      "source_sha256": "9d0e82c921db4531",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I, Papohe, the steward, the least of all, was a little child, still young, in my parents’ house. God sent his angel,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000",
-      "source_sha256": "ac5eff62307864b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "Afterward, we left that place and came to the mountain of Apa Pamin. We stayed there for a few days. The brothers gathered around us, and their numbers increased greatly. Afterward, the Savior appeared to our father and spoke with him, saying, “Peace to you, my honored fellow member, beloved of my Father. Look, the time has come for you to reveal my glory, so that my name may be glorified through you on earth. Get up, then, and go to the mountain of Titkooh, and stay in that place, for it is the place my Father has given you as an inheritance. For this reason, I have placed there the bones of your fellow member, Apa Phib, so that you too may dwell in that place.” He answered and said to the Savior, “Look for a man who can take responsibility for an undertaking like this, for I am a man despised in all my deeds. I beg you, my Lord, if I have found favor in your sight, do not send me to this task.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003.s4",
+      "source_sha256": "ea34c489d044b1dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and he brought me out of my father’s house and guided me along the paths of righteousness. He brought me before the good shepherd, the savior of souls. I came to harbor"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001",
-      "source_sha256": "112bf08a482475d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "The Savior answered and said to him, “O my chosen Apollo, my Father appointed this task for you from the beginning, so that he might establish your name in that place. When I came down into this world from my Father, he spoke to me compassionately, saying, ‘My Son, do not grieve because you are going down into the world, which is full of suffering and groaning. Because of the suffering and affliction you will endure, my Son, I will make the day on which you are born of the holy Virgin Mary a day of freedom and forgiveness of sins for the world. Everyone who will [?] believe in your cross and the resurrection of your flesh, I will [?] and grant them to you, my beloved Son. And I will make the day of your glorious resurrection a day of freedom, salvation, and forgiveness of sins for the whole world. In the last days, I will reveal a holy place on earth and establish there repentance leading to salvation, a feast for my saints throughout the whole world, and forgiveness of sins for everyone who believes in your name.’ So the gift my Father gave me, I in turn give to you. Moreover, I will establish it in that place, and they will give it the name of your holy fellow member, Apa Phib. Do not be afraid. I am with you everywhere. I will give you a great and renowned name, and all the peoples will hear of it. They will come with gifts to your sanctuary and bow down at your holy place. All the peoples will go and say, ‘Come, let us go up to the mountain of the Lord and to the house of the God of Jacob, so that he may tell us his way and we may walk in it,’ just as Isaiah the prophet said. It is also written, ‘There will be an altar to the Lord in the land of Egypt, and a pillar to the Lord near its borders.’ The sanctuary I have granted you is the altar, and the pillar is the body of my servant Anoup. Look, I have told you everything that will happen to you according to the whole purpose of my Father. Stand firm in what I have told you, and do not doubt. I will cause great blessings of every kind to come about in your sanctuary, and I will cause your children to be called the lampbearers of Christ. Everyone who keeps your commandments, I will grant to you as children in my kingdom. Everyone who remains steadfast in labor and in your service will be your children in my Father’s house.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0003.s5",
+      "source_sha256": "08388a72ea9719cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in the storm-free haven of salvation, that is, our beloved father, the blessed Apa Apollo, the true Israelite in whom there is no deceit."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0002",
-      "source_sha256": "7135df4f0f801a1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "Immediately, my father called me and told me everything the Savior had said to him. When I heard these things, I was greatly amazed, and I said to him, “My father, if this is what pleases the Lord, let us do it. Let us follow the Lord and keep his commandments. All the Lord’s works are good, honorable, and very excellent, and they enter the Lord’s house together. For we will act according to his will, in the way he has appointed for us.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s1",
+      "source_sha256": "7d00c4d0d9a0e0aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He was living on this mountain at first, before the Lord revealed his glory upon him. I called at the door, and immediately he came out to me, his face radiant with a smile."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003",
-      "source_sha256": "087aac37d50662ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "After all these things, we got up and set out for the mountain of Tetkooh, the mountain God had appointed for us, which he had prepared for my father Apollo. We came to a mountain outside a village called Taparoue. We met some brothers who served God, and they showed us great kindness. We slept there until morning. When morning came, we went north to Tetkooh. When the brothers there heard that we had arrived, they came out to meet us with great joy and welcomed us for the day. We in turn told them about the mystery we had seen. They were amazed and said to us, “Something happened to us too. While we were sleeping at night, we heard the sound of a trumpet calling out three times in a loud voice: ‘Look! The good shepherd has come, the one who tended his sheep in the pastures of life.’ After this, a choir of angels came. They spent the whole night singing hymns and dancing over the body of the blessed Apa Phib. They sang the hymn, with the angels repeating after them: ‘This mountain will rejoice and be glorified. This is the mountain of the Lord, the high mountain, the curdled mountain, the fertile mountain. This is the mountain where God has chosen to dwell forever. This is the house of God, the dwelling place of the righteous.’ When we heard these things, we were filled with great fear. We spent the whole night gathered together until morning, blessing God, the Father of our Lord Jesus Christ, and marveling at what we had heard. Now, then, it is God our Savior who has sent you to us. You are the shepherd who tends us all with goodness, both small and great. Our bodies and our souls are in your hands. Be a father to us, and we in turn will be your children.”"
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s2",
+      "source_sha256": "e9710f39edabb163",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For my father was cheerful and kind toward everyone, exceedingly good in every way before God and people."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004",
-      "source_sha256": "ccb2d95c0c1e2d71",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "My father answered, saying, “If this is your will, God, we will act according to your word.” We gathered together, numbering twenty men, and lived near my father. My father devoted himself to the word of God, the teaching, and the rules of our holy fathers, the apostles. I, for my part, attended to the brothers’ needs. Great miracles and wonders took place through my father. His name had become well known throughout the surrounding region, and people brought him everyone who was sick, and he healed them all. Little by little we increased in number and grew in God. God did great good deeds through my father."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s3",
+      "source_sha256": "24936e309a34e7e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He welcomed me joyfully and made me a monk under his guidance. I was found worthy to remain under the shadow of his holy prayers and his fatherly care."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005",
-      "source_sha256": "7897b440d24c9d2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "After we had been there for some time, we built a small church over the body of our blessed brother Apa Phib. The brothers continued to gather in it every day before eating their bread. After this, the Savior appeared to my father and spoke to him, saying, “Peace to you, my honored fellow member. I am with you. Look, I will gather great crowds around you, and they will increase greatly in number. Get up, then, and build a large church according to the plan I will show you, so that the people may find room to stay in it.” He walked with him and showed him the whole layout of the church, telling him its length and width. The Savior said to him, “Look, I have appointed Michael the archangel for you, for he is the one who will serve your place. Your task is only to speak; Michael’s task is to gather them in, and Papohe’s task is to serve.” When the Savior had said these things, he went up to heaven."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s4",
+      "source_sha256": "94ff8b19d178c02d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Our beloved brother, the devout Apa Phib, was there, living with him. The two of them led lives of great ascetic discipline"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006",
-      "source_sha256": "df737b7203be1791",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 2,
-      "text": "After this, my father called me and told me all these things. We built the church according to the plan he had shown us. When we had expanded and enlarged it, my father said to me, “Look, the day of our blessed brother Apa Phib is approaching. Let us send for all the brothers in the mountain and share a meal of fellowship with them in joy and gladness. For he is the one about whom the Lord told me, ‘I will reveal my glory on his day every year, so that my name may be glorified throughout the whole earth.’” I did as my father had told me. I sent throughout all the mountains and gathered all the brothers for the holy day that the Lord had established for our brother Apa Phib. When we gathered together on the twenty-fourth of Paopi, we spent the whole night leading into the twenty-fifth of Paopi in joy and gladness, holding great worship gatherings and singing psalms joyfully, rejoicing in our spirit."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s5",
+      "source_sha256": "0e43ec56830939cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and countless great spiritual labors. Apa Phib was a man who loved solitude and wished to remain in the desert at all times,"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007",
-      "source_sha256": "42b14913efa90423",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 2,
-      "text": "When morning came, a young brother named Zechariah died. He was a boy who was dear to everyone, and my father loved him very much because of the good deeds he did. We brought him into the church, and the brothers remained, reciting over him until they wrapped him for burial, for it was the sixth hour. When they had wrapped him, we immediately rose and prayed together. My father made us lie face down for a long time. Afterward, my father rose, stood up, and said to the brothers, “Truly, God has forgiven the sins of everyone who has bowed down here today, so that they are as they were on the day they were born.” Some of the brothers doubted, but others believed him. Then the boy freed himself from his wrappings, rose, stood up, and walked this way and that. Indeed, he cried out, “God is one: Christ Jesus our Lord!” Everyone standing there was amazed. He said, “Believe me, you people who love God: God has forgiven the sins of everyone standing here today, so that they are as they were on the day they were born. And whoever bows down here today will have their sins forgiven in the name of our brother Apa Phib. This mystery is great, my brothers and my fathers who love God!” When he had said these things, he lay down, and immediately the cloths wrapped themselves around him again. The crowds who saw him were amazed, and their hearts were strengthened. They understood that repentance comes from God and that God had bestowed the gift of forgiveness of sins upon our brother Apa Phib, to the glory of the Holy Trinity—the Father, the Son, and the Holy Spirit—forever and ever. Amen."
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s6",
+      "source_sha256": "b796a5328c31c572",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "practicing his discipline. My father, however, was a peaceable man who loved the whole image of God as though it were a single person."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s7",
+      "source_sha256": "5fe7cf2d64cac112",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The brothers would gather around him like calves nestling close to their mother, listening to the words"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0004.s8",
+      "source_sha256": "c3d9b03cf1ff1c7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of life and his holy commandments, marveling at the miracles of God that took place through our father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s1",
+      "source_sha256": "92ca7018c4708dcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I spent a year with them on this mountain. Afterward, we left that place and kept traveling"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s2",
+      "source_sha256": "f8edfe9d01a93f4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through all the mountains like wild animals. Wherever we stayed, when the brothers heard about my father, they would come to him and receive instruction"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s3",
+      "source_sha256": "93623d88f2605f47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in the ways of godliness from him. He would speak to them until their souls were satisfied, comforting them all with his sweet words,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s4",
+      "source_sha256": "6ae334805a4ce3f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and they glorified God. I spent a year living with him through my father. After these things, again, Apa Phib was a man who loved solitude."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s5",
+      "source_sha256": "c6ad0dd4720b3e87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My father was always an ascetic. I, for my part, went about attending to the work required by life in this world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0005.s6",
+      "source_sha256": "b84825f1102b603e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "taking care of the administration of the holy ones’ affairs. For this reason he called me Papohe the steward."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s1",
+      "source_sha256": "61249e90d872eebc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "One day, when the three of us were gathered together glorifying God, my father turned to Apa Phib with a cheerful face and said to him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s2",
+      "source_sha256": "416d5abb61661647",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“I see, my son, that you love quietness and hate the empty glory that comes from people. For it is written"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s3",
+      "source_sha256": "ecf6aee8705052e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in the Gospel: ‘A city situated on a mountain cannot be hidden. Nor do people light a lamp and put it under a measuring basket."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s4",
+      "source_sha256": "951af779cbbc157f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, they put it on the lampstand so that it gives light to everyone in the house.’ You, then, my son, are the hidden lamp,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s5",
+      "source_sha256": "6506f5796dfd1400",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which will be raised onto the lampstand to give light to everyone in the house, so that a sweet fragrance may spread"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s6",
+      "source_sha256": "6864019627f40b10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "throughout the whole world, along with a gift of forgiveness of sins on your day each year.” Immediately Apa Phib bowed down"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s7",
+      "source_sha256": "f6bbc68130fb3b0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and pleaded with my father. Then my father answered him, saying, “Get up, my son. It is not I who am speaking, but the Holy Spirit,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s8",
+      "source_sha256": "337ca7c2ac25d6ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who foretells what will happen before it happens. Now, then, keep this mystery secret until the time when it will be revealed."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0006.s9",
+      "source_sha256": "1e25e2bd8f547ea9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it is written in the Deuteronomy of Moses: ‘The hidden things belong to the Lord your God, but the things revealed belong to you and your children.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s1",
+      "source_sha256": "5cab9e6ad80bd0d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Apa Phib answered and said, “Allow me to say something to you, and do not be angry with me. Truly,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s2",
+      "source_sha256": "ab6aa672a78b07c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will not say it out of pride or a love of empty glory, but because I marvel at the Holy Spirit who is in people"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s3",
+      "source_sha256": "7b1f32b3cbf67f61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who are under God’s glory, and who makes them agree with one another in what they say.” The blessed Apa Apollo said to him, “Say what you have to say, my son.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s4",
+      "source_sha256": "21bc3083c8d45104",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Apa Phib answered, saying, “One day, when I was a child in my parents’ house, I was tending their sheep in the fields."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s5",
+      "source_sha256": "dd5248fa9e322dd3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "A holy old man of God passed by me in the fields. It was already evening, and I took him into the place where the sheep were."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s6",
+      "source_sha256": "b7586a2c50d1adcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I kept urging him to eat some bread. He agreed to my request and ate the bread, and I showed him a little kindness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s7",
+      "source_sha256": "bb7e9000458aec40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He slept beside me until morning. When morning came and he was about to leave, I bowed down before him so that he would bless him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s8",
+      "source_sha256": "9a9f0ab20be6ff51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He too said to me this very same thing that you have said to me: ‘A day of forgiveness of sins"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s9",
+      "source_sha256": "e5e4f550c29979e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "will be established in your name.’ Now, then, I marvel at this, because I do not know what will happen. But on a certain day,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0007.s10",
+      "source_sha256": "36decec75b80b668",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I was found worthy, and the Lord called me to you, Father. So, as it pleases the Lord, may his good will be done.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s1",
+      "source_sha256": "8068315ff72dc58e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The champion of Christ, victorious on the right and on the left, Apa Apollo, answered, “Listen to me, and I will tell you this."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s2",
+      "source_sha256": "49562497fbf698be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it was the Lord who told it to me. I too will not speak it out of pride, but to tell you"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s3",
+      "source_sha256": "7d4250db16f34949",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "what will happen to us together. My Savior said to me, ‘These words that Paul spoke when writing to the Corinthians:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s4",
+      "source_sha256": "9e387882093ca94c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“As for our brother Apollos, I strongly urged him to come to you, and perhaps it was not ordained.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s5",
+      "source_sha256": "f2cc5b5ceb089517",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for him to come to you now. But he will come when he finds the opportunity. For this reason the Holy Spirit kept urging my father, saying, “Let him come now.” My father answered, “He will come when he finds the opportunity.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0008.s6",
+      "source_sha256": "70fde4eb3d5b9e61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now then, my children, we are ready to undertake whatever tasks the Lord commands us. Let his will be done. Glory to him forever and ever. Amen."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s1",
+      "source_sha256": "f2852da634220a51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After all this, we came to a desert mountain north of a village called Tahrouj. We found some rocky caves in that place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s2",
+      "source_sha256": "09f1322657d2801a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We made some small dwellings and settled in them, and we practiced many forms of ascetic discipline. But the brothers,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s3",
+      "source_sha256": "4488c4445dedb996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "when they all heard that my father was in that place, came to him and heard the words of life from his mouth. The place was a desert,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s4",
+      "source_sha256": "526d85b5e1564f64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with no water in it. My father said to me, “My son Papohe, dig in the ground, and let us see whether God will give us water for the brothers who come to us.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s5",
+      "source_sha256": "792c3c0b8f3e1834",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When we had dug down four cubits, a spring of water burst upward. It was good and very sweet to drink."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s6",
+      "source_sha256": "cdf418070f070989",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We spent two years drinking from it, along with those who came to us. Then my father said to me, “Let us make a well"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0009.s7",
+      "source_sha256": "801ef8ab3565ff64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and leave it for the brothers who come to us. The Lord has already told us, ‘Every place where you settle, I will cause to endure forever.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0010.s1",
+      "source_sha256": "a70109bb5d4fb56b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When we had made it, we left that place to go to a place in the south called Apa Pamin. While we were still traveling,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0010.s2",
+      "source_sha256": "dc26752d9abd4118",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "we came to the mountain of Titkooh, this mountain where God commanded his blessing—life forever. We visited some God-loving brothers who were on that mountain."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0010.s3",
+      "source_sha256": "b6ec975ac4a0896c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They showed us great kindness. Our blessed brother Apa Phib went to his rest in that place on the twenty-fifth of Paopi,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.000.0010.s4",
+      "source_sha256": "fd0d934f42d60171",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "at the third hour of the day. We suffered terribly, our hearts aching for him in deep sorrow. We buried him in that place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s1",
+      "source_sha256": "e63c9fd2926306e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Afterward we left that place and came to the mountain of Apa Pamin. We stayed there for a few days. The brothers gathered around us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s2",
+      "source_sha256": "175fcbf862bbcfa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and their numbers increased greatly. Afterward the Savior appeared to our father and spoke with him, saying, “Peace to you, my fellow member,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s3",
+      "source_sha256": "af8209c4222573ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "honored and beloved by my Father. Look, the time has come for you to reveal my glory and for my name to be glorified"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s4",
+      "source_sha256": "a0c8bbb3f61aa11a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through you on earth. So get up and go to the mountain of Titkooh, and live there, for that is the place my Father has given you"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s5",
+      "source_sha256": "02aceef992165cfc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as an inheritance. For this reason I placed the bones of your fellow member Apa Phib there, so that you too would live in that place.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s6",
+      "source_sha256": "b7ff956b1ee878b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He answered the Savior, saying, “Look for a man who can bear the responsibility for administering something like this."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0000.s7",
+      "source_sha256": "b3bf41602dd9ad5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For I am a man who falls short in all my deeds. I beg you, my Lord, if I have found favor in your sight, do not send me to this task.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s1",
+      "source_sha256": "92baef006e06f67d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The Savior answered him, “O my chosen Apollo, my Father assigned this task to you from the beginning, so that he might establish your name in that place."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s2",
+      "source_sha256": "7a239b02568088b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When I came down into this world from my Father, he spoke to me compassionately, saying, ‘My Son, do not be distressed that you are going down into the world, which is full of suffering and anguish."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s3",
+      "source_sha256": "e546b2ae60616dab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Because of the suffering of your affliction, O my Son, I will make the day on which you are born of the holy Virgin Mary a day of freedom for the forgiveness of the world’s sins."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s4",
+      "source_sha256": "f5acb63e08446e26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Everyone who will [?] Jesus [?] your cross and the resurrection of your flesh, I will [?] and grant them to you, O my beloved Son."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s5",
+      "source_sha256": "feea9953112767a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And I will make the day of your glorious resurrection a day of freedom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s6",
+      "source_sha256": "fc9950ecce65e53b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for salvation and forgiveness of sins for the whole world. And I will reveal a holy place on earth at the end of the ages, and I will establish in it"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s7",
+      "source_sha256": "b4d9f0d9031ffb7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "a saving repentance and a festival for my saints throughout the whole world, and forgiveness of sins for everyone who will believe in your name."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s8",
+      "source_sha256": "02b71073c0ffae6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So the gift that my Father gave me, I in turn give to you. And I will also place it in that place, and they will pronounce over it the name of your holy fellow member, Apa Phib."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s9",
+      "source_sha256": "5b3eb62bce200972",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Do not be afraid. I am with you everywhere. I will give you a great and famous name, and all the peoples will hear and come with gifts to your place and worship at your holy place. All the peoples will walk and say:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s10",
+      "source_sha256": "4485cd1997cfe5ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Come, let us go up to the mountain of the Lord and to the house of the God of Jacob, so that he may tell us his way and we may walk in it,” just as Isaiah the prophet said."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s11",
+      "source_sha256": "879c3b79135de152",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And it is also written: “There will be an altar to the Lord in the land of Egypt, and a pillar to the Lord beside its borders.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s12",
+      "source_sha256": "66ea8341949d09a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So the place that I have granted you is the altar, and the pillar is the body of my servant Anoup."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s13",
+      "source_sha256": "e390660fd8e2b448",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Look, I have told you everything that will happen to you, according to the whole purpose of my Father. Stand firm in what I have told you, and do not doubt."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s14",
+      "source_sha256": "24d3f6889ce281f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will cause great blessings of every kind to arise in your place, and I will cause your children to be called the torchbearers of Christ."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s15",
+      "source_sha256": "411f2c7cff8c740c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Everyone who keeps your commandments I will grant to you as children in my kingdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0001.s16",
+      "source_sha256": "0bb9a44755fc4eeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Everyone who remains steadfast in the work and in your service will become your children in my Father’s house."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0002.s1",
+      "source_sha256": "3a057a4a423e5bb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then my father called me and told me everything that the Savior had said to him. When I heard these things, I was greatly amazed, and I said to him:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0002.s2",
+      "source_sha256": "7fa9d098bc81060d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“My father, if this is what pleases the Lord, let us act accordingly. Let us follow the Lord and keep his commandments."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0002.s3",
+      "source_sha256": "1eaab0ffe07a0255",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "All the works of the Lord are good, and they are honored and exceedingly excellent, and they enter the house of the Lord together. For we will do as he has instructed us, according to his will.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s1",
+      "source_sha256": "bfacba77be3016f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After all these things, we got up and set out to go to the mountain of Tetkooh, the mountain that God had appointed for us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s2",
+      "source_sha256": "58b69df56a052600",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which he had prepared for my father Apollo. And we came up to a mountain north of a village called Taparoue."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s3",
+      "source_sha256": "041c53484009776f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We met some brothers who served God. They showed us great kindness, and we slept in that place until morning."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s4",
+      "source_sha256": "03981128041ec74e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When morning came, we went north to Tetkooh. When the brothers there heard that we had come, they came out to meet us with great joy and welcomed us for the day."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s5",
+      "source_sha256": "9c395f6174ee10b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We, in turn, told them about the mystery we had seen. They were amazed and said to us:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s6",
+      "source_sha256": "1f524bf3c226618c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“It also happened to us, while we were sleeping at night, that we heard the sound of a trumpet calling out and saying these words in a loud voice three times:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s7",
+      "source_sha256": "e7418195f8f6b036",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘Look, the good shepherd has come, the one who tended his sheep in the pastures of life.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s8",
+      "source_sha256": "848156a7d4cb7552",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Afterward, a choir of angels came, and they spent the whole night singing hymns and dancing over the body of the blessed Apa Phib, singing the hymn, with the angels responding after them:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s9",
+      "source_sha256": "271f8cdef80ca44a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘This mountain will rejoice and receive glory. This is the mountain of the Lord, the lofty mountain, the mountain rich with curds, the fertile mountain."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s10",
+      "source_sha256": "22cb997d6c51f69e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is the mountain where God has desired to dwell forever. This is the house of God, the dwelling place of the righteous.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s11",
+      "source_sha256": "da8dc16fbd8782b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When we heard these things, we were filled with great fear, and we spent the whole night gathered together until morning, blessing God, the Father of our Lord Jesus Christ, and marveling at what we had heard.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s12",
+      "source_sha256": "93a21633046381ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now then, it is God our Savior who sent you to us. You are the shepherd who tends all of us, small and great, with goodness."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0003.s13",
+      "source_sha256": "5ac78dcccaeec457",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Our bodies and our souls are in your hands. Be a father to us, and we in turn will be your children."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s1",
+      "source_sha256": "0a90c732d7f74c77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My father answered, saying, “If this is your will, O God, we will do as you say.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s2",
+      "source_sha256": "c12eaba455223c7d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And we gathered together, twenty people in all, living with my father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s3",
+      "source_sha256": "97425213fc92531f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My father devoted himself to the word of God and to the teaching and rules of our holy fathers, the apostles."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s4",
+      "source_sha256": "526ed9b1ba3ff10e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I, for my part, attended to the needs of the brothers. Great miracles and wonders took place through my father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s5",
+      "source_sha256": "983c8f53ee3a2311",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For his name had become well known everywhere around him. People brought him everyone who was sick, and he healed them all."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0004.s6",
+      "source_sha256": "fde4494390237af9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Little by little we expanded and grew in God. God was doing great good things through my father."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s1",
+      "source_sha256": "ad4b1ca371c261e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After some time, we built a small church over the body of our blessed brother Apa Phib."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s2",
+      "source_sha256": "76abd848a8c80805",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The brothers continued gathering in it every day before eating their bread. Afterward, the Savior appeared to my father and spoke with him, saying:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s3",
+      "source_sha256": "4daf32d1ac722dcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Peace to you, my honored fellow member. I am with you. Look, I will gather great crowds to you, and they will increase greatly in number."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s4",
+      "source_sha256": "97ec0220b33b9854",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So get up and build a large church according to the plan I will show you, so that the people may find room to stay in it.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s5",
+      "source_sha256": "5d5e0a13db013108",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He walked with him and showed him the entire layout of the church, telling him its length and width. The Savior said to him:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s6",
+      "source_sha256": "2959271413987d43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Look, I have appointed Michael the archangel for you, for he is the one who will serve your community."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0005.s7",
+      "source_sha256": "edc71ec4b964d016",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Your task is only to preach; Michael’s task is to gather, and Papohe’s task is to serve.” When the Savior had said these things, he went up to heaven."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s1",
+      "source_sha256": "2c7fd04f594147e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Afterward, my father called me and told me all these things. We built the church according to the plan he had shown us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s2",
+      "source_sha256": "3173e3ae7a80af46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When we had expanded and grown, my father said to me, “Look, the day of our blessed brother Apa Phib is approaching."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s3",
+      "source_sha256": "1b46ff33af52f3e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let us send for all the brothers in the mountain and hold a love feast with them in joy and gladness, for he is the one about whom the Lord said to me:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s4",
+      "source_sha256": "ffabf3dda85bd229",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘I will reveal my glory on his day each year, so that my name may be glorified throughout the whole earth.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s5",
+      "source_sha256": "12c0adbf4ce57e2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I did as my father had told me. I sent word throughout all the mountains and gathered all the brothers for the holy day that the Lord had established for our brother Apa Phib."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0006.s6",
+      "source_sha256": "94642f8e1aecc596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When we had gathered together on the twenty-fourth of Paopi, we spent the whole night leading into the twenty-fifth of Paopi in joy and gladness, holding great worship services and singing psalms with gladness, rejoicing in our spirits."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s1",
+      "source_sha256": "7f525427cc8f6df1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When morning came, a young brother named Zechariah died."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s2",
+      "source_sha256": "ee47f282d8eb1a21",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He was a boy who was pleasant toward everyone, and my father loved him very much because of the good deeds he did."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s3",
+      "source_sha256": "6d81e3263df7b92b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We brought him into the church, and the brothers continued reciting over him until they had wrapped him for burial. It was the sixth hour."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s4",
+      "source_sha256": "43214739efb79d77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As soon as they had wrapped him for burial, we got up and prayed together. My father had us lie facedown for a long time. Afterward, my father got up, stood, and said to the brothers:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s5",
+      "source_sha256": "4d7324efdcf7b7f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Truly, God has forgiven the sins of everyone who has bowed down in this place today, just as on the day they were born."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s6",
+      "source_sha256": "e5a0f645e06c8b4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Some of the brothers doubted, but others believed him. He broke free of it, got up, stood, and walked back and forth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s7",
+      "source_sha256": "b9e5302bbac5ded1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Instead, he cried out, “There is one God, Christ Jesus our Lord!” Everyone standing there was amazed, and he said:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s8",
+      "source_sha256": "c2ec97369def6ba9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "“Believe me, God-loving people: God has forgiven the sins of everyone standing in this place today, just as on the day they were born."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s9",
+      "source_sha256": "59e5622be6304088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "And whoever bows down in this place today will have their sins forgiven in the name of our brother Apa Phib."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s10",
+      "source_sha256": "a00f8acdd1587bc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "This mystery is great, my brothers and my God-loving fathers.” When he had said this, he lay down, and immediately the burial cloths wrapped themselves around him again."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s11",
+      "source_sha256": "f2399eff0a535f59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "The crowds who saw him were amazed, and their hearts were strengthened. They understood that repentance comes from God, and that the gift of forgiveness of sins"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_phib#CopScr.life-phib.001.0007.s12",
+      "source_sha256": "1b58a52fe23e98cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "was bestowed by God on our brother Apa Phib, to the glory of the Holy Trinity—the Father, the Son, and the Holy Spirit—forever and ever. Amen."
     }
   ]
 }

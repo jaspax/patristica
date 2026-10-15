@@ -36,11 +36,11 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2",
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2.s1",
     "work_id": "pta/pta0100/pta010/pta-grc1",
-    "canonical_ref": "pta0100.pta010.1.2",
+    "canonical_ref": "pta0100.pta010.1.2.s1",
     "language": "grc",
-    "text": "Οὐ γὰρ συνυπάρχειν φαμὲν τὸν υἱὸν τῷ πατρί, προυπάρχειν δὲ τὸν πατέρα τοῦ υἱοῦ. ἐὰν γὰρ συνυπάρχωσι, πῶς ἔσται ὁ πατὴρ πατὴρ καὶ ὁ υἱὸς υἱός; ἢ πῶς ὁ μὲν πρῶτος, ὁ δὲ δεύτερος; καὶ ὁ μὲν ἀγέννητος, ὁ δὲ γεννητός; δύο γὰρ ἐξ ἴσου ὁμοίως ἀλλήλοις συνυπάρχοντα ἰσότιμα ἂν νοοῖντο καὶ ἤτοι ἄμφω, ὡς ἔφην, ἀγέννητα ἢ ἑκάτερα γεννητά. ἀλλ’ οὐδέτερον τούτων ἀληθές· οὔτε γὰρ τὸ ἀγέννητον οὔτε τὸ γεννητὸν ἂν εἴη. ἀλλὰ τὸ μὲν καὶ πρῶτον καὶ κρεῖττον καὶ τάξει καὶ τιμῇ τοῦ δευτέρου ἡγεῖται, ὡς ἂν καὶ τοῦ εἶναι καὶ τοῦ τοιῶσδε εἶναι τῷ δευτέρῳ αἴτιον γεγενημένον.",
+    "text": "Οὐ γὰρ συνυπάρχειν φαμὲν τὸν υἱὸν τῷ πατρί, προυπάρχειν δὲ τὸν πατέρα τοῦ υἱοῦ.",
     "chunk_index": 2,
     "context_before": null,
     "context_after": null,
@@ -54,12 +54,102 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.2",
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2.s2",
     "work_id": "pta/pta0100/pta010/pta-grc1",
-    "canonical_ref": "pta0100.pta010.2",
+    "canonical_ref": "pta0100.pta010.1.2.s2",
     "language": "grc",
-    "text": "Πλὴν αὐτὸς ὁ πάντων μᾶλλον ἀκριβῶς ἐπιστάμενος υἱὸς τοῦ θεοῦ ἕτερον ἑαυτὸν εἰδὼς τοῦ πατρὸς καὶ μείω καὶ ὑποβεβηκότα, εὖ μάλα εὐσεβῶς τοῦτο καὶ ἡμᾶς διδάσκει λέγων· »ὁ πατὴρ ὁ πέμψας με μείζων μού ἐστι«.",
+    "text": "ἐὰν γὰρ συνυπάρχωσι, πῶς ἔσται ὁ πατὴρ πατὴρ καὶ ὁ υἱὸς υἱός; ἢ πῶς ὁ μὲν πρῶτος, ὁ δὲ δεύτερος; καὶ ὁ μὲν ἀγέννητος, ὁ δὲ γεννητός;",
     "chunk_index": 3,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2.s3",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.1.2.s3",
+    "language": "grc",
+    "text": "δύο γὰρ ἐξ ἴσου ὁμοίως ἀλλήλοις συνυπάρχοντα ἰσότιμα ἂν νοοῖντο καὶ ἤτοι ἄμφω, ὡς ἔφην, ἀγέννητα ἢ ἑκάτερα γεννητά.",
+    "chunk_index": 4,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2.s4",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.1.2.s4",
+    "language": "grc",
+    "text": "ἀλλ’ οὐδέτερον τούτων ἀληθές· οὔτε γὰρ τὸ ἀγέννητον οὔτε τὸ γεννητὸν ἂν εἴη.",
+    "chunk_index": 5,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.1.2.s5",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.1.2.s5",
+    "language": "grc",
+    "text": "ἀλλὰ τὸ μὲν καὶ πρῶτον καὶ κρεῖττον καὶ τάξει καὶ τιμῇ τοῦ δευτέρου ἡγεῖται, ὡς ἂν καὶ τοῦ εἶναι καὶ τοῦ τοιῶσδε εἶναι τῷ δευτέρῳ αἴτιον γεγενημένον.",
+    "chunk_index": 6,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.2.s1",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.2.s1",
+    "language": "grc",
+    "text": "Πλὴν αὐτὸς ὁ πάντων μᾶλλον ἀκριβῶς ἐπιστάμενος υἱὸς τοῦ θεοῦ ἕτερον ἑαυτὸν εἰδὼς τοῦ πατρὸς καὶ μείω καὶ ὑποβεβηκότα,",
+    "chunk_index": 7,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.2.s2",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.2.s2",
+    "language": "grc",
+    "text": "εὖ μάλα εὐσεβῶς τοῦτο καὶ ἡμᾶς διδάσκει λέγων· »ὁ πατὴρ ὁ πέμψας με μείζων μού ἐστι«.",
+    "chunk_index": 8,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -77,7 +167,7 @@
     "canonical_ref": "pta0100.pta010.3",
     "language": "grc",
     "text": "Καὶ ἀνεγνώσθη ἐκ τῆς αὐτῆς ἐπιστολῆς·",
-    "chunk_index": 4,
+    "chunk_index": 9,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -90,12 +180,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.3.1",
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.3.1.s1",
     "work_id": "pta/pta0100/pta010/pta-grc1",
-    "canonical_ref": "pta0100.pta010.3.1",
+    "canonical_ref": "pta0100.pta010.3.1.s1",
     "language": "grc",
-    "text": "Τὸν αὐτὸν δὲ καὶ μόνον ἀληθινὸν εἶναι διδάσκει δι ̓ ὧν φησιν· »ἶνα γινώσκωσί σε τὸν μόνον ἀληθινὸν θεόν«, οὐχὶ ὡς ἑνὸς ὄντος μόνου τοῦ θεοῦ, ἀλλ’ ̓ ὡς ἑνὸς ὄντος μόνου ἀληθινοῦ θεοῦ μετὰ προσθήκης ἀναγκαιοτάτης τοῦ ἀληθινοῦ. ἐπεὶ καὶ αὐτὸς θεὸς μὲν ὁ υἱός, ἀλλ ̓ οὐκ ἀληθινὸς θεός. εἷς γάρ ἐστι καὶ μόνος ἀληθινὸς θεὸς διὰ τὸ μὴ ἔχειν πρὸ αὐτοῦ τινα. εἰ δὲ καὶ αὐτὸς ὁ υἱὸς ἀληθινός, ἀλλ’ ὡς εἰκὼν τοῦ ἀληθινοῦ θεοῦ εἴη ἂν καὶ θεός, ἐπεὶ »καὶ θεὸς ἧν ὁ λόγος«, οὐ μὴν ὡς ὁ μόνος ἀληθινὸς θεός.",
-    "chunk_index": 5,
+    "text": "Τὸν αὐτὸν δὲ καὶ μόνον ἀληθινὸν εἶναι διδάσκει δι ̓ ὧν φησιν· »ἶνα γινώσκωσί σε τὸν μόνον ἀληθινὸν θεόν«,",
+    "chunk_index": 10,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -108,12 +198,84 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.4",
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.3.1.s2",
     "work_id": "pta/pta0100/pta010/pta-grc1",
-    "canonical_ref": "pta0100.pta010.4",
+    "canonical_ref": "pta0100.pta010.3.1.s2",
     "language": "grc",
-    "text": "Διελεῖν γὰρ τὸν λόγον τοῦ θεοῦ τολμήσας καὶ ἕτερον θεὸν τὸν λόγον ὀνομάσαι, οὐσίᾳ τε καὶ δυνάμει διεστῶτα τοῦ πατρός, εἰς ὅσην βλασφημίαν ἐκπέπτωκεν ἔνεστιν σαφῶς ἀπ’ αὐτῶν τῶν ὑπ’ αὐτοῦ γραφέντων ῥητῶν ῥᾳδίως μανθάνειν. γέγραφεν δ’ αὐταῖς λέξεσιν οὕτως·",
-    "chunk_index": 6,
+    "text": "οὐχὶ ὡς ἑνὸς ὄντος μόνου τοῦ θεοῦ, ἀλλ’ ̓ ὡς ἑνὸς ὄντος μόνου ἀληθινοῦ θεοῦ μετὰ προσθήκης ἀναγκαιοτάτης τοῦ ἀληθινοῦ.",
+    "chunk_index": 11,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.3.1.s3",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.3.1.s3",
+    "language": "grc",
+    "text": "ἐπεὶ καὶ αὐτὸς θεὸς μὲν ὁ υἱός, ἀλλ ̓ οὐκ ἀληθινὸς θεός. εἷς γάρ ἐστι καὶ μόνος ἀληθινὸς θεὸς διὰ τὸ μὴ ἔχειν πρὸ αὐτοῦ τινα.",
+    "chunk_index": 12,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.3.1.s4",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.3.1.s4",
+    "language": "grc",
+    "text": "εἰ δὲ καὶ αὐτὸς ὁ υἱὸς ἀληθινός, ἀλλ’ ὡς εἰκὼν τοῦ ἀληθινοῦ θεοῦ εἴη ἂν καὶ θεός, ἐπεὶ »καὶ θεὸς ἧν ὁ λόγος«, οὐ μὴν ὡς ὁ μόνος ἀληθινὸς θεός.",
+    "chunk_index": 13,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.4.s1",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.4.s1",
+    "language": "grc",
+    "text": "Διελεῖν γὰρ τὸν λόγον τοῦ θεοῦ τολμήσας καὶ ἕτερον θεὸν τὸν λόγον ὀνομάσαι, οὐσίᾳ τε καὶ δυνάμει διεστῶτα τοῦ πατρός,",
+    "chunk_index": 14,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.4.s2",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.4.s2",
+    "language": "grc",
+    "text": "εἰς ὅσην βλασφημίαν ἐκπέπτωκεν ἔνεστιν σαφῶς ἀπ’ αὐτῶν τῶν ὑπ’ αὐτοῦ γραφέντων ῥητῶν ῥᾳδίως μανθάνειν. γέγραφεν δ’ αὐταῖς λέξεσιν οὕτως·",
+    "chunk_index": 15,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -131,7 +293,7 @@
     "canonical_ref": "pta0100.pta010.4.1",
     "language": "grc",
     "text": "Οὐ δήπου δὲ ἡ εἰκὼν καὶ τὸ οὗ ἐστιν ἡ εἰκὼν ἓν καὶ ταὐτὸν ἐπινοεῖται, ἀλλὰ δύο μὲν οὐσίαι καὶ δύο πράγματα καὶ δύο δυνάμεις, ὡς καὶ τοσαῦται προσηγορίαι.",
-    "chunk_index": 7,
+    "chunk_index": 16,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -149,7 +311,7 @@
     "canonical_ref": "pta0100.pta010.5",
     "language": "grc",
     "text": "Ἄνθρωπον γὰρ μόνον τὸν σωτῆρα δεῖξαι βουλόμενος, ὡς μέγιστον ἡμῖν ἀπόρρητον τοῦ ἀποστόλου ἀνακαλύπτων μυστήριον, οὕτως ἔφη·",
-    "chunk_index": 8,
+    "chunk_index": 17,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
@@ -162,12 +324,30 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.5.1",
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.5.1.s1",
     "work_id": "pta/pta0100/pta010/pta-grc1",
-    "canonical_ref": "pta0100.pta010.5.1",
+    "canonical_ref": "pta0100.pta010.5.1.s1",
     "language": "grc",
-    "text": "Διὸ σαφέστατα καὶ ὁ θεῖος ἀπόστολος τὴν ἀπόρρητον ἡμῖν καὶ μυστικὴν παραδιδοὺς θεολογίαν βοᾷ καὶ κέκραγεν »εἷς ὁ θεός«, εἶτα μετὰ τὸν ἕνα θεόν φησιν »εἷς μεσίτης θεοῦ καὶ ἀνθρώπων, ἄνθρωπος Χριστός Ἰησοῦς«.",
-    "chunk_index": 9,
+    "text": "Διὸ σαφέστατα καὶ ὁ θεῖος ἀπόστολος τὴν ἀπόρρητον ἡμῖν καὶ μυστικὴν παραδιδοὺς θεολογίαν βοᾷ καὶ κέκραγεν »εἷς ὁ θεός«,",
+    "chunk_index": 18,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 415,
+    "date_range": [
+      30,
+      800
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "pta/pta0100/pta010/pta-grc1#pta0100.pta010.5.1.s2",
+    "work_id": "pta/pta0100/pta010/pta-grc1",
+    "canonical_ref": "pta0100.pta010.5.1.s2",
+    "language": "grc",
+    "text": "εἶτα μετὰ τὸν ἕνα θεόν φησιν »εἷς μεσίτης θεοῦ καὶ ἀνθρώπων, ἄνθρωπος Χριστός Ἰησοῦς«.",
+    "chunk_index": 19,
     "context_before": null,
     "context_after": null,
     "date_composed": 415,
