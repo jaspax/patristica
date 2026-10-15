@@ -1,0 +1,6 @@
+# API_DOMAIN is a bare hostname in production (Caddy gets a Let's Encrypt
+# certificate for it) and http://localhost for a local run.
+{$API_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy api:8000
+}

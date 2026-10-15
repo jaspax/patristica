@@ -1,0 +1,57 @@
+#cloud-config
+# First-boot setup for the database host. No secrets here: DigitalOcean user
+# data is readable from inside the droplet. infra/deploy.sh does the rest.
+# Rendered with templatefile(): only volume_device is substituted.
+
+package_update: true
+package_upgrade: true
+
+apt:
+  sources:
+    docker:
+      source: "deb [arch=amd64 signed-by=$KEY_FILE] https://download.docker.com/linux/ubuntu $RELEASE stable"
+      keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+
+packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+  - rclone
+  - rsync
+  - unattended-upgrades
+
+ssh_pwauth: false
+
+swap:
+  filename: /swapfile
+  size: 4G
+
+write_files:
+  - path: /etc/sysctl.d/90-patristica.conf
+    content: |
+      # Keep Postgres and the HNSW index pages in RAM; swap is a safety net.
+      vm.swappiness = 10
+  - path: /etc/ssh/sshd_config.d/90-patristica.conf
+    content: |
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      PermitRootLogin prohibit-password
+  - path: /etc/apt/apt.conf.d/52patristica-unattended
+    content: |
+      // Security updates only; reboot (rarely needed) at a quiet hour.
+      Unattended-Upgrade::Automatic-Reboot "true";
+      Unattended-Upgrade::Automatic-Reboot-Time "09:00";
+
+runcmd:
+  - sysctl --system
+  - systemctl reload ssh
+  # The volume is attached at creation and already formatted (ext4), but the
+  # device can take a moment to appear.
+  - for i in $(seq 1 60); do [ -e ${volume_device} ] && break; sleep 2; done
+  - mkdir -p /mnt/pgdata
+  - grep -q '/mnt/pgdata' /etc/fstab || echo '${volume_device} /mnt/pgdata ext4 defaults,nofail,discard,noatime 0 2' >> /etc/fstab
+  - mount /mnt/pgdata
+  - mkdir -p /mnt/pgdata/postgres /opt/patristica/compose /opt/patristica/src
+  - systemctl enable --now docker
