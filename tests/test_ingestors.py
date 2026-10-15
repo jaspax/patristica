@@ -520,8 +520,10 @@ class TestNormalizeLayout:
         self._raw(raw, "didache/didache.json", "didache/didache")
         self._raw(raw, "ogpg/_extract/vol-001.json", "ogpg/x")  # cache: not a work
         normalize_all(raw, norm)
-        assert sorted(p.relative_to(norm).as_posix() for p in norm.rglob("*.json")) == [
+        assert sorted(p.relative_to(norm).as_posix() for p in norm.rglob("*.json")
+                      if not p.name.startswith("_")) == [
             "anf-works/anf01/a.json", "didache/didache.json"]
+        assert (norm / "_fingerprint.json").exists()
         manifest = [json.loads(line) for line in (norm / "_works.jsonl").read_text().splitlines()]
         assert [r["path"] for r in manifest] == ["anf-works/anf01/a.json", "didache/didache.json"]
 

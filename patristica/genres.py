@@ -64,6 +64,11 @@ def _overrides() -> dict[str, str]:
     return load_genre_overrides()
 
 
+def override_for(work_id: str) -> str | None:
+    """The curated genre for *work_id*, or None if the file doesn't list it."""
+    return _overrides().get(work_id)
+
+
 def genre_for(work: dict) -> str:
     """The curated genre for a raw work record, or its own genre."""
     return _overrides().get(work.get("work_id", ""), work.get("genre", ""))
