@@ -39,7 +39,9 @@ log = logging.getLogger(__name__)
 SOURCE_ID = "gez"
 
 _REPO_URL = "https://github.com/LPettay/ethiopian-bible.git"
-# Books classified as patristic or liturgical rather than scripture
+# Books classified as patristic or liturgical rather than scripture.  The
+# curated genres in patristica/data/genre_overrides.csv take precedence at
+# normalize time (#103): Clem is scripture there, MysHE apocrypha, Lef liturgical.
 _PATRISTIC_BOOKS = {"Clem"}
 _LITURGICAL_BOOKS = {"Sinod", "Synax"}
 #: Books left out of the corpus entirely, with the reason.

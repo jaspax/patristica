@@ -87,6 +87,21 @@ describe("LibraryBrowser", () => {
     expect(replace).toHaveBeenLastCalledWith("/?sort=date", { scroll: false });
   });
 
+  it("offers each genre present, apocrypha included, in the genre facet", async () => {
+    const apocrypha = row({ id: "anf/protev", title: "Protevangelium", genre: "apocrypha" });
+    const withApocrypha = { ...index, works: [...index.works, apocrypha] };
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(withApocrypha))));
+    render(<LibraryBrowser />);
+    await screen.findByText("3 works");
+    const genre = screen.getByRole("combobox", { name: "Genre" });
+    const options = [...genre.querySelectorAll("option")].map((o) => [o.value, o.textContent]);
+    expect(options).toEqual([
+      ["", "All"],
+      ["apocrypha", "Apocrypha"],
+      ["patristic", "Patristic"],
+    ]);
+  });
+
   it("explains how to export the library when it is missing", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response("", { status: 404, statusText: "Not Found" })));
     render(<LibraryBrowser />);

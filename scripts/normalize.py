@@ -22,6 +22,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+from patristica.genres import apply_genre_override
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period
 from patristica.section_numbers import strip_section_number
@@ -39,6 +40,15 @@ def _prose_text(raw_text: str, ref: str, work: Work) -> str:
     return strip_section_number(raw_text.strip(), ref, work.language, work.source_id)
 
 
+def _units(raw_record: dict) -> list[dict]:
+    """The raw record's text units: ``"verses"`` or ``"paragraphs"``.
+
+    Ingestors pick the key from the genre they assign, and a curated genre
+    (``patristica.genres``) may differ from it, so either key is accepted.
+    """
+    return raw_record.get("verses") or raw_record.get("paragraphs") or []
+
+
 def normalize_scripture_work(
     raw_record: dict,
 ) -> tuple[Work, list[Chunk]]:
@@ -49,7 +59,7 @@ def normalize_scripture_work(
     in by ``chunk.py``.
     """
     work = Work(**raw_record["work"])
-    raw_verses: list[dict] = raw_record.get("verses", [])
+    raw_verses: list[dict] = _units(raw_record)
     # Canonical books are all in period; computed rather than assumed so a
     # late extra-canonical book (e.g. Ethiopic) is flagged by its date.
     out_of_period = is_out_of_period(work.date_composed, work.date_range)
@@ -91,7 +101,7 @@ def normalize_liturgical_work(
     underlying chant/prayer tradition is first-millennium in origin.
     """
     work = Work(**raw_record["work"])
-    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+    raw_paragraphs: list[dict] = _units(raw_record)
 
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
@@ -123,14 +133,14 @@ def normalize_liturgical_work(
 def normalize_patristic_work(
     raw_record: dict,
 ) -> tuple[Work, list[Chunk]]:
-    """Convert a raw patristic record into a ``Work`` + list of ``Chunk`` objects.
+    """Convert a raw patristic or apocrypha record into a ``Work`` + ``Chunk`` list.
 
     For patristic prose, each paragraph is a chunk.  Context overlap
     (``context_before`` / ``context_after``) is left ``None`` here and filled
     in by ``chunk.py``.
     """
     work = Work(**raw_record["work"])
-    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+    raw_paragraphs: list[dict] = _units(raw_record)
 
     out_of_period = is_out_of_period(work.date_composed, work.date_range)
 
@@ -169,7 +179,7 @@ def normalize_council_work(
     All council texts are first-millennium (out_of_period=False).
     """
     work = Work(**raw_record["work"])
-    raw_paragraphs: list[dict] = raw_record.get("paragraphs", [])
+    raw_paragraphs: list[dict] = _units(raw_record)
 
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
@@ -219,10 +229,12 @@ def normalize_file(
         log.debug("Skipping %s: no 'work' key", raw_path)
         return 0
 
+    work_dict = apply_genre_override(work_dict)
+    raw_record = {**raw_record, "work": work_dict}
     genre = work_dict.get("genre", "")
     if genre == "scripture":
         work, chunks = normalize_scripture_work(raw_record)
-    elif genre == "patristic":
+    elif genre in ("patristic", "apocrypha"):
         work, chunks = normalize_patristic_work(raw_record)
     elif genre == "liturgical":
         work, chunks = normalize_liturgical_work(raw_record)
@@ -316,6 +328,7 @@ def write_works_manifest(output_dir: Path) -> None:
     is the tracked copy of work metadata (title, author, dates, translation_of,
     license, provenance) for Phase 2.  Entries are refreshed from the raw file
     when it exists; when it does not (fresh clone) the previous entry is kept.
+    Either way the curated genre from ``patristica.genres`` is applied.
     Entries for normalized files that no longer exist are dropped.  The file is
     rewritten only when its content changes.
     """
@@ -343,7 +356,7 @@ def write_works_manifest(output_dir: Path) -> None:
         if work is None:
             log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
             continue
-        entries[rel] = work
+        entries[rel] = apply_genre_override(work)
 
     content = "".join(
         json.dumps({"path": rel, "work": work}, ensure_ascii=False, sort_keys=True) + "\n"

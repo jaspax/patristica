@@ -1,8 +1,9 @@
 """Genre and ids for the Coptic Scriptorium ingestor (#40, #52).
 
-None of the Coptic Scriptorium works is a liturgy: they are homilies, saints'
-lives, Shenoute, letters, monastic texts and apocrypha, so every one is
-``patristic``.  The source_id and work ids carried a genre until #102
+The ingestor makes every Coptic Scriptorium work ``patristic``: homilies,
+saints' lives, Shenoute, letters, monastic texts and apocrypha.  The curated
+genres in ``patristica/data/genre_overrides.csv`` reclassify the apocrypha and
+the Lament of the Virgin at normalize time (#103; see tests/test_genres.py).  The source_id and work ids carried a genre until #102
 (``liturgical/coptic-scriptorium``, then ``patristic/coptic-scriptorium`` from
 #52); now they are just ``coptic-scriptorium``.
 """

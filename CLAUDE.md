@@ -31,6 +31,7 @@ patristica/
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
+│   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   └── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
 ├── scripts/
 │   ├── ingest/
@@ -83,7 +84,9 @@ See `patristica/models.py`. Key types:
 `grc` Greek · `lat` Latin · `hbo` Hebrew · `syc` Syriac · `cop` Coptic · `gez` Ge'ez · `hye` Armenian · `got` Gothic · `eng` English
 
 ### Genre values
-`scripture` · `patristic` · `liturgical` · `council`
+`scripture` · `patristic` · `liturgical` · `council` · `apocrypha`
+
+Ingestors set a default genre; `patristica/data/genre_overrides.csv` (`work_id,genre,reason`) overrides it per work, and `scripts.normalize` applies it (#103). Genre is decided per work, not per book: a work is `scripture` if it is canonical in the tradition it belongs to (its language and edition), so the same book can be `scripture` in one witness and `apocrypha` in another (Ge'ez `gez/1en` vs Greek `first1k/tlg1463/…` Enoch). A work with any liturgical use is `liturgical`, and other apocryphal gospels, acts, apocalypses, testaments and Old Testament pseudepigrapha are `apocrypha`. Works about apocrypha, hagiography and martyr acts stay `patristic`. After editing the file, re-run `scripts.normalize`, with `--force` if a work moves into or out of `scripture` or `liturgical` (their chunks normalize differently). A test fails if `_works.jsonl` disagrees with the file.
 
 ### Canonical reference format
 Dot-separated: `Gen.1.1`, `Aug.Conf.1.1.1`, `ByzLit.Chrysostom.Anaphora.3`, `Nicaea1.Canon.7`

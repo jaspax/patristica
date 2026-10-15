@@ -6,8 +6,9 @@
 // whose ref is the parent of the next chunk's ref (`Canon.1` followed by
 // `Canon.1.1`) is a heading: it opens a section and its text is the title.
 // In liturgical texts and scripture, so is a unit numbered zero at the start
-// of a section (`0002.0000` in the liturgies, psalm superscriptions). Prose
-// sources such as Coptic Scriptorium number ordinary sentences from zero.
+// of a section (`0002.0000` in the liturgies, psalm superscriptions). Sources
+// such as Coptic Scriptorium number ordinary sentences from zero, even in
+// their liturgical works (the Lament of the Virgin, #103).
 
 import type { WorkFile } from "./library";
 
@@ -52,6 +53,9 @@ export function displaySegment(segment: string): string {
   return /^\d+$/.test(segment) ? String(Number(segment)) : segment;
 }
 
+/** Sources whose units are numbered from zero, so a zero unit is ordinary text. */
+const ZERO_BASED_SOURCES: ReadonlySet<string> = new Set(["coptic-scriptorium"]);
+
 function sectionLabel(path: string[], genre: string): string | null {
   if (path.length === 0) return null;
   const shown = path.map(displaySegment);
@@ -63,11 +67,11 @@ function samePath(a: string[], b: string[]): boolean {
   return a.length === b.length && a.every((s, i) => s === b[i]);
 }
 
-export function parseWork(work: WorkFile, genre: string): Section[] {
+export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section[] {
   const sections: Section[] = [];
   const ids = new Map<string, number>();
   const liturgical = genre === "liturgical";
-  const zeroIsTitle = liturgical || genre === "scripture";
+  const zeroIsTitle = (liturgical || genre === "scripture") && !ZERO_BASED_SOURCES.has(sourceId);
   let current: Section | null = null;
 
   const open = (path: string[], title: string | null): Section => {

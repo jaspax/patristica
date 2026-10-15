@@ -122,7 +122,7 @@ function Reader({ row, index }: { row: WorkRow; index: LibraryIndex }) {
 
       {work.status === "loading" && <p>Loading the text…</p>}
       {work.status === "error" && <LoadError error={work.error} />}
-      {work.status === "ready" && <WorkText work={work.data} genre={row.genre} language={row.language} />}
+      {work.status === "ready" && <WorkText work={work.data} genre={row.genre} language={row.language} sourceId={row.source_id} />}
 
       <nav className={styles.pager} aria-label="Other works in this collection">
         {prev ? (

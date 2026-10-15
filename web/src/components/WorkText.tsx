@@ -12,11 +12,12 @@ interface Props {
   work: WorkFile;
   genre: string;
   language: string;
+  sourceId: string;
 }
 
 /** The text of a work, rendered from its normalized chunks (see lib/render.ts). */
-export default function WorkText({ work, genre, language }: Props) {
-  const sections = useMemo(() => parseWork(work, genre), [work, genre]);
+export default function WorkText({ work, genre, language, sourceId }: Props) {
+  const sections = useMemo(() => parseWork(work, genre, sourceId), [work, genre, sourceId]);
   const lang = languageInfo(language);
   const inline = genre === "scripture";
   const toc = sections.filter((s) => s.title ?? s.label);

@@ -92,6 +92,22 @@ describe("parseWork", () => {
     expect(section.units.map((u) => u.n)).toEqual(["0", "1"]);
   });
 
+  it("keeps zero-numbered units in a zero-based source's liturgical work", () => {
+    const lament = work("CopScr.lament-mary", [["000.0000", "ⲁⲥⲣⲓⲙⲉ"], ["000.0001", "ⲛⲉⲛⲧ"]]);
+    const [section] = parseWork(lament, "liturgical", "coptic-scriptorium");
+    expect(section.title).toBeNull();
+    expect(section.units.map((u) => u.n)).toEqual(["0", "1"]);
+  });
+
+  it("renders apocrypha like prose", () => {
+    const [section] = parseWork(work("X", [["0", "TITLE"], ["1", "AMEN"]]), "apocrypha");
+    expect(section.title).toBeNull();
+    expect(section.units.map((u) => [u.n, u.rubric])).toEqual([
+      ["0", false],
+      ["1", false],
+    ]);
+  });
+
   it("drops leading zeros and marks rubrics and out-of-period chunks", () => {
     const sections = parseWork(
       work("ByzLit.Chrysostom", [
