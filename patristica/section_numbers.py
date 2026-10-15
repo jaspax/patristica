@@ -18,7 +18,18 @@ Recognised forms:
 - Greek alphabetic numerals with a keraia and/or a dot, in Greek text only:
   ``γ. …``, ``γʹ …``, ``ιβʹ. …``;
 - Roman numerals with a following ``.`` or ``)`` (never bare, so the English
-  pronoun "I" is safe): ``IV. …`` for a ref ending in ``iv``/``IV``.
+  pronoun "I" is safe): ``IV. …`` for a ref ending in ``iv``/``IV``;
+- superscript digits, glued to the word or not, and mixed runs where OCR
+  dropped the superscript on one digit (#121): ``⁴καὶ …``, ``¹¹ Καὶ …``,
+  ``¹7τὸ …`` (17), ``1¹καὶ …`` (11);
+- Arabic digits glued to the word, bare or with ``.``/``)``/brackets (#121):
+  ``3Καὶ …``, ``2.δι’ …``, ``4.Principium …``, ``[3]And …``.
+
+Mid-chunk superscript digits are never stripped.  In this corpus they are
+footnote markers (``ἐστι²``, Coptic ``⁽²⁾``), OCR noise in Migne, or mojibake;
+none is an inner verse number.  A leading superscript that does *not* equal
+the ref (an OCR-damaged ``⁰`` for ``²``) is left alone too.  ``validate.py``
+reports both (``text_has_superscript_digits``) for a person to look at.
 
 Guards against stripping real content:
 
@@ -28,6 +39,9 @@ Guards against stripping real content:
   ``1 Timothy``, ``1 Βασ.``) is a scripture citation, and one followed by
   ``bis`` or a Roman calendar word (``8 kal. decembris``) is content;
 - something with letters must be left after stripping;
+- a glued number must be followed by a word of at least two letters that is
+  not an English ordinal suffix or a short abbreviation, so ``1st``, ``3d.``,
+  ``3a.``, ``1.a Tantis`` (a note marker) and ``4.col.a.`` are untouched;
 - single-letter Roman "numerals" ``C``, ``D``, ``L``, ``M`` are not matched,
   since a ref ending in ``c``/``d`` is usually a lettered subsection and the
   text may start with an initial ("C. Julius …");
@@ -87,7 +101,24 @@ _ROMAN_VALUES: dict[str, int] = {"i": 1, "v": 5, "x": 10, "l": 50, "c": 100, "d"
 # apostrophe and right single quote all occur as the numeral sign.
 _KERAIA = "ʹʹ΄´'’"
 
+_SUPERSCRIPT_DIGITS = "⁰¹²³⁴⁵⁶⁷⁸⁹"
+_SUBSCRIPT_DIGITS = "₀₁₂₃₄₅₆₇₈₉"
+_TO_ASCII = str.maketrans(
+    _SUPERSCRIPT_DIGITS + _SUBSCRIPT_DIGITS, "0123456789" * 2
+)
+#: Superscript or subscript digits anywhere in a text (``validate.py``).
+STRAY_SCRIPT_DIGIT_RE = re.compile(f"[{_SUPERSCRIPT_DIGITS}{_SUBSCRIPT_DIGITS}]+")
+
 _ARABIC_RE = re.compile(r"(?:\[\s*(\d+)\s*\]|\(\s*(\d+)\s*\)|(\d+)\s*[.)]?)\s+")
+# A digit run with at least one superscript digit ("⁴", "¹¹", "¹7", "1¹").
+_SUPERSCRIPT_RE = re.compile(
+    rf"([0-9{_SUPERSCRIPT_DIGITS}]*[{_SUPERSCRIPT_DIGITS}][0-9{_SUPERSCRIPT_DIGITS}]*)\s*"
+)
+# Arabic digits glued to the next word: "3Καὶ", "2.δι’", "[3]And".
+_GLUED_RE = re.compile(r"(?:\[(\d+)\]|\((\d+)\)|(\d+)[.)]?)(?=[^\W\d_]{2})")
+# What may not follow a glued number: an ordinal suffix ("1st", "2nd", "3rd",
+# "4th") or a short abbreviation ("4.col.a.").
+_GLUED_REJECT_RE = re.compile(r"(?:st|nd|rd|th)\b|[^\W\d_]{1,4}\.", re.IGNORECASE)
 _GREEK_RE = re.compile(
     rf"(στ|[{''.join(_GREEK_VALUES)}]{{1,4}})(?:[{_KERAIA}]\.?|\.)\s+",
     re.IGNORECASE,
@@ -186,7 +217,7 @@ def leading_section_number(
 ) -> str | None:
     """Return the prefix of *text* that repeats *ref*'s last segment, or ``None``.
 
-    The returned prefix includes the whitespace after the number, so
+    The returned prefix includes the whitespace after the number (if any), so
     ``text[len(prefix):]`` is the text without it.
     """
     if source_id in SERIAL_REF_SOURCES or not text or not ref:
@@ -207,6 +238,20 @@ def leading_section_number(
                 and _rest_ok(rest)
                 and not (bare and _NUMBERED_BOOK_RE.match(rest))
                 and not (bare and _NUMBER_CONTENT_RE.match(rest))
+            ):
+                return m.group(0)
+        m = _SUPERSCRIPT_RE.match(text)
+        if m and int(m.group(1).translate(_TO_ASCII)) == n and _rest_ok(text[m.end() :]):
+            return m.group(0)
+        m = _GLUED_RE.match(text)
+        if m:
+            digits = next(g for g in m.groups() if g is not None)
+            rest = text[m.end() :]
+            if (
+                int(digits) == n
+                and not _GLUED_REJECT_RE.match(rest)
+                and not _NUMBERED_BOOK_RE.match(rest)
+                and _rest_ok(rest)
             ):
                 return m.group(0)
         if language == "grc":

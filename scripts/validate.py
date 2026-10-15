@@ -32,7 +32,7 @@ from typing import Any
 from tqdm import tqdm
 
 from patristica.period import COMPOSED_BY
-from patristica.section_numbers import leading_section_number
+from patristica.section_numbers import STRAY_SCRIPT_DIGIT_RE, leading_section_number
 
 log = logging.getLogger(__name__)
 
@@ -230,14 +230,27 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
 def _check_section_numbers(
     chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, CheckResult]:
-    """Prose chunks whose text still starts with the ref's own section number.
+    """Section numbers and superscript digits left in chunk text.
 
-    ``normalize.py`` strips these (#30), so a hit means the normalized data
-    predates that step or the text reached the corpus some other way.
-    Scripture is skipped: a verse may start with a numeral.
+    ``text_starts_with_section_number``: prose chunks whose text still starts
+    with the ref's own section number, in any form ``leading_section_number``
+    knows (plain, glued, superscript; #30, #121).
+    ``text_has_superscript_digits``: any chunk (scripture included) with a
+    superscript or subscript digit anywhere.  Normalize strips only a leading
+    one that equals the ref, so the rest need a person to look at them.
+
+    ``normalize.py`` strips leading section numbers, so a hit in the first
+    check means the normalized data predates that step or the text reached the
+    corpus some other way.  It skips scripture: a verse may start with a numeral.
     """
     dup_number: list[str] = []
+    stray: list[str] = []
     for c in chunks:
+        text = c.get("text", "")
+        m = STRAY_SCRIPT_DIGIT_RE.search(text)
+        if m:
+            snippet = text[max(0, m.start() - 15) : m.end() + 15]
+            stray.append(f"{c.get('chunk_id', '?')} ({snippet!r})")
         entry = work_records.get(c.get("work_id", ""), {})
         source_id = entry.get("source_id", "")
         if entry.get("genre") == "scripture":
@@ -250,6 +263,12 @@ def _check_section_numbers(
     return {
         "text_starts_with_section_number": _result(
             "warning", dup_number, "leading number repeats the ref's last segment; re-run normalize"
+        ),
+        "text_has_superscript_digits": _result(
+            "warning",
+            stray,
+            "superscript/subscript digits left in the text: footnote markers, OCR noise, "
+            "mojibake, or a damaged verse number that does not equal the ref (#121)",
         ),
     }
 
