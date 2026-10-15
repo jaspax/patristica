@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -75,11 +81,18 @@
       "text": "What is the matter with you? Why do you hide yourself instead of revealing yourself?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0008",
-      "source_sha256": "e333c5d82a2bbdf6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "If you are a spirit or an angel who has come from God, I too am his servant. And even if you stop, I will not stop. Or tell me whether you were sent because they are the ones who sinned against God, or because we are the ones who sinned against him by planning to remove them from our midst. Otherwise, we will not let you go, but I will fight against you even harder.”"
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0008.s1",
+      "source_sha256": "c68baa2b07c04364",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "If you are a spirit or an angel who has come from God, I too am his servant. And even if you stay, I will not stop, unless you tell me, if you were sent, whether"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0008.s2",
+      "source_sha256": "66cffa41fcc48239",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "it is they who have sinned against God or we who have sinned against him, since you are planning to remove them from our midst. Otherwise, we will not let you go, but I will fight you even harder."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0009",
@@ -110,11 +123,18 @@
       "text": "For I was thinking to myself that it is impossible for a human being to overcome a spirit or an angel of God. Rather, people fall to the ground from fear when they see them, and those who have appeared to them can barely give them strength. Such was my thought."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0013",
-      "source_sha256": "c84c4999ac7dc487",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "And look, the two quickly revealed themselves to be demons. And I realized that this was Satan’s effort to deceive the crowds gathered in places, so that they would tolerate the mysteries and the ungodliness of those who do scandalous deeds among them, until the weeds far outnumbered the good seed."
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0013.s1",
+      "source_sha256": "e1726208d244a38b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "And look, those two quickly revealed themselves to be demons. And I understood that this is Satan’s effort to deceive the crowds gathered together"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0013.s2",
+      "source_sha256": "37c5c74a716b37bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "in places, making them tolerate the secret, ungodly practices of those who do scandalous deeds among them, until the weeds far outnumber the good seed."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0014",
@@ -124,11 +144,18 @@
       "text": "For people have chosen to please those counted among the evildoers rather than to please God."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0015",
-      "source_sha256": "623a5420d0a26e98",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "This is how it is: one person was not expelled because of his father, because they feel ashamed before him; another because of his brother; another because of an empty desire; another because of hypocrisy and favoritism; and others because they seek the favor of those who are defiled and rejected. Everything is done for people and not for Jesus, as we have said many times in many places—not only we ourselves, but also those before us who were truly chosen by God."
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0015.s1",
+      "source_sha256": "e3cd7e7cf9acd0aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "This is how it happens: one person was not expelled because of his father, because they are ashamed before him; another because of his brother; another because of an empty desire; another because of hypocrisy and favoritism; others because people show concern"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0015.s2",
+      "source_sha256": "e030a86cd36f6e27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "for them, the defiled and rejected. Everything is for people’s sake and not for Jesus’ sake, as we have said many times in many places—not we alone, but also those before us who were truly God’s chosen ones."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0016",
@@ -187,11 +214,25 @@
       "text": "Only, even if I live in the same places with people—men and women, grown men and grown women, little boys and little girls—"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0024",
-      "source_sha256": "94539a8124883d17",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "even if I receive the sacrament with them, even if they receive it with me, even if I pray with them, even if they pray with me, even if I eat bread with them and they eat with me, or my hand and theirs are in this same bowl at this same table, and they dare to corrupt God's creatures with any defilement or uncleanness in this house or these houses and these places, [?] built in [?] his name with great effort and with much gold and copper and every kind of vessel—you will not acquire them all until we have put them in order—so that souls may benefit and souls may come before God in complete purity,"
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0024.s1",
+      "source_sha256": "b6903cb029b1673c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "Whether I receive the sacrament with them or they receive it with me, whether I pray with them or they pray with me, whether I eat bread with them and they eat with me, or my hand and"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0024.s2",
+      "source_sha256": "f52fbbc5c74afafe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "their hands are in this same bowl at this same table, and they dare to corrupt God’s creatures with any defilement or uncleanness in this house, or these houses and these places [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0024.s3",
+      "source_sha256": "b0b2ef33c75b1714",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 9,
+      "text": "built them for [?] his name, with great effort and with large amounts of gold, copper, and all kinds of goods—which you will not acquire in their entirety until we establish them—so that souls may benefit and souls may go before God in complete purity."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_night#CopScr.shenoute-night.000.0025",

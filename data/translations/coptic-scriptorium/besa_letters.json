@@ -15,15 +15,49 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000",
-      "source_sha256": "881987db32e2510a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "The world, as we lived in defilement, drunkenness, excess, drinking, and filthy idol worship, living in malice and envy, being hateful and hating one another, being disobedient and going astray, living in the emptiness of our hearts, being darkened in our thoughts and estranged from the life of God because of the ignorance within us and the hardness of our hearts. We had given ourselves over to defilement and to practicing every kind of impurity. But now we were not taught this way. Rather, we were taught: “Work toward your salvation with fear and trembling, for God is the one working in you both to will and to carry out that will.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s1",
+      "source_sha256": "b70a6f912e91db0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "world, as we lived in defilement, drunkenness, revelry, drinking, and impure idol worship, living in malice and envy,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s2",
+      "source_sha256": "2afbeccc6ff6750b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "being hateful and hating one another, being disobedient and going astray, living in the futility of our hearts,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s3",
+      "source_sha256": "ef7c5409a5d9d58b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "being darkened in our thoughts and alienated from the life of God because of the ignorance within us, because of the hardness of our hearts,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s4",
+      "source_sha256": "713146190b3c94bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "having given ourselves over to defilement and to practicing every kind of impurity. But now, that is not how we were taught."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s5",
+      "source_sha256": "b85d6d62ee34ba73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, we were taught: “Work out your salvation with fear and trembling, for God is the one who works in you both the desire and the fulfillment of that desire.”"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0001",
@@ -33,18 +67,46 @@
       "text": "But now we were not taught this way. Rather, we were taught: “Work toward your salvation with fear and trembling, for God is the one working in you both to will and to carry out that will.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0002",
-      "source_sha256": "ec1f62b1d4726836",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "For in those days Moses saw how readily the children of Israel forgot God's commandments. He commanded them to make tassels on the edges of their clothes, so that they would see them and remember God's commandments and not forget them. We too, however, should place the fear of God in our hearts instead of tassels, so that we will not forget the commandments our fathers handed down to us."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0002.s1",
+      "source_sha256": "c55f4b4f865eee49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For when Moses saw how quick the children of Israel were in those days to forget God's commandments, he ordered them to make tassels on the edges of their garments,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0003",
-      "source_sha256": "e2c640e46b323f97",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "Therefore, brothers, let us turn back and repent before the opportunity slips away from us, and while the light is with us—that is, the teachings of our fathers—as the Lord said: “Walk while you have the light, so that the darkness does not overtake you.” And: “Let us conduct ourselves decently, as in the daytime.” And: “For those who sleep sleep at night, and those who get drunk get drunk at night. But since we belong to the day, let us be sober, having put on the breastplate of faith”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0002.s2",
+      "source_sha256": "a39cab5d9e1d223a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that they would see them and remember God's commandments and not forget them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0002.s3",
+      "source_sha256": "c907004e3a4ee2f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let us, in turn, place the fear of God in our hearts instead of tassels, so that we do not forget the commandments our fathers handed down to us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0003.s1",
+      "source_sha256": "1780f3a09d83953d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, brothers, let us turn back and repent before the opportunity slips away from us, and while the light is with us—that is, the teachings of our fathers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0003.s2",
+      "source_sha256": "368b79901275cfb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As the Lord said, “Walk while you have the light, so that darkness does not overtake you.” And, “Let us conduct ourselves decently, as in the daytime.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0003.s3",
+      "source_sha256": "75bc60471f78fe25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And, “Those who sleep, sleep at night, and those who get drunk, get drunk at night. But since we belong to the day, let us be sober, having put on the breastplate of faith.”"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.001.0000",
@@ -61,18 +123,102 @@
       "text": "Therefore, let us all pray, everyone who fears God, that Christ may keep his blessing enduring in his congregations and not let his places lack anything."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000",
-      "source_sha256": "6138f4863888c21e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "We submit to regulations in the world like those who are alive: “Do not touch, do not taste, do not go near.” That is to say, we came out of the sins of the world and left them behind us. Why are we turning back again and wallowing in them? This is also what he said: “For at that time you were darkness, but now you are light in the Lord. Live as children of light, for the fruit of light consists in all goodness, righteousness, and truth, as you discern what pleases the Lord. And do not share in the fruitless deeds of darkness, but rather expose them. For the things they do secretly are shameful even to speak about. But everything that is exposed is made visible by the light, for everything made visible is light.” Therefore, let us too rebuke our foolishness within us, and all the thoughts of the devil that he throws into us, and unbelief and hatred, since they make us think evil against one another, even though we are not near one another at all. And we find fault with one another, rather than with ourselves, as though our struggle were against one another and not against the rulers and authorities, against the world rulers of darkness, against the spiritual forces of wickedness in the heavens, and not against blood and flesh. As the apostle said: “Take up the full armor of God, so that you can stand against the devil's schemes, for our struggle is not against blood and flesh.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s1",
+      "source_sha256": "f36232ee81c81fed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We submit to regulations in the world like people who are alive: “Do not touch, do not taste, and do not go near.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0001",
-      "source_sha256": "d3c7ed82ac273d50",
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s2",
+      "source_sha256": "50eee445c9be7959",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "That is to say, we have come out of the sins of the world and left them behind. Why do we turn back again and wallow in them?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s3",
+      "source_sha256": "e72ee2535223864b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As he also said in this passage: “For you were once darkness, but now you are light in the Lord. Live as children of light,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s4",
+      "source_sha256": "9526336c08a2224c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for the fruit of the light consists in all goodness, righteousness, and truth, as you discern what pleases the Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s5",
+      "source_sha256": "958983a2255f6353",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And do not take part in the fruitless works of darkness, but rather expose them. For the things they do in secret are shameful even to mention."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s6",
+      "source_sha256": "98823fae8331e493",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But everything that is exposed by the light becomes visible, for everything that becomes visible is light.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s7",
+      "source_sha256": "80b81b7a89fe5a1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, let us also rebuke the foolishness within us and all the thoughts the devil casts into us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s8",
+      "source_sha256": "4d10b074a3e3a323",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "along with unbelief and hatred, through which they make us think evil of one another even when we are not with one another at all,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s9",
+      "source_sha256": "39a99df67635078f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and find fault with one another rather than with ourselves, as though our struggle were against one another and not against the rulers and authorities,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s10",
+      "source_sha256": "7c4f0dc8ec11f9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "against the world rulers of darkness, against the spiritual forces of evil under the heavens, and not against flesh and blood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s11",
+      "source_sha256": "3e6a74f44a1c582d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
       "group_size": 11,
-      "text": "Also in connection with this, he said, “For you were once darkness, but now you are light in the Lord. Walk as children of light, for the fruit of light consists in all goodness, righteousness, and truth. Test what is pleasing to the Lord, and do not share in the fruitless works of darkness, but rather expose them.”"
+      "text": "As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0001.s1",
+      "source_sha256": "e72ee2535223864b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As he also said in this passage: “For you were once darkness, but now you are light in the Lord. Live as children of light,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0001.s2",
+      "source_sha256": "9526336c08a2224c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for the fruit of the light consists in all goodness, righteousness, and truth, as you discern what pleases the Lord."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0001.s3",
+      "source_sha256": "4a94528846a25b4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And do not take part in the fruitless works of darkness, but rather expose them.”"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0002",
@@ -82,18 +228,53 @@
       "text": "For the things they do in secret are shameful even to mention. But all things are revealed when they are exposed by the light, for everything that is revealed is light."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003",
-      "source_sha256": "a7b6c1e7577da9e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Therefore, let us too rebuke our foolishness within us, and all the thoughts of the devil that he casts into us, along with unbelief and hatred. These make us think evil of one another even when we are not together at all, finding fault with one another and not with ourselves, as though our struggle were against one another and not against the rulers and authorities, against the world rulers of darkness, against the spiritual forces of evil in the heavens, and not against flesh and blood. As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s1",
+      "source_sha256": "80b81b7a89fe5a1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, let us also rebuke the foolishness within us and all the thoughts the devil casts into us."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0004",
-      "source_sha256": "a492fee9580cbc86",
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s2",
+      "source_sha256": "4d10b074a3e3a323",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and unbelief and hatred, as they make us think evil of one another, even though we are not with one another at all."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s3",
+      "source_sha256": "39a99df67635078f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And we find fault with one another, and not with ourselves, as though our struggle were against one another and not against the rulers and authorities,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s4",
+      "source_sha256": "7c4f0dc8ec11f9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "against the world rulers of darkness, against the spiritual forces of evil in the heavens, and not against blood and flesh."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s5",
+      "source_sha256": "3e6a74f44a1c582d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
       "group_size": 11,
-      "text": "And we find fault with one another and not with ourselves, as though our struggle were against one another and not against the rulers and authorities, against the world rulers of darkness, against the spiritual forces of evil in the heavens, and not against flesh and blood."
+      "text": "As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0004.s1",
+      "source_sha256": "39a99df67635078f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And we find fault with one another, and not with ourselves, as though our struggle were against one another and not against the rulers and authorities,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0004.s2",
+      "source_sha256": "7c4f0dc8ec11f9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "against the world rulers of darkness, against the spiritual forces of evil in the heavens, and not against blood and flesh."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0005",
@@ -103,46 +284,130 @@
       "text": "As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0006",
-      "source_sha256": "765fc8c3096d51e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Therefore, be watchful, and let us hold firmly to what is good. For many are together in body but far apart in heart and love. And many others are not together in body but are together at all times in the love of Christ, the love of the Spirit, and the will of Jesus."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0006.s1",
+      "source_sha256": "195654dcd75d0a67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, keep watch, and let us hold fast to what is good, because there are many who are together in body,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0007",
-      "source_sha256": "b7aed7fdc58be26a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "But you, brothers, keep and persevere in the things we have been taught. Many will learn and benefit from you, as he said, “Let them see your good works and glorify your Father in heaven.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0006.s2",
+      "source_sha256": "d30f4b05ce904122",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but are far apart from one another in heart and love. There are also many who are not together in body,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0008",
-      "source_sha256": "9e970f9bc7baba69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "For just as you have followed all the saints in your actions—as he said, “But you have followed my teaching, my conduct, my purpose, my faith, my patience, my love, my endurance, my persecutions, and my sufferings”—continue to follow them by guarding your own labors. For those who possess the imperishable wealth in Christ are themselves responsible for watching over it."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0006.s3",
+      "source_sha256": "41f0c3bbf49dfc6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "yet are always together in the love of Christ, the love of the Spirit, and the will of Jesus."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0009",
-      "source_sha256": "e60c08244fad6ded",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "If those who possess money, gold, silver, and property keep watch so that robbers do not steal them, how much more should we keep watch so that the enemy does not steal the good that we do: our prayers, our fasts, our purity, and our endurance."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0007.s1",
+      "source_sha256": "95baaf49b02f340d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But you, brothers, be watchful and persevere in the things we have been taught, and many will learn and benefit from you,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0010",
-      "source_sha256": "b47d4adb9dd85302",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "For the theft of silver and gold is not the only loss. Rather, just as virginity and the monastic life are honored, so the enemy is eager to steal them. Someone who has acquired pearls or gold stays up at night keeping watch. If the enemy stays up at night [?] for the sake of evil, how much more will the person who owns the valuables keep watch, so that no one plots against them."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0007.s2",
+      "source_sha256": "1a79a1352fb4da17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "just as he said, “Let them see your good works and glorify your Father who is in heaven.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011",
-      "source_sha256": "fd229e0ce95645d9",
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0008.s1",
+      "source_sha256": "41679fb3dc769cd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For just as you have followed all the saints in your conduct, as he said, “But you have followed my teaching, my way of life, my purpose, my faith,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0008.s2",
+      "source_sha256": "ec7d44cb629449d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "my patience, my love, my endurance, my persecutions, my sufferings”—follow them again by persevering in your own sufferings."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0008.s3",
+      "source_sha256": "84310df3e18a9add",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For those who possess the imperishable wealth in Christ are themselves responsible for guarding it for themselves."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0009.s1",
+      "source_sha256": "d9d0621350a0d453",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If those who possess money, gold, silver, and property"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0009.s2",
+      "source_sha256": "dcc0c3af372232d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "keep watch so that robbers do not steal them, how much more should we keep watch so that the enemy does not steal the good that we do:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0009.s3",
+      "source_sha256": "e658a6874c438cf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "our prayers, our fasts, our purity, and our endurance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0010.s1",
+      "source_sha256": "77360a2a520e0c96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For it is not on the same level as the theft of silver and gold. Rather, just as virginity and the monastic life are held in honor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0010.s2",
+      "source_sha256": "f41bb433e2937b9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so too the enemy strives to steal them. Now someone who has acquired pearls or gold stays awake at night to keep watch."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0010.s3",
+      "source_sha256": "9d93190cc3b19449",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If the enemy stays awake at night to keep watch [?] for the sake of an evil deed, how much more will the person who owns the valuables keep watch so that no one plots against them!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011.s1",
+      "source_sha256": "cf27b9f895451e5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let us remember what our fathers said: “Brothers who follow our way of life fast and also pray, keeping watch at night,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011.s2",
+      "source_sha256": "629efb772f053bf6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but they also lie, fight, quarrel, grumble, and slander. They hate, conduct themselves with an estranged heart, and defile themselves,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011.s3",
+      "source_sha256": "a1c019f56eabc9e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and they are deceitful, doing every evil deed. People like these toil in vain, and no benefit will come to them. Their endurance, too, is in vain.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011.s4",
+      "source_sha256": "6b1444be34774692",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
       "group_size": 6,
-      "text": "Let us remember what our fathers said: There are brothers who follow our way of life, fasting and praying, and spending the night keeping watch, yet also lying, fighting, quarreling, grumbling, and slandering. They hate, walk with an alienated heart, defile themselves, and practice deceit, doing every kind of evil. People like these suffer hardship in vain, and no benefit will come to them. Their endurance is also in vain, according to what was said: “A sieve does not fill up to produce flour.” And again, in this saying: “Sow wheat, and you will reap thorns.” Their allotted portions will not benefit them."
+      "text": "According to what was said: “A sieve does not fill up to produce flour.” And again, in this saying: “Sow wheat, and you will reap thorns.” Their allotted portions will not benefit them."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0012",
@@ -152,60 +417,200 @@
       "text": "According to what was said: “A sieve does not fill up to produce flour.” And again, in this saying: “Sow wheat, and you will reap thorns.” Their allotted portions will not benefit them."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0013",
-      "source_sha256": "24a9a9c834332060",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "Therefore, be watchful. Do not let the enemy destroy the good we do. Instead, with all vigilance, guard our heart against every defiled thought of the devil, so that we may be worthy to hear this with a united heart: “From that time onward they will no longer serve a stranger, but will serve the Lord their God.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0013.s1",
+      "source_sha256": "24945b5375b4322f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, keep watch. Do not let the enemy destroy the good that we do. Rather, guard our heart with every precaution against every impure thought of the devil,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014",
-      "source_sha256": "1ee2ccb5cdec4fcd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "For robbers do not break into a house or a place with no valuables in it. Instead, they break into a place where they will find valuables. Nor do they break into a place where people are keeping watch, in order to steal. Rather, the places they break into are those where they know people are not keeping watch and are forgetful, and they seize whatever they find. In the same way, the devil does not rob someone who keeps watch and guards the fruits of his labor for himself. Rather, someone whom he finds not keeping watch, not fearing God, and not thinking about how he will fall into God's hands, but drifting with every wind—that is the person whose good deeds he plunders without mercy."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0013.s2",
+      "source_sha256": "73be90cb6b99e66e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that we may be worthy to hear this with confidence: “From that time onward they will no longer serve a stranger, but they will serve the Lord their God.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0015",
-      "source_sha256": "77c45416e5310e0f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "In the same way, the devil does not rob someone who keeps watch and guards the fruits of his labor for himself. Rather, someone whom he finds not keeping watch, not fearing God, and not thinking about how he will fall into God's hands, but drifting with every wind—that is the person whose good deeds he plunders without mercy."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s1",
+      "source_sha256": "8b52de2b83f9c7e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For robbers do not break into a house or a place where there are no valuables. Rather, they break into the place where they will find valuables. Nor do they break into a place that is being watched, in order to plunder it."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016",
-      "source_sha256": "2a59c1d42a0e2464",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Therefore, brothers and sisters, everyone who is of one heart with God and with our fathers, and also with us, whether male or female, great or small, among us or among you: be steadfast and watchful. Let us not give sleep to our eyes or slumber to our eyelids until the Lord rescues us from every temptation of the enemy. For many envy us. And do not let the sight of brothers and sisters repeatedly becoming agitated amid fighting and quarrelling, and abandoning their endurance, cause you to stumble. But God forbid that they should ever cause those who love God to stumble—those whose faith in Christ is complete and who hold fast to the Spirit of God."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s2",
+      "source_sha256": "ceb49db4cf689691",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the places where they know people are not keeping watch and are careless—those are the places they break into, stealing whatever they find."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0017",
-      "source_sha256": "69baa45ff1fa528d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "And do not let the sight of brothers and sisters repeatedly becoming agitated amid fighting and quarrelling, and abandoning their endurance, cause you to stumble. But God forbid that they should ever cause those who love God to stumble—those whose faith in Christ is complete and who hold fast to the Spirit of God."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s3",
+      "source_sha256": "3b8b46cdf98b767f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Likewise, the devil does not rob someone who keeps watch and safeguards the fruits of his labor, but someone whom he finds off guard,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0018",
-      "source_sha256": "09d7a2910093e99c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "But you who sin and abandon your endurance and disturb the congregations through faintheartedness, envy, hatred, fighting, quarrelling, and deceit: woe to you! What will you do on the day when you are called to account? For your distress is coming from afar."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s4",
+      "source_sha256": "a209ed4a47f688bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who neither fears God nor considers how he will fall into God's hands,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0019",
-      "source_sha256": "1440b7fbd6ffcc3b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Or is it not grounds for judgment against us if, after renouncing what we renounced and making an agreement with the one with whom we made an agreement in a covenant, declaring, 'We will not steal; we will not lie; we will not defile our bodies in any way; we will not bear false witness; we will not practice any deceit in secret,' along with the other statements that follow these, we turn back again and do these things once more?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s5",
+      "source_sha256": "662c3e34e852e859",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but drifts with every wind. That is the person from whom he mercilessly snatches away the good he does."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000",
-      "source_sha256": "caebad486813f6d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Have you given glory to God? Stand up. I am speaking to you, Aphthonia, daughter of Count Alexander. Or have you honored the place where you were brought up [?], in matters concerning God and the world, through your words and deeds? If your heart had not become corrupt, you would not have disgraced the place where you are, or dishonored the brothers and sisters who are there with you. They call you by your name, Aphthonia, yet you envy yourself and direct your malice against yourself, wanting to destroy your soul, of which the whole world is not worthy, and to waste your labors for nothing. For you have given Satan room within you to change your heart and lead people astray like wild sheep. You foolish, ignorant woman, who has no instruction! For if you had understanding, even if they really had fought with you, you ought to let people know what you are like inside your community."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0015.s1",
+      "source_sha256": "3b8b46cdf98b767f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Likewise, the devil does not rob someone who keeps watch and safeguards the fruits of his labor, but someone whom he finds off guard,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0015.s2",
+      "source_sha256": "a209ed4a47f688bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who neither fears God nor considers how he will fall into God's hands,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0015.s3",
+      "source_sha256": "662c3e34e852e859",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but drifts with every wind. That is the person from whom he mercilessly snatches away the good he does."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s1",
+      "source_sha256": "42515dd32a4ded87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, brothers and sisters, everyone who is of one heart with God and with our fathers, and also with us, whether male or female, great or small,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s2",
+      "source_sha256": "270886c6a2c079a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "among us and among you, take courage and keep watch. Do not give sleep to our eyes or slumber to our eyelids until the Lord delivers us from every temptation of the enemy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s3",
+      "source_sha256": "5b0768f2ccc07042",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For many envy us. And do not look at brothers who are often agitated by fighting and strife and abandon their endurance, and let them cause you to stumble."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s4",
+      "source_sha256": "3f8093e3590f1d45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But God will never allow them to cause those who love God to stumble, those whose faith in Christ is complete and who hold fast to the Spirit of God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0017.s1",
+      "source_sha256": "036b26421c9b93e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And do not look at brothers who are often agitated by fighting and strife and abandon their endurance, and let them cause you to stumble."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0017.s2",
+      "source_sha256": "3f8093e3590f1d45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But God will never allow them to cause those who love God to stumble, those whose faith in Christ is complete and who hold fast to the Spirit of God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0018.s1",
+      "source_sha256": "969e92de5cafcd24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But you who sin and abandon your endurance and disturb the congregations through cowardice, envy, and hatred,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0018.s2",
+      "source_sha256": "80d33d7b0ab535ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and fighting, strife, and deceit—woe to you! What will you do on the day when you are called to account? For your affliction is coming from afar."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0019.s1",
+      "source_sha256": "68e2f323c584cf53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or is it not grounds for condemnation for us, after renouncing what we renounced and binding ourselves by a covenant to the one to whom we bound ourselves, declaring, 'We will not steal,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0019.s2",
+      "source_sha256": "2195b51efba9dc1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "we will not lie, we will not defile our bodies in any way, we will not bear false witness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0019.s3",
+      "source_sha256": "c0b5a6d5774e2890",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "we will not practice any deceit in secret,' together with the other statements that follow these, to turn back again and do these things once more?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s1",
+      "source_sha256": "2ddb464c201abcbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Give glory to God! Stand up! I am speaking to you, Aphthonia, daughter of Count Alexander."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s2",
+      "source_sha256": "17cce46e29ebf241",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or honor, in your words and deeds, the place where you were brought up, both in the things of God and in the things of the world."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s3",
+      "source_sha256": "a2f22f0500438aa7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If your heart had not become corrupt, you would not have dishonored the place where you are or disgraced the brothers and sisters who are there with you. They call you by the name Aphthonia,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s4",
+      "source_sha256": "85ad59a5c7d9d8bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but you envy your own self and bear malice toward yourself, wanting to destroy your soul, which the whole world is not worth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s5",
+      "source_sha256": "76389f8013ea5fee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and to waste your labors in vain, because you have given Satan room within you to change your heart"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s6",
+      "source_sha256": "339a83b9e766cfbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and lead people astray like mad sheep. You foolish, ignorant woman, without any learning!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s7",
+      "source_sha256": "87c2dc038390a788",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For if you had understanding, even if they really did fight with you, you ought to remain silent, recognizing what you are like within your community."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0001",
@@ -215,11 +620,32 @@
       "text": "If your heart had not become corrupt, you would not have disgraced the place where you are, or dishonored the brothers and sisters who are there with you."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002",
-      "source_sha256": "e1e13d05cbe353fe",
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002.s1",
+      "source_sha256": "e1cce9af2c7f3b2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They call you by the name Aphthonia, yet you envy yourself and begrudge yourself what is good."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002.s2",
+      "source_sha256": "bc2444abc7c5804e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You want to destroy your soul, which the whole world is not worth, and to waste all your labor for nothing."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002.s3",
+      "source_sha256": "c31b53b0b125b3bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For you have given Satan room to enter you, to change your heart and lead people astray like wandering sheep."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002.s4",
+      "source_sha256": "fea59f882ba7df2a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
       "group_size": 10,
-      "text": "They call you by your name, Aphthonia, yet you envy yourself and direct your malice against yourself, wanting to destroy your soul, of which the whole world is not worthy, and to waste your labors for nothing. For you have given Satan room within you to change your heart and lead people astray like wild sheep. You foolish, ignorant woman, who has no instruction! For if you had understanding, even if they really had fought with you, you ought to let people know what you are like inside your community."
+      "text": "You foolish, ignorant woman, who has no instruction! For if you had understanding, even if they really had fought with you, you ought to let people know what you are like inside your community."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0003",
@@ -229,81 +655,200 @@
       "text": "You foolish, ignorant woman, who has no instruction! For if you had understanding, even if they really had fought with you, you ought to let people know what you are like inside your community."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0004",
-      "source_sha256": "eec6f5788f3e0d78",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Especially since you told your father and your mother, 'They fought with me,' or, 'They insulted me,' lying when they neither fought with you nor insulted you. Did they fight with you because they gave you instruction when you broke the commandment and took things from your fathers without asking?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0004.s1",
+      "source_sha256": "3307029bd0cb1895",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Especially since you told your father and mother, “They fought with me,” or, “They insulted me.” You are lying: they neither fought with you nor insulted you."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0005",
-      "source_sha256": "42f0ee905dafb377",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "What did you ask for that you needed, only for them to turn you away or not give it to you? If you tell your father and your mother, are we afraid—especially when you are lying? So do you want us to tell them about the foolish deeds you commit, your thefts, and your quarrels?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0004.s2",
+      "source_sha256": "cd39a9eaec8bd169",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Did they fight with you because they corrected you when you broke the commandment and accepted things from your parents without asking?"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0006",
-      "source_sha256": "4c9524594e175a2c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "You truly blind woman, groping at noon like those in the middle of the night, and like blind people who have no eyes! How can your fathers out in the world hear what you say here inside, while we in the convent do not know it?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0005.s1",
+      "source_sha256": "2d8d0c91085b21b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "What did you ask for that you needed, only to have them turn you away or refuse to give it to you? If you tell your father and mother, we are afraid,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0007",
-      "source_sha256": "f2f2e2dcf42f18d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "If they really wronged you, oppressed you, or caused you grief, you should have told us about your suffering, so that we could know whether you were telling the truth or not. Or you should have told your mother who is there with you—if you do not merely call her “Mother” with your mouth while your heart is far from her, as it is written: “This people honors me with their lips, but their heart is far from me.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0005.s2",
+      "source_sha256": "6a94447d0cb30e7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "especially since you lie. Do you therefore want us to tell them about the foolish things you do, your thefts, and your quarrels?"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0008",
-      "source_sha256": "95c81e5922d17806",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "For if your undisciplined heart had not darkened you, would you have despised your fathers who are in the congregation with you? Or would you have insulted the sisters with whom you live, in your arrogance and your contempt for others?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0006.s1",
+      "source_sha256": "1a12fdb323635fe0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You truly blind woman, groping at noon like those in the middle of the night, and like blind people who have no eyes!"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0009",
-      "source_sha256": "458205fb1e9b690b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Or if you had not abandoned instruction and understanding, and loved evil more than good, would you have rehearsed disgusting words and said with your mouth, which is full of curses and bitterness, “I will go to other convents”?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0006.s2",
+      "source_sha256": "c6e8e7acebd79d33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "How, then, will your parents outside in the world hear about your conduct inside this place, while we ourselves in the monastery do not know about it?"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0010",
-      "source_sha256": "df028aba9f32d4e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "How has this place wronged you? Or what burden have they laid on you, except that they told you, “Do not transgress God's commandment”? For you have become self-indulgent, and [?] a young girl who lives in the house with you, so that you become a stumbling block and a cause of sin to one another."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0007.s1",
+      "source_sha256": "4f1c29a7862655d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If they really mistreated you, oppressed you, or caused you grief, you should have told us about your suffering, so that we could know whether you are telling the truth"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0011",
-      "source_sha256": "f16a89c4ba54579c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "Therefore, I declare to you that if you fail to pay attention to yourself and rid yourself of this disobedience and these pointless quarrels, I will make their hearts grieve, and I will make them deal with you according to what came out of their mouths."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0007.s2",
+      "source_sha256": "f9fe9f232f212ab9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or not. Or you should tell your mother who is here with you—if you do not merely call her “Mother” with your mouth,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012",
-      "source_sha256": "e064ceb6766a00fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Truly, I am distressed about you—or about all of you—because I fear that, just as the serpent deceived Eve by his cunning, your hearts may be corrupted and led away from the sincerity and purity directed toward Christ. If he did not leave that woman alone in paradise, will he spare you, or all of you, when you give him room within yourselves and accept his deceitful schemes and his evil deeds? For he cannot overpower those who fear God, those for whom Christ is a helper and protector, as it is written: “The one who fights for you is your helper, and the sword of your boasting and the glory of the firmament.” Whoever loves evil will be destroyed, and it is that person whom the devil will overpower through his soul-killing deeds. But the wise person who loves instruction will accept the commandment, and the person of understanding who fears the Lord will obtain a guide."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0007.s3",
+      "source_sha256": "71028f2c6c786244",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while your heart is far from her. As it is written, “This people honors me with their lips, but their heart is far from me.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0013",
-      "source_sha256": "2314773be94ecc6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "If he did not leave that woman alone in paradise, will he spare you, or all of you, when you give him room within yourselves and accept his deceitful schemes and his evil deeds? For he cannot overpower those who fear God, those for whom Christ is a helper and protector, as it is written: “The one who fights for you is your helper, and the sword of your boasting and the glory of the firmament.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0008.s1",
+      "source_sha256": "dfa1e019d44133b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For if your undisciplined heart had not darkened your understanding, would you have despised your fathers who are in the congregation with you?"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0014",
-      "source_sha256": "8434320561e60ad1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Whoever loves evil will be destroyed, and it is that person whom the devil will overpower through his soul-killing deeds. But the wise person who loves instruction will accept the commandment, and the person of understanding who fears the Lord will obtain a guide."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0008.s2",
+      "source_sha256": "7d0c8157cdcb2a55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or would you have insulted the sisters with whom you live, in your arrogance and contempt for others?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0009.s1",
+      "source_sha256": "a402cb0bcc7d809b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Or if you had not abandoned instruction and wisdom, and loved evil more than good,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0009.s2",
+      "source_sha256": "1180419b9f8f8576",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "would you have rehearsed wicked words and said with your mouth, which is full of cursing and bitterness, “I will go to another monastery”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0010.s1",
+      "source_sha256": "55987641f031f06d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "How has this place wronged you? Or what burden have they placed on you, except that they told you, “Do not break God’s commandment”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0010.s2",
+      "source_sha256": "848d5d2f8598ea93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For you have acted insolently and insulted a girl who lives in the house with you, so that you become a stumbling block and a cause of sin to one another."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0011.s1",
+      "source_sha256": "dc608739b570b679",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For this reason I declare to you: if you do not discipline yourself and rid yourself completely of this disobedience and these quarrels,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0011.s2",
+      "source_sha256": "5ff694f8ae527c83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will make your heart suffer, and I will have them deal with you according to what came out of your mouth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s1",
+      "source_sha256": "f6e4ca7000eb5c89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Truly I am distressed about you—or about all of you. I fear that, just as the serpent deceived Eve by his cunning, your hearts may be corrupted and led away from the sincerity and purity that lead to Christ."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s2",
+      "source_sha256": "a0d3406a80195f9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If he did not leave her alone in paradise, will he spare you—or all of you—when you give him room within you and accept his deceitful schemes and evil deeds?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s3",
+      "source_sha256": "1041a3b0b5287f1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For he will not be able to overcome those who fear God, those for whom Christ is a helper and protector."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s4",
+      "source_sha256": "3759dd640fd2eeeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As it is written, “The one who fights for you is your helper, and the sword in which you boast, and the glory of the firmament.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s5",
+      "source_sha256": "c44ce4bde1443088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Whoever loves evil is the one who will perish, and he is the one whom the devil will overcome through his soul-murdering deeds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s6",
+      "source_sha256": "c164e3872727787a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the wise person who loves instruction will accept the commandment, and the discerning person who fears the Lord will acquire a guide."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0013.s1",
+      "source_sha256": "a0d3406a80195f9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If he did not leave that woman alone in paradise, will he spare you, or any of you, when you make room for him within yourselves and accept his deceitful schemes and his evil deeds?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0013.s2",
+      "source_sha256": "1041a3b0b5287f1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For he will not be able to overcome those who fear God, those for whom Christ is a helper and protector."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0013.s3",
+      "source_sha256": "3759dd640fd2eeeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As it is written: “The one who fights for you is your helper, and he is the sword of your boasting and the glory of your stronghold.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0014.s1",
+      "source_sha256": "c44ce4bde1443088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The person who loves evil is the one who will perish, and he is the one whom the devil will overcome through his soul-murdering deeds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0014.s2",
+      "source_sha256": "c164e3872727787a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the wise person who loves instruction will accept the commandment, and the discerning person who fears the Lord will acquire a guide."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0015",
@@ -313,25 +858,60 @@
       "text": "Nevertheless, let me hear that you have put your fathers who are there with you at ease, and obey them in everything, so that our hearts may be at ease, and you yourself may enjoy your peace of mind."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0016",
-      "source_sha256": "704cbd38ae7b476c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "And if you have something to say, look: the elders, our fathers and our brothers, have come to you. Tell it to them. And all of you, if you have something to say or any matter in your community, do not hesitate to tell them, and do not hide anything from them, so that all our hearts may be at ease together, both ours and yours, and so that the Lord may also be pleased with us."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0016.s1",
+      "source_sha256": "c2ac81a386e32b89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And again, if you have something to say, look: the elders, our fathers and our brothers, have come to you. Tell it to them."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0000",
-      "source_sha256": "cec0cae146266c3e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Oh, how complacent you are, you who give Satan room to enter and defile God's holy places, and who defile his temple, which is you yourselves! Have you not remembered the apostle's declaration: “Whoever defiles God's temple, God will destroy that person”?"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0016.s2",
+      "source_sha256": "a359c85ee9bfd025",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And all of you who have something to say or any matter to raise in your community, do not delay a moment in telling them, and do not hide anything from them."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0001",
-      "source_sha256": "c7546ae55a4c6ce4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Nor did you remember all the curses that our father pronounced when he entrusted us all to God, saying, “Cursed is anyone who defiles his body in any way, or steals any object, from a piece of cloth or a belt—especially clothing, bedding, or a head covering—down to the smallest item of food, whether from the supplies of God’s ministry or from the hands of those beside them.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0016.s3",
+      "source_sha256": "67ee8dd7c790cd36",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So that the hearts of all of us together, both us and you, may be at rest, and so that the Lord may also be reconciled to us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0000.s1",
+      "source_sha256": "1fa1d482949718a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Oh, how careless you are, you who make room for Satan to enter and defile God's holy places, and who defile his temple, which is you yourselves!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0000.s2",
+      "source_sha256": "963c9d7800dcbc71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Have you not remembered the apostle's declaration: “Whoever defiles God's temple, God will destroy him”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0001.s1",
+      "source_sha256": "628fe437b52141f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Nor have you remembered all the curses our father pronounced when he entrusted us all to God, saying: “Cursed is anyone who defiles his body in any way,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0001.s2",
+      "source_sha256": "324597590ec724b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or steals any object, from a rope and a belt, especially clothing, a mat, or a hood, down to the smallest item of food,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0001.s3",
+      "source_sha256": "3b78178c0cce5f3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whether from the property devoted to God's service or from the hands of their neighbors.”"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0002",
@@ -341,32 +921,88 @@
       "text": "I had intended to come to you in unity of heart. But sorrow over those who angered God and grieved his Holy Spirit prevented our joy."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003",
-      "source_sha256": "635452df0b284fbb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "I know that I deserve every sorrow. But if God and our Lord Jesus are willing, I will come to you in anger and do to these undisciplined people and these foolish virgins, who have no oil in their vessels, everything that is in my heart. For once again you turn back to these ways of provoking God and fall under the sword of the evil one, who destroyed the whole inhabited world through his sins and his lawless deeds, because you loved defilement more than purity and chose death for yourselves rather than life."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s1",
+      "source_sha256": "39cd251bf68f8466",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I know indeed that I deserve every sorrow. But if God and our Lord Jesus are willing, I am coming to you in anger,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0004",
-      "source_sha256": "0a53e3b5923d5562",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "For once again you turn back to these ways of provoking God and fall under the sword of the evil one, who destroyed the whole inhabited world through his sins and his lawless deeds, because you loved defilement more than purity and chose death for yourselves rather than life."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s2",
+      "source_sha256": "51244a691454fcec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to do everything I have in mind to those undisciplined people and those foolish virgins who have no oil in their vessels."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0005",
-      "source_sha256": "5de511f15f99195d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "For you turned your backs on the one who created you and nourished you, God who lives forever. You also grieved the one who welcomed you, Jerusalem, that is, the congregation. And you fell at midday like those in the middle of the night, as it is written: “The virgin of Israel stumbled and fell; she will not rise again.”"
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s3",
+      "source_sha256": "ebdc8f0a1ab523bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For once again you turn back to those ways of provoking God and fall into the power of the sword of the evil one, who has ruined the whole world through his sins and his lawless deeds,"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0006",
-      "source_sha256": "bdd317a0ea498397",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "For he said, “Those who sleep, sleep at night, and those who get drunk, get drunk at night.” But you have stumbled at midday like those of whom it was said, “Those who are drunk without wine.” And you have dozed at midday like those who sleep at night, because you abandoned the fear of God, loving darkness more than light. You also considered what is bitter to be sweet, and what is sweet to be bitter."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s4",
+      "source_sha256": "60636484799a278b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because you have loved defilement more than purity, and you have chosen death for yourselves rather than life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0004.s1",
+      "source_sha256": "ebdc8f0a1ab523bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For once again you turn back to those ways of provoking God and fall into the power of the sword of the evil one, who has ruined the whole world through his sins and his lawless deeds,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0004.s2",
+      "source_sha256": "60636484799a278b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because you have loved defilement more than purity, and you have chosen death for yourselves rather than life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0005.s1",
+      "source_sha256": "20947299970252aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For you have provoked the one who created you and nourished you, the eternal God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0005.s2",
+      "source_sha256": "83d148de63b74e67",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And you have also grieved the one who brought you up, Jerusalem, that is, the congregation, and you have fallen at midday like those in the middle of the night."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0005.s3",
+      "source_sha256": "5a2e8657d87ec979",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As it is written: “The virgin of Israel has stumbled and fallen; she will not rise again.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0006.s1",
+      "source_sha256": "bd0697d629dba896",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For he said, “Those who sleep, sleep at night, and those who get drunk, get drunk at night.” But you have become drunk at midday, like those of whom it was said,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0006.s2",
+      "source_sha256": "c71211ea16e65628",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Those who are drunk without wine.” And you have fallen asleep at midday like those who sleep at night, because you have abandoned the fear of God."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0006.s3",
+      "source_sha256": "b477bff2a4490328",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "You have loved darkness more than light, and you have also regarded what is bitter as sweet and what is sweet as bitter."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0007",
@@ -383,18 +1019,39 @@
       "text": "Nevertheless, look, the elders are coming, and our brothers have come to you again, while we live in great grief and overwhelming sorrow, to deal with each one of you as she deserves."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009",
-      "source_sha256": "cbb787cb3e41ab75",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Because you abandoned the spring of living water and dug cracked cisterns for yourselves, your undisciplined heart became dark. While saying, “We are wise,” you became foolish, exchanging the glory of God for improper deeds. Therefore God handed you over to shameful passions, namely theft, defilement, and every evil. Those who do these things face every punishment, not only in this age but also in the next."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s1",
+      "source_sha256": "5d0bb6ab83521773",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "For you have abandoned the spring of living water and dug cracked cisterns for yourselves, as your foolish heart grew dark, while you said, “We are wise.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0010",
-      "source_sha256": "391b949a88ffefa4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Therefore God handed you over to shameful passions, namely theft, defilement, and every evil. Those who do these things face every punishment, not only in this age but also in the next."
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s2",
+      "source_sha256": "c9905e1a473f5260",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "You have become foolish, exchanging the glory of God for improper deeds. For this reason God handed you over to shameful passions, namely theft, defilement, and every kind of evil."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s3",
+      "source_sha256": "66436281fa39ad72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "For these things, every kind of punishment awaits those who do them, not only in this age but also in the other."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0010.s1",
+      "source_sha256": "2abc7369b78e8b27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "For this reason God handed you over to shameful passions, namely theft, defilement, and every kind of evil."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0010.s2",
+      "source_sha256": "66436281fa39ad72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 6,
+      "text": "For these things, every kind of punishment awaits those who do them, not only in this age but also in the other."
     }
   ]
 }

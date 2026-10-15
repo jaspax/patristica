@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -54,11 +60,18 @@
       "text": "Some deceive because of bodily [?]; others grumble because of these same circumstances. Some want to steal, or indeed do steal; others find fault."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0005",
-      "source_sha256": "5b0f50cc586d1765",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "Some engage in falsehoods; others have an alien heart. Some want pleasure for themselves alone; others want to find their own comfort, whether they are sick or well. For this is what happens in many communities: they say that they live in community with one another, but they do not do so uprightly."
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0005.s1",
+      "source_sha256": "b9be8217f2d7d62f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Some act with lies, others with an alien heart; some want to give orders on their own, while others want to find comfort for themselves,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0005.s2",
+      "source_sha256": "87cff3c3360903eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "whether they are sick or well. For this happens among many people: they say that they live in fellowship with one another, but they do not do so sincerely."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0006",
@@ -75,18 +88,32 @@
       "text": "Perfect communal life means living in this same equality. And woe to those who live in these places at any time if they follow other ways that show favoritism."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0008",
-      "source_sha256": "4f36c55bd283aef0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "For this reason, I decree that these three kinds of food should always be kept in these places for those among us who are sick: fish sauce; cheese, however they want it, whether dried or salted; and eggs, whether salted or whether they want to [?] them in a boiling pot, or however they want them."
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0008.s1",
+      "source_sha256": "68c84601733a901d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Therefore I decree that these three kinds of food are always to be kept in these places for those among us who are sick: pickled fish, cheese prepared however they want"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0009",
-      "source_sha256": "e480b4e1258f51f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "But no one among us, whether male or female, is ever to eat such things except those who are genuinely sick and have been recognized as such by all the faithful brothers, and especially by the fathers of these places at any time, who will give an account to God for those gathered in them."
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0008.s2",
+      "source_sha256": "900b1f308ae02729",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "it, whether dry or salted, and eggs, whether salted or, if they want, beaten into boiling [?], or however they want them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0009.s1",
+      "source_sha256": "027920ae4b4eccdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Only, no one among us, whether male or female, is ever to eat such things except those who are genuinely sick and have been recognized as such"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0009.s2",
+      "source_sha256": "24b3076ed435cd8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "by all the faithful brothers, and especially by the fathers of these places at any given time, who will give an account to God for those gathered in them."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0010",
@@ -103,11 +130,18 @@
       "text": "where they ask for a little wine."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0012",
-      "source_sha256": "52742a47d4ca16fb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "They will also look after these others, and they will also stay at the place of service, so that whoever governs or will govern these places at any time may give them what they need, after the person's condition and illness have been examined through thirteen people among us at all times. These people serve as witnesses for those who have come to have these needs. In this way they will give them what they need in the proper measure, with fear."
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0012.s1",
+      "source_sha256": "705e49333b43e9e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "They will also look after these others, and they will also be at the place of service, so that whoever is in charge, or will be in charge, of these places at any given time may give them what they need, once they have examined"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0012.s2",
+      "source_sha256": "89f26bded5cece14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "the person's condition and illness through thirteen people among us at any given time, who bear witness for those who have come to need such things. They are to give these things to them in an honest measure, with fear."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_considering#CopScr.shenoute-considering.000.0013",

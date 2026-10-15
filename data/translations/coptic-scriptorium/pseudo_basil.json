@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -26,11 +32,18 @@
       "text": "A confession by Father Basil, bishop of Caesarea in Cappadocia, which he delivered concerning the end of the age and the temple of Solomon, and concerning departure from the body."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0001",
-      "source_sha256": "13f0d4124846d4e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0001.s1",
+      "source_sha256": "b7df37b605bdfc97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let us now understand, brothers, that at the time when God created all creation, no one knew, nor was there any sound or disturbance. Rather, there was great silence and stillness when he created everything."
+      "text": "Let us now understand, brothers, that when God was creating all creation, no one knew."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0001.s2",
+      "source_sha256": "8825aab3152a11f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "There was neither sound nor disturbance, but great silence and stillness when he created everything."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0002",
@@ -47,25 +60,46 @@
       "text": "For he said that the other angels will work to bring about the dissolution of the world, just as we have heard."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0004",
-      "source_sha256": "66148ea74c9b5fe7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0004.s1",
+      "source_sha256": "d5ac5fae8f3eb5ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Our Savior informed us in the Gospels about the disturbances, afflictions, and earthquakes that will occur. For he said, “There will be great affliction, such as has never occurred since the beginning of the creation of the world, and there will never again be anything like it [?].”"
+      "text": "Our Savior has told us in the Gospels about the disturbances, the afflictions, and the earthquakes that will happen."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0005",
-      "source_sha256": "7bafedae57809055",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0004.s2",
+      "source_sha256": "c07f7875fc2e158b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He also says elsewhere, “Heaven and earth will be shaken, and the powers of the heavens will tremble on that day.” There will be great earthquakes, sounds of trumpets, and mighty thunderclaps crying out with loud voices."
+      "text": "For he said, “There will be a great affliction unlike anything that has happened since the beginning of the creation of the world, and nothing like it [?] will ever happen again.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0006",
-      "source_sha256": "c9a36730018fec54",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0005.s1",
+      "source_sha256": "dac0bfd465c0ca5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the angels will spread out to the four corners of the world, gathering all humanity and making them stand before the fearsome judgment seat of the Son of God, separating the ungodly from among the righteous."
+      "text": "He also says elsewhere, “Heaven and earth will be shaken, and the powers of the heavens will tremble on that day.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0005.s2",
+      "source_sha256": "e5d09bea3c101537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Great earthquakes, trumpet blasts, and great peals of thunder sounding with loud voices."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0006.s1",
+      "source_sha256": "e28fb274efabe6f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For the angels were spread out to the four corners of the world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0006.s2",
+      "source_sha256": "c36a2cc84c4d3f72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "gathering all humanity together and making them stand before the terrifying judgment seat of the Son of God, separating the ungodly from among the righteous."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0007",
@@ -75,11 +109,18 @@
       "text": "Look also at the time when he created everything: no one knew except him and his beloved Son, Jesus Christ."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0008",
-      "source_sha256": "8dfcafb235bd4146",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "But at the time when he will destroy them, your whole creation will be shaken, until the final hour and the dissolution of heaven and earth. No one knows these things, not even the angels in heaven, except him and his beloved Son, as we said before."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0008.s1",
+      "source_sha256": "c06b7446585f2d24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But when he destroys them, all creation will be shaken, until the last hour and the dissolution of heaven and earth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0008.s2",
+      "source_sha256": "335fce76adc2f8b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "No one knew about them, not even the angels in heaven, except him and his beloved Son, as we said before."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0009",
@@ -103,18 +144,32 @@
       "text": "Why, then? First, because they were building it for the Lord, in whose dwelling places no disturbance will appear."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0012",
-      "source_sha256": "0e4d77c7af319c89",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0012.s1",
+      "source_sha256": "f18bc8a9ad322586",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For it is a wise king who builds it for the Lord God. He chose Solomon for himself to build him a house of this kind in silence, in keeping with the making of the first creation, which he created in silence, without any sound or disturbance."
+      "text": "For it is a wise king who builds it for the Lord God, who chose Solomon for himself to build him a house of this kind,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0013",
-      "source_sha256": "14b66727cffc86a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "Because God was working through his own thought and his own reasoning. He has no need of crowds who disturb the place where they work."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0012.s2",
+      "source_sha256": "7345c48c85463dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in silence, in keeping with the making of the first creation, which he created in silence, without any sound or disturbance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0013.s1",
+      "source_sha256": "b5e55ec7d06eefeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For God was working through his own thought and his own reasoning."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0013.s2",
+      "source_sha256": "871c20c62a698ce0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He has no need of crowds, who disturb the place where they work."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0014",
@@ -124,11 +179,18 @@
       "text": "God is not like this. Rather, his thought and his command are more than sufficient to accomplish every kind of craftsmanship."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0015",
-      "source_sha256": "be0ef1875a2f5eaf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "Therefore, listen to what is written in the Exodus of Moses, when Moses made the tabernacle and the ark of the covenant: “See,” he said, “that you make everything according to the pattern shown to you on the mountain.”"
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0015.s1",
+      "source_sha256": "919242e4cae16bc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, listen to what is written in the Exodus of Moses, when Moses was making the tabernacle and the ark of the covenant:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0015.s2",
+      "source_sha256": "aea26e307d23928c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“See to it,” he said, “that you make everything according to the pattern you were shown on the mountain.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0016",
@@ -299,11 +361,18 @@
       "text": "He also says in Jeremiah, “Before I formed [?], before forming you in the womb, I knew you; and before you came out of the womb, I made you holy.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0040",
-      "source_sha256": "605dbb0edea1a52e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0040.s1",
+      "source_sha256": "79bce6640f05d951",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But after all this, if it was God’s hand that created the whole creation—heaven, earth, the sea, and everything in them—then why should they perish and dissolve in great turmoil: creation, humanity, and Solomon’s temple?"
+      "text": "But after all this, if it was God's hand that created all creation—heaven, earth, the sea, and everything in them—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0040.s2",
+      "source_sha256": "dd8395c29cafd4e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then why were they going to perish and be dissolved amid great disturbance—creation, humanity, and Solomon's temple?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0041",
@@ -327,11 +396,18 @@
       "text": "And again, he spent six thousand years providing for the world through his commandments, his laws, and his holy prophets."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0044",
-      "source_sha256": "75e2efb8934fdd76",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0044.s1",
+      "source_sha256": "75a7b11544785953",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And the culmination of all these things: his holy visit to us, all the labor of his apostles, all the provision for human needs, and the course of the heavenly lights."
+      "text": "And the chief of all these things: his holy coming among us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0044.s2",
+      "source_sha256": "4cf0e19a559c0849",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and all the suffering of his apostles, and all the provision for human needs, and the course of the heavenly lights."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0045",
@@ -362,11 +438,18 @@
       "text": "And again, “But concerning that day and that hour, no one knows except the Father alone,” because they will not be able to bear the great turmoil that will occur."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0049",
-      "source_sha256": "a30182a8fa2b66d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0049.s1",
+      "source_sha256": "af27ac73ebfbe67b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Oh, this great sorrow! For all the labors of this long period, namely, the administration and ministry of the angels, the service of the heavenly lights, the falling of dew upon the earth, the blowing of the winds,"
+      "text": "Oh, this great sorrow! All the labors of this long age—that is, the ordering of things, the ministry of the angels, the service of the heavenly lights,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0049.s2",
+      "source_sha256": "e727ab802e7f54a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the pouring down of dew upon the earth, the blowing of the winds!"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0050",
@@ -418,18 +501,32 @@
       "text": "Who, then, did all these things? It was sin."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0057",
-      "source_sha256": "9598c9e1c97de409",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0057.s1",
+      "source_sha256": "3c560b96b8551a44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It is the enemy of every human being, this evil beast that kills souls, this bird of prey, this biting snake, the consuming fire, this robber that plunders all souls—sin, this murderous barbarian, this turbulent harbor,"
+      "text": "It is the enemy of every human being, this evil beast that kills souls, this plundering bird, this biting snake,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0058",
-      "source_sha256": "f472196df4694caf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0057.s2",
+      "source_sha256": "10e5e9203ea0479c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "the deserted road, this evil snare. Sin calls death and brings grief; it stirs up wars, ravages cities, destroys peoples, and makes the whole earth unfruitful."
+      "text": "the consuming fire, this robber who plunders every soul—sin, this murderous barbarian, this turbulent harbor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0058.s1",
+      "source_sha256": "ee5f7cc83cd9bde4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the desert road, this evil encounter—sin, which summons death and brings mourning."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0058.s2",
+      "source_sha256": "c2b121161174b8c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The one who stirs up wars and lays waste to cities, destroys peoples, and makes the whole earth unfruitful."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0059",
@@ -460,11 +557,18 @@
       "text": "Because of sin, too, weeping came into being in the age to come, and sorrow arose throughout all creation."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0063",
-      "source_sha256": "654b1cc973c62752",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "Because of it, the flood came upon the earth, as the floodgates of heaven poured out their waters of wrath upon the earth, and the springs of the deep opened and gushed up their waters of vengeance."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0063.s1",
+      "source_sha256": "6757f71bb5559aff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Because of it, the flood came upon the earth, as the floodgates of heaven poured out"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0063.s2",
+      "source_sha256": "cdb26d1fb9b36387",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "their waters of wrath upon the earth, and the springs of the deep opened and gushed up their waters of vengeance."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0064",
@@ -474,11 +578,18 @@
       "text": "Because of it, God considered wiping out all the creatures on the face of the whole earth."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0065",
-      "source_sha256": "ccc4a82a81f3a099",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "The transgression of the Watchers, who are the giants, brought about the flood. Sin, defilement, and the practice of every kind of impurity burned Sodom and Gomorrah."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0065.s1",
+      "source_sha256": "3fde86bb09fcf578",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was the transgression of the Watchers, who are the giants, that brought the flood."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0065.s2",
+      "source_sha256": "3524ee97752f70fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was sin, defilement, and the practice of every kind of impurity that burned Sodom and Gomorrah."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0066",
@@ -502,18 +613,32 @@
       "text": "The lawlessness of idolatry wiped out the seven nations in the land of Canaan."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0069",
-      "source_sha256": "2dc1420f6bada2cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "Sin and disobedience to God killed the million people of Israel in the wilderness, by sword, fire, and snakes, because they chose sin for themselves and abandoned the Lord their God. But because of all these things,"
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0069.s1",
+      "source_sha256": "df43cf4bc01fe781",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was sin and disobedience to God that killed the six hundred thousand in Israel in the wilderness,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0070",
-      "source_sha256": "d0cd72d24a152d43",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "The Lord cries out in Isaiah: “Look! In my anger I will turn the sea into a desert and make the rivers dry land. Their fish will dry up because there is no water, and they will die of thirst."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0069.s2",
+      "source_sha256": "f0efea11f5d0b081",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "by sword, fire, and snakes, because they chose sin for themselves and abandoned the Lord their God. Because of all these things,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0070.s1",
+      "source_sha256": "d463d5b1a1504479",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the Lord cries out through Isaiah: “For look, in my anger I will turn the sea into a desert,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0070.s2",
+      "source_sha256": "cb610edea45ce174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and I will make the rivers a desert. Their fish will dry up because there is no water, and they will die of thirst.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0071",
@@ -523,11 +648,18 @@
       "text": "I will put darkness over heaven and make its covering like sackcloth.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0072",
-      "source_sha256": "2015078b591b1308",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 19,
-      "text": "It is sin that has caused all these things. Because of it, this day, this single hour, will overturn and destroy all the adornment of this long period since the creation of the world."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0072.s1",
+      "source_sha256": "6c81bc48d2b21596",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was sin that did all these things. And because of it, this day will bring destruction in this single hour,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0072.s2",
+      "source_sha256": "96b8be3f0338366a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and it will destroy all the adornment of this long span of time since the creation of the world."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0073",
@@ -565,18 +697,32 @@
       "text": "He did this because the sound of the craftsmen would have deafened the king's ears and prevented him from hearing the cases of those who came to him for judgment."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0078",
-      "source_sha256": "35baf2a7d9ca84c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "For God had given him peace, with no war around him and no attack from any direction. Because of this, he had no concern other than the affairs of the kingdom alone."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0078.s1",
+      "source_sha256": "4a2b43a4fdf6bc47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For God had given him peace, with no war around him and no attack from any direction."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0079",
-      "source_sha256": "2ce4eaca0c43964a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "He would rise early every day, go out to the place he had prepared, and sit there, so that all the affairs would continue to proceed one after another, without any inactivity or neglect."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0078.s2",
+      "source_sha256": "6acd7e5b4aeec675",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Because of this, he had no concern except the affairs of the kingdom alone."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0079.s1",
+      "source_sha256": "70ee5e94374ca72b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He would rise early every morning, go out to the place he had prepared, and sit there,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0079.s2",
+      "source_sha256": "39480651d7c9a725",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that all affairs would continue to proceed in order, without any inactivity or neglect."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0080",
@@ -635,11 +781,18 @@
       "text": "if you keep my commandments and my judgments, which I have entrusted to you, my eyes and my ears will be open toward this house that you have built."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0088",
-      "source_sha256": "b2c81fabba5bf2ca",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "But if you transgress my commandments, I will cast this great place away from me. They will demolish it, and it will become a wilderness. Everyone passing by will be astonished, clap their hands, whistle, and say, ‘Why have they done these things to this great place?’"
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0088.s1",
+      "source_sha256": "49c3f9ef4f1b2ba0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“If, then, you transgress my commandments, I will cast this great place away from me,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0088.s2",
+      "source_sha256": "92556068f5ba144d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and it will be demolished and become a desert. Everyone passing by will be amazed, clap their hands, and whistle, saying, ‘Why have they done these things to this great place?’”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0089",
@@ -649,11 +802,18 @@
       "text": "And they will say, ‘Because they abandoned the Lord, the God of their ancestors, and became slaves to other, foreign gods.’"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0090",
-      "source_sha256": "888b6fe95acf008a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "See now, then: after Solomon fell asleep, the people sinned and attached themselves to this evil companion, which is sin. This is also what caused the first man to sin in paradise and changed the world from the beginning."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0090.s1",
+      "source_sha256": "17c3f2fcf50d2417",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now see: after Solomon fell asleep, the people sinned and attached themselves to this evil companion, which is sin."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0090.s2",
+      "source_sha256": "c9a2ba33d352ec1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is also what caused the first human being to sin in paradise and changed the world from the beginning."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0091",
@@ -740,18 +900,32 @@
       "text": "All these things happened under Solomon, but the destructive overthrow happened under Zedekiah."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0103",
-      "source_sha256": "da5de1f066ac44bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The sound of the chisels was not heard while it was being built under Solomon the wise. The sound of axes and horses disturbed Jerusalem while they were dismantling it through Zedekiah's foolishness."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0103.s1",
+      "source_sha256": "fe5b78ccec9b8d2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The sound of the axes was not heard while it was being built by Solomon the wise."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0104",
-      "source_sha256": "797a39c82909c4dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "After these things, listen also to Saint Stephen saying: “Solomon built a house, but the Most High does not dwell in something made by human hands.” Where, then, will God dwell? He says: “Truly, God will dwell with human beings.”"
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0103.s2",
+      "source_sha256": "f124e3130bcfa067",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the sound of axes and hammers shook Jerusalem as it was being dismantled because of Zedekiah’s folly."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0104.s1",
+      "source_sha256": "d4cccecd05ec9113",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "After this, listen also to Saint Stephen saying, “Solomon built a house,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0104.s2",
+      "source_sha256": "a87403fa7746bfc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but the Most High does not dwell in something made by hand.” Where, then, will God dwell, when he says, “God will truly dwell with human beings”?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0105",
@@ -782,11 +956,18 @@
       "text": "Truly, the holy Virgin Mary is a real wonder. No human being like her has been born on earth."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0109",
-      "source_sha256": "7944f76178b247d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Mary, this temple more exalted and more precious than Solomon's, became the house of the true God, Jesus Christ, Jesus our Lord, through whom glory belongs to the Father, together with him and the Holy Spirit, through all ages of ages. Amen."
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0109.s1",
+      "source_sha256": "4fa90f9e35718ff1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Mary, this temple that is more exalted and more honored than Solomon’s, is the one who became a house for the true God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0109.s2",
+      "source_sha256": "a7d5feecb5ed1153",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Jesus Christ, Jesus our Lord, through whom glory belongs to the Father, together with him and the Holy Spirit, forever and ever. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_basil#CopScr.pseudo-basil.000.0110",

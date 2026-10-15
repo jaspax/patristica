@@ -15,15 +15,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0000",
-      "source_sha256": "784787c88041ff1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0000.s1",
+      "source_sha256": "1244ffc08180e7bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "A discourse delivered by Saint Athanasius, archbishop of Alexandria, on the saying written in the Gospel according to Matthew: “The kingdom of heaven is like a rich man who went out early in the morning to hire workers for his vineyard.”"
+      "text": "A discourse delivered by Saint Athanasius, archbishop of Alexandria, on the saying written in the Gospel according to Matthew: “The kingdom of heaven is like a rich man”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0000.s2",
+      "source_sha256": "aa105f1c94bcfcaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“who went out early in the morning to hire workers for his vineyard.” — ◈◈ — ◈◈ — ◈◈ — ◈◈ —"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0001",
@@ -334,18 +347,32 @@
       "text": "Because he is the one who satisfies all creation."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0045",
-      "source_sha256": "565da4d5653772a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0045.s1",
+      "source_sha256": "009226f1ecbce307",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When evening came, the owner of the vineyard said to his steward, “Call the workers and give them their wages. Begin with the last until you reach the first, and give each one a stater.”"
+      "text": "When evening came, the owner of the vineyard said to his manager, “Call the workers and give them their wages."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0046",
-      "source_sha256": "a91ce8181741cf26",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0045.s2",
+      "source_sha256": "abe13d01818c673f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The Father said to the Son, “Whether at the end or during the day, you are the one who knows. Call the workers and give them their wages—all the workers who worked on behalf of the human race—and give them the wages for their work.”"
+      "text": "Start with the last and continue until you reach the first, and give each one a silver coin.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0046.s1",
+      "source_sha256": "7d65c47fb0a94294",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The Father said to the Son, “Whether at the end or during the day, you are the one who knows. Call the workers"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0046.s2",
+      "source_sha256": "5ce5b53e5bdd6c9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and give them their wages—all the workers who have labored on behalf of the human race—and give them the wages for their work.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0047",
@@ -404,11 +431,18 @@
       "text": "These are the ones he cries out against: “Why have you burned my vineyard? And the plunder taken from the poor is in your house.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0055",
-      "source_sha256": "83f1d74a50420a29",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0055.s1",
+      "source_sha256": "2cf0c5d3ffb20dd1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For they too received the law through the ordinances of angels, but did not keep it. And they grumbled against the Lord about the disciples of John and those of the Pharisees: “They fast, but yours do not fast.”"
+      "text": "For they too received the law through the ordinances of angels, but they did not keep it. And they were grumbling against the Lord"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0055.s2",
+      "source_sha256": "820fbb68c7a29afb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "about John's disciples and those of the Pharisees: “They fast, but yours do not fast.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0056",
@@ -544,11 +578,18 @@
       "text": "Whenever they ate, the apostles would take care not to put their hands into the bowl before the Savior. They were afraid and said, “Who are we to eat with God?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0075",
-      "source_sha256": "14aedebc4ce5674a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0075.s1",
+      "source_sha256": "83d2a4b1798e9510",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But Judas, the insensitive one, would plunge his hand into the bowl with the Savior, eagerly dipping his piece of bread at the same time during the meal, ahead of the Savior, while the Savior said nothing. But so that we might understand,"
+      "text": "But Judas, the senseless man, would dip his hand into the dish with the Savior,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0075.s2",
+      "source_sha256": "1cba011154d82cc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "eager to dip his piece of bread at the same time during the meal, ahead of the Savior, without the Savior saying anything. But so that we may understand,"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.000.0076",
@@ -1069,18 +1110,32 @@
       "text": "The world that forgets God, brothers and sisters, is gripped by the injustice it inflicts on its neighbors and the cruelty it inflicts on the powerless."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0002",
-      "source_sha256": "e3dbb2f8896aecfb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0002.s1",
+      "source_sha256": "327d69a0f2606a1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As the holy apostle says, “Just as they did not see fit to keep God rightly before them, God handed them over to a corrupt mind, to do what is improper.”"
+      "text": "as the holy apostle says, “Just as they did not see fit to keep God before them in uprightness,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0003",
-      "source_sha256": "729c01a3fdb8db90",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0002.s2",
+      "source_sha256": "366997848f210b5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They are filled with every kind of injustice, malice, wickedness, and greed, full of envy, murder, strife, and evil-hearted deceit, gossipers, slanderers, haters of God, and insolent people."
+      "text": "God handed them over to a worthless heart, to do what is improper,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0003.s1",
+      "source_sha256": "f363b2c6106efe92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "filled with every kind of injustice, evil, wickedness, and greed, full of envy and murder,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0003.s2",
+      "source_sha256": "f8febf828df61fbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "strife, deceit, and malice; gossips, slanderers, haters of God, and insolent people.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0004",
@@ -1111,11 +1166,18 @@
       "text": "As Isaiah taught us, speaking on God's behalf: “Stop your wicked deeds; learn to do good.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0008",
-      "source_sha256": "86000586c4161570",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0008.s1",
+      "source_sha256": "742a7b60b75b8153",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the law contains many commands not to harm our neighbors. It also contains commandments about love for humanity and showing mercy to one another."
+      "text": "For the law contains many commands against harming our neighbor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0008.s2",
+      "source_sha256": "5304cbfa7a735f15",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It also contains commandments about love for humanity and having mercy on one another."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0009",
@@ -1139,11 +1201,18 @@
       "text": "But if he will give nothing from what he possesses—for concerning those who commit injustice and attempt to offer a gift to God,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0012",
-      "source_sha256": "db1f0a8ec19aee84",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0012.s1",
+      "source_sha256": "3e2b670bfff3b3f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It is written: “The sacrifice of the ungodly is an abomination to the Lord.” Concerning the merciless person, he says: “Whoever shuts his ears to avoid hearing a poor person will himself call upon God, and God will not listen to him.”"
+      "text": "For it is written, “The sacrifice of the ungodly is an abomination to the Lord.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0012.s2",
+      "source_sha256": "1bb7c7deeeea4d6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As for someone who is stingy, it says about him, “Anyone who closes his ears so as not to hear a poor person will himself call upon God, and God will not listen to him.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0013",
@@ -1153,11 +1222,18 @@
       "text": "For this reason Proverbs advises us: “Honor God from your honest labor, and give him the firstfruits from the fruits of your righteousness.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0014",
-      "source_sha256": "ceb81c4ef1bb51c9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0014.s1",
+      "source_sha256": "d0f59d9d16549cc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For if you are going to bring God a gift obtained through oppression and robbery, it is much better neither to acquire such possessions for yourself nor to offer a gift from them."
+      "text": "For if you are going to bring gifts to God from injustice and robbery,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0014.s2",
+      "source_sha256": "503ebca48b9c8aac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "it is far better neither to acquire property of this kind nor to offer gifts from it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0015",
@@ -1167,11 +1243,18 @@
       "text": "For you are to bring your vowed offering as a holy gift, as it is written: “The vows of the upright are acceptable before him.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0016",
-      "source_sha256": "d7c711187b023b79",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0016.s1",
+      "source_sha256": "aba6f04301ec8d1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Again, if you acquire possessions through honest labor but do not bring God offerings from which the poor are fed, they will be counted against you as robbery."
+      "text": "Again, if you acquire possessions through honest labor but do not bring offerings to God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0016.s2",
+      "source_sha256": "6d0d4bd0f3306a41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "from which the poor are fed, these will be counted against you as robbery."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0017",
@@ -1181,11 +1264,18 @@
       "text": "As he says through the prophet Malachi: “The firstfruits and tithes are charged against you, and robbery will be found in your houses.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0018",
-      "source_sha256": "370de5d29701573a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0018.s1",
+      "source_sha256": "90a43a1fad9e4128",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For we must now combine mercy with justice: acquiring possessions justly, but distributing them mercifully, as it is written: “Keep mercy and justice, and draw near to your God at all times.”"
+      "text": "For we must now combine mercy with justice: acquiring with justice, but distributing with mercy, as it is written,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0018.s2",
+      "source_sha256": "ebf7795bd1f6be71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Observe mercy and justice, and draw near to your God at all times.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0019",
@@ -1202,11 +1292,18 @@
       "text": "Finally, here and now, let each person examine himself."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0021",
-      "source_sha256": "1746cbe0b800d777",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0021.s1",
+      "source_sha256": "7512b01daa22fa68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let the rich person examine the possessions he acquires, from which he intends to bring gifts to God: whether he has oppressed the poor, whether he has used force against someone weaker than himself, whether he has exploited someone beneath him, using authority instead of righteousness."
+      "text": "Let the rich person pay attention to the possessions he acquires, from which he intends to bring gifts to God, in case he has wronged the poor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0021.s2",
+      "source_sha256": "43e24db7c1b00e17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Has he perhaps used violence [?] against someone weaker than himself? Has he perhaps defrauded his neighbor, using authority instead of justice?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0022",
@@ -1216,11 +1313,18 @@
       "text": "For we are commanded to maintain justice and fairness toward our fellow slaves."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0023",
-      "source_sha256": "c3c635113aab7fe4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0023.s1",
+      "source_sha256": "3996de2180e80563",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Do not practice oppression because you hold authority, or exploit others because you have power. Rather, because you possess the means to exercise authority, demonstrate deeds of righteousness."
+      "text": "For you must not oppress others because you hold power, nor must you take advantage of others because you are strong."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0023.s2",
+      "source_sha256": "2d59d576423e34d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Rather, because you have the means to exercise authority, demonstrate deeds of justice."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0024",
@@ -1279,11 +1383,25 @@
       "text": "Then you will fulfill mercy and justice."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0032",
-      "source_sha256": "afc516e28dc97ba0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0032.s1",
+      "source_sha256": "90878ec2ad59f4ff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For God does not share in greed, nor is God a partner in the profits of robbers. Nor did he leave the poor to us because he was unable to feed them. Rather, he seeks righteous and humane generosity from us, for our benefit and our good."
+      "text": "For God does not share in greed, nor is God a partner in the gains of robbers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0032.s2",
+      "source_sha256": "9c128181f1f9e843",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was not because he was unable to feed the poor that he left them to us, but because he seeks righteous fruitfulness"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0032.s3",
+      "source_sha256": "a5cd20763e7e0523",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and kindness toward others from us, which are beneficial and good for us."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0033",
@@ -1293,11 +1411,18 @@
       "text": "Mercy does not arise from oppression, nor blessing from a curse, nor good deeds from tears."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0034",
-      "source_sha256": "6ba4c2e5291c582e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0034.s1",
+      "source_sha256": "9680d6c9394e5468",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For God speaks when the tears of those who are oppressed move him: “These are the things I hate, the things you do. You cover my altar with tears, with weeping, and with groaning caused by suffering.”"
+      "text": "For God says, moved by the tears of those who are oppressed, “These are the things I hate—the things you do."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0034.s2",
+      "source_sha256": "fd1e7a89b3ded545",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You cover my altar with tears, with weeping, and with groaning because of suffering.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0035",
@@ -1335,11 +1460,18 @@
       "text": "For this reason the Lord rightly said: “Do not act so that people will see you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0040",
-      "source_sha256": "fc94b53cb86f93fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0040.s1",
+      "source_sha256": "3ead5cd9c010b838",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But if you are going to give alms knowing that God is aware of it, you will guard yourself against doing it out of greed for more, knowing that you do not please God in this way—the one who watches over us."
+      "text": "But if you are going to give your charity knowing that God is aware of it, you will guard against giving it out of greed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0040.s2",
+      "source_sha256": "860d8adbcbd69f95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "knowing that in this way you do not please God, who watches over us."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0041",
@@ -1398,11 +1530,18 @@
       "text": "In this way he distributed his possessions among the poor."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0049",
-      "source_sha256": "3528c94bfc5bcc46",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0049.s1",
+      "source_sha256": "6f74ba2595b8b9c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For he knew that he wanted Christ to accept him. And Christ does not otherwise accept those who do not reach out their hand to the poor unless they undo their greed for more—the things they took by force."
+      "text": "For he knew that he wanted to buy Christ for himself. And Christ does not otherwise take as his own those who stretch out their hands to the poor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0049.s2",
+      "source_sha256": "366ae7a2ad7396d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "unless they give up their greed—the things they have taken by force."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0050",
@@ -1433,11 +1572,18 @@
       "text": "We will—we will also speak again to the person who guards himself against committing injustice but neglects mercy: “A tree without fruit is cut down and thrown into the fire.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0054",
-      "source_sha256": "9600fca215b7d12d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0054.s1",
+      "source_sha256": "7e6a096bcc87fbe7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And a tree of this kind never pleases the heavenly farmer, who says, “I came looking for fruit on this fig tree, and I found none.”"
+      "text": "And a tree of this kind never pleases the gardener who belongs to heaven,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0054.s2",
+      "source_sha256": "e5b619bfa2da6c2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who says, “I came looking for fruit on this fig tree, and I found none.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0055",
@@ -1468,11 +1614,18 @@
       "text": "God said, “For I am merciful.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0059",
-      "source_sha256": "87a6202e6a643895",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0059.s1",
+      "source_sha256": "33cbbf372b7080fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For it is a terrible thing and an act against the law to return to glean your harvest, to return to gather grapes from your vineyard a second time, or to glean your olive grove a second time, because these things should be left for the poor."
+      "text": "For it is a terrible thing and contrary to the law for you to go back and glean your harvest,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0059.s2",
+      "source_sha256": "f1b75a4f95f09c6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and to go back and strip your vineyard again, and to beat your olive trees again, because these things should be left for the poor."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0060",
@@ -1531,11 +1684,18 @@
       "text": "He commands them to complete their service through material possessions and move on to service through the word and the Spirit."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0068",
-      "source_sha256": "160b140525be16b1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0068.s1",
+      "source_sha256": "9eec298fed366821",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As for the rest, he commands them to keep giving and sharing what they have, so that through these things they may be found imitating God's love for humanity, showing mercy, giving, and being generous."
+      "text": "Furthermore, he commands them to give and share continually from what they possess,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0068.s2",
+      "source_sha256": "9a74b8d5311e7068",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that through these things they may be found imitating God’s love for humanity, showing mercy, giving, and being generous."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0069",
@@ -1552,11 +1712,18 @@
       "text": "Through these, moreover, he promised them fellowship with himself."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0071",
-      "source_sha256": "ed7872969bb36224",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0071.s1",
+      "source_sha256": "d81106988be4fb5a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For these are the ones who stand at the Lord's right hand, those to whom the King will say when he comes, “Come, you who are blessed by my Father, and inherit the kingdom prepared for you since the foundation of the world."
+      "text": "For these are the ones who stand at the Lord’s right hand,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0071.s2",
+      "source_sha256": "f90af8fc3a561c84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "those to whom the King will say when he comes, “Come, you who are blessed by my Father, and inherit the kingdom prepared for you since the foundation of the world.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0072",
@@ -1692,11 +1859,18 @@
       "text": "now and wait for what is coming, lest, while we wait and put the work off, our end overtake us."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0091",
-      "source_sha256": "9153cab172d6eb09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0091.s1",
+      "source_sha256": "803d152cbfcd09a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "May the Lord grant that we be found watchful and bearing fruit, remembering his commandments, prepared for his glorious rest, with no one reproaching us,"
+      "text": "May the Lord grant us to be found watchful and bearing fruit, remembering his commandments,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0091.s2",
+      "source_sha256": "11ace1e4cba0ad14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "ready for his glorious rest, with nothing bringing reproach upon us."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.001.0092",
@@ -1720,11 +1894,18 @@
       "text": "A discourse delivered by the holy patriarch, Father Athanasius, Archbishop of Alexandria, concerning the soul and the body."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0001",
-      "source_sha256": "e6bac6e8da562a37",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0001.s1",
+      "source_sha256": "affcacce8d5fd39a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The word sent from heaven contains no envy. It is ready to strengthen the things of the soul. You too must be ready to receive the power of the word. But the listener is also needed."
+      "text": "The word sent from heaven has no envy in it; it is ready to adorn what belongs to the soul."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0001.s2",
+      "source_sha256": "8ae58b09886b9eaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You too must be ready to respond to the power of the word. But the listener is also needed."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0002",
@@ -1748,25 +1929,46 @@
       "text": "The discourse will supply the word, and let those who listen fulfill the task of listening."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0005",
-      "source_sha256": "264a9ecf5a481bb6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0005.s1",
+      "source_sha256": "bae9c640b791f284",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For look, the discourse gives its power; you too, without envy, having first purified yourselves of all jealousy, envy, and unbelief, for these are enemies of righteousness."
+      "text": "For look, the word gives its power. You too, without envy, having first purified yourselves from every defilement."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0006",
-      "source_sha256": "74439d2550596c07",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0005.s2",
+      "source_sha256": "5a6f66cfdee93717",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For jealousy opposes love, and unbelief opposes faith, just as what is bitter opposes what is sweet, darkness opposes light, evil opposes good, death opposes life, and falsehood opposes truth."
+      "text": "and envy and unbelief, for they are enemies of righteousness."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0007",
-      "source_sha256": "63ea51bd270f93f3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0006.s1",
+      "source_sha256": "fb86f7a7aa95af99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Those who are made complete through the power of the adversary are those who have jealousy, envy, and unbelief, hating love and faith. Those who hate these are enemies of God."
+      "text": "For jealousy fights against love, and unbelief against faith, just as what is bitter fights against what is sweet."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0006.s2",
+      "source_sha256": "a594deb101fcdf34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And darkness fights against light, and evil against good. Death fights against life, and falsehood fights against truth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0007.s1",
+      "source_sha256": "80fd7509edbeb6cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Those who have reached maturity in the adversary’s power are those who have jealousy and envy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0007.s2",
+      "source_sha256": "c293a8b0c5550b4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and unbelief, hating love and faith. Those who hate these are enemies of God."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0008",
@@ -1811,11 +2013,18 @@
       "text": "For God took some earth from the ground and shaped it into a human being according to his image and likeness. He breathed a breath of life into his face."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0014",
-      "source_sha256": "1efaab62011687ee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0014.s1",
+      "source_sha256": "72e7e0467ac2297a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But Adam came under the power of death because of his transgression, and Adam's created form needed to be formed again by God the Creator, so that he might be saved."
+      "text": "But Adam came under the power of death because of his transgression."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0014.s2",
+      "source_sha256": "ff12fd68a9327f7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And Adam’s created form needed to be formed again by God the Creator so that he might be saved."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0015",
@@ -1895,11 +2104,18 @@
       "text": "For just as a tyrant who is about to capture a royal city first seizes the king and holds him firmly under his control,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0026",
-      "source_sha256": "1e1c7629e5cb6910",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0026.s1",
+      "source_sha256": "b06f71f0b00c0872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so death takes the soul first, leaving the body like a ship with no one steering it. This is how the body decayed: it fell apart limb by limb because the soul had stopped steering it."
+      "text": "This is how death overtakes the soul, with the body becoming like a ship with no one aboard to steer it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0026.s2",
+      "source_sha256": "b6ee576c96dd21ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is how the body decayed and fell apart limb by limb, because the soul stopped steering it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0027",
@@ -1916,18 +2132,32 @@
       "text": "For the soul steers its own body like a king administering his city."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0029",
-      "source_sha256": "ec6e9e597bc10ea5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0029.s1",
+      "source_sha256": "1e84a59036f65971",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For when the person died, his soul could no longer steer his flesh, because it was bound in the underworld. And it had lost its way on the paths of righteousness, like a pilot whose ship has lost its way at sea."
+      "text": "For when the person died, his soul could no longer govern his flesh, because it was bound in Hades."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0030",
-      "source_sha256": "8960278c1e1b1946",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0029.s2",
+      "source_sha256": "d4121b473d328884",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The soul turned away from the straight paths, and they carried it off onto the robbers’ roads so that they could plunder it there. These are adultery, sexual immorality, love of adornment, idol worship, murder, and hatred."
+      "text": "And it lost its way on the paths of righteousness, like a helmsman whose ship has lost its way at sea."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0030.s1",
+      "source_sha256": "60faee0e531a29d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The soul turned away from the straight paths and was carried off to the paths of robbers, to be plundered there."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0030.s2",
+      "source_sha256": "6e63191fe057dcb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "These are adultery, sexual immorality, love of the world, idol worship, murder, and hatred."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0031",
@@ -1993,11 +2223,18 @@
       "text": "so too, if the soul had not been bound in the underworld, it would have steered its body to keep it from decaying."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0040",
-      "source_sha256": "75bac73756caa8fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0040.s1",
+      "source_sha256": "5db39da0bb9bf24f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The soul, then, was bound not only with bonds, but also with its own sins as with ropes. Because of this it became powerless and left its body behind, decaying in the earth."
+      "text": "So the soul was bound not only with shackles, but also with its own sins, like ropes."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0040.s2",
+      "source_sha256": "279b5c1817b8d63d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Because of this it became powerless and left its body behind to decay in the earth."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0041",
@@ -2112,11 +2349,18 @@
       "text": "For a son will not recognize his own father, or his mother, or his brother, or his friend. It is impossible to recognize his face in the tombs."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0057",
-      "source_sha256": "cb8cacd3d6d45541",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0057.s1",
+      "source_sha256": "075ab2769c77c3a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "His lips have shriveled, his nose has rotted, and his eyes have closed. The color of his face has changed. It is impossible to recognize any of them, because all the bodies in the tombs have become dust. They have decayed, and no remnant of them remains before us."
+      "text": "Its lips shriveled, its nose collapsed, its eyes closed, and the color of its face changed. None of them can be recognized."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0057.s2",
+      "source_sha256": "3ff58726fff8d9fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For all the bodies in the tombs have become dust. They have decayed, and there is nothing left of them before us."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0058",
@@ -2175,11 +2419,18 @@
       "text": "He will not find anyone's name so as to recognize that it is truly that person. Nor will he recognize his appearance, because they have become dust in the grave, with no human form remaining in them."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0066",
-      "source_sha256": "d4bcdcae184b8ea0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0066.s1",
+      "source_sha256": "d86b3da7d1c2d5d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For humanity is scattered over the face of the whole earth and lies scattered everywhere. The earth is covered with tombs and graves, and every place is filled with the stench of the dead."
+      "text": "For humanity is scattered over the face of the whole earth and lies strewn everywhere."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0066.s2",
+      "source_sha256": "ce767ce20b3fac77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For the earth is riddled with tombs and graves, and every place is filled with the stench of the dead."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0067",
@@ -2287,11 +2538,18 @@
       "text": "For he is still angry with man because of his transgression. The disasters that befall man are unspeakable and indescribable."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0082",
-      "source_sha256": "c975baf1d915c3b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0082.s1",
+      "source_sha256": "a02a5bebea0552d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For everything treats man violently because of his transgression: sickness, loss, grief, sorrow, and the suffering surrounding him; cold and scorching heat; fire, wild animals, birds, and reptiles; the seasons and old age."
+      "text": "For everything oppresses humanity because of its transgression: sickness, loss, distress, sorrow, and the suffering that surrounds it;"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0082.s2",
+      "source_sha256": "8c88ea8e5202bbf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "cold and scorching heat, fire, wild animals, birds, reptiles, the seasons, and old age."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0083",
@@ -2497,18 +2755,32 @@
       "text": "For it is a great sorrow to witness a person's death and decay."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0112",
-      "source_sha256": "559d392c40000d88",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0112.s1",
+      "source_sha256": "57800b32e8b5ae54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The face grows pale in the appearance of death, along with the body that has grown cold, the mouth that is silent, the hair that has become disheveled, the eyes that have clouded over and closed, and the limbs that do not move."
+      "text": "The face becomes disfigured by the appearance of death, along with the body that has grown cold and the mouth that is shut,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0113",
-      "source_sha256": "e3757a7a7a37fe3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0112.s2",
+      "source_sha256": "4ac84642e7896ddc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the remains of the body in the earth—the flesh that has decayed, the muscles that have rotted, the other remains that have been stripped bare, the sinews that have come apart, the veins that have dried up, and the abundant dust—"
+      "text": "and the hair that has become matted, the eyes that have sunk and closed, and the limbs that do not move."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0113.s1",
+      "source_sha256": "da503c4d669d8208",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For what remains of the body in the earth—the flesh that has shriveled and the sinews that have decayed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0113.s2",
+      "source_sha256": "1f53e5ba237be53d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the other remains that have been stripped bare, the joints that have come apart, the bones that have dried out, and the abundant dust—"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0114",
@@ -2567,11 +2839,18 @@
       "text": "For this reason, the Father sent his Son to the earth without flesh, because he is a holy spirit."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0122",
-      "source_sha256": "37151ca7c4a123e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He caused him to become flesh in the womb of the virgin, and God became a human being to save the one who was lost and gather those scattered by the devil’s envy, bringing them together into his flock."
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0122.s1",
+      "source_sha256": "4dec8613b495c92d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "He caused him to take on flesh in the Virgin’s womb, God becoming human."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0122.s2",
+      "source_sha256": "500afe643c941f9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "To save the one who had gone astray and gather in those scattered through the devil’s envy, and gather them into his flock."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0123",
@@ -2616,11 +2895,18 @@
       "text": "He gave the instrument to the speaker; he gave him the appointed limbs."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0129",
-      "source_sha256": "db02c600328a439d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now then, O soul, sing in their body [?], since they have their own God, who is inseparable. For this is why Christ died for us: so that we might live with him forever."
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0129.s1",
+      "source_sha256": "17465b0421c13604",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Now then, O soul, sing within their body, since they have their God as their own and inseparable from them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0129.s2",
+      "source_sha256": "7ae829cb7d99c096",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "For this is why Christ died for us: so that we might live with him forever."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0130",
@@ -2700,11 +2986,18 @@
       "text": "He before whom seraphim stand trembling, glorifying his divinity."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0141",
-      "source_sha256": "46b0d86d6fa0de53",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He who sends water to flow in the rivers, and who sends rain and dew from heaven, received baptism in the Jordan from a mortal man."
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0141.s1",
+      "source_sha256": "05af4b5fca49c004",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "He who sends water to flow in these rivers, and rain and dew,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0141.s2",
+      "source_sha256": "183b62f435cc2cc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "sending them down from heaven, was baptized in the Jordan by a mortal man."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0142",
@@ -2826,11 +3119,18 @@
       "text": "for when he formed us with his hand, he did not suffer. But now he has brought us to birth again through the suffering of his death, suffering anguish over us like a woman in labor."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0159",
-      "source_sha256": "e90dca26874caa15",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For he was exceedingly patient with us: he did not burn up the world when they humiliated him with whips at the hands of sinners, killing him and burying him, just as the prophet says, “You brought me down into the dust of death.”"
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0159.s1",
+      "source_sha256": "0a3e51c10baafc8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "For he was exceedingly patient with us and did not burn up the world when they dishonored him with whips at the hands of sinners."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0159.s2",
+      "source_sha256": "40418ccb5ab59218",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "So that they might kill him and bury him, as the prophet says: “You have brought me down to the dust of death.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_athanasius_discourses#CopScr.pseudo-athanasius-discourses.002.0160",

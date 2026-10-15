@@ -15,15 +15,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0000",
-      "source_sha256": "eb87de9f943efcba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0000.s1",
+      "source_sha256": "9926a56480138445",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "An encomium delivered by our holy father Flavian, bishop of the city of Ephesus, in honor of Saint Demetrius, archbishop of Alexandria, on the day of his honored commemoration, the twenty-fifth of the month of Thoth."
+      "text": "A eulogy delivered by our holy father Flavian, bishop of the city of Ephesus, which he delivered in honor of Saint"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0000.s2",
+      "source_sha256": "fe9cda6d117ff429",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Demetrius, archbishop of Alexandria, on the day of his honored commemoration, the twenty-eighth of the month of Thoth."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0001",
@@ -89,11 +102,18 @@
       "text": "He visited the earth and made it drunk; he greatly enriched it."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0010",
-      "source_sha256": "aeb78f2fc54a1d78",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0010.s1",
+      "source_sha256": "b679a2bd25b20aff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If material wine brings people gladness—even though, when they drink too much of it, they stumble, and it produces languor—then how great are the gladness and joy of those who have drunk from the spring of living water, Christ!"
+      "text": "If earthly wine brings people joy, although when they drink too much of it they fall down, and it causes illness,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0010.s2",
+      "source_sha256": "edefae75f873f59b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then how great are the gladness and joy of those who have drunk from the spring of living water, Christ!"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0011",
@@ -152,11 +172,18 @@
       "text": "I am speaking of the synagogue of the Jews."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0019",
-      "source_sha256": "07d222dcd9fe1a9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0019.s1",
+      "source_sha256": "506e1f109bca6fa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I do not, indeed, call it a spiritual church. That is precisely why it was closed by the one who rose from the dead and sat at the right hand of his Father, who became human at his Father's command."
+      "text": "I am not, however, calling this a spiritual church. For this very reason, indeed, they closed it,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0019.s2",
+      "source_sha256": "498d57f1d9cf0852",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through him who rose from the dead and sat at the right hand of his Father, who became human at his command."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0020",
@@ -327,11 +354,25 @@
       "text": "Now the holy Demetrius was one of the eminent presbyters renowned in the city of Alexandria."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0044",
-      "source_sha256": "f947b2b1fc12c19f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0044.s1",
+      "source_sha256": "06525a4edb534672",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For after the holy Julian, archbishop of Alexandria, died, the throne of Alexandria remained vacant for many days without a bishop. No one sat on the archbishop’s throne, because it was the time of lawless kings and idol worshipers. A great persecution was upon the church, and the people were like sheep without a shepherd."
+      "text": "For after Saint Julian, archbishop of Alexandria, died, the throne of Alexandria remained for many days"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0044.s2",
+      "source_sha256": "3a7fb666b33522bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "vacant, without a bishop. No one sat on the archiepiscopal throne, because it was the time of the lawless kings"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0044.s3",
+      "source_sha256": "0a87a8558943c79f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and idol worshipers. A great persecution was being waged against the church, and the people were like sheep without a shepherd."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0045",
@@ -348,11 +389,18 @@
       "text": "I mean Saint Demetrius. They seated him on the throne of Saint Mark the Evangelist."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0047",
-      "source_sha256": "316a6f98e5bcecbd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0047.s1",
+      "source_sha256": "0cf0e80b4cb9b4f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But perhaps you will say to me, listener, “Why do you compare this holy man to Joseph, but do not compare this holy man’s wife—and indeed that worthless woman who envied the holy Joseph? I mean the Egyptian woman.”"
+      "text": "But perhaps you will say to me, you who are listening, “Granted that you compare this saint to Joseph, you have not compared the wife of this holy and chaste man to that worthless woman"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0047.s2",
+      "source_sha256": "9fbe9f146ca041bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who envied Saint Joseph—I mean the Egyptian woman.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0048",
@@ -397,11 +445,18 @@
       "text": "Do not speak that way, brother."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0054",
-      "source_sha256": "f2fa533e21a776c7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0054.s1",
+      "source_sha256": "37bf7e40f6ebdc9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the holy canons of the apostles say this: “If someone has a wife before becoming a bishop, then, when he becomes a bishop, he must not send her away, but must remain with her.”"
+      "text": "For indeed, the holy canons of the apostles say this: “If a man has a wife before becoming a bishop,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0054.s2",
+      "source_sha256": "57ff75cf1a038b42",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and afterward becomes a bishop, he must not send her away, but must remain with her.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0055",
@@ -453,11 +508,18 @@
       "text": "So, when he continued steadfastly in this way, the whole city turned away from sins. But as [?] from sins."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0062",
-      "source_sha256": "5d71a0f14cb563d4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0062.s1",
+      "source_sha256": "d1f593e2f4e6ad3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Whenever someone saw another person committing a sin, he would rebuke him, saying, “Turn away from this deed, lest the archbishop shame you while all the people are watching you.” And that person would become afraid and stop."
+      "text": "Now, when someone sees another person committing a sin, he rebukes him, saying, “Stop doing this,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0062.s2",
+      "source_sha256": "a082c46016078d3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "lest the archbishop shame you while all the people are watching you.” And that person becomes afraid and stops."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0063",
@@ -509,18 +571,32 @@
       "text": "Why are you grumbling against the archbishop?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0070",
-      "source_sha256": "3cc005cb9c7cf69b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0070.s1",
+      "source_sha256": "1678d9d1d8a8d1db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But they could not persuade them. They said, “This is the twelfth man to sit on the archiepiscopal throne, and none of them except this man alone has a wife.”"
+      "text": "Nevertheless, they could not persuade them. They said, “This is the twelfth"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0071",
-      "source_sha256": "18419a161a13655f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0070.s2",
+      "source_sha256": "3df456ae3f3105b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But God himself, who is good, does not want his holy ones [?] to remain hidden. Rather, he wanted to reveal them and receive glory through them, according to what he said in the Gospel: “People do not light a lamp and put it under a measuring basket. Instead, they put it on the lampstand so that it gives light to everyone in the house.”"
+      "text": "to sit on the archiepiscopal throne, and no one except this man alone has a wife.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0071.s1",
+      "source_sha256": "9607606a597f3aa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But God himself, the good one, who does not want his saints to remain hidden, wanted to reveal them and to receive glory through them,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0071.s2",
+      "source_sha256": "a0671df2395ee69f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "just as he said in the Gospel: “People do not light a lamp and put it under a measuring basket. Rather, they put it on the lampstand so that it gives light to everyone in the house.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0072",
@@ -642,11 +718,18 @@
       "text": "Then, after receiving the holy mysteries and completing his liturgy,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0089",
-      "source_sha256": "cc506b34c822c8a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0089.s1",
+      "source_sha256": "d80225bd91fedb9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "the archbishop ordered the archdeacon not to let anyone among all the people leave, but to have them gather in the assembly hall, saying, “The archbishop commands you: ‘Do not let any of you leave, because I have something to say to you.’”"
+      "text": "The archbishop commanded the archdeacon not to let anyone among all the people leave, but to have them gather in the assembly hall, saying"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0089.s2",
+      "source_sha256": "f2c2a2724603ffc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "this: “The archbishop commands you: ‘Do not let any of you go away, for I have something to tell you."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.000.0090",
@@ -985,11 +1068,18 @@
       "text": "At daylight each morning, it departs while we watch it."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0001",
-      "source_sha256": "0a4007b988b69064",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0001.s1",
+      "source_sha256": "8d922ebcacf8657d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And do not think that I am seeking human glory. No! Nor was it my wish to tell you this, except that the one who wishes to benefit everyone commanded me: God, who loves humanity."
+      "text": "And do not think that I am seeking human glory. No! Nor was it my wish"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0001.s2",
+      "source_sha256": "47dcc46dfb85391f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to tell you this, except that he who wishes to benefit everyone—God, who loves humanity—commanded me.’”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0002",
@@ -1013,11 +1103,18 @@
       "text": "He prayed for them too and dismissed them, so that each could go home in peace."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0005",
-      "source_sha256": "b81e99e7bc787377",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0005.s1",
+      "source_sha256": "984764684213d162",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Were your hearts not stirred within you as you heard such great miracles? Did you not marvel at this holy man, who spent his entire life with his wife while abstaining from sexual relations with her?"
+      "text": "Were your hearts not stirred within you as you heard such great wonders? Did you not marvel at this saint,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0005.s2",
+      "source_sha256": "4108bdebb51c6925",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who spent his whole life with his wife, abstaining from sexual relations with her?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0006",
@@ -1181,11 +1278,18 @@
       "text": "You have kept the faith."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0029",
-      "source_sha256": "f01ed0bef4e71735",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 25,
-      "text": "And you are praying for us now in the place where you are. I would indeed like to speak at length with you and tell you about the wonders God performed through this holy man, Saint Demetrius, the holy archbishop."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0029.s1",
+      "source_sha256": "d08285537c1d791a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "And you are interceding for us now in the place where you are."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0029.s2",
+      "source_sha256": "bcf9ca55b7372a5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "I would indeed like to speak at length with you and tell you about the wonders that God performed through this holy man, Saint Demetrius, the holy archbishop."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0030",
@@ -1405,11 +1509,18 @@
       "text": "She got up, stood, and prayed facing east, saying, “God, you who know all things before they happen,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0061",
-      "source_sha256": "8e66f9f4db8d6637",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "you know everyone’s heart, and you know the desire of my heart toward you: I do not want a husband, nor anything [?] of this world, nor possessions [?], even to the point of destroying [?] soul and my children."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0061.s1",
+      "source_sha256": "413838ff7173eaff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "You are the one who knows everyone’s heart, and you know my heart’s desire toward you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0061.s2",
+      "source_sha256": "f621afcf5139d63d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "For I do not want a husband, or clothing—it belongs to this world—or possessions like yours, or even your soul and my children."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0062",
@@ -1426,11 +1537,18 @@
       "text": "For the sake of your holy name, my Lord Jesus Christ, the Savior of my soul and my spirit, look down upon me and my two orphaned children, and have mercy on us."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0064",
-      "source_sha256": "44cffbc860750550",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "After saying these things, she took a knife in her right hand. She drew out the knife and made the sign of the cross over it. She pricked her right elbow and drew three drops of blood from it."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0064.s1",
+      "source_sha256": "e03d5007c3aa598c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "When she had said this, she took a blade in her right hand. She drew the blade out and made the sign of the cross over it."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0064.s2",
+      "source_sha256": "36abc3378b29b4a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "She pierced her right breast and brought three drops of blood out of it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0065",
@@ -1461,11 +1579,18 @@
       "text": "But when God, the Master of all, saw her faith, he calmed the storm, and a great calm followed. Within three days they reached Alexandria."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0069",
-      "source_sha256": "f932c6e11b4fbdc1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "With God’s help they entered Alexandria on Friday in the fourth week of the Paschal season, during which the young children are baptized according to the tradition of the Egyptians."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0069.s1",
+      "source_sha256": "765839d6841c9fa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "With God’s help, they entered Alexandria on Friday in the fourth week"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0069.s2",
+      "source_sha256": "94208e908e802280",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "of Easter, during which they customarily baptize little children according to the tradition of the Egyptians."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0070",
@@ -1636,11 +1761,18 @@
       "text": "Saint Peter, the archbishop, ordered the archdeacon to bring the woman from Antioch forward."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0094",
-      "source_sha256": "32d9146e21d43795",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When they had made her stand before him, the archbishop said to her, \"Tell me what has happened to you, or what you have done. And where are they from in their religion? Or [?] which city?\""
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0094.s1",
+      "source_sha256": "940898f3825f15ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "When they brought her to stand before him, the archbishop said to her, “Tell me what happened to you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0094.s2",
+      "source_sha256": "198b6dacd4576bbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "or what it was that you did. And where do they come from, in terms of their religion? Or [?] which city?”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0095",
@@ -1860,11 +1992,18 @@
       "text": "He said, “Peter, the one they call archbishop?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0126",
-      "source_sha256": "cdb22a12ef85a9b2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 25,
-      "text": "When the king heard this, he flew into a rage, because he had been angry with Saint Peter ever since he had read his discourse about the idols, which he had delivered against them."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0126.s1",
+      "source_sha256": "a3006074441026a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "When the king heard, he threw her out, because he was angry with him, Saint Peter,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0126.s2",
+      "source_sha256": "bc5d2b417cf2f631",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "ever since he had read his discourse about the idols, which he delivered against them."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0127",
@@ -1923,11 +2062,18 @@
       "text": "But she did not answer him at all."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0135",
-      "source_sha256": "9bf1046b5ec74e5f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The emperor became angry and ordered them to bind her hands and [?] feet behind her, place her two children on her, and burn them all alive together at once."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0135.s1",
+      "source_sha256": "c11a6799467ebe26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "The king became angry and ordered them to bind her hands and feet [?] behind her,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0135.s2",
+      "source_sha256": "bd4b74d75a6a185a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "place her two children on top of her, and burn them alive together, all at once."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0136",
@@ -1951,11 +2097,18 @@
       "text": "He said, “She turned her face toward the east and immediately gave up her spirit, because her holy heart was always looking toward the east.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0139",
-      "source_sha256": "cb25e99b2effcc43",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "For the trees of paradise were created in the east, and the devil brought Adam out of it through envy. God himself, who became human, was also envied by the devil."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0139.s1",
+      "source_sha256": "077579e50459233b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "For the trees of paradise were created in the regions of the east, and the devil brought Adam out of it through envy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0139.s2",
+      "source_sha256": "75d1aadd73c4e0c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "God himself, who became human, was also envied by the devil."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0140",
@@ -1993,11 +2146,18 @@
       "text": "I think, O Christ-loving assembly, that we have found the man."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0145",
-      "source_sha256": "a8f94abee02bc30c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 5,
-      "text": "To your love, according to the measure of our discipleship. For we ourselves are disciples of the great true teacher, our Lord, our Savior. Through him, glory be to the Father, together with him and the Holy Spirit, who gives life and is of the same essence, now and always, forever. Amen."
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0145.s1",
+      "source_sha256": "708562aced164a60",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "your love, according to the measure of our discipleship. For we are disciples of the great true teacher, our Lord, our Savior."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_flavianus#CopScr.pseudo-flavianus.001.0145.s2",
+      "source_sha256": "523da8aed4e842b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 18,
+      "text": "Through him, glory be to the Father, together with him and the Holy Spirit, who gives life and is of the same essence, now and always and forever. Amen."
     }
   ]
 }

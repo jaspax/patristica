@@ -21,6 +21,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -60,11 +66,18 @@
       "text": "He also spoke again about the consolation of the soul, making it clear that nothing in human life is lasting except suffering and hardship."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0005",
-      "source_sha256": "ca7be1bd08781857",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0005.s1",
+      "source_sha256": "7ba8f8f71c234b5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He also spoke about what is written in the Apostle: “It is a fearful thing to fall into the hands of God,” and about the great misery of a person at the time when he gives his spirit into the hands of God."
+      "text": "He also spoke about what is written in the Apostle: “It is a fearful thing to fall into the hands of God,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0005.s2",
+      "source_sha256": "44cb918f2ba6cd2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and about the great helplessness of a person at the moment when he gives his spirit into the hands of God."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0006",
@@ -88,11 +101,25 @@
       "text": "May his holy blessings come down upon us, and may we all be saved together. Amen. Bless us."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0009",
-      "source_sha256": "eb2a9d1f2303b8b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0009.s1",
+      "source_sha256": "7b704b6547b11e23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the Creator himself, the savior of his creation and the guardian filled with every kind of compassion, wishes in his compassion to remember [?] the work of his hands, to give them food at its proper time, to open his hand, which is filled with every kind of righteousness, and to make the sky pour down rainwater at the appropriate time,"
+      "text": "Whenever the Maker himself, the savior of his creation, the patient one who is full of every kind of compassion,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0009.s2",
+      "source_sha256": "4771f0e8effd5b82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "chooses in his compassion to remember the work of his hands and give them their food at the proper time,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0009.s3",
+      "source_sha256": "c73939bb3c9d72c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and opens his hand, which is full of every kind of righteousness, and causes the sky to pour down rainwater at the proper time,"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0010",
@@ -123,11 +150,18 @@
       "text": "And great delight comes to everyone,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0014",
-      "source_sha256": "e8ca03e140d32d49",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0014.s1",
+      "source_sha256": "5bbc269b4078af35",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "as they enjoy their food and their bodily sustenance. Even the animals of the field leap and jump as they eat the grass of the sowing season."
+      "text": "so that they enjoy their food and their bodily sustenance—even the animals of the fields—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0014.s2",
+      "source_sha256": "0d901e802a6880f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "they leap and bound as they eat the grass of the sowing season."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0015",
@@ -137,11 +171,18 @@
       "text": "And the farmers rejoice greatly, confident that they can pay their taxes from their fields."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0016",
-      "source_sha256": "3813c91f25df8424",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0016.s1",
+      "source_sha256": "ec2e57c43f9373a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If such joy comes about because of bodily food, then how much greater is today’s joy, O flock of rational sheep and blessed Christian people! For the blood that came out of God’s side, together with the water, fell upon the earth."
+      "text": "If such joy comes from bodily food, then how great is today's joy, O flock of rational sheep,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0016.s2",
+      "source_sha256": "90217133b5d011ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and blessed people of the Christians, because the blood that came from God's side, together with the water, fell upon the earth!"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0017",
@@ -305,11 +346,18 @@
       "text": "O true crown-bearer of Christ!"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0040",
-      "source_sha256": "47a63cb8a37cbc67",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0040.s1",
+      "source_sha256": "c333e475c3021ed3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "O you who made your body a living sacrifice, holy and pleasing to God! I want to speak praises of you at your feast today, but I am afraid that I cannot cross the sea of your achievements."
+      "text": "O one who made his body a living sacrifice, holy and pleasing to God!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0040.s2",
+      "source_sha256": "f9fae5f63d858560",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I want to speak praises of you at your festival today, but I am afraid that I cannot cross the ocean of your achievements."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0041",
@@ -620,11 +668,18 @@
       "text": "In heaven, he made you commander among all the martyrs, as we will explain to you as the discourse proceeds."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0085",
-      "source_sha256": "6c034e3d0b292fdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0085.s1",
+      "source_sha256": "85db55f6b13b2441",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "On earth too, he gave you glory, so that your sweet fragrance filled all the regions of the world, shrines were built for you everywhere, and great miracles and wonders occurred through them."
+      "text": "He also glorified you on earth, so that your fragrance fills all the regions of the world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0085.s2",
+      "source_sha256": "244d93e77e1be77a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and shrines are built for you everywhere, and great miracles and wonders take place through them."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0086",
@@ -655,11 +710,18 @@
       "text": "God therefore bestowed this great gift on you: he placed in your sanctuary a power that heals souls and bodies."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0090",
-      "source_sha256": "99a613bb60631a8f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0090.s1",
+      "source_sha256": "b19cbd496f639863",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For you heal bodily illnesses through the grace God gave you. You also cleanse the illnesses of the soul, which are sins, through the signs and wonders you reveal in your shrine in the four corners of the world."
+      "text": "For you heal bodily illnesses through the grace that God has given you, and the illnesses of the soul as well, which are sins,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0090.s2",
+      "source_sha256": "72d632cc0259acbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you cleanse through the signs and wonders that you reveal in your shrine in the four corners of the world."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0091",
@@ -844,11 +906,18 @@
       "text": "There was great joy in their house, and they distributed abundant alms to the poor."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0117",
-      "source_sha256": "2f4e9bf2fc022913",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0117.s1",
+      "source_sha256": "fda2cae179b2bbb6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the little boy reached five years of age, his parents could not bring themselves to dedicate him to the holy place of Saint Apa Victor, as they had promised with their own mouths. Instead, they went back on their vow."
+      "text": "When the little boy reached [?] years of age, his parents could not bring themselves to give the little boy to the sanctuary of Saint Apa Victor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0117.s2",
+      "source_sha256": "5807f2e8e493070f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as they had said they would. Instead, they went back on their vow."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0118",
@@ -858,11 +927,18 @@
       "text": "They did not remember what is written: “Take care to fulfill what comes out of your mouth, for the Lord will closely examine your ways and punish you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0119",
-      "source_sha256": "91c9a5adf6b1c9f6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0119.s1",
+      "source_sha256": "fd5e317997e0fa61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Then the little boy’s father and mother spoke to one another, saying, “Look, we could not bring ourselves to dedicate the little boy to the holy place as we vowed."
+      "text": "Then the little boy's father and mother spoke to one another, saying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0119.s2",
+      "source_sha256": "d344b70db1f6b330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Look, we could not bring ourselves to give the little boy to the sanctuary as we had vowed.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0120",
@@ -1327,11 +1403,18 @@
       "text": "But they were powerless against the suffering caused by the illness, as it is written about them: “Their wisdom failed them.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0186",
-      "source_sha256": "70c1c2f32ab871a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0186.s1",
+      "source_sha256": "91cbde2a4f485548",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When she heard about the mighty deeds and miracles taking place at the shrine of Saint Victor, she begged her husband and her brother to let her go to the saint’s shrine, so that perhaps his mercy would reach her and he would grant her healing."
+      "text": "When she heard about the miracles and wonders taking place in the sanctuary of Saint Victor, she begged her husband and her brother"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0186.s2",
+      "source_sha256": "01541d4ed7de7616",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to let her go to the saint's sanctuary, so that perhaps his mercy would reach her and he would grant her healing."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0187",
@@ -1719,11 +1802,18 @@
       "text": "When the crowd heard these things, they cried out, “The God of Saint Victor is one!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0242",
-      "source_sha256": "7011cf004534b8f3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-13",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0242.s1",
+      "source_sha256": "57af4ab6f39ea6e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And so, through the zeal of the God-loving king and the miracles of Saint Victor, they fitted out the [?] and the altar with fine gold and precious stones of great value."
+      "text": "And so, through the zeal of the God-loving king and the miracles of Saint Victor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0242.s2",
+      "source_sha256": "02df0bc2c414bbf4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "they furnished the [?] and the altar with pure gold and precious stones of great value."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0243",
@@ -1957,11 +2047,18 @@
       "text": "He shouted, saying, “The God of Saint Victor is one!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0276",
-      "source_sha256": "4c5c1969f578d9cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0276.s1",
+      "source_sha256": "967e21a6d9853ac8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the crowd gathered at the martyr’s shrine saw the great miracle, they cried out, “Blessed are we, for we have been found worthy of this precious pearl in our city! He heals our diseases and our afflictions.”"
+      "text": "The crowd gathered in the shrine, when they saw the great wonder,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0276.s2",
+      "source_sha256": "294ced46d8a58388",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "cried out, “Blessed are we, for we have been deemed worthy of this pearl in our city, healing our illnesses and our afflictions!”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0277",
@@ -2034,18 +2131,32 @@
       "text": "Great is the glory that God has given you in heaven and on earth."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0287",
-      "source_sha256": "b0984364257d19dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0287.s1",
+      "source_sha256": "6358a94f02b84c9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As I said before, your sweet fragrance has filled all the regions of the world, and they will name your name in every region, from the fortress where you met your end as far as the Cataract. And they will glorify you throughout the whole world, for you are great among the martyrs."
+      "text": "As I said before, your sweet fragrance has filled all the regions of the world, and your name will be spoken in every region."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0288",
-      "source_sha256": "8283adb7dc5a964c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0287.s2",
+      "source_sha256": "ca1b76d6acdf0f47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Indeed, God has caused signs and wonders to occur continually in your martyr’s shrine everywhere, and signs of healing [?] are available to those who believe in your name. And this same gift continues in your martyr’s shrines, from one end of the inhabited world to the other."
+      "text": "From the fortress where you met your end as far as the Cataract, they will honor you throughout the whole world, because you are great among the martyrs."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0288.s1",
+      "source_sha256": "9c4775fe2e5cb58f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Above all, God has established lasting signs and wonders in your shrines everywhere."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0288.s2",
+      "source_sha256": "da00f103af74c1b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And there are signs of healing for those who believe in your name, and this same gift continues in your shrines from one end of the inhabited world to the other."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0289",
@@ -2055,11 +2166,18 @@
       "text": "If not, listen, and I will tell you."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0290",
-      "source_sha256": "e8be8a221822595a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0290.s1",
+      "source_sha256": "75c9843302f7b4a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It happened, they say, at the beginning, when the God-loving emperor Constantine built the shrine of Saint Apa Victor, where we are gathered today, that a high-ranking general fell seriously ill."
+      "text": "Now it happened, they said, when the God-loving emperor Constantine first built the shrine of Saint Apa Victor, where we are gathered today,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0290.s2",
+      "source_sha256": "0252cc2a20bae3e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that a high-ranking military commander came down with a severe illness."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0291",
@@ -2132,11 +2250,18 @@
       "text": "His face was sending out rays of light."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0301",
-      "source_sha256": "712f1c41db5142a7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0301.s1",
+      "source_sha256": "4b63908658bfe956",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He said to him, “If you want to recover from this disease, get up quickly and go to the shrine in Rome, and [?] water in the basin of the sanctuary, and you will find healing.”"
+      "text": "He said to him, “If you want to be free of this illness, get up quickly and go to the shrine in Rome."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0301.s2",
+      "source_sha256": "e58ac646f6e709a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then [?] water from the basin at the altar, and you will receive healing.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0302",
@@ -2146,11 +2271,18 @@
       "text": "“Has the shrine in Rome grown weary, that you have come here? Do you not know that my power is throughout the whole world?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0303",
-      "source_sha256": "365975ffa6b82c9a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0303.s1",
+      "source_sha256": "8a6eca8dda38ca5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“The same gift remains in all of them for those who believe without doubting. Do you not know that the same power remains in my shrines in Rome and Antioch? Why have you brought this trouble upon yourself?”"
+      "text": "“This same gift continues in all of them for those who believe without doubting. Do you not know that this same power continues in my shrines,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0303.s2",
+      "source_sha256": "e4d605fbe45325f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in Rome and Antioch? Why have you brought this trouble upon yourself?”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.000.0304",
@@ -2265,11 +2397,18 @@
       "text": "He lay down in great distress."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0009",
-      "source_sha256": "ae3230efbd279535",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0009.s1",
+      "source_sha256": "cfca1df7828ae22e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And he was pleading with the God of the holy martyr, saying, “My lord, Saint Victor, who made me worthy to see his glory in his shrine in Antioch,"
+      "text": "And he was pleading with the God of the holy martyr, saying, “My lord, Saint Victor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0009.s2",
+      "source_sha256": "5415e78c8318c91d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who made me worthy to see his glory in his shrine in Antioch.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0010",
@@ -2678,11 +2817,18 @@
       "text": "We cannot remain silent about the miracle that happened at that time."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0068",
-      "source_sha256": "138f60ae16197182",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0068.s1",
+      "source_sha256": "8125292ceffc07f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "That night, God heard everyone who sincerely called out to him. He chose to heal both men together through the intercessions of Saint Victor, who performs these wonders and miracles."
+      "text": "That night, God heard everyone who sincerely called upon him, and he was pleased to heal the two men together,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0068.s2",
+      "source_sha256": "68be6eb8d1032694",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through the intercessions of Saint Victor, who performs these wonders and mighty deeds."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0069",
@@ -2734,11 +2880,18 @@
       "text": "“I am the father of the shrine.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0076",
-      "source_sha256": "d392ab6400b790bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0076.s1",
+      "source_sha256": "49739fdc45cc90e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“Now, if you want to be cleansed of leprosy, when you get up in the morning, take the hand of this blind man sleeping beside you, lead him, and go down to the cistern at the entrance to the shrine.”"
+      "text": "“Now, if you want to be cleansed of leprosy, when you get up in the morning, take the hand of this blind man sleeping beside you,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0076.s2",
+      "source_sha256": "bddabec5e215c81d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and lead him down to the pool at the entrance to the shrine.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0077",
@@ -2944,18 +3097,32 @@
       "text": "I, the least of all, who am speaking to you in this tribute."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0106",
-      "source_sha256": "72116676ae70a29e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0106.s1",
+      "source_sha256": "4b62383b542d1076",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The leper and the blind man, who had received healing through Saint Victor, continued serving at his martyr’s shrine until the day of his death, and they received their food for the salvation of their souls."
+      "text": "Now the leper and the blind man, who had received healing through Saint Victor,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0107",
-      "source_sha256": "b11f2a11b13804fb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0106.s2",
+      "source_sha256": "288248896c3a4cff",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As for the pool in which they had bathed, a great manifestation of God’s power has continued there to this very day, so that anyone who is sick, whether crippled or possessed by a demon—in short, suffering from any illness—"
+      "text": "remained serving at his shrine until the day of his death, and they received their food for the salvation of their souls."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0107.s1",
+      "source_sha256": "7345c6d72ab037ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And in the pool where they had bathed, a great power of God has remained active to this very day,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0107.s2",
+      "source_sha256": "4a498b50558c15c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that anyone who is sick, whether paralyzed or possessed by a demon—in short, suffering from any illness—"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0108",
@@ -2972,11 +3139,18 @@
       "text": "What shall I say, and what shall I leave out, among your achievements?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0110",
-      "source_sha256": "85cf4070acae8e84",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 21,
-      "text": "Who among all the philosophers in the world can praise you as you deserve, O you who offered your body as a living sacrifice, holy, acceptable, and pleasing to God?"
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0110.s1",
+      "source_sha256": "d045e65dfe02bba1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Who among all the philosophers of the world will be able to praise you as you deserve,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0110.s2",
+      "source_sha256": "47d6afe3e5fd5276",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "O you who offered your body as a living, holy, acceptable sacrifice, pleasing to God?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0111",
@@ -3021,18 +3195,32 @@
       "text": "He saves everyone who begs him with all their heart from every danger. If you do not believe it, listen, and I will tell you."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0117",
-      "source_sha256": "c1e9107c19cb2b6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0117.s1",
+      "source_sha256": "d694f7559fd99609",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now it happened that the barbarians called Saban rose against the land of Romania. They were as numerous as the sand of the sea, and they captured First Romania and prepared many ships to cross over and come against us in Romania."
+      "text": "Now it happened that the barbarians called Saban rose up against the territory of the Roman Empire, as numerous as the sand of the sea,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0118",
-      "source_sha256": "4980cc9f26b04224",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0117.s2",
+      "source_sha256": "4493b115ffbbf956",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "All the people, the senate, the entire population of Rome, and all the nearby surrounding districts were gathering to hold the general worship service at the sanctuary of Saint Victor, where we are gathered now."
+      "text": "so that they took the first region of the Roman Empire and prepared many ships to cross over and come against us in the Roman Empire."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0118.s1",
+      "source_sha256": "e8796d624b9883a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now all the people, the senate, the entire citizen body of Rome, and all the nearby surrounding districts,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0118.s2",
+      "source_sha256": "4ef17311d57724a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They were [?], holding the general service at the shrine of Saint Victor, where we are now gathered."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0119",
@@ -3042,11 +3230,18 @@
       "text": "The God-loving king was there with his army of soldiers, because it was the feast of Saint Victor. My father Innocent was also there with all the clergy."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0120",
-      "source_sha256": "689b4a968e2b2bad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0120.s1",
+      "source_sha256": "17e6e72d47541199",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When they began the worship service in great fear, letters arrived for the emperor through a courier named Frumentius. The governors of First Romania had sent them to him."
+      "text": "When they began the service with great awe, letters were sent to the emperor"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0120.s2",
+      "source_sha256": "4703fc3bc051de6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "through a courier named Frumentius, which the prefects of First Romania had sent to him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0121",
@@ -3084,11 +3279,18 @@
       "text": "the emperor and all the people gathered at the sanctuary of Saint Victor, together with the archbishop and all the clergy."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0126",
-      "source_sha256": "c2bf26a4daae2025",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0126.s1",
+      "source_sha256": "50d65cb4e9bcc7e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They prostrated themselves at the altar, saying, “Saint Victor, the commander, plead with God for us, so that he may fortify our land and the godless barbarians may not overpower it.”"
+      "text": "They laid them on the altar, saying, “Saint Victor, the general,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0126.s2",
+      "source_sha256": "443efe73c6f46949",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "appeal to God on our behalf, so that he may fortify our country and the godless barbarians may not overpower it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0127",
@@ -3217,11 +3419,18 @@
       "text": "Let us turn away from every evil deed, every act of violence, every kind of disorder, and every deception that we practice, so that we may all become his children together."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0145",
-      "source_sha256": "32228dd2d35278e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0145.s1",
+      "source_sha256": "fdd5031d060e327c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Truly, you have made us glad today, Saint Victor the commander, more than those who make merry in places where wine is drunk. You have set before us the table of your holy feast, filled with every good thing."
+      "text": "Truly, you have made us glad today, Saint Victor the general, more than those who celebrate in places where wine is drunk,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0145.s2",
+      "source_sha256": "e26bc9b8c2d1eebd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "for you have set before us the table of your holy feast, filled with every good thing."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0146",
@@ -3231,11 +3440,25 @@
       "text": "Let us, for our part, recognize these things and taste them, so that we may rejoice."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0147",
-      "source_sha256": "d805ef9258b9f1ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0147.s1",
+      "source_sha256": "24dc1de069a12b91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let us remember the sufferings that our Lord and his servants, the martyrs, endured for us, and let us offer fruit to God as he deserves, each according to his ability: one through purity, another through prayer and fasting, one through endurance, another through generosity, and another through love and hospitality."
+      "text": "Let us remember the sufferings that our Lord endured for us, together with his servants, the martyrs,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0147.s2",
+      "source_sha256": "2cc2da580de765f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and let us offer fruit to God as he deserves, each according to their ability: one through purity, another through prayer and fasting,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0147.s3",
+      "source_sha256": "4ec8111f527d7175",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "one through endurance, another through cheerfulness, another through love and hospitality."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0148",
@@ -3301,11 +3524,18 @@
       "text": "Guard your eyes so that you do not lust or stumble because of women."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0157",
-      "source_sha256": "eee64873195764db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0157.s1",
+      "source_sha256": "f9da7b10a2ca1e18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When you observe all these things, you will truly be able to offer your body boldly as a sacrifice to the Lord, like Saint Victor, who renounced the world and everything in it because of his love for God."
+      "text": "When you observe all these things, you will truly be able to offer your body confidently as a sacrifice to the Lord,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0157.s2",
+      "source_sha256": "e67f2c68b55fdb95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "like Saint Victor, who renounced the world and everything in it because of his love for God."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0158",
@@ -3497,11 +3727,18 @@
       "text": "He will not give God his ransom or the price for redeeming his soul."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0185",
-      "source_sha256": "550378f0ed3f7b28",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0185.s1",
+      "source_sha256": "acd1b966e88055c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He teaches the soul this: no righteous father can redeem a sinful son, no rich brother can redeem a poor brother, and no righteous son can redeem a sinful father. Rather, each person will receive according to what he has done."
+      "text": "He makes this known: no righteous father can redeem a sinful son, nor can a rich brother redeem a poor brother,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0185.s2",
+      "source_sha256": "55568117fb65cd4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "nor can a righteous son redeem a sinful father. Rather, each will receive according to what they have done."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0186",
@@ -3588,11 +3825,25 @@
       "text": "He has not allowed you to be merciful toward the poor. Because of this, you will receive great, unending punishments for your lack of faith."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0198",
-      "source_sha256": "c3404e17c6994bdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0198.s1",
+      "source_sha256": "677e12323e00e8b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For we have seen many rich people gathering wealth through great toil and business dealings, building themselves large houses and acquiring properties, extensive estates, gardens, fields, many livestock, abundant possessions, and large sums of money, saying, “We are storing these up for our children.”"
+      "text": "For we have seen many rich people accumulating wealth through great toil and trading, building large houses for themselves,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0198.s2",
+      "source_sha256": "8c79f914a24a2d73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "along with properties, extensive estates, gardens, fields, and many livestock,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0198.s3",
+      "source_sha256": "5e386c624c2b398f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as well as abundant household goods and great wealth, saying, “We are storing these things up for our children.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0199",
@@ -3833,11 +4084,18 @@
       "text": "He also said, “Whoever gives one of these little ones even a cup of cold water to drink in the name of a disciple—truly I tell you, he will not lose his reward.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0233",
-      "source_sha256": "7bf3f4fe121987af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0233.s1",
+      "source_sha256": "3b6290d2f989df53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "So do not neglect your salvation, O human being, because of the possessions of this life. We will not be left here forever. Rather, a day will come when we leave it and become as though we had never entered it."
+      "text": "So do not neglect your salvation, O human being, for the sake of the material things of this life. They will not leave us here forever."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0233.s2",
+      "source_sha256": "76f7d3cabf1e0cf5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Rather, a day will come when we leave it and become as though we had never entered it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0234",
@@ -3847,18 +4105,32 @@
       "text": "Remember the time when the sickness of death will come upon you, and you will immediately throw yourself onto your bed and say, “I am sick today.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0235",
-      "source_sha256": "e308a1efdbef9006",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0235.s1",
+      "source_sha256": "51111a156d0022d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "After a little while, the sickness bears down on you, and a great fever takes hold of your poor flesh, along with great distress and suffering. Your physical condition is shaken, your tongue shrivels in your throat, and your speech dwindles in your mouth."
+      "text": "Suddenly, illness weighs down upon you, and a great fever seizes your wretched flesh, together with severe distress and suffering."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0236",
-      "source_sha256": "5ffb6cb125edffaf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0235.s2",
+      "source_sha256": "9517b2b9a8b5a180",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Your throat becomes rigid, and no food enters it. The light of your eyes fades little by little, sweat gathers around your forehead, and great bitterness fills your heart. Your eyes lose their [?]; they roll and become clouded, because the light has left them little by little."
+      "text": "Your bodily condition is thrown into disorder, your tongue grows small in your throat, and your speech dwindles in your mouth."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0236.s1",
+      "source_sha256": "bbcaea6b2d8a3395",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Your throat stiffens, and no food enters it. The light of your eyes fades little by little, and saliva gathers around your throat."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0236.s2",
+      "source_sha256": "6a1161227c807abe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Great bitterness fills your heart, and the functioning of your eyes ceases. They roll and grow dim, for the light has gradually left them."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0237",
@@ -3952,18 +4224,32 @@
       "text": "For every person whom God has created, from Adam, the first human being, down to the one who will be born today—when they leave the body,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0250",
-      "source_sha256": "a8749064e08e6c26",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0250.s1",
+      "source_sha256": "26dd240c23a1e2fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "their souls are taken and brought before God's judgment seat, from the one who is a month old to the one who is a year old. They bow before the true judge, and he pronounces judgment on them before they are taken to the places they deserve."
+      "text": "Their souls are taken and brought before the judgment seat of God, from the one a month old to the one a year old."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0251",
-      "source_sha256": "7ff44a0561a8183b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0250.s2",
+      "source_sha256": "f92281d0a9ca26e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And again, on the day of resurrection, their bodies will rise imperishable, and everyone's souls will return to their bodies once more. They will receive according to what they have done, whether good or evil."
+      "text": "They bow before the true Judge, and he pronounces sentence upon them before they are taken to the places they deserve."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0251.s1",
+      "source_sha256": "5206162739db7a08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And again, on the day of the resurrection, their bodies will rise imperishable."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0251.s2",
+      "source_sha256": "81e3f24b991cc082",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And everyone’s soul will return to their bodies once more, and they will receive according to what they have done, whether good or evil."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0252",
@@ -3973,11 +4259,18 @@
       "text": "And we will be called to account for everything we have done in this place of exile, down to a little joking remark."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0253",
-      "source_sha256": "3d6465865f8efa46",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0253.s1",
+      "source_sha256": "01410b715e522a45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We will also be questioned about the thoughts of the heart, just as our teacher and our maker, Christ, said: “Do not let any idle words come out of your mouths, for you will give an account of them on the day of judgment.”"
+      "text": "They will also be questioned about the thoughts of the heart, just as our teacher and maker, Christ, said:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0253.s2",
+      "source_sha256": "3ae960a7e8e519d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Do not let any idle words come out of your mouths, for you will give an account of them on the day of judgment.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.001.0254",
@@ -4162,11 +4455,18 @@
       "text": "Why did the displays of your wealth not save you in these great hardships?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0002",
-      "source_sha256": "362c56a699480aae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0002.s1",
+      "source_sha256": "d8063d2043216a7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Have you not heard about that foolish rich man who was like you, who said to his soul, “You have many good things stored up for many years. Rest, eat, drink, enjoy yourself,” thinking that he would spend a long time on earth?"
+      "text": "Have you not heard about that foolish rich man, who was just like you, who said to his soul:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0002.s2",
+      "source_sha256": "80e1fff57b9ca7a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“You have many good things stored up for many years. Rest, eat, drink, and enjoy yourself”—thinking that he would spend a long time on earth."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0003",
@@ -4211,11 +4511,18 @@
       "text": "Have you not heard David say, “They will leave their wealth to others, and their tombs are their homes forever”?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0009",
-      "source_sha256": "bf8761fb7033f25b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0009.s1",
+      "source_sha256": "b7a780f4e650daa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The wise Solomon says, “Have all your preparations ready, for there is neither knowledge nor reasoning in the underworld, the place where you are going.” This means that when you leave this world, you will not be able to set anything right. Rather, the things you took with you when you departed are the things by which and for which you will be judged."
+      "text": "Wise Solomon says, “Have all your preparations ready, for there is neither knowledge nor thought in Hades, the place where you are going.” This means:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0009.s2",
+      "source_sha256": "2218607d42dfd73a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When you leave this world, you will not be able to put anything right. Instead, the things you took with you when you left are the things by which and for which you will be judged."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0010",
@@ -4225,11 +4532,18 @@
       "text": "Tell me, then, fool, what are all these deceptions and these sins? You pile sin upon sin, lawlessness upon lawlessness, deceit upon deceit, and strife upon strife."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0011",
-      "source_sha256": "35628f10cf9332a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0011.s1",
+      "source_sha256": "33881446e5f82a13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Have you not remembered what is written: “Judgment is without mercy for the one who has not shown mercy”? Remember that a human being is like a shadow, and his days pass quickly."
+      "text": "Have you not remembered what is written: “Judgment is without mercy for the one who has shown no mercy”?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0011.s2",
+      "source_sha256": "e39aa9fa59cd3051",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Remember that a human being is like a shadow, and that his days pass swiftly."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0012",
@@ -4281,11 +4595,18 @@
       "text": "Tell me, then, O sinner, what joy has come to you throughout your whole life?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0019",
-      "source_sha256": "28aee9830a530100",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0019.s1",
+      "source_sha256": "95353461dcf9a13d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If you say, “I spent my whole life rich and enjoying myself thoroughly,” I will tell you plainly: what joy has come to you throughout all the time you have lived in sins?"
+      "text": "If you say, “I spent my whole life rich and enjoying myself thoroughly,” I will say to you briefly:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0019.s2",
+      "source_sha256": "c11532a9cfb0790a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“What joy did you find throughout all your time, while you were living in sin,"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0020",
@@ -4330,11 +4651,18 @@
       "text": "There is no comfort around you; instead, your whole life is sorrow."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0026",
-      "source_sha256": "bc3a368f8dd1606b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0026.s1",
+      "source_sha256": "77a5853149815f20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You build houses, country estates, and granaries. You plant vineyards, gardens, and drinking places. You trade and sail on the sea, always like those in the agony of death."
+      "text": "building houses, estates, and granaries, and planting vineyards and gardens,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0026.s2",
+      "source_sha256": "318c085741ca9e11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and watering places, working as a merchant and sailing on the sea, always like those in the agony of death?”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0027",
@@ -4400,11 +4728,18 @@
       "text": "Others will harvest the vineyards you planted, while you long for a drop from them to moisten your tongue in Hades, like your brother Nineveh."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0036",
-      "source_sha256": "30277d734fdc98cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0036.s1",
+      "source_sha256": "d936fe9901b9b46b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "So tell me now, you merciless and sinful man: what have you gained from being born into the world, either in your life or in your death, except the punishments you have gathered for yourself because of your sins?"
+      "text": "Tell me now, you merciless and sinful person: what have you gained by being born into the world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0036.s2",
+      "source_sha256": "f7b75db89e7c12d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "either in your life or in your death, except the punishments you have piled up for yourself because of your sins?"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0037",
@@ -4456,11 +4791,18 @@
       "text": "He often longs for death because of the suffering he is in."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0044",
-      "source_sha256": "3b44d7e7dff2dedf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0044.s1",
+      "source_sha256": "a654bb33b916c9e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Seeing his poverty, his wife's suffering, and his children's distress, he sins still more, committing thefts and swearing false oaths, as it is written: “Poverty humbles a person.”"
+      "text": "Seeing his poverty, his wife’s suffering, and his children’s distress, he sins all the more,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0044.s2",
+      "source_sha256": "9f0b635e4a681352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with thefts and false oaths, as it is written: “Poverty humbles a person.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0045",
@@ -4701,11 +5043,18 @@
       "text": "When you bear worry upon worry, day and night."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0079",
-      "source_sha256": "320f3f4ff87d6a69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0079.s1",
+      "source_sha256": "79c7dea67a1fb22e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the man who has taken a wife and had children does not have a single hour of rest. Instead, worries weigh upon him all his life. Especially if he is poor, his hardships double upon him."
+      "text": "For the man who has married and fathered children does not have a single hour of rest."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0079.s2",
+      "source_sha256": "7c2a6787a378d3a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, worries weigh on him all his life. Especially if he is poor, his troubles multiply upon him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0080",
@@ -4722,11 +5071,18 @@
       "text": "How will you rejoice?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0082",
-      "source_sha256": "6736127ba4414b69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0082.s1",
+      "source_sha256": "c34b0458574f5ea5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When your bones have deteriorated, the light of your eyes has faded, and your teeth have fallen out and can no longer chew food. Your mind has stopped perceiving and understanding a word of wisdom. The sinews of your body have loosened and can no longer enable you to stand up easily."
+      "text": "When your bones have grown weak, the light of your eyes has gone out, the teeth have fallen out and stopped grinding food, and the mind has stopped perceiving"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0082.s2",
+      "source_sha256": "47aed292aae2222d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and understanding a word of wisdom, the body’s sinews have loosened and can no longer manage to rise easily."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0083",
@@ -4953,11 +5309,18 @@
       "text": "Look, I have made the matter clear to you: there is no profit in a person's life, in having been born into this world."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0115",
-      "source_sha256": "95c34c8e2b5a8770",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0115.s1",
+      "source_sha256": "5e64fb8bd21974a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If you want to be saved and inherit life, hurry and redeem your sins through acts of mercy and compassion toward the poor, so that you may enjoy yourself in the place where there is joy and gladness."
+      "text": "If you want to be saved and inherit life, hurry and redeem your sins through acts of mercy"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0115.s2",
+      "source_sha256": "d7b258108804ca4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and compassion toward the poor, so that you may enjoy yourself in the place where there is joy and gladness."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0116",
@@ -4981,11 +5344,18 @@
       "text": "He says, “I do not desire the death of the sinner, but rather that he turn away from his evil way, repent, and live.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0119",
-      "source_sha256": "957857eee6cdf906",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0119.s1",
+      "source_sha256": "72cdfac95ac21616",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And again, “If the lawless person turns away from his evil deeds and acts righteously, I will not remember the lawless deeds he committed. Rather, he will live by the righteousness he has practiced.”"
+      "text": "And again: “If the lawless person turns away from his wicked deeds and practices righteousness…”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0119.s2",
+      "source_sha256": "37fc347bd533d9b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will not remember the lawless deeds he committed. Rather, he will live by the righteousness he practiced."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0120",
@@ -5016,11 +5386,18 @@
       "text": "Have you seen God's love for humanity toward us, O human being?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0124",
-      "source_sha256": "88ee0a0a4d19e374",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0124.s1",
+      "source_sha256": "bfea4d1f4a8c4d6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Furthermore, do not keep putting off day after day, month after month, year after year, until the allotted span of your life runs out and you depart weighed down by the burden of your sins, and curse the day on which you were born."
+      "text": "So then, do not keep adding day after day, month after month, year after year, until the allotted span of your life runs out,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0124.s2",
+      "source_sha256": "483b89d4f224968b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and you depart loaded with the punishment for your sins and curse the day you were born."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0125",
@@ -5030,11 +5407,18 @@
       "text": "I have said all these things to you, my beloved, because of the written saying: “A person is born to suffering.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0126",
-      "source_sha256": "1f4f6fe2d4b8d3d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0126.s1",
+      "source_sha256": "982fd33353dbf9cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For the prophet reflected that there is no profit in human life except suffering and misery. That is why he said, “A person is born to suffering, and his days pass swiftly.”"
+      "text": "Since the prophet reflected that there is no gain in human life except toil and misery,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0126.s2",
+      "source_sha256": "6b7793b8a87f7422",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he therefore said, “A person is born to suffer, and his days pass swiftly.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0127",
@@ -5058,11 +5442,18 @@
       "text": "This is truly the person whose journey into the world has been profitable for him."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0130",
-      "source_sha256": "1ccc3280cc4d51eb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0130.s1",
+      "source_sha256": "8af40b0c49c21aa6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Blessed is the righteous and merciful person, because he will eat the good things of the earth and will rest in the kingdom of heaven beside the patriarchs Abraham, Isaac, and Jacob, and Job, these faithful men."
+      "text": "Blessed is the righteous and merciful person, for he will eat the good things of the earth and rest in the kingdom of heaven beside the patriarchs,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0130.s2",
+      "source_sha256": "b54bffcad7b04bf8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Abraham, Isaac, and Jacob, and Job, these faithful men."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0131",
@@ -5072,11 +5463,18 @@
       "text": "And happy is the poor person who is thankful, cheerful, and prudent, because he will leave the poverty of this world and be taken into endless riches."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0132",
-      "source_sha256": "d7ff324ccfe810cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0132.s1",
+      "source_sha256": "b9c1df1c1ff3b1bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "This is truly the person whose sufferings have ended and who has inherited the rest that never ends, forever, as it is written: “Happy are the poor in spirit, because theirs is the kingdom of heaven.”"
+      "text": "This is truly the person whose sufferings have ended and who has inherited the rest that will never end."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0132.s2",
+      "source_sha256": "356540a9be88af3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As it is written, “Blessed are the poor in spirit, for theirs is the kingdom of heaven.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0133",
@@ -5100,18 +5498,32 @@
       "text": "I have expanded the discourse a little."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0136",
-      "source_sha256": "4b765cd75fe34a2c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0136.s1",
+      "source_sha256": "52a4d36e56d3cf66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I know that the tears that have flowed from your eyes will become a spring of salvation for you, cleansing your bodies at the great feast of the commander, Saint Victor, whose feast we are celebrating today."
+      "text": "I know that the tears that have flowed from your eyes will become a fountain of salvation for you,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0137",
-      "source_sha256": "b2fdda25ad317eb3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0136.s2",
+      "source_sha256": "6bd61bc394d088ca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Believe me, people who love God: I did not wish to bring up this discourse full of sorrow at this great feast today, lest I cast gloom over the feast of Saint Victor, who is honored among all the martyrs. But I was seized in my thoughts."
+      "text": "and it will cleanse your bodies at the great festival of the commander, Saint Victor, whose festival we are celebrating today."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0137.s1",
+      "source_sha256": "84a9ec102d78287a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Believe me, God-loving people, I did not want to touch on this sorrow-filled discourse at this great festival today,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0137.s2",
+      "source_sha256": "f1f97375d7e577dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that I would not cast a shadow over the festival of Saint Victor, who is honored among all the martyrs. But I was compelled in my mind,"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0138",
@@ -5142,11 +5554,18 @@
       "text": "I do not want honor belonging to this world. My honor is in heaven beside my Lord, my King, Christ.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0142",
-      "source_sha256": "72e652213482a890",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0142.s1",
+      "source_sha256": "a118feea0dbb17c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When I heard these things from Saint Victor, who cares for all who suffer, and who had declined honor for himself for the salvation and preservation of our soul and body,"
+      "text": "when I heard these things from Saint Victor, who cares for all who suffer,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0142.s2",
+      "source_sha256": "8ecbf9534aa71f80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "since he had declined his own honor for the salvation and preservation of our soul and body."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0143",
@@ -5163,11 +5582,25 @@
       "text": "I said these few things to you for the comfort of our soul."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0145",
-      "source_sha256": "170d8c680c6ff293",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0145.s1",
+      "source_sha256": "efb42753a9ba5c5b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now, then, let us send ahead of us the things we will find for our soul on the day of our distress, so that Saint Victor, whose feast we are celebrating today, will intercede for us before Christ, the true shepherd, and he will lead our souls into the pastures that please him, as it is written: “His wishes are more precious than gold and abundant precious stone.”"
+      "text": "Now then, let us send ahead of us the things we will find for our soul on the day of our distress,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0145.s2",
+      "source_sha256": "237fe72973612d02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that Saint Victor, whose festival we are celebrating today, will intercede for us before Christ, the true shepherd,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0145.s3",
+      "source_sha256": "db05bb558cf75626",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and he will lead our souls into the pastures he desires, as it is written: “His wishes are more precious than gold and an abundance of precious stones.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0146",
@@ -5198,18 +5631,32 @@
       "text": "And again, if you have not sinned, watch yourself, lest the devil become envious of you."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0150",
-      "source_sha256": "229d2e88d6ae47b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0150.s1",
+      "source_sha256": "59114d8a00122bee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For he is cunning, and he hates the human race. Listen to what is written in the General Epistles: “Be sober and keep watch, for your adversary the devil walks about roaring like a lion, seeking to swallow up your souls.”"
+      "text": "For he is cunning and hates the human race. Listen to what is written in the general epistles: “Be sober and keep watch,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0151",
-      "source_sha256": "498deb3f9b70259b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0150.s2",
+      "source_sha256": "2c3584df5419421a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Paul also says, “Our struggle is not against blood and flesh, but against the rulers and authorities, against the world rulers of darkness, against the spiritual forces of wickedness in the heavens.”"
+      "text": "because your adversary, the devil, prowls about roaring like a lion, seeking to swallow up your souls.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0151.s1",
+      "source_sha256": "fb63ab80b50521b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Paul also says, “Our struggle is not against blood and flesh, but against the rulers and the authorities,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0151.s2",
+      "source_sha256": "97f6ed31856547e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "against the world rulers of darkness, against the spiritual forces of evil in the heavenly realms.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0152",
@@ -5275,11 +5722,18 @@
       "text": "But when they tend the vine and put water at its roots, the grape that was sour a little earlier—"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0161",
-      "source_sha256": "cf91522db384adc4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0161.s1",
+      "source_sha256": "c4b1a6e2c12035c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "its sourness will disappear, so that you cannot tell where its sourness has gone, and it becomes sweet in taste. This is how sin disappears through repentance, and righteousness blossoms sweetly in the people who practice it."
+      "text": "The salt will disappear, so that you cannot tell where its salt has gone, and it becomes sweet to the taste."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0161.s2",
+      "source_sha256": "edcdaca6b1a62e06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "This is how sin is destroyed through repentance, and righteousness blossoms sweetly within the people who practice it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0162",
@@ -5331,11 +5785,18 @@
       "text": "Let us not become careless and continue sinning, only to be taken away suddenly and depart in shame and sorrow. But I have almost gone into another arena."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0169",
-      "source_sha256": "f437f2f9d451a957",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0169.s1",
+      "source_sha256": "6b9d64e37e7f2a5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I have forgotten the mighty deeds and wonders of Saint Victor, whose festival we are celebrating today, since our excessive negligence has brought us into this great sorrow, so that we have forgotten the honored commander."
+      "text": "I forgot the mighty deeds and wonders of Saint Victor, whose festival we are celebrating today."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0169.s2",
+      "source_sha256": "c3f8c278a53371a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Our excessive negligence has brought us into this great sorrow, so that we have forgotten the honored commander."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0170",
@@ -5345,11 +5806,18 @@
       "text": "Indeed, my tongue is exceedingly weak, and I cannot speak of even one ten-thousandth of your virtues."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0171",
-      "source_sha256": "bb75c271b754b074",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0171.s1",
+      "source_sha256": "904516a338b2f44b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But like someone who ventures into a great sea or a great spring, whom you then find [?] and plunging into the spring as it wells up ever more abundantly, so am I before that man's achievements."
+      "text": "But, like a person about to venture into a vast sea or a great spring, you find him struggling and plunging into the spring,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0171.s2",
+      "source_sha256": "01cc51e806822377",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as it wells up more and more. This is also my own position before that man's achievements."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0172",
@@ -5387,11 +5855,18 @@
       "text": "I was afraid that I might bring sorrow upon the people at this great festival today."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0177",
-      "source_sha256": "1370bcab031a4542",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0177.s1",
+      "source_sha256": "8cf5a7303c630dce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I turned the rudder of my tongue to tell you about a few miracles that took place at his shrine, which I saw with my own eyes, to the glory of God, who honors those who honor him."
+      "text": "I have turned the course of my tongue to tell you a few of the miracles that took place at his martyr's shrine."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0177.s2",
+      "source_sha256": "5dd9d089efbc6a00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "These I saw with my own eyes, to the glory of God, who honors those who honor him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0178",
@@ -5401,11 +5876,18 @@
       "text": "I do indeed wish to recount a few of his achievements, but I am at a loss, because my tongue cannot honor him as he deserves."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0179",
-      "source_sha256": "f011434a4f66a697",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0179.s1",
+      "source_sha256": "30672b39e5c7b14a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For even our God-bearing fathers, the bishops who preceded me—Eusebius, Julius, and Innocent—these true teachers who bear God: some of them undertook to speak about your honor and the wonders you perform at your shrine."
+      "text": "For indeed, our God-bearing fathers, the bishops who came before me, were these: Eusebius, Julius, and Innocent."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0179.s2",
+      "source_sha256": "6140ab288d4c8f11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "These truly God-bearing teachers—some of them undertook to speak of your honor and the wonders you perform at your martyr's shrine."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0180",
@@ -5450,18 +5932,32 @@
       "text": "For the grace God has given you is great."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0186",
-      "source_sha256": "93dcfc379900fe54",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0186.s1",
+      "source_sha256": "e0ee3882ac65210c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He has made these signs of healing endure at your shrine: the mute speak, the lame walk, the lepers are cleansed; you drive out demons and raise the dead through the great gift that God has established permanently in your shrines."
+      "text": "He has made these signs of healing continue at your martyr's shrine: the mute speak, the lame walk, and lepers are cleansed."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0187",
-      "source_sha256": "91a986f07b2e784b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0186.s2",
+      "source_sha256": "7e0526e1e7c04862",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Signs of this kind have endured not only in the place where your body lies, but these signs endure in every place throughout the whole world where your name is invoked. So that you may know that what I am telling you is true,"
+      "text": "You cast out demons and raise the dead through the great gift that God has established permanently in your martyrs' shrines."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0187.s1",
+      "source_sha256": "919f6b8c29d688ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Signs of this kind continued not only in the place where your body lies, but in every place throughout the whole world"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0187.s2",
+      "source_sha256": "cc602d65db9700a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "over which your name is invoked. These signs continue in all of them, so that you may know that what I am telling you is true."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0188",
@@ -5478,11 +5974,18 @@
       "text": "There was a man in this city who possessed great wealth, many properties, estates outside the city, and vineyards."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0190",
-      "source_sha256": "0cfbab660cea2a44",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0190.s1",
+      "source_sha256": "3c96aa4f40c1ece3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He was a very good man who loved the poor, and he had great faith in Saint Victor. Consequently, every year he gave large quantities of wine to the sanctuary, so that they could celebrate worship with it and distribute some of it to the sick and those in need, for the salvation of his soul."
+      "text": "Now this man was very good and loved the poor, and he had great faith in Saint Victor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0190.s2",
+      "source_sha256": "4a0bcf313c8dd4bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "So every year he would give large quantities of wine to the shrine, for celebrating the liturgy and distributing to the sick and those in need, for the salvation of his soul."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0191",
@@ -5520,11 +6023,18 @@
       "text": "and he prospered greatly."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0196",
-      "source_sha256": "4cd29aa8d8696d9f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0196.s1",
+      "source_sha256": "dd4ab27bca45af83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "God's blessing increased in his household, his gardens, his vineyards, and his fields, and his crops increased greatly, so that there was no counting the blessing the Lord had allotted him."
+      "text": "God's blessing abounded in his house, his gardens, and his vineyards,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0196.s2",
+      "source_sha256": "7cf706b4eb09286e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and in his fields and his crops. They increased greatly, so that the blessing the Lord had allotted him was beyond counting."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0197",
@@ -5653,11 +6163,18 @@
       "text": "When harvest time arrived, the steward of Saint Victor sent these clergy to him to collect the firstfruits, according to his father's custom."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0215",
-      "source_sha256": "795c76b304444f77",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0215.s1",
+      "source_sha256": "981d9f22b15f0eeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "But he did not give them anything. Instead, he said, “Truly, my father hated what he owned, squandering it wastefully. Does Saint Victor drink wine? It is the clergy who drink it."
+      "text": "But he did not give to them. Instead, he said, “Truly, my father hates what belongs to him,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0215.s2",
+      "source_sha256": "86dbac05105f8228",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "speaking maliciously. “Does Saint Victor drink wine? It is the clergy who drink it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0216",
@@ -5947,11 +6464,18 @@
       "text": "I made him prosper in grain and wine."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0257",
-      "source_sha256": "9c1ae9364d831090",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0257.s1",
+      "source_sha256": "addc535edb177161",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "I doubled his money, his livestock, and all his possessions because of his acts of mercy toward the poor and the offerings he gives to God in my name."
+      "text": "“I have doubled his wealth, his livestock, and all his possessions,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0257.s2",
+      "source_sha256": "debbcbcf2e69b6bb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "because of the acts of mercy he does for the poor and the offerings he gives to God in my name."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0258",
@@ -6024,11 +6548,25 @@
       "text": "I will increase them.” The holy man said to him, “God has taken away your sin, and this will be a sign for you:"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0268",
-      "source_sha256": "3164500b85a2af80",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0268.s1",
+      "source_sha256": "bec818a3433bfb1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When you get up early tomorrow morning, open the door of your storerooms and taste your wines. You will find that they have been restored to their former condition, so that you may know that God has power over everything. It is God’s blessing that makes a person rich, but it is a person’s willingness that God loves."
+      "text": "When you get up early tomorrow morning, open the door of your storehouses and taste your wines."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0268.s2",
+      "source_sha256": "da187f09d77c7595",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "You will find that they have been restored to their former condition, so that you may know that God has power over everything."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0268.s3",
+      "source_sha256": "837da345fa19aac1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It is God's blessing that makes a person rich, but it is a person's willingness that God loves.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0269",
@@ -6150,11 +6688,18 @@
       "text": "From that day onward, he became an earnest man, devoting himself to the salvation of his soul."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0286",
-      "source_sha256": "21f85898f78e3a3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0286.s1",
+      "source_sha256": "dee1e2272349fe39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You have seen, my beloved, how great are the miracles of Saint Victor, whose feast we celebrate today. No feeble tongue can recount even one ten-thousandth of his virtues, his honor, and the wonders he performed."
+      "text": "You have seen, my beloved, how great are the miracles of Saint Victor, whose feast we celebrate today."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0286.s2",
+      "source_sha256": "63fc616ab5e1f1d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My feeble tongue cannot recount even a ten-thousandth of his virtues, his honor, and the wonders he performed."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0287",
@@ -6318,25 +6863,46 @@
       "text": "Let us clothe those who are naked, so that we may escape the terror of the gnashing of teeth."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0310",
-      "source_sha256": "074bec00ea55f098",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "Let us welcome into our home the poor who have no home, during the feast of Saint Victor, so that he will remember us before the Lord and bring us into his kingdom in heaven."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0310.s1",
+      "source_sha256": "bdee8e7830d983f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let us welcome into our home the poor who have no home, on the feast of Saint Victor."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0311",
-      "source_sha256": "19f37be483dff644",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "Let us not keep any bond in our hearts against anyone during the feast of Saint Victor, so that God and his angels may be among us as we celebrate his feast, lest he reject us as enemies."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0310.s2",
+      "source_sha256": "adda3b31f1bc7d91",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "So that he may remember us before the Lord and bring us into his kingdom in heaven."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0312",
-      "source_sha256": "bd5a803f1ae6a8d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "Instead, let us undo every bond of injustice, all hostility, and all malice toward one another, so that God and his holy angels will be reconciled with us."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0311.s1",
+      "source_sha256": "15407bc3a19277ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "Do not let us keep any bond in our hearts against anyone during the feast of Saint Victor."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0311.s2",
+      "source_sha256": "aef8be4959614891",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "So that God and his angels may be among us as we celebrate his feast, lest he put us to shame as enemies."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0312.s1",
+      "source_sha256": "697adcc194c585c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "Instead, let us loosen every bond of injustice and all hostility,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0312.s2",
+      "source_sha256": "e0464e420c6da9c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "and all malice toward one another, so that God and his holy angels may be reconciled with us."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0313",
@@ -6353,18 +6919,32 @@
       "text": "The discourse has become very long for us, but the words of God and the mighty deeds of the saints are inexhaustible."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0315",
-      "source_sha256": "44987ea1e4891226",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "May Saint Victor, whose feast we celebrate today, intercede with the Lord for us, so that he may forgive our sins and bless the God-loving king and all the orthodox people."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0315.s1",
+      "source_sha256": "c01e5d38743272d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May it be granted to us that Saint Victor, whose feast we celebrate today, intercede with the Lord for us, so that he may forgive our sins."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0316",
-      "source_sha256": "56dbe0713e00638a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "Through Jesus Christ our Lord, through whom glory belongs to him, together with his good Father and the holy, life-giving Spirit, who is of the same substance, now and always, throughout all the endless ages of ages."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0315.s2",
+      "source_sha256": "8894478dd051ab26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "And may he bless the God-loving king and all the orthodox people,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0316.s1",
+      "source_sha256": "c17ed5faa25eb693",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "through Jesus Christ our Lord, through whom glory belongs to him and his good Father and the holy, life-giving Spirit,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0316.s2",
+      "source_sha256": "4965f9994f42a163",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "who is also of the same substance, now and always, through all the ages of ages, without end."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0317",
@@ -6388,25 +6968,46 @@
       "text": "He took responsibility for this book and donated it to the church of Saint Mercurius in Tbo, called Apollonia in the language of Alexandria."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0320",
-      "source_sha256": "7a3034101288b8ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "May the Lord preserve the life and salvation of the God-loving brother [?], and make him worthy of the joy of the kingdom of heaven. May he perfect him in the angelic life that he has put on, like our fathers, the forefathers of the community. May he [?] his blessing upon us, together with all the saints. Amen."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0320.s1",
+      "source_sha256": "5a00c73b84ee20b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May the Lord preserve the life and salvation of the God-loving brother [?], and make him worthy of the joy of the kingdom of heaven."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0321",
-      "source_sha256": "2023818efcd86417",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "May the Lord Jesus Christ, who is truly our true God, preserve the life and salvation of the most devout archpriest Apa Abraham, the superior and administrator of the monastery of Saint Mercurius in Tbo. May he [?] his blessing upon us."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0320.s2",
+      "source_sha256": "4ba1ca0eeeea4fc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May he perfect him in the angelic life that he has put on, like our fathers, the forefathers of the community, and may he [?] his blessing upon us, together with all the saints. Amen."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0322",
-      "source_sha256": "014995bc87735779",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "May the Lord preserve the life and salvation of all the fathers and sons of the monastery. May he make us worthy of their blessings, and may he put [?] in their hearts, so that they may pray for me before our king, Christ, that he may forgive my many sins and show me mercy on the day of my visitation."
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0321.s1",
+      "source_sha256": "73c81ae73645685f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May the Lord Jesus Christ, who is truly our true God, preserve the life and salvation of the most devout archpriest, Apa Abraham,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0321.s2",
+      "source_sha256": "fd59b17defc361db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "the superior and administrator of the monastery of Saint Mercurius at Tbo, and may he [?] his blessing upon us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0322.s1",
+      "source_sha256": "96965636396778c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May the Lord preserve the life and salvation of all the fathers and sons of the monastery, make us worthy of their blessings, and put love [?] within us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0322.s2",
+      "source_sha256": "ca8d834dae10d13d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 15,
+      "text": "May they intercede for me before our king, Christ, so that he may forgive my many sins and have mercy on me on the day of my visitation."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_celestinus#CopScr.pseudo-celestinus.002.0323",

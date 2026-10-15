@@ -1,10 +1,10 @@
 [
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA",
+    "canonical_ref": "PL80.SA.s1",
     "language": "lat",
-    "text": "I. Poenitentia vera est. poenitenda non admittere, sed admissa deflere. Sed quia hanc multorum fragi- litas, ut non dicam omnium, rumpit, mensurae nos- condae sunt poenitentiae; quarum sic ordo a sanctis traditur Patribus, ut juxta magnitudinem culparum etiam longitudo statuatur poenitentiarum.",
+    "text": "I. Poenitentia vera est. poenitenda non admittere, sed admissa deflere.",
     "chunk_index": 0,
     "context_before": null,
     "context_after": null,
@@ -18,11 +18,11 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.1",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.1",
+    "canonical_ref": "PL80.SA.s2",
     "language": "lat",
-    "text": "II. Si quis igitur per cogitationem peccaverit, id est, concupierit hominem occidere, aut fornicari, aut furari, aut clam comedere, et inebriari; vel certe aliquem perculere, sive discedere, vel alia his facere similia, et paratus ad haec corde complenda fuerit : majora dimidio anno; minora quadraginta diebus, in pane et aqua poeniteat.",
+    "text": "Sed quia hanc multorum fragi- litas, ut non dicam omnium, rumpit, mensurae nos- condae sunt poenitentiae;",
     "chunk_index": 1,
     "context_before": null,
     "context_after": null,
@@ -36,12 +36,120 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.2",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.s3",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.2",
+    "canonical_ref": "PL80.SA.s3",
     "language": "lat",
-    "text": "III. Si quis aulem peccatis praevalentibus facto peccaverit; si homicidium, aut sodomiticum fecerit peccatum, decem annis poeniteat : si fornicaverit semel tantum, tribus annis monachus poeniteat; si saepius, septem annis. Si discesserit et vota fregerit, si cito poenitens redierit, tribus quadragesimis : si autem post annos, tribus annis poeniteat.",
+    "text": "quarum sic ordo a sanctis traditur Patribus, ut juxta magnitudinem culparum etiam longitudo statuatur poenitentiarum.",
     "chunk_index": 2,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.1.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.1.s1",
+    "language": "lat",
+    "text": "II. Si quis igitur per cogitationem peccaverit, id est, concupierit hominem occidere, aut fornicari, aut furari, aut clam comedere, et inebriari;",
+    "chunk_index": 3,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.1.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.1.s2",
+    "language": "lat",
+    "text": "vel certe aliquem perculere, sive discedere, vel alia his facere similia, et paratus ad haec corde complenda fuerit :",
+    "chunk_index": 4,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.1.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.1.s3",
+    "language": "lat",
+    "text": "majora dimidio anno; minora quadraginta diebus, in pane et aqua poeniteat.",
+    "chunk_index": 5,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.2.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.2.s1",
+    "language": "lat",
+    "text": "III. Si quis aulem peccatis praevalentibus facto peccaverit; si homicidium, aut sodomiticum fecerit peccatum, decem annis poeniteat :",
+    "chunk_index": 6,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.2.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.2.s2",
+    "language": "lat",
+    "text": "si fornicaverit semel tantum, tribus annis monachus poeniteat; si saepius, septem annis.",
+    "chunk_index": 7,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.2.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.2.s3",
+    "language": "lat",
+    "text": "Si discesserit et vota fregerit, si cito poenitens redierit, tribus quadragesimis : si autem post annos, tribus annis poeniteat.",
+    "chunk_index": 8,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -59,7 +167,7 @@
     "canonical_ref": "PL80.SA.3",
     "language": "lat",
     "text": "IV. Si quis furatus fuerit, anno poeniteat.",
-    "chunk_index": 3,
+    "chunk_index": 9,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -77,7 +185,7 @@
     "canonical_ref": "PL80.SA.4",
     "language": "lat",
     "text": "V. Si quis percusserit per rixam fratrem suum, et sanguinem fuderit, tribus annis poeniteat.",
-    "chunk_index": 4,
+    "chunk_index": 10,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -90,12 +198,30 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.5",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.5.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.5",
+    "canonical_ref": "PL80.SA.5.s1",
     "language": "lat",
-    "text": "VI. Si quis autem inebriaverit se, et evomuerit, aut saturatus nimis, sacrificium per hoc evomuerit, quadraginta diebus poeniteat : si vero per infirmita- tem sacrificium vomere cogatur, septem diebus poe- niteat Si ipsum sacrificium quis perdiderit, anno poeniteat.",
-    "chunk_index": 5,
+    "text": "VI. Si quis autem inebriaverit se, et evomuerit, aut saturatus nimis, sacrificium per hoc evomuerit, quadraginta diebus poeniteat :",
+    "chunk_index": 11,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.5.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.5.s2",
+    "language": "lat",
+    "text": "si vero per infirmita- tem sacrificium vomere cogatur, septem diebus poe- niteat Si ipsum sacrificium quis perdiderit, anno poeniteat.",
+    "chunk_index": 12,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -113,7 +239,7 @@
     "canonical_ref": "PL80.SA.6",
     "language": "lat",
     "text": "VII. Si quis seipsum coinquinaverit, anno poeni- teal, si junior sit.",
-    "chunk_index": 6,
+    "chunk_index": 13,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -131,7 +257,7 @@
     "canonical_ref": "PL80.SA.7",
     "language": "lat",
     "text": "VIII. Si quis falsum testimonium testificatus fuerit sciens, duobus annis poeniteat cum illius rei perdi- tione, vel redintegratione.",
-    "chunk_index": 7,
+    "chunk_index": 14,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -149,7 +275,7 @@
     "canonical_ref": "PL80.SA.8",
     "language": "lat",
     "text": "Haec de causis casualibus : caeterum de minutis morum inconditorum.",
-    "chunk_index": 8,
+    "chunk_index": 15,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -162,12 +288,48 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.9",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.9.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.9",
+    "canonical_ref": "PL80.SA.9.s1",
     "language": "lat",
-    "text": "IX. Qui facit per se aliquid sine interrogatione; vel qui contradicit et dicit : Non facio, vel qui mur- murat; si grande sit, tribus superpositionibus; si parvum, uno anno poeniteat; verbum vero contra verbum simpliciter promptum, quinquaginta plagis Vindicandum; vel si ex intentione silentii, superposi- tione; nam si rixa, septimana poeniteat.",
-    "chunk_index": 9,
+    "text": "IX. Qui facit per se aliquid sine interrogatione; vel qui contradicit et dicit : Non facio, vel qui mur- murat; si grande sit, tribus superpositionibus;",
+    "chunk_index": 16,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.9.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.9.s2",
+    "language": "lat",
+    "text": "si parvum, uno anno poeniteat; verbum vero contra verbum simpliciter promptum, quinquaginta plagis Vindicandum;",
+    "chunk_index": 17,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.9.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.9.s3",
+    "language": "lat",
+    "text": "vel si ex intentione silentii, superposi- tione; nam si rixa, septimana poeniteat.",
+    "chunk_index": 18,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -185,7 +347,7 @@
     "canonical_ref": "PL80.SA.10",
     "language": "lat",
     "text": "X. Qui autem detrahit, aut libenter audit detra- hentem, tribus superpositionibus poeniteat : si de co qui praeest, septimana poeniteat.",
-    "chunk_index": 10,
+    "chunk_index": 19,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -198,12 +360,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.11",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.11.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.11",
+    "canonical_ref": "PL80.SA.11.s1",
     "language": "lat",
-    "text": "XI. Qui autem per superbiam suum praepositum despexerit, aut regulam blasphemaverit, foras repel- lendus est, nisi confeslim dixerit : Poenitet me quod dixi. Si autem se non bene humiliaverit, quadraginta diebus poenileat, quia superbiae morbo detinetur.",
-    "chunk_index": 11,
+    "text": "XI. Qui autem per superbiam suum praepositum despexerit, aut regulam blasphemaverit, foras repel- lendus est, nisi confeslim dixerit : Poenitet me quod dixi.",
+    "chunk_index": 20,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -216,12 +378,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.12",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.11.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.12",
+    "canonical_ref": "PL80.SA.11.s2",
     "language": "lat",
-    "text": "XII. Verbosus vero taciturnitate damnandus est, inquietus mansuetudine, gulosus jejunio, somnolen- tus vigilia, superbus carcere, destitutor repulsione : unusquisque juxta quod meretur, quo aequalia sentiat, ut justus juste vivat.",
-    "chunk_index": 12,
+    "text": "Si autem se non bene humiliaverit, quadraginta diebus poenileat, quia superbiae morbo detinetur.",
+    "chunk_index": 21,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -234,12 +396,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.12.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.13",
+    "canonical_ref": "PL80.SA.12.s1",
     "language": "lat",
-    "text": "Diversitas culparum diversitatem facit poeniten- tiarum; nam et corporum medici diversis medicamenta generibus componunt : aliter enim vulnera, aliter mor- bos, aliter tumores, aliter livores, aliter putredines, aliter caligines, aliter confractiones, aliter combus- tiones curant. Ita igitur etiam spirituales medici diversis curationum generibus animarum vulnera, morbos, culpas, dolores, aegritudines, infirmi ates, sanare debent. Sed quia haec paucorum sunt, ad pura scilicet cuncta cognoscere, curare ad integrum salutis statum, debilia revocare; vel pauca juxta se- niorum traditiones, et juxta nostram ex parte intel- ligentiam (Ex parte namque prophetamus, et ex parte cognoscimus (I Cor. XIII, 9) aliqua proponamus. De capitalibus primum criminibus quae etiam legis ani- madversione plectuntur, sanciendum est.",
-    "chunk_index": 13,
+    "text": "XII. Verbosus vero taciturnitate damnandus est, inquietus mansuetudine, gulosus jejunio, somnolen- tus vigilia, superbus carcere, destitutor repulsione :",
+    "chunk_index": 22,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -252,12 +414,192 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.14",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.12.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.14",
+    "canonical_ref": "PL80.SA.12.s2",
     "language": "lat",
-    "text": "XIII. Si quis clericus homicidium fecerit, et pro- ximum suum occiderit, decem annis exsul poeniteat. Post hos recipiatur in patriam, si bene egerit poeni- tentiam in pane et aqua, testimonio comprobatus episcopi vel sacerdotis, cum quo poenituit, et coi commissus fuit, ut satisfaciat parentibus ejus quem occidit, vicem filii reddens, et dicens : Quaecunque vultis, faciam vobis. Si autem non satisfecerit paren- tibus illius, nunquam recipiatur in patriam, sed more Cain vagus et profugus sit super terram.",
-    "chunk_index": 14,
+    "text": "unusquisque juxta quod meretur, quo aequalia sentiat, ut justus juste vivat.",
+    "chunk_index": 23,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s1",
+    "language": "lat",
+    "text": "Diversitas culparum diversitatem facit poeniten- tiarum; nam et corporum medici diversis medicamenta generibus componunt :",
+    "chunk_index": 24,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s2",
+    "language": "lat",
+    "text": "aliter enim vulnera, aliter mor- bos, aliter tumores, aliter livores, aliter putredines, aliter caligines, aliter confractiones, aliter combus- tiones curant.",
+    "chunk_index": 25,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s3",
+    "language": "lat",
+    "text": "Ita igitur etiam spirituales medici diversis curationum generibus animarum vulnera, morbos, culpas, dolores, aegritudines, infirmi ates, sanare debent.",
+    "chunk_index": 26,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s4",
+    "language": "lat",
+    "text": "Sed quia haec paucorum sunt, ad pura scilicet cuncta cognoscere, curare ad integrum salutis statum, debilia revocare;",
+    "chunk_index": 27,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s5",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s5",
+    "language": "lat",
+    "text": "vel pauca juxta se- niorum traditiones, et juxta nostram ex parte intel- ligentiam (Ex parte namque prophetamus, et ex parte cognoscimus (I Cor.",
+    "chunk_index": 28,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.13.s6",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.13.s6",
+    "language": "lat",
+    "text": "XIII, 9) aliqua proponamus. De capitalibus primum criminibus quae etiam legis ani- madversione plectuntur, sanciendum est.",
+    "chunk_index": 29,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.14.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.14.s1",
+    "language": "lat",
+    "text": "XIII. Si quis clericus homicidium fecerit, et pro- ximum suum occiderit, decem annis exsul poeniteat.",
+    "chunk_index": 30,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.14.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.14.s2",
+    "language": "lat",
+    "text": "Post hos recipiatur in patriam, si bene egerit poeni- tentiam in pane et aqua, testimonio comprobatus episcopi vel sacerdotis, cum quo poenituit,",
+    "chunk_index": 31,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.14.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.14.s3",
+    "language": "lat",
+    "text": "et coi commissus fuit, ut satisfaciat parentibus ejus quem occidit, vicem filii reddens, et dicens : Quaecunque vultis, faciam vobis.",
+    "chunk_index": 32,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.14.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.14.s4",
+    "language": "lat",
+    "text": "Si autem non satisfecerit paren- tibus illius, nunquam recipiatur in patriam, sed more Cain vagus et profugus sit super terram.",
+    "chunk_index": 33,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -275,7 +617,7 @@
     "canonical_ref": "PL80.SA.15",
     "language": "lat",
     "text": "XIV. Si quis ruina maxima ceciderit, et filium genuerit, septem annis peregrinus, in pane es, aqua poeniteat : tunc primum sacerdotis judicio jungatur altario.",
-    "chunk_index": 15,
+    "chunk_index": 34,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -288,12 +630,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.16",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.16.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.16",
+    "canonical_ref": "PL80.SA.16.s1",
     "language": "lat",
-    "text": "XV. Si quis autem fornicaverit sicut Sodomitae fecerunt, decem annis poeniteat; tribus cum pane et aqua; septem vero aliis abstineat se a vino et carne; et non maneat cum alio in aeternum.",
-    "chunk_index": 16,
+    "text": "XV. Si quis autem fornicaverit sicut Sodomitae fecerunt, decem annis poeniteat;",
+    "chunk_index": 35,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -306,12 +648,48 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.17",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.16.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.17",
+    "canonical_ref": "PL80.SA.16.s2",
     "language": "lat",
-    "text": "XVI. Si quis vero fornicaverit, quidem cum mu- lieribus, sed non filium generaverit, et in not tiam hominum non venerit; si clericus, tribus annis : si monachus vel diaconus, quinque annis; si sacerdos, septem; si episcopus duodecim annis.",
-    "chunk_index": 17,
+    "text": "tribus cum pane et aqua; septem vero aliis abstineat se a vino et carne; et non maneat cum alio in aeternum.",
+    "chunk_index": 36,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.17.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.17.s1",
+    "language": "lat",
+    "text": "XVI. Si quis vero fornicaverit, quidem cum mu- lieribus, sed non filium generaverit, et in not tiam hominum non venerit;",
+    "chunk_index": 37,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.17.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.17.s2",
+    "language": "lat",
+    "text": "si clericus, tribus annis : si monachus vel diaconus, quinque annis; si sacerdos, septem; si episcopus duodecim annis.",
+    "chunk_index": 38,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -329,7 +707,7 @@
     "canonical_ref": "PL80.SA.18",
     "language": "lat",
     "text": "XVII. Si quis perjuraverit, septem annis poeniteat, et nunquam juret postea.",
-    "chunk_index": 18,
+    "chunk_index": 39,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -342,12 +720,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.19",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.19.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.19",
+    "canonical_ref": "PL80.SA.19.s1",
     "language": "lat",
-    "text": "XVIII. Si quis maleficio suo aliquem perdiderit, tribus annis poeniteat cum pane et aqua per mensu- ram, et tribus aliis annis abstineat se a vino et car- nibus, et tunc demum in septimo anno recipitur in communionem. Si autem pro amore quis maleficus sit, et neminem perdiderit, annum integrum cum pane et aqua, clericus ille poeniteat, laicus dimi- dium, diaconus duos, sacerdos tres, maxime si per boc mulieris partum quisquam deceperit : ideo sex quadragesimas unusquisque insuper augeat, ne ho- micidii reus sit.",
-    "chunk_index": 19,
+    "text": "XVIII. Si quis maleficio suo aliquem perdiderit, tribus annis poeniteat cum pane et aqua per mensu- ram,",
+    "chunk_index": 40,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -360,12 +738,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.20",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.19.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.20",
+    "canonical_ref": "PL80.SA.19.s2",
     "language": "lat",
-    "text": "XIX. Si quis clericus furtum fecerit, id est, bovem. aut equum, aut ovem, aut aliquod animal proximi sui furatus fuerit, si semel, aut bis fecit, reddat pro- ximo suo primum, et anno integro in pane et aqua poeniteat : si hoc consuevit, et reddere non potuerit, tribus annis poeniteat cum pane et aqua.",
-    "chunk_index": 20,
+    "text": "et tribus aliis annis abstineat se a vino et car- nibus, et tunc demum in septimo anno recipitur in communionem.",
+    "chunk_index": 41,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -378,12 +756,156 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.21",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.19.s3",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.21",
+    "canonical_ref": "PL80.SA.19.s3",
     "language": "lat",
-    "text": "XX. Si quis amem clericus, aut diaconus, vel ali- cujus gradus, qui laicus fuit in saeculo cum filiis et filiabus, post conversionem suam, iterum suam co- gnoverit clientelam [Forte, clientulam], et filium iterum de ea genuerit, sciat se adulterium perpetras- se, et non minus peccasse quam si ab juventute sua clericus fuisset et cum puella aliena peccas- set; quia post votum suum peccavit, postquam se Domino consecravit, et votum suum irritum fecit; idcirco similiter septem annis· in pane et aqua poe- nitaet.",
-    "chunk_index": 21,
+    "text": "Si autem pro amore quis maleficus sit, et neminem perdiderit, annum integrum cum pane et aqua, clericus ille poeniteat, laicus dimi- dium, diaconus duos,",
+    "chunk_index": 42,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.19.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.19.s4",
+    "language": "lat",
+    "text": "sacerdos tres, maxime si per boc mulieris partum quisquam deceperit : ideo sex quadragesimas unusquisque insuper augeat, ne ho- micidii reus sit.",
+    "chunk_index": 43,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.20.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.20.s1",
+    "language": "lat",
+    "text": "XIX. Si quis clericus furtum fecerit, id est, bovem.",
+    "chunk_index": 44,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.20.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.20.s2",
+    "language": "lat",
+    "text": "aut equum, aut ovem, aut aliquod animal proximi sui furatus fuerit, si semel, aut bis fecit, reddat pro- ximo suo primum, et anno integro in pane et aqua poeniteat :",
+    "chunk_index": 45,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.20.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.20.s3",
+    "language": "lat",
+    "text": "si hoc consuevit, et reddere non potuerit, tribus annis poeniteat cum pane et aqua.",
+    "chunk_index": 46,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.21.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.21.s1",
+    "language": "lat",
+    "text": "XX. Si quis amem clericus, aut diaconus, vel ali- cujus gradus, qui laicus fuit in saeculo cum filiis et filiabus,",
+    "chunk_index": 47,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.21.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.21.s2",
+    "language": "lat",
+    "text": "post conversionem suam, iterum suam co- gnoverit clientelam [Forte, clientulam], et filium iterum de ea genuerit,",
+    "chunk_index": 48,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.21.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.21.s3",
+    "language": "lat",
+    "text": "sciat se adulterium perpetras- se, et non minus peccasse quam si ab juventute sua clericus fuisset et cum puella aliena peccas- set;",
+    "chunk_index": 49,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.21.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.21.s4",
+    "language": "lat",
+    "text": "quia post votum suum peccavit, postquam se Domino consecravit, et votum suum irritum fecit; idcirco similiter septem annis· in pane et aqua poe- nitaet.",
+    "chunk_index": 50,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -401,7 +923,7 @@
     "canonical_ref": "PL80.SA.22",
     "language": "lat",
     "text": "XXI. Si quis clericus per rixam proximum suum percusserit, et sanguinem fuderit, anuum integrum poeniteat : si laicus, quadraginta diebus.",
-    "chunk_index": 22,
+    "chunk_index": 51,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -414,12 +936,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.23",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.23.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.23",
+    "canonical_ref": "PL80.SA.23.s1",
     "language": "lat",
-    "text": "XXII. Si quis per seipsum fornicaverit, aut cum jumento, duobus annis poeniteat, si gradum non ha- bet : si autem gradum aut votum, tribus annis poeni- teat, si aetas non defendit.",
-    "chunk_index": 23,
+    "text": "XXII. Si quis per seipsum fornicaverit, aut cum jumento, duobus annis poeniteat, si gradum non ha- bet :",
+    "chunk_index": 52,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -432,12 +954,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.24",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.23.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.24",
+    "canonical_ref": "PL80.SA.23.s2",
     "language": "lat",
-    "text": "ΧΧIII. Si quis concupiscit mulierem, et non potest facere, id est, non suscipit eum mulier, dimidium anni in pane et aqua poeniteat, et toto se abstineat anno a vino et carnibus, et comrounioue alta- ris.",
-    "chunk_index": 24,
+    "text": "si autem gradum aut votum, tribus annis poeni- teat, si aetas non defendit.",
+    "chunk_index": 53,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -450,12 +972,66 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.25",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.24.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.25",
+    "canonical_ref": "PL80.SA.24.s1",
     "language": "lat",
-    "text": "XXIV. Si quis sacrificium perdiderit, anno poeni- teat : si per ebrietatem aut voracitatem illud evo- muerit, et negligenter illud dimiserit, tribus quadra- gesimis in pane el aqua poeniteat : si vero per infir- mitatem, septem diebus poeniteat.",
-    "chunk_index": 25,
+    "text": "ΧΧIII. Si quis concupiscit mulierem, et non potest facere, id est, non suscipit eum mulier,",
+    "chunk_index": 54,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.24.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.24.s2",
+    "language": "lat",
+    "text": "dimidium anni in pane et aqua poeniteat, et toto se abstineat anno a vino et carnibus, et comrounioue alta- ris.",
+    "chunk_index": 55,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.25.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.25.s1",
+    "language": "lat",
+    "text": "XXIV. Si quis sacrificium perdiderit, anno poeni- teat : si per ebrietatem aut voracitatem illud evo- muerit,",
+    "chunk_index": 56,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.25.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.25.s2",
+    "language": "lat",
+    "text": "et negligenter illud dimiserit, tribus quadra- gesimis in pane el aqua poeniteat : si vero per infir- mitatem, septem diebus poeniteat.",
+    "chunk_index": 57,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -473,7 +1049,7 @@
     "canonical_ref": "PL80.SA.26",
     "language": "lat",
     "text": "Sed haec de clericis et monachis mixlim dicta sint. Caeterum de laicis.",
-    "chunk_index": 26,
+    "chunk_index": 58,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -486,12 +1062,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.27",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.27.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.27",
+    "canonical_ref": "PL80.SA.27.s1",
     "language": "lat",
-    "text": "XXV. Quicunque fecerit homicidium, id est, pro- ximum suum occiderit, tribus annis inermis exsul, in pane et aqua poeniteat. et post tres annos revertatur in sua, reddens vicem parentibus occisi, pietatis et officii; et sic post satisfactionem judicio sacerdotis jungatur altario.",
-    "chunk_index": 27,
+    "text": "XXV. Quicunque fecerit homicidium, id est, pro- ximum suum occiderit, tribus annis inermis exsul, in pane et aqua poeniteat.",
+    "chunk_index": 59,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -504,12 +1080,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.28",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.27.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.28",
+    "canonical_ref": "PL80.SA.27.s2",
     "language": "lat",
-    "text": "XXVI. Si quis laicus de alterius, uxore filium ge- nuerit, id est, adulterium commiserit, toro proximi violato, tribus annis poeniteat, abstinens se a cibis succulentioribus, et a propria uxore, dans insuper pretium pudicitiae marito uxoris violatae; et sic culpa illius per sacerdotem abstergatur.",
-    "chunk_index": 28,
+    "text": "et post tres annos revertatur in sua, reddens vicem parentibus occisi, pietatis et officii; et sic post satisfactionem judicio sacerdotis jungatur altario.",
+    "chunk_index": 60,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -522,12 +1098,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.29",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.28.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.29",
+    "canonical_ref": "PL80.SA.28.s1",
     "language": "lat",
-    "text": "XXVII. Si quis vero laicus fornicaverit sodomitico ritu, id est, cum masculo, coitu femineo peccaverit, septem annis poeniteat : tribus primis cum pane et aqua et sale et fructibus horti siccis : quatuor reli- quis abstineat se a vino et carnibus, et ita dimittatur ilii sua culpa; et sacerdos oret pro illo, et sic junga- tur altario.",
-    "chunk_index": 29,
+    "text": "XXVI. Si quis laicus de alterius, uxore filium ge- nuerit, id est, adulterium commiserit, toro proximi violato, tribus annis poeniteat,",
+    "chunk_index": 61,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -540,12 +1116,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.30",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.28.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.30",
+    "canonical_ref": "PL80.SA.28.s2",
     "language": "lat",
-    "text": "XXVIII. Si quis autem fornicaverit de laicis cum mulieribus a conjugio liberis, id est, viduis, vel puel- lis : si cum vidua, uno anno : si cum puella, duobus annis (reddito tamen humiliationis ejus pretio paren- tibus ejus) poeniteat. Si autem uxorem non habuit, sed virgo virgini conjunctus est : si volunt parentes ejus, ipsa sit uxor ejus; ita tamen, ut anno ante poeniteant ambo; et ita sint conjugales.",
-    "chunk_index": 30,
+    "text": "abstinens se a cibis succulentioribus, et a propria uxore, dans insuper pretium pudicitiae marito uxoris violatae; et sic culpa illius per sacerdotem abstergatur.",
+    "chunk_index": 62,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -558,12 +1134,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.31",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.29.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.31",
+    "canonical_ref": "PL80.SA.29.s1",
     "language": "lat",
-    "text": "XXIX. Si quis autem laicus cum jumento fornica- verit, anno poeniteat, si uxorem habuit : si autem non habuit, dimidio anno : sic et qui uxorem habens propriis membris se ipsum violaverit, poeniteat.",
-    "chunk_index": 31,
+    "text": "XXVII. Si quis vero laicus fornicaverit sodomitico ritu, id est, cum masculo, coitu femineo peccaverit, septem annis poeniteat :",
+    "chunk_index": 63,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -576,12 +1152,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.32",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.29.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.32",
+    "canonical_ref": "PL80.SA.29.s2",
     "language": "lat",
-    "text": "XXX. Si quis laicus infantem suum oppresserit, vel mulier, anno integro in pane et aqua poeniteant, et duobus aliis abstineant se a vino et carnibus : et ita primum altario sacerdotis judicio jungantur, et suum lorum tunc licito maritus ille cognoscat. Sciendum est enim laicis, quod tempore poenitentiae illis tradita a sacerdotibus, non illis liceat suas co- gnoscere uxores, nisi post poenitentiam transactam; de media namque poenitentia [Forte, dimidiat namque poenitentiam].",
-    "chunk_index": 32,
+    "text": "tribus primis cum pane et aqua et sale et fructibus horti siccis :",
+    "chunk_index": 64,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -594,12 +1170,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.29.s3",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.33",
+    "canonical_ref": "PL80.SA.29.s3",
     "language": "lat",
-    "text": "XXXI. Si quis laicus furtum fecerit, id est, bovem, aut equum, aut ovem, aut aliquod animal proximi sui furatus fuerit : si semel, aut bis fecit, reddat pri- mum proximo suo damnum quod fecit, et tribus qua- dragesimis in pane et aqua poeniteat. Si autem saepe furtum facere consuevit, et reddere non potuerit, anno et tribus quadragesimis poeniteat, et deinceps nequaquam facere promittat; et sic in Pascha alte- rius anni communicet, id est, post duos annos (data tamen ante pauperibus de suo labore eleemosyna, et sacerdoti poenitentiam judicanti epula) et ita abremit- tatur illi malae consuetudinis culpa.",
-    "chunk_index": 33,
+    "text": "quatuor reli- quis abstineat se a vino et carnibus, et ita dimittatur ilii sua culpa; et sacerdos oret pro illo, et sic junga- tur altario.",
+    "chunk_index": 65,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -612,12 +1188,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.30.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.34",
+    "canonical_ref": "PL80.SA.30.s1",
     "language": "lat",
-    "text": "XXXII. Si quis laicus perjuraverit; si per cupidi- tatem hoc fecerit, lotas res suas vendat, et donet pauperibus, et convertatur ex integro ad Dominum, et tundatur omni dimisso saeculo, et usque ad mortem serviat Deo in monasterio. Si autem non per cupidi- tatem, sed mortis timore hoc fecit, tribus annis iner- mis exsul poeniteat in pane et aqua; et duobus adhuc abstineat se a vino et carnibus : et ita animam pro se reddens, id est, servum aut ancillam de servitutis jugo absolvens, et eleemosynas multas faciens per duos annos (in quibus illi licito uti facile cibis est cunctis, excepta carne) post septimum communicet annum.",
-    "chunk_index": 34,
+    "text": "XXVIII. Si quis autem fornicaverit de laicis cum mulieribus a conjugio liberis, id est, viduis, vel puel- lis :",
+    "chunk_index": 66,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -630,12 +1206,354 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.35",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.30.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.35",
+    "canonical_ref": "PL80.SA.30.s2",
     "language": "lat",
-    "text": "XXXIII. Si quis laicorum per scandalum sanguinem fuderit, aut proximum suum vulneraverit, aut debili- taverit, quantum nocuit, tantum reddere cogatur : si autem non habet unde solvat, opera proximi sui primum agat, quandiu ille infirmus est me- dicumque quaerat, et post sanitatem ejus quadraginta dies in pane et aqua poeniteat.",
-    "chunk_index": 35,
+    "text": "si cum vidua, uno anno : si cum puella, duobus annis (reddito tamen humiliationis ejus pretio paren- tibus ejus) poeniteat.",
+    "chunk_index": 67,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.30.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.30.s3",
+    "language": "lat",
+    "text": "Si autem uxorem non habuit, sed virgo virgini conjunctus est : si volunt parentes ejus, ipsa sit uxor ejus; ita tamen, ut anno ante poeniteant ambo; et ita sint conjugales.",
+    "chunk_index": 68,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.31.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.31.s1",
+    "language": "lat",
+    "text": "XXIX. Si quis autem laicus cum jumento fornica- verit, anno poeniteat, si uxorem habuit :",
+    "chunk_index": 69,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.31.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.31.s2",
+    "language": "lat",
+    "text": "si autem non habuit, dimidio anno : sic et qui uxorem habens propriis membris se ipsum violaverit, poeniteat.",
+    "chunk_index": 70,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.32.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.32.s1",
+    "language": "lat",
+    "text": "XXX. Si quis laicus infantem suum oppresserit, vel mulier, anno integro in pane et aqua poeniteant, et duobus aliis abstineant se a vino et carnibus :",
+    "chunk_index": 71,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.32.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.32.s2",
+    "language": "lat",
+    "text": "et ita primum altario sacerdotis judicio jungantur, et suum lorum tunc licito maritus ille cognoscat.",
+    "chunk_index": 72,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.32.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.32.s3",
+    "language": "lat",
+    "text": "Sciendum est enim laicis, quod tempore poenitentiae illis tradita a sacerdotibus, non illis liceat suas co- gnoscere uxores, nisi post poenitentiam transactam;",
+    "chunk_index": 73,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.32.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.32.s4",
+    "language": "lat",
+    "text": "de media namque poenitentia [Forte, dimidiat namque poenitentiam].",
+    "chunk_index": 74,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.33.s1",
+    "language": "lat",
+    "text": "XXXI. Si quis laicus furtum fecerit, id est, bovem, aut equum, aut ovem, aut aliquod animal proximi sui furatus fuerit :",
+    "chunk_index": 75,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.33.s2",
+    "language": "lat",
+    "text": "si semel, aut bis fecit, reddat pri- mum proximo suo damnum quod fecit, et tribus qua- dragesimis in pane et aqua poeniteat.",
+    "chunk_index": 76,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.33.s3",
+    "language": "lat",
+    "text": "Si autem saepe furtum facere consuevit, et reddere non potuerit, anno et tribus quadragesimis poeniteat, et deinceps nequaquam facere promittat;",
+    "chunk_index": 77,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.33.s4",
+    "language": "lat",
+    "text": "et sic in Pascha alte- rius anni communicet, id est, post duos annos (data tamen ante pauperibus de suo labore eleemosyna,",
+    "chunk_index": 78,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.33.s5",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.33.s5",
+    "language": "lat",
+    "text": "et sacerdoti poenitentiam judicanti epula) et ita abremit- tatur illi malae consuetudinis culpa.",
+    "chunk_index": 79,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.34.s1",
+    "language": "lat",
+    "text": "XXXII. Si quis laicus perjuraverit; si per cupidi- tatem hoc fecerit, lotas res suas vendat, et donet pauperibus,",
+    "chunk_index": 80,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.34.s2",
+    "language": "lat",
+    "text": "et convertatur ex integro ad Dominum, et tundatur omni dimisso saeculo, et usque ad mortem serviat Deo in monasterio.",
+    "chunk_index": 81,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.34.s3",
+    "language": "lat",
+    "text": "Si autem non per cupidi- tatem, sed mortis timore hoc fecit, tribus annis iner- mis exsul poeniteat in pane et aqua;",
+    "chunk_index": 82,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.34.s4",
+    "language": "lat",
+    "text": "et duobus adhuc abstineat se a vino et carnibus : et ita animam pro se reddens, id est, servum aut ancillam de servitutis jugo absolvens,",
+    "chunk_index": 83,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.34.s5",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.34.s5",
+    "language": "lat",
+    "text": "et eleemosynas multas faciens per duos annos (in quibus illi licito uti facile cibis est cunctis, excepta carne) post septimum communicet annum.",
+    "chunk_index": 84,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.35.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.35.s1",
+    "language": "lat",
+    "text": "XXXIII. Si quis laicorum per scandalum sanguinem fuderit, aut proximum suum vulneraverit, aut debili- taverit, quantum nocuit, tantum reddere cogatur :",
+    "chunk_index": 85,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.35.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.35.s2",
+    "language": "lat",
+    "text": "si autem non habet unde solvat, opera proximi sui primum agat, quandiu ille infirmus est me- dicumque quaerat, et post sanitatem ejus quadraginta dies in pane et aqua poeniteat.",
+    "chunk_index": 86,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -653,7 +1571,7 @@
     "canonical_ref": "PL80.SA.36",
     "language": "lat",
     "text": "XXXIV. Si quis laicus inebriaverit se, aut usque ad vomitum manducaverit aut biberit, septimana in pane et aqua poeniteat.",
-    "chunk_index": 36,
+    "chunk_index": 87,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -666,12 +1584,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.37",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.37.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.37",
+    "canonical_ref": "PL80.SA.37.s1",
     "language": "lat",
-    "text": "XXXV. Si quis laicus adulterare voluerit, aut for- nicare cum sponsa, et concupierit mulierem proximi sui, et non fecerit, id est, non potuerit, quia mulier eum non suscepit, tamen ille paratus fuit ad forni- candum : confiteatur culpam suam sacerdoti, et ita quadraginta diebus in pane et aqua poeniteat.",
-    "chunk_index": 37,
+    "text": "XXXV. Si quis laicus adulterare voluerit, aut for- nicare cum sponsa, et concupierit mulierem proximi sui,",
+    "chunk_index": 88,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -684,12 +1602,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.37.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.38",
+    "canonical_ref": "PL80.SA.37.s2",
     "language": "lat",
-    "text": "XXXVI. Si quis autem laicus manducaverit, aut biberit juxta fana; si per ignorantiam fecerit, pro- mittat deinceps quod nunquam reiteret, et quadra- ginta diebus in pane et aqua poeniteat : si vero per contemptum hoc fecerit, id est, postquam sacerdos illi praedicavit quod sacrilegium hoc erat, et postea mensae daemoniorum communicaverit; si gulae tan- tum vitio hoc fecerit aut repetierit, tribus quadrage- simis in pane et aqua poeniteat : si vero pro cultu daemonum, aut honore simulacrorum hoc fecerit, tribus annis poeniteat.",
-    "chunk_index": 38,
+    "text": "et non fecerit, id est, non potuerit, quia mulier eum non suscepit, tamen ille paratus fuit ad forni- candum :",
+    "chunk_index": 89,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -702,12 +1620,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.37.s3",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.39",
+    "canonical_ref": "PL80.SA.37.s3",
     "language": "lat",
-    "text": "XXXVII. Si quis laicus per ignorantiam cura Bo- nosiacis aut caeteris haereticis communicaverit, stet inter catechumenos, id est, ab aliis separatus Chri- stianis quadraginta diebus, et duabus aliis quadrage- simis in extremo Christianorum ordine, idest, inter poenitentes, insanae communionis culpam diluat : si vero per contemptum hoc fecerit, id est, postquam denuntiatum illi fuerat a sacerdote, ac prohibitum, ne se communione sinistre partis macularet, anno integro poeniteat, et tribus quadragesimis, et duobus aliis annis abstineat se a vino el carnibus; et ita post manus impositionem catholici episcopi, altario jun- gatur. Postremo de minutis monachorum agendum est sanctionibus.",
-    "chunk_index": 39,
+    "text": "confiteatur culpam suam sacerdoti, et ita quadraginta diebus in pane et aqua poeniteat.",
+    "chunk_index": 90,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -720,12 +1638,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.40",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38.s1",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.40",
+    "canonical_ref": "PL80.SA.38.s1",
     "language": "lat",
-    "text": "XXXVIII. Si quis vallum apertam in nocte dimi- serit, superpositione poeniteat : si vero in die, viginti quatuor percussionibus, si non aliis supervenientibus apertum dimiserit r si quis hunc ipsum absolute prae- cesserit, superpositione poeniteat.",
-    "chunk_index": 40,
+    "text": "XXXVI. Si quis autem laicus manducaverit, aut biberit juxta fana;",
+    "chunk_index": 91,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -738,12 +1656,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.41",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38.s2",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.41",
+    "canonical_ref": "PL80.SA.38.s2",
     "language": "lat",
-    "text": "XXXIX. Si quis jumentum petens solus absolute [Leg. absque luto] lavaverit, superpositione poeni- teat : si quis vero lavans licito coram fratribus stando hoc fecerit, si non necessitate luti largius abstergen- di, viginti quatuor plagis emendetur.",
-    "chunk_index": 41,
+    "text": "si per ignorantiam fecerit, pro- mittat deinceps quod nunquam reiteret, et quadra- ginta diebus in pane et aqua poeniteat :",
+    "chunk_index": 92,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -756,12 +1674,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.42",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38.s3",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.42",
+    "canonical_ref": "PL80.SA.38.s3",
     "language": "lat",
-    "text": "XL. Si quis vero etiam sedendo in jumento genua, aut brachia discooperuerit absque necessitate luti la- vandi, sex diebus non lavet; id est, usque ad alte- ram diem dominicam inhonestus ille lavator pedes non lavet. Soli autem monacho secrete stando pedes lavare licet : seniori vero, etiam publice, sed altero pedes suos lavante licet stando lavari.",
-    "chunk_index": 42,
+    "text": "si vero per contemptum hoc fecerit, id est, postquam sacerdos illi praedicavit quod sacrilegium hoc erat, et postea mensae daemoniorum communicaverit;",
+    "chunk_index": 93,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -774,12 +1692,12 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.43",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38.s4",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.43",
+    "canonical_ref": "PL80.SA.38.s4",
     "language": "lat",
-    "text": "XLI. Ante praedicationem vero die dominica toti, exceptis certis necessitatibus, simul sint conglobati, ut nullus desit numero praeceptum audientium, ex- cepto coco ac portario, qui et ipsi, si possint, satis agant, ut adsint quando tonitruum Evangelii au- ditur.",
-    "chunk_index": 43,
+    "text": "si gulae tan- tum vitio hoc fecerit aut repetierit, tribus quadrage- simis in pane et aqua poeniteat :",
+    "chunk_index": 94,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,
@@ -792,12 +1710,354 @@
     "translation_group_id": null
   },
   {
-    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44",
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.38.s5",
     "work_id": "oglt-pl/columbanus/pl80_34_sa",
-    "canonical_ref": "PL80.SA.44",
+    "canonical_ref": "PL80.SA.38.s5",
     "language": "lat",
-    "text": "XLII. Confessiones autem dari diligentius praeci- pitur, maxime de commotionibus animi, antequam ad Missam eatur, ne forte quis accedat indignus ad altare, id est, si cor mundum non habuerit : melius est enim exspectare donec cor sanum fuerit, et alienum a scandalo ac invidia fuerit, quam accedere audacter ad judicium tribunalis : tribunal enim Chri- sti, altare : et corpus suum inibi cum sanguine judi- cat indignos accedentes. Siculi ergo a peccatis capi- talibus et carnalibus cavendum est, antequam communicandum sit; ita etiam ab incertioribus vi- tiis et morbis languentis animae abstinendum est, ac abstergendum ante verae pacis conjunctionem et aeternae salutis cum aginem.",
-    "chunk_index": 44,
+    "text": "si vero pro cultu daemonum, aut honore simulacrorum hoc fecerit, tribus annis poeniteat.",
+    "chunk_index": 95,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.39.s1",
+    "language": "lat",
+    "text": "XXXVII. Si quis laicus per ignorantiam cura Bo- nosiacis aut caeteris haereticis communicaverit, stet inter catechumenos, id est,",
+    "chunk_index": 96,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.39.s2",
+    "language": "lat",
+    "text": "ab aliis separatus Chri- stianis quadraginta diebus, et duabus aliis quadrage- simis in extremo Christianorum ordine, idest, inter poenitentes, insanae communionis culpam diluat :",
+    "chunk_index": 97,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.39.s3",
+    "language": "lat",
+    "text": "si vero per contemptum hoc fecerit, id est, postquam denuntiatum illi fuerat a sacerdote, ac prohibitum, ne se communione sinistre partis macularet,",
+    "chunk_index": 98,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.39.s4",
+    "language": "lat",
+    "text": "anno integro poeniteat, et tribus quadragesimis, et duobus aliis annis abstineat se a vino el carnibus;",
+    "chunk_index": 99,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.39.s5",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.39.s5",
+    "language": "lat",
+    "text": "et ita post manus impositionem catholici episcopi, altario jun- gatur. Postremo de minutis monachorum agendum est sanctionibus.",
+    "chunk_index": 100,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.40.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.40.s1",
+    "language": "lat",
+    "text": "XXXVIII. Si quis vallum apertam in nocte dimi- serit, superpositione poeniteat :",
+    "chunk_index": 101,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.40.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.40.s2",
+    "language": "lat",
+    "text": "si vero in die, viginti quatuor percussionibus, si non aliis supervenientibus apertum dimiserit r si quis hunc ipsum absolute prae- cesserit, superpositione poeniteat.",
+    "chunk_index": 102,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.41.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.41.s1",
+    "language": "lat",
+    "text": "XXXIX. Si quis jumentum petens solus absolute [Leg. absque luto] lavaverit, superpositione poeni- teat :",
+    "chunk_index": 103,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.41.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.41.s2",
+    "language": "lat",
+    "text": "si quis vero lavans licito coram fratribus stando hoc fecerit, si non necessitate luti largius abstergen- di, viginti quatuor plagis emendetur.",
+    "chunk_index": 104,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.42.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.42.s1",
+    "language": "lat",
+    "text": "XL. Si quis vero etiam sedendo in jumento genua, aut brachia discooperuerit absque necessitate luti la- vandi, sex diebus non lavet;",
+    "chunk_index": 105,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.42.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.42.s2",
+    "language": "lat",
+    "text": "id est, usque ad alte- ram diem dominicam inhonestus ille lavator pedes non lavet.",
+    "chunk_index": 106,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.42.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.42.s3",
+    "language": "lat",
+    "text": "Soli autem monacho secrete stando pedes lavare licet : seniori vero, etiam publice, sed altero pedes suos lavante licet stando lavari.",
+    "chunk_index": 107,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.43.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.43.s1",
+    "language": "lat",
+    "text": "XLI. Ante praedicationem vero die dominica toti, exceptis certis necessitatibus, simul sint conglobati, ut nullus desit numero praeceptum audientium,",
+    "chunk_index": 108,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.43.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.43.s2",
+    "language": "lat",
+    "text": "ex- cepto coco ac portario, qui et ipsi, si possint, satis agant, ut adsint quando tonitruum Evangelii au- ditur.",
+    "chunk_index": 109,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44.s1",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.44.s1",
+    "language": "lat",
+    "text": "XLII. Confessiones autem dari diligentius praeci- pitur, maxime de commotionibus animi, antequam ad Missam eatur, ne forte quis accedat indignus ad altare, id est, si cor mundum non habuerit :",
+    "chunk_index": 110,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44.s2",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.44.s2",
+    "language": "lat",
+    "text": "melius est enim exspectare donec cor sanum fuerit, et alienum a scandalo ac invidia fuerit, quam accedere audacter ad judicium tribunalis :",
+    "chunk_index": 111,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44.s3",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.44.s3",
+    "language": "lat",
+    "text": "tribunal enim Chri- sti, altare : et corpus suum inibi cum sanguine judi- cat indignos accedentes.",
+    "chunk_index": 112,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44.s4",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.44.s4",
+    "language": "lat",
+    "text": "Siculi ergo a peccatis capi- talibus et carnalibus cavendum est, antequam communicandum sit;",
+    "chunk_index": 113,
+    "context_before": null,
+    "context_after": null,
+    "date_composed": 602,
+    "date_range": [
+      590,
+      615
+    ],
+    "date_confidence": "approximate",
+    "out_of_period": false,
+    "translation_group_id": null
+  },
+  {
+    "chunk_id": "oglt-pl/columbanus/pl80_34_sa#PL80.SA.44.s5",
+    "work_id": "oglt-pl/columbanus/pl80_34_sa",
+    "canonical_ref": "PL80.SA.44.s5",
+    "language": "lat",
+    "text": "ita etiam ab incertioribus vi- tiis et morbis languentis animae abstinendum est, ac abstergendum ante verae pacis conjunctionem et aeternae salutis cum aginem.",
+    "chunk_index": 114,
     "context_before": null,
     "context_after": null,
     "date_composed": 602,

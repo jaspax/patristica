@@ -15,15 +15,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0000",
-      "source_sha256": "7d7955022709c126",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "[?] Alpha [?] Omega [?] Jesus [?] Christ [?]. A eulogy delivered by our holy father, honored in every way, Apa Timothy, the archbishop of Alexandria. He delivered it concerning the appointment of Abbaton, the angel of death."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0000.s1",
+      "source_sha256": "3309114b09760e38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "[?] Alpha [?] Omega [?] Jesus [?] Christ [?] A eulogy delivered by our holy father, honored in every way:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0000.s2",
+      "source_sha256": "f402dbabd8062156",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Apa Timothy, the archbishop of Alexandria. He delivered it concerning the appointment of Abaddon, the angel of death."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0001",
@@ -33,18 +46,53 @@
       "text": "When our holy fathers, the apostles, asked the Savior about him so that they could proclaim him to all humanity, knowing that people would inquire of them about everything,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0002",
-      "source_sha256": "8365aece966a2714",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "the Savior did not wish to disappoint them in anything they asked of him. He told them, “The day on which my Father appointed him was the thirteenth of the month of Hathor. He made him king over the whole creation that he had made, because of the transgression of Adam and Eve.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0002.s1",
+      "source_sha256": "5ac16e6abe238dbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The Savior did not wish to disappoint them in anything they asked of him. He told them, “The day on which my Father appointed him was the thirteenth of the month of Hathor.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003",
-      "source_sha256": "e35142d01aa174b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "The archbishop himself also wished to understand how God had made him an object of fear and terror, coming for every soul until they surrender their spirit in misery. When he went to Jerusalem to worship at the cross of our Savior and his life-giving tomb, on the seventeenth of the month of Thout, he searched the books in the library of Jerusalem, which our holy fathers, the apostles, had compiled and left there, until he learned about his appointment through an elderly priest from Jerusalem."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0002.s2",
+      "source_sha256": "1630029a10d61bca",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He made him king over the whole creation that he had made, because of the transgression of Adam and Eve."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003.s1",
+      "source_sha256": "e2dd11a5693496dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The archbishop himself also wanted to learn how God had made him an object of fear and terror,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003.s2",
+      "source_sha256": "28cc1f2a7a8bd58e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "coming after every soul until they give up their spirit in misery. When he went to Jerusalem to worship at the cross of our Savior"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003.s3",
+      "source_sha256": "b51b3f9162dc1df3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and his life-giving tomb, on the seventeenth of the month of Thoth, he searched in the books"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003.s4",
+      "source_sha256": "b8d659046f1a151a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "in the library of Jerusalem, which our holy fathers the apostles had compiled and deposited there,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0003.s5",
+      "source_sha256": "2e9826f9cbd40205",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "until he found the account of his appointment through an elderly priest from Jerusalem."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0004",
@@ -222,11 +270,18 @@
       "text": "Each person went home, while we awaited the festival. But I stayed in the church."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0029",
-      "source_sha256": "e4e8f76adc3d5fcf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0029.s1",
+      "source_sha256": "b39f76035e2bc333",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "While we were still sitting there, an elderly priest named John approached me and asked me, saying, “If your servant has found favor in your sight, let my lord and father come to your servant’s house, so that we may enjoy your blessing.”"
+      "text": "While we were still sitting, an elderly priest named John approached me and appealed to me, saying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0029.s2",
+      "source_sha256": "5d4c6423d13497fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“If your servant has found favor in your sight, let my lord and father come to your servant’s house, so that we may enjoy your blessing.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0030",
@@ -243,11 +298,18 @@
       "text": "After he had taken us upstairs to a room in his house, we prayed and sat down according to the commandment of our Savior."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0032",
-      "source_sha256": "523ec6dc3db3fed5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0032.s1",
+      "source_sha256": "e930b6da9a240d22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And he prepared a great feast for us that day, because he was a generous man, especially toward strangers and everyone who came to the church, like the patriarch Abraham."
+      "text": "He prepared a great dinner for us that day, for he was very generous, especially toward strangers"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0032.s2",
+      "source_sha256": "a9150395335c27d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and anyone who would lodge at the church, like the patriarch Abraham."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0033",
@@ -264,18 +326,32 @@
       "text": "And so I said to the elderly priest, “My honored son, among all these books, has the book about the appointment of Abbaton, the angel of death, come into your possession?"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0035",
-      "source_sha256": "f3d8e427fe8d07ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0035.s1",
+      "source_sha256": "47e0e6d6d81562cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For I long for it, so that I may learn how God made him king over all humanity and all the creation he had made, and how God made him a source of fear and trembling, coming and going after every soul until they give up their spirit.”"
+      "text": "“For I am eager to learn how God made him king over all humanity and the whole creation that he had made,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0036",
-      "source_sha256": "2c0fe2934bada8c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0035.s2",
+      "source_sha256": "efb9a1640e362c2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Immediately the elderly priest said to me, with a face full of grace, “Christ, the teacher of us all, spoke well in the holy Gospel when he said, ‘The one who seeks will find; for the one who knocks, the door will be opened; and the one who asks will receive.’"
+      "text": "and how God made him an object of fear and terror, coming and going after every soul until they give up the spirit.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0036.s1",
+      "source_sha256": "2f1818a8e8c53d1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "At once the elderly priest said to me, with a face full of grace, “Christ, the master of us all, spoke well in the holy Gospel:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0036.s2",
+      "source_sha256": "4b51bedf4786977a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "‘Whoever seeks will find, and whoever knocks will have the door opened for him, and whoever asks will receive.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0037",
@@ -327,11 +403,18 @@
       "text": "I found it written as follows:"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0044",
-      "source_sha256": "88bbc02847544690",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0044.s1",
+      "source_sha256": "5751a9f497d4af1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "“It happened that when our Savior, the very root of all goodness, had completed everything, and the days of his ascension had been fulfilled, so that he might go up to his Father, he laid his hand on each of his holy apostles."
+      "text": "“It happened that when our Savior, the very root of goodness, had completed everything, and the days of his ascension had been fulfilled,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0044.s2",
+      "source_sha256": "5e2c88b4b101b15d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that he might go up to his Father, he laid his hand on each one of his holy apostles."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0045",
@@ -411,11 +494,18 @@
       "text": "But I will not stop walking with you until the end of this age."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0056",
-      "source_sha256": "7547b0be572aecf5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Then Saint Peter, the great apostle, the pillar of the church and the steward of the kingdom of heaven, answered him, saying, “Whoever you want to bring into it, bring in; and whoever you want to throw out, throw out.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0056.s1",
+      "source_sha256": "3381cc9fb5794ca8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then Saint Peter, the great apostle, the pillar of the church and the steward of the kingdom of heaven—"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0056.s2",
+      "source_sha256": "63a7b35258071351",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he answered him, saying, ‘Whoever you wish to bring into it, bring him in; and whoever you wish to cast out, cast him out.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0057",
@@ -425,11 +515,18 @@
       "text": "He also said to the Savior, “My Lord and my God, you have told us everything we asked of you. You have hidden nothing from us."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0058",
-      "source_sha256": "8dd747fcbfcc20b9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Now, therefore, my Lord and my God, you are sending us out into the whole world to proclaim your holy resurrection to all the nations, the mighty deeds and wonders you performed, which we saw with our own eyes, and the things we hear about. You have revealed them all to us, even your virgin mother and your holy birth."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0058.s1",
+      "source_sha256": "511aa37e8cec9257",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Now then, my Lord and my God, look: you are sending us out into the whole world to proclaim to all the nations your holy resurrection, the mighty deeds"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0058.s2",
+      "source_sha256": "03e1e78b000e8ad9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the wonders that you performed, which we saw with our own eyes, and the things we hear about. You have revealed them all to us, even your virgin mother and your holy birth."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0059",
@@ -439,18 +536,53 @@
       "text": "And you know, my Lord, that there are many quarrelsome people and unbelievers in the world. They will question us about everything. We want to be able to give them an answer about every matter."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0060",
-      "source_sha256": "499c5fb0bc3ef21a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Now, therefore, my Lord, we want you to tell us about the day when you appointed Abbaton as the angel of death, and how you made him a terror and a source of trembling, coming after every soul until people give up their spirits. Then we can proclaim him to all humanity, just like all his fellow angels whom you created, whose day of appointment you have told us about. And when people hear about the day of his appointment, they may be afraid and repent and give charitable offerings and alms on the day of his commemoration, as they do for Michael and Gabriel, so that their souls may find mercy and rest on the day of your holy resurrection.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0060.s1",
+      "source_sha256": "d9a4909589a8165c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now then, my Lord, we want you to tell us the day on which you appointed Abaddon as the angel of death, and how you made him an object of fear and terror, coming after every soul until they give up their spirit,"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0061",
-      "source_sha256": "6ed71fee452c47e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "But the merciful Savior, who is full of mercy and every kind of compassion, who desires what is good for his creation, did not want to cause us sorrow concerning anything that might be asked of us. He said to them, “You whom I have chosen from the whole world, I will hide nothing from you. Instead, I will tell you how my Father appointed him over the whole creation that he made."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0060.s2",
+      "source_sha256": "1c57de70ec94e617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that we may proclaim him to all humanity, like all his fellow angels whom you created, whose day of appointment you have told us.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0060.s3",
+      "source_sha256": "3b99ec32c0b9ffe3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And also so that, when people hear about the day of his appointment, they may be afraid and repent, and offer a love feast and alms on the day of his commemoration,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0060.s4",
+      "source_sha256": "60361b603a6e8b4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as with Michael and Gabriel, so that their souls may find mercy and rest on the day of the holy resurrection."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0061.s1",
+      "source_sha256": "d51a67b4481c2afb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the Savior, the merciful one, who is full of mercy and every compassion, who loves what is good for his creation, did not want to distress us over anything that would be required of us."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0061.s2",
+      "source_sha256": "a48032b3a149edbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He said to them, “You whom I have chosen from the whole world, I will hide nothing from you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0061.s3",
+      "source_sha256": "292f63d05eeeb462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, I will tell you how my Father appointed him over the whole creation that he had made."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0062",
@@ -495,11 +627,18 @@
       "text": "Now, therefore, my holy members, whom I have chosen from the whole world, I will hide nothing from you."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0068",
-      "source_sha256": "07ecc5abec25f85a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "When my Father created heaven and earth and everything in them, he spoke, and they all came into being: angels, archangels, cherubim, seraphim, thrones, dominions, principalities, authorities, and all the powers of heaven,"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0068.s1",
+      "source_sha256": "9227a0a28e579c28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now when my Father created heaven and earth and everything in them, he spoke, and they all came into being:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0068.s2",
+      "source_sha256": "b506cda99868491a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "angels, archangels, cherubim, seraphim, thrones, dominions, principalities, authorities, and all the powers of heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0069",
@@ -523,18 +662,32 @@
       "text": "My Father saw that the whole world was deserted, with no one to work it."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0072",
-      "source_sha256": "0387cfd31e08b678",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "My Father said, ‘Let us make a human being according to our likeness and our image, so that he may continually bless us day and night, and they may know that it is the hand of the Lord that created all these things, for I exist before these things came into being.’"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0072.s1",
+      "source_sha256": "91a3f02ccb125b65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father said, ‘Let us make a human being according to our likeness and our image, so that he may continue blessing us"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0073",
-      "source_sha256": "0689ffef4df0c9dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "My Father commanded an angel, saying, “Go, according to my will and my command, to the land of Eden, and bring me virgin soil, so that I may make a human being according to our likeness and our image, and he may continue to bless us day and night.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0072.s2",
+      "source_sha256": "783ff6e373cc6e43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "day and night, and that they may know that it is the Lord’s hand that made all these things, and that I existed before these things came into being.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0073.s1",
+      "source_sha256": "ca6d7383410d9d0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father commanded an angel, ‘Go, by my will and my command, to the land of Eden, and bring me some virgin earth,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0073.s2",
+      "source_sha256": "256a5508eaca3c6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that I may make a human being according to our likeness and our image, so that he may continue blessing us day and night.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0074",
@@ -544,11 +697,18 @@
       "text": "The angel went to the land of Eden according to my Father’s command. He stood over the clay and stretched out his hand to take it to my Father."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0075",
-      "source_sha256": "aecf2537c4205709",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "Immediately the clay cried out in a loud voice, saying, “I adjure you by the one who sent you to me! If you take me to him and he shapes me into a human being with a living soul, great sins will come from me. Much sexual immorality, slander, envy, hatred, and strife will arise through him."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0075.s1",
+      "source_sha256": "6aeefd660d40390c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Immediately the clay cried out in a loud voice, saying, ‘I adjure you by the one who sent you to me: if you take me to him and he forms me and I become a human being"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0075.s2",
+      "source_sha256": "f0bfe0263ed71515",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with a living soul, great sins will arise from me. Much sexual immorality, slander, envy, hatred, and strife will arise through him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0076",
@@ -558,11 +718,18 @@
       "text": "Many murderers and people who shed blood will arise through him."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0077",
-      "source_sha256": "48b3b6d1d44acb52",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "They will throw me to their dogs and pigs, and into wells and pits and [?], before my time. After all these things, they will throw me into punishments and torment me day and night."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0077.s1",
+      "source_sha256": "3b3b2630c5285dbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They will throw me to their dogs and pigs, and into wells, pits, and tombs, before my time."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0077.s2",
+      "source_sha256": "480ebe3c1e96adcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And after all these things, they will throw me into places of punishment and torment me day and night.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0078",
@@ -586,18 +753,39 @@
       "text": "He turned back and came to my Father. He said, “My Lord, when I heard your fearsome name, I could not bring it to you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0081",
-      "source_sha256": "ce0973d708f05803",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "Immediately he commanded the second angel and sent him to it, and likewise the third, down to the seventh angel. They could not approach it, because it adjured them with great and fearsome oaths."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0081.s1",
+      "source_sha256": "705a5147a79d0270",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Immediately he commanded the second angel and sent him to it."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0082",
-      "source_sha256": "7022bbd5875f8405",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "When my Father saw that they could not bring it to him, he sent the angel Muriel to it, saying to him, “Go at my command to the land of Eden and bring me virgin clay, so that I may shape it into a human being according to my likeness and my image, and he may bless us day and night.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0081.s2",
+      "source_sha256": "ed86a3af59f0c154",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And the third, all the way to the seventh angel, could not approach it, because it was adjuring them with great, terrible oaths."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0082.s1",
+      "source_sha256": "953dc7a4376cd1cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But when my Father saw that they could not bring it to him, he sent the angel Muriel to it,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0082.s2",
+      "source_sha256": "6261c7f4c283f10f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "saying to him, ‘Go at my command to the land of Eden and bring me some virgin clay, so that I may form it into a human being"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0082.s3",
+      "source_sha256": "a99266108ccc6027",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "according to my likeness and my image, so that he may bless us day and night.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0083",
@@ -621,11 +809,18 @@
       "text": "Immediately the clay cried out in a loud voice, “I adjure you by the one who established heaven and earth and everything in them! If you approach me to take me to God—”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0086",
-      "source_sha256": "51222466dafdc1d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "But the angel Muriel was not afraid because of my Father’s name when he heard it, nor did he have pity on it. Instead, he rushed at it and seized it with force and determination."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0086.s1",
+      "source_sha256": "5d0b9581f4f29d56",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But the angel Muriel was not afraid of my Father’s name when he heard it, nor did he have compassion on the clay."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0086.s2",
+      "source_sha256": "713783d4d64d422d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Instead, he rushed at it and seized it with force and ruthlessness."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0087",
@@ -656,11 +851,18 @@
       "text": "I said to my Father, “Give him spirit, and I will be his guarantor.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0091",
-      "source_sha256": "adb8ddddad801872",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "My Father said to me, “If I give him spirit, my beloved Son, you will have to go down into the world and endure great sufferings because of him, until you save him and restore him to his original state.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0091.s1",
+      "source_sha256": "041718d9dfe541bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father said to me, ‘If I give him spirit, my beloved Son, you will have to go down into the world"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0091.s2",
+      "source_sha256": "71cc0ce1697a76fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and endure great suffering for his sake, until you save him and restore him once more to his original state.’"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0092",
@@ -670,11 +872,18 @@
       "text": "I said to my Father, “Give him spirit. I will be his guarantor, and I will go down into the world and fulfill your command.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0093",
-      "source_sha256": "8b47a0b605db1dba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "When he was about to give him spirit, he took the book and recorded those who would come from him and enter the kingdom of heaven, as it is written: “Those whose names are written in the book of life from the foundation of the world.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0093.s1",
+      "source_sha256": "58097c1b33d86838",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When he was about to give him spirit, he took the book and wrote down those who would come from him who would enter the kingdom."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0093.s2",
+      "source_sha256": "2c2bdc97f36f935f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of the heavens, as it is written: “Those whose names have been written in the book of life since the foundation of the world.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0094",
@@ -705,11 +914,18 @@
       "text": "you brought me into being when I did not exist.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0098",
-      "source_sha256": "68499e72e351cac1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "And in this way my Father seated him on a great throne and placed on him a crown of glory and a royal scepter. My Father commanded every order in heaven to come and worship him, whether angels or archangels."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0098.s1",
+      "source_sha256": "24681dbc305d53c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And in this way my Father seated him on a great throne and placed on him a crown of glory and a royal robe."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0098.s2",
+      "source_sha256": "a300a9e3c5f6bf66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father commanded every order in the heavens to come and worship him, whether angels or archangels."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0099",
@@ -733,11 +949,25 @@
       "text": "But great pride and shamelessness rose up in him. He said, “This one should come and bow down to me instead, because I existed before he came into being.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0102",
-      "source_sha256": "3e4625dbcb9f0c75",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "When my Father saw his great arrogance, and that his wickedness and evil deeds had reached their full measure, he commanded all the orders of heaven, saying to them, “Come, take the document from the arrogant one's hand, strip him of his armor, and throw him down onto the earth, for his time has come.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0102.s1",
+      "source_sha256": "2489a96447c1b0f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When my Father saw his great arrogance, and that all his wickedness and evildoing had reached their full extent,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0102.s2",
+      "source_sha256": "2db8c21c2e3e7173",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "he commanded all the orders of the heavens, saying to them, “Come, take the document from the arrogant one's hand,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0102.s3",
+      "source_sha256": "48a9cc322f4a2b2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "strip him of his armor, and throw him down to the earth, for his time has come.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0103",
@@ -768,11 +998,18 @@
       "text": "My Father commanded them to bring a sharp knife and cut it on this side and that. They could not take from him the part that was inside, under the palm of his hand."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0107",
-      "source_sha256": "f3a09d0d0efb988b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "Immediately my Father gave an order to a great cherub, who struck him and threw him down from heaven onto the earth because of his arrogance. He broke his wing and his side and made him weak. Those whom he had brought out with him became devils along with him."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0107.s1",
+      "source_sha256": "e80f852d6f3525ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Immediately my Father gave a command to a great cherub, who struck him and threw him down from heaven to the earth because of his arrogance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0107.s2",
+      "source_sha256": "cd9380516859f50a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He broke his wing and his side and made him weak. Those whom he had brought out with him became devils along with him."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0108",
@@ -782,11 +1019,25 @@
       "text": "But my Father had Adam taken into paradise, with a multitude of angels singing psalms before him. They left him there, and he remained, praising God."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0109",
-      "source_sha256": "9a01deb69787d158",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "Adam was alone in paradise for a hundred years. When he had completed the hundred years, while Adam was living in the paradise of delight, alone and in need, and the angels were coming to him daily, my Father said, “It is not good for the man to remain alone. Instead, let us make him a helper suited to him.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0109.s1",
+      "source_sha256": "7cd06035076e95bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now, when Adam had been alone in paradise for a hundred years, and when he had completed the hundred years,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0109.s2",
+      "source_sha256": "b33120c657124157",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "while Adam was living in the paradise of delight, remaining alone, the angels would come to him every day."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0109.s3",
+      "source_sha256": "a05ededb0151f4e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father said, “It is not good for the man to remain alone. Instead, let us make him a helper suited to him.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0110",
@@ -803,11 +1054,18 @@
       "text": "When Adam awoke from the deep sleep, he saw her and said, “This now is a bone from my bones, and this is flesh. She will be called woman, because she was taken from her man.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0112",
-      "source_sha256": "d78303a203d36689",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "For Adam was the one who named all the livestock, the wild animals, the birds, and every living creature that moves on the earth, even those in the waters of the rivers. Adam named them all according to the command of my good Father."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0112.s1",
+      "source_sha256": "4de13b36e46d4fe5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For Adam was the one who named all the livestock, the wild animals, the birds, and every living creature that moves upon the earth, including those in the waters [?]."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0112.s2",
+      "source_sha256": "26c23a75ffb61384",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "It was Adam who named them all according to the command of my good Father."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0113",
@@ -817,11 +1075,25 @@
       "text": "Adam lived in the paradise of delight with Eve his wife for two hundred years. They were virgins, living like the angels of God."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0114",
-      "source_sha256": "3d37344b09f16a2d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "After they had completed two hundred years living in the paradise of delight, Eve came walking along the north side of paradise, beside the fence, to get fruit for the livestock and all the other living creatures. For my Father had told them to give the creatures food according to his command, and they received their food from Adam and Eve."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0114.s1",
+      "source_sha256": "dd6cfc1f36d25219",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now, after they had spent two hundred years in the paradise of delight,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0114.s2",
+      "source_sha256": "d52c82ebb6bdaaa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Eve came walking along the northern side of paradise, beside the wall, to collect fruit for the livestock"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0114.s3",
+      "source_sha256": "f8b53098674dc46f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and all the other living creatures, because my Father had said that they should feed them according to his command. They received their food from Adam and Eve."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0115",
@@ -831,11 +1103,25 @@
       "text": "The serpent, too, came at evening to receive its food as usual. For the serpent was like all the wild animals, walking on its feet as they did."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0116",
-      "source_sha256": "c8dc5e9d9f5ef112",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 16,
-      "text": "The devil was beside paradise, plotting against them day and night. When he saw her alone, he entered the serpent and said to himself within it, “Look, I have found my opportunity against them. I will speak into her ears and see whether I can make her eat from the tree, so that they will be thrown out of paradise, just as I myself was thrown out.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0116.s1",
+      "source_sha256": "65f4d479b7da7830",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The devil was beside paradise, laying traps for them day and night."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0116.s2",
+      "source_sha256": "1dbab3a3e9138796",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "When he saw her alone, he entered the snake and said within himself, “Look, I have found my opportunity against them. I will speak into her ears"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0116.s3",
+      "source_sha256": "72e698bef0972769",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and see whether I can make her eat from the tree, so that they will be thrown out of paradise, because I too was thrown out on their account.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0117",
@@ -1020,11 +1306,18 @@
       "text": "Your soul too will be in Hades, while you sit in the sealed darkness for four and a half thousand years."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0021",
-      "source_sha256": "e0db8a663638a182",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0021.s1",
+      "source_sha256": "a436f10faa808e9b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "In the five-and-a-half-thousandth year, I will send my beloved Son into the world. He will remain in a virgin's womb for nine months—that is, Mary, the holy virgin."
+      "text": "“In the year five thousand five hundred, I will send my beloved Son into the world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0021.s2",
+      "source_sha256": "00197cee7e6aa8f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and he will spend nine months in a virgin's womb, namely that of Mary, the holy virgin."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0022",
@@ -1041,11 +1334,25 @@
       "text": "He will spend thirty-three and a half years in the world. He will experience everything belonging to human life, except sin alone."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0024",
-      "source_sha256": "fff977341ad734c1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0024.s1",
+      "source_sha256": "87971c5f9e27925e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He will perform a multitude of mighty deeds and wonders beyond counting. He will raise the dead and cast out demons. He will heal the paralyzed and make the lame walk again. He will make the mute hear; he will make them speak. He will cleanse those with leprosy and the withered hands. He will open the eyes of the blind through the word of his power."
+      "text": "He will perform many mighty works and wonders beyond counting. He will raise the dead and cast out demons."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0024.s2",
+      "source_sha256": "7877de03fc8b9248",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He will heal the paralyzed and make the lame walk. He will make the mute hear; he will make the deaf speak."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0024.s3",
+      "source_sha256": "d6ee966a86cc5a0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He will cleanse those with leprosy and withered hands. He will open the eyes of the blind by his powerful word."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0025",
@@ -1125,18 +1432,32 @@
       "text": "He will give up his spirit on the cross, and they will pierce his side with a spear. Water and blood will come out of it, and these will cleanse the sins of the world."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0036",
-      "source_sha256": "dca9b9c64cb31c7d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 17,
-      "text": "They will place him in a new tomb, and he will rise from the dead on the third day. He will descend into the underworld, shatter the bronze gates, break the iron bars, and bring you up along with all the captives who are with you."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0036.s1",
+      "source_sha256": "ea7afbea2186936e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "They will lay him in a new tomb, and he will rise from the dead on the third day. He will descend into Hades, shatter the bronze gates, and break the iron bars.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0037",
-      "source_sha256": "4f11de7b0a4a2b53",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 17,
-      "text": "Because of you, Adam, the Son of God will endure all these things until he saves you and returns you once again to paradise, to the place from which you originally came. For he took pains over you while you were clay, before he breathed spirit into you."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0036.s2",
+      "source_sha256": "f858eef490995dfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and bring you up, together with all the captives who are with you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0037.s1",
+      "source_sha256": "76535f1bf761ed27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For your sake, Adam, the Son of God will endure all these things until he redeems you and returns you to paradise once again,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0037.s2",
+      "source_sha256": "69cc8b48ba4dd06f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "to the place from which you first came out, for he formed you when you were clay, before he gave you breath."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0038",
@@ -1167,11 +1488,18 @@
       "text": "He shut the gate and stationed a fiery power to guard the gate of paradise, so that no one would enter it until everything he had said concerning Adam was fulfilled."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0042",
-      "source_sha256": "f8076b6c3a4b11fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0042.s1",
+      "source_sha256": "09ed3ac3b0273348",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The devil met Adam outside paradise. He said to him, “Look, Adam! I was cast out of my glory because of you. Look! I too have caused you to be cast out of the paradise of delight, because you made me an exile from my dwelling place in heaven."
+      "text": "But the devil met Adam outside paradise. He said to him, “Look, Adam, I was cast out of my glory because of you."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0042.s2",
+      "source_sha256": "5bcc4b6de1554617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Look, I too have caused you to be cast out of the paradise of delight, because you made me a stranger to my dwelling place in heaven.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0043",
@@ -1286,11 +1614,18 @@
       "text": "You will be suspended in the middle, sitting on a throne of fire."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0059",
-      "source_sha256": "d8d8c8715615e848",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "Your eyes will see everything beneath the earth, even what is in the waters of the rivers. Nothing beneath heaven will be hidden from you, from one end of the earth to the other, from north to south and from east to west, throughout the whole creation that I have made."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0059.s1",
+      "source_sha256": "e49f3459f4f270e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Your eyes will see the things beneath the earth, even those in the waters of the rivers."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0059.s2",
+      "source_sha256": "fc813bfd737316be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Nothing beneath heaven will be hidden from you, from one end of the earth to the other, from north to south and from east to west, throughout the whole creation that I have made."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0060",
@@ -1356,18 +1691,39 @@
       "text": "Then Abbaton, the angel of death, bowed down before my Father, saying, “My Lord, look, you have made me more terrifying than all the angels."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0069",
-      "source_sha256": "aca01a1617a964c6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "Now, therefore, my Lord, I implore you and appeal to your goodness: if the human beings who will be born into the world hear how you have made me a source of fear and terror, and they become afraid and give charitable gifts and alms in my name, and copy the book of the day on which you appointed me, commemorating me and seeking mercy and rest for their souls—"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0069.s1",
+      "source_sha256": "43251bca14529538",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Now then, my Lord, I beg you and appeal to your goodness:"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0070",
-      "source_sha256": "64b547e1b8e3b6d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "now, therefore, my Lord, let your mercy reach them. Give me authority over them so that I may take them to the places of rest, the dwelling place of all who rejoice, because they have commemorated me on earth, just as they commemorate all my fellow angels."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0069.s2",
+      "source_sha256": "af95e6dcca5a347f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "if the human beings who are to be born into the world hear how you made me a source of fear and terror, and they become afraid and give charitable gifts and alms in my name, and copy the book about the day on which you appointed me,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0069.s3",
+      "source_sha256": "5718d965a9a8cd4a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "making my commemoration known as they seek mercy and rest for their souls,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0070.s1",
+      "source_sha256": "8d0bc767b8197a1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then, my Lord, let your mercy reach them, and give me authority over them so that I may take them to the places of rest,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0070.s2",
+      "source_sha256": "ac89f0c9671a86a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the dwelling place of all who rejoice, because they remembered me on earth like all my fellow angels.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0071",
@@ -1377,11 +1733,25 @@
       "text": "Yes, my Lord, let your mercy reach them.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0072",
-      "source_sha256": "f2a02685d597cc2f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "My Father said, “I tell you, Abbaton the angel: anyone who fears you and gives charitable gifts and alms in your name, repents, and copies the book of your appointment—which is on the thirteenth day of the month of Hathor, the day on which I appointed you over Adam because of his disobedience—I will write their names in the book of life and grant them to you in my kingdom. They will not experience any torment."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0072.s1",
+      "source_sha256": "c7246435afcb15f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My Father said, “I tell you, Abbaton the angel, that all people who fear you and give charitable gifts and alms in your name, and repent and copy the book"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0072.s2",
+      "source_sha256": "d1d36d54cd0f8bb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of your appointment—which is on the thirteenth of the month of Hathor, the day on which I appointed you over Adam because of his disobedience—I will write their names in the book of life."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0072.s3",
+      "source_sha256": "80b5e56e9581e9b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will grant them to you in my kingdom, and they will not experience any torment."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0073",
@@ -1391,11 +1761,18 @@
       "text": "You will not go to them in these terrifying forms. Instead, you will go to them cheerfully, until you bring them out of the body."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0074",
-      "source_sha256": "52709767debae0a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "I will give you authority over them, and you will take them to the places of rest, the dwelling place of all who rejoice, because I am a good God, compassionate toward what I have created.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0074.s1",
+      "source_sha256": "e62ccda8d46b875f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will give you authority over them, and you will take them to the places of rest,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0074.s2",
+      "source_sha256": "45b2608edb680e5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the dwelling place of all who rejoice, for I am a good God, compassionate toward what I have formed.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0075",
@@ -1405,18 +1782,53 @@
       "text": "Then Abbaton the angel bowed down before my Father, saying, “What shall I give you in return, Lord, my God and my king, for everything you have done for me?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0076",
-      "source_sha256": "2e0609a2e3becb6e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 24,
-      "text": "Now, therefore, my holy apostles, look, I have told you how my Father made Abbaton a source of fear and terror over the whole creation that he made, because of the transgression of Adam and Eve. Proclaim this to all humanity."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0076.s1",
+      "source_sha256": "ec01650edbedb7d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "“Now then, my holy apostles, look, I have told you how my Father made Abbaton a source of fear and terror over the whole creation that he made, because of the transgression of Adam and Eve."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077",
-      "source_sha256": "2205f66f4623d6d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Saint John the virgin replied, saying, “My Lord and my God, who purified me for himself and kept all my thoughts fixed on him, who kept me from taking a wife: on the day of your resurrection, when you gather all your creation into the valley of Jehoshaphat so that everyone receives according to what they have done, whether good or evil, will Abbaton, the angel of death, come again on that day in forms like these? If so, my Lord, not a single soul will be able to stand before your terrifying judgment seat."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0076.s2",
+      "source_sha256": "00926a262b5051d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Proclaim it to all humanity.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077.s1",
+      "source_sha256": "4777ef96c2eb8574",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Saint John the virgin answered, saying, “My Lord and my God, who purified me for himself"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077.s2",
+      "source_sha256": "6677581dadc1d7bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and made all my thoughts cling to him, who kept me from marrying—on the day of the resurrection,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077.s3",
+      "source_sha256": "e06da3f9bdd1f298",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you will gather together all that you have formed into the valley of Jehoshaphat, so that each person may receive according to what they have done,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077.s4",
+      "source_sha256": "02656f3241ec67af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whether good or evil. Will Abbaton, the angel of death, come again on that day in forms like these?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0077.s5",
+      "source_sha256": "4a06f863e6dad43f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If so, my Lord, not a single soul will be able to stand before your fearful judgment seat.”"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0078",
@@ -1426,11 +1838,32 @@
       "text": "Look, we have melted with fear as we hear these things from you.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0079",
-      "source_sha256": "76f4fd5e6ca6bef9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The Son smiled at John and said to him, “O John, my beloved, the one who leaned upon my breast because of the purity of his heart, the purity of his holy body, and his virginity! Do you not know that on the day of my holy resurrection they neither take wives nor live with husbands? Nor will there be death, because the old things have passed away, except for the second death for those who will come to it."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0079.s1",
+      "source_sha256": "dd289645e1b59e58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The Savior smiled at John and said to him, “John, my beloved,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0079.s2",
+      "source_sha256": "0a0de0a787ebacf0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The one whom he placed on the amethyst because of the purity of his heart, the purity of his holy body, and his virginity."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0079.s3",
+      "source_sha256": "68ecf4d49023e610",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Do you not know, then, that on the day of the holy resurrection people neither take wives nor live with husbands?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0079.s4",
+      "source_sha256": "8e5588697e72aa44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Nor will there be any death, because the former things have passed away, except for the second death for those who will come to it."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0080",
@@ -1447,18 +1880,32 @@
       "text": "with thousands upon thousands and tens of thousands upon tens of thousands of angels before me."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0082",
-      "source_sha256": "360b60b93ae6c8b3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "My cross will advance before me like the standards before their king, just as I told you: ‘The Son of Man will come in his glory and that of his Father, with all his angels accompanying him.’"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0082.s1",
+      "source_sha256": "3919683616587129",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "My cross will go before me like the standards before their king."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0083",
-      "source_sha256": "18d8c2634b85304e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "I will command my great holy archangel Michael to sound the trumpet in the valley of Jehoshaphat, and the dead will rise incorruptible. Not a single soul will be able to remain upon the earth without rising, from Adam, the first human being, down to the last human being who will be born into the world."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0082.s2",
+      "source_sha256": "98090423658da2cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "As I told you, the Son of Man will come in his glory and his Father's glory, with all his angels accompanying him."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0083.s1",
+      "source_sha256": "514f2ea3fdf46a77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will command my great holy archangel Michael to sound the trumpet in the valley of Jehoshaphat, so that the dead may"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0083.s2",
+      "source_sha256": "29a62e273e3ecaeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "rise imperishable. Not a single soul will be able to remain in the earth without rising, from Adam, the first human being, down to the last person to be born into the world."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0084",
@@ -1475,11 +1922,18 @@
       "text": "They will stand in fear and trembling, awaiting the mercy of my Father."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0086",
-      "source_sha256": "41d78a0bf3cc2621",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "But you, O my beloved John, will not die until the thrones are prepared on the day of the holy resurrection. For glorious thrones will descend from heaven, and you will sit upon them, while I sit in your midst."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0086.s1",
+      "source_sha256": "01555384c0948801",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "But you, my beloved John, will not die until the thrones are prepared on the day of the holy resurrection."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0086.s2",
+      "source_sha256": "b950e78a8164cdd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For glorious thrones will come down from heaven, and you will sit on them, with me sitting in your midst."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0087",
@@ -1538,11 +1992,25 @@
       "text": "And I said through the mouth of Paul, ‘We will judge angels, even before we come to the affairs of the world.’"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0095",
-      "source_sha256": "04f2ee1796d328f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "For on that day all creation will stand in fear and trembling. I will give the order, and they will be separated from one another as a shepherd separates the sheep from the goats: the righteous on the right and the sinners on the left. No one will be able to utter a sound until the Ancient of Days gives them permission."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0095.s1",
+      "source_sha256": "6710fd9232b9c442",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For on that day all creation will stand in fear and trembling."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0095.s2",
+      "source_sha256": "244d5c6e722b773f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will give the order, and they will separate them from one another, as a shepherd separates the sheep from the goats."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0095.s3",
+      "source_sha256": "d3c5a3b8adc67875",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "The righteous will be on the right, and the sinners on the left. No one will be able to raise his voice until the Ancient of Days gives him permission."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0096",
@@ -1552,11 +2020,18 @@
       "text": "I will look upon all my creation and see that it is going to destruction. I will cry out to my Father, ‘My Father, what good is my blood if what I created is going to destruction?’"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0097",
-      "source_sha256": "3f6754fb06d6a72a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "At once my Father’s voice will come to me from the seventh heaven, with no one hearing it except me alone, because my Father and I are one: “The authority is yours, my Son, to do whatever pleases you with what you have created.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0097.s1",
+      "source_sha256": "7ad7c5eda324ed40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then my Father's voice will come to me from the seventh heaven, with no one hearing it except me alone."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0097.s2",
+      "source_sha256": "6a5fda8efbb521ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "For I and my Father are one. He will say, 'The authority is yours, my Son, to do what pleases you with what you have formed.'"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0098",
@@ -1566,11 +2041,25 @@
       "text": "And on that day I too will say joyfully, “You have removed my sackcloth and clothed me in gladness, so that my right hand will bless you without sorrow.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0099",
-      "source_sha256": "bb293de40c56833a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 17,
-      "text": "On that day I will say to you, my holy apostles, and to all my holy ones—whether angels or archangels, prophets or righteous people—and especially to my virgin mother and my great archangel Michael and Gabriel: “Do not let anyone go to destruction who has commemorated you on earth and given bread in your name.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0099.s1",
+      "source_sha256": "6872e1bfc73f6a26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "On that day I will speak to you, my holy apostles, and to all my holy ones, whether angels or archangels,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0099.s2",
+      "source_sha256": "0ef628376dd57231",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whether prophets or righteous people, and especially to my virgin mother and my great archangel Michael and Gabriel."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0099.s3",
+      "source_sha256": "ee8bf30a99277d06",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "I will say to them, 'Anyone at all who has commemorated you on earth and given a loaf of bread in your name—do not let him go to destruction.'"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0100",
@@ -1629,11 +2118,18 @@
       "text": "If we had known that these things would happen, we would have repented to the point of pouring out—pouring out blood.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0108",
-      "source_sha256": "252b86b1141445fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "And at once, on that day, I will curse Satan and have him seized and bound with chains that cannot be undone, together with the false prophet who deceives all the nations and the Antichrist, the son of destruction. They will be thrown into the lake of fire that burns with fire and sulfur, along with all those in the world who followed him. They will have no rest day or night,"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0108.s1",
+      "source_sha256": "0afbc8e9fa85920a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And immediately, on that day, I will curse Satan and have him seized and bound with bonds that cannot be undone, together with the false prophet who leads all the nations astray,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0108.s2",
+      "source_sha256": "3c3f2711475910c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the Antichrist, the son of destruction. They will throw them into the lake of fire that burns with fire and sulfur, together with all those in the world who followed him. They will have no rest day or night."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0109",
@@ -1643,11 +2139,18 @@
       "text": "nor will their worm die, and their fire will not be extinguished."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0110",
-      "source_sha256": "6450f2c45c886748",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "Now then, holy apostles, look: I have told you everything you asked me about, including how Adam transgressed until death entered the world, and how the angel Abaddon became king over all creation."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0110.s1",
+      "source_sha256": "8e137193ab7f1c94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now then, my holy apostles, look: I have told you everything you asked me about, including how Adam transgressed so that death entered the world,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0110.s2",
+      "source_sha256": "3b945e5c72df0257",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and how the angel Abbaton became king over all creation."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0111",
@@ -1671,11 +2174,18 @@
       "text": "Whoever does evil will rise to judgment.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0114",
-      "source_sha256": "73ca4b5aefdc9379",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "Then the apostles worshiped the Savior, saying, “Our Lord and our God, you have filled us with every blessing, because you have not disappointed us in anything we asked of you.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0114.s1",
+      "source_sha256": "9c1d67078a7b3a86",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Then the apostles worshiped the Savior, saying, 'Our Lord and our God,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0114.s2",
+      "source_sha256": "b2d8de84fbc8ba2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "you have filled us with every blessing, for you have not disappointed us in anything we asked of you.'"
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0115",
@@ -1692,11 +2202,18 @@
       "text": "The apostles, for their part, worshiped him, and each one went out to preach, just as he had commanded them."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0117",
-      "source_sha256": "be6a8f4b2f992ac9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "These things, my beloved, we have told you according to what we found in the library of Jerusalem, which our holy fathers, the apostles, compiled and deposited there for the faithful and for the salvation of unbelievers."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0117.s1",
+      "source_sha256": "a8fe94ac4b4f4896",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "These things, my beloved, we have told you according to what we found in the library"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0117.s2",
+      "source_sha256": "fa383bdf1ceb9537",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "of Jerusalem. Our holy fathers, the apostles, compiled these things and deposited them there for the faithful and for the salvation of unbelievers."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0118",
@@ -1706,18 +2223,32 @@
       "text": "Now then, my beloved, let us be eager to give charitable gifts and alms on the day commemorating Abbaton, the angel of death, each according to their ability."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0119",
-      "source_sha256": "c3102d323bfc3e98",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "Remember what is written in the Gospel: our Savior praised the poor woman who put in the two small coins above all those who put money into the treasury. “All these,” he said, “gave out of their surplus, but she, in her poverty, gave everything she had.”"
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0119.s1",
+      "source_sha256": "048fda17b5534d9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Remember what is written in the Gospel: our Savior declared the poor woman who put in two small coins more blessed than all those who put money into the treasury."
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0120",
-      "source_sha256": "74aa84645249ce73",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 23,
-      "text": "May God, who made us worthy to gather in this place today to commemorate Abaddon, the angel of death, whom God made king over us, make us worthy to be gathered into his kingdom in heaven."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0119.s2",
+      "source_sha256": "58756521d04a01b8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "“All these,” he said, “gave out of their surplus, but she, in her poverty, gave everything she had.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0120.s1",
+      "source_sha256": "09c62fe84879eb1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "God, who has made us worthy to gather here today to commemorate Abbaton, the angel of death,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0120.s2",
+      "source_sha256": "8321371f626834db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "whom God made king over us, will make us worthy to be gathered into his kingdom in heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0121",
@@ -1727,11 +2258,18 @@
       "text": "All of us, my beloved, need God’s mercy, as a wise man said: “Just as I want to live, I want everyone to live.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0122",
-      "source_sha256": "a5dd26fc4f7227a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 5,
-      "text": "May it be so, my beloved friends: may he make us worthy to hear the blessed voice, full of every joy: “Come, you who are blessed by my Father, inherit the kingdom prepared for you since the foundation of the world.” Through the grace and love for humanity of our Lord Jesus Christ, through whom glory belongs to him, his good Father, and the Holy Spirit forever and ever. Amen."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0122.s1",
+      "source_sha256": "ecd3866f41e73fdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "May it be so, my beloved, and may he make us worthy to hear the blessed voice, full of every joy: “Come, you who are blessed by my Father, and inherit the kingdom prepared for you since the foundation of the world.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0122.s2",
+      "source_sha256": "e7c933f38153f87c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Through the grace and love for humanity of our Lord Jesus Christ, through whom glory belongs to him, together with his good Father and the Holy Spirit, forever and ever. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0123",
@@ -1748,11 +2286,32 @@
       "text": "Written in the month of Thoth, on the eleventh, indiction [?], in the year 698 of the holy martyrs. [?]"
     },
     {
-      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0125",
-      "source_sha256": "5d0fa86a35d7fb25",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 5,
-      "text": "Through the zeal and care of our distinguished, God-loving brother Michael, the son of the blessed Stephen, the farmer from Moui. He took care of this little book through his own labor and donated it to the monastery of Saint Mercurius in the city of Tbo for the salvation of his soul, so that it might be read in honor of Abbaton, the angel of death, and so that Saint Mercurius might intercede with Christ for him, that he might bless him in this world, save him from all the snares of the devil and wicked people, and help him in every good work. And when he departs from this life, may the archangel Abbaton reconcile him to God, and may God forgive him his sins."
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0125.s1",
+      "source_sha256": "e32fd19477158216",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Through the diligence and care of our God-loving brother, [?] Chael, son of the blessed Stephen, the farmer of Moui, he took responsibility for this little book."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0125.s2",
+      "source_sha256": "76c87f22cabb8d79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Through his own labors, he donated it to the monastery of Saint Mercurius in the city of Edfu for the salvation of his soul, so that it might be read in the name of Abbaton,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0125.s3",
+      "source_sha256": "e966c3549c17cd38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "the angel of death, so that Saint Mercurius might plead with Christ on his behalf, and he might bless him in this world and save him from all the snares of the devil and of"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0125.s4",
+      "source_sha256": "840d45d11d862147",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "wicked people, and help him in every good work. And when he departs from this life, may the archangel Abbaton deal gently with him before God, and may he forgive him his sins."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.001.0126",

@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -572,11 +578,18 @@
       "text": "For those who endure this have affliction in the flesh, but grace in the soul."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.019.0003",
-      "source_sha256": "cde93e9de4956f1c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.019.0003.s1",
+      "source_sha256": "15e02f57ee497b4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Just as tough clothes are trampled on, wrung out, and vigorously turned until they become clean, so a soul that is strong in poverty imposed against its will becomes still stronger.”"
+      "text": "For just as rough clothes are trampled on and washed, and are turned over with a [?] until they become white,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.019.0003.s2",
+      "source_sha256": "99e10cce0df8a7c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so it is with the soul hardened by poverty, under the pressure they apply more strongly."
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.020.0000",
@@ -656,11 +669,18 @@
       "text": "“I have not found rest for a single day, and you want to rest during these eight years!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.021.0000",
-      "source_sha256": "b12a50f6eb54b9d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.021.0000.s1",
+      "source_sha256": "adaad52e74e9126b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "They said of Abba Theodore and Abba Lucian of the Enaton that they spent fifty years deceiving their own thoughts, saying, “When winter is over, we will move away from this place.”"
+      "text": "They said about Abba Theodore and Abba Lucian of the Enaton"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.021.0000.s2",
+      "source_sha256": "9c7b01ca1c5f2f22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that they spent fifty years deceiving their own thoughts, saying, “When winter comes, we will move away from this place.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.021.0001",
@@ -838,11 +858,18 @@
       "text": "For suffering that destroys sin has been provided like a powerful medicine that works effectively in the sick person's body."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.024.0005",
-      "source_sha256": "5e72fde38eec38e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.024.0005.s1",
+      "source_sha256": "1b6c327c3e4328e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "And this is the great ascetic discipline: endurance in illnesses and thanksgiving through hymns, sending them up to God so that we may lift our eyes to him with thanksgiving."
+      "text": "And this is the great discipline of bearing up under illnesses and being thankful in the hymns sung to God:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.024.0005.s2",
+      "source_sha256": "942f80cef5aa61a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that we lift our eyes up to him with gratitude."
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.024.0006",
@@ -1195,11 +1222,18 @@
       "text": "The elder said to him, “Look, the passion is still alive, but it is bound.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.032.0005",
-      "source_sha256": "92898cd9fa9495e9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.032.0005.s1",
+      "source_sha256": "a6d4742c8ffe2d94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Abba Abraham said again, “Look, you have heard about two brothers: one loves you and honors you, while the other hates you and slanders you."
+      "text": "Abba Abraham also said, “Look, you have heard about two brothers: one loves you"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.032.0005.s2",
+      "source_sha256": "a160abc8f8b7916f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and honors you, while the other hates you and speaks against you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.032.0006",
@@ -1342,11 +1376,18 @@
       "text": "But he went off and stole again."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.036.0004",
-      "source_sha256": "cbea5bf127d5160d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.036.0004.s1",
+      "source_sha256": "9f354d2c81d0c756",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the old men saw that he had not stopped stealing, they pursued him, saying, ‘If a brother is found to have a failing caused by weakness, we must support him until he becomes strong."
+      "text": "When the elders saw that he did not stop bowing down, they ran after him, saying, “If a brother is found to have a failing"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.036.0004.s2",
+      "source_sha256": "9711e8c25b56303a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "due to weakness, we ought to support him until he becomes strong.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.036.0005",
@@ -1671,11 +1712,18 @@
       "text": "It has been a week since I ate cooked food.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.044.0016",
-      "source_sha256": "644b55f976dfef64",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.044.0016.s1",
+      "source_sha256": "f38f54ca10c60111",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He said to them, “If you have become so utterly exhausted because you fasted two days at a time, why did you take offense at the brothers who always carry out their ascetic discipline in this way?”"
+      "text": "He said to them, “If you have become so exhausted because you fasted for two days at a time, why, then, did you take offense at the brothers"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.044.0016.s2",
+      "source_sha256": "146807ca6c983462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "who carry out their discipline in this way all the time?”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.044.0017",
@@ -1867,11 +1915,18 @@
       "text": "He said, “No.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.051.0003",
-      "source_sha256": "8ade828992e9a4ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.051.0003.s1",
+      "source_sha256": "a1a4a9bca069388a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The priest said, “We perform only a few acts of worship, and the mysteries are revealed to us. Yet you undertake such great hardships: these nights of keeping watch, these ascetic practices, and this abstinence."
+      "text": "The priest said, “We perform only small acts of worship,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.051.0003.s2",
+      "source_sha256": "c497f5c255bda734",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the mysteries are revealed to us. Yet you undertake such great hardships—these nights of keeping watch, these disciplines, and this austerity!”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.051.0004",
@@ -2049,11 +2104,18 @@
       "text": "“This is how he will be blessed.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.053.0000",
-      "source_sha256": "12ccdc85b7be09b9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.053.0000.s1",
+      "source_sha256": "396c2219bb3c9024",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "An elder said, “There is someone who does many good things, and the evil one [?] a little [?] counts [?] any [?] so that he will [?] the reward for the great good things he has done.”"
+      "text": "An elder said, “There is someone who does many good things, and the evil one [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.053.0000.s2",
+      "source_sha256": "1f728335e8b8cbe7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "a little [?] he counts [?] anything [?] that he will [?] the reward for the great good deeds he has done.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.053.0001",
@@ -3505,11 +3567,18 @@
       "text": "The demon could not withstand the weakness of humility and came out of him."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.078.0000",
-      "source_sha256": "c081878631ed6185",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.078.0000.s1",
+      "source_sha256": "6a9b154397a9ada1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "An elder said, “If an arrogant thought full of pride enters you, examine your thoughts: Have you kept the commandments? Have you loved your enemies? Have you rejoiced at your enemies’ honor and grieved over their loss? Do you regard yourself as a useless servant and a greater sinner than everyone else?"
+      "text": "An elder said, “If an exalted, arrogant thought comes into you, examine your thoughts to see whether you have kept the commandments:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.078.0000.s2",
+      "source_sha256": "12c1b8d7cda137a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "whether you have loved your enemies, whether you have rejoiced at your enemies’ honor and grieved over their loss, and whether, in your own eyes, you are a useless servant and more sinful than everyone else.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.078.0001",
@@ -3918,11 +3987,18 @@
       "text": "Once, while he was walking, he came upon a band of robbers and found them drinking."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.096.0002",
-      "source_sha256": "33beb463d3864944",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.096.0002.s1",
+      "source_sha256": "18de900b23367a4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Their leader recognized him and knew that he did not drink wine. He looked at him with great severity, filled a cup with wine, and, holding his sword in his hand, said to the elder, “If you do not drink, I will kill you.”"
+      "text": "The leader recognized him and knew that he did not drink wine. He saw him in great distress and filled a cup with wine, holding his sword in his hand."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.096.0002.s2",
+      "source_sha256": "6f2ef04094fc0adb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "He said to the elder, “If you do not drink, I will kill you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.096.0003",
@@ -3960,32 +4036,95 @@
       "text": "The elder won over the whole band for himself because he had given up his own will for God's sake."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.097.0000",
-      "source_sha256": "c8dae8736affbfdc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.097.0000.s1",
+      "source_sha256": "ef4bafd4058008c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "It was revealed to Abba Anthony in the desert: “There is someone like you in the city. He is a physician by profession, gives his surplus to those in need, and spends the whole day saying ‘Holy, holy, holy’ with the angels.”"
+      "text": "It was revealed to Abba Anthony in the desert: “There is someone like you in the city. He is a physician by trade,"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.098.0000",
-      "source_sha256": "3d0a82bd1e05d316",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.097.0000.s2",
+      "source_sha256": "3da785c26df5f4ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "When the blessed Ephrem was a little boy, he saw a dream, or a revelation: a grapevine grew from his tongue. It grew and filled the whole earth beneath the sky, and its fruit was very good. All the birds of the sky came and settled among its fruit. Whatever they ate from the grapevine, it produced again in greater abundance."
+      "text": "giving what he has to spare to those in need, and he spends the whole day saying ‘Holy, holy, holy’ with the angels.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000",
-      "source_sha256": "6cbe8b54f4b77e1a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.098.0000.s1",
+      "source_sha256": "a6090d3783876b0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Abba Doulas, the disciple of Abba Bessarion, said, “We were walking beside the sea, and I became thirsty. I said to Abba Bessarion, ‘My father, I am very thirsty.’ The elder prayed and said to me, ‘Drink from the sea.’ And the water was sweet. I drank and put a little water into the vessel I was carrying, saying, ‘In case I become thirsty again.’ When the elder saw this, he said to me, ‘Why have you filled it with water?’ I said, ‘Forgive me—in case I become thirsty farther on.’ The elder said to me, ‘God is here, and he is also God farther on.’”"
+      "text": "When the blessed Ephrem was a little child, he saw a dream, or a revelation: a grapevine grew from his tongue."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.100.0000",
-      "source_sha256": "319a6ada93a16808",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.098.0000.s2",
+      "source_sha256": "1fe26d66be8c9920",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "On another occasion, another need arose for him. He prayed and crossed the river called the Golden [?], the Herman, walking on his feet until he reached the other bank. I was amazed and bowed before him, asking, “What did your feet feel like as you walked on the water?” The old man said, “I felt the water coming up to my ankles, but the ground underneath was firm.”"
+      "text": "It grew and filled the whole earth beneath heaven, and its fruit was exceedingly good. All the birds of heaven came and settled among its fruit."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.098.0000.s3",
+      "source_sha256": "39506a18b86a246f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And whatever they ate from the grapevine, it produced again in greater abundance."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000.s1",
+      "source_sha256": "41d604689b601cc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "Abba Doulas, the disciple of Abba Bessarion, said, “We were walking beside the sea, and I became thirsty."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000.s2",
+      "source_sha256": "d46b87818f1d3cd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "I said to Abba Bessarion, ‘My father, I am very thirsty.’ The old man prayed and said to me, ‘Drink from the sea.’"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000.s3",
+      "source_sha256": "edd41558e28d1d10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "The water was sweet, and I drank. I also put a little water into the container I was carrying,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000.s4",
+      "source_sha256": "28e0d66d8f5c75e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "saying, ‘I might become thirsty again.’ When the old man saw this, he said to me, ‘Why did you fill it with water?’ I said, ‘Forgive me,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.099.0000.s5",
+      "source_sha256": "c089c2eab739ebc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "but I might become thirsty over there.’ The old man said to me, ‘God is here, and he is also God over there.’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.100.0000.s1",
+      "source_sha256": "d4b041fc0bf417a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "On another occasion, another need arose for him. He prayed and crossed the river called the Golden One,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.100.0000.s2",
+      "source_sha256": "e244aab331fcd2e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "the Herman, walking on foot until he reached the bank. I was amazed and bowed down before him,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.100.0000.s3",
+      "source_sha256": "5155ac0eb31617c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "saying, “How did your feet feel as you walked on the water?” The old man said, “I felt the water coming up to my ankles, but underneath it was solid.”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.101.0000",
@@ -4093,11 +4232,18 @@
       "text": "Such deep grief came over him that many people urged him to give himself a little rest, so that he would not collapse from so much weeping."
     },
     {
-      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.101.0015",
-      "source_sha256": "f5da1dcf3637229b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "But he refused to comfort himself, saying, “If I could not bear my mother’s rebuke, how will I be able to bear the shame on the day of judgment before Christ and all his angels?”"
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.101.0015.s1",
+      "source_sha256": "fa9b018363cbd498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "But he did not want to comfort himself, saying, “If I could not bear my mother’s rebuke,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/AP#CopScr.AP.101.0015.s2",
+      "source_sha256": "7cd2242eae28991a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 10,
+      "text": "how will I be able to bear the shame on the day of judgment before Christ and all his angels?”"
     },
     {
       "chunk_id": "coptic-scriptorium/AP#CopScr.AP.102.0000",

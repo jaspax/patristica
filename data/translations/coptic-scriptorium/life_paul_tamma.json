@@ -15,15 +15,42 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0000",
-      "source_sha256": "c4442df15779b7d7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 15,
-      "text": "The Life of Our Beloved Brother Apa Paul of Tamma, who went to his rest on the seventh day of the month of Paopi. May his blessing come upon us, and may we be saved in the peace of God. Amen. Listen, you who love to listen, to the voice [?] worthy [?], as he said to his disciples, “If you keep my commandments [?], you will remain in them [?].” [?] God sent Michael the archangel to me at noon on the sixteenth day of Epip. He said to me, “Greetings, my honored son.” I answered him, “Greetings, [?].” [?] is the man from Tamma, for you are the one who will take charge of his body when he lays his body down."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0000.s1",
+      "source_sha256": "8bf96273df69a2c3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "The life of our beloved brother Apa Paul of Tamma, who went to his rest on the seventh day of the month of Paopi. May his blessing come upon us, and may we be saved in the peace of God. Amen. Listen, you who love to listen, to the voice which is [?]."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0000.s2",
+      "source_sha256": "29a5a6a16f923356",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] Just as he said to his disciples, “If you keep my commandments [?], you will remain in them [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0000.s3",
+      "source_sha256": "6def353080907add",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] God sent Michael the archangel to me at noon on the sixteenth of Epip. He said to me, “Greetings, my honored son.” I answered him, “Greetings to you too [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0000.s4",
+      "source_sha256": "aef5441330ea8a0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] is the man from Tamma. For you are the one who will take charge of his body when he lays his body down."
     },
     {
       "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0001",
@@ -33,25 +60,144 @@
       "text": "When he had said these things, he went to heaven in glory. I immediately got up and stopped under [?] [?]."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002",
-      "source_sha256": "3009b2e6ec066a7f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 15,
-      "text": "[?] is equal. John said, “Let him be our father and our bishop in these matters.” Peter said, “My father Paul, get up and call upon God to send us bread from heaven so that we may eat together.” My father said, “Forgive me. Bless me. Get up, and let us pray to him, and he will listen to us.” They got up and stretched out their hands together. My father called upon God, saying, “My Lord Jesus Christ, you who blessed five loaves, so that five hundred people ate and were sustained by the five barley loaves and the two fish; you who listened to Elisha and satisfied a thousand people with ten barley loaves: listen to me today. You who listened to Daniel when he was in the lions’ den and sent Habakkuk to him with the meal in his hands: listen to me today and send me bread from heaven so that I may eat with my brothers and my fathers.” Immediately, a table appeared with a dish on it, and on the dish were three warm loaves. They were set down among us. My father said to them, “Get up, and let us eat the bread of heaven.”"
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s1",
+      "source_sha256": "d427674be63258b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] is equal. John said, “Let it be so, our father and our bishop.” Peter said, “My father Paul, rise and call upon God to send us bread"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003",
-      "source_sha256": "744201bdfb5db330",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "He also took a little salt and put it on the table. We prayed together and ate the little bread with the Lord’s blessing. My father answered and said to the brothers, “I tell you, it has been fifty-four years from the day my head was shaved on the mountain by my beloved father, Apa Hyperichus, until now. One loaf of bread and one measure of water are allotted to me by God every forty days. I do not know where they come from. I eat some of them on the evening of my fortieth day, and I do not eat again until the completion of my next forty days, according to the Savior’s command, which he gave us in the holy Gospel. He himself neither ate nor drank for forty days and forty nights.” The brothers said to him, “You do well. An athlete does not receive a crown unless he competes well.” He raised his hands toward heaven and prayed with the brothers, saying, “Lord Jesus Christ, King of kings, hear us today and send us bread that is warm and fresh.” Immediately, behold, [?] came from heaven and settled in our midst, wrapped in linen cloths. Peter said to John, “Here are the bread and the cloths. We also need the preparations for the offering.” John answered and said to the brothers, “Pray for me so that I may do what he [?].” [?] John opened his mouth and said, “Our Lord Jesus Christ, send a table from heaven so that we may place your body and your blood on it.” Immediately, behold, a golden table came from heaven and settled in our midst. Paul also stood up and prayed in this way, saying, “My Lord Jesus Christ, you who called me to the lot of the holy apostles, although I was formerly a persecutor, persecuting his holy bride, the Church,"
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s2",
+      "source_sha256": "506daaaeeb45ea04",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "from heaven, so that we may eat together.” My father said, “Forgive me; bless me. Rise, and let us pray to him, and he will grant our request.” They rose and stretched out their hands"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004",
-      "source_sha256": "8305bff3d85d58a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "“Now then, Lord, hear me in the midst of my brothers and send me from heaven a cup full of wine from the true vine.” At that moment, behold, a cup full of wine from the true vine settled on the table. The elder Apa Isidore, the priest, also stood up. He raised both his hands toward heaven and prayed, saying, “Lord God Almighty, King of kings, I am not worthy to speak in the midst of my brothers and these chosen ones of yours whom you chose for yourself as apostles. But because of the joy you have given me, I have stood up and called upon you. Listen to me and send me incense from the incense of Paradise, so that we may offer it while we invoke your name over your holy body and blood.” Immediately, behold, a bowl full of incense settled in the midst of us, and we breathed in the incense. Apa Agathonicus, of the mountain of [?], also stood up. [?] He said, [?]."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s3",
+      "source_sha256": "751ea4e2066649d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "together. My father called upon God, saying, “My Lord Jesus Christ, you who blessed five loaves, and five hundred people ate and were satisfied with the five barley loaves"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s4",
+      "source_sha256": "0be5c9ebc2a9fe1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and the two fish; you who heard Elisha and satisfied a thousand people with the ten barley loaves, hear me today. You who heard Daniel when he was in the lions’ den"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s5",
+      "source_sha256": "23111466b7822497",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and sent Habakkuk to him with the meal in his hands, hear me today and send me bread from heaven, so that I may eat with my brothers and my fathers.” Immediately,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0002.s6",
+      "source_sha256": "33f9bf0259b79312",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "a table appeared, with a platter on it and three hot loaves on the platter, and they came to rest in our midst. My father said to them, “Rise, and let us eat some of the bread from heaven.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s1",
+      "source_sha256": "52630ff0bf956ef9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "He also took a little salt and put it on the table. We prayed together and ate the little bread with the Lord’s blessing. My father spoke and said to the brothers, “I tell you"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s2",
+      "source_sha256": "a183fbd3eb4a2069",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "that it has been fifty-four years, from the day when my beloved father Apa Hyperechius cut my hair on the mountain until now. A single loaf is allotted to me by God every forty"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s3",
+      "source_sha256": "ff1f751573ccf658",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "days, along with a measure of water. I do not know where they come from. I eat some of them on the evening of my fortieth day, and I do not eat again until the completion of my next forty days, according to the commandment the Savior gave us"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s4",
+      "source_sha256": "c50833ecb726b5be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "in the holy Gospel. He himself neither ate nor drank for forty days and forty nights.” The brothers said to him, “You do well. No warrior receives a crown unless he fights well.” He raised"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s5",
+      "source_sha256": "c951f5a31eba6283",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "his hands toward heaven and prayed with the brothers, saying, “Lord Jesus Christ, King of kings, hear us today and send us bread that is hot and fresh.” Immediately, there were [?]"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s6",
+      "source_sha256": "de5cc4bf57b45e7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "from heaven, and they came to rest in our midst, wrapped in linen cloths. Peter said to John, “Here are the bread and the cloths. We also need the preparations for the offering.” John answered and said to the brothers, “Pray for me, so that I may do what he [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s7",
+      "source_sha256": "dd6899e05e1a6852",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] John opened his mouth and said, “Our Lord Jesus Christ, send a table from heaven, so that we may place your body on it"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s8",
+      "source_sha256": "dd16fab2c19ab087",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and your blood.” Immediately, a golden table came from heaven and came to rest in our midst. Paul also rose and prayed in this way, saying, “My Lord"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0003.s9",
+      "source_sha256": "0166d3a588551fb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "Jesus Christ, you who called me to a place among the holy apostles, although I was formerly a persecutor, persecuting his holy bride, the Church,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004.s1",
+      "source_sha256": "653400dbed57dcc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "now, Lord, hear me in the midst of my brothers and send me from heaven a cup filled with wine from the true vine.” At that very moment, a cup filled"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004.s2",
+      "source_sha256": "920770485164569c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "with wine from the true vine came to rest on the table. The elder Apa Isidore, the priest, also rose, lifted both his hands toward heaven, and prayed, saying:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004.s3",
+      "source_sha256": "740ab943b9238ba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "“Lord God Almighty, King of kings, I am not worthy to speak among my brothers and your chosen ones, whom you chose for yourself as apostles. But because of the joy you have given me,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004.s4",
+      "source_sha256": "56f5ec8d8db583c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "I rose and called upon you, asking you to grant my request and send me incense from the incense of paradise, so that we might set it down until we invoke your name over your body"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0004.s5",
+      "source_sha256": "c718262d0818cce9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and your holy blood.” Immediately, a bowl full of incense appeared in the midst of us, and we were immersed in the incense. Apa Agathonicus, from the mountain of [?], also rose. “Take,” he said, [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0005",
@@ -61,32 +207,144 @@
       "text": "[?] crumbs that remained of [?] were being put into my father’s basket. I drank the water in the measure. We prayed and left that place. We went south through the whole mountain. [?]"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0006",
-      "source_sha256": "b2ff3e76e313c9e7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 4,
-      "text": "[?] the brothers who were monks. We heard a voice saying, “[?] bless us, Apa Paul of Tamma and Ezekiel of the little cell. Come in, saints of the Lord. Welcome to us, Apa Paul of Tamma, whom the Lord raised up [?] you in this place today.” My father said, “Greetings to you, Apa Pamun, who wears the robe of many colors [?] colors, like Joseph, the righteous king.” He asked him again, “Who shaved your head?” He said, “It was my father, Apa Hellen. Remember me, my holy father.” [?] my father [?] “Where do you usually gather for worship on Saturday and Sunday?” Apa Pamun answered, “John the virgin is the one who usually gathers for worship on Saturday and Sunday. For on Saturday [?]."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0006.s1",
+      "source_sha256": "ac18b23236bf574c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] the brother monks [?]. We heard a voice saying, “[?] bless us, Apa Paul of Tamma and Ezekiel of Little Terot. Come in, saints of the Lord! Welcome to us, Apa Paul of Tamma, whom the Lord raised [?]."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0007",
-      "source_sha256": "4ce342b7f2ca467f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 14,
-      "text": "We found Apa Apollo sitting on a throne, teaching his children the commandments of life. When he saw my father, Apa Paul, he rose from his throne, embraced him, and kissed him. He said, “Welcome to us today, bridegroom of Christ, Apa Paul, whom the Lord has raised from the dead five times. He will raise you again, as he told you, and the seventh time he raises you will be on the day of the resurrection of all the saints.”"
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0006.s2",
+      "source_sha256": "edd0092998569f8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "[?] you here today.” My father said, “Welcome, Apa Pamun, you with the robe of many colors [?], like that of Joseph, the righteous king."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008",
-      "source_sha256": "fffdd2c3faf71522",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 14,
-      "text": "After Apa Apollo had said these things, he had all the people assembled and went to the church. We gathered for the holy offering. He left the brothers in the dining room, but took us to the service room and had food prepared for us to eat. My father, however, did not want to eat, because he had spent three days fasting in the wilderness. Our father Apa Apollo stood up and urged him, saying, “Listen to me, my father, and eat with me, so that a blessing may come upon my dwelling and my monastery today because of you. You know, my beloved father, that what enters a person’s mouth is not what defiles that person. So now, my father, listen to me and eat with me.” My father then agreed to eat with Apa Apollo. My brother and I also ate together, along with the other brothers who were with us, whose names were Apa Paese, Apa Nischroou, Apa Sures, and Apa Pitta. When we finished eating in the evening, our father Apa Apollo came among us and clapped his hands together, saying, “Let whoever has received wings fly away.” At that moment Apa Paese flew away and hurried to the mountain of Hache."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0006.s3",
+      "source_sha256": "b0c725f4918cdb58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "He asked him again, “Who shaved your head?” He said, “It was my father Apa Hellen. Remember me, my holy father, Apa [?].”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009",
-      "source_sha256": "dd4052d56cbaa399",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 14,
-      "text": "Apa Nischroou also flew away and went to the mountain north of Antinoë. Apa Pitta also flew away and went to the mountain of Asyut. At dawn, our father Apa Apollo accompanied us out toward the south, to the monastery. He greeted us and sent us away in peace. We walked south through the whole mountain region until we came to the mountain of Terotashans, south of Qus. Down below, we found gazelles grazing, with a monk among them. My father went forward, greeted him, and said to him, “What is your name?” He said, “My name is Aphou. Remember me, my father Apa Paul, so that the Lord may bring me to a good end.” My father said to him, “How many years have you been in this place?” He said, “Fifty-four years.” My father said to him again, “Who clothed you in the monastic habit?” He said, “Apa Anthony of Scetis.” My father said to him, “Then what do you live on as you travel with these gazelles?” He said, “My food and the food of these gazelles are the same: the plants of the field and these wild greens.” My father said to him, “Do you not get cold in winter or suffer from the heat in summer?” He said to him, “In winter I sleep among these gazelles, and they warm me with the breath from their mouths. In summer they gather together and stand over me, shading me so that the scorching heat does not trouble me.” My father said to him, “Truly, you deserve to be called Apa Aphou the Gazelle.”"
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0006.s4",
+      "source_sha256": "76330b56bb68a066",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "“My father, [?] where do you gather for worship on Saturday and Sunday?” Apa Pamun answered, “John the Virgin is the one who holds the worship service on Saturday and Sunday. For on Saturday [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0007.s1",
+      "source_sha256": "8cb8d9b7a6250a76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "As for Apa Apollo, we found him sitting on a throne, teaching his children the commandments of life. When he saw my father Apa Paul, he sprang up from his throne"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0007.s2",
+      "source_sha256": "4c0a7eed5fa9450a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and approached him, kissed him, and said, “Welcome to us today, Christ’s prize of victory, Apa Paul, whom the Lord raised from the dead five"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0007.s3",
+      "source_sha256": "81865f51581128f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "times. He will raise you again, just as he told you. And the seventh time he raises you will be on the day of the resurrection of all the saints.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s1",
+      "source_sha256": "8c6a78ca179f5919",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "After Apa Apollo said this, he had all the people gathered together. He went to the church, and we gathered for worship with the holy offering. He sent the brothers to the dining room, but he took us"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s2",
+      "source_sha256": "babecf6c198411cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "to the service quarters and had food prepared for us to eat. My father, however, did not want to eat, because he had spent three days fasting during Lent. But our father Apa Apollo stood up"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s3",
+      "source_sha256": "3393b1f818d87152",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "and urged him, saying, “Please listen to me, my father, and eat with me, so that a blessing may come upon my dwelling and my monastery today because of you. You know, my beloved father, that what goes into the mouth"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s4",
+      "source_sha256": "55bce75249b3e6f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "of a person is not what defiles that person. So now, my father, listen to me and eat with me.” My father agreed to eat with Apa Apollo. I too, along with my companion, ate together"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s5",
+      "source_sha256": "3c485f711090a310",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "with the rest of the brothers who were with us. These were their names: Apa Paese, Apa Nishkroou, Apa Soures, and Apa Pita. When we had finished eating, at evening our father Apa"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0008.s6",
+      "source_sha256": "3d5e95a4b4736f9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "Apollo came among us and clapped his hands together, saying, “Let whoever has received wings fly away.” At that very moment Apa Paese flew away and hurried to the mountain of Hace."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s1",
+      "source_sha256": "a2ece4b6bc72ae5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "Apa Nishkroou also flew away and went to the mountain north of Antinoë. Apa Pitta also flew away and went to the mountain of Asyut. When [?] came, our father Apa Apollo accompanied us out"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s2",
+      "source_sha256": "f73069f49285548b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "to the south of the monastery as well. He embraced us and sent us away in peace. We traveled south through Mount Tereb until we reached Mount Terotashans, south of Qus. We found some antelopes down below,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s3",
+      "source_sha256": "24adee7b01099e9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "grazing, with a monk among them. My father went forward and greeted him. He said to him, “What is your name?” He said, “My name is Aphou. Remember me, my father Apa Paul,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s4",
+      "source_sha256": "7926e0d805fbfe6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "so that the Lord may bring me to a good end.” My father said to him, “How many years have you been here?” He said, “Fifty-four years.” My father asked him again, “Who clothed you in the monastic habit?” He said, “Apa"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s5",
+      "source_sha256": "4f1327e8e46acb29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 21,
+      "text": "Anthony of Scetis.” My father said to him, “Then what do you live on as you travel with these antelopes?” He said, “My food and that of these antelopes are the same: the plants of the field and these [?].”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s6",
+      "source_sha256": "ffbeae25e90d5b5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "My father said to him, “Do you not get cold in winter or suffer from the heat in summer?” He said to him, “When it is winter, I sleep among these gazelles, and they warm me with the breath from their mouths. When"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.000.0009.s7",
+      "source_sha256": "58579dce25aeb20b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "it is summer, they gather together, stand up, and shade me so that the scorching heat does not trouble me.” My father said to him, “Truly, you deserve to be called Apa Aphou the Gazelle.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0000",
@@ -313,11 +571,18 @@
       "text": "We untied him.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0032",
-      "source_sha256": "1546e3264a2789ff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 15,
-      "text": "He said to us, “Leave me here. But when you go to the mountain, you will find the dwelling place. Call inside, ‘Ezekiel, your father says, “Come to me in the desert, for the robbers rose up and bound me, wanting to kill me, but God rescued my soul from their hands.”’”"
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0032.s1",
+      "source_sha256": "94f4b8e841526bd2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "He said to us, “Leave me here. But when you go to the mountain, you will find this dwelling place. Call inside, ‘Ezekiel!’”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0032.s2",
+      "source_sha256": "2b039552974035ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Your father said, “Come to me in the desert, for the robbers rose up and bound me, wanting to kill me. But God rescued my soul from their hands.”"
     },
     {
       "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0033",
@@ -488,11 +753,18 @@
       "text": "My father spent forty days and forty nights without eating or drinking, sitting on a brick inside the dwelling and staring at a window through an opening. He did not close his eyes during these forty days, until they burst and fell out onto the ground."
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0057",
-      "source_sha256": "30640010d75eb5f3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The holy archangel—that is, Michael the archangel—came from heaven at daybreak on Sunday, at the completion of the forty days. He marked him with the seal and relieved him of all his sufferings, and his eyes were restored to their proper condition. Michael the archangel went up to heaven in glory."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0057.s1",
+      "source_sha256": "940b17459ec0c574",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "The holy archangel came from heaven—that is, Michael the archangel—at dawn on Sunday, at the completion of the forty days."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0057.s2",
+      "source_sha256": "313789f8f3adb31d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "He placed a seal on him and relieved him of all his sufferings. His eyes were restored immediately, and Michael the archangel went up to heaven in glory."
     },
     {
       "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0058",
@@ -593,11 +865,18 @@
       "text": "My father said, “Let us pray.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0072",
-      "source_sha256": "f7eecbf685b81f0f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They got up and called upon God together, saying, “Merciful and compassionate God, who sent his only Son, Jesus Christ our Lord, who died for his creation and freed the world through the blessing of holy baptism: have compassion on these servants of yours who stand here today, looking expectantly for your mercy and compassion, so that they may receive forgiveness [?]."
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0072.s1",
+      "source_sha256": "921d0ff81f0ac5c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "They rose and called upon God together, saying, “God, the merciful and compassionate one, who sent his only-begotten Son, Jesus Christ our Lord, who died for the creature he had formed,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/life_paul_tamma#CopScr.life-paul-tamma.001.0072.s2",
+      "source_sha256": "09126dd43b2e8d9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "having set the world free through the blessing of holy baptism, have compassion on these servants of yours who stand here today, awaiting your mercy and your compassion, so that they may receive forgiveness [?]"
     }
   ]
 }

@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -425,11 +431,18 @@
       "text": "The cherub said to me, “Listen, and I will tell you everything.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0058",
-      "source_sha256": "ee2b9ed92ec9dd26",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now when God created Adam, he placed him in the paradise of delight and commanded him, saying, “You may eat from every tree in paradise except the tree of the knowledge of good and evil. You must not eat from it. On the day you eat from it, you will surely die.”"
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0058.s1",
+      "source_sha256": "9221ecff9f889c74",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "Now when God created Adam, he placed him in the paradise of delight and commanded him, saying, “From every tree in paradise"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0058.s2",
+      "source_sha256": "3af70655655acff9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "you may eat, except the tree of the knowledge of good and evil. You must not eat from it, for on the day you eat from it, you will surely die.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0059",
@@ -719,11 +732,18 @@
       "text": "His wings were submerged in the water."
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0100",
-      "source_sha256": "09c55812ed12fe69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Around the spring grew trees laden with fruit, with many kinds on them. This spring resembled a sea, and every tree beside it formed a single branch all the way to its tip."
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0100.s1",
+      "source_sha256": "878d706fdd63d267",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "The area around the spring was flourishing with trees laden with fruit of many kinds."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0100.s2",
+      "source_sha256": "c174c20d96963918",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "This spring was like a sea, and all the trees beside it formed a single branch all the way to their tops."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0101",
@@ -915,11 +935,18 @@
       "text": "He said to me, “You see the angel of wrath. He is the angel of famine."
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128",
-      "source_sha256": "b4fab95cf29fe995",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "If Michael had stopped wiping away his tears, if he had let them go down into the spring and mix with the dew that descends upon the earth, drought and blight would have occurred, and the earth would have suffered famine.”"
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128.s1",
+      "source_sha256": "5341b1281a5ec4fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "If Michael had continued shedding his tears,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128.s2",
+      "source_sha256": "cc04f9b86a131b5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "if he had let them go down into the spring and mingle with this dew that descends upon the earth, blight and mildew would have come, and the earth would have become barren."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0129",
@@ -1531,11 +1558,18 @@
       "text": "The cherub said to me, “Do you see these great winds stored in their storehouses, with the angels over them?"
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079",
-      "source_sha256": "80bd5f5acf031c7a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 25,
-      "text": "When the trumpet gives a signal from inside the curtain, the winds that are there come out and blow upon the wings of the angel who is over the spring of dew. The angel moves his wings, and the dew comes upon the earth, and the seeds of the earth grow."
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079.s1",
+      "source_sha256": "de5082a9b52151cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "When the trumpet sounds inside the curtain, the still winds come out and blow against the wings of the angel"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079.s2",
+      "source_sha256": "a206158cf219c201",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 8,
+      "text": "who is over the spring of dew. Then the angel moves his wings, and the dew comes upon the earth, and the seeds of the earth grow."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0080",

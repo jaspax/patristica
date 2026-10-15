@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-15",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -180,11 +186,18 @@
       "text": "then what will we do, we miserable people who have achieved no virtue?"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0023",
-      "source_sha256": "e536b045ddd895a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0023.s1",
+      "source_sha256": "3125f3e64501761a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Should we not, then, keep watch and pray at all times, and ask God not for gold or silver or any of this world’s wealth, but only for the wealth of heaven,"
+      "text": "Should we not, then, keep watch and pray at all times,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0023.s2",
+      "source_sha256": "149721c8850bfed0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and ask God not for gold or silver or any wealth of this world, but only for the wealth of heaven?"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0024",
@@ -1069,18 +1082,32 @@
       "text": "Just as he calls those who keep watch blessed,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0150",
-      "source_sha256": "f17a33958d010740",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0150.s1",
+      "source_sha256": "f995ea41c10b849d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "so he considers the careless person miserable, saying, “If that wicked servant says in his heart, ‘My master will be delayed,’ and begins to beat his fellow servants and to eat and drink with drunkards,"
+      "text": "This is how he considers the negligent person wretched,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0151",
-      "source_sha256": "c698c6efdf5eb851",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0150.s2",
+      "source_sha256": "bdff2724c304f4be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "that servant’s master will come on a day he does not know and at an hour he does not expect, and will cut him in two and assign him his portion with the unbelievers.”"
+      "text": "saying, “If that wicked slave says in his heart, ‘My master will be delayed,’ and begins to beat his fellow slaves and to eat and drink with drunkards,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0151.s1",
+      "source_sha256": "4839751f5bf95006",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "that slave’s master will come on a day he does not know,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0151.s2",
+      "source_sha256": "bc6e74779b481139",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and at an hour he does not expect. He will cut him in two and assign him his portion with the unbelievers.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0152",
@@ -1370,11 +1397,18 @@
       "text": "He made the blind see, along with all the other things that we are not in a position to recount one by one."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0193",
-      "source_sha256": "144aea391170833c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0193.s1",
+      "source_sha256": "2e901be7c2619bed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "As the culmination of all these things, he graciously gave us the way to ascend to heaven, so that we too might follow him through a life of virtue and gain our citizenship in heaven."
+      "text": "As the culmination of all these things, he granted us the way up to heaven,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0193.s2",
+      "source_sha256": "bc07cc177eaea0a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that we too might follow him through a life of virtue and obtain our citizenship in heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0194",
@@ -1531,11 +1565,18 @@
       "text": "For sinners must rise imperishable, not so that they may receive glory, but so that they may be tormented without ever dying."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0216",
-      "source_sha256": "2941f8c044f5d1e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0216.s1",
+      "source_sha256": "261f372871ddb882",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If one can indeed endure the air of a furnace when it is not heated beyond what is proper, then what will we do when we are handed over to the river of fire that flows before Christ’s judgment seat?"
+      "text": "If we cannot bear the heat of a bath unless it is cooled more than it should be,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0216.s2",
+      "source_sha256": "4b7263cf98ec4c17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then what will we do when we are handed over to the river of fire that flows before Christ’s judgment seat?"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0217",
@@ -1566,11 +1607,18 @@
       "text": "As long as we still have time, come, let us heal the wounds of our soul with tears."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0221",
-      "source_sha256": "c1355cd82cb89228",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0221.s1",
+      "source_sha256": "b38baba87445d6e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If the prophet Jeremiah wept over the destruction of the temple, which was built of real stones, saying, “Leave me to weep bitterly,” how much more should we weep over our own temple, which is more highly honored,"
+      "text": "If the prophet Jeremiah wept over the destruction of the temple,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0221.s2",
+      "source_sha256": "c3b7f53415574159",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which was built of actual stones, saying, “Leave me alone so that I may weep bitterly,” how much more should we weep over our own temple, which is far more precious!"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0222",
@@ -1580,11 +1628,18 @@
       "text": "in which there is not a golden censer, but in which the Holy Trinity dwells."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0223",
-      "source_sha256": "cfd2ab3a28818ac4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0223.s1",
+      "source_sha256": "ae1193c28ed50f19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If, when we see someone who has died, we weep over him out of habit, then who could be so utterly senseless that he would not weep over his own soul, which has died through sin?"
+      "text": "If, when we see someone who has died, we weep over him out of habit, then who could be so utterly senseless"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0223.s2",
+      "source_sha256": "3d288e3848e59e9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as not to weep over his own soul, which has died through sin?"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0224",
@@ -1958,11 +2013,18 @@
       "text": "For if it were possible for us to die many times, we ought to do this until we see Christ coming in his glory."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0277",
-      "source_sha256": "4c060f7a7b1435cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0277.s1",
+      "source_sha256": "6c17096534795b1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "We will not see him through a riddle, but will behold him as he is, with our own eyes, according to the testimony of the apostle John, who speaks about God."
+      "text": "We will not see him through a riddle, but will behold him as he is,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0277.s2",
+      "source_sha256": "859b38f25d6fdc3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "with our own eyes, according to the testimony of the apostle John, who speaks about God."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0278",
@@ -2007,18 +2069,32 @@
       "text": "What, then, will happen to us when we behold all that glory?"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0284",
-      "source_sha256": "640a6fb61385348b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0284.s1",
+      "source_sha256": "2768b02ecc8f6070",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If we call those close to the king here fortunate when we see him coming out on a golden chariot, wearing his crown and purple robe, then how much more fortunate will we be when we are placed at the right hand of the king of all, the judge of everyone!"
+      "text": "If we call those close to an earthly king fortunate when we see him coming out on his golden chariot, wearing his crown and purple robe,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0285",
-      "source_sha256": "ce9c90ffda0254a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0284.s2",
+      "source_sha256": "5f2fcee04bb3a643",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If you had been promised a kingdom, but the road to the country where that kingdom lay was difficult and rough, with rocky ground and steep terrain, would you not endure all these things until you obtained that kingdom?"
+      "text": "then how much more fortunate will we be when we are placed at the right hand of the King of all, the judge of everyone!"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0285.s1",
+      "source_sha256": "16b287f6c25229dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Now, if you were promised a kingdom, but the road to the country where the kingdom lay was difficult and rough,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0285.s2",
+      "source_sha256": "8ce078366c7fa8a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "a rocky place with steep terrain, would you not endure all this until you attained that kingdom?"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0286",
@@ -2063,11 +2139,32 @@
       "text": "he said, “What is in them all is emptiness and emptiness.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0292",
-      "source_sha256": "25ae85ce2b1254f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0292.s1",
+      "source_sha256": "b8565f01b725370c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "If rulers make every effort to be honored by those sitting in the theaters, even though most of those there are poor, despised people, slaves, and foreigners, then how much more should we strive to be acclaimed in that theater, the place where the angels, the archangels, and all the saints gather!"
+      "text": "If rulers make every effort to be honored by those seated in the theaters,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0292.s2",
+      "source_sha256": "4f429e86fe722686",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "although most of those there are poor, despised people, slaves, and foreigners,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0292.s3",
+      "source_sha256": "ddec156429438732",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "then how much more should we ourselves strive to be acclaimed in that theater,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0292.s4",
+      "source_sha256": "0f93019e3959cb99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "the place where the angels, the archangels, and all the saints are gathered!"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0293",
@@ -2161,11 +2258,18 @@
       "text": "If you cannot show mercy like Nebuchadnezzar, at least grieve over your sins like Ahab. If you cannot fast like the people of Nineveh,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0306",
-      "source_sha256": "1712d5133214a9a7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0306.s1",
+      "source_sha256": "b3e7ad2f81b85992",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "at least wash away your sins with your tears like the prostitute, and run to the merciful one, saying with David, “Have mercy on me, God, according to your great mercy.”"
+      "text": "At least wash away your sins with your tears, like the prostitute."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0306.s2",
+      "source_sha256": "ea4fe27fabb6b86a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "And run to the merciful one, saying with David, “Have mercy on me, God, according to your great mercy.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0307",
@@ -2469,11 +2573,18 @@
       "text": "or because we stand before [?], arranging something or thinking about something,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0350",
-      "source_sha256": "dc9fc686067aae13",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0350.s1",
+      "source_sha256": "276c320ef312a47a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "we do not give him the kind of honor that slaves give their masters, or that soldiers give their commanders, or that friends give their friends."
+      "text": "Yet we do not give him the kind of honor that slaves give their masters,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0350.s2",
+      "source_sha256": "7e22753e6dd8e942",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or that soldiers give their commanders, or that friends give their friends."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0351",
@@ -2504,11 +2615,18 @@
       "text": "And what will we do if he brings forward the accusations we make against one another, along with our jealousies and hatreds?"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0355",
-      "source_sha256": "b651421234f61773",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0355.s1",
+      "source_sha256": "8f77e68e381a73a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "What will we do if he examines us about our malicious looks and questions us about our evil desires? If he demands an account of our contempt, will we be able to open our mouths?"
+      "text": "But what will we do if he examines us about our evil looks and questions us about our evil desires?"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0355.s2",
+      "source_sha256": "ff42cba85c5cea58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "If he demands an account from us for our contempt, will we be able to open our mouths?"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.000.0356",
@@ -2903,11 +3021,25 @@
       "text": "For when the journey is over, you will no longer find another opportunity for repentance."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0002",
-      "source_sha256": "831ee64a9bd7e7e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0002.s1",
+      "source_sha256": "2a62ef87fdaee9b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Take care that the one who brings a lawsuit against you does not hand you over to the judge, and the judge hand you over to the officer—that is, the merciless powers in charge of the punishments—and they throw you into prison, which is the outer darkness, until you pay the last penny."
+      "text": "Be careful, lest your accuser hand you over to the judge,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0002.s2",
+      "source_sha256": "d20395adaff05242",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and the judge hand you over to the officer—that is, the merciless powers in charge of punishments—and they throw you into prison,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0002.s3",
+      "source_sha256": "3f247d77a677e193",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "which is the outer darkness, until you pay the last penny."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0003",
@@ -2959,18 +3091,32 @@
       "text": "They are also the ones who will become our accusers on the day of judgment."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0010",
-      "source_sha256": "45d34ec72f21f736",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0010.s1",
+      "source_sha256": "e19b6a2229c1db34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For not only the devil, but all the other demons as well, will accuse us, saying, “Were we not the ones who served you in sexual immorality, anger, the love of empty glory, and slander?”"
+      "text": "For not only the devil himself, but all the other demons will accuse us, saying, “Was it not we who served you in sexual immorality,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0011",
-      "source_sha256": "41cc27b1122536d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0010.s2",
+      "source_sha256": "6e973b1950914dc5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let us fear that day, that hour when our own thoughts will become bitter judges against us, and everything we have done will stand against us, portrayed before us like a picture."
+      "text": "anger, the love of empty glory, and slander?”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0011.s1",
+      "source_sha256": "a1d2268768b7c59f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let us fear that day, that hour when our own thoughts will become harsh judges over us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0011.s2",
+      "source_sha256": "0581922c3cf9a05f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and everything we have done will stand against us, depicted before us like a picture."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0012",
@@ -3078,11 +3224,18 @@
       "text": "Remember eternal life at all times,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0027",
-      "source_sha256": "b1af387e5d22aa9a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0027.s1",
+      "source_sha256": "97404d18823b1d6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "the everlasting kingdom, dancing with the angels, the glory of immortality, and life with Christ, in which there is no distress. He said, “Distress has fled, along with sorrow and sighing.”"
+      "text": "The everlasting kingdom, dancing with the angels, and the glory of incorruptibility,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0027.s2",
+      "source_sha256": "fed83b13293eed63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and life with Christ, in which there is no distress at all. He said, “Distress has fled, along with sorrow and sighing.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0028",
@@ -3092,11 +3245,18 @@
       "text": "Reflect on this life: there is nothing in it except sorrow, weeping, distress, shame, neglect, sin, suffering, old age, and death."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0029",
-      "source_sha256": "4bc47907c2263f4a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0029.s1",
+      "source_sha256": "5df89a10819b2d3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "David, then, was contemplating these things, and things even worse than these: robbery, widowhood, untimely deaths, punishments, and all the other afflictions that prevail in this life."
+      "text": "As David contemplated these things, and the things that go beyond these, namely orphanhood and widowhood,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0029.s2",
+      "source_sha256": "bdebba4a6b796b3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and untimely deaths, and punishments, and all the other suffering that prevails in this life,"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0030",
@@ -3113,11 +3273,18 @@
       "text": "He said, “When will I come and appear before my God?”"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0032",
-      "source_sha256": "44292f67a8a61720",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0032.s1",
+      "source_sha256": "14112527d2e1d6fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He wanted to depart from this place and go to the place where there are peace, joy, love, splendor, freedom from worry, and all the other good things that no words can describe."
+      "text": "he wanted to leave this place and go to the place where there are peace, joy, love, splendor,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0032.s2",
+      "source_sha256": "c8013a8955349f6f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "freedom from worry, and every other good thing—things that no words can describe."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0033",
@@ -3169,11 +3336,18 @@
       "text": "to bring us down? We need a constant vigil to guard our souls."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0040",
-      "source_sha256": "554b3822aedba98e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0040.s1",
+      "source_sha256": "410bf52e9ef68ab0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For a soldier often keeps vigil during marches, and a fisherman does not sleep, but stays awake all night until he catches a great many fish."
+      "text": "For a soldier often spends the night keeping watch while on the march, and a fisherman does not sleep,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0040.s2",
+      "source_sha256": "5d6dc3ffa9a07879",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but stays awake and keeps watch all night until he catches a great many fish."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0041",
@@ -3701,11 +3875,18 @@
       "text": "Indeed, he needs nothing that belongs to you, except only the salvation of our souls."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0116",
-      "source_sha256": "6529d464969fb455",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 18,
-      "text": "Therefore let us offer ourselves as a living, holy sacrifice, as it is written. We will offer ourselves not through fire, but through patience and endurance."
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0116.s1",
+      "source_sha256": "b6dd7a642b2aa1ce",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Therefore, let us offer ourselves up as a living, holy sacrifice, as it is written."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0116.s2",
+      "source_sha256": "81daf8c009e930ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "We will offer ourselves up not through fire, but through patience and endurance."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0117",
@@ -3771,11 +3952,18 @@
       "text": "Although we speak of all these things in this way as if they were small matters, they require a great struggle for you to accomplish them."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0126",
-      "source_sha256": "d6115898dd72260d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0126.s1",
+      "source_sha256": "e5866f954a581bb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "He said, “The kingdom of heaven is like virgins.” He did not say that it is like the sun and the moon and the beautiful chorus of stars, or gold that will perish, or beauty that fades, or heaven itself."
+      "text": "He said, “The kingdom of heaven is like virgins.” He did not say that it is like the sun, the moon, and the beautiful array of stars,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0126.s2",
+      "source_sha256": "925e4440701d82c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "or gold that will perish, or beauty that fades, or heaven itself."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0127",
@@ -3855,11 +4043,18 @@
       "text": "Therefore, we ought to open our windows to God—that is, our senses—and close them against the enemy."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0138",
-      "source_sha256": "20adf3d8fa1d79d2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0138.s1",
+      "source_sha256": "7b02be86bea7ac30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "You too, say with that holy soul, “I will climb a palm tree and take hold of its high branches.” This means, “I will lift my thoughts up to heaven and hold firmly to an upright faith, so that I will not slip among earthly things.”"
+      "text": "You too, say with that holy soul, “I will climb a palm tree and take hold of its upper parts.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0138.s2",
+      "source_sha256": "5007a43265c9c53c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "That is: I will lift my thoughts up to heaven and hold firmly to an upright faith, so that I will not stumble over earthly things."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0139",
@@ -3869,11 +4064,18 @@
       "text": "But take heed: the palm tree has thorns, which are the rebukes that pursue sin."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0140",
-      "source_sha256": "24a2613815c6f3f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0140.s1",
+      "source_sha256": "4712945cfaffd620",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For he said, “The words of the wise are like goads for oxen and like nails firmly driven in,” so that, as these keep piercing your heart, you may keep yourself away from every sin."
+      "text": "For he said, “The words of the wise are like goads for oxen and like firmly driven nails,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0140.s2",
+      "source_sha256": "58da8a4fd41566dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "so that, as these continue to pierce your heart, you will withdraw from every sin."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0141",
@@ -3890,18 +4092,32 @@
       "text": "At the appropriate times, always read the holy Scriptures."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0143",
-      "source_sha256": "bb409ff595e90f8d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0143.s1",
+      "source_sha256": "8c74771ae39a0548",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For just as wine, when drunk, soothes sorrow and turns the heart toward gladness, so the spiritual wine, which is the reading of the Scriptures, turns the soul toward joy."
+      "text": "For just as wine, when people drink it, burns away sorrow and changes the heart to joy,"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0144",
-      "source_sha256": "6000c3122772bf1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0143.s2",
+      "source_sha256": "54eedd368566a77d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Let the remembrance of God be in your heart at all times, as you too say with David, “I always saw the Lord before me, for he is at my right hand so that I will not be shaken.”"
+      "text": "so it is with spiritual wine, which is the reading of the Scriptures: they turn the soul toward joy."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0144.s1",
+      "source_sha256": "8b0d3726c67f39b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "Let the remembrance of God be in your heart at all times,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0144.s2",
+      "source_sha256": "7f343794f969105f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as you too say with David, “I always saw the Lord before me, for he is at my right hand so that I will not be shaken.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0145",
@@ -3946,11 +4162,18 @@
       "text": "Give him glory through deeds, not through words."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0151",
-      "source_sha256": "d091e5c34cbbd19f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0151.s1",
+      "source_sha256": "ec0215e97f237c77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "This is how David gives him glory, saying, “I will bless you forever and forever and ever”—not for just one day, or one month, or one year, but for his entire lifetime."
+      "text": "This is how David glorifies him, saying, “I will bless you forever and for all eternity,”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0151.s2",
+      "source_sha256": "fb625f12bb658a89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "not for just one day, or a month, or a year, but for his entire lifetime."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0152",
@@ -4233,11 +4456,18 @@
       "text": "Because they engaged in deeds that are hateful to Christ."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0192",
-      "source_sha256": "670dbc7ec172f11b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0192.s1",
+      "source_sha256": "df84599b35e75dfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Since these things are so, what kind of people ought we to be, except to pour down torrents of tears every day and say, together with the prophet, “Who will give water to my head and a spring of tears to my eyes,"
+      "text": "Since these things are so, what kind of people should we be, except to pour down torrents of tears every day and say ourselves with the prophet, “Who will put water on my head"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0192.s2",
+      "source_sha256": "038dad98eb5f237b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and a fountain of tears over my eyes?”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0193",
@@ -4443,11 +4673,18 @@
       "text": "Afterward, it was a bronze cauldron with a fire burning beneath it. This reveals that whoever will not endure the rod of correction here will be tested by the fire of Gehenna in the other place."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0222",
-      "source_sha256": "caf0b2612df53154",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0222.s1",
+      "source_sha256": "860d501f95b29d83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "In this very same way, Moses was shown a pillar of light and a pillar of fire, proclaiming to everyone, “Whoever obeys the law will enjoy the sweet, true light. Whoever disobeys will be handed over to the fire.”"
+      "text": "In this very same way, Moses was shown a pillar of light and a pillar of fire,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0222.s2",
+      "source_sha256": "c5df6accb7af1197",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "as he cries out to everyone, “Whoever obeys the law will enjoy the sweet, true light; whoever disobeys will be handed over to the fire.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0223",
@@ -4534,11 +4771,18 @@
       "text": "Their fellow virgins did not petition the bridegroom on behalf of those whom Christ called foolish."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0235",
-      "source_sha256": "84b8cc02fbf7479d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0235.s1",
+      "source_sha256": "f73429ffd0e3ee0a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "For after they had trampled down the flame of pleasure and extinguished the heat of desire, after many fasts and nights of keeping watch, after sleeping on the ground,"
+      "text": "For after they have trampled down the dust of pleasure and extinguished the furnace of desire,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0235.s2",
+      "source_sha256": "3d655f992336fde9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "after many fasts and nights of keeping watch, and after sleeping on the ground,"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0236",
@@ -4555,11 +4799,18 @@
       "text": "but they had forgotten the small and easy task of kindness to others."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0238",
-      "source_sha256": "1ac870a7e6ba32bd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0238.s1",
+      "source_sha256": "dd4f22613170f9c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Think of the judge as he places the sheep at his right hand and the fruitless goats at his left, saying to those at his right hand, “Come and inherit the kingdom.”"
+      "text": "think of the judge as he places the sheep at his right hand, but the fruitless goats at his left,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0238.s2",
+      "source_sha256": "5891b2e4c5105803",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "saying to those at his right hand, “Come and inherit the kingdom.”"
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0239",
@@ -4611,11 +4862,25 @@
       "text": "Let us strive to escape great torments through small hardships here."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0246",
-      "source_sha256": "0b4a81a08970eae9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0246.s1",
+      "source_sha256": "52093af5ae81855b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Remember that if a fever comes upon us for a few days, and if we see those being punished by the judges of this world, trembling and distress seize us, even though the punishment and the place of judgment here last only a short time."
+      "text": "Remember that if a feverish illness comes upon us for a few days,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0246.s2",
+      "source_sha256": "9c45c65ee79176d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "and if we see those being punished by the judges of this world, trembling and turmoil seize us,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0246.s3",
+      "source_sha256": "165cc0b3e01df9ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "even though the punishment and the place of judgment there are only for a short time."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0247",
@@ -4625,11 +4890,18 @@
       "text": "What, then, must the punishment in the coming place of judgment be like, the punishment in which we will be punished for endless ages?"
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0248",
-      "source_sha256": "cad5795cfdc359ff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0248.s1",
+      "source_sha256": "5749ea2d7e672dfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Therefore, let us hurry to enter through the narrow gate, and let us not walk through the wide one, knowing that all the affairs of this world are like dreams, and all are destined for destruction."
+      "text": "Therefore, let us hurry to enter through the narrow gate, and let us not walk through the wide one,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0248.s2",
+      "source_sha256": "155eac54969d2a73",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "knowing that all the affairs of this world are like dreams and are all destined for destruction."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0249",
@@ -4765,11 +5037,18 @@
       "text": "They gave their blood; you, in turn, give your tears."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0268",
-      "source_sha256": "6c16bb024205e2a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0268.s1",
+      "source_sha256": "4c9710fe29939ba4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "The one who said, “I want everyone to be saved,” does not lie. That is why he not only teaches us through the holy Scripture, but also teaches us through the misfortunes and sufferings of others."
+      "text": "The one who said, “I want everyone to be saved,” does not lie. For this reason, he not only teaches us through the Holy Scriptures,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0268.s2",
+      "source_sha256": "28ef390647e7425e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 25,
+      "text": "but also teaches us through the misfortunes and sufferings of others."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0269",
@@ -4779,11 +5058,18 @@
       "text": "For we see physicians cutting into people, and rulers sitting on the judgment seat punishing thieves, so that through the sufferings of others we may become instructed."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0270",
-      "source_sha256": "ffa9cd4fdff2375e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0270.s1",
+      "source_sha256": "cd99104625b7ed19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
-      "text": "Now then, my beloved, since we have taken root in faith, let us run onward to knowledge, and from knowledge into love, and from love to the inheritance in heaven."
+      "text": "Now then, my beloved, having taken root in faith, let us run upward toward knowledge."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0270.s2",
+      "source_sha256": "53be73648f93335c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 3,
+      "text": "And from knowledge to love, and from this to your inheritance in heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0271",
@@ -5101,11 +5387,18 @@
       "text": "But if you struggle with all your heart, with sound faith, you will rejoice with everlasting joy and gladness."
     },
     {
-      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0316",
-      "source_sha256": "e209b9dd9b3a5fda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "Therefore, pay attention at all times to these teachings, which are full of salvation. Keep them and carry them out, so that the Holy Trinity may be glorified in you: the Father, the Son, and the Holy Spirit, now and always, forever and ever. Amen."
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0316.s1",
+      "source_sha256": "ade06de2cf7107e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 3,
+      "text": "Pay attention, then, at all times to these teachings that are full of salvation, and keep them."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0316.s2",
+      "source_sha256": "bbe7bc0050d40934",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "group_size": 3,
+      "text": "And put them into practice, so that the Holy Trinity may be glorified in you—the Father and the Son and the Holy Spirit—from now on and always, forever and ever. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/john_constantinople#CopScr.john-constantinople.001.0317",
