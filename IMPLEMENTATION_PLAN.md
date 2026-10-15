@@ -164,7 +164,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 | Backend API | FastAPI (Python) |
 | Frontend | Next.js 16 (React, TypeScript), in `web/` |
 | Auth | Optional at launch; add later for saved searches/notes |
-| Deployment | Docker Compose: dev, and prod on one DigitalOcean VM (Postgres + API); Next.js on Vercel (#50) |
+| Deployment | Docker Compose: dev, and prod on one DigitalOcean droplet (Postgres + API, `infra/`, #117). All hosting consolidates on DigitalOcean: library data on Spaces (#131), Next.js on the droplet (#132) |
 | AI features | Claude API (Anthropic) |
 
 ### 3.2 Core Features
@@ -211,7 +211,8 @@ GET  /api/authors                      → Author list/browse
 ### 3.4 Deployment
 
 - Docker Compose: `web` (Next.js), `api` (FastAPI), `db` (PostgreSQL + pgvector)
-- Production (#50): `web` stays on Vercel; `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached), with a nightly `pg_dump` to R2
+- Production (#50, #117): `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached), provisioned with OpenTofu, with a nightly `pg_dump` to DigitalOcean Spaces. The runbook is `infra/README.md`.
+- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131), and `web` moves from Vercel to the droplet (#132). The cost is a single point of failure and no Vercel preview deploys.
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
@@ -240,11 +241,11 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vectors are 512-dim `halfvec` (#50); the full 1024-dim output is kept in R2.
+- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vectors are 512-dim `halfvec` (#50); the full 1024-dim output is kept in object storage (DigitalOcean Spaces, #131).
 - **Database hosting**: *decided 2026-10-14* (#50). Postgres 16 + pgvector and the FastAPI service run together under Docker Compose on one self-managed DigitalOcean Basic droplet in NYC (8 GB RAM, 4 vCPU, ~$48/mo), close to Vercel's `iad1` functions. Reasons:
-  - **Size.** Splitting into verse-sized units (#2) gives ~3.9M units plus ~0.14M English translation vectors for the rare languages, so about 4.0M vectors. That made 1024 dims too big for 8 GB (≈ 8 GB of vectors alone), so vectors are 512-dim `halfvec`: ≈ 4.1 GB of vectors and an HNSW index of roughly 5–5.5 GB. The eval scored 512 dims at paraphrase/topical recall 0.99 / 0.97, against 0.99 / 0.99 at 1024, with the same worst language cell (`docs/embedding-eval.md`). Voyage vectors can be shortened, so the full 1024-dim vectors are stored in R2 and the size can change without re-embedding.
+  - **Size.** Splitting into verse-sized units (#2) gives ~3.9M units plus ~0.14M English translation vectors for the rare languages, so about 4.0M vectors. That made 1024 dims too big for 8 GB (≈ 8 GB of vectors alone), so vectors are 512-dim `halfvec`: ≈ 4.1 GB of vectors and an HNSW index of roughly 5–5.5 GB. The eval scored 512 dims at paraphrase/topical recall 0.99 / 0.97, against 0.99 / 0.99 at 1024, with the same worst language cell (`docs/embedding-eval.md`). Voyage vectors can be shortened, so the full 1024-dim vectors are stored in object storage and the size can change without re-embedding.
   - **8 GB is tight.** The index needs most of the droplet's memory to stay cached. Start on 8 GB, measure query latency, and resize to the 16 GB droplet (~$96/mo, an in-place resize on DigitalOcean) if the index doesn't stay in memory.
-  - **The database is derived data.** Text and translations are in git, and the Voyage vectors are kept as a file in R2, so a lost database is rebuilt without re-embedding. Managed hosts mostly sell backups, failover and point-in-time recovery, which don't matter until the app stores user data. Backup is a nightly `pg_dump` to R2.
+  - **The database is derived data.** Text and translations are in git, and the Voyage vectors are kept as a file in object storage, so a lost database is rebuilt without re-embedding. Managed hosts mostly sell backups, failover and point-in-time recovery, which don't matter until the app stores user data. Backup is a nightly `pg_dump` to DigitalOcean Spaces (#117).
   - **Alternatives (Oct 2026 prices).** Supabase Pro + Large (8 GB) ~$125/mo; Neon is cheap with scale-to-zero, but the HNSW index has to reload after every pause, so the first queries are slow (~$77/mo for 4 GB always on); RDS / DO Managed Postgres $100–245/mo. Hetzner's US regions are no cheaper after its June 2026 price increase.
   - **Revisit** when Phase 3 adds accounts or saved searches. Moving to managed Postgres (Supabase Large) is a dump and restore.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable

@@ -8,15 +8,16 @@ terraform {
     }
   }
 
-  # State lives in the private R2 infra bucket. The bucket and the R2 endpoint
-  # are account-specific, so infra/tofu.sh passes them with -backend-config at
-  # init time; credentials come from AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY.
+  # State lives in a private Spaces bucket created by scripts.bootstrap_infra.
+  # infra/tofu.sh passes the bucket name at init time; credentials come from
+  # AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY (the bootstrap Spaces key).
+  # No lock file: one operator, and Spaces' conditional-write support is
+  # not documented.
   backend "s3" {
-    key    = "tfstate/patristica.tfstate"
-    region = "auto"
+    key       = "patristica.tfstate"
+    region    = "us-east-1"
+    endpoints = { s3 = "https://nyc3.digitaloceanspaces.com" }
 
-    use_lockfile                = true
-    use_path_style              = true
     skip_credentials_validation = true
     skip_region_validation      = true
     skip_requesting_account_id  = true
@@ -25,5 +26,6 @@ terraform {
   }
 }
 
-# Reads DIGITALOCEAN_TOKEN from the environment.
+# Reads DIGITALOCEAN_TOKEN, SPACES_ACCESS_KEY_ID and SPACES_SECRET_ACCESS_KEY
+# from the environment.
 provider "digitalocean" {}

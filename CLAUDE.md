@@ -53,7 +53,10 @@ patristica/
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → Cloudflare R2 (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
+│   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
+├── api/                       # FastAPI backend (Phase 3; only /healthz so far); Dockerfile builds from the repo root
+├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + caddy), deploy.sh; see infra/README.md
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
@@ -242,6 +245,14 @@ Vercel hosts the app: Hobby plan, production branch `master`, root directory `we
 - Objects are stored gzipped with `Content-Encoding: gzip`. Changes are detected through `_manifest.json` in the bucket, which maps each key to the SHA-256 of its *uncompressed* content and is written last. Don't compare gzip bytes or ETags: gzip output differs between Python and zlib versions (even the header's OS byte, #46), so CI and local runs would keep re-uploading everything. A no-op run takes a few seconds.
 - The bucket's CORS policy (GET/HEAD from any origin) is set in the Cloudflare dashboard. The upload token has object read/write permission only, so `--set-cors` gets AccessDenied and prints the policy to apply.
 - `EXCLUDED_LICENSES` in `upload_library.py` keeps unpublishable works (`unknown`) out of the public copy.
+
+### Database host (#117)
+
+- Postgres 16 + pgvector, the FastAPI `api` and Caddy (TLS) run under Docker Compose on one DigitalOcean droplet. OpenTofu provisions it from `infra/tofu`, and `infra/deploy.sh` deploys it. The runbook is in `infra/README.md`.
+- Hosting is consolidating on DigitalOcean: the library is moving from R2 to Spaces (#131) and the web app from Vercel to the droplet (#132). Until those land, the Vercel/R2 setup above is what's live.
+- The only secret added by hand is `DIGITALOCEAN_TOKEN` in `infra/.env` (gitignored). `scripts.bootstrap_infra` adds the Spaces key for tofu state, and the backups key comes from tofu outputs. The droplet's Postgres password is generated on the droplet and stays there. The SSH deploy key is `~/.ssh/patristica_deploy`, with the master copy in the password manager. Never print or commit any of these.
+- Postgres has no public port. Reach it over SSH (`infra/README.md`).
+- Run the stack locally: `cd infra/compose && cp .env.local.example .env && docker compose up -d --build`.
 
 ### Library browser
 

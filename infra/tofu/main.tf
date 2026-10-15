@@ -1,5 +1,6 @@
 # Production database host (#117): one droplet running the Docker Compose
-# stack in infra/compose (Postgres 16 + pgvector, FastAPI, Caddy for TLS).
+# stack in infra/compose (Postgres 16 + pgvector, FastAPI, Caddy for TLS),
+# plus the Spaces bucket its nightly backups go to.
 # Postgres data lives on a separate block-storage volume, so the droplet can
 # be resized or rebuilt without touching the database.
 
@@ -102,6 +103,36 @@ resource "digitalocean_firewall" "db" {
   }
 }
 
+# Nightly database dumps (infra/compose/backup). Spaces expires old ones.
+resource "digitalocean_spaces_bucket" "backups" {
+  name   = var.backups_bucket
+  region = var.region
+  acl    = "private"
+
+  lifecycle_rule {
+    id      = "expire-dumps"
+    enabled = true
+    prefix  = "pg-backups/"
+    expiration {
+      days = var.backup_keep_days
+    }
+    abort_incomplete_multipart_upload_days = 1
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+# The droplet's key can only touch the backups bucket.
+resource "digitalocean_spaces_key" "backups" {
+  name = "${var.name}-backups"
+  grant {
+    bucket     = digitalocean_spaces_bucket.backups.name
+    permission = "readwrite"
+  }
+}
+
 resource "digitalocean_project" "patristica" {
   name        = var.name
   description = "Patristica production database and API (#117)"
@@ -111,5 +142,6 @@ resource "digitalocean_project" "patristica" {
     digitalocean_droplet.db.urn,
     digitalocean_volume.pgdata.urn,
     digitalocean_reserved_ip.api.urn,
+    digitalocean_spaces_bucket.backups.urn,
   ]
 }

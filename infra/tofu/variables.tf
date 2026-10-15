@@ -45,3 +45,15 @@ variable "api_domain" {
   type        = string
   default     = ""
 }
+
+variable "backups_bucket" {
+  description = "Spaces bucket for the nightly pg_dump (bucket names are global per region)."
+  type        = string
+  default     = "patristica-backups"
+}
+
+variable "backup_keep_days" {
+  description = "Days a database dump is kept before Spaces expires it."
+  type        = number
+  default     = 15
+}

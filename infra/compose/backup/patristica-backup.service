@@ -1,5 +1,5 @@
 [Unit]
-Description=pg_dump the patristica database to R2
+Description=pg_dump the patristica database to DigitalOcean Spaces
 Wants=network-online.target docker.service
 After=network-online.target docker.service
 

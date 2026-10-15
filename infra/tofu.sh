@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Run OpenTofu on infra/tofu with credentials from infra/.env.
 #   infra/tofu.sh init | plan | apply | output -raw ip | ...
-# `init` gets the R2 backend settings (bucket, endpoint) added automatically.
+# `init` gets the state bucket added automatically. Run
+# `uv run --extra deploy python -m scripts.bootstrap_infra` once first.
 set -euo pipefail
 
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -13,17 +14,17 @@ set -a
 set +a
 
 : "${DIGITALOCEAN_TOKEN:?set in infra/.env}"
-: "${R2_ACCOUNT_ID:?set in infra/.env}"
-: "${R2_INFRA_BUCKET:?set in infra/.env}"
-export AWS_ACCESS_KEY_ID="${R2_INFRA_ACCESS_KEY_ID:?set in infra/.env}"
-export AWS_SECRET_ACCESS_KEY="${R2_INFRA_SECRET_ACCESS_KEY:?set in infra/.env}"
+missing="run scripts.bootstrap_infra first"
+export SPACES_ACCESS_KEY_ID="${SPACES_ACCESS_KEY_ID:?$missing}"
+export SPACES_SECRET_ACCESS_KEY="${SPACES_SECRET_ACCESS_KEY:?$missing}"
+export AWS_ACCESS_KEY_ID="$SPACES_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="$SPACES_SECRET_ACCESS_KEY"
 
 tofu=(tofu -chdir="${here}/tofu")
 if [[ "${1:-}" == "init" ]]; then
     shift
     exec "${tofu[@]}" init \
-        -backend-config="bucket=${R2_INFRA_BUCKET}" \
-        -backend-config="endpoints={s3=\"https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com\"}" \
+        -backend-config="bucket=${SPACES_STATE_BUCKET:-patristica-tfstate}" \
         "$@"
 fi
 exec "${tofu[@]}" "$@"

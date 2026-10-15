@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Deploy the compose stack to the database host. Safe to re-run: it syncs
-# infra/compose and the API source, rewrites the host's .env (keeping its
-# Postgres password, which is generated there once and never leaves the box),
+# infra/compose and the API source, rewrites the host's .env (on the data
+# volume; it keeps the Postgres password, which is generated there once and
+# never leaves the box),
 # installs the backup timer and runs `docker compose up`.
 #
 #   infra/deploy.sh            # host and hostname from `infra/tofu.sh output`
-#   DEPLOY_HOST=1.2.3.4 API_DOMAIN=1-2-3-4.sslip.io infra/deploy.sh
+#   DEPLOY_HOST=1.2.3.4 API_DOMAIN=1-2-3-4.sslip.io infra/deploy.sh   # override
 set -euo pipefail
 
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -19,6 +20,9 @@ set +a
 
 host="${DEPLOY_HOST:-$("${here}/tofu.sh" output -raw ip)}"
 api_domain="${API_DOMAIN:-$("${here}/tofu.sh" output -raw api_hostname)}"
+backups_bucket="$("${here}/tofu.sh" output -raw backups_bucket)"
+backups_access="$("${here}/tofu.sh" output -raw backups_access_key)"
+backups_secret="$("${here}/tofu.sh" output -raw backups_secret_key)"
 key="${PATRISTICA_SSH_KEY:-$HOME/.ssh/patristica_deploy}"
 ssh_opts=(-i "$key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new)
 remote="root@${host}"
@@ -33,27 +37,29 @@ rsync -az --delete --exclude .env -e "ssh ${ssh_opts[*]}" \
 (cd "$repo" && rsync -az --delete --relative --exclude __pycache__ -e "ssh ${ssh_opts[*]}" \
     pyproject.toml uv.lock patristica/ api/ "${remote}:/opt/patristica/src/")
 
-log "writing /opt/patristica/compose/.env"
+log "writing the host .env"
 # Secrets go over stdin, never on a command line.
 read -r -d '' write_env <<'EOF' || true
 set -euo pipefail
 umask 077
-f=/opt/patristica/compose/.env
+# Kept on the data volume, so a rebuilt droplet keeps the Postgres password.
+f=/mnt/pgdata/compose.env
 pw=$(sed -n 's/^POSTGRES_PASSWORD=//p' "$f" 2>/dev/null || true)
 [ -n "$pw" ] || pw=$(openssl rand -hex 24)
 { echo "POSTGRES_PASSWORD=$pw"; cat; } > "$f.new"
 mv "$f.new" "$f"
+ln -sfn "$f" /opt/patristica/compose/.env
 EOF
 env_body="API_DOMAIN=${api_domain}
 PGDATA_DIR=/mnt/pgdata/postgres
 SRC_DIR=/opt/patristica/src
-R2_INFRA_BUCKET=${R2_INFRA_BUCKET:?set in infra/.env}
-RCLONE_CONFIG_R2_TYPE=s3
-RCLONE_CONFIG_R2_PROVIDER=Cloudflare
-RCLONE_CONFIG_R2_ENDPOINT=https://${R2_ACCOUNT_ID:?set in infra/.env}.r2.cloudflarestorage.com
-RCLONE_CONFIG_R2_ACCESS_KEY_ID=${R2_INFRA_ACCESS_KEY_ID:?set in infra/.env}
-RCLONE_CONFIG_R2_SECRET_ACCESS_KEY=${R2_INFRA_SECRET_ACCESS_KEY:?set in infra/.env}
-RCLONE_CONFIG_R2_NO_CHECK_BUCKET=true"
+BACKUP_BUCKET=${backups_bucket}
+RCLONE_CONFIG_SPACES_TYPE=s3
+RCLONE_CONFIG_SPACES_PROVIDER=DigitalOcean
+RCLONE_CONFIG_SPACES_ENDPOINT=nyc3.digitaloceanspaces.com
+RCLONE_CONFIG_SPACES_ACCESS_KEY_ID=${backups_access}
+RCLONE_CONFIG_SPACES_SECRET_ACCESS_KEY=${backups_secret}
+RCLONE_CONFIG_SPACES_NO_CHECK_BUCKET=true"
 # shellcheck disable=SC2029  # write_env is a fixed script; the secrets go on stdin
 printf '%s\n' "$env_body" | ssh "${ssh_opts[@]}" "$remote" "$write_env"
 
