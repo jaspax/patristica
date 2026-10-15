@@ -33,7 +33,8 @@ patristica/
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
-│   └── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
+│   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
+│   └── fingerprint.py         # code/data hashes for pipeline staleness detection (#130)
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref
@@ -87,7 +88,7 @@ See `patristica/models.py`. Key types:
 ### Genre values
 `scripture` · `patristic` · `liturgical` · `council` · `apocrypha`
 
-Ingestors set a default genre; `patristica/data/genre_overrides.csv` (`work_id,genre,reason`) overrides it per work, and `scripts.normalize` applies it (#103). Genre is decided per work, not per book: a work is `scripture` if it is canonical in the tradition it belongs to (its language and edition), so the same book can be `scripture` in one witness and `apocrypha` in another (Ge'ez `gez/1en` vs Greek `first1k/tlg1463/…` Enoch). A work with any liturgical use is `liturgical`, and other apocryphal gospels, acts, apocalypses, testaments and Old Testament pseudepigrapha are `apocrypha`. Works about apocrypha, hagiography and martyr acts stay `patristic`. After editing the file, re-run `scripts.normalize`, with `--force` if a work moves into or out of `scripture` or `liturgical` (their chunks normalize differently). A test fails if `_works.jsonl` disagrees with the file.
+Ingestors set a default genre; `patristica/data/genre_overrides.csv` (`work_id,genre,reason`) overrides it per work, and `scripts.normalize` applies it (#103). Genre is decided per work, not per book: a work is `scripture` if it is canonical in the tradition it belongs to (its language and edition), so the same book can be `scripture` in one witness and `apocrypha` in another (Ge'ez `gez/1en` vs Greek `first1k/tlg1463/…` Enoch). A work with any liturgical use is `liturgical`, and other apocryphal gospels, acts, apocalypses, testaments and Old Testament pseudepigrapha are `apocrypha`. Works about apocrypha, hagiography and martyr acts stay `patristic`. After editing the file, re-run `scripts.normalize`; it re-normalizes exactly the works whose row changed. A test fails if `_works.jsonl` disagrees with the file.
 
 ### Canonical reference format
 Dot-separated: `Gen.1.1`, `Aug.Conf.1.1.1`, `ByzLit.Chrysostom.Anaphora.3`, `Nicaea1.Canon.7`
@@ -177,6 +178,7 @@ Keep module filenames consistent with this convention.
 
 ```bash
 uv run python -m scripts.normalize        # raw → Chunk objects (+ derived verses); also maintains data/normalized/_works.jsonl
+                                          #   [--accept-raw-change] after an intended re-ingest (see "Stale data")
 uv run python -m scripts.chunk            # add 50-token context overlap
 uv run python -m scripts.link_translations # assign translation_group_id (works with genre scripture)
 uv run python -m scripts.validate         # QC report (stub until M7)
@@ -185,6 +187,15 @@ uv run python -m scripts.catalog          # status table with last-run timestamp
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
 ```
+
+### Stale data (#130)
+
+`normalize` decides what to rebuild from fingerprints (`patristica/fingerprint.py`), not file times. `data/normalized/_fingerprint.json` holds the hash of normalize's code: every repo module `scripts.normalize` imports, hashed from the syntax tree, so comment and docstring edits don't count. Each `_works.jsonl` entry has a `fingerprint` with the hash of its raw file and of its `genre_overrides.csv` row.
+
+- A code change rebuilds every work on the next run, with no `--force`. The new code hash is recorded only when every listed work was rebuilt with it, so a run on a machine missing some raw data leaves it.
+- `tests/test_normalize_fingerprint.py` fails (in CI and the pre-push hook) when the committed `data/normalized` doesn't match the branch's code or overrides. The fix is always to re-run `scripts.normalize` and commit the result.
+- A work whose local raw file differs from the one it was last normalized from is refused: its output is kept and normalize exits 1. That catches old local raw data (#114, #127). After a deliberate re-ingest, re-run with `--accept-raw-change`. `--force` doesn't bypass it.
+- A new source is normalized incrementally: its works have no entry yet, so only they are built.
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
 

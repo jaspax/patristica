@@ -120,6 +120,8 @@ translation_groups (id)      -- joins parallel chunks across languages
 
 **Script:** `scripts/build_index.py` — idempotent, resumable (skip already-embedded chunks)
 
+**Staleness ([#130](https://github.com/jaspax/patristica/issues/130)).** Steps run in different places (raw data only on a dev machine, paid APIs, CI, the droplet), so detecting stale output is kept separate from running the step. Each step records fingerprints: a hash of its code (`patristica/fingerprint.py`: the step's repo-local import closure) and, per work or unit, hashes of its inputs. CI compares them with the branch. Free tracked steps (`normalize`) fail CI when stale. Paid steps (translate, embed) are reported as pending units and cost but never run by themselves. Translations already record each unit's source-text hash; the embedding manifest should key vectors the same way.
+
 ### 2.5 Open Issues (from the Phase 1 handoff — resolve before building the index)
 
 Inputs and the data contract are described in `DATA_COLLECTION_PLAN.md` → "Phase 2 Handoff".

@@ -59,7 +59,7 @@ def test_manifest_lists_exactly_the_normalized_files() -> None:
 # ---------------------------------------------------------------------------
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture
 def overrides(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
     table: dict[str, str] = {}
     monkeypatch.setattr(genres, "_overrides", lambda: table)
@@ -100,7 +100,7 @@ def write_raw(raw: Path, rel: str, text: str = "Text", genre: str = "patristic")
 
 
 @pytest.fixture
-def corpus(tmp_path: Path) -> tuple[Path, Path]:
+def corpus(tmp_path: Path, overrides: dict[str, str]) -> tuple[Path, Path]:
     raw, norm = tmp_path / "raw", tmp_path / "normalized"
     write_raw(raw, "a/one.json")
     write_raw(raw, "a/two.json")
