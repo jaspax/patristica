@@ -14,7 +14,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
 
 ## First-time setup
 
-1. **DigitalOcean**: create an account and a personal access token. Use full access, or custom scopes: `droplet`, `block_storage`, `firewall`, `reserved_ip`, `ssh_key` and `spaces_key` (create/read/update/delete each), `project` (the same plus `assign_resource`), and `regions:read`, `sizes:read`, `image:read`, `actions:read`. Spaces buckets don't use the token; they use the Spaces keys. A missing scope shows up as a 403 naming it on the first `tofu plan`, and you can edit a token's scopes in place. Then:
+1. **DigitalOcean**: create an account and a personal access token. Use full access, or custom scopes: `droplet`, `block_storage`, `firewall`, `reserved_ip`, `ssh_key` and `spaces_key` (create/read/update/delete each), `project` (the same plus `assign_resource`), `block_storage_action:create` and `block_storage_action:read`, and `regions:read`, `sizes:read`, `image:read`, `actions:read`. Spaces buckets don't use the token; they use the Spaces keys. A missing scope shows up as a 403 naming it on the first `tofu plan`, and you can edit a token's scopes in place. Then:
    ```bash
    cp infra/.env.example infra/.env     # gitignored; set DIGITALOCEAN_TOKEN
    ```
