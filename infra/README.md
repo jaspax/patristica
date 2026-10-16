@@ -33,7 +33,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
    infra/tofu.sh plan
    infra/tofu.sh apply
    ```
-5. **Deploy**: when it finishes, it prints the `/healthz` response from `https://<ip-with-dashes>.sslip.io`.
+5. **Deploy**: when it finishes, it prints the `/healthz` response from `https://api.patristica.app` (add the DNS record first; see "Changing the host").
    ```bash
    infra/deploy.sh
    ```
@@ -81,4 +81,4 @@ If searches slow down because the index no longer stays cached (watch disk reads
 
 - `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To rebuild on purpose, run `infra/tofu.sh apply -replace=digitalocean_droplet.db`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
 - The volume and the backups bucket have `prevent_destroy`, so `tofu destroy` stops at them. To tear everything down, remove that line on purpose first.
-- To use a real domain, set `api_domain` (`-var` or a `terraform.tfvars`), point its DNS A record at the reserved IP, and run `infra/deploy.sh`.
+- The API hostname is `api.patristica.app` (`api_domain`). The domain is registered at Cloudflare and its DNS is managed by hand there: an A record to the reserved IP, **DNS only** (not proxied), so Caddy can get its Let's Encrypt certificate. To change it, update the record, set `api_domain`, then run `infra/tofu.sh apply` and `infra/deploy.sh`. An empty `api_domain` falls back to `<ip-with-dashes>.sslip.io`.

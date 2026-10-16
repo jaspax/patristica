@@ -41,9 +41,9 @@ variable "ssh_allowed_cidrs" {
 }
 
 variable "api_domain" {
-  description = "Public hostname of the API. Empty means <reserved-ip-with-dashes>.sslip.io."
+  description = "Public hostname of the API (Cloudflare DNS: A record to the reserved IP, DNS only). Empty means <reserved-ip-with-dashes>.sslip.io."
   type        = string
-  default     = ""
+  default     = "api.patristica.app"
 }
 
 variable "backups_bucket" {

@@ -248,6 +248,7 @@ Vercel hosts the app: Hobby plan, production branch `master`, root directory `we
 
 ### Database host (#117)
 
+- **API:** https://api.patristica.app (`/healthz`). The domain `patristica.app` is registered at Cloudflare and its DNS is managed by hand there. `api` is an A record to the reserved IP `159.89.246.34`, set to DNS only: proxying would break Caddy's certificate.
 - Postgres 16 + pgvector, the FastAPI `api` and Caddy (TLS) run under Docker Compose on one DigitalOcean droplet. OpenTofu provisions it from `infra/tofu`, and `infra/deploy.sh` deploys it. The runbook is in `infra/README.md`.
 - Hosting is consolidating on DigitalOcean: the library is moving from R2 to Spaces (#131) and the web app from Vercel to the droplet (#132). Until those land, the Vercel/R2 setup above is what's live.
 - The only secret added by hand is `DIGITALOCEAN_TOKEN` in `infra/.env` (gitignored). `scripts.bootstrap_infra` adds the Spaces key for tofu state, and the backups key comes from tofu outputs. The droplet's Postgres password is generated on the droplet and stays there. The SSH deploy key is `~/.ssh/patristica_deploy`, with the master copy in the password manager. Never print or commit any of these.

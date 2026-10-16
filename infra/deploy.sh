@@ -29,12 +29,15 @@ remote="root@${host}"
 log() { echo "deploy: $*" >&2; }
 
 log "waiting for cloud-init on ${host}"
-ssh "${ssh_opts[@]}" "$remote" 'cloud-init status --wait >/dev/null; mountpoint -q /mnt/pgdata'
+# Exit 2 means done with recoverable errors (warnings); 1 means a failed module.
+ssh "${ssh_opts[@]}" "$remote" 'rc=0; cloud-init status --wait >/dev/null || rc=$?
+if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then cloud-init status --long >&2; exit 1; fi
+mountpoint -q /mnt/pgdata && command -v docker >/dev/null'
 
 log "syncing files"
-rsync -az --delete --exclude .env -e "ssh ${ssh_opts[*]}" \
+rsync -az --no-owner --no-group --delete --exclude .env -e "ssh ${ssh_opts[*]}" \
     "${here}/compose/" "${remote}:/opt/patristica/compose/"
-(cd "$repo" && rsync -az --delete --relative --exclude __pycache__ -e "ssh ${ssh_opts[*]}" \
+(cd "$repo" && rsync -az --no-owner --no-group --delete --relative --exclude __pycache__ -e "ssh ${ssh_opts[*]}" \
     pyproject.toml uv.lock patristica/ api/ "${remote}:/opt/patristica/src/")
 
 log "writing the host .env"
