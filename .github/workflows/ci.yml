@@ -26,7 +26,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --locked --extra dev --extra eval
+        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy
 
       - name: Run unit tests
         run: uv run pytest
@@ -61,3 +61,37 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  # Hosting as code (infra/, #117): OpenTofu config, cloud-init, compose stack,
+  # shell scripts. Offline checks only; nothing here touches DigitalOcean.
+  infra:
+    name: Infra
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.13.1
+
+      - name: tofu fmt
+        run: tofu -chdir=infra/tofu fmt -check -recursive
+
+      - name: tofu validate
+        run: |
+          tofu -chdir=infra/tofu init -backend=false -input=false
+          tofu -chdir=infra/tofu validate
+
+      - name: cloud-init schema
+        run: |
+          command -v cloud-init || sudo apt-get install -y -q cloud-init
+          sed 's#${volume_device}#/dev/disk/by-id/scsi-0DO_Volume_test#g' \
+            infra/tofu/cloud-init.yaml > "$RUNNER_TEMP/cloud-init.yaml"
+          cloud-init schema -c "$RUNNER_TEMP/cloud-init.yaml"
+
+      - name: docker compose config
+        working-directory: infra/compose
+        run: cp .env.local.example .env && docker compose config -q
+
+      - name: shellcheck
+        run: shellcheck infra/*.sh infra/compose/backup/*.sh

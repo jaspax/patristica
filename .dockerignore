@@ -1,0 +1,8 @@
+# Docker build context is the repo root (api/Dockerfile); send only what the
+# image copies, never data/.
+*
+!pyproject.toml
+!uv.lock
+!patristica/
+!api/
+**/__pycache__

@@ -26,6 +26,7 @@ dependencies = [
 dev = ["pytest", "pytest-mock", "ruff", "mypy"]
 usfm = ["usfm-grammar"]  # requires Node.js
 deploy = ["boto3"]  # scripts.upload_library (Cloudflare R2, S3 API)
+api = ["fastapi", "uvicorn[standard]", "psycopg[binary]"]  # api/ (FastAPI backend, #117)
 eval = ["numpy", "httpx", "anthropic"]  # scripts.embed_eval: dense retrieval, API embedders, translation eval
 eval-local = ["numpy", "sentence-transformers", "torch"]  # local embedders (CPU torch; not in CI)
 
