@@ -7,15 +7,17 @@ import { useMemo } from "react";
 import { formatDateLong, GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import {
-  loadIndex,
+  loadLibrary,
   loadWork,
+  workAuthors,
   workHref,
   workIdFromSegments,
-  type LibraryIndex,
+  type Library,
   type WorkRow,
 } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
 
+import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
 import WorkText from "./WorkText";
 import styles from "./WorkReader.module.css";
@@ -23,12 +25,12 @@ import styles from "./WorkReader.module.css";
 export default function WorkReader() {
   const params = useParams<{ id: string[] }>();
   const id = workIdFromSegments(params.id ?? []);
-  const index = useLoaded(loadIndex);
+  const library = useLoaded(loadLibrary);
 
-  if (index.status === "loading") return <p>Loading…</p>;
-  if (index.status === "error") return <LoadError error={index.error} />;
+  if (library.status === "loading") return <p>Loading…</p>;
+  if (library.status === "error") return <LoadError error={library.error} />;
 
-  const row = index.data.works.find((w) => w.id === id);
+  const row = library.data.index.works.find((w) => w.id === id);
   if (!row) {
     return (
       <div>
@@ -40,10 +42,11 @@ export default function WorkReader() {
     );
   }
   // Keyed by work so navigating to another work starts a fresh load.
-  return <Reader key={row.id} row={row} index={index.data} />;
+  return <Reader key={row.id} row={row} library={library.data} />;
 }
 
-function Reader({ row, index }: { row: WorkRow; index: LibraryIndex }) {
+function Reader({ row, library }: { row: WorkRow; library: Library }) {
+  const { index, authors } = library;
   const work = useLoaded(() => loadWork(row.file));
   const lang = languageInfo(row.language);
   const collection = index.sources[row.source_id] ?? row.source_id;
@@ -57,7 +60,12 @@ function Reader({ row, index }: { row: WorkRow; index: LibraryIndex }) {
     return [siblings[i - 1], siblings[i + 1]];
   }, [index, row]);
 
-  const citation = row.author ? `${row.author}, ${row.title}` : row.title;
+  const byline = workAuthors(row, authors);
+  const names = byline.map((a) => a.name).join(", ");
+  const citation = names ? `${names}, ${row.title}` : row.title;
+  // The source's own attribution, kept for provenance when it differs from the index's names.
+  const attribution = row.author && row.author !== names ? row.author : null;
+  const originalNames = original ? workAuthors(original, authors).map((a) => a.name).join(", ") : "";
 
   return (
     <article>
@@ -72,12 +80,24 @@ function Reader({ row, index }: { row: WorkRow; index: LibraryIndex }) {
         <h1 lang={lang.lang} dir="auto">
           {row.title}
         </h1>
-        {row.author && (
-          <p className={styles.author} lang={lang.lang} dir="auto">
-            {row.author}
+        {byline.length > 0 && (
+          <p
+            className={styles.author}
+            lang={byline.some((a) => a.id === null) ? lang.lang : undefined}
+            dir="auto"
+          >
+            <AuthorLinks authors={byline} />
           </p>
         )}
         <dl className={styles.meta}>
+          {attribution && (
+            <>
+              <dt>Attributed as</dt>
+              <dd lang={lang.lang} dir="auto">
+                {attribution}
+              </dd>
+            </>
+          )}
           <dt>Date</dt>
           <dd>{formatDateLong(row)}</dd>
           <dt>Language</dt>
@@ -108,7 +128,7 @@ function Reader({ row, index }: { row: WorkRow; index: LibraryIndex }) {
               <dd>
                 {original ? (
                   <Link href={workHref(original.id)}>
-                    {original.author ? `${original.author}, ` : ""}
+                    {originalNames ? `${originalNames}, ` : ""}
                     {original.title}
                   </Link>
                 ) : (

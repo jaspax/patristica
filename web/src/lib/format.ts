@@ -1,6 +1,6 @@
 // Display formatting for work metadata.
 
-import type { WorkRow } from "./library";
+import type { Author, AuthorDate, WorkRow } from "./library";
 
 /** -500 → "500 BC", 397 → "397". */
 export function formatYear(year: number): string {
@@ -27,6 +27,42 @@ export function formatDateLong(
   if (parts.length === 0) return "Undated";
   return `${parts.join(" ")}, ${row.date_confidence}`;
 }
+
+/**
+ * An author-index date, with its certainty as authors.csv writes it:
+ * "354" established, "c. 347" approximate, "350?" uncertain, "340–345" a range.
+ */
+export function formatAuthorDate(date: AuthorDate): string {
+  const years =
+    date.low === date.high ? formatYear(date.low) : `${formatYear(date.low)}–${formatYear(date.high)}`;
+  if (date.confidence === "approximate") return `c. ${years}`;
+  if (date.confidence === "uncertain") return `${years}?`;
+  return years;
+}
+
+/** Short dates for lists: "354–430", "c. 347–420", "fl. 431–438", or "". */
+export function formatLifespan(author: Pick<Author, "birth" | "death" | "floruit">): string {
+  const { birth, death, floruit } = author;
+  if (birth || death) {
+    if (!birth) return `d. ${formatAuthorDate(death!)}`;
+    if (!death) return `b. ${formatAuthorDate(birth)}`;
+    // A range inside a span would read ambiguously ("340–345–420"), so use "/".
+    const part = (d: AuthorDate) => formatAuthorDate(d).replace("–", "/");
+    return `${part(birth)} – ${part(death)}`;
+  }
+  return floruit ? `fl. ${formatAuthorDate(floruit)}` : "";
+}
+
+export const TRADITIONS: Record<string, string> = {
+  greek: "Greek",
+  latin: "Latin",
+  syriac: "Syriac",
+  ethiopic: "Ethiopic",
+  coptic: "Coptic",
+  armenian: "Armenian",
+  gothic: "Gothic",
+  jewish: "Jewish",
+};
 
 export const LICENSES: Record<string, { label: string; url?: string }> = {
   public_domain: { label: "Public domain" },

@@ -184,6 +184,33 @@ export interface PermanentRedirect {
   permanent: true;
 }
 
+/**
+ * Renamed author ids (`patristica/data/authors.csv`, #82): old id → new id.
+ * Author ids are URLs (`/authors/{id}`, `/?author={id}`), so when one is
+ * renamed (or merged into another), add it here; `next.config.ts` redirects
+ * the old author page and `parseViewState` maps the old facet value.
+ */
+export const RENAMED_AUTHOR_IDS: ReadonlyArray<readonly [from: string, to: string]> = [];
+
+/** The current id of an author id from an old link. */
+export function currentAuthorId(
+  authorId: string,
+  renamed: ReadonlyArray<readonly [string, string]> = RENAMED_AUTHOR_IDS,
+): string {
+  return renamed.find(([from]) => from === authorId)?.[1] ?? authorId;
+}
+
+/** Author page redirects for `RENAMED_AUTHOR_IDS`, in `next.config.ts` form. */
+export function legacyAuthorRedirects(
+  renamed: ReadonlyArray<readonly [string, string]> = RENAMED_AUTHOR_IDS,
+): PermanentRedirect[] {
+  return renamed.map(([from, to]) => ({
+    source: `/authors/${from}`,
+    destination: `/authors/${to}`,
+    permanent: true as const,
+  }));
+}
+
 /** Reader redirects for `RENAMED_ID_PREFIXES` and `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. */
 export function legacyWorkRedirects(): PermanentRedirect[] {
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({

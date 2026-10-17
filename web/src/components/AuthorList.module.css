@@ -1,0 +1,61 @@
+.filters {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 24rem;
+}
+
+.filters label > span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.filters input {
+  font: inherit;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  min-width: 0;
+}
+
+.count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.wrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.table th,
+.table td {
+  text-align: start;
+  vertical-align: top;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  white-space: nowrap;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.numeric {
+  text-align: end !important;
+  font-variant-numeric: tabular-nums;
+}
