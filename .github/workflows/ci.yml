@@ -93,5 +93,17 @@ jobs:
         working-directory: infra/compose
         run: cp .env.local.example .env && docker compose config -q
 
+      - name: Caddyfile
+        working-directory: infra/compose
+        run: |
+          docker run --rm --env-file .env.local.example \
+            -v "$PWD/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2.11.6 \
+            caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+
+      # The image the droplet runs (#132); the web job above only checks npm run build.
+      - name: web image
+        working-directory: infra/compose
+        run: docker compose build web
+
       - name: shellcheck
         run: shellcheck infra/*.sh infra/compose/backup/*.sh

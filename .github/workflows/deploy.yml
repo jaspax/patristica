@@ -1,0 +1,82 @@
+name: Deploy
+
+# Deploy the compose stack (web, api, caddy, db) to the droplet on every push to
+# master that touches what runs there (#132; runbook: infra/README.md).
+#
+# Runs `infra/deploy.sh --keep-env`: it syncs the source and compose config and
+# runs `docker compose up --build` on the droplet, but leaves the host's .env
+# (Postgres password, backup key, hostnames, library URL) as it is, so it needs
+# no tofu state or DigitalOcean token. A change that adds a host .env setting
+# needs one manual `infra/deploy.sh` run before (or instead of) this one.
+#
+# Repo secrets (add by hand; see infra/README.md → "Deploy workflow"):
+#   DEPLOY_HOST         the droplet's reserved IP
+#   DEPLOY_SSH_KEY      private half of the deploy key (~/.ssh/patristica_deploy)
+#   DEPLOY_KNOWN_HOSTS  the droplet's host key line(s), from ssh-keyscan
+# Until all three exist, the job only prints a warning.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "web/**"
+      - "api/**"
+      - "patristica/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "infra/compose/**"
+      - "infra/deploy.sh"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+# One deploy at a time; queue instead of cancelling a running one.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to the droplet
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Public hostnames, also in the host .env (infra/deploy.sh); used here for
+      # the health checks after the deploy.
+      API_DOMAIN: api.patristica.app
+      WEB_DOMAIN: patristica.app
+    steps:
+      - name: Check deploy secrets
+        id: secrets
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          if [ -n "$DEPLOY_HOST" ] && [ -n "$DEPLOY_SSH_KEY" ] && [ -n "$DEPLOY_KNOWN_HOSTS" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Not deploying: set the repo secrets DEPLOY_HOST, DEPLOY_SSH_KEY and DEPLOY_KNOWN_HOSTS (infra/README.md)"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.secrets.outputs.ready == 'true'
+
+      - name: Install the deploy key
+        if: steps.secrets.outputs.ready == 'true'
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          ( umask 077 && printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/patristica_deploy )
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Deploy
+        if: steps.secrets.outputs.ready == 'true'
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: infra/deploy.sh --keep-env

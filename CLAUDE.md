@@ -28,6 +28,7 @@ patristica/
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
 ├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → Spaces (no-op if unchanged)
+├── .github/workflows/deploy.yml           # on master: infra/deploy.sh --keep-env → web + api on the droplet
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
@@ -60,8 +61,8 @@ patristica/
 │   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── api/                       # FastAPI backend (Phase 3; only /healthz so far); Dockerfile builds from the repo root
-├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + caddy), deploy.sh; see infra/README.md
-├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"
+├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + web + caddy), deploy.sh; see infra/README.md
+├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"; Dockerfile for the droplet
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
 │   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), WorkReader + WorkText (reader)
@@ -244,10 +245,14 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 
 ### Deployment
 
-- **Production:** https://patristica-beta.vercel.app/ (Vercel team `patristica1`). It is public; preview and per-deployment URLs require a Vercel login. `patristica.vercel.app` belongs to an unrelated project.
+- **Production:** https://patristica.app (`www.patristica.app` redirects to it), served from the DigitalOcean droplet (#132). Until its DNS records and first deploy are done, the old Vercel deployment https://patristica-beta.vercel.app/ (team `patristica1`) is what's live; it is deleted once the droplet serves the site.
 - **Library data:** https://patristica-library.nyc3.cdn.digitaloceanspaces.com (DigitalOcean Spaces bucket `patristica-library` behind its CDN, #131; e.g. `https://patristica-library.nyc3.cdn.digitaloceanspaces.com/index.json`).
 
-Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in DigitalOcean Spaces: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the CDN URL (`infra/tofu.sh output -raw library_url`).
+The app runs on the droplet as the `web` service of the compose stack (`infra/compose`), built from `web/Dockerfile` (Node 22, `output: "standalone"`), behind Caddy. Runbook: `infra/README.md` → "Web app".
+
+- **Code is deployed automatically.** On every push to `master` that touches `web/`, `api/`, `patristica/`, `pyproject.toml`/`uv.lock`, `infra/compose/` or `infra/deploy.sh`, `.github/workflows/deploy.yml` runs `infra/deploy.sh --keep-env`, using the repo secrets `DEPLOY_HOST`, `DEPLOY_SSH_KEY` and `DEPLOY_KNOWN_HOSTS`. It rebuilds the images on the droplet and leaves the host `.env` alone, so a change that adds a host `.env` setting needs one manual `infra/deploy.sh` run. There are no preview deploys.
+- `NEXT_PUBLIC_LIBRARY_URL` is the Spaces CDN URL (`infra/tofu.sh output -raw library_url`, `LIBRARY_URL` in the host `.env`). `NEXT_PUBLIC_*` values are inlined at build time, so they are Docker build arguments; changing one means rebuilding the image.
+- **`/api/*` on `patristica.app` is the FastAPI app**, with the prefix stripped by Caddy: `/api/search` reaches FastAPI as `/search`. Declare FastAPI routes without `/api`, call them from the web app same-origin at `/api/…`, and never add Next.js routes under `/api`. `api.patristica.app` serves the same routes without the prefix.
 
 - **Data is published automatically.** On every push to `master` that touches `data/normalized/**` or the export/upload code, `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `LIBRARY_ACCESS_KEY_ID` and `LIBRARY_SECRET_ACCESS_KEY` (a Spaces key that can only touch the library bucket; tofu outputs `library_access_key` / `library_secret_key`). The bucket name and region are plain values in the workflow. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
 - To publish by hand, run the same two scripts locally. Local credentials (`LIBRARY_*`) go in `web/.env` (gitignored). Never print or commit them.
@@ -258,12 +263,12 @@ Vercel hosts the app: Hobby plan, production branch `master`, root directory `we
 
 ### Database host (#117)
 
-- **API:** https://api.patristica.app (`/healthz`). The domain `patristica.app` is registered at Cloudflare and its DNS is managed by hand there. `api` is an A record to the reserved IP `159.89.246.34`, set to DNS only: proxying would break Caddy's certificate.
-- Postgres 16 + pgvector, the FastAPI `api` and Caddy (TLS) run under Docker Compose on one DigitalOcean droplet. OpenTofu provisions it from `infra/tofu`, and `infra/deploy.sh` deploys it. The runbook is in `infra/README.md`.
-- Hosting is consolidating on DigitalOcean: the library is on Spaces (#131), and the web app is moving from Vercel to the droplet (#132). Until that lands, Vercel serves the app.
-- The only secret added by hand is `DIGITALOCEAN_TOKEN` in `infra/.env` (gitignored). `scripts.bootstrap_infra` adds the Spaces key for tofu state, and the backups key comes from tofu outputs. The droplet's Postgres password is generated on the droplet and stays there. The SSH deploy key is `~/.ssh/patristica_deploy`, with the master copy in the password manager. Never print or commit any of these.
+- **API:** https://api.patristica.app (`/healthz`), and https://patristica.app/api/ for the web app. The domain `patristica.app` is registered at Cloudflare and its DNS is managed by hand there. `api`, the apex and `www` are A records to the reserved IP `159.89.246.34`, set to DNS only: proxying would break Caddy's certificates.
+- Postgres 16 + pgvector, the FastAPI `api`, the Next.js `web` and Caddy (TLS) run under Docker Compose on one DigitalOcean droplet. OpenTofu provisions it from `infra/tofu`, and `infra/deploy.sh` deploys it. The runbook is in `infra/README.md`.
+- All hosting is on DigitalOcean: the library on Spaces (#131), the app and API on the droplet (#132).
+- The only secrets added by hand are `DIGITALOCEAN_TOKEN` in `infra/.env` (gitignored) and the three `DEPLOY_*` repo secrets for the Deploy workflow. `scripts.bootstrap_infra` adds the Spaces key for tofu state, and the backups key comes from tofu outputs. The droplet's Postgres password is generated on the droplet and stays there. The SSH deploy key is `~/.ssh/patristica_deploy`, with the master copy in the password manager. Never print or commit any of these.
 - Postgres has no public port. Reach it over SSH (`infra/README.md`).
-- Run the stack locally: `cd infra/compose && cp .env.local.example .env && docker compose up -d --build`.
+- Run the stack locally: `cd infra/compose && cp .env.local.example .env && docker compose up -d --build`, then open http://localhost:18080 (API at http://api.localhost:18080 and http://localhost:18080/api/).
 
 ### Library browser
 
@@ -304,7 +309,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 - Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
 - The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
-- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has two jobs: Python unit tests, and the web app job (lint, typecheck, Vitest, build). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has three jobs: Python unit tests, the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
 ## Working with the Plan Docs

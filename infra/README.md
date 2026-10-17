@@ -1,13 +1,13 @@
 # Infrastructure
 
-Production database host for Phase 2 (#117): one DigitalOcean droplet running Postgres 16 with pgvector, the FastAPI app (`api/`) and Caddy for TLS, plus nightly database dumps to DigitalOcean Spaces. It also holds the public Spaces bucket and CDN that serve the static library to the web app (#131). Everything is code. The only manual steps are creating the DigitalOcean account and token and generating the SSH key.
+Production host (#117, #132): one DigitalOcean droplet running Postgres 16 with pgvector, the FastAPI app (`api/`), the Next.js web app (`web/`) and Caddy for TLS, plus nightly database dumps to DigitalOcean Spaces. It also holds the public Spaces bucket and CDN that serve the static library to the web app (#131). Everything is code. The only manual steps are creating the DigitalOcean account and token and generating the SSH key.
 
 | Piece | Where | What it does |
 |---|---|---|
 | `tofu/` | OpenTofu | Creates the droplet (`s-4vcpu-8gb`, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
 | `tofu/cloud-init.yaml` | first boot | Installs Docker, rclone and unattended-upgrades. Adds 4 GB of swap, turns off SSH passwords and mounts the volume at `/mnt/pgdata`. It contains no secrets. |
-| `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
-| `deploy.sh` | your machine | Syncs `compose/` and the API source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and runs `docker compose up`. Idempotent. |
+| `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`), `web` (built from `web/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
+| `deploy.sh` | your machine, CI | Syncs `compose/` and the API and web source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and runs `docker compose up --build`. Idempotent. With `--keep-env` it leaves the host `.env` alone and needs no tofu: the *Deploy* workflow runs it that way. |
 | `tofu.sh` | your machine | Runs `tofu` with the credentials from `infra/.env`. |
 
 Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs/intro/install/)), `uv`, `ssh`, `rsync`, `curl`.
@@ -33,14 +33,14 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
    infra/tofu.sh plan
    infra/tofu.sh apply
    ```
-5. **Deploy**: when it finishes, it prints the `/healthz` response from `https://api.patristica.app` (add the DNS record first; see "Changing the host").
+5. **Deploy**: when it finishes, it checks `https://api.patristica.app/healthz`, `https://patristica.app/` (plus `/api/healthz`) and `https://www.patristica.app/` (add the DNS records first; see "Changing the host").
    ```bash
    infra/deploy.sh
    ```
 
 ## Day to day
 
-- **Deploy changes** to `compose/` or the API: run `infra/deploy.sh`.
+- **Deploy changes**: merging to `master` deploys them (see "Deploy workflow"). To deploy by hand, or after a change that adds a setting to the host `.env`, run `infra/deploy.sh`.
 - **Shell**: `$(infra/tofu.sh output -raw ssh_command)`, then run `cd /opt/patristica/compose && docker compose ps` / `logs`.
 - **psql**: `ssh -i ~/.ssh/patristica_deploy root@<ip> 'cd /opt/patristica/compose && docker compose exec db psql -U patristica'`.
   - For a local client, publish nothing. Tunnel to the container instead: find its address with `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' patristica-db-1`, then `ssh -L 5432:<that ip>:5432 …`.
@@ -48,8 +48,34 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
 - **Run the stack locally** over plain HTTP:
   ```bash
   cd infra/compose && cp .env.local.example .env && docker compose up -d --build --wait
-  curl http://localhost:18080/healthz
+  curl http://localhost:18080/                # web app
+  curl http://localhost:18080/api/healthz     # API through the web app's origin
+  curl http://api.localhost:18080/healthz     # API on its own hostname
   ```
+
+## Web app
+
+The Next.js app (`web/`, #132) runs as the `web` service, built from `web/Dockerfile` with `output: "standalone"`. Caddy serves it on the apex `patristica.app`, and `www.patristica.app` redirects there permanently, keeping the path.
+
+- **`/api/*` on the apex goes to the FastAPI app, with the prefix stripped** by Caddy (`handle_path`): `https://patristica.app/api/search` reaches the API as `/search`, the same route as `https://api.patristica.app/search`. So FastAPI routes are declared without `/api`, the browser calls the API same-origin with no CORS (`NEXT_PUBLIC_API_URL=/api`, #142), and the Next.js app must not define its own routes under `/api`. `api.patristica.app` stays for health checks and direct use.
+- `NEXT_PUBLIC_LIBRARY_URL` is inlined into the client bundle at build time, so it is a build argument (`LIBRARY_URL` in the host `.env`, from `infra/tofu.sh output -raw library_url`), not a runtime setting. Changing it means rebuilding the image, which `infra/deploy.sh` does.
+- The hostnames are `WEB_DOMAIN` (default `patristica.app`) and `WWW_DOMAIN` (`www.` + it) in the host `.env`, written by `infra/deploy.sh`. Locally they are `http://localhost` and `http://www.localhost` (`.env.local.example`).
+- The image is built on the droplet during `docker compose up --build`, like the API's. Docker's layer cache keeps a deploy without dependency changes to the `next build` step.
+- There are no preview deploys: PRs are checked by CI only (lint, typecheck, tests, build, and a build of the image).
+
+## Deploy workflow
+
+`.github/workflows/deploy.yml` runs `infra/deploy.sh --keep-env` on every push to `master` that touches `web/`, `api/`, `patristica/`, the Python lock files, `compose/` or `deploy.sh`, and on demand (Actions → Deploy → Run workflow). It syncs the code and runs `docker compose up --build`, then checks the same URLs as a manual deploy. It never touches the host `.env`, so a change that needs a new setting there (for example an API key) needs one manual `infra/deploy.sh` run first; otherwise compose stops with "set … in .env".
+
+It needs three repo secrets. Add them once, without printing them:
+
+```bash
+infra/tofu.sh output -raw ip | gh secret set DEPLOY_HOST
+gh secret set DEPLOY_SSH_KEY < ~/.ssh/patristica_deploy
+ssh-keyscan -t ed25519 "$(infra/tofu.sh output -raw ip)" | gh secret set DEPLOY_KNOWN_HOSTS
+```
+
+Check the scanned key against the one you already trust (`ssh-keygen -F <ip>` in `~/.ssh/known_hosts`). After rebuilding the droplet, its host key changes: update `DEPLOY_KNOWN_HOSTS`. Until all three secrets exist, the workflow only prints a warning.
 
 ## Library
 
@@ -96,3 +122,4 @@ If searches slow down because the index no longer stays cached (watch disk reads
 - `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To rebuild on purpose, run `infra/tofu.sh apply -replace=digitalocean_droplet.db`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
 - The volume and the backups bucket have `prevent_destroy`, so `tofu destroy` stops at them. To tear everything down, remove that line on purpose first.
 - The API hostname is `api.patristica.app` (`api_domain`). The domain is registered at Cloudflare and its DNS is managed by hand there: an A record to the reserved IP, **DNS only** (not proxied), so Caddy can get its Let's Encrypt certificate. To change it, update the record, set `api_domain`, then run `infra/tofu.sh apply` and `infra/deploy.sh`. An empty `api_domain` falls back to `<ip-with-dashes>.sslip.io`.
+- The web app's hostnames are the apex `patristica.app` and `www.patristica.app`: two more A records to the reserved IP, also **DNS only**. To use another name, run `WEB_DOMAIN=<name> infra/deploy.sh` (and change `WEB_DOMAIN` in the Deploy workflow, which uses it for its health checks). Proxying them through Cloudflare later would need SSL mode *Full (strict)* and a certificate that works behind the proxy (a DNS-01 challenge or a Cloudflare Origin CA certificate); see #132.

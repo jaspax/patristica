@@ -13,6 +13,9 @@ const allowedDevOrigins = [
 ];
 
 const nextConfig: NextConfig = {
+  // A self-contained server (.next/standalone/server.js) for the Docker image
+  // that runs on the droplet (web/Dockerfile, infra/compose, #132).
+  output: "standalone",
   cacheComponents: true,
   partialPrefetching: true,
   allowedDevOrigins,

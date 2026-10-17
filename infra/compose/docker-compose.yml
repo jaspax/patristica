@@ -50,6 +50,20 @@ services:
       retries: 3
     logging: *logging
 
+  web:
+    build:
+      context: ${SRC_DIR:-../..}/web
+      args:
+        # Inlined into the client bundle at build time (web/Dockerfile).
+        NEXT_PUBLIC_LIBRARY_URL: ${LIBRARY_URL:?set LIBRARY_URL in .env}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging: *logging
+
   caddy:
     image: caddy:2.11.6
     restart: unless-stopped
@@ -58,12 +72,15 @@ services:
       - "${HTTPS_PORT:-443}:443"
     environment:
       API_DOMAIN: ${API_DOMAIN:?set API_DOMAIN in .env}
+      WEB_DOMAIN: ${WEB_DOMAIN:?set WEB_DOMAIN in .env}
+      WWW_DOMAIN: ${WWW_DOMAIN:?set WWW_DOMAIN in .env}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
       - api
+      - web
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:2019/config/"]
       interval: 30s
