@@ -32,6 +32,7 @@ patristica/
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
+│   ├── authors.py             # author index: resolve_author(), dates (data/authors.csv, data/author_strings.csv; #82)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
@@ -55,7 +56,7 @@ patristica/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
-│   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
+│   ├── export_library.py      # normalized → static library (index, authors.json, per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → DO Spaces (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
 │   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
@@ -88,6 +89,10 @@ See `patristica/models.py`. Key types:
   - `source_id` is the bare collection slug (`oshb`, `first1k`, `oglt-pl`), never a genre; it is also the work's directory under `data/raw/` and `data/normalized/`.
   - `work_id` is `{source_id}/{local id}` (`oshb/gen`, `ogpg/vol-045/ad-graecos`); a chunk's `chunk_id` is `{work_id}#{canonical_ref}`.
   - Genre lives only in `Work.genre`; a source may mix genres (`gez`, `anf-works`). Select works by genre from `_works.jsonl`, never by path or id prefix.
+  - `author` is the source's own spelling (`Augustinus`, `Augustine of Hippo`), kept for provenance. `author_ids` holds canonical author ids (`augustine-of-hippo`) from the author index (`patristica/authors.py`, #82); `scripts.normalize` fills it, and anonymous works get `[]`. Select works by author through `author_ids`, never by the `author` string. Author ids are URLs in the web app, so never rename one.
+
+### Author index (#82)
+`patristica/data/authors.csv` has one row per person: `author_id` (a stable slug), English `name`, `aliases` (every source spelling plus Latin/Greek forms, `|`-separated), `birth`/`death`/`floruit` (`354` established, `c. 347` approximate, `350?` uncertain, `340/345` a range), `tradition`, `external_ids` (TLG/stoa/PTA), `pseudo_of` (for `pseudo-*` authors, the real author) and a `note`. Keep it sorted by id. `patristica/data/author_strings.csv` maps source strings that are not a simple alias, with a required reason: anonymous works, work titles and councils in the author field, modern editors named as author, ambiguous bare names (`Gelasius`) and multi-person strings. `resolve_author()` matches on `fold()`-ed text and splits `;`-separated lists; an unknown name raises `UnknownAuthorError`. A pseudonymous author has no dates of its own. The author's birth year feeds the period rule (`period_birth_year`); see "Date Handling".
 - **`Chunk`**: one text unit (verse, paragraph, stanza) with `canonical_ref`, `language`, `text`, optional `translation_group_id`
 
 ### Language codes (ISO 639-3)
@@ -192,7 +197,7 @@ uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
 uv run python -m scripts.catalog          # status table with last-run timestamps
-uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
+uv run python -m scripts.export_library   # normalized → data/library/ (index.json, authors.json, slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → Spaces (incremental; --dry-run)
 ```
 
@@ -228,7 +233,7 @@ All accept `--help`. `normalize.py` currently processes `genre: scripture` only;
 
 ## Date Handling
 
-The collection period is defined once, in `patristica/period.py` (`AUTHOR_BORN_BEFORE = 1025`, `COMPOSED_BY = 1050`); use `work_in_period()` / `is_out_of_period()` — never hard-code years. A whole work is excluded only on positive evidence (date range starting after `COMPOSED_BY`, or an author known to be born after `AUTHOR_BORN_BEFORE`). Every chunk carries `date_composed`, `date_range`, `date_confidence`, and `out_of_period`. For hybrid texts (Typikon, Beth Gazo, CANTUS, mixed Migne volumes), keep the work and flag at the chunk level. When composition date is unknown, default to `date_confidence: "uncertain"` and `out_of_period: False` (include).
+The collection period is defined once, in `patristica/period.py` (`AUTHOR_BORN_BEFORE = 1025`, `COMPOSED_BY = 1050`); use `work_in_period()` / `is_out_of_period()` — never hard-code years. A whole work is excluded only on positive evidence (date range starting after `COMPOSED_BY`, or an author known to be born after `AUTHOR_BORN_BEFORE`). `scripts.normalize` takes author birth years from the author index: when every author of a work has one, it decides `out_of_period` instead of the composition date (a work by several authors is judged by the youngest), so a late work by an author born before 1025 is not flagged. Every chunk carries `date_composed`, `date_range`, `date_confidence`, and `out_of_period`. For hybrid texts (Typikon, Beth Gazo, CANTUS, mixed Migne volumes), keep the work and flag at the chunk level. When composition date is unknown, default to `date_confidence: "uncertain"` and `out_of_period: False` (include).
 
 Per-book date estimates for all 66 Protestant books plus the Deuterocanon are in `_scripture_meta.BOOK_DATES`. Use these as the default; override only when a source warrants a specific translation date (e.g. Clementine Vulgate: 405 CE).
 
@@ -334,6 +339,7 @@ Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source lic
 - **eBible USFM** files contain Strong's number annotations (`\w word|strong="H1234"\w*`) and footnote blocks (`\f...\f*`). Always pre-process with `_ebible_usfm._preprocess_usfm()` before calling `parse_usfm`.
 - **Source-first layout (#102)**: before #102, source ids, data paths and many work ids started with a genre (`scripture/oshb`, `data/raw/patristic/first1k/`, `councils/nicaea1`, `oglt_pl/…`). A local checkout made before then migrates once with `uv run python -m scripts.migrate_layout raw` (moves `data/raw/{genre}/{source}` to `data/raw/{source_id}` and rewrites the ids in the raw work records; `--dry-run` first) and `… migrate_layout eval` (ids in the local `data/eval/` scratch). A branch that adds tracked data in the old layout runs `… migrate_layout tracked`. Old reader URLs redirect (`web/src/lib/redirects.ts`), so never name a source `scripture`, `patristic`, `liturgical`, `councils` or `oglt_pl`.
 - **New sources need a label**: add every new `source_id` to `SOURCE_LABELS` in `patristica/sources.py`. Users see that label, not the id. `tests/test_export_library.py` fails if a source in `_works.jsonl` has no label.
+- **New sources need their author spellings**: `scripts.normalize` raises `UnknownAuthorError` on an author string the author index doesn't know. Add the spelling as an alias of an existing person in `patristica/data/authors.csv`, or add a new person row (with dates), or, for an anonymous, collective or multi-person string, add it to `author_strings.csv` with a reason. `tests/test_authors.py` fails if `_works.jsonl` has an unresolved author or stale `author_ids`, and `scripts.validate` reports them.
 - **CCEL carve-outs**: a dedicated ingestor that extracts a section of a CCEL volume (ANF/NPNF) must register that div's `@id` in `_ccel_common.EXCLUDED_DIVS`, otherwise `ccel_anf`/`ccel_npnf*` keep ingesting it too and the text is in the corpus twice. `download_volume` reads the cached XML without network access unless `force=True`.
 - **Scripture versification**: `canonical_ref` is always in the source's *native* numbering; `link_translations.py` groups verses via `patristica/versification.py`, which maps refs onto org (BHS / Nestle-Aland) numbering. A new scripture source must be added to `SOURCE_SCHEMES` there (org / eng / lxx / vul) or linking raises `VersificationError` — check its per-chapter verse counts against the schemes' `maxVerses` to pick one.
 - **OGPG works** come from `scripts/ingest/data/ogpg_index.csv` (Migne column ranges per work, #67). Never rename a row's `slug` (it is in reader URLs); when you split a new volume, add it to `SPLIT_OGPG_VOLUMES` in `web/src/lib/redirects.ts` (a test checks). Edits apply on a plain `python -m scripts.ingest.ogpg` run from the cached `_extract/` files.

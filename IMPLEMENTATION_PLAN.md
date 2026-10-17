@@ -51,6 +51,7 @@ Every text unit stored as a JSON record with:
   "source_id": "ccel/npnf1-01",
   "work_id": "augustine/confessions",
   "author": "Augustine of Hippo",
+  "author_ids": ["augustine-of-hippo"],  // canonical ids (patristica/data/authors.csv, #82)
   "title": "Confessions",
   "date_range": [397, 400],
   "language": "la",          // ISO 639 code
@@ -98,8 +99,10 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 **Core tables:**
 
 ```sql
-authors (id, name, birth_date, death_date, tradition, bio)
-works (id, author_id, title, date_range, genre, language, license)
+authors (id, name, aliases, birth, death, floruit, tradition, external_ids, pseudo_of)
+                             -- from patristica/data/authors.csv (#82)
+works (id, author_ids, title, date_range, genre, language, license)
+                             -- author_ids: text[] + GIN index, [] for anonymous works
 text_chunks (
   id, work_id, canonical_ref, language,
   text, chunk_index,
