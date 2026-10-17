@@ -42,6 +42,8 @@ from scripts.ingest._ccel_common import (
 log = logging.getLogger(__name__)
 
 SOURCE_ID = "didache"
+#: The Greek original in the corpus (Work.translation_of).
+ORIGINAL = "first1k/tlg1311/tlg001/1st1K-grc1"
 _ANF_VOL = "anf07"
 _WORK_SLUG = "didache"
 
@@ -114,7 +116,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         license="public_domain",
         provenance_url=f"https://ccel.org/ccel/s/schaff/{_ANF_VOL}.xml",
         edition="Ante-Nicene Fathers Vol. 7 (Roberts-Donaldson, 1886)",
-        translation_of=None,
+        translation_of=ORIGINAL,
     )
 
     out_path.write_text(
