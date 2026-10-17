@@ -1,7 +1,8 @@
 name: Publish library
 
-# Export data/normalized as the static library and sync it to the Cloudflare
-# R2 bucket that the deployed web app reads (see scripts/upload_library.py).
+# Export data/normalized as the static library and sync it to the DigitalOcean
+# Spaces bucket that the deployed web app reads through its CDN (#131; bucket,
+# CDN and upload key are in infra/tofu; see scripts/upload_library.py).
 # Uploads only changed files, so a run with no data changes uploads nothing.
 
 on:
@@ -31,7 +32,7 @@ env:
 
 jobs:
   publish:
-    name: Export and upload to R2
+    name: Export and upload to Spaces
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -47,10 +48,10 @@ jobs:
       - name: Export library
         run: uv run python -m scripts.export_library
 
-      - name: Upload to R2
+      - name: Upload to Spaces
         env:
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          LIBRARY_ACCESS_KEY_ID: ${{ secrets.LIBRARY_ACCESS_KEY_ID }}
+          LIBRARY_SECRET_ACCESS_KEY: ${{ secrets.LIBRARY_SECRET_ACCESS_KEY }}
+          LIBRARY_BUCKET: patristica-library   # infra/tofu: var.library_bucket
+          LIBRARY_REGION: nyc3                 # infra/tofu: var.region
         run: uv run python -m scripts.upload_library

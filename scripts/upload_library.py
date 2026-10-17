@@ -1,13 +1,16 @@
 """
-Upload the static library export to Cloudflare R2 for the deployed web app.
+Upload the static library export to DigitalOcean Spaces for the deployed web app.
 
-Syncs ``data/library/`` (built by ``scripts.export_library``) to an R2 bucket
-through its S3-compatible API:
+Syncs ``data/library/`` (built by ``scripts.export_library``) to the Spaces
+bucket created by ``infra/tofu`` (#131), through its S3-compatible API. The web
+app reads it through the bucket's CDN endpoint (tofu output ``library_url``):
 
 - Works whose licence is not cleared for publication (``unknown``; see
   DATA_LICENSE.md) are left out, and the uploaded ``index.json`` is filtered
   to match.
-- Every object is stored gzip-compressed (``Content-Encoding: gzip``).
+- Every object is stored gzip-compressed (``Content-Encoding: gzip``). Work
+  files and the index are public-read; the bucket listing and the manifest
+  stay private. CORS is part of the bucket's tofu config.
 - Changes are detected from content, not from the stored bytes: the bucket
   holds a manifest (``_manifest.json``: key → SHA-256 of the *uncompressed*
   content), and a file is uploaded only when its hash differs or the object is
@@ -20,11 +23,13 @@ through its S3-compatible API:
   (disable with ``--no-delete``).
 
 Credentials come from the environment, or from ``.env`` / ``web/.env``:
-``R2_ACCOUNT_ID``, ``R2_ACCESS_KEY_ID``, ``R2_SECRET_ACCESS_KEY``, ``R2_BUCKET``.
+``LIBRARY_ACCESS_KEY_ID``, ``LIBRARY_SECRET_ACCESS_KEY``, ``LIBRARY_BUCKET``, and
+optionally ``LIBRARY_REGION`` (default ``nyc3``). The key is the bucket-scoped
+one from ``infra/tofu.sh output -raw library_access_key`` / ``library_secret_key``.
 
 Usage::
 
-    uv run --extra deploy python -m scripts.upload_library [--dry-run] [--no-delete] [--set-cors]
+    uv run --extra deploy python -m scripts.upload_library [--dry-run] [--no-delete]
 """
 
 from __future__ import annotations
@@ -47,7 +52,8 @@ log = logging.getLogger(__name__)
 EXCLUDED_LICENSES = frozenset({"unknown"})
 
 ENV_FILES = (Path(".env"), Path("web/.env"))
-REQUIRED_ENV = ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET")
+REQUIRED_ENV = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_BUCKET")
+DEFAULT_REGION = "nyc3"
 
 INDEX_KEY = "index.json"
 MANIFEST_KEY = "_manifest.json"
@@ -110,21 +116,27 @@ def plan_sync(
 UPLOAD_THREADS = 16
 
 
-def _client() -> Any:
-    import boto3  # optional dependency: `uv sync --extra deploy`
-    from botocore.config import Config
+def spaces_endpoint(region: str) -> str:
+    """S3 API endpoint of DigitalOcean Spaces in *region*."""
+    return f"https://{region}.digitaloceanspaces.com"
 
+
+def _client() -> Any:
     missing = [k for k in REQUIRED_ENV if not os.environ.get(k)]
     if missing:
         raise UploadError(
-            f"Missing R2 settings: {', '.join(missing)} (set them in .env or web/.env)"
+            f"Missing Spaces settings: {', '.join(missing)} (set them in .env or web/.env)"
         )
+    import boto3  # optional dependency: `uv sync --extra deploy`
+    from botocore.config import Config
+
+    region = os.environ.get("LIBRARY_REGION") or DEFAULT_REGION
     return boto3.client(
         "s3",
-        endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-        aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
-        aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
-        region_name="auto",
+        endpoint_url=spaces_endpoint(region),
+        aws_access_key_id=os.environ["LIBRARY_ACCESS_KEY_ID"],
+        aws_secret_access_key=os.environ["LIBRARY_SECRET_ACCESS_KEY"],
+        region_name=region,
         config=Config(max_pool_connections=UPLOAD_THREADS),
     )
 
@@ -151,42 +163,10 @@ def read_manifest(client: Any, bucket: str) -> dict[str, str]:
     return dict(json.loads(gzip.decompress(body)))
 
 
-CORS_RULES = [
-    {
-        "AllowedOrigins": ["*"],
-        "AllowedMethods": ["GET", "HEAD"],
-        "AllowedHeaders": ["*"],
-        "MaxAgeSeconds": 86400,
-    }
-]
-
-
-def set_cors(client: Any, bucket: str) -> None:
-    """Allow any origin to GET the (public) library files.
-
-    Needs a token with bucket admin rights; an object read/write token gets
-    AccessDenied, in which case set the same rule in the Cloudflare dashboard
-    (bucket → Settings → CORS policy).
-    """
-    from botocore.exceptions import ClientError
-
-    try:
-        client.put_bucket_cors(Bucket=bucket, CORSConfiguration={"CORSRules": CORS_RULES})
-    except ClientError as exc:
-        if exc.response.get("Error", {}).get("Code") != "AccessDenied":
-            raise
-        raise UploadError(
-            "This R2 token may not change bucket settings. Set the CORS policy in the "
-            "Cloudflare dashboard (R2 → bucket → Settings → CORS policy) to:\n"
-            + json.dumps(CORS_RULES, indent=2)
-        ) from exc
-    log.info("Set CORS on %s: GET/HEAD from any origin", bucket)
-
-
 def upload_library(
-    library_dir: Path, dry_run: bool = False, delete: bool = True, cors: bool = False
+    library_dir: Path, dry_run: bool = False, delete: bool = True
 ) -> dict[str, int]:
-    """Sync *library_dir* to the R2 bucket.
+    """Sync *library_dir* to the library bucket.
 
     Returns counts of uploaded, deleted and unchanged objects.
     """
@@ -208,9 +188,7 @@ def upload_library(
         local[w["file"]] = sha256_hex(path.read_bytes())
 
     client = _client()
-    bucket = os.environ["R2_BUCKET"]
-    if cors and not dry_run:
-        set_cors(client, bucket)
+    bucket = os.environ["LIBRARY_BUCKET"]
     manifest = read_manifest(client, bucket)
     to_upload, to_delete = plan_sync(local, manifest, remote_keys(client, bucket))
     if not delete:
@@ -222,13 +200,16 @@ def upload_library(
     if dry_run:
         return {"uploaded": 0, "deleted": 0, "unchanged": len(local) - len(to_upload)}
 
-    def put(key: str, data: bytes | None = None, cache: str = CACHE_WORK) -> None:
+    def put(
+        key: str, data: bytes | None = None, cache: str = CACHE_WORK, acl: str = "public-read"
+    ) -> None:
         if data is None:
             data = (library_dir / key).read_bytes()
         client.put_object(
             Bucket=bucket,
             Key=key,
             Body=compress(data),
+            ACL=acl,
             ContentType="application/json; charset=utf-8",
             ContentEncoding="gzip",
             CacheControl=cache,
@@ -249,7 +230,7 @@ def upload_library(
 
     # Last: record what the bucket now holds.
     if local != manifest:
-        put(MANIFEST_KEY, json.dumps(local, sort_keys=True).encode("utf-8"), "no-store")
+        put(MANIFEST_KEY, json.dumps(local, sort_keys=True).encode("utf-8"), "no-store", "private")
 
     return {
         "uploaded": len(to_upload),
@@ -262,7 +243,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     logging.getLogger("botocore").setLevel(logging.WARNING)
     parser = argparse.ArgumentParser(
-        description="Upload the static library export to Cloudflare R2."
+        description="Upload the static library export to DigitalOcean Spaces."
     )
     parser.add_argument("--library-dir", default="data/library")
     parser.add_argument(
@@ -271,9 +252,6 @@ def main() -> None:
     parser.add_argument(
         "--no-delete", action="store_true", help="keep objects no longer in the export"
     )
-    parser.add_argument(
-        "--set-cors", action="store_true", help="(re)apply the bucket's CORS rule"
-    )
     args = parser.parse_args()
 
     load_env_files()
@@ -281,7 +259,6 @@ def main() -> None:
         Path(args.library_dir),
         dry_run=args.dry_run,
         delete=not args.no_delete,
-        cors=args.set_cors,
     )
     log.info("Done: %s", counts)
 

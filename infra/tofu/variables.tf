@@ -57,3 +57,15 @@ variable "backup_keep_days" {
   type        = number
   default     = 15
 }
+
+variable "library_bucket" {
+  description = "Public Spaces bucket for the static library export (scripts/upload_library.py)."
+  type        = string
+  default     = "patristica-library"
+}
+
+variable "library_cdn_ttl" {
+  description = "Seconds the CDN caches a library file (60, 600, 3600, 86400 or 604800). Bounds how stale index.json is after a publish."
+  type        = number
+  default     = 600
+}

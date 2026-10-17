@@ -1,6 +1,7 @@
 # Production database host (#117): one droplet running the Docker Compose
 # stack in infra/compose (Postgres 16 + pgvector, FastAPI, Caddy for TLS),
-# plus the Spaces bucket its nightly backups go to.
+# plus the Spaces bucket its nightly backups go to, and the public Spaces
+# bucket + CDN that serve the static library to the web app (#131).
 # Postgres data lives on a separate block-storage volume, so the droplet can
 # be resized or rebuilt without touching the database.
 
@@ -133,9 +134,46 @@ resource "digitalocean_spaces_key" "backups" {
   }
 }
 
+# The static library export (scripts/upload_library.py). The bucket itself is
+# private, so its listing isn't public; upload_library makes each work file
+# and index.json public-read and keeps its own _manifest.json private.
+resource "digitalocean_spaces_bucket" "library" {
+  name   = var.library_bucket
+  region = var.region
+  acl    = "private"
+}
+
+# The web app fetches the library from the browser, on any origin.
+resource "digitalocean_spaces_bucket_cors_configuration" "library" {
+  bucket = digitalocean_spaces_bucket.library.name
+  region = var.region
+
+  cors_rule {
+    allowed_origins = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_headers = ["*"]
+    max_age_seconds = 86400
+  }
+}
+
+# The web app reads the library through the CDN endpoint (output library_url).
+resource "digitalocean_cdn" "library" {
+  origin = digitalocean_spaces_bucket.library.bucket_domain_name
+  ttl    = var.library_cdn_ttl
+}
+
+# The publish workflow's key (GitHub secrets LIBRARY_*) can only touch the library.
+resource "digitalocean_spaces_key" "library" {
+  name = "${var.name}-library-upload"
+  grant {
+    bucket     = digitalocean_spaces_bucket.library.name
+    permission = "readwrite"
+  }
+}
+
 resource "digitalocean_project" "patristica" {
   name        = var.name
-  description = "Patristica production database and API (#117)"
+  description = "Patristica production database, API and library (#117, #131)"
   purpose     = "Web Application"
   environment = "Production"
   resources = [
@@ -143,5 +181,6 @@ resource "digitalocean_project" "patristica" {
     digitalocean_volume.pgdata.urn,
     digitalocean_reserved_ip.api.urn,
     digitalocean_spaces_bucket.backups.urn,
+    digitalocean_spaces_bucket.library.urn,
   ]
 }
