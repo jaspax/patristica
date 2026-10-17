@@ -24,9 +24,10 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+from patristica.authors import apply_author_ids, work_author_birth_year
 from patristica.genres import apply_genre_override
 from patristica.models import Chunk, Work
-from patristica.period import is_out_of_period
+from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
 from patristica.versify import versify_chunks
 
@@ -41,6 +42,24 @@ def _prose_text(raw_text: str, ref: str, work: Work) -> str:
     passed through here: a verse may legitimately start with a numeral.
     """
     return strip_section_number(raw_text.strip(), ref, work.language, work.source_id)
+
+
+def _work_out_of_period(work: Work) -> bool:
+    """``Chunk.out_of_period`` for a scripture/patristic/apocrypha work's chunks.
+
+    The author's birth year (author index, #82) decides when known: a work by
+    an author born before ``AUTHOR_BORN_BEFORE`` is in period whatever its
+    date, and one by an author born after it is flagged throughout (and
+    logged, since such a work should not have been ingested).  Otherwise the
+    composition date decides.
+    """
+    birth = work_author_birth_year(work.author_ids)
+    if not work_in_period(work.date_range, author_birth_year=birth):
+        log.warning(
+            "%s is out of period (author born %s); all its chunks are flagged",
+            work.work_id, birth,
+        )
+    return is_out_of_period(work.date_composed, work.date_range, author_birth_year=birth)
 
 
 def _units(raw_record: dict) -> list[dict]:
@@ -65,7 +84,7 @@ def normalize_scripture_work(
     raw_verses: list[dict] = _units(raw_record)
     # Canonical books are all in period; computed rather than assumed so a
     # late extra-canonical book (e.g. Ethiopic) is flagged by its date.
-    out_of_period = is_out_of_period(work.date_composed, work.date_range)
+    out_of_period = _work_out_of_period(work)
 
     chunks: list[Chunk] = []
     for idx, verse in enumerate(raw_verses):
@@ -145,7 +164,7 @@ def normalize_patristic_work(
     work = Work(**raw_record["work"])
     raw_paragraphs: list[dict] = _units(raw_record)
 
-    out_of_period = is_out_of_period(work.date_composed, work.date_range)
+    out_of_period = _work_out_of_period(work)
 
     chunks: list[Chunk] = []
     for idx, para in enumerate(raw_paragraphs):
@@ -232,7 +251,7 @@ def normalize_file(
         log.debug("Skipping %s: no 'work' key", raw_path)
         return 0
 
-    work_dict = apply_genre_override(work_dict)
+    work_dict = apply_author_ids(apply_genre_override(work_dict))
     raw_record = {**raw_record, "work": work_dict}
     genre = work_dict.get("genre", "")
     if genre == "scripture":
@@ -335,7 +354,8 @@ def write_works_manifest(output_dir: Path) -> None:
     is the tracked copy of work metadata (title, author, dates, translation_of,
     license, provenance) for Phase 2.  Entries are refreshed from the raw file
     when it exists; when it does not (fresh clone) the previous entry is kept.
-    Either way the curated genre from ``patristica.genres`` is applied.
+    Either way the curated genre from ``patristica.genres`` is applied and
+    ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82).
     Entries for normalized files that no longer exist are dropped.  The file is
     rewritten only when its content changes.
     """
@@ -363,7 +383,7 @@ def write_works_manifest(output_dir: Path) -> None:
         if work is None:
             log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
             continue
-        entries[rel] = apply_genre_override(work)
+        entries[rel] = apply_author_ids(apply_genre_override(work))
 
     content = "".join(
         json.dumps({"path": rel, "work": work}, ensure_ascii=False, sort_keys=True) + "\n"

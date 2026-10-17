@@ -323,3 +323,21 @@ def resolve_author(source: str | None) -> list[str]:
     give ``[]``.  Raises ``UnknownAuthorError`` for a name not in the index.
     """
     return author_index().resolve(source)
+
+
+def apply_author_ids(work: dict) -> dict:
+    """Return the raw *work* record with ``author_ids`` resolved from ``author``.
+
+    Like ``patristica.genres.apply_genre_override``: returns *work* itself when
+    it already carries the right ids, otherwise a copy.  Raises
+    ``UnknownAuthorError`` for an author string not in the index.
+    """
+    ids = resolve_author(work.get("author"))
+    if work.get("author_ids") == ids:
+        return work
+    return {**work, "author_ids": ids}
+
+
+def work_author_birth_year(author_ids: list[str]) -> int | None:
+    """Period birth year for a work's authors (see ``AuthorIndex.birth_year``)."""
+    return author_index().birth_year(author_ids)
