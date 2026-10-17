@@ -7,7 +7,8 @@ app reads it through the bucket's CDN endpoint (tofu output ``library_url``):
 
 - Works whose licence is not cleared for publication (``unknown``; see
   DATA_LICENSE.md) are left out, and the uploaded ``index.json`` is filtered
-  to match.
+  to match. ``authors.json`` (the author index, #82) is CC0 metadata and is
+  uploaded whole.
 - Every object is stored gzip-compressed (``Content-Encoding: gzip``). Work
   files and the index are public-read; the bucket listing and the manifest
   stay private. CORS is part of the bucket's tofu config.
@@ -56,6 +57,7 @@ REQUIRED_ENV = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_B
 DEFAULT_REGION = "nyc3"
 
 INDEX_KEY = "index.json"
+AUTHORS_KEY = "authors.json"
 MANIFEST_KEY = "_manifest.json"
 CACHE_INDEX = "public, max-age=300"
 CACHE_WORK = "public, max-age=3600"
@@ -180,7 +182,13 @@ def upload_library(
         log.info("Leaving out %d works with licences not cleared for publication", excluded)
 
     index_bytes = json.dumps(pub, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    local: dict[str, str] = {INDEX_KEY: sha256_hex(index_bytes)}
+    authors_path = library_dir / AUTHORS_KEY
+    if not authors_path.exists():
+        raise UploadError(f"{authors_path} not found (re-run scripts.export_library)")
+    local: dict[str, str] = {
+        INDEX_KEY: sha256_hex(index_bytes),
+        AUTHORS_KEY: sha256_hex(authors_path.read_bytes()),
+    }
     for w in tqdm(pub["works"], desc="hash"):
         path = library_dir / w["file"]
         if not path.exists():
@@ -215,10 +223,13 @@ def upload_library(
             CacheControl=cache,
         )
 
-    # Upload works before the index, so the index never points at a missing file.
-    works_first = [k for k in to_upload if k != INDEX_KEY]
+    # Upload works and authors before the index, so the index never points at a
+    # missing file or author.
+    works_first = [k for k in to_upload if k not in (INDEX_KEY, AUTHORS_KEY)]
     with ThreadPoolExecutor(max_workers=UPLOAD_THREADS) as pool:
         list(tqdm(pool.map(put, works_first), total=len(works_first), desc="upload"))
+    if AUTHORS_KEY in to_upload:
+        put(AUTHORS_KEY, None, CACHE_INDEX)
     if INDEX_KEY in to_upload:
         put(INDEX_KEY, index_bytes, CACHE_INDEX)
 

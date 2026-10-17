@@ -11,6 +11,8 @@ on:
     paths:
       - "data/normalized/**"
       - "patristica/sources.py"
+      - "patristica/authors.py"
+      - "patristica/data/authors.csv"
       - "patristica/models.py"
       - "scripts/export_library.py"
       - "scripts/upload_library.py"

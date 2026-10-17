@@ -209,7 +209,9 @@ def load_authors(path: Path = AUTHORS_PATH) -> dict[str, Author]:
         )
     for a in authors.values():
         if a.pseudo_of is not None and a.pseudo_of not in authors:
-            raise AuthorIndexError(f"{path.name}: {a.author_id}: pseudo_of {a.pseudo_of!r} is unknown")
+            raise AuthorIndexError(
+                f"{path.name}: {a.author_id}: pseudo_of {a.pseudo_of!r} is unknown"
+            )
         if a.pseudo_of == a.author_id:
             raise AuthorIndexError(f"{path.name}: {a.author_id}: pseudo_of itself")
     return authors

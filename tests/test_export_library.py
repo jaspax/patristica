@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 
+from patristica.authors import author_index
 from patristica.sources import SOURCE_LABELS, source_label
 from scripts.export_library import (
     ExportError,
@@ -53,7 +54,8 @@ def corpus(tmp_path: Path) -> Path:
         ("kjv/Exod.json", _work("kjv/exod", "kjv"),
          [_chunk("kjv/exod", "Exod.1.1", "Now these are", 0)]),
         ("pta/x.json",
-         _work("pta/x", "pta", genre="patristic", author="Anon", license="cc-by-sa-4.0"),
+         _work("pta/x", "pta", genre="patristic", author="Augustinus",
+               author_ids=["augustine-of-hippo"], license="cc-by-sa-4.0"),
          # Out of order on disk; the second is out of period.
          [_chunk("pta/x", "pta1.pta2.2", "second", 1, out_of_period=True),
           _chunk("pta/x", "pta1.pta2.1", "first", 0)]),
@@ -104,10 +106,36 @@ class TestExport:
         assert rows["kjv/gen"]["chunks"] == 2
         assert rows["kjv/gen"]["date"] == -500
         assert rows["kjv/gen"]["file"] == "works/kjv/Gen.json"
-        assert rows["pta/x"]["author"] == "Anon"
+        assert rows["pta/x"]["author"] == "Augustinus"
+        assert rows["pta/x"]["author_ids"] == ["augustine-of-hippo"]
+        assert rows["kjv/gen"]["author_ids"] == []
         assert rows["pta/x"]["license"] == "cc-by-sa-4.0"
         for row in index["works"]:
             assert (out / row["file"]).exists()
+
+    def test_authors_file(self, corpus: Path, tmp_path: Path):
+        out = tmp_path / "library"
+        export_library(corpus, out)
+        authors = json.loads((out / "authors.json").read_text(encoding="utf-8"))["authors"]
+        ids = [a["id"] for a in authors]
+        assert ids == sorted(ids)
+        assert len(ids) == len(author_index().authors)
+        aug = next(a for a in authors if a["id"] == "augustine-of-hippo")
+        assert aug["name"] == "Augustine of Hippo"
+        assert "Augustinus" in aug["aliases"]
+        assert aug["birth"] == {"low": 354, "high": 354, "confidence": "established"}
+        assert aug["pseudo_of"] is None
+        pseudo = next(a for a in authors if a["id"] == "pseudo-augustine")
+        assert pseudo["pseudo_of"] == "augustine-of-hippo"
+
+    def test_unknown_author_id(self, corpus: Path, tmp_path: Path):
+        manifest = corpus / "_works.jsonl"
+        manifest.write_text(
+            manifest.read_text(encoding="utf-8").replace("augustine-of-hippo", "nobody"),
+            encoding="utf-8",
+        )
+        with pytest.raises(ExportError, match="nobody"):
+            export_library(corpus, tmp_path / "library")
 
     def test_work_file(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"

@@ -7,6 +7,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
   return {
     id: "x",
     author: null,
+    author_ids: [],
     title: "T",
     language: "grc",
     genre: "patristic",
