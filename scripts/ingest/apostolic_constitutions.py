@@ -51,6 +51,8 @@ from scripts.ingest._ccel_common import (
 log = logging.getLogger(__name__)
 
 SOURCE_ID = "apostolic-constitutions"
+#: The Greek original in the corpus (Work.translation_of): Migne's text, OGPG.
+ORIGINAL = "ogpg/vol-001/constitutiones-apostolicae"
 _ANF_VOL = "anf07"
 _WORK_SLUG = "apostolic-constitutions"
 
@@ -133,7 +135,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         license="public_domain",
         provenance_url=f"https://ccel.org/ccel/s/schaff/{_ANF_VOL}.xml",
         edition="Ante-Nicene Fathers Vol. 7 (Roberts-Donaldson, 1886)",
-        translation_of=None,
+        translation_of=ORIGINAL,
     )
 
     out_path.write_text(
