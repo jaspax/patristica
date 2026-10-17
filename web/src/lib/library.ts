@@ -112,6 +112,65 @@ export function loadIndex(): Promise<LibraryIndex> {
   return indexPromise;
 }
 
+export const AUTHORS_FILE = "authors.json";
+
+let authorsPromise: Promise<AuthorsFile> | null = null;
+
+/** Load authors.json once per page session. A failed load is retried on the next call. */
+export function loadAuthors(): Promise<AuthorsFile> {
+  if (!authorsPromise) {
+    authorsPromise = fetchJson<AuthorsFile>(libraryUrl(AUTHORS_FILE)).catch((err) => {
+      authorsPromise = null;
+      throw err;
+    });
+  }
+  return authorsPromise;
+}
+
+/** The index and the author index, loaded together. */
+export interface Library {
+  index: LibraryIndex;
+  authors: AuthorMap;
+}
+
+/** Load index.json and authors.json. */
+export async function loadLibrary(): Promise<Library> {
+  const [index, authors] = await Promise.all([loadIndex(), loadAuthors()]);
+  return { index, authors: authorMap(authors) };
+}
+
+/** Author id → author. */
+export type AuthorMap = ReadonlyMap<string, Author>;
+
+export function authorMap(file: AuthorsFile): AuthorMap {
+  return new Map(file.authors.map((a) => [a.id, a]));
+}
+
+/** Author page URL. Author ids are stable slugs: they are URLs. */
+export function authorHref(id: string): string {
+  return `/authors/${encodeURIComponent(id)}`;
+}
+
+/** A work's author, for display: its id (null when the index lacks it) and name. */
+export interface AuthorRef {
+  id: string | null;
+  name: string;
+}
+
+/**
+ * A work's authors for display, in order. Anonymous works give []. An id
+ * missing from the author index (`scripts.validate` rules that out) falls
+ * back to the source's author string, unlinked.
+ */
+export function workAuthors(row: Pick<WorkRow, "author" | "author_ids">, authors: AuthorMap): AuthorRef[] {
+  const found = row.author_ids.map((id) => authors.get(id));
+  if (found.length > 0 && found.every((a) => a !== undefined)) {
+    return found.map((a) => ({ id: a!.id, name: a!.name }));
+  }
+  if (found.length > 0 && row.author) return [{ id: null, name: row.author }];
+  return [];
+}
+
 export function loadWork(file: string): Promise<WorkFile> {
   return fetchJson<WorkFile>(libraryUrl(file));
 }

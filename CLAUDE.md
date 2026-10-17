@@ -66,9 +66,10 @@ patristica/
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"; Dockerfile for the droplet
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
-│   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), WorkReader + WorkText (reader)
-│   └── src/lib/               # library.ts (export types/loaders), filter.ts (search/sort/URL state),
-│                              # render.ts (chunks → sections/units), lang.ts, format.ts, config.ts
+│   ├── src/app/authors/       # author list; authors/[id]/ is the author page (#145)
+│   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), WorkReader + WorkText (reader), AuthorList + AuthorPage
+│   └── src/lib/               # library.ts (export types/loaders), filter.ts (search/sort/URL state, author facet),
+│                              # authors.ts (author pages), render.ts (chunks → sections/units), lang.ts, format.ts, config.ts
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -277,7 +278,7 @@ The app runs on the droplet as the `web` service of the compose stack (`infra/co
 
 ### Library browser
 
-`/` is the work index and `/works/{work_id}` is the reader. Both load the static library export in the browser. To run it locally:
+`/` is the work index, `/works/{work_id}` is the reader, and `/authors/{author_id}` is an author page (`/authors` lists them). All load the static library export in the browser. To run it locally:
 
 ```bash
 uv run python -m scripts.export_library   # repo root: data/normalized → data/library
@@ -287,6 +288,7 @@ npm run dev
 
 - Index state (query, facets, date range, sort) lives in the URL query, so links can be shared.
 - Work ids are reader URLs and bucket keys. When a source is renamed, add its old id prefix to `RENAMED_ID_PREFIXES` in `src/lib/redirects.ts` so old links get a permanent redirect; `upload_library` deletes the old keys from the bucket on the next publish.
+- Authors come from `authors.json` (#82), never the free-text `Work.author`: the index's author facet (`?author={author_id}`, `?author=anonymous` for works with `author_ids: []`) and author sort use ids and display names, and the text filter also matches aliases. Author ids are URLs too: when one is renamed or merged, add it to `RENAMED_AUTHOR_IDS` in `src/lib/redirects.ts`.
 - `src/lib/render.ts` turns refs into structure. The last ref segment is the unit number and the rest is the section path. A chunk whose ref is the parent of the next ref is a section heading. A zero-numbered first unit is a heading in liturgy and scripture. Short all-caps lines in liturgical texts are rubrics.
 - Huge works (up to ~9.4k chunks) rely on `content-visibility: auto` instead of virtualization. Content-visibility clips anything painted outside the box, so keep margin content (paragraph numbers) inside the element's padding.
 

@@ -1,7 +1,7 @@
 // Client-side search, filtering and sorting of the work index.
 
-import type { WorkRow } from "./library";
-import { currentSourceId } from "./redirects";
+import { workAuthors, type AuthorMap, type WorkRow } from "./library";
+import { currentAuthorId, currentSourceId } from "./redirects";
 
 /** Lowercase and strip diacritics, so "Ἰωάννης" matches "ιωαννης" and "Basilius" matches "BASÍLIUS". */
 export function fold(text: string): string {
@@ -11,8 +11,16 @@ export function fold(text: string): string {
 export type SortKey = "author" | "title" | "language" | "date" | "source" | "chunks";
 export const SORT_KEYS: SortKey[] = ["author", "title", "language", "date", "source", "chunks"];
 
+/**
+ * Value of the author facet for works with no author (`author_ids: []`).
+ * Author ids are slugs of a person's name, and no author is called this.
+ */
+export const ANONYMOUS = "anonymous";
+
 export interface ViewState {
   q: string;
+  /** An author id, ANONYMOUS, or "" for all. */
+  author: string;
   language: string;
   genre: string;
   source: string;
@@ -24,6 +32,7 @@ export interface ViewState {
 
 export const DEFAULT_VIEW: ViewState = {
   q: "",
+  author: "",
   language: "",
   genre: "",
   source: "",
@@ -32,6 +41,8 @@ export const DEFAULT_VIEW: ViewState = {
   sort: "author",
   dir: "asc",
 };
+
+const NO_AUTHORS: AuthorMap = new Map();
 
 function parseYear(value: string | null): number | null {
   if (value === null || value.trim() === "") return null;
@@ -44,6 +55,8 @@ export function parseViewState(params: URLSearchParams): ViewState {
   const sort = params.get("sort") as SortKey | null;
   return {
     q: params.get("q") ?? "",
+    // A renamed author's old id still selects the author.
+    author: currentAuthorId(params.get("author") ?? ""),
     language: params.get("language") ?? "",
     genre: params.get("genre") ?? "",
     // Old links may name a source by its pre-#102 id (`scripture/kjv`).
@@ -67,13 +80,30 @@ export function viewStateToParams(state: ViewState): URLSearchParams {
   return params;
 }
 
-const haystacks = new WeakMap<WorkRow, string>();
+/** Library index URL listing the works of one author (or ANONYMOUS). */
+export function authorFilterHref(authorId: string): string {
+  return `/?${viewStateToParams({ ...DEFAULT_VIEW, author: authorId })}`;
+}
 
-function haystack(row: WorkRow, sources: Record<string, string>): string {
-  let h = haystacks.get(row);
+// Haystacks depend on the author index too, so they are cached per author map.
+const haystacks = new WeakMap<AuthorMap, WeakMap<WorkRow, string>>();
+
+function haystack(row: WorkRow, sources: Record<string, string>, authors: AuthorMap): string {
+  let cache = haystacks.get(authors);
+  if (cache === undefined) {
+    cache = new WeakMap();
+    haystacks.set(authors, cache);
+  }
+  let h = cache.get(row);
   if (h === undefined) {
-    h = fold([row.author ?? "", row.title, row.edition ?? "", sources[row.source_id] ?? "", row.id].join(" "));
-    haystacks.set(row, h);
+    const names = row.author_ids.flatMap((id) => {
+      const a = authors.get(id);
+      return a ? [a.name, ...a.aliases] : [];
+    });
+    h = fold(
+      [row.author ?? "", ...names, row.title, row.edition ?? "", sources[row.source_id] ?? "", row.id].join(" "),
+    );
+    cache.set(row, h);
   }
   return h;
 }
@@ -86,32 +116,78 @@ function inDateRange(row: WorkRow, from: number | null, to: number | null): bool
   return (from === null || hi >= from) && (to === null || lo <= to);
 }
 
+/** Whether the work is by `author` (an id, or ANONYMOUS for works with no author). */
+function byAuthor(row: WorkRow, author: string): boolean {
+  if (!author) return true;
+  if (author === ANONYMOUS) return row.author_ids.length === 0;
+  return row.author_ids.includes(author);
+}
+
 /**
- * Filter works by the view state. The text query matches author, title,
- * edition, collection and id; every whitespace-separated term must match.
+ * Filter works by the view state. The text query matches the source's author
+ * string, the authors' names and aliases (so "Hieronymus" finds Jerome),
+ * title, edition, collection and id; every whitespace-separated term must match.
  */
 export function filterWorks(
   rows: WorkRow[],
   state: ViewState,
   sources: Record<string, string>,
+  authors: AuthorMap = NO_AUTHORS,
 ): WorkRow[] {
   const terms = fold(state.q).split(/\s+/).filter(Boolean);
   return rows.filter(
     (row) =>
+      byAuthor(row, state.author) &&
       (!state.language || row.language === state.language) &&
       (!state.genre || row.genre === state.genre) &&
       (!state.source || row.source_id === state.source) &&
       inDateRange(row, state.from, state.to) &&
-      terms.every((t) => haystack(row, sources).includes(t)),
+      terms.every((t) => haystack(row, sources, authors).includes(t)),
   );
+}
+
+export interface AuthorFacetValue {
+  /** Author id, or ANONYMOUS. */
+  id: string;
+  name: string;
+  /** Works by the author; a work with several authors counts under each. */
+  count: number;
 }
 
 const collator = new Intl.Collator(undefined, { sensitivity: "base", numeric: true });
 
-function sortValue(row: WorkRow, key: SortKey, sources: Record<string, string>): string | number | null {
+/** Number of works per author id; a work with several authors counts under each. */
+export function workCounts(rows: WorkRow[]): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    for (const id of new Set(row.author_ids)) counts.set(id, (counts.get(id) ?? 0) + 1);
+  }
+  return counts;
+}
+
+/**
+ * Values of the author facet: "Anonymous" first (when any work has no
+ * author), then every author with at least one work, by name.
+ */
+export function authorFacet(rows: WorkRow[], authors: AuthorMap): AuthorFacetValue[] {
+  const counts = workCounts(rows);
+  const anonymous = rows.filter((row) => row.author_ids.length === 0).length;
+  const values = [...counts].map(([id, count]) => ({ id, name: authors.get(id)?.name ?? id, count }));
+  values.sort((a, b) => collator.compare(a.name, b.name) || collator.compare(a.id, b.id));
+  return anonymous > 0 ? [{ id: ANONYMOUS, name: "Anonymous", count: anonymous }, ...values] : values;
+}
+
+function sortValue(
+  row: WorkRow,
+  key: SortKey,
+  sources: Record<string, string>,
+  authors: AuthorMap,
+): string | number | null {
   switch (key) {
     case "author":
-      return row.author;
+      return workAuthors(row, authors)
+        .map((a) => a.name)
+        .join("; ");
     case "title":
       return row.title;
     case "language":
@@ -126,19 +202,21 @@ function sortValue(row: WorkRow, key: SortKey, sources: Record<string, string>):
 }
 
 /**
- * Sort works by `key`. Missing values (no author, undated) always sort last,
- * in either direction; ties are broken by title, then id.
+ * Sort works by `key`. Missing values (anonymous, undated) always sort last,
+ * in either direction; ties are broken by title, then id. Authors sort by
+ * display name.
  */
 export function sortWorks(
   rows: WorkRow[],
   key: SortKey,
   dir: "asc" | "desc",
   sources: Record<string, string>,
+  authors: AuthorMap = NO_AUTHORS,
 ): WorkRow[] {
   const sign = dir === "asc" ? 1 : -1;
   return [...rows].sort((a, b) => {
-    const va = sortValue(a, key, sources);
-    const vb = sortValue(b, key, sources);
+    const va = sortValue(a, key, sources, authors);
+    const vb = sortValue(b, key, sources, authors);
     const aMissing = va === null || va === "";
     const bMissing = vb === null || vb === "";
     if (aMissing !== bMissing) return aMissing ? 1 : -1;

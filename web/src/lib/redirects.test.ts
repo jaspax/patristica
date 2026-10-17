@@ -1,7 +1,14 @@
 import { describe, expect, it } from "vitest";
 
 import nextConfig from "../../next.config";
-import { currentSourceId, currentWorkId, legacyWorkRedirects, SPLIT_OGPG_VOLUMES } from "./redirects";
+import {
+  currentAuthorId,
+  currentSourceId,
+  currentWorkId,
+  legacyAuthorRedirects,
+  legacyWorkRedirects,
+  SPLIT_OGPG_VOLUMES,
+} from "./redirects";
 
 describe("renamed work ids", () => {
   it("drops the genre prefix that ids had before #102", () => {
@@ -56,6 +63,31 @@ describe("renamed work ids", () => {
     expect(nextConfig.redirects).toBeDefined();
     const redirects = await nextConfig.redirects!();
     expect(redirects).toEqual(expect.arrayContaining(legacyWorkRedirects()));
+  });
+});
+
+describe("renamed author ids", () => {
+  const renamed = [["cyrill-of-alexandria", "cyril-of-alexandria"]] as const;
+
+  it("maps an old author id to its current one", () => {
+    expect(currentAuthorId("cyrill-of-alexandria", renamed)).toBe("cyril-of-alexandria");
+    expect(currentAuthorId("jerome", renamed)).toBe("jerome");
+    expect(currentAuthorId("")).toBe("");
+  });
+
+  it("redirects the old author page", () => {
+    expect(legacyAuthorRedirects(renamed)).toEqual([
+      {
+        source: "/authors/cyrill-of-alexandria",
+        destination: "/authors/cyril-of-alexandria",
+        permanent: true,
+      },
+    ]);
+  });
+
+  it("is wired into next.config", async () => {
+    const redirects = await nextConfig.redirects!();
+    expect(redirects).toEqual(expect.arrayContaining(legacyAuthorRedirects()));
   });
 });
 

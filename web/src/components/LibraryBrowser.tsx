@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
 import {
+  authorFacet,
   DEFAULT_VIEW,
   filterWorks,
   parseViewState,
@@ -15,9 +16,10 @@ import {
 } from "@/lib/filter";
 import { formatDate, GENRES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
-import { loadIndex, workHref, type LibraryIndex } from "@/lib/library";
+import { loadLibrary, workAuthors, workHref, type Library } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
 
+import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
 import styles from "./LibraryBrowser.module.css";
 
@@ -31,13 +33,14 @@ const COLUMNS: { key: SortKey; label: string; numeric?: boolean }[] = [
 ];
 
 export default function LibraryBrowser() {
-  const index = useLoaded(loadIndex);
-  if (index.status === "loading") return <p>Loading the library…</p>;
-  if (index.status === "error") return <LoadError error={index.error} />;
-  return <Browser index={index.data} />;
+  const library = useLoaded(loadLibrary);
+  if (library.status === "loading") return <p>Loading the library…</p>;
+  if (library.status === "error") return <LoadError error={library.error} />;
+  return <Browser library={library.data} />;
 }
 
-function Browser({ index }: { index: LibraryIndex }) {
+function Browser({ library }: { library: Library }) {
+  const { index, authors } = library;
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -50,8 +53,14 @@ function Browser({ index }: { index: LibraryIndex }) {
 
   const rows = useMemo(
     () =>
-      sortWorks(filterWorks(index.works, view, index.sources), view.sort, view.dir, index.sources),
-    [index, view],
+      sortWorks(
+        filterWorks(index.works, view, index.sources, authors),
+        view.sort,
+        view.dir,
+        index.sources,
+        authors,
+      ),
+    [index, authors, view],
   );
 
   const facets = useMemo(() => {
@@ -62,8 +71,9 @@ function Browser({ index }: { index: LibraryIndex }) {
       ),
       genres: present("genre").sort(),
       sources: Object.entries(index.sources).sort((a, b) => a[1].localeCompare(b[1])),
+      authors: authorFacet(index.works, authors),
     };
-  }, [index]);
+  }, [index, authors]);
 
   const sortBy = (key: SortKey) =>
     update({ sort: key, dir: view.sort === key && view.dir === "asc" ? "desc" : "asc" });
@@ -79,9 +89,20 @@ function Browser({ index }: { index: LibraryIndex }) {
           <input
             type="search"
             value={view.q}
-            placeholder="e.g. Augustine, homily, Ἰωάννης"
+            placeholder="e.g. Augustine, Hieronymus, homily, Ἰωάννης"
             onChange={(e) => update({ q: e.target.value })}
           />
+        </label>
+        <label>
+          <span>Author</span>
+          <select value={view.author} onChange={(e) => update({ author: e.target.value })}>
+            <option value="">All</option>
+            {facets.authors.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.name} ({a.count.toLocaleString()})
+              </option>
+            ))}
+          </select>
         </label>
         <label>
           <span>Language</span>
@@ -177,10 +198,17 @@ function Browser({ index }: { index: LibraryIndex }) {
           <tbody>
             {rows.map((w) => {
               const lang = languageInfo(w.language);
+              const byline = workAuthors(w, authors);
+              // Names from the author index are English; a fallback is the source's own string.
+              const sourceString = byline.some((a) => a.id === null);
               return (
                 <tr key={w.id}>
-                  <td lang={lang.lang} dir="auto">
-                    {w.author ?? <span className={styles.muted}>Anonymous</span>}
+                  <td lang={sourceString ? lang.lang : undefined} dir="auto">
+                    {byline.length > 0 ? (
+                      <AuthorLinks authors={byline} />
+                    ) : (
+                      <span className={styles.muted}>Anonymous</span>
+                    )}
                   </td>
                   <td lang={lang.lang} dir="auto">
                     <Link href={workHref(w.id)}>
