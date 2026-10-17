@@ -13,7 +13,8 @@ Checks (10 groups):
 6. Date plausibility — date range, out_of_period consistency
 7. Cross-reference integrity — work_ids exist in _works.jsonl,
    translation_of targets exist, groups ≥2
-8. Metadata completeness — author, title, license, provenance_url
+8. Metadata completeness — author, title, license, provenance_url; every
+   author string resolves in the author index and author_ids is up to date
 9. Scripture coverage — books present/missing per translation
 10. Chunk count report — totals by Work.genre (from _works.jsonl) and language
 """
@@ -31,7 +32,8 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica.period import COMPOSED_BY
+from patristica.authors import UnknownAuthorError, resolve_author, work_author_birth_year
+from patristica.period import AUTHOR_BORN_BEFORE, COMPOSED_BY
 from patristica.section_numbers import STRAY_SCRIPT_DIGIT_RE, leading_section_number
 
 log = logging.getLogger(__name__)
@@ -382,7 +384,27 @@ def _check_id_uniqueness(
 # Check group 6: Date plausibility (checked on chunks, which carry date fields)
 # ---------------------------------------------------------------------------
 
-def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
+def _author_birth_years(work_records: dict[str, dict]) -> dict[str, int | None]:
+    """``work_id → period birth year`` of its authors (``None`` if unknown)."""
+    births: dict[str, int | None] = {}
+    for wid, w in work_records.items():
+        try:
+            births[wid] = work_author_birth_year(w.get("author_ids") or [])
+        except KeyError:  # an id not in the index; reported by _check_authors
+            births[wid] = None
+    return births
+
+
+def _check_date_plausibility(
+    chunks: list[dict], work_records: dict[str, dict] | None = None
+) -> dict[str, CheckResult]:
+    """Date checks on chunks.
+
+    When a chunk's work has authors with a known birth year (author index,
+    #82), that year decides ``out_of_period`` (``patristica.period``), so the
+    flag is checked against it instead of the composition date.
+    """
+    births = _author_birth_years(work_records or {})
     out_of_range: list[str] = []
     period_flag_conflict: list[str] = []
     period_flag_mismatch: list[str] = []
@@ -394,13 +416,18 @@ def _check_date_plausibility(chunks: list[dict]) -> dict[str, CheckResult]:
         dc = c.get("date_composed")
         dr = c.get("date_range")
         flagged = c.get("out_of_period", False)
+        birth = births.get(c.get("work_id", ""))
+
+        if birth is not None and flagged != (birth >= AUTHOR_BORN_BEFORE):
+            period_flag_mismatch.append(f"{cid} (out_of_period={flagged}, author born {birth})")
 
         if dc is not None:
             if not (DATE_MIN <= dc <= DATE_MAX):
                 out_of_range.append(f"{cid} (date_composed={dc})")
-            if flagged and dc <= COMPOSED_BY:
+            # With a known author birth year, the flag was checked against it above.
+            if birth is None and flagged and dc <= COMPOSED_BY:
                 period_flag_conflict.append(f"{cid} (out_of_period=True, date_composed={dc})")
-            if not flagged and dc > COMPOSED_BY:
+            if birth is None and not flagged and dc > COMPOSED_BY:
                 period_flag_mismatch.append(f"{cid} (out_of_period=False, date_composed={dc})")
 
         if dr is not None and len(dr) == 2:
@@ -509,6 +536,35 @@ def _check_metadata_completeness(works: list[dict]) -> dict[str, CheckResult]:
         "collection_name_as_title": _result(
             "warning", collection_title,
             "title is a collection name; individual work title needed"
+        ),
+    }
+
+
+def _check_authors(works: list[dict]) -> dict[str, CheckResult]:
+    """Every ``Work.author`` resolves in the author index (#82), and the
+    manifest's ``author_ids`` matches it (else re-run ``scripts.normalize``)."""
+    unresolved: dict[str, list[str]] = defaultdict(list)
+    stale: list[str] = []
+    for w in works:
+        wid = w.get("work_id", "?")
+        try:
+            ids = resolve_author(w.get("author"))
+        except UnknownAuthorError:
+            unresolved[w.get("author") or ""].append(wid)
+            continue
+        if (w.get("author_ids") or []) != ids:
+            stale.append(f"{wid}: {w.get('author_ids')} != {ids}")
+    return {
+        "unresolved_authors": _result(
+            "error",
+            [
+                f"{a!r} ({len(wids)} works, e.g. {wids[0]})"
+                for a, wids in sorted(unresolved.items())
+            ],
+            "add the spelling to patristica/data/authors.csv (aliases) or author_strings.csv",
+        ),
+        "stale_author_ids": _result(
+            "error", stale, "author_ids out of date; re-run scripts.normalize"
         ),
     }
 
@@ -686,12 +742,15 @@ def main() -> None:
         "language_script": _check_language_script(chunks),
         "canonical_refs": _check_canonical_refs(chunks, work_records),
         "id_uniqueness": _check_id_uniqueness(works, chunks),
-        "date_plausibility": _check_date_plausibility(chunks),
+        "date_plausibility": _check_date_plausibility(chunks, work_records),
         "cross_references": {
             **_check_cross_references(works, chunks, work_records),
             **_check_works_manifest(chunks, work_records),
         },
-        "metadata_completeness": _check_metadata_completeness(works),
+        "metadata_completeness": {
+            **_check_metadata_completeness(works),
+            **_check_authors(works),
+        },
     }
 
     coverage = _check_scripture_coverage(work_records, chunks)

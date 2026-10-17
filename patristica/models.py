@@ -49,7 +49,17 @@ class Work(BaseModel):
     )
     author: str | None = Field(
         default=None,
-        description="Human-readable author name.",
+        description=(
+            "Author as the source gives it (provenance; spelling varies by source). "
+            "Use author_ids for identity."
+        ),
+    )
+    author_ids: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Canonical author ids from the author index (patristica/authors.py), "
+            "resolved from author by scripts.normalize; [] for anonymous works."
+        ),
     )
     title: str = Field(description="Title of the work.")
 

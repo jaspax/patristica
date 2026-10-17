@@ -18,6 +18,7 @@ from scripts.upload_library import (
     plan_sync,
     public_index,
     spaces_endpoint,
+    upload_library,
 )
 
 
@@ -85,3 +86,9 @@ def test_client_names_missing_settings(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setenv("LIBRARY_BUCKET", "b")
     with pytest.raises(UploadError, match="LIBRARY_ACCESS_KEY_ID, LIBRARY_SECRET_ACCESS_KEY"):
         _client()
+
+
+def test_upload_requires_authors_file(tmp_path: Path):
+    (tmp_path / "index.json").write_text('{"version": "", "sources": {}, "works": []}')
+    with pytest.raises(UploadError, match="authors.json"):
+        upload_library(tmp_path, dry_run=True)

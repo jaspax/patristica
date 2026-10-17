@@ -4,7 +4,10 @@ import { LIBRARY_URL } from "./config";
 
 export interface WorkRow {
   id: string;
+  /** Author as the source gives it (provenance); use author_ids for identity. */
   author: string | null;
+  /** Canonical author ids (keys of authors.json); [] for anonymous works. */
+  author_ids: string[];
   title: string;
   language: string;
   genre: string;
@@ -27,6 +30,36 @@ export interface LibraryIndex {
   /** source_id → readable collection label (patristica/sources.py). */
   sources: Record<string, string>;
   works: WorkRow[];
+}
+
+/** A year or year range from the author index, with its certainty. */
+export interface AuthorDate {
+  low: number;
+  high: number;
+  confidence: "established" | "approximate" | "uncertain";
+}
+
+/** One person in authors.json (patristica/authors.py, #82). */
+export interface Author {
+  /** Stable slug, e.g. "augustine-of-hippo". */
+  id: string;
+  /** English display name. */
+  name: string;
+  /** Source spellings and Latin/Greek forms, for search. */
+  aliases: string[];
+  birth: AuthorDate | null;
+  death: AuthorDate | null;
+  /** Span of known activity. */
+  floruit: AuthorDate | null;
+  tradition: string | null;
+  /** TLG / stoa / PTA author ids, e.g. "tlg2035". */
+  external_ids: string[];
+  /** For a pseudonymous author, the id of the author whose name the works carry. */
+  pseudo_of: string | null;
+}
+
+export interface AuthorsFile {
+  authors: Author[];
 }
 
 /** `[ref_suffix, text]`, plus a trailing `1` when the chunk is out of period. */

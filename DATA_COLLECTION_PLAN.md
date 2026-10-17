@@ -37,7 +37,8 @@ Defined in `patristica/models.py` using Pydantic.
 class Work(BaseModel):
     work_id: str                  # "{source_id}/{local id}": "oshb/gen", "npnf-works/augustine-confessions"
     source_id: str                # bare collection slug: "oshb", "first1k" (no genre, #102)
-    author: str | None
+    author: str | None            # the source's own spelling (provenance)
+    author_ids: list[str]         # canonical ids from patristica/data/authors.csv (#82); [] if anonymous
     title: str
     date_composed: int | None     # best single estimate (CE), negative = BCE
     date_range: tuple[int, int] | None
@@ -444,14 +445,14 @@ Final Phase 1 state: **3,072 works · 971,656 chunks · 39 sources · validation
 | Path | Tracked | Contents |
 |---|---|---|
 | `data/normalized/{genre}/{source}/…/*.json` | yes | One file per work: a JSON list of `Chunk` records (`patristica/models.py`) — `chunk_id` (globally unique), `work_id`, `canonical_ref` (source-native numbering), `language`, `text`, `chunk_index` (0-based, sequential), dates, `out_of_period`. Context and translation groups are *not* filled here |
-| `data/normalized/_works.jsonl` | yes | One line per normalized file: `{"path": …, "work": {…}}` with the full `Work` record (title, author, dates, genre, language, tradition, license, provenance_url, edition, translation_of). The only tracked copy of work metadata (`data/raw` is gitignored); maintained by `scripts.normalize`. `scripts.validate` and `patristica/lookup.py` read it (lookup builds its ref-prefix index in memory from it; the old tracked `_index.json` was removed in #75) |
+| `data/normalized/_works.jsonl` | yes | One line per normalized file: `{"path": …, "work": {…}}` with the full `Work` record (title, author, author_ids, dates, genre, language, tradition, license, provenance_url, edition, translation_of). The only tracked copy of work metadata (`data/raw` is gitignored); maintained by `scripts.normalize`. `scripts.validate` and `patristica/lookup.py` read it (lookup builds its ref-prefix index in memory from it; the old tracked `_index.json` was removed in #75) |
 | `data/chunks/…` | no | Embedding-ready chunks: normalized chunks plus `context_before`/`context_after` (~50 tokens) and `translation_group_id` (Scripture only, versification-mapped). Regenerate with `uv run python -m scripts.chunk && uv run python -m scripts.link_translations` (~4 min) |
 
 **For the Phase 2 loader**
 - Load works from `_works.jsonl`, chunks from `data/chunks/` (regenerate first). Every pipeline step is idempotent and incremental.
-- `authors` table: `Work.author` is a free-text string (Latin forms for OGLT PL, English for CCEL; OGPG volumes may list several authors separated by `; `, with "et al."). Author normalization/deduplication across sources is a Phase 2 task; `scripts/ingest/_patristic_meta.AUTHORS` has dates/traditions for the major Fathers.
+- `authors` table: `Work.author` is a free-text string in each source's own convention (Latin forms for OGLT PL, English for CCEL; OGPG volumes may list several authors separated by `; `). Since #82, `Work.author_ids` holds canonical author ids from the author index, `patristica/data/authors.csv` (one row per person: slug, display name, aliases, birth/death/floruit with certainty, tradition, TLG/stoa/PTA ids, `pseudo_of`), plus `patristica/data/author_strings.csv` for anonymous, collective and multi-person strings. Load the `authors` table from the CSV (or the library's `authors.json`) and `works.author_ids` from `_works.jsonl`. Anonymous works have `author_ids: []`.
 - `translation_of` (Work level) links 300 English translations (CCEL ANF/NPNF and their carve-outs) straight to their Greek/Latin originals in First1KGreek, PTA, Perseus, OGLT PL or OGPG, never to another translation (#11); `translation_group_id` (chunk level) links parallel Scripture verses only.
-- `out_of_period` is per chunk (rule in `patristica/period.py`): works composed entirely after the period are excluded; hybrid/straddling works (Typikon, CANTUS, OGPG PG 3/4/97/119/120, a few OGLT PL files) are kept with date-derived flags — filter at query time.
+- `out_of_period` is per chunk (rule in `patristica/period.py`): works composed entirely after the period are excluded; hybrid/straddling works (Typikon, CANTUS, OGPG PG 3/4/97/119/120, a few OGLT PL files) are kept with date-derived flags — filter at query time. When every author of a work has a known birth year in the author index, that year decides instead (`scripts.normalize`, #82): a late work by an author born before 1025 (e.g. Peter Damian, b. 1007) is not flagged.
 - Licences vary per work (`Work.license`): most are public domain or CC-BY(-SA); LXX Rahlfs (eliranwong) and the PTA Peshitta OT are non-commercial.
 
 **Open issues for the Phase 2 implementation** (chunk size normalization before embedding, [#2](https://github.com/jaspax/patristica/issues/2); embedding-model coverage of Coptic/Syriac/Armenian/Ge'ez/Gothic, [#3](https://github.com/jaspax/patristica/issues/3)) are described in `IMPLEMENTATION_PLAN.md` §2.5; licensing obligations for the public site in §3.5.

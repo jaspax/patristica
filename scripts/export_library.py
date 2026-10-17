@@ -10,6 +10,10 @@ writes ``data/library/`` (gitignored):
   of the index and every work file. Unchanged data gives a byte-identical
   index, so re-exports and uploads are no-ops.  The library browser
   loads this once and searches/sorts it client-side.
+- ``authors.json`` — the author index (``patristica.authors``, #82): one
+  record per person (id, name, aliases, birth/death/floruit, tradition,
+  external ids, pseudo_of), sorted by id.  Index rows carry ``author_ids``
+  that point into it.
 - ``works/{path}`` — a slim per-work file, ``{"work_id", "ref_prefix",
   "chunks": [[ref_suffix, text], ...]}``, where ``path`` mirrors the work's
   path under ``data/normalized/``.  The common dot-separated ref prefix is
@@ -36,6 +40,7 @@ from typing import Any
 
 from tqdm import tqdm
 
+from patristica.authors import author_index
 from patristica.models import Chunk, Work
 from patristica.sources import SOURCE_LABELS, source_label
 
@@ -43,6 +48,7 @@ log = logging.getLogger(__name__)
 
 WORKS_SUBDIR = "works"
 INDEX_NAME = "index.json"
+AUTHORS_NAME = "authors.json"
 
 
 class ExportError(Exception):
@@ -117,6 +123,7 @@ def index_row(work: Work, file: str, n_chunks: int) -> dict[str, Any]:
     return {
         "id": work.work_id,
         "author": work.author,
+        "author_ids": work.author_ids,
         "title": work.title,
         "language": work.language,
         "genre": work.genre,
@@ -134,12 +141,23 @@ def index_row(work: Work, file: str, n_chunks: int) -> dict[str, Any]:
     }
 
 
+def authors_export() -> list[dict[str, Any]]:
+    """Every author in the index, as exported to ``authors.json``, sorted by id."""
+    authors = author_index().authors
+    return [authors[aid].to_json() for aid in sorted(authors)]
+
+
 def library_version(
-    sources: dict[str, str], rows: list[dict[str, Any]], works_dir: Path
+    sources: dict[str, str],
+    rows: list[dict[str, Any]],
+    works_dir: Path,
+    authors: list[dict[str, Any]],
 ) -> str:
-    """Content hash of the export: the index rows, labels, and every work file."""
+    """Content hash of the export: the index rows, labels, authors, and every work file."""
     h = hashlib.sha256()
-    h.update(json.dumps([sources, rows], ensure_ascii=False, sort_keys=True).encode("utf-8"))
+    h.update(
+        json.dumps([sources, rows, authors], ensure_ascii=False, sort_keys=True).encode("utf-8")
+    )
     for row in rows:
         h.update(hashlib.sha256((works_dir.parent / row["file"]).read_bytes()).digest())
     return h.hexdigest()[:16]
@@ -210,12 +228,23 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
         log.warning("No label in patristica.sources for: %s", ", ".join(unlabelled))
 
     sources = {s: source_label(s) for s in used_sources}
+    authors = authors_export()
+    known = {a["id"] for a in authors}
+    unknown = sorted({a for row in rows for a in row["author_ids"]} - known)
+    if unknown:
+        raise ExportError(
+            f"author_ids not in the author index (re-run scripts.normalize): {unknown}"
+        )
     index = {
-        "version": library_version(sources, rows, works_dir),
+        "version": library_version(sources, rows, works_dir, authors),
         "sources": sources,
         "works": rows,
     }
     output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / AUTHORS_NAME).write_text(
+        json.dumps({"authors": authors}, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
     index_path.write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
