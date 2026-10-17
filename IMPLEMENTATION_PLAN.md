@@ -212,12 +212,14 @@ GET  /api/authors                      → Author list/browse
 ### 3.4 Deployment
 
 - Docker Compose: `web` (Next.js), `api` (FastAPI), `db` (PostgreSQL + pgvector)
-- Production (#50, #117): `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached), provisioned with OpenTofu, with a nightly `pg_dump` to DigitalOcean Spaces. The runbook is `infra/README.md`.
-- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131, done), and `web` moves from Vercel to the droplet (#132). The cost is a single point of failure and no Vercel preview deploys.
+- Production (#50, #117, #132): `web`, `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached) behind Caddy, provisioned with OpenTofu, with a nightly `pg_dump` to DigitalOcean Spaces. The runbook is `infra/README.md`.
+- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131, done), and `web` moves from Vercel to the droplet (#132, done). The cost is a single point of failure, no preview deploys and no edge CDN for the app shell (the library data is on the Spaces CDN).
+- Hostnames: the app is on the apex `patristica.app` (`www` redirects to it) and the API on `api.patristica.app`. Caddy also routes `/api/*` on the apex to the API with the prefix stripped, so the browser calls it same-origin and needs no CORS: the routes in §3.3 are `/api/…` as the web app sees them and are declared without `/api` in FastAPI.
+- Deploys: merging to `master` runs `infra/deploy.sh --keep-env` from GitHub Actions (`.github/workflows/deploy.yml`), which rebuilds the images on the droplet. `NEXT_PUBLIC_*` settings are Docker build arguments.
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
-*Current (library browser, #17):* production is https://patristica-beta.vercel.app/. The Next.js app is on Vercel (Hobby plan, production branch `master`, root directory `web`). The static library export is in the DigitalOcean Spaces bucket `patristica-library` (provisioned in `infra/tofu`), uploaded with `scripts/upload_library.py`. Vercel's `NEXT_PUBLIC_LIBRARY_URL` points at its CDN endpoint (https://patristica-library.nyc3.cdn.digitaloceanspaces.com). The library URL and Vercel production URL are reachable by anyone who has them; Vercel Hobby can only restrict preview deployments.
+*Current (library browser, #17):* production is https://patristica.app, the `web` service on the droplet (`web/Dockerfile`, `output: "standalone"`). The static library export is in the DigitalOcean Spaces bucket `patristica-library` (provisioned in `infra/tofu`), uploaded with `scripts/upload_library.py`, and the app's `NEXT_PUBLIC_LIBRARY_URL` points at its CDN endpoint (https://patristica-library.nyc3.cdn.digitaloceanspaces.com). The earlier Vercel deployment (https://patristica-beta.vercel.app/) is retired once the droplet serves the site.
 
 ### 3.5 Licensing & Attribution Requirements
 
