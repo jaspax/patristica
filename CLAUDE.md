@@ -33,7 +33,10 @@ patristica/
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
-│   └── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
+│   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
+│   ├── translations.py        # translation store (data/translations/)
+│   ├── embedders.py           # embedding API clients (Voyage) + shorten(); shared by pipeline, API, eval
+│   └── embeddings.py          # vector store (data/embeddings/): per-work .npz, model recorded per row
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref
@@ -48,6 +51,7 @@ patristica/
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
+│   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
@@ -71,6 +75,7 @@ patristica/
     ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work)
     ├── chunks/                # chunked records ready for embedding
     ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
+    ├── embeddings/            # corpus vectors, {source_id}/….npz mirroring normalized/ (gitignored; scripts.embed)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 
@@ -184,6 +189,7 @@ uv run python -m scripts.chunk            # add 50-token context overlap
 uv run python -m scripts.link_translations # assign translation_group_id (works with genre scripture)
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
+uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
@@ -202,6 +208,10 @@ uv run python -m scripts.embed_eval.translate quality   # translation-quality ev
 ```
 
 API keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `VOYAGE_API_KEY`, ...) are read from the environment or the repo-root `.env` (gitignored). `data/eval/` is gitignored scratch; embeddings are cached per text in `data/eval/embeddings/*.sqlite`. Authored queries (tracked) are in `data/eval_authored/`. Findings and decisions: `docs/embedding-eval.md` (full results matrix) and `IMPLEMENTATION_PLAN.md` §2.5. Machine translations are tracked in `data/translations/`, one file per work at its normalized path (`patristica/translations.py`; see the README there), and produced by `scripts.translate`.
+
+### Corpus embeddings (`scripts/embed.py`, #136)
+
+`scripts.embed` embeds every unit of at least 10 characters with Voyage `voyage-4-large` (its `text` only, no context overlap), plus the English translation of every Syriac, Coptic, Armenian and Ge'ez unit as a second vector (`KIND_TRANSLATION`). Vectors are stored at 1024 dims in float16 in `data/embeddings/`, one `.npz` per work at its normalized path (`patristica/embeddings.py`). The DB keeps 512 (`patristica.embedders.shorten`, #50). The model is recorded per row (a run table in each shard), never in the path, so vectors from a future model are labelled. A row is reused while the hash of the text it embeds and its model/dims/input type are unchanged; works with an `EXCLUDED_LICENSES` licence are skipped, as in `scripts.translate`. Production code imports the API clients from `patristica.embedders`, never from `scripts.embed_eval`.
 
 All accept `--help`. `normalize.py` currently processes `genre: scripture` only; prose genres are stubbed for M3+.
 
