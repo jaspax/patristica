@@ -114,9 +114,10 @@ translation_groups (id)      -- joins parallel chunks across languages
 1. Load normalized JSON from Phase 1
 2. Insert author/work metadata into PostgreSQL
 3. Translate Syriac, Coptic, Armenian and Ge'ez chunks into English with GPT-6.1 Sol (`scripts.translate`, #93). Translations are stored in `data/translations/`, one file per work, mirroring `data/normalized/`, with model, prompt version and date recorded per run.
-4. For each chunk: call embedding API → store chunk + embedding (plus a second embedding for the translation, where there is one)
-5. Build HNSW index on `text_chunks.embedding` via pgvector
-6. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)
+4. Embed every unit of at least 10 characters with Voyage `voyage-4-large`, plus a second vector for the English translation of each rare-language unit (`scripts.embed`, #136). Vectors are stored at 1024 dims (float16) in `data/embeddings/`, one file per work mirroring `data/normalized/`, with the model, dims, input type and date recorded per run. The store is resumable: a vector is reused while the text it embeds and its model are unchanged. The dry run on 2026-10-17 counted 4.02M vectors (3.96M distinct texts, ~333M cl100k tokens).
+5. Load works, chunks, translations and vectors (cut to 512 dims) into PostgreSQL (`scripts.build_index`, #137); every vector row names its model
+6. Build HNSW index on the vectors via pgvector
+7. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)
 
 **Script:** `scripts/build_index.py` — idempotent, resumable (skip already-embedded chunks)
 

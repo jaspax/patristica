@@ -30,6 +30,10 @@ from patristica.models import Language
 
 DEFAULT_DIR = Path("data/translations")
 TARGET_LANGUAGE = "eng"
+# Languages no embedder reaches from English (#3), indexed through these
+# translations (#84): scripts.translate translates them, scripts.embed embeds
+# the translation as a second vector.
+TRANSLATED_LANGUAGES: frozenset[str] = frozenset({"syc", "cop", "hye", "gez"})
 
 
 def text_sha(text: str) -> str:
