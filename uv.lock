@@ -1415,6 +1415,10 @@ dev = [
     { name = "pytest-mock" },
     { name = "ruff" },
 ]
+embed = [
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+]
 eval = [
     { name = "anthropic" },
     { name = "httpx" },
@@ -1442,6 +1446,7 @@ requires-dist = [
     { name = "httpx", extras = ["http2"] },
     { name = "lxml" },
     { name = "mypy", marker = "extra == 'dev'" },
+    { name = "numpy", marker = "extra == 'embed'" },
     { name = "numpy", marker = "extra == 'eval'" },
     { name = "numpy", marker = "extra == 'eval-local'" },
     { name = "playwright", specifier = ">=1.59.0" },
@@ -1458,7 +1463,7 @@ requires-dist = [
     { name = "usfm-grammar", marker = "extra == 'usfm'" },
     { name = "uvicorn", extras = ["standard"], marker = "extra == 'api'" },
 ]
-provides-extras = ["dev", "usfm", "deploy", "api", "eval", "eval-local"]
+provides-extras = ["dev", "usfm", "deploy", "api", "embed", "eval", "eval-local"]
 
 [[package]]
 name = "playwright"
