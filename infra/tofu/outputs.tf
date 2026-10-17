@@ -29,3 +29,25 @@ output "backups_secret_key" {
   value       = digitalocean_spaces_key.backups.secret_key
   sensitive   = true
 }
+
+output "library_bucket" {
+  description = "Spaces bucket holding the static library (LIBRARY_BUCKET)."
+  value       = digitalocean_spaces_bucket.library.name
+}
+
+output "library_url" {
+  description = "Public CDN URL of the library: the web app's NEXT_PUBLIC_LIBRARY_URL."
+  value       = "https://${digitalocean_cdn.library.endpoint}"
+}
+
+output "library_access_key" {
+  description = "Spaces key for the library bucket (GitHub secret LIBRARY_ACCESS_KEY_ID)."
+  value       = digitalocean_spaces_key.library.access_key
+  sensitive   = true
+}
+
+output "library_secret_key" {
+  description = "Secret for library_access_key (GitHub secret LIBRARY_SECRET_ACCESS_KEY)."
+  value       = digitalocean_spaces_key.library.secret_key
+  sensitive   = true
+}

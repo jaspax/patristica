@@ -1,10 +1,10 @@
 # Infrastructure
 
-Production database host for Phase 2 (#117): one DigitalOcean droplet running Postgres 16 with pgvector, the FastAPI app (`api/`) and Caddy for TLS, plus nightly database dumps to DigitalOcean Spaces. Everything is code. The only manual steps are creating the DigitalOcean account and token and generating the SSH key.
+Production database host for Phase 2 (#117): one DigitalOcean droplet running Postgres 16 with pgvector, the FastAPI app (`api/`) and Caddy for TLS, plus nightly database dumps to DigitalOcean Spaces. It also holds the public Spaces bucket and CDN that serve the static library to the web app (#131). Everything is code. The only manual steps are creating the DigitalOcean account and token and generating the SSH key.
 
 | Piece | Where | What it does |
 |---|---|---|
-| `tofu/` | OpenTofu | Creates the droplet (`s-4vcpu-8gb`, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
+| `tofu/` | OpenTofu | Creates the droplet (`s-4vcpu-8gb`, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
 | `tofu/cloud-init.yaml` | first boot | Installs Docker, rclone and unattended-upgrades. Adds 4 GB of swap, turns off SSH passwords and mounts the volume at `/mnt/pgdata`. It contains no secrets. |
 | `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
 | `deploy.sh` | your machine | Syncs `compose/` and the API source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and runs `docker compose up`. Idempotent. |
@@ -14,7 +14,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
 
 ## First-time setup
 
-1. **DigitalOcean**: create an account and a personal access token. Use full access, or custom scopes: `droplet`, `block_storage`, `firewall`, `reserved_ip`, `ssh_key` and `spaces_key` (create/read/update/delete each), `project` (the same plus `assign_resource`), `block_storage_action:create` and `block_storage_action:read`, and `regions:read`, `sizes:read`, `image:read`, `actions:read`. Spaces buckets don't use the token; they use the Spaces keys. A missing scope shows up as a 403 naming it on the first `tofu plan`, and you can edit a token's scopes in place. Then:
+1. **DigitalOcean**: create an account and a personal access token. Use full access, or custom scopes: `droplet`, `block_storage`, `firewall`, `reserved_ip`, `ssh_key`, `spaces_key` and `cdn` (create/read/update/delete each), `project` (the same plus `assign_resource`), `block_storage_action:create` and `block_storage_action:read`, and `regions:read`, `sizes:read`, `image:read`, `actions:read`. Spaces buckets don't use the token; they use the Spaces keys. A missing scope shows up as a 403 naming it on the first `tofu plan`, and you can edit a token's scopes in place. Then:
    ```bash
    cp infra/.env.example infra/.env     # gitignored; set DIGITALOCEAN_TOKEN
    ```
@@ -50,6 +50,20 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
   cd infra/compose && cp .env.local.example .env && docker compose up -d --build --wait
   curl http://localhost:18080/healthz
   ```
+
+## Library
+
+The static library export (`scripts.export_library`) is served from the Spaces bucket `patristica-library` through its CDN, https://patristica-library.nyc3.cdn.digitaloceanspaces.com. The web app's `NEXT_PUBLIC_LIBRARY_URL` is that URL (`infra/tofu.sh output -raw library_url`).
+
+- The bucket listing is private. `scripts.upload_library` uploads each file gzipped and public-read, and keeps its change manifest `_manifest.json` private. The CORS rule (GET/HEAD from any origin) is part of the tofu config.
+- The CDN caches each file for `library_cdn_ttl` seconds (600), so `index.json` can be up to 10 minutes stale after a publish.
+- The *Publish library* workflow uploads with a Spaces key that can only touch this bucket. Store it as repo secrets once after the first `apply`, without printing it:
+  ```bash
+  infra/tofu.sh output -raw library_access_key | gh secret set LIBRARY_ACCESS_KEY_ID
+  infra/tofu.sh output -raw library_secret_key | gh secret set LIBRARY_SECRET_ACCESS_KEY
+  ```
+- To publish by hand, put the same two values plus `LIBRARY_BUCKET=patristica-library` in `web/.env` and run `uv run --extra deploy python -m scripts.upload_library` (`--dry-run` first).
+- The bucket has no `prevent_destroy`: everything in it is rebuilt from `data/normalized` by one publish run.
 
 ## Backups
 

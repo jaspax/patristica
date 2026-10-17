@@ -27,7 +27,7 @@ patristica/
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
-├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → R2 (no-op if unchanged)
+├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → Spaces (no-op if unchanged)
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
@@ -55,7 +55,7 @@ patristica/
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── export_library.py      # normalized → static library (index + per-work JSON) for the web browser
-│   ├── upload_library.py      # sync data/library → Cloudflare R2 (deploy extra; skips unpublishable licences)
+│   ├── upload_library.py      # sync data/library → DO Spaces (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
 │   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
@@ -192,7 +192,7 @@ uv run python -m scripts.translate --dry-run  # rare-language chunks → data/tr
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json + slim per-work JSON)
-uv run --extra deploy python -m scripts.upload_library  # data/library → R2 (incremental; --dry-run)
+uv run --extra deploy python -m scripts.upload_library  # data/library → Spaces (incremental; --dry-run)
 ```
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
@@ -245,22 +245,22 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 ### Deployment
 
 - **Production:** https://patristica-beta.vercel.app/ (Vercel team `patristica1`). It is public; preview and per-deployment URLs require a Vercel login. `patristica.vercel.app` belongs to an unrelated project.
-- **Library data:** https://pub-7022ba788905451f9b1a0db66d769964.r2.dev (Cloudflare R2, e.g. `https://pub-7022ba788905451f9b1a0db66d769964.r2.dev/index.json`).
+- **Library data:** https://patristica-library.nyc3.cdn.digitaloceanspaces.com (DigitalOcean Spaces bucket `patristica-library` behind its CDN, #131; e.g. `https://patristica-library.nyc3.cdn.digitaloceanspaces.com/index.json`).
 
-Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in Cloudflare R2: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the bucket's public `r2.dev` URL.
+Vercel hosts the app: Hobby plan, production branch `master`, root directory `web`, Node 22 from `engines` in `web/package.json` (Vercel doesn't read `.nvmrc`). The library data is in DigitalOcean Spaces: `NEXT_PUBLIC_LIBRARY_URL` in Vercel is the CDN URL (`infra/tofu.sh output -raw library_url`).
 
-- **Data is published automatically.** On every push to `master` that touches `data/normalized/**` or the export/upload code, `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` and `R2_BUCKET`. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
-- To publish by hand, run the same two scripts locally. Local R2 credentials are in `web/.env` (gitignored). Never print or commit them.
+- **Data is published automatically.** On every push to `master` that touches `data/normalized/**` or the export/upload code, `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `LIBRARY_ACCESS_KEY_ID` and `LIBRARY_SECRET_ACCESS_KEY` (a Spaces key that can only touch the library bucket; tofu outputs `library_access_key` / `library_secret_key`). The bucket name and region are plain values in the workflow. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
+- To publish by hand, run the same two scripts locally. Local credentials (`LIBRARY_*`) go in `web/.env` (gitignored). Never print or commit them.
 - The export is deterministic: `index.json` has a content hash (`version`), not a timestamp. A from-scratch export is byte-identical to an incremental one, which is what makes CI runs no-ops. Keep it that way: no timestamps or other run-dependent values in exported files.
 - Objects are stored gzipped with `Content-Encoding: gzip`. Changes are detected through `_manifest.json` in the bucket, which maps each key to the SHA-256 of its *uncompressed* content and is written last. Don't compare gzip bytes or ETags: gzip output differs between Python and zlib versions (even the header's OS byte, #46), so CI and local runs would keep re-uploading everything. A no-op run takes a few seconds.
-- The bucket's CORS policy (GET/HEAD from any origin) is set in the Cloudflare dashboard. The upload token has object read/write permission only, so `--set-cors` gets AccessDenied and prints the policy to apply.
+- The bucket, its CORS rule (GET/HEAD from any origin), the CDN and the upload key are OpenTofu resources in `infra/tofu` (runbook: `infra/README.md` → "Library"). The bucket listing is private: `upload_library` makes the work files and `index.json` public-read and keeps `_manifest.json` private. The CDN caches files for `library_cdn_ttl` (10 minutes), so a publish can take that long to show.
 - `EXCLUDED_LICENSES` in `upload_library.py` keeps unpublishable works (`unknown`) out of the public copy.
 
 ### Database host (#117)
 
 - **API:** https://api.patristica.app (`/healthz`). The domain `patristica.app` is registered at Cloudflare and its DNS is managed by hand there. `api` is an A record to the reserved IP `159.89.246.34`, set to DNS only: proxying would break Caddy's certificate.
 - Postgres 16 + pgvector, the FastAPI `api` and Caddy (TLS) run under Docker Compose on one DigitalOcean droplet. OpenTofu provisions it from `infra/tofu`, and `infra/deploy.sh` deploys it. The runbook is in `infra/README.md`.
-- Hosting is consolidating on DigitalOcean: the library is moving from R2 to Spaces (#131) and the web app from Vercel to the droplet (#132). Until those land, the Vercel/R2 setup above is what's live.
+- Hosting is consolidating on DigitalOcean: the library is on Spaces (#131), and the web app is moving from Vercel to the droplet (#132). Until that lands, Vercel serves the app.
 - The only secret added by hand is `DIGITALOCEAN_TOKEN` in `infra/.env` (gitignored). `scripts.bootstrap_infra` adds the Spaces key for tofu state, and the backups key comes from tofu outputs. The droplet's Postgres password is generated on the droplet and stays there. The SSH deploy key is `~/.ssh/patristica_deploy`, with the master copy in the password manager. Never print or commit any of these.
 - Postgres has no public port. Reach it over SSH (`infra/README.md`).
 - Run the stack locally: `cd infra/compose && cp .env.local.example .env && docker compose up -d --build`.
@@ -276,7 +276,7 @@ npm run dev
 ```
 
 - Index state (query, facets, date range, sort) lives in the URL query, so links can be shared.
-- Work ids are reader URLs and R2 keys. When a source is renamed, add its old id prefix to `RENAMED_ID_PREFIXES` in `src/lib/redirects.ts` so old links get a permanent redirect; `upload_library` deletes the old keys from the bucket on the next publish.
+- Work ids are reader URLs and bucket keys. When a source is renamed, add its old id prefix to `RENAMED_ID_PREFIXES` in `src/lib/redirects.ts` so old links get a permanent redirect; `upload_library` deletes the old keys from the bucket on the next publish.
 - `src/lib/render.ts` turns refs into structure. The last ref segment is the unit number and the rest is the section path. A chunk whose ref is the parent of the next ref is a section heading. A zero-numbered first unit is a heading in liturgy and scripture. Short all-caps lines in liturgical texts are rubrics.
 - Huge works (up to ~9.4k chunks) rely on `content-visibility: auto` instead of virtualization. Content-visibility clips anything painted outside the box, so keep margin content (paragraph numbers) inside the element's padding.
 

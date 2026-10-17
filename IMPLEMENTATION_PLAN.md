@@ -213,11 +213,11 @@ GET  /api/authors                      → Author list/browse
 
 - Docker Compose: `web` (Next.js), `api` (FastAPI), `db` (PostgreSQL + pgvector)
 - Production (#50, #117): `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached), provisioned with OpenTofu, with a nightly `pg_dump` to DigitalOcean Spaces. The runbook is `infra/README.md`.
-- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131), and `web` moves from Vercel to the droplet (#132). The cost is a single point of failure and no Vercel preview deploys.
+- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131, done), and `web` moves from Vercel to the droplet (#132). The cost is a single point of failure and no Vercel preview deploys.
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
-*Current (library browser, #17):* production is https://patristica-beta.vercel.app/. The Next.js app is on Vercel (Hobby plan, production branch `master`, root directory `web`). The static library export is in a Cloudflare R2 bucket, uploaded with `scripts/upload_library.py`. Vercel's `NEXT_PUBLIC_LIBRARY_URL` points at the bucket's public URL (https://pub-7022ba788905451f9b1a0db66d769964.r2.dev). The R2 public URL and Vercel production URL are reachable by anyone who has them; Vercel Hobby can only restrict preview deployments.
+*Current (library browser, #17):* production is https://patristica-beta.vercel.app/. The Next.js app is on Vercel (Hobby plan, production branch `master`, root directory `web`). The static library export is in the DigitalOcean Spaces bucket `patristica-library` (provisioned in `infra/tofu`), uploaded with `scripts/upload_library.py`. Vercel's `NEXT_PUBLIC_LIBRARY_URL` points at its CDN endpoint (https://patristica-library.nyc3.cdn.digitaloceanspaces.com). The library URL and Vercel production URL are reachable by anyone who has them; Vercel Hobby can only restrict preview deployments.
 
 ### 3.5 Licensing & Attribution Requirements
 

@@ -10,10 +10,14 @@ import pytest
 
 from scripts.upload_library import (
     MANIFEST_KEY,
+    REQUIRED_ENV,
+    UploadError,
+    _client,
     compress,
     load_env_files,
     plan_sync,
     public_index,
+    spaces_endpoint,
 )
 
 
@@ -62,10 +66,22 @@ def test_unchanged_is_a_no_op():
 
 def test_load_env_files_does_not_override(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     env = tmp_path / ".env"
-    env.write_text("# comment\nR2_TEST_A='from-file'\nR2_TEST_B=file\n\n", encoding="utf-8")
-    monkeypatch.setenv("R2_TEST_B", "from-env")
-    monkeypatch.delenv("R2_TEST_A", raising=False)
+    env.write_text("# comment\nUPLOAD_TEST_A='from-file'\nUPLOAD_TEST_B=file\n\n", encoding="utf-8")
+    monkeypatch.setenv("UPLOAD_TEST_B", "from-env")
+    monkeypatch.delenv("UPLOAD_TEST_A", raising=False)
     load_env_files((env, tmp_path / "missing.env"))
-    assert os.environ["R2_TEST_A"] == "from-file"
-    assert os.environ["R2_TEST_B"] == "from-env"
-    monkeypatch.delenv("R2_TEST_A")
+    assert os.environ["UPLOAD_TEST_A"] == "from-file"
+    assert os.environ["UPLOAD_TEST_B"] == "from-env"
+    monkeypatch.delenv("UPLOAD_TEST_A")
+
+
+def test_spaces_endpoint():
+    assert spaces_endpoint("nyc3") == "https://nyc3.digitaloceanspaces.com"
+
+
+def test_client_names_missing_settings(monkeypatch: pytest.MonkeyPatch):
+    for key in REQUIRED_ENV:
+        monkeypatch.delenv(key, raising=False)
+    monkeypatch.setenv("LIBRARY_BUCKET", "b")
+    with pytest.raises(UploadError, match="LIBRARY_ACCESS_KEY_ID, LIBRARY_SECRET_ACCESS_KEY"):
+        _client()
