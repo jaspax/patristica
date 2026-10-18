@@ -84,6 +84,21 @@ describe("fetchSearch", () => {
     expect((err as SearchError).retryAfter).toBe(retryAfter);
   });
 
+  it("rejects a reversed date range without a request", async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal("fetch", fetch);
+    const err = await fetchSearch({ ...state, from: 500, to: 300 }).catch((e: unknown) => e);
+    expect(err).toMatchObject({ kind: "invalid", message: expect.stringContaining("start year is after the end year") });
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("shows the API's reason for a 422, or a hint about the query and dates", async () => {
+    respond(422, { error: "date_from is after date_to" });
+    await expect(fetchSearch(state)).rejects.toMatchObject({ kind: "invalid", message: "date_from is after date_to" });
+    respond(422, { detail: [] });
+    await expect(fetchSearch(state)).rejects.toThrow(/date filters/);
+  });
+
   it("keeps the API's message for 503", async () => {
     respond(503, { error: "search is not configured on this server" });
     await expect(fetchSearch(state)).rejects.toThrow("search is not configured on this server");
@@ -101,6 +116,38 @@ describe("fetchSearch", () => {
       ),
     );
     await expect(fetchSearch(state, 0, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
+  });
+
+  /** A response whose body never arrives, and errors when the request is aborted. */
+  function stallBody() {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (_url: string, init: RequestInit) => {
+        const body = new ReadableStream({
+          start(controller) {
+            init.signal?.addEventListener("abort", () =>
+              controller.error(new DOMException("aborted", "AbortError")),
+            );
+          },
+        });
+        return new Response(body, { status: 200 });
+      }),
+    );
+  }
+
+  it("times out while the body is still arriving", async () => {
+    stallBody();
+    await expect(fetchSearch(state, 0, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
+  });
+
+  it("cancels the body read when the caller aborts", async () => {
+    stallBody();
+    const controller = new AbortController();
+    const pending = fetchSearch(state, 0, controller.signal);
+    await new Promise((r) => setTimeout(r, 0));
+    controller.abort();
+    const err = await pending.catch((e: unknown) => e);
+    expect(err).not.toBeInstanceOf(SearchError);
   });
 
   it("passes the caller's abort through unchanged", async () => {

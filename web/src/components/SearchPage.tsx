@@ -46,13 +46,31 @@ export default function SearchPage() {
     router.push(next ? `${pathname}?${next}` : pathname, { scroll: false });
   };
 
+  // Announced to screen readers. It lives here, outside the per-search
+  // Results, so the live region exists before its text changes.
+  const [status, setStatus] = useState("");
+  const searching = state.q.trim() !== "";
+
   return (
     <div>
       {/* Keyed by the query, so the field shows it after back/forward navigation. */}
       <SearchForm key={state.q} state={state} onChange={go} />
-      {state.q.trim() ? <Results key={key} state={state} /> : <Intro />}
+      <p role="status" className="visually-hidden">
+        {searching ? status : ""}
+      </p>
+      {searching ? <Results key={key} state={state} onStatus={setStatus} /> : <Intro />}
     </div>
   );
+}
+
+/** What the status region says about the latest request. */
+function statusText(pages: Pages): string {
+  if (pages.status === "loading") return "Searching…";
+  if (pages.status === "error") return ""; // the error is an alert
+  const shown = pages.pages.reduce((n, p) => n + p.results.length, 0);
+  if (shown === 0) return "No passages found.";
+  const more = pages.pages[pages.pages.length - 1]?.next_offset != null;
+  return `${shown} ${shown === 1 ? "passage" : "passages"} shown${more ? ", more available" : ""}.`;
 }
 
 function SearchForm({ state, onChange }: { state: SearchState; onChange: (c: Partial<SearchState>) => void }) {
@@ -121,10 +139,12 @@ function Intro() {
   );
 }
 
-function Results({ state }: { state: SearchState }) {
+function Results({ state, onStatus }: { state: SearchState; onStatus: (text: string) => void }) {
   const [pages, setPages] = useState<Pages>({ status: "loading", pages: [] });
   const [offset, setOffset] = useState(0);
   const [attempt, setAttempt] = useState(0);
+
+  useEffect(() => onStatus(statusText(pages)), [pages, onStatus]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -187,7 +207,7 @@ function ErrorMessage({ error, onRetry }: { error: SearchError; onRetry: () => v
   const text = {
     "rate-limited": `Too many searches in a short time. Wait ${error.retryAfter ?? "a few"} seconds and try again.`,
     unavailable: `Search is unavailable right now (${error.message.replace(/\.$/, "")}). Please try again later.`,
-    invalid: "That search couldn't be read. Try a shorter query.",
+    invalid: error.message,
     timeout: "The search took too long.",
     failed: error.message,
   }[error.kind];

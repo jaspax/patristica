@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex } from "@/lib/library";
@@ -167,9 +167,11 @@ describe("SearchPage", () => {
     );
     await renderPage();
     fireEvent.click(await screen.findByRole("button", { name: "More results" }));
+    expect(screen.getByRole("status").textContent).toBe("Searching…");
     expect(await screen.findByText("Hymn.2.1")).toBeTruthy();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
     expect(screen.queryByRole("button", { name: "More results" })).toBeNull();
+    await waitFor(() => expect(screen.getByRole("status").textContent).toBe("2 passages shown."));
   });
 
   it("says when nothing was found", async () => {
@@ -177,6 +179,32 @@ describe("SearchPage", () => {
     serve(() => json(page([])));
     await renderPage();
     expect(await screen.findByText(/No passages found/)).toBeTruthy();
+    await waitFor(() => expect(screen.getByRole("status").textContent).toBe("No passages found."));
+  });
+
+  it("announces how many passages are shown", async () => {
+    search = "q=faith";
+    serve(() => json(page([result()], { next_offset: 20 })));
+    await renderPage();
+    await screen.findByText("Hymn.1.1");
+    await waitFor(() => expect(screen.getByRole("status").textContent).toBe("1 passage shown, more available."));
+  });
+
+  it("explains a reversed date range without sending the search", async () => {
+    search = "q=faith&from=500&to=300";
+    const fetch = serve(() => json(page([result()])));
+    await renderPage();
+    const alert = await screen.findByRole("alert");
+    expect(alert.textContent).toContain("The start year is after the end year");
+    expect(within(alert).queryByRole("button", { name: "Try again" })).toBeNull();
+    expect(fetch.mock.calls.some(([u]) => String(u).startsWith("/api/"))).toBe(false);
+  });
+
+  it("shows the API's reason for a rejected search", async () => {
+    search = "q=faith";
+    serve(() => json({ error: "date_from is after date_to" }, 422));
+    await renderPage();
+    expect((await screen.findByRole("alert")).textContent).toContain("date_from is after date_to");
   });
 
   it("explains a rate limit and lets the reader retry", async () => {

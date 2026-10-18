@@ -115,6 +115,14 @@ export class SearchError extends Error {
   }
 }
 
+/** Why the state can't be searched as it is, or null. Checked before any request. */
+export function stateError(state: SearchState): string | null {
+  if (state.from !== null && state.to !== null && state.from > state.to) {
+    return "The start year is after the end year. Swap them or clear one.";
+  }
+  return null;
+}
+
 async function errorMessage(res: Response): Promise<string | null> {
   try {
     const body = (await res.json()) as { error?: unknown };
@@ -124,22 +132,50 @@ async function errorMessage(res: Response): Promise<string | null> {
   }
 }
 
-/** Fetch one page of results. Rejects with a SearchError (or an AbortError when `signal` aborts). */
+/** The SearchError for a non-OK response, with the API's reason when it gives one. */
+async function responseError(res: Response): Promise<SearchError> {
+  const message = await errorMessage(res);
+  if (res.status === 429) {
+    const retry = Number(res.headers.get("retry-after"));
+    return new SearchError(
+      "rate-limited",
+      message ?? "Too many searches.",
+      Number.isFinite(retry) && retry > 0 ? retry : null,
+    );
+  }
+  if (res.status === 503) return new SearchError("unavailable", message ?? "Search is unavailable.");
+  if (res.status === 422) {
+    return new SearchError(
+      "invalid",
+      message ?? "The search couldn't be read. Check the query and the date filters.",
+    );
+  }
+  return new SearchError("failed", `The search failed (${res.status}).`);
+}
+
+/**
+ * Fetch one page of results. Rejects with a SearchError (or an AbortError when
+ * `signal` aborts). The timeout and `signal` cover the whole response, body
+ * included, so a stalled body can't leave the page waiting.
+ */
 export async function fetchSearch(
   state: SearchState,
   offset = 0,
   signal?: AbortSignal,
   timeoutMs = TIMEOUT_MS,
 ): Promise<SearchResponse> {
+  const invalid = stateError(state);
+  if (invalid) throw new SearchError("invalid", invalid);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort("timeout"), timeoutMs);
   const onAbort = () => controller.abort(signal?.reason);
   signal?.addEventListener("abort", onAbort);
-  let res: Response;
   try {
-    res = await fetch(searchApiUrl(state, offset), { signal: controller.signal });
+    const res = await fetch(searchApiUrl(state, offset), { signal: controller.signal });
+    if (!res.ok) throw await responseError(res);
+    return (await res.json()) as SearchResponse;
   } catch (err) {
-    if (signal?.aborted) throw err;
+    if (err instanceof SearchError || signal?.aborted) throw err;
     if (controller.signal.reason === "timeout") {
       throw new SearchError("timeout", "The search took too long.");
     }
@@ -148,21 +184,6 @@ export async function fetchSearch(
     clearTimeout(timer);
     signal?.removeEventListener("abort", onAbort);
   }
-  if (res.ok) return (await res.json()) as SearchResponse;
-  const message = await errorMessage(res);
-  if (res.status === 429) {
-    const retry = Number(res.headers.get("retry-after"));
-    throw new SearchError(
-      "rate-limited",
-      message ?? "Too many searches.",
-      Number.isFinite(retry) && retry > 0 ? retry : null,
-    );
-  }
-  if (res.status === 503) {
-    throw new SearchError("unavailable", message ?? "Search is unavailable.");
-  }
-  if (res.status === 422) throw new SearchError("invalid", "The search couldn't be read.");
-  throw new SearchError("failed", `The search failed (${res.status}).`);
 }
 
 /** Reader URL of a result: the work, scrolled to the passage. */
