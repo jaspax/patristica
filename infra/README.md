@@ -107,6 +107,14 @@ The static library export (`scripts.export_library`) is served from the Spaces b
 
 The dumps hold the 512-dim vectors the database keeps. The full 1024-dim vectors (`data/embeddings/`) live only on the machine that ran `scripts.embed` until they are archived (#156); restoring a dump needs no re-embedding, but rebuilding with more dims does.
 
+## Search API
+
+`GET /search` (`api/search.py`, #141) embeds each query with Voyage, so the `api` container needs `VOYAGE_API_KEY`. `deploy.sh` writes it to the host `.env`, taking it from the environment, `infra/.env` or the repo-root `.env`. The Deploy workflow (`--keep-env`) doesn't touch the host `.env`, so after adding or changing the key run `infra/deploy.sh` once by hand. Without the key `/search` answers 503 and everything else works.
+
+- Optional host `.env` settings: `SEARCH_RATE_PER_MINUTE` (default 30) and `SEARCH_BURST` (10) per client IP, and `SEARCH_EF_SEARCH` (100).
+- Every query not in the in-memory cache is a paid Voyage call (a few tokens). The cache is lost on restart.
+- Each search logs its embedding and database time (`docker compose logs api | grep search:`).
+
 ## Search index
 
 `scripts.build_index` (#137) loads works, chunks, translations and vectors into the database (schema and tables: `db/README.md`). Postgres has no public port, so run it from your machine through `db-tunnel.sh`. The tunnel forwards a local port to the db container and gives the command `DATABASE_URL` and `PGPASSWORD`. It reads the password from the host `.env` and never prints it:

@@ -64,7 +64,9 @@ class ApiEmbedder:
     requests to stay inside a plan's rate limits; ``max_input_tokens``
     truncates single inputs locally for APIs that reject long ones.
     ``embed_batch`` sends one request as is, for callers that batch
-    themselves; it is safe to call from several threads.
+    themselves; it is safe to call from several threads. *timeout* (seconds
+    per request) and *retries* (attempts in all, also for rate limits) suit
+    batch jobs by default; the search API sets both low to fail fast.
     """
 
     name: str
@@ -74,10 +76,11 @@ class ApiEmbedder:
     rpm: float | None = None
     tpm: float | None = None
 
-    def __init__(self) -> None:
+    def __init__(self, timeout: float = 120, retries: int | None = None) -> None:
         import httpx
 
-        self._client = httpx.Client(timeout=120)
+        self._client = httpx.Client(timeout=timeout)
+        self._retries = retries
         self._lock = threading.Lock()
         self.tokens_used = 0  # billed tokens, for APIs that report them
 
@@ -105,7 +108,7 @@ class ApiEmbedder:
                 retry_after = r.headers.get("retry-after")
                 if retry_after and retry_after.replace(".", "", 1).isdigit():
                     delay = max(delay, float(retry_after))
-            limit = RATE_LIMIT_RETRIES if status == 429 else RETRIES
+            limit = self._retries or (RATE_LIMIT_RETRIES if status == 429 else RETRIES)
             if attempt >= limit:
                 raise ApiError(f"{self.name}: gave up after {attempt} tries: {status} {detail}")
             quota = re.search(r"Quota exceeded for metric: [^\n]*|rate limit[^\"]*", detail)
@@ -171,8 +174,9 @@ class VoyageEmbedder(ApiEmbedder):
     batch_size = 1000  # API maximum per request
     max_batch_tokens = 30_000
 
-    def __init__(self, model: str = "voyage-4-large", dims: int | None = None) -> None:
-        super().__init__()
+    def __init__(self, model: str = "voyage-4-large", dims: int | None = None,
+                 timeout: float = 120, retries: int | None = None) -> None:
+        super().__init__(timeout, retries)
         self.model, self.name, self.dims = model, f"voyage/{model}", dims
         self._key = env_key("VOYAGE_API_KEY")
 

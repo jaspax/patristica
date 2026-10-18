@@ -48,6 +48,10 @@ else
     backups_bucket="$("${here}/tofu.sh" output -raw backups_bucket)"
     backups_access="$("${here}/tofu.sh" output -raw backups_access_key)"
     backups_secret="$("${here}/tofu.sh" output -raw backups_secret_key)"
+    # The search API's query embeddings (#141): from the environment, infra/.env
+    # or the repo-root .env (where scripts.embed reads it).
+    voyage_key="${VOYAGE_API_KEY:-$(sed -n 's/^VOYAGE_API_KEY=//p' "${repo}/.env" 2>/dev/null || true)}"
+    [[ -n "$voyage_key" ]] || echo "deploy: VOYAGE_API_KEY not found; /search will answer 503" >&2
 fi
 key="${PATRISTICA_SSH_KEY:-$HOME/.ssh/patristica_deploy}"
 ssh_opts=(-i "$key" -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new)
@@ -98,7 +102,8 @@ RCLONE_CONFIG_SPACES_PROVIDER=DigitalOcean
 RCLONE_CONFIG_SPACES_ENDPOINT=nyc3.digitaloceanspaces.com
 RCLONE_CONFIG_SPACES_ACCESS_KEY_ID=${backups_access}
 RCLONE_CONFIG_SPACES_SECRET_ACCESS_KEY=${backups_secret}
-RCLONE_CONFIG_SPACES_NO_CHECK_BUCKET=true"
+RCLONE_CONFIG_SPACES_NO_CHECK_BUCKET=true
+VOYAGE_API_KEY=${voyage_key}"
     # shellcheck disable=SC2029  # write_env is a fixed script; the secrets go on stdin
     printf '%s\n' "$env_body" | ssh "${ssh_opts[@]}" "$remote" "$write_env"
 fi

@@ -157,6 +157,8 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 - Optional filters: language, author, date range, tradition
 - Return ranked chunks with work/author metadata
 
+*Status (#141):* `GET /search` in `api/search.py` implements the vector path over `chunk_vectors`. Filters are language, genre, source, work, author id (`anonymous` for `author_ids = []`), a date range (overlap with the chunk's range, so undated chunks drop out) and `out_of_period` (excluded unless asked). The HNSW scan is iterative (`relaxed_order`) and narrow filters may use the btree indexes instead. Query vectors are cached in memory (LRU), clients are rate-limited per IP, and a slow or failing Voyage call answers 503. Quoted queries are recognised (`parse_query`) but fall back to vector search until the keyword index exists (#86, #143).
+
 ---
 
 ## Phase 3: Web Application
