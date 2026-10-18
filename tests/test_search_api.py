@@ -45,15 +45,45 @@ def _reset_overrides():
 # --- pure ----------------------------------------------------------------
 
 
-@pytest.mark.parametrize("q, expected", [
-    ("  grace   and\nfaith ", s.ParsedQuery("vector", "grace and faith")),
-    ('"in the beginning"', s.ParsedQuery("phrase", "in the beginning")),
-    ("“in  principio”", s.ParsedQuery("phrase", "in principio")),
-    ('""', s.ParsedQuery("vector", '""')),
-    ('the "word" made flesh', s.ParsedQuery("vector", 'the "word" made flesh')),
+@pytest.mark.parametrize("q, phrases, text", [
+    ("  grace   and\nfaith ", (), "grace and faith"),
+    ('"in the beginning"', ("in the beginning",), ""),
+    ("“in  principio”", ("in principio",), ""),
+    ("„im Anfang“ «ἐν ἀρχῇ»", ("im Anfang", "ἐν ἀρχῇ"), ""),
+    ('the "word" made flesh', ("word",), "the made flesh"),
+    ('"in principio erat', ("in principio erat",), ""),  # an open quote runs to the end
+    ('light "" darkness', (), "light darkness"),  # empty quotes are ignored
+    ('""', (), ""),
+    ("Augustine's \u05d2\u05f3 'grace'", (), "Augustine's \u05d2\u05f3 'grace'"),  # not quotes
 ])
-def test_parse_query(q: str, expected: s.ParsedQuery) -> None:
-    assert s.parse_query(q) == expected
+def test_parse_query(q: str, phrases: tuple[str, ...], text: str) -> None:
+    parsed = s.parse_query(q)
+    assert (parsed.phrases, parsed.text) == (phrases, text)
+    assert parsed.mode == ("keyword" if phrases else "vector")
+
+
+def test_keyword_window_offsets_are_utf16() -> None:
+    # Gothic letters are outside the BMP: two UTF-16 code units each.
+    text = "𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽 𐍅𐌰𐍃"
+    shown, start, truncated, matches = s.keyword_window(text, ("𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽",))
+    assert (shown, start, truncated) == (text, 0, False)
+    assert matches == [[5, 25]]
+    assert text.encode("utf-16-le")[10:50].decode("utf-16-le") == "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽"
+
+
+def test_keyword_window_follows_a_late_match() -> None:
+    text = "lorem ipsum " * 300 + "in principio erat verbum " + "dolor sit " * 50
+    shown, start, truncated, matches = s.keyword_window(text, ("principio erat",))
+    assert 0 < start < text.index("in principio")
+    # Near the end, the window slides back to keep its full length.
+    assert len(shown) == s.TEXT_CHARS and not truncated
+    assert shown[matches[0][0]:matches[0][1]] == "principio erat"
+    longer = text + "amen " * 1000
+    shown, start, truncated, matches = s.keyword_window(longer, ("principio erat",))
+    assert start == longer.index("in principio") - s.MATCH_CONTEXT + 3 and truncated
+    assert shown[matches[0][0]:matches[0][1]] == "principio erat"
+    # An early match keeps the start of the text.
+    assert s.keyword_window("in principio " + text, ("in principio",))[1] == 0
 
 
 def test_filters_sql() -> None:
@@ -222,6 +252,15 @@ def test_search_rate_limited() -> None:
     assert r.headers["retry-after"] == "10"
 
 
+def test_too_common_phrase_is_422() -> None:
+    from api.keyword import PhraseTooBroad
+
+    r = _client(FakeSearcher(PhraseTooBroad("this phrase is too common to search: add more words"))
+                ).get("/search", params={"q": '"et in"'})
+    assert r.status_code == 422
+    assert r.json() == {"error": "this phrase is too common to search: add more words"}
+
+
 def test_search_unavailable_is_503() -> None:
     r = _client(FakeSearcher(s.SearchUnavailable("the embedding service did not answer in time"))
                 ).get("/search", params={"q": "a"})
@@ -380,10 +419,53 @@ def test_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> N
         searcher.pool.close()
 
 
-def test_phrase_query_falls_back_to_vector(searcher: s.Searcher) -> None:
-    res = searcher.search('"void"', s.Filters(), limit=1)
-    assert (res["mode"], res["requested_mode"], _ids(res)) == (
-        "vector", "phrase", ["kjv/gen#Gen.1.2"])
+def test_quoted_query_runs_keyword_search(searcher: s.Searcher) -> None:
+    calls = []
+    searcher.embedder = s.QueryEmbedder(lambda: calls.append(1) or StubClient(AXES))
+    res = searcher.search('"the earth"', s.Filters())
+    assert (res["mode"], res["phrases"], res["text"], res["total"]) == (
+        "keyword", ["the earth"], "", 2)
+    assert _ids(res) == ["kjv/gen#Gen.1.1", "kjv/gen#Gen.1.2"]
+    assert calls == []  # a quote alone needs no query embedding
+    first = res["results"][0]
+    assert (first["matched"], first["score"], first["text_start"]) == ("phrase", None, 0)
+    a, b = first["matches"][0]
+    assert first["text"][a:b] == "the earth"
+    assert first["citation"] == "*Genesis* Gen.1.1"
+
+
+def test_keyword_matches_ignore_points_and_case(searcher: s.Searcher) -> None:
+    res = searcher.search("«בראשית ברא»", s.Filters())
+    top = res["results"][0]
+    assert top["chunk_id"] == "oshb/gen#Gen.1.1"
+    a, b = top["matches"][0]
+    assert top["text"][a:b] == "בְּרֵאשִׁית בָּרָא"
+
+
+def test_quote_with_free_text_ranks_by_meaning(searcher: s.Searcher) -> None:
+    # Both KJV verses contain "the earth"; the free text points at Gen.1.2.
+    res = searcher.search('"the earth" void', s.Filters())
+    assert _ids(res) == ["kjv/gen#Gen.1.2", "kjv/gen#Gen.1.1"]
+    assert res["results"][0]["score"] == 1.0
+    assert res["text"] == "void"
+
+
+def test_keyword_search_filters_and_pages(searcher: s.Searcher) -> None:
+    assert _ids(searcher.search('"the earth"', s.Filters(language=["hbo"]))) == []
+    first = searcher.search('"the earth"', s.Filters(), limit=1)
+    assert (_ids(first), first["next_offset"], first["total"]) == (["kjv/gen#Gen.1.1"], 1, 2)
+    second = searcher.search('"the earth"', s.Filters(), limit=1, offset=1)
+    assert (_ids(second), second["next_offset"]) == (["kjv/gen#Gen.1.2"], None)
+
+
+def test_unsearchable_queries(searcher: s.Searcher) -> None:
+    with pytest.raises(s.QueryError):
+        searcher.search('""', s.Filters())
+    client = _client(searcher)
+    r = client.get("/search", params={"q": '"in" principio'})
+    assert r.status_code == 422
+    assert "at least 3 letters" in r.json()["error"]
+    assert client.get("/search", params={"q": '" "'}).status_code == 422
 
 
 def test_search_endpoint_end_to_end(searcher: s.Searcher) -> None:

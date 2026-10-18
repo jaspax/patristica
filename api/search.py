@@ -1,6 +1,12 @@
-"""Vector search over the search database (#141; IMPLEMENTATION_PLAN.md §2.4).
+"""Search over the search database (#141, #143; IMPLEMENTATION_PLAN.md §2.4).
 
-``Searcher.search`` embeds the query with Voyage ``voyage-4-large``
+``parse_query`` splits a query into quoted phrases and free text. A query
+with a phrase runs **keyword** search (``api.keyword``, #86): every phrase
+must occur as whole words, and the free text, if any, ranks the matches by
+meaning. A query without one runs **vector** search. The two are routed, not
+fused (#3). Keyword results carry the match offsets for highlighting.
+
+For vector search, ``Searcher.search`` embeds the query with Voyage ``voyage-4-large``
 (``input_type="query"``), cuts it to the stored 512 dims with ``shorten``,
 and ranks ``chunk_vectors`` of the same model by cosine distance through the
 model's HNSW index. A chunk with a translation vector scores the better of its
@@ -8,10 +14,6 @@ two vectors and appears once. Pages are slices of one fixed candidate pool
 per query (``CANDIDATES``). Filters are columns of ``chunk_vectors``
 (``db/schema.sql``), and the HNSW scan is iterative, so narrow filters still
 fill a page.
-
-Quoted queries are meant for the keyword index (#86, #143). ``parse_query``
-recognises them; until that index exists they fall back to vector search on
-the unquoted text, and the response says so.
 """
 
 from __future__ import annotations
@@ -26,7 +28,9 @@ from concurrent.futures import Future
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Literal
 
+from api.keyword import phrase_search
 from patristica.embedders import ApiError, VoyageEmbedder, shorten
+from patristica.keyword import match_spans, phrase_pattern
 from patristica.sources import source_label
 
 if TYPE_CHECKING:
@@ -53,18 +57,30 @@ EF_SEARCH = 100
 TRANSLATION_LANGUAGE = "eng"
 ANONYMOUS = "anonymous"  # author filter value for works with no author_ids
 
-_QUOTED = re.compile(r'^\s*["“”](.+?)["“”]\s*$', re.DOTALL)
+# Any of these opens or closes a quoted phrase: "…", “…”, „…“, «…».
+_QUOTES = frozenset('"“”„«»')
 _SPACE = re.compile(r"\s+")
+# Keyword results whose first match lies past TEXT_CHARS show a window that
+# starts this many characters before it.
+MATCH_CONTEXT = 200
 
 
 class SearchUnavailable(RuntimeError):
     """The query could not be embedded (no key, Voyage down or slow, or the index is missing)."""
 
 
+class QueryError(ValueError):
+    """A query with nothing to search for."""
+
+
 @dataclass(frozen=True)
 class ParsedQuery:
-    mode: Literal["vector", "phrase"]
-    text: str
+    phrases: tuple[str, ...]  # quoted, each normalized and non-empty
+    text: str  # everything outside the quotes, normalized
+
+    @property
+    def mode(self) -> Literal["keyword", "vector"]:
+        return "keyword" if self.phrases else "vector"
 
 
 def normalize_query(q: str) -> str:
@@ -73,12 +89,25 @@ def normalize_query(q: str) -> str:
 
 
 def parse_query(q: str) -> ParsedQuery:
-    """A query in double quotes is a phrase search (#86); anything else is semantic."""
-    text = normalize_query(q)
-    m = _QUOTED.match(text)
-    if m and m.group(1).strip():
-        return ParsedQuery("phrase", normalize_query(m.group(1)))
-    return ParsedQuery("vector", text)
+    """Split *q* into quoted phrases and the free text around them (#143).
+
+    Each quote mark in ``_QUOTES`` opens or closes a phrase. A quote left
+    open runs to the end of the query, empty quotes are ignored, and the
+    free text is what is left, quote marks removed.
+    """
+    phrases: list[str] = []
+    free: list[str] = []
+    part: list[str] = []
+    inside = False
+    for ch in q:
+        if ch in _QUOTES:
+            (phrases if inside else free).append("".join(part))
+            part, inside = [], not inside
+        else:
+            part.append(ch)
+    (phrases if inside else free).append("".join(part))
+    return ParsedQuery(tuple(p for p in map(normalize_query, phrases) if p),
+                       normalize_query(" ".join(free)))
 
 
 @dataclass
@@ -250,6 +279,48 @@ ORDER BY b.distance, c.chunk_id
 """
 
 
+# The display fields of the keyword results, in page order (full text: it is
+# windowed around the first match in Python).
+_HYDRATE_SQL = """
+SELECT NULL, NULL, c.chunk_id, c.work_id, c.canonical_ref, c.language, c.text, false,
+       c.date_composed, lower(c.date_range), upper(c.date_range) - 1, c.out_of_period,
+       t.text, t.model,
+       w.title, w.author_ids, w.source_id, w.edition, w.license, w.provenance_url,
+       w.genre, w.tradition, w.date_composed, lower(w.date_range), upper(w.date_range) - 1,
+       coalesce((SELECT array_agg(a.name ORDER BY i.n) FROM unnest(w.author_ids)
+                 WITH ORDINALITY AS i(id, n) JOIN authors a ON a.author_id = i.id), '{}')
+FROM unnest(%(ids)s::text[]) WITH ORDINALITY AS p(chunk_id, n)
+JOIN chunks c ON c.chunk_id = p.chunk_id
+JOIN works w ON w.work_id = c.work_id
+LEFT JOIN chunk_translations t ON t.chunk_id = c.chunk_id AND t.language = %(tr_lang)s
+ORDER BY p.n
+"""
+
+
+def utf16_offset(text: str, index: int) -> int:
+    """*index* (code points) in *text* as a JavaScript string index (UTF-16 code units)."""
+    return len(text[:index].encode("utf-16-le")) // 2
+
+
+def keyword_window(text: str, phrases: tuple[str, ...]) -> tuple[str, int, bool, list[list[int]]]:
+    """(text shown, its start in *text*, cut at the end?, match spans in it).
+
+    Text longer than TEXT_CHARS is cut, starting MATCH_CONTEXT characters
+    before the first match when the match would be cut off. Start and spans
+    are UTF-16 code units, for the web app.
+    """
+    spans = match_spans(text, list(phrases))
+    start = 0
+    if len(text) > TEXT_CHARS and spans and spans[0][1] > TEXT_CHARS:
+        # Context before the match, but never a window shorter than TEXT_CHARS.
+        start = max(0, min(spans[0][0] - MATCH_CONTEXT, len(text) - TEXT_CHARS))
+    shown = text[start:start + TEXT_CHARS]
+    inside = [(max(a - start, 0), min(b - start, len(shown))) for a, b in spans
+              if a < start + len(shown) and b > start]
+    return (shown, utf16_offset(text, start), start + len(shown) < len(text),
+            [[utf16_offset(shown, a), utf16_offset(shown, b)] for a, b in inside])
+
+
 def _range(lo: int | None, hi: int | None) -> list[int] | None:
     return None if lo is None else [lo, hi]
 
@@ -269,8 +340,10 @@ def _result(row: tuple) -> dict[str, Any]:
         "translation": None if tr_text is None else {
             "language": TRANSLATION_LANGUAGE, "text": tr_text, "model": tr_model,
             "machine": True},
-        "score": round(1 - float(distance), 4),
+        "score": None if distance is None else round(1 - float(distance), 4),
         "matched": "translation" if kind == 1 else "text",
+        "text_start": 0,
+        "matches": [],
         "date_composed": c_date,
         "date_range": _range(c_lo, c_hi),
         "out_of_period": out_of_period,
@@ -309,7 +382,57 @@ class Searcher:
     def search(self, q: str, filters: Filters, limit: int = 20, offset: int = 0
                ) -> dict[str, Any]:
         parsed = parse_query(q)
-        # Phrase search needs the keyword index (#86); until then, search semantically.
+        if parsed.phrases:
+            return self._keyword(q, parsed, filters, limit, offset)
+        if not parsed.text:
+            raise QueryError("the query has nothing to search for")
+        return self._vector(q, parsed, filters, limit, offset)
+
+    def _response(self, q: str, parsed: ParsedQuery, offset: int, limit: int,
+                  more: bool, total: int | None, results: list[dict[str, Any]]) -> dict[str, Any]:
+        return {
+            "query": normalize_query(q),
+            "mode": parsed.mode,
+            "phrases": list(parsed.phrases),
+            "text": parsed.text,
+            "model": MODEL_NAME,
+            "offset": offset,
+            "limit": limit,
+            "total": total,
+            "next_offset": offset + limit if more and offset + limit <= MAX_OFFSET else None,
+            "results": results,
+        }
+
+    def _keyword(self, q: str, parsed: ParsedQuery, filters: Filters, limit: int,
+                 offset: int) -> dict[str, Any]:
+        for phrase in parsed.phrases:  # reject a bad phrase before paying for an embedding
+            phrase_pattern(phrase)
+        started = time.monotonic()
+        vec, cached = self.embedder.embed(parsed.text) if parsed.text else (None, True)
+        embedded = time.monotonic()
+        where, params = filters.sql()
+        with self.pool.connection() as conn:
+            rank = None if vec is None else (_vec_literal(vec), self.model_id(conn))
+            page, total = phrase_search(conn, list(parsed.phrases), where, params,
+                                        limit + 1, offset, rank)
+            distances = dict(page[:limit])
+            rows = conn.execute(_HYDRATE_SQL, {"ids": list(distances),
+                                               "tr_lang": TRANSLATION_LANGUAGE}).fetchall()
+        done = time.monotonic()
+        log.info("search: keyword, %d phrases, %s, embed %.0f ms (%s), db %.0f ms, %d rows",
+                 len(parsed.phrases), "ranked" if rank else "unranked",
+                 1000 * (embedded - started), "cached" if cached else "voyage",
+                 1000 * (done - embedded), len(rows))
+        results = []
+        for row in rows:
+            shown, text_start, truncated, matches = keyword_window(row[6], parsed.phrases)
+            result = _result((distances[row[2]], None, *row[2:6], shown, truncated, *row[8:]))
+            result.update(matched="phrase", text_start=text_start, matches=matches)
+            results.append(result)
+        return self._response(q, parsed, offset, limit, len(page) > limit, total, results)
+
+    def _vector(self, q: str, parsed: ParsedQuery, filters: Filters, limit: int,
+                offset: int) -> dict[str, Any]:
         started = time.monotonic()
         vec, cached = self.embedder.embed(parsed.text)
         embedded = time.monotonic()
@@ -328,17 +451,8 @@ class Searcher:
                          (str(self.ef_search),))
             rows = conn.execute(sql, params).fetchall()
         done = time.monotonic()
-        log.info("search: %d chars, %s, embed %.0f ms (%s), db %.0f ms, %d rows",
-                 len(parsed.text), parsed.mode, 1000 * (embedded - started),
+        log.info("search: vector, %d chars, embed %.0f ms (%s), db %.0f ms, %d rows",
+                 len(parsed.text), 1000 * (embedded - started),
                  "cached" if cached else "voyage", 1000 * (done - embedded), len(rows))
-        more = len(rows) > limit
-        return {
-            "query": parsed.text,
-            "mode": "vector",
-            "requested_mode": parsed.mode,
-            "model": MODEL_NAME,
-            "offset": offset,
-            "limit": limit,
-            "next_offset": offset + limit if more and offset + limit <= MAX_OFFSET else None,
-            "results": [_result(r) for r in rows[:limit]],
-        }
+        return self._response(q, parsed, offset, limit, len(rows) > limit, None,
+                              [_result(r) for r in rows[:limit]])

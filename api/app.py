@@ -19,16 +19,19 @@ import psycopg
 from fastapi import Depends, FastAPI, Query, Request
 from fastapi.responses import JSONResponse
 
+from api.keyword import PhraseTooBroad
 from api.search import (
     MAX_LIMIT,
     MAX_OFFSET,
     MAX_QUERY_CHARS,
     Filters,
     QueryEmbedder,
+    QueryError,
     RateLimiter,
     Searcher,
     SearchUnavailable,
 )
+from patristica.keyword import PhraseError
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -89,6 +92,14 @@ def _list(values: list[str]) -> list[str]:
 @app.exception_handler(SearchUnavailable)
 def search_unavailable(request: Request, exc: SearchUnavailable) -> JSONResponse:
     return JSONResponse({"error": str(exc)}, status_code=503)
+
+
+@app.exception_handler(PhraseError)
+@app.exception_handler(PhraseTooBroad)
+@app.exception_handler(QueryError)
+def unsearchable_query(request: Request, exc: Exception) -> JSONResponse:
+    """A query that can't be run as written: the message says what to change."""
+    return JSONResponse({"error": str(exc)}, status_code=422)
 
 
 @app.exception_handler(psycopg.Error)

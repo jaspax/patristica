@@ -16,7 +16,9 @@ API builds the patterns. Both must use the functions here.
 
 from __future__ import annotations
 
-from patristica.textfold import fold
+import unicodedata
+
+from patristica.textfold import fold, fold_spans
 
 #: Bump when ``fold`` changes, so ``scripts.build_index`` refolds every chunk.
 FOLD_VERSION = 1
@@ -44,3 +46,34 @@ def phrase_pattern(phrase: str) -> str:
     if len(folded.replace(" ", "")) < MIN_PHRASE_CHARS:
         raise PhraseError(f"a quoted phrase needs at least {MIN_PHRASE_CHARS} letters")
     return f"% {folded} %"
+
+
+def match_spans(text: str, phrases: list[str]) -> list[tuple[int, int]]:
+    """Where *phrases* occur in *text* as the keyword index matches them (for highlighting).
+
+    Returns sorted, merged ``(start, end)`` spans of *text*, in code points.
+    A span also covers the marks after its last letter (vowel points,
+    accents), so it never splits a letter from its marks.
+    """
+    folded, starts, ends = fold_spans(text)
+    hay = f" {folded} "
+    spans: list[tuple[int, int]] = []
+    for phrase in phrases:
+        needle = fold(phrase)
+        if not needle:
+            continue
+        # hay[i] is the space before a match, so the match is folded[i:i + len(needle)].
+        i = hay.find(f" {needle} ")
+        while i != -1:
+            start, end = starts[i], ends[i + len(needle) - 1]
+            while end < len(text) and unicodedata.category(text[end]) in ("Mn", "Me", "Cf"):
+                end += 1
+            spans.append((start, end))
+            i = hay.find(f" {needle} ", i + 1)
+    merged: list[tuple[int, int]] = []
+    for start, end in sorted(spans):
+        if merged and start <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(end, merged[-1][1]))
+        else:
+            merged.append((start, end))
+    return merged
