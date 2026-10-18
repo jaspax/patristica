@@ -28,7 +28,18 @@
   font-size: 0.95rem;
 }
 
-.disabled {
-  color: var(--muted);
-  cursor: default;
+.search {
+  flex: 0 1 16rem;
+  min-width: 10rem;
+}
+
+.search input {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
 }

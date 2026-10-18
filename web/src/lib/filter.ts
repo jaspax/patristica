@@ -1,6 +1,7 @@
 // Client-side search, filtering and sorting of the work index.
 
-import { workAuthors, type AuthorMap, type WorkRow } from "./library";
+import { languageInfo } from "./lang";
+import { workAuthors, type AuthorMap, type LibraryIndex, type WorkRow } from "./library";
 import { currentAuthorId, currentSourceId } from "./redirects";
 
 /** Lowercase and strip diacritics, so "Ἰωάννης" matches "ιωαννης" and "Basilius" matches "BASÍLIUS". */
@@ -175,6 +176,29 @@ export function authorFacet(rows: WorkRow[], authors: AuthorMap): AuthorFacetVal
   const values = [...counts].map(([id, count]) => ({ id, name: authors.get(id)?.name ?? id, count }));
   values.sort((a, b) => collator.compare(a.name, b.name) || collator.compare(a.id, b.id));
   return anonymous > 0 ? [{ id: ANONYMOUS, name: "Anonymous", count: anonymous }, ...values] : values;
+}
+
+/** The values offered by each facet of the filter form (FilterFields). */
+export interface Facets {
+  /** Language codes, by language name. */
+  languages: string[];
+  genres: string[];
+  /** [source_id, label], by label. */
+  sources: [string, string][];
+  authors: AuthorFacetValue[];
+}
+
+/** Facet values present in the library index. */
+export function libraryFacets(index: LibraryIndex, authors: AuthorMap): Facets {
+  const present = (key: "language" | "genre") => [...new Set(index.works.map((w) => w[key]))];
+  return {
+    languages: present("language").sort((a, b) =>
+      languageInfo(a).name.localeCompare(languageInfo(b).name),
+    ),
+    genres: present("genre").sort(),
+    sources: Object.entries(index.sources).sort((a, b) => a[1].localeCompare(b[1])),
+    authors: authorFacet(index.works, authors),
+  };
 }
 
 function sortValue(

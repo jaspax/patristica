@@ -203,6 +203,8 @@ This means `Work.title` and `Work.author` must be the individual work's identity
 
 *Status:* a first library browser exists (`web/`, #16). It has a work index with client-side search, facets, date range and sorting, and a reader that renders normalized chunks as text. It reads the static export from `scripts/export_library.py` (`index.json` plus one JSON file per work), not an API. When the FastAPI backend exists, replace those fetches in `web/src/lib/library.ts` with `/api/works/*`. The rendering rules (section headings from the ref hierarchy, rubrics, out-of-period marking) live in `web/src/lib/render.ts`.
 
+*Search (#142):* `/search` sends the query and the library index's facets (author, language, genre, collection, dates) to `/api/search`. Results are listed by score, citation first (`{author}, *{title}* {ref}`), then the text in its own script, an English machine translation for the rare languages, and language, date, collection/edition, licence and source. Each result opens the reader at the passage, highlighted.
+
 ### 3.3 API Routes (FastAPI)
 
 ```

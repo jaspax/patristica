@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
   allowedDevOrigins,
   // Old reader URLs of renamed works, and pages of renamed authors (src/lib/redirects.ts).
   redirects: async () => [...legacyWorkRedirects(), ...legacyAuthorRedirects()],
+  // Development only: `API_PROXY_URL=http://localhost:8000 npm run dev` sends /api/* to a
+  // local API, as Caddy does in production (prefix stripped). Unset in the Docker build.
+  rewrites: async () =>
+    process.env.API_PROXY_URL
+      ? [{ source: "/api/:path*", destination: `${process.env.API_PROXY_URL.replace(/\/$/, "")}/:path*` }]
+      : [],
 };
 
 export default nextConfig;

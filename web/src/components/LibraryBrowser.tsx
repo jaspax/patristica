@@ -5,21 +5,23 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
 import {
-  authorFacet,
   DEFAULT_VIEW,
   filterWorks,
+  libraryFacets,
   parseViewState,
   sortWorks,
   viewStateToParams,
   type SortKey,
   type ViewState,
 } from "@/lib/filter";
-import { formatDate, GENRES } from "@/lib/format";
+import { formatDate } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import { loadLibrary, workAuthors, workHref, type Library } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
 
 import AuthorLinks from "./AuthorLinks";
+import FilterFields from "./FilterFields";
+import filterStyles from "./Filters.module.css";
 import LoadError from "./LoadError";
 import styles from "./LibraryBrowser.module.css";
 
@@ -63,17 +65,7 @@ function Browser({ library }: { library: Library }) {
     [index, authors, view],
   );
 
-  const facets = useMemo(() => {
-    const present = (key: "language" | "genre") => [...new Set(index.works.map((w) => w[key]))];
-    return {
-      languages: present("language").sort((a, b) =>
-        languageInfo(a).name.localeCompare(languageInfo(b).name),
-      ),
-      genres: present("genre").sort(),
-      sources: Object.entries(index.sources).sort((a, b) => a[1].localeCompare(b[1])),
-      authors: authorFacet(index.works, authors),
-    };
-  }, [index, authors]);
+  const facets = useMemo(() => libraryFacets(index, authors), [index, authors]);
 
   const sortBy = (key: SortKey) =>
     update({ sort: key, dir: view.sort === key && view.dir === "asc" ? "desc" : "asc" });
@@ -83,8 +75,8 @@ function Browser({ library }: { library: Library }) {
 
   return (
     <div>
-      <form className={styles.filters} role="search" onSubmit={(e) => e.preventDefault()}>
-        <label className={styles.query}>
+      <form className={filterStyles.filters} role="search" onSubmit={(e) => e.preventDefault()}>
+        <label className={filterStyles.query}>
           <span>Search authors and titles</span>
           <input
             type="search"
@@ -93,70 +85,7 @@ function Browser({ library }: { library: Library }) {
             onChange={(e) => update({ q: e.target.value })}
           />
         </label>
-        <label>
-          <span>Author</span>
-          <select value={view.author} onChange={(e) => update({ author: e.target.value })}>
-            <option value="">All</option>
-            {facets.authors.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.name} ({a.count.toLocaleString()})
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Language</span>
-          <select value={view.language} onChange={(e) => update({ language: e.target.value })}>
-            <option value="">All</option>
-            {facets.languages.map((code) => (
-              <option key={code} value={code}>
-                {languageInfo(code).name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Genre</span>
-          <select value={view.genre} onChange={(e) => update({ genre: e.target.value })}>
-            <option value="">All</option>
-            {facets.genres.map((g) => (
-              <option key={g} value={g}>
-                {GENRES[g] ?? g}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Collection</span>
-          <select value={view.source} onChange={(e) => update({ source: e.target.value })}>
-            <option value="">All</option>
-            {facets.sources.map(([id, label]) => (
-              <option key={id} value={id}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <fieldset className={styles.years}>
-          <legend>Date (negative = BC)</legend>
-          <input
-            type="number"
-            inputMode="numeric"
-            aria-label="From year"
-            placeholder="From"
-            value={view.from ?? ""}
-            onChange={(e) => update({ from: e.target.value === "" ? null : Number(e.target.value) })}
-          />
-          <span aria-hidden="true">–</span>
-          <input
-            type="number"
-            inputMode="numeric"
-            aria-label="To year"
-            placeholder="To"
-            value={view.to ?? ""}
-            onChange={(e) => update({ to: e.target.value === "" ? null : Number(e.target.value) })}
-          />
-        </fieldset>
+        <FilterFields value={view} facets={facets} onChange={update} />
       </form>
 
       <p className={styles.count} aria-live="polite">
