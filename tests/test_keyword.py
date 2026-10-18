@@ -105,6 +105,31 @@ def test_new_fold_version_refolds_everything(corpus, monkeypatch: pytest.MonkeyP
                         ).fetchone() == (str(kw.FOLD_VERSION + 1),)
 
 
+def test_index_handling_stays_in_its_schema(corpus, pg_url: str) -> None:
+    """Another schema on the search path with the same index names is left alone."""
+    from psycopg.conninfo import conninfo_to_dict, make_conninfo
+
+    conn, *dirs = corpus
+    schema = conn.execute("SELECT current_schema()").fetchone()[0]
+    decoy = f"{schema}_decoy"
+    conn.execute(f"CREATE SCHEMA {decoy}")
+    try:
+        conn.execute(f"CREATE TABLE {decoy}.chunks (text_folded text)")
+        conn.execute(f"CREATE INDEX {build_index.TRGM_INDEX} ON {decoy}.chunks (text_folded)")
+        options = conninfo_to_dict(pg_url)["options"].replace(
+            f"search_path={schema},", f"search_path={schema},{decoy},")
+        with psycopg.connect(make_conninfo(pg_url, options=options), autocommit=True) as other:
+            build_index.drop_index(other, build_index.TRGM_INDEX)
+            assert not build_index.has_index(other, build_index.TRGM_INDEX)
+            build_index.drop_index(other, build_index.TRGM_INDEX)  # nothing left to drop here
+            build_index.run(other, *dirs, maintenance_work_mem="64MB")
+            assert build_index.has_index(other, build_index.TRGM_INDEX)
+        assert conn.execute("SELECT count(*) FROM pg_indexes WHERE schemaname = %s",
+                            (decoy,)).fetchone() == (1,)
+    finally:
+        conn.execute(f"DROP SCHEMA {decoy} CASCADE")
+
+
 # --- phrase search --------------------------------------------------------
 
 

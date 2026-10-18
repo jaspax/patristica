@@ -344,7 +344,22 @@ def build_hnsw(conn: psycopg.Connection, maintenance_work_mem: str) -> bool:
 
 
 def has_index(conn: psycopg.Connection, name: str) -> bool:
-    return conn.execute("SELECT to_regclass(%s) IS NOT NULL", (name,)).fetchone()[0]
+    """Whether index *name* exists in the current schema (not elsewhere on the search path)."""
+    return conn.execute("SELECT EXISTS (SELECT FROM pg_indexes WHERE schemaname = "
+                        "current_schema() AND indexname = %s)", (name,)).fetchone()[0]
+
+
+def drop_index(conn: psycopg.Connection, name: str) -> None:
+    """Drop index *name* of the current schema, if it exists.
+
+    The name is schema-qualified: a bare name would drop the first index of
+    that name on the search path, possibly another schema's.
+    """
+    from psycopg import sql
+
+    schema = conn.execute("SELECT current_schema()").fetchone()[0]
+    conn.execute(sql.SQL("DROP INDEX IF EXISTS {}.{}").format(sql.Identifier(schema),
+                                                               sql.Identifier(name)))
 
 
 def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
@@ -359,14 +374,14 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
     meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'").fetchone()
     if meta is not None and meta[0] != str(FOLD_VERSION):
         log.info("fold version %s -> %s: refolding every chunk", meta[0], FOLD_VERSION)
-        conn.execute(f"DROP INDEX IF EXISTS {TRGM_INDEX}")
+        drop_index(conn, TRGM_INDEX)
         conn.execute("UPDATE chunks SET text_folded = NULL")
     pending = conn.execute("SELECT count(*) FROM chunks WHERE text_folded IS NULL").fetchone()[0]
     todo = [w for (w,) in conn.execute(
         "SELECT DISTINCT work_id FROM chunks WHERE text_folded IS NULL") if w in paths]
     if pending > BULK_FOLD and has_index(conn, TRGM_INDEX):
         log.info("dropping %s to fold %d chunks", TRGM_INDEX, pending)
-        conn.execute(f"DROP INDEX {TRGM_INDEX}")
+        drop_index(conn, TRGM_INDEX)
     conn.execute("CREATE TEMP TABLE IF NOT EXISTS fold_stage (chunk_id text, text_folded text) "
                  "ON COMMIT DELETE ROWS")
     folded = 0
@@ -421,7 +436,7 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         if empty or rebuild_index:
             for index in hnsw_indexes(conn):
                 log.info("dropping %s for the bulk load", index)
-                conn.execute(f"DROP INDEX {index}")
+                drop_index(conn, index)
         conn.execute("CREATE TEMP TABLE IF NOT EXISTS vector_stage (chunk_id text, "
                      "kind smallint, model_id smallint, embedding halfvec(512)) "
                      "ON COMMIT DELETE ROWS")
