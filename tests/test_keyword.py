@@ -95,13 +95,14 @@ def test_backfill_folds_in_place(corpus) -> None:
     conn.execute("DELETE FROM index_meta")
     vectors = conn.execute("SELECT count(*) FROM chunk_vectors").fetchone()[0]
 
-    # A partial run folds only the works it checked, and leaves the version unset.
+    # A partial run folds only the works it checked; the rest stay NULL, to do.
     stats = build_index.run(conn, *dirs, sources=["kjv"])
     assert (stats.loaded, stats.folded) == (0, 2)
     folded = _folded(conn)
     assert folded["kjv/gen#Gen.1.1"] == expected["kjv/gen#Gen.1.1"]
     assert folded["oshb/gen#Gen.1.1"] is None
-    assert conn.execute("SELECT count(*) FROM index_meta").fetchone() == (0,)
+    assert conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'"
+                        ).fetchone() == (str(kw.FOLD_VERSION),)
 
     stats = build_index.run(conn, *dirs)
     assert (stats.loaded, stats.folded) == (0, 3)
@@ -109,6 +110,34 @@ def test_backfill_folds_in_place(corpus) -> None:
     assert build_index.has_index(conn, build_index.TRGM_INDEX)
     assert conn.execute("SELECT count(*) FROM chunk_vectors").fetchone()[0] == vectors
     assert build_index.run(conn, *dirs).folded == 0
+
+
+def test_fold_upgrade_through_partial_runs(corpus, monkeypatch: pytest.MonkeyPatch) -> None:
+    """After a FOLD_VERSION bump, runs over disjoint sources finish the upgrade together."""
+    conn, *dirs = corpus
+    monkeypatch.setattr(build_index, "FOLD_VERSION", kw.FOLD_VERSION + 1)
+    assert build_index.run(conn, *dirs, sources=["kjv"]).folded == 2
+    assert build_index.run(conn, *dirs, sources=["oshb"]).folded == 1  # kjv is not cleared again
+    assert build_index.run(conn, *dirs, sources=["pta"]).folded == 2
+    assert all(v is not None for v in _folded(conn).values())
+    assert build_index.run(conn, *dirs).folded == 0
+    assert build_index.has_index(conn, build_index.TRGM_INDEX)
+
+
+def test_interrupted_upgrade_keeps_its_progress(corpus, monkeypatch: pytest.MonkeyPatch) -> None:
+    conn, *dirs = corpus
+    monkeypatch.setattr(build_index, "FOLD_VERSION", kw.FOLD_VERSION + 1)
+    real = build_index.fold_missing
+
+    def interrupted(conn, paths, mem):  # fold the KJV, then "crash"
+        real(conn, {w: p for w, p in paths.items() if w.startswith("kjv/")}, mem)
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(build_index, "fold_missing", interrupted)
+    with pytest.raises(KeyboardInterrupt):
+        build_index.run(conn, *dirs)
+    monkeypatch.setattr(build_index, "fold_missing", real)
+    assert build_index.run(conn, *dirs).folded == 3  # only what the first run didn't do
 
 
 def test_new_fold_version_refolds_everything(corpus, monkeypatch: pytest.MonkeyPatch) -> None:
