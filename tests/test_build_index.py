@@ -161,6 +161,25 @@ def test_removed_and_excluded_works_are_deleted(pg_url: str, tmp_path: Path) -> 
         assert [r[0] for r in conn.execute("SELECT work_id FROM works")] == ["kjv/gen"]
 
 
+def test_rerun_after_failed_index_build(pg_url: str, tmp_path: Path) -> None:
+    """A rerun that only builds the missing index also analyzes the tables (#166)."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    analyzed = ("SELECT last_analyze FROM pg_stat_user_tables "
+                "WHERE schemaname = current_schema() AND relname = 'chunk_vectors'")
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        before = conn.execute(analyzed).fetchone()[0]
+        conn.execute("DROP INDEX chunk_vectors_hnsw_m1")  # as if CREATE INDEX had failed
+        stats = build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        assert (stats.loaded, stats.deleted) == (0, 0)
+        assert build_index.hnsw_indexes(conn) == ["chunk_vectors_hnsw_m1"]
+        assert conn.execute(analyzed).fetchone()[0] > before
+        # Nothing to do at all: no index build and no ANALYZE.
+        build_index.run(conn, norm, trans, store)
+        assert not build_index.build_hnsw(conn, "64MB")
+
+
 def test_dry_run_writes_nothing(pg_url: str, tmp_path: Path) -> None:
     psycopg = pytest.importorskip("psycopg")
     norm, trans, store = fx.write_corpus(tmp_path)

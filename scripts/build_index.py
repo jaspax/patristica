@@ -306,8 +306,13 @@ def hnsw_indexes(conn: psycopg.Connection) -> list[str]:
         "AND tablename = 'chunk_vectors' AND indexname LIKE 'chunk_vectors_hnsw_m%'")]
 
 
-def build_hnsw(conn: psycopg.Connection, maintenance_work_mem: str) -> None:
-    """Create the missing per-model HNSW indexes (IMPLEMENTATION_PLAN.md §2.3 step 6)."""
+def build_hnsw(conn: psycopg.Connection, maintenance_work_mem: str) -> bool:
+    """Create the missing per-model HNSW indexes (IMPLEMENTATION_PLAN.md §2.3 step 6).
+
+    Returns True if it built one. A parallel build keeps *maintenance_work_mem*
+    in shared memory: the db container's ``shm_size`` must be larger (#166).
+    """
+    built = False
     model_rows = conn.execute("SELECT model_id, name FROM embedding_models m WHERE EXISTS "
                               "(SELECT FROM chunk_vectors v WHERE v.model_id = m.model_id) "
                               "ORDER BY model_id").fetchall()
@@ -323,6 +328,8 @@ def build_hnsw(conn: psycopg.Connection, maintenance_work_mem: str) -> None:
             f"CREATE INDEX {index} ON chunk_vectors USING hnsw (embedding halfvec_cosine_ops) "
             f"WITH (m = {HNSW_M}, ef_construction = {HNSW_EF_CONSTRUCTION}) "
             f"WHERE model_id = {int(model_id)}")
+        built = True
+    return built
 
 
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
@@ -387,8 +394,9 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
                   work_groups, models, stats)
 
     if not dry_run:
-        build_hnsw(conn, maintenance_work_mem)
-        if stats.loaded or stats.deleted:
+        # Also after an index build alone: a rerun after a failed build loads
+        # nothing, and the first run never got to its ANALYZE.
+        if build_hnsw(conn, maintenance_work_mem) or stats.loaded or stats.deleted:
             conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors")
     return stats
 

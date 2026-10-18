@@ -24,8 +24,10 @@ services:
       - ${PGDATA_DIR:-pgdata}:/var/lib/postgresql/data
       - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
       - ./postgres/initdb:/docker-entrypoint-initdb.d:ro
-    # Docker's default 64 MB /dev/shm is too small for parallel index builds.
-    shm_size: 1g
+    # A parallel index build keeps its working memory (maintenance_work_mem,
+    # 4 GB for the HNSW build: infra/README.md) in /dev/shm, so this must be
+    # larger than that (#166). It is RAM, used only while something is in it.
+    shm_size: 5g
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "patristica", "-d", "patristica"]
       interval: 10s

@@ -136,7 +136,7 @@ infra/db-tunnel.sh psql
 - `shared_buffers=2GB`, with the OS page cache holding the rest of the index (`effective_cache_size=6GB`)
 - `pg_prewarm` reloads the buffers after a restart
 
-For the index build, raise memory in that session only: `SET maintenance_work_mem = '4GB'; SET max_parallel_maintenance_workers = 3;`.
+For the index build, raise memory in that session only: `SET maintenance_work_mem = '4GB'; SET max_parallel_maintenance_workers = 3;`. A parallel build keeps that memory in the db container's `/dev/shm`, so `shm_size` in `compose/docker-compose.yml` (5 GB) must stay larger than `maintenance_work_mem`. Otherwise the build fails with `could not resize shared memory segment … No space left on device` (#166), which is about shared memory, not the disk. The full index (~5.2 GB) is larger than 4 GB, so the last part of the build is slower; that is expected.
 
 If searches slow down because the index no longer stays cached (watch disk reads in DigitalOcean monitoring), resize: set `droplet_size = "s-8vcpu-16gb"`, run `infra/tofu.sh apply` (the droplet reboots, and the volume and IP stay), then double the memory settings in `postgresql.conf` and run `infra/deploy.sh`.
 
