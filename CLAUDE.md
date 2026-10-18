@@ -56,13 +56,15 @@ patristica/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
+│   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
 │   ├── export_library.py      # normalized → static library (index, authors.json, per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → DO Spaces (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
 │   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
+├── db/                        # search DB schema (schema.sql, applied by scripts.build_index) and README
 ├── api/                       # FastAPI backend (Phase 3; only /healthz so far); Dockerfile builds from the repo root
-├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + web + caddy), deploy.sh; see infra/README.md
+├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + web + caddy), deploy.sh, db-tunnel.sh; see infra/README.md
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"; Dockerfile for the droplet
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
@@ -197,6 +199,7 @@ uv run python -m scripts.link_translations # assign translation_group_id (works 
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
+uv run --extra index python -m scripts.build_index --dry-run  # load the search DB (DATABASE_URL; droplet: infra/db-tunnel.sh …)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json, authors.json, slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → Spaces (incremental; --dry-run)
@@ -314,7 +317,7 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 ### Tests, hooks and CI
 
-- Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout.
+- Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout. Database tests use `PATRISTICA_TEST_DATABASE_URL` (a Postgres with pgvector; CI runs one as a service) through the `pg_url` fixture, each in its own schema, and skip without it.
 - The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
 - **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has three jobs: Python unit tests, the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.

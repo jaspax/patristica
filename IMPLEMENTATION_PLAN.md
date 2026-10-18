@@ -122,7 +122,7 @@ translation_groups (id)      -- joins parallel chunks across languages
 6. Build HNSW index on the vectors via pgvector
 7. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)
 
-**Script:** `scripts/build_index.py` — idempotent, resumable (skip already-embedded chunks)
+**Script:** `scripts/build_index.py` — idempotent, resumable: a work is reloaded only when a hash of its inputs changes (#137). The schema as built is `db/schema.sql` (see `db/README.md`). It differs from the sketch in §2.2: vectors are in their own table, `chunk_vectors (chunk_id, kind, model_id, embedding halfvec(512), …filter columns)`, with one row per kind (text or English translation) and one partial HNSW index per model, and translations are in `chunk_translations`.
 
 ### 2.5 Open Issues (from the Phase 1 handoff — resolve before building the index)
 
