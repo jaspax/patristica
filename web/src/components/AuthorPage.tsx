@@ -63,7 +63,7 @@ function Profile({ author, library }: { author: Author; library: Library }) {
     <article>
       <title>{`${author.name} · Patristica`}</title>
       <nav className={styles.crumbs} aria-label="Breadcrumb">
-        <Link href="/">Library</Link>
+        <Link href="/works">Library</Link>
         <span aria-hidden="true"> / </span>
         <Link href="/authors">Authors</Link>
       </nav>

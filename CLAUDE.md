@@ -70,7 +70,8 @@ patristica/
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
 │   ├── src/app/authors/       # author list; authors/[id]/ is the author page (#145)
-│   ├── src/app/search/        # passage search (#142)
+│   ├── src/app/page.tsx       # passage search, the landing page (#142)
+│   ├── src/app/works/page.tsx # library index (work list)
 │   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), FilterFields (shared facets), SearchPage,
 │                              # WorkReader + WorkText (reader), AuthorList + AuthorPage
 │   └── src/lib/               # library.ts (export types/loaders), filter.ts (search/sort/URL state, author facet),
@@ -285,7 +286,7 @@ The app runs on the droplet as the `web` service of the compose stack (`infra/co
 
 ### Library browser
 
-`/` is the work index, `/works/{work_id}` is the reader, and `/authors/{author_id}` is an author page (`/authors` lists them). All load the static library export in the browser. `/search?q=…` is passage search through `/api/search` (#142); the header has a search bar on every page. To run it locally:
+`/` is passage search (`/?q=…`, through `/api/search`, #142), and the landing page. `/works` is the work index, `/works/{work_id}` is the reader, and `/authors/{author_id}` is an author page (`/authors` lists them). All load the static library export in the browser. `/search` permanently redirects to `/`, keeping its query. Don't add a page at `/library`, which is the default `NEXT_PUBLIC_LIBRARY_URL` (the export, symlinked into `public/`). To run it locally:
 
 ```bash
 uv run python -m scripts.export_library   # repo root: data/normalized → data/library

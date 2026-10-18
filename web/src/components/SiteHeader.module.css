@@ -27,19 +27,3 @@
   gap: 0.25rem 1.25rem;
   font-size: 0.95rem;
 }
-
-.search {
-  flex: 0 1 16rem;
-  min-width: 10rem;
-}
-
-.search input {
-  width: 100%;
-  font: inherit;
-  font-size: 0.9rem;
-  color: var(--foreground);
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-}

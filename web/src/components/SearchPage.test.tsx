@@ -10,7 +10,7 @@ let search = "";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push }),
-  usePathname: () => "/search",
+  usePathname: () => "/",
   useSearchParams: () => new URLSearchParams(search),
 }));
 
@@ -113,10 +113,25 @@ describe("SearchPage", () => {
     await renderPage();
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "  faith  " } });
     fireEvent.submit(screen.getByRole("search"));
-    expect(push).toHaveBeenCalledWith("/search?q=faith", { scroll: false });
+    expect(push).toHaveBeenCalledWith("/?q=faith", { scroll: false });
 
     fireEvent.change(await screen.findByLabelText("Language"), { target: { value: "syc" } });
-    expect(push).toHaveBeenLastCalledWith("/search?language=syc", { scroll: false });
+    expect(push).toHaveBeenLastCalledWith("/?language=syc", { scroll: false });
+  });
+
+  it("folds the filters away below the search bar until a link sets one", async () => {
+    serve(() => json(page([])));
+    await renderPage();
+    const panel = screen.getByText("Filters").closest("details")!;
+    expect(panel.open).toBe(false);
+    cleanup();
+
+    search = "q=faith&language=syc&from=300&to=400";
+    serve(() => json(page([])));
+    await renderPage();
+    const opened = screen.getByText("Filters (2)").closest("details")!;
+    expect(opened.open).toBe(true);
+    expect(within(opened).getByRole("button", { name: "Clear filters" })).toBeTruthy();
   });
 
   it("renders results with the citation first, the text in its script and the translation labelled", async () => {

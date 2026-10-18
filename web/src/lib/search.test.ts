@@ -29,8 +29,8 @@ describe("search URL state", () => {
   });
 
   it("builds shareable links", () => {
-    expect(searchHref({ q: "light of Tabor", author: "anonymous" })).toBe("/search?q=light+of+Tabor&author=anonymous");
-    expect(searchHref({})).toBe("/search");
+    expect(searchHref({ q: "light of Tabor", author: "anonymous" })).toBe("/?q=light+of+Tabor&author=anonymous");
+    expect(searchHref({})).toBe("/");
   });
 });
 

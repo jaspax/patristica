@@ -36,7 +36,7 @@ export default function WorkReader() {
       <div>
         <h1>Work not found</h1>
         <p>
-          No work with the id <code>{id}</code> is in the library. <Link href="/">Back to the library</Link>
+          No work with the id <code>{id}</code> is in the library. <Link href="/works">Back to the library</Link>
         </p>
       </div>
     );
@@ -71,9 +71,9 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
     <article>
       <title>{`${citation} · Patristica`}</title>
       <nav className={styles.crumbs} aria-label="Breadcrumb">
-        <Link href="/">Library</Link>
+        <Link href="/works">Library</Link>
         <span aria-hidden="true"> / </span>
-        <Link href={`/?source=${encodeURIComponent(row.source_id)}`}>{collection}</Link>
+        <Link href={`/works?source=${encodeURIComponent(row.source_id)}`}>{collection}</Link>
       </nav>
 
       <header className={styles.header}>

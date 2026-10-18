@@ -9,7 +9,7 @@ let search = "";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace }),
-  usePathname: () => "/",
+  usePathname: () => "/works",
   useSearchParams: () => new URLSearchParams(search),
 }));
 
@@ -94,10 +94,10 @@ describe("LibraryBrowser", () => {
   it("writes searches and sorting to the URL", async () => {
     render(<LibraryBrowser />);
     fireEvent.change(await screen.findByRole("searchbox"), { target: { value: "basil" } });
-    expect(replace).toHaveBeenLastCalledWith("/?q=basil", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?q=basil", { scroll: false });
 
     fireEvent.click(screen.getByRole("button", { name: /Date/ }));
-    expect(replace).toHaveBeenLastCalledWith("/?sort=date", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?sort=date", { scroll: false });
   });
 
   it("offers each genre present, apocrypha included, in the genre facet", async () => {
@@ -130,7 +130,7 @@ describe("LibraryBrowser", () => {
     ]);
 
     fireEvent.change(author, { target: { value: "basil-of-caesarea" } });
-    expect(replace).toHaveBeenLastCalledWith("/?author=basil-of-caesarea", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?author=basil-of-caesarea", { scroll: false });
   });
 
   it("filters by the author in the URL and links names to author pages", async () => {

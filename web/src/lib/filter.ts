@@ -83,7 +83,7 @@ export function viewStateToParams(state: ViewState): URLSearchParams {
 
 /** Library index URL listing the works of one author (or ANONYMOUS). */
 export function authorFilterHref(authorId: string): string {
-  return `/?${viewStateToParams({ ...DEFAULT_VIEW, author: authorId })}`;
+  return `/works?${viewStateToParams({ ...DEFAULT_VIEW, author: authorId })}`;
 }
 
 // Haystacks depend on the author index too, so they are cached per author map.

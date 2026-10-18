@@ -37,14 +37,14 @@ export function parseSearchState(params: URLSearchParams): SearchState {
   return { q, author, language, genre, source, from, to };
 }
 
-/** Serialize the search state, omitting defaults: `/search?{this}` is a shareable search. */
+/** Serialize the search state, omitting defaults: `/?{this}` is a shareable search. */
 export function searchStateToParams(state: SearchState): URLSearchParams {
   return viewStateToParams({ ...DEFAULT_VIEW, ...state });
 }
 
 export function searchHref(state: Partial<SearchState>): string {
   const query = searchStateToParams({ ...DEFAULT_SEARCH, ...state }).toString();
-  return query ? `/search?${query}` : "/search";
+  return query ? `/?${query}` : "/";
 }
 
 /** The API request for one page of results. */

@@ -78,7 +78,7 @@ describe("AuthorPage", () => {
     expect(within(groups[1]).getByText(/First1KGreek · c\. 390/)).toBeDefined();
     expect(screen.queryByText("Opus imperfectum")).toBeNull();
     const browse = screen.getByRole("link", { name: /Filter the library/ });
-    expect(browse.getAttribute("href")).toBe("/?author=john-chrysostom");
+    expect(browse.getAttribute("href")).toBe("/works?author=john-chrysostom");
   });
 
   it("links pseudonymous authors both ways", async () => {
