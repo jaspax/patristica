@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { languageInfo } from "@/lib/lang";
 import type { WorkFile } from "@/lib/library";
 import { parseWork, type Section, type Unit } from "@/lib/render";
+import { useHashTarget } from "@/lib/useHashTarget";
 
 import styles from "./WorkText.module.css";
 
@@ -24,6 +25,8 @@ export default function WorkText({ work, genre, language, sourceId }: Props) {
   const lang = languageInfo(language);
   const inline = genre === "scripture";
   const toc = sections.filter((s) => s.title ?? s.label);
+  // Search results link to `#{ref}`; jump there once the text is on the page.
+  useHashTarget(sections.length > 0);
 
   return (
     <div lang={lang.lang} dir={lang.dir}>
@@ -56,7 +59,9 @@ function SectionView({ section, inline }: { section: Section; inline: boolean })
   return (
     <section id={section.id} className={styles.section}>
       {heading && (
-        <Heading className={section.title ? styles.title : styles.label}>{heading}</Heading>
+        <Heading id={section.ref ?? undefined} className={section.title ? styles.title : styles.label}>
+          {heading}
+        </Heading>
       )}
       {inline ? (
         <p className={styles.verses}>

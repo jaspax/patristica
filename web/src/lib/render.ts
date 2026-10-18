@@ -40,6 +40,8 @@ export interface Unit {
 export interface Section {
   /** Unique anchor id. */
   id: string;
+  /** Ref of the heading chunk the title comes from (an anchor too, for search results). */
+  ref: string | null;
   path: string[];
   /** Heading text taken from the source, if the source has a heading chunk. */
   title: string | null;
@@ -100,12 +102,13 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   const zeroIsTitle = (liturgical || genre === "scripture") && !ZERO_BASED_SOURCES.has(sourceId);
   let current: Section | null = null;
 
-  const open = (path: string[], title: string | null): Section => {
+  const open = (path: string[], title: string | null, ref: string | null = null): Section => {
     const base = `s-${path.join(".") || "text"}`;
     const seen = ids.get(base) ?? 0;
     ids.set(base, seen + 1);
     const section: Section = {
       id: seen ? `${base}-${seen + 1}` : base,
+      ref,
       path,
       title,
       label: sectionLabel(path, genre),
@@ -150,14 +153,14 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     const segments = suffix.split(".");
     const next = work.chunks[i + 1]?.[0];
     if (next !== undefined && next.startsWith(`${suffix}.`)) {
-      current = open(segments, text.trim());
+      current = open(segments, text.trim(), joinRef(work.ref_prefix, suffix));
       continue;
     }
     const path = segments.slice(0, -1);
     const last = segments[segments.length - 1];
     if (current === null || !samePath(current.path, path)) {
       if (zeroIsTitle && /^0+$/.test(last)) {
-        current = open(path, text.trim());
+        current = open(path, text.trim(), joinRef(work.ref_prefix, suffix));
         continue;
       }
       current = open(path, null);

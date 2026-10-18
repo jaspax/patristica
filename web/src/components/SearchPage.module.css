@@ -1,0 +1,104 @@
+.queryRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.queryRow input {
+  flex: 1 1 auto;
+}
+
+.submit,
+.more {
+  font: inherit;
+  color: var(--background);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+
+.more {
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+.reset {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  max-width: var(--text-width);
+  color: var(--muted);
+}
+
+.intro p + p {
+  margin-top: 0.75rem;
+}
+
+.status,
+.notice {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 1rem 0;
+}
+
+.error {
+  margin: 1rem 0;
+  color: var(--accent);
+}
+
+.results {
+  list-style: none;
+  max-width: var(--text-width);
+}
+
+.result {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.citation {
+  font-weight: 600;
+}
+
+.citation cite {
+  font-style: italic;
+}
+
+.ref {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.text {
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.translation {
+  margin-top: 0.5rem;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 2px solid var(--border);
+}
+
+.label,
+.meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.meta {
+  margin-top: 0.4rem;
+}

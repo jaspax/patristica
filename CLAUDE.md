@@ -69,9 +69,12 @@ patristica/
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
 │   ├── src/app/works/[...id]/ # reader route (work ids contain slashes)
 │   ├── src/app/authors/       # author list; authors/[id]/ is the author page (#145)
-│   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), WorkReader + WorkText (reader), AuthorList + AuthorPage
+│   ├── src/app/search/        # passage search (#142)
+│   ├── src/components/        # UI: SiteHeader/Footer, LibraryBrowser (index), FilterFields (shared facets), SearchPage,
+│                              # WorkReader + WorkText (reader), AuthorList + AuthorPage
 │   └── src/lib/               # library.ts (export types/loaders), filter.ts (search/sort/URL state, author facet),
-│                              # authors.ts (author pages), render.ts (chunks → sections/units), lang.ts, format.ts, config.ts
+│                              # authors.ts (author pages), render.ts (chunks → sections/units), search.ts (search API client, URL state),
+│                              # useHashTarget.ts (jump to #ref), lang.ts, format.ts, config.ts
 └── data/
     ├── raw/                   # downloaded source files (large; gitignored)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
@@ -249,7 +252,7 @@ The frontend lives in `web/` and is a Next.js 16 app (App Router, TypeScript, CS
 - **Commands** (run in `web/`): `npm ci`, `npm run dev`, `npm run lint`, `npm run typecheck` (runs `next typegen` first, since `LayoutProps`/`PageProps` are generated types), `npm test` (Vitest), `npm run build`. CI runs all of them in the `web` job.
 - **Next.js 16 differs from older versions.** Read the bundled docs in `web/node_modules/next/dist/docs/` before using a Next API (see `web/AGENTS.md`).
 - **Languages and fonts**: render corpus text with `lang` and `dir` from `languageInfo()` in `src/lib/lang.ts`. `globals.css` picks the script font with `:lang()` rules, and `src/app/fonts.ts` loads the fonts. Only the body font is preloaded.
-- **Config**: `NEXT_PUBLIC_LIBRARY_URL` is the base URL of the static library export (`scripts/export_library.py`). It defaults to `/library`.
+- **Config**: `NEXT_PUBLIC_LIBRARY_URL` is the base URL of the static library export (`scripts/export_library.py`). It defaults to `/library`. `NEXT_PUBLIC_API_URL` is the search API's base URL, `/api` by default (same origin, through Caddy). For `npm run dev`, set `API_PROXY_URL=http://localhost:8000` to send `/api/*` to a local API (a dev-only rewrite in `next.config.ts`; the Docker build leaves it unset).
 - New UI code comes with Vitest tests next to the code (`*.test.ts[x]`).
 
 ### Deployment
@@ -281,7 +284,7 @@ The app runs on the droplet as the `web` service of the compose stack (`infra/co
 
 ### Library browser
 
-`/` is the work index, `/works/{work_id}` is the reader, and `/authors/{author_id}` is an author page (`/authors` lists them). All load the static library export in the browser. To run it locally:
+`/` is the work index, `/works/{work_id}` is the reader, and `/authors/{author_id}` is an author page (`/authors` lists them). All load the static library export in the browser. `/search?q=…` is passage search through `/api/search` (#142); the header has a search bar on every page. To run it locally:
 
 ```bash
 uv run python -m scripts.export_library   # repo root: data/normalized → data/library
@@ -289,7 +292,8 @@ cd web && npm run link-data               # symlink public/library → ../../dat
 npm run dev
 ```
 
-- Index state (query, facets, date range, sort) lives in the URL query, so links can be shared.
+- Index state (query, facets, date range, sort) lives in the URL query, so links can be shared. So does search state (`src/lib/search.ts`, the same parameter names), and every search is a history entry.
+- Search results link to `/works/{work_id}#{canonical_ref}`. Every chunk's ref is an element id in the reader, including derived verses and heading chunks. Because the text loads after navigation, `useHashTarget` scrolls to the target once it is rendered, re-scrolls while `content-visibility` settles the layout, and marks it with `data-target`.
 - Work ids are reader URLs and bucket keys. When a source is renamed, add its old id prefix to `RENAMED_ID_PREFIXES` in `src/lib/redirects.ts` so old links get a permanent redirect; `upload_library` deletes the old keys from the bucket on the next publish.
 - Authors come from `authors.json` (#82), never the free-text `Work.author`: the index's author facet (`?author={author_id}`, `?author=anonymous` for works with `author_ids: []`) and author sort use ids and display names, and the text filter also matches aliases. Author ids are URLs too: when one is renamed or merged, add it to `RENAMED_AUTHOR_IDS` in `src/lib/redirects.ts`.
 - `src/lib/render.ts` turns refs into structure. The last ref segment is the unit number and the rest is the section path. A chunk whose ref is the parent of the next ref is a section heading. A zero-numbered first unit is a heading in liturgy and scripture. Short all-caps lines in liturgical texts are rubrics.

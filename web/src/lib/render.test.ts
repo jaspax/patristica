@@ -22,6 +22,7 @@ describe("parseWork", () => {
       ["s-2", "Chapter 2", ["1"]],
     ]);
     expect(sections[0].units[0].ref).toBe("Gen.1.1");
+    expect(sections[0].ref).toBeNull();
   });
 
   it("treats a parent ref as the section's heading", () => {
@@ -39,6 +40,8 @@ describe("parseWork", () => {
       ["Canon I", 2],
       ["Canon II", 1],
     ]);
+    // The heading chunk's ref stays an anchor, so a search result on it resolves.
+    expect(sections.map((s) => s.ref)).toEqual(["Ancyra.Canon.1", "Ancyra.Canon.2"]);
   });
 
   it("joins derived verses back into their source paragraph", () => {
@@ -125,6 +128,7 @@ describe("parseWork", () => {
       ["ΛΕΙΤΟΥΡΓΙΑ", 0],
       ["ΕΝΑΡΞΙΣ", 1],
     ]);
+    expect(sections.map((s) => s.ref)).toEqual(["ByzLit.Chrysostom.0001.0000", "ByzLit.Chrysostom.0002.0000"]);
   });
 
   it("keeps zero-numbered units in prose", () => {
