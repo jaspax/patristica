@@ -6,6 +6,8 @@ into the Postgres of ``PATRISTICA_TEST_DATABASE_URL`` and skip without it.
 
 from __future__ import annotations
 
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
@@ -98,6 +100,57 @@ def test_query_embedder_errors_are_unavailable() -> None:
         s.QueryEmbedder(no_key).embed("x")
 
 
+class BlockingClient:
+    """Voyage stand-in whose "grace" calls wait for *release* (then succeed or fail)."""
+
+    def __init__(self, fail: bool = False) -> None:
+        self.calls: list[str] = []
+        self.started, self.release, self.fail = threading.Event(), threading.Event(), fail
+        self._lock = threading.Lock()
+
+    def embed_batch(self, texts: list[str], kind: str) -> Any:
+        with self._lock:
+            self.calls.append(texts[0])
+        if texts[0] == "grace":
+            self.started.set()
+            assert self.release.wait(5)
+            if self.fail:
+                raise ApiError("voyage/voyage-4-large: gave up after 1 tries: 503")
+        return np.stack([fx.direction(3)])
+
+
+def test_concurrent_misses_share_one_call() -> None:
+    client = BlockingClient()
+    embedder = s.QueryEmbedder(lambda: client)
+    with ThreadPoolExecutor(8) as pool:
+        waiting = [pool.submit(embedder.embed, "grace") for _ in range(6)]
+        assert client.started.wait(5)
+        # A different query is not held up by the one in flight.
+        assert pool.submit(embedder.embed, "faith").result(timeout=5)[1] is False
+        client.release.set()
+        results = [f.result(timeout=5) for f in waiting]
+    assert client.calls.count("grace") == 1
+    assert [cached for _, cached in results].count(False) == 1
+    assert all(np.array_equal(vec, results[0][0]) for vec, _ in results)
+    assert embedder.embed("grace")[1] is True
+
+
+def test_concurrent_misses_share_a_failure() -> None:
+    client = BlockingClient(fail=True)
+    embedder = s.QueryEmbedder(lambda: client)
+    with ThreadPoolExecutor(4) as pool:
+        waiting = [pool.submit(embedder.embed, "grace") for _ in range(4)]
+        assert client.started.wait(5)
+        client.release.set()
+        errors = [f.exception(timeout=5) for f in waiting]
+    assert all(isinstance(e, s.SearchUnavailable) for e in errors)
+    assert client.calls.count("grace") == 1
+    # A failure is not cached: the next request tries again.
+    client.fail = False
+    assert embedder.embed("grace")[1] is False
+    assert client.calls.count("grace") == 2
+
+
 def test_rate_limiter() -> None:
     now = [0.0]
     limiter = s.RateLimiter(rate=60, burst=2, clock=lambda: now[0])
@@ -151,6 +204,16 @@ def test_search_rejects_bad_requests(params: dict) -> None:
     assert fake.calls == []
 
 
+def test_search_rejects_reversed_date_range() -> None:
+    fake = FakeSearcher()
+    r = _client(fake).get("/search", params={"q": "x", "date_from": 400, "date_to": 300})
+    assert r.status_code == 422
+    assert r.json() == {"error": "date_from is after date_to"}
+    assert fake.calls == []
+    assert _client(fake).get("/search", params={"q": "x", "date_from": 300,
+                                                 "date_to": 300}).status_code == 200
+
+
 def test_search_rate_limited() -> None:
     client = _client(FakeSearcher(), s.RateLimiter(rate=6, burst=1))
     assert client.get("/search", params={"q": "a"}).status_code == 200
@@ -178,16 +241,30 @@ AXES = {
 }
 
 
-@pytest.fixture
-def searcher(pg_url: str, tmp_path: Path):
+def _searcher(url: str, ef_search: int = s.EF_SEARCH, **settings: str):
+    """A Searcher on *url*, with extra session settings (``-c name=value``)."""
+    from psycopg.conninfo import conninfo_to_dict, make_conninfo
     from psycopg_pool import ConnectionPool
 
+    options = " ".join([conninfo_to_dict(url).get("options", ""),
+                        *(f"-c {k}={v}" for k, v in settings.items())])
+    pool = ConnectionPool(make_conninfo(url, options=options), min_size=1, max_size=2, open=True)
+    return s.Searcher(pool, s.QueryEmbedder(lambda: StubClient(AXES)), ef_search=ef_search)
+
+
+@pytest.fixture
+def corpus_url(pg_url: str, tmp_path: Path) -> str:
     fx.load_corpus(tmp_path, pg_url)
-    pool = ConnectionPool(pg_url, min_size=1, max_size=2, open=True)
+    return pg_url
+
+
+@pytest.fixture
+def searcher(corpus_url: str):
+    searcher = _searcher(corpus_url)
     try:
-        yield s.Searcher(pool, s.QueryEmbedder(lambda: StubClient(AXES)))
+        yield searcher
     finally:
-        pool.close()
+        searcher.pool.close()
 
 
 def _ids(result: dict) -> list[str]:
@@ -243,6 +320,64 @@ def test_pagination(searcher: s.Searcher) -> None:
     second = searcher.search("void", s.Filters(), limit=2, offset=2)
     assert len(_ids(first) + _ids(second)) == len(set(_ids(first) + _ids(second))) == 4
     assert second["next_offset"] is None
+
+
+TIES = 30
+
+
+def _add_ties(url: str) -> None:
+    """TIES more KJV chunks whose vector is exactly that of Gen.1.2 ("void")."""
+    import psycopg
+
+    with psycopg.connect(url, autocommit=True) as conn:
+        conn.execute(
+            "INSERT INTO chunks (chunk_id, work_id, canonical_ref, chunk_index, language, text, "
+            "date_range, date_confidence, out_of_period) SELECT 'kjv/gen#Tie.' || i, 'kjv/gen', "
+            "'Tie.' || i, 100 + i, 'eng', 'tied', '[-900,-400]', 'approximate', false "
+            "FROM generate_series(1, %s) i", (TIES,))
+        conn.execute(
+            "INSERT INTO chunk_vectors SELECT 'kjv/gen#Tie.' || i, kind, model_id, embedding, "
+            "work_id, source_id, language, genre, author_ids, date_range, out_of_period "
+            "FROM chunk_vectors, generate_series(1, %s) i WHERE chunk_id = 'kjv/gen#Gen.1.2'",
+            (TIES,))
+
+
+def _all_pages(searcher: s.Searcher, limit: int) -> list[str]:
+    ids, offset = [], 0
+    while offset is not None:
+        res = searcher.search("void", s.Filters(), limit=limit, offset=offset)
+        ids += _ids(res)
+        offset = res["next_offset"]
+    return ids
+
+
+@pytest.mark.parametrize("forced_hnsw", [False, True])
+def test_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> None:
+    _add_ties(corpus_url)
+    # Forcing the HNSW index with the smallest ef_search makes the iterative,
+    # relaxed-order scan return candidates in approximate order.
+    settings = ({"enable_seqscan": "off", "enable_bitmapscan": "off", "enable_sort": "off"}
+                if forced_hnsw else {})
+    searcher = _searcher(corpus_url, ef_search=1 if forced_hnsw else s.EF_SEARCH, **settings)
+    try:
+        if forced_hnsw:
+            with searcher.pool.connection() as conn:
+                plan = "\n".join(r[0] for r in conn.execute(
+                    "EXPLAIN SELECT chunk_id FROM chunk_vectors WHERE model_id = 1 "
+                    "ORDER BY embedding <=> %s::halfvec LIMIT 5", (s._vec_literal(
+                        np.eye(1, s.DIMS, fx.axis_of("kjv/gen", "Gen.1.2"))[0]),)))
+            assert "chunk_vectors_hnsw_m1" in plan
+        expected = 4 + TIES  # every searchable chunk, once
+        for limit in (7, 3):  # pages smaller than the tie group
+            ids = _all_pages(searcher, limit)
+            assert len(ids) == len(set(ids)) == expected
+            assert ids == _all_pages(searcher, limit)
+        # The tied chunks come first (score 1), in chunk id order.
+        first = searcher.search("void", s.Filters(), limit=s.MAX_LIMIT)
+        assert _ids(first)[:TIES + 1] == sorted(
+            ["kjv/gen#Gen.1.2", *(f"kjv/gen#Tie.{i}" for i in range(1, TIES + 1))])
+    finally:
+        searcher.pool.close()
 
 
 def test_phrase_query_falls_back_to_vector(searcher: s.Searcher) -> None:

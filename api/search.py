@@ -4,7 +4,8 @@
 (``input_type="query"``), cuts it to the stored 512 dims with ``shorten``,
 and ranks ``chunk_vectors`` of the same model by cosine distance through the
 model's HNSW index. A chunk with a translation vector scores the better of its
-two vectors and appears once. Filters are columns of ``chunk_vectors``
+two vectors and appears once. Pages are slices of one fixed candidate pool
+per query (``CANDIDATES``). Filters are columns of ``chunk_vectors``
 (``db/schema.sql``), and the HNSW scan is iterative, so narrow filters still
 fill a page.
 
@@ -21,6 +22,7 @@ import threading
 import time
 from collections import OrderedDict
 from collections.abc import Callable
+from concurrent.futures import Future
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Literal
 
@@ -39,7 +41,13 @@ DIMS = 512
 DOCUMENT_INPUT = "document"  # the input type of the stored vectors
 MAX_QUERY_CHARS = 500
 MAX_LIMIT = 50
-MAX_OFFSET = 500
+MAX_OFFSET = 200
+# Every page of a query is cut from the same candidate rows: enough for the
+# deepest page (and one more result, to tell whether there is a next page),
+# with two rows per chunk at most (text and translation vectors). A pool that
+# grew with the offset would rank each page from a different set, so pages
+# could repeat or skip results.
+CANDIDATES = 2 * (MAX_OFFSET + MAX_LIMIT + 1)
 TEXT_CHARS = 2000  # longer chunk texts are cut in results (a few Scripture chapters)
 EF_SEARCH = 100
 TRANSLATION_LANGUAGE = "eng"
@@ -114,7 +122,9 @@ class QueryEmbedder:
     """Embeds queries with Voyage, failing fast, with an LRU cache of the vectors.
 
     Every miss is a paid Voyage call, so repeated queries (and paging through
-    results) are served from the cache.
+    results) are served from the cache. Concurrent misses for the same text
+    share one call: the first request makes it, and the others wait for its
+    vector or its error. Other queries are not held up.
     """
 
     def __init__(self, make_client: Callable[[], Any] | None = None, cache_size: int = 10_000,
@@ -123,30 +133,56 @@ class QueryEmbedder:
             lambda: VoyageEmbedder(MODEL, timeout=timeout, retries=1))
         self._client: Any = None
         self._cache: OrderedDict[str, np.ndarray] = OrderedDict()
+        self._inflight: dict[str, Future[np.ndarray]] = {}
         self._size = cache_size
+        # Longer than the leader can take (one Voyage attempt), as a backstop.
+        self._wait = 2 * timeout + 5
         self._lock = threading.Lock()
+        self._client_lock = threading.Lock()
 
     def embed(self, text: str) -> tuple[np.ndarray, bool]:
-        """(unit vector of DIMS dims, whether it came from the cache)."""
+        """(unit vector of DIMS dims, whether no Voyage call was made for this request)."""
         with self._lock:
             if text in self._cache:
                 self._cache.move_to_end(text)
                 return self._cache[text], True
+            pending = self._inflight.get(text)
+            if pending is None:
+                future: Future[np.ndarray] = Future()
+                self._inflight[text] = future
+        if pending is not None:
+            try:
+                return pending.result(timeout=self._wait), True
+            except TimeoutError as exc:
+                raise SearchUnavailable("the embedding service did not answer in time") from exc
         try:
-            if self._client is None:
-                self._client = self._make_client()
+            vec = self._fetch(text)
+        except BaseException as exc:
+            future.set_exception(exc)
+            raise
+        else:
+            with self._lock:
+                self._cache[text] = vec
+                while len(self._cache) > self._size:
+                    self._cache.popitem(last=False)
+            future.set_result(vec)
+            return vec, False
+        finally:
+            with self._lock:
+                del self._inflight[text]
+
+    def _fetch(self, text: str) -> np.ndarray:
+        try:
+            with self._client_lock:
+                if self._client is None:
+                    self._client = self._make_client()
             raw = self._client.embed_batch([text], "query")
         except KeyError as exc:  # env_key: VOYAGE_API_KEY not set
             raise SearchUnavailable("search is not configured on this server") from exc
         except ApiError as exc:
             log.warning("query embedding failed: %s", exc)
             raise SearchUnavailable("the embedding service did not answer in time") from exc
-        vec = shorten(raw, DIMS)[0]
-        with self._lock:
-            self._cache[text] = vec
-            while len(self._cache) > self._size:
-                self._cache.popitem(last=False)
-        return vec, False
+        return shorten(raw, DIMS)[0]
 
 
 class RateLimiter:
@@ -190,10 +226,13 @@ WITH hits AS MATERIALIZED (
     FROM chunk_vectors
     WHERE model_id = {model_id} AND {where}
     ORDER BY embedding <=> %(q)s::halfvec
-    LIMIT %(fetch)s
+    LIMIT %(candidates)s
 ), best AS (
     SELECT DISTINCT ON (chunk_id) chunk_id, kind, distance
-    FROM hits ORDER BY chunk_id, distance
+    FROM hits ORDER BY chunk_id, distance, kind
+), page AS (
+    SELECT chunk_id, kind, distance FROM best
+    ORDER BY distance, chunk_id OFFSET %(offset)s LIMIT %(limit)s
 )
 SELECT b.distance, b.kind, c.chunk_id, c.work_id, c.canonical_ref, c.language,
        left(c.text, %(text_chars)s), length(c.text) > %(text_chars)s,
@@ -203,12 +242,11 @@ SELECT b.distance, b.kind, c.chunk_id, c.work_id, c.canonical_ref, c.language,
        w.genre, w.tradition, w.date_composed, lower(w.date_range), upper(w.date_range) - 1,
        coalesce((SELECT array_agg(a.name ORDER BY i.n) FROM unnest(w.author_ids)
                  WITH ORDINALITY AS i(id, n) JOIN authors a ON a.author_id = i.id), '{{}}')
-FROM best b
+FROM page b
 JOIN chunks c ON c.chunk_id = b.chunk_id
 JOIN works w ON w.work_id = c.work_id
 LEFT JOIN chunk_translations t ON t.chunk_id = c.chunk_id AND t.language = %(tr_lang)s
 ORDER BY b.distance, c.chunk_id
-OFFSET %(offset)s LIMIT %(limit)s
 """
 
 
@@ -276,14 +314,17 @@ class Searcher:
         vec, cached = self.embedder.embed(parsed.text)
         embedded = time.monotonic()
         where, params = filters.sql()
-        params.update(q=_vec_literal(vec), fetch=2 * (offset + limit + 1), offset=offset,
+        params.update(q=_vec_literal(vec), candidates=CANDIDATES, offset=offset,
                       limit=limit + 1, text_chars=TEXT_CHARS, tr_lang=TRANSLATION_LANGUAGE)
         with self.pool.connection() as conn, conn.transaction():
             # Inlined, not a parameter: a generic plan of a prepared statement
             # can't prove model_id = n, so it would never use the partial index.
             sql = _SEARCH_SQL.format(model_id=self.model_id(conn), where=where)
+            # JIT compilation costs more than this short query; on the full
+            # index the cost estimates can exceed jit_above_cost.
             conn.execute("SELECT set_config('hnsw.ef_search', %s, true), "
-                         "set_config('hnsw.iterative_scan', 'relaxed_order', true)",
+                         "set_config('hnsw.iterative_scan', 'relaxed_order', true), "
+                         "set_config('jit', 'off', true)",
                          (str(self.ef_search),))
             rows = conn.execute(sql, params).fetchall()
         done = time.monotonic()
