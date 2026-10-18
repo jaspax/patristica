@@ -10,6 +10,7 @@
 -- bulk load, which is much faster than inserting into a live index.
 
 CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 CREATE TABLE IF NOT EXISTS schema_version (
     version integer NOT NULL
@@ -63,11 +64,25 @@ CREATE TABLE IF NOT EXISTS chunks (
     date_range           int4range,
     date_confidence      text NOT NULL,
     out_of_period        boolean NOT NULL,
-    translation_group_id text                   -- Scripture only (link_translations)
+    translation_group_id text,                  -- Scripture only (link_translations)
+    text_folded          text                   -- keyword index (#86): ' ' || fold(text) || ' '
 );
+-- Added after the first production load; build_index folds rows where it is NULL.
+ALTER TABLE chunks ADD COLUMN IF NOT EXISTS text_folded text;
 CREATE INDEX IF NOT EXISTS chunks_work ON chunks (work_id, chunk_index);
+-- Finds the works still to fold without scanning the table (empty once all are).
+CREATE INDEX IF NOT EXISTS chunks_unfolded ON chunks (work_id) WHERE text_folded IS NULL;
+-- The trigram index on text_folded (chunks_text_folded_trgm) is created by
+-- build_index after the folding, like the HNSW indexes.
 CREATE INDEX IF NOT EXISTS chunks_translation_group ON chunks (translation_group_id)
     WHERE translation_group_id IS NOT NULL;
+
+-- Settings the stored data was built with, e.g. fold_version
+-- (patristica.keyword.FOLD_VERSION): when it changes, every chunk is refolded.
+CREATE TABLE IF NOT EXISTS index_meta (
+    key     text PRIMARY KEY,
+    value   text NOT NULL
+);
 
 -- Machine translations (data/translations/, #93), only those made from the
 -- chunk's current text.

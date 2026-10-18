@@ -36,6 +36,7 @@ patristica/
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching
+│   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
 │   ├── translations.py        # translation store (data/translations/)
 │   ├── embedders.py           # embedding API clients (Voyage) + shorten(); shared by pipeline, API, eval
 │   └── embeddings.py          # vector store (data/embeddings/): per-work .npz, model recorded per row

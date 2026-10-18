@@ -27,6 +27,11 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   ``--rebuild-index``, the HNSW indexes are dropped first and built after the
   COPY; otherwise new rows go into the live index. There is one partial HNSW
   index per model, ``chunk_vectors_hnsw_m{model_id}``.
+- Each chunk's ``text_folded`` (``patristica.keyword.index_text``) feeds the
+  keyword index for quoted search (#86), a ``pg_trgm`` GIN index built after
+  the load. Chunks loaded before that column existed, or folded by an older
+  ``FOLD_VERSION``, are folded in place from the normalized files of works
+  whose hash this run checked, so no vectors are reloaded.
 
 Usage::
 
@@ -57,6 +62,7 @@ from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.authors import author_index
 from patristica.embedders import env_key, shorten
+from patristica.keyword import FOLD_VERSION, index_text
 from patristica.models import Chunk
 from scripts.embed import load_works, select
 from scripts.link_translations import link_scripture_translations
@@ -74,10 +80,13 @@ LOADER_VERSION = 1
 DIMS = 512  # stored vector size (#50); chunk_vectors.embedding is halfvec(512)
 HNSW_M = 16
 HNSW_EF_CONSTRUCTION = 64
+TRGM_INDEX = "chunks_text_folded_trgm"
+# Folding more chunks than this rebuilds the trigram index instead of updating it.
+BULK_FOLD = 100_000
 
 _CHUNK_COLUMNS = ("chunk_id", "work_id", "canonical_ref", "chunk_index", "language", "text",
                   "date_composed", "date_range", "date_confidence", "out_of_period",
-                  "translation_group_id")
+                  "translation_group_id", "text_folded")
 _COPY_SIGNATURE = b"PGCOPY\n\xff\r\n\x00" + struct.pack(">ii", 0, 0)
 
 
@@ -96,6 +105,7 @@ class Stats:
     translations: int = 0
     vectors: int = 0
     stale_vectors: int = 0
+    folded: int = 0  # chunks folded in place (not counting those loaded)
     no_vectors: list[str] = field(default_factory=list)  # works without a shard
 
     def summary(self) -> str:
@@ -103,7 +113,8 @@ class Stats:
                 f"{self.deleted} deleted ({self.excluded} for their licence); "
                 f"{self.chunks} chunks, {self.translations} translations, "
                 f"{self.vectors} vectors loaded, {self.stale_vectors} stale vectors skipped, "
-                f"{len(self.no_vectors)} works without vectors")
+                f"{len(self.no_vectors)} works without vectors, "
+                f"{self.folded} chunks folded in place")
 
 
 def pg_range(r: list[int] | tuple[int, int] | None) -> str | None:
@@ -263,7 +274,7 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
                                 c["chunk_index"], c["language"], c["text"],
                                 c.get("date_composed"), pg_range(c.get("date_range")),
                                 c["date_confidence"], c["out_of_period"],
-                                groups.get(c["chunk_id"])))
+                                groups.get(c["chunk_id"]), index_text(c["text"])))
         stats.chunks += len(chunks)
         if fresh:
             prov = translations.provenance
@@ -332,6 +343,85 @@ def build_hnsw(conn: psycopg.Connection, maintenance_work_mem: str) -> bool:
     return built
 
 
+def has_index(conn: psycopg.Connection, name: str) -> bool:
+    """Whether index *name* exists in the current schema (not elsewhere on the search path)."""
+    return conn.execute("SELECT EXISTS (SELECT FROM pg_indexes WHERE schemaname = "
+                        "current_schema() AND indexname = %s)", (name,)).fetchone()[0]
+
+
+def drop_index(conn: psycopg.Connection, name: str) -> None:
+    """Drop index *name* of the current schema, if it exists.
+
+    The name is schema-qualified: a bare name would drop the first index of
+    that name on the search path, possibly another schema's.
+    """
+    from psycopg import sql
+
+    schema = conn.execute("SELECT current_schema()").fetchone()[0]
+    conn.execute(sql.SQL("DROP INDEX IF EXISTS {}.{}").format(sql.Identifier(schema),
+                                                               sql.Identifier(name)))
+
+
+def check_fold_version(conn: psycopg.Connection) -> None:
+    """Make every stored ``text_folded`` current for ``FOLD_VERSION``, or NULL.
+
+    ``index_meta.fold_version`` is the version every non-NULL
+    ``text_folded`` was made with, and NULL rows are the folding still to
+    do. When the version changes, the old text is cleared and the new
+    version recorded in one transaction, so a later run, even one limited to
+    some sources or an interrupted one, never clears work already done (#168).
+    """
+    meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'").fetchone()
+    if meta is not None and meta[0] == str(FOLD_VERSION):
+        return
+    with conn.transaction():
+        if meta is not None:
+            log.info("fold version %s -> %s: refolding every chunk", meta[0], FOLD_VERSION)
+            drop_index(conn, TRGM_INDEX)
+            conn.execute("UPDATE chunks SET text_folded = NULL")
+        conn.execute("INSERT INTO index_meta VALUES ('fold_version', %s) ON CONFLICT (key) "
+                      "DO UPDATE SET value = EXCLUDED.value", (str(FOLD_VERSION),))
+
+
+def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
+                 maintenance_work_mem: str) -> int:
+    """Fill ``text_folded`` where it is NULL, then make sure the trigram index exists.
+
+    *paths* maps each work this run checked (its stored hash matches the
+    files, or it was just loaded) to its normalized file, which therefore
+    holds exactly the text in the database. Other works stay unfolded until
+    a run that covers them. Returns the number of chunks folded.
+    """
+    pending = conn.execute("SELECT count(*) FROM chunks WHERE text_folded IS NULL").fetchone()[0]
+    todo = [w for (w,) in conn.execute(
+        "SELECT DISTINCT work_id FROM chunks WHERE text_folded IS NULL") if w in paths]
+    if pending > BULK_FOLD and has_index(conn, TRGM_INDEX):
+        log.info("dropping %s to fold %d chunks", TRGM_INDEX, pending)
+        drop_index(conn, TRGM_INDEX)
+    conn.execute("CREATE TEMP TABLE IF NOT EXISTS fold_stage (chunk_id text, text_folded text) "
+                 "ON COMMIT DELETE ROWS")
+    folded = 0
+    for work_id in tqdm(todo, desc="fold", unit="work"):
+        with paths[work_id].open(encoding="utf-8") as f:
+            chunks = json.load(f)
+        with conn.transaction(), conn.cursor() as cur:
+            with cur.copy("COPY fold_stage (chunk_id, text_folded) FROM STDIN") as copy:
+                for c in chunks:
+                    copy.write_row((c["chunk_id"], index_text(c["text"])))
+            cur.execute("UPDATE chunks c SET text_folded = s.text_folded FROM fold_stage s "
+                        "WHERE c.chunk_id = s.chunk_id AND c.text_folded IS NULL")
+            folded += cur.rowcount
+    if not has_index(conn, TRGM_INDEX):
+        log.info("building %s (keyword index, #86)", TRGM_INDEX)
+        conn.execute("SELECT set_config('maintenance_work_mem', %s, false)",
+                     (maintenance_work_mem,))
+        conn.execute(f"CREATE INDEX {TRGM_INDEX} ON chunks USING gin (text_folded gin_trgm_ops)")
+    if folded > BULK_FOLD:
+        # Every folded row was rewritten: make the old versions' space reusable.
+        conn.execute("VACUUM chunks")
+    return folded
+
+
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
         sources: Iterable[str] = (), prefixes: Iterable[str] = (), dry_run: bool = False,
         rebuild_index: bool = False, maintenance_work_mem: str = "4GB") -> Stats:
@@ -352,13 +442,15 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works")) if have else {}
     else:
         apply_schema(conn)
+        # Before loading, so works loaded below aren't cleared again.
+        check_fold_version(conn)
         log.info("authors: %d", load_authors(conn))
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works"))
         empty = conn.execute("SELECT NOT EXISTS (SELECT FROM chunk_vectors)").fetchone()[0]
         if empty or rebuild_index:
             for index in hnsw_indexes(conn):
                 log.info("dropping %s for the bulk load", index)
-                conn.execute(f"DROP INDEX {index}")
+                drop_index(conn, index)
         conn.execute("CREATE TEMP TABLE IF NOT EXISTS vector_stage (chunk_id text, "
                      "kind smallint, model_id smallint, embedding halfvec(512)) "
                      "ON COMMIT DELETE ROWS")
@@ -374,6 +466,7 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
 
     groups = scripture_groups(publishable, input_dir)
     models: dict[tuple[str, str], int] = {}
+    checked: dict[str, Path] = {}  # works whose stored text matches their file
     for entry in tqdm(wanted, desc="works", unit="work"):
         path = entry["path"]
         work_id = entry["work"]["work_id"]
@@ -384,6 +477,7 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         sha = content_sha(entry, (norm, tpath, spath), work_groups)
         if stored.get(work_id) == sha:
             stats.unchanged += 1
+            checked[work_id] = norm
             continue
         stats.loaded += 1
         if dry_run:
@@ -392,11 +486,14 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
             chunks = json.load(f)
         load_work(conn, entry, sha, chunks, tr.load(trans_dir, path), emb.load(store_dir, path),
                   work_groups, models, stats)
+        checked[work_id] = norm
 
     if not dry_run:
+        stats.folded = fold_missing(conn, checked, maintenance_work_mem)
         # Also after an index build alone: a rerun after a failed build loads
         # nothing, and the first run never got to its ANALYZE.
-        if build_hnsw(conn, maintenance_work_mem) or stats.loaded or stats.deleted:
+        built = build_hnsw(conn, maintenance_work_mem)
+        if built or stats.loaded or stats.deleted or stats.folded:
             conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors")
     return stats
 
