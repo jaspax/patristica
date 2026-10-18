@@ -117,6 +117,8 @@ def search(
 ) -> JSONResponse:
     if not q.strip():
         return JSONResponse({"error": "empty query"}, status_code=422)
+    if date_from is not None and date_to is not None and date_from > date_to:
+        return JSONResponse({"error": "date_from is after date_to"}, status_code=422)
     wait = limiter.check(request.client.host if request.client else "unknown")
     if wait:
         return JSONResponse({"error": "too many searches; try again shortly"}, status_code=429,
