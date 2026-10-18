@@ -18,6 +18,22 @@ jobs:
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
+    # The same image as production; tests that need a database (search index,
+    # #137) use it through PATRISTICA_TEST_DATABASE_URL and skip without it.
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg16
+        env:
+          POSTGRES_USER: patristica
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: patristica
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U patristica" --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      PATRISTICA_TEST_DATABASE_URL: postgresql://patristica:ci@localhost:5432/patristica
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +42,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy
+        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy --extra index
 
       - name: Run unit tests
         run: uv run pytest

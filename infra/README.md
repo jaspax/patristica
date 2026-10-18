@@ -105,7 +105,22 @@ The static library export (`scripts.export_library`) is served from the Spaces b
     | docker compose exec -T db pg_restore -U patristica -d restore_test --no-owner
   ```
 
-The full Voyage vectors are archived separately by the index build (`scripts/build_index.py`, Phase 2), so a rebuild doesn't need to re-embed anything.
+The dumps hold the 512-dim vectors the database keeps. The full 1024-dim vectors (`data/embeddings/`) live only on the machine that ran `scripts.embed` until they are archived (#156); restoring a dump needs no re-embedding, but rebuilding with more dims does.
+
+## Search index
+
+`scripts.build_index` (#137) loads works, chunks, translations and vectors into the database (schema and tables: `db/README.md`). Postgres has no public port, so run it from your machine through `db-tunnel.sh`. The tunnel forwards a local port to the db container and gives the command `DATABASE_URL` and `PGPASSWORD`. It reads the password from the host `.env` and never prints it:
+
+```bash
+infra/db-tunnel.sh uv run --extra index python -m scripts.build_index --dry-run
+infra/db-tunnel.sh uv run --extra index python -m scripts.build_index --embeddings-dir <path to data/embeddings>
+infra/db-tunnel.sh psql
+```
+
+- It needs `data/normalized` (tracked), `data/translations` (tracked) and `data/embeddings` (from `scripts.embed`, gitignored).
+- The first load copies about 4 GB of vectors (binary COPY, ~1 KB a vector) and then builds the HNSW index on the droplet with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`). Later runs reload only works whose inputs changed and insert into the live index. A run that changes most of the corpus is faster with `--rebuild-index`.
+- Each work is its own transaction, so an interrupted run picks up where it stopped. The index is built at the end of a run, so after an interruption run it again to completion.
+- After the index build, warm the cache: `SELECT pg_prewarm('chunk_vectors_hnsw_m1');`.
 
 ## Postgres sizing
 
