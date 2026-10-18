@@ -94,5 +94,5 @@ def phrase_search(conn: psycopg.Connection, phrases: list[str], where: str,
             rows = conn.execute(sql, {**params, **patterns, "limit": limit, "offset": offset},
                                 prepare=False).fetchall()
         except psycopg.errors.QueryCanceled as exc:
-            raise PhraseTooBroad("this phrase is too common to search: add more words") from exc
+            raise PhraseTooBroad("This phrase is too common to search: add more words.") from exc
     return [(r[0], r[2]) for r in rows], (rows[0][1] if rows else None)

@@ -44,7 +44,7 @@ def phrase_pattern(phrase: str) -> str:
     """
     folded = fold(phrase)
     if len(folded.replace(" ", "")) < MIN_PHRASE_CHARS:
-        raise PhraseError(f"a quoted phrase needs at least {MIN_PHRASE_CHARS} letters")
+        raise PhraseError(f"A quoted phrase needs at least {MIN_PHRASE_CHARS} letters.")
     return f"% {folded} %"
 
 

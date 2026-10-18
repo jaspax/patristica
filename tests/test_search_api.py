@@ -255,10 +255,10 @@ def test_search_rate_limited() -> None:
 def test_too_common_phrase_is_422() -> None:
     from api.keyword import PhraseTooBroad
 
-    r = _client(FakeSearcher(PhraseTooBroad("this phrase is too common to search: add more words"))
+    r = _client(FakeSearcher(PhraseTooBroad("This phrase is too common to search: add more words."))
                 ).get("/search", params={"q": '"et in"'})
     assert r.status_code == 422
-    assert r.json() == {"error": "this phrase is too common to search: add more words"}
+    assert r.json() == {"error": "This phrase is too common to search: add more words."}
 
 
 def test_search_unavailable_is_503() -> None:

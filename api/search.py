@@ -385,7 +385,7 @@ class Searcher:
         if parsed.phrases:
             return self._keyword(q, parsed, filters, limit, offset)
         if not parsed.text:
-            raise QueryError("the query has nothing to search for")
+            raise QueryError("The query has nothing to search for.")
         return self._vector(q, parsed, filters, limit, offset)
 
     def _response(self, q: str, parsed: ParsedQuery, offset: int, limit: int,
