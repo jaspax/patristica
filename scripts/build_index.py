@@ -362,6 +362,27 @@ def drop_index(conn: psycopg.Connection, name: str) -> None:
                                                                sql.Identifier(name)))
 
 
+def check_fold_version(conn: psycopg.Connection) -> None:
+    """Make every stored ``text_folded`` current for ``FOLD_VERSION``, or NULL.
+
+    ``index_meta.fold_version`` is the version every non-NULL
+    ``text_folded`` was made with, and NULL rows are the folding still to
+    do. When the version changes, the old text is cleared and the new
+    version recorded in one transaction, so a later run, even one limited to
+    some sources or an interrupted one, never clears work already done (#168).
+    """
+    meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'").fetchone()
+    if meta is not None and meta[0] == str(FOLD_VERSION):
+        return
+    with conn.transaction():
+        if meta is not None:
+            log.info("fold version %s -> %s: refolding every chunk", meta[0], FOLD_VERSION)
+            drop_index(conn, TRGM_INDEX)
+            conn.execute("UPDATE chunks SET text_folded = NULL")
+        conn.execute("INSERT INTO index_meta VALUES ('fold_version', %s) ON CONFLICT (key) "
+                      "DO UPDATE SET value = EXCLUDED.value", (str(FOLD_VERSION),))
+
+
 def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
                  maintenance_work_mem: str) -> int:
     """Fill ``text_folded`` where it is NULL, then make sure the trigram index exists.
@@ -371,11 +392,6 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
     holds exactly the text in the database. Other works stay unfolded until
     a run that covers them. Returns the number of chunks folded.
     """
-    meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'").fetchone()
-    if meta is not None and meta[0] != str(FOLD_VERSION):
-        log.info("fold version %s -> %s: refolding every chunk", meta[0], FOLD_VERSION)
-        drop_index(conn, TRGM_INDEX)
-        conn.execute("UPDATE chunks SET text_folded = NULL")
     pending = conn.execute("SELECT count(*) FROM chunks WHERE text_folded IS NULL").fetchone()[0]
     todo = [w for (w,) in conn.execute(
         "SELECT DISTINCT work_id FROM chunks WHERE text_folded IS NULL") if w in paths]
@@ -400,10 +416,6 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
         conn.execute("SELECT set_config('maintenance_work_mem', %s, false)",
                      (maintenance_work_mem,))
         conn.execute(f"CREATE INDEX {TRGM_INDEX} ON chunks USING gin (text_folded gin_trgm_ops)")
-    if not conn.execute("SELECT EXISTS (SELECT FROM chunks WHERE text_folded IS NULL)"
-                        ).fetchone()[0]:
-        conn.execute("INSERT INTO index_meta VALUES ('fold_version', %s) ON CONFLICT (key) "
-                      "DO UPDATE SET value = EXCLUDED.value", (str(FOLD_VERSION),))
     if folded > BULK_FOLD:
         # Every folded row was rewritten: make the old versions' space reusable.
         conn.execute("VACUUM chunks")
@@ -430,6 +442,8 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works")) if have else {}
     else:
         apply_schema(conn)
+        # Before loading, so works loaded below aren't cleared again.
+        check_fold_version(conn)
         log.info("authors: %d", load_authors(conn))
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works"))
         empty = conn.execute("SELECT NOT EXISTS (SELECT FROM chunk_vectors)").fetchone()[0]
