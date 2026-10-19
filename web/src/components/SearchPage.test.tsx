@@ -56,6 +56,7 @@ function result(overrides: Partial<SearchResult> = {}): SearchResult {
       license: "cc-by-sa-4.0",
       provenance_url: "https://example.org/hymns",
     },
+    versions: [],
     ...overrides,
   };
 }
@@ -188,6 +189,59 @@ describe("SearchPage", () => {
     );
     await renderPage();
     expect(await screen.findByText(/350–373 · King James Version \(1769\) ·/)).toBeTruthy();
+  });
+
+  it("lists the other versions of a folded passage, each linking to it", async () => {
+    search = "q=shepherd";
+    const version = (chunk_id: string, language: string, source_label: string, canonical_ref = "Ps.23.1") => ({
+      chunk_id,
+      work_id: chunk_id.split("#")[0],
+      canonical_ref,
+      language,
+      source_label,
+      edition: `${source_label} (edition)`,
+      score: 0.8,
+    });
+    serve(() =>
+      json(
+        page([
+          result({
+            chunk_id: "kjv/ps#Ps.23.1",
+            work_id: "kjv/ps",
+            canonical_ref: "Ps.23.1",
+            language: "eng",
+            translation: null,
+            versions: [
+              version("oshb/ps#Ps.23.1", "hbo", "Open Scriptures Hebrew Bible"),
+              version("asv/ps#Ps.23.1", "eng", "American Standard Version"),
+              version("zohrab/ps#Ps.22.2", "hye", "Zohrab Bible", "Ps.22.2"),
+              version("web/ps#Ps.23.1", "eng", "World English Bible"),
+            ],
+          }),
+          result(),
+        ]),
+      ),
+    );
+    await renderPage();
+    const versions = await screen.findByRole("list", { name: "Also in:" });
+    const [folded, single] = [...document.querySelectorAll<HTMLElement>("ol > li")];
+    expect(folded.contains(versions)).toBe(true);
+    // One item per language, in the order of each language's best version.
+    expect(within(versions).getAllByRole("listitem").map((li) => li.textContent)).toEqual([
+      "Hebrew: Open Scriptures Hebrew Bible",
+      "English: American Standard Version, World English Bible",
+      "Armenian: Zohrab Bible Ps.22.2",
+    ]);
+    expect(within(versions).getByRole("link", { name: "World English Bible" }).getAttribute("href")).toBe(
+      "/works/web/ps#Ps.23.1",
+    );
+    // A version numbered differently links to its own ref.
+    expect(within(versions).getByRole("link", { name: "Zohrab Bible Ps.22.2" }).getAttribute("href")).toBe(
+      "/works/zohrab/ps#Ps.22.2",
+    );
+    expect(folded.textContent).not.toMatch(/oshb|zohrab\/|asv\//);
+    // A passage with no other versions has no list.
+    expect(within(single).queryByText("Also in:")).toBeNull();
   });
 
     it("loads more results through the API's paging", async () => {

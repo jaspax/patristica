@@ -11,6 +11,7 @@ import {
   searchHref,
   SearchError,
   searchStateToParams,
+  versionLanguages,
   withoutQuotes,
 } from "./search";
 
@@ -81,6 +82,65 @@ describe("highlight", () => {
   it("clamps bad offsets instead of losing text", () => {
     expect(marked("abcdef", [[4, 2], [3, 99]])).toBe("abcd[ef]");
     expect(marked("abc", [[-5, 1]])).toBe("[a]bc");
+  });
+});
+
+describe("versionLanguages", () => {
+  const version = (work_id: string, language: string, source_label: string, edition: string | null = null) => ({
+    chunk_id: `${work_id}#Ps.23.1`,
+    work_id,
+    canonical_ref: "Ps.23.1",
+    language,
+    source_label,
+    edition,
+    score: null,
+  });
+
+  it("groups by language in order of first appearance and links each version", () => {
+    const groups = versionLanguages({
+      canonical_ref: "Ps.23.1",
+      versions: [
+        version("asv/ps", "eng", "American Standard Version"),
+        version("oshb/ps", "hbo", "Open Scriptures Hebrew Bible"),
+        version("web/ps", "eng", "World English Bible"),
+        { ...version("zohrab/ps", "hye", "Zohrab Bible"), chunk_id: "zohrab/ps#Ps.22.2", canonical_ref: "Ps.22.2" },
+      ],
+    });
+    expect(groups).toEqual([
+      {
+        language: "eng",
+        name: "English",
+        versions: [
+          { href: "/works/asv/ps#Ps.23.1", label: "American Standard Version", ref: null },
+          { href: "/works/web/ps#Ps.23.1", label: "World English Bible", ref: null },
+        ],
+      },
+      {
+        language: "hbo",
+        name: "Hebrew",
+        versions: [{ href: "/works/oshb/ps#Ps.23.1", label: "Open Scriptures Hebrew Bible", ref: null }],
+      },
+      {
+        language: "hye",
+        name: "Armenian",
+        versions: [{ href: "/works/zohrab/ps#Ps.22.2", label: "Zohrab Bible", ref: "Ps.22.2" }],
+      },
+    ]);
+  });
+
+  it("tells apart two versions from one source by their editions", () => {
+    const [greek] = versionLanguages({
+      canonical_ref: "Ps.23.1",
+      versions: [
+        version("lxx/a", "grc", "Septuagint", "Rahlfs (1935)"),
+        version("lxx/b", "grc", "Septuagint", "Swete (1909)"),
+      ],
+    });
+    expect(greek.versions.map((v) => v.label)).toEqual(["Rahlfs (1935)", "Swete (1909)"]);
+  });
+
+  it("is empty for a passage with no other versions", () => {
+    expect(versionLanguages({ canonical_ref: "Gen.1.1", versions: [] })).toEqual([]);
   });
 });
 
