@@ -14,7 +14,13 @@ the mapped ref.
 Mapping data: Copenhagen Alliance standard mappings (see
 ``patristica/data/versification/ATTRIBUTION.md``).  Which scheme each source
 follows was determined by comparing per-chapter verse counts against each
-scheme's ``maxVerses`` (see ``SOURCE_SCHEMES``).
+scheme's ``maxVerses`` (see ``SOURCE_SCHEMES``); a book or chapter can
+follow another scheme (``BOOK_SCHEME_OVERRIDES``, ``CHAPTER_SCHEME_OVERRIDES``).
+
+Some books follow no scheme: Ge'ez Proverbs (26 chapters, 766 verses) and
+most of Ge'ez Job divide verses their own way, with offsets that change
+within chapters, and verses that merge or split (the Armenian psalm titles)
+cannot be mapped one to one. Aligning those by content is #179.
 """
 
 from __future__ import annotations
@@ -58,10 +64,40 @@ BOOK_SCHEME_OVERRIDES: dict[tuple[str, str], Scheme] = {
     ("clementine", "Jonah"): "org",  # 0.844 → 0.956; this edition breaks 1:17/2:1 as Hebrew
     ("coptic-nt", "Eccl"): "vul",
     ("coptic-nt", "Dan"): "vul",    # 0.475 → 0.660
-    ("coptic-nt", "Hos"): "eng",    # 0.367 → 0.412
+    # coptic-nt Hos follows its default (lxx): the "eng" override here misgrouped
+    # 8 verses of chapters 2 and 14, lxx none (#186).
     ("gez", "Eccl"): "eng",         # 0.570 → 0.666
     ("gez", "Joel"): "eng",         # 0.738 → 0.874; 3 chapters, English-style
     ("gez", "Ezra"): "org",         # 0.752 → 0.900
+}
+
+#: Chapters that follow a different scheme from their book (#186).  Some
+#: editions follow one scheme for most of a book and another around a few
+#: chapter boundaries (Isaiah 8/9, Exodus 40), where a whole-book override
+#: would fix one chapter and break another.  Chosen by content: for each verse,
+#: whether a neighbouring KJV verse (org ±1) is clearly closer (cosine + 0.05,
+#: stored vectors; rare languages through their English translations) than the
+#: KJV verse in its group.  Comments give those misaligned verses before → after;
+#: each override also raises the mean similarity and adds no duplicate groups
+#: unless noted.  Verses that merge or split (n:m) are left to #179.
+CHAPTER_SCHEME_OVERRIDES: dict[tuple[str, str, int], Scheme] = {
+    ("armenian", "Gen", 50): "org",     # 4 → 0
+    ("armenian", "Exod", 40): "org",    # 7 → 0
+    ("armenian", "Num", 13): "vul",     # 32 → 0 (the rest of the book is English-style)
+    ("armenian", "Josh", 21): "org",    # 5 → 0
+    ("armenian", "Job", 16): "org",     # 12 → 4
+    ("armenian", "Ps", 43): "lxx",      # 5 → 0
+    ("clementine", "Ps", 115): "lxx",   # 4 → 0; vul grouped 9 of its 10 verses twice
+    ("clementine", "Ps", 147): "lxx",   # 3 → 0; likewise
+    ("coptic-nt", "Isa", 9): "eng",     # 19 → 0
+    ("coptic-nt", "Job", 40): "vul",    # 4 → 0
+    ("coptic-nt", "Job", 41): "vul",    # 20 → 1
+    ("gez", "Exod", 21): "org",         # 2 → 0
+    ("gez", "Exod", 40): "vul",         # 10 → 8
+    ("gez", "Job", 16): "vul",          # 15 → 0; 16.5 joins 16.4's group (n:m)
+    ("gez", "Job", 41): "vul",          # 17 → 3
+    ("gez", "Isa", 9): "eng",           # 19 → 0
+    ("gez", "Isa", 64): "vul",          # 10 → 1; 64.1 (= 63.19b-64.1) joins 63.19 (n:m)
 }
 
 #: OSIS-style book (as used in our canonical refs) → Paratext/USFM code.
@@ -169,8 +205,8 @@ def _scheme_map(scheme: Scheme) -> dict[tuple[str, int, str], tuple[str, int, st
     return table
 
 
-def scheme_for(source_id: str, book: str) -> Scheme:
-    """Return the versification scheme a source uses for *book*."""
+def scheme_for(source_id: str, book: str, chapter: int | None = None) -> Scheme:
+    """Return the versification scheme a source uses for *book* (and *chapter*)."""
     try:
         default = SOURCE_SCHEMES[source_id]
     except KeyError:
@@ -178,6 +214,8 @@ def scheme_for(source_id: str, book: str) -> Scheme:
             f"No versification scheme registered for {source_id!r}; "
             "add it to SOURCE_SCHEMES in patristica/versification.py"
         ) from None
+    if chapter is not None and (source_id, book, chapter) in CHAPTER_SCHEME_OVERRIDES:
+        return CHAPTER_SCHEME_OVERRIDES[(source_id, book, chapter)]
     return BOOK_SCHEME_OVERRIDES.get((source_id, book), default)
 
 
@@ -201,7 +239,7 @@ def to_org_ref(source_id: str, canonical_ref: str) -> str:
     if book == "EzraNeh":
         book, chapter = _esdras_b(chapter)
 
-    scheme = scheme_for(source_id, book)
+    scheme = scheme_for(source_id, book, chapter)
     usfm = _GREEK_FORM[scheme].get(book) or _OSIS_TO_USFM.get(book)
     if usfm is None:
         return canonical_ref if parts[0] != "EzraNeh" else f"{book}.{chapter}.{verse}"
