@@ -180,6 +180,33 @@ def test_rerun_after_failed_index_build(pg_url: str, tmp_path: Path) -> None:
         assert not build_index.build_hnsw(conn, "64MB")
 
 
+def test_staging_joins_are_never_prepared(pg_url: str, tmp_path: Path,
+                                         monkeypatch: pytest.MonkeyPatch) -> None:
+    """The per-work staging joins are planned for each work (#170).
+
+    A prepared statement (psycopg prepares one after 5 executions) keeps the
+    plan made for one work's staging rows, which can be slow for all others.
+    """
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    calls: list[tuple[str, object]] = []
+    real = psycopg.Cursor.execute
+
+    def spy(self, query, params=None, *, prepare=None, binary=None):
+        calls.append((str(query), prepare))
+        return real(self, query, params, prepare=prepare, binary=binary)
+
+    monkeypatch.setattr(psycopg.Cursor, "execute", spy)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        conn.execute("UPDATE chunks SET text_folded = NULL")
+        build_index.run(conn, norm, trans, store)
+    staged = [prepare for sql, prepare in calls
+              if "FROM vector_stage" in sql or "FROM fold_stage" in sql]
+    assert len(staged) == 3 + 3  # vectors for 3 works, then folds for 3 works
+    assert set(staged) == {False}
+
+
 def test_dry_run_writes_nothing(pg_url: str, tmp_path: Path) -> None:
     psycopg = pytest.importorskip("psycopg")
     norm, trans, store = fx.write_corpus(tmp_path)
