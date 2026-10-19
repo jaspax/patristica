@@ -123,6 +123,18 @@ describe("SearchPage", () => {
     expect(push).toHaveBeenLastCalledWith("/?language=syc", { scroll: false });
   });
 
+  it("shows the Search button as busy while the first page loads", async () => {
+    search = "q=faith";
+    let respond: (r: Response) => void = () => {};
+    const pending = new Promise<Response>((resolve) => (respond = resolve));
+    serve(() => pending as unknown as Response);
+    await renderPage();
+    const button = screen.getByRole("button", { name: "Search" });
+    await waitFor(() => expect(button.getAttribute("aria-busy")).toBe("true"));
+    respond(json(page([result()])));
+    await waitFor(() => expect(button.getAttribute("aria-busy")).toBe("false"));
+  });
+
   it("folds the filters away below the search bar until a link sets one", async () => {
     serve(() => json(page([])));
     await renderPage();
