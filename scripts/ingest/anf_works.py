@@ -1002,6 +1002,15 @@ _ORIGINALS: dict[str, str] = {
     # PG 13 prints the extant Greek books (10-17) as one Work; the ANF
     # translates books 10-14 (First1KGreek splits them over two Works).
     "origen-commentary-on-matthew": "ogpg/vol-013/commentarii-in-matthaeum",
+    # ANF06: Bibliotheca cod. 119 (PG 103, col. 399), inside the Work for
+    # codd. 1-249.
+    "photius-on-pierius": "ogpg/vol-103/bibliotheca-1",
+    # ANF07: PL 7's Fragmenta holds fragments I-IV and the poem on the Passion;
+    # the ANF also prints the Phoenix, which it lacks.
+    "lactantius-fragments": "oglt-pl/lactantius/pl7_0_lact",
+    # ANF08: the letter of the presbyters and deacons of Achaia (PG 2, cols.
+    # 1217-1248); the Work opens with short notices on Andrew (cols. 1191-1197).
+    "acts-and-martyrdom-of-andrew": "ogpg/vol-002/de-martyrio-andreae",
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).
@@ -1010,12 +1019,22 @@ _UNLINKED: dict[str, str] = {
     "methodius-fragments": "spread over several first1k fragment works",
     "methodius-concerning-matter": "an extract of first1k tlg2959.tlg002 (De libero arbitrio)",
     "pseudo-methodius-oration-on-the-palms": "not found in OGPG PG 18's Methodius",
-    "lactantius-fragments": "OGLT pl7 'Fragmenta' contents not verified to match",
     "cyprian-epistles": "OGLT has only five individual letters, not the collection",
     "apology-of-aristides": "Greek survives only inside Barlaam and Josaphat (perseus tlg2934.tlg066)",
     "origen-de-principiis": "translates Rufinus's Latin; OGPG PG 11 has only the Greek fragments",
     "hippolytus-dogmatical-and-historical": "several works, each a separate OGPG PG 10 Work",
     "pseudo-gregory-thaumaturgus-dubious-writings": "spread over three OGPG PG 10 Works",
+    "passion-of-symphorosa": "Latin passio; not in the OCR of OGPG PG 10's julius-africanus",
+    "dionysius-of-rome-against-the-sabellians": (
+        "Greek only inside Athanasius, De decretis 26; OGLT pl5 prints a Latin version"),
+    "acts-and-records-baptism-of-heretics": "several OGLT PL 3 council Works (Rome, Carthage)",
+    "pseudo-clementine-recognitions": "Rufinus's Latin is not in the corpus; the Homilies differ",
+    "ignatius-latin-correspondence": "Latin letters; the corpus has only Greek recensions",
+    "gospel-of-nicodemus": "translates the Greek and Latin forms; the corpus has a Coptic one",
+    # Quoted inside another author's work (Eusebius HE), which would group
+    # them with that author's works.
+    "apollonius-against-the-montanists": "only quoted in Eusebius HE 5.18",
+    "phileas-epistle-to-thmuis": "only quoted in Eusebius HE 8.10",
     # OGPG prints these in Works of several authors (PG 5 Fragmenta saeculi
     # II; PG 10 Alexandrina fragmenta), which would group unrelated works.
     **{s: "only in a multi-author OGPG Work" for s in (

@@ -836,6 +836,9 @@ _ORIGINALS: dict[str, str] = {
     "augustine-soliloquies": _AUG_PL.format("pl32_0_s."),
     # Only the PL 36 file of the Enarrationes is in the corpus.
     "augustine-expositions-on-the-psalms": _AUG_PL.format("pl36_0_san"),
+    # Sermons 51-147 (Benedictine numbering), all in PL 38's first class of
+    # sermons (De Scripturis, Sermons 1-183).
+    "augustine-sermons-on-new-testament-lessons": _AUG_PL.format("pl38_0_s."),
     # NPNF1: Chrysostom (PTA)
     "chrysostom-homilies-on-colossians": "pta/pta0002/pta161/pta-grc1",
     # NPNF2 vol. 1-3: historians (First1KGreek), Jerome/Rufinus/Gennadius (OGLT)
@@ -920,7 +923,6 @@ _ORIGINALS: dict[str, str] = {
 
 #: Plausible originals deliberately *not* linked (slug → reason).
 _UNLINKED: dict[str, str] = {
-    "augustine-sermons-on-new-testament-lessons": "spread over the PL 38-39 sermon classes",
     "athanasius-canonical-epistles": "excerpts from three letters, not one work",
     "athanasius-personal-letters": "letters spread over several OGPG PG 25-26 works",
     "athanasius-festal-letters": "survive in Syriac; OGPG PG 26 has only a Greek fragment",
@@ -932,6 +934,8 @@ _UNLINKED: dict[str, str] = {
     "amphilochius-iambics-to-seleucus": "the Iambi are not in OGPG PG 39's Amphilochius",
     "gennadius-encyclical-letter": "not found in the OCR of OGPG PG 85's Gennadius",
     "timothy-of-alexandria-canonical-answers": "OGPG prints it in a two-author Work (PG 33)",
+    "theodoret-counter-statements": (
+        "quoted in Cyril's Apologia contra Theodoretum, not a split OGPG PG 76 Work"),
 }
 
 _WORKS = link_originals(_WORKS, _ORIGINALS)

@@ -62,7 +62,8 @@ class _WorkSpec:
     skip_ids: tuple[str, ...] = ()  # child divs belonging to another work / editorial
     #: work_id of the original-language Work in the corpus.  No Syriac (or
     #: Armenian) original of these texts is in the corpus; only the Abgar story,
-    #: the Syriac version of Eusebius HE 1.13, is linked to the Greek HE.
+    #: the Syriac version of Eusebius HE 1.13, is linked to the Greek HE, and
+    #: Metaphrastes's Greek martyrdom to his Menologium in OGPG.
     translation_of: str | None = None
 
 
@@ -157,6 +158,9 @@ _WORKS: tuple[_WorkSpec, ...] = (
         date_composed=975, date_range=(950, 1000), date_confidence="approximate",
         tradition="greek", ref_prefix="MartShamuna",
         div_id="ix.xii", title_check="Shamuna, Guria",
+        # PG 116, from col. 127 ("Martyrium SS. Gurii, Samonae et Abibi"),
+        # inside the Work for the third Menologium volume.
+        translation_of="ogpg/vol-116/menologium-3",
     ),
     _WorkSpec(
         slug="moses-khoren-history-of-armenia",
