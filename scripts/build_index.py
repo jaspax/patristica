@@ -499,9 +499,17 @@ def sync_groups(conn: psycopg.Connection, changes: dict[str, dict[str, str | Non
 
 
 def hash_format(conn: psycopg.Connection) -> int:
-    """The format of the stored ``content_sha`` values (``HASH_FORMAT``)."""
-    if not conn.execute("SELECT to_regclass('index_meta') IS NOT NULL").fetchone()[0]:
-        return HASH_FORMAT  # an empty database: every hash will be new
+    """The format of the stored ``content_sha`` values (``HASH_FORMAT``).
+
+    No ``index_meta`` table, or no ``hash_format`` row, means a database loaded
+    before #186: format 1. (A dry run sees such a database before the schema is
+    applied, so it must agree with the real run, which creates the table first.)
+    An empty database has no hashes to migrate, and the real run records the
+    current format as soon as it finds no works.
+    """
+    if not conn.execute("SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = "
+                        "current_schema() AND tablename = 'index_meta')").fetchone()[0]:
+        return 1
     row = conn.execute("SELECT value FROM index_meta WHERE key = 'hash_format'").fetchone()
     return 1 if row is None else int(row[0])
 

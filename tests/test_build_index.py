@@ -297,12 +297,16 @@ def test_regrouping_updates_groups_in_place(pg_url: str, tmp_path: Path,
         assert (again.loaded, again.regrouped) == (0, 0)
 
 
+@pytest.mark.parametrize("legacy", ["no hash_format row", "no index_meta table"])
 def test_hash_format_transition_reloads_nothing(pg_url: str, tmp_path: Path,
-                                                monkeypatch: pytest.MonkeyPatch) -> None:
+                                                monkeypatch: pytest.MonkeyPatch,
+                                                legacy: str) -> None:
     """The first run on a database loaded with format-1 hashes rewrites them in place.
 
     Even when the groups change in the same run (the overrides of #186): the
-    format-1 hash is checked against the groups in the database.
+    format-1 hash is checked against the groups in the database. A database
+    loaded before #168 has no index_meta table at all; the dry run must agree
+    with the real run there too.
     """
     psycopg = pytest.importorskip("psycopg")
     norm, trans, store = fx.write_corpus(tmp_path)
@@ -317,7 +321,11 @@ def test_hash_format_transition_reloads_nothing(pg_url: str, tmp_path: Path,
                      emb.shard_path(store, e["path"])]
             conn.execute("UPDATE works SET content_sha = %s WHERE work_id = %s",
                          (_format1_sha(e, files, groups.get(work_id, {})), work_id))
-        conn.execute("DELETE FROM index_meta WHERE key = 'hash_format'")
+        if legacy == "no index_meta table":
+            conn.execute("DROP TABLE index_meta")
+        else:
+            conn.execute("DELETE FROM index_meta WHERE key = 'hash_format'")
+        assert build_index.hash_format(conn) == 1
         vectors = conn.execute(_VECTOR_ROWS).fetchall()
 
         _swap_kjv_gen_1(monkeypatch)
