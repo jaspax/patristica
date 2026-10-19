@@ -1011,6 +1011,15 @@ _ORIGINALS: dict[str, str] = {
     # ANF08: the letter of the presbyters and deacons of Achaia (PG 2, cols.
     # 1217-1248); the Work opens with short notices on Andrew (cols. 1191-1197).
     "acts-and-martyrdom-of-andrew": "ogpg/vol-002/de-martyrio-andreae",
+    # ANF05: PL 47 prints Cyprian's De dominica oratione, word for word, as
+    # Augustine's "Opusculum I sive liber de oratione".
+    "cyprian-lords-prayer": "oglt-pl/augustinus/pl47_0_unk",
+    # ANF06: the "Logos eis ta baia" (PG 18, p. 293 of the OCR), inside the
+    # Work that also holds Simeon and Anna.
+    "pseudo-methodius-oration-on-the-palms": "ogpg/vol-018/methodius-opera-varia",
+    # ANF08: the Latin Liber de nativitate Mariae, with its pseudo-Jerome
+    # preface, inside PL 30's mantissa of works ascribed to Jerome.
+    "gospel-of-the-nativity-of-mary": "oglt-pl/pseudo-hieronymus/pl30_0_",
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).
@@ -1018,7 +1027,6 @@ _UNLINKED: dict[str, str] = {
     "ignatius-syriac-recension": "Syriac abridgement; no Syriac original in corpus",
     "methodius-fragments": "spread over several first1k fragment works",
     "methodius-concerning-matter": "an extract of first1k tlg2959.tlg002 (De libero arbitrio)",
-    "pseudo-methodius-oration-on-the-palms": "not found in OGPG PG 18's Methodius",
     "cyprian-epistles": "OGLT has only five individual letters, not the collection",
     "apology-of-aristides": "Greek survives only inside Barlaam and Josaphat (perseus tlg2934.tlg066)",
     "origen-de-principiis": "translates Rufinus's Latin; OGPG PG 11 has only the Greek fragments",
