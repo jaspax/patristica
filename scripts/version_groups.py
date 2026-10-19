@@ -30,7 +30,8 @@ def report(input_dir: Path, show_members: bool = False) -> str:
              for line in (input_dir / "_works.jsonl").read_text(encoding="utf-8").splitlines()
              if line.strip()]
     language_of = {w["work_id"]: w["language"] for w in works}
-    groups = derive_version_groups({w["work_id"]: w.get("translation_of") for w in works})
+    groups = derive_version_groups({w["work_id"]: w.get("translation_of") for w in works},
+                                   external_ids={w["work_id"]: w.get("external_ids", []) for w in works})
     out: list[str] = []
     for title, scripture in (("Scripture books", True), ("Other works", False)):
         part = _split(groups, scripture)
@@ -44,6 +45,15 @@ def report(input_dir: Path, show_members: bool = False) -> str:
     out += ["## Works in a multi-member group, per language", "",
             "| language | in a group | works |", "|---|---:|---:|"]
     out += [f"| {lang} | {linked[lang]} | {total[lang]} |" for lang in sorted(total)]
+    cross_works = {w for mem in groups.crosswalk.values() for w in mem}
+    by_kind = Counter(i.split(":", 1)[0] for i in groups.crosswalk)
+    out += ["", "## Identifier crosswalk", "",
+            f"{len(groups.crosswalk)} shared identifiers join {len(cross_works)} works "
+            f"({', '.join(f'{k} {n}' for k, n in sorted(by_kind.items())) or 'none'}).",
+            f"{len(groups.collections)} identifiers set aside as collections "
+            "(carried by two different works of one source):"]
+    out += [f"- `{ident}`: " + ", ".join(f"`{w}`" for w in mem)
+            for ident, mem in groups.collections.items()]
     if groups.dangling:
         out += ["", f"Ignored links to unknown works: {list(groups.dangling)}"]
     if show_members:

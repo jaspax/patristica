@@ -346,7 +346,7 @@ def normalize_all(
 WORKS_MANIFEST = "_works.jsonl"
 
 
-def write_works_manifest(output_dir: Path) -> None:
+def write_works_manifest(output_dir: Path, raw_root: Path | None = None) -> None:
     """Maintain ``{output_dir}/_works.jsonl``: the full ``Work`` record for every
     normalized file, one JSON object per line (``{"path": ..., "work": {...}}``).
 
@@ -356,6 +356,8 @@ def write_works_manifest(output_dir: Path) -> None:
     when it exists; when it does not (fresh clone) the previous entry is kept.
     Either way the curated genre from ``patristica.genres`` is applied and
     ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82).
+    An empty ``external_ids`` is left out.  *raw_root* defaults to the
+    ``raw`` directory next to *output_dir*.
     Entries for normalized files that no longer exist are dropped.  The file is
     rewritten only when its content changes.
     """
@@ -367,7 +369,8 @@ def write_works_manifest(output_dir: Path) -> None:
                 rec = json.loads(line)
                 previous[rec["path"]] = rec["work"]
 
-    raw_root = output_dir.resolve().parent / "raw"
+    if raw_root is None:
+        raw_root = output_dir.resolve().parent / "raw"
     entries: dict[str, dict] = {}
     for norm_path in sorted(output_dir.rglob("*.json")):
         if norm_path.name.startswith("_"):
@@ -383,7 +386,12 @@ def write_works_manifest(output_dir: Path) -> None:
         if work is None:
             log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
             continue
-        entries[rel] = apply_author_ids(apply_genre_override(work))
+        work = apply_author_ids(apply_genre_override(work))
+        if not work.get("external_ids", True):
+            # Only sources that record catalogue ids carry the field (#178), so
+            # adding it to Work doesn't rewrite every manifest entry.
+            work = {k: v for k, v in work.items() if k != "external_ids"}
+        entries[rel] = work
 
     content = "".join(
         json.dumps({"path": rel, "work": work}, ensure_ascii=False, sort_keys=True) + "\n"

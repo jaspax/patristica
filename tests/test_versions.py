@@ -18,6 +18,7 @@ from patristica.versions import (
     language_pair_counts,
     load_version_links,
     scripture_book,
+    work_identifiers,
 )
 
 WORKS_MANIFEST = Path(__file__).resolve().parents[1] / "data" / "normalized" / "_works.jsonl"
@@ -29,6 +30,13 @@ def _manifest() -> list[dict]:
 
 def _works() -> dict[str, dict]:
     return {rec["work"]["work_id"]: rec["work"] for rec in _manifest()}
+
+
+def _derive(works: dict[str, dict], **kw):
+    """Version groups of the tracked corpus, as export_library derives them."""
+    return derive_version_groups(
+        {w: rec.get("translation_of") for w, rec in works.items()},
+        external_ids={w: rec.get("external_ids", []) for w, rec in works.items()}, **kw)
 
 
 def _write(tmp_path: Path, rows: list[str]) -> Path:
@@ -152,6 +160,37 @@ class TestDerive:
             ("eng", "grc", 1, 3), ("eng", "hbo", 1, 2), ("grc", "grc", 1, 2)]
 
 
+class TestCrosswalk:
+    def test_identifiers(self) -> None:
+        assert work_identifiers("first1k/tlg2042/tlg007/perseus-grc1") == ["TLG:tlg2042.tlg007"]
+        assert work_identifiers("first1k/stoa0146d/stoa001/1st1K-grc1") == []
+        assert work_identifiers("pta/pta0005/pta001/pta-grc1", [
+            "TLG:tlg4090.tlg096", "CPG:5200", "Pinakes-Oeuvre:1956", "GND:4489672-4",
+            "BHG:414p-414s", "TLG:tlg2797.tlg005–tlg009", "CPG:4236a.2-1",
+        ]) == ["CPG:4236a.2-1", "CPG:5200", "TLG:tlg4090.tlg096"]
+
+    def test_shared_identifier_joins_sources(self) -> None:
+        g = derive_version_groups(
+            {"pta/p1/w1/pta-grc1": None, "first1k/tlg0001/tlg002/1st1K-grc1": None,
+             "ogpg/vol-1/x": None},
+            links=[],
+            external_ids={"pta/p1/w1/pta-grc1": ["TLG:tlg0001.tlg002", "CPG:1000"],
+                          "ogpg/vol-1/x": ["CPG:1000"]})
+        assert len(g.members) == 1 and len(next(iter(g.members.values()))) == 3
+        assert set(g.crosswalk) == {"TLG:tlg0001.tlg002", "CPG:1000"}
+
+    def test_collection_identifier_is_set_aside(self) -> None:
+        """Two different works of one source with one id: the id names a collection."""
+        g = derive_version_groups(
+            {"pta/p1/w1/pta-grc1": None, "pta/p1/w2/pta-grc1": None, "ogpg/vol-1/x": None},
+            links=[],
+            external_ids={"pta/p1/w1/pta-grc1": ["CPG:1000"], "pta/p1/w2/pta-grc1": ["CPG:1000"],
+                          "ogpg/vol-1/x": ["CPG:1000"]})
+        assert g.members == {}
+        assert g.collections == {"CPG:1000": ("ogpg/vol-1/x", "pta/p1/w1/pta-grc1",
+                                              "pta/p1/w2/pta-grc1")}
+
+
 class TestTrackedLinks:
     """The curated file against the tracked corpus manifest."""
 
@@ -167,20 +206,20 @@ class TestTrackedLinks:
 
     def test_no_dangling_links(self) -> None:
         works = _works()
-        g = derive_version_groups({w: rec.get("translation_of") for w, rec in works.items()})
+        g = _derive(works)
         assert g.dangling == ()
 
     def test_curated_links_add_something(self) -> None:
         """A curated link that the derived rules already imply is noise: drop it."""
         works = _works()
-        base = derive_version_groups(
-            {w: rec.get("translation_of") for w, rec in works.items()}, links=[])
+        base = _derive(works, links=[])
         redundant = [
             (link.work_id, link.other_work_id) for link in load_version_links(LINKS_PATH)
             if base.group(link.work_id) is not None
             and base.group(link.work_id) == base.group(link.other_work_id)
         ]
-        assert not redundant, f"links already implied by translation_of/book/CTS: {redundant}"
+        assert not redundant, (
+            f"links already implied by translation_of/book/CTS/identifiers: {redundant}")
 
     def test_translation_of_links_point_at_a_different_language(self) -> None:
         works = _works()
@@ -216,7 +255,7 @@ class TestTrackedLinks:
 
     def test_known_groups(self) -> None:
         works = _works()
-        g = derive_version_groups({w: rec.get("translation_of") for w, rec in works.items()})
+        g = _derive(works)
         gen = g.members["book:gen"]
         for wid in ("kjv/gen", "oshb/gen", "clementine/gen", "lxx-rahlfs/gen", "pta-peshitta/gen"):
             assert wid in gen
@@ -227,7 +266,20 @@ class TestTrackedLinks:
     def test_stable(self) -> None:
         """Two derivations of the tracked corpus agree (no set-order effects)."""
         works = _works()
-        a = derive_version_groups({w: rec.get("translation_of") for w, rec in works.items()})
-        b = derive_version_groups(
-            {w: works[w].get("translation_of") for w in sorted(works, reverse=True)})
+        a = _derive(works)
+        b = _derive({w: works[w] for w in sorted(works, reverse=True)})
         assert a == b
+
+    def test_crosswalk_links_pta_to_first1k(self) -> None:
+        """PTA records TLG ids; they join PTA works to First1K editions (#178)."""
+        g = _derive(_works())
+        assert g.group("pta/pta0007/pta007/pta-grc1") == g.group(
+            "first1k/tlg2042/tlg007/perseus-grc1")
+        assert "TLG:tlg2042.tlg007" in g.crosswalk
+
+    def test_crosswalk_sets_collections_aside(self) -> None:
+        """TLG numbers Severian's six homilies In cosmogoniam as one work: not merged."""
+        g = _derive(_works())
+        assert "TLG:tlg4139.tlg011" in g.collections
+        g57, g58 = g.group("pta/pta0001/pta057/pta-grc1"), g.group("pta/pta0001/pta058/pta-grc1")
+        assert g57 is None or g57 != g58

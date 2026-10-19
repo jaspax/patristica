@@ -204,7 +204,8 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
     if removed:
         log.info("Removed %d library files with no normalized source", removed)
 
-    groups = derive_version_groups({w.work_id: w.translation_of for _, w in entries})
+    groups = derive_version_groups({w.work_id: w.translation_of for _, w in entries},
+                                   external_ids={w.work_id: w.external_ids for _, w in entries})
     if groups.dangling:
         log.warning("Version links to works not in the corpus, ignored: %s", groups.dangling)
     rows: list[dict[str, Any]] = []
