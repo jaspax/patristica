@@ -175,6 +175,11 @@ def _file_digest(hashes: list[Any], path: Path) -> None:
 
 
 def _sha_head(entry: dict, groups: dict[str, str] | None) -> bytes:
+    # ``external_ids`` (#178) isn't loaded, so recording a work's catalogue
+    # ids must not change its hash and reload its chunks and vectors.
+    work = entry.get("work")
+    if isinstance(work, dict) and "external_ids" in work:
+        entry = {**entry, "work": {k: v for k, v in work.items() if k != "external_ids"}}
     head: dict[str, Any] = {"loader": LOADER_VERSION, "schema": SCHEMA_VERSION, "dims": DIMS,
                             "entry": entry}
     if groups is not None:  # hash format 1

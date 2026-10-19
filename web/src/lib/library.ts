@@ -20,6 +20,12 @@ export interface WorkRow {
   license: string;
   provenance_url: string | null;
   translation_of: string | null;
+  /**
+   * Version group (patristica/versions.py, #178): the works that are the same
+   * text in other languages or editions share this id. Null when the work has
+   * no other version. The id can change when links change; don't put it in URLs.
+   */
+  version_group: string | null;
   chunks: number;
   file: string;
 }

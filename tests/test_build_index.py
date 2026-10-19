@@ -80,6 +80,13 @@ def test_content_sha_tracks_inputs(tmp_path: Path) -> None:
     assert base != build_index.content_sha(entry, [f, tmp_path / "missing"])
 
 
+def test_content_sha_ignores_external_ids(tmp_path: Path) -> None:
+    """Catalogue ids aren't loaded, so adding them must not reload a work (#178)."""
+    entry = {"path": "a.json", "work": {"work_id": "a"}}
+    with_ids = {"path": "a.json", "work": {"work_id": "a", "external_ids": ["CPG:5200"]}}
+    assert build_index.content_sha(entry, []) == build_index.content_sha(with_ids, [])
+
+
 def _format1_sha(entry: dict, files: list[Path], groups: dict[str, str]) -> str:
     """content_sha as it was before #186 (hash format 1), verbatim."""
     import hashlib

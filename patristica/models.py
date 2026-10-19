@@ -96,6 +96,17 @@ class Work(BaseModel):
         description="work_id of the original-language work this is a translation of.",
     )
 
+    # Catalogue identifiers the source records for the work (#178)
+    external_ids: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Identifiers the source itself records for the work, as 'KIND:value' "
+            "(e.g. 'TLG:tlg4090.tlg096', 'CPG:5200', 'BHG:1234', 'Pinakes-Oeuvre:1956'). "
+            "patristica.versions joins works that share a TLG, CPG or BHG id. "
+            "Omitted from _works.jsonl when empty."
+        ),
+    )
+
 
 # ---------------------------------------------------------------------------
 # Chunk — one text unit (verse, paragraph, stanza, canon, etc.)
