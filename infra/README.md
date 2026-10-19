@@ -128,6 +128,7 @@ infra/db-tunnel.sh psql
 - It needs `data/normalized` (tracked), `data/translations` (tracked) and `data/embeddings` (from `scripts.embed`, gitignored).
 - The first load copies about 4 GB of vectors (binary COPY, ~1 KB a vector) and then builds the HNSW index on the droplet with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`). Later runs reload only works whose inputs changed and insert into the live index. A run that changes most of the corpus is faster with `--rebuild-index`.
 - Each work is its own transaction, so an interrupted run picks up where it stopped. The index is built at the end of a run, so after an interruption run it again to completion.
+- A change of Scripture verse groups (`patristica/versification.py`) only updates `chunks.translation_group_id` in place; the summary line counts the chunks "regrouped in place". The first run after #186 also rewrites each work's stored hash to the new format ("format-1 hashes rewritten") and reloads nothing; check with `--dry-run` that it reports 0 loaded.
 - After the index build, warm the cache: `SELECT pg_prewarm('chunk_vectors_hnsw_m1');`.
 - The keyword index for quoted search (#86) needs every chunk's `text_folded`. The first run after it was added folds the loaded chunks in place from the local normalized files (no vectors are reloaded), sending about 650 MB, then builds `chunks_text_folded_trgm` (about 650 MB). The `UPDATE` rewrites every chunk row, so `chunks` temporarily takes about twice its size on the volume.
 
