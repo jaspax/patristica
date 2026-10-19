@@ -126,16 +126,29 @@ describe("SearchPage", () => {
   it("folds the filters away below the search bar until a link sets one", async () => {
     serve(() => json(page([])));
     await renderPage();
-    const panel = screen.getByText("Filters").closest("details")!;
-    expect(panel.open).toBe(false);
+    const toggle = screen.getByRole("button", { name: "Filters" });
+    const panel = document.getElementById(toggle.getAttribute("aria-controls")!)!;
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(panel.hidden).toBe(true);
+    expect(screen.queryByRole("button", { name: "Clear filters" })).toBeNull();
+    fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(panel.hidden).toBe(false);
     cleanup();
 
     search = "q=faith&language=syc&from=300&to=400";
     serve(() => json(page([])));
     await renderPage();
-    const opened = screen.getByText("Filters (2)").closest("details")!;
-    expect(opened.open).toBe(true);
-    expect(within(opened).getByRole("button", { name: "Clear filters" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Filters (2)" }).getAttribute("aria-expanded")).toBe("true");
+  });
+
+  it("clears the filters from beside the toggle, even with the panel closed", async () => {
+    search = "q=faith&language=syc";
+    serve(() => json(page([])));
+    await renderPage();
+    fireEvent.click(screen.getByRole("button", { name: "Filters (1)" }));
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(push).toHaveBeenLastCalledWith("/?q=faith", { scroll: false });
   });
 
   it("renders results with the citation first, the text in its script and the translation labelled", async () => {

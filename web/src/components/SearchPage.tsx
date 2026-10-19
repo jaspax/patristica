@@ -149,29 +149,34 @@ function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFor
           <SearchHelp />
         </div>
       </div>
-      <details
-        className={styles.filterPanel}
-        open={showFilters}
-        onToggle={(e) => onToggleFilters(e.currentTarget.open)}
-      >
-        <summary>Filters{active > 0 && ` (${active})`}</summary>
-        <div className={filterStyles.filters}>
-          {facets ? (
-            <FilterFields value={state} facets={facets} onChange={(c: Partial<FacetValues>) => onChange(c)} />
-          ) : (
-            <p className={styles.status}>Loading filters…</p>
-          )}
-          {active > 0 && (
-            <button
-              type="button"
-              className={styles.reset}
-              onClick={() => onChange({ ...DEFAULT_SEARCH, q: state.q })}
-            >
-              Clear filters
-            </button>
-          )}
-        </div>
-      </details>
+      {/* Not a <details>: "Clear filters" sits beside the toggle, so it works while the panel is closed. */}
+      <div className={styles.filterBar}>
+        <button
+          type="button"
+          className={styles.filterToggle}
+          aria-expanded={showFilters}
+          aria-controls="search-filters"
+          onClick={() => onToggleFilters(!showFilters)}
+        >
+          Filters{active > 0 && ` (${active})`}
+        </button>
+        {active > 0 && (
+          <button
+            type="button"
+            className={styles.reset}
+            onClick={() => onChange({ ...DEFAULT_SEARCH, q: state.q })}
+          >
+            Clear filters
+          </button>
+        )}
+      </div>
+      <div id="search-filters" className={`${filterStyles.filters} ${styles.filterPanel}`} hidden={!showFilters}>
+        {facets ? (
+          <FilterFields value={state} facets={facets} onChange={(c: Partial<FacetValues>) => onChange(c)} />
+        ) : (
+          <p className={styles.status}>Loading filters…</p>
+        )}
+      </div>
     </form>
   );
 }
