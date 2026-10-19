@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-049/catecheses-ad-illuminandos",
+ "pivot": "npnf-works/chrysostom-instructions-to-catechumens",
+ "groups": 168,
+ "inputs": "433562cec5dd9589",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/chrysostom-instructions-to-catechumens", "units": 398, "ids": "62601a9cc05ebf6b", "inputs": "fe825568292539c1", "spans": "+==++++++++++++++++++..............++++++++++++++++++=+++........................+++++++++++++++++++++=+=.........................++++++=+++++++++++++++=........................+=.......................................++++++++++++++++++++=+.....................++++++++++++++++++++=+=......................++++=+++=++++++++++++++.......................+++++++.+++=++++++++=+=+..........+=..........", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999996999999999999999999999999999999999999999999999999999999999999999999999999999999999957"},
+  {"work_id": "ogpg/vol-049/catecheses-ad-illuminandos", "units": 179, "ids": "a2a055b54882dc2e", "inputs": "9fd40cf8c404c3b5", "spans": "++++++=+++++=++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++=+++++++.++++++++++=+++++++++++++=+++++++++++++++++++++++++=+++=+++++++++++++=+++++++=+++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999996999999999999999999999999999999999999999999999999999999999999999999999999999999999957"}
+ ]
+}

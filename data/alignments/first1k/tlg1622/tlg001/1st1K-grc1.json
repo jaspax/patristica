@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "first1k/tlg1622/tlg001/1st1K-grc1",
+ "pivot": "anf-works/polycarp-epistle-to-the-philippians",
+ "groups": 60,
+ "inputs": "0d2b07100d62c904",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/polycarp-epistle-to-the-philippians", "units": 82, "ids": "1a93e70056555ffd", "inputs": "6dc5f838415410c2", "spans": "++++++=+++++=+++++=++++==++++==+++++++++++++++++++++++.++.++=.+=..+..+=++.++=++...", "conf": "999999999999999999999999999999999999999999999994758725443999"},
+  {"work_id": "first1k/tlg1622/tlg001/1st1K-grc1", "units": 74, "ids": "4a7ea593d4cb0cf4", "inputs": "0c5f3ad21f5ab97e", "spans": "+=+++++++++++++++=++++=++++=+++++++++++++++++++++++.+2.++++.....+++++=++=..", "conf": "99999999999999999999999999999999999999999999999758725443999"},
+  {"work_id": "ogpg/vol-005/polycarpi-epistula", "units": 60, "ids": "4da060e08810d98a", "inputs": "c2c5dc5060f57a41", "spans": "+=+++++=+++++=+++=++++++==++++=+++++++++++++++++++++++++10++=.", "conf": "999999999999999999999999999999999999999999999994999"}
+ ]
+}

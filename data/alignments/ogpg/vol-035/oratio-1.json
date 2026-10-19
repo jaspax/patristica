@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-035/oratio-1",
+ "pivot": "npnf-works/gregory-nazianzen-oration-01",
+ "groups": 34,
+ "inputs": "2967d20ed50ab8dd",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/gregory-nazianzen-oration-01", "units": 41, "ids": "92dbdbafc8a78ca5", "inputs": "9f283832dd633704", "spans": "...++++=+++++++++++.+++++++=+++++++.+++++", "conf": "9999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-035/oratio-1", "units": 40, "ids": "0e2db2da6be85129", "inputs": "c26dd73578ba716b", "spans": "+++++++++=++++=++++.+++.++=++++++++++++=", "conf": "9999999999999999999999999999999999"}
+ ]
+}

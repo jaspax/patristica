@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-063/in-principio-erat-verbum",
+ "pivot": "pta/pta0001/pta026/pta-grc1",
+ "groups": 55,
+ "inputs": "24332f6e56bad2b0",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ogpg/vol-063/in-principio-erat-verbum", "units": 67, "ids": "9e8008317b43cded", "inputs": "7d76621fc0f75af0", "spans": ".........+=++++++=++++++++++++++=++++++++++++++++++++++++++++++++++", "conf": "9999999989999999999999999999999999999999999999999999992"},
+  {"work_id": "pta/pta0001/pta026/pta-grc1", "units": 141, "ids": "d494f909eac287c3", "inputs": "165d6a38a3c53132", "spans": "++++++++==....++=++++++++++++++++++++=+=+..................+==.++++++++++++=++=+++++++.....................................+.................", "conf": "9999999989999999999999999999999999999999999999999999992"}
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-010/thaumaturgus-expositio-fidei",
+ "pivot": "ogpg/vol-010/thaumaturgus-expositio-fidei",
+ "groups": 7,
+ "inputs": "75964938ded0a15b",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/gregory-thaumaturgus-declaration-of-faith", "units": 11, "ids": "926d914e6c0c02b5", "inputs": "49d57296cd4af874", "spans": "++=+++++=..", "conf": "6999999"},
+  {"work_id": "ogpg/vol-010/thaumaturgus-expositio-fidei", "units": 77, "ids": "352c4c4b9954258f", "inputs": "b06fe4b19782e31a", "spans": "....+..................................................+==..............+++++", "conf": "6999999"}
+ ]
+}

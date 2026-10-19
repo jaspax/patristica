@@ -1,0 +1,20 @@
+{
+ "format": 1,
+ "group": "book:phlm",
+ "pivot": "asv/phlm",
+ "groups": 25,
+ "inputs": "4c69fe10f5b23b5a",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "armenian/phlm", "units": 25, "ids": "f0f6d5fa89bbe234", "inputs": "1b7d501abd568c23", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "asv/phlm", "units": 25, "ids": "9effffcacc9e06bc", "inputs": "2d0e896be7109043", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "clementine/phlm", "units": 25, "ids": "4d984a7bdae829f8", "inputs": "e73af074490ed95d", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "coptic-nt/phlm", "units": 25, "ids": "a71b287a11ad1f06", "inputs": "83800d8068b107ae", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "kjv/phlm", "units": 25, "ids": "2bb6bff363e9ff93", "inputs": "5fde863cf438c3a2", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "pta-lxx/phlm", "units": 25, "ids": "0e8d3ea688681522", "inputs": "faf12ef89b4d5481", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "pta-peshitta/phlm", "units": 25, "ids": "b64f0a77e94a2311", "inputs": "f969bc008fc827d0", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "sblgnt/phlm", "units": 25, "ids": "32b7637808af8656", "inputs": "04e05a7f48a5eaf2", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "web/phlm", "units": 25, "ids": "48074ad26386ae06", "inputs": "311feadcfa1b9647", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "wulfila/phlm", "units": 13, "ids": "b4d07e17dfbb39b8", "inputs": "02883defba503991", "spans": "+11+++=+2+2=+++=+2", "conf": "9999999999"}
+ ]
+}

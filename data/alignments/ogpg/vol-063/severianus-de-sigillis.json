@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-063/severianus-de-sigillis",
+ "pivot": "pta/pta0001/pta025/pta-grc1",
+ "groups": 122,
+ "inputs": "c0f4d04409d889e6",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ogpg/vol-063/severianus-de-sigillis", "units": 128, "ids": "96aa13b33a612a93", "inputs": "a005c6db1d59316c", "spans": "..+=++++++++++=++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++", "conf": "99999999999999999999999999999998999999999999999999999999999999999999999999999699999999999999999999992999999999999999999995"},
+  {"work_id": "pta/pta0001/pta025/pta-grc1", "units": 279, "ids": "edb7161cf7f6e32c", "inputs": "5f804bc4ebbcddca", "spans": "+++=+++++++=...........+++++++++++++++++++++=+....................+=+++++=++=++++++++++++++=.........................+=++=+++++++++++++++++++=+.....................+=.++++++++++++++++++++++............+..............++++++++++=+++++++++=+=.....................................+..", "conf": "99999999999999999999999999999998999999999999999999999999999999999999999999999699999999999999999999992999999999999999999995"}
+ ]
+}

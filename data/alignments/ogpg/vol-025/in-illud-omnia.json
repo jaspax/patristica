@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-025/in-illud-omnia",
+ "pivot": "npnf-works/athanasius-on-luke-x-22",
+ "groups": 98,
+ "inputs": "63922b5aa842dc0e",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/athanasius-on-luke-x-22", "units": 121, "ids": "41b0d35fc55f22d5", "inputs": "1349e3818af0502f", "spans": "..+++++.+=+=+++++++.++++=+=++=++=+++=+.++++++++++=+=++++=+++++++++++.+++++++=++++++++++=++=++=++++++++++.++++=++++=++++++", "conf": "99999999999964999999999999799998899999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-025/in-illud-omnia", "units": 103, "ids": "d39d41dc3462b669", "inputs": "22a34e8ecd96fe3b", "spans": "+=++++=++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++=++++++++++++++++++++++=++++", "conf": "99999999999964999999999999799998899999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

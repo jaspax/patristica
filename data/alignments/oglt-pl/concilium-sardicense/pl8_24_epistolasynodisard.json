@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard",
+ "pivot": "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard",
+ "groups": 43,
+ "inputs": "ad574882a5b18e52",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard", "units": 82, "ids": "44f93f7b82329a54", "inputs": "32e9193f191127d9", "spans": "+.++++++++.......+=+=++++++++=...........+=..++++++=+++++++............+++=+++++++", "conf": "9999999999889999999999999999999999999999999"},
+  {"work_id": "oglt-pl/concilium-sardicense/pl8_25_eademepistolaexhi", "units": 70, "ids": "ffa9f39329b298c2", "inputs": "b1b6e24fff6fb9be", "spans": "++++++++++=++=.++++++++++++++++++++++++++++++.....+===................", "conf": "9999999999889999999999999999999999999999999"}
+ ]
+}

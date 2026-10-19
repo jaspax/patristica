@@ -1,0 +1,14 @@
+{
+ "format": 1,
+ "group": "pta/pta0030/pta016/pta-grc2",
+ "pivot": "pta/pta0030/pta016/pta-grc5",
+ "groups": 52,
+ "inputs": "022e4397a63eef93",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "pta/pta0030/pta016/pta-grc2", "units": 82, "ids": "6825434156329ff4", "inputs": "2630a037733ed90f", "spans": "+++=++++=+++++=++++=+++===++++=++=++==+=+++==+++=+++====++++++=+==+++++=+====+===+", "conf": "9999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta/pta0030/pta016/pta-grc3", "units": 10, "ids": "71da4e0f62b23d2d", "inputs": "4590e2ddb4596d17", "spans": "+++=++++++", "conf": "999999999"},
+  {"work_id": "pta/pta0030/pta016/pta-grc4", "units": 66, "ids": "3bace74969653ee7", "inputs": "c6c6df5dff86061b", "spans": "+++=++2+2++++=+==+2+++=+=..+==..++++++++++.+==+6=++3=+2=+=+=+.+3=+=..+=.+", "conf": "999999999999999999999999998999899979989"},
+  {"work_id": "pta/pta0030/pta016/pta-grc5", "units": 84, "ids": "b0560c9614dcbc58", "inputs": "e9c93e4a260e5d45", "spans": "+++==+++++++++=+=+++=+++==++++++=++=+=+++=++++=++==++++=........+=+=+==+=++++=+==+=+", "conf": "9999999999999999999999999999999999999999999999999999"}
+ ]
+}

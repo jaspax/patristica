@@ -1,0 +1,20 @@
+{
+ "format": 1,
+ "group": "book:titus",
+ "pivot": "asv/titus",
+ "groups": 46,
+ "inputs": "045a7e479db949e2",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "armenian/titus", "units": 46, "ids": "32d59e9edd30c3ca", "inputs": "ef991ba52d862121", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "asv/titus", "units": 46, "ids": "16c5910c9848f7ab", "inputs": "9222ca6cba57772e", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "clementine/titus", "units": 46, "ids": "f71239386a0b3328", "inputs": "ebdd43cd83e9b872", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "coptic-nt/titus", "units": 46, "ids": "5d347b0b966eb1ba", "inputs": "dc13bb289d10e793", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "kjv/titus", "units": 46, "ids": "e44c223bba53809d", "inputs": "663ad8392a9a271a", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-lxx/titus", "units": 46, "ids": "42c0194991052730", "inputs": "513a26cd02ec070a", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-peshitta/titus", "units": 46, "ids": "a684da70ccc38533", "inputs": "84a9ecaab12e4c2a", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "sblgnt/titus", "units": 46, "ids": "a473e8d765f2cb2d", "inputs": "deec813c8314cd26", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "web/titus", "units": 46, "ids": "a92e3da8a379c053", "inputs": "8810396775f65eb9", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "wulfila/titus", "units": 17, "ids": "9d9c5bf7128575b9", "inputs": "8a0e1a01525c5ca6", "spans": "+++++++++2=++++2=++", "conf": "999999999999999"}
+ ]
+}

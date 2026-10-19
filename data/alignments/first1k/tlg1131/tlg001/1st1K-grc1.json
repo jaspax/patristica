@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "first1k/tlg1131/tlg001/1st1K-grc1",
+ "pivot": "anf-works/anonymous-against-the-montanists",
+ "groups": 49,
+ "inputs": "540b3721255ca1f8",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/anonymous-against-the-montanists", "units": 62, "ids": "b7a2d92f52138832", "inputs": "89be1bdc6682200b", "spans": "+==++++++=+=+++=+++=++++=+++++++==++++++=+++++=+++++=++=++++++", "conf": "9999999999999999999999999999999999999999999999999"},
+  {"work_id": "first1k/tlg1131/tlg001/1st1K-grc1", "units": 59, "ids": "bfd0076736f7c443", "inputs": "052c01beb0342e36", "spans": "+==++++++=+++++++=++++=+++++++=+++++++=.+=+++++=+++++++++++", "conf": "9999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-010/asterius-urbanus", "units": 62, "ids": "63e87dc7f2cf985e", "inputs": "70948698e88336de", "spans": ".+==++=++.+=+++++++++==+++=+++=++++=+.+++++=.+4+++++++.+=++.+2++", "conf": "999949999999999999999999989999999999999599994"}
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-011/epistula-ad-gregorium",
+ "pivot": "anf-works/origen-letter-to-gregory-anf09",
+ "groups": 34,
+ "inputs": "b5d49ecc883708a9",
+ "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/origen-letter-to-gregory", "units": 37, "ids": "3f97d05d7e88800f", "inputs": "53128e9c050ef0c5", "spans": "+++++++++++=++++++++++=+++++=++++++++", "conf": "9999999999999999999999999999999999"},
+  {"work_id": "anf-works/origen-letter-to-gregory-anf09", "units": 52, "ids": "f91fd2398365dd64", "inputs": "ca411bfe3c7bead6", "spans": "+==......+++++=++==+++==+++++++++++=+=+++==+=+++++++", "conf": "9999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-011/epistula-ad-gregorium", "units": 30, "ids": "2f33a8302da0b617", "inputs": "781f03a9564e2ccb", "spans": "++++++=+++.++=+++++++++++=++++", "conf": "99999999999999999999999999"}
+ ]
+}
