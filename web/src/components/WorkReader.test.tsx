@@ -8,12 +8,32 @@ let params: { id: string[] } = { id: ["pl", "both"] };
 
 vi.mock("next/navigation", () => ({
   useParams: () => params,
+  useRouter: () => ({ push: vi.fn() }),
 }));
 
 const index: LibraryIndex = {
   version: "0123456789abcdef",
-  sources: { pl: "Patrologia Latina" },
+  sources: {
+    pl: "Patrologia Latina",
+    oshb: "Open Scriptures Hebrew Bible",
+    kjv: "King James Version",
+    clementine: "Clementine Vulgate",
+    first1k: "First Thousand Years of Greek",
+    "npnf-works": "Nicene and Post-Nicene Fathers",
+  },
   works: [
+    workRow({ id: "oshb/ps", title: "Psalms", language: "hbo", source_id: "oshb", genre: "scripture", version_group: "book:ps" }),
+    workRow({ id: "kjv/ps", title: "Psalms", language: "eng", source_id: "kjv", genre: "scripture", version_group: "book:ps" }),
+    workRow({ id: "clementine/ps", title: "Psalms", language: "lat", source_id: "clementine", genre: "scripture", version_group: "book:ps" }),
+    workRow({ id: "first1k/hom", title: "Homiliae", language: "grc", source_id: "first1k", version_group: "first1k/hom" }),
+    workRow({
+      id: "npnf-works/hom",
+      title: "Homilies",
+      language: "eng",
+      source_id: "npnf-works",
+      translation_of: "first1k/hom",
+      version_group: "first1k/hom",
+    }),
     workRow({
       id: "pl/both",
       author: "Hieronymus; Augustinus",
@@ -73,5 +93,35 @@ describe("WorkReader author line", () => {
     expect(screen.queryAllByRole("link").filter((a) => a.getAttribute("href")?.startsWith("/authors/"))).toEqual(
       [],
     );
+  });
+});
+
+describe("WorkReader versions", () => {
+  it("names the original and lists the other versions of a Scripture book", async () => {
+    params = { id: ["kjv", "ps"] };
+    render(<WorkReader />);
+    await screen.findByText("Other versions (2 in 2 languages)");
+    expect(screen.getByText("Original", { selector: "dt" })).toBeDefined();
+    const originals = screen.getAllByRole("link", { name: /Open Scriptures Hebrew Bible/ });
+    expect(originals.map((a) => a.textContent)).toEqual(["Hebrew: Open Scriptures Hebrew Bible", "Open Scriptures Hebrew Bible"]);
+    expect(originals.every((a) => a.getAttribute("href") === "/works/oshb/ps")).toBe(true);
+    expect(screen.getByRole("link", { name: "Clementine Vulgate" }).getAttribute("href")).toBe("/works/clementine/ps");
+  });
+
+  it("keeps a translation's 'Translation of' line and lists the original", async () => {
+    params = { id: ["npnf-works", "hom"] };
+    render(<WorkReader />);
+    await screen.findByText("Other versions (1)");
+    expect(screen.getByText("Translation of")).toBeDefined();
+    // The Translation of line replaces the generic Original line.
+    expect(screen.queryByText("Original", { selector: "dt" })).toBeNull();
+    expect(screen.getByRole("link", { name: "Homiliae" }).getAttribute("href")).toBe("/works/first1k/hom");
+  });
+
+  it("shows no versions control for a work with no other version", async () => {
+    params = { id: ["pl", "acta"] };
+    render(<WorkReader />);
+    await screen.findByRole("heading", { level: 1, name: "Acta Thomae" });
+    expect(screen.queryByText(/Other versions/)).toBeNull();
   });
 });

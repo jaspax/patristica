@@ -1,0 +1,57 @@
+.versions {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+}
+
+.versions summary {
+  cursor: pointer;
+  color: var(--accent);
+  width: fit-content;
+}
+
+.versions[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.group + .group {
+  margin-top: 0.6rem;
+}
+
+.language {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.list {
+  list-style: none;
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: 0.75rem;
+}
+
+.entry {
+  padding: 0.15rem 0;
+  overflow-wrap: anywhere;
+}
+
+.facts {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.badge {
+  margin-inline-start: 0.5rem;
+  padding: 0 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.busy {
+  cursor: progress;
+  opacity: 0.7;
+}

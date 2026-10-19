@@ -18,6 +18,7 @@ import { formatDate } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import { loadLibrary, workAuthors, workHref, type Library } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
+import { versionCounts } from "@/lib/versions";
 
 import AuthorLinks from "./AuthorLinks";
 import FilterFields from "./FilterFields";
@@ -66,6 +67,7 @@ function Browser({ library }: { library: Library }) {
   );
 
   const facets = useMemo(() => libraryFacets(index, authors), [index, authors]);
+  const versions = useMemo(() => versionCounts(index.works), [index]);
 
   const sortBy = (key: SortKey) =>
     update({ sort: key, dir: view.sort === key && view.dir === "asc" ? "desc" : "asc" });
@@ -130,6 +132,7 @@ function Browser({ library }: { library: Library }) {
               const byline = workAuthors(w, authors);
               // Names from the author index are English; a fallback is the source's own string.
               const sourceString = byline.some((a) => a.id === null);
+              const nVersions = w.version_group ? (versions.get(w.version_group) ?? 0) : 0;
               return (
                 <tr key={w.id}>
                   <td lang={sourceString ? lang.lang : undefined} dir="auto">
@@ -143,6 +146,11 @@ function Browser({ library }: { library: Library }) {
                     <Link href={workHref(w.id)}>
                       {w.title}
                     </Link>
+                    {nVersions > 1 && (
+                      <span className={styles.versions} lang="en" dir="ltr">
+                        {nVersions} versions
+                      </span>
+                    )}
                   </td>
                   <td>{lang.name}</td>
                   <td className={styles.numeric}>{formatDate(w)}</td>

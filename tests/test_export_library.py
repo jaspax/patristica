@@ -43,6 +43,15 @@ def _work(work_id: str, source_id: str, genre: str = "scripture", **extra) -> di
     }
 
 
+def _add_works(corpus: Path, works: list[tuple[str, dict, list[dict]]]) -> None:
+    """Add ``(path, work, chunks)`` entries to a normalized corpus."""
+    with (corpus / "_works.jsonl").open("a", encoding="utf-8") as f:
+        for rel, work, chunks in works:
+            (corpus / rel).parent.mkdir(parents=True, exist_ok=True)
+            (corpus / rel).write_text(json.dumps(chunks), encoding="utf-8")
+            f.write(json.dumps({"path": rel, "work": work}) + "\n")
+
+
 @pytest.fixture()
 def corpus(tmp_path: Path) -> Path:
     """A tiny normalized corpus: two scripture books and one patristic work."""
@@ -115,18 +124,13 @@ class TestExport:
 
     def test_version_group(self, corpus: Path, tmp_path: Path):
         """Rows carry their version group (#178); a work with no other version has null."""
-        extra = [
+        _add_works(corpus, [
             ("web/Gen.json", _work("web/gen", "web"),
              [_chunk("web/gen", "Gen.1.1", "In the beginning", 0)]),
             ("npnf-works/y.json", _work("npnf-works/y", "npnf-works", genre="patristic",
                                         translation_of="pta/x"),
              [_chunk("npnf-works/y", "1.1", "first", 0)]),
-        ]
-        with (corpus / "_works.jsonl").open("a", encoding="utf-8") as f:
-            for rel, work, chunks in extra:
-                (corpus / rel).parent.mkdir(parents=True, exist_ok=True)
-                (corpus / rel).write_text(json.dumps(chunks), encoding="utf-8")
-                f.write(json.dumps({"path": rel, "work": work}) + "\n")
+        ])
         out = tmp_path / "library"
         export_library(corpus, out)
         rows = {r["id"]: r for r in json.loads((out / "index.json").read_text())["works"]}
@@ -162,14 +166,54 @@ class TestExport:
         out = tmp_path / "library"
         export_library(corpus, out)
         gen = json.loads((out / "works/kjv/Gen.json").read_text(encoding="utf-8"))
+        # A Scripture book carries org_refs (#144), empty when its refs are in org numbering.
         assert gen == {
             "work_id": "kjv/gen",
             "ref_prefix": "Gen.1",
+            "org_refs": {},
             "chunks": [["1", "In the beginning"], ["2", "And the earth"]],
         }
         pta = json.loads((out / "works/pta/x.json").read_text(encoding="utf-8"))
         # Sorted by chunk_index; out-of-period flag as third element.
         assert pta["chunks"] == [["1", "first"], ["2", "second", 1]]
+        # Only Scripture books are versified.
+        assert "org_refs" not in pta
+
+    def test_org_refs(self, corpus: Path, tmp_path: Path):
+        """org_refs maps the native refs that differ from org (BHS) numbering (#144)."""
+        _add_works(corpus, [
+            ("clementine/Ps.json", _work("clementine/ps", "clementine"),
+             [_chunk("clementine/ps", "Ps.9.21", "Constitue", 0),
+              _chunk("clementine/ps", "Ps.9.22", "Ut quid Domine", 1),
+              _chunk("clementine/ps", "Ps.22.1", "Dominus regit me", 2)]),
+            ("kjv/Ps.json", _work("kjv/ps", "kjv"),
+             [_chunk("kjv/ps", "Ps.3.1", "Lord, how are they increased", 0),
+              _chunk("kjv/ps", "Ps.23.1", "The Lord is my shepherd", 1)]),
+        ])
+        out = tmp_path / "library"
+        export_library(corpus, out)
+        vul = json.loads((out / "works/clementine/Ps.json").read_text(encoding="utf-8"))
+        assert vul["ref_prefix"] == "Ps"
+        # Vulgate 9.22 is Hebrew 10.1 and Vulgate 22 is Hebrew 23; 9.21 is unchanged.
+        assert vul["org_refs"] == {"9.22": "Ps.10.1", "22.1": "Ps.23.1"}
+        kjv = json.loads((out / "works/kjv/Ps.json").read_text(encoding="utf-8"))
+        # The Hebrew counts the psalm's title as verse 1.
+        assert kjv["org_refs"] == {"3.1": "Ps.3.2"}
+
+    def test_org_refs_follow_versification(
+        self, corpus: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ):
+        """An up-to-date Scripture book is rewritten when only the versification changes."""
+        out = tmp_path / "library"
+        export_library(corpus, out)
+        assert export_library(corpus, out)["written"] == 0
+        monkeypatch.setattr(
+            "scripts.export_library.to_org_ref",
+            lambda source, ref: "Gen.9.9" if ref == "Gen.1.1" else ref,
+        )
+        assert export_library(corpus, out)["written"] == 1
+        gen = json.loads((out / "works/kjv/Gen.json").read_text(encoding="utf-8"))
+        assert gen["org_refs"] == {"1": "Gen.9.9"}
 
     def test_idempotent(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
