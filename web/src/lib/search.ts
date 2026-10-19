@@ -68,9 +68,14 @@ export interface SearchResult {
   text: string;
   text_truncated: boolean;
   translation: { language: string; text: string; model: string; machine: boolean } | null;
-  score: number;
-  /** Which vector matched: the original text or its English translation. */
-  matched: "text" | "translation";
+  /** Similarity to the query (vector search, or a phrase search with free text); else null. */
+  score: number | null;
+  /** What matched: the text's vector, its English translation's vector, or the quoted phrases. */
+  matched: "text" | "translation" | "phrase";
+  /** Where `text` starts in the passage, when a long passage is shown from a later match. */
+  text_start: number;
+  /** Phrase matches in `text`, as [start, end) JavaScript string indices (UTF-16). */
+  matches: [number, number][];
   date_composed: number | null;
   date_range: [number, number] | null;
   out_of_period: boolean;
@@ -92,9 +97,14 @@ export interface SearchResult {
 
 export interface SearchResponse {
   query: string;
-  /** How the query was run; "phrase" queries run as "vector" until #86. */
-  mode: "vector" | "phrase";
-  requested_mode: "vector" | "phrase";
+  /** "keyword" when the query has quoted phrases (exact phrase search), else "vector". */
+  mode: "vector" | "keyword";
+  /** The quoted phrases, as the API parsed them. */
+  phrases: string[];
+  /** The text outside the quotes (it ranks phrase matches by meaning). */
+  text: string;
+  /** How many passages contain the phrases (keyword mode only). */
+  total: number | null;
   offset: number;
   limit: number;
   next_offset: number | null;
@@ -184,6 +194,38 @@ export async function fetchSearch(
     clearTimeout(timer);
     signal?.removeEventListener("abort", onAbort);
   }
+}
+
+/** Characters that open or close a quoted phrase (as api/search.py parses them). */
+const QUOTES = /["“”„«»]/g;
+
+/** The query with its quote marks removed: the same words, searched by meaning. */
+export function withoutQuotes(q: string): string {
+  return q.replace(QUOTES, " ").replace(/\s+/g, " ").trim();
+}
+
+export interface Segment {
+  text: string;
+  match: boolean;
+}
+
+/**
+ * Split `text` into plain and matched segments at the API's `[start, end)`
+ * offsets (JavaScript string indices). Offsets out of order or past the end
+ * are clamped, so a bad span can't drop text.
+ */
+export function highlight(text: string, matches: [number, number][]): Segment[] {
+  const segments: Segment[] = [];
+  let at = 0;
+  for (const [start, end] of matches) {
+    const a = Math.max(at, Math.min(start, text.length));
+    const b = Math.max(a, Math.min(end, text.length));
+    if (a > at) segments.push({ text: text.slice(at, a), match: false });
+    if (b > a) segments.push({ text: text.slice(a, b), match: true });
+    at = b;
+  }
+  if (at < text.length) segments.push({ text: text.slice(at), match: false });
+  return segments;
 }
 
 /** Reader URL of a result: the work, scrolled to the passage. */

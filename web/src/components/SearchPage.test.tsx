@@ -38,6 +38,8 @@ function result(overrides: Partial<SearchResult> = {}): SearchResult {
     translation: { language: "eng", text: "Our faith is true.", model: "gpt-6.1-sol", machine: true },
     score: 0.71,
     matched: "translation",
+    text_start: 0,
+    matches: [],
     date_composed: 360,
     date_range: [350, 373],
     out_of_period: false,
@@ -62,7 +64,9 @@ function page(results: SearchResult[], overrides: Partial<SearchResponse> = {}):
   return {
     query: "faith",
     mode: "vector",
-    requested_mode: "vector",
+    phrases: [],
+    text: "faith",
+    total: null,
     offset: 0,
     limit: 20,
     next_offset: null,
@@ -226,10 +230,95 @@ describe("SearchPage", () => {
     );
   });
 
-  it("notes that quoted phrases are searched by meaning for now", async () => {
-    search = 'q="in the beginning"';
-    serve(() => json(page([result()], { query: "in the beginning", requested_mode: "phrase" })));
+  it("labels semantic search", async () => {
+    search = "q=faith";
+    serve(() => json(page([result()])));
     await renderPage();
-    expect(await screen.findByText(/Exact-phrase search isn.t available yet/)).toBeTruthy();
+    expect((await screen.findByText("Semantic", { selector: "section strong" })).parentElement?.textContent).toBe(
+      "Semantic · passages closest in meaning",
+    );
+  });
+
+  /** A keyword-mode page for the phrase "in principio" with one Latin result. */
+  function phrasePage(overrides: Partial<SearchResponse> = {}) {
+    const text = "In principio erat Verbum, et Verbum erat apud Deum.";
+    return page(
+      [
+        result({
+          language: "lat",
+          text,
+          translation: null,
+          score: null,
+          matched: "phrase",
+          matches: [[0, 12]],
+        }),
+      ],
+      { mode: "keyword", phrases: ["in principio"], text: "", total: 386, next_offset: 20, ...overrides },
+    );
+  }
+
+  it("labels exact-phrase search and highlights the matches", async () => {
+    search = 'q="in principio"';
+    const fetch = serve(() => json(phrasePage()));
+    await renderPage();
+    const label = await screen.findByText("Exact phrase", { selector: "section strong" });
+    expect(label.parentElement?.textContent).toBe(
+      "Exact phrase · passages containing in principio, Scripture first, then the earliest · 386 found",
+    );
+    const mark = document.querySelector("li mark");
+    expect(mark?.textContent).toBe("In principio");
+    expect(mark?.parentElement?.textContent).toBe("In principio erat Verbum, et Verbum erat apud Deum.");
+    // The quotes reach the API as typed.
+    expect(fetch.mock.calls.map(([u]) => String(u))).toContain("/api/search?q=%22in+principio%22&limit=20");
+    await waitFor(() =>
+      expect(screen.getByRole("status").textContent).toBe("1 of 386 passages shown, more available."),
+    );
+  });
+
+  it("says when free text ranks the phrase matches", async () => {
+    search = 'q="in principio" creation';
+    serve(() => json(phrasePage({ text: "creation" })));
+    await renderPage();
+    expect((await screen.findByText("Exact phrase", { selector: "section strong" })).parentElement?.textContent).toContain(
+      "closest in meaning to creation first",
+    );
+  });
+
+  it("marks a passage shown from a later match", async () => {
+    search = 'q="in principio"';
+    serve(() => json(phrasePage({ results: [{ ...phrasePage().results[0], text_start: 1800 }] })));
+    await renderPage();
+    expect((await screen.findByText("In principio")).parentElement?.textContent).toMatch(/^…In principio/);
+  });
+
+  it("offers a semantic search when no passage contains the phrase", async () => {
+    search = "q=%22in+principio%22+%C2%ABverbum%C2%BB";
+    serve(() => json(phrasePage({ results: [], total: null, next_offset: null, phrases: ["in principio", "verbum"] })));
+    await renderPage();
+    expect(await screen.findByText(/No passages contain these phrases/)).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Search by meaning instead" }));
+    expect(push).toHaveBeenCalledWith("/search?q=in+principio+verbum", { scroll: false });
+  });
+
+  it("keeps quotes in the URL as typed", async () => {
+    serve(() => json(page([])));
+    await renderPage();
+    fireEvent.change(screen.getByRole("searchbox"), { target: { value: "«ἐν ἀρχῇ» logos" } });
+    fireEvent.submit(screen.getByRole("search"));
+    expect(push).toHaveBeenCalledWith(`/search?q=${encodeURIComponent("«ἐν ἀρχῇ»").replace(/%20/g, "+")}+logos`, {
+      scroll: false,
+    });
+  });
+
+  it("explains the search syntax", async () => {
+    serve(() => json(page([])));
+    await renderPage();
+    // The hint describes the search box without becoming part of its name.
+    const box = screen.getByRole("searchbox", { name: "Search the texts" });
+    expect(document.getElementById(box.getAttribute("aria-describedby") ?? "")?.textContent).toMatch(
+      /^Put words in quotes for an exact phrase/,
+    );
+    fireEvent.click(screen.getByText("How search works"));
+    expect(screen.getByText(/Accents,\s+breathings, vowel points and capitals/)).toBeTruthy();
   });
 });

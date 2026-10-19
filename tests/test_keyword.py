@@ -36,6 +36,20 @@ def test_phrase_pattern_rejects_short_phrases(phrase: str) -> None:
         kw.phrase_pattern(phrase)
 
 
+def test_match_spans() -> None:
+    text = "In the beginning God created the heaven and the earth."
+    spans = kw.match_spans(text, ["THE heaven", "the earth", "and the"])
+    assert [text[a:b] for a, b in spans] == ["the heaven", "and the earth"]  # overlaps merge
+    assert kw.match_spans(text, ["the heave"]) == []  # whole words only
+    assert kw.match_spans("et et et", ["et et"]) == [(0, 8)]
+    # Pointed Hebrew: the span keeps the points after the last letter.
+    hebrew = "כָּל־הָאָ֖רֶץ וְכָל"
+    assert [hebrew[a:b] for a, b in kw.match_spans(hebrew, ["כל הארץ"])] == ["כָּל־הָאָ֖רֶץ"]
+    # Latin spellings fold both ways.
+    latin = "Dominus michi adiutor"
+    assert [latin[a:b] for a, b in kw.match_spans(latin, ["mihi adjutor"])] == ["michi adiutor"]
+
+
 # --- loading --------------------------------------------------------------
 
 psycopg = pytest.importorskip("psycopg")
@@ -165,7 +179,8 @@ def test_index_handling_stays_in_its_schema(corpus, pg_url: str) -> None:
 def _search(conn, *phrases: str, filters: Filters | None = None, limit: int = 20,
             offset: int = 0) -> tuple[list[str], int | None]:
     where, params = (filters or Filters()).sql()
-    return api_kw.phrase_search(conn, list(phrases), where, params, limit, offset)
+    rows, total = api_kw.phrase_search(conn, list(phrases), where, params, limit, offset)
+    return [chunk_id for chunk_id, _ in rows], total
 
 
 def test_phrase_matches_folded_whole_words(corpus) -> None:
