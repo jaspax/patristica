@@ -294,7 +294,7 @@ cd web && npm run link-data               # symlink public/library → ../../dat
 npm run dev
 ```
 
-- Index state (query, facets, date range, sort) lives in the URL query, so links can be shared. So does search state (`src/lib/search.ts`, the same parameter names), and every search is a history entry.
+- Index state (query, facets, date range, sort) lives in the URL query, so links can be shared. So does search state (`src/lib/search.ts`, the same parameter names), and every search is a history entry. Author, language and genre take several values (`MULTI_KEYS`, `MultiSelect`), written as repeated parameters (`?language=grc&language=lat`); comma-separated values are read too, as the API does.
 - Search results link to `/works/{work_id}#{canonical_ref}`. Every chunk's ref is an element id in the reader, including derived verses and heading chunks. Because the text loads after navigation, `useHashTarget` scrolls to the target once it is rendered, re-scrolls while `content-visibility` settles the layout, and marks it with `data-target`.
 - Work ids are reader URLs and bucket keys. When a source is renamed, add its old id prefix to `RENAMED_ID_PREFIXES` in `src/lib/redirects.ts` so old links get a permanent redirect; `upload_library` deletes the old keys from the bucket on the next publish.
 - Authors come from `authors.json` (#82), never the free-text `Work.author`: the index's author facet (`?author={author_id}`, `?author=anonymous` for works with `author_ids: []`) and author sort use ids and display names, and the text filter also matches aliases. Author ids are URLs too: when one is renamed or merged, add it to `RENAMED_AUTHOR_IDS` in `src/lib/redirects.ts`.

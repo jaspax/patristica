@@ -1,16 +1,16 @@
 // Passage search through the search API (`GET /api/search`, api/search.py, #141).
 
 import { API_URL } from "./config";
-import { DEFAULT_VIEW, parseViewState, viewStateToParams } from "./filter";
+import { DEFAULT_VIEW, MULTI_KEYS, parseViewState, viewStateToParams } from "./filter";
 import { formatYear } from "./format";
 import { workHref } from "./library";
 
 /** The search page's URL state: the query and the library index's facets. */
 export interface SearchState {
   q: string;
-  author: string;
-  language: string;
-  genre: string;
+  author: string[];
+  language: string[];
+  genre: string[];
   source: string;
   from: number | null;
   to: number | null;
@@ -18,9 +18,9 @@ export interface SearchState {
 
 export const DEFAULT_SEARCH: SearchState = {
   q: "",
-  author: "",
-  language: "",
-  genre: "",
+  author: [],
+  language: [],
+  genre: [],
   source: "",
   from: null,
   to: null,
@@ -50,9 +50,11 @@ export function searchHref(state: Partial<SearchState>): string {
 /** The API request for one page of results. */
 export function searchApiUrl(state: SearchState, offset = 0, limit = PAGE_SIZE): string {
   const params = new URLSearchParams({ q: state.q.trim() });
-  for (const key of ["author", "language", "genre", "source"] as const) {
-    if (state[key]) params.set(key, state[key]);
+  // The API takes repeated parameters for the multi-valued facets.
+  for (const key of MULTI_KEYS) {
+    for (const v of state[key]) params.append(key, v);
   }
+  if (state.source) params.set("source", state.source);
   if (state.from !== null) params.set("date_from", String(state.from));
   if (state.to !== null) params.set("date_to", String(state.to));
   params.set("limit", String(limit));

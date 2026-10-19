@@ -3,6 +3,7 @@ import { GENRES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 
 import styles from "./Filters.module.css";
+import MultiSelect from "./MultiSelect";
 
 export type FacetValues = Pick<ViewState, "author" | "language" | "genre" | "source" | "from" | "to">;
 
@@ -14,45 +15,32 @@ interface Props {
 
 /**
  * The author, language, genre, collection and date fields shared by the
- * library index and the search page. Render inside a form styled with
- * `Filters.module.css` (`filters`).
+ * library index and the search page; author, language and genre take several
+ * values (MultiSelect). Render inside a form styled with `Filters.module.css`
+ * (`filters`).
  */
 export default function FilterFields({ value, facets, onChange }: Props) {
   return (
     <>
-      <label>
-        <span>Author</span>
-        <select value={value.author} onChange={(e) => onChange({ author: e.target.value })}>
-          <option value="">All</option>
-          {facets.authors.map((a) => (
-            <option key={a.id} value={a.id}>
-              {a.name} ({a.count.toLocaleString()})
-            </option>
-          ))}
-        </select>
-      </label>
-      <label>
-        <span>Language</span>
-        <select value={value.language} onChange={(e) => onChange({ language: e.target.value })}>
-          <option value="">All</option>
-          {facets.languages.map((code) => (
-            <option key={code} value={code}>
-              {languageInfo(code).name}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label>
-        <span>Genre</span>
-        <select value={value.genre} onChange={(e) => onChange({ genre: e.target.value })}>
-          <option value="">All</option>
-          {facets.genres.map((g) => (
-            <option key={g} value={g}>
-              {GENRES[g] ?? g}
-            </option>
-          ))}
-        </select>
-      </label>
+      <MultiSelect
+        label="Author"
+        options={facets.authors.map((a) => ({ value: a.id, label: a.name, count: a.count }))}
+        selected={value.author}
+        onChange={(author) => onChange({ author })}
+        searchable
+      />
+      <MultiSelect
+        label="Language"
+        options={facets.languages.map((code) => ({ value: code, label: languageInfo(code).name }))}
+        selected={value.language}
+        onChange={(language) => onChange({ language })}
+      />
+      <MultiSelect
+        label="Genre"
+        options={facets.genres.map((g) => ({ value: g, label: GENRES[g] ?? g }))}
+        selected={value.genre}
+        onChange={(genre) => onChange({ genre })}
+      />
       <label>
         <span>Collection</span>
         <select value={value.source} onChange={(e) => onChange({ source: e.target.value })}>

@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex, WorkRow } from "@/lib/library";
@@ -106,12 +106,11 @@ describe("LibraryBrowser", () => {
     vi.stubGlobal("fetch", serve(withApocrypha));
     render(<LibraryBrowser />);
     await screen.findByText("3 works");
-    const genre = screen.getByRole("combobox", { name: "Genre" });
-    const options = [...genre.querySelectorAll("option")].map((o) => [o.value, o.textContent]);
-    expect(options).toEqual([
-      ["", "All"],
-      ["apocrypha", "Apocrypha"],
-      ["patristic", "Patristic"],
+    fireEvent.click(screen.getByRole("button", { name: "Genre All" }));
+    const genre = screen.getByRole("group", { name: "Genre" });
+    expect(within(genre).getAllByRole("checkbox").map((c) => c.closest("label")!.textContent)).toEqual([
+      "Apocrypha",
+      "Patristic",
     ]);
   });
 
@@ -120,17 +119,18 @@ describe("LibraryBrowser", () => {
     vi.stubGlobal("fetch", serve({ ...index, works: [...index.works, anon] }));
     render(<LibraryBrowser />);
     await screen.findByText("3 works");
-    const author = screen.getByRole("combobox", { name: "Author" });
-    const options = [...author.querySelectorAll("option")].map((o) => [o.value, o.textContent]);
-    expect(options).toEqual([
-      ["", "All"],
-      ["anonymous", "Anonymous (1)"],
-      ["augustine-of-hippo", "Augustine of Hippo (1)"],
-      ["basil-of-caesarea", "Basil of Caesarea (1)"],
+    fireEvent.click(screen.getByRole("button", { name: "Author All" }));
+    const author = screen.getByRole("group", { name: "Author" });
+    expect(within(author).getAllByRole("checkbox").map((c) => c.closest("label")!.textContent)).toEqual([
+      "Anonymous 1",
+      "Augustine of Hippo 1",
+      "Basil of Caesarea 1",
     ]);
 
-    fireEvent.change(author, { target: { value: "basil-of-caesarea" } });
-    expect(replace).toHaveBeenLastCalledWith("/works?author=basil-of-caesarea", { scroll: false });
+    fireEvent.click(within(author).getByRole("checkbox", { name: "Basil of Caesarea 1" }));
+    fireEvent.click(within(author).getByRole("checkbox", { name: "Anonymous 1" }));
+    fireEvent.click(within(author).getByRole("button", { name: "Done" }));
+    expect(replace).toHaveBeenLastCalledWith("/works?author=basil-of-caesarea&author=anonymous", { scroll: false });
   });
 
   it("filters by the author in the URL and links names to author pages", async () => {
