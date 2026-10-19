@@ -186,7 +186,7 @@ export interface PermanentRedirect {
 
 /**
  * Renamed author ids (`patristica/data/authors.csv`, #82): old id → new id.
- * Author ids are URLs (`/authors/{id}`, `/?author={id}`), so when one is
+ * Author ids are URLs (`/authors/{id}`, `/works?author={id}`), so when one is
  * renamed (or merged into another), add it here; `next.config.ts` redirects
  * the old author page and `parseViewState` maps the old facet value.
  */
@@ -211,6 +211,15 @@ export function legacyAuthorRedirects(
   }));
 }
 
+/**
+ * Search moved from `/search` to `/`, and the library index from `/` to
+ * `/works`. A redirect keeps the query, so old search links still work; an
+ * old library link (`/?author=…`) opens search with the same filters.
+ */
+export function legacyPageRedirects(): PermanentRedirect[] {
+  return [{ source: "/search", destination: "/", permanent: true }];
+}
+
 /** Reader redirects for `RENAMED_ID_PREFIXES` and `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. */
 export function legacyWorkRedirects(): PermanentRedirect[] {
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({
@@ -220,7 +229,7 @@ export function legacyWorkRedirects(): PermanentRedirect[] {
   }));
   const split = SPLIT_OGPG_VOLUMES.map((vol) => ({
     source: `/works/ogpg/${vol}`,
-    destination: `/?q=ogpg/${vol}/`,
+    destination: `/works?q=ogpg/${vol}/`,
     permanent: true as const,
   }));
   return [...renamed, ...split];

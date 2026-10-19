@@ -37,8 +37,20 @@
   min-width: 0;
 }
 
+/* Our own caret, drawn from two gradients in the text colour: the native one
+   sits almost against the border, and browsers ignore padding when placing it. */
 .filters select {
   max-width: 16rem;
+  appearance: none;
+  padding-inline-end: 1.9rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    right 0.95rem center,
+    right 0.65rem center;
+  background-size: 0.3rem 0.3rem;
+  background-repeat: no-repeat;
 }
 
 .years {

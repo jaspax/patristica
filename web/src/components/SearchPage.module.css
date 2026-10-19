@@ -1,3 +1,7 @@
+.form {
+  margin-bottom: 1rem;
+}
+
 .queryRow {
   display: flex;
   gap: 0.5rem;
@@ -5,6 +9,56 @@
 
 .queryRow input {
   flex: 1 1 auto;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+.queryRow .submit {
+  padding-inline: 1.25rem;
+}
+
+/* The facets fold away below the search bar; the toggle and "Clear filters" share a line. */
+.filterBar {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.filterToggle {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.filterToggle::before {
+  content: "▸";
+  display: inline-block;
+  width: 1em;
+}
+
+.filterToggle[aria-expanded="true"]::before {
+  content: "▾";
+}
+
+.filterPanel {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* `.filters` sets display: flex, which would otherwise override `hidden`. */
+.filterPanel[hidden] {
+  display: none;
 }
 
 .submit,

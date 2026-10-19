@@ -40,7 +40,7 @@ function Table({ index }: { index: LibraryIndex }) {
           {sources.map((s) => (
             <tr key={s.sourceId}>
               <td>
-                <Link href={`/?source=${encodeURIComponent(s.sourceId)}`}>{s.label}</Link>
+                <Link href={`/works?source=${encodeURIComponent(s.sourceId)}`}>{s.label}</Link>
                 {s.nonCommercial && <span className={styles.nc}>non-commercial</span>}
               </td>
               <td className={styles.numeric}>{s.works.toLocaleString()}</td>

@@ -191,7 +191,7 @@ describe("authors (#145)", () => {
     const state = view({ author: "jerome" });
     expect(viewStateToParams(state).toString()).toBe("author=jerome");
     expect(parseViewState(new URLSearchParams("author=jerome"))).toEqual(state);
-    expect(authorFilterHref("john-chrysostom")).toBe("/?author=john-chrysostom");
-    expect(authorFilterHref(ANONYMOUS)).toBe("/?author=anonymous");
+    expect(authorFilterHref("john-chrysostom")).toBe("/works?author=john-chrysostom");
+    expect(authorFilterHref(ANONYMOUS)).toBe("/works?author=anonymous");
   });
 });

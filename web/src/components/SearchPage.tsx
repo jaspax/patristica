@@ -52,11 +52,20 @@ export default function SearchPage() {
   // Results, so the live region exists before its text changes.
   const [status, setStatus] = useState("");
   const searching = state.q.trim() !== "";
+  // Lives here, not in the remounted SearchForm, so it survives a new query.
+  // A link that sets filters opens the panel so they are visible.
+  const [showFilters, setShowFilters] = useState(() => activeFilters(state) > 0);
 
   return (
     <div>
       {/* Keyed by the query, so the field shows it after back/forward navigation. */}
-      <SearchForm key={state.q} state={state} onChange={go} />
+      <SearchForm
+        key={state.q}
+        state={state}
+        onChange={go}
+        showFilters={showFilters}
+        onToggleFilters={setShowFilters}
+      />
       <p role="status" className="visually-hidden">
         {searching ? status : ""}
       </p>
@@ -82,27 +91,40 @@ function statusText(pages: Pages): string {
   return `${shown}${of} ${noun} shown${more ? ", more available" : ""}.`;
 }
 
-function SearchForm({ state, onChange }: { state: SearchState; onChange: (c: Partial<SearchState>) => void }) {
+/** How many filters are set; a date range counts once. */
+function activeFilters(state: SearchState): number {
+  const keys = new Set([...searchStateToParams({ ...state, q: "" }).keys()].map((k) => (k === "to" ? "from" : k)));
+  return keys.size;
+}
+
+interface SearchFormProps {
+  state: SearchState;
+  onChange: (c: Partial<SearchState>) => void;
+  showFilters: boolean;
+  onToggleFilters: (open: boolean) => void;
+}
+
+function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFormProps) {
   const [draft, setDraft] = useState(state.q);
   const library = useLoaded(loadLibrary);
   const facets = useMemo(
     () => (library.status === "ready" ? libraryFacets(library.data.index, library.data.authors) : null),
     [library],
   );
-  const filtered = searchStateToParams({ ...state, q: "" }).toString() !== "";
+  const active = activeFilters(state);
 
   return (
     <form
-      className={filterStyles.filters}
+      className={styles.form}
       role="search"
       onSubmit={(e) => {
         e.preventDefault();
         onChange({ q: draft.trim() });
       }}
     >
-      <div className={`${filterStyles.query} ${styles.queryBox}`}>
+      <div className={styles.queryBox}>
         {/* Only the caption is the label: the button would otherwise join the box's name. */}
-        <label htmlFor="search-q" className={styles.label}>
+        <label htmlFor="search-q" className="visually-hidden">
           Search the texts
         </label>
         <span className={styles.queryRow}>
@@ -127,18 +149,34 @@ function SearchForm({ state, onChange }: { state: SearchState; onChange: (c: Par
           <SearchHelp />
         </div>
       </div>
-      {facets && (
-        <FilterFields value={state} facets={facets} onChange={(c: Partial<FacetValues>) => onChange(c)} />
-      )}
-      {filtered && (
+      {/* Not a <details>: "Clear filters" sits beside the toggle, so it works while the panel is closed. */}
+      <div className={styles.filterBar}>
         <button
           type="button"
-          className={styles.reset}
-          onClick={() => onChange({ ...DEFAULT_SEARCH, q: state.q })}
+          className={styles.filterToggle}
+          aria-expanded={showFilters}
+          aria-controls="search-filters"
+          onClick={() => onToggleFilters(!showFilters)}
         >
-          Clear filters
+          Filters{active > 0 && ` (${active})`}
         </button>
-      )}
+        {active > 0 && (
+          <button
+            type="button"
+            className={styles.reset}
+            onClick={() => onChange({ ...DEFAULT_SEARCH, q: state.q })}
+          >
+            Clear filters
+          </button>
+        )}
+      </div>
+      <div id="search-filters" className={`${filterStyles.filters} ${styles.filterPanel}`} hidden={!showFilters}>
+        {facets ? (
+          <FilterFields value={state} facets={facets} onChange={(c: Partial<FacetValues>) => onChange(c)} />
+        ) : (
+          <p className={styles.status}>Loading filters…</p>
+        )}
+      </div>
     </form>
   );
 }
@@ -171,8 +209,8 @@ function Intro() {
   return (
     <div className={styles.intro}>
       <p>
-        Search by meaning across Scripture and the Fathers in every language of the collection. Ask in
-        English; results come in the original Greek, Latin, Hebrew, Syriac, Coptic, Ge&lsquo;ez, Armenian or
+        Search by meaning across Scripture and the Fathers in every language of the collection. Ask in any
+        language; results come in the original Greek, Latin, Hebrew, Syriac, Coptic, Ge&lsquo;ez, Armenian or
         Gothic, with an English machine translation where the original is in a rarer language.
       </p>
       <p>

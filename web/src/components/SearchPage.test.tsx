@@ -10,7 +10,7 @@ let search = "";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push }),
-  usePathname: () => "/search",
+  usePathname: () => "/",
   useSearchParams: () => new URLSearchParams(search),
 }));
 
@@ -117,10 +117,38 @@ describe("SearchPage", () => {
     await renderPage();
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "  faith  " } });
     fireEvent.submit(screen.getByRole("search"));
-    expect(push).toHaveBeenCalledWith("/search?q=faith", { scroll: false });
+    expect(push).toHaveBeenCalledWith("/?q=faith", { scroll: false });
 
     fireEvent.change(await screen.findByLabelText("Language"), { target: { value: "syc" } });
-    expect(push).toHaveBeenLastCalledWith("/search?language=syc", { scroll: false });
+    expect(push).toHaveBeenLastCalledWith("/?language=syc", { scroll: false });
+  });
+
+  it("folds the filters away below the search bar until a link sets one", async () => {
+    serve(() => json(page([])));
+    await renderPage();
+    const toggle = screen.getByRole("button", { name: "Filters" });
+    const panel = document.getElementById(toggle.getAttribute("aria-controls")!)!;
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(panel.hidden).toBe(true);
+    expect(screen.queryByRole("button", { name: "Clear filters" })).toBeNull();
+    fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(panel.hidden).toBe(false);
+    cleanup();
+
+    search = "q=faith&language=syc&from=300&to=400";
+    serve(() => json(page([])));
+    await renderPage();
+    expect(screen.getByRole("button", { name: "Filters (2)" }).getAttribute("aria-expanded")).toBe("true");
+  });
+
+  it("clears the filters from beside the toggle, even with the panel closed", async () => {
+    search = "q=faith&language=syc";
+    serve(() => json(page([])));
+    await renderPage();
+    fireEvent.click(screen.getByRole("button", { name: "Filters (1)" }));
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(push).toHaveBeenLastCalledWith("/?q=faith", { scroll: false });
   });
 
   it("renders results with the citation first, the text in its script and the translation labelled", async () => {
@@ -297,7 +325,7 @@ describe("SearchPage", () => {
     await renderPage();
     expect(await screen.findByText(/No passages contain these phrases/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Search by meaning instead" }));
-    expect(push).toHaveBeenCalledWith("/search?q=in+principio+verbum", { scroll: false });
+    expect(push).toHaveBeenCalledWith("/?q=in+principio+verbum", { scroll: false });
   });
 
   it("keeps quotes in the URL as typed", async () => {
@@ -305,7 +333,7 @@ describe("SearchPage", () => {
     await renderPage();
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "«ἐν ἀρχῇ» logos" } });
     fireEvent.submit(screen.getByRole("search"));
-    expect(push).toHaveBeenCalledWith(`/search?q=${encodeURIComponent("«ἐν ἀρχῇ»").replace(/%20/g, "+")}+logos`, {
+    expect(push).toHaveBeenCalledWith(`/?q=${encodeURIComponent("«ἐν ἀρχῇ»").replace(/%20/g, "+")}+logos`, {
       scroll: false,
     });
   });
