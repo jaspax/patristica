@@ -95,7 +95,7 @@ class TestExport:
     def test_index(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         counts = export_library(corpus, out)
-        assert counts == {"works": 3, "written": 3, "removed": 0}
+        assert counts == {"works": 3, "written": 3, "removed": 0, "alignments": 0}
 
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         assert index["sources"] == {
@@ -133,6 +133,48 @@ class TestExport:
         assert rows["kjv/gen"]["version_group"] == rows["web/gen"]["version_group"] == "book:gen"
         assert rows["npnf-works/y"]["version_group"] == rows["pta/x"]["version_group"] == "pta/x"
         assert rows["kjv/exod"]["version_group"] is None
+
+    def test_alignments(self, corpus: Path, tmp_path: Path):
+        """Passage alignments (#179) are exported per version group, deterministically."""
+        from patristica import alignment_store as al
+
+        rel, work, chunks = ("web/Gen.json", _work("web/gen", "web"),
+                             [_chunk("web/gen", "Gen.1.1", "In the beginning", 0)])
+        (corpus / rel).parent.mkdir(parents=True, exist_ok=True)
+        (corpus / rel).write_text(json.dumps(chunks), encoding="utf-8")
+        with (corpus / "_works.jsonl").open("a", encoding="utf-8") as f:
+            f.write(json.dumps({"path": rel, "work": work}) + "\n")
+        store = tmp_path / "alignments"
+        a = al.Alignment("book:gen", "kjv/gen", 2, "x", {"date": "2026-10-19"})
+        a.members["kjv/gen"] = al.Member("kjv/gen", 2, "k", [0, 1], {0: 9, 1: 9}, "i")
+        a.members["web/gen"] = al.Member("web/gen", 1, "w", [0], {0: 8}, "i")
+        al.save(store, a)
+        stale = al.Alignment("book:exod", "kjv/exod", 1, "x", {})
+        stale.members["kjv/exod"] = al.Member("kjv/exod", 1, "k", [0], {0: 9}, "i")
+        stale.members["web/exod"] = al.Member("web/exod", 1, "w", [0], {0: 9}, "i")  # not exported
+        al.save(store, stale)
+        out = tmp_path / "library"
+        (out / "alignments" / "old").mkdir(parents=True)
+        (out / "alignments" / "old" / "gone.json").write_text("{}")
+
+        counts = export_library(corpus, out, align_dir=store)
+        assert counts["alignments"] == 1
+        index = json.loads((out / "index.json").read_text(encoding="utf-8"))
+        assert index["alignments"] == ["book:gen"]
+        data = json.loads((out / "alignments" / "book" / "gen.json").read_text())
+        assert data == {"group": "book:gen", "pivot": "kjv/gen", "groups": 2, "members": {
+            "kjv/gen": {"units": 2, "spans": "++", "conf": "99"},
+            "web/gen": {"units": 1, "spans": "+", "conf": "8"}}}
+        assert not (out / "alignments" / "old" / "gone.json").exists()
+        before = (out / "index.json").read_bytes()
+        export_library(corpus, out, align_dir=store, force=True)
+        assert (out / "index.json").read_bytes() == before
+        # The version hash covers the alignment files.
+        a.members["web/gen"].conf = {0: 7}
+        al.save(store, a)
+        export_library(corpus, out, align_dir=store)
+        assert json.loads((out / "index.json").read_text())["version"] != json.loads(before)[
+            "version"]
 
     def test_authors_file(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"

@@ -77,6 +77,19 @@ CREATE INDEX IF NOT EXISTS chunks_unfolded ON chunks (work_id) WHERE text_folded
 CREATE INDEX IF NOT EXISTS chunks_translation_group ON chunks (translation_group_id)
     WHERE translation_group_id IS NOT NULL;
 
+-- Passage alignment groups (data/alignments/, #179): the chunks of the
+-- versions of a work that render one passage share a group_id
+-- ('{version group}@{n}'). Search folds versions by it (api/passages.py).
+-- Synced in place by build_index, never through a work's content hash, so a
+-- new alignment reloads no work and no vector. Only spans at
+-- alignment_store.MIN_CONFIDENCE or more are here.
+CREATE TABLE IF NOT EXISTS passage_groups (
+    chunk_id    text PRIMARY KEY REFERENCES chunks ON DELETE CASCADE,
+    group_id    text NOT NULL,
+    confidence  smallint NOT NULL               -- tenths (0-9)
+);
+CREATE INDEX IF NOT EXISTS passage_groups_group ON passage_groups (group_id);
+
 -- Settings the stored data was built with, e.g. fold_version
 -- (patristica.keyword.FOLD_VERSION): when it changes, every chunk is refolded.
 CREATE TABLE IF NOT EXISTS index_meta (

@@ -8,6 +8,7 @@
 | `works` | one per publishable work | `data/normalized/_works.jsonl`; `content_sha` drives incremental reloads |
 | `chunks` | every unit, including those too short to embed | `data/normalized/`; Scripture gets `translation_group_id`, updated in place when the groups change (#186) |
 | `chunk_translations` | fresh machine translations | `data/translations/` (#93) |
+| `passage_groups` | one per chunk in a passage alignment group: `group_id` (`{version group}@{n}`), `confidence` (tenths) | `data/alignments/` (#179), spans at confidence ≥ 5; synced in place |
 | `index_meta` | settings the data was built with (`fold_version`, `hash_format`) | `scripts.build_index` |
 | `embedding_models` | one per vector space (model, dims, input type) | the runs recorded in `data/embeddings/` |
 | `chunk_vectors` | one per (chunk, kind, model), `halfvec(512)` | `data/embeddings/` (#136), cut to 512 dims and renormalized |
@@ -29,7 +30,7 @@ uv run --extra index python -m scripts.build_index
 infra/db-tunnel.sh uv run --extra index python -m scripts.build_index
 ```
 
-Only works whose inputs changed are reloaded. A change of Scripture translation groups (a versification override) is not a change of inputs: `build_index` compares the computed groups with `chunks.translation_group_id` and updates only the chunks that differ, so no vectors are re-sent (#186). The first full load sends about 4 GB of vectors over the tunnel and then builds the HNSW index on the droplet; see `infra/README.md` → "Search index".
+Only works whose inputs changed are reloaded. A change of Scripture translation groups (a versification override) is not a change of inputs: `build_index` compares the computed groups with `chunks.translation_group_id` and updates only the chunks that differ, so no vectors are re-sent (#186). Passage alignment groups (#179) work the same way: `build_index` computes the rows of `passage_groups` from `data/alignments/` for every work whose stored hash it checked, and writes or deletes only the rows that differ. A work whose chunk ids changed since it was aligned gets no rows until `scripts.align` runs again (the summary warns). The first full load sends about 4 GB of vectors over the tunnel and then builds the HNSW index on the droplet; see `infra/README.md` → "Search index".
 
 ## Schema changes
 

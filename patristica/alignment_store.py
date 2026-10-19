@@ -41,7 +41,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -200,7 +200,11 @@ def to_json(a: Alignment) -> str:
 
 
 def from_json(text: str) -> Alignment:
-    raw = json.loads(text)
+    return from_raw(json.loads(text))
+
+
+def from_raw(raw: dict) -> Alignment:
+    """An ``Alignment`` from a file's parsed JSON."""
     if raw.get("format") != FORMAT:
         raise AlignmentFormatError(f"unknown format {raw.get('format')!r}")
     a = Alignment(raw["group"], raw["pivot"], raw["groups"], raw["inputs"], raw["run"])
@@ -241,9 +245,17 @@ def save(store_dir: Path, a: Alignment) -> bool:
     return True
 
 
-def iter_store(store_dir: Path = DEFAULT_DIR) -> Iterator[tuple[Path, Alignment]]:
-    """Every alignment file in the store, in path order."""
+def iter_store(store_dir: Path = DEFAULT_DIR, members: Callable[[list[str]], bool] | None = None
+               ) -> Iterator[tuple[Path, Alignment]]:
+    """Every alignment file in the store, in path order.
+
+    With *members*, only files for whose member work ids it returns True; the
+    others are not decoded.
+    """
     if not store_dir.exists():
         return
     for path in sorted(store_dir.rglob("*.json")):
-        yield path, from_json(path.read_text(encoding="utf-8"))
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        if members is not None and not members([m["work_id"] for m in raw["members"]]):
+            continue
+        yield path, from_raw(raw)

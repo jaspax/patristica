@@ -91,6 +91,24 @@ def public_index(index: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def alignment_keys(index: dict[str, Any], published: set[str], library_dir: Path
+                   ) -> dict[str, str]:
+    """group → key of the alignment files (#179) to publish: those whose members are all
+    published (an unpublishable work has no vectors, so it is never aligned anyway)."""
+    from scripts.export_library import alignment_file
+
+    keys = {}
+    for group in index.get("alignments", []):
+        key = alignment_file(group)
+        path = library_dir / key
+        if not path.exists():
+            raise UploadError(f"Alignment listed in index.json is missing: {path}")
+        members = json.loads(path.read_text(encoding="utf-8"))["members"]
+        if set(members) <= published:
+            keys[group] = key
+    return keys
+
+
 def compress(data: bytes) -> bytes:
     """Gzip *data* for storage with ``Content-Encoding: gzip``."""
     return gzip.compress(data, compresslevel=9, mtime=0)
@@ -181,6 +199,9 @@ def upload_library(
     if excluded:
         log.info("Leaving out %d works with licences not cleared for publication", excluded)
 
+    alignments = alignment_keys(index, {w["id"] for w in pub["works"]}, library_dir)
+    if "alignments" in pub:
+        pub["alignments"] = sorted(alignments)
     index_bytes = json.dumps(pub, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     authors_path = library_dir / AUTHORS_KEY
     if not authors_path.exists():
@@ -194,6 +215,8 @@ def upload_library(
         if not path.exists():
             raise UploadError(f"Work file listed in index.json is missing: {path}")
         local[w["file"]] = sha256_hex(path.read_bytes())
+    for key in alignments.values():
+        local[key] = sha256_hex((library_dir / key).read_bytes())
 
     client = _client()
     bucket = os.environ["LIBRARY_BUCKET"]

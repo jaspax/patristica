@@ -30,6 +30,13 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   ``--rebuild-index``, the HNSW indexes are dropped first and built after the
   COPY; otherwise new rows go into the live index. There is one partial HNSW
   index per model, ``chunk_vectors_hnsw_m{model_id}``.
+- Passage alignment groups (``data/alignments/``, #179) go into
+  ``passage_groups`` (chunk → group), which search folds by
+  (``api/passages.py``). Like the Scripture groups they are not part of a
+  work's hash: the rows of every work this run checked are synced in place,
+  so a new alignment touches neither works nor vectors. A member whose chunk
+  ids no longer match its alignment (``Member.ids``) gets no rows until
+  ``scripts.align`` runs again.
 - Each chunk's ``text_folded`` (``patristica.keyword.index_text``) feeds the
   keyword index for quoted search (#86), a ``pg_trgm`` GIN index built after
   the load. Chunks loaded before that column existed, or folded by an older
@@ -61,6 +68,7 @@ from typing import TYPE_CHECKING, Any
 
 from tqdm import tqdm
 
+from patristica import alignment_store as al
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.authors import author_index
@@ -122,6 +130,8 @@ class Stats:
     stale_vectors: int = 0
     folded: int = 0  # chunks folded in place (not counting those loaded)
     regrouped: int = 0  # chunks whose translation_group_id was updated in place
+    passages: int = 0  # passage_groups rows written or deleted in place
+    stale_alignments: list[str] = field(default_factory=list)  # members whose ids changed
     rehashed: int = 0  # unchanged works whose format-1 hash was rewritten
     no_vectors: list[str] = field(default_factory=list)  # works without a shard
 
@@ -133,6 +143,7 @@ class Stats:
                 f"{len(self.no_vectors)} works without vectors, "
                 f"{self.folded} chunks folded in place, "
                 f"{self.regrouped} chunks regrouped in place, "
+                f"{self.passages} passage-group rows synced, "
                 f"{self.rehashed} format-1 hashes rewritten")
 
 
@@ -503,6 +514,104 @@ def sync_groups(conn: psycopg.Connection, changes: dict[str, dict[str, str | Non
     return updated
 
 
+PassageRows = dict[str, dict[str, tuple[str, int]]]  # work_id → chunk_id → (group, conf)
+
+
+def passage_rows(align_dir: Path, paths: dict[str, Path],
+                 stale: list[str] | None = None) -> PassageRows:
+    """The ``passage_groups`` rows of the works in *paths* (work_id → normalized file).
+
+    A group is ``{version group}@{n}`` and holds the spans at
+    ``alignment_store.MIN_CONFIDENCE`` or more of the members in *paths* whose
+    chunk ids are those the alignment counted; it needs two such members.
+    Members whose ids changed are appended to *stale*.
+    """
+    rows: PassageRows = {}
+    def wanted(work_ids: list[str]) -> bool:
+        return sum(w in paths for w in work_ids) >= 2
+
+    for _, a in al.iter_store(align_dir, wanted):
+        live = [w for w in a.members if w in paths]
+        ids: dict[str, list[str]] = {}
+        for wid in live:
+            with paths[wid].open(encoding="utf-8") as f:
+                chunk_ids = [c["chunk_id"] for c in json.load(f)]
+            if al.ids_sha(chunk_ids) == a.members[wid].ids:
+                ids[wid] = chunk_ids
+            elif stale is not None:
+                stale.append(wid)
+        a.members = {w: m for w, m in a.members.items() if w in ids}
+        for g, spans in a.groups_of().items():
+            gid = f"{a.group}@{g}"
+            for wid, (start, end) in spans.items():
+                conf = a.members[wid].conf.get(g, 0)
+                if wid == a.pivot:
+                    conf = max(a.members[w].conf.get(g, 0) for w in spans if w != wid)
+                out = rows.setdefault(wid, {})
+                for cid in ids[wid][start:end]:
+                    out[cid] = (gid, conf)
+    return rows
+
+
+def stored_passages(conn: psycopg.Connection) -> PassageRows:
+    rows: PassageRows = {}
+    for work_id, chunk_id, group_id, conf in conn.execute(
+            "SELECT c.work_id, p.chunk_id, p.group_id, p.confidence FROM passage_groups p "
+            "JOIN chunks c USING (chunk_id)"):
+        rows.setdefault(work_id, {})[chunk_id] = (group_id, conf)
+    return rows
+
+
+def passage_changes(want: PassageRows, have: PassageRows, works: Iterable[str]
+                    ) -> dict[str, dict[str, tuple[str, int] | None]]:
+    """work_id → chunk_id → new row (None: delete), for the *works* whose rows differ."""
+    out: dict[str, dict[str, tuple[str, int] | None]] = {}
+    for work_id in works:
+        w, h = want.get(work_id, {}), have.get(work_id, {})
+        diff = {cid: w.get(cid) for cid in w.keys() | h.keys() if w.get(cid) != h.get(cid)}
+        if diff:
+            out[work_id] = diff
+    return out
+
+
+def sync_passages(conn: psycopg.Connection,
+                  changes: dict[str, dict[str, tuple[str, int] | None]]) -> int:
+    """Apply *changes* to ``passage_groups``, one transaction per work.
+
+    Only ``passage_groups`` is written: no work is reloaded and no vector is
+    touched. Returns the number of rows written or deleted.
+    """
+    conn.execute("CREATE TEMP TABLE IF NOT EXISTS passage_stage (chunk_id text, "
+                 "group_id text, confidence smallint) ON COMMIT DELETE ROWS")
+    n = 0
+    for work_id in tqdm(sorted(changes), desc="passage groups", unit="work"):
+        diff = changes[work_id]
+        gone = sorted(cid for cid, row in diff.items() if row is None)
+        with conn.transaction(), conn.cursor() as cur:
+            if gone:
+                cur.execute("DELETE FROM passage_groups WHERE chunk_id = ANY(%s)", (gone,),
+                            prepare=False)
+                n += cur.rowcount
+            new = [(cid, *row) for cid, row in sorted(diff.items()) if row is not None]
+            if new:
+                with cur.copy("COPY passage_stage (chunk_id, group_id, confidence) "
+                              "FROM STDIN") as copy:
+                    for row in new:
+                        copy.write_row(row)
+                cur.execute("INSERT INTO passage_groups (chunk_id, group_id, confidence) "
+                            "SELECT s.chunk_id, s.group_id, s.confidence FROM passage_stage s "
+                            "JOIN chunks c ON c.chunk_id = s.chunk_id "
+                            "ON CONFLICT (chunk_id) DO UPDATE SET group_id = EXCLUDED.group_id, "
+                            "confidence = EXCLUDED.confidence", prepare=False)
+                n += cur.rowcount
+    return n
+
+
+def _has_table(conn: psycopg.Connection, name: str) -> bool:
+    return conn.execute("SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = "
+                        "current_schema() AND tablename = %s)", (name,)).fetchone()[0]
+
+
 def hash_format(conn: psycopg.Connection) -> int:
     """The format of the stored ``content_sha`` values (``HASH_FORMAT``).
 
@@ -526,7 +635,8 @@ def set_hash_format(conn: psycopg.Connection) -> None:
 
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
         sources: Iterable[str] = (), prefixes: Iterable[str] = (), dry_run: bool = False,
-        rebuild_index: bool = False, maintenance_work_mem: str = "4GB") -> Stats:
+        rebuild_index: bool = False, maintenance_work_mem: str = "4GB",
+        align_dir: Path = al.DEFAULT_DIR) -> Stats:
     """Bring the database in line with the inputs; see the module docstring.
 
     *conn* must be in autocommit mode: each work is its own transaction.
@@ -608,8 +718,15 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         if diff:
             changes[work_id] = diff
     stats.rehashed = len(rehash)
+    # Passage groups (#179) of the works whose stored chunks match their files.
+    want_passages = passage_rows(align_dir, checked, stats.stale_alignments)
+    # (A dry run can see a database from before the table existed.)
+    have_passages = (stored_passages(conn) if stored and _has_table(conn, "passage_groups")
+                     else {})
+    passages = passage_changes(want_passages, have_passages, checked)
     if dry_run:
         stats.regrouped = sum(map(len, changes.values()))
+        stats.passages = sum(map(len, passages.values()))
         return stats
     if rehash:
         conn.execute("UPDATE works w SET content_sha = r.sha FROM unnest(%s::text[], %s::text[]) "
@@ -619,12 +736,13 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         # A full run: every stored hash is now of this format.
         set_hash_format(conn)
     stats.regrouped = sync_groups(conn, changes)
+    stats.passages = sync_passages(conn, passages)
     stats.folded = fold_missing(conn, checked, maintenance_work_mem)
     # Also after an index build alone: a rerun after a failed build loads
     # nothing, and the first run never got to its ANALYZE.
     built = build_hnsw(conn, maintenance_work_mem)
-    if built or stats.loaded or stats.deleted or stats.folded or stats.regrouped:
-        conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors")
+    if built or stats.loaded or stats.deleted or stats.folded or stats.regrouped or stats.passages:
+        conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors, passage_groups")
     return stats
 
 
@@ -635,6 +753,8 @@ def main() -> None:
     parser.add_argument("--input-dir", type=Path, default=Path("data/normalized"))
     parser.add_argument("--translations-dir", type=Path, default=tr.DEFAULT_DIR)
     parser.add_argument("--embeddings-dir", type=Path, default=emb.DEFAULT_DIR)
+    parser.add_argument("--alignments-dir", type=Path, default=al.DEFAULT_DIR,
+                        help="passage alignments (scripts.align, #179)")
     parser.add_argument("--source", action="append", default=[],
                         help="only works of this source_id (repeatable)")
     parser.add_argument("--work", action="append", default=[],
@@ -655,8 +775,13 @@ def main() -> None:
         stats = run(conn, args.input_dir, args.translations_dir, args.embeddings_dir,
                     sources=args.source, prefixes=args.work, dry_run=args.dry_run,
                     rebuild_index=args.rebuild_index,
-                    maintenance_work_mem=args.maintenance_work_mem)
+                    maintenance_work_mem=args.maintenance_work_mem,
+                    align_dir=args.alignments_dir)
     log.info("%s%s", "dry run: " if args.dry_run else "", stats.summary())
+    if stats.stale_alignments:
+        log.warning("%d works changed since they were aligned, so they have no passage groups: "
+                    "run scripts.align (%s)", len(stats.stale_alignments),
+                    ", ".join(sorted(stats.stale_alignments)[:10]))
     if stats.stale_vectors:
         log.warning("%d vectors embed outdated text: run scripts.embed, then this again",
                     stats.stale_vectors)
