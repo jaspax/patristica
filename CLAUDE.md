@@ -34,6 +34,7 @@ patristica/
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
 │   ├── authors.py             # author index: resolve_author(), dates (data/authors.csv, data/author_strings.csv; #82)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
+│   ├── versions.py            # work-level version groups (translation_of + books + CTS + data/version_links.csv, #178)
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching; fold_spans() maps back
 │   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
@@ -58,6 +59,7 @@ patristica/
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
+│   ├── version_groups.py      # report version groups per language pair (#178)
 │   ├── export_library.py      # normalized → static library (index, authors.json, per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → DO Spaces (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
@@ -101,6 +103,9 @@ See `patristica/models.py`. Key types:
 
 ### Author index (#82)
 `patristica/data/authors.csv` has one row per person: `author_id` (a stable slug), English `name`, `aliases` (every source spelling plus Latin/Greek forms, `|`-separated), `birth`/`death`/`floruit` (`354` established, `c. 347` approximate, `350?` uncertain, `340/345` a range), `tradition`, `external_ids` (TLG/stoa/PTA), `pseudo_of` (for `pseudo-*` authors, the real author) and a `note`. Keep it sorted by id. `patristica/data/author_strings.csv` maps source strings that are not a simple alias, with a required reason: anonymous works, work titles and councils in the author field, modern editors named as author, ambiguous bare names (`Gelasius`) and multi-person strings. `resolve_author()` matches on `fold()`-ed text and splits `;`-separated lists; an unknown name raises `UnknownAuthorError`. A pseudonymous author has no dates of its own. The author's birth year feeds the period rule (`period_birth_year`); see "Date Handling".
+### Version groups (#178)
+A work's *version group* is every work that is the same text in another language or edition. Groups are derived, never stored (`patristica/versions.py`): connected components over `translation_of`, Scripture books (a Scripture source's work id is `{source}/{osis book, lower case}`, so `kjv/gen`, `oshb/gen` and `lxx-rahlfs/gen` are one group, whatever each witness's genre), CTS work ids (`first1k`/`perseus` `{tlg…}/{tlg…}`, `pta` `{pta…}/{pta…}`), and the curated `patristica/data/version_links.csv` (`work_id,other_work_id,relation,reason`; relation `translation_of`, `same_work` or `different_edition`). Add a curated link only when both works are the same work, checked against the text, and never link a container (a Migne Work holding several works, a catena) to one of its works: the groups would merge. `export_library` writes the group id per work (`version_group`, null for a work with no other version); ids are deterministic but change when links change, so don't use them in URLs. `uv run python -m scripts.version_groups` prints counts per language pair.
+
 - **`Chunk`**: one text unit (verse, paragraph, stanza) with `canonical_ref`, `language`, `text`, optional `translation_group_id`
 
 ### Language codes (ISO 639-3)
@@ -268,7 +273,7 @@ The app runs on the droplet as the `web` service of the compose stack (`infra/co
 - `NEXT_PUBLIC_LIBRARY_URL` is the Spaces CDN URL (`infra/tofu.sh output -raw library_url`, `LIBRARY_URL` in the host `.env`). `NEXT_PUBLIC_*` values are inlined at build time, so they are Docker build arguments; changing one means rebuilding the image.
 - **`/api/*` on `patristica.app` is the FastAPI app**, with the prefix stripped by Caddy: `/api/search` reaches FastAPI as `/search`. Declare FastAPI routes without `/api`, call them from the web app same-origin at `/api/…`, and never add Next.js routes under `/api`. `api.patristica.app` serves the same routes without the prefix.
 
-- **Data is published automatically.** On every push to `master` that touches `data/normalized/**` or the export/upload code, `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `LIBRARY_ACCESS_KEY_ID` and `LIBRARY_SECRET_ACCESS_KEY` (a Spaces key that can only touch the library bucket; tofu outputs `library_access_key` / `library_secret_key`). The bucket name and region are plain values in the workflow. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
+- **Data is published automatically.** On every push to `master` that touches `data/normalized/**`, the export/upload code or what the export derives from (authors, version links), `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `LIBRARY_ACCESS_KEY_ID` and `LIBRARY_SECRET_ACCESS_KEY` (a Spaces key that can only touch the library bucket; tofu outputs `library_access_key` / `library_secret_key`). The bucket name and region are plain values in the workflow. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
 - To publish by hand, run the same two scripts locally. Local credentials (`LIBRARY_*`) go in `web/.env` (gitignored). Never print or commit them.
 - The export is deterministic: `index.json` has a content hash (`version`), not a timestamp. A from-scratch export is byte-identical to an incremental one, which is what makes CI runs no-ops. Keep it that way: no timestamps or other run-dependent values in exported files.
 - Objects are stored gzipped with `Content-Encoding: gzip`. Changes are detected through `_manifest.json` in the bucket, which maps each key to the SHA-256 of its *uncompressed* content and is written last. Don't compare gzip bytes or ETags: gzip output differs between Python and zlib versions (even the header's OS byte, #46), so CI and local runs would keep re-uploading everything. A no-op run takes a few seconds.
