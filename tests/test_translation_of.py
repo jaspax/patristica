@@ -23,7 +23,7 @@ def _links() -> list[tuple[str, str]]:
 
 
 def test_some_works_are_linked() -> None:
-    assert len(_links()) >= 300
+    assert len(_links()) >= 310
 
 
 def test_every_target_exists() -> None:
