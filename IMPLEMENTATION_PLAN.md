@@ -157,7 +157,15 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 - Optional filters: language, author, date range, tradition
 - Return ranked chunks with work/author metadata
 
-*Status (#141):* `GET /search` in `api/search.py` implements the vector path over `chunk_vectors`. Filters are language, genre, source, work, author id (`anonymous` for `author_ids = []`), a date range (overlap with the chunk's range, so undated chunks drop out) and `out_of_period` (excluded unless asked). The HNSW scan is iterative (`relaxed_order`) and narrow filters may use the btree indexes instead. Query vectors are cached in memory (LRU), clients are rate-limited per IP, and a slow or failing Voyage call answers 503. Quoted queries are recognised (`parse_query`) but fall back to vector search until the keyword index exists (#86, #143).
+*Status (#141):* `GET /search` in `api/search.py` implements the vector path over `chunk_vectors`. Filters are language, genre, source, work, author id (`anonymous` for `author_ids = []`), a date range (overlap with the chunk's range, so undated chunks drop out) and `out_of_period` (excluded unless asked). The HNSW scan is iterative (`relaxed_order`) and narrow filters may use the btree indexes instead. Query vectors are cached in memory (LRU), clients are rate-limited per IP, and a slow or failing Voyage call answers 503.
+
+*Quoted search (#143), decided 2026-10-18.* `parse_query` splits a query into quoted phrases and free text, and the query is routed, not fused (#3):
+- **Quote marks:** `"…"`, `“…”`, `„…“` and `«…»` all open and close a phrase. An unclosed quote runs to the end of the query, and empty quotes are ignored. Apostrophes and the Hebrew geresh are not quotes.
+- **A query with at least one phrase runs keyword search** (`api/keyword.py`, #86). Every phrase must occur as whole words in the chunk's folded text (AND). A phrase needs at least 3 letters once folded; a 5 s timeout stops phrases too common to search. Both answer 422 with a message.
+- **Free text next to a quote ranks the phrase matches by meaning**: the free text is embedded and each match is ordered by its best vector's distance to it. Without free text there is no Voyage call, and matches are ordered Scripture first, then by earliest date, then by work and position.
+- **Filters** are the same as for vector search.
+- **Response:** `mode` (`keyword` or `vector`), `phrases`, `text` (the free text) and, in keyword mode, `total`. Each keyword result has `matches`, the phrase spans in its text as UTF-16 offsets (JavaScript string indices). They are mapped from the folded text back to the original by `textfold.fold_spans`, and cover the marks after a match's last letter. A long chunk whose first match is past the cut is shown from shortly before that match (`text_start`).
+- **Web:** the results say which mode ran ("Exact phrase" or "Semantic"). A hint and a help popover explain quotes, matches are highlighted, and a phrase that finds nothing offers the same words as a semantic search.
 
 ---
 

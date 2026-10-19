@@ -88,6 +88,11 @@ _CHUNK_COLUMNS = ("chunk_id", "work_id", "canonical_ref", "chunk_index", "langua
                   "date_composed", "date_range", "date_confidence", "out_of_period",
                   "translation_group_id", "text_folded")
 _COPY_SIGNATURE = b"PGCOPY\n\xff\r\n\x00" + struct.pack(">ii", 0, 0)
+# The joins against the per-work staging tables (vector_stage, fold_stage) run
+# with prepare=False. psycopg prepares a statement after its 5th execution, and
+# Postgres then reuses one plan for every later work: a plan made for one
+# work's staging rows can walk millions of chunks for each of the others
+# (#170: 6 s a work instead of a fraction of a second).
 
 
 class SchemaVersionError(RuntimeError):
@@ -307,7 +312,7 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
             "SELECT s.chunk_id, s.kind, s.model_id, s.embedding, c.work_id, w.source_id, "
             "c.language, w.genre, w.author_ids, coalesce(c.date_range, w.date_range), "
             "c.out_of_period FROM vector_stage s JOIN chunks c USING (chunk_id) "
-            "JOIN works w ON w.work_id = c.work_id")
+            "JOIN works w ON w.work_id = c.work_id", prepare=False)
         stats.vectors += len(rows)
 
 
@@ -409,7 +414,7 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
                 for c in chunks:
                     copy.write_row((c["chunk_id"], index_text(c["text"])))
             cur.execute("UPDATE chunks c SET text_folded = s.text_folded FROM fold_stage s "
-                        "WHERE c.chunk_id = s.chunk_id AND c.text_folded IS NULL")
+                        "WHERE c.chunk_id = s.chunk_id AND c.text_folded IS NULL", prepare=False)
             folded += cur.rowcount
     if not has_index(conn, TRGM_INDEX):
         log.info("building %s (keyword index, #86)", TRGM_INDEX)

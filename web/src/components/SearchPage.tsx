@@ -12,6 +12,7 @@ import {
   DEFAULT_SEARCH,
   fetchSearch,
   formatRange,
+  highlight,
   parseSearchState,
   resultHref,
   searchStateToParams,
@@ -19,6 +20,7 @@ import {
   type SearchResponse,
   type SearchResult,
   type SearchState,
+  withoutQuotes,
 } from "@/lib/search";
 import { useLoaded } from "@/lib/useLoaded";
 
@@ -67,7 +69,11 @@ export default function SearchPage() {
       <p role="status" className="visually-hidden">
         {searching ? status : ""}
       </p>
-      {searching ? <Results key={key} state={state} onStatus={setStatus} /> : <Intro />}
+      {searching ? (
+        <Results key={key} state={state} onStatus={setStatus} onSearch={(q) => go({ q })} />
+      ) : (
+        <Intro />
+      )}
     </div>
   );
 }
@@ -78,8 +84,11 @@ function statusText(pages: Pages): string {
   if (pages.status === "error") return ""; // the error is an alert
   const shown = pages.pages.reduce((n, p) => n + p.results.length, 0);
   if (shown === 0) return "No passages found.";
-  const more = pages.pages[pages.pages.length - 1]?.next_offset != null;
-  return `${shown} ${shown === 1 ? "passage" : "passages"} shown${more ? ", more available" : ""}.`;
+  const last = pages.pages[pages.pages.length - 1];
+  const more = last?.next_offset != null;
+  const of = last?.total != null && last.total > shown ? ` of ${last.total}` : "";
+  const noun = (last?.total ?? shown) === 1 ? "passage" : "passages";
+  return `${shown}${of} ${noun} shown${more ? ", more available" : ""}.`;
 }
 
 /** How many filters are set; a date range counts once. */
@@ -113,14 +122,19 @@ function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFor
         onChange({ q: draft.trim() });
       }}
     >
-      <label className={styles.query}>
-        <span className="visually-hidden">Search the texts</span>
+      <div className={styles.queryBox}>
+        {/* Only the caption is the label: the button would otherwise join the box's name. */}
+        <label htmlFor="search-q" className="visually-hidden">
+          Search the texts
+        </label>
         <span className={styles.queryRow}>
           <input
+            id="search-q"
             type="search"
             name="q"
             value={draft}
             maxLength={500}
+            aria-describedby="search-hint"
             placeholder="e.g. the soul's ascent to God, grace and free will"
             onChange={(e) => setDraft(e.target.value)}
           />
@@ -128,7 +142,13 @@ function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFor
             Search
           </button>
         </span>
-      </label>
+        <div className={styles.hint}>
+          <span id="search-hint">
+            Put words in quotes for an exact phrase: <q>&quot;in principio erat verbum&quot;</q>.
+          </span>{" "}
+          <SearchHelp />
+        </div>
+      </div>
       <details
         className={styles.filterPanel}
         open={showFilters}
@@ -156,6 +176,30 @@ function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFor
   );
 }
 
+function SearchHelp() {
+  return (
+    <details className={styles.help}>
+      <summary>How search works</summary>
+      <div>
+        <p>
+          <strong>By meaning</strong> (no quotes): describe an idea in any language, and the closest passages
+          come first, whatever words they use. <em>the soul&rsquo;s ascent to God</em>
+        </p>
+        <p>
+          <strong>Exact phrase</strong> (in quotes): passages containing those words in that order. Accents,
+          breathings, vowel points and capitals don&rsquo;t matter, nor do Latin spellings like <em>u/v</em>,{" "}
+          <em>i/j</em> or <em>ae/e</em>. Scripture comes first, then the earliest texts.{" "}
+          <q>&quot;ἐν ἀρχῇ ἦν ὁ λόγος&quot;</q>
+        </p>
+        <p>
+          <strong>Both</strong>: several quoted phrases must all occur; words outside the quotes rank those
+          passages by meaning. <q>&quot;in principio&quot; creation of light</q>
+        </p>
+      </div>
+    </details>
+  );
+}
+
 function Intro() {
   return (
     <div className={styles.intro}>
@@ -166,13 +210,21 @@ function Intro() {
       </p>
       <p>
         Describe an idea rather than quoting words: <em>Christ as physician of the soul</em>,{" "}
-        <em>baptism of desire</em>, <em>the light of Tabor</em>.
+        <em>baptism of desire</em>, <em>the light of Tabor</em>. To find where a passage is quoted, put it
+        in quotes.
       </p>
     </div>
   );
 }
 
-function Results({ state, onStatus }: { state: SearchState; onStatus: (text: string) => void }) {
+interface ResultsProps {
+  state: SearchState;
+  onStatus: (text: string) => void;
+  /** Run another query (the no-results fallback). */
+  onSearch: (q: string) => void;
+}
+
+function Results({ state, onStatus, onSearch }: ResultsProps) {
   const [pages, setPages] = useState<Pages>({ status: "loading", pages: [] });
   const [offset, setOffset] = useState(0);
   const [attempt, setAttempt] = useState(0);
@@ -209,12 +261,7 @@ function Results({ state, onStatus }: { state: SearchState; onStatus: (text: str
 
   return (
     <section aria-label="Search results" aria-busy={pages.status === "loading"}>
-      {last?.requested_mode === "phrase" && (
-        <p className={styles.notice}>
-          Exact-phrase search isn&rsquo;t available yet, so these are passages similar in meaning to{" "}
-          <q>{last.query}</q>.
-        </p>
-      )}
+      {last && <ModeLine response={last} />}
       {results.length > 0 && (
         <ol className={styles.results}>
           {results.map((r) => (
@@ -222,7 +269,15 @@ function Results({ state, onStatus }: { state: SearchState; onStatus: (text: str
           ))}
         </ol>
       )}
-      {pages.status === "ready" && results.length === 0 && (
+      {pages.status === "ready" && results.length === 0 && last?.mode === "keyword" && (
+        <p className={styles.status}>
+          No passages contain {last.phrases.length > 1 ? "these phrases" : "this phrase"}.{" "}
+          <button type="button" className={styles.reset} onClick={() => onSearch(withoutQuotes(state.q))}>
+            Search by meaning instead
+          </button>
+        </p>
+      )}
+      {pages.status === "ready" && results.length === 0 && last?.mode !== "keyword" && (
         <p className={styles.status}>No passages found. Try other words, or clear the filters.</p>
       )}
       {pages.status === "loading" && <p className={styles.status}>Searching…</p>}
@@ -233,6 +288,36 @@ function Results({ state, onStatus }: { state: SearchState; onStatus: (text: str
         </button>
       )}
     </section>
+  );
+}
+
+/** Which search ran: "Exact phrase" (quoted) or "Semantic". */
+function ModeLine({ response }: { response: SearchResponse }) {
+  if (response.mode === "vector") {
+    return (
+      <p className={styles.mode}>
+        <strong>Semantic</strong> · passages closest in meaning
+      </p>
+    );
+  }
+  const phrases = response.phrases.map((p, i) => (
+    <span key={i}>
+      {i > 0 && " and "}
+      <q>{p}</q>
+    </span>
+  ));
+  return (
+    <p className={styles.mode}>
+      <strong>Exact phrase</strong> · passages containing {phrases}
+      {response.text ? (
+        <>
+          , closest in meaning to <q>{response.text}</q> first
+        </>
+      ) : (
+        ", Scripture first, then the earliest"
+      )}
+      {response.total ? ` · ${response.total.toLocaleString()} found` : ""}
+    </p>
   );
 }
 
@@ -285,7 +370,8 @@ export function ResultItem({ result }: { result: SearchResult }) {
         </Link>
       </p>
       <p className={styles.text} lang={lang.lang} dir={lang.dir}>
-        {result.text}
+        {result.text_start > 0 && "…"}
+        {highlight(result.text, result.matches).map((s, i) => (s.match ? <mark key={i}>{s.text}</mark> : s.text))}
         {result.text_truncated && "…"}
       </p>
       {result.translation && (

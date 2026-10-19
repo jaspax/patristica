@@ -2,10 +2,6 @@
   margin-bottom: 1rem;
 }
 
-.query {
-  display: block;
-}
-
 .queryRow {
   display: flex;
   gap: 0.5rem;
@@ -138,4 +134,70 @@
 
 .meta {
   margin-top: 0.4rem;
+}
+
+.queryBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  /* The help popover is placed against this box, so it starts at the gutter. */
+  position: relative;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.hint q {
+  quotes: none;
+  font-family: var(--font-body);
+  color: var(--foreground);
+}
+
+/* A popover: it floats over the filters instead of pushing them down. */
+.help {
+  display: inline;
+}
+
+.help summary {
+  display: inline;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.help[open] > div {
+  position: absolute;
+  z-index: 10;
+  inset-inline-start: 0;
+  margin-top: 0.3rem;
+  width: min(34rem, calc(100vw - 2 * var(--gutter)));
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  padding: 0.6rem 0.8rem;
+  max-width: var(--text-width);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 0.85rem;
+}
+
+.help p + p {
+  margin-top: 0.4rem;
+}
+
+.mode {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.mode strong {
+  color: var(--foreground);
+}
+
+.text mark {
+  background: var(--highlight);
+  color: inherit;
+  border-radius: 2px;
 }

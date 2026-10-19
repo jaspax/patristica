@@ -52,6 +52,63 @@ def fold(text: str) -> str:
     return " ".join(_LATIN_WORDS.get(w, w) for w in t.split())
 
 
+def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
+    """``fold(text)``, with the span of *text* each folded character came from.
+
+    Returns ``(folded, starts, ends)``: ``folded[k]`` comes from
+    ``text[starts[k]:ends[k]]``. It applies the steps of ``fold`` one
+    character at a time, so a match found in the folded text can be shown in
+    the original (search highlighting, #143). A space between words spans
+    the gap between them, and a replaced word (*michi*) spans the whole word.
+    """
+    chars: list[tuple[str, int, int]] = []
+    for i, ch in enumerate(text):
+        for d in unicodedata.normalize("NFKD", ch).translate(_IN_WORD_MARKS):
+            if _is_dropped_mark(d):
+                continue
+            for c in d.casefold():
+                c = " " if _is_separator(c) else c.translate(_LATIN_LETTERS)
+                chars.append((c, i, i + 1))
+    # The digraphs ae/oe, left to right and not overlapping, as the regex does.
+    merged: list[tuple[str, int, int]] = []
+    k = 0
+    while k < len(chars):
+        c, start, end = chars[k]
+        if c in "ao" and k + 1 < len(chars) and chars[k + 1][0] == "e":
+            merged.append(("e", start, chars[k + 1][2]))
+            k += 2
+        else:
+            merged.append((c, start, end))
+            k += 1
+    words: list[list[tuple[str, int, int]]] = []
+    current: list[tuple[str, int, int]] = []
+    for item in merged:
+        if item[0].isspace():
+            if current:
+                words.append(current)
+                current = []
+        else:
+            current.append(item)
+    if current:
+        words.append(current)
+    folded: list[str] = []
+    starts: list[int] = []
+    ends: list[int] = []
+    for n, word in enumerate(words):
+        if n:
+            folded.append(" ")
+            starts.append(ends[-1])
+            ends.append(word[0][1])
+        spelled = "".join(c for c, _, _ in word)
+        if spelled in _LATIN_WORDS:
+            word = [(c, word[0][1], word[-1][2]) for c in _LATIN_WORDS[spelled]]
+        for c, start, end in word:
+            folded.append(c)
+            starts.append(start)
+            ends.append(end)
+    return "".join(folded), starts, ends
+
+
 def squash(text: str) -> str:
     """Return ``fold(text)`` without spaces, for word-boundary-insensitive containment.
 

@@ -4,12 +4,14 @@ import {
   DEFAULT_SEARCH,
   fetchSearch,
   formatRange,
+  highlight,
   parseSearchState,
   resultHref,
   searchApiUrl,
   searchHref,
   SearchError,
   searchStateToParams,
+  withoutQuotes,
 } from "./search";
 
 afterEach(() => {
@@ -46,6 +48,39 @@ describe("resultHref", () => {
     expect(resultHref({ work_id: "pta/ephrem hymns", canonical_ref: "Hymn.1.2.s3" })).toBe(
       "/works/pta/ephrem%20hymns#Hymn.1.2.s3",
     );
+  });
+});
+
+describe("withoutQuotes", () => {
+  it("drops every kind of quote mark", () => {
+    expect(withoutQuotes('"in principio" «ἐν ἀρχῇ»  „Wort“ “light”')).toBe("in principio ἐν ἀρχῇ Wort light");
+  });
+});
+
+describe("highlight", () => {
+  const marked = (text: string, matches: [number, number][]) =>
+    highlight(text, matches).map((s) => (s.match ? `[${s.text}]` : s.text)).join("");
+
+  it("splits text at the API's offsets", () => {
+    expect(marked("In principio erat Verbum", [[0, 12], [18, 24]])).toBe("[In principio] erat [Verbum]");
+    expect(highlight("abc", [])).toEqual([{ text: "abc", match: false }]);
+  });
+
+  it("keeps combining marks with their letters in right-to-left text", () => {
+    // Pointed Hebrew: the API's span covers the vowel points after the last letter.
+    const text = "בְּרֵאשִׁית בָּרָא אֱלֹהִים";
+    const end = "בְּרֵאשִׁית בָּרָא".length;
+    expect(marked(text, [[0, end]])).toBe("[בְּרֵאשִׁית בָּרָא] אֱלֹהִים");
+  });
+
+  it("uses UTF-16 indices, so letters outside the BMP stay whole", () => {
+    const text = "𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽";
+    expect(marked(text, [[5, 25]])).toBe("𐌹𐌽 [𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽]");
+  });
+
+  it("clamps bad offsets instead of losing text", () => {
+    expect(marked("abcdef", [[4, 2], [3, 99]])).toBe("abcd[ef]");
+    expect(marked("abc", [[-5, 1]])).toBe("[a]bc");
   });
 });
 
