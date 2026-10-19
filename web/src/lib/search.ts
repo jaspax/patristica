@@ -3,6 +3,7 @@
 import { API_URL } from "./config";
 import { DEFAULT_VIEW, MULTI_KEYS, parseViewState, viewStateToParams } from "./filter";
 import { formatYear } from "./format";
+import { languageInfo } from "./lang";
 import { workHref } from "./library";
 
 /** The search page's URL state: the query and the library index's facets. */
@@ -62,6 +63,19 @@ export function searchApiUrl(state: SearchState, offset = 0, limit = PAGE_SIZE):
   return `${API_URL}/search?${params}`;
 }
 
+/** Another version of a result's passage (#180): the same verse in another edition or language. */
+export interface SearchVersion {
+  chunk_id: string;
+  work_id: string;
+  /** In the version's own numbering, which may differ from the result's (Ps 22 / Ps 23). */
+  canonical_ref: string;
+  language: string;
+  source_label: string;
+  edition: string | null;
+  /** Similarity to the query, or null in an unranked phrase search. */
+  score: number | null;
+}
+
 export interface SearchResult {
   chunk_id: string;
   work_id: string;
@@ -95,6 +109,11 @@ export interface SearchResult {
     license: string;
     provenance_url: string | null;
   };
+  /**
+   * The other versions of this passage the search found, best first. This
+   * result is the best-scoring of them (for a phrase search, the first in order).
+   */
+  versions: SearchVersion[];
 }
 
 export interface SearchResponse {
@@ -240,4 +259,37 @@ export function formatRange(range: [number, number] | null, year: number | null 
   if (range && range[0] !== range[1]) return `${formatYear(range[0])}–${formatYear(range[1])}`;
   if (range) return formatYear(range[0]);
   return year === null ? "" : formatYear(year);
+}
+
+/** One language of a result's other versions: "English: King James Version, World English Bible". */
+export interface VersionLanguage {
+  language: string;
+  name: string;
+  versions: { href: string; label: string; ref: string | null }[];
+}
+
+/**
+ * A result's other versions grouped by language, the languages in the order
+ * of their best version. Each version is labelled by its source, or by its
+ * edition when two versions in a language share a source, and has its ref
+ * when it is numbered differently from the result.
+ */
+export function versionLanguages(result: Pick<SearchResult, "canonical_ref" | "versions">): VersionLanguage[] {
+  const byLanguage = new Map<string, SearchVersion[]>();
+  for (const v of result.versions ?? []) {
+    byLanguage.set(v.language, [...(byLanguage.get(v.language) ?? []), v]);
+  }
+  return [...byLanguage].map(([language, versions]) => {
+    const sources = new Map<string, number>();
+    for (const v of versions) sources.set(v.source_label, (sources.get(v.source_label) ?? 0) + 1);
+    return {
+      language,
+      name: languageInfo(language).name,
+      versions: versions.map((v) => ({
+        href: resultHref(v),
+        label: (sources.get(v.source_label) ?? 0) > 1 && v.edition ? v.edition : v.source_label,
+        ref: v.canonical_ref === result.canonical_ref ? null : v.canonical_ref,
+      })),
+    };
+  });
 }

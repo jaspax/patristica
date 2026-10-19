@@ -259,3 +259,28 @@
   color: inherit;
   border-radius: 2px;
 }
+
+/* "Also in: …": the other versions of a folded passage (#180), as one wrapping line. */
+.versions {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.versions ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.versions li {
+  display: inline;
+}
+
+/* Separators are decoration: screen readers announce the list items. */
+.versions li + li::before {
+  content: " · ";
+  content: " · " / "";
+  color: var(--muted);
+}

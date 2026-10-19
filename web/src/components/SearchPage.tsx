@@ -20,6 +20,7 @@ import {
   type SearchResponse,
   type SearchResult,
   type SearchState,
+  versionLanguages,
   withoutQuotes,
 } from "@/lib/search";
 import { useLoaded } from "@/lib/useLoaded";
@@ -408,6 +409,42 @@ export function ResultItem({ result }: { result: SearchResult }) {
         )}
         {result.out_of_period && <> · after the collection period</>}
       </p>
+      <OtherVersions result={result} />
     </li>
+  );
+}
+
+/** "Also in: Latin: Clementine Vulgate · English: …", each linking to the passage in that version (#180). */
+function OtherVersions({ result }: { result: SearchResult }) {
+  const languages = versionLanguages(result);
+  if (languages.length === 0) return null;
+  const id = `versions-${result.chunk_id}`;
+  return (
+    <div className={styles.versions}>
+      <span id={id} className={styles.label}>
+        Also in:
+      </span>{" "}
+      <ul aria-labelledby={id}>
+        {languages.map((l) => (
+          <li key={l.language}>
+            {l.name}:{" "}
+            {l.versions.map((v, i) => (
+              <span key={v.href}>
+                {i > 0 && ", "}
+                <Link href={v.href}>
+                  {v.label}
+                  {v.ref && (
+                    <>
+                      {" "}
+                      <span className={styles.ref}>{v.ref}</span>
+                    </>
+                  )}
+                </Link>
+              </span>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

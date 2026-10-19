@@ -10,10 +10,12 @@ For vector search, ``Searcher.search`` embeds the query with Voyage ``voyage-4-l
 (``input_type="query"``), cuts it to the stored 512 dims with ``shorten``,
 and ranks ``chunk_vectors`` of the same model by cosine distance through the
 model's HNSW index. A chunk with a translation vector scores the better of its
-two vectors and appears once. Pages are slices of one fixed candidate pool
-per query (``CANDIDATES``). Filters are columns of ``chunk_vectors``
-(``db/schema.sql``), and the HNSW scan is iterative, so narrow filters still
-fill a page.
+two vectors and appears once. The versions of one passage (``api.passages``,
+#180) fold into one result, led by the best-scoring one, with the others in
+``versions``. Pages are slices of one fixed candidate pool per query
+(``CANDIDATES``), folded before paging. Filters are columns of
+``chunk_vectors`` (``db/schema.sql``) and apply before folding, and the HNSW
+scan is iterative, so narrow filters still fill a page.
 """
 
 from __future__ import annotations
@@ -28,7 +30,8 @@ from concurrent.futures import Future
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Literal
 
-from api.keyword import phrase_search
+from api.keyword import Hit, phrase_search
+from api.passages import passage_group
 from patristica.embedders import ApiError, VoyageEmbedder, shorten
 from patristica.keyword import match_spans, phrase_pattern
 from patristica.sources import source_label
@@ -51,7 +54,15 @@ MAX_OFFSET = 200
 # with two rows per chunk at most (text and translation vectors). A pool that
 # grew with the offset would rank each page from a different set, so pages
 # could repeat or skip results.
-CANDIDATES = 2 * (MAX_OFFSET + MAX_LIMIT + 1)
+#
+# The pool is folded by passage group before paging (#180), so several rows
+# can make one result: a Scripture verse is in ~9 versions on average
+# (330,708 verses in 37,060 groups). FOLD_ROWS more rows per result keep the
+# deepest page reachable for a query that finds mostly Scripture in a few
+# languages; a query that matches every version of every verse runs out of
+# pages earlier, which only shortens the last pages, never repeats a result.
+FOLD_ROWS = 4
+CANDIDATES = FOLD_ROWS * 2 * (MAX_OFFSET + MAX_LIMIT + 1)
 TEXT_CHARS = 2000  # longer chunk texts are cut in results (a few Scripture chapters)
 EF_SEARCH = 100
 TRANSLATION_LANGUAGE = "eng"
@@ -249,6 +260,10 @@ def _vec_literal(vec: np.ndarray) -> str:
     return "[" + ",".join(f"{float(x):.6g}" for x in vec) + "]"
 
 
+# hits: the candidate pool; best: each chunk's better vector; folded: each
+# chunk's passage group and its place in it (n = 1 leads: the best score,
+# then the chunk id); page: a slice of the leads; versions: the other members
+# of the page's groups found in the pool.
 _SEARCH_SQL = """
 WITH hits AS MATERIALIZED (
     SELECT chunk_id, kind, embedding <=> %(q)s::halfvec AS distance
@@ -259,9 +274,17 @@ WITH hits AS MATERIALIZED (
 ), best AS (
     SELECT DISTINCT ON (chunk_id) chunk_id, kind, distance
     FROM hits ORDER BY chunk_id, distance, kind
+), folded AS (
+    SELECT b.chunk_id, b.kind, b.distance, {group} AS grp,
+           row_number() OVER (PARTITION BY {group} ORDER BY b.distance, b.chunk_id) AS n
+    FROM best b JOIN chunks c ON c.chunk_id = b.chunk_id
 ), page AS (
-    SELECT chunk_id, kind, distance FROM best
+    SELECT chunk_id, kind, distance, grp FROM folded WHERE n = 1
     ORDER BY distance, chunk_id OFFSET %(offset)s LIMIT %(limit)s
+), versions AS (
+    SELECT grp, json_agg(json_build_array(chunk_id, distance) ORDER BY distance, chunk_id)
+           AS versions
+    FROM folded WHERE n > 1 AND grp IN (SELECT grp FROM page) GROUP BY grp
 )
 SELECT b.distance, b.kind, c.chunk_id, c.work_id, c.canonical_ref, c.language,
        left(c.text, %(text_chars)s), length(c.text) > %(text_chars)s,
@@ -270,12 +293,21 @@ SELECT b.distance, b.kind, c.chunk_id, c.work_id, c.canonical_ref, c.language,
        w.title, w.author_ids, w.source_id, w.edition, w.license, w.provenance_url,
        w.genre, w.tradition, w.date_composed, lower(w.date_range), upper(w.date_range) - 1,
        coalesce((SELECT array_agg(a.name ORDER BY i.n) FROM unnest(w.author_ids)
-                 WITH ORDINALITY AS i(id, n) JOIN authors a ON a.author_id = i.id), '{{}}')
+                 WITH ORDINALITY AS i(id, n) JOIN authors a ON a.author_id = i.id), '{{}}'),
+       coalesce(v.versions, '[]')
 FROM page b
 JOIN chunks c ON c.chunk_id = b.chunk_id
 JOIN works w ON w.work_id = c.work_id
 LEFT JOIN chunk_translations t ON t.chunk_id = c.chunk_id AND t.language = %(tr_lang)s
+LEFT JOIN versions v ON v.grp = b.grp
 ORDER BY b.distance, c.chunk_id
+"""
+
+# The fields a result shows for each of its other versions.
+_VERSIONS_SQL = """
+SELECT c.chunk_id, c.work_id, c.canonical_ref, c.language, w.source_id, w.edition
+FROM chunks c JOIN works w ON w.work_id = c.work_id
+WHERE c.chunk_id = ANY(%(ids)s::text[])
 """
 
 
@@ -325,6 +357,22 @@ def _range(lo: int | None, hi: int | None) -> list[int] | None:
     return None if lo is None else [lo, hi]
 
 
+def _score(distance: float | None) -> float | None:
+    return None if distance is None else round(1 - float(distance), 4)
+
+
+def _versions(conn: Any, hits: list[list[Hit]]) -> list[list[dict[str, Any]]]:
+    """The ``versions`` of each result, from its other members' (chunk_id, distance)."""
+    ids = [cid for members in hits for cid, _ in members]
+    if not ids:
+        return [[] for _ in hits]
+    rows = {r[0]: r for r in conn.execute(_VERSIONS_SQL, {"ids": ids}).fetchall()}
+    return [[{"chunk_id": cid, "work_id": rows[cid][1], "canonical_ref": rows[cid][2],
+              "language": rows[cid][3], "source_label": source_label(rows[cid][4]),
+              "edition": rows[cid][5], "score": _score(distance)}
+             for cid, distance in members] for members in hits]
+
+
 def _result(row: tuple) -> dict[str, Any]:
     (distance, kind, chunk_id, work_id, ref, language, text, truncated, c_date, c_lo, c_hi,
      out_of_period, tr_text, tr_model, title, author_ids, source_id, edition, license_,
@@ -340,7 +388,7 @@ def _result(row: tuple) -> dict[str, Any]:
         "translation": None if tr_text is None else {
             "language": TRANSLATION_LANGUAGE, "text": tr_text, "model": tr_model,
             "machine": True},
-        "score": None if distance is None else round(1 - float(distance), 4),
+        "score": _score(distance),
         "matched": "translation" if kind == 1 else "text",
         "text_start": 0,
         "matches": [],
@@ -360,6 +408,8 @@ def _result(row: tuple) -> dict[str, Any]:
             "license": license_,
             "provenance_url": provenance_url,
         },
+        # The other versions of the passage that the search found (#180).
+        "versions": [],
     }
 
 
@@ -415,9 +465,10 @@ class Searcher:
             rank = None if vec is None else (_vec_literal(vec), self.model_id(conn))
             page, total = phrase_search(conn, list(parsed.phrases), where, params,
                                         limit + 1, offset, rank)
-            distances = dict(page[:limit])
+            distances = {cid: distance for cid, distance, _ in page[:limit]}
             rows = conn.execute(_HYDRATE_SQL, {"ids": list(distances),
                                                "tr_lang": TRANSLATION_LANGUAGE}).fetchall()
+            versions = dict(zip(distances, _versions(conn, [m for _, _, m in page[:limit]])))
         done = time.monotonic()
         log.info("search: keyword, %d phrases, %s, embed %.0f ms (%s), db %.0f ms, %d rows",
                  len(parsed.phrases), "ranked" if rank else "unranked",
@@ -427,7 +478,8 @@ class Searcher:
         for row in rows:
             shown, text_start, truncated, matches = keyword_window(row[6], parsed.phrases)
             result = _result((distances[row[2]], None, *row[2:6], shown, truncated, *row[8:]))
-            result.update(matched="phrase", text_start=text_start, matches=matches)
+            result.update(matched="phrase", text_start=text_start, matches=matches,
+                          versions=versions[row[2]])
             results.append(result)
         return self._response(q, parsed, offset, limit, len(page) > limit, total, results)
 
@@ -442,7 +494,8 @@ class Searcher:
         with self.pool.connection() as conn, conn.transaction():
             # Inlined, not a parameter: a generic plan of a prepared statement
             # can't prove model_id = n, so it would never use the partial index.
-            sql = _SEARCH_SQL.format(model_id=self.model_id(conn), where=where)
+            sql = _SEARCH_SQL.format(model_id=self.model_id(conn), where=where,
+                                     group=passage_group("c"))
             # JIT compilation costs more than this short query; on the full
             # index the cost estimates can exceed jit_above_cost.
             conn.execute("SELECT set_config('hnsw.ef_search', %s, true), "
@@ -450,9 +503,14 @@ class Searcher:
                          "set_config('jit', 'off', true)",
                          (str(self.ef_search),))
             rows = conn.execute(sql, params).fetchall()
+            versions = _versions(conn, [[(cid, d) for cid, d in r[-1]] for r in rows[:limit]])
         done = time.monotonic()
         log.info("search: vector, %d chars, embed %.0f ms (%s), db %.0f ms, %d rows",
                  len(parsed.text), 1000 * (embedded - started),
                  "cached" if cached else "voyage", 1000 * (done - embedded), len(rows))
-        return self._response(q, parsed, offset, limit, len(rows) > limit, None,
-                              [_result(r) for r in rows[:limit]])
+        results = []
+        for row, members in zip(rows[:limit], versions):
+            result = _result(row[:-1])
+            result["versions"] = members
+            results.append(result)
+        return self._response(q, parsed, offset, limit, len(rows) > limit, None, results)

@@ -180,7 +180,7 @@ def _search(conn, *phrases: str, filters: Filters | None = None, limit: int = 20
             offset: int = 0) -> tuple[list[str], int | None]:
     where, params = (filters or Filters()).sql()
     rows, total = api_kw.phrase_search(conn, list(phrases), where, params, limit, offset)
-    return [chunk_id for chunk_id, _ in rows], total
+    return [chunk_id for chunk_id, _, _ in rows], total
 
 
 def test_phrase_matches_folded_whole_words(corpus) -> None:

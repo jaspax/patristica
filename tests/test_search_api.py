@@ -334,7 +334,8 @@ def test_translation_vector_match_appears_once(searcher: s.Searcher) -> None:
     assert top["work"]["authors"][0]["id"] == "ephrem-the-syrian"
     assert top["citation"].endswith(", *Hymns on Faith* Hymn.1.1")
     # The other vector of the chunk scores 0 but doesn't make it appear twice.
-    assert len(ids) == len(set(ids)) == 4
+    # (3 results: the two versions of Gen.1.1 are one.)
+    assert len(ids) == len(set(ids)) == 3
     assert res["next_offset"] is None
 
 
@@ -343,7 +344,7 @@ def test_filters(searcher: s.Searcher) -> None:
     assert _ids(searcher.search("creation", s.Filters(author=["ephrem-the-syrian"]))) == [
         "pta/hymns#Hymn.1.1"]
     assert set(_ids(searcher.search("faith", s.Filters(author=["anonymous"])))) == {
-        "kjv/gen#Gen.1.1", "kjv/gen#Gen.1.2", "oshb/gen#Gen.1.1"}
+        "kjv/gen#Gen.1.1", "kjv/gen#Gen.1.2"}  # oshb/gen#Gen.1.1 is a version of the first
     assert _ids(searcher.search("void", s.Filters(date_from=300, date_to=400))) == [
         "pta/hymns#Hymn.1.1"]
     assert _ids(searcher.search("void", s.Filters(work=["oshb/gen"]))) == ["oshb/gen#Gen.1.1"]
@@ -357,7 +358,7 @@ def test_unpublishable_works_are_not_searchable(searcher: s.Searcher) -> None:
 def test_pagination(searcher: s.Searcher) -> None:
     first = searcher.search("void", s.Filters(), limit=2)
     second = searcher.search("void", s.Filters(), limit=2, offset=2)
-    assert len(_ids(first) + _ids(second)) == len(set(_ids(first) + _ids(second))) == 4
+    assert len(_ids(first) + _ids(second)) == len(set(_ids(first) + _ids(second))) == 3
     assert second["next_offset"] is None
 
 
@@ -406,7 +407,7 @@ def test_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> N
                     "ORDER BY embedding <=> %s::halfvec LIMIT 5", (s._vec_literal(
                         np.eye(1, s.DIMS, fx.axis_of("kjv/gen", "Gen.1.2"))[0]),)))
             assert "chunk_vectors_hnsw_m1" in plan
-        expected = 4 + TIES  # every searchable chunk, once
+        expected = 3 + TIES  # every searchable passage, once
         for limit in (7, 3):  # pages smaller than the tie group
             ids = _all_pages(searcher, limit)
             assert len(ids) == len(set(ids)) == expected
@@ -417,6 +418,212 @@ def test_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> N
             ["kjv/gen#Gen.1.2", *(f"kjv/gen#Tie.{i}" for i in range(1, TIES + 1))])
     finally:
         searcher.pool.close()
+
+
+# --- folding versions of a passage (#180) ---------------------------------
+
+# Versions added to the fixture's Gen.1.1 group (kjv/gen and oshb/gen are in it
+# already): (work_id, source_id, language, edition, text, score for "creation").
+VERSIONS = [
+    ("clementine/gen", "clementine", "lat", "Clementine Vulgate (1592)",
+     "In principio creavit Deus caelum et terram.", 0.8),
+    ("lxx-rahlfs/gen", "lxx-rahlfs", "grc", "Rahlfs (1935)",
+     "Ἐν ἀρχῇ ἐποίησεν ὁ θεὸς τὸν οὐρανὸν καὶ τὴν γῆν.", 0.6),
+    ("asv/gen", "asv", "eng", "American Standard Version (1901)",
+     "In the beginning God created the heavens and the earth.", 0.5),
+]
+SPARE_AXIS = 400  # no fixture vector uses it
+
+
+def _toward(axis: int, score: float) -> str:
+    """A unit vector whose cosine similarity to basis *axis* is *score*."""
+    vec = np.zeros(s.DIMS, dtype=np.float32)
+    vec[axis], vec[SPARE_AXIS] = score, (1 - score * score) ** 0.5
+    return s._vec_literal(vec)
+
+
+def _insert_chunk(conn: Any, work_id: str, source_id: str, language: str, edition: str,
+                  ref: str, text: str, group: str | None, embedding: str) -> None:
+    from patristica.keyword import index_text
+
+    conn.execute(
+        "INSERT INTO works (work_id, source_id, title, date_range, date_confidence, genre, "
+        "language, license, edition, path, content_sha) VALUES (%s, %s, 'Genesis', "
+        "'[-900,-400]', 'approximate', 'scripture', %s, 'public_domain', %s, 'x', 'x') "
+        "ON CONFLICT DO NOTHING", (work_id, source_id, language, edition))
+    cid = fx.chunk_id(work_id, ref)
+    conn.execute(
+        "INSERT INTO chunks (chunk_id, work_id, canonical_ref, chunk_index, language, text, "
+        "date_range, date_confidence, out_of_period, translation_group_id, text_folded) "
+        "VALUES (%s, %s, %s, 0, %s, %s, '[-900,-400]', 'approximate', false, %s, %s)",
+        (cid, work_id, ref, language, text, group, index_text(text)))
+    conn.execute(
+        "INSERT INTO chunk_vectors SELECT %s, 0, model_id, %s::halfvec, %s, %s, %s, "
+        "'scripture', '{}', '[-900,-400]', false FROM embedding_models", (
+            cid, embedding, work_id, source_id, language))
+
+
+@pytest.fixture
+def versions_url(corpus_url: str) -> str:
+    """The corpus with three more versions of Gen.1.1."""
+    import psycopg
+
+    axis = fx.axis_of("kjv/gen", "Gen.1.1")
+    with psycopg.connect(corpus_url, autocommit=True) as conn:
+        assert conn.execute("SELECT count(*) FROM chunks WHERE translation_group_id = "
+                            "'Gen.1.1'").fetchone() == (2,)  # kjv and oshb, from the loader
+        for work_id, source_id, language, edition, text, score in VERSIONS:
+            _insert_chunk(conn, work_id, source_id, language, edition, "Gen.1.1", text,
+                          "Gen.1.1", _toward(axis, score))
+    return corpus_url
+
+
+@pytest.fixture
+def versions(versions_url: str):
+    searcher = _searcher(versions_url)
+    try:
+        yield searcher
+    finally:
+        searcher.pool.close()
+
+
+def _versions(result: dict) -> list[str]:
+    return [v["chunk_id"] for v in result["versions"]]
+
+
+def _rounded(versions: list[dict]) -> list[dict]:
+    """*versions* with scores to 2 places (halfvec storage rounds 0.8 to 0.7999)."""
+    return [{**v, "score": None if v["score"] is None else round(v["score"], 2)}
+            for v in versions]
+
+
+def test_vector_search_folds_versions(versions: s.Searcher) -> None:
+    res = versions.search("creation", s.Filters(), limit=10)
+    ids = _ids(res)
+    # One result per passage: Gen.1.1 (5 versions), Gen.1.2, Hymn.1.1.
+    assert len(ids) == 3 and ids[0] == "kjv/gen#Gen.1.1"
+    top = res["results"][0]
+    assert top["score"] == 1.0 and top["work"]["source_label"] == "King James Version"
+    # The other versions, best first, as the API shows them (no source ids).
+    assert _rounded(top["versions"]) == [
+        {"chunk_id": "clementine/gen#Gen.1.1", "work_id": "clementine/gen",
+         "canonical_ref": "Gen.1.1", "language": "lat", "source_label": "Clementine Vulgate",
+         "edition": "Clementine Vulgate (1592)", "score": 0.8},
+        {"chunk_id": "lxx-rahlfs/gen#Gen.1.1", "work_id": "lxx-rahlfs/gen",
+         "canonical_ref": "Gen.1.1", "language": "grc", "source_label": "Septuagint (Rahlfs)",
+         "edition": "Rahlfs (1935)", "score": 0.6},
+        {"chunk_id": "asv/gen#Gen.1.1", "work_id": "asv/gen", "canonical_ref": "Gen.1.1",
+         "language": "eng", "source_label": "American Standard Version",
+         "edition": "American Standard Version (1901)", "score": 0.5},
+        {"chunk_id": "oshb/gen#Gen.1.1", "work_id": "oshb/gen", "canonical_ref": "Gen.1.1",
+         "language": "hbo", "source_label": "Open Scriptures Hebrew Bible",
+         "edition": "Open Scriptures Hebrew Bible", "score": 0.0},
+    ]
+    # Passages without other versions have none.
+    assert [r["versions"] for r in res["results"][1:]] == [[], []]
+
+
+def test_vector_lead_is_the_best_scoring_version(versions: s.Searcher) -> None:
+    top = versions.search("hebrew creation", s.Filters())["results"][0]
+    assert (top["chunk_id"], top["language"], top["score"]) == ("oshb/gen#Gen.1.1", "hbo", 1.0)
+    assert set(_versions(top)) == {"kjv/gen#Gen.1.1", "clementine/gen#Gen.1.1",
+                                   "lxx-rahlfs/gen#Gen.1.1", "asv/gen#Gen.1.1"}
+
+
+def test_vector_filters_apply_before_folding(versions: s.Searcher) -> None:
+    # Only Latin: the Vulgate verse is a result of its own, with no versions.
+    res = versions.search("creation", s.Filters(language=["lat"]))
+    assert _ids(res) == ["clementine/gen#Gen.1.1"] and res["results"][0]["versions"] == []
+    assert res["results"][0]["score"] == pytest.approx(0.8, abs=1e-3)
+    # Latin and Greek: the Vulgate leads, the Septuagint is its version.
+    top = versions.search("creation", s.Filters(language=["lat", "grc"]))["results"][0]
+    assert (top["chunk_id"], _versions(top)) == ("clementine/gen#Gen.1.1",
+                                                 ["lxx-rahlfs/gen#Gen.1.1"])
+    # A source filter keeps out the other sources' versions too.
+    top = versions.search("creation", s.Filters(source=["kjv", "asv"]))["results"][0]
+    assert (top["chunk_id"], _versions(top)) == ("kjv/gen#Gen.1.1", ["asv/gen#Gen.1.1"])
+
+
+GROUPS, GROUP_SIZE = 20, 3
+
+
+def _add_tied_groups(url: str) -> None:
+    """GROUPS passages of GROUP_SIZE versions each, every vector that of Gen.1.2 ("void")."""
+    import psycopg
+
+    void = _toward(fx.axis_of("kjv/gen", "Gen.1.2"), 1.0)
+    with psycopg.connect(url, autocommit=True) as conn:
+        for g in range(GROUPS):
+            for v in range(GROUP_SIZE):
+                _insert_chunk(conn, f"ed{v}/gen", f"ed{v}", "eng", f"Edition {v}",
+                              f"Tie.{g}", "tied", f"Tie.{g}", void)
+
+
+@pytest.mark.parametrize("forced_hnsw", [False, True])
+def test_folded_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> None:
+    _add_tied_groups(corpus_url)
+    settings = ({"enable_seqscan": "off", "enable_bitmapscan": "off", "enable_sort": "off"}
+                if forced_hnsw else {})
+    searcher = _searcher(corpus_url, ef_search=1 if forced_hnsw else s.EF_SEARCH, **settings)
+    try:
+        expected = 3 + GROUPS  # every passage once
+        for limit in (7, 2):  # pages smaller than the tie group
+            ids = _all_pages(searcher, limit)
+            assert len(ids) == len(set(ids)) == expected
+            assert ids == _all_pages(searcher, limit)
+        res = searcher.search("void", s.Filters(), limit=s.MAX_LIMIT)
+        tied = [r for r in res["results"] if r["canonical_ref"].startswith("Tie.")]
+        assert len(tied) == GROUPS
+        for r in tied:
+            # Every version scores 1: the lowest chunk id leads, the others follow in order.
+            assert r["chunk_id"] == f"ed0/gen#{r['canonical_ref']}"
+            assert _versions(r) == [f"ed{v}/gen#{r['canonical_ref']}"
+                                    for v in range(1, GROUP_SIZE)]
+            assert {v["score"] for v in r["versions"]} == {1.0}
+    finally:
+        searcher.pool.close()
+
+
+def test_pool_has_room_for_folded_versions() -> None:
+    # Each result can take FOLD_ROWS passages' worth of rows (text and translation
+    # vectors) from the pool, and the deepest page still has one result to spare.
+    assert s.CANDIDATES == s.FOLD_ROWS * 2 * (s.MAX_OFFSET + s.MAX_LIMIT + 1)
+    assert s.FOLD_ROWS > 1
+
+
+def test_keyword_search_folds_versions(versions: s.Searcher) -> None:
+    # KJV and ASV both have "in the beginning": one passage.
+    res = versions.search('"in the beginning"', s.Filters())
+    assert res["total"] == 1
+    top = res["results"][0]
+    # Same rank (Scripture, same date): the first work id leads.
+    assert top["chunk_id"] == "asv/gen#Gen.1.1" and top["matches"]
+    assert top["versions"] == [
+        {"chunk_id": "kjv/gen#Gen.1.1", "work_id": "kjv/gen", "canonical_ref": "Gen.1.1",
+         "language": "eng", "source_label": "King James Version",
+         "edition": "King James Version (1769)", "score": None}]
+    # The total counts folded results, and pages are cut from them.
+    res = versions.search('"the earth"', s.Filters(), limit=1)
+    assert (_ids(res), res["total"], res["next_offset"]) == (["asv/gen#Gen.1.1"], 2, 1)
+    res = versions.search('"the earth"', s.Filters(), limit=1, offset=1)
+    assert (_ids(res), res["total"], res["next_offset"]) == (["kjv/gen#Gen.1.2"], 2, None)
+    assert res["results"][0]["versions"] == []
+
+
+def test_keyword_filters_apply_before_folding(versions: s.Searcher) -> None:
+    res = versions.search('"in the beginning"', s.Filters(source=["kjv"]))
+    assert (_ids(res), res["total"]) == (["kjv/gen#Gen.1.1"], 1)
+    assert res["results"][0]["versions"] == []
+
+
+def test_ranked_keyword_lead_is_the_closest_version(versions: s.Searcher) -> None:
+    # Free text ranks the matches: KJV is closer to "creation" than ASV (1.0 vs 0.5).
+    res = versions.search('"in the beginning" creation', s.Filters())
+    assert (_ids(res), res["total"]) == (["kjv/gen#Gen.1.1"], 1)
+    top = res["results"][0]
+    assert top["score"] == 1.0
+    assert [(v["chunk_id"], v["score"]) for v in _rounded(top["versions"])] == [
+        ("asv/gen#Gen.1.1", 0.5)]
 
 
 def test_quoted_query_runs_keyword_search(searcher: s.Searcher) -> None:
