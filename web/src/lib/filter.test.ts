@@ -75,9 +75,16 @@ describe("filterWorks", () => {
   });
 
   it("filters by facets", () => {
-    expect(ids(filterWorks(rows, view({ language: "grc" }), sources))).toEqual(["b"]);
-    expect(ids(filterWorks(rows, view({ genre: "scripture" }), sources))).toEqual(["c"]);
+    expect(ids(filterWorks(rows, view({ language: ["grc"] }), sources))).toEqual(["b"]);
+    expect(ids(filterWorks(rows, view({ genre: ["scripture"] }), sources))).toEqual(["c"]);
     expect(ids(filterWorks(rows, view({ source: "pta" }), sources))).toEqual(["a", "b", "d"]);
+  });
+
+  it("matches any of several values of a facet", () => {
+    expect(ids(filterWorks(rows, view({ language: ["grc", "eng"] }), sources))).toEqual(["b", "c"]);
+    expect(ids(filterWorks(rows, view({ language: ["grc", "eng"], genre: ["scripture"] }), sources))).toEqual([
+      "c",
+    ]);
   });
 
   it("filters by overlapping date range and drops undated works", () => {
@@ -108,10 +115,17 @@ describe("sortWorks", () => {
 
 describe("view state in the URL", () => {
   it("round-trips non-default values", () => {
-    const state = view({ q: "basil", language: "grc", from: -100, to: 500, sort: "date", dir: "desc" });
+    const state = view({ q: "basil", language: ["grc"], from: -100, to: 500, sort: "date", dir: "desc" });
     const params = viewStateToParams(state);
     expect(params.toString()).toBe("q=basil&language=grc&from=-100&to=500&sort=date&dir=desc");
     expect(parseViewState(params)).toEqual(state);
+  });
+
+  it("writes several values as repeated parameters, and reads comma-separated ones too", () => {
+    const state = view({ language: ["grc", "lat"], genre: ["patristic"] });
+    expect(viewStateToParams(state).toString()).toBe("language=grc&language=lat&genre=patristic");
+    expect(parseViewState(viewStateToParams(state))).toEqual(state);
+    expect(parseViewState(new URLSearchParams("language=grc,lat&language=lat&genre=patristic"))).toEqual(state);
   });
 
   it("omits defaults and ignores invalid values", () => {
@@ -155,12 +169,21 @@ describe("authors (#145)", () => {
   });
 
   it("filters by author id, and ANONYMOUS selects works without authors", () => {
-    expect(ids(filterWorks(all, view({ author: "jerome" }), sources, authors))).toEqual(["e", "f"]);
-    expect(ids(filterWorks(all, view({ author: "augustine-of-hippo" }), sources, authors))).toEqual([
+    expect(ids(filterWorks(all, view({ author: ["jerome"] }), sources, authors))).toEqual(["e", "f"]);
+    expect(ids(filterWorks(all, view({ author: ["augustine-of-hippo"] }), sources, authors))).toEqual([
       "a",
       "f",
     ]);
-    expect(ids(filterWorks(all, view({ author: ANONYMOUS }), sources, authors))).toEqual(["c", "g"]);
+    expect(ids(filterWorks(all, view({ author: [ANONYMOUS] }), sources, authors))).toEqual(["c", "g"]);
+  });
+
+  it("matches a work by any of several authors", () => {
+    expect(ids(filterWorks(all, view({ author: ["jerome", ANONYMOUS] }), sources, authors))).toEqual([
+      "c",
+      "e",
+      "f",
+      "g",
+    ]);
   });
 
   it("counts works per author id in the facet, Anonymous first, then by name", () => {
@@ -188,7 +211,7 @@ describe("authors (#145)", () => {
   });
 
   it("keeps the author facet in the URL", () => {
-    const state = view({ author: "jerome" });
+    const state = view({ author: ["jerome"] });
     expect(viewStateToParams(state).toString()).toBe("author=jerome");
     expect(parseViewState(new URLSearchParams("author=jerome"))).toEqual(state);
     expect(authorFilterHref("john-chrysostom")).toBe("/works?author=john-chrysostom");
