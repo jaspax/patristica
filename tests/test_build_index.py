@@ -73,11 +73,46 @@ def test_content_sha_tracks_inputs(tmp_path: Path) -> None:
     f = tmp_path / "a.json"
     f.write_text("[]")
     entry = {"path": "a.json", "work": {"work_id": "a"}}
-    base = build_index.content_sha(entry, [f, tmp_path / "missing"], {})
-    assert base == build_index.content_sha(entry, [f, tmp_path / "missing"], {})
-    assert base != build_index.content_sha(entry, [f, tmp_path / "missing"], {"a#1": "Gen.1.1"})
+    base = build_index.content_sha(entry, [f, tmp_path / "missing"])
+    assert base == build_index.content_sha(entry, [f, tmp_path / "missing"])
+    assert base != build_index.content_sha({**entry, "path": "b.json"}, [f, tmp_path / "missing"])
     f.write_text("[1]")
-    assert base != build_index.content_sha(entry, [f, tmp_path / "missing"], {})
+    assert base != build_index.content_sha(entry, [f, tmp_path / "missing"])
+
+
+def _format1_sha(entry: dict, files: list[Path], groups: dict[str, str]) -> str:
+    """content_sha as it was before #186 (hash format 1), verbatim."""
+    import hashlib
+
+    h = hashlib.sha256()
+    h.update(json.dumps({"loader": 1, "schema": 1, "dims": 512,
+                         "entry": entry, "groups": sorted(groups.items())},
+                        sort_keys=True, ensure_ascii=False).encode("utf-8"))
+    for path in files:
+        if not path.exists():
+            h.update(b"\x00")
+            continue
+        h.update(b"\x01")
+        h.update(path.read_bytes())
+    return h.hexdigest()
+
+
+def test_content_shas_reproduces_format_1(tmp_path: Path) -> None:
+    f = tmp_path / "a.json"
+    f.write_text('[{"x": "ä"}]')
+    entry = {"path": "a.json", "work": {"work_id": "a", "title": "Ἀρχή"}}
+    files = [f, tmp_path / "missing"]
+    groups = {"a#Gen.1.2": "Gen.1.2", "a#Gen.1.1": "Gen.1.1"}
+    sha, old = build_index.content_shas(entry, files, groups)
+    assert sha == build_index.content_sha(entry, files)
+    assert old == _format1_sha(entry, files, groups)
+    assert build_index.content_shas(entry, files)[1] is None
+
+
+def test_group_changes() -> None:
+    assert build_index.group_changes({"a": "G1", "b": "G2"}, {"a": "G1", "b": "G3", "c": "G4"}) \
+        == {"b": "G2", "c": None}
+    assert build_index.group_changes({"a": "G1"}, {}) == {"a": "G1"}
 
 
 # --- database -------------------------------------------------------------
@@ -201,10 +236,119 @@ def test_staging_joins_are_never_prepared(pg_url: str, tmp_path: Path,
         build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
         conn.execute("UPDATE chunks SET text_folded = NULL")
         build_index.run(conn, norm, trans, store)
+        _swap_kjv_gen_1(monkeypatch)
+        build_index.run(conn, norm, trans, store)
     staged = [prepare for sql, prepare in calls
-              if "FROM vector_stage" in sql or "FROM fold_stage" in sql]
-    assert len(staged) == 3 + 3  # vectors for 3 works, then folds for 3 works
+              if any(f"FROM {t}_stage" in sql for t in ("vector", "fold", "group"))]
+    # vectors for 3 works, then folds for 3 works, then the groups of kjv/gen
+    assert len(staged) == 3 + 3 + 1
     assert set(staged) == {False}
+
+
+def _swap_kjv_gen_1(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A versification change: KJV Gen 1:2 now maps onto org Gen 1:1, and 1:1 onto 1:2."""
+    from scripts import link_translations
+
+    real = link_translations.to_org_ref
+    swap = {"Gen.1.1": "Gen.1.2", "Gen.1.2": "Gen.1.1"}
+
+    def to_org_ref(source_id: str, ref: str) -> str:
+        org = real(source_id, ref)
+        return swap.get(org, org) if source_id == "kjv" else org
+
+    monkeypatch.setattr(link_translations, "to_org_ref", to_org_ref)
+
+
+def _groups(conn) -> dict[str, str | None]:
+    return dict(conn.execute("SELECT chunk_id, translation_group_id FROM chunks "
+                             "WHERE work_id IN ('kjv/gen', 'oshb/gen')"))
+
+
+# Every row version of chunk_vectors: an UPDATE, DELETE or INSERT changes it.
+_VECTOR_ROWS = "SELECT chunk_id, kind, xmin::text, ctid::text FROM chunk_vectors ORDER BY 1, 2"
+
+
+def test_regrouping_updates_groups_in_place(pg_url: str, tmp_path: Path,
+                                            monkeypatch: pytest.MonkeyPatch) -> None:
+    """A change of translation groups reloads no work and touches no vector (#186)."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        assert _groups(conn) == {"kjv/gen#Gen.1.1": "Gen.1.1", "kjv/gen#Gen.1.2": None,
+                                 "oshb/gen#Gen.1.1": "Gen.1.1"}
+        vectors = conn.execute(_VECTOR_ROWS).fetchall()
+        shas = conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall()
+
+        _swap_kjv_gen_1(monkeypatch)
+        dry = build_index.run(conn, norm, trans, store, dry_run=True)
+        assert (dry.loaded, dry.regrouped) == (0, 2)
+        assert _groups(conn)["kjv/gen#Gen.1.2"] is None
+        # A partial run regroups the works it selects, with the groups of the
+        # whole manifest: kjv Gen 1:2 joins the Hebrew Gen 1:1 outside the selection.
+        stats = build_index.run(conn, norm, trans, store, sources=["kjv"])
+        assert (stats.loaded, stats.unchanged, stats.regrouped) == (0, 1, 2)
+        assert _groups(conn) == {"kjv/gen#Gen.1.1": None, "kjv/gen#Gen.1.2": "Gen.1.1",
+                                 "oshb/gen#Gen.1.1": "Gen.1.1"}
+        assert conn.execute(_VECTOR_ROWS).fetchall() == vectors
+        assert conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall() \
+            == shas
+        again = build_index.run(conn, norm, trans, store)
+        assert (again.loaded, again.regrouped) == (0, 0)
+
+
+def test_hash_format_transition_reloads_nothing(pg_url: str, tmp_path: Path,
+                                                monkeypatch: pytest.MonkeyPatch) -> None:
+    """The first run on a database loaded with format-1 hashes rewrites them in place.
+
+    Even when the groups change in the same run (the overrides of #186): the
+    format-1 hash is checked against the groups in the database.
+    """
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    entries = {e["work"]["work_id"]: e for e in build_index.load_works(norm)}
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        # As the loader before #186 left it: format-1 hashes, no hash_format row.
+        groups = build_index.stored_groups(conn)
+        for work_id in ("kjv/gen", "oshb/gen", "pta/hymns"):
+            e = entries[work_id]
+            files = [norm / e["path"], tr.translation_path(trans, e["path"]),
+                     emb.shard_path(store, e["path"])]
+            conn.execute("UPDATE works SET content_sha = %s WHERE work_id = %s",
+                         (_format1_sha(e, files, groups.get(work_id, {})), work_id))
+        conn.execute("DELETE FROM index_meta WHERE key = 'hash_format'")
+        vectors = conn.execute(_VECTOR_ROWS).fetchall()
+
+        _swap_kjv_gen_1(monkeypatch)
+        dry = build_index.run(conn, norm, trans, store, dry_run=True)
+        assert (dry.loaded, dry.unchanged, dry.rehashed, dry.regrouped) == (0, 3, 3, 2)
+        # A partial run rewrites the hashes it checks but leaves the format at 1.
+        part = build_index.run(conn, norm, trans, store, sources=["pta"])
+        assert (part.loaded, part.rehashed) == (0, 1)
+        assert build_index.hash_format(conn) == 1
+        stats = build_index.run(conn, norm, trans, store)
+        assert (stats.loaded, stats.unchanged, stats.rehashed, stats.regrouped) == (0, 3, 2, 2)
+        assert build_index.hash_format(conn) == build_index.HASH_FORMAT
+        assert conn.execute(_VECTOR_ROWS).fetchall() == vectors
+        assert _groups(conn)["kjv/gen#Gen.1.2"] == "Gen.1.1"
+        again = build_index.run(conn, norm, trans, store)
+        assert (again.loaded, again.unchanged, again.rehashed, again.regrouped) == (0, 3, 0, 0)
+        # Format 2 no longer accepts a format-1 hash: a stale one means a reload.
+        e = entries["pta/hymns"]
+        files = [norm / e["path"], tr.translation_path(trans, e["path"]),
+                 emb.shard_path(store, e["path"])]
+        conn.execute("UPDATE works SET content_sha = %s WHERE work_id = 'pta/hymns'",
+                     (_format1_sha(e, files, {}),))
+        assert build_index.run(conn, norm, trans, store).loaded == 1
+
+
+def test_new_database_starts_at_current_hash_format(pg_url: str, tmp_path: Path) -> None:
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, sources=["kjv"], maintenance_work_mem="64MB")
+        assert build_index.hash_format(conn) == build_index.HASH_FORMAT
 
 
 def test_dry_run_writes_nothing(pg_url: str, tmp_path: Path) -> None:

@@ -11,14 +11,17 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   loaded, and are deleted if present.
 - Scripture chunks get their ``translation_group_id`` from
   ``link_scripture_translations``, computed over every Scripture work in the
-  manifest (a group needs two members, so it depends on all of them).
+  manifest (a group needs two members, so it depends on all of them). Groups
+  are not part of a work's hash: after the works are loaded, the chunks
+  whose stored group differs are updated in place, one transaction per work,
+  so a regrouping (a versification override, #186) reloads no vectors.
 - A vector is loaded only while the text it embeds is the chunk's current
   text (or its current fresh translation); stale rows are counted, and
   ``scripts.embed`` refreshes them. Vectors are cut to ``DIMS`` and
   renormalized (``patristica.embedders.shorten``, #50), and each row names
   its model (``embedding_models``).
 - It is incremental. Each work records a hash of everything loaded for it
-  (its manifest record, normalized file, translations, vectors and groups);
+  (its manifest record, normalized file, translations and vectors);
   a work whose hash is unchanged is skipped, a changed one is deleted and
   reloaded in one transaction, so an interrupted run resumes where it
   stopped. A full run (no ``--source``/``--work``) deletes works that are no
@@ -77,6 +80,13 @@ SCHEMA_PATH = Path(__file__).resolve().parent.parent / "db" / "schema.sql"
 SCHEMA_VERSION = 1
 # Bump when what is loaded for a work changes, so every work is reloaded.
 LOADER_VERSION = 1
+# The format of works.content_sha. Format 1 also hashed the work's translation
+# groups, so a regrouping reloaded the work; format 2 leaves them out
+# (sync_groups, #186). index_meta.hash_format is the format of every stored
+# hash (no row: 1). While it is 1, a stored hash that is the format-1 hash of
+# the work's current inputs and its stored groups is rewritten in place, so
+# the first run after the change reloads nothing.
+HASH_FORMAT = 2
 DIMS = 512  # stored vector size (#50); chunk_vectors.embedding is halfvec(512)
 HNSW_M = 16
 HNSW_EF_CONSTRUCTION = 64
@@ -111,6 +121,8 @@ class Stats:
     vectors: int = 0
     stale_vectors: int = 0
     folded: int = 0  # chunks folded in place (not counting those loaded)
+    regrouped: int = 0  # chunks whose translation_group_id was updated in place
+    rehashed: int = 0  # unchanged works whose format-1 hash was rewritten
     no_vectors: list[str] = field(default_factory=list)  # works without a shard
 
     def summary(self) -> str:
@@ -119,7 +131,9 @@ class Stats:
                 f"{self.chunks} chunks, {self.translations} translations, "
                 f"{self.vectors} vectors loaded, {self.stale_vectors} stale vectors skipped, "
                 f"{len(self.no_vectors)} works without vectors, "
-                f"{self.folded} chunks folded in place")
+                f"{self.folded} chunks folded in place, "
+                f"{self.regrouped} chunks regrouped in place, "
+                f"{self.rehashed} format-1 hashes rewritten")
 
 
 def pg_range(r: list[int] | tuple[int, int] | None) -> str | None:
@@ -147,25 +161,44 @@ def scripture_groups(entries: Iterable[dict], input_dir: Path) -> dict[str, dict
     return groups
 
 
-def _file_digest(h: Any, path: Path) -> None:
+def _file_digest(hashes: list[Any], path: Path) -> None:
     if not path.exists():
-        h.update(b"\x00")
+        for h in hashes:
+            h.update(b"\x00")
         return
-    h.update(b"\x01")
+    for h in hashes:
+        h.update(b"\x01")
     with path.open("rb") as f:
         for block in iter(lambda: f.read(1 << 20), b""):
-            h.update(block)
+            for h in hashes:
+                h.update(block)
 
 
-def content_sha(entry: dict, files: Iterable[Path], groups: dict[str, str]) -> str:
-    """Hash of everything ``load_work`` loads for *entry*."""
-    h = hashlib.sha256()
-    h.update(json.dumps({"loader": LOADER_VERSION, "schema": SCHEMA_VERSION, "dims": DIMS,
-                         "entry": entry, "groups": sorted(groups.items())},
-                        sort_keys=True, ensure_ascii=False).encode("utf-8"))
+def _sha_head(entry: dict, groups: dict[str, str] | None) -> bytes:
+    head: dict[str, Any] = {"loader": LOADER_VERSION, "schema": SCHEMA_VERSION, "dims": DIMS,
+                            "entry": entry}
+    if groups is not None:  # hash format 1
+        head["groups"] = sorted(groups.items())
+    return json.dumps(head, sort_keys=True, ensure_ascii=False).encode("utf-8")
+
+
+def content_shas(entry: dict, files: Iterable[Path],
+                 legacy_groups: dict[str, str] | None = None) -> tuple[str, str | None]:
+    """``content_sha``, and its format-1 version with *legacy_groups* (None without them).
+
+    Both come from one pass over the files.
+    """
+    hashes = [hashlib.sha256(_sha_head(entry, None))]
+    if legacy_groups is not None:
+        hashes.append(hashlib.sha256(_sha_head(entry, legacy_groups)))
     for path in files:
-        _file_digest(h, path)
-    return h.hexdigest()
+        _file_digest(hashes, path)
+    return hashes[0].hexdigest(), (hashes[1].hexdigest() if legacy_groups is not None else None)
+
+
+def content_sha(entry: dict, files: Iterable[Path]) -> str:
+    """Hash of everything ``load_work`` loads for *entry*, except its translation groups."""
+    return content_shas(entry, files)[0]
 
 
 def apply_schema(conn: psycopg.Connection) -> None:
@@ -427,6 +460,57 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
     return folded
 
 
+def stored_groups(conn: psycopg.Connection) -> dict[str, dict[str, str]]:
+    """work_id → {chunk_id: translation_group_id} of the stored chunks that have a group."""
+    groups: dict[str, dict[str, str]] = {}
+    for work_id, chunk_id, group in conn.execute(
+            "SELECT work_id, chunk_id, translation_group_id FROM chunks "
+            "WHERE translation_group_id IS NOT NULL"):
+        groups.setdefault(work_id, {})[chunk_id] = group
+    return groups
+
+
+def group_changes(want: dict[str, str], have: dict[str, str]) -> dict[str, str | None]:
+    """chunk_id → new group (None: no group) for the chunks whose group differs."""
+    return {cid: want.get(cid) for cid in want.keys() | have.keys()
+            if want.get(cid) != have.get(cid)}
+
+
+def sync_groups(conn: psycopg.Connection, changes: dict[str, dict[str, str | None]]) -> int:
+    """Apply *changes* (work_id → ``group_changes``) to ``chunks``, one transaction per work.
+
+    Only ``chunks.translation_group_id`` changes: no work is reloaded and no
+    vector is touched (#186). Returns the number of chunks updated.
+    """
+    conn.execute("CREATE TEMP TABLE IF NOT EXISTS group_stage (chunk_id text, "
+                 "translation_group_id text) ON COMMIT DELETE ROWS")
+    updated = 0
+    for work_id in tqdm(sorted(changes), desc="regroup", unit="work"):
+        with conn.transaction(), conn.cursor() as cur:
+            with cur.copy("COPY group_stage (chunk_id, translation_group_id) FROM STDIN") as copy:
+                for row in changes[work_id].items():
+                    copy.write_row(row)
+            cur.execute("UPDATE chunks c SET translation_group_id = s.translation_group_id "
+                        "FROM group_stage s WHERE c.chunk_id = s.chunk_id AND c.work_id = %s "
+                        "AND c.translation_group_id IS DISTINCT FROM s.translation_group_id",
+                        (work_id,), prepare=False)
+            updated += cur.rowcount
+    return updated
+
+
+def hash_format(conn: psycopg.Connection) -> int:
+    """The format of the stored ``content_sha`` values (``HASH_FORMAT``)."""
+    if not conn.execute("SELECT to_regclass('index_meta') IS NOT NULL").fetchone()[0]:
+        return HASH_FORMAT  # an empty database: every hash will be new
+    row = conn.execute("SELECT value FROM index_meta WHERE key = 'hash_format'").fetchone()
+    return 1 if row is None else int(row[0])
+
+
+def set_hash_format(conn: psycopg.Connection) -> None:
+    conn.execute("INSERT INTO index_meta VALUES ('hash_format', %s) ON CONFLICT (key) "
+                 "DO UPDATE SET value = EXCLUDED.value", (str(HASH_FORMAT),))
+
+
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
         sources: Iterable[str] = (), prefixes: Iterable[str] = (), dry_run: bool = False,
         rebuild_index: bool = False, maintenance_work_mem: str = "4GB") -> Stats:
@@ -445,12 +529,16 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     if dry_run:
         have = conn.execute("SELECT to_regclass('works') IS NOT NULL").fetchone()[0]
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works")) if have else {}
+        fmt = hash_format(conn)
     else:
         apply_schema(conn)
         # Before loading, so works loaded below aren't cleared again.
         check_fold_version(conn)
         log.info("authors: %d", load_authors(conn))
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works"))
+        if not stored:
+            set_hash_format(conn)  # every hash will be new
+        fmt = hash_format(conn)
         empty = conn.execute("SELECT NOT EXISTS (SELECT FROM chunk_vectors)").fetchone()[0]
         if empty or rebuild_index:
             for index in hnsw_indexes(conn):
@@ -470,8 +558,11 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         conn.execute("DELETE FROM works WHERE work_id = ANY(%s)", (sorted(gone),))
 
     groups = scripture_groups(publishable, input_dir)
+    have_groups = stored_groups(conn) if stored else {}
     models: dict[tuple[str, str], int] = {}
     checked: dict[str, Path] = {}  # works whose stored text matches their file
+    rehash: dict[str, str] = {}  # work_id → new hash, for unchanged works with a format-1 hash
+    loaded: set[str] = set()
     for entry in tqdm(wanted, desc="works", unit="work"):
         path = entry["path"]
         work_id = entry["work"]["work_id"]
@@ -479,8 +570,11 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         tpath = tr.translation_path(trans_dir, path)
         spath = emb.shard_path(store_dir, path)
         work_groups = groups.get(work_id, {})
-        sha = content_sha(entry, (norm, tpath, spath), work_groups)
-        if stored.get(work_id) == sha:
+        legacy = have_groups.get(work_id, {}) if fmt == 1 and work_id in stored else None
+        sha, old_sha = content_shas(entry, (norm, tpath, spath), legacy)
+        if work_id in stored and stored[work_id] in (sha, old_sha):
+            if stored[work_id] != sha:
+                rehash[work_id] = sha
             stats.unchanged += 1
             checked[work_id] = norm
             continue
@@ -491,15 +585,33 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
             chunks = json.load(f)
         load_work(conn, entry, sha, chunks, tr.load(trans_dir, path), emb.load(store_dir, path),
                   work_groups, models, stats)
+        loaded.add(work_id)
         checked[work_id] = norm
 
-    if not dry_run:
-        stats.folded = fold_missing(conn, checked, maintenance_work_mem)
-        # Also after an index build alone: a rerun after a failed build loads
-        # nothing, and the first run never got to its ANALYZE.
-        built = build_hnsw(conn, maintenance_work_mem)
-        if built or stats.loaded or stats.deleted or stats.folded:
-            conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors")
+    # Unchanged works keep their chunks: bring their groups up to date in place.
+    changes: dict[str, dict[str, str | None]] = {}
+    for work_id in checked.keys() - loaded:
+        diff = group_changes(groups.get(work_id, {}), have_groups.get(work_id, {}))
+        if diff:
+            changes[work_id] = diff
+    stats.rehashed = len(rehash)
+    if dry_run:
+        stats.regrouped = sum(map(len, changes.values()))
+        return stats
+    if rehash:
+        conn.execute("UPDATE works w SET content_sha = r.sha FROM unnest(%s::text[], %s::text[]) "
+                     "AS r(work_id, sha) WHERE w.work_id = r.work_id",
+                     (list(rehash), list(rehash.values())))
+    if fmt != HASH_FORMAT and not sources and not prefixes:
+        # A full run: every stored hash is now of this format.
+        set_hash_format(conn)
+    stats.regrouped = sync_groups(conn, changes)
+    stats.folded = fold_missing(conn, checked, maintenance_work_mem)
+    # Also after an index build alone: a rerun after a failed build loads
+    # nothing, and the first run never got to its ANALYZE.
+    built = build_hnsw(conn, maintenance_work_mem)
+    if built or stats.loaded or stats.deleted or stats.folded or stats.regrouped:
+        conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors")
     return stats
 
 
