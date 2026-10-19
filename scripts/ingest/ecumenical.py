@@ -43,6 +43,8 @@ class _SynodInfo:
     date_composed: int
     date_range: tuple[int, int]
     ref_prefix: str
+    #: work_id of the original-language Work in the corpus (Work.translation_of).
+    translation_of: str | None = None
 
 
 # Ecumenical councils: div1[@id] → synod info
@@ -72,9 +74,15 @@ _PROVINCIAL: dict[str, _SynodInfo] = {
 # Sardica/Carthage group: container div1 id="xv", one Work per div2
 _SARDICA: dict[str, _SynodInfo] = {
     "xv.iii": _SynodInfo("sardica",          "Council of Sardica",                        343, (343, 344), "Sardica"),
-    "xv.iv":  _SynodInfo("carthage-african", "Code of Canons of the African Church",      419, (393, 419), "Carthage"),
+    # The Latin Codex canonum Ecclesiae Africanae is part of Dionysius
+    # Exiguus's collection (PL 67), from which NPNF takes the introduction.
+    "xv.iv":  _SynodInfo("carthage-african", "Code of Canons of the African Church",      419, (393, 419), "Carthage",
+                         "oglt-pl/dionysius-exiguus/pl67_11_co"),
     "xv.v":   _SynodInfo("const-nect",       "Council of Constantinople under Nectarius", 381, (381, 381), "ConstNect"),
-    "xv.vi":  _SynodInfo("carthage-cyprian", "Council of Carthage under Cyprian",         256, (254, 258), "CarthageCyp"),
+    # The Sententiae episcoporum (Latin), the same target as ANF's
+    # anf-works/seventh-council-of-carthage; the appended Ep. 70 is not in it.
+    "xv.vi":  _SynodInfo("carthage-cyprian", "Council of Carthage under Cyprian",         256, (254, 258), "CarthageCyp",
+                         "oglt-pl/concilia-carthaginiensia/pl3_24_ann"),
 }
 
 # All container div1 ids → their per-div2 mapping
@@ -273,7 +281,7 @@ def _make_work(info: _SynodInfo) -> Work:
         license="public_domain",
         provenance_url=_NPNF214_URL,
         edition="Nicene and Post-Nicene Fathers, Series 2, Vol. 14",
-        translation_of=None,
+        translation_of=info.translation_of,
     )
 
 
@@ -289,7 +297,9 @@ def _write_work(
     if out_path.exists() and not force:
         try:
             saved = json.loads(out_path.read_text(encoding="utf-8"))
-            return Work(**saved["work"])
+            # Keep the file unless its metadata (e.g. translation_of) changed.
+            if saved["work"] == json.loads(json.dumps(work.model_dump())):
+                return Work(**saved["work"])
         except Exception:
             pass
 
