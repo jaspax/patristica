@@ -20,6 +20,7 @@ export function workRow(overrides: Partial<WorkRow>): WorkRow {
     license: "unknown",
     provenance_url: null,
     translation_of: null,
+    version_group: null,
     chunks: 1,
     file: "works/x/y.json",
     ...overrides,

@@ -113,6 +113,27 @@ class TestExport:
         for row in index["works"]:
             assert (out / row["file"]).exists()
 
+    def test_version_group(self, corpus: Path, tmp_path: Path):
+        """Rows carry their version group (#178); a work with no other version has null."""
+        extra = [
+            ("web/Gen.json", _work("web/gen", "web"),
+             [_chunk("web/gen", "Gen.1.1", "In the beginning", 0)]),
+            ("npnf-works/y.json", _work("npnf-works/y", "npnf-works", genre="patristic",
+                                        translation_of="pta/x"),
+             [_chunk("npnf-works/y", "1.1", "first", 0)]),
+        ]
+        with (corpus / "_works.jsonl").open("a", encoding="utf-8") as f:
+            for rel, work, chunks in extra:
+                (corpus / rel).parent.mkdir(parents=True, exist_ok=True)
+                (corpus / rel).write_text(json.dumps(chunks), encoding="utf-8")
+                f.write(json.dumps({"path": rel, "work": work}) + "\n")
+        out = tmp_path / "library"
+        export_library(corpus, out)
+        rows = {r["id"]: r for r in json.loads((out / "index.json").read_text())["works"]}
+        assert rows["kjv/gen"]["version_group"] == rows["web/gen"]["version_group"] == "book:gen"
+        assert rows["npnf-works/y"]["version_group"] == rows["pta/x"]["version_group"] == "pta/x"
+        assert rows["kjv/exod"]["version_group"] is None
+
     def test_authors_file(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         export_library(corpus, out)

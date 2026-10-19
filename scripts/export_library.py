@@ -5,11 +5,15 @@ Reads ``data/normalized/_works.jsonl`` and each work's normalized chunk file and
 writes ``data/library/`` (gitignored):
 
 - ``index.json`` — one row per work (author, title, language, genre, dates,
-  collection, edition, licence, provenance, chunk count, file path), a
+  collection, edition, licence, provenance, ``translation_of``, ``version_group``,
+  chunk count, file path), a
   ``source_id → label`` map (``patristica.sources``), and ``version``, a hash
   of the index and every work file. Unchanged data gives a byte-identical
   index, so re-exports and uploads are no-ops.  The library browser
-  loads this once and searches/sorts it client-side.
+  loads this once and searches/sorts it client-side.  ``version_group``
+  (``patristica.versions``, #178) is the id of the work's version group, the
+  same text in other languages and editions, or null for a work with no
+  other version; a group's members are the rows with the same id.
 - ``authors.json`` — the author index (``patristica.authors``, #82): one
   record per person (id, name, aliases, birth/death/floruit, tradition,
   external ids, pseudo_of), sorted by id.  Index rows carry ``author_ids``
@@ -43,6 +47,7 @@ from tqdm import tqdm
 from patristica.authors import author_index
 from patristica.models import Chunk, Work
 from patristica.sources import SOURCE_LABELS, source_label
+from patristica.versions import derive_version_groups
 
 log = logging.getLogger(__name__)
 
@@ -118,7 +123,9 @@ def slim_work(work: Work, chunks: list[Chunk]) -> dict[str, Any]:
     return {"work_id": work.work_id, "ref_prefix": prefix, "chunks": rows}
 
 
-def index_row(work: Work, file: str, n_chunks: int) -> dict[str, Any]:
+def index_row(
+    work: Work, file: str, n_chunks: int, version_group: str | None = None
+) -> dict[str, Any]:
     """Build the ``index.json`` row for *work*."""
     return {
         "id": work.work_id,
@@ -136,6 +143,7 @@ def index_row(work: Work, file: str, n_chunks: int) -> dict[str, Any]:
         "license": work.license,
         "provenance_url": work.provenance_url,
         "translation_of": work.translation_of,
+        "version_group": version_group,
         "chunks": n_chunks,
         "file": file,
     }
@@ -196,6 +204,9 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
     if removed:
         log.info("Removed %d library files with no normalized source", removed)
 
+    groups = derive_version_groups({w.work_id: w.translation_of for _, w in entries})
+    if groups.dangling:
+        log.warning("Version links to works not in the corpus, ignored: %s", groups.dangling)
     rows: list[dict[str, Any]] = []
     written = 0
     for rel, work in tqdm(entries, desc="export"):
@@ -211,7 +222,8 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
             and work.work_id in prev_counts
         )
         if up_to_date:
-            rows.append(index_row(work, file, prev_counts[work.work_id]))
+            rows.append(
+                index_row(work, file, prev_counts[work.work_id], groups.group(work.work_id)))
             continue
         chunks = load_chunks(src)
         dst.parent.mkdir(parents=True, exist_ok=True)
@@ -220,7 +232,7 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False) -> di
             encoding="utf-8",
         )
         written += 1
-        rows.append(index_row(work, file, len(chunks)))
+        rows.append(index_row(work, file, len(chunks), groups.group(work.work_id)))
 
     used_sources = sorted({row["source_id"] for row in rows})
     unlabelled = [s for s in used_sources if s not in SOURCE_LABELS]
