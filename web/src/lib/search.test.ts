@@ -20,7 +20,7 @@ afterEach(() => {
 
 describe("search URL state", () => {
   it("round-trips through the URL query, omitting defaults", () => {
-    const state = { ...DEFAULT_SEARCH, q: "grace", language: "syc", from: 300 };
+    const state = { ...DEFAULT_SEARCH, q: "grace", language: ["syc"], from: 300 };
     const params = searchStateToParams(state);
     expect(params.toString()).toBe("q=grace&language=syc&from=300");
     expect(parseSearchState(params)).toEqual(state);
@@ -31,15 +31,20 @@ describe("search URL state", () => {
   });
 
   it("builds shareable links", () => {
-    expect(searchHref({ q: "light of Tabor", author: "anonymous" })).toBe("/?q=light+of+Tabor&author=anonymous");
+    expect(searchHref({ q: "light of Tabor", author: ["anonymous"] })).toBe("/?q=light+of+Tabor&author=anonymous");
     expect(searchHref({})).toBe("/");
   });
 });
 
 describe("searchApiUrl", () => {
   it("maps the state onto the API's parameters", () => {
-    const url = searchApiUrl({ ...DEFAULT_SEARCH, q: " faith ", genre: "patristic", from: -100, to: 400 }, 20);
+    const url = searchApiUrl({ ...DEFAULT_SEARCH, q: " faith ", genre: ["patristic"], from: -100, to: 400 }, 20);
     expect(url).toBe("/api/search?q=faith&genre=patristic&date_from=-100&date_to=400&limit=20&offset=20");
+  });
+
+  it("repeats a parameter for each value of a facet", () => {
+    const url = searchApiUrl({ ...DEFAULT_SEARCH, q: "faith", author: ["jerome", "anonymous"], language: ["lat", "grc"] });
+    expect(url).toBe("/api/search?q=faith&author=jerome&author=anonymous&language=lat&language=grc&limit=20");
   });
 });
 

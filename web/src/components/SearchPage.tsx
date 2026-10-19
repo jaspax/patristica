@@ -55,6 +55,8 @@ export default function SearchPage() {
   // Lives here, not in the remounted SearchForm, so it survives a new query.
   // A link that sets filters opens the panel so they are visible.
   const [showFilters, setShowFilters] = useState(() => activeFilters(state) > 0);
+  // The first page of results is loading: the Search button shows it.
+  const [busy, setBusy] = useState(false);
 
   return (
     <div>
@@ -65,12 +67,13 @@ export default function SearchPage() {
         onChange={go}
         showFilters={showFilters}
         onToggleFilters={setShowFilters}
+        busy={searching && busy}
       />
       <p role="status" className="visually-hidden">
         {searching ? status : ""}
       </p>
       {searching ? (
-        <Results key={key} state={state} onStatus={setStatus} onSearch={(q) => go({ q })} />
+        <Results key={key} state={state} onStatus={setStatus} onBusy={setBusy} onSearch={(q) => go({ q })} />
       ) : (
         <Intro />
       )}
@@ -102,9 +105,10 @@ interface SearchFormProps {
   onChange: (c: Partial<SearchState>) => void;
   showFilters: boolean;
   onToggleFilters: (open: boolean) => void;
+  busy: boolean;
 }
 
-function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFormProps) {
+function SearchForm({ state, onChange, showFilters, onToggleFilters, busy }: SearchFormProps) {
   const [draft, setDraft] = useState(state.q);
   const library = useLoaded(loadLibrary);
   const facets = useMemo(
@@ -138,8 +142,10 @@ function SearchForm({ state, onChange, showFilters, onToggleFilters }: SearchFor
             placeholder="e.g. the soul's ascent to God, grace and free will"
             onChange={(e) => setDraft(e.target.value)}
           />
-          <button type="submit" className={styles.submit}>
-            Search
+          {/* The label stays (hidden) under the spinner, so the button keeps its name and width. */}
+          <button type="submit" className={styles.submit} aria-busy={busy}>
+            <span className={busy ? styles.busyLabel : undefined}>Search</span>
+            {busy && <span className={styles.spinner} aria-hidden="true" />}
           </button>
         </span>
         <div className={styles.hint}>
@@ -225,16 +231,21 @@ function Intro() {
 interface ResultsProps {
   state: SearchState;
   onStatus: (text: string) => void;
+  /** Whether the first page is loading (later pages have their own "More results" button). */
+  onBusy: (busy: boolean) => void;
   /** Run another query (the no-results fallback). */
   onSearch: (q: string) => void;
 }
 
-function Results({ state, onStatus, onSearch }: ResultsProps) {
+function Results({ state, onStatus, onBusy, onSearch }: ResultsProps) {
   const [pages, setPages] = useState<Pages>({ status: "loading", pages: [] });
   const [offset, setOffset] = useState(0);
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => onStatus(statusText(pages)), [pages, onStatus]);
+  const firstPage = pages.status === "loading" && pages.pages.length === 0;
+  useEffect(() => onBusy(firstPage), [firstPage, onBusy]);
+  useEffect(() => () => onBusy(false), [onBusy]);
 
   useEffect(() => {
     const controller = new AbortController();

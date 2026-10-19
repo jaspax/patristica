@@ -119,8 +119,26 @@ describe("SearchPage", () => {
     fireEvent.submit(screen.getByRole("search"));
     expect(push).toHaveBeenCalledWith("/?q=faith", { scroll: false });
 
-    fireEvent.change(await screen.findByLabelText("Language"), { target: { value: "syc" } });
-    expect(push).toHaveBeenLastCalledWith("/?language=syc", { scroll: false });
+    fireEvent.click(screen.getByRole("button", { name: "Filters" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Language All" }));
+    fireEvent.click(screen.getByRole("checkbox", { name: "Syriac" }));
+    fireEvent.click(screen.getByRole("checkbox", { name: "English" }));
+    fireEvent.click(screen.getByRole("button", { name: "Done" }));
+    // One push for the query, one for the whole language selection.
+    expect(push).toHaveBeenCalledTimes(2);
+    expect(push).toHaveBeenLastCalledWith("/?language=syc&language=eng", { scroll: false });
+  });
+
+  it("shows the Search button as busy while the first page loads", async () => {
+    search = "q=faith";
+    let respond: (r: Response) => void = () => {};
+    const pending = new Promise<Response>((resolve) => (respond = resolve));
+    serve(() => pending as unknown as Response);
+    await renderPage();
+    const button = screen.getByRole("button", { name: "Search" });
+    await waitFor(() => expect(button.getAttribute("aria-busy")).toBe("true"));
+    respond(json(page([result()])));
+    await waitFor(() => expect(button.getAttribute("aria-busy")).toBe("false"));
   });
 
   it("folds the filters away below the search bar until a link sets one", async () => {

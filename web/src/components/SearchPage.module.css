@@ -77,6 +77,43 @@
   margin: 1.5rem auto 0;
 }
 
+/* While the first page loads, a spinner covers the Search label. */
+.submit {
+  position: relative;
+}
+
+.submit[aria-busy="true"] {
+  cursor: progress;
+}
+
+.busyLabel {
+  visibility: hidden;
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2.4s;
+  }
+}
+
 .reset {
   font: inherit;
   font-size: 0.9rem;

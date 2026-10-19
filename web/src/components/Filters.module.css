@@ -9,14 +9,17 @@
   font-size: 0.9rem;
 }
 
-.filters label,
+/* Fields are direct children, so these rules leave a MultiSelect panel's checkboxes alone. */
+.filters > label,
+.multi,
 .years {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.filters label > span,
+.filters > label > span,
+.multi > span,
 .years legend {
   color: var(--muted);
   font-size: 0.8rem;
@@ -26,8 +29,9 @@
   flex: 1 1 18rem;
 }
 
-.filters input,
-.filters select {
+.filters input:not([type="checkbox"]),
+.filters select,
+.trigger {
   font: inherit;
   color: var(--foreground);
   background: var(--background);
@@ -39,7 +43,8 @@
 
 /* Our own caret, drawn from two gradients in the text colour: the native one
    sits almost against the border, and browsers ignore padding when placing it. */
-.filters select {
+.filters select,
+.trigger {
   max-width: 16rem;
   appearance: none;
   padding-inline-end: 1.9rem;
@@ -68,4 +73,99 @@
 
 .years input {
   width: 6rem;
+}
+
+/* MultiSelect: a select-like button that opens a panel of checkboxes. */
+.multi {
+  position: relative;
+}
+
+.trigger {
+  min-width: 7rem;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.panel {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: 20;
+  margin-top: 0.25rem;
+  min-width: 100%;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2 * var(--gutter)));
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.options {
+  list-style: none;
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.2rem 0.25rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: var(--background);
+}
+
+.option input {
+  accent-color: var(--accent);
+  flex: none;
+}
+
+.count {
+  margin-inline-start: auto;
+  padding-inline-start: 0.75rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.none {
+  color: var(--muted);
+  padding: 0.2rem 0.25rem;
+}
+
+.panelActions {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 0.4rem;
+}
+
+.panelActions button {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 0.1rem 0.25rem;
+  cursor: pointer;
+}
+
+.panelActions button:disabled {
+  color: var(--muted);
+  cursor: default;
 }

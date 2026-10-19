@@ -18,12 +18,16 @@ export const SORT_KEYS: SortKey[] = ["author", "title", "language", "date", "sou
  */
 export const ANONYMOUS = "anonymous";
 
+/** Facets that take several values; none selected means all. */
+export const MULTI_KEYS = ["author", "language", "genre"] as const;
+
 export interface ViewState {
   q: string;
-  /** An author id, ANONYMOUS, or "" for all. */
-  author: string;
-  language: string;
-  genre: string;
+  /** Author ids and/or ANONYMOUS; a work by any of them matches. */
+  author: string[];
+  /** Language codes; a work in any of them matches. */
+  language: string[];
+  genre: string[];
   source: string;
   from: number | null;
   to: number | null;
@@ -33,9 +37,9 @@ export interface ViewState {
 
 export const DEFAULT_VIEW: ViewState = {
   q: "",
-  author: "",
-  language: "",
-  genre: "",
+  author: [],
+  language: [],
+  genre: [],
   source: "",
   from: null,
   to: null,
@@ -51,15 +55,24 @@ function parseYear(value: string | null): number | null {
   return Number.isInteger(n) ? n : null;
 }
 
+/**
+ * Values of a multi-valued facet: repeated parameters (`?language=grc&language=lat`,
+ * as written by viewStateToParams), also accepting comma-separated values, as the API does.
+ */
+function parseList(params: URLSearchParams, key: string): string[] {
+  const values = params.getAll(key).flatMap((v) => v.split(","));
+  return [...new Set(values.map((v) => v.trim()).filter(Boolean))];
+}
+
 /** Read the view state from URL query parameters; invalid values fall back to defaults. */
 export function parseViewState(params: URLSearchParams): ViewState {
   const sort = params.get("sort") as SortKey | null;
   return {
     q: params.get("q") ?? "",
     // A renamed author's old id still selects the author.
-    author: currentAuthorId(params.get("author") ?? ""),
-    language: params.get("language") ?? "",
-    genre: params.get("genre") ?? "",
+    author: [...new Set(parseList(params, "author").map((id) => currentAuthorId(id)))],
+    language: parseList(params, "language"),
+    genre: parseList(params, "genre"),
     // Old links may name a source by its pre-#102 id (`scripture/kjv`).
     source: currentSourceId(params.get("source") ?? ""),
     from: parseYear(params.get("from")),
@@ -74,7 +87,9 @@ export function viewStateToParams(state: ViewState): URLSearchParams {
   const params = new URLSearchParams();
   for (const key of Object.keys(DEFAULT_VIEW) as (keyof ViewState)[]) {
     const value = state[key];
-    if (value !== DEFAULT_VIEW[key] && value !== null && value !== "") {
+    if (Array.isArray(value)) {
+      for (const v of value) params.append(key, v);
+    } else if (value !== DEFAULT_VIEW[key] && value !== null && value !== "") {
       params.set(key, String(value));
     }
   }
@@ -83,7 +98,7 @@ export function viewStateToParams(state: ViewState): URLSearchParams {
 
 /** Library index URL listing the works of one author (or ANONYMOUS). */
 export function authorFilterHref(authorId: string): string {
-  return `/works?${viewStateToParams({ ...DEFAULT_VIEW, author: authorId })}`;
+  return `/works?${viewStateToParams({ ...DEFAULT_VIEW, author: [authorId] })}`;
 }
 
 // Haystacks depend on the author index too, so they are cached per author map.
@@ -117,11 +132,15 @@ function inDateRange(row: WorkRow, from: number | null, to: number | null): bool
   return (from === null || hi >= from) && (to === null || lo <= to);
 }
 
-/** Whether the work is by `author` (an id, or ANONYMOUS for works with no author). */
-function byAuthor(row: WorkRow, author: string): boolean {
-  if (!author) return true;
-  if (author === ANONYMOUS) return row.author_ids.length === 0;
-  return row.author_ids.includes(author);
+/** Whether the work is by any of `authors` (ids, or ANONYMOUS for works with no author); none means all. */
+function byAuthor(row: WorkRow, authors: string[]): boolean {
+  if (authors.length === 0) return true;
+  return authors.some((a) => (a === ANONYMOUS ? row.author_ids.length === 0 : row.author_ids.includes(a)));
+}
+
+/** Whether `value` is one of `selected`; none selected means all. */
+function oneOf(selected: string[], value: string): boolean {
+  return selected.length === 0 || selected.includes(value);
 }
 
 /**
@@ -139,8 +158,8 @@ export function filterWorks(
   return rows.filter(
     (row) =>
       byAuthor(row, state.author) &&
-      (!state.language || row.language === state.language) &&
-      (!state.genre || row.genre === state.genre) &&
+      oneOf(state.language, row.language) &&
+      oneOf(state.genre, row.genre) &&
       (!state.source || row.source_id === state.source) &&
       inDateRange(row, state.from, state.to) &&
       terms.every((t) => haystack(row, sources, authors).includes(t)),
