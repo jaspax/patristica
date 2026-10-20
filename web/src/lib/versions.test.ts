@@ -4,6 +4,7 @@ import type { LibraryIndex, WorkFile, WorkRow } from "./library";
 import { workRow } from "./testFixtures";
 import {
   currentRef,
+  distinguishVersions,
   groupByLanguage,
   mapPosition,
   nativeRef,
@@ -265,6 +266,21 @@ describe("currentRef", () => {
     layout({ text: [300, 2000], "s-1": [300, 900], "Ps.1.1": [300, 330] });
     expect(currentRef(div, "")).toBeNull();
     expect(currentRef(null, "")).toBeNull();
+  });
+});
+
+describe("distinguishVersions", () => {
+  it("adds the title where it differs and the edition only where entries tie", () => {
+    const current = workRow({ id: "grc", language: "grc", title: "Epistula" });
+    const anf1 = workRow({ id: "anf1", language: "eng", source_id: "anf-works", title: "Epistle", edition: "ANF Vol. 1" });
+    const anf9 = workRow({ id: "anf9", language: "eng", source_id: "anf-works", title: "Epistle", edition: "ANF Vol. 9" });
+    const npnf = workRow({ id: "npnf", language: "eng", source_id: "npnf-works", title: "Epistle", edition: "NPNF" });
+    const pg = workRow({ id: "pg", language: "grc", source_id: "ogpg", title: "Epistula", edition: "PG 1" });
+    const details = distinguishVersions([anf1, anf9, npnf, pg], current, { "anf-works": "ANF", "npnf-works": "NPNF" });
+    expect(details.get("anf1")).toEqual({ title: "Epistle", edition: "ANF Vol. 1" });
+    expect(details.get("anf9")).toEqual({ title: "Epistle", edition: "ANF Vol. 9" });
+    expect(details.get("npnf")).toEqual({ title: "Epistle", edition: null });
+    expect(details.get("pg")).toEqual({ title: null, edition: null });
   });
 });
 

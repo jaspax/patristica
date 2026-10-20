@@ -16,11 +16,12 @@ import {
   type WorkRow,
 } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
+import { useOffscreen } from "@/lib/useOffscreen";
 import { currentRef, mapPosition, originalIds, versionMembers } from "@/lib/versions";
 
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
-import VersionSwitcher, { VersionLink, type PositionFor } from "./VersionSwitcher";
+import VersionSwitcher, { FloatingVersions, VersionLink, type PositionFor } from "./VersionSwitcher";
 import WorkText from "./WorkText";
 import styles from "./WorkReader.module.css";
 
@@ -71,6 +72,10 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
     },
     [fromWork, row],
   );
+  const versionProps = { current: row, members, originals, sources: index.sources, positionFor };
+  const hasVersions = members.length > 1;
+  const headerVersions = useRef<HTMLDetailsElement>(null);
+  const headerVersionsOffscreen = useOffscreen(headerVersions);
 
   // Previous and next work in the same collection, in index order.
   const [prev, next] = useMemo(() => {
@@ -87,7 +92,7 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
   const originalNames = original ? workAuthors(original, authors).map((a) => a.name).join(", ") : "";
 
   return (
-    <article>
+    <article className={hasVersions ? styles.withVersions : undefined}>
       <title>{`${citation} · Patristica`}</title>
       <nav className={styles.crumbs} aria-label="Breadcrumb">
         <Link href="/works">Library</Link>
@@ -172,14 +177,11 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
             </>
           )}
         </dl>
-        <VersionSwitcher
-          current={row}
-          members={members}
-          originals={originals}
-          sources={index.sources}
-          positionFor={positionFor}
-        />
+        <VersionSwitcher ref={headerVersions} {...versionProps} />
       </header>
+
+      {/* Once the header's list is off screen, the same list floats beside the text. */}
+      {hasVersions && <FloatingVersions visible={headerVersionsOffscreen} {...versionProps} />}
 
       {work.status === "loading" && <p>Loading the text…</p>}
       {work.status === "error" && <LoadError error={work.error} />}

@@ -49,3 +49,11 @@
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
 }
+
+/* Room below the pager for the floating "Other versions" button
+   (VersionSwitcher.module.css), so it never covers the last links. */
+@media (max-width: 92.99rem) {
+  .withVersions {
+    padding-bottom: 3.5rem;
+  }
+}

@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex, WorkFile } from "@/lib/library";
@@ -123,5 +123,32 @@ describe("WorkReader versions", () => {
     render(<WorkReader />);
     await screen.findByRole("heading", { level: 1, name: "Acta Thomae" });
     expect(screen.queryByText(/Other versions/)).toBeNull();
+  });
+
+  it("floats the list once the header's list has scrolled off screen", async () => {
+    let notify: (entries: Partial<IntersectionObserverEntry>[]) => void = () => {};
+    const observed: Element[] = [];
+    vi.stubGlobal(
+      "IntersectionObserver",
+      class {
+        constructor(cb: typeof notify) {
+          notify = cb;
+        }
+        observe(el: Element) {
+          observed.push(el);
+        }
+        disconnect() {}
+      },
+    );
+    params = { id: ["kjv", "ps"] };
+    render(<WorkReader />);
+    const summary = await screen.findByText("Other versions (2 in 2 languages)");
+    // The header's list is what is observed; on screen, nothing floats.
+    expect(observed).toEqual([summary.closest("details")]);
+    expect(screen.queryByRole("button", { name: /Other versions/ })).toBeNull();
+    act(() => notify([{ isIntersecting: false }]));
+    expect(screen.getByRole("button", { name: "Other versions (2 in 2 languages)" })).toBeDefined();
+    act(() => notify([{ isIntersecting: true }]));
+    expect(screen.queryByRole("button", { name: /Other versions/ })).toBeNull();
   });
 });

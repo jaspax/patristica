@@ -2,12 +2,19 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useState, type MouseEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+  type Ref,
+} from "react";
 
-import { GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import { workHref, type WorkRow } from "@/lib/library";
-import { groupByLanguage, refHash } from "@/lib/versions";
+import { distinguishVersions, groupByLanguage, refHash, type VersionDetails } from "@/lib/versions";
 
 import styles from "./VersionSwitcher.module.css";
 
@@ -31,7 +38,7 @@ interface VersionLinkProps {
 /**
  * A link to another version of the work. Its href opens the version at the
  * top (so it works in a new tab); a plain click asks `positionFor` where the
- * reader is and opens the version there.
+ * reader is at that moment and opens the version there.
  */
 export function VersionLink({ target, positionFor, children, ...rest }: VersionLinkProps) {
   const router = useRouter();
@@ -55,7 +62,7 @@ export function VersionLink({ target, positionFor, children, ...rest }: VersionL
   );
 }
 
-interface Props {
+export interface VersionsProps {
   /** The work being read. */
   current: WorkRow;
   /** Its version group, `current` included (lib/versions.ts versionMembers). */
@@ -67,23 +74,34 @@ interface Props {
   positionFor?: PositionFor;
 }
 
+/** "Other versions (9 in 7 languages)". */
+export function versionsLabel(current: WorkRow, members: readonly WorkRow[]): string {
+  return `Other versions (${versionsCount(current, members)})`;
+}
+
+/** "9 in 7 languages", or "1" for a single other version. */
+function versionsCount(current: WorkRow, members: readonly WorkRow[]): string {
+  const others = members.filter((w) => w.id !== current.id);
+  const languages = new Set(others.map((w) => w.language)).size;
+  return `${others.length}${languages > 1 ? ` in ${languages} languages` : ""}`;
+}
+
 /**
- * "Other versions": every other member of the work's version group, with its
- * language, collection, title, edition and licence, and the original marked.
- * Long lists are grouped by language.
+ * Every other member of the work's version group: language, collection
+ * label, the title where it differs from the current work's, and the
+ * original marked. Long lists are grouped by language.
  */
-export default function VersionSwitcher({ current, members, originals, sources, positionFor }: Props) {
+export function VersionList({ current, members, originals, sources, positionFor }: VersionsProps) {
   const others = members.filter((w) => w.id !== current.id);
   const groups = groupByLanguage(others, originals, sources);
-  if (others.length === 0) return null;
+  const details = distinguishVersions(others, current, sources);
   const grouped = others.length > GROUP_BY_LANGUAGE_ABOVE;
-  const languages = groups.length;
 
   const entry = (w: WorkRow) => (
     <VersionEntry
       key={w.id}
       work={w}
-      current={current}
+      details={details.get(w.id)!}
       original={originals.has(w.id)}
       label={sources[w.source_id] ?? w.source_id}
       showLanguage={!grouped}
@@ -91,18 +109,90 @@ export default function VersionSwitcher({ current, members, originals, sources, 
     />
   );
 
+  return grouped ? (
+    groups.map((g) => (
+      <LanguageList key={g.language} name={g.name}>
+        {g.works.map(entry)}
+      </LanguageList>
+    ))
+  ) : (
+    <ul className={styles.list}>{groups.flatMap((g) => g.works).map(entry)}</ul>
+  );
+}
+
+/** The header's "Other versions" disclosure. Renders nothing for a work with no other version. */
+export default function VersionSwitcher({ ref, ...props }: VersionsProps & { ref?: Ref<HTMLDetailsElement> }) {
+  if (!props.members.some((w) => w.id !== props.current.id)) return null;
   return (
-    <details className={styles.versions}>
-      <summary>
-        Other versions ({others.length}
-        {languages > 1 ? ` in ${languages} languages` : ""})
-      </summary>
-      {grouped ? (
-        groups.map((g) => <LanguageList key={g.language} name={g.name}>{g.works.map(entry)}</LanguageList>)
-      ) : (
-        <ul className={styles.list}>{groups.flatMap((g) => g.works).map(entry)}</ul>
-      )}
+    <details className={styles.versions} ref={ref}>
+      <summary>{versionsLabel(props.current, props.members)}</summary>
+      <VersionList {...props} />
     </details>
+  );
+}
+
+/**
+ * The same list as a floating control, for switching versions mid-text
+ * without scrolling back to the header: a button that opens the list in a
+ * popover. Shown while `visible` (the header's list is off screen) and kept
+ * while its popover is open. Escape or a click outside closes it.
+ * Placement (VersionSwitcher.module.css): in the left margin where the page
+ * has one, else at the bottom right.
+ */
+export function FloatingVersions({ visible, ...props }: VersionsProps & { visible: boolean }) {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+  const button = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+  const panelId = useId();
+  const headingId = useId();
+
+  // Opening moves focus into the list; Escape closes it and returns focus to
+  // the button; a click outside closes it.
+  useEffect(() => {
+    if (!open) return;
+    panel.current?.querySelector<HTMLElement>("a")?.focus();
+    const outside = (e: PointerEvent) => {
+      if (!root.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const escape = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      button.current?.focus();
+    };
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", outside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, [open]);
+
+  if (!visible && !open) return null;
+
+  return (
+    <div className={styles.floating} ref={root}>
+      <button
+        ref={button}
+        type="button"
+        className={styles.toggle}
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen((o) => !o)}
+      >
+        Other versions{" "}
+        {/* Hidden on phones, where the button must stay small; below the label on wide screens. */}
+        <span className={styles.count}>({versionsCount(props.current, props.members)})</span>
+      </button>
+      {open && (
+        <div id={panelId} ref={panel} className={styles.panel} role="dialog" aria-labelledby={headingId}>
+          <p id={headingId} className={styles.panelTitle}>
+            Other versions
+          </p>
+          <VersionList {...props} />
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -122,46 +212,44 @@ function LanguageList({ name, children }: { name: string; children: ReactNode })
 
 interface EntryProps {
   work: WorkRow;
-  current: WorkRow;
+  details: VersionDetails;
   original: boolean;
   label: string;
   showLanguage: boolean;
   positionFor?: PositionFor;
 }
 
-function VersionEntry({ work, current, original, label, showLanguage, positionFor }: EntryProps) {
+function VersionEntry({ work, details, original, label, showLanguage, positionFor }: EntryProps) {
   const id = useId();
   const lang = languageInfo(work.language);
-  const license = LICENSES[work.license]?.label ?? work.license;
   const facts: ReactNode[] = [];
   if (showLanguage) facts.push(lang.name);
-  if (work.title !== current.title) {
+  if (details.title) {
     facts.push(
       <span lang={lang.lang} dir="auto">
-        {work.title}
+        {details.title}
       </span>,
     );
   }
-  // Edition codes such as "1st1K-grc1" say nothing a reader can use.
-  if (work.edition && /\s/.test(work.edition)) facts.push(work.edition);
-  if (work.genre !== current.genre) facts.push(GENRES[work.genre] ?? work.genre);
-  facts.push(license);
+  if (details.edition) facts.push(details.edition);
 
   return (
     <li className={styles.entry}>
-      <VersionLink target={work} positionFor={positionFor} aria-describedby={id}>
+      <VersionLink target={work} positionFor={positionFor} aria-describedby={facts.length ? id : undefined}>
         {label}
       </VersionLink>
       {original && <span className={styles.badge}>Original</span>}
-      <span id={id} className={styles.facts}>
-        {facts.map((f, i) => (
-          <span key={i}>
-            {i > 0 && <span aria-hidden="true"> · </span>}
-            {i > 0 && <span className="visually-hidden">, </span>}
-            {f}
-          </span>
-        ))}
-      </span>
+      {facts.length > 0 && (
+        <span id={id} className={styles.facts}>
+          {facts.map((f, i) => (
+            <span key={i}>
+              {i > 0 && <span aria-hidden="true"> · </span>}
+              {i > 0 && <span className="visually-hidden">, </span>}
+              {f}
+            </span>
+          ))}
+        </span>
+      )}
     </li>
   );
 }

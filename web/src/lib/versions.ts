@@ -107,6 +107,34 @@ export function groupByLanguage(
     .sort((a, b) => Number(hasOriginal(b.works)) - Number(hasOriginal(a.works)) || a.name.localeCompare(b.name));
 }
 
+/** What a version list entry shows beside its language and collection label. */
+export interface VersionDetails {
+  /** The version's title, when it differs from the current work's (a partial version, a sibling). */
+  title: string | null;
+  /** The edition, only when language, collection and title would leave two entries identical. */
+  edition: string | null;
+}
+
+/**
+ * The details that tell the other versions apart (`works` excludes `current`).
+ * An entry is its language and collection label; the title is added when it
+ * differs from the current work's, and the edition only for entries that
+ * would otherwise look the same (ANF vol. 1 and vol. 9 of one letter).
+ */
+export function distinguishVersions(
+  works: readonly WorkRow[],
+  current: WorkRow,
+  sources: Record<string, string>,
+): Map<string, VersionDetails> {
+  const title = (w: WorkRow) => (w.title !== current.title ? w.title : null);
+  const key = (w: WorkRow) => [w.language, sources[w.source_id] ?? w.source_id, title(w) ?? ""].join("\u0000");
+  const seen = new Map<string, number>();
+  for (const w of works) seen.set(key(w), (seen.get(key(w)) ?? 0) + 1);
+  return new Map(
+    works.map((w) => [w.id, { title: title(w), edition: seen.get(key(w))! > 1 ? w.edition : null }]),
+  );
+}
+
 // --- Keeping the reader's place ----------------------------------------------
 
 function joinRef(prefix: string, suffix: string): string {
