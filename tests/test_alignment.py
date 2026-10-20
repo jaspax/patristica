@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import json
 
-import numpy as np
 import pytest
 
-from patristica import alignment as al
-from patristica import alignment_store as store
+np = pytest.importorskip("numpy")
+
+from patristica import alignment as al  # noqa: E402
+from patristica import alignment_store as store  # noqa: E402
 
 DIMS = 64
 
@@ -152,6 +153,37 @@ def test_merge_joins_pivot_units_covered_by_one_bead() -> None:
     assert list(m.group_of["y"]) == [0, 1, 1]  # y's units 1 and 2 share pivot group 1
     assert m.conf["x"] == {0: 0.9, 1: 0.8, 2: 0.3}
     assert m.conf["p"] == {0: 0.9, 1: 0.9, 2: 0.3}
+
+
+def test_merge_does_not_fill_gaps_between_beads() -> None:
+    """Units no bead assigns stay out of the group; a non-contiguous span is left out."""
+    b = al.Bead
+    pairs = {
+        # y joins pivot units 0-1 into one group.
+        "y": (1, [b(0, 1, 0, 2, 1, 1, 0.9)]),
+        # x maps its units 0 and 2 onto pivot units 0 and 1; unit 1 matches nothing.
+        "x": (3, [b(0, 1, 0, 1, 1, 1, 0.9), b(2, 3, 1, 2, 1, 1, 0.9)]),
+    }
+    m = al.merge("p", 2, pairs)
+    assert m.n_groups == 1
+    assert list(m.group_of["x"]) == [-1, -1, -1]  # not the bounding span [0, 3)
+    assert 0 not in m.conf["x"]
+    assert list(m.group_of["y"]) == [0]
+
+
+def test_merge_keeps_an_inner_group_inside_a_reordered_span() -> None:
+    """A reordered bead must not swallow the group whose units lie between its beads."""
+    b = al.Bead
+    pairs = {
+        "y": (2, [b(0, 1, 0, 2, 1, 1, 0.9), b(1, 2, 2, 3, 1, 1, 0.9)]),
+        # x: units 0 and 2 render pivot 0-1 (group 0); unit 1 renders pivot 2 (group 1).
+        "x": (3, [b(0, 1, 0, 1, 1, 1, 0.9), b(1, 2, 2, 3, 1, 1, 0.9),
+                  b(2, 3, 1, 2, 1, 1, 0.9)]),
+    }
+    m = al.merge("p", 3, pairs)
+    assert list(m.group_of["p"]) == [0, 0, 1]
+    assert list(m.group_of["x"]) == [-1, 1, -1]
+    assert m.conf["x"] == {1: 0.9}
 
 
 def test_choose_pivot_prefers_the_longest_then_english() -> None:

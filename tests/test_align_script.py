@@ -5,12 +5,14 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import numpy as np
+import pytest
 
-from patristica import alignment_store as store
-from patristica import embeddings as emb
-from patristica import translations as tr
-from scripts import align
+np = pytest.importorskip("numpy")
+
+from patristica import alignment_store as store  # noqa: E402
+from patristica import embeddings as emb  # noqa: E402
+from patristica import translations as tr  # noqa: E402
+from scripts import align  # noqa: E402
 
 DIMS = 32
 RUN = emb.EmbeddingRun(model="voyage/voyage-4-large", dims=DIMS, input_type="document",
@@ -81,10 +83,13 @@ def write_corpus(root: Path, shift_gez: bool = False) -> tuple[Path, Path, Path]
 
 
 def jobs(root: Path, norm: Path, trans: Path, vecs: Path, **kw) -> list[align.Job]:
+    """The jobs ``scripts.align`` runs: unpublishable works are left out of each group."""
     entries = align.load_works(norm)
-    by_id = {e["work"]["work_id"]: e for e in entries}
+    by_id = {e["work"]["work_id"]: e
+             for e in align.select(entries, [], [], include_unpublishable=False)}
     groups = align.version_groups(entries)
-    return [align.Job(g, [by_id[w] for w in mem], norm, trans, vecs, root / "alignments",
+    return [align.Job(g, [by_id[w] for w in mem if w in by_id], norm, trans, vecs,
+                      root / "alignments",
                       kw.get("force", False), kw.get("dry_run", False), "2026-10-19")
             for g, mem in groups.items()]
 
@@ -138,6 +143,54 @@ def test_rerun_is_idempotent_and_inputs_trigger_realignment(tmp_path: Path) -> N
     for j in jobs(tmp_path, norm, trans, vecs):
         align.run_job(j)
     assert path.read_text() != before
+
+
+def test_scripture_eval_without_vectors_reports_dashes(tmp_path: Path, capsys) -> None:
+    """No vectors means no predictions: the report shows dashes, not ZeroDivisionError."""
+    import argparse
+
+    from scripts import align_eval
+
+    args = argparse.Namespace(
+        input_dir=Path("data/normalized"), translations_dir=Path("data/translations"),
+        embeddings_dir=tmp_path / "none", book=["gen"], prior=False, calibrate=True, jobs=1)
+    align_eval.scripture(args)
+    out = capsys.readouterr().out
+    assert "| **all** | – | – | – | – |" in out
+    assert "no beads to calibrate on" in out
+
+
+def _relicense(norm: Path, work_id: str, licence: str) -> None:
+    lines = []
+    for line in (norm / "_works.jsonl").read_text().splitlines():
+        e = json.loads(line)
+        if e["work"]["work_id"] == work_id:
+            e["work"]["license"] = licence
+        lines.append(json.dumps(e))
+    (norm / "_works.jsonl").write_text("\n".join(lines) + "\n")
+
+
+def test_group_without_two_eligible_members_loses_its_file(tmp_path: Path) -> None:
+    """A group that falls under two eligible members has its old alignment removed."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    for job in jobs(tmp_path, norm, trans, vecs):
+        align.run_job(job)
+    patristic = store.path_for(tmp_path / "alignments", "first1k/tlg9999/tlg001/1st1K-grc1")
+    scripture = store.path_for(tmp_path / "alignments", "book:gen")
+    assert patristic.exists() and scripture.exists()
+    # The English translation becomes unpublishable; Genesis loses all vectors but KJV's.
+    _relicense(norm, "anf-works/x", "unknown")
+    (vecs / "oshb" / "gen.npz").unlink()
+    (vecs / "gez" / "gen.npz").unlink()
+    outcome = {j.group: align.run_job(j)[1]
+               for j in jobs(tmp_path, norm, trans, vecs, dry_run=True)}
+    assert outcome == {"book:gen": "deleted", "first1k/tlg9999/tlg001/1st1K-grc1": "deleted"}
+    assert patristic.exists() and scripture.exists()  # a dry run deletes nothing
+    for job in jobs(tmp_path, norm, trans, vecs):
+        align.run_job(job)
+    assert not patristic.exists() and not scripture.exists()
+    assert store.load(tmp_path / "alignments", "book:gen") is None
+    assert {align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)} == {"skipped"}
 
 
 def test_member_without_vectors_is_left_out(tmp_path: Path) -> None:

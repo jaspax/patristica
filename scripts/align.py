@@ -52,7 +52,7 @@ from scripts.embed import load_works, select
 log = logging.getLogger(__name__)
 
 #: Bump when the aligner changes in a way its parameters don't show: every group is redone.
-ALIGNER_VERSION = 1
+ALIGNER_VERSION = 2
 METHOD = ("pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, "
           "baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of "
           "unaligned blocks")
@@ -230,14 +230,23 @@ class Job:
 
 
 def run_job(job: Job) -> tuple[str, str]:
-    """Align one group; return (group, outcome) with outcome unchanged/aligned/skipped."""
+    """Align one group; return (group, outcome).
+
+    The outcome is unchanged, aligned, skipped (fewer than two members with
+    vectors), or deleted: skipped, and the group's old file removed, since an
+    alignment of members that are no longer eligible must not stay visible.
+    """
     with_keys = job.group.startswith("book:")
     members = [m for e in job.entries
                if (m := load_member(e, job.input_dir, job.trans_dir, job.store_dir, with_keys))]
+    path = store.path_for(job.out_dir, job.group)
     if len(members) < 2:
+        if path.exists():
+            if not job.dry_run:
+                path.unlink()
+            return job.group, "deleted"
         return job.group, "skipped"
     inputs = group_inputs(job.group, members)
-    path = store.path_for(job.out_dir, job.group)
     if not job.force and path.exists():
         try:
             if store.from_json(path.read_text(encoding="utf-8")).inputs == inputs:
