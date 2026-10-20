@@ -1,0 +1,14 @@
+{
+ "format": 1,
+ "group": "first1k/tlg0572/tlg001/1st1K-grc1",
+ "pivot": "first1k/tlg0572/tlg001/1st1K-grc1",
+ "groups": 39,
+ "inputs": "f2e0045b28f9fad8",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/against-the-heresy-of-artemon", "units": 45, "ids": "800022054adbd1bb", "inputs": "a19a94b83b7902d8", "spans": "..++5+++++++=+..+++=+++++++..++++++++=+++++=++", "conf": "99999999999999999999999999999999999"},
+  {"work_id": "anf-works/caius-fragments", "units": 13, "ids": "3b92b316cb97b28d", "inputs": "b284e6c8cca9cfca", "spans": "...++..+++.+12=", "conf": "999998"},
+  {"work_id": "first1k/tlg0572/tlg001/1st1K-grc1", "units": 50, "ids": "0b02d68dd0d69a87", "inputs": "800b7dd4279aa59e", "spans": "+..+=+++..++++++++==++++=++++++++++++++=++++++=++=", "conf": "999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-010/caius-fragmenta", "units": 42, "ids": "e6d80c959eb4b493", "inputs": "5a5572ad12392887", "spans": "+2=+++.++++++++=+...+2+2+++++++2++++.+4+++++=..", "conf": "99999999999999999999999999799999"}
+ ]
+}

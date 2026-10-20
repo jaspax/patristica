@@ -523,6 +523,29 @@ def test_vector_search_folds_versions(versions: s.Searcher) -> None:
     assert [r["versions"] for r in res["results"][1:]] == [[], []]
 
 
+def test_search_folds_by_passage_groups(corpus_url: str) -> None:
+    """Passage alignment groups (#179) fold any work's versions, and come before verse groups."""
+    import psycopg
+
+    with psycopg.connect(corpus_url, autocommit=True) as conn:
+        conn.execute("INSERT INTO passage_groups VALUES ('kjv/gen#Gen.1.2', 'g@0', 9), "
+                     "('pta/hymns#Hymn.1.1', 'g@0', 9), ('kjv/gen#Gen.1.1', 'g@1', 9)")
+    searcher = _searcher(corpus_url)
+    try:
+        top = searcher.search("void", s.Filters())["results"][0]
+        assert (top["chunk_id"], _versions(top)) == ("kjv/gen#Gen.1.2", ["pta/hymns#Hymn.1.1"])
+        # KJV Gen 1:1 is in a passage group of its own now, so the Hebrew verse,
+        # still in verse group Gen.1.1, is no longer folded with it.
+        res = searcher.search("creation", s.Filters(), limit=10)
+        assert all(v["chunk_id"] != "oshb/gen#Gen.1.1"
+                   for r in res["results"] if r["chunk_id"] == "kjv/gen#Gen.1.1"
+                   for v in r["versions"])
+        keyword = searcher.search('"the earth"', s.Filters())
+        assert keyword["total"] == 2
+    finally:
+        searcher.pool.close()
+
+
 def test_vector_lead_is_the_best_scoring_version(versions: s.Searcher) -> None:
     top = versions.search("hebrew creation", s.Filters())["results"][0]
     assert (top["chunk_id"], top["language"], top["score"]) == ("oshb/gen#Gen.1.1", "hbo", 1.0)

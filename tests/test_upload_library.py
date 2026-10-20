@@ -22,6 +22,22 @@ from scripts.upload_library import (
 )
 
 
+def test_alignment_keys_publish_only_fully_published_groups(tmp_path: Path):
+    import json
+
+    from scripts.upload_library import alignment_keys
+
+    for rel, members in (("alignments/book/gen.json", ["kjv/gen", "web/gen"]),
+                         ("alignments/x/y.json", ["x/y", "secret/z"])):
+        (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
+        (tmp_path / rel).write_text(json.dumps({"members": {m: {} for m in members}}))
+    index = {"alignments": ["book:gen", "x/y"]}
+    assert alignment_keys(index, {"kjv/gen", "web/gen", "x/y"}, tmp_path) == {
+        "book:gen": "alignments/book/gen.json"}
+    with pytest.raises(UploadError):
+        alignment_keys({"alignments": ["book:exod"]}, set(), tmp_path)
+
+
 def test_public_index_drops_uncleared_licences():
     index = {
         "version": "x",

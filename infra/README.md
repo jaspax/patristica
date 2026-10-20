@@ -130,6 +130,7 @@ infra/db-tunnel.sh psql
 - Each work is its own transaction, so an interrupted run picks up where it stopped. The index is built at the end of a run, so after an interruption run it again to completion.
 - A change of Scripture verse groups (`patristica/versification.py`) only updates `chunks.translation_group_id` in place; the summary line counts the chunks "regrouped in place". The first run after #186 also rewrites each work's stored hash to the new format ("format-1 hashes rewritten") and reloads nothing; check with `--dry-run` that it reports 0 loaded.
 - After the index build, warm the cache: `SELECT pg_prewarm('chunk_vectors_hnsw_m1');`.
+- Passage alignments (`data/alignments/`, #179) go into `passage_groups` in place, like the verse groups: the summary counts the "passage-group rows synced" and nothing is reloaded. The table is new in #179; `db/schema.sql` creates it on the first run (no schema version change). The first full run writes about 1.34M rows in 442k groups (roughly 250 MB with its indexes), one transaction per work; computing them takes about 15 s. Check with `--dry-run` that it reports 0 loaded.
 - The keyword index for quoted search (#86) needs every chunk's `text_folded`. The first run after it was added folds the loaded chunks in place from the local normalized files (no vectors are reloaded), sending about 650 MB, then builds `chunks_text_folded_trgm` (about 650 MB). The `UPDATE` rewrites every chunk row, so `chunks` temporarily takes about twice its size on the volume.
 
 ## Postgres sizing

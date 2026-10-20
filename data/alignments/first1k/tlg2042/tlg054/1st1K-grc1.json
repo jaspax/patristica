@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "first1k/tlg2042/tlg054/1st1K-grc1",
+ "pivot": "first1k/tlg2042/tlg054/1st1K-grc1",
+ "groups": 41,
+ "inputs": "b4b2f8974466c764",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "first1k/tlg2042/tlg054/1st1K-grc1", "units": 51, "ids": "ad4d38a8a6506ab9", "inputs": "e7494f2a38fa09f9", "spans": "......++=++=+++++++++++++++=++++++++=++++++++++++++", "conf": "99999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-012/selecta-in-jesum-nave", "units": 41, "ids": "c39605477cf0bc41", "inputs": "59aa7416b580da79", "spans": "+++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999"}
+ ]
+}
