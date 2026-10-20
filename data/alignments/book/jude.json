@@ -1,0 +1,18 @@
+{
+ "format": 1,
+ "group": "book:jude",
+ "pivot": "asv/jude",
+ "groups": 25,
+ "inputs": "19b8b43cbb201de6",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "armenian/jude", "units": 25, "ids": "c59376b2a40b1b8d", "inputs": "fd3f77b2c87c1283", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "asv/jude", "units": 25, "ids": "c0e6a10f4bd9d988", "inputs": "d24fbfe7f7abf88a", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "clementine/jude", "units": 25, "ids": "8bb3dc4f60c3373d", "inputs": "3a9a8ca795f74039", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "kjv/jude", "units": 25, "ids": "099361ee5a429a11", "inputs": "24adf48c2ef044b4", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "pta-lxx/jude", "units": 25, "ids": "e83089851bf85838", "inputs": "cbe9cfd310f96ecb", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "pta-peshitta/jude", "units": 25, "ids": "cb6962a5709a356f", "inputs": "033d326348cac1c9", "spans": "++++++++++++++++++++++2=++", "conf": "999999999999999999999999"},
+  {"work_id": "sblgnt/jude", "units": 25, "ids": "10a691d3617681e5", "inputs": "f7a7b9729725748a", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
+  {"work_id": "web/jude", "units": 25, "ids": "6fca8b827e45b2ff", "inputs": "edc609d46f690170", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"}
+ ]
+}

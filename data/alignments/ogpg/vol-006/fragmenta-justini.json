@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-006/fragmenta-justini",
+ "pivot": "ogpg/vol-006/fragmenta-justini",
+ "groups": 171,
+ "inputs": "75e77431751830a4",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/justin-on-the-resurrection", "units": 163, "ids": "818d9de54af4d3a3", "inputs": "062a6149aa4820ae", "spans": "++++++++++++++++++++++++++=++.+.++++++++++++++=++=+++=++++++++++++++++=+++++=++=+++++++++++++++=+++++=++=+++.++++===++++++=+++............+=+++++.++.+==+++==++=+=+", "conf": "79999999999999999999999999992399999999999999999999999999999999999999999999999999999999999999999989999999999249999999999999999"},
+  {"work_id": "anf-works/justin-other-fragments", "units": 65, "ids": "dbef9f5ff068506b", "inputs": "c6dc43fe30b0ef33", "spans": "++47+9+34+9=+18+3+3+2++++++.+++++++++=+++++....++++=++++=.+++++++++++++=++++", "conf": "887999986999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-006/fragmenta-justini", "units": 293, "ids": "89cc9b65651b1431", "inputs": "04ad37dcd8a926e5", "spans": "++++++++++++++++++.+++++++=+++++.+++++=+=+++++++=+++++=++++=+++++=++++..++++++++++++++++++++++++++++++=++++.+++++==+++=+++++.++++++++++==+++==+.++=+..++++++++++++..+++++++++...++++++++++=+++++++++++++++...........................................................................................", "conf": "899999999999999999999999999923999999999999999999999999999999999999999999999999999999999999999999899999999992499999999999999996999999999999999999999999999999999999999999999"}
+ ]
+}

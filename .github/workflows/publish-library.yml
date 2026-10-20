@@ -17,6 +17,8 @@ on:
       - "patristica/versions.py"
       - "patristica/versification.py"
       - "patristica/data/version_links.csv"
+      - "patristica/alignment_store.py"
+      - "data/alignments/**"
       - "scripts/export_library.py"
       - "scripts/upload_library.py"
       - "pyproject.toml"

@@ -384,3 +384,88 @@ def test_schema_version_mismatch(pg_url: str, tmp_path: Path) -> None:
         conn.execute("UPDATE schema_version SET version = 99")
         with pytest.raises(build_index.SchemaVersionError):
             build_index.apply_schema(conn)
+
+
+# ------------------------------------------------------- passage groups (#179)
+
+
+def _alignment(tmp_path: Path, norm: Path, oshb_conf: int = 9, oshb_ids: str | None = None
+               ) -> Path:
+    """An alignment of the fixture's Genesis: KJV Gen 1:1 with OSHB Gen 1:1."""
+    from patristica import alignment_store as al
+
+    def ids(work_id: str) -> str:
+        chunks = json.loads((norm / fx.work_path(work_id)).read_text(encoding="utf-8"))
+        return al.ids_sha([c["chunk_id"] for c in chunks])
+
+    a = al.Alignment("book:gen", "kjv/gen", 2, "x", {"aligner": 1})
+    a.members["kjv/gen"] = al.Member("kjv/gen", 2, "k", [0, 1], {0: 9, 1: 9}, ids("kjv/gen"))
+    a.members["oshb/gen"] = al.Member("oshb/gen", 1, "o", [0], {0: oshb_conf},
+                                      oshb_ids or ids("oshb/gen"))
+    align_dir = tmp_path / "alignments"
+    al.save(align_dir, a)
+    return align_dir
+
+
+def _passages(conn) -> dict[str, tuple[str, int]]:
+    return {cid: (g, c) for cid, g, c in conn.execute(
+        "SELECT chunk_id, group_id, confidence FROM passage_groups ORDER BY 1")}
+
+
+def test_passage_groups_are_synced_in_place(pg_url: str, tmp_path: Path) -> None:
+    """A new or changed alignment writes passage_groups only: no work reloads, no vector (#179)."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    empty = tmp_path / "no-alignments"
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB", align_dir=empty)
+        assert _passages(conn) == {}
+        vectors = conn.execute(_VECTOR_ROWS).fetchall()
+        shas = conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall()
+
+        align_dir = _alignment(tmp_path, norm)
+        dry = build_index.run(conn, norm, trans, store, dry_run=True, align_dir=align_dir)
+        assert (dry.loaded, dry.passages) == (0, 2)
+        assert _passages(conn) == {}
+        stats = build_index.run(conn, norm, trans, store, align_dir=align_dir)
+        assert (stats.loaded, stats.unchanged, stats.passages) == (0, 3, 2)
+        assert _passages(conn) == {"kjv/gen#Gen.1.1": ("book:gen@0", 9),
+                                   "oshb/gen#Gen.1.1": ("book:gen@0", 9)}
+        assert build_index.run(conn, norm, trans, store, align_dir=align_dir).passages == 0
+
+        # Flagged: OSHB's span drops under MIN_CONFIDENCE, so the group goes.
+        align_dir = _alignment(tmp_path, norm, oshb_conf=3)
+        assert build_index.run(conn, norm, trans, store, align_dir=align_dir).passages == 2
+        assert _passages(conn) == {}
+        assert conn.execute(_VECTOR_ROWS).fetchall() == vectors
+        assert conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall() \
+            == shas
+
+
+def test_stale_alignment_gives_no_passage_groups(pg_url: str, tmp_path: Path) -> None:
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    align_dir = _alignment(tmp_path, norm, oshb_ids="0" * 16)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        stats = build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB",
+                                align_dir=align_dir)
+        assert stats.stale_alignments == ["oshb/gen"]
+        assert _passages(conn) == {}
+
+
+def test_passage_group_key(pg_url: str, tmp_path: Path) -> None:
+    """Search folds by the passage group, else the Scripture verse group, else the chunk."""
+    psycopg = pytest.importorskip("psycopg")
+    from api.passages import passage_group
+
+    norm, trans, store = fx.write_corpus(tmp_path)
+    align_dir = _alignment(tmp_path, norm)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB",
+                        align_dir=align_dir)
+        conn.execute("UPDATE chunks SET translation_group_id = 'Gen.1.2' "
+                     "WHERE chunk_id = 'kjv/gen#Gen.1.2'")
+        keys = dict(conn.execute(f"SELECT c.chunk_id, {passage_group('c')} FROM chunks c"))
+    assert keys == {"kjv/gen#Gen.1.1": "book:gen@0", "oshb/gen#Gen.1.1": "book:gen@0",
+                    "kjv/gen#Gen.1.2": "Gen.1.2", "pta/hymns#Hymn.1.1": "pta/hymns#Hymn.1.1",
+                    "pta/hymns#Hymn.1.2": "pta/hymns#Hymn.1.2"}
