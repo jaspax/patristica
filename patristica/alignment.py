@@ -568,7 +568,7 @@ def merge(pivot: str, n_pivot: int, pairs: dict[str, tuple[int, list[Bead]]],
         n, beads = pairs[wid]
         g_of = np.full(n, -1, dtype=np.int64)
         c_of: dict[int, float] = {}
-        span: dict[int, list[int]] = {}
+        units: dict[int, list[tuple[int, int]]] = {}  # group → its beads' units
         for bd in beads:
             gs = sorted({int(g) for g in pivot_group[bd.j0:bd.j1]})
             g = gs[0]
@@ -577,19 +577,17 @@ def merge(pivot: str, n_pivot: int, pairs: dict[str, tuple[int, list[Bead]]],
                     run = np.flatnonzero(pivot_group[bd.j0:bd.j1] == g) + bd.j0
                     return fit(wid, bd, int(run[0]), int(run[-1]) + 1)
                 g = max(gs, key=lambda g: (score(g), -g))
-            s = span.setdefault(g, [bd.i0, bd.i1])
-            s[0], s[1] = min(s[0], bd.i0), max(s[1], bd.i1)
+            units.setdefault(g, []).append((bd.i0, bd.i1))
             c_of[g] = min(c_of.get(g, 1.0), bd.conf)
-        # A version's units in one group must be one run: a group whose span
-        # would take in another group's units is left out for this version.
-        order = sorted(span.items(), key=lambda kv: (kv[1][0], kv[0]))
-        taken = np.zeros(n, bool)
-        for g, (s, e) in order:
-            if taken[s:e].any():
+        # A version's units in one group must be one run. Only the units its
+        # beads assign count (a gap between two beads is not filled in); a
+        # group whose units are not contiguous is left out for this version.
+        for g, runs in units.items():
+            runs.sort()
+            if any(a1 != b0 for (_, a1), (b0, _) in zip(runs, runs[1:])):
                 c_of.pop(g, None)
                 continue
-            taken[s:e] = True
-            g_of[s:e] = g
+            g_of[runs[0][0]:runs[-1][1]] = g
         group_of[wid] = g_of
         conf[wid] = c_of
         for g, c in c_of.items():

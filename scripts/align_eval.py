@@ -149,6 +149,11 @@ def score_group(job: tuple[str, list[dict], argparse.Namespace]) -> Score:
     return sc
 
 
+def pct(a: int, b: int) -> str:
+    """*a* / *b* as a percentage, or a dash when *b* is 0 (no vectors, no predictions)."""
+    return f"{100 * a / b:.1f}%" if b else "–"
+
+
 def fit_logistic(points: list[tuple[float, int]]) -> tuple[float, float]:
     """(margin at 50 %, slope) of a logistic fit, by Newton's method."""
     import numpy as np
@@ -180,22 +185,22 @@ def scripture(args: argparse.Namespace) -> None:
     print("| languages | precision | recall | precision (confident) | recall (confident) |")
     print("|---|---:|---:|---:|---:|")
     for lp in sorted(total.truth):
-        def pct(a: int, b: int) -> str:
-            return f"{100 * a / b:.1f}%" if b else "–"
         print(f"| {lp[0]}–{lp[1]} | {pct(total.tp[lp], total.pred[lp])} | "
               f"{pct(total.tp[lp], total.truth[lp])} | "
               f"{pct(total.tp_conf[lp], total.pred_conf[lp])} | "
               f"{pct(total.tp_conf[lp], total.truth[lp])} |")
     tp, pred, truth = (sum(c.values()) for c in (total.tp, total.pred, total.truth))
     tpc, predc = sum(total.tp_conf.values()), sum(total.pred_conf.values())
-    print(f"| **all** | {100 * tp / pred:.1f}% | {100 * tp / truth:.1f}% | "
-          f"{100 * tpc / predc:.1f}% | {100 * tpc / truth:.1f}% |\n")
+    print(f"| **all** | {pct(tp, pred)} | {pct(tp, truth)} | {pct(tpc, predc)} | "
+          f"{pct(tpc, truth)} |\n")
     print("| language | units | in a confident group |")
     print("|---|---:|---:|")
     for lang in sorted(total.units):
         print(f"| {lang} | {total.units[lang]} | "
-              f"{100 * total.units_conf[lang] / total.units[lang]:.1f}% |")
-    if args.calibrate:
+              f"{pct(total.units_conf[lang], total.units[lang])} |")
+    if args.calibrate and not total.calib:
+        print("\nno beads to calibrate on")
+    elif args.calibrate:
         # Where a version's refs and content disagree on many beads (Ge'ez
         # Proverbs), the refs are wrong, not the aligner: leave such works out.
         per_work: dict[str, list[int]] = defaultdict(lambda: [0, 0])
