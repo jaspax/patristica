@@ -186,8 +186,17 @@ describe("orgRef and nativeRef", () => {
   });
 });
 
-function request(fromWork: WorkFile, ref: string, toWork: WorkFile): PositionRequest {
-  return { from: kjv, fromWork, ref, to: vul, loadTarget: async () => toWork };
+const plRow = workRow({ id: "pl/x", version_group: "pl/x" });
+
+/** A work file as published before org_refs existed (#144). */
+function withoutOrgRefs(file: WorkFile): WorkFile {
+  const copy = { ...file };
+  delete copy.org_refs;
+  return copy;
+}
+
+function request(fromWork: WorkFile, ref: string, toWork: WorkFile, from = kjv, to = vul): PositionRequest {
+  return { from, fromWork, ref, to, loadTarget: async () => toWork };
 }
 
 describe("mapPosition", () => {
@@ -201,19 +210,38 @@ describe("mapPosition", () => {
   });
 
   it("opens other works at the top", async () => {
-    expect(await mapPosition(request(patristic, "1.1", patristic))).toBeNull();
-    expect(await mapPosition(request(kjvFile, "Ps.23.1", patristic))).toBeNull();
+    expect(await mapPosition(request(patristic, "1.1", patristic, plRow, plRow))).toBeNull();
+    expect(await mapPosition(request(kjvFile, "Ps.23.1", patristic, kjv, plRow))).toBeNull();
   });
 
   it("does not load the target unless the current work is Scripture", async () => {
     const loadTarget = vi.fn(async () => vulFile);
-    expect(await scripturePosition({ ...request(patristic, "1.1", vulFile), loadTarget })).toBeUndefined();
+    expect(await scripturePosition({ ...request(patristic, "1.1", vulFile, plRow, vul), loadTarget })).toBeUndefined();
     expect(loadTarget).not.toHaveBeenCalled();
+  });
+
+  it("reads a Scripture book without org_refs (an older library) as org numbering", async () => {
+    const oldKjv = withoutOrgRefs(kjvFile);
+    const oldVul = withoutOrgRefs(vulFile);
+    // Neither side mapped: the same ref, else the same chapter.
+    expect(await mapPosition(request(oldKjv, "Ps.3.2", oldVul))).toBe("Ps.3.2");
+    expect(await mapPosition(request(oldKjv, "Ps.3.9", oldVul))).toBe("Ps.3.1");
+    expect(await mapPosition(request(oldKjv, "Ps.23.1", oldVul))).toBeNull();
+    // Only the target unmapped: org ref read as the target's own.
+    expect(await mapPosition(request(kjvFile, "Ps.3.1", oldVul))).toBe("Ps.3.2");
+    // Only the source unmapped: its ref read as org.
+    expect(await mapPosition(request(oldKjv, "Ps.23.1", vulFile))).toBe("Ps.22.1");
+  });
+
+  it("does not guess across works outside a Scripture book group", async () => {
+    const bookless = workRow({ id: "x/ps", version_group: "x/ps" });
+    const req = request(withoutOrgRefs(kjvFile), "Ps.23.1", withoutOrgRefs(vulFile), bookless, bookless);
+    expect(await scripturePosition(req)).toBeUndefined();
   });
 
   it("tries further mappers in order (passage alignment, #179)", async () => {
     const aligned: PositionMapper = async ({ ref }) => `aligned:${ref}`;
-    expect(await mapPosition(request(patristic, "1.1", patristic), [scripturePosition, aligned])).toBe(
+    expect(await mapPosition(request(patristic, "1.1", patristic, plRow, plRow), [scripturePosition, aligned])).toBe(
       "aligned:1.1",
     );
     expect(await mapPosition(request(kjvFile, "Ps.23.1", vulFile), [scripturePosition, aligned])).toBe(

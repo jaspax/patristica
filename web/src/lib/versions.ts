@@ -195,11 +195,16 @@ export interface PositionRequest {
 export type PositionMapper = (req: PositionRequest) => Promise<string | null | undefined>;
 
 /** Scripture: native ref → org ref → the target's native ref. */
-export const scripturePosition: PositionMapper = async ({ fromWork, ref, loadTarget }) => {
-  const org = orgRef(fromWork, ref);
+export const scripturePosition: PositionMapper = async ({ from, fromWork, ref, to, loadTarget }) => {
+  // Two Scripture books of one book group. A work file without org_refs (a
+  // library published before #144, or a stale cache) is read as already in
+  // org numbering: the same ref, else the same chapter, beats the top.
+  const sameBook = Boolean(from.version_group?.startsWith("book:")) && from.version_group === to.version_group;
+  const org = fromWork.org_refs ? orgRef(fromWork, ref) : sameBook ? ref : null;
   if (org === null) return undefined;
   const target = await loadTarget();
-  return target.org_refs ? nativeRef(target, org) : undefined;
+  if (target.org_refs) return nativeRef(target, org);
+  return sameBook ? nativeRef({ ...target, org_refs: {} }, org) : undefined;
 };
 
 /**
