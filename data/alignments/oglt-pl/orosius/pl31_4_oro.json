@@ -3,8 +3,8 @@
  "group": "oglt-pl/orosius/pl31_4_oro",
  "pivot": "oglt-pl/orosius/pl31_4_oro",
  "groups": 62,
- "inputs": "0e7aeabbda6f841b",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "2ebbd8d756d864f9",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "oglt-pl/orosius/pl31_4_oro", "units": 78, "ids": "78741860aa949702", "inputs": "91e7219350068f33", "spans": ".++++++++++++..++++++++++++++++++..........+++++++++++++=+++++=++++++++++++++.", "conf": "99999999999999999999999999999999999999999999999999999999979999"},
   {"work_id": "oglt-pl/orosius/pl42_7_con", "units": 72, "ids": "1eb7a0e72b56116b", "inputs": "786d42c034f4ad4e", "spans": "++++++++...++++++++++.+++++++++++++++++++++=+++++=++++++=++++++++...++++", "conf": "99999999999999999999999999999999999999999999999999999999979999"}

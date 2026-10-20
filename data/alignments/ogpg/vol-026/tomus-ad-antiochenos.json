@@ -3,8 +3,8 @@
  "group": "ogpg/vol-026/tomus-ad-antiochenos",
  "pivot": "npnf-works/athanasius-tome-to-the-antiochenes",
  "groups": 106,
- "inputs": "c509e4ea5240457a",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "3f65aee51075e98d",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/athanasius-tome-to-the-antiochenes", "units": 157, "ids": "4bd1aaff204ee70e", "inputs": "4d0d9039a725649e", "spans": "++++++++++++.+++++.+++++++.+++=+++++++++++=+++=+++++++=+.++++++++++++++++++++++++++++++=+++++=++++++.++++++++++.....+....................+.+=+=+==........+..", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999729997"},
   {"work_id": "ogpg/vol-026/tomus-ad-antiochenos", "units": 110, "ids": "114d1fc70fb00366", "inputs": "bfbd4d36736e117c", "spans": "++++++++=+++++=+++++=+=+++=++++++++++++++++=+++++++++.+=++=+++++++.++++++++++=++++++=++5+6=+++++++++++++++++++++", "conf": "9999999999989999999999999999999999999999999999999999999999999999999999999959999999999999999729997"},

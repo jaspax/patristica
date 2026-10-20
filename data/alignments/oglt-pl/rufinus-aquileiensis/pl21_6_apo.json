@@ -3,8 +3,8 @@
  "group": "oglt-pl/rufinus-aquileiensis/pl21_6_apo",
  "pivot": "oglt-pl/rufinus-aquileiensis/pl21_6_apo",
  "groups": 49,
- "inputs": "a2983a12d8b727f9",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "5f7743f11eeac667",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/rufinus-apology-to-anastasius", "units": 72, "ids": "e24fa37169683a52", "inputs": "d25800b9eec421b2", "spans": "+.............+..++=+=++++++++++++++++++++++=++++++=++++=++++++=+++=+=++", "conf": "9499999999999999999999999999999999999999999989999"},
   {"work_id": "oglt-pl/rufinus-aquileiensis/pl21_6_apo", "units": 95, "ids": "72064bc0d1196b28", "inputs": "f166e96877231dbc", "spans": "+++++++.......+++=.++...+++=++++++=+=++.............+++++++++++++++...........++++++....++++...", "conf": "9499999999999999999999999999999999999999999989999"}

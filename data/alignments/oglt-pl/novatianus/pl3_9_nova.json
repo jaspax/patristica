@@ -3,8 +3,8 @@
  "group": "oglt-pl/novatianus/pl3_9_nova",
  "pivot": "oglt-pl/novatianus/pl3_9_nova",
  "groups": 154,
- "inputs": "49f21cc36dbc3d04",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "eacabc09c11fd099",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/novatian-on-the-jewish-meats", "units": 164, "ids": "f47fc68f95e16107", "inputs": "51d013515a67bd9a", "spans": ".+++=++++=++++++++.++++++++++++++++++++++++++=++++++=++++=+++++++++++=++++++++++++++++++++++=+++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999699999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999993"},
   {"work_id": "oglt-pl/novatianus/pl3_9_nova", "units": 246, "ids": "35b4560335940b8c", "inputs": "ca42d218ad8d9783", "spans": "++++++...+++++=..+=++=+=+...++++=+++........+++++++++++++++.......+++++=++++++++++.......++++++++++++++++........+++++++=++++=+++..............++++++++++=+++.....+=++++++=+=+++++++++......++++++++++++++++....++++++=+++++++.......++++++++++=++....", "conf": "9999999999999999999999999999999999999699999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999993"}

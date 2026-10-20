@@ -3,8 +3,8 @@
  "group": "book:jude",
  "pivot": "asv/jude",
  "groups": 25,
- "inputs": "028c2c3537bee434",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "19b8b43cbb201de6",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/jude", "units": 25, "ids": "c59376b2a40b1b8d", "inputs": "fd3f77b2c87c1283", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},
   {"work_id": "asv/jude", "units": 25, "ids": "c0e6a10f4bd9d988", "inputs": "d24fbfe7f7abf88a", "spans": "+++++++++++++++++++++++++", "conf": "9999999999999999999999999"},

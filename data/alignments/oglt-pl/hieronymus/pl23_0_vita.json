@@ -3,8 +3,8 @@
  "group": "oglt-pl/hieronymus/pl23_0_vita",
  "pivot": "oglt-pl/hieronymus/pl23_0_vita",
  "groups": 138,
- "inputs": "2336eec26e451a82",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "59518e4ad28d5010",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/jerome-life-of-paul-the-hermit", "units": 141, "ids": "22d139740b6a4764", "inputs": "69dd99de463fdbce", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++", "conf": "989999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "oglt-pl/hieronymus/pl23_0_vita", "units": 288, "ids": "abe483404e17189f", "inputs": "121227f682cdc3db", "spans": "++.+++++........+=....+===.....+++..++=++++++++=.................++++=++++=+++=++=++++=..............+++++=++++...............++++++=+++++=...................+=++++++++++.......+++=+=++++++++++=+++.....++++++=+++=+++=+++=+.....+++=++=++++++++=........+++++=+++++=+=+++.......++++.....++++", "conf": "989999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}

@@ -3,8 +3,8 @@
  "group": "pta/pta0100/pta002/pta-grc1",
  "pivot": "npnf-works/alexander-deposition-of-arius",
  "groups": 75,
- "inputs": "6dfa0a36a69c7eda",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "0e77aa9ada502500",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/alexander-deposition-of-arius", "units": 154, "ids": "89220c7a0b66167d", "inputs": "04a5914b69105e38", "spans": "..+++=+=++.++++++++=+++++++++++++=+++++++=+++=+.+=+++++.++++++++++++++++=.+..+=...+=......+=..+=....+==.......+=.+++=......+.......+..+.......+==..+......", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "pta/pta0100/pta002/pta-grc1", "units": 82, "ids": "6437a5e1954a4a36", "inputs": "e751f9fcc7f5524d", "spans": "++++=++++++++++++++++++++=++++++++++++++.++++++++++=++++++++++=+++++.+++++++++.+++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999"}

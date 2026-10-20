@@ -3,11 +3,11 @@
  "group": "first1k/tlg0645/tlg002/perseus-grc2",
  "pivot": "first1k/tlg0645/tlg002/perseus-grc2",
  "groups": 125,
- "inputs": "e06243542b2a3dc7",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "73930e8abbb31022",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/justin-second-apology", "units": 153, "ids": "241f6de6d3cd00af", "inputs": "f18af6566ce7d49d", "spans": "+++==++=+++++++++++=++++++++=+=+39+++=++++++-47+=+++++++++==+=+++++=++=++++++++==++++++=+++=+++11+++++=+++++=+=+++++=++++++++++++=++++++=+++=+=+==+++++++=+++++", "conf": "99999999999999999999999999999988999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "first1k/tlg0645/tlg002/perseus-grc2", "units": 174, "ids": "de6720312eb929f7", "inputs": "a66a379bae6be912", "spans": "+++==++=++++++++++=+=++=+++++=+=+==+=+=+++++++++===+=+++++=++==++=++++++===++++++==+++=++++=++++++++++=++++=+++++=+=+++=++==+=+++++=++++++=++=+=+++=+++==+==+===++++++=+=+++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999889999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-006/apologia-2", "units": 142, "ids": "ed208099ebaf57a5", "inputs": "366f1c8f2bcdc890", "spans": "+=++=.+++++++++++2=++++++=++=+42++-43=+=...+==++++++++++==++++++++=+8=.+5+=+++++=+8+3++++++++++++++++=++++++++..+.+=++++=+++++++=+==+==++++++=+++...+++", "conf": "99699999999999999999999979799999999999999999998999999939999999999669999999999999599999999999999999999999999"}
+  {"work_id": "ogpg/vol-006/apologia-2", "units": 142, "ids": "ed208099ebaf57a5", "inputs": "366f1c8f2bcdc890", "spans": "+=++=.+++++++++++2=++++++=++=+42++-43=+=......+2+++++++++==++++++++=+8=.+5+=+++++=+8+3++++++++++++++++=++++++++..+.+=++++=+++++++=+==+==++++++=+++...+++", "conf": "9969999999999999999999997979999999999999999998999999939999999999669999999999999599999999999999999999999999"}
  ]
 }

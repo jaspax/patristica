@@ -3,8 +3,8 @@
  "group": "perseus/stoa0275/stoa028/opp-lat1",
  "pivot": "anf-works/tertullian-souls-testimony",
  "groups": 112,
- "inputs": "ffe250e1c9da2972",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "ec91689c27d9af79",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/tertullian-souls-testimony", "units": 144, "ids": "96e43ccffabde9d3", "inputs": "2d0777cb8356c81d", "spans": "....+=++++++=++=++++++.++++++.+++=.++++++++++.++++=+++=.+.++=++.+++++++++=++=++=++++=++=.+++++=+=++.+++++++++++++++=++++++++.+++++=+++++++=++=++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999989999999999999999"},
   {"work_id": "perseus/stoa0275/stoa028/opp-lat1", "units": 113, "ids": "1deb9487e205a4e3", "inputs": "6e78b5d88c7c11b0", "spans": "+=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999989999999999999999"}

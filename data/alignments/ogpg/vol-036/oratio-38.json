@@ -3,8 +3,8 @@
  "group": "ogpg/vol-036/oratio-38",
  "pivot": "npnf-works/gregory-nazianzen-oration-38",
  "groups": 153,
- "inputs": "f322db8ac06ae405",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "20e22f17f10b3649",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/gregory-nazianzen-oration-38", "units": 207, "ids": "976ed6d9e3dea015", "inputs": "7e41da851df22acc", "spans": "........................++++=+++++++++++++++++++=++=++++=++=++++++.++++++++++++=++=+++++=+++++=+++++++=++=+=+++++++=++++=++=++++++=.+++++=+++++++.++++++++=+++=+++++.++.+++.++++++++++++++++++++++++=+++.+..+.+", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998999999999999999896999999999999999998899999997589"},
   {"work_id": "ogpg/vol-036/oratio-38", "units": 168, "ids": "1aba6b72e4c3ad69", "inputs": "b4ef419f32771be7", "spans": "++++++++=++++++++++++++++++++++++=++++++++++=++++++.++++++++++.++=+...+++++++++++=+++.++++++++++++++++++++++++++++++.++++++++++++++++++=++++++++++++++++.+++++++++++.+++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998999999999999999896999999999999999998899999997589"}

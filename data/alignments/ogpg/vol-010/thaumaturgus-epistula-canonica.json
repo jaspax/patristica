@@ -3,8 +3,8 @@
  "group": "ogpg/vol-010/thaumaturgus-epistula-canonica",
  "pivot": "ogpg/vol-010/thaumaturgus-epistula-canonica",
  "groups": 66,
- "inputs": "d82903871c65f74b",
- "run": {"aligner": 1, "date": "2026-10-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "84eba58e41d2a844",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/gregory-thaumaturgus-canonical-epistle", "units": 71, "ids": "70c8ac8f0be3b8b6", "inputs": "19a8380ff11d6be6", "spans": "+.++++++++=+.++++5++++++++++2+.+++++.+2.+++++++.++++.++++2++++++.+2+.+.+=++=", "conf": "3999999993988999999999999998999999999999999997999899999999"},
   {"work_id": "npnf-works/gregory-thaumaturgus-canonical-epistle", "units": 24, "ids": "418ba22d19172650", "inputs": "a0ee58da350a977c", "spans": ".+14+.++.+11+8+6.+10++3=++3.+2.+.++2", "conf": "9999939969899998"},
