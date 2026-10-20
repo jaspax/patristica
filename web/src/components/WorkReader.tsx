@@ -17,7 +17,7 @@ import {
 } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
 import { useOffscreen } from "@/lib/useOffscreen";
-import { currentRef, mapPosition, originalIds, versionMembers } from "@/lib/versions";
+import { currentPosition, mapPosition, originalIds, versionMembers } from "@/lib/versions";
 
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
@@ -66,9 +66,17 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
   const fromWork = work.status === "ready" ? work.data : null;
   const positionFor = useCallback<PositionFor>(
     async (target) => {
-      const ref = fromWork && currentRef(textRef.current, window.location.hash);
-      if (!fromWork || !ref) return null;
-      return mapPosition({ from: row, fromWork, ref, to: target, loadTarget: () => loadWork(target.file) });
+      const here = fromWork && currentPosition(textRef.current, window.location.hash);
+      if (!fromWork || !here) return null;
+      const ref = await mapPosition({
+        from: row,
+        fromWork,
+        ref: here.ref,
+        to: target,
+        loadTarget: () => loadWork(target.file),
+      });
+      // Highlighted only if the reader was at a highlighted passage, not just scrolled there.
+      return ref ? { ref, highlight: here.highlight } : null;
     },
     [fromWork, row],
   );

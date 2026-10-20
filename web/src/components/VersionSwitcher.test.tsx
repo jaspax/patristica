@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { WorkRow } from "@/lib/library";
 import { workRow } from "@/lib/testFixtures";
-import { originalIds } from "@/lib/versions";
+import { originalIds, type Position } from "@/lib/versions";
 
 import VersionSwitcher, { FloatingVersions } from "./VersionSwitcher";
 
@@ -49,7 +49,7 @@ const kjv = psalms[4];
 beforeEach(() => push.mockClear());
 afterEach(cleanup);
 
-function renderPsalms(positionFor?: (w: WorkRow) => Promise<string | null>) {
+function renderPsalms(positionFor?: (w: WorkRow) => Promise<Position | null>) {
   return render(
     <VersionSwitcher
       current={kjv}
@@ -124,11 +124,20 @@ describe("VersionSwitcher", () => {
   });
 
   it("opens the other version at the passage positionFor finds", async () => {
-    const positionFor = vi.fn(async () => "Ps.22.1");
+    const positionFor = vi.fn(async () => ({ ref: "Ps.22.1", highlight: true }));
     renderPsalms(positionFor);
     fireEvent.click(screen.getByRole("link", { name: "Clementine Vulgate" }));
     await waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps#Ps.22.1"));
     expect(positionFor).toHaveBeenCalledWith(psalms[3]);
+  });
+
+  it("opens a scroll position without highlighting it (?nohl)", async () => {
+    renderPsalms(async () => ({ ref: "Ps.22.1", highlight: false }));
+    const link = screen.getByRole("link", { name: "Clementine Vulgate" });
+    fireEvent.click(link);
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps?nohl#Ps.22.1"));
+    // The link's own address (new tab) stays the top of the work.
+    expect(link.getAttribute("href")).toBe("/works/clementine/ps");
   });
 
   it("opens at the top when there is no passage or the lookup fails", async () => {
@@ -145,7 +154,7 @@ describe("VersionSwitcher", () => {
   });
 
   it("leaves modified clicks (new tab) to the browser", () => {
-    const positionFor = vi.fn(async () => "Ps.22.1");
+    const positionFor = vi.fn(async () => ({ ref: "Ps.22.1", highlight: true }));
     renderPsalms(positionFor);
     // jsdom can't open a tab: stop the browser's default action after the component's handler.
     const stop = (e: Event) => e.preventDefault();
@@ -158,7 +167,7 @@ describe("VersionSwitcher", () => {
 });
 
 describe("FloatingVersions", () => {
-  function renderFloating(visible: boolean, positionFor?: (w: WorkRow) => Promise<string | null>) {
+  function renderFloating(visible: boolean, positionFor?: (w: WorkRow) => Promise<Position | null>) {
     return render(
       <div>
         <p>
@@ -230,7 +239,7 @@ describe("FloatingVersions", () => {
   });
 
   it("switches at the passage being read when a version is chosen", async () => {
-    const positionFor = vi.fn(async () => "Ps.22.1");
+    const positionFor = vi.fn(async () => ({ ref: "Ps.22.1", highlight: true }));
     renderFloating(true, positionFor);
     fireEvent.click(screen.getByRole("button", { name: /Other versions/ }));
     fireEvent.click(screen.getByRole("link", { name: "Clementine Vulgate" }));

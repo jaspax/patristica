@@ -4,7 +4,7 @@
 
 import { languageInfo } from "./lang";
 import type { LibraryIndex, WorkFile, WorkRow } from "./library";
-import { fragmentId } from "./useHashTarget";
+import { fragmentId, NO_HIGHLIGHT_PARAM, TARGET_ATTRIBUTE } from "./useHashTarget";
 
 /**
  * Every work in `row`'s version group, `row` included, in index order; [] when
@@ -225,21 +225,30 @@ export async function mapPosition(
   return null;
 }
 
+/** Where the reader is: a passage, and whether it is highlighted (a fragment the reader chose). */
+export interface Position {
+  ref: string;
+  /** The URL fragment's highlighted passage (a search result, a verse link), not just the scroll position. */
+  highlight: boolean;
+}
+
 /**
- * The ref of the passage the reader is at in the text inside `container`: the
- * URL fragment's passage while it is on screen, else the first passage at
- * least partly visible at the top of the viewport. Null while the top of the
- * text is still in view (the reader hasn't started reading: open the other
- * version at its top too).
+ * Where the reader is in the text inside `container`: the URL fragment's
+ * passage while it is on screen (highlighted if useHashTarget marked it), else
+ * the first passage at least partly visible at the top of the viewport (not
+ * highlighted). Null while the top of the text is still in view (the reader
+ * hasn't started reading: open the other version at its top too).
  */
-export function currentRef(container: HTMLElement | null, hash: string): string | null {
+export function currentPosition(container: HTMLElement | null, hash: string): Position | null {
   if (!container) return null;
   const height = window.innerHeight;
   const target = fragmentId(hash);
   const marked = target ? document.getElementById(target) : null;
   if (marked && container.contains(marked)) {
     const box = marked.getBoundingClientRect();
-    if (box.bottom > 0 && box.top < height) return target;
+    if (box.bottom > 0 && box.top < height) {
+      return { ref: target, highlight: marked.hasAttribute(TARGET_ATTRIBUTE) };
+    }
   }
   if (container.getBoundingClientRect().top >= 0) return null;
   // Look inside the first section on screen only: off-screen sections skip
@@ -247,14 +256,19 @@ export function currentRef(container: HTMLElement | null, hash: string): string 
   for (const section of container.querySelectorAll("section")) {
     if (section.getBoundingClientRect().bottom <= 0) continue;
     for (const el of section.querySelectorAll("[id]")) {
-      if (el.getBoundingClientRect().bottom > 0) return el.id;
+      if (el.getBoundingClientRect().bottom > 0) return { ref: el.id, highlight: false };
     }
     return null;
   }
   return null;
 }
 
-/** Reader URL fragment for a ref ("" for none). */
-export function refHash(ref: string | null): string {
-  return ref ? `#${encodeURIComponent(ref)}` : "";
+/**
+ * What follows a reader path to open a position: `#ref` for a highlighted
+ * passage, `?nohl#ref` for one taken from the scroll position (scrolled to but
+ * not highlighted, useHashTarget), "" for the top.
+ */
+export function positionSuffix(position: Position | null): string {
+  if (!position) return "";
+  return `${position.highlight ? "" : `?${NO_HIGHLIGHT_PARAM}`}#${encodeURIComponent(position.ref)}`;
 }

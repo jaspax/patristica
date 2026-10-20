@@ -2,15 +2,16 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { LibraryIndex, WorkFile, WorkRow } from "./library";
 import { workRow } from "./testFixtures";
+import { TARGET_ATTRIBUTE } from "./useHashTarget";
 import {
-  currentRef,
+  currentPosition,
   distinguishVersions,
   groupByLanguage,
   mapPosition,
   nativeRef,
   orgRef,
   originalIds,
-  refHash,
+  positionSuffix,
   scripturePosition,
   versionCounts,
   versionMembers,
@@ -250,7 +251,7 @@ describe("mapPosition", () => {
   });
 });
 
-describe("currentRef", () => {
+describe("currentPosition", () => {
   // jsdom has no layout: give each element a box (top, bottom) by id.
   function layout(boxes: Record<string, [number, number]>) {
     vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
@@ -275,25 +276,29 @@ describe("currentRef", () => {
     window.location.hash = "";
   });
 
-  it("is the first passage at the top of the viewport", () => {
+  it("is the first passage at the top of the viewport, not highlighted", () => {
     const div = text();
     layout({ text: [-900, 1000], "s-1": [-900, -10], "s-2": [-10, 600], "Ps.2.1": [-10, -2], "Ps.2.2": [-2, 40] });
-    expect(currentRef(div, "")).toBe("Ps.2.2");
+    expect(currentPosition(div, "")).toEqual({ ref: "Ps.2.2", highlight: false });
   });
 
-  it("is the fragment's passage while it is on screen", () => {
+  it("is the fragment's passage while it is on screen, highlighted if it is marked", () => {
     const div = text();
     layout({ text: [-900, 1000], "s-1": [-900, -10], "s-2": [-10, 600], "Ps.1.2": [-400, -380], "Ps.2.2": [200, 230] });
-    expect(currentRef(div, "#Ps.2.2")).toBe("Ps.2.2");
+    // Opened with ?nohl: on screen but not marked.
+    expect(currentPosition(div, "#Ps.2.2")).toEqual({ ref: "Ps.2.2", highlight: false });
+    document.getElementById("Ps.2.2")!.setAttribute(TARGET_ATTRIBUTE, "");
+    expect(currentPosition(div, "#Ps.2.2")).toEqual({ ref: "Ps.2.2", highlight: true });
     // Scrolled away from it: the top of the viewport wins.
-    expect(currentRef(div, "#Ps.1.2")).toBe("Ps.2.2");
+    document.getElementById("Ps.1.2")!.setAttribute(TARGET_ATTRIBUTE, "");
+    expect(currentPosition(div, "#Ps.1.2")).toEqual({ ref: "Ps.2.2", highlight: false });
   });
 
   it("is null before the reader has scrolled into the text", () => {
     const div = text();
     layout({ text: [300, 2000], "s-1": [300, 900], "Ps.1.1": [300, 330] });
-    expect(currentRef(div, "")).toBeNull();
-    expect(currentRef(null, "")).toBeNull();
+    expect(currentPosition(div, "")).toBeNull();
+    expect(currentPosition(null, "")).toBeNull();
   });
 });
 
@@ -312,9 +317,10 @@ describe("distinguishVersions", () => {
   });
 });
 
-describe("refHash", () => {
-  it("builds a fragment", () => {
-    expect(refHash("Ps.22.1")).toBe("#Ps.22.1");
-    expect(refHash(null)).toBe("");
+describe("positionSuffix", () => {
+  it("keeps a highlighted passage highlighted, and only scrolls to a scroll position", () => {
+    expect(positionSuffix({ ref: "Ps.22.1", highlight: true })).toBe("#Ps.22.1");
+    expect(positionSuffix({ ref: "Ps.22.1", highlight: false })).toBe("?nohl#Ps.22.1");
+    expect(positionSuffix(null)).toBe("");
   });
 });

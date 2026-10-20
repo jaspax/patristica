@@ -14,12 +14,15 @@ import {
 
 import { languageInfo } from "@/lib/lang";
 import { workHref, type WorkRow } from "@/lib/library";
-import { distinguishVersions, groupByLanguage, refHash, type VersionDetails } from "@/lib/versions";
+import { distinguishVersions, groupByLanguage, positionSuffix, type Position, type VersionDetails } from "@/lib/versions";
 
 import styles from "./VersionSwitcher.module.css";
 
-/** Where to open a version: a ref to scroll to, or null for the top. */
-export type PositionFor = (target: WorkRow) => Promise<string | null>;
+/**
+ * Where to open a version: a passage to scroll to, highlighted or not (see
+ * lib/versions.ts positionSuffix), or null for the top.
+ */
+export type PositionFor = (target: WorkRow) => Promise<Position | null>;
 
 /** More other versions than this are listed under language headings. */
 export const GROUP_BY_LANGUAGE_ABOVE = 4;
@@ -37,8 +40,10 @@ interface VersionLinkProps {
 
 /**
  * A link to another version of the work. Its href opens the version at the
- * top (so it works in a new tab); a plain click asks `positionFor` where the
- * reader is at that moment and opens the version there.
+ * top (so it works in a new tab, and the link's address doesn't change as
+ * the reader scrolls); a plain click asks `positionFor` where the reader is
+ * at that moment and opens the version there, highlighted only if the reader
+ * was at a highlighted passage.
  */
 export function VersionLink({ target, positionFor, children, ...rest }: VersionLinkProps) {
   const router = useRouter();
@@ -51,7 +56,7 @@ export function VersionLink({ target, positionFor, children, ...rest }: VersionL
     setBusy(true);
     positionFor(target)
       .catch(() => null)
-      .then((ref) => router.push(`${href}${refHash(ref)}`))
+      .then((position) => router.push(`${href}${positionSuffix(position)}`))
       .finally(() => setBusy(false));
   };
 

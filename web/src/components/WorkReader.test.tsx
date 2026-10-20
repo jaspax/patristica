@@ -5,10 +5,11 @@ import type { AuthorsFile, LibraryIndex, WorkFile } from "@/lib/library";
 import { person, workRow } from "@/lib/testFixtures";
 
 let params: { id: string[] } = { id: ["pl", "both"] };
+const push = vi.fn();
 
 vi.mock("next/navigation", () => ({
   useParams: () => params,
-  useRouter: () => ({ push: vi.fn() }),
+  useRouter: () => ({ push }),
 }));
 
 const index: LibraryIndex = {
@@ -23,8 +24,8 @@ const index: LibraryIndex = {
   },
   works: [
     workRow({ id: "oshb/ps", title: "Psalms", language: "hbo", source_id: "oshb", genre: "scripture", version_group: "book:ps" }),
-    workRow({ id: "kjv/ps", title: "Psalms", language: "eng", source_id: "kjv", genre: "scripture", version_group: "book:ps" }),
-    workRow({ id: "clementine/ps", title: "Psalms", language: "lat", source_id: "clementine", genre: "scripture", version_group: "book:ps" }),
+    workRow({ id: "kjv/ps", title: "Psalms", language: "eng", source_id: "kjv", genre: "scripture", version_group: "book:ps", file: "works/kjv/Ps.json" }),
+    workRow({ id: "clementine/ps", title: "Psalms", language: "lat", source_id: "clementine", genre: "scripture", version_group: "book:ps", file: "works/clementine/Ps.json" }),
     workRow({ id: "first1k/hom", title: "Homiliae", language: "grc", source_id: "first1k", version_group: "first1k/hom" }),
     workRow({
       id: "npnf-works/hom",
@@ -54,6 +55,20 @@ const authors: AuthorsFile = {
 };
 
 const work: WorkFile = { work_id: "pl/both", ref_prefix: "Ep", chunks: [["1", "Salve."]] };
+const psalms: Record<string, WorkFile> = {
+  "/works/kjv/Ps.json": {
+    work_id: "kjv/ps",
+    ref_prefix: "Ps.23",
+    org_refs: {},
+    chunks: [["1", "The LORD is my shepherd"], ["2", "He maketh me to lie down"]],
+  },
+  "/works/clementine/Ps.json": {
+    work_id: "clementine/ps",
+    ref_prefix: "Ps.22",
+    org_refs: { "1": "Ps.23.1", "2": "Ps.23.2" },
+    chunks: [["1", "Dominus regit me"], ["2", "in loco pascuae"]],
+  },
+};
 
 let WorkReader: typeof import("./WorkReader").default;
 
@@ -63,7 +78,8 @@ beforeEach(async () => {
   vi.stubGlobal(
     "fetch",
     vi.fn(async (url: string) => {
-      const body = url.endsWith("/authors.json") ? authors : url.endsWith("/index.json") ? index : work;
+      const psalm = Object.entries(psalms).find(([path]) => url.endsWith(path))?.[1];
+      const body = url.endsWith("/authors.json") ? authors : url.endsWith("/index.json") ? index : (psalm ?? work);
       return new Response(JSON.stringify(body));
     }),
   );
@@ -72,6 +88,9 @@ beforeEach(async () => {
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+  push.mockClear();
+  window.history.replaceState(null, "", "/");
 });
 
 describe("WorkReader author line", () => {
@@ -150,5 +169,46 @@ describe("WorkReader versions", () => {
     expect(screen.getByRole("button", { name: "Other versions (2 in 2 languages)" })).toBeDefined();
     act(() => notify([{ isIntersecting: true }]));
     expect(screen.queryByRole("button", { name: /Other versions/ })).toBeNull();
+  });
+});
+
+describe("WorkReader version switch", () => {
+  // jsdom has no layout: put the text above the viewport top and give
+  // elements a box by id ([top, bottom]); everything else sits at 0.
+  function layout(boxes: Record<string, [number, number]>) {
+    vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
+      const [top, bottom] = boxes[this.id] ?? (this.tagName === "SECTION" ? [-100, 600] : [0, 0]);
+      return { top, bottom } as DOMRect;
+    });
+    Element.prototype.scrollIntoView = () => {};
+  }
+
+  async function openKjv(url: string) {
+    window.history.replaceState(null, "", url);
+    params = { id: ["kjv", "ps"] };
+    const view = render(<WorkReader />);
+    await screen.findByText("The LORD is my shepherd");
+    return view;
+  }
+
+  it("keeps a highlighted passage highlighted", async () => {
+    layout({ "Ps.23.1": [100, 130] });
+    const { container } = await openKjv("/works/kjv/ps#Ps.23.1");
+    // The fragment was highlighted on opening (useHashTarget).
+    expect(container.querySelector("[data-target]")?.id).toBe("Ps.23.1");
+    // Its place in the text: the wrapper starts above the viewport.
+    container.querySelector("article > div")!.id = "text";
+    layout({ "Ps.23.1": [100, 130], text: [-50, 900] });
+    act(() => screen.getByRole("link", { name: "Clementine Vulgate" }).click());
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps#Ps.22.1"));
+  });
+
+  it("opens a scroll position without a highlight (?nohl)", async () => {
+    const { container } = await openKjv("/works/kjv/ps");
+    expect(container.querySelector("[data-target]")).toBeNull();
+    container.querySelector("article > div")!.id = "text";
+    layout({ text: [-400, 900], "Ps.23.1": [-40, -5], "Ps.23.2": [-5, 30] });
+    act(() => screen.getByRole("link", { name: "Clementine Vulgate" }).click());
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps?nohl#Ps.22.2"));
   });
 });
