@@ -35,6 +35,8 @@ patristica/
 │   ├── authors.py             # author index: resolve_author(), dates (data/authors.csv, data/author_strings.csv; #82)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versions.py            # work-level version groups (translation_of + books + CTS + data/version_links.csv, #178)
+│   ├── alignment.py           # passage alignment inside a version group: n:m groups from the vectors (#179)
+│   ├── alignment_store.py     # alignment store (data/alignments/): one file per version group, no numpy
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching; fold_spans() maps back
 │   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
@@ -60,6 +62,8 @@ patristica/
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
 │   ├── version_groups.py      # report version groups per language pair (#178)
+│   ├── align.py               # version groups + vectors → passage alignments → data/alignments/ (#179)
+│   ├── align_eval.py          # aligner evaluation: Scripture vs versification, ±1 neighbours, samples
 │   ├── export_library.py      # normalized → static library (index, authors.json, per-work JSON) for the web browser
 │   ├── upload_library.py      # sync data/library → DO Spaces (deploy extra; skips unpublishable licences)
 │   ├── embed_eval/            # embedding/retrieval eval harness (#3): build, run, report, translate
@@ -88,6 +92,7 @@ patristica/
     ├── chunks/                # chunked records ready for embedding
     ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
     ├── embeddings/            # corpus vectors, {source_id}/….npz mirroring normalized/ (gitignored; scripts.embed)
+    ├── alignments/            # passage alignments, one file per version group (tracked; scripts.align, #179)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 
@@ -106,6 +111,9 @@ See `patristica/models.py`. Key types:
 `patristica/data/authors.csv` has one row per person: `author_id` (a stable slug), English `name`, `aliases` (every source spelling plus Latin/Greek forms, `|`-separated), `birth`/`death`/`floruit` (`354` established, `c. 347` approximate, `350?` uncertain, `340/345` a range), `tradition`, `external_ids` (TLG/stoa/PTA), `pseudo_of` (for `pseudo-*` authors, the real author) and a `note`. Keep it sorted by id. `patristica/data/author_strings.csv` maps source strings that are not a simple alias, with a required reason: anonymous works, work titles and councils in the author field, modern editors named as author, ambiguous bare names (`Gelasius`) and multi-person strings. `resolve_author()` matches on `fold()`-ed text and splits `;`-separated lists; an unknown name raises `UnknownAuthorError`. A pseudonymous author has no dates of its own. The author's birth year feeds the period rule (`period_birth_year`); see "Date Handling".
 ### Version groups (#178)
 A work's *version group* is every work that is the same text in another language or edition. Groups are derived, never stored (`patristica/versions.py`): connected components over `translation_of`, Scripture books (a Scripture source's work id is `{source}/{osis book, lower case}`, so `kjv/gen`, `oshb/gen` and `lxx-rahlfs/gen` are one group, whatever each witness's genre), CTS work ids (`first1k`/`perseus` `{tlg…}/{tlg…}`, `pta` `{pta…}/{pta…}`), the **identifier crosswalk** (works sharing a TLG, CPG or BHG id from `Work.external_ids`, or the TLG id in a First1K/Perseus work id, are one work; ranges and ids carried by two different works of one source are collections and are set aside), and the curated `patristica/data/version_links.csv` (`work_id,other_work_id,relation,reason`; relation `translation_of`, `same_work` or `different_edition`). Add a curated link only when both works are the same work, checked against the text, and never link a container (a Migne Work holding several works, a catena) to one of its works: the groups would merge. `export_library` writes the group id per work (`version_group`, null for a work with no other version); ids are deterministic but change when links change, so don't use them in URLs. `uv run python -m scripts.version_groups` prints counts per language pair.
+
+### Passage alignment (#179)
+Inside a version group, `scripts.align` aligns the passages of the versions: an *alignment group* is one contiguous span of units per version (or none) that renders the same passage, n:m since derived verses are cut per language. Every member is aligned with a pivot (the longest version, English preferred) by a monotonic dynamic program over the stored vectors (`patristica/alignment.py`: 1:1 up to 4:1 beads, cosine above each unit's baseline, skips free so missing passages stay unaligned, later passes for moved blocks). Scripture books use their versification-mapped refs as a soft prior, so content overrules refs only where they clearly disagree. Each span has a confidence; spans under 0.5 are flagged and not used. Results are tracked in `data/alignments/`, one file per version group (`patristica/alignment_store.py`; see the README there): per member one token per unit, never text. A group is re-aligned only when its inputs hash changes (units, vectors, refs, parameters), so the run is idempotent and makes no API calls; it needs `--embeddings-dir` pointing at the vectors. Measure changes to the method with `scripts.align_eval` (Scripture with refs hidden vs versification, the ±1-neighbour count of #186, hand-check samples) before re-running the corpus.
 
 - **`Chunk`**: one text unit (verse, paragraph, stanza) with `canonical_ref`, `language`, `text`, optional `translation_group_id`
 
@@ -210,6 +218,7 @@ uv run python -m scripts.link_translations # assign translation_group_id (works 
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
+uv run --extra embed python -m scripts.align --dry-run --embeddings-dir data/embeddings  # passage alignments → data/alignments/ (no API calls)
 uv run --extra index python -m scripts.build_index --dry-run  # load the search DB (DATABASE_URL; droplet: infra/db-tunnel.sh …)
 uv run python -m scripts.catalog          # status table with last-run timestamps
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json, authors.json, slim per-work JSON)
