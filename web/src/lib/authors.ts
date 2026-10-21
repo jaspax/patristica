@@ -1,8 +1,8 @@
 // Author pages (#145): an author's works, pseudonymous links, and the author list.
 
-import { fold } from "./filter";
+import { type Facets, fold, libraryFacets } from "./filter";
 import { languageInfo } from "./lang";
-import type { Author, AuthorMap, WorkRow } from "./library";
+import type { Author, AuthorMap, LibraryIndex, WorkRow } from "./library";
 
 const collator = new Intl.Collator(undefined, { sensitivity: "base", numeric: true });
 
@@ -31,6 +31,21 @@ export function worksByLanguage(rows: WorkRow[], authorId: string): LanguageGrou
       works: works.sort((a, b) => collator.compare(a.title, b.title) || collator.compare(a.id, b.id)),
     }))
     .sort((a, b) => collator.compare(languageInfo(a.language).name, languageInfo(b.language).name));
+}
+
+/** The works of an author (by `author_ids`), in index order. */
+export function authorWorks(rows: WorkRow[], authorId: string): WorkRow[] {
+  return rows.filter((row) => row.author_ids.includes(authorId));
+}
+
+/**
+ * Facet values for an author page's filters: only the languages, genres and
+ * collections that `works` (the author's) occur in.
+ */
+export function authorFacets(index: LibraryIndex, works: WorkRow[], authors: AuthorMap): Facets {
+  const used = new Set(works.map((w) => w.source_id));
+  const sources = Object.fromEntries(Object.entries(index.sources).filter(([id]) => used.has(id)));
+  return libraryFacets({ ...index, works, sources }, authors);
 }
 
 /** Pseudonymous authors whose works carry this author's name (`pseudo_of`), by name. */

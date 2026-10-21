@@ -11,6 +11,8 @@ interface Props {
   value: FacetValues;
   facets: Facets;
   onChange: (changes: Partial<FacetValues>) => void;
+  /** Offer the author facet (false on an author's own page). */
+  withAuthor?: boolean;
 }
 
 /**
@@ -19,16 +21,18 @@ interface Props {
  * values (MultiSelect). Render inside a form styled with `Filters.module.css`
  * (`filters`).
  */
-export default function FilterFields({ value, facets, onChange }: Props) {
+export default function FilterFields({ value, facets, onChange, withAuthor = true }: Props) {
   return (
     <>
-      <MultiSelect
-        label="Author"
-        options={facets.authors.map((a) => ({ value: a.id, label: a.name, count: a.count }))}
-        selected={value.author}
-        onChange={(author) => onChange({ author })}
-        searchable
-      />
+      {withAuthor && (
+        <MultiSelect
+          label="Author"
+          options={facets.authors.map((a) => ({ value: a.id, label: a.name, count: a.count }))}
+          selected={value.author}
+          onChange={(author) => onChange({ author })}
+          searchable
+        />
+      )}
       <MultiSelect
         label="Language"
         options={facets.languages.map((code) => ({ value: code, label: languageInfo(code).name }))}

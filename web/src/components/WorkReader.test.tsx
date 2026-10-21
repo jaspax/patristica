@@ -1,4 +1,4 @@
-import { act, cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AlignmentFile, AuthorsFile, LibraryIndex, WorkFile } from "@/lib/library";
@@ -134,6 +134,21 @@ describe("WorkReader author line", () => {
     expect(screen.queryAllByRole("link").filter((a) => a.getAttribute("href")?.startsWith("/authors/"))).toEqual(
       [],
     );
+  });
+});
+
+describe("WorkReader header", () => {
+  it("puts date, language and genre on one line and folds the rest under Details", async () => {
+    params = { id: ["pl", "both"] };
+    render(<WorkReader />);
+    await screen.findByRole("heading", { level: 1 });
+    const facts = screen.getByText("Language", { selector: "dt" }).closest("dl")!;
+    expect([...facts.querySelectorAll("dt")].map((dt) => dt.textContent)).toEqual(["Date", "Language", "Genre"]);
+    const details = screen.getByText("Details", { selector: "summary" }).closest("details")!;
+    expect(details.open).toBe(false);
+    for (const label of ["Attributed as", "Collection", "Licence"]) {
+      expect(within(details).getByText(label, { selector: "dt" })).toBeDefined();
+    }
   });
 });
 
