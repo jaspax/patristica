@@ -16,15 +16,21 @@ link is added; `scripts.align` then writes the new file and, on a full run,
 deletes the old one.
 
 `_fingerprint.json` is not an alignment (`iter_store` skips `_` files). It
-records the hash of the aligner's code and the groups the last full run
-skipped for having fewer than two members with vectors (#130):
+records the hash of the aligner's code and, per version group with two or more
+publishable members, what it was aligned from (#130): the members, for a
+Scripture book a hash of every member's versification-mapped refs, and why it
+was skipped if it has no file (fewer than two members with vectors):
 
 ```json
-{"align": {"code": "<16 hex digits>"}, "skipped": {"<group id>": "fewer than two members with vectors"}}
+{"align": {"code": "<16 hex>"},
+ "groups": {"book:gen": {"members": ["kjv/gen", "oshb/gen", …], "keys": "<16 hex>"},
+            "<group id>": {"members": […], "skipped": "fewer than two members with vectors"}}}
 ```
 
-`tests/test_align_fingerprint.py` fails when the code hash is stale or a
-version group has neither a file nor a recorded skip.
+`tests/test_align_fingerprint.py` (`scripts.align.check_groups`) fails when the
+code hash is stale, or a group is new, gained or lost a member, had its refs
+moved by a versification change, or lost its file without a recorded skip.
+None of this needs the vectors, so CI checks it.
 
 ## File format
 
