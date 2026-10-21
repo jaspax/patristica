@@ -25,8 +25,9 @@
   font-size: 0.8rem;
 }
 
+/* The text query takes a line of its own; the facets wrap onto the next. */
 .query {
-  flex: 1 1 18rem;
+  flex: 1 1 100%;
 }
 
 .filters input:not([type="checkbox"]),

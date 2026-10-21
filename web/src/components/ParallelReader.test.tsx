@@ -1,4 +1,4 @@
-import { act, cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AlignmentFile, Library, LibraryIndex, WorkFile } from "@/lib/library";
@@ -170,12 +170,24 @@ describe("ParallelReader: Scripture", () => {
     expect(scrolled.container.querySelector("[data-target]")).toBeNull();
   });
 
-  it("names each version with its edition and licence, and marks non-commercial texts", async () => {
+  it("names each version by language and links its full text, leaving the licence to that page", async () => {
     await open(kjv, ["lxx-rahlfs/ps"]);
     const cards = screen.getByRole("list", { name: "Versions" });
-    expect(cards.textContent).toContain("CC BY-NC-SA 4.0");
-    expect(cards.textContent).toContain("non-commercial");
     expect(cards.textContent).toContain("leading");
+    expect(cards.textContent).not.toContain("CC BY-NC-SA 4.0");
+    expect(cards.textContent).not.toContain("Rahlfs");
+    expect(screen.getByRole("link", { name: "Full text: Greek: Rahlfs" }).getAttribute("href")).toBe("/works/lxx-rahlfs/ps");
+  });
+
+  it("names the collection only to tell apart two versions in one language", async () => {
+    // The cards don't wait for the texts (sinai/ps has none here).
+    render(<ParallelReader lead={kjv} withIds={["lxx-rahlfs/ps", "sinai/ps"]} library={library(index)} />);
+    const cards = within(await screen.findByRole("list", { name: "Versions" })).getAllByRole("listitem");
+    expect(cards.map((c) => c.querySelector("p")?.textContent)).toEqual([
+      "Englishleading",
+      "Greek · Rahlfs",
+      "Greek · Sinai",
+    ]);
   });
 
   it("links to remove, lead with, add a version and go back to one, keeping the URL state", async () => {

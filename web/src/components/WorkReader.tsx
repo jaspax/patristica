@@ -131,70 +131,82 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
             <AuthorLinks authors={byline} />
           </p>
         )}
-        <dl className={styles.meta}>
-          {attribution && (
-            <>
-              <dt>Attributed as</dt>
-              <dd lang={lang.lang} dir="auto">
-                {attribution}
-              </dd>
-            </>
-          )}
-          <dt>Date</dt>
-          <dd>{formatDateLong(row)}</dd>
-          <dt>Language</dt>
-          <dd>{lang.name}</dd>
-          <dt>Genre</dt>
-          <dd>{GENRES[row.genre] ?? row.genre}</dd>
-          <dt>Collection</dt>
-          <dd>{collection}</dd>
-          {row.edition && (
-            <>
-              <dt>Edition</dt>
-              <dd>{row.edition}</dd>
-            </>
-          )}
-          <dt>Licence</dt>
-          <dd>{license.url ? <a href={license.url}>{license.label}</a> : license.label}</dd>
-          {row.provenance_url && (
-            <>
-              <dt>Source</dt>
-              <dd className={styles.url}>
-                <a href={row.provenance_url}>{row.provenance_url}</a>
-              </dd>
-            </>
-          )}
-          {row.translation_of && (
-            <>
-              <dt>Translation of</dt>
-              <dd>
-                {original ? (
-                  <VersionLink target={original} positionFor={positionFor}>
-                    {originalNames ? `${originalNames}, ` : ""}
-                    {original.title}
-                  </VersionLink>
-                ) : (
-                  <code>{row.translation_of}</code>
-                )}
-              </dd>
-            </>
-          )}
-          {groupOriginals.length > 0 && (
-            <>
-              <dt>Original</dt>
-              <dd>
-                {groupOriginals.map((w, i) => (
-                  <span key={w.id}>
-                    {i > 0 && ", "}
-                    <VersionLink target={w} positionFor={positionFor}>
-                      {languageInfo(w.language).name}: {index.sources[w.source_id] ?? w.source_id}
-                    </VersionLink>
-                  </span>
-                ))}
-              </dd>
-            </>
-          )}
+        {/* At a glance: when, in what language, what kind. The rest folds away under Details. */}
+        <dl className={styles.facts}>
+          <div>
+            <dt>Date</dt>
+            <dd>{formatDateLong(row)}</dd>
+          </div>
+          <div>
+            <dt>Language</dt>
+            <dd>{lang.name}</dd>
+          </div>
+          <div>
+            <dt>Genre</dt>
+            <dd>{GENRES[row.genre] ?? row.genre}</dd>
+          </div>
         </dl>
+        <details className={styles.details}>
+          <summary>Details</summary>
+          <dl className={styles.meta}>
+            {attribution && (
+              <>
+                <dt>Attributed as</dt>
+                <dd lang={lang.lang} dir="auto">
+                  {attribution}
+                </dd>
+              </>
+            )}
+            <dt>Collection</dt>
+            <dd>{collection}</dd>
+            {row.edition && (
+              <>
+                <dt>Edition</dt>
+                <dd>{row.edition}</dd>
+              </>
+            )}
+            <dt>Licence</dt>
+            <dd>{license.url ? <a href={license.url}>{license.label}</a> : license.label}</dd>
+            {row.provenance_url && (
+              <>
+                <dt>Source</dt>
+                <dd className={styles.url}>
+                  <a href={row.provenance_url}>{row.provenance_url}</a>
+                </dd>
+              </>
+            )}
+            {row.translation_of && (
+              <>
+                <dt>Translation of</dt>
+                <dd>
+                  {original ? (
+                    <VersionLink target={original} positionFor={positionFor}>
+                      {originalNames ? `${originalNames}, ` : ""}
+                      {original.title}
+                    </VersionLink>
+                  ) : (
+                    <code>{row.translation_of}</code>
+                  )}
+                </dd>
+              </>
+            )}
+            {groupOriginals.length > 0 && (
+              <>
+                <dt>Original</dt>
+                <dd>
+                  {groupOriginals.map((w, i) => (
+                    <span key={w.id}>
+                      {i > 0 && ", "}
+                      <VersionLink target={w} positionFor={positionFor}>
+                        {languageInfo(w.language).name}: {index.sources[w.source_id] ?? w.source_id}
+                      </VersionLink>
+                    </span>
+                  ))}
+                </dd>
+              </>
+            )}
+          </dl>
+        </details>
         <VersionSwitcher ref={headerVersions} {...versionProps} />
       </header>
 
