@@ -29,11 +29,11 @@ WORKDIR /app
 ENV NODE_ENV=production \
     PORT=3000 \
     HOSTNAME=0.0.0.0
-# The standalone server serves .next/static (and public/, once there is one:
-# copy it next to server.js too) only from beside itself. .next stays writable
-# for the server's runtime cache.
+# The standalone server serves .next/static and public/ only from beside
+# itself. .next stays writable for the server's runtime cache.
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
+COPY --from=build --chown=node:node /app/public ./public
 USER node
 
 EXPOSE 3000

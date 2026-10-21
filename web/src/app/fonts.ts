@@ -3,6 +3,7 @@
 // their unicode-range when a page uses them. globals.css picks the font per
 // language with :lang() rules (see lib/lang.ts for the lang values).
 import {
+  Cinzel,
   Noto_Sans_Coptic,
   Noto_Sans_Gothic,
   Noto_Sans_Syriac,
@@ -15,6 +16,13 @@ import {
 const serif = Noto_Serif({
   subsets: ["latin", "latin-ext", "greek", "greek-ext"],
   variable: "--font-serif",
+});
+
+// Roman inscriptional capitals for the wordmark and the landing page's heading.
+const display = Cinzel({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-display",
 });
 
 const hebrew = Noto_Serif_Hebrew({
@@ -56,6 +64,6 @@ const gothic = Noto_Sans_Gothic({
 });
 
 /** Class names that define all font CSS variables; put on <html>. */
-export const fontVariables = [serif, hebrew, syriac, coptic, ethiopic, armenian, gothic]
+export const fontVariables = [serif, display, hebrew, syriac, coptic, ethiopic, armenian, gothic]
   .map((f) => f.variable)
   .join(" ");

@@ -182,14 +182,76 @@ describe("SearchPage", () => {
     expect(within(item).getByRole("link", { name: "Ephrem the Syrian" }).getAttribute("href")).toBe(
       "/authors/ephrem-the-syrian",
     );
-    const text = within(item).getByText("ܗܝܡܢܘܬܐ ܕܝܠܢ ܫܪܝܪܬܐ");
+    const text = within(item).getByText("ܗܝܡܢܘܬܐ ܕܝܠܢ ܫܪܝܪܬܐ").closest("p")!;
     expect(text.getAttribute("lang")).toBe("syc");
     expect(text.getAttribute("dir")).toBe("rtl");
     expect(within(item).getByText("Machine translation (English)")).toBeTruthy();
-    expect(within(item).getByText("Our faith is true.").getAttribute("lang")).toBe("en");
+    expect(within(item).getByText("Our faith is true.").closest("p")!.getAttribute("lang")).toBe("en");
     expect(within(item).getByText(/350–373 · Patristic Text Archive, PTA/)).toBeTruthy();
     expect(within(item).getByRole("link", { name: "CC BY-SA 4.0" })).toBeTruthy();
     expect(item.textContent).not.toContain("pta/hymns");
+  });
+
+  it("shows the units before and after a result, dimmed, in its script", async () => {
+    search = "q=void";
+    serve(() =>
+      json(
+        page([
+          result({
+            context: {
+              before: { chunk_id: "pta/hymns#Hymn.1.0", canonical_ref: "Hymn.1.0", text: "ܩܕܡ" },
+              after: { chunk_id: "pta/hymns#Hymn.1.2", canonical_ref: "Hymn.1.2", text: "ܒܬܪ" },
+            },
+            translation: { language: "eng", text: "Our faith is true.", model: "gpt-6.1-sol", machine: true, before: "Before.", after: null },
+          }),
+        ]),
+      ),
+    );
+    await renderPage();
+    const item = (await screen.findAllByRole("listitem"))[0];
+    const before = within(item).getByText("ܩܕܡ");
+    const text = before.closest("p")!;
+    expect(text.getAttribute("lang")).toBe("syc");
+    expect(text.textContent).toBe("ܩܕܡ ܗܝܡܢܘܬܐ ܕܝܠܢ ܫܪܝܪܬܐ ܒܬܪ");
+    expect(before.className).toMatch(/context/);
+    expect(within(item).getByText("ܗܝܡܢܘܬܐ ܕܝܠܢ ܫܪܝܪܬܐ").className).toMatch(/hit/);
+    // The translation carries the same context, where it has it.
+    expect(within(item).getByText("Our faith is true.").closest("p")!.textContent).toBe("Before. Our faith is true.");
+  });
+
+  it("names and links a linked English version instead of a machine translation", async () => {
+    search = "q=void";
+    serve(() =>
+      json(
+        page([
+          result({
+            chunk_id: "lxx-rahlfs/gen#Gen.1.2",
+            work_id: "lxx-rahlfs/gen",
+            canonical_ref: "Gen.1.2",
+            language: "grc",
+            text: "ἡ δὲ γῆ ἦν ἀόρατος",
+            translation: {
+              language: "eng",
+              text: "And the earth was without form, and void.",
+              machine: false,
+              model: null,
+              before: "In the beginning God created the heaven and the earth.",
+              after: null,
+              work_id: "kjv/gen",
+              canonical_ref: "Gen.1.2",
+              source_label: "King James Version",
+              edition: "King James Version (1769)",
+            },
+          }),
+        ]),
+      ),
+    );
+    await renderPage();
+    const item = (await screen.findAllByRole("listitem"))[0];
+    expect(within(item).queryByText("Machine translation (English)")).toBeNull();
+    const link = within(item).getByRole("link", { name: "King James Version" });
+    expect(link.getAttribute("href")).toBe("/works/kjv/gen#Gen.1.2");
+    expect(within(item).getByText(/^English:/).textContent).toBe("English: King James Version Gen.1.2");
   });
 
   it("names the collection once when the edition includes it", async () => {

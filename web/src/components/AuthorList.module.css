@@ -1,28 +1,14 @@
-.filters {
-  margin-bottom: 0.75rem;
-  font-size: 0.9rem;
-}
-
-.filters label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  max-width: 24rem;
-}
-
-.filters label > span {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.filters input {
+.reset {
   font: inherit;
-  color: var(--foreground);
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.35rem 0.5rem;
-  min-width: 0;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reset:hover {
+  text-decoration: underline;
 }
 
 .count {

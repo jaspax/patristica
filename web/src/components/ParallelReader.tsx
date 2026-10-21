@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useCallback, useMemo, useRef, type CSSProperties } from "react";
 
-import { LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import {
   hasAlignment,
@@ -29,7 +28,6 @@ import {
   type ColumnPosition,
   type Row,
 } from "@/lib/parallel";
-import { NON_COMMERCIAL } from "@/lib/sources";
 import { useLoaded } from "@/lib/useLoaded";
 import {
   currentPosition,
@@ -215,6 +213,7 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
             index={index}
             original={originals.has(w.id)}
             title={w.title !== lead.title ? w.title : null}
+            shared={shown.some((o) => o.id !== w.id && o.language === w.language)}
             open={positionFor(w, [])}
             remove={c === 0 ? null : withoutVersion(lead, otherIds, w, positionFor)}
             makeLead={c === 0 ? null : leadWith(lead, otherIds, w, positionFor)}
@@ -263,6 +262,8 @@ interface CardProps {
   original: boolean;
   /** The title, where it differs from the leading version's. */
   title: string | null;
+  /** Another shown version is in the same language. */
+  shared: boolean;
   /** Where to open this version on its own page. */
   open: () => Promise<Position | null>;
   /** The view without this version, or null for the leading one. */
@@ -271,47 +272,42 @@ interface CardProps {
   makeLead: Target | null;
 }
 
-/** One version's attribution: language, collection, edition, licence; and its controls. */
-function VersionCard({ work, column, index, original, title, open, remove, makeLead }: CardProps) {
+/**
+ * One version, condensed: its language, a link to its own page (where the
+ * collection, edition and licence are), and its controls. The collection is
+ * named only to tell apart two shown versions in one language.
+ */
+function VersionCard({ work, column, index, original, title, shared, open, remove, makeLead }: CardProps) {
   const info = languageInfo(work.language);
-  const license = LICENSES[work.license] ?? { label: work.license };
   const label = index.sources[work.source_id] ?? work.source_id;
   return (
     <li className={styles.card} data-col={column} style={columnStyle(column)}>
       <p className={styles.cardLanguage}>
         {info.name}
+        {shared && <span className={styles.cardSource}> · {label}</span>}
         {column === 0 && <span className={styles.badge}>leading</span>}
         {original && <span className={styles.badge}>Original</span>}
-      </p>
-      <p>
-        <PositionLink href={workHref(work.id)} position={open}>
-          {label}
-        </PositionLink>
       </p>
       {title && (
         <p lang={info.lang} dir="auto">
           {title}
         </p>
       )}
-      {work.edition && <p className={styles.muted}>{work.edition}</p>}
-      <p className={styles.muted}>
-        {license.url ? <a href={license.url}>{license.label}</a> : license.label}
-        {NON_COMMERCIAL.has(work.license) && <span className={styles.nc}>non-commercial</span>}
+      <p className={styles.controls}>
+        <PositionLink href={workHref(work.id)} position={open} aria-label={`Full text: ${info.name}: ${label}`}>
+          full text
+        </PositionLink>
+        {makeLead && (
+          <PositionLink href={makeLead.href} position={makeLead.position} aria-label={`Lead with ${info.name}: ${label}`}>
+            lead with this
+          </PositionLink>
+        )}
+        {remove && (
+          <PositionLink href={remove.href} position={remove.position} aria-label={`Remove ${info.name}: ${label}`}>
+            remove
+          </PositionLink>
+        )}
       </p>
-      {(remove !== null || makeLead !== null) && (
-        <p className={styles.controls}>
-          {makeLead && (
-            <PositionLink href={makeLead.href} position={makeLead.position} aria-label={`Lead with ${info.name}: ${label}`}>
-              lead with this
-            </PositionLink>
-          )}
-          {remove && (
-            <PositionLink href={remove.href} position={remove.position} aria-label={`Remove ${info.name}: ${label}`}>
-              remove
-            </PositionLink>
-          )}
-        </p>
-      )}
     </li>
   );
 }

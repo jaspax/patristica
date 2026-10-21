@@ -1,13 +1,18 @@
-import { cleanup, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex } from "@/lib/library";
 import { person, workRow } from "@/lib/testFixtures";
 
 let params: { id: string } = { id: "john-chrysostom" };
+let search = "";
+const replace = vi.fn();
 
 vi.mock("next/navigation", () => ({
   useParams: () => params,
+  usePathname: () => `/authors/${params.id}`,
+  useRouter: () => ({ replace }),
+  useSearchParams: () => new URLSearchParams(search),
 }));
 
 const index: LibraryIndex = {
@@ -54,6 +59,8 @@ beforeEach(async () => {
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
+  search = "";
+  replace.mockReset();
 });
 
 describe("AuthorPage", () => {
@@ -79,6 +86,33 @@ describe("AuthorPage", () => {
     expect(screen.queryByText("Opus imperfectum")).toBeNull();
     const browse = screen.getByRole("link", { name: /Filter the library/ });
     expect(browse.getAttribute("href")).toBe("/works?author=john-chrysostom");
+  });
+
+  it("filters the works like the library, without an author facet", async () => {
+    params = { id: "john-chrysostom" };
+    render(<AuthorPage />);
+    const form = await screen.findByRole("search", { name: "Filter John Chrysostom's works" });
+    expect(within(form).queryByText("Author")).toBeNull();
+    expect(within(form).getByText("Language")).toBeDefined();
+    // Only the collections the author's works are in.
+    const collections = within(form).getByRole("combobox", { name: "Collection" });
+    expect([...collections.querySelectorAll("option")].map((o) => o.textContent)).toEqual(["All", "First1KGreek", "NPNF I"]);
+    fireEvent.change(within(form).getByRole("searchbox"), { target: { value: "matthew" } });
+    expect(replace).toHaveBeenCalledWith("/authors/john-chrysostom?q=matthew", { scroll: false });
+  });
+
+  it("reads the filters from the URL and counts what they leave", async () => {
+    params = { id: "john-chrysostom" };
+    search = "language=grc";
+    render(<AuthorPage />);
+    expect(await screen.findByText(/^1 of 2 works/)).toBeDefined();
+    expect(screen.queryByText("Homilies on Matthew")).toBeNull();
+    expect(screen.getByRole("link", { name: "De sacerdotio" })).toBeDefined();
+    // The library link keeps the filters.
+    const browse = screen.getByRole("link", { name: /Filter the library/ });
+    expect(browse.getAttribute("href")).toBe("/works?author=john-chrysostom&language=grc");
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(replace).toHaveBeenCalledWith("/authors/john-chrysostom", { scroll: false });
   });
 
   it("links pseudonymous authors both ways", async () => {

@@ -62,6 +62,30 @@
   font-weight: normal;
 }
 
+/* The filters of the author's works (Filters.module.css), as on the library index. */
+.filters {
+  margin-bottom: 1.25rem;
+}
+
+.count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: -0.5rem 0 1rem;
+}
+
+.reset {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
 .group {
   margin-bottom: 1.5rem;
 }
