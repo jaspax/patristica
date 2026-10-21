@@ -219,7 +219,7 @@ The primary reference shown to users must be the work title and author, not the 
 This means `Work.title` and `Work.author` must be the individual work's identity, and `Work.edition` carries the anthology/volume label. The `source_id` and `work_id` are internal identifiers only, never shown directly to users. Wherever a canonical reference is displayed (search results, text view, AI synthesis citations), use `{author}, *{title}* {canonical_ref}` as the human-readable label, falling back to `*{title}* {canonical_ref}` when author is absent.
 
 **Text View:**
-- Side-by-side or tabbed display: original language | known translation | AI translation
+- Side-by-side or tabbed display: original language | known translation | AI translation. *Side by side is built (#181):* `/works/{id}?with={other}&with=…` shows up to 4 versions in rows of aligned passages, using versification for Scripture and the passage alignment (#179) for everything else, with the versions stacked per row on phones. The stored machine translations aren't in the library export yet, so there is no "AI translation" column; that is #197.
 - AI translation generated on demand via Claude API (cached after first generation)
 - Contextual navigation: prev/next passage, jump to full work
 

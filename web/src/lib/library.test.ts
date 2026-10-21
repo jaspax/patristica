@@ -18,9 +18,9 @@ describe("loadWork", () => {
     await loadWork("works/a.json");
     await loadWork("works/a.json");
     expect(fetch).toHaveBeenCalledTimes(1);
-    for (const f of ["b", "c", "d"]) await loadWork(`works/${f}.json`);
+    for (const f of ["b", "c", "d", "e", "f"]) await loadWork(`works/${f}.json`);
     await loadWork("works/a.json");
-    expect(fetch).toHaveBeenCalledTimes(5);
+    expect(fetch).toHaveBeenCalledTimes(7);
   });
 
   it("retries a failed load", async () => {

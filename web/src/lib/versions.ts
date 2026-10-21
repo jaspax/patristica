@@ -4,6 +4,7 @@
 
 import { alignedMember, alignUnit, unitIndex, unitRef } from "./alignment";
 import { languageInfo } from "./lang";
+import { hasAlignment, loadAlignment, loadWork } from "./library";
 import type { AlignmentFile, LibraryIndex, WorkFile, WorkRow } from "./library";
 import { fragmentId, NO_HIGHLIGHT_PARAM, TARGET_ATTRIBUTE } from "./useHashTarget";
 
@@ -274,6 +275,31 @@ export async function mapPosition(
   return null;
 }
 
+/**
+ * Where to open `to` for a reader at `here` in `from`: the passage
+ * mapPosition finds, highlighted only if the reader's passage was and the
+ * target is that passage rather than one near it; null for the top.
+ */
+export async function positionIn(
+  index: LibraryIndex,
+  from: WorkRow,
+  fromWork: WorkFile,
+  here: Position | null,
+  to: WorkRow,
+): Promise<Position | null> {
+  if (!here) return null;
+  const group = from.version_group;
+  const mapped = await mapPosition({
+    from,
+    fromWork,
+    ref: here.ref,
+    to,
+    loadTarget: () => loadWork(to.file),
+    loadAlignment: hasAlignment(index, group) ? () => loadAlignment(group) : undefined,
+  });
+  return mapped ? { ref: mapped.ref, highlight: here.highlight && !mapped.approximate } : null;
+}
+
 /** Where the reader is: a passage, and whether it is highlighted (a fragment the reader chose). */
 export interface Position {
   ref: string;
@@ -304,7 +330,11 @@ export function currentPosition(container: HTMLElement | null, hash: string): Po
   // layout (content-visibility), and measuring their contents would force it.
   for (const section of container.querySelectorAll("section")) {
     if (section.getBoundingClientRect().bottom <= 0) continue;
-    for (const el of section.querySelectorAll("[id]")) {
+    // A long section in parallel reading is cut into chunks of rows (ParallelText): only the first on screen.
+    const chunks = section.querySelectorAll(":scope > [data-chunk]");
+    const scope = chunks.length ? [...chunks].find((c) => c.getBoundingClientRect().bottom > 0) : section;
+    if (!scope) return null;
+    for (const el of scope.querySelectorAll("[id]")) {
       if (el.getBoundingClientRect().bottom > 0) return { ref: el.id, highlight: false };
     }
     return null;

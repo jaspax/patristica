@@ -14,7 +14,8 @@ import {
 
 import { languageInfo } from "@/lib/lang";
 import { workHref, type WorkRow } from "@/lib/library";
-import { distinguishVersions, groupByLanguage, positionSuffix, type Position, type VersionDetails } from "@/lib/versions";
+import { withPosition } from "@/lib/parallel";
+import { distinguishVersions, groupByLanguage, type Position, type VersionDetails } from "@/lib/versions";
 
 import styles from "./VersionSwitcher.module.css";
 
@@ -38,32 +39,53 @@ interface VersionLinkProps {
   "aria-describedby"?: string;
 }
 
+interface PositionLinkProps {
+  href: string;
+  /** Where to open `href` at the moment of the click; null for its top. */
+  position?: () => Promise<Position | null>;
+  children: ReactNode;
+  className?: string;
+  "aria-describedby"?: string;
+  "aria-label"?: string;
+}
+
 /**
- * A link to another version of the work. Its href opens the version at the
- * top (so it works in a new tab, and the link's address doesn't change as
- * the reader scrolls); a plain click asks `positionFor` where the reader is
- * at that moment and opens the version there, highlighted only if the reader
- * was at a highlighted passage.
+ * A link whose plain click opens `href` at the position `position` finds at
+ * that moment (lib/parallel.ts withPosition). The href itself is the top, so
+ * it works in a new tab and its address doesn't change as the reader scrolls.
  */
-export function VersionLink({ target, positionFor, children, ...rest }: VersionLinkProps) {
+export function PositionLink({ href, position, children, className, ...rest }: PositionLinkProps) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
-  const href = workHref(target.id);
 
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!positionFor || isModified(e)) return;
+    if (!position || isModified(e)) return;
     e.preventDefault();
     setBusy(true);
-    positionFor(target)
+    position()
       .catch(() => null)
-      .then((position) => router.push(`${href}${positionSuffix(position)}`))
+      .then((p) => router.push(withPosition(href, p)))
       .finally(() => setBusy(false));
   };
 
+  const classes = [className, busy && styles.busy].filter(Boolean).join(" ") || undefined;
   return (
-    <Link href={href} onClick={onClick} aria-busy={busy || undefined} className={busy ? styles.busy : undefined} {...rest}>
+    <Link href={href} onClick={onClick} aria-busy={busy || undefined} className={classes} {...rest}>
       {children}
     </Link>
+  );
+}
+
+/**
+ * A link to another version of the work. A plain click asks `positionFor`
+ * where the reader is at that moment and opens the version there,
+ * highlighted only if the reader was at a highlighted passage.
+ */
+export function VersionLink({ target, positionFor, children, ...rest }: VersionLinkProps) {
+  return (
+    <PositionLink href={workHref(target.id)} position={positionFor && (() => positionFor(target))} {...rest}>
+      {children}
+    </PositionLink>
   );
 }
 
@@ -77,6 +99,13 @@ export interface VersionsProps {
   /** source_id → collection label (index.json). */
   sources: Record<string, string>;
   positionFor?: PositionFor;
+  /**
+   * The parallel reading URL for `current` beside a version (#181), or null
+   * where the versions can't be read side by side; absent: no such links.
+   */
+  parallelFor?: (target: WorkRow) => string | null;
+  /** The reader's position in `current`, kept when it opens parallel reading. */
+  here?: () => Promise<Position | null>;
 }
 
 /** "Other versions (9 in 7 languages)". */
@@ -96,7 +125,7 @@ function versionsCount(current: WorkRow, members: readonly WorkRow[]): string {
  * label, the title where it differs from the current work's, and the
  * original marked. Long lists are grouped by language.
  */
-export function VersionList({ current, members, originals, sources, positionFor }: VersionsProps) {
+export function VersionList({ current, members, originals, sources, positionFor, parallelFor, here }: VersionsProps) {
   const others = members.filter((w) => w.id !== current.id);
   const groups = groupByLanguage(others, originals, sources);
   const details = distinguishVersions(others, current, sources);
@@ -111,6 +140,8 @@ export function VersionList({ current, members, originals, sources, positionFor 
       label={sources[w.source_id] ?? w.source_id}
       showLanguage={!grouped}
       positionFor={positionFor}
+      parallel={parallelFor?.(w) ?? null}
+      here={here}
     />
   );
 
@@ -222,9 +253,12 @@ interface EntryProps {
   label: string;
   showLanguage: boolean;
   positionFor?: PositionFor;
+  /** Parallel reading URL with this version beside the current work, or null. */
+  parallel: string | null;
+  here?: () => Promise<Position | null>;
 }
 
-function VersionEntry({ work, details, original, label, showLanguage, positionFor }: EntryProps) {
+function VersionEntry({ work, details, original, label, showLanguage, positionFor, parallel, here }: EntryProps) {
   const id = useId();
   const lang = languageInfo(work.language);
   const facts: ReactNode[] = [];
@@ -244,6 +278,11 @@ function VersionEntry({ work, details, original, label, showLanguage, positionFo
         {label}
       </VersionLink>
       {original && <span className={styles.badge}>Original</span>}
+      {parallel && (
+        <PositionLink href={parallel} position={here} className={styles.parallel} aria-label={`Read side by side with ${label}`}>
+          side by side
+        </PositionLink>
+      )}
       {facts.length > 0 && (
         <span id={id} className={styles.facts}>
           {facts.map((f, i) => (

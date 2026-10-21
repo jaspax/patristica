@@ -188,8 +188,8 @@ export function workAuthors(row: Pick<WorkRow, "author" | "author_ids">, authors
   return [];
 }
 
-/** Work files kept in memory: the one being read and the next one opened. */
-const WORK_CACHE_SIZE = 3;
+/** Work files kept in memory: the ones being read (up to 4 side by side, #181) and the next one opened. */
+const WORK_CACHE_SIZE = 5;
 const workCache = new Map<string, Promise<WorkFile>>();
 
 /**

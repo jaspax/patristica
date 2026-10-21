@@ -65,8 +65,12 @@ export function noHighlight(search: string): boolean {
  * is read from `window.location` in the effect, like the fragment, which
  * `useSearchParams` can't see; that also spares the reader the Suspense
  * boundary `useSearchParams` needs in a prerendered route.
+ *
+ * `resolve` finds the element for a fragment id (by default the element with
+ * that id); parallel reading also looks in the other versions' columns. It
+ * is read when `ready` turns true.
  */
-export function useHashTarget(ready: boolean): void {
+export function useHashTarget(ready: boolean, resolve: (id: string) => Element | null = byId): void {
   useEffect(() => {
     if (!ready) return;
     let marked: Element | null = null;
@@ -76,7 +80,7 @@ export function useHashTarget(ready: boolean): void {
       marked?.removeAttribute(TARGET_ATTRIBUTE);
       marked = null;
       const id = fragmentId(window.location.hash);
-      const el = id ? document.getElementById(id) : null;
+      const el = id ? resolve(id) : null;
       if (!el) return;
       if (highlight) {
         el.setAttribute(TARGET_ATTRIBUTE, "");
@@ -92,5 +96,11 @@ export function useHashTarget(ready: boolean): void {
       cancel();
       marked?.removeAttribute(TARGET_ATTRIBUTE);
     };
+    // `resolve` is read once the text is ready, by design (see above).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
+}
+
+function byId(id: string): Element | null {
+  return document.getElementById(id);
 }

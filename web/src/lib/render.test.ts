@@ -1,7 +1,27 @@
 import { describe, expect, it } from "vitest";
 
 import type { ChunkRow, WorkFile } from "./library";
-import { displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
+import { chunkRoles, displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
+
+describe("chunkRoles", () => {
+  it("names each chunk's role: a section heading, a unit, or a derived verse of a unit", () => {
+    const work: WorkFile = {
+      work_id: "w",
+      ref_prefix: "Ep",
+      chunks: [
+        ["1", "Letter One"],
+        ["1.1", "Greeting."],
+        ["1.2.s1", "First."],
+        ["1.2.s2", "Second."],
+      ],
+    };
+    const roles = chunkRoles(work, parseWork(work, "patristic"));
+    expect(roles.map((r) => r.kind)).toEqual(["heading", "unit", "part", "part"]);
+    expect(roles[0].kind === "heading" && roles[0].section.title).toBe("Letter One");
+    expect(roles[3].kind === "part" && [roles[3].unit.ref, roles[3].part]).toEqual(["Ep.1.2", 1]);
+    expect(roles.every((r) => r.sectionIndex === 0)).toBe(true);
+  });
+});
 
 function work(ref_prefix: string, chunks: ChunkRow[]): WorkFile {
   return { work_id: "test/work", ref_prefix, chunks };
