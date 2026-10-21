@@ -76,6 +76,33 @@ export interface SearchVersion {
   score: number | null;
 }
 
+/** A unit next to a search result in its work. */
+export interface ContextUnit {
+  chunk_id: string;
+  canonical_ref: string;
+  text: string;
+}
+
+/**
+ * A result's English: a linked English version in the library when there is
+ * one (`machine: false`; for Scripture the KJV), else our machine translation.
+ */
+export interface ResultTranslation {
+  language: string;
+  text: string;
+  /** The English of the units before and after the result (its context), where there is one. */
+  before?: string | null;
+  after?: string | null;
+  machine: boolean;
+  /** The translation model; null for a linked version. */
+  model: string | null;
+  /** A linked version's work and the ref of its passage; null for a machine translation. */
+  work_id?: string | null;
+  canonical_ref?: string | null;
+  source_label?: string | null;
+  edition?: string | null;
+}
+
 export interface SearchResult {
   chunk_id: string;
   work_id: string;
@@ -83,7 +110,13 @@ export interface SearchResult {
   language: string;
   text: string;
   text_truncated: boolean;
-  translation: { language: string; text: string; model: string; machine: boolean } | null;
+  /**
+   * The units before and after this one in its work (api/context.py, #209),
+   * shown around it for context; null where there is none.
+   */
+  context?: { before: ContextUnit | null; after: ContextUnit | null };
+  /** An English version of a result in another language; null for English results. */
+  translation: ResultTranslation | null;
   /** Similarity to the query (vector search, or a phrase search with free text); else null. */
   score: number | null;
   /** What matched: the text's vector, its English translation's vector, or the quoted phrases. */
@@ -252,6 +285,12 @@ export function highlight(text: string, matches: [number, number][]): Segment[] 
 /** Reader URL of a result: the work, scrolled to the passage. */
 export function resultHref(result: Pick<SearchResult, "work_id" | "canonical_ref">): string {
   return `${workHref(result.work_id)}#${encodeURIComponent(result.canonical_ref)}`;
+}
+
+/** The reader link of a linked English version's passage, or null for a machine translation. */
+export function translationHref(translation: ResultTranslation): string | null {
+  if (translation.machine || !translation.work_id || !translation.canonical_ref) return null;
+  return resultHref({ work_id: translation.work_id, canonical_ref: translation.canonical_ref });
 }
 
 /** "350–373", "397", "500 BC", or "" when undated. */

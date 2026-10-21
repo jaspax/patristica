@@ -1,13 +1,21 @@
 import { Suspense } from "react";
 
+import { Hero } from "@/components/Landing";
 import SearchPage from "@/components/SearchPage";
 
 export default function Home() {
   return (
     <main>
-      <h1 className="visually-hidden">Search</h1>
-      {/* SearchPage reads the URL query, so it renders on the client only. */}
-      <Suspense fallback={<p>Loading…</p>}>
+      {/* SearchPage reads the URL query, so it renders on the client only. The
+          prerendered page shows the landing page's hero meanwhile. */}
+      <Suspense
+        fallback={
+          <>
+            <Hero />
+            <p>Loading…</p>
+          </>
+        }
+      >
         <SearchPage />
       </Suspense>
     </main>

@@ -15,8 +15,18 @@
   color: var(--foreground);
   background: var(--background);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  box-shadow: var(--shadow-sm) inset;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.queryRow input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--ring);
 }
 
 .queryRow .submit {
@@ -67,9 +77,25 @@
   color: var(--background);
   background: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 4px;
+  border-radius: var(--radius);
   padding: 0.35rem 0.9rem;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+
+.submit:hover,
+.more:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.submit:active,
+.more:active {
+  transform: translateY(1px);
 }
 
 .more {
@@ -112,6 +138,10 @@
   .spinner {
     animation-duration: 2.4s;
   }
+
+  .result {
+    animation: none;
+  }
 }
 
 .reset {
@@ -126,15 +156,6 @@
 
 .reset:hover {
   text-decoration: underline;
-}
-
-.intro {
-  max-width: var(--text-width);
-  color: var(--muted);
-}
-
-.intro p + p {
-  margin-top: 0.75rem;
 }
 
 .status,
@@ -157,6 +178,15 @@
 .result {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
+  animation: rise 0.3s ease-out both;
+}
+
+/* Results settle into place as they arrive. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
 }
 
 .citation {
@@ -176,6 +206,16 @@
   margin-top: 0.35rem;
   font-size: 1.05rem;
   overflow-wrap: anywhere;
+}
+
+/* The units around a hit: there to read it in context, quieter than the hit itself. */
+.context {
+  color: var(--muted);
+  font-size: 0.92em;
+}
+
+.hit {
+  color: var(--foreground);
 }
 
 .translation {
@@ -230,11 +270,11 @@
   inset-inline-start: 0;
   margin-top: 0.3rem;
   width: min(34rem, calc(100vw - 2 * var(--gutter)));
-  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  box-shadow: var(--shadow-md);
   padding: 0.6rem 0.8rem;
   max-width: var(--text-width);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius);
   background: var(--surface);
   color: var(--foreground);
   font-size: 0.85rem;

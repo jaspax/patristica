@@ -23,12 +23,49 @@
   margin-top: 0.25rem;
 }
 
+/* Date, language and genre on one line, separated by dots. */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.facts > div {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.facts > div + div::before {
+  content: "·";
+  margin-inline: 0.6rem;
+  color: var(--muted);
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+/* Everything else about the work, folded away; summary styled like "Other versions" (VersionSwitcher). */
+.details {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.details summary {
+  cursor: pointer;
+  color: var(--accent);
+  width: fit-content;
+}
+
 .meta {
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0.2rem 1rem;
-  margin-top: 1rem;
-  font-size: 0.88rem;
+  margin: 0.5rem 0 0.25rem;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 2px solid var(--border);
 }
 
 .meta dt {

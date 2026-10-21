@@ -73,7 +73,7 @@ patristica/
 │   ├── bootstrap_infra.py     # one-time: Spaces key + tofu state bucket (infra/)
 │   └── hooks/pre-push         # git hook: rejects pushes to master, runs unit tests (enable: git config core.hooksPath scripts/hooks)
 ├── db/                        # search DB schema (schema.sql, applied by scripts.build_index) and README
-├── api/                       # FastAPI backend: /healthz, /search (search.py: parsing, routing, vector path #141/#143; keyword.py: phrase search #86); Dockerfile builds from the repo root
+├── api/                       # FastAPI backend: /healthz, /search (search.py: parsing, routing, vector path #141/#143; keyword.py: phrase search #86; context.py: units around each hit and its English version #209); Dockerfile builds from the repo root
 ├── infra/                     # hosting as code (#117): tofu/ (DigitalOcean), compose/ (db + api + web + caddy), deploy.sh, db-tunnel.sh; see infra/README.md
 ├── web/                       # Next.js frontend (App Router, TypeScript); see "Web app"; Dockerfile for the droplet
 │   ├── src/app/               # routes, root layout, fonts.ts (Noto fonts for every corpus script)
