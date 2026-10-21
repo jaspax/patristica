@@ -265,12 +265,19 @@ def run_main(monkeypatch: pytest.MonkeyPatch, tmp_path: Path, norm: Path, trans:
     align.main()
 
 
-def test_full_run_records_code_and_skips(tmp_path: Path, monkeypatch) -> None:
+GREEK = "first1k/tlg9999/tlg001/1st1K-grc1"
+
+
+def test_full_run_records_code_and_groups(tmp_path: Path, monkeypatch) -> None:
     norm, trans, vecs = write_corpus(tmp_path)
     monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
     run_main(monkeypatch, tmp_path, norm, trans, vecs)
     fp = align.read_fingerprint(tmp_path / "alignments")
-    assert fp == {"align": {"code": "code-1"}, "skipped": {}}
+    assert fp["align"] == {"code": "code-1"}
+    assert sorted(fp["groups"]) == ["book:gen", GREEK]
+    assert fp["groups"]["book:gen"]["members"] == ["gez/gen", "kjv/gen", "oshb/gen"]
+    assert "keys" in fp["groups"]["book:gen"] and "keys" not in fp["groups"][GREEK]
+    assert align.check_groups(norm, tmp_path / "alignments") == {}
     assert [p.name for p, _ in store.iter_store(tmp_path / "alignments")] == [
         "gen.json", "1st1K-grc1.json"]  # the fingerprint file is not an alignment
 
@@ -278,8 +285,65 @@ def test_full_run_records_code_and_skips(tmp_path: Path, monkeypatch) -> None:
     (vecs / "oshb" / "gen.npz").unlink()
     (vecs / "gez" / "gen.npz").unlink()
     run_main(monkeypatch, tmp_path, norm, trans, vecs, "--allow-missing-vectors")
-    assert align.read_fingerprint(tmp_path / "alignments")["skipped"] == {
-        "book:gen": align.NO_VECTORS}
+    record = align.read_fingerprint(tmp_path / "alignments")["groups"]["book:gen"]
+    assert record["skipped"] == align.NO_VECTORS
+    assert align.check_groups(norm, tmp_path / "alignments") == {}  # a skip isn't stale
+
+
+def _add_work(norm: Path, entry: dict, chunks: list[dict]) -> None:
+    (norm / entry["path"]).write_text(json.dumps(chunks), encoding="utf-8")
+    with (norm / "_works.jsonl").open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
+def test_new_member_of_an_existing_group_is_stale(tmp_path: Path, monkeypatch) -> None:
+    """Another edition linked into book:gen keeps the group id and its file (#203)."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
+    run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    kjv = next(e for e in align.load_works(norm) if e["work"]["work_id"] == "kjv/gen")
+    web = {"path": "web/gen.json", "work": {**kjv["work"], "work_id": "web/gen",
+                                            "source_id": "web"}}
+    (norm / "web").mkdir()
+    chunks = json.loads((norm / kjv["path"]).read_text())
+    _add_work(norm, web, [{**c, "chunk_id": c["chunk_id"].replace("kjv/", "web/"),
+                           "work_id": "web/gen"} for c in chunks])
+    assert align.check_groups(norm, tmp_path / "alignments") == {"book:gen": "members changed"}
+
+
+def test_versification_change_makes_only_that_book_stale(tmp_path: Path, monkeypatch) -> None:
+    """A corrected scheme override moves a book's refs without touching the code hash."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
+    run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    real = align.scripture_keys
+    monkeypatch.setattr(align, "scripture_keys", lambda wid, refs: (
+        [r + "x" for r in real(wid, refs)] if wid == "gez/gen" else real(wid, refs)))
+    assert align.check_groups(norm, tmp_path / "alignments") == {
+        "book:gen": "versification changed"}
+
+
+def test_check_groups_reports_new_and_dropped_groups(tmp_path: Path, monkeypatch) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    assert align.check_groups(norm, tmp_path / "alignments") == {
+        "book:gen": "not aligned", GREEK: "not aligned"}
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
+    run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    (tmp_path / "alignments" / "book" / "gen.json").unlink()
+    _relicense(norm, "anf-works/x", "unknown")  # the Greek group loses its translation
+    assert align.check_groups(norm, tmp_path / "alignments") == {
+        "book:gen": "no alignment file", GREEK: "no longer a group to align"}
+
+
+def test_single_publishable_member_without_vectors_is_cleaned_up(tmp_path: Path) -> None:
+    """A group licensing leaves with one member reaches the cleanup, not a refusal."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    for job in jobs(tmp_path, norm, trans, vecs):
+        align.run_job(job)
+    _relicense(norm, "anf-works/x", "unknown")
+    (vecs / "first1k" / "tlg9999" / "tlg001" / "1st1K-grc1.npz").unlink()
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome[GREEK] == "deleted"
 
 
 def test_refusal_exits_nonzero_and_keeps_old_code_hash(tmp_path: Path, monkeypatch) -> None:
