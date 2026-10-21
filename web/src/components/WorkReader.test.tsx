@@ -215,8 +215,8 @@ describe("WorkReader version switch", () => {
   it("keeps a highlighted passage highlighted", async () => {
     layout({ "Ps.23.1": [100, 130] });
     const { container } = await openKjv("/works/kjv/ps#Ps.23.1");
-    // The fragment was highlighted on opening (useHashTarget).
-    expect(container.querySelector("[data-target]")?.id).toBe("Ps.23.1");
+    // The fragment was highlighted on opening (useHashTarget, in an effect after the text renders).
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Ps.23.1"));
     // Its place in the text: the wrapper starts above the viewport.
     container.querySelector("article > div")!.id = "text";
     layout({ "Ps.23.1": [100, 130], text: [-50, 900] });
@@ -243,17 +243,21 @@ describe("WorkReader version switch", () => {
   }
 
   it("keeps the place in other works through the passage alignment (#179)", async () => {
-    await openHomilies("/works/npnf-works/hom#Hom.2");
+    const { container } = await openHomilies("/works/npnf-works/hom#Hom.2");
+    // useHashTarget marks the fragment in an effect after the text renders: wait for it,
+    // or the click can read the position before it is marked (and open it with ?nohl).
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Hom.2"));
     layout({ "Hom.2": [100, 130], text: [-50, 900] });
     act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
-    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom#2"), { timeout: 3000 });
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom#2"));
   });
 
   it("doesn't highlight a nearby passage it falls back to", async () => {
     // The translator's note is in no alignment group: open the passage before it, unmarked.
-    await openHomilies("/works/npnf-works/hom#Hom.3");
+    const { container } = await openHomilies("/works/npnf-works/hom#Hom.3");
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Hom.3"));
     layout({ "Hom.3": [100, 130], text: [-50, 900] });
     act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
-    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"), { timeout: 3000 });
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"));
   });
 });

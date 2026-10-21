@@ -79,6 +79,14 @@ describe("unitIndex and unitRef", () => {
     expect(unitIndex(work, "s-1")).toBe(-1);
     expect(unitRef(work, 3)).toBe("Ep.1.2.s2");
   });
+
+  it("finds the first derived verse of a work that is one split paragraph (its ref is the prefix)", () => {
+    // render.ts gives the paragraph the ref prefix as its ref (render.test.ts).
+    const whole: WorkFile = { work_id: "w", ref_prefix: "Ep.7", chunks: [["s1", "a"], ["s2", "b"]] };
+    expect(unitIndex(whole, "Ep.7")).toBe(0);
+    expect(unitIndex(whole, "Ep.7.s2")).toBe(1);
+    expect(unitIndex(whole, "Ep")).toBe(-1);
+  });
 });
 
 describe("alignUnit", () => {

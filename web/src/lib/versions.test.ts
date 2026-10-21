@@ -335,6 +335,12 @@ describe("alignmentPosition", () => {
     expect(await mappedRef(aligned(grcRow, "Ep.2", engRow))).toBe("2.s1");
   });
 
+  it("maps a work that is one split paragraph from its paragraph ref (the ref prefix)", async () => {
+    const whole: WorkFile = { work_id: "eng/ep", ref_prefix: "Ep", chunks: [["s1", "Paul"], ["s2", "Grace"], ["s3", "Thanks"], ["s4", "Gloss"], ["s5", "Farewell"], ["s6", "Amen"]] };
+    const req = { ...aligned(engRow, "Ep", grcRow), fromWork: whole };
+    expect(await mapPosition(req)).toEqual({ ref: "Ep.1.1", approximate: false });
+  });
+
   it("works between any two members, not only with the pivot", async () => {
     expect(await mappedRef(aligned(latRow, "2", grcRow))).toBe("Ep.2");
     expect(await mappedRef(aligned(grcRow, "Ep.1.1", latRow))).toBe("1");

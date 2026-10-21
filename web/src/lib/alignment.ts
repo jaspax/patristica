@@ -102,15 +102,22 @@ export function unitRef(work: WorkFile, u: number): string {
 /**
  * The unit of `work` that `ref` names: the chunk with that ref, else (for a
  * paragraph split into derived verses, whose element carries the source
- * unit's ref) its first derived verse. -1 if none.
+ * unit's ref) its first derived verse. A work that is one split paragraph
+ * has chunks `s1`, `s2`, … and its paragraph's ref is the ref prefix itself.
+ * -1 if none.
  */
 export function unitIndex(work: WorkFile, ref: string): number {
   const prefix = work.ref_prefix ? `${work.ref_prefix}.` : "";
-  if (prefix && !ref.startsWith(prefix)) return -1;
-  const suffix = ref.slice(prefix.length);
-  const exact = work.chunks.findIndex(([s]) => s === suffix);
-  if (exact >= 0) return exact;
-  return work.chunks.findIndex(([s]) => s.startsWith(`${suffix}.s`) && /^s\d+$/.test(s.slice(suffix.length + 1)));
+  let suffix: string;
+  if (work.ref_prefix && ref === work.ref_prefix) suffix = "";
+  else if (prefix && !ref.startsWith(prefix)) return -1;
+  else suffix = ref.slice(prefix.length);
+  if (suffix) {
+    const exact = work.chunks.findIndex(([s]) => s === suffix);
+    if (exact >= 0) return exact;
+  }
+  const base = suffix ? `${suffix}.` : "";
+  return work.chunks.findIndex(([s]) => s.startsWith(base) && /^s\d+$/.test(s.slice(base.length)));
 }
 
 /** Where `from`'s unit lands in `to`. */
