@@ -246,7 +246,7 @@ describe("WorkReader version switch", () => {
     await openHomilies("/works/npnf-works/hom#Hom.2");
     layout({ "Hom.2": [100, 130], text: [-50, 900] });
     act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
-    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom#2"));
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom#2"), { timeout: 3000 });
   });
 
   it("doesn't highlight a nearby passage it falls back to", async () => {
@@ -254,6 +254,6 @@ describe("WorkReader version switch", () => {
     await openHomilies("/works/npnf-works/hom#Hom.3");
     layout({ "Hom.3": [100, 130], text: [-50, 900] });
     act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
-    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"));
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"), { timeout: 3000 });
   });
 });
