@@ -37,6 +37,8 @@ if TYPE_CHECKING:
     import numpy as np
 
 DEFAULT_DIR = Path("data/embeddings")
+#: Units shorter than this (headings, numbers, OCR fragments) get no vector.
+MIN_CHARS = 10
 KIND_TEXT = 0
 KIND_TRANSLATION = 1
 

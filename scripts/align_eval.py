@@ -41,6 +41,7 @@ from tqdm import tqdm
 from patristica import translations as tr
 from patristica.alignment import CONFIDENCE_FIT, Version, align_pair, choose_pivot, merge, span_fit
 from patristica.alignment_store import MIN_CONFIDENCE
+from patristica.corpus import load_works, select
 from scripts.align import (
     SCRIPTURE_PRIOR,
     Loaded,
@@ -49,7 +50,6 @@ from scripts.align import (
     params_for,
     version_groups,
 )
-from scripts.embed import load_works, select
 
 log = logging.getLogger(__name__)
 CALIBRATION_AGREEMENT = 0.9
