@@ -79,3 +79,12 @@
 .muted {
   color: var(--muted);
 }
+
+/* "N versions": the work exists in other languages or editions (#144). */
+.versions {
+  display: inline-block;
+  margin-inline-start: 0.5em;
+  font-size: 0.75em;
+  color: var(--muted);
+  white-space: nowrap;
+}

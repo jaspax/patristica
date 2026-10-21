@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useMemo } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 import { formatDateLong, GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
@@ -16,9 +16,12 @@ import {
   type WorkRow,
 } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
+import { useOffscreen } from "@/lib/useOffscreen";
+import { currentPosition, mapPosition, originalIds, versionMembers } from "@/lib/versions";
 
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
+import VersionSwitcher, { FloatingVersions, VersionLink, type PositionFor } from "./VersionSwitcher";
 import WorkText from "./WorkText";
 import styles from "./WorkReader.module.css";
 
@@ -52,6 +55,35 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
   const collection = index.sources[row.source_id] ?? row.source_id;
   const license = LICENSES[row.license] ?? { label: row.license };
   const original = row.translation_of ? index.works.find((w) => w.id === row.translation_of) : undefined;
+  const members = useMemo(() => versionMembers(index, row), [index, row]);
+  const originals = useMemo(() => originalIds(members), [members]);
+  // Without a translation_of link, name the group's originals instead (Scripture).
+  const groupOriginals =
+    row.translation_of || originals.has(row.id) ? [] : members.filter((w) => originals.has(w.id));
+
+  // Open another version at the passage being read (lib/versions.ts).
+  const textRef = useRef<HTMLDivElement>(null);
+  const fromWork = work.status === "ready" ? work.data : null;
+  const positionFor = useCallback<PositionFor>(
+    async (target) => {
+      const here = fromWork && currentPosition(textRef.current, window.location.hash);
+      if (!fromWork || !here) return null;
+      const ref = await mapPosition({
+        from: row,
+        fromWork,
+        ref: here.ref,
+        to: target,
+        loadTarget: () => loadWork(target.file),
+      });
+      // Highlighted only if the reader was at a highlighted passage, not just scrolled there.
+      return ref ? { ref, highlight: here.highlight } : null;
+    },
+    [fromWork, row],
+  );
+  const versionProps = { current: row, members, originals, sources: index.sources, positionFor };
+  const hasVersions = members.length > 1;
+  const headerVersions = useRef<HTMLDetailsElement>(null);
+  const headerVersionsOffscreen = useOffscreen(headerVersions);
 
   // Previous and next work in the same collection, in index order.
   const [prev, next] = useMemo(() => {
@@ -68,7 +100,7 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
   const originalNames = original ? workAuthors(original, authors).map((a) => a.name).join(", ") : "";
 
   return (
-    <article>
+    <article className={hasVersions ? styles.withVersions : undefined}>
       <title>{`${citation} · Patristica`}</title>
       <nav className={styles.crumbs} aria-label="Breadcrumb">
         <Link href="/works">Library</Link>
@@ -127,22 +159,45 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
               <dt>Translation of</dt>
               <dd>
                 {original ? (
-                  <Link href={workHref(original.id)}>
+                  <VersionLink target={original} positionFor={positionFor}>
                     {originalNames ? `${originalNames}, ` : ""}
                     {original.title}
-                  </Link>
+                  </VersionLink>
                 ) : (
                   <code>{row.translation_of}</code>
                 )}
               </dd>
             </>
           )}
+          {groupOriginals.length > 0 && (
+            <>
+              <dt>Original</dt>
+              <dd>
+                {groupOriginals.map((w, i) => (
+                  <span key={w.id}>
+                    {i > 0 && ", "}
+                    <VersionLink target={w} positionFor={positionFor}>
+                      {languageInfo(w.language).name}: {index.sources[w.source_id] ?? w.source_id}
+                    </VersionLink>
+                  </span>
+                ))}
+              </dd>
+            </>
+          )}
         </dl>
+        <VersionSwitcher ref={headerVersions} {...versionProps} />
       </header>
+
+      {/* Once the header's list is off screen, the same list floats beside the text. */}
+      {hasVersions && <FloatingVersions visible={headerVersionsOffscreen} {...versionProps} />}
 
       {work.status === "loading" && <p>Loading the text…</p>}
       {work.status === "error" && <LoadError error={work.error} />}
-      {work.status === "ready" && <WorkText work={work.data} genre={row.genre} language={row.language} sourceId={row.source_id} />}
+      <div ref={textRef}>
+        {work.status === "ready" && (
+          <WorkText work={work.data} genre={row.genre} language={row.language} sourceId={row.source_id} />
+        )}
+      </div>
 
       <nav className={styles.pager} aria-label="Other works in this collection">
         {prev ? (

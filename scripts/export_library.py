@@ -31,11 +31,19 @@ writes ``data/library/`` (gitignored):
   "chunks": [[ref_suffix, text], ...]}``, where ``path`` mirrors the work's
   path under ``data/normalized/``.  The common dot-separated ref prefix is
   stripped from every ref (``Gen.1.1`` → prefix ``Gen``, suffix ``1.1``);
-  out-of-period chunks carry a third element, ``1``.
+  out-of-period chunks carry a third element, ``1``.  A Scripture book
+  (``patristica.versions.scripture_book``) also carries ``org_refs``,
+  ``{ref_suffix: org_ref}`` for every chunk whose ref in org versification
+  (``patristica.versification.to_org_ref``, BHS / Nestle-Aland: the
+  ``translation_group_id`` key) differs from its native ref, so the reader can
+  keep its place when it switches to another version of the book (#144).
+  It is ``{}`` when every ref is already in org numbering.
 
 Work files are rebuilt when their normalized source is newer (or with
-``--force``); files whose source is gone are deleted.  ``index.json`` is always
-rewritten.
+``--force``); files whose source is gone are deleted.  Scripture books are
+re-derived on every run, because ``org_refs`` also depends on
+``patristica.versification``, and written only when they change.
+``index.json`` is always rewritten.
 
 Usage::
 
@@ -57,7 +65,8 @@ from patristica import alignment_store
 from patristica.authors import author_index
 from patristica.models import Chunk, Work
 from patristica.sources import SOURCE_LABELS, source_label
-from patristica.versions import derive_version_groups
+from patristica.versification import to_org_ref
+from patristica.versions import derive_version_groups, scripture_book
 
 log = logging.getLogger(__name__)
 
@@ -122,6 +131,16 @@ def load_chunks(path: Path) -> list[Chunk]:
     return sorted(chunks, key=lambda c: c.chunk_index)
 
 
+def org_refs(work: Work, chunks: list[Chunk], prefix: str) -> dict[str, str]:
+    """``{ref_suffix: org_ref}`` for the chunks whose org ref differs from their native ref."""
+    mapped: dict[str, str] = {}
+    for c in chunks:
+        org = to_org_ref(work.source_id, c.canonical_ref)
+        if org != c.canonical_ref:
+            mapped[strip_prefix(c.canonical_ref, prefix)] = org
+    return mapped
+
+
 def slim_work(work: Work, chunks: list[Chunk]) -> dict[str, Any]:
     """Build the per-work library record from its chunks."""
     prefix = common_ref_prefix([c.canonical_ref for c in chunks])
@@ -131,7 +150,11 @@ def slim_work(work: Work, chunks: list[Chunk]) -> dict[str, Any]:
         if c.out_of_period:
             row.append(1)
         rows.append(row)
-    return {"work_id": work.work_id, "ref_prefix": prefix, "chunks": rows}
+    record: dict[str, Any] = {"work_id": work.work_id, "ref_prefix": prefix}
+    if scripture_book(work.work_id) is not None:
+        record["org_refs"] = org_refs(work, chunks, prefix)
+    record["chunks"] = rows
+    return record
 
 
 def index_row(
@@ -288,17 +311,18 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
             and dst.stat().st_mtime >= src.stat().st_mtime
             and work.work_id in prev_counts
         )
-        if up_to_date:
+        # A Scripture book's org_refs also depend on the versification tables,
+        # so it is rebuilt every time and written only if it changed.
+        if up_to_date and scripture_book(work.work_id) is None:
             rows.append(
                 index_row(work, file, prev_counts[work.work_id], groups.group(work.work_id)))
             continue
         chunks = load_chunks(src)
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_text(
-            json.dumps(slim_work(work, chunks), ensure_ascii=False, separators=(",", ":")),
-            encoding="utf-8",
-        )
-        written += 1
+        text = json.dumps(slim_work(work, chunks), ensure_ascii=False, separators=(",", ":"))
+        if not (up_to_date and dst.read_text(encoding="utf-8") == text):
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_text(text, encoding="utf-8")
+            written += 1
         rows.append(index_row(work, file, len(chunks), groups.group(work.work_id)))
 
     used_sources = sorted({row["source_id"] for row in rows})

@@ -84,6 +84,23 @@ describe("LibraryBrowser", () => {
     expect(link.getAttribute("href")).toBe("/works/aug/conf");
   });
 
+  it("counts the versions of a work in other languages or editions", async () => {
+    const grouped: LibraryIndex = {
+      ...index,
+      works: [
+        row({ id: "a", title: "Confessiones", version_group: "a" }),
+        row({ id: "b", title: "Confessions", language: "eng", version_group: "a" }),
+        row({ id: "c", title: "Epistulae" }),
+      ],
+    };
+    vi.stubGlobal("fetch", serve(grouped));
+    render(<LibraryBrowser />);
+    const link = await screen.findByRole("link", { name: "Confessions" });
+    expect(link.closest("td")?.textContent).toBe("Confessions2 versions");
+    expect(screen.getAllByText("2 versions")).toHaveLength(2);
+    expect(screen.getByRole("link", { name: "Epistulae" }).closest("td")?.textContent).toBe("Epistulae");
+  });
+
   it("applies the filters from the URL", async () => {
     search = "language=grc";
     render(<LibraryBrowser />);

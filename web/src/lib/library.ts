@@ -75,6 +75,12 @@ export interface WorkFile {
   work_id: string;
   /** Dot-separated ref prefix shared by every chunk, stripped from the suffixes. */
   ref_prefix: string;
+  /**
+   * Scripture books only: ref suffix → ref in org versification (BHS /
+   * Nestle-Aland), for the chunks whose org ref differs from their own
+   * (patristica/versification.py). Absent for works that aren't Scripture books.
+   */
+  org_refs?: Record<string, string>;
   chunks: ChunkRow[];
 }
 
@@ -177,6 +183,26 @@ export function workAuthors(row: Pick<WorkRow, "author" | "author_ids">, authors
   return [];
 }
 
+/** Work files kept in memory: the one being read and the next one opened. */
+const WORK_CACHE_SIZE = 3;
+const workCache = new Map<string, Promise<WorkFile>>();
+
+/**
+ * Load a work file. The last few loads are kept, so a version switch that
+ * loads its target to find the passage (lib/versions.ts) doesn't make the
+ * reader fetch it again. A failed load is retried on the next call.
+ */
 export function loadWork(file: string): Promise<WorkFile> {
-  return fetchJson<WorkFile>(libraryUrl(file));
+  let promise = workCache.get(file);
+  if (promise) {
+    workCache.delete(file);
+  } else {
+    promise = fetchJson<WorkFile>(libraryUrl(file)).catch((err) => {
+      workCache.delete(file);
+      throw err;
+    });
+  }
+  workCache.set(file, promise);
+  while (workCache.size > WORK_CACHE_SIZE) workCache.delete(workCache.keys().next().value!);
+  return promise;
 }
