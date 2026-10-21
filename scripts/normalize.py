@@ -10,9 +10,29 @@ overlap — that is added by ``chunk.py``).  Long prose chunks are split into
 verse-sized derived verses (``patristica.versify``, #2); Scripture and other
 works ingested as verses keep their own verses.
 
+Staleness (#130) is decided by fingerprints, not file times.
+``_fingerprint.json`` records the hash of this step's code
+(``patristica.fingerprint.code_hash``), and ``_fingerprints.jsonl`` records,
+per work, the hash of its raw file and of its curation (genre override, author
+ids and the authors' birth year).  A work is rebuilt when any of them changed,
+so a code or curation change re-runs exactly the affected works without
+``--force``.  The code hash is recorded only once every work in the manifest
+was rebuilt with that code; a run that couldn't (raw data missing for some
+source, refused works) leaves it, and ``tests/test_normalize_fingerprint.py``
+keeps failing until the data is current.  The fingerprints are kept out of
+``_works.jsonl`` because ``build_index`` hashes its lines.
+
+A work whose raw file differs from the one it was last normalized from is
+*refused*: its output, manifest entry and fingerprint are kept and the run
+exits with an error, so a checkout with old raw data can't silently regress
+tracked output (#114, #127).  Re-run with ``--accept-raw-change`` when the raw
+change is intended (a re-ingest).  ``--force`` rebuilds every work but doesn't
+override the raw guard.
+
 Usage::
 
     python -m scripts.normalize [--raw-dir data/raw] [--output-dir data/normalized] [--force]
+        [--accept-raw-change]
 """
 
 from __future__ import annotations
@@ -20,12 +40,15 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import sys
+from collections.abc import Collection
 from pathlib import Path
 
 from tqdm import tqdm
 
-from patristica.authors import apply_author_ids, work_author_birth_year
-from patristica.genres import apply_genre_override
+from patristica import fingerprint
+from patristica.authors import apply_author_ids, resolve_author, work_author_birth_year
+from patristica.genres import apply_genre_override, override_for
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
@@ -237,7 +260,11 @@ def normalize_file(
 ) -> int:
     """Normalize a single raw JSON file and write the result.
 
-    Returns the number of chunks written (0 if skipped).
+    Always rebuilds the work; the file is rewritten only when its content
+    changes.  (Whether a work needs rebuilding is decided by ``normalize_all``
+    from fingerprints; *force* is accepted for compatibility.)
+
+    Returns the number of chunks written (0 if skipped or unchanged).
     """
     with raw_path.open(encoding="utf-8") as f:
         try:
@@ -245,11 +272,31 @@ def normalize_file(
         except json.JSONDecodeError as exc:
             log.warning("Skipping %s: JSON error: %s", raw_path, exc)
             return 0
+    return _normalize_record(raw_record, raw_path, output_dir) or 0
 
+
+def _output_rel(raw_path: Path) -> Path:
+    """The normalized path of *raw_path*, relative to the output directory.
+
+    Mirrors the raw path below its ``raw`` component, which starts with the
+    source_id (``data/raw/oshb/Gen.json`` → ``oshb/Gen.json``).
+    """
+    parts = raw_path.parts
+    try:
+        raw_idx = next(i for i, p in enumerate(parts) if p == "raw")
+        return Path(*parts[raw_idx + 1:])
+    except StopIteration:
+        return Path(raw_path.name)
+
+
+def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path) -> int | None:
+    """Build and write one work: the number of chunks written (0 when the file
+    was already identical), or None when the record produced no output (not a
+    work, a genre normalize doesn't handle, or no chunks)."""
     work_dict = raw_record.get("work")
     if not work_dict:
         log.debug("Skipping %s: no 'work' key", raw_path)
-        return 0
+        return None
 
     work_dict = apply_author_ids(apply_genre_override(work_dict))
     raw_record = {**raw_record, "work": work_dict}
@@ -264,40 +311,19 @@ def normalize_file(
         work, chunks = normalize_council_work(raw_record)
     else:
         log.debug("Skipping %s: genre %r not yet supported by normalize.py", raw_path, genre)
-        return 0
+        return None
 
     if not chunks:
         log.warning("No chunks produced from %s", raw_path)
-        return 0
+        return None
     # Works with a standard versification keep it: Scripture, and anything an
     # ingestor delivered as verses whatever its curated genre (#103).
     standard = work.genre == "scripture" or bool(raw_record.get("verses"))
     chunks = versify_chunks(chunks, standard=standard)
 
-    # Mirror the raw path structure under output_dir
-    # raw:  data/raw/oshb/Gen.json
-    # norm: data/normalized/oshb/Gen.json
-    # The path below the "raw" component starts with the source_id.
-    rel_parts = raw_path.parts
-    try:
-        raw_idx = next(i for i, p in enumerate(rel_parts) if p == "raw")
-        sub_parts = rel_parts[raw_idx + 1:]
-    except StopIteration:
-        sub_parts = (raw_path.name,)
-
-    out_path = output_dir.joinpath(*sub_parts)
-
-    if (
-        not force
-        and out_path.exists()
-        and out_path.stat().st_mtime >= raw_path.stat().st_mtime
-    ):
-        log.debug("Skipping %s (up to date)", out_path)
-        return 0
-
+    out_path = output_dir / _output_rel(raw_path)
     content = json.dumps([chunk.model_dump() for chunk in chunks], ensure_ascii=False, indent=2)
     if out_path.exists() and out_path.read_text(encoding="utf-8") == content:
-        out_path.touch()  # mark up to date without changing content
         return 0
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(content, encoding="utf-8")
@@ -305,48 +331,227 @@ def normalize_file(
     return len(chunks)
 
 
+# ---------------------------------------------------------------------------
+# Fingerprints (#130)
+# ---------------------------------------------------------------------------
+
+STEP = "normalize"
+WORKS_MANIFEST = "_works.jsonl"
+FINGERPRINT_FILE = "_fingerprint.json"     # {step: {"code": hash}}
+FINGERPRINTS_FILE = "_fingerprints.jsonl"  # one {"path", "raw", "curated"} per work
+
+
+class RawChangedError(RuntimeError):
+    """Raw files differ from the ones their works were last normalized from."""
+
+
+class FailedWorksError(RuntimeError):
+    """Works that were to be rebuilt produced no output (empty or unreadable raw)."""
+
+
+def normalize_code_hash() -> str:
+    """Hash of the code this step runs (see ``patristica.fingerprint``)."""
+    return fingerprint.code_hash("scripts.normalize")
+
+
+def curated_hash(work: dict) -> str:
+    """Hash of the curation applied to *work* (a raw or manifest work record).
+
+    Covers the curated genre (``genre_overrides.csv``), the author ids
+    resolved from ``author`` and the authors' birth year (``authors.csv``,
+    ``author_strings.csv``), the inputs that change a work's chunks or manifest
+    entry without changing its raw file.  It is computed from the override
+    and the author string, not from the curated record, so it can be checked
+    from ``_works.jsonl`` without raw data.
+    """
+    ids = resolve_author(work.get("author"))
+    return fingerprint.value_hash({
+        "genre": override_for(work.get("work_id", "")),
+        "author_ids": ids,
+        "birth_year": work_author_birth_year(ids),
+    })
+
+
+def work_fingerprint(raw_bytes: bytes, work: dict) -> dict[str, str]:
+    """The per-work inputs of a normalized work: its raw file and curation."""
+    return {"raw": fingerprint.sha16(raw_bytes), "curated": curated_hash(work)}
+
+
+def read_step_fingerprints(output_dir: Path) -> dict[str, dict]:
+    """``{step: {"code": hash}}`` from ``{output_dir}/_fingerprint.json``."""
+    path = output_dir / FINGERPRINT_FILE
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_step_code(output_dir: Path, code: str | None) -> None:
+    """Record *code* as the code every work was built with; None removes it."""
+    steps = read_step_fingerprints(output_dir)
+    if code is None:
+        if STEP not in steps:
+            return
+        del steps[STEP]
+    else:
+        steps[STEP] = {"code": code}
+    path = output_dir / FINGERPRINT_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(steps, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    if code is not None:
+        log.info("Recorded %s code hash %s in %s", STEP, code, path)
+
+
+def read_work_fingerprints(output_dir: Path) -> dict[str, dict[str, str]]:
+    """``{path: {"raw", "curated"}}`` from ``{output_dir}/_fingerprints.jsonl``."""
+    path = output_dir / FINGERPRINTS_FILE
+    fps: dict[str, dict[str, str]] = {}
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                rec = json.loads(line)
+                fps[rec.pop("path")] = rec
+    return fps
+
+
+def _write_work_fingerprints(output_dir: Path, fps: dict[str, dict[str, str]]) -> None:
+    content = "".join(
+        json.dumps({"path": rel, **fps[rel]}, sort_keys=True) + "\n" for rel in sorted(fps)
+    )
+    path = output_dir / FINGERPRINTS_FILE
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.write_text(content, encoding="utf-8")
+        log.info("Wrote %s (%d works)", path, len(fps))
+
+
+def read_works_manifest(output_dir: Path) -> dict[str, dict]:
+    """``{path: work}`` for every line of ``{output_dir}/_works.jsonl``."""
+    manifest_path = output_dir / WORKS_MANIFEST
+    works: dict[str, dict] = {}
+    if manifest_path.exists():
+        for line in manifest_path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                rec = json.loads(line)
+                works[rec["path"]] = rec["work"]
+    return works
+
+
 def normalize_all(
     raw_dir: Path,
     output_dir: Path,
     force: bool = False,
+    accept_raw_change: bool = False,
 ) -> int:
     """Walk *raw_dir* recursively and normalize every raw work JSON file.
 
-    Outputs are rebuilt when their raw file is newer.  Normalized files whose
-    raw file is gone are deleted — but only inside sources whose raw directory
-    exists (``data/raw`` is gitignored, so on a fresh clone without raw data
+    A work is rebuilt when this step's code, its raw file or its curation
+    changed since it was last normalized (or with *force*).  A work whose raw
+    file changed is refused unless *accept_raw_change*: it keeps its output,
+    manifest entry and fingerprint, and ``RawChangedError`` is raised once the
+    rest of the run is done.  Normalized files whose raw file is gone are
+    deleted — but only inside sources whose raw directory exists
+    (``data/raw`` is gitignored, so on a fresh clone without raw data
     nothing is pruned).
 
     Returns the total number of chunks written.
     """
     # Files and directories starting with "_" are caches and indexes
     # (``_zips``, ``_repos``, ``_volumes.json``, ``ogpg/_extract``), not works.
-    json_files = [
+    json_files = sorted(
         p for p in raw_dir.rglob("*.json")
         if not any(part.startswith("_") for part in p.relative_to(raw_dir).parts)
-    ]
+    )
+
+    code = normalize_code_hash()
+    code_current = read_step_fingerprints(output_dir).get(STEP, {}).get("code") == code
+    if not code_current:
+        log.info("normalize's code changed since the last full run: rebuilding every work")
+        # Outputs about to be written under this code no longer match the
+        # recorded hash; until every work is rebuilt, none is recorded (so a
+        # revert of the code can't make half-rebuilt data look current).
+        _write_step_code(output_dir, None)
+    works = read_works_manifest(output_dir)
+    previous = read_work_fingerprints(output_dir)
+    fingerprints: dict[str, dict[str, str]] = {}  # works built or confirmed this run
+    refused: list[str] = []
+    failed: list[str] = []  # works to rebuild that produced no output
 
     if not json_files:
         log.warning("No raw JSON files found under %s", raw_dir)
-        _prune_orphans(raw_dir, output_dir)  # a source emptied by its ingestor
-        write_works_manifest(output_dir)
-        return 0
-
-    log.info("Normalizing %d raw files…", len(json_files))
+    else:
+        log.info("Normalizing %d raw files…", len(json_files))
     total = 0
     for path in tqdm(json_files, desc="normalize"):
-        total += normalize_file(path, output_dir, force=force)
+        rel = _output_rel(path).as_posix()
+        raw_bytes = path.read_bytes()
+        prev = previous.get(rel)
+        if prev and prev["raw"] != fingerprint.sha16(raw_bytes) and not accept_raw_change:
+            refused.append(rel)
+            continue
+        if (
+            not force and code_current and prev and rel in works and (output_dir / rel).exists()
+            and prev == work_fingerprint(raw_bytes, works[rel])
+        ):
+            fingerprints[rel] = prev
+            continue
+        try:
+            raw_record = json.loads(raw_bytes)
+        except json.JSONDecodeError as exc:
+            log.warning("Skipping %s: JSON error: %s", path, exc)
+            raw_record = None
+        written = (_normalize_record(raw_record, path, output_dir)
+                   if isinstance(raw_record, dict) else None)
+        if written is None:
+            # No output: a file that never was a work (a catalogue) is
+            # ignored; a work's old output must not pass as built from this raw.
+            if prev or rel in works:
+                failed.append(rel)
+            continue
+        total += written
+        fingerprints[rel] = work_fingerprint(raw_bytes, raw_record["work"])
 
     log.info("Normalization complete: %d total chunks written", total)
     _prune_orphans(raw_dir, output_dir)
-    write_works_manifest(output_dir)
+    write_works_manifest(output_dir, keep=refused, refresh=set(fingerprints))
+    listed = read_works_manifest(output_dir)
+    _write_work_fingerprints(
+        output_dir,
+        {rel: fingerprints.get(rel) or previous[rel] for rel in listed
+         if rel in fingerprints or (rel in previous and rel not in failed)},
+    )
+
+    if not code_current:
+        uncovered = sorted(set(listed) - set(fingerprints))
+        if uncovered:
+            log.error(
+                "Not recording the new %s code hash: %d works were not rebuilt with it "
+                "(no raw file here, refused or failed), e.g. %s",
+                STEP, len(uncovered), ", ".join(uncovered[:5]),
+            )
+        else:
+            _write_step_code(output_dir, code)
+    if failed:
+        log.error("%d works produced no output from their raw file (empty or unreadable), so "
+                  "their old output was kept and their fingerprint removed: fix the raw data "
+                  "or the ingestor, e.g. %s", len(failed), ", ".join(failed[:5]))
+    if refused:
+        raise RawChangedError(
+            f"{len(refused)} raw files differ from the ones their works were last normalized "
+            f"from (old or re-ingested raw data?), e.g. {', '.join(refused[:5])}. Their "
+            "normalized output was kept. If the raw change is intended, re-run with "
+            "--accept-raw-change."
+        )
+    if failed:
+        raise FailedWorksError(
+            f"{len(failed)} works produced no output from their raw file, e.g. "
+            f"{', '.join(failed[:5])}; their old output was kept, without a fingerprint."
+        )
     return total
 
 
-WORKS_MANIFEST = "_works.jsonl"
-
-
-def write_works_manifest(output_dir: Path, raw_root: Path | None = None) -> None:
+def write_works_manifest(
+    output_dir: Path, raw_root: Path | None = None, keep: Collection[str] = (),
+    refresh: Collection[str] | None = None,
+) -> None:
     """Maintain ``{output_dir}/_works.jsonl``: the full ``Work`` record for every
     normalized file, one JSON object per line (``{"path": ..., "work": {...}}``).
 
@@ -357,7 +562,11 @@ def write_works_manifest(output_dir: Path, raw_root: Path | None = None) -> None
     Either way the curated genre from ``patristica.genres`` is applied and
     ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82).
     An empty ``external_ids`` is left out.  *raw_root* defaults to the
-    ``raw`` directory next to *output_dir*.
+    ``raw`` directory next to *output_dir*.  Entries in *keep* (works whose raw
+    change normalize refused) are left as they were.  With *refresh*, only those
+    works are refreshed from their raw file; the others keep their previous
+    entry (with the curation applied), so a run over part of ``data/raw``
+    can't pick up unchecked raw metadata of other sources.
     Entries for normalized files that no longer exist are dropped.  The file is
     rewritten only when its content changes.
     """
@@ -376,9 +585,14 @@ def write_works_manifest(output_dir: Path, raw_root: Path | None = None) -> None
         if norm_path.name.startswith("_"):
             continue
         rel = norm_path.relative_to(output_dir).as_posix()
+        if rel in keep and rel in previous:
+            entries[rel] = previous[rel]
+            continue
         raw_path = raw_root / rel
         work: dict | None = None
-        if raw_path.exists():
+        if refresh is not None and rel not in refresh and rel in previous:
+            work = previous[rel]
+        elif raw_path.exists():
             with raw_path.open(encoding="utf-8") as f:
                 work = json.load(f).get("work")
         if work is None:
@@ -426,14 +640,23 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Normalize raw ingested data.")
     parser.add_argument("--raw-dir", default="data/raw")
     parser.add_argument("--output-dir", default="data/normalized")
-    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--force", action="store_true",
+                        help="rebuild every work (doesn't override the raw guard)")
+    parser.add_argument("--accept-raw-change", action="store_true",
+                        help="normalize works whose raw file changed since they were last "
+                             "normalized (after an intended re-ingest)")
     args = parser.parse_args()
 
-    normalize_all(
-        raw_dir=Path(args.raw_dir),
-        output_dir=Path(args.output_dir),
-        force=args.force,
-    )
+    try:
+        normalize_all(
+            raw_dir=Path(args.raw_dir),
+            output_dir=Path(args.output_dir),
+            force=args.force,
+            accept_raw_change=args.accept_raw_change,
+        )
+    except (RawChangedError, FailedWorksError) as exc:
+        log.error("%s", exc)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
