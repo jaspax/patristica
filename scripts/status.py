@@ -1,0 +1,340 @@
+"""
+Freshness of every pipeline step, in one table (#130).
+
+Each step already records what it was built from (normalize and align a code
+hash and per-work or per-group input hashes; translations and vectors the hash
+of the text they were made from). This compares those records with the
+current code and data and reports, per step, what is stale or pending. It runs
+nothing: the steps are run by hand where they can run (see CLAUDE.md "Stale
+data").
+
+Levels:
+
+- ``fail``: tracked data doesn't match this branch's code or curated data. The
+  same checks are pytest tests (``tests/test_normalize_fingerprint.py``,
+  ``tests/test_align_fingerprint.py``), so CI and the pre-push hook fail too.
+- ``warn``: work is pending that CI can't do (paid steps, local data), or
+  local data differs from what the tracked output was made from.
+- ``ok``.
+
+Checks that need local data run only when asked: ``--raw`` compares
+``data/raw`` with normalize's raw hashes (the works normalize would refuse);
+``--vectors`` loads ``data/embeddings`` (8 GB) for the units still to embed and
+the alignment groups whose inputs changed or that align would refuse.
+
+Usage::
+
+    uv run python -m scripts.status [--raw] [--vectors] [--check] [--summary FILE]
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import os
+import sys
+from collections import Counter
+from dataclasses import dataclass
+from pathlib import Path
+
+from patristica import alignment_store as store
+from patristica import fingerprint
+from patristica import translations as tr
+from patristica.corpus import load_works, select
+
+log = logging.getLogger(__name__)
+
+NORMALIZED = Path("data/normalized")
+RAW = Path("data/raw")
+TRANSLATIONS = tr.DEFAULT_DIR
+EMBEDDINGS = Path("data/embeddings")
+ALIGNMENTS = store.DEFAULT_DIR
+
+
+@dataclass
+class Row:
+    step: str
+    check: str
+    level: str  # ok | warn | fail
+    detail: str
+
+
+def _examples(items: list[str], n: int = 3) -> str:
+    more = f", … (+{len(items) - n})" if len(items) > n else ""
+    return ", ".join(items[:n]) + more
+
+
+# ---------------------------------------------------------------------------
+# normalize
+# ---------------------------------------------------------------------------
+
+
+def normalize_code_current(norm: Path = NORMALIZED) -> bool:
+    from scripts import normalize as nz
+
+    recorded = nz.read_step_fingerprints(norm).get(nz.STEP, {}).get("code")
+    return recorded == nz.normalize_code_hash()
+
+
+def unfingerprinted_works(norm: Path = NORMALIZED) -> list[str]:
+    """Works in ``_works.jsonl`` without a fingerprint (and fingerprints without a work)."""
+    from scripts import normalize as nz
+
+    works, fps = nz.read_works_manifest(norm), nz.read_work_fingerprints(norm)
+    return sorted(set(works) ^ set(fps))
+
+
+def curation_stale_works(norm: Path = NORMALIZED) -> list[str]:
+    """Works whose genre override or author resolution changed since normalize ran."""
+    from scripts import normalize as nz
+
+    works, fps = nz.read_works_manifest(norm), nz.read_work_fingerprints(norm)
+    return sorted(p for p, w in works.items()
+                  if p in fps and fps[p]["curated"] != nz.curated_hash(w))
+
+
+def manifest_mismatch(norm: Path = NORMALIZED) -> tuple[list[str], list[str]]:
+    """(normalized files not in ``_works.jsonl``, manifest entries with no file)."""
+    from scripts import normalize as nz
+
+    files = {p.relative_to(norm).as_posix() for p in norm.rglob("*.json")
+             if not p.name.startswith("_")}
+    listed = set(nz.read_works_manifest(norm))
+    return sorted(files - listed), sorted(listed - files)
+
+
+def _is_work(path: Path) -> bool:
+    """Whether a raw JSON file is a work record (normalize skips anything else)."""
+    try:
+        record = json.loads(path.read_bytes())
+    except ValueError:
+        return False
+    return isinstance(record, dict) and bool(record.get("work"))
+
+
+def raw_changes(norm: Path = NORMALIZED, raw: Path = RAW) -> tuple[list[str], list[str]]:
+    """(works whose local raw differs from what they were built from, raw files
+    with no normalized work yet). Needs ``data/raw``."""
+    from scripts import normalize as nz
+
+    fps = nz.read_work_fingerprints(norm)
+    changed, new = [], []
+    for path in sorted(raw.rglob("*.json")):
+        if any(part.startswith("_") for part in path.relative_to(raw).parts):
+            continue
+        rel = path.relative_to(raw).as_posix()
+        if rel not in fps:
+            if _is_work(path):  # not catalogue/metadata files normalize skips
+                new.append(rel)
+        elif fps[rel]["raw"] != fingerprint.sha16(path.read_bytes()):
+            changed.append(rel)
+    return changed, new
+
+
+# ---------------------------------------------------------------------------
+# align
+# ---------------------------------------------------------------------------
+
+
+def align_code_current(align_dir: Path = ALIGNMENTS) -> bool:
+    from scripts import align
+
+    recorded = align.read_fingerprint(align_dir).get(align.STEP, {}).get("code")
+    return recorded == align.align_code_hash()
+
+
+def _publishable_groups(norm: Path) -> dict[str, list[str]]:
+    from scripts import align
+
+    works = load_works(norm)
+    publishable = {e["work"]["work_id"] for e in select(works, [], [], False)}
+    return {g: [w for w in mem if w in publishable]
+            for g, mem in align.version_groups(works).items()}
+
+
+def unaligned_groups(norm: Path = NORMALIZED, align_dir: Path = ALIGNMENTS) -> list[str]:
+    """Version groups with two publishable members, no file and no recorded skip."""
+    from scripts import align
+
+    skipped = align.read_fingerprint(align_dir).get("skipped", {})
+    return sorted(g for g, mem in _publishable_groups(norm).items()
+                  if len(mem) >= 2 and g not in skipped
+                  and not store.path_for(align_dir, g).exists())
+
+
+def stale_skips(norm: Path = NORMALIZED, align_dir: Path = ALIGNMENTS) -> list[str]:
+    """Recorded skips for groups that no longer have two publishable members."""
+    from scripts import align
+
+    skipped = align.read_fingerprint(align_dir).get("skipped", {})
+    groups = _publishable_groups(norm)
+    return sorted(g for g in skipped if len(groups.get(g, [])) < 2)
+
+
+def alignments_with_changed_units(norm: Path = NORMALIZED,
+                                  align_dir: Path = ALIGNMENTS) -> list[str]:
+    """Alignment files with a member whose chunk ids changed since it was aligned
+    (consumers drop that member until ``scripts.align`` runs again)."""
+    paths = {e["work"]["work_id"]: e["path"] for e in load_works(norm)}
+    stale = []
+    for path, a in store.iter_store(align_dir):
+        for wid, m in a.members.items():
+            if wid not in paths or not (norm / paths[wid]).exists():
+                stale.append(a.group)
+                break
+            chunks = json.loads((norm / paths[wid]).read_text(encoding="utf-8"))
+            if m.ids != store.ids_sha([c["chunk_id"] for c in chunks]):
+                stale.append(a.group)
+                break
+    return stale
+
+
+def align_drift(norm: Path, trans: Path, vecs: Path, align_dir: Path) -> Counter[str]:
+    """What ``scripts.align`` would do now, by outcome (needs the vectors)."""
+    from scripts import align
+
+    jobs, _, _ = align.make_jobs(norm, trans, vecs, align_dir, dry_run=True)
+    counts: Counter[str] = Counter()
+    with align.make_pool(max(1, (os.cpu_count() or 2) // 2)) as pool:
+        for _, outcome in pool.map(align.run_job, jobs):
+            counts[outcome.split(":", 1)[0]] += 1
+    return counts
+
+
+# ---------------------------------------------------------------------------
+# Paid steps
+# ---------------------------------------------------------------------------
+
+
+def pending_translations(norm: Path = NORMALIZED,
+                         trans: Path = TRANSLATIONS) -> tuple[dict[str, int], float]:
+    """Units still to translate, by language, and the estimated cost in dollars.
+
+    Units whose identical text is already translated elsewhere are reused by
+    ``scripts.translate`` for free and aren't counted.
+    """
+    from scripts import translate
+
+    jobs, _ = translate.plan(norm, trans, sorted(tr.TRANSLATED_LANGUAGES), [], False)
+    by_lang: Counter[str] = Counter()
+    for job in jobs:
+        by_lang[job.language] += sum(len(g) for g in job.groups)
+    return dict(by_lang), sum(by_lang.values()) * translate.COST_PER_CHUNK
+
+
+def pending_vectors(norm: Path, trans: Path, vecs: Path) -> tuple[int, float]:
+    """Vectors still to embed and the estimated cost in dollars (needs the vectors)."""
+    from scripts import embed
+
+    stats = embed.run(norm, vecs, trans, dry_run=True)
+    return stats.to_embed, stats.est_tokens / 1e6 * embed.PRICE_PER_MTOK
+
+
+# ---------------------------------------------------------------------------
+# The table
+# ---------------------------------------------------------------------------
+
+
+def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None = None,
+            trans: Path = TRANSLATIONS, align_dir: Path = ALIGNMENTS) -> list[Row]:
+    rows: list[Row] = []
+    renorm = "re-run scripts.normalize"
+    realign = "re-run scripts.align (after scripts.embed)"
+
+    rows.append(Row("normalize", "code", "ok" if normalize_code_current(norm) else "fail",
+                    "current" if normalize_code_current(norm) else f"changed: {renorm}"))
+    missing = unfingerprinted_works(norm)
+    curated = curation_stale_works(norm)
+    rows.append(Row("normalize", "works", "fail" if missing or curated else "ok",
+                    f"{len(missing)} without a fingerprint, {len(curated)} with changed curation"
+                    + (f" ({_examples(missing + curated)}): {renorm}" if missing or curated
+                       else "")))
+    unlisted, absent = manifest_mismatch(norm)
+    rows.append(Row("normalize", "manifest", "fail" if unlisted or absent else "ok",
+                    f"{len(unlisted)} files not in _works.jsonl, {len(absent)} entries "
+                    f"without a file" + (f": {renorm}" if unlisted or absent else "")))
+    if raw is not None:
+        if raw.is_dir():
+            changed, new = raw_changes(norm, raw)
+            rows.append(Row("normalize", "local raw", "warn" if changed or new else "ok",
+                            f"{len(changed)} works whose raw changed (normalize refuses them; "
+                            f"--accept-raw-change after a re-ingest), {len(new)} new raw files"
+                            + (f": {_examples(changed + new)}" if changed or new else "")))
+        else:
+            rows.append(Row("normalize", "local raw", "warn", f"no {raw} here"))
+
+    current = align_code_current(align_dir)
+    rows.append(Row("align", "code", "ok" if current else "fail",
+                    "current" if current else f"changed: {realign}"))
+    unaligned, gone = unaligned_groups(norm, align_dir), stale_skips(norm, align_dir)
+    rows.append(Row("align", "groups", "fail" if unaligned or gone else "ok",
+                    f"{len(unaligned)} version groups without an alignment, {len(gone)} stale "
+                    "skips" + (f" ({_examples(unaligned + gone)}): {realign}"
+                               if unaligned or gone else "")))
+    changed_units = alignments_with_changed_units(norm, align_dir)
+    rows.append(Row("align", "units", "fail" if changed_units else "ok",
+                    f"{len(changed_units)} alignments with a member whose chunks changed"
+                    + (f" ({_examples(changed_units)}): {realign}" if changed_units else "")))
+
+    by_lang, cost = pending_translations(norm, trans)
+    n = sum(by_lang.values())
+    rows.append(Row("translate", "pending", "warn" if n else "ok",
+                    f"{n:,} units (~${cost:,.2f})"
+                    + (": " + ", ".join(f"{k} {v:,}" for k, v in sorted(by_lang.items()))
+                       + "; run scripts.translate" if n else "")))
+
+    if vecs is not None:
+        if vecs.is_dir():
+            todo, vcost = pending_vectors(norm, trans, vecs)
+            rows.append(Row("embed", "pending", "warn" if todo else "ok",
+                            f"{todo:,} vectors (~${vcost:,.2f})"
+                            + ("; run scripts.embed" if todo else "")))
+            drift = align_drift(norm, trans, vecs, align_dir)
+            busy = drift.get("aligned", 0) + drift.get("deleted", 0)
+            refused = drift.get("refused", 0)
+            rows.append(Row("align", "vectors", "warn" if busy or refused else "ok",
+                            f"{busy} groups to re-align, {refused} refused (missing vectors)"
+                            + (f": {realign}" if busy or refused else "")))
+        else:
+            rows.append(Row("embed", "pending", "warn", f"no {vecs} here"))
+    return rows
+
+
+def render(rows: list[Row]) -> str:
+    lines = ["| step | check | | detail |", "|---|---|---|---|"]
+    mark = {"ok": "✅", "warn": "⚠️", "fail": "❌"}
+    for r in rows:
+        lines.append(f"| {r.step} | {r.check} | {mark[r.level]} | {r.detail} |")
+    return "\n".join(lines)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Freshness of every pipeline step (#130).")
+    parser.add_argument("--normalized-dir", type=Path, default=NORMALIZED)
+    parser.add_argument("--translations-dir", type=Path, default=TRANSLATIONS)
+    parser.add_argument("--alignments-dir", type=Path, default=ALIGNMENTS)
+    parser.add_argument("--raw", nargs="?", const=RAW, type=Path, metavar="DIR",
+                        help=f"also compare local raw data (default {RAW})")
+    parser.add_argument("--vectors", nargs="?", const=EMBEDDINGS, type=Path, metavar="DIR",
+                        help=f"also check embeddings and alignment inputs (default {EMBEDDINGS})")
+    parser.add_argument("--check", action="store_true",
+                        help="exit 1 if any check fails (what CI enforces)")
+    parser.add_argument("--summary", type=Path, metavar="FILE",
+                        help="append the table as Markdown (e.g. $GITHUB_STEP_SUMMARY)")
+    args = parser.parse_args()
+    logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
+
+    rows = collect(args.normalized_dir, raw=args.raw, vecs=args.vectors,
+                   trans=args.translations_dir, align_dir=args.alignments_dir)
+    table = render(rows)
+    print(table)
+    if args.summary:
+        with args.summary.open("a", encoding="utf-8") as f:
+            f.write("## Pipeline status (#130)\n\n" + table + "\n\n")
+    if args.check and any(r.level == "fail" for r in rows):
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

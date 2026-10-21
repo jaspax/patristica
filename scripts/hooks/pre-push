@@ -2,6 +2,9 @@
 # Pre-push hook:
 #   1. Reject pushes directly to master (changes land via pull request).
 #   2. Run the unit tests before anything leaves this machine.
+#   3. Run scripts.validate when the pushed commits change a file it reads
+#      (data/normalized, patristica/data, its code; #130). It takes a few
+#      minutes, so it runs only then; skip it with PATRISTICA_SKIP_VALIDATE=1.
 #
 # Install once per clone:   git config core.hooksPath scripts/hooks
 # Bypass in an emergency:   git push --no-verify
@@ -9,17 +12,41 @@ set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
 
+zero=0000000000000000000000000000000000000000
+base=""
 # git feeds one line per ref being pushed: <local ref> <local sha> <remote ref> <remote sha>
-while read -r _local_ref _local_sha remote_ref _remote_sha; do
+while read -r _local_ref _local_sha remote_ref remote_sha; do
     if [[ "$remote_ref" == "refs/heads/master" ]]; then
         echo "pre-push: direct pushes to master are not allowed." >&2
         echo "pre-push: push a feature branch and open a pull request instead." >&2
         exit 1
     fi
+    if [[ -z "$base" && "$remote_sha" != "$zero" ]] && git cat-file -e "$remote_sha" 2>/dev/null; then
+        base="$remote_sha"
+    fi
 done
+# A new branch: compare with where it left master.
+if [[ -z "$base" ]]; then
+    for master in origin/master master; do
+        if git rev-parse --verify -q "$master" >/dev/null; then
+            base="$(git merge-base HEAD "$master")"
+            break
+        fi
+    done
+fi
 
 echo "pre-push: running unit tests (uv run pytest)..." >&2
 if ! uv run --extra dev pytest -q -p no:cacheprovider; then
     echo "pre-push: unit tests failed; push aborted." >&2
+    exit 1
+fi
+
+if [[ "${PATRISTICA_SKIP_VALIDATE:-}" == "1" || -z "$base" ]]; then
+    exit 0
+fi
+echo "pre-push: running scripts.validate if its inputs changed since ${base:0:12}..." >&2
+if ! uv run python -m scripts.validate --if-changed "$base" \
+        --output "${TMPDIR:-/tmp}/patristica-validation-report.json"; then
+    echo "pre-push: validation found errors; push aborted (PATRISTICA_SKIP_VALIDATE=1 to skip)." >&2
     exit 1
 fi

@@ -17,6 +17,13 @@ Checks (10 groups):
    author string resolves in the author index and author_ids is up to date
 9. Scripture coverage — books present/missing per translation
 10. Chunk count report — totals by Work.genre (from _works.jsonl) and language
+
+Exits 1 when any check fails (errors); warnings don't fail.  CI and the
+pre-push hook run it with ``--if-changed REF`` (#130): it then runs only when
+a file it reads changed since *REF*, i.e. ``data/normalized/``, the curated
+data in ``patristica/data/``, or its own code (its import closure, from
+``patristica.fingerprint``).  ``--summary FILE`` appends the error and warning
+counts as Markdown (CI passes ``$GITHUB_STEP_SUMMARY``).
 """
 from __future__ import annotations
 
@@ -24,6 +31,7 @@ import argparse
 import json
 import logging
 import re
+import subprocess
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -32,6 +40,7 @@ from typing import Any
 
 from tqdm import tqdm
 
+from patristica import fingerprint
 from patristica.authors import UnknownAuthorError, resolve_author, work_author_birth_year
 from patristica.period import AUTHOR_BORN_BEFORE, COMPOSED_BY
 from patristica.section_numbers import STRAY_SCRIPT_DIGIT_RE, leading_section_number
@@ -707,6 +716,57 @@ def _print_summary(report: dict) -> None:
     print(f"{sep}\n")
 
 
+#: Data validate reads besides its code: the corpus and the curated tables.
+INPUT_PREFIXES = ("data/normalized/", "patristica/data/")
+
+
+def input_files() -> set[str]:
+    """Repo-relative paths of validate's code (its import closure)."""
+    root = fingerprint.REPO_ROOT
+    return {
+        fingerprint.module_path(m).relative_to(root).as_posix()
+        for m in fingerprint.module_closure("scripts.validate")
+    }
+
+
+def inputs_changed(changed: list[str]) -> list[str]:
+    """The paths in *changed* (repo-relative) that validate reads.
+
+    normalize's fingerprint files (``_fingerprint.json``, ``_fingerprints.jsonl``)
+    are bookkeeping, not data validate checks.
+    """
+    code = input_files()
+    return [p for p in changed
+            if p in code
+            or (p.startswith(INPUT_PREFIXES) and not Path(p).name.startswith("_fingerprint"))]
+
+
+def changed_since(ref: str) -> list[str]:
+    """Repo-relative paths that differ between *ref* and the working tree's HEAD."""
+    out = subprocess.run(
+        ["git", "diff", "--name-only", ref, "HEAD"], cwd=fingerprint.REPO_ROOT,
+        capture_output=True, text=True, check=True,
+    )
+    return [line for line in out.stdout.splitlines() if line]
+
+
+def write_summary(report: dict, path: Path) -> None:
+    """Append the result as Markdown (a CI job summary)."""
+    results = {n: r for section in report["checks"].values() for n, r in section.items()}
+    s = report["summary"]
+    lines = [
+        "## Validation", "",
+        f"{s['total_works']:,} works, {s['total_chunks']:,} chunks: "
+        f"**{s['errors']:,} errors**, {s['warnings']:,} warnings.", "",
+        "| check | status | violations |", "|---|---|---:|",
+    ]
+    for name, r in sorted(results.items(), key=lambda kv: (kv[1].get("status") != "fail", kv[0])):
+        if r.get("status") in ("fail", "warn"):
+            lines.append(f"| {name} | {r['status']} | {r['violation_count']:,} |")
+    with path.open("a", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n\n")
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -716,7 +776,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Validate normalized and chunk data.")
     parser.add_argument("--data-dir", default="data")
     parser.add_argument("--output", default="data/validation_report.json")
+    parser.add_argument("--if-changed", metavar="REF",
+                        help="run only if a file validate reads changed since this git ref")
+    parser.add_argument("--summary", type=Path, metavar="FILE",
+                        help="append the result as Markdown (e.g. $GITHUB_STEP_SUMMARY)")
     args = parser.parse_args()
+
+    if args.if_changed:
+        relevant = inputs_changed(changed_since(args.if_changed))
+        if not relevant:
+            log.info("Nothing validate reads changed since %s: skipping", args.if_changed)
+            return
+        log.info("%d files validate reads changed since %s (e.g. %s)",
+                 len(relevant), args.if_changed, relevant[0])
 
     data_dir = Path(args.data_dir)
 
@@ -777,6 +849,8 @@ def main() -> None:
     log.info("Report written to %s", output_path)
 
     _print_summary(report)
+    if args.summary:
+        write_summary(report, args.summary)
     sys.exit(0 if total_errors == 0 else 1)
 
 

@@ -15,6 +15,7 @@ import pytest
 
 from patristica import genres
 from scripts import normalize as nz
+from scripts import status
 
 NORMALIZED = Path(__file__).resolve().parents[1] / "data" / "normalized"
 RERUN = "re-run `uv run python -m scripts.normalize` and commit data/normalized"
@@ -26,32 +27,24 @@ RERUN = "re-run `uv run python -m scripts.normalize` and commit data/normalized"
 
 
 def test_committed_data_was_normalized_with_this_code() -> None:
-    recorded = nz.read_step_fingerprints(NORMALIZED).get(nz.STEP, {}).get("code")
-    assert recorded == nz.normalize_code_hash(), (
+    assert status.normalize_code_current(NORMALIZED), (
         f"normalize's code changed since data/normalized was produced: {RERUN}"
     )
 
 
 def test_every_work_has_a_current_fingerprint() -> None:
-    works = nz.read_works_manifest(NORMALIZED)
-    fps = nz.read_work_fingerprints(NORMALIZED)
-    missing = sorted(set(works) - set(fps))
-    assert not missing, f"works without a fingerprint ({RERUN}): {missing[:10]}"
-    assert not set(fps) - set(works), "_fingerprints.jsonl lists works not in _works.jsonl"
-    stale = sorted(p for p, w in works.items() if fps[p]["curated"] != nz.curated_hash(w))
+    missing = status.unfingerprinted_works(NORMALIZED)
+    assert not missing, f"works without a fingerprint, or the reverse ({RERUN}): {missing[:10]}"
+    stale = status.curation_stale_works(NORMALIZED)
     assert not stale, (
         f"genre_overrides.csv or the author index changed for these works ({RERUN}): {stale[:10]}"
     )
 
 
 def test_manifest_lists_exactly_the_normalized_files() -> None:
-    files = {
-        p.relative_to(NORMALIZED).as_posix() for p in NORMALIZED.rglob("*.json")
-        if not p.name.startswith("_")
-    }
-    listed = set(nz.read_works_manifest(NORMALIZED))
-    assert files - listed == set(), f"normalized files missing from _works.jsonl ({RERUN})"
-    assert listed - files == set(), "_works.jsonl lists normalized files that don't exist"
+    unlisted, absent = status.manifest_mismatch(NORMALIZED)
+    assert not unlisted, f"normalized files missing from _works.jsonl ({RERUN}): {unlisted[:10]}"
+    assert not absent, f"_works.jsonl lists normalized files that don't exist: {absent[:10]}"
 
 
 def test_fingerprints_stay_out_of_the_works_manifest() -> None:
