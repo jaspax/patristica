@@ -115,7 +115,8 @@ def _imported_names(tree: ast.Module, name: str, is_package: bool) -> set[str]:
     return names
 
 
-def _walk(entries: str | Iterable[str], root: Path) -> dict[str, str | None]:
+def _walk(entries: str | Iterable[str], root: Path,
+          ignore: Collection[str] = ()) -> dict[str, str | None]:
     """Breadth-first walk of the import graph: ``{module: importer}``.
 
     The importer of an entry is None; following importers back from any
@@ -131,7 +132,7 @@ def _walk(entries: str | Iterable[str], root: Path) -> dict[str, str | None]:
     seen: dict[str, str | None] = {}
     while pending:
         name, importer = pending.popleft()
-        if name in seen or name in IGNORED_MODULES or not _is_local(name):
+        if name in seen or name in IGNORED_MODULES or name in ignore or not _is_local(name):
             continue
         path = module_path(name, root)
         if path is None:  # an imported attribute, not a module
@@ -147,13 +148,15 @@ def _walk(entries: str | Iterable[str], root: Path) -> dict[str, str | None]:
     return seen
 
 
-def module_closure(entries: str | Iterable[str], root: Path = REPO_ROOT) -> list[str]:
+def module_closure(entries: str | Iterable[str], root: Path = REPO_ROOT,
+                   ignore: Collection[str] = ()) -> list[str]:
     """Sorted names of the repository modules that *entries* import.
 
     Includes the entries themselves and the packages (``__init__``) of every
     module, since importing a module runs its packages' ``__init__`` too.
+    Modules in *ignore* (and what only they import) are left out.
     """
-    return sorted(_walk(entries, root))
+    return sorted(_walk(entries, root, ignore))
 
 
 def import_chain(
@@ -239,6 +242,7 @@ def code_hash(
     *,
     exclude: Mapping[str, Collection[str]] | None = None,
     data_files: Iterable[Path] = (),
+    ignore: Collection[str] = (),
     root: Path = REPO_ROOT,
 ) -> str:
     """Hash of a pipeline step's code: the import closure of *entries*.
@@ -246,10 +250,11 @@ def code_hash(
     *exclude* maps module names to per-key registries left out of their module
     hash (see the module docstring); every module named must be in the
     closure.  *data_files* are files the code reads (relative to *root* or
-    absolute under it), hashed by content.
+    absolute under it), hashed by content. Modules in *ignore* are left out of
+    the closure (shared runners that aren't the step's code).
     """
     exclude = exclude or {}
-    modules = module_closure(entries, root)
+    modules = module_closure(entries, root, ignore)
     unknown = set(exclude) - set(modules)
     if unknown:
         raise FingerprintError(

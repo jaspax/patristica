@@ -52,6 +52,7 @@ patristica/
 │   │   ├── _scrollmapper.py   # shared CSV ingestor for scrollmapper/bible_databases translations
 │   │   ├── _ebible_usfm.py    # shared USFM ingestor for eBible.org zip archives (handles Strong's + footnotes)
 │   │   ├── _ingestor_main.py  # shared CLI entry-point helper for individual ingestors
+│   │   ├── _stamp.py          # ingest stamps: data/raw/{source}/_ingest.json = ingestor code hash (#130)
 │   │   ├── all.py             # run all ingestors, or a single one via --source
 │   │   └── {source_id}.py     # one module per source (e.g. oshb.py, kjv.py)
 │   ├── normalize.py           # raw → normalized Chunk JSON
@@ -191,6 +192,8 @@ uv run python -m scripts.ingest.oshb
 uv run python -m scripts.ingest.all --source kjv --force
 ```
 
+Both entry points stamp the source's raw data with the ingestor's code hash (`data/raw/{source_id}/_ingest.json`, `scripts/ingest/_stamp.py`, #130), but only on a `--force` run or into a source with no works yet: an ingestor skips existing files, so a plain re-run of a changed ingestor keeps the old raw data. It logs that instead. After changing an ingestor, re-run it with `--force` and normalize with `--accept-raw-change`.
+
 ### Shared ingest helpers
 
 Use the appropriate helper rather than duplicating logic:
@@ -246,6 +249,8 @@ What follows from that:
 - `tests/test_normalize_fingerprint.py` fails (in CI and the pre-push hook) when the committed `data/normalized` doesn't match the branch's code, overrides or author index. The fix is always to re-run `scripts.normalize` and commit the result.
 - A work whose local raw file differs from the one it was last normalized from is refused: its output is kept and normalize exits 1. That catches old local raw data (#114, #127). After a deliberate re-ingest, re-run with `--accept-raw-change`. `--force` doesn't bypass it.
 - A new source is normalized incrementally: its works have no fingerprint yet, so only they are built.
+- `_fingerprint.json` also records each source's ingest stamp (`"ingest": {source_id: code}`), copied from its raw data when normalize rebuilds it. `scripts.status` warns, in CI too, when an ingestor changed after its source's data was normalized: the data may be out of date, as with `translation_of` links set in ingestor code (#150). Sources ingested before the stamps show as "not stamped yet" until their next `--force` ingest.
+- `build_index` records its code hash in `index_meta` (`code`) after a full run, never in a work's `content_sha`, so a code change never reloads anything by itself. `scripts.status --db` reports it, and with `--vectors` the works a run would load or delete. Bump `LOADER_VERSION` when a change should reload the stored data.
 - Alignments have the same kind of check ("Passage alignment" above).
 - `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job, which also runs `scripts.validate` when a file validate reads changed (`--if-changed`): it fails on validation errors and lists the warnings. The plan is on #130.
 

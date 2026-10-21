@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Callable
 
 from patristica.models import Work
+from scripts.ingest._stamp import run_stamped
 
 
 def ingestor_main(
@@ -46,5 +47,5 @@ def ingestor_main(
     )
     args = parser.parse_args()
 
-    works = ingest_fn(Path(args.output_dir), force=args.force)
+    works = run_stamped(ingest_fn, Path(args.output_dir), source_id, force=args.force)
     print(f"{source_id}: {len(works)} works written to {args.output_dir}")
