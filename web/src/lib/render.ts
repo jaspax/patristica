@@ -182,3 +182,35 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   if (sections.length === 1 && sections[0].title === null) sections[0].label = null;
   return sections;
 }
+
+/** What a chunk of the work file is in the parsed structure. */
+export type ChunkRole =
+  | { kind: "heading"; section: Section; sectionIndex: number }
+  | { kind: "unit"; unit: Unit; sectionIndex: number }
+  | { kind: "part"; unit: Unit; part: number; sectionIndex: number };
+
+/**
+ * The role of each chunk of `work` (in file order) in `sections`, its
+ * parseWork result: the heading of a section, a unit, or one derived verse
+ * of a unit. Parallel reading (#181) renders ranges of chunks with it.
+ */
+export function chunkRoles(work: WorkFile, sections: readonly Section[]): ChunkRole[] {
+  const index = new Map(work.chunks.map(([suffix], i) => [joinRef(work.ref_prefix, suffix), i]));
+  const roles: ChunkRole[] = new Array(work.chunks.length);
+  sections.forEach((section, sectionIndex) => {
+    const heading = section.ref === null ? undefined : index.get(section.ref);
+    if (heading !== undefined) roles[heading] = { kind: "heading", section, sectionIndex };
+    for (const unit of section.units) {
+      if (unit.parts) {
+        unit.parts.forEach((p, part) => {
+          const i = index.get(p.ref);
+          if (i !== undefined) roles[i] = { kind: "part", unit, part, sectionIndex };
+        });
+      } else {
+        const i = index.get(unit.ref);
+        if (i !== undefined) roles[i] = { kind: "unit", unit, sectionIndex };
+      }
+    }
+  });
+  return roles;
+}

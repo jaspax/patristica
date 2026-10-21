@@ -1,0 +1,156 @@
+/* Parallel reading takes more than the page's 72rem where the screen has it:
+   up to 112rem, centred on the page, never wider than the viewport. */
+.page {
+  --parallel-width: min(calc(100vw - 3rem), 112rem);
+  --col-0: var(--accent);
+  --col-1: #2f6c9e;
+  --col-2: #4d7d34;
+  --col-3: #8a6a12;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --col-1: #7fb0dc;
+    --col-2: #95c27a;
+    --col-3: #d6b45e;
+  }
+}
+
+@media (min-width: 80rem) {
+  .page {
+    width: var(--parallel-width);
+    margin-inline-start: calc((100% - var(--parallel-width)) / 2);
+  }
+}
+
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.header {
+  max-width: var(--text-width);
+  margin-bottom: 1.25rem;
+}
+
+.header h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.author {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.mode {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.notice {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--surface);
+  font-size: 0.88rem;
+  list-style: none;
+}
+
+.add {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.add summary {
+  cursor: pointer;
+  color: var(--accent);
+  width: fit-content;
+}
+
+.add ul {
+  list-style: none;
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: 0.75rem;
+}
+
+.add li {
+  overflow-wrap: anywhere;
+}
+
+.addGroup {
+  margin-top: 0.5rem;
+}
+
+.addLanguage {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* One card per version, above its column on wide screens. */
+.versions {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 0.75rem 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border-top: 3px solid var(--col);
+  padding-top: 0.4rem;
+}
+
+.cardLanguage {
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.badge,
+.nc {
+  margin-inline-start: 0.5rem;
+  padding: 0 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.nc {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 47.99rem) {
+  .versions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    border-top: none;
+    border-inline-start: 3px solid var(--col);
+    padding: 0 0 0 0.5rem;
+  }
+}

@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useCallback, useMemo, useRef } from "react";
 
 import { formatDateLong, GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import {
-  hasAlignment,
-  loadAlignment,
   loadLibrary,
   loadWork,
   workAuthors,
@@ -17,12 +15,14 @@ import {
   type Library,
   type WorkRow,
 } from "@/lib/library";
+import { canReadInParallel, parallelHref, parallelIds } from "@/lib/parallel";
 import { useLoaded } from "@/lib/useLoaded";
 import { useOffscreen } from "@/lib/useOffscreen";
-import { currentPosition, mapPosition, originalIds, versionMembers } from "@/lib/versions";
+import { currentPosition, originalIds, positionIn, versionMembers } from "@/lib/versions";
 
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
+import ParallelReader from "./ParallelReader";
 import VersionSwitcher, { FloatingVersions, VersionLink, type PositionFor } from "./VersionSwitcher";
 import WorkText from "./WorkText";
 import styles from "./WorkReader.module.css";
@@ -30,6 +30,9 @@ import styles from "./WorkReader.module.css";
 export default function WorkReader() {
   const params = useParams<{ id: string[] }>();
   const id = workIdFromSegments(params.id ?? []);
+  // `?with=` opens parallel reading (#181). The page wraps the reader in Suspense for this.
+  const search = useSearchParams();
+  const withIds = parallelIds(search, id);
   const library = useLoaded(loadLibrary);
 
   if (library.status === "loading") return <p>Loading…</p>;
@@ -46,7 +49,10 @@ export default function WorkReader() {
       </div>
     );
   }
-  // Keyed by work so navigating to another work starts a fresh load.
+  // Keyed by work (and versions) so navigating to another starts a fresh load.
+  if (withIds.length > 0) {
+    return <ParallelReader key={[row.id, ...withIds].join("\n")} lead={row} withIds={withIds} library={library.data} />;
+  }
   return <Reader key={row.id} row={row} library={library.data} />;
 }
 
@@ -66,26 +72,25 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
   // Open another version at the passage being read (lib/versions.ts).
   const textRef = useRef<HTMLDivElement>(null);
   const fromWork = work.status === "ready" ? work.data : null;
+  const here = useCallback(() => currentPosition(textRef.current, window.location.hash), []);
   const positionFor = useCallback<PositionFor>(
-    async (target) => {
-      const here = fromWork && currentPosition(textRef.current, window.location.hash);
-      if (!fromWork || !here) return null;
-      const group = row.version_group;
-      const mapped = await mapPosition({
-        from: row,
-        fromWork,
-        ref: here.ref,
-        to: target,
-        loadTarget: () => loadWork(target.file),
-        loadAlignment: hasAlignment(index, group) ? () => loadAlignment(group) : undefined,
-      });
-      // Highlighted only if the reader was at a highlighted passage, not just
-      // scrolled there, and the target is that passage rather than one near it.
-      return mapped ? { ref: mapped.ref, highlight: here.highlight && !mapped.approximate } : null;
-    },
-    [fromWork, row, index],
+    async (target) => (fromWork ? positionIn(index, row, fromWork, here(), target) : null),
+    [fromWork, row, index, here],
   );
-  const versionProps = { current: row, members, originals, sources: index.sources, positionFor };
+  // Read side by side (#181): the same position in this work, with the other version beside it.
+  const parallelFor = useCallback(
+    (target: WorkRow) => (canReadInParallel(index, row) ? parallelHref(row.id, [target.id]) : null),
+    [index, row],
+  );
+  const versionProps = {
+    current: row,
+    members,
+    originals,
+    sources: index.sources,
+    positionFor,
+    parallelFor,
+    here: async () => (fromWork ? here() : null),
+  };
   const hasVersions = members.length > 1;
   const headerVersions = useRef<HTMLDetailsElement>(null);
   const headerVersionsOffscreen = useOffscreen(headerVersions);

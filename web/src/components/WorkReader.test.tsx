@@ -10,6 +10,7 @@ const push = vi.fn();
 vi.mock("next/navigation", () => ({
   useParams: () => params,
   useRouter: () => ({ push }),
+  useSearchParams: () => new URLSearchParams(window.location.search),
 }));
 
 const index: LibraryIndex = {
@@ -142,10 +143,35 @@ describe("WorkReader versions", () => {
     render(<WorkReader />);
     await screen.findByText("Other versions (2 in 2 languages)");
     expect(screen.getByText("Original", { selector: "dt" })).toBeDefined();
-    const originals = screen.getAllByRole("link", { name: /Open Scriptures Hebrew Bible/ });
+    const originals = screen.getAllByRole("link", { name: /^(Hebrew: )?Open Scriptures Hebrew Bible$/ });
     expect(originals.map((a) => a.textContent)).toEqual(["Hebrew: Open Scriptures Hebrew Bible", "Open Scriptures Hebrew Bible"]);
     expect(originals.every((a) => a.getAttribute("href") === "/works/oshb/ps")).toBe(true);
     expect(screen.getByRole("link", { name: "Clementine Vulgate" }).getAttribute("href")).toBe("/works/clementine/ps");
+    // Scripture can always be read side by side (#181).
+    expect(screen.getByRole("link", { name: "Read side by side with Clementine Vulgate" }).getAttribute("href")).toBe(
+      "/works/kjv/ps?with=clementine%2Fps",
+    );
+  });
+
+  it("offers side by side reading only where the versions are aligned", async () => {
+    params = { id: ["npnf-works", "hom"] };
+    render(<WorkReader />);
+    await screen.findByText("Other versions (1)");
+    expect(screen.getByRole("link", { name: "Read side by side with First Thousand Years of Greek" })).toBeDefined();
+    cleanup();
+    // A library published before alignments were exported has no list.
+    const fetch = globalThis.fetch as unknown as { mockImplementation: (f: (url: string) => Promise<Response>) => void };
+    const previous = { ...index, alignments: undefined };
+    fetch.mockImplementation(async (url: string) => {
+      const file = Object.entries(files).find(([path]) => url.endsWith(path))?.[1];
+      const body = url.endsWith("/authors.json") ? authors : url.endsWith("/index.json") ? previous : (file ?? work);
+      return new Response(JSON.stringify(body));
+    });
+    vi.resetModules();
+    const Fresh = (await import("./WorkReader")).default;
+    render(<Fresh />);
+    await screen.findByText("Other versions (1)");
+    expect(screen.queryByRole("link", { name: /side by side/ })).toBeNull();
   });
 
   it("keeps a translation's 'Translation of' line and lists the original", async () => {
@@ -156,6 +182,14 @@ describe("WorkReader versions", () => {
     // The Translation of line replaces the generic Original line.
     expect(screen.queryByText("Original", { selector: "dt" })).toBeNull();
     expect(screen.getByRole("link", { name: "Homiliae" }).getAttribute("href")).toBe("/works/first1k/hom");
+  });
+
+  it("opens parallel reading for ?with= (#181)", async () => {
+    window.history.replaceState(null, "", "/works/kjv/ps?with=clementine%2Fps");
+    params = { id: ["kjv", "ps"] };
+    render(<WorkReader />);
+    expect(await screen.findByText(/Reading 2 versions side by side/)).toBeDefined();
+    expect(await screen.findByText("Dominus regit me")).toBeDefined();
   });
 
   it("shows no versions control for a work with no other version", async () => {
