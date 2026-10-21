@@ -47,10 +47,10 @@ from typing import Any
 
 from tqdm import tqdm
 
+from patristica.corpus import EXCLUDED_LICENSES  # noqa: F401  (re-exported)
+
 log = logging.getLogger(__name__)
 
-#: Licences that may not be published (see DATA_LICENSE.md).
-EXCLUDED_LICENSES = frozenset({"unknown"})
 
 ENV_FILES = (Path(".env"), Path("web/.env"))
 REQUIRED_ENV = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_BUCKET")

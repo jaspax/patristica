@@ -72,10 +72,10 @@ from patristica import alignment_store as al
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.authors import author_index
+from patristica.corpus import load_works, select
 from patristica.embedders import env_key, shorten
 from patristica.keyword import FOLD_VERSION, index_text
 from patristica.models import Chunk
-from scripts.embed import load_works, select
 from scripts.link_translations import link_scripture_translations
 
 if TYPE_CHECKING:

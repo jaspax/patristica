@@ -45,9 +45,9 @@ from tqdm import tqdm
 from patristica import alignment_store as store
 from patristica import embeddings as emb
 from patristica import translations as tr
+from patristica.corpus import load_works, select
 from patristica.versification import SOURCE_SCHEMES, VersificationError, to_org_ref
 from patristica.versions import derive_version_groups
-from scripts.embed import load_works, select
 
 log = logging.getLogger(__name__)
 

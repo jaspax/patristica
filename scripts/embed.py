@@ -56,8 +56,8 @@ from tqdm import tqdm
 
 from patristica import embeddings as emb
 from patristica import translations as tr
+from patristica.corpus import load_works, select  # noqa: F401  (re-exported)
 from patristica.embedders import ApiEmbedder, VoyageEmbedder, cl100k
-from scripts.upload_library import EXCLUDED_LICENSES
 
 if TYPE_CHECKING:
     import numpy as np
@@ -67,7 +67,7 @@ log = logging.getLogger(__name__)
 MODEL = "voyage-4-large"
 DIMS = 1024
 INPUT_TYPE = "document"
-MIN_CHARS = 10  # shorter units (headings, numbers, OCR fragments) get no vector
+MIN_CHARS = emb.MIN_CHARS
 # voyage-4-large list price per million tokens, before any free allowance.
 # Only for --dry-run; Voyage counts rare scripts at up to ~2x cl100k, and the
 # real count is logged at the end of a run.
@@ -109,11 +109,6 @@ class Stats:
     written: int = 0
     deleted: int = 0
     untranslated_works: dict[str, int] = field(default_factory=dict)
-
-
-def load_works(input_dir: Path) -> list[dict]:
-    with (input_dir / "_works.jsonl").open(encoding="utf-8") as f:
-        return [json.loads(line) for line in f if line.strip()]
 
 
 def wanted_items(chunks: list[dict], translations: tr.WorkTranslations | None,
@@ -182,22 +177,6 @@ def finish(job: Job, store_dir: Path, stats: Stats) -> None:
             stats.written += 1
         else:
             stats.deleted += 1
-
-
-def select(works: list[dict], sources: list[str], prefixes: list[str],
-           include_unpublishable: bool) -> list[dict]:
-    out = []
-    for entry in works:
-        work = entry["work"]
-        if sources and work["source_id"] not in sources:
-            continue
-        if prefixes and not any(work["work_id"].startswith(p) for p in prefixes):
-            continue
-        if work["license"] in EXCLUDED_LICENSES and not include_unpublishable:
-            log.info("skipping %s (licence %s)", work["work_id"], work["license"])
-            continue
-        out.append(entry)
-    return out
 
 
 def prune(store_dir: Path, keep: Iterable[str], stats: Stats) -> None:

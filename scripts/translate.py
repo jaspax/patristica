@@ -50,6 +50,7 @@ from pathlib import Path
 from pydantic import BaseModel
 
 from patristica import translations as tr
+from patristica.corpus import EXCLUDED_LICENSES
 from scripts.embed_eval.translate import (
     LANGUAGE_NAMES,
     MODELS,
@@ -57,7 +58,6 @@ from scripts.embed_eval.translate import (
     Clients,
     cost,
 )
-from scripts.upload_library import EXCLUDED_LICENSES
 
 log = logging.getLogger(__name__)
 
