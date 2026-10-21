@@ -5,7 +5,7 @@ import { memo, useCallback, useMemo, useRef, type CSSProperties, type ReactNode,
 import { unitRef } from "@/lib/alignment";
 import { languageInfo } from "@/lib/lang";
 import type { WorkFile, WorkRow } from "@/lib/library";
-import { sectionBlocks, type Row, type Span } from "@/lib/parallel";
+import { columnRef, sectionBlocks, type Row, type Span } from "@/lib/parallel";
 import { chunkRoles, parseWork, type ChunkRole, type Section } from "@/lib/render";
 import { useHashTarget } from "@/lib/useHashTarget";
 
@@ -61,17 +61,13 @@ function chunked(n: number): [number, number][] {
   return out;
 }
 
-/** Escape a value for a double-quoted CSS attribute selector. */
-function attrValue(value: string): string {
-  return value.replace(/["\\]/g, "\\$&");
-}
-
 /**
  * The versions side by side (#181): the leading version's sections, each a
  * list of rows; each row holds one alignment group's units in every version
- * (lib/parallel.ts). Only the leading version's elements carry ids (refs are
- * often the same across versions); the others carry `data-ref`, and a
- * fragment that isn't the leading version's is looked up there.
+ * (lib/parallel.ts). The leading version's elements have their refs as ids,
+ * so plain `#ref` links (search results, the version switcher) work as in
+ * the reader; refs often repeat across versions (KJV and Vulgate both have
+ * Ps.22.1), so the other columns' ids are `{ref}@{work id}` (columnRef).
  */
 export default function ParallelText({ columns, rows, textRef }: Props) {
   const prepared = useMemo<Prepared[]>(
@@ -99,8 +95,14 @@ export default function ParallelText({ columns, rows, textRef }: Props) {
   const root = textRef ?? ownRef;
   const resolve = useCallback(
     (id: string) =>
-      document.getElementById(id) ?? root.current?.querySelector(`[data-ref="${attrValue(id)}"]`) ?? null,
-    [root],
+      document.getElementById(id) ??
+      // A plain ref the leading version lacks (an older link): the first other version that has it.
+      columns
+        .slice(1)
+        .map((c) => document.getElementById(columnRef(id, c.row.id)))
+        .find((el) => el !== null) ??
+      null,
+    [columns],
   );
   useHashTarget(blocks.length > 0, resolve);
 
@@ -190,8 +192,13 @@ const RowView = memo(function RowView({ row, starts, prepared, leadLabel }: RowP
   );
 });
 
-function idProps(p: Prepared, ref: string): { id?: string; "data-ref"?: string } {
-  return p.lead ? { id: ref } : { "data-ref": ref };
+/** The element id of `ref` in a column: the ref itself in the leading version, `{ref}@{work}` in the others. */
+function anchorId(p: Prepared, ref: string): string {
+  return p.lead ? ref : columnRef(ref, p.column.row.id);
+}
+
+function idProps(p: Prepared, ref: string): { id: string } {
+  return { id: anchorId(p, ref) };
 }
 
 /**
@@ -235,7 +242,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
         );
       } else {
         out.push(
-          <p key={i} className={styles.title} data-ref={ref}>
+          <p key={i} className={styles.title} {...idProps(p, ref)}>
             {text}
           </p>,
         );
@@ -246,7 +253,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
       const classes = [styles.para, u.rubric && styles.rubric, u.outOfPeriod && styles.oop].filter(Boolean).join(" ");
       out.push(
         <p key={i} className={classes} {...idProps(p, ref)} title={u.outOfPeriod ? "After the collection period" : undefined}>
-          <a className={styles.marker} href={`#${ref}`} aria-label={`Paragraph ${u.n}`}>
+          <a className={styles.marker} href={`#${anchorId(p, ref)}`} aria-label={`Paragraph ${u.n}`}>
             {u.n}
           </a>
           {u.text}
@@ -265,7 +272,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
       out.push(
         <p key={i} className={classes} {...(first === 0 ? idProps(p, u.ref) : {})}>
           {first === 0 && (
-            <a className={styles.marker} href={`#${u.ref}`} aria-label={`Paragraph ${u.n}`}>
+            <a className={styles.marker} href={`#${anchorId(p, u.ref)}`} aria-label={`Paragraph ${u.n}`}>
               {u.n}
             </a>
           )}
@@ -274,7 +281,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
               {k > 0 && " "}
               <a
                 className={styles.derived}
-                href={`#${part.ref}`}
+                href={`#${anchorId(p, part.ref)}`}
                 title={DERIVED_TITLE}
                 aria-label={`Verse ${part.n}, added by Patristica`}
                 dir="ltr"

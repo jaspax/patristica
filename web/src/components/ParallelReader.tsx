@@ -20,10 +20,13 @@ import {
   alignmentMembers,
   buildRows,
   isScriptureBook,
+  keepPosition,
   MAX_VERSIONS,
   parallelHref,
   parallelVersions,
+  splitColumnRef,
   versificationMembers,
+  type ColumnPosition,
   type Row,
 } from "@/lib/parallel";
 import { NON_COMMERCIAL } from "@/lib/sources";
@@ -118,13 +121,28 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
 
   const ready = data.status === "ready" && data.data ? data.data : null;
   const shown = useMemo(() => ready?.columns.map((c) => c.row) ?? wanted, [ready, wanted]);
-  const leadWork = ready?.columns[0].work ?? null;
 
-  // Where the reader is in the leading version, and that place in another version.
-  const here = useCallback(async () => (leadWork ? currentPosition(textRef.current, window.location.hash) : null), [leadWork]);
-  const mappedTo = useCallback(
-    async (target: WorkRow) => (leadWork ? positionIn(index, lead, leadWork, await here(), target) : null),
-    [index, lead, leadWork, here],
+  // Where the reader is: a passage in any column (the fragment's while on
+  // screen, else the first at the top of the viewport), with its version.
+  const here = useCallback((): ColumnPosition | null => {
+    if (!ready) return null;
+    const p = currentPosition(textRef.current, window.location.hash);
+    if (!p) return null;
+    const { ref, work } = splitColumnRef(p.ref, ready.columns.map((c) => c.row.id));
+    return { ref, work, highlight: p.highlight };
+  }, [ready]);
+  // Where to open `to` (with `others` beside it) for that passage: the same
+  // passage if its version is still shown, else mapped to `to`.
+  const positionFor = useCallback(
+    (to: WorkRow, others: readonly string[]) => async (): Promise<Position | null> => {
+      const at = here();
+      if (!at || !ready) return null;
+      const kept = keepPosition(at, to.id, others);
+      if (kept) return kept;
+      const from = ready.columns.find((c) => c.row.id === at.work)!;
+      return positionIn(index, from.row, from.work, { ref: at.ref, highlight: at.highlight }, to);
+    },
+    [here, ready, index],
   );
   const otherIds = shown.slice(1).map((w) => w.id);
 
@@ -148,7 +166,7 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
         )}
         <p className={styles.mode}>
           Reading {shown.length} versions side by side.{" "}
-          <PositionLink href={workHref(lead.id)} position={here}>
+          <PositionLink href={workHref(lead.id)} position={positionFor(lead, [])}>
             Back to reading one version
           </PositionLink>
         </p>
@@ -158,7 +176,7 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
           members={members}
           originals={originals}
           shown={shown}
-          here={here}
+          positionFor={positionFor}
         />
         {skipped.length > 0 && (
           <ul className={styles.notice} role="status">
@@ -197,10 +215,9 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
             index={index}
             original={originals.has(w.id)}
             title={w.title !== lead.title ? w.title : null}
-            remove={c === 0 ? null : parallelHref(lead.id, otherIds.filter((id) => id !== w.id))}
-            makeLead={c === 0 ? null : parallelHref(w.id, [lead.id, ...otherIds.filter((id) => id !== w.id)])}
-            here={here}
-            mapped={() => mappedTo(w)}
+            open={positionFor(w, [])}
+            remove={c === 0 ? null : withoutVersion(lead, otherIds, w, positionFor)}
+            makeLead={c === 0 ? null : leadWith(lead, otherIds, w, positionFor)}
           />
         ))}
       </ol>
@@ -218,6 +235,27 @@ export default function ParallelReader({ lead, withIds, library }: Props) {
   );
 }
 
+/** Where to open a view led by `to` with `others` beside it, keeping the reader's passage. */
+type PositionFor = (to: WorkRow, others: readonly string[]) => () => Promise<Position | null>;
+
+/** A link target: a URL and where to open it. */
+interface Target {
+  href: string;
+  position: () => Promise<Position | null>;
+}
+
+/** The view without version `w`. */
+function withoutVersion(lead: WorkRow, others: readonly string[], w: WorkRow, positionFor: PositionFor): Target {
+  const rest = others.filter((id) => id !== w.id);
+  return { href: parallelHref(lead.id, rest), position: positionFor(lead, rest) };
+}
+
+/** The view led by version `w`, the current leading version beside it. */
+function leadWith(lead: WorkRow, others: readonly string[], w: WorkRow, positionFor: PositionFor): Target {
+  const rest = [lead.id, ...others.filter((id) => id !== w.id)];
+  return { href: parallelHref(w.id, rest), position: positionFor(w, rest) };
+}
+
 interface CardProps {
   work: WorkRow;
   column: number;
@@ -225,16 +263,16 @@ interface CardProps {
   original: boolean;
   /** The title, where it differs from the leading version's. */
   title: string | null;
-  /** URL without this version, or null for the leading one. */
-  remove: string | null;
-  /** URL with this version leading, or null for the leading one. */
-  makeLead: string | null;
-  here: () => Promise<Position | null>;
-  mapped: () => Promise<Position | null>;
+  /** Where to open this version on its own page. */
+  open: () => Promise<Position | null>;
+  /** The view without this version, or null for the leading one. */
+  remove: Target | null;
+  /** The view with this version leading, or null for the leading one. */
+  makeLead: Target | null;
 }
 
 /** One version's attribution: language, collection, edition, licence; and its controls. */
-function VersionCard({ work, column, index, original, title, remove, makeLead, here, mapped }: CardProps) {
+function VersionCard({ work, column, index, original, title, open, remove, makeLead }: CardProps) {
   const info = languageInfo(work.language);
   const license = LICENSES[work.license] ?? { label: work.license };
   const label = index.sources[work.source_id] ?? work.source_id;
@@ -246,7 +284,7 @@ function VersionCard({ work, column, index, original, title, remove, makeLead, h
         {original && <span className={styles.badge}>Original</span>}
       </p>
       <p>
-        <PositionLink href={workHref(work.id)} position={column === 0 ? here : mapped}>
+        <PositionLink href={workHref(work.id)} position={open}>
           {label}
         </PositionLink>
       </p>
@@ -263,12 +301,12 @@ function VersionCard({ work, column, index, original, title, remove, makeLead, h
       {(remove !== null || makeLead !== null) && (
         <p className={styles.controls}>
           {makeLead && (
-            <PositionLink href={makeLead} position={mapped} aria-label={`Lead with ${info.name}: ${label}`}>
+            <PositionLink href={makeLead.href} position={makeLead.position} aria-label={`Lead with ${info.name}: ${label}`}>
               lead with this
             </PositionLink>
           )}
-          {remove !== null && (
-            <PositionLink href={remove} position={here} aria-label={`Remove ${info.name}: ${label}`}>
+          {remove && (
+            <PositionLink href={remove.href} position={remove.position} aria-label={`Remove ${info.name}: ${label}`}>
               remove
             </PositionLink>
           )}
@@ -284,11 +322,11 @@ interface AddProps {
   members: readonly WorkRow[];
   originals: ReadonlySet<string>;
   shown: readonly WorkRow[];
-  here: () => Promise<Position | null>;
+  positionFor: PositionFor;
 }
 
 /** "Add a version": the group's other members, each opening the view with it added. */
-function AddVersion({ index, lead, members, originals, shown, here }: AddProps) {
+function AddVersion({ index, lead, members, originals, shown, positionFor }: AddProps) {
   const ids = new Set(shown.map((w) => w.id));
   const rest = members.filter((w) => !ids.has(w.id));
   if (rest.length === 0) return null;
@@ -308,7 +346,7 @@ function AddVersion({ index, lead, members, originals, shown, here }: AddProps) 
               const d = details.get(w.id)!;
               return (
                 <li key={w.id}>
-                  <PositionLink href={parallelHref(lead.id, [...others, w.id])} position={here}>
+                  <PositionLink href={parallelHref(lead.id, [...others, w.id])} position={positionFor(lead, [...others, w.id])}>
                     {index.sources[w.source_id] ?? w.source_id}
                   </PositionLink>
                   {d.title && (

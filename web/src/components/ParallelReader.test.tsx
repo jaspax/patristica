@@ -39,6 +39,7 @@ const files: Record<string, WorkFile | AlignmentFile> = {
     org_refs: { "3.1": "Ps.3.2" },
     chunks: [
       ["3.1", "LORD, how are they increased"],
+      ["22.1", "My God, my God"],
       ["23.1", "The LORD is my shepherd"],
     ],
   },
@@ -55,9 +56,10 @@ const files: Record<string, WorkFile | AlignmentFile> = {
   "/works/clementine/ps.json": {
     work_id: "clementine/ps",
     ref_prefix: "Ps",
-    org_refs: { "22.1": "Ps.23.1" },
+    org_refs: { "21.1": "Ps.22.1", "22.1": "Ps.23.1" },
     chunks: [
       ["3.2", "Domine, quid multiplicati sunt"],
+      ["21.1", "Deus, Deus meus"],
       ["22.1", "Dominus regit me"],
     ],
   },
@@ -128,24 +130,44 @@ describe("ParallelReader: Scripture", () => {
   it("puts the same verse in one row across numberings, each column in its own language and direction", async () => {
     const { container } = await open(kjv, ["oshb/ps", "clementine/ps"]);
     const rows = [...container.querySelectorAll("section > div")];
-    const text = (row: Element) => [...row.children].map((c) => c.querySelector("p[id], p[data-ref]")?.textContent?.replace(/^\d+/, "") ?? "");
+    const text = (row: Element) => [...row.children].map((c) => c.querySelector("p[id]")?.textContent?.replace(/^\d+/, "") ?? "");
     // The Hebrew title (org 3.1) has no KJV or Vulgate counterpart: empty cells beside it.
     expect(text(rows[0])).toEqual(["", "מִזְמ֥וֹר לְדָוִ֑ד", ""]);
     expect(text(rows[1])).toEqual(["LORD, how are they increased", "יְ֭הוָה מָה־רַבּ֣וּ צָרָ֑י", "Domine, quid multiplicati sunt"]);
-    expect(text(rows[2])).toEqual(["The LORD is my shepherd", "יְהֹוָ֥ה רֹ֝עִ֗י", "Dominus regit me"]);
-    const hebrew = rows[2].children[1];
+    expect(text(rows[2])).toEqual(["My God, my God", "", "Deus, Deus meus"]);
+    expect(text(rows[3])).toEqual(["The LORD is my shepherd", "יְהֹוָ֥ה רֹ֝עִ֗י", "Dominus regit me"]);
+    const hebrew = rows[3].children[1];
     expect([hebrew.getAttribute("lang"), hebrew.getAttribute("dir")]).toEqual(["hbo", "rtl"]);
-    expect([rows[2].children[0].getAttribute("dir"), rows[2].children[2].getAttribute("lang")]).toEqual(["ltr", "la"]);
+    expect([rows[3].children[0].getAttribute("dir"), rows[3].children[2].getAttribute("lang")]).toEqual(["ltr", "la"]);
     // Each column keeps its own numbering; the Vulgate's chapter is named where it differs.
-    expect(rows[2].children[2].textContent).toContain("Chapter 22");
-    // Only the leading version's elements have ids.
-    expect(container.querySelector("#Ps\\.23\\.1")?.textContent).toContain("The LORD is my shepherd");
-    expect(container.querySelector('[data-ref="Ps.22.1"]')?.textContent).toContain("Dominus");
+    expect(rows[2].children[2].textContent).toContain("Chapter 21");
+    expect(rows[3].children[2].textContent).toContain("Chapter 22");
+    // The leading version's ids are its refs; the others' carry their version.
+    expect(document.getElementById("Ps.22.1")?.textContent).toContain("My God, my God");
+    expect(document.getElementById("Ps.22.1@clementine/ps")?.textContent).toContain("Dominus");
+    expect(document.getElementById("Ps.22.1@clementine/ps")?.querySelector("a")?.getAttribute("href")).toBe(
+      "#Ps.22.1@clementine/ps",
+    );
   });
 
-  it("scrolls to and marks a fragment in another version's column", async () => {
-    const { container } = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps#Ps.22.1");
-    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.getAttribute("data-ref")).toBe("Ps.22.1"));
+  // KJV Ps 22:1 and the Vulgate's Ps 22:1 (KJV 23:1) share a ref.
+  it("tells a fragment in another version's column from the leading version's same ref", async () => {
+    const vulgate = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps#Ps.22.1%40clementine%2Fps");
+    await vi.waitFor(() => expect(vulgate.container.querySelector("[data-target]")?.id).toBe("Ps.22.1@clementine/ps"));
+    expect(vulgate.container.querySelector("[data-target]")?.textContent).toContain("Dominus regit me");
+    cleanup();
+    // A plain #ref (search results, the version switcher) is the leading version's.
+    const plain = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps#Ps.22.1");
+    await vi.waitFor(() => expect(plain.container.querySelector("[data-target]")?.id).toBe("Ps.22.1"));
+    expect(plain.container.querySelector("[data-target]")?.textContent).toContain("My God, my God");
+    cleanup();
+    // A plain ref only another version has is found there.
+    const only = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps#Ps.21.1");
+    await vi.waitFor(() => expect(only.container.querySelector("[data-target]")?.id).toBe("Ps.21.1@clementine/ps"));
+    cleanup();
+    // ?nohl scrolls there without marking it.
+    const scrolled = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps&nohl#Ps.22.1%40clementine%2Fps");
+    expect(scrolled.container.querySelector("[data-target]")).toBeNull();
   });
 
   it("names each version with its edition and licence, and marks non-commercial texts", async () => {
@@ -171,12 +193,60 @@ describe("ParallelReader: Scripture", () => {
   it("keeps the place when going back to one version", async () => {
     const { container } = await open(kjv, ["oshb/ps"]);
     vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
-      const boxes: Record<string, [number, number]> = { "s-3": [-100, -10], "Ps.3.1": [-60, -10], "s-23": [-10, 600], "Ps.23.1": [-10, 40] };
+      const boxes: Record<string, [number, number]> = {
+        "s-3": [-300, -200],
+        "Ps.3.1": [-260, -210],
+        "s-22": [-200, -10],
+        "Ps.22.1": [-60, -10],
+        "s-23": [-10, 600],
+        "Ps.23.1": [-10, 40],
+      };
       const [top, bottom] = boxes[this.id] ?? (this.contains(container.querySelector("section")) ? [-100, 900] : [0, 0]);
       return { top, bottom } as DOMRect;
     });
     act(() => screen.getByRole("link", { name: "Back to reading one version" }).click());
     await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/kjv/ps?nohl#Ps.23.1"));
+    vi.restoreAllMocks();
+  });
+
+  it("keeps a passage in another version's column through every control", async () => {
+    const { container } = await open(kjv, ["oshb/ps", "clementine/ps"]);
+    // At the top of the viewport: the Hebrew Ps 23:1; the KJV's verse beside it starts above.
+    vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
+      const boxes: Record<string, [number, number]> = {
+        "s-3": [-300, -200],
+        "s-22": [-200, -10],
+        "s-23": [-10, 600],
+        "Ps.23.1": [-60, -5],
+        "Ps.23.1@oshb/ps": [-5, 30],
+      };
+      const [top, bottom] = boxes[this.id] ?? (this.contains(container.querySelector("section")) ? [-100, 900] : [0, 0]);
+      return { top, bottom } as DOMRect;
+    });
+    const click = async (name: string, url: string) => {
+      push.mockClear();
+      act(() => screen.getByRole("link", { name }).click());
+      await vi.waitFor(() => expect(push).toHaveBeenCalledWith(url));
+    };
+    // Still shown: the same passage in its column.
+    await click("Remove Latin: Vulgate", "/works/kjv/ps?with=oshb%2Fps&nohl#Ps.23.1%40oshb%2Fps");
+    await click("Lead with Latin: Vulgate", "/works/clementine/ps?with=kjv%2Fps&with=oshb%2Fps&nohl#Ps.23.1%40oshb%2Fps");
+    await click("Lead with Hebrew: OSHB", "/works/oshb/ps?with=kjv%2Fps&with=clementine%2Fps&nohl#Ps.23.1");
+    // No longer shown: mapped from the Hebrew to the leading version.
+    await click("Remove Hebrew: OSHB", "/works/kjv/ps?with=clementine%2Fps&nohl#Ps.23.1");
+    await click("Back to reading one version", "/works/kjv/ps?nohl#Ps.23.1");
+    vi.restoreAllMocks();
+  });
+
+  it("keeps a highlighted passage in another version's column highlighted", async () => {
+    const { container } = await open(kjv, ["clementine/ps"], "/works/kjv/ps?with=clementine%2Fps#Ps.22.1%40clementine%2Fps");
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")).not.toBeNull());
+    vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
+      const [top, bottom] = this.id === "Ps.22.1@clementine/ps" ? [100, 130] : [-100, 900];
+      return { top, bottom } as DOMRect;
+    });
+    act(() => screen.getByRole("link", { name: "Back to reading one version" }).click());
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/kjv/ps#Ps.23.1"));
     vi.restoreAllMocks();
   });
 

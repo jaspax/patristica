@@ -218,8 +218,7 @@
 }
 
 /* Land below the sticky column names. */
-.text [id],
-.text [data-ref] {
+.text [id] {
   scroll-margin-top: 3rem;
 }
 

@@ -5,12 +5,15 @@ import type { LibraryIndex, WorkFile } from "./library";
 import {
   buildRows,
   canReadInParallel,
+  columnRef,
+  keepPosition,
   longestIncreasing,
   MAX_VERSIONS,
   parallelHref,
   parallelIds,
   parallelVersions,
   sectionBlocks,
+  splitColumnRef,
   versificationMembers,
   withPosition,
   type Row,
@@ -50,6 +53,19 @@ describe("URL state", () => {
     );
     expect(withPosition("/works/kjv/ps", { ref: "Ps.23.1", highlight: false })).toBe("/works/kjv/ps?nohl#Ps.23.1");
     expect(withPosition("/works/kjv/ps", null)).toBe("/works/kjv/ps");
+  });
+
+  it("gives a passage in another version's column a fragment of its own, and keeps it while that version is shown", () => {
+    const works = ["kjv/ps", "clementine/ps"];
+    expect(columnRef("Ps.22.1", "clementine/ps")).toBe("Ps.22.1@clementine/ps");
+    expect(splitColumnRef("Ps.22.1@clementine/ps", works)).toEqual({ ref: "Ps.22.1", work: "clementine/ps" });
+    expect(splitColumnRef("Ps.22.1", works)).toEqual({ ref: "Ps.22.1", work: "kjv/ps" });
+    // A version not in the view: read as the leading version's id.
+    expect(splitColumnRef("Ps.22.1@oshb/ps", works)).toEqual({ ref: "Ps.22.1@oshb/ps", work: "kjv/ps" });
+    const at = { ref: "Ps.22.1", work: "clementine/ps", highlight: true };
+    expect(keepPosition(at, "kjv/ps", ["clementine/ps"])).toEqual({ ref: "Ps.22.1@clementine/ps", highlight: true });
+    expect(keepPosition(at, "clementine/ps", ["kjv/ps"])).toEqual({ ref: "Ps.22.1", highlight: true });
+    expect(keepPosition(at, "kjv/ps", [])).toBeNull();
   });
 
   it("shows the group's members only, at most MAX_VERSIONS", () => {

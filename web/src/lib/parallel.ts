@@ -51,6 +51,49 @@ export function withPosition(href: string, position: Position | null): string {
   return `${href}${query}#${encodeURIComponent(position.ref)}`;
 }
 
+/**
+ * Element id (and URL fragment) of a passage in another version's column:
+ * `{ref}@{work id}` (`Ps.22.1@clementine/ps`), so it can't collide with the
+ * leading version's `{ref}` (KJV Ps.22.1). Refs never contain `@`.
+ */
+export function columnRef(ref: string, workId: string): string {
+  return `${ref}@${workId}`;
+}
+
+/** A passage in the parallel view: its ref in its own version, and that version. */
+export interface ColumnPosition {
+  ref: string;
+  /** The version's work id. */
+  work: string;
+  highlight: boolean;
+}
+
+/**
+ * Which version an element id (or fragment) of the parallel view belongs
+ * to: `{ref}@{work}` for a column in `works`, otherwise the leading version
+ * (`works[0]`).
+ */
+export function splitColumnRef(id: string, works: readonly string[]): { ref: string; work: string } {
+  const at = id.indexOf("@");
+  if (at > 0) {
+    const work = id.slice(at + 1);
+    if (works.includes(work)) return { ref: id.slice(0, at), work };
+  }
+  return { ref: id, work: works[0] };
+}
+
+/**
+ * Where a parallel view with `lead` and `others` should open for a reader at
+ * `here`: the same passage, as `{ref}` if it is in the new leading version or
+ * `{ref}@{work}` if its version is still a column; null when its version is
+ * no longer shown (the caller maps it to the new leading version).
+ */
+export function keepPosition(here: ColumnPosition, lead: string, others: readonly string[]): Position | null {
+  if (here.work === lead) return { ref: here.ref, highlight: here.highlight };
+  if (others.includes(here.work)) return { ref: columnRef(here.ref, here.work), highlight: here.highlight };
+  return null;
+}
+
 /** Why a `with` id isn't shown. */
 export type SkipReason = "unknown" | "not-a-version" | "too-many";
 
