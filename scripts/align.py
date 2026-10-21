@@ -318,7 +318,7 @@ def run_job(job: Job) -> tuple[str, str]:
             members.append(m)
         if n:
             missing[e["work"]["work_id"]] = n
-    if missing and not job.allow_missing_vectors:
+    if len(job.entries) >= 2 and missing and not job.allow_missing_vectors:
         return job.group, "refused: " + ", ".join(f"{w} {n}" for w, n in sorted(missing.items()))
     path = store.path_for(job.out_dir, job.group)
     if len(members) < 2:
