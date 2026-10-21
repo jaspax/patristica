@@ -329,8 +329,11 @@ def test_translation_vector_match_appears_once(searcher: s.Searcher) -> None:
     assert ids[0] == "pta/hymns#Hymn.1.1" and ids.count("pta/hymns#Hymn.1.1") == 1
     top = res["results"][0]
     assert (top["matched"], top["score"], top["language"]) == ("translation", 1.0, "syc")
+    # Hymn.1.2, after it, has no translation of its own.
     assert top["translation"] == {"language": "eng", "text": "Our faith is true and glorious.",
-                                  "model": "gpt-6.1-sol", "machine": True}
+                                  "model": "gpt-6.1-sol", "machine": True,
+                                  "before": None, "after": None, "work_id": None,
+                                  "canonical_ref": None, "source_label": None, "edition": None}
     assert top["work"]["authors"][0]["id"] == "ephrem-the-syrian"
     assert top["citation"].endswith(", *Hymns on Faith* Hymn.1.1")
     # The other vector of the chunk scores 0 but doesn't make it appear twice.

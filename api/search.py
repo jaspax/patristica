@@ -16,6 +16,9 @@ two vectors and appears once. The versions of one passage (``api.passages``,
 (``CANDIDATES``), folded before paging. Filters are columns of
 ``chunk_vectors`` (``db/schema.sql``) and apply before folding, and the HNSW
 scan is iterative, so narrow filters still fill a page.
+
+Each result of either mode comes with the unit before and after it, and an
+English version of all three when it is not in English (``api.context``).
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ from concurrent.futures import Future
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Literal
 
+from api.context import add_context
 from api.keyword import Hit, phrase_search
 from api.passages import passage_group
 from patristica.embedders import ApiError, VoyageEmbedder, shorten
@@ -481,6 +485,7 @@ class Searcher:
             result.update(matched="phrase", text_start=text_start, matches=matches,
                           versions=versions[row[2]])
             results.append(result)
+        self._add_context(results)
         return self._response(q, parsed, offset, limit, len(page) > limit, total, results)
 
     def _vector(self, q: str, parsed: ParsedQuery, filters: Filters, limit: int,
@@ -513,4 +518,13 @@ class Searcher:
             result = _result(row[:-1])
             result["versions"] = members
             results.append(result)
+        self._add_context(results)
         return self._response(q, parsed, offset, limit, len(rows) > limit, None, results)
+
+    def _add_context(self, results: list[dict[str, Any]]) -> None:
+        """The units around each result, and English versions (``api.context``)."""
+        started = time.monotonic()
+        with self.pool.connection() as conn:
+            add_context(conn, results, TEXT_CHARS)
+        log.info("search: context for %d results, %.0f ms", len(results),
+                 1000 * (time.monotonic() - started))
