@@ -225,31 +225,50 @@ export function buildRows(members: readonly AlignedMember[]): Row[] {
   // Everything else: a row per unit (or per group a column has alone), after
   // the anchor before it in its own version.
   // Versions that share a group the leading one lacks (a psalm title the KJV
-  // folds into verse 1) share its row when they fall in the same gap.
+  // folds into verse 1) share its row when they fall in the same gap, unless
+  // that row comes before something the column has already placed in the gap
+  // (its text would be out of order): then the span stays unpaired.
   const gaps: Row[][] = Array.from({ length: anchors.length + 1 }, () => []);
   const shared: Map<number, Row>[] = gaps.map(() => new Map());
+  const groupOfRow = new Map<Row, number>();
+  const indexInGap = new Map<Row, number>();
   members.forEach((m, c) => {
     let k = -1;
+    let placed = -1; // index in gaps[k + 1] of the column's last row there
     for (let u = 0; u < m.groupOf.length; ) {
       const g = m.groupOf[u];
       const span: Span = g >= 0 ? m.spans.get(g)! : [u, u + 1];
       if (g >= 0 && kept[c].has(g)) {
         k = anchorOf.get(g)!;
+        placed = -1;
       } else {
+        const gap = gaps[k + 1];
         const existing = g >= 0 ? shared[k + 1].get(g) : undefined;
-        if (existing && existing.cells[c] === null) {
+        const at = existing ? indexInGap.get(existing)! : -1;
+        if (existing && existing.cells[c] === null && at > placed) {
           existing.cells[c] = span;
+          placed = at;
         } else {
           const cells = empty();
           cells[c] = span;
           const row = { key: `u${c}.${span[0]}`, cells, uncertain: new Array(n).fill(false) };
-          gaps[k + 1].push(row);
-          if (g >= 0 && !existing) shared[k + 1].set(g, row);
+          gap.push(row);
+          placed = gap.length - 1;
+          indexInGap.set(row, placed);
+          if (g >= 0) {
+            groupOfRow.set(row, g);
+            if (!existing) shared[k + 1].set(g, row);
+          }
         }
       }
       u = span[1];
     }
   });
+  // Shared gap rows are marked like anchors.
+  for (const [row, g] of groupOfRow) {
+    if (row.cells.filter(Boolean).length < 2) continue;
+    row.uncertain = row.cells.map((cell, c) => cell !== null && (members[c].conf.get(g) ?? 0) < MIN_CONFIDENCE);
+  }
 
   const rows: Row[] = [...gaps[0]];
   anchors.forEach((row, k) => {

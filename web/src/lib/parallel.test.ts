@@ -128,6 +128,28 @@ describe("buildRows", () => {
     expect(show(rows)).toEqual(["||0-1|", "0-1|0-1||0-2", "1-2||1-2|2-3"]);
   });
 
+  it("shares a gap row only where it keeps every column in its own order", () => {
+    // Groups [0,2], [0,1,2] and [0,-1,1,2]: the third version's unaligned unit
+    // comes before its group 1, which the second version's row already holds.
+    const unaligned = buildRows([member("++2"), member("+++"), member("+.++")]);
+    expect(show(unaligned)).toEqual(["0-1|0-1|0-1", "|1-2|", "||1-2", "||2-3", "1-2|2-3|3-4"]);
+    // The same with a group only the third version has ([0,3,1,2]).
+    const private_ = buildRows([member("++2"), member("+++"), member("++3-2+")]);
+    expect(show(private_)).toEqual(["0-1|0-1|0-1", "|1-2|", "||1-2", "||2-3", "1-2|2-3|3-4"]);
+    // Each column's units still come in order.
+    for (const rows of [unaligned, private_]) {
+      const third = rows.map((r) => r.cells[2]?.[0]).filter((u) => u !== undefined);
+      expect(third).toEqual([0, 1, 2, 3]);
+    }
+  });
+
+  it("marks uncertain spans in a gap row the secondary versions share", () => {
+    // Groups [0], [0,1], [0,1]: group 1 pairs the two other versions; the third's span is flagged.
+    const rows = buildRows([member("+"), member("++", "99"), member("++", "93")]);
+    expect(show(rows)).toEqual(["0-1|0-1|0-1", "|1-2|1-2"]);
+    expect(rows[1].uncertain).toEqual([false, false, true]);
+  });
+
   it("is empty without a leading version", () => {
     expect(buildRows([])).toEqual([]);
   });
