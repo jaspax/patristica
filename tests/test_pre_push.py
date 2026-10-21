@@ -3,6 +3,11 @@
 The hook runs in a scratch git repository with a stub ``uv`` on ``PATH``: the
 stub passes the unit tests, reports the commits listed in ``$CHANGED`` as
 changing validate's inputs, and logs each full validation.
+
+Every git process gets an environment without ``GIT_*`` variables: when pytest
+itself runs inside a git hook (the pre-push hook runs this suite), git sets
+``GIT_DIR`` and friends, and inheriting them would point these commands at the
+enclosing repository instead of the scratch one.
 """
 
 from __future__ import annotations
@@ -27,9 +32,14 @@ exit 0
 """
 
 
+def clean_env(**extra: str) -> dict[str, str]:
+    """``os.environ`` without git's per-repository variables, plus *extra*."""
+    return {**{k: v for k, v in os.environ.items() if not k.startswith("GIT_")}, **extra}
+
+
 def git(repo: Path, *args: str) -> str:
     return subprocess.run(["git", "-C", str(repo), *args], check=True, capture_output=True,
-                          text=True).stdout.strip()
+                          text=True, env=clean_env()).stdout.strip()
 
 
 @pytest.fixture
@@ -39,6 +49,8 @@ def repo(tmp_path: Path) -> dict:
     root = tmp_path / "repo"
     root.mkdir()
     git(root, "init", "-q", "-b", "master")
+    git_dir = Path(git(root, "rev-parse", "--absolute-git-dir")).resolve()
+    assert git_dir.is_relative_to(tmp_path.resolve()), f"not a scratch repository: {git_dir}"
     git(root, "config", "user.email", "t@example.com")
     git(root, "config", "user.name", "t")
     shas = []
@@ -64,8 +76,8 @@ def push(repo: dict, lines: list[str], changed: list[str], **env: str) -> tuple[
     proc = subprocess.run(
         ["bash", str(HOOK)], cwd=repo["root"], input="".join(f"{line}\n" for line in lines),
         capture_output=True, text=True,
-        env={**os.environ, "PATH": f"{repo['bin']}:{os.environ['PATH']}",
-             "CHANGED": str(repo["changed"]), "LOG": str(repo["log"]), **env})
+        env=clean_env(PATH=f"{repo['bin']}:{os.environ['PATH']}",
+                      CHANGED=str(repo["changed"]), LOG=str(repo["log"]), **env))
     return proc.returncode, proc.stderr, len(repo["log"].read_text().splitlines())
 
 
