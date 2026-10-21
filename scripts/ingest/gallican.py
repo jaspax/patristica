@@ -115,7 +115,7 @@ def _download_ocr(ia_id: str, cache_dir: Path, force: bool) -> Path | None:
     try:
         return download_file(url, cache_path, etag_cache=True, force=force)
     except Exception as exc:
-        log.warning("Failed to download IA djvu text for %s: %s", ia_id, exc)
+        log.error("Failed to download IA djvu text for %s: %s", ia_id, exc)
         return None
 
 

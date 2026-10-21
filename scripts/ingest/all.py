@@ -28,6 +28,7 @@ from pathlib import Path
 
 import scripts.ingest as _ingest_pkg
 from patristica.models import Work
+from scripts.ingest._stamp import run_stamped
 
 log = logging.getLogger(__name__)
 
@@ -69,7 +70,7 @@ def run_one(source_id: str, output_dir: Path, force: bool = False) -> list[Work]
     module_name = _source_id_to_module(source_id)
     log.info("Running ingestor: %s", module_name)
     mod = importlib.import_module(module_name)
-    works = mod.ingest(output_dir, force=force)
+    works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
     log.info("  → %d works from %s", len(works), module_name)
     return works
 
@@ -89,7 +90,7 @@ def run_all(output_dir: Path, force: bool = False) -> list[Work]:
         log.info("Running ingestor: %s", module_name)
         try:
             mod = importlib.import_module(module_name)
-            works = mod.ingest(output_dir, force=force)
+            works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
             log.info("  → %d works from %s", len(works), module_name)
             all_works.extend(works)
         except Exception:

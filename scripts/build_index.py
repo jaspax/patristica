@@ -633,6 +633,29 @@ def set_hash_format(conn: psycopg.Connection) -> None:
                  "DO UPDATE SET value = EXCLUDED.value", (str(HASH_FORMAT),))
 
 
+CODE_KEY = "code"
+
+
+def build_index_code_hash() -> str:
+    """Hash of this step's code (``patristica.fingerprint``, #130)."""
+    from patristica import fingerprint
+
+    return fingerprint.code_hash("scripts.build_index")
+
+
+def stored_code(conn: psycopg.Connection) -> str | None:
+    """The code hash of the last full run (``index_meta.code``), if any.
+
+    It is recorded for ``scripts.status`` only and never decides what is
+    reloaded: a code change that should change the stored data bumps
+    ``LOADER_VERSION`` (part of every work's ``content_sha``) instead.
+    """
+    if not _has_table(conn, "index_meta"):
+        return None
+    row = conn.execute("SELECT value FROM index_meta WHERE key = %s", (CODE_KEY,)).fetchone()
+    return row[0] if row else None
+
+
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
         sources: Iterable[str] = (), prefixes: Iterable[str] = (), dry_run: bool = False,
         rebuild_index: bool = False, maintenance_work_mem: str = "4GB",
@@ -743,6 +766,9 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     built = build_hnsw(conn, maintenance_work_mem)
     if built or stats.loaded or stats.deleted or stats.folded or stats.regrouped or stats.passages:
         conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors, passage_groups")
+    if not sources and not prefixes:
+        conn.execute("INSERT INTO index_meta VALUES (%s, %s) ON CONFLICT (key) "
+                     "DO UPDATE SET value = EXCLUDED.value", (CODE_KEY, build_index_code_hash()))
     return stats
 
 

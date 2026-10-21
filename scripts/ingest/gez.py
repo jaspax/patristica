@@ -165,7 +165,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             try:
                 ch_data = json.loads(ch_file.read_text(encoding="utf-8"))
             except Exception as exc:
-                log.warning("Failed to parse %s: %s", ch_file, exc)
+                log.error("Failed to parse %s: %s", ch_file, exc)
                 continue
 
             for verse in ch_data.get("verses", []):

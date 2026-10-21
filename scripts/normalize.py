@@ -20,7 +20,10 @@ so a code or curation change re-runs exactly the affected works without
 was rebuilt with that code; a run that couldn't (raw data missing for some
 source, refused works) leaves it, and ``tests/test_normalize_fingerprint.py``
 keeps failing until the data is current.  The fingerprints are kept out of
-``_works.jsonl`` because ``build_index`` hashes its lines.
+``_works.jsonl`` because ``build_index`` hashes its lines.  The ingest stamp
+of each source (``scripts.ingest._stamp``) is copied into
+``_fingerprint.json`` too, so ``scripts.status`` can tell when an ingestor
+changed after its data was normalized.
 
 A work whose raw file differs from the one it was last normalized from is
 *refused*: its output, manifest entry and fingerprint are kept and the run
@@ -401,6 +404,50 @@ def _write_step_code(output_dir: Path, code: str | None) -> None:
         log.info("Recorded %s code hash %s in %s", STEP, code, path)
 
 
+#: Written next to a source's raw data by ``scripts.ingest._stamp`` (read here
+#: as plain JSON, so the ingest machinery isn't part of normalize's code).
+INGEST_STAMP = "_ingest.json"
+
+
+def _record_ingest_stamps(output_dir: Path, json_files: list[Path], visited: Collection[str],
+                          listed: Collection[str]) -> None:
+    """Copy each normalized source's ingest stamp into ``_fingerprint.json``.
+
+    ``{"ingest": {source_id: ingestor code hash}}`` tells ``scripts.status``
+    which ingestor code the tracked data comes from. The entry changes only when
+    this run rebuilt or confirmed (*visited*) every listed work of the source:
+    a source with a refused or failed work, or one normalized only in part
+    (``--raw-dir data/raw/ogpg/vol-001``), keeps its old entry, since some of
+    its data wasn't made from this raw. A fully visited source whose raw has no
+    stamp loses its entry (unknown).
+    """
+    sources: dict[str, Path] = {}
+    for path in json_files:
+        parts = path.parts
+        if "raw" in parts:
+            i = parts.index("raw")
+            if len(parts) > i + 2:
+                sources[parts[i + 1]] = Path(*parts[: i + 2])
+    blocked = {rel.split("/", 1)[0] for rel in listed if rel not in visited}
+    steps = read_step_fingerprints(output_dir)
+    stamps = dict(steps.get("ingest", {}))
+    for source, source_dir in sources.items():
+        if source in blocked:
+            continue
+        stamp = source_dir / INGEST_STAMP
+        if stamp.exists():
+            stamps[source] = json.loads(stamp.read_text(encoding="utf-8"))["code"]
+        else:
+            stamps.pop(source, None)
+    if stamps != steps.get("ingest", {}):
+        steps["ingest"] = dict(sorted(stamps.items()))
+        if not steps["ingest"]:
+            del steps["ingest"]
+        path = output_dir / FINGERPRINT_FILE
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(steps, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def read_work_fingerprints(output_dir: Path) -> dict[str, dict[str, str]]:
     """``{path: {"raw", "curated"}}`` from ``{output_dir}/_fingerprints.jsonl``."""
     path = output_dir / FINGERPRINTS_FILE
@@ -519,6 +566,7 @@ def normalize_all(
          if rel in fingerprints or (rel in previous and rel not in failed)},
     )
 
+    _record_ingest_stamps(output_dir, json_files, set(fingerprints), set(listed))
     if not code_current:
         uncovered = sorted(set(listed) - set(fingerprints))
         if uncovered:

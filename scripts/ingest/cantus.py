@@ -146,7 +146,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             try:
                 meta = _get_source_meta(client, sid)
             except Exception as exc:
-                log.warning("  Skipping source %s: %s", sid, exc)
+                log.error("  Skipping source %s: %s", sid, exc)
                 continue
 
             year = _parse_earliest_year(meta.get("date"))
@@ -179,7 +179,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             try:
                 rows = _get_source_csv(client, sid)
             except Exception as exc:
-                log.warning("  Failed to download CSV for %s: %s", sid, exc)
+                log.error("  Failed to download CSV for %s: %s", sid, exc)
                 continue
 
             # Build Work

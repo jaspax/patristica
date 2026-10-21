@@ -20,11 +20,14 @@ Levels:
 Checks that need local data run only when asked: ``--raw`` compares
 ``data/raw`` with normalize's raw hashes (the works normalize would refuse);
 ``--vectors`` loads ``data/embeddings`` (8 GB) for the units still to embed and
-the alignment groups whose inputs changed or that align would refuse.
+the alignment groups whose inputs changed or that align would refuse; ``--db``
+connects to the search database (``DATABASE_URL``; on the droplet through
+``infra/db-tunnel.sh``) for build_index's code hash and, with ``--vectors``,
+the works it would reload.
 
 Usage::
 
-    uv run python -m scripts.status [--raw] [--vectors] [--check] [--summary FILE]
+    uv run python -m scripts.status [--raw] [--vectors] [--db [URL]] [--check] [--summary FILE]
 """
 
 from __future__ import annotations
@@ -133,6 +136,18 @@ def raw_changes(norm: Path = NORMALIZED, raw: Path = RAW) -> tuple[list[str], li
     return changed, new
 
 
+def ingest_drift(norm: Path = NORMALIZED) -> tuple[list[str], list[str]]:
+    """(sources whose ingestor changed since their data was normalized, sources
+    with no ingest stamp recorded)."""
+    from scripts import normalize as nz
+    from scripts.ingest import _stamp
+
+    recorded = nz.read_step_fingerprints(norm).get("ingest", {})
+    sources = sorted({w["source_id"] for w in nz.read_works_manifest(norm).values()})
+    drift = [s for s in sources if s in recorded and recorded[s] != _stamp.ingest_code_hash(s)]
+    return drift, [s for s in sources if s not in recorded]
+
+
 # ---------------------------------------------------------------------------
 # align
 # ---------------------------------------------------------------------------
@@ -213,6 +228,33 @@ def pending_vectors(norm: Path, trans: Path, vecs: Path) -> tuple[int, float]:
     return stats.to_embed, stats.est_tokens / 1e6 * embed.PRICE_PER_MTOK
 
 
+def db_rows(url: str, norm: Path, trans: Path, vecs: Path | None,
+            align_dir: Path) -> list[Row]:
+    """build_index's code hash and, with the vectors, what a run would change."""
+    import psycopg
+
+    from scripts import build_index
+
+    rows = []
+    with psycopg.connect(url, autocommit=True) as conn:
+        stored = build_index.stored_code(conn)
+        current = stored == build_index.build_index_code_hash()
+        rows.append(Row("build_index", "code", "ok" if current else "warn",
+                        "current" if current else
+                        ("no full run recorded" if stored is None else "changed since the last "
+                         "full run (bump LOADER_VERSION if stored data should change)")))
+        if vecs is not None and vecs.is_dir():
+            st = build_index.run(conn, norm, trans, vecs, dry_run=True, align_dir=align_dir)
+            busy = st.loaded or st.deleted or st.regrouped or st.passages
+            rows.append(Row("build_index", "database", "warn" if busy or st.stale_alignments
+                            else "ok",
+                            f"{st.loaded} works to load, {st.deleted} to delete, "
+                            f"{st.regrouped} chunks to regroup, {st.passages} passage rows, "
+                            f"{len(st.stale_alignments)} works with stale alignments"
+                            + ("; run scripts.build_index" if busy else "")))
+    return rows
+
+
 # ---------------------------------------------------------------------------
 # The table
 # ---------------------------------------------------------------------------
@@ -229,10 +271,19 @@ def _guarded(rows: list[Row], step: str, check: str, fn: Callable[[], list[Row]]
 
 
 def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None = None,
-            trans: Path = TRANSLATIONS, align_dir: Path = ALIGNMENTS) -> list[Row]:
+            trans: Path = TRANSLATIONS, align_dir: Path = ALIGNMENTS,
+            db: str | None = None) -> list[Row]:
     rows: list[Row] = []
     renorm = "re-run scripts.normalize"
     realign = "re-run scripts.align (after scripts.embed)"
+
+    def ingest() -> list[Row]:
+        drift, unstamped = ingest_drift(norm)
+        return [Row("ingest", "code", "warn" if drift else "ok",
+                    f"{len(drift)} sources whose ingestor changed since their data was "
+                    f"normalized, {len(unstamped)} not stamped yet"
+                    + (f" ({_examples(drift)}): re-ingest with --force, then scripts.normalize "
+                       "--accept-raw-change" if drift else ""))]
 
     def code() -> list[Row]:
         current = normalize_code_current(norm)
@@ -309,7 +360,8 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
                        + (f": {realign}" if busy or refused else "")))
         return out
 
-    for step, check, fn in (("normalize", "code", code), ("normalize", "works", works),
+    for step, check, fn in (("ingest", "code", ingest),
+                            ("normalize", "code", code), ("normalize", "works", works),
                             ("normalize", "manifest", manifest),
                             ("normalize", "local raw", local_raw), ("align", "code", align_code)):
         _guarded(rows, step, check, fn)
@@ -326,6 +378,9 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
                             "file (see the manifest row)"))
         else:
             _guarded(rows, step, check, fn)
+    if db:
+        _guarded(rows, "build_index", "database",
+                 lambda: db_rows(db, norm, trans, vecs, align_dir))
     return rows
 
 
@@ -346,6 +401,8 @@ def main() -> None:
                         help=f"also compare local raw data (default {RAW})")
     parser.add_argument("--vectors", nargs="?", const=EMBEDDINGS, type=Path, metavar="DIR",
                         help=f"also check embeddings and alignment inputs (default {EMBEDDINGS})")
+    parser.add_argument("--db", nargs="?", const="", metavar="URL",
+                        help="also check the search database (default: DATABASE_URL)")
     parser.add_argument("--check", action="store_true",
                         help="exit 1 if any check fails (what CI enforces)")
     parser.add_argument("--summary", type=Path, metavar="FILE",
@@ -353,8 +410,13 @@ def main() -> None:
     args = parser.parse_args()
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
 
+    db = args.db
+    if db == "":
+        from patristica.embedders import env_key
+
+        db = env_key("DATABASE_URL")
     rows = collect(args.normalized_dir, raw=args.raw, vecs=args.vectors,
-                   trans=args.translations_dir, align_dir=args.alignments_dir)
+                   trans=args.translations_dir, align_dir=args.alignments_dir, db=db)
     table = render(rows)
     print(table)
     if args.summary:

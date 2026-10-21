@@ -469,3 +469,18 @@ def test_passage_group_key(pg_url: str, tmp_path: Path) -> None:
     assert keys == {"kjv/gen#Gen.1.1": "book:gen@0", "oshb/gen#Gen.1.1": "book:gen@0",
                     "kjv/gen#Gen.1.2": "Gen.1.2", "pta/hymns#Hymn.1.1": "pta/hymns#Hymn.1.1",
                     "pta/hymns#Hymn.1.2": "pta/hymns#Hymn.1.2"}
+
+
+def test_full_run_records_the_code_hash(pg_url: str, tmp_path: Path) -> None:
+    """index_meta.code (#130) is written by full runs only and read by scripts.status."""
+    psycopg = pytest.importorskip("psycopg")
+    from scripts import status
+
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, sources=["pta"], maintenance_work_mem="64MB")
+        assert build_index.stored_code(conn) is None  # a partial run doesn't record it
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        assert build_index.stored_code(conn) == build_index.build_index_code_hash()
+    rows = status.db_rows(pg_url, norm, trans, store, tmp_path / "alignments")
+    assert [(r.check, r.level) for r in rows] == [("code", "ok"), ("database", "ok")]
