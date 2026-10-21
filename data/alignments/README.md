@@ -15,6 +15,17 @@ work id (`ogpg/vol-032/epistulae.json`). Group ids can change when a version
 link is added; `scripts.align` then writes the new file and, on a full run,
 deletes the old one.
 
+`_fingerprint.json` is not an alignment (`iter_store` skips `_` files). It
+records the hash of the aligner's code and the groups the last full run
+skipped for having fewer than two members with vectors (#130):
+
+```json
+{"align": {"code": "<16 hex digits>"}, "skipped": {"<group id>": "fewer than two members with vectors"}}
+```
+
+`tests/test_align_fingerprint.py` fails when the code hash is stale or a
+version group has neither a file nor a recorded skip.
+
 ## File format
 
 One JSON object, one member per line:

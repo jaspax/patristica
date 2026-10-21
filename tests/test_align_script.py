@@ -90,7 +90,8 @@ def jobs(root: Path, norm: Path, trans: Path, vecs: Path, **kw) -> list[align.Jo
     groups = align.version_groups(entries)
     return [align.Job(g, [by_id[w] for w in mem if w in by_id], norm, trans, vecs,
                       root / "alignments",
-                      kw.get("force", False), kw.get("dry_run", False), "2026-10-19")
+                      kw.get("force", False), kw.get("dry_run", False), "2026-10-19",
+                      kw.get("allow_missing_vectors", False), kw.get("code_current", True))
             for g, mem in groups.items()]
 
 
@@ -182,21 +183,112 @@ def test_group_without_two_eligible_members_loses_its_file(tmp_path: Path) -> No
     _relicense(norm, "anf-works/x", "unknown")
     (vecs / "oshb" / "gen.npz").unlink()
     (vecs / "gez" / "gen.npz").unlink()
+    allow = {"allow_missing_vectors": True}
     outcome = {j.group: align.run_job(j)[1]
-               for j in jobs(tmp_path, norm, trans, vecs, dry_run=True)}
+               for j in jobs(tmp_path, norm, trans, vecs, dry_run=True, **allow)}
     assert outcome == {"book:gen": "deleted", "first1k/tlg9999/tlg001/1st1K-grc1": "deleted"}
     assert patristic.exists() and scripture.exists()  # a dry run deletes nothing
-    for job in jobs(tmp_path, norm, trans, vecs):
+    for job in jobs(tmp_path, norm, trans, vecs, **allow):
         align.run_job(job)
     assert not patristic.exists() and not scripture.exists()
     assert store.load(tmp_path / "alignments", "book:gen") is None
-    assert {align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)} == {"skipped"}
+    assert {align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs, **allow)} == {
+        "skipped"}
 
 
 def test_member_without_vectors_is_left_out(tmp_path: Path) -> None:
     norm, trans, vecs = write_corpus(tmp_path)
     (vecs / "oshb" / "gen.npz").unlink()
-    for job in jobs(tmp_path, norm, trans, vecs):
+    for job in jobs(tmp_path, norm, trans, vecs, allow_missing_vectors=True):
         align.run_job(job)
     a = store.load(tmp_path / "alignments", "book:gen")
     assert a is not None and set(a.members) == {"kjv/gen", "gez/gen"}
+
+
+# ---------------------------------------------------------------------------
+# Staleness (#130): missing vectors, code changes, the fingerprint file
+# ---------------------------------------------------------------------------
+
+
+def test_member_without_vectors_is_refused(tmp_path: Path) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    for job in jobs(tmp_path, norm, trans, vecs):
+        align.run_job(job)
+    path = tmp_path / "alignments" / "book" / "gen.json"
+    before = path.read_text()
+    (vecs / "oshb" / "gen.npz").unlink()
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome["book:gen"] == f"refused: oshb/gen {VERSES}"
+    assert outcome["first1k/tlg9999/tlg001/1st1K-grc1"] == "unchanged"
+    assert path.read_text() == before
+
+
+def test_changed_text_without_a_new_vector_is_refused(tmp_path: Path) -> None:
+    """A re-normalized unit whose vector is for its old text counts as missing."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    chunks = json.loads((norm / "kjv/gen.json").read_text())
+    chunks[2]["text"] = "a corrected verse text"
+    (norm / "kjv/gen.json").write_text(json.dumps(chunks))
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome["book:gen"] == "refused: kjv/gen 1"
+
+
+def test_short_units_need_no_vector(tmp_path: Path) -> None:
+    """Units embed leaves out (under MIN_CHARS) don't make a group refused."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    chunks = json.loads((norm / "kjv/gen.json").read_text())
+    chunks.append({**chunks[-1], "chunk_id": "kjv/gen#Gen.1.7", "canonical_ref": "Gen.1.7",
+                   "text": "Selah", "chunk_index": len(chunks)})
+    (norm / "kjv/gen.json").write_text(json.dumps(chunks))
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome["book:gen"] == "aligned"
+
+
+def test_code_change_realigns_but_keeps_unchanged_files(tmp_path: Path) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    for job in jobs(tmp_path, norm, trans, vecs):
+        align.run_job(job)
+    path = tmp_path / "alignments" / "book" / "gen.json"
+    before = path.read_text()
+    later = [align.Job(**{**vars(j), "today": "2026-11-01"})
+             for j in jobs(tmp_path, norm, trans, vecs, code_current=False)]
+    assert {align.run_job(j)[1] for j in later} == {"unchanged"}
+    assert path.read_text() == before  # same result: the old run date stays
+
+
+def run_main(monkeypatch: pytest.MonkeyPatch, tmp_path: Path, norm: Path, trans: Path,
+             vecs: Path, *extra: str) -> None:
+    monkeypatch.setattr("sys.argv", [
+        "align", "--input-dir", str(norm), "--translations-dir", str(trans),
+        "--embeddings-dir", str(vecs), "--output-dir", str(tmp_path / "alignments"),
+        "--jobs", "1", *extra])
+    align.main()
+
+
+def test_full_run_records_code_and_skips(tmp_path: Path, monkeypatch) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
+    run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    fp = align.read_fingerprint(tmp_path / "alignments")
+    assert fp == {"align": {"code": "code-1"}, "skipped": {}}
+    assert [p.name for p, _ in store.iter_store(tmp_path / "alignments")] == [
+        "gen.json", "1st1K-grc1.json"]  # the fingerprint file is not an alignment
+
+    # Genesis keeps only one member with vectors: recorded as skipped.
+    (vecs / "oshb" / "gen.npz").unlink()
+    (vecs / "gez" / "gen.npz").unlink()
+    run_main(monkeypatch, tmp_path, norm, trans, vecs, "--allow-missing-vectors")
+    assert align.read_fingerprint(tmp_path / "alignments")["skipped"] == {
+        "book:gen": align.NO_VECTORS}
+
+
+def test_refusal_exits_nonzero_and_keeps_old_code_hash(tmp_path: Path, monkeypatch) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-1")
+    run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    (vecs / "oshb" / "gen.npz").unlink()
+    monkeypatch.setattr(align, "align_code_hash", lambda: "code-2")
+    with pytest.raises(SystemExit) as exc:
+        run_main(monkeypatch, tmp_path, norm, trans, vecs)
+    assert exc.value.code == 1
+    assert align.read_fingerprint(tmp_path / "alignments")["align"] == {"code": "code-1"}

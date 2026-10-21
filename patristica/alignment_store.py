@@ -42,7 +42,7 @@ import hashlib
 import json
 import re
 from collections.abc import Callable, Iterator
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 
 DEFAULT_DIR = Path("data/alignments")
@@ -233,11 +233,24 @@ def load(store_dir: Path, group: str) -> Alignment | None:
 
 
 def save(store_dir: Path, a: Alignment) -> bool:
-    """Write *a*; return True if the file changed."""
+    """Write *a*; return True if the file changed.
+
+    A file that differs from *a* only in the run's date is kept, so re-running
+    an unchanged group (after a change to the aligner's code, #130) rewrites
+    nothing.
+    """
     path = path_for(store_dir, a.group)
     text = to_json(a)
-    if path.exists() and path.read_text(encoding="utf-8") == text:
-        return False
+    if path.exists():
+        old = path.read_text(encoding="utf-8")
+        if old == text:
+            return False
+        try:
+            old_date = json.loads(old)["run"].get("date")
+        except (ValueError, KeyError, AttributeError):
+            old_date = None
+        if old_date is not None and old == to_json(replace(a, run={**a.run, "date": old_date})):
+            return False
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(path.name + ".tmp")
     tmp.write_text(text, encoding="utf-8")
@@ -247,7 +260,8 @@ def save(store_dir: Path, a: Alignment) -> bool:
 
 def iter_store(store_dir: Path = DEFAULT_DIR, members: Callable[[list[str]], bool] | None = None
                ) -> Iterator[tuple[Path, Alignment]]:
-    """Every alignment file in the store, in path order.
+    """Every alignment file in the store, in path order (files whose name starts
+    with ``_``, such as ``_fingerprint.json``, are not alignments).
 
     With *members*, only files for whose member work ids it returns True; the
     others are not decoded.
@@ -255,6 +269,8 @@ def iter_store(store_dir: Path = DEFAULT_DIR, members: Callable[[list[str]], boo
     if not store_dir.exists():
         return
     for path in sorted(store_dir.rglob("*.json")):
+        if path.name.startswith("_"):
+            continue
         raw = json.loads(path.read_text(encoding="utf-8"))
         if members is not None and not members([m["work_id"] for m in raw["members"]]):
             continue
