@@ -44,7 +44,7 @@ from pathlib import Path
 from patristica import alignment_store as store
 from patristica import fingerprint
 from patristica import translations as tr
-from patristica.corpus import load_works, select
+from patristica.corpus import load_works
 
 log = logging.getLogger(__name__)
 
@@ -159,32 +159,13 @@ def align_code_current(align_dir: Path = ALIGNMENTS) -> bool:
     return recorded == align.align_code_hash()
 
 
-def _publishable_groups(norm: Path) -> dict[str, list[str]]:
+def stale_groups(norm: Path = NORMALIZED, align_dir: Path = ALIGNMENTS) -> dict[str, str]:
+    """Version groups whose tracked alignment is stale, with the reason
+    (``scripts.align.check_groups``: new groups, changed members or Scripture
+    refs, missing files, records of groups no longer aligned)."""
     from scripts import align
 
-    works = load_works(norm)
-    publishable = {e["work"]["work_id"] for e in select(works, [], [], False)}
-    return {g: [w for w in mem if w in publishable]
-            for g, mem in align.version_groups(works).items()}
-
-
-def unaligned_groups(norm: Path = NORMALIZED, align_dir: Path = ALIGNMENTS) -> list[str]:
-    """Version groups with two publishable members, no file and no recorded skip."""
-    from scripts import align
-
-    skipped = align.read_fingerprint(align_dir).get("skipped", {})
-    return sorted(g for g, mem in _publishable_groups(norm).items()
-                  if len(mem) >= 2 and g not in skipped
-                  and not store.path_for(align_dir, g).exists())
-
-
-def stale_skips(norm: Path = NORMALIZED, align_dir: Path = ALIGNMENTS) -> list[str]:
-    """Recorded skips for groups that no longer have two publishable members."""
-    from scripts import align
-
-    skipped = align.read_fingerprint(align_dir).get("skipped", {})
-    groups = _publishable_groups(norm)
-    return sorted(g for g in skipped if len(groups.get(g, [])) < 2)
+    return align.check_groups(norm, align_dir)
 
 
 def alignments_with_changed_units(norm: Path = NORMALIZED,
@@ -316,11 +297,11 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
     current = align_code_current(align_dir)
     rows.append(Row("align", "code", "ok" if current else "fail",
                     "current" if current else f"changed: {realign}"))
-    unaligned, gone = unaligned_groups(norm, align_dir), stale_skips(norm, align_dir)
-    rows.append(Row("align", "groups", "fail" if unaligned or gone else "ok",
-                    f"{len(unaligned)} version groups without an alignment, {len(gone)} stale "
-                    "skips" + (f" ({_examples(unaligned + gone)}): {realign}"
-                               if unaligned or gone else "")))
+    stale = stale_groups(norm, align_dir)
+    rows.append(Row("align", "groups", "fail" if stale else "ok",
+                    f"{len(stale)} version groups whose alignment is stale"
+                    + (" (" + _examples([f"{g}: {why}" for g, why in stale.items()])
+                       + f"): {realign}" if stale else "")))
     changed_units = alignments_with_changed_units(norm, align_dir)
     rows.append(Row("align", "units", "fail" if changed_units else "ok",
                     f"{len(changed_units)} alignments with a member whose chunks changed"

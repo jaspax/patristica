@@ -23,12 +23,15 @@ files of groups that no longer exist.
 
 Staleness (#130): ``data/alignments/_fingerprint.json`` records the hash of
 this step's code (``patristica.fingerprint``; the versification registries are
-left out, since their effect reaches each member's inputs through the
-Scripture keys) and the groups a full run skipped for lack of vectors. When
-the code hash changed, every group is aligned again; a group whose result is
-unchanged keeps its file. ``tests/test_align_fingerprint.py`` fails until a
-full run has recorded the hash, and when a version group has neither a file
-nor a recorded skip.
+left out, see below) and, per version group, what it was aligned from: its
+publishable members and, for a Scripture book, a hash of every member's
+versification-mapped refs (``group_record``), plus the reason if the group was
+skipped. Neither needs vectors, so ``tests/test_align_fingerprint.py`` checks
+them in CI (``check_groups``): a member added to or removed from a group, or a
+change to ``SOURCE_SCHEMES`` / ``BOOK_SCHEME_OVERRIDES`` /
+``CHAPTER_SCHEME_OVERRIDES`` that moves a book's refs, makes exactly that group
+stale, and a new group fails until it is aligned. When the code hash changed,
+every group is aligned again; a group whose result is unchanged keeps its file.
 
 A group with a member whose units lack a current vector (a work normalized or
 translated since ``scripts.embed`` last ran) is *refused*: its file is kept and
@@ -76,10 +79,11 @@ METHOD = ("pivot star; banded monotonic DP over unit vectors (vecalign-style bea
 SCRIPTURE_PRIOR = 0.1
 
 STEP = "align"
-FINGERPRINT_FILE = "_fingerprint.json"  # {"align": {"code": hash}, "skipped": {group: reason}}
-#: Per-source registries left out of the code hash: they act through the
-#: Scripture keys, which are in each member's inputs, so adding a source
-#: re-aligns only the groups it touches.
+#: {"align": {"code": hash}, "groups": {group: {"members": [...], "keys": hash, "skipped": why}}}
+FINGERPRINT_FILE = "_fingerprint.json"
+#: Per-source registries left out of the code hash: their effect is checked per
+#: group through the Scripture keys (``group_record``), so adding a source or
+#: correcting an override makes only the groups it touches stale.
 REGISTRIES = {"patristica.versification": ("SOURCE_SCHEMES", "BOOK_SCHEME_OVERRIDES",
                                            "CHAPTER_SCHEME_OVERRIDES")}
 NO_VECTORS = "fewer than two members with vectors"
@@ -91,18 +95,23 @@ def align_code_hash() -> str:
 
 
 def read_fingerprint(out_dir: Path) -> dict:
-    """``{"align": {"code": …}, "skipped": {group: reason}}`` (empty if none)."""
+    """``{"align": {"code": …}, "groups": {group: record}}`` (empty if none)."""
     path = out_dir / FINGERPRINT_FILE
     if not path.exists():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def write_fingerprint(out_dir: Path, code: str | None, skipped: dict[str, str]) -> None:
-    """Record the skipped groups and, when given, the code hash (else keep the old one)."""
+def write_fingerprint(out_dir: Path, code: str | None, records: dict[str, dict],
+                      full: bool) -> None:
+    """Record the groups' records and, when given, the code hash (else keep the old one).
+
+    A full run replaces every record; a partial one updates only its groups'.
+    """
     old = read_fingerprint(out_dir)
+    groups = dict(records) if full else {**old.get("groups", {}), **records}
     data = {STEP: {"code": code} if code else old.get(STEP, {}),
-            "skipped": dict(sorted(skipped.items()))}
+            "groups": dict(sorted(groups.items()))}
     path = out_dir / FINGERPRINT_FILE
     text = json.dumps(data, indent=1, sort_keys=True) + "\n"
     if not path.exists() or path.read_text(encoding="utf-8") != text:
@@ -133,6 +142,53 @@ class Loaded:
 def ref_key(ref: str) -> int:
     """A stable integer for a reference key."""
     return int(hashlib.sha256(ref.encode("utf-8")).hexdigest()[:15], 16)
+
+
+def group_record(group: str, entries: list[dict], input_dir: Path) -> dict:
+    """What *group* is aligned from, without vectors: its publishable members
+    and, for a Scripture book, the hash of each member's mapped refs."""
+    record: dict = {"members": sorted(e["work"]["work_id"] for e in entries)}
+    if group.startswith("book:"):
+        h = hashlib.sha256()
+        for e in sorted(entries, key=lambda e: e["work"]["work_id"]):
+            chunks = json.loads((input_dir / e["path"]).read_text(encoding="utf-8"))
+            keys = scripture_keys(e["work"]["work_id"], [c["canonical_ref"] for c in chunks])
+            h.update(e["work"]["work_id"].encode("utf-8") + b"\x00")
+            h.update("\x00".join(keys or []).encode("utf-8") + b"\x01")
+        record["keys"] = h.hexdigest()[:16]
+    return record
+
+
+def check_groups(input_dir: Path, out_dir: Path) -> dict[str, str]:
+    """Version groups whose tracked alignment is stale, with the reason.
+
+    Checks every group with two or more publishable members against its record
+    in ``_fingerprint.json`` (``group_record``) and its file, and reports
+    records of groups that no longer need one.
+    """
+    works = load_works(input_dir)
+    by_id = {e["work"]["work_id"]: e for e in select(works, [], [], include_unpublishable=False)}
+    records = read_fingerprint(out_dir).get("groups", {})
+    problems: dict[str, str] = {}
+    wanted = set()
+    for group, members in version_groups(works).items():
+        entries = [by_id[w] for w in members if w in by_id]
+        if len(entries) < 2:
+            continue
+        wanted.add(group)
+        rec = records.get(group)
+        current = group_record(group, entries, input_dir)
+        if rec is None:
+            problems[group] = "not aligned"
+        elif rec["members"] != current["members"]:
+            problems[group] = "members changed"
+        elif rec.get("keys") != current.get("keys"):
+            problems[group] = "versification changed"
+        elif "skipped" not in rec and not store.path_for(out_dir, group).exists():
+            problems[group] = "no alignment file"
+    for group in sorted(set(records) - wanted):
+        problems[group] = "no longer a group to align"
+    return dict(sorted(problems.items()))
 
 
 def scripture_keys(work_id: str, refs: list[str]) -> list[str] | None:
@@ -318,7 +374,7 @@ def run_job(job: Job) -> tuple[str, str]:
             members.append(m)
         if n:
             missing[e["work"]["work_id"]] = n
-    if missing and not job.allow_missing_vectors:
+    if len(job.entries) >= 2 and missing and not job.allow_missing_vectors:
         return job.group, "refused: " + ", ".join(f"{w} {n}" for w, n in sorted(missing.items()))
     path = store.path_for(job.out_dir, job.group)
     if len(members) < 2:
@@ -392,21 +448,30 @@ def main() -> None:
         allow_missing_vectors=args.allow_missing_vectors, code=code)
     if not code_current:
         log.info("align's code changed since the last full run: aligning every group")
-    publishable = {j.group: len(j.entries) for j in jobs}
+    by_group = {j.group: j for j in jobs}
     outcome: dict[str, int] = {}
     refused: dict[str, str] = {}
-    skipped: dict[str, str] = {}
+    records: dict[str, dict] = {}
+    old_records = read_fingerprint(args.output_dir).get("groups", {})
     with make_pool(args.jobs) as pool:
         for group, result in tqdm(pool.map(run_job, jobs), total=len(jobs), desc="groups"):
             kind = result.split(":", 1)[0]
             outcome[kind] = outcome.get(kind, 0) + 1
+            job = by_group[group]
+            if len(job.entries) < 2:
+                continue
             if kind == "refused":
                 refused[group] = result.split(": ", 1)[1]
-            elif kind in ("skipped", "deleted") and publishable[group] >= 2:
-                skipped[group] = NO_VECTORS
+                if group in old_records:  # its file is kept, so is its record
+                    records[group] = old_records[group]
+                continue
+            records[group] = group_record(group, job.entries, args.input_dir)
+            if kind in ("skipped", "deleted"):
+                records[group]["skipped"] = NO_VECTORS
     full_run = not args.group and not args.prefix and not args.dry_run
-    if full_run:
-        write_fingerprint(args.output_dir, None if refused else code, skipped)
+    if not args.dry_run:
+        write_fingerprint(args.output_dir, code if full_run and not refused else None, records,
+                          full=full_run)
     if not args.group and not args.prefix and not args.dry_run:
         keep = {store.path_for(args.output_dir, g) for g in groups}
         for path, _ in list(store.iter_store(args.output_dir)):

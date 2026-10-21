@@ -1,18 +1,17 @@
 """Staleness of the tracked passage alignments (#130).
 
-These check the committed ``data/alignments`` against this branch's code and
-version groups, through the same functions ``scripts.status`` reports with.
-They need no vectors: what they can't see (vectors that changed since the last
-run) ``scripts.align`` checks itself, refusing groups whose members lack current
-vectors. ``tests/test_alignment.py`` checks that each file's members still have
-the units it counts.
+These check the committed ``data/alignments`` against this branch's code,
+version groups and versification. They need no vectors: what they can't see
+(vectors that changed since the last run) ``scripts.align`` checks itself,
+refusing groups whose members lack current vectors. ``tests/test_alignment.py``
+checks that each file's members still have the units it counts.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
-from scripts import status
+from scripts import align
 
 ROOT = Path(__file__).resolve().parents[1]
 NORMALIZED = ROOT / "data" / "normalized"
@@ -22,18 +21,15 @@ RERUN = ("re-run `uv run --extra embed python -m scripts.align --embeddings-dir 
 
 
 def test_committed_alignments_were_made_with_this_code() -> None:
-    assert status.align_code_current(ALIGNMENTS), (
+    recorded = align.read_fingerprint(ALIGNMENTS).get(align.STEP, {}).get("code")
+    assert recorded == align.align_code_hash(), (
         f"the aligner's code changed since data/alignments was produced: {RERUN}"
     )
 
 
-def test_every_version_group_is_aligned_or_recorded_as_skipped() -> None:
-    missing = status.unaligned_groups(NORMALIZED, ALIGNMENTS)
-    assert not missing, f"version groups with no alignment ({RERUN}): {missing[:10]}"
-
-
-def test_recorded_skips_are_current_groups() -> None:
-    gone = status.stale_skips(NORMALIZED, ALIGNMENTS)
-    assert not gone, (
-        f"_fingerprint.json skips groups that no longer need aligning ({RERUN}): {gone}"
-    )
+def test_every_version_group_is_aligned_from_its_current_members() -> None:
+    """New groups, added or removed members, and versification changes that move a
+    Scripture book's refs all make that group stale."""
+    problems = align.check_groups(NORMALIZED, ALIGNMENTS)
+    assert not problems, f"stale alignments ({RERUN}): " + ", ".join(
+        f"{g} ({why})" for g, why in list(problems.items())[:10])
