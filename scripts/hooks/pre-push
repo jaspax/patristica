@@ -2,9 +2,12 @@
 # Pre-push hook:
 #   1. Reject pushes directly to master (changes land via pull request).
 #   2. Run the unit tests before anything leaves this machine.
-#   3. Run scripts.validate when the pushed commits change a file it reads
+#   3. Run scripts.validate when a pushed revision changes a file it reads
 #      (data/normalized, patristica/data, its code; #130). It takes a few
 #      minutes, so it runs only then; skip it with PATRISTICA_SKIP_VALIDATE=1.
+#      Every pushed ref is checked against its own base. validate reads the
+#      working tree, so a pushed revision that needs it must be the checked-out
+#      HEAD: push other branches from their own checkout.
 #
 # Install once per clone:   git config core.hooksPath scripts/hooks
 # Bypass in an emergency:   git push --no-verify
@@ -13,27 +16,28 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 zero=0000000000000000000000000000000000000000
-base=""
+pushed=()  # "local_sha base" for every ref pushed (not deleted)
 # git feeds one line per ref being pushed: <local ref> <local sha> <remote ref> <remote sha>
-while read -r _local_ref _local_sha remote_ref remote_sha; do
+while read -r _local_ref local_sha remote_ref remote_sha; do
     if [[ "$remote_ref" == "refs/heads/master" ]]; then
         echo "pre-push: direct pushes to master are not allowed." >&2
         echo "pre-push: push a feature branch and open a pull request instead." >&2
         exit 1
     fi
-    if [[ -z "$base" && "$remote_sha" != "$zero" ]] && git cat-file -e "$remote_sha" 2>/dev/null; then
+    [[ "$local_sha" == "$zero" ]] && continue  # a deletion
+    base=""
+    if [[ "$remote_sha" != "$zero" ]] && git cat-file -e "$remote_sha" 2>/dev/null; then
         base="$remote_sha"
+    else  # a new branch: compare with where it left master
+        for master in origin/master master; do
+            if git rev-parse --verify -q "$master" >/dev/null; then
+                base="$(git merge-base "$local_sha" "$master")"
+                break
+            fi
+        done
     fi
+    pushed+=("$local_sha $base")
 done
-# A new branch: compare with where it left master.
-if [[ -z "$base" ]]; then
-    for master in origin/master master; do
-        if git rev-parse --verify -q "$master" >/dev/null; then
-            base="$(git merge-base HEAD "$master")"
-            break
-        fi
-    done
-fi
 
 echo "pre-push: running unit tests (uv run pytest)..." >&2
 if ! uv run --extra dev pytest -q -p no:cacheprovider; then
@@ -41,12 +45,34 @@ if ! uv run --extra dev pytest -q -p no:cacheprovider; then
     exit 1
 fi
 
-if [[ "${PATRISTICA_SKIP_VALIDATE:-}" == "1" || -z "$base" ]]; then
+if [[ "${PATRISTICA_SKIP_VALIDATE:-}" == "1" ]]; then
     exit 0
 fi
-echo "pre-push: running scripts.validate if its inputs changed since ${base:0:12}..." >&2
-if ! uv run python -m scripts.validate --if-changed "$base" \
-        --output "${TMPDIR:-/tmp}/patristica-validation-report.json"; then
-    echo "pre-push: validation found errors; push aborted (PATRISTICA_SKIP_VALIDATE=1 to skip)." >&2
-    exit 1
+head="$(git rev-parse HEAD)"
+validate=0
+for entry in "${pushed[@]}"; do
+    read -r local_sha base <<<"$entry"
+    if [[ -z "$base" ]]; then
+        echo "pre-push: no master here to compare ${local_sha:0:12} with; not validating it." >&2
+        continue
+    fi
+    changed="$(uv run python -m scripts.validate --inputs-changed "$base" "$local_sha")"
+    [[ -z "$changed" ]] && continue
+    if [[ "$local_sha" != "$head" ]]; then
+        echo "pre-push: ${local_sha:0:12} changes files scripts.validate reads" \
+             "(e.g. $(head -1 <<<"$changed")) but isn't the checked-out HEAD, and validate" \
+             "checks the working tree: push it from its own checkout" \
+             "(or PATRISTICA_SKIP_VALIDATE=1)." >&2
+        exit 1
+    fi
+    validate=1
+done
+if [[ "$validate" == 1 ]]; then
+    echo "pre-push: the pushed HEAD changes files scripts.validate reads: validating..." >&2
+    if ! uv run python -m scripts.validate \
+            --output "${TMPDIR:-/tmp}/patristica-validation-report.json"; then
+        echo "pre-push: validation found errors; push aborted" \
+             "(PATRISTICA_SKIP_VALIDATE=1 to skip)." >&2
+        exit 1
+    fi
 fi
