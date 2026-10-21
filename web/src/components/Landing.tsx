@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+import { languageFilterHref } from "@/lib/filter";
 import { languageInfo } from "@/lib/lang";
 import { type LibraryIndex, loadIndex } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
@@ -44,20 +45,16 @@ const EXAMPLES = [
   '"in principio erat verbum"',
 ];
 
-/**
- * "The Word" in each language of the collection, from John 1:1, with the
- * exact-phrase search that finds it. The corpus has Gothic in transliteration,
- * and a Ge'ez phrase needs three letters, hence "and the Word" there.
- */
-const WORDS: { language: string; word: string; query: string }[] = [
-  { language: "grc", word: "λόγος", query: "λόγος" },
-  { language: "lat", word: "verbum", query: "verbum" },
-  { language: "hbo", word: "דָּבָר", query: "דָּבָר" },
-  { language: "syc", word: "ܡܠܬܐ", query: "ܡܠܬܐ" },
-  { language: "cop", word: "ϣⲁϫⲉ", query: "ϣⲁϫⲉ" },
-  { language: "gez", word: "ወቃል", query: "ወቃል" },
-  { language: "hye", word: "բան", query: "բան" },
-  { language: "got", word: "𐍅𐌰𐌿𐍂𐌳", query: "waurd" },
+/** "The Word" of John 1:1 in each language of the collection; each links to that language's works. */
+const WORDS: { language: string; word: string }[] = [
+  { language: "grc", word: "λόγος" },
+  { language: "lat", word: "verbum" },
+  { language: "hbo", word: "דָּבָר" },
+  { language: "syc", word: "ܡܠܬܐ" },
+  { language: "cop", word: "ϣⲁϫⲉ" },
+  { language: "gez", word: "ቃል" },
+  { language: "hye", word: "բան" },
+  { language: "got", word: "𐍅𐌰𐌿𐍂𐌳" },
 ];
 
 /** The search page's link for a query. */
@@ -110,14 +107,14 @@ export default function Landing() {
       <section className={styles.words} aria-labelledby="words-title">
         <h2 id="words-title">
           <span className={styles.wordsQuote}>In the beginning was the Word</span>
-          <span className={styles.wordsSub}>…in each language of the collection. Choose one to find it.</span>
+          <span className={styles.wordsSub}>…in each language of the collection. Choose one to browse its works.</span>
         </h2>
         <ul>
-          {WORDS.map(({ language, word, query }) => {
+          {WORDS.map(({ language, word }) => {
             const lang = languageInfo(language);
             return (
               <li key={language}>
-                <Link href={searchHref(`"${query}"`)} className={styles.word}>
+                <Link href={languageFilterHref(language)} className={styles.word}>
                   <span lang={lang.lang} dir={lang.dir} className={styles.wordText}>
                     {word}
                   </span>

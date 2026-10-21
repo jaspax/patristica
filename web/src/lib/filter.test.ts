@@ -7,6 +7,7 @@ import {
   DEFAULT_VIEW,
   filterWorks,
   fold,
+  languageFilterHref,
   parseViewState,
   sortWorks,
   viewStateToParams,
@@ -217,5 +218,6 @@ describe("authors (#145)", () => {
     expect(parseViewState(new URLSearchParams("author=jerome"))).toEqual(state);
     expect(authorFilterHref("john-chrysostom")).toBe("/works?author=john-chrysostom");
     expect(authorFilterHref(ANONYMOUS)).toBe("/works?author=anonymous");
+    expect(languageFilterHref("syc")).toBe("/works?language=syc");
   });
 });

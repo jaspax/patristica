@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { LibraryIndex, WorkRow } from "@/lib/library";
 
-import Landing, { Hero, libraryStats, searchHref } from "./Landing";
+import Landing, { Hero, libraryStats } from "./Landing";
 
 const loadIndex = vi.fn<() => Promise<LibraryIndex>>(() => new Promise(() => {}));
 vi.mock("@/lib/library", () => ({ loadIndex: () => loadIndex() }));
@@ -69,11 +69,11 @@ describe("Landing", () => {
     expect(link.getAttribute("href")).toBe("/?q=baptism+of+desire");
   });
 
-  it("links the Word in each script to an exact-phrase search, in its language", () => {
+  it("links the Word in each script to the library filtered to its language", () => {
     render(<Landing />);
     const strip = screen.getByRole("region", { name: /In the beginning was the Word/ });
     const greek = within(strip).getByRole("link", { name: /λόγος/ });
-    expect(greek.getAttribute("href")).toBe(searchHref('"λόγος"'));
+    expect(greek.getAttribute("href")).toBe("/works?language=grc");
     expect(greek.querySelector("[lang]")?.getAttribute("lang")).toBe("grc");
     expect(within(strip).getAllByRole("link")).toHaveLength(8);
   });
