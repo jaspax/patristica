@@ -1,7 +1,7 @@
 import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { AuthorsFile, LibraryIndex, WorkFile } from "@/lib/library";
+import type { AlignmentFile, AuthorsFile, LibraryIndex, WorkFile } from "@/lib/library";
 import { person, workRow } from "@/lib/testFixtures";
 
 let params: { id: string[] } = { id: ["pl", "both"] };
@@ -26,7 +26,7 @@ const index: LibraryIndex = {
     workRow({ id: "oshb/ps", title: "Psalms", language: "hbo", source_id: "oshb", genre: "scripture", version_group: "book:ps" }),
     workRow({ id: "kjv/ps", title: "Psalms", language: "eng", source_id: "kjv", genre: "scripture", version_group: "book:ps", file: "works/kjv/Ps.json" }),
     workRow({ id: "clementine/ps", title: "Psalms", language: "lat", source_id: "clementine", genre: "scripture", version_group: "book:ps", file: "works/clementine/Ps.json" }),
-    workRow({ id: "first1k/hom", title: "Homiliae", language: "grc", source_id: "first1k", version_group: "first1k/hom" }),
+    workRow({ id: "first1k/hom", title: "Homiliae", language: "grc", source_id: "first1k", version_group: "first1k/hom", file: "works/first1k/hom.json" }),
     workRow({
       id: "npnf-works/hom",
       title: "Homilies",
@@ -34,6 +34,7 @@ const index: LibraryIndex = {
       source_id: "npnf-works",
       translation_of: "first1k/hom",
       version_group: "first1k/hom",
+      file: "works/npnf/hom.json",
     }),
     workRow({
       id: "pl/both",
@@ -45,6 +46,7 @@ const index: LibraryIndex = {
     }),
     workRow({ id: "pl/acta", author: "Acta Thomae", title: "Acta Thomae", source_id: "pl", file: "works/pl/acta.json" }),
   ],
+  alignments: ["first1k/hom"],
 };
 
 const authors: AuthorsFile = {
@@ -55,7 +57,26 @@ const authors: AuthorsFile = {
 };
 
 const work: WorkFile = { work_id: "pl/both", ref_prefix: "Ep", chunks: [["1", "Salve."]] };
-const psalms: Record<string, WorkFile> = {
+const files: Record<string, WorkFile | AlignmentFile> = {
+  "/works/npnf/hom.json": {
+    work_id: "npnf-works/hom",
+    ref_prefix: "Hom",
+    chunks: [["1", "The first homily"], ["2", "The second homily"], ["3", "A translator's note"]],
+  },
+  "/works/first1k/hom.json": {
+    work_id: "first1k/hom",
+    ref_prefix: "",
+    chunks: [["1.s1", "Ὁμιλία πρώτη."], ["1.s2", "Ἔτι."], ["2", "Ὁμιλία δευτέρα."]],
+  },
+  "/alignments/first1k/hom.json": {
+    group: "first1k/hom",
+    pivot: "npnf-works/hom",
+    groups: 2,
+    members: {
+      "npnf-works/hom": { units: 3, spans: "++.", conf: "99" },
+      "first1k/hom": { units: 3, spans: "+=+", conf: "99" },
+    },
+  },
   "/works/kjv/Ps.json": {
     work_id: "kjv/ps",
     ref_prefix: "Ps.23",
@@ -78,7 +99,7 @@ beforeEach(async () => {
   vi.stubGlobal(
     "fetch",
     vi.fn(async (url: string) => {
-      const psalm = Object.entries(psalms).find(([path]) => url.endsWith(path))?.[1];
+      const psalm = Object.entries(files).find(([path]) => url.endsWith(path))?.[1];
       const body = url.endsWith("/authors.json") ? authors : url.endsWith("/index.json") ? index : (psalm ?? work);
       return new Response(JSON.stringify(body));
     }),
@@ -194,8 +215,8 @@ describe("WorkReader version switch", () => {
   it("keeps a highlighted passage highlighted", async () => {
     layout({ "Ps.23.1": [100, 130] });
     const { container } = await openKjv("/works/kjv/ps#Ps.23.1");
-    // The fragment was highlighted on opening (useHashTarget).
-    expect(container.querySelector("[data-target]")?.id).toBe("Ps.23.1");
+    // The fragment was highlighted on opening (useHashTarget, in an effect after the text renders).
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Ps.23.1"));
     // Its place in the text: the wrapper starts above the viewport.
     container.querySelector("article > div")!.id = "text";
     layout({ "Ps.23.1": [100, 130], text: [-50, 900] });
@@ -210,5 +231,33 @@ describe("WorkReader version switch", () => {
     layout({ text: [-400, 900], "Ps.23.1": [-40, -5], "Ps.23.2": [-5, 30] });
     act(() => screen.getByRole("link", { name: "Clementine Vulgate" }).click());
     await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps?nohl#Ps.22.2"));
+  });
+
+  async function openHomilies(url: string) {
+    window.history.replaceState(null, "", url);
+    params = { id: ["npnf-works", "hom"] };
+    const view = render(<WorkReader />);
+    await screen.findByText("The second homily");
+    view.container.querySelector("article > div")!.id = "text";
+    return view;
+  }
+
+  it("keeps the place in other works through the passage alignment (#179)", async () => {
+    const { container } = await openHomilies("/works/npnf-works/hom#Hom.2");
+    // useHashTarget marks the fragment in an effect after the text renders: wait for it,
+    // or the click can read the position before it is marked (and open it with ?nohl).
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Hom.2"));
+    layout({ "Hom.2": [100, 130], text: [-50, 900] });
+    act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom#2"));
+  });
+
+  it("doesn't highlight a nearby passage it falls back to", async () => {
+    // The translator's note is in no alignment group: open the passage before it, unmarked.
+    const { container } = await openHomilies("/works/npnf-works/hom#Hom.3");
+    await vi.waitFor(() => expect(container.querySelector("[data-target]")?.id).toBe("Hom.3"));
+    layout({ "Hom.3": [100, 130], text: [-50, 900] });
+    act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"));
   });
 });

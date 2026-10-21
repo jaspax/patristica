@@ -7,6 +7,8 @@ import { useCallback, useMemo, useRef } from "react";
 import { formatDateLong, GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import {
+  hasAlignment,
+  loadAlignment,
   loadLibrary,
   loadWork,
   workAuthors,
@@ -68,17 +70,20 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
     async (target) => {
       const here = fromWork && currentPosition(textRef.current, window.location.hash);
       if (!fromWork || !here) return null;
-      const ref = await mapPosition({
+      const group = row.version_group;
+      const mapped = await mapPosition({
         from: row,
         fromWork,
         ref: here.ref,
         to: target,
         loadTarget: () => loadWork(target.file),
+        loadAlignment: hasAlignment(index, group) ? () => loadAlignment(group) : undefined,
       });
-      // Highlighted only if the reader was at a highlighted passage, not just scrolled there.
-      return ref ? { ref, highlight: here.highlight } : null;
+      // Highlighted only if the reader was at a highlighted passage, not just
+      // scrolled there, and the target is that passage rather than one near it.
+      return mapped ? { ref: mapped.ref, highlight: here.highlight && !mapped.approximate } : null;
     },
-    [fromWork, row],
+    [fromWork, row, index],
   );
   const versionProps = { current: row, members, originals, sources: index.sources, positionFor };
   const hasVersions = members.length > 1;
