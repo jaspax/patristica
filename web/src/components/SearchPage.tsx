@@ -28,6 +28,7 @@ import { useLoaded } from "@/lib/useLoaded";
 import AuthorLinks from "./AuthorLinks";
 import FilterFields, { type FacetValues } from "./FilterFields";
 import filterStyles from "./Filters.module.css";
+import Landing, { Hero } from "./Landing";
 import styles from "./SearchPage.module.css";
 
 /** The pages of results loaded so far, and the state of the latest request. */
@@ -61,6 +62,8 @@ export default function SearchPage() {
 
   return (
     <div>
+      {/* The landing page leads with what Patristica is; a search leads with the box. */}
+      {searching ? <h1 className="visually-hidden">Search</h1> : <Hero />}
       {/* Keyed by the query, so the field shows it after back/forward navigation. */}
       <SearchForm
         key={state.q}
@@ -76,7 +79,7 @@ export default function SearchPage() {
       {searching ? (
         <Results key={key} state={state} onStatus={setStatus} onBusy={setBusy} onSearch={(q) => go({ q })} />
       ) : (
-        <Intro />
+        <Landing />
       )}
     </div>
   );
@@ -209,23 +212,6 @@ function SearchHelp() {
         </p>
       </div>
     </details>
-  );
-}
-
-function Intro() {
-  return (
-    <div className={styles.intro}>
-      <p>
-        Search by meaning across Scripture and the Fathers in every language of the collection. Ask in any
-        language; results come in the original Greek, Latin, Hebrew, Syriac, Coptic, Ge&lsquo;ez, Armenian or
-        Gothic, with an English machine translation where the original is in a rarer language.
-      </p>
-      <p>
-        Describe an idea rather than quoting words: <em>Christ as physician of the soul</em>,{" "}
-        <em>baptism of desire</em>, <em>the light of Tabor</em>. To find where a passage is quoted, put it
-        in quotes.
-      </p>
-    </div>
   );
 }
 

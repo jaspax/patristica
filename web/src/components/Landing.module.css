@@ -1,0 +1,312 @@
+/* The landing page (Landing.tsx): the hero over the search box, then examples, counts, features and the Word strip. */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  border-radius: calc(var(--radius) * 2);
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--border));
+  box-shadow: var(--shadow-md);
+  background-color: var(--surface);
+  background-image: image-set(url("/images/hero-768.jpg") 1x, url("/images/hero-1536.jpg") 2x);
+  background-size: cover;
+  background-position: right center;
+}
+
+/* The text sits on the empty wall at the left; the scrim fades the image out beneath it. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--surface) 94%, transparent) 0%,
+    color-mix(in srgb, var(--surface) 82%, transparent) 42%,
+    color-mix(in srgb, var(--surface) 25%, transparent) 68%,
+    transparent 85%
+  );
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    background-image: image-set(url("/images/hero-1536.jpg") 1x);
+  }
+}
+
+.heroText {
+  position: relative;
+  max-width: 36rem;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* A short gilt rule after the eyebrow. */
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.title {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(1.6rem, 3.4vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.lead + .lead {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+/* Narrow screens: the image becomes a band above the text. */
+@media (max-width: 47.99rem) {
+  .hero {
+    padding-top: 9rem;
+    background-size: auto 13rem;
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      180deg,
+      transparent 0,
+      color-mix(in srgb, var(--surface) 70%, transparent) 7rem,
+      var(--surface) 11rem
+    );
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background-blend-mode: multiply;
+    background-color: #6b6152;
+  }
+}
+
+/* Below the search box. */
+
+.landing {
+  margin-top: 1rem;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.examplesLabel {
+  color: var(--muted);
+}
+
+.chip {
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--foreground);
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    transform 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.5rem;
+  margin: 2.25rem 0 0;
+}
+
+.stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (max-width: 40rem) {
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.stats dd {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.features li {
+  padding: 1.25rem 1.25rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    border-color 0.2s;
+}
+
+.features li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--gold) 50%, var(--border));
+}
+
+.features h2 {
+  margin: 0.6rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.features p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.featureIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.45rem;
+  border-radius: 50%;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--gold) 16%, transparent);
+}
+
+/* "In the beginning was the Word", in every script. */
+.words {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.words h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-weight: 400;
+}
+
+.wordsQuote {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.wordsSub {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.words ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  color: var(--foreground);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    transform 0.2s ease-out;
+}
+
+.word:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  transform: translateY(-2px);
+}
+
+.wordText {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.word:hover .wordText {
+  color: var(--accent);
+}
+
+.wordLang {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip,
+  .features li,
+  .word {
+    transition: none;
+  }
+
+  .chip:hover,
+  .features li:hover,
+  .word:hover {
+    transform: none;
+  }
+}

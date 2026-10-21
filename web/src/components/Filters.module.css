@@ -36,9 +36,20 @@
   color: var(--foreground);
   background: var(--background);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius);
   padding: 0.35rem 0.5rem;
   min-width: 0;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.filters input:not([type="checkbox"]):focus,
+.filters select:focus,
+.trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--ring);
 }
 
 /* Our own caret, drawn from two gradients in the text colour: the native one
@@ -104,8 +115,8 @@
   gap: 0.4rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
 }
 
 .panel:focus {

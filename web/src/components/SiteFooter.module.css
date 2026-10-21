@@ -1,6 +1,6 @@
 .footer {
   margin-top: auto;
-  border-top: 1px solid var(--border);
+  padding-top: 2rem;
   color: var(--muted);
   font-size: 0.85rem;
 }
@@ -8,5 +8,51 @@
 .inner {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 1rem var(--gutter);
+  padding: 1.25rem var(--gutter) 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  /* A gilt rule that fades out at both ends. */
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--border) 15%, var(--gold) 50%, var(--border) 85%, transparent)
+    1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--foreground);
+}
+
+.mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--accent);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.25rem 1.25rem;
+}
+
+.note {
+  grid-column: 1 / -1;
+  max-width: var(--text-width);
+}
+
+@media (max-width: 40rem) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .links {
+    justify-content: flex-start;
+  }
 }
