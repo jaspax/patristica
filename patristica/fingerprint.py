@@ -22,7 +22,8 @@ separately with ``value_hash``.  A registry excluded this way must be a single
 top-level assignment.
 
 Imports are found statically (``import`` statements anywhere in a module,
-including inside functions); ``importlib`` calls are not followed.  All hashes
+including inside functions); ``importlib`` calls are not followed.
+``import_chain(entry, module)`` shows why a module is part of a step's code.  All hashes
 are the first 16 hex digits of a SHA-256, like ``translations.text_sha``.
 """
 
@@ -31,6 +32,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+from collections import deque
 from collections.abc import Collection, Iterable, Mapping
 from pathlib import Path
 
@@ -113,32 +115,60 @@ def _imported_names(tree: ast.Module, name: str, is_package: bool) -> set[str]:
     return names
 
 
+def _walk(entries: str | Iterable[str], root: Path) -> dict[str, str | None]:
+    """Breadth-first walk of the import graph: ``{module: importer}``.
+
+    The importer of an entry is None; following importers back from any
+    module gives a shortest import chain to it.
+    """
+    if isinstance(entries, str):
+        entries = [entries]
+    pending: deque[tuple[str, str | None]] = deque()
+    for entry in entries:
+        if module_path(entry, root) is None:
+            raise FingerprintError(f"No module {entry!r} under {root}")
+        pending.append((entry, None))
+    seen: dict[str, str | None] = {}
+    while pending:
+        name, importer = pending.popleft()
+        if name in seen or name in IGNORED_MODULES or not _is_local(name):
+            continue
+        path = module_path(name, root)
+        if path is None:  # an imported attribute, not a module
+            continue
+        seen[name] = importer
+        parts = name.split(".")
+        pending.extend((".".join(parts[:i]), name) for i in range(1, len(parts)))
+        tree = ast.parse(path.read_bytes(), filename=str(path))
+        pending.extend(
+            (imported, name)
+            for imported in sorted(_imported_names(tree, name, path.name == "__init__.py"))
+        )
+    return seen
+
+
 def module_closure(entries: str | Iterable[str], root: Path = REPO_ROOT) -> list[str]:
     """Sorted names of the repository modules that *entries* import.
 
     Includes the entries themselves and the packages (``__init__``) of every
     module, since importing a module runs its packages' ``__init__`` too.
     """
-    if isinstance(entries, str):
-        entries = [entries]
-    pending = list(entries)
-    for entry in pending:
-        if module_path(entry, root) is None:
-            raise FingerprintError(f"No module {entry!r} under {root}")
-    seen: set[str] = set()
-    while pending:
-        name = pending.pop()
-        if name in seen or name in IGNORED_MODULES or not _is_local(name):
-            continue
-        path = module_path(name, root)
-        if path is None:  # an imported attribute, not a module
-            continue
-        seen.add(name)
-        parts = name.split(".")
-        pending.extend(".".join(parts[:i]) for i in range(1, len(parts)))
-        tree = ast.parse(path.read_bytes(), filename=str(path))
-        pending.extend(_imported_names(tree, name, path.name == "__init__.py"))
-    return sorted(seen)
+    return sorted(_walk(entries, root))
+
+
+def import_chain(
+    entries: str | Iterable[str], module: str, root: Path = REPO_ROOT
+) -> list[str] | None:
+    """A shortest import chain from *entries* to *module*, or None if it isn't
+    in their closure — to explain why a module counts as a step's code.
+    """
+    importers = _walk(entries, root)
+    if module not in importers:
+        return None
+    chain = [module]
+    while (importer := importers[chain[-1]]) is not None:
+        chain.append(importer)
+    return chain[::-1]
 
 
 def _strip_docstrings(tree: ast.AST) -> None:

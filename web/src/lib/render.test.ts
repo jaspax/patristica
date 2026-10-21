@@ -1,7 +1,27 @@
 import { describe, expect, it } from "vitest";
 
 import type { ChunkRow, WorkFile } from "./library";
-import { displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
+import { chunkRoles, displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
+
+describe("chunkRoles", () => {
+  it("names each chunk's role: a section heading, a unit, or a derived verse of a unit", () => {
+    const work: WorkFile = {
+      work_id: "w",
+      ref_prefix: "Ep",
+      chunks: [
+        ["1", "Letter One"],
+        ["1.1", "Greeting."],
+        ["1.2.s1", "First."],
+        ["1.2.s2", "Second."],
+      ],
+    };
+    const roles = chunkRoles(work, parseWork(work, "patristic"));
+    expect(roles.map((r) => r.kind)).toEqual(["heading", "unit", "part", "part"]);
+    expect(roles[0].kind === "heading" && roles[0].section.title).toBe("Letter One");
+    expect(roles[3].kind === "part" && [roles[3].unit.ref, roles[3].part]).toEqual(["Ep.1.2", 1]);
+    expect(roles.every((r) => r.sectionIndex === 0)).toBe(true);
+  });
+});
 
 function work(ref_prefix: string, chunks: ChunkRow[]): WorkFile {
   return { work_id: "test/work", ref_prefix, chunks };
@@ -22,6 +42,7 @@ describe("parseWork", () => {
       ["s-2", "Chapter 2", ["1"]],
     ]);
     expect(sections[0].units[0].ref).toBe("Gen.1.1");
+    expect(sections[0].ref).toBeNull();
   });
 
   it("treats a parent ref as the section's heading", () => {
@@ -39,6 +60,8 @@ describe("parseWork", () => {
       ["Canon I", 2],
       ["Canon II", 1],
     ]);
+    // The heading chunk's ref stays an anchor, so a search result on it resolves.
+    expect(sections.map((s) => s.ref)).toEqual(["Ancyra.Canon.1", "Ancyra.Canon.2"]);
   });
 
   it("joins derived verses back into their source paragraph", () => {
@@ -125,6 +148,7 @@ describe("parseWork", () => {
       ["ΛΕΙΤΟΥΡΓΙΑ", 0],
       ["ΕΝΑΡΞΙΣ", 1],
     ]);
+    expect(sections.map((s) => s.ref)).toEqual(["ByzLit.Chrysostom.0001.0000", "ByzLit.Chrysostom.0002.0000"]);
   });
 
   it("keeps zero-numbered units in prose", () => {

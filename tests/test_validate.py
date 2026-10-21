@@ -11,8 +11,10 @@ from scripts import validate
 from scripts.validate import (
     UNKNOWN_GENRE,
     ValidationInputError,
+    _check_authors,
     _check_canonical_refs,
     _check_cross_references,
+    _check_date_plausibility,
     _check_id_uniqueness,
     _check_scripture_coverage,
     _check_works_manifest,
@@ -240,3 +242,36 @@ class TestMain:
         code, report = self._run(tmp_path, monkeypatch)
         assert code == 2
         assert report == {}
+
+
+class TestAuthors:
+    def test_unresolved_and_stale(self):
+        works = [
+            {"work_id": "a/1", "author": "Augustinus", "author_ids": ["augustine-of-hippo"]},
+            {"work_id": "a/2", "author": None, "author_ids": []},
+            {"work_id": "a/3", "author": "Nobody Whatsoever", "author_ids": []},
+            {"work_id": "a/4", "author": "Hieronymus"},
+        ]
+        result = _check_authors(works)
+        assert result["unresolved_authors"]["status"] == "fail"
+        assert result["unresolved_authors"]["examples"] == [
+            "'Nobody Whatsoever' (1 works, e.g. a/3)"
+        ]
+        assert result["stale_author_ids"]["examples"] == ["a/4: None != ['jerome']"]
+
+    def test_period_flag_follows_author_birth_year(self):
+        records = {
+            "a/damian": {"work_id": "a/damian", "author_ids": ["peter-damian"]},
+            "a/anon": {"work_id": "a/anon", "author_ids": []},
+        }
+        chunks = [
+            # Born 1007: in period although dated after COMPOSED_BY.
+            {**_chunk("a/damian", "D.1"), "date_composed": 1056, "out_of_period": False},
+            {**_chunk("a/damian", "D.2"), "date_composed": 1056, "out_of_period": True},
+            {**_chunk("a/anon", "A.1"), "date_composed": 1056, "out_of_period": False},
+        ]
+        result = _check_date_plausibility(chunks, records)
+        assert result["period_flag_mismatch"]["examples"] == [
+            "a/damian#D.2 (out_of_period=True, author born 1007)",
+            "a/anon#A.1 (out_of_period=False, date_composed=1056)",
+        ]

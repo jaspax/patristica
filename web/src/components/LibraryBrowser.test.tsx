@@ -1,14 +1,15 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { LibraryIndex, WorkRow } from "@/lib/library";
+import type { AuthorsFile, LibraryIndex, WorkRow } from "@/lib/library";
+import { person } from "@/lib/testFixtures";
 
 const replace = vi.fn();
 let search = "";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace }),
-  usePathname: () => "/",
+  usePathname: () => "/works",
   useSearchParams: () => new URLSearchParams(search),
 }));
 
@@ -16,6 +17,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
   return {
     id: "x",
     author: null,
+    author_ids: [],
     title: "Untitled",
     language: "lat",
     genre: "patristic",
@@ -28,6 +30,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     license: "unknown",
     provenance_url: null,
     translation_of: null,
+    version_group: null,
     chunks: 1,
     file: "works/x.json",
     ...overrides,
@@ -38,10 +41,24 @@ const index: LibraryIndex = {
   version: "0123456789abcdef",
   sources: { pta: "Patristic Text Archive" },
   works: [
-    row({ id: "aug/conf", author: "Augustinus", title: "Confessiones", date: 397 }),
-    row({ id: "bas/ep", author: "Basilius", title: "Epistulae", language: "grc", date: 370 }),
+    row({ id: "aug/conf", author: "Augustinus", author_ids: ["augustine-of-hippo"], title: "Confessiones", date: 397 }),
+    row({ id: "bas/ep", author: "Basilius", author_ids: ["basil-of-caesarea"], title: "Epistulae", language: "grc", date: 370 }),
   ],
 };
+
+const authorsFile: AuthorsFile = {
+  authors: [
+    person({ id: "augustine-of-hippo", name: "Augustine of Hippo", aliases: ["Augustinus"] }),
+    person({ id: "basil-of-caesarea", name: "Basil of Caesarea", aliases: ["Basilius", "Basilius Magnus"] }),
+  ],
+};
+
+/** Serve index.json (`works`) and authors.json from the fake library. */
+function serve(works: LibraryIndex) {
+  return vi.fn(async (url: string) =>
+    new Response(JSON.stringify(url.endsWith("/authors.json") ? authorsFile : works)),
+  );
+}
 
 // lib/library caches the index per page session; reload the modules for each test.
 let LibraryBrowser: typeof import("./LibraryBrowser").default;
@@ -51,10 +68,7 @@ beforeEach(async () => {
   LibraryBrowser = (await import("./LibraryBrowser")).default;
   search = "";
   replace.mockClear();
-  vi.stubGlobal(
-    "fetch",
-    vi.fn(async () => new Response(JSON.stringify(index))),
-  );
+  vi.stubGlobal("fetch", serve(index));
 });
 
 afterEach(() => {
@@ -70,6 +84,23 @@ describe("LibraryBrowser", () => {
     expect(link.getAttribute("href")).toBe("/works/aug/conf");
   });
 
+  it("counts the versions of a work in other languages or editions", async () => {
+    const grouped: LibraryIndex = {
+      ...index,
+      works: [
+        row({ id: "a", title: "Confessiones", version_group: "a" }),
+        row({ id: "b", title: "Confessions", language: "eng", version_group: "a" }),
+        row({ id: "c", title: "Epistulae" }),
+      ],
+    };
+    vi.stubGlobal("fetch", serve(grouped));
+    render(<LibraryBrowser />);
+    const link = await screen.findByRole("link", { name: "Confessions" });
+    expect(link.closest("td")?.textContent).toBe("Confessions2 versions");
+    expect(screen.getAllByText("2 versions")).toHaveLength(2);
+    expect(screen.getByRole("link", { name: "Epistulae" }).closest("td")?.textContent).toBe("Epistulae");
+  });
+
   it("applies the filters from the URL", async () => {
     search = "language=grc";
     render(<LibraryBrowser />);
@@ -81,25 +112,59 @@ describe("LibraryBrowser", () => {
   it("writes searches and sorting to the URL", async () => {
     render(<LibraryBrowser />);
     fireEvent.change(await screen.findByRole("searchbox"), { target: { value: "basil" } });
-    expect(replace).toHaveBeenLastCalledWith("/?q=basil", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?q=basil", { scroll: false });
 
     fireEvent.click(screen.getByRole("button", { name: /Date/ }));
-    expect(replace).toHaveBeenLastCalledWith("/?sort=date", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?sort=date", { scroll: false });
   });
 
   it("offers each genre present, apocrypha included, in the genre facet", async () => {
     const apocrypha = row({ id: "anf/protev", title: "Protevangelium", genre: "apocrypha" });
     const withApocrypha = { ...index, works: [...index.works, apocrypha] };
-    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(withApocrypha))));
+    vi.stubGlobal("fetch", serve(withApocrypha));
     render(<LibraryBrowser />);
     await screen.findByText("3 works");
-    const genre = screen.getByRole("combobox", { name: "Genre" });
-    const options = [...genre.querySelectorAll("option")].map((o) => [o.value, o.textContent]);
-    expect(options).toEqual([
-      ["", "All"],
-      ["apocrypha", "Apocrypha"],
-      ["patristic", "Patristic"],
+    fireEvent.click(screen.getByRole("button", { name: "Genre All" }));
+    const genre = screen.getByRole("group", { name: "Genre" });
+    expect(within(genre).getAllByRole("checkbox").map((c) => c.closest("label")!.textContent)).toEqual([
+      "Apocrypha",
+      "Patristic",
     ]);
+  });
+
+  it("offers authors by id with work counts, and an Anonymous value", async () => {
+    const anon = row({ id: "anon/hymn", title: "Hymnus" });
+    vi.stubGlobal("fetch", serve({ ...index, works: [...index.works, anon] }));
+    render(<LibraryBrowser />);
+    await screen.findByText("3 works");
+    fireEvent.click(screen.getByRole("button", { name: "Author All" }));
+    const author = screen.getByRole("group", { name: "Author" });
+    expect(within(author).getAllByRole("checkbox").map((c) => c.closest("label")!.textContent)).toEqual([
+      "Anonymous 1",
+      "Augustine of Hippo 1",
+      "Basil of Caesarea 1",
+    ]);
+
+    fireEvent.click(within(author).getByRole("checkbox", { name: "Basil of Caesarea 1" }));
+    fireEvent.click(within(author).getByRole("checkbox", { name: "Anonymous 1" }));
+    fireEvent.click(within(author).getByRole("button", { name: "Done" }));
+    expect(replace).toHaveBeenLastCalledWith("/works?author=basil-of-caesarea&author=anonymous", { scroll: false });
+  });
+
+  it("filters by the author in the URL and links names to author pages", async () => {
+    search = "author=augustine-of-hippo";
+    render(<LibraryBrowser />);
+    expect(await screen.findByText(/1 of 2 works/)).toBeDefined();
+    expect(screen.queryByText("Epistulae")).toBeNull();
+    const link = screen.getByRole("link", { name: "Augustine of Hippo" });
+    expect(link.getAttribute("href")).toBe("/authors/augustine-of-hippo");
+  });
+
+  it("finds an author by a Latin alias", async () => {
+    search = "q=magnus";
+    render(<LibraryBrowser />);
+    expect(await screen.findByText(/1 of 2 works/)).toBeDefined();
+    expect(screen.getByRole("link", { name: "Basil of Caesarea" })).toBeDefined();
   });
 
   it("explains how to export the library when it is missing", async () => {

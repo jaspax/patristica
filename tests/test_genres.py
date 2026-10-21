@@ -178,5 +178,23 @@ def test_manifest_applies_override_without_raw_data(
     assert json.loads(line)["work"]["genre"] == "apocrypha"
 
 
+def test_manifest_drops_empty_external_ids(tmp_path: Path) -> None:
+    """Only works with catalogue ids carry ``external_ids`` in the manifest (#178)."""
+    norm, raw = tmp_path / "normalized", tmp_path / "elsewhere" / "raw"
+    for rel, ids in (("src/a.json", []), ("src/b.json", ["CPG:5200"])):
+        (norm / "src").mkdir(parents=True, exist_ok=True)
+        (norm / rel).write_text("[]", encoding="utf-8")
+        (raw / "src").mkdir(parents=True, exist_ok=True)
+        work = _work(f"src/{rel[4]}", "patristic", external_ids=ids)
+        (raw / rel).write_text(json.dumps({"work": work}), encoding="utf-8")
+
+    write_works_manifest(norm, raw)
+
+    works = {json.loads(line)["path"]: json.loads(line)["work"]
+             for line in (norm / "_works.jsonl").read_text(encoding="utf-8").splitlines()}
+    assert "external_ids" not in works["src/a.json"]
+    assert works["src/b.json"]["external_ids"] == ["CPG:5200"]
+
+
 def test_overrides_path_is_packaged() -> None:
     assert OVERRIDES_PATH.is_file()

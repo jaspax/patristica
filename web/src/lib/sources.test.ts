@@ -7,6 +7,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
   return {
     id: "x",
     author: null,
+    author_ids: [],
     title: "T",
     language: "grc",
     genre: "patristic",
@@ -19,6 +20,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     license: "cc-by-sa-4.0",
     provenance_url: null,
     translation_of: null,
+    version_group: null,
     chunks: 10,
     file: "works/x.json",
     ...overrides,

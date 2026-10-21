@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-045/ad-ablabium",
+ "pivot": "npnf-works/gregory-of-nyssa-not-three-gods",
+ "groups": 170,
+ "inputs": "717b5bcf40cd7f4a",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/gregory-of-nyssa-not-three-gods", "units": 179, "ids": "37d00f45b8202f20", "inputs": "7ed1999cfb8f9e78", "spans": "+=+++++.+++++++++++++++=++++++++++++++++++++++.+++++++++++++++++.+++=+++++++++++=+++=++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999997799999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-045/ad-ablabium", "units": 188, "ids": "f18b3bb3d2cd4df4", "inputs": "893df8ac31e7d446", "spans": "++=+++=+.+++++++++++++++++++++++++++++++=++++++++++++++++++++++++=++++++=++++++++++++++++=++++=+.+++++++++++++=+++++++++++++++=++++++=++++++++++++++++=+++++++++++++=+++++++++=++=+++=++++=+", "conf": "99999999999999999999999999999999999999999999999999999997799999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

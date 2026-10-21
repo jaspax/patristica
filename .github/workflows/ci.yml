@@ -18,6 +18,22 @@ jobs:
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
+    # The same image as production; tests that need a database (search index,
+    # #137) use it through PATRISTICA_TEST_DATABASE_URL and skip without it.
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg16
+        env:
+          POSTGRES_USER: patristica
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: patristica
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U patristica" --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      PATRISTICA_TEST_DATABASE_URL: postgresql://patristica:ci@localhost:5432/patristica
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +42,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --locked --extra dev --extra eval
+        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy --extra index
 
       - name: Run unit tests
         run: uv run pytest
@@ -61,3 +77,49 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  # Hosting as code (infra/, #117): OpenTofu config, cloud-init, compose stack,
+  # shell scripts. Offline checks only; nothing here touches DigitalOcean.
+  infra:
+    name: Infra
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.13.1
+
+      - name: tofu fmt
+        run: tofu -chdir=infra/tofu fmt -check -recursive
+
+      - name: tofu validate
+        run: |
+          tofu -chdir=infra/tofu init -backend=false -input=false
+          tofu -chdir=infra/tofu validate
+
+      - name: cloud-init schema
+        run: |
+          command -v cloud-init || sudo apt-get install -y -q cloud-init
+          sed 's#${volume_device}#/dev/disk/by-id/scsi-0DO_Volume_test#g' \
+            infra/tofu/cloud-init.yaml > "$RUNNER_TEMP/cloud-init.yaml"
+          cloud-init schema -c "$RUNNER_TEMP/cloud-init.yaml"
+
+      - name: docker compose config
+        working-directory: infra/compose
+        run: cp .env.local.example .env && docker compose config -q
+
+      - name: Caddyfile
+        working-directory: infra/compose
+        run: |
+          docker run --rm --env-file .env.local.example \
+            -v "$PWD/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2.11.6 \
+            caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+
+      # The image the droplet runs (#132); the web job above only checks npm run build.
+      - name: web image
+        working-directory: infra/compose
+        run: docker compose build web
+
+      - name: shellcheck
+        run: shellcheck infra/*.sh infra/compose/backup/*.sh

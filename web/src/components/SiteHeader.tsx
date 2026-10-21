@@ -10,11 +10,10 @@ export default function SiteHeader() {
           Patristica
         </Link>
         <nav className={styles.nav} aria-label="Main">
-          <Link href="/">Library</Link>
+          <Link href="/">Search</Link>
+          <Link href="/works">Library</Link>
+          <Link href="/authors">Authors</Link>
           <Link href="/sources">Sources</Link>
-          <span className={styles.disabled} aria-disabled="true" title="Coming soon">
-            Search
-          </span>
         </nav>
       </div>
     </header>

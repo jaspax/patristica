@@ -1,0 +1,20 @@
+{
+ "format": 1,
+ "group": "book:zeph",
+ "pivot": "asv/zeph",
+ "groups": 53,
+ "inputs": "d5c50fce60552b8a",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "armenian/zeph", "units": 53, "ids": "00b5af411b30e16b", "inputs": "acbd00da26b4f3aa", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "asv/zeph", "units": 53, "ids": "409d9f8086458453", "inputs": "67d1b04c67ee5360", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "clementine/zeph", "units": 53, "ids": "a280ecac03625a90", "inputs": "d8a50177ee2f5ba7", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "coptic-nt/zeph", "units": 7, "ids": "83e023aeabae036d", "inputs": "7ec3b5b2fda70ba0", "spans": "+14++++++", "conf": "9999999"},
+  {"work_id": "kjv/zeph", "units": 53, "ids": "21e1a90319cb4e31", "inputs": "bb232d1e0f67f16c", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "lxx-rahlfs/zeph", "units": 53, "ids": "0b89268f0382fbb6", "inputs": "24bad2dfd1c04846", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "oshb/zeph", "units": 53, "ids": "05bbe0b4b55d0a91", "inputs": "da8382ac2df96cca", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-lxx/zeph", "units": 53, "ids": "6a60a83196ed42bb", "inputs": "75f591ce847cf1dc", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-peshitta/zeph", "units": 53, "ids": "bafb559c9510e87e", "inputs": "9c3c122d0520b701", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"},
+  {"work_id": "web/zeph", "units": 53, "ids": "2203652efe1128f9", "inputs": "5ab4c1b67939f28a", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999"}
+ ]
+}

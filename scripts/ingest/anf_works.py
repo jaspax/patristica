@@ -843,8 +843,9 @@ _WORKS: tuple[_WorkSpec, ...] = (
 
 # ---------------------------------------------------------------------------
 # Translation linkage: slug → work_id of the original-language Work in the
-# corpus (First1KGreek, PTA, Perseus, OGLT PL).  Matched by author + title and
-# reviewed by hand; unsure cases are left out (see _UNLINKED).
+# corpus (First1KGreek, PTA, Perseus, OGLT PL, OGPG).  Matched by author + title,
+# then checked by hand against a passage of the original; unsure cases are
+# left out (see _UNLINKED).
 # ---------------------------------------------------------------------------
 
 _F1K = "first1k/{}/1st1K-grc1"
@@ -935,23 +936,120 @@ _ORIGINALS: dict[str, str] = {
     # The ANF prints both recensions (Version I and II); linked to Recension A.
     "testament-of-abraham": _F1K.format("tlg1701/tlg001"),
     "origen-commentary-on-john": _F1K.format("tlg2042/tlg005"),
+    # ANF08: the Little Labyrinth is section 2 of First1KGreek's Gaius
+    # fragments (from Eusebius HE 5.28), with caius-fragments' text.
+    "against-the-heresy-of-artemon": _F1K.format("tlg0572/tlg001"),
+    # ANF08: Eusebius HE 5.1-3 (the same edition as npnf-works/eusebius-church-history).
+    "letter-of-the-churches-of-vienne-and-lyons": _F1K.format("tlg2018/tlg002"),
+    # ANF08: the ANF text is the opening (John at Rome and Patmos) and the
+    # Metastasis of Bonnet's Acta Joannis, which First1KGreek prints in full.
+    "acts-of-john-the-theologian": _F1K.format("tlg0317/tlg001"),
+    # -- Open Patrologia Graeca (OGPG): OCR of Migne's Greek columns, one Work
+    # per text (``scripts/ingest/data/ogpg_index.csv``).  Used only where no
+    # critical edition of the text is in the corpus, and only split works
+    # (``ogpg/vol-NNN/{slug}``), never a volume's ``other`` remainder.  Where
+    # the Migne Work holds more than the translation, the comment says so.
+    # ANF01
+    "martyrdom-of-ignatius": "ogpg/vol-005/martyrium-ignatii",
+    "papias-fragments": "ogpg/vol-005/papias-fragmenta",
+    "martyrdom-of-justin": "ogpg/vol-006/martyrium-justini",
+    "pseudo-justin-discourse-to-the-greeks": "ogpg/vol-006/oratio-ad-graecos",
+    "pseudo-justin-hortatory-address": "ogpg/vol-006/cohortatio-ad-graecos",
+    "pseudo-justin-sole-government-of-god": "ogpg/vol-006/de-monarchia",
+    # PG 6 prints the De resurrectione fragments with Justin's other fragments.
+    "justin-on-the-resurrection": "ogpg/vol-006/fragmenta-justini",
+    "justin-other-fragments": "ogpg/vol-006/fragmenta-justini",
+    # Massuet's Greek fragments, which the ANF numbering follows.
+    "irenaeus-fragments": "ogpg/vol-007/fragmenta",
+    # ANF05: Migne's Fragmenta exegetica cover the ANF collection.
+    "hippolytus-exegetical-fragments": "ogpg/vol-010/hippolytus-exegetica",
+    # The ogpg_index row "de-consummatione-mundi" (PG 10, 829-850) holds
+    # other text; De consummatione mundi (cols. 903-952) falls inside the
+    # in-theophaniam Work (#149).
+    "pseudo-hippolytus-end-of-the-world": "ogpg/vol-010/in-theophaniam",
+    "pseudo-hippolytus-twelve-and-seventy-apostles": "ogpg/vol-010/de-apostolis",
+    # ANF06
+    "gregory-thaumaturgus-declaration-of-faith": "ogpg/vol-010/thaumaturgus-expositio-fidei",
+    "gregory-thaumaturgus-metaphrase-of-ecclesiastes": "ogpg/vol-010/thaumaturgus-metaphrasis",
+    # PG prints the epistle with Balsamon's and Zonaras's commentary.
+    "gregory-thaumaturgus-canonical-epistle": "ogpg/vol-010/thaumaturgus-epistula-canonica",
+    "gregory-thaumaturgus-panegyric-to-origen": "ogpg/vol-010/thaumaturgus-panegyricus",
+    "dionysius-of-alexandria-fragments": "ogpg/vol-010/dionysius-alexandrinus",
+    "dionysius-of-alexandria-exegetical-fragments": "ogpg/vol-010/dionysius-commentaria",
+    # PG 10's Julius Africanus Work holds both the Chronography fragments and
+    # the Epistle to Aristides; the Letter to Origen is a Work of its own (PG 11).
+    "africanus-chronography": "ogpg/vol-010/julius-africanus",
+    "africanus-epistle-to-aristides": "ogpg/vol-010/julius-africanus",
+    "africanus-letter-to-origen": "ogpg/vol-011/africanus-epistula-ad-originem",
+    "narrative-of-events-in-persia": "ogpg/vol-010/narratio-de-rebus-persicis",
+    "malchion-synod-of-antioch": "ogpg/vol-010/malchion-epistula",
+    "pseudo-pamphilus-exposition-of-acts": "ogpg/vol-010/pamphilus-expositio",
+    # PG 18 prints the letters as one Work (PTA has only Urk. 4).
+    "alexander-of-alexandria-epistles": "ogpg/vol-018/alexander-alexandrinus",
+    "alexander-of-lycopolis-manichaeans": "ogpg/vol-018/alexander-lycopolitanus",
+    # PG 18's Peter of Alexandria holds the canonical epistle and the fragments.
+    "peter-of-alexandria-canonical-epistle": "ogpg/vol-018/petrus-alexandrinus",
+    "peter-of-alexandria-fragments": "ogpg/vol-018/petrus-alexandrinus",
+    # PG 18's Methodius "Excerpta ac orationes" holds both texts.
+    "methodius-discourse-on-the-resurrection": "ogpg/vol-018/methodius-opera-varia",
+    "pseudo-methodius-simeon-and-anna": "ogpg/vol-018/methodius-opera-varia",
+    # ANF08: Melito's Greek fragments only (the ANF also translates Syriac ones).
+    "melito-fragments": "ogpg/vol-005/melito-fragmenta",
+    "testaments-of-the-twelve-patriarchs": "ogpg/vol-002/testamenta-xii-patriarcharum",
+    # ANF09: First1KGreek has the letter only inside the Philocalia.
+    "origen-letter-to-gregory": "ogpg/vol-011/epistula-ad-gregorium",
+    "origen-letter-to-gregory-anf09": "ogpg/vol-011/epistula-ad-gregorium",
+    # PG 13 prints the extant Greek books (10-17) as one Work; the ANF
+    # translates books 10-14 (First1KGreek splits them over two Works).
+    "origen-commentary-on-matthew": "ogpg/vol-013/commentarii-in-matthaeum",
+    # ANF06: Bibliotheca cod. 119 (PG 103, col. 399), inside the Work for
+    # codd. 1-249.
+    "photius-on-pierius": "ogpg/vol-103/bibliotheca-1",
+    # ANF07: PL 7's Fragmenta holds fragments I-IV and the poem on the Passion;
+    # the ANF also prints the Phoenix, which it lacks.
+    "lactantius-fragments": "oglt-pl/lactantius/pl7_0_lact",
+    # ANF08: the letter of the presbyters and deacons of Achaia (PG 2, cols.
+    # 1217-1248); the Work opens with short notices on Andrew (cols. 1191-1197).
+    "acts-and-martyrdom-of-andrew": "ogpg/vol-002/de-martyrio-andreae",
+    # ANF05: PL 47 prints Cyprian's De dominica oratione, word for word, as
+    # Augustine's "Opusculum I sive liber de oratione" (#184).
+    "cyprian-lords-prayer": "oglt-pl/augustinus/pl47_0_unk",
+    # ANF06: the "Logos eis ta baia" (PG 18, p. 293 of the OCR), inside the
+    # Work that also holds Simeon and Anna.
+    "pseudo-methodius-oration-on-the-palms": "ogpg/vol-018/methodius-opera-varia",
+    # ANF08: the Latin Liber de nativitate Mariae, with its pseudo-Jerome
+    # preface, inside PL 30's mantissa of works ascribed to Jerome.
+    "gospel-of-the-nativity-of-mary": "oglt-pl/pseudo-hieronymus/pl30_0_",
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).
 _UNLINKED: dict[str, str] = {
     "ignatius-syriac-recension": "Syriac abridgement; no Syriac original in corpus",
-    "irenaeus-fragments": "first1k tlg1447.tlg009 is a different fragment set",
-    "origen-letter-to-gregory": "only extant inside the Philocalia (first1k tlg2042.tlg019)",
-    "origen-letter-to-gregory-anf09": "only extant inside the Philocalia (first1k tlg2042.tlg019)",
-    "origen-commentary-on-matthew": "ANF covers books 10-14, split across first1k tlg2042.tlg029/030",
-    "hippolytus-exegetical-fragments": "collection; PTA has only the Daniel commentary",
-    "alexander-of-alexandria-epistles": "PTA Urk. 4 covers only one of the letters",
     "methodius-fragments": "spread over several first1k fragment works",
     "methodius-concerning-matter": "an extract of first1k tlg2959.tlg002 (De libero arbitrio)",
-    "lactantius-fragments": "OGLT pl7 'Fragmenta' contents not verified to match",
-    "acts-of-john-the-theologian": "first1k 'Acta Joannis' (tlg0317) may be a different text",
     "cyprian-epistles": "OGLT has only five individual letters, not the collection",
     "apology-of-aristides": "Greek survives only inside Barlaam and Josaphat (perseus tlg2934.tlg066)",
+    "origen-de-principiis": "translates Rufinus's Latin; OGPG PG 11 has only the Greek fragments",
+    "hippolytus-dogmatical-and-historical": "several works, each a separate OGPG PG 10 Work",
+    "pseudo-gregory-thaumaturgus-dubious-writings": "spread over three OGPG PG 10 Works",
+    "passion-of-symphorosa": "Latin passio; not in the OCR of OGPG PG 10's julius-africanus",
+    "dionysius-of-rome-against-the-sabellians": (
+        "Greek only inside Athanasius, De decretis 26; OGLT pl5 prints a Latin version"),
+    "acts-and-records-baptism-of-heretics": "several OGLT PL 3 council Works (Rome, Carthage)",
+    "pseudo-clementine-recognitions": "Rufinus's Latin is not in the corpus; the Homilies differ",
+    "ignatius-latin-correspondence": "Latin letters; the corpus has only Greek recensions",
+    "gospel-of-nicodemus": "translates the Greek and Latin forms; the corpus has a Coptic one",
+    # Quoted inside another author's work (Eusebius HE), which would group
+    # them with that author's works.
+    "apollonius-against-the-montanists": "only quoted in Eusebius HE 5.18",
+    "phileas-epistle-to-thmuis": "only quoted in Eusebius HE 8.10",
+    # OGPG prints these in Works of several authors (PG 5 Fragmenta saeculi
+    # II; PG 10 Alexandrina fragmenta), which would group unrelated works.
+    **{s: "only in a multi-author OGPG Work" for s in (
+        "hegesippus-fragments", "aristo-of-pella-fragments", "quadratus-apology-fragment",
+        "pantaenus-fragments", "rhodon-fragments", "serapion-of-antioch-fragments",
+        "alexander-of-jerusalem-epistles", "anatolius-arithmetic", "theognostus-hypotyposes",
+        "pierius-fragment")},
 }
 
 _WORKS = link_originals(_WORKS, _ORIGINALS)

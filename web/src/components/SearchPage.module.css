@@ -1,0 +1,286 @@
+.form {
+  margin-bottom: 1rem;
+}
+
+.queryRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.queryRow input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+.queryRow .submit {
+  padding-inline: 1.25rem;
+}
+
+/* The facets fold away below the search bar; the toggle and "Clear filters" share a line. */
+.filterBar {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.filterToggle {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.filterToggle::before {
+  content: "▸";
+  display: inline-block;
+  width: 1em;
+}
+
+.filterToggle[aria-expanded="true"]::before {
+  content: "▾";
+}
+
+.filterPanel {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* `.filters` sets display: flex, which would otherwise override `hidden`. */
+.filterPanel[hidden] {
+  display: none;
+}
+
+.submit,
+.more {
+  font: inherit;
+  color: var(--background);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+
+.more {
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+/* While the first page loads, a spinner covers the Search label. */
+.submit {
+  position: relative;
+}
+
+.submit[aria-busy="true"] {
+  cursor: progress;
+}
+
+.busyLabel {
+  visibility: hidden;
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2.4s;
+  }
+}
+
+.reset {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  max-width: var(--text-width);
+  color: var(--muted);
+}
+
+.intro p + p {
+  margin-top: 0.75rem;
+}
+
+.status,
+.notice {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 1rem 0;
+}
+
+.error {
+  margin: 1rem 0;
+  color: var(--accent);
+}
+
+.results {
+  list-style: none;
+  max-width: var(--text-width);
+}
+
+.result {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.citation {
+  font-weight: 600;
+}
+
+.citation cite {
+  font-style: italic;
+}
+
+.ref {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.text {
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.translation {
+  margin-top: 0.5rem;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 2px solid var(--border);
+}
+
+.label,
+.meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.meta {
+  margin-top: 0.4rem;
+}
+
+.queryBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  /* The help popover is placed against this box, so it starts at the gutter. */
+  position: relative;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.hint q {
+  quotes: none;
+  font-family: var(--font-body);
+  color: var(--foreground);
+}
+
+/* A popover: it floats over the filters instead of pushing them down. */
+.help {
+  display: inline;
+}
+
+.help summary {
+  display: inline;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.help[open] > div {
+  position: absolute;
+  z-index: 10;
+  inset-inline-start: 0;
+  margin-top: 0.3rem;
+  width: min(34rem, calc(100vw - 2 * var(--gutter)));
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  padding: 0.6rem 0.8rem;
+  max-width: var(--text-width);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 0.85rem;
+}
+
+.help p + p {
+  margin-top: 0.4rem;
+}
+
+.mode {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.mode strong {
+  color: var(--foreground);
+}
+
+.text mark {
+  background: var(--highlight);
+  color: inherit;
+  border-radius: 2px;
+}
+
+/* "Also in: …": the other versions of a folded passage (#180), as one wrapping line. */
+.versions {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.versions ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.versions li {
+  display: inline;
+}
+
+/* Separators are decoration: screen readers announce the list items. */
+.versions li + li::before {
+  content: " · ";
+  content: " · " / "";
+  color: var(--muted);
+}

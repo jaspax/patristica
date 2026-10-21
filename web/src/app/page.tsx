@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 
-import LibraryBrowser from "@/components/LibraryBrowser";
+import SearchPage from "@/components/SearchPage";
 
 export default function Home() {
   return (
     <main>
-      <h1 className="visually-hidden">Library</h1>
-      {/* LibraryBrowser reads the URL query, so it renders on the client only. */}
-      <Suspense fallback={<p>Loading the library…</p>}>
-        <LibraryBrowser />
+      <h1 className="visually-hidden">Search</h1>
+      {/* SearchPage reads the URL query, so it renders on the client only. */}
+      <Suspense fallback={<p>Loading…</p>}>
+        <SearchPage />
       </Suspense>
     </main>
   );

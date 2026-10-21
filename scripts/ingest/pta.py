@@ -125,6 +125,32 @@ def _read_author_name(cts_path: Path) -> str | None:
     return None
 
 
+_DC_NS = "http://purl.org/dc/elements/1.1/"
+
+
+def read_work_ids(cts_path: Path) -> list[str]:
+    """Catalogue identifiers of a PTA work, from its ``__cts__.xml`` (#178).
+
+    PTA records ``<dc:identifier>KIND:value</dc:identifier>`` per work (TLG,
+    CPG, BHG, Pinakes-Oeuvre, Aldama, GND, …).  Returns them as
+    ``"KIND:value"`` in catalogue order, without the redundant ``PTA:`` id;
+    a value listing several numbers (``CPG:3243; 8596``) becomes one id each.
+    """
+    if not cts_path.exists():
+        return []
+    root = etree.parse(str(cts_path)).getroot()
+    ids: list[str] = []
+    for el in root.iter(f"{{{_DC_NS}}}identifier"):
+        kind, sep, value = (el.text or "").strip().partition(":")
+        if not sep or not value.strip() or kind == "PTA":
+            continue
+        for part in re.split(r"\s*[;,]\s*", value.strip()):
+            ident = f"{kind}:{part}"
+            if part and ident not in ids:
+                ids.append(ident)
+    return ids
+
+
 def _extract_dates(root: etree._Element) -> tuple[int | None, tuple[int, int] | None, DateConfidence]:
     """Extract composition date info from teiHeader/profileDesc/creation/date."""
     ns = {"tei": _TEI}
@@ -237,6 +263,7 @@ def _extract_paragraphs(
 def _parse_pta_file(
     xml_path: Path,
     author_name: str | None,
+    external_ids: list[str] | None = None,
 ) -> tuple[Work, list[dict[str, str]]] | None:
     """Parse a single PTA TEI file.
 
@@ -340,6 +367,7 @@ def _parse_pta_file(
         provenance_url=f"https://github.com/PatristicTextArchive/pta_data/blob/main/data/{author_id}/{work_id_short}/{xml_path.name}",
         edition=edition_note,
         translation_of=None,
+        external_ids=external_ids or [],
     )
 
     paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns)
@@ -384,21 +412,28 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         rel = xml_path.relative_to(pta_data_dir)  # e.g. pta0001/pta001/pta0001.pta001.pta-grc1.xml
         out_path = output_dir / "pta" / rel.with_suffix(".json")
 
+        work_ids = read_work_ids(xml_path.parent / "__cts__.xml")
         if out_path.exists() and not force:
             # Still need to return the work metadata; read it from the saved file
             import json
             try:
                 saved = json.loads(out_path.read_text(encoding="utf-8"))
-                works.append(Work(**saved["work"]))
-            except Exception:
-                pass
+            except json.JSONDecodeError as exc:
+                log.warning("Unreadable %s (%s); re-run with --force", out_path, exc)
+                continue
+            if saved["work"].get("external_ids", []) != work_ids:
+                # Catalogue ids are metadata only: refresh them in place, no re-parse.
+                saved["work"]["external_ids"] = work_ids
+                out_path.write_text(
+                    json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
+            works.append(Work(**saved["work"]))
             continue
 
         # Read author name from __cts__.xml in the author directory
         author_cts = xml_path.parents[1] / "__cts__.xml"
         author_name = _read_author_name(author_cts) if author_cts.exists() else None
 
-        result = _parse_pta_file(xml_path, author_name)
+        result = _parse_pta_file(xml_path, author_name, work_ids)
         if result is None:
             skipped += 1
             continue

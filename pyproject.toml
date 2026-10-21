@@ -25,7 +25,10 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest", "pytest-mock", "ruff", "mypy"]
 usfm = ["usfm-grammar"]  # requires Node.js
-deploy = ["boto3"]  # scripts.upload_library (Cloudflare R2, S3 API)
+deploy = ["boto3"]  # scripts.upload_library, scripts.bootstrap_infra (DigitalOcean Spaces, S3 API)
+api = ["fastapi", "uvicorn[standard]", "psycopg[binary]", "psycopg-pool", "numpy"]  # api/ (FastAPI backend, #117; search #141)
+embed = ["numpy"]  # scripts.embed: corpus vectors via patristica.embedders (#136)
+index = ["numpy", "psycopg[binary]"]  # scripts.build_index: load the search database (#137)
 eval = ["numpy", "httpx", "anthropic"]  # scripts.embed_eval: dense retrieval, API embedders, translation eval
 eval-local = ["numpy", "sentence-transformers", "torch"]  # local embedders (CPU torch; not in CI)
 

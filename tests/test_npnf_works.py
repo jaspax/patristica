@@ -78,28 +78,35 @@ def test_anf_table_still_registered() -> None:
     assert anf_works.SOURCE_ID == "anf-works"
 
 
-def _corpus_work_ids() -> set[str]:
-    ids: set[str] = set()
-    for src in ("first1k", "pta", "perseus", "oglt-pl"):
-        for f in (_RAW / src).rglob("*.json"):
-            try:
-                ids.add(json.loads(f.read_text(encoding="utf-8"))["work"]["work_id"])
-            except (KeyError, ValueError, TypeError):
-                continue
-    return ids
+_MANIFEST = Path(__file__).resolve().parents[1] / "data" / "normalized" / "_works.jsonl"
+
+
+def _manifest_languages() -> dict[str, str]:
+    """work_id → language for every Work in the tracked manifest."""
+    out: dict[str, str] = {}
+    for line in _MANIFEST.read_text(encoding="utf-8").splitlines():
+        work = json.loads(line)["work"]
+        out[work["work_id"]] = work["language"]
+    return out
 
 
 @pytest.mark.parametrize("module", [anf_works, npnf_works])
 def test_translation_of_targets_exist(module) -> None:
-    """Every translation_of resolves to an original-language Work in the corpus."""
-    if not (_RAW / "first1k").exists():
-        pytest.skip("original-language raw data not present")
-    ids = _corpus_work_ids()
+    """Every translation_of resolves to an original-language Work in the corpus.
+
+    OGPG targets must be split works (``ogpg/vol-NNN/{slug}``), never a
+    volume's ``other`` remainder of unindexed text.
+    """
+    languages = _manifest_languages()
     linked = [s for s in module._WORKS if s.translation_of]
     assert linked
     for spec in linked:
-        assert spec.translation_of in ids, (spec.slug, spec.translation_of)
-        assert not spec.translation_of.startswith("ogpg/"), spec.slug
+        target = spec.translation_of
+        assert target in languages, (spec.slug, target)
+        assert languages[target] != "eng", (spec.slug, target)
+        if target.startswith("ogpg/"):
+            assert len(target.split("/")) == 3, (spec.slug, target)
+            assert not target.endswith("/other"), (spec.slug, target)
     slugs = {s.slug for s in module._WORKS}
     assert set(module._UNLINKED) <= slugs
     assert not set(module._UNLINKED) & set(module._ORIGINALS)
