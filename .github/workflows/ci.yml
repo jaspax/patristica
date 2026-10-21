@@ -47,6 +47,41 @@ jobs:
       - name: Run unit tests
         run: uv run pytest
 
+  # Pipeline freshness (#130). The hard checks (stale normalized data or
+  # alignments) are pytest tests in unit-tests; this job reports what CI can't
+  # run (pending translations and their cost) in the job summary, and runs
+  # scripts.validate when a file it reads changed: it fails on validation
+  # errors and lists the warning counts. Needs no raw data or API keys.
+  pipeline:
+    name: Pipeline status and validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # A PR checks out its merge commit: HEAD^1 is the base, so the PR's
+          # changes are `git diff HEAD^1 HEAD` without fetching any history.
+          fetch-depth: 2
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked --extra eval
+
+      - name: Pipeline status
+        run: uv run python -m scripts.status --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate (when its inputs changed)
+        # Also when the status step failed: they check different things.
+        if: ${{ !cancelled() }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            changed="--if-changed HEAD^1"
+          fi
+          uv run python -m scripts.validate $changed --output "$RUNNER_TEMP/validation_report.json" \
+            --summary "$GITHUB_STEP_SUMMARY"
+
   # Next.js frontend (web/): lint, typecheck, unit tests, production build.
   web:
     name: Web app

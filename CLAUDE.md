@@ -61,6 +61,7 @@ patristica/
 │   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
+│   ├── status.py              # freshness of every pipeline step in one table (#130)
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
 │   ├── version_groups.py      # report version groups per language pair (#178)
@@ -227,6 +228,7 @@ uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embed
 uv run --extra embed python -m scripts.align --dry-run --embeddings-dir data/embeddings  # passage alignments → data/alignments/ (no API calls)
 uv run --extra index python -m scripts.build_index --dry-run  # load the search DB (DATABASE_URL; droplet: infra/db-tunnel.sh …)
 uv run python -m scripts.catalog          # status table with last-run timestamps
+uv run python -m scripts.status [--raw] [--vectors]  # what is stale or pending in every step (#130)
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json, authors.json, slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → Spaces (incremental; --dry-run)
 ```
@@ -244,7 +246,8 @@ What follows from that:
 - `tests/test_normalize_fingerprint.py` fails (in CI and the pre-push hook) when the committed `data/normalized` doesn't match the branch's code, overrides or author index. The fix is always to re-run `scripts.normalize` and commit the result.
 - A work whose local raw file differs from the one it was last normalized from is refused: its output is kept and normalize exits 1. That catches old local raw data (#114, #127). After a deliberate re-ingest, re-run with `--accept-raw-change`. `--force` doesn't bypass it.
 - A new source is normalized incrementally: its works have no fingerprint yet, so only they are built.
-- The plan for the other steps (alignments, validate, `scripts.status`) is on #130.
+- Alignments have the same kind of check ("Passage alignment" above).
+- `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job, which also runs `scripts.validate` when a file validate reads changed (`--if-changed`): it fails on validation errors and lists the warnings. The plan is on #130.
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
 
@@ -366,8 +369,8 @@ These rules are mandatory for all changes, including ones made by Claude.
 ### Tests, hooks and CI
 
 - Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout. Database tests use `PATRISTICA_TEST_DATABASE_URL` (a Postgres with pgvector; CI runs one as a service) through the `pg_url` fixture, each in its own schema, and skip without it.
-- The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
-- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has three jobs: Python unit tests, the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. When a pushed revision changes a file `scripts.validate` reads (`data/normalized`, `patristica/data`, its code; each pushed ref is compared with its own base), it also runs validate (a few minutes) and aborts on validation errors. validate reads the working tree, so such a revision must be the checked-out `HEAD`: the hook refuses to push another branch that needs validating, so push it from its own checkout. `PATRISTICA_SKIP_VALIDATE=1` skips validation. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has four jobs: Python unit tests, pipeline (`scripts.status` in the job summary, and `scripts.validate` when its inputs changed, #130), the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
 ## Working with the Plan Docs

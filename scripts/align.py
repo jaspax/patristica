@@ -396,6 +396,32 @@ def run_job(job: Job) -> tuple[str, str]:
     return job.group, "aligned" if changed else "unchanged"
 
 
+def make_jobs(input_dir: Path, trans_dir: Path, store_dir: Path, out_dir: Path, *,
+              only: list[str] = (), prefixes: list[str] = (), force: bool = False,
+              dry_run: bool = False, allow_missing_vectors: bool = False,
+              code: str | None = None) -> tuple[list[Job], dict[str, tuple[str, ...]], bool]:
+    """The jobs a run makes, biggest first; the version groups; and whether the
+    recorded code hash is current (*code* defaults to ``align_code_hash()``).
+
+    Unpublishable works are left out of each group.
+    """
+    works = load_works(input_dir)
+    by_id = {e["work"]["work_id"]: e for e in select(works, [], [], include_unpublishable=False)}
+    groups = version_groups(works)
+    chosen = [g for g in groups
+              if (not only or g in only)
+              and (not prefixes or any(g.startswith(p) for p in prefixes))]
+    code_current = (read_fingerprint(out_dir).get(STEP, {}).get("code")
+                    == (code or align_code_hash()))
+    today = date.today().isoformat()
+    jobs = [Job(g, [by_id[w] for w in groups[g] if w in by_id], input_dir, trans_dir, store_dir,
+                out_dir, force, dry_run, today, allow_missing_vectors, code_current)
+            for g in chosen]
+    # Big groups first, so the pool doesn't end on one.
+    jobs.sort(key=lambda j: -sum(len(e["path"]) for e in j.entries))
+    return jobs, groups, code_current
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[1],
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -415,24 +441,14 @@ def main() -> None:
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-    entries = select(load_works(args.input_dir), [], [], include_unpublishable=False)
-    by_id = {e["work"]["work_id"]: e for e in entries}
-    groups = version_groups(load_works(args.input_dir))
-    chosen = [g for g in groups
-              if (not args.group or g in args.group)
-              and (not args.prefix or any(g.startswith(p) for p in args.prefix))]
-    today = date.today().isoformat()
     code = align_code_hash()
-    code_current = read_fingerprint(args.output_dir).get(STEP, {}).get("code") == code
+    jobs, groups, code_current = make_jobs(
+        args.input_dir, args.translations_dir, args.embeddings_dir, args.output_dir,
+        only=args.group, prefixes=args.prefix, force=args.force, dry_run=args.dry_run,
+        allow_missing_vectors=args.allow_missing_vectors, code=code)
     if not code_current:
         log.info("align's code changed since the last full run: aligning every group")
-    jobs = [Job(g, [by_id[w] for w in groups[g] if w in by_id], args.input_dir,
-                args.translations_dir, args.embeddings_dir, args.output_dir, args.force,
-                args.dry_run, today, args.allow_missing_vectors, code_current)
-            for g in chosen]
     by_group = {j.group: j for j in jobs}
-    # Big groups first, so the pool doesn't end on one.
-    jobs.sort(key=lambda j: -sum(len(e["path"]) for e in j.entries))
     outcome: dict[str, int] = {}
     refused: dict[str, str] = {}
     records: dict[str, dict] = {}
