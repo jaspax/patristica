@@ -35,6 +35,7 @@ import logging
 import os
 import sys
 from collections import Counter
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -217,68 +218,114 @@ def pending_vectors(norm: Path, trans: Path, vecs: Path) -> tuple[int, float]:
 # ---------------------------------------------------------------------------
 
 
+def _guarded(rows: list[Row], step: str, check: str, fn: Callable[[], list[Row]]) -> None:
+    """Add *fn*'s rows; a check that raises becomes a failing row naming the error,
+    so the table (and the CI summary) is always written."""
+    try:
+        rows.extend(fn())
+    except Exception as exc:  # reported in the table, not swallowed
+        log.exception("%s %s check failed", step, check)
+        rows.append(Row(step, check, "fail", f"check failed: {type(exc).__name__}: {exc}"))
+
+
 def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None = None,
             trans: Path = TRANSLATIONS, align_dir: Path = ALIGNMENTS) -> list[Row]:
     rows: list[Row] = []
     renorm = "re-run scripts.normalize"
     realign = "re-run scripts.align (after scripts.embed)"
 
-    rows.append(Row("normalize", "code", "ok" if normalize_code_current(norm) else "fail",
-                    "current" if normalize_code_current(norm) else f"changed: {renorm}"))
-    missing = unfingerprinted_works(norm)
-    curated = curation_stale_works(norm)
-    rows.append(Row("normalize", "works", "fail" if missing or curated else "ok",
+    def code() -> list[Row]:
+        current = normalize_code_current(norm)
+        return [Row("normalize", "code", "ok" if current else "fail",
+                    "current" if current else f"changed: {renorm}")]
+
+    def works() -> list[Row]:
+        missing, curated = unfingerprinted_works(norm), curation_stale_works(norm)
+        return [Row("normalize", "works", "fail" if missing or curated else "ok",
                     f"{len(missing)} without a fingerprint, {len(curated)} with changed curation"
                     + (f" ({_examples(missing + curated)}): {renorm}" if missing or curated
-                       else "")))
-    unlisted, absent = manifest_mismatch(norm)
-    rows.append(Row("normalize", "manifest", "fail" if unlisted or absent else "ok",
-                    f"{len(unlisted)} files not in _works.jsonl, {len(absent)} entries "
-                    f"without a file" + (f": {renorm}" if unlisted or absent else "")))
-    if raw is not None:
-        if raw.is_dir():
-            changed, new = raw_changes(norm, raw)
-            rows.append(Row("normalize", "local raw", "warn" if changed or new else "ok",
-                            f"{len(changed)} works whose raw changed (normalize refuses them; "
-                            f"--accept-raw-change after a re-ingest), {len(new)} new raw files"
-                            + (f": {_examples(changed + new)}" if changed or new else "")))
-        else:
-            rows.append(Row("normalize", "local raw", "warn", f"no {raw} here"))
+                       else ""))]
 
-    current = align_code_current(align_dir)
-    rows.append(Row("align", "code", "ok" if current else "fail",
-                    "current" if current else f"changed: {realign}"))
-    stale = stale_groups(norm, align_dir)
-    rows.append(Row("align", "groups", "fail" if stale else "ok",
+    absent: list[str] = []
+
+    def manifest() -> list[Row]:
+        unlisted, gone = manifest_mismatch(norm)
+        absent.extend(gone)
+        return [Row("normalize", "manifest", "fail" if unlisted or gone else "ok",
+                    f"{len(unlisted)} files not in _works.jsonl, {len(gone)} entries "
+                    f"without a file" + (f" ({_examples(unlisted + gone)}): {renorm}"
+                                         if unlisted or gone else ""))]
+
+    def local_raw() -> list[Row]:
+        if raw is None:
+            return []
+        if not raw.is_dir():
+            return [Row("normalize", "local raw", "warn", f"no {raw} here")]
+        changed, new = raw_changes(norm, raw)
+        return [Row("normalize", "local raw", "warn" if changed or new else "ok",
+                    f"{len(changed)} works whose raw changed (normalize refuses them; "
+                    f"--accept-raw-change after a re-ingest), {len(new)} new raw files"
+                    + (f": {_examples(changed + new)}" if changed or new else ""))]
+
+    def align_code() -> list[Row]:
+        current = align_code_current(align_dir)
+        return [Row("align", "code", "ok" if current else "fail",
+                    "current" if current else f"changed: {realign}")]
+
+    def align_groups() -> list[Row]:
+        stale = stale_groups(norm, align_dir)
+        return [Row("align", "groups", "fail" if stale else "ok",
                     f"{len(stale)} version groups whose alignment is stale"
                     + (" (" + _examples([f"{g}: {why}" for g, why in stale.items()])
-                       + f"): {realign}" if stale else "")))
-    changed_units = alignments_with_changed_units(norm, align_dir)
-    rows.append(Row("align", "units", "fail" if changed_units else "ok",
-                    f"{len(changed_units)} alignments with a member whose chunks changed"
-                    + (f" ({_examples(changed_units)}): {realign}" if changed_units else "")))
+                       + f"): {realign}" if stale else ""))]
 
-    by_lang, cost = pending_translations(norm, trans)
-    n = sum(by_lang.values())
-    rows.append(Row("translate", "pending", "warn" if n else "ok",
+    def align_units() -> list[Row]:
+        changed_units = alignments_with_changed_units(norm, align_dir)
+        return [Row("align", "units", "fail" if changed_units else "ok",
+                    f"{len(changed_units)} alignments with a member whose chunks changed"
+                    + (f" ({_examples(changed_units)}): {realign}" if changed_units else ""))]
+
+    def translate() -> list[Row]:
+        by_lang, cost = pending_translations(norm, trans)
+        n = sum(by_lang.values())
+        return [Row("translate", "pending", "warn" if n else "ok",
                     f"{n:,} units (~${cost:,.2f})"
                     + (": " + ", ".join(f"{k} {v:,}" for k, v in sorted(by_lang.items()))
-                       + "; run scripts.translate" if n else "")))
+                       + "; run scripts.translate" if n else ""))]
 
-    if vecs is not None:
-        if vecs.is_dir():
-            todo, vcost = pending_vectors(norm, trans, vecs)
-            rows.append(Row("embed", "pending", "warn" if todo else "ok",
-                            f"{todo:,} vectors (~${vcost:,.2f})"
-                            + ("; run scripts.embed" if todo else "")))
-            drift = align_drift(norm, trans, vecs, align_dir)
-            busy = drift.get("aligned", 0) + drift.get("deleted", 0)
-            refused = drift.get("refused", 0)
-            rows.append(Row("align", "vectors", "warn" if busy or refused else "ok",
-                            f"{busy} groups to re-align, {refused} refused (missing vectors)"
-                            + (f": {realign}" if busy or refused else "")))
+    def vectors() -> list[Row]:
+        if vecs is None:
+            return []
+        if not vecs.is_dir():
+            return [Row("embed", "pending", "warn", f"no {vecs} here")]
+        todo, vcost = pending_vectors(norm, trans, vecs)
+        out = [Row("embed", "pending", "warn" if todo else "ok",
+                   f"{todo:,} vectors (~${vcost:,.2f})" + ("; run scripts.embed" if todo else ""))]
+        drift = align_drift(norm, trans, vecs, align_dir)
+        busy = drift.get("aligned", 0) + drift.get("deleted", 0)
+        refused = drift.get("refused", 0)
+        out.append(Row("align", "vectors", "warn" if busy or refused else "ok",
+                       f"{busy} groups to re-align, {refused} refused (missing vectors)"
+                       + (f": {realign}" if busy or refused else "")))
+        return out
+
+    for step, check, fn in (("normalize", "code", code), ("normalize", "works", works),
+                            ("normalize", "manifest", manifest),
+                            ("normalize", "local raw", local_raw), ("align", "code", align_code)):
+        _guarded(rows, step, check, fn)
+    # The rest read the normalized files: with entries whose file is missing they
+    # can't run, which the manifest row already reports.
+    dependent = (("align", "groups", align_groups), ("align", "units", align_units),
+                 ("translate", "pending", translate), ("embed", "pending", vectors))
+    for step, check, fn in dependent:
+        if fn is vectors and vecs is None:
+            continue
+        if absent:
+            rows.append(Row(step, check, "fail",
+                            f"skipped: {len(absent)} works in _works.jsonl have no normalized "
+                            "file (see the manifest row)"))
         else:
-            rows.append(Row("embed", "pending", "warn", f"no {vecs} here"))
+            _guarded(rows, step, check, fn)
     return rows
 
 

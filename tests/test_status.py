@@ -126,3 +126,27 @@ def test_validate_summary_lists_failures_first(tmp_path: Path) -> None:
     lines = out.read_text().splitlines()
     assert "**1 errors**, 3 warnings." in lines[2]
     assert lines[6:8] == ["| broken | fail | 1 |", "| short | warn | 3 |"]
+
+
+def test_missing_normalized_file_skips_dependent_checks(corpus, monkeypatch) -> None:
+    """The table is still written when a manifested file is missing (#204 review)."""
+    (corpus["norm"] / "a" / "two.json").unlink()
+    rows = collect(corpus, monkeypatch)
+    by = {(r.step, r.check): r for r in rows}
+    assert by[("normalize", "manifest")].level == "fail"
+    assert "a/two.json" in by[("normalize", "manifest")].detail
+    for key in (("align", "groups"), ("align", "units"), ("translate", "pending")):
+        assert by[key].level == "fail" and by[key].detail.startswith("skipped")
+    assert ("embed", "pending") not in by  # --vectors wasn't asked for
+    assert "❌" in status.render(rows)
+
+
+def test_a_check_that_raises_becomes_a_failing_row(corpus, monkeypatch) -> None:
+    def broken(norm, trans):
+        raise RuntimeError("store unreadable")
+
+    monkeypatch.setattr(status, "pending_translations", broken)
+    rows = collect(corpus, monkeypatch)
+    row = next(r for r in rows if r.step == "translate")
+    assert row.level == "fail" and "RuntimeError: store unreadable" in row.detail
+    assert levels(rows)[("normalize", "code")] == "ok"  # the other checks still ran

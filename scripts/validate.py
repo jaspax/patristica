@@ -741,10 +741,10 @@ def inputs_changed(changed: list[str]) -> list[str]:
             or (p.startswith(INPUT_PREFIXES) and not Path(p).name.startswith("_fingerprint"))]
 
 
-def changed_since(ref: str) -> list[str]:
-    """Repo-relative paths that differ between *ref* and the working tree's HEAD."""
+def changed_since(ref: str, rev: str = "HEAD") -> list[str]:
+    """Repo-relative paths that differ between commits *ref* and *rev*."""
     out = subprocess.run(
-        ["git", "diff", "--name-only", ref, "HEAD"], cwd=fingerprint.REPO_ROOT,
+        ["git", "diff", "--name-only", ref, rev], cwd=fingerprint.REPO_ROOT,
         capture_output=True, text=True, check=True,
     )
     return [line for line in out.stdout.splitlines() if line]
@@ -778,10 +778,17 @@ def main() -> None:
     parser.add_argument("--output", default="data/validation_report.json")
     parser.add_argument("--if-changed", metavar="REF",
                         help="run only if a file validate reads changed since this git ref")
+    parser.add_argument("--inputs-changed", nargs=2, metavar=("BASE", "REV"),
+                        help="only print the files validate reads that differ between two "
+                             "commits (one per line), without validating; for the pre-push hook")
     parser.add_argument("--summary", type=Path, metavar="FILE",
                         help="append the result as Markdown (e.g. $GITHUB_STEP_SUMMARY)")
     args = parser.parse_args()
 
+    if args.inputs_changed:
+        for path in inputs_changed(changed_since(*args.inputs_changed)):
+            print(path)
+        return
     if args.if_changed:
         relevant = inputs_changed(changed_since(args.if_changed))
         if not relevant:

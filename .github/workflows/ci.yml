@@ -73,6 +73,8 @@ jobs:
         run: uv run python -m scripts.status --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Validate (when its inputs changed)
+        # Also when the status step failed: they check different things.
+        if: ${{ !cancelled() }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             changed="--if-changed HEAD^1"
