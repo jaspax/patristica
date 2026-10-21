@@ -42,7 +42,8 @@ patristica/
 │   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
 │   ├── translations.py        # translation store (data/translations/)
 │   ├── embedders.py           # embedding API clients (Voyage) + shorten(); shared by pipeline, API, eval
-│   └── embeddings.py          # vector store (data/embeddings/): per-work .npz, model recorded per row
+│   ├── embeddings.py          # vector store (data/embeddings/): per-work .npz, model recorded per row
+│   └── fingerprint.py         # code/data hashes for pipeline staleness checks (#130): code_hash, import_chain
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref

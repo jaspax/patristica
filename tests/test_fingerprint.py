@@ -98,9 +98,19 @@ def test_value_hash_ignores_dict_order_and_handles_tuple_keys():
     assert fp.value_hash({("kjv", "Ps"): "eng"}) != fp.value_hash({("kjv", "Ps"): "org"})
 
 
+def test_import_chain_explains_membership(repo: Path):
+    assert fp.import_chain("scripts.ingest.src", "patristica.util", repo) == [
+        "scripts.ingest.src", "scripts.ingest._common", "patristica.util"]
+    assert fp.import_chain("scripts.step", "scripts.step", repo) == ["scripts.step"]
+    assert fp.import_chain("scripts.step", "patristica.unused", repo) is None
+
+
 def test_real_normalize_closure():
-    modules = fp.module_closure("scripts.normalize")
-    assert "patristica.versify" in modules and "patristica.genres" in modules
-    assert "patristica.fingerprint" not in modules
-    assert not any(m.startswith("scripts.ingest") for m in modules)
+    """normalize's code: no ingestor and no per-source registry, so adding a
+    data source never changes its hash (#130)."""
+    assert fp.module_closure("scripts.normalize") == [
+        "patristica", "patristica.authors", "patristica.genres", "patristica.models",
+        "patristica.period", "patristica.section_numbers", "patristica.textfold",
+        "patristica.versify", "scripts", "scripts.normalize",
+    ]
     assert len(fp.code_hash("scripts.normalize")) == 16
