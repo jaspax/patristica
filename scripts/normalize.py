@@ -409,13 +409,17 @@ def _write_step_code(output_dir: Path, code: str | None) -> None:
 INGEST_STAMP = "_ingest.json"
 
 
-def _record_ingest_stamps(output_dir: Path, json_files: list[Path], refused: list[str]) -> None:
+def _record_ingest_stamps(output_dir: Path, json_files: list[Path], visited: Collection[str],
+                          listed: Collection[str]) -> None:
     """Copy each normalized source's ingest stamp into ``_fingerprint.json``.
 
     ``{"ingest": {source_id: ingestor code hash}}`` tells ``scripts.status``
-    which ingestor code the tracked data comes from. A source with a refused or
-    failed work keeps its old entry (its data wasn't rebuilt from this raw); one
-    whose raw has no stamp loses it (unknown).
+    which ingestor code the tracked data comes from. The entry changes only when
+    this run rebuilt or confirmed (*visited*) every listed work of the source:
+    a source with a refused or failed work, or one normalized only in part
+    (``--raw-dir data/raw/ogpg/vol-001``), keeps its old entry, since some of
+    its data wasn't made from this raw. A fully visited source whose raw has no
+    stamp loses its entry (unknown).
     """
     sources: dict[str, Path] = {}
     for path in json_files:
@@ -424,7 +428,7 @@ def _record_ingest_stamps(output_dir: Path, json_files: list[Path], refused: lis
             i = parts.index("raw")
             if len(parts) > i + 2:
                 sources[parts[i + 1]] = Path(*parts[: i + 2])
-    blocked = {rel.split("/", 1)[0] for rel in refused}
+    blocked = {rel.split("/", 1)[0] for rel in listed if rel not in visited}
     steps = read_step_fingerprints(output_dir)
     stamps = dict(steps.get("ingest", {}))
     for source, source_dir in sources.items():
@@ -562,7 +566,7 @@ def normalize_all(
          if rel in fingerprints or (rel in previous and rel not in failed)},
     )
 
-    _record_ingest_stamps(output_dir, json_files, refused + failed)
+    _record_ingest_stamps(output_dir, json_files, set(fingerprints), set(listed))
     if not code_current:
         uncovered = sorted(set(listed) - set(fingerprints))
         if uncovered:

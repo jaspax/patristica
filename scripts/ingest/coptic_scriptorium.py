@@ -563,7 +563,7 @@ def _extract_paragraphs_from_tei(xml_path: Path, file_n: int, corpus_name: str) 
         tree = etree.parse(str(xml_path), parser)
         root = tree.getroot()
     except Exception as exc:
-        log.warning("  XML parse error %s: %s", xml_path.name, exc)
+        log.error("  XML parse error %s: %s", xml_path.name, exc)
         return []
 
     root_local = etree.QName(root.tag).localname if isinstance(root.tag, str) else ""
