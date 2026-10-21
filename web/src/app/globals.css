@@ -5,6 +5,8 @@
   --muted: #6b665c;
   --border: #ddd7ca;
   --accent: #8a2c1b;
+  /* The passage a search result points to (WorkText). */
+  --highlight: #f4e6b5;
   --page-width: 72rem;
   --text-width: 42rem;
   --gutter: 1rem;
@@ -24,6 +26,7 @@
     --muted: #a39d8f;
     --border: #3a362c;
     --accent: #e08a6e;
+    --highlight: #4a3f1f;
     color-scheme: dark;
   }
 }

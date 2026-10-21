@@ -1,7 +1,15 @@
 import { describe, expect, it } from "vitest";
 
 import nextConfig from "../../next.config";
-import { currentSourceId, currentWorkId, legacyWorkRedirects, SPLIT_OGPG_VOLUMES } from "./redirects";
+import {
+  currentAuthorId,
+  currentSourceId,
+  currentWorkId,
+  legacyAuthorRedirects,
+  legacyPageRedirects,
+  legacyWorkRedirects,
+  SPLIT_OGPG_VOLUMES,
+} from "./redirects";
 
 describe("renamed work ids", () => {
   it("drops the genre prefix that ids had before #102", () => {
@@ -59,11 +67,36 @@ describe("renamed work ids", () => {
   });
 });
 
+describe("renamed author ids", () => {
+  const renamed = [["cyrill-of-alexandria", "cyril-of-alexandria"]] as const;
+
+  it("maps an old author id to its current one", () => {
+    expect(currentAuthorId("cyrill-of-alexandria", renamed)).toBe("cyril-of-alexandria");
+    expect(currentAuthorId("jerome", renamed)).toBe("jerome");
+    expect(currentAuthorId("")).toBe("");
+  });
+
+  it("redirects the old author page", () => {
+    expect(legacyAuthorRedirects(renamed)).toEqual([
+      {
+        source: "/authors/cyrill-of-alexandria",
+        destination: "/authors/cyril-of-alexandria",
+        permanent: true,
+      },
+    ]);
+  });
+
+  it("is wired into next.config", async () => {
+    const redirects = await nextConfig.redirects!();
+    expect(redirects).toEqual(expect.arrayContaining(legacyAuthorRedirects()));
+  });
+});
+
 describe("split Patrologia Graeca volumes", () => {
   it("sends the old volume URL to the index filtered to the volume's works", () => {
     expect(legacyWorkRedirects()).toContainEqual({
       source: "/works/ogpg/vol-045",
-      destination: "/?q=ogpg/vol-045/",
+      destination: "/works?q=ogpg/vol-045/",
       permanent: true,
     });
   });
@@ -74,5 +107,13 @@ describe("split Patrologia Graeca volumes", () => {
     }
     const sources = legacyWorkRedirects().map((r) => r.source);
     expect(sources.filter((s) => s.startsWith("/works/ogpg/")).every((s) => !s.includes(":"))).toBe(true);
+  });
+});
+
+describe("moved pages", () => {
+  it("sends /search to the search page at /", async () => {
+    expect(legacyPageRedirects()).toContainEqual({ source: "/search", destination: "/", permanent: true });
+    const redirects = await nextConfig.redirects!();
+    expect(redirects).toEqual(expect.arrayContaining(legacyPageRedirects()));
   });
 });

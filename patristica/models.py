@@ -49,7 +49,17 @@ class Work(BaseModel):
     )
     author: str | None = Field(
         default=None,
-        description="Human-readable author name.",
+        description=(
+            "Author as the source gives it (provenance; spelling varies by source). "
+            "Use author_ids for identity."
+        ),
+    )
+    author_ids: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Canonical author ids from the author index (patristica/authors.py), "
+            "resolved from author by scripts.normalize; [] for anonymous works."
+        ),
     )
     title: str = Field(description="Title of the work.")
 
@@ -84,6 +94,17 @@ class Work(BaseModel):
     translation_of: str | None = Field(
         default=None,
         description="work_id of the original-language work this is a translation of.",
+    )
+
+    # Catalogue identifiers the source records for the work (#178)
+    external_ids: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Identifiers the source itself records for the work, as 'KIND:value' "
+            "(e.g. 'TLG:tlg4090.tlg096', 'CPG:5200', 'BHG:1234', 'Pinakes-Oeuvre:1956'). "
+            "patristica.versions joins works that share a TLG, CPG or BHG id. "
+            "Omitted from _works.jsonl when empty."
+        ),
     )
 
 

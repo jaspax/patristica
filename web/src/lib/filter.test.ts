@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  ANONYMOUS,
+  authorFacet,
+  authorFilterHref,
   DEFAULT_VIEW,
   filterWorks,
   fold,
@@ -9,12 +12,14 @@ import {
   viewStateToParams,
   type ViewState,
 } from "./filter";
-import type { WorkRow } from "./library";
+import { authorMap, type WorkRow } from "./library";
+import { person } from "./testFixtures";
 
 function row(overrides: Partial<WorkRow>): WorkRow {
   return {
     id: "x/y",
     author: null,
+    author_ids: [],
     title: "Untitled",
     language: "lat",
     genre: "patristic",
@@ -27,6 +32,7 @@ function row(overrides: Partial<WorkRow>): WorkRow {
     license: "unknown",
     provenance_url: null,
     translation_of: null,
+    version_group: null,
     chunks: 1,
     file: "works/x/y.json",
     ...overrides,
@@ -36,11 +42,20 @@ function row(overrides: Partial<WorkRow>): WorkRow {
 const sources = { pta: "Patristic Text Archive", kjv: "King James Version" };
 
 const rows = [
-  row({ id: "a", author: "Augustinus", title: "Confessiones", date: 397, date_range: [397, 400] }),
-  row({ id: "b", author: "Ἰωάννης Χρυσόστομος", title: "Homiliae", language: "grc", date: 390 }),
+  row({ id: "a", author: "Augustinus", author_ids: ["augustine-of-hippo"], title: "Confessiones", date: 397, date_range: [397, 400] }),
+  row({ id: "b", author: "Ἰωάννης Χρυσόστομος", author_ids: ["john-chrysostom"], title: "Homiliae", language: "grc", date: 390 }),
   row({ id: "c", title: "Genesis", genre: "scripture", source_id: "kjv", language: "eng", date: -500 }),
-  row({ id: "d", author: "Basilius", title: "Epistulae" }),
+  row({ id: "d", author: "Basilius", author_ids: ["basil-of-caesarea"], title: "Epistulae" }),
 ];
+
+const authors = authorMap({
+  authors: [
+    person({ id: "augustine-of-hippo", name: "Augustine of Hippo", aliases: ["Augustinus"] }),
+    person({ id: "john-chrysostom", name: "John Chrysostom", aliases: ["Joannes Chrysostomus"] }),
+    person({ id: "basil-of-caesarea", name: "Basil of Caesarea", aliases: ["Basilius"] }),
+    person({ id: "jerome", name: "Jerome", aliases: ["Hieronymus"] }),
+  ],
+});
 
 const view = (overrides: Partial<ViewState>): ViewState => ({ ...DEFAULT_VIEW, ...overrides });
 const ids = (list: WorkRow[]) => list.map((r) => r.id);
@@ -61,9 +76,16 @@ describe("filterWorks", () => {
   });
 
   it("filters by facets", () => {
-    expect(ids(filterWorks(rows, view({ language: "grc" }), sources))).toEqual(["b"]);
-    expect(ids(filterWorks(rows, view({ genre: "scripture" }), sources))).toEqual(["c"]);
+    expect(ids(filterWorks(rows, view({ language: ["grc"] }), sources))).toEqual(["b"]);
+    expect(ids(filterWorks(rows, view({ genre: ["scripture"] }), sources))).toEqual(["c"]);
     expect(ids(filterWorks(rows, view({ source: "pta" }), sources))).toEqual(["a", "b", "d"]);
+  });
+
+  it("matches any of several values of a facet", () => {
+    expect(ids(filterWorks(rows, view({ language: ["grc", "eng"] }), sources))).toEqual(["b", "c"]);
+    expect(ids(filterWorks(rows, view({ language: ["grc", "eng"], genre: ["scripture"] }), sources))).toEqual([
+      "c",
+    ]);
   });
 
   it("filters by overlapping date range and drops undated works", () => {
@@ -75,8 +97,8 @@ describe("filterWorks", () => {
 
 describe("sortWorks", () => {
   it("sorts missing values last in both directions", () => {
-    expect(ids(sortWorks(rows, "author", "asc", sources))).toEqual(["a", "d", "b", "c"]);
-    expect(ids(sortWorks(rows, "author", "desc", sources))).toEqual(["b", "d", "a", "c"]);
+    expect(ids(sortWorks(rows, "author", "asc", sources, authors))).toEqual(["a", "d", "b", "c"]);
+    expect(ids(sortWorks(rows, "author", "desc", sources, authors))).toEqual(["b", "d", "a", "c"]);
     expect(ids(sortWorks(rows, "date", "asc", sources))).toEqual(["c", "b", "a", "d"]);
     expect(ids(sortWorks(rows, "date", "desc", sources))).toEqual(["a", "b", "c", "d"]);
   });
@@ -94,10 +116,17 @@ describe("sortWorks", () => {
 
 describe("view state in the URL", () => {
   it("round-trips non-default values", () => {
-    const state = view({ q: "basil", language: "grc", from: -100, to: 500, sort: "date", dir: "desc" });
+    const state = view({ q: "basil", language: ["grc"], from: -100, to: 500, sort: "date", dir: "desc" });
     const params = viewStateToParams(state);
     expect(params.toString()).toBe("q=basil&language=grc&from=-100&to=500&sort=date&dir=desc");
     expect(parseViewState(params)).toEqual(state);
+  });
+
+  it("writes several values as repeated parameters, and reads comma-separated ones too", () => {
+    const state = view({ language: ["grc", "lat"], genre: ["patristic"] });
+    expect(viewStateToParams(state).toString()).toBe("language=grc&language=lat&genre=patristic");
+    expect(parseViewState(viewStateToParams(state))).toEqual(state);
+    expect(parseViewState(new URLSearchParams("language=grc,lat&language=lat&genre=patristic"))).toEqual(state);
   });
 
   it("omits defaults and ignores invalid values", () => {
@@ -114,5 +143,79 @@ describe("view state in the URL", () => {
     );
     expect(parseViewState(new URLSearchParams("source=councils/ecumenical")).source).toBe("ecumenical");
     expect(parseViewState(new URLSearchParams("source=pta")).source).toBe("pta");
+  });
+});
+
+describe("authors (#145)", () => {
+  const jerome = row({ id: "e", author: "Jerome, Saint", author_ids: ["jerome"], title: "De viris illustribus" });
+  // A multi-author volume counts under each of its authors.
+  const both = row({
+    id: "f",
+    author: "Hieronymus; Augustinus",
+    author_ids: ["jerome", "augustine-of-hippo"],
+    title: "Epistulae mutuae",
+  });
+  // The source names a work title as author; it resolves to no author.
+  const titled = row({ id: "g", author: "Acta Thomae", title: "Acts of Thomas" });
+  const all = [...rows, jerome, both, titled];
+
+  it("matches the text query against author names and aliases, folded", () => {
+    expect(ids(filterWorks(all, view({ q: "Hieronymus" }), sources, authors))).toEqual(["e", "f"]);
+    expect(ids(filterWorks(all, view({ q: "jerome" }), sources, authors))).toEqual(["e", "f"]);
+    expect(ids(filterWorks(all, view({ q: "Chrysostomus" }), sources, authors))).toEqual(["b"]);
+    expect(ids(filterWorks(all, view({ q: "CHRYSÓSTOM" }), sources, authors))).toEqual(["b"]);
+    expect(ids(filterWorks(all, view({ q: "augustine" }), sources, authors))).toEqual(["a", "f"]);
+    // Without the author index only the source's string matches.
+    expect(ids(filterWorks(all, view({ q: "Chrysostomus" }), sources))).toEqual([]);
+  });
+
+  it("filters by author id, and ANONYMOUS selects works without authors", () => {
+    expect(ids(filterWorks(all, view({ author: ["jerome"] }), sources, authors))).toEqual(["e", "f"]);
+    expect(ids(filterWorks(all, view({ author: ["augustine-of-hippo"] }), sources, authors))).toEqual([
+      "a",
+      "f",
+    ]);
+    expect(ids(filterWorks(all, view({ author: [ANONYMOUS] }), sources, authors))).toEqual(["c", "g"]);
+  });
+
+  it("matches a work by any of several authors", () => {
+    expect(ids(filterWorks(all, view({ author: ["jerome", ANONYMOUS] }), sources, authors))).toEqual([
+      "c",
+      "e",
+      "f",
+      "g",
+    ]);
+  });
+
+  it("counts works per author id in the facet, Anonymous first, then by name", () => {
+    expect(authorFacet(all, authors)).toEqual([
+      { id: ANONYMOUS, name: "Anonymous", count: 2 },
+      { id: "augustine-of-hippo", name: "Augustine of Hippo", count: 2 },
+      { id: "basil-of-caesarea", name: "Basil of Caesarea", count: 1 },
+      { id: "jerome", name: "Jerome", count: 2 },
+      { id: "john-chrysostom", name: "John Chrysostom", count: 1 },
+    ]);
+  });
+
+  it("leaves Anonymous out of the facet when every work has an author", () => {
+    expect(authorFacet([jerome], authors)).toEqual([{ id: "jerome", name: "Jerome", count: 1 }]);
+  });
+
+  it("sorts by display name, so source spellings don't scatter an author", () => {
+    // "Jerome, Saint" and "Hieronymus; …" both sort as Jerome; works without authors go last.
+    expect(ids(sortWorks([titled, jerome, both, rows[0]], "author", "asc", sources, authors))).toEqual([
+      "a",
+      "e",
+      "f",
+      "g",
+    ]);
+  });
+
+  it("keeps the author facet in the URL", () => {
+    const state = view({ author: ["jerome"] });
+    expect(viewStateToParams(state).toString()).toBe("author=jerome");
+    expect(parseViewState(new URLSearchParams("author=jerome"))).toEqual(state);
+    expect(authorFilterHref("john-chrysostom")).toBe("/works?author=john-chrysostom");
+    expect(authorFilterHref(ANONYMOUS)).toBe("/works?author=anonymous");
   });
 });

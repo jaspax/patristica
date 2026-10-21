@@ -40,6 +40,8 @@ export interface Unit {
 export interface Section {
   /** Unique anchor id. */
   id: string;
+  /** Ref of the heading chunk the title comes from (an anchor too, for search results). */
+  ref: string | null;
   path: string[];
   /** Heading text taken from the source, if the source has a heading chunk. */
   title: string | null;
@@ -100,12 +102,13 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   const zeroIsTitle = (liturgical || genre === "scripture") && !ZERO_BASED_SOURCES.has(sourceId);
   let current: Section | null = null;
 
-  const open = (path: string[], title: string | null): Section => {
+  const open = (path: string[], title: string | null, ref: string | null = null): Section => {
     const base = `s-${path.join(".") || "text"}`;
     const seen = ids.get(base) ?? 0;
     ids.set(base, seen + 1);
     const section: Section = {
       id: seen ? `${base}-${seen + 1}` : base,
+      ref,
       path,
       title,
       label: sectionLabel(path, genre),
@@ -150,14 +153,14 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     const segments = suffix.split(".");
     const next = work.chunks[i + 1]?.[0];
     if (next !== undefined && next.startsWith(`${suffix}.`)) {
-      current = open(segments, text.trim());
+      current = open(segments, text.trim(), joinRef(work.ref_prefix, suffix));
       continue;
     }
     const path = segments.slice(0, -1);
     const last = segments[segments.length - 1];
     if (current === null || !samePath(current.path, path)) {
       if (zeroIsTitle && /^0+$/.test(last)) {
-        current = open(path, text.trim());
+        current = open(path, text.trim(), joinRef(work.ref_prefix, suffix));
         continue;
       }
       current = open(path, null);
@@ -178,4 +181,36 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   // A work with a single untitled section needs no heading at all.
   if (sections.length === 1 && sections[0].title === null) sections[0].label = null;
   return sections;
+}
+
+/** What a chunk of the work file is in the parsed structure. */
+export type ChunkRole =
+  | { kind: "heading"; section: Section; sectionIndex: number }
+  | { kind: "unit"; unit: Unit; sectionIndex: number }
+  | { kind: "part"; unit: Unit; part: number; sectionIndex: number };
+
+/**
+ * The role of each chunk of `work` (in file order) in `sections`, its
+ * parseWork result: the heading of a section, a unit, or one derived verse
+ * of a unit. Parallel reading (#181) renders ranges of chunks with it.
+ */
+export function chunkRoles(work: WorkFile, sections: readonly Section[]): ChunkRole[] {
+  const index = new Map(work.chunks.map(([suffix], i) => [joinRef(work.ref_prefix, suffix), i]));
+  const roles: ChunkRole[] = new Array(work.chunks.length);
+  sections.forEach((section, sectionIndex) => {
+    const heading = section.ref === null ? undefined : index.get(section.ref);
+    if (heading !== undefined) roles[heading] = { kind: "heading", section, sectionIndex };
+    for (const unit of section.units) {
+      if (unit.parts) {
+        unit.parts.forEach((p, part) => {
+          const i = index.get(p.ref);
+          if (i !== undefined) roles[i] = { kind: "part", unit, part, sectionIndex };
+        });
+      } else {
+        const i = index.get(unit.ref);
+        if (i !== undefined) roles[i] = { kind: "unit", unit, sectionIndex };
+      }
+    }
+  });
+  return roles;
 }

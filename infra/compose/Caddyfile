@@ -1,0 +1,33 @@
+# Site addresses come from .env. In production they are bare hostnames
+# (api.patristica.app, patristica.app, www.patristica.app), and Caddy gets a
+# Let's Encrypt certificate for each; locally they are http:// addresses
+# (.env.local.example), so nothing needs a certificate.
+
+# The API on its own hostname, for health checks and direct use.
+{$API_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy api:8000
+}
+
+# The web app (#132). /api/* goes to the same FastAPI app with the prefix
+# stripped (/api/search -> /search), so the browser calls the API same-origin
+# and needs no CORS. FastAPI routes therefore have no /api prefix, and the
+# Next.js app must not define routes under /api.
+{$WEB_DOMAIN} {
+	encode zstd gzip
+	handle_path /api/* {
+		reverse_proxy api:8000
+	}
+	handle {
+		reverse_proxy web:3000 {
+			# Pass streamed (Suspense) responses through without buffering.
+			flush_interval -1
+		}
+	}
+}
+
+# www -> the apex, keeping path and query (and the port, for a local run).
+{$WWW_DOMAIN} {
+	@www header_regexp www Host ^www\.(.+)$
+	redir @www {scheme}://{re.www.1}{uri} permanent
+}

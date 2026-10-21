@@ -37,3 +37,9 @@ class TestIsOutOfPeriod:
 
     def test_undated_is_not_flagged(self):
         assert not is_out_of_period(None, None)
+
+    def test_author_birth_year_decides_when_known(self):
+        born_in_time = AUTHOR_BORN_BEFORE - 1
+        assert not is_out_of_period(COMPOSED_BY + 10, None, author_birth_year=born_in_time)
+        assert is_out_of_period(COMPOSED_BY - 10, None, author_birth_year=AUTHOR_BORN_BEFORE)
+        assert is_out_of_period(COMPOSED_BY + 10, None, author_birth_year=None)

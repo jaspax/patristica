@@ -51,6 +51,7 @@ Every text unit stored as a JSON record with:
   "source_id": "ccel/npnf1-01",
   "work_id": "augustine/confessions",
   "author": "Augustine of Hippo",
+  "author_ids": ["augustine-of-hippo"],  // canonical ids (patristica/data/authors.csv, #82)
   "title": "Confessions",
   "date_range": [397, 400],
   "language": "la",          // ISO 639 code
@@ -98,8 +99,10 @@ data/raw/{category}/{author_slug}/{work_slug}.json
 **Core tables:**
 
 ```sql
-authors (id, name, birth_date, death_date, tradition, bio)
-works (id, author_id, title, date_range, genre, language, license)
+authors (id, name, aliases, birth, death, floruit, tradition, external_ids, pseudo_of)
+                             -- from patristica/data/authors.csv (#82)
+works (id, author_ids, title, date_range, genre, language, license)
+                             -- author_ids: text[] + GIN index, [] for anonymous works
 text_chunks (
   id, work_id, canonical_ref, language,
   text, chunk_index,
@@ -114,11 +117,12 @@ translation_groups (id)      -- joins parallel chunks across languages
 1. Load normalized JSON from Phase 1
 2. Insert author/work metadata into PostgreSQL
 3. Translate Syriac, Coptic, Armenian and Ge'ez chunks into English with GPT-6.1 Sol (`scripts.translate`, #93). Translations are stored in `data/translations/`, one file per work, mirroring `data/normalized/`, with model, prompt version and date recorded per run.
-4. For each chunk: call embedding API → store chunk + embedding (plus a second embedding for the translation, where there is one)
-5. Build HNSW index on `text_chunks.embedding` via pgvector
-6. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86)
+4. Embed every unit of at least 10 characters with Voyage `voyage-4-large`, plus a second vector for the English translation of each rare-language unit (`scripts.embed`, #136). Vectors are stored at 1024 dims (float16) in `data/embeddings/`, one file per work mirroring `data/normalized/`, with the model, dims, input type and date recorded per run. The store is resumable: a vector is reused while the text it embeds and its model are unchanged. The dry run on 2026-10-17 counted 4.02M vectors (3.96M distinct texts, ~333M cl100k tokens).
+5. Load works, chunks, translations and vectors (cut to 512 dims) into PostgreSQL (`scripts.build_index`, #137); every vector row names its model
+6. Build HNSW index on the vectors via pgvector
+7. Build the keyword index over normalized text (`patristica.textfold.fold`) for quoted search (#86). *Done:* `chunks.text_folded` holds `' ' || fold(text) || ' '` under a `pg_trgm` GIN index, and a phrase matches as whole words (`LIKE '% phrase %'`). Matches are ordered Scripture first, then by earliest date, then by work and position (`api/keyword.py`). On 2.1M chunks a rare quote takes 15–85 ms and a phrase of very common words ("et in", 30k matches) under 1 s; a 5 s statement timeout stops broader ones. Coptic editions divide words differently (#3), so a Coptic quote typed with another word division may not match.
 
-**Script:** `scripts/build_index.py` — idempotent, resumable (skip already-embedded chunks)
+**Script:** `scripts/build_index.py` — idempotent, resumable: a work is reloaded only when a hash of its inputs changes (#137). Scripture translation groups are not among those inputs: they are computed over the whole manifest and synced in place, updating only the chunks whose group changed, so regrouping (versification overrides now, passage alignment in #179) never re-sends vectors (#186). The schema as built is `db/schema.sql` (see `db/README.md`). It differs from the sketch in §2.2: vectors are in their own table, `chunk_vectors (chunk_id, kind, model_id, embedding halfvec(512), …filter columns)`, with one row per kind (text or English translation) and one partial HNSW index per model, and translations are in `chunk_translations`.
 
 ### 2.5 Open Issues (from the Phase 1 handoff — resolve before building the index)
 
@@ -153,6 +157,39 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 - Optional filters: language, author, date range, tradition
 - Return ranked chunks with work/author metadata
 
+*Status (#141):* `GET /search` in `api/search.py` implements the vector path over `chunk_vectors`. Filters are language, genre, source, work, author id (`anonymous` for `author_ids = []`), a date range (overlap with the chunk's range, so undated chunks drop out) and `out_of_period` (excluded unless asked). The HNSW scan is iterative (`relaxed_order`) and narrow filters may use the btree indexes instead. Query vectors are cached in memory (LRU), clients are rate-limited per IP, and a slow or failing Voyage call answers 503.
+
+*Quoted search (#143), decided 2026-10-18.* `parse_query` splits a query into quoted phrases and free text, and the query is routed, not fused (#3):
+- **Quote marks:** `"…"`, `“…”`, `„…“` and `«…»` all open and close a phrase. An unclosed quote runs to the end of the query, and empty quotes are ignored. Apostrophes and the Hebrew geresh are not quotes.
+- **A query with at least one phrase runs keyword search** (`api/keyword.py`, #86). Every phrase must occur as whole words in the chunk's folded text (AND). A phrase needs at least 3 letters once folded; a 5 s timeout stops phrases too common to search. Both answer 422 with a message.
+- **Free text next to a quote ranks the phrase matches by meaning**: the free text is embedded and each match is ordered by its best vector's distance to it. Without free text there is no Voyage call, and matches are ordered Scripture first, then by earliest date, then by work and position.
+- **Filters** are the same as for vector search.
+- **Response:** `mode` (`keyword` or `vector`), `phrases`, `text` (the free text) and, in keyword mode, `total`. Each keyword result has `matches`, the phrase spans in its text as UTF-16 offsets (JavaScript string indices). They are mapped from the folded text back to the original by `textfold.fold_spans`, and cover the marks after a match's last letter. A long chunk whose first match is past the cut is shown from shortly before that match (`text_start`).
+- **Web:** the results say which mode ran ("Exact phrase" or "Semantic"). A hint and a help popover explain quotes, matches are highlighted, and a phrase that finds nothing offers the same words as a semantic search.
+
+*Version groups (#178), decided 2026-10-19.* Every work that exists in another language or edition belongs to a work-level version group, derived in `patristica/versions.py` as connected components over `translation_of`, Scripture books across sources (keyed by OSIS book, whatever the witness's genre), shared CTS work ids, an identifier crosswalk (shared TLG, CPG or BHG ids: PTA records them per work in `Work.external_ids`, and a First1K or Perseus work id contains its TLG id; ranges and ids that two works of one source share count as collections and are skipped), and the curated `patristica/data/version_links.csv` (each link checked against the text, with its reason). `export_library` writes `version_group` per work for the reader's version switcher (#144); passage alignment inside a group is #179. The search database does not load groups yet: a column in `works` would change every work's content hash and reload all vectors, so groups go into a separate table later if search needs them.
+
+*Folding versions (#180), decided 2026-10-19.* Search shows each passage once, with its other versions attached, so that six versions of Psalm 23:1 don't fill the first page.
+- **Key:** the passage group of a chunk, one SQL expression in `api/passages.py`: its passage alignment group (`passage_groups`, #179), else its Scripture verse group (`translation_group_id`), else the chunk itself. The fold reads both at query time (a primary-key probe per candidate row), so no column is copied into `chunk_vectors`.
+- **Filters apply first.** A language, source or other filter limits the chunks before they fold, so `language=lat` shows the Vulgate verse as its own result and only versions that pass the filter are listed.
+- **Vector search** folds inside the fixed candidate pool, after each chunk's best vector and before paging, so pages stay stable and a passage never appears on two pages. The **lead** is the best-scoring version (ties: the lowest chunk id), and the result's position is its score. A Scripture verse has ~9 versions on average (330,708 verses in 37,060 groups), so the pool has 4× the rows the deepest page needs without folding (`FOLD_ROWS`, `CANDIDATES` = 2,008). A query whose pool is mostly many-version verses can still run out of results before offset 200; then the last page comes early, but no result repeats.
+- **Keyword search** folds the whole match set the same way. The lead is the first version in the match order (Scripture first, earliest date, then work and position; or the closest to the free text), and `total` counts folded results.
+- **Response:** the lead result's fields as before, plus `versions`: `[{chunk_id, work_id, canonical_ref, language, source_label, edition, score}]` for the other members of its group found by the search (in the pool, or among the matches), best first. `score` is null in unranked keyword search. `canonical_ref` is the version's own numbering (Ps 22:1 in the Septuagint).
+- **Misgrouped versions (#186).** Where a tradition divides verses differently, a group can hold a neighbouring verse (Ge'ez Proverbs and Job, the Armenian psalm titles), and "Also in" then lists it. Per-chapter scheme overrides (`patristica/versification.py`) fixed the cases a standard scheme fits; the rest wait for #179. Showing only versions within a distance margin of the lead was measured and not adopted: with a verse of another English Bible as the query, a margin of 0.25 hid 86% of the misgrouped versions but also 12% of the correct ones, which are ~70 times more common.
+- **Web:** under a folded result, "Also in:" lists the versions by language ("English: American Standard Version, World English Bible"), each linking to the passage in that version, with its ref when it is numbered differently.
+
+*Passage alignment (#179), method decided 2026-10-19.* Inside each version group, the passages of the versions are aligned, so the same passage can be found in every version. An **alignment group** is one contiguous span of units per version (or none); Scripture's verse groups are the 1:1 case, and elsewhere groups are n:m, since derived verses are cut per language and translators split, merge and drop sentences.
+- **Method** (`patristica/alignment.py`, `scripts/align.py`): every member is aligned with a *pivot* (the longest version; English when within 10 %) by a monotonic dynamic program over the stored Voyage vectors (rare languages through their English translation vectors), vecalign-style. Beads are 1:1 up to 4:1 (5 units at most); a bead scores its cosine above the units' baseline (each unit's mean similarity to the other version) less a margin, weighted by √(units/2), with a penalty per unit beyond 1:1. Skips score 0, so a passage one version lacks stays unaligned rather than forced, and a partial version aligns with the part of the whole it renders. Large pairs run in a band around mutual-nearest-neighbour anchors; up to two further passes align the blocks one version moved (Ge'ez Proverbs, LXX order). Groups are runs of pivot units: two neighbouring pivot units share a group when at least as many versions join them as keep them apart, so one version's merged verses don't coarsen the groups of the others. A version's span in a group is exactly the units its beads put there; if they are not contiguous, the version is left out of that group rather than given the units in between. **Scripture** uses its versification-mapped refs as a soft prior (+0.1 per matching pair, also as anchors): refs decide where the content is ambiguous, content where it clearly disagrees. **Confidence** per span comes from the bead's margin (refs agreeing add 0.2); spans under 0.5 are flagged, not used.
+- **Storage:** `data/alignments/`, one tracked file per version group (`patristica/alignment_store.py`, README there): per member one token per unit (`+` next group, `=` same, `.` none, `+N`/`-N` jumps) and one confidence digit per group, plus hashes of the inputs (units, vectors, refs, parameters) and the run (method, parameters, model, date). Scripture is about one byte per verse; the whole corpus (~1.7M units in multi-member groups) comes to about 4 MB. A group is aligned again only when its inputs change. The run makes no API calls (~1 minute for the largest pair, Augustine's *Enarrationes* 49k × 25k units).
+- **Evaluation** (`scripts/align_eval.py`, 2026-10-19, all 82 Scripture book groups):
+  - *Refs hidden, scored against the versification groups:* pairwise precision 96.3 %, recall 96.2 %. English with Hebrew, Latin, Syriac, Armenian, Greek, Coptic: 98.4–99.9 %. Pairs with Ge'ez are 73–89 % and with Gothic 87–88 % precision at 60 % recall; Ge'ez is where the versification itself is wrong (Proverbs, Job), Gothic where the vectors are weak (no translations).
+  - *With the prior (production):* 96.5 % precision and 97.4 % recall against the versification; Gothic recovers to 90 %.
+  - *#186's ±1-neighbour measure* (a neighbouring KJV verse clearly closer than the grouped one): 1,833 → 630 verses. Ge'ez 930 → 144, Coptic 158 → 75, Armenian 145 → 80, the two LXX editions 324 → 155, Gothic 122 → 78.
+  - *Patristic, hand-checked:* 46 random groups of 5 version groups (Basil's letters in two Greek editions and two English, Augustine's *Tractates on John* Latin–English, Chrysostom on Matthew OCR'd Greek–English, Eusebius' *Church History* in six versions, Severian Greek–Armenian): 43 right, one with a boundary one unit off, two wrong (Migne units that are all apparatus or OCR noise). Of the few beads with a margin under 0.15 (1–2 % in clean texts, more in OCR'd Migne), about half are right, which sets the confidence curve.
+- **Search database:** `build_index` loads the confident spans into `passage_groups` (`chunk_id → group_id, confidence`), syncing the rows of every checked work in place like the Scripture groups of #186: no work is reloaded and no vector re-sent. All 436 version groups give 1.34M rows in 442k groups (332k of them Scripture verses). Search folds by them first (see "Folding versions").
+- **Reader export:** `export_library` writes `alignments/{group}.json` per version group (members' `spans` and `conf` only) and lists the groups in `index.json` (`alignments`), for keeping the reader's place across versions (#144) and parallel reading (#181).
+- **Known gaps:** units the pivot lacks (psalm titles when the pivot is English, passages missing from the longest version) stay unaligned in every version; large reorders inside a book (LXX Exodus 36–39) are only partly recovered; OCR apparatus in Migne units can take a confident but wrong place.
+
 ---
 
 ## Phase 3: Web Application
@@ -164,7 +201,7 @@ def search(query: str, top_k: int = 20, filters: dict = None) -> list[TextChunk]
 | Backend API | FastAPI (Python) |
 | Frontend | Next.js 16 (React, TypeScript), in `web/` |
 | Auth | Optional at launch; add later for saved searches/notes |
-| Deployment | Docker Compose: dev, and prod on one DigitalOcean VM (Postgres + API); Next.js on Vercel (#50) |
+| Deployment | Docker Compose: dev, and prod on one DigitalOcean droplet (Postgres + API, `infra/`, #117). All hosting consolidates on DigitalOcean: library data on Spaces (#131), Next.js on the droplet (#132) |
 | AI features | Claude API (Anthropic) |
 
 ### 3.2 Core Features
@@ -182,7 +219,7 @@ The primary reference shown to users must be the work title and author, not the 
 This means `Work.title` and `Work.author` must be the individual work's identity, and `Work.edition` carries the anthology/volume label. The `source_id` and `work_id` are internal identifiers only, never shown directly to users. Wherever a canonical reference is displayed (search results, text view, AI synthesis citations), use `{author}, *{title}* {canonical_ref}` as the human-readable label, falling back to `*{title}* {canonical_ref}` when author is absent.
 
 **Text View:**
-- Side-by-side or tabbed display: original language | known translation | AI translation
+- Side-by-side or tabbed display: original language | known translation | AI translation. *Side by side is built (#181):* `/works/{id}?with={other}&with=…` shows up to 4 versions in rows of aligned passages, using versification for Scripture and the passage alignment (#179) for everything else, with the versions stacked per row on phones. The stored machine translations aren't in the library export yet, so there is no "AI translation" column; that is #197.
 - AI translation generated on demand via Claude API (cached after first generation)
 - Contextual navigation: prev/next passage, jump to full work
 
@@ -196,6 +233,8 @@ This means `Work.title` and `Work.author` must be the individual work's identity
 - Scripture browser with cross-links to Patristic commentary
 
 *Status:* a first library browser exists (`web/`, #16). It has a work index with client-side search, facets, date range and sorting, and a reader that renders normalized chunks as text. It reads the static export from `scripts/export_library.py` (`index.json` plus one JSON file per work), not an API. When the FastAPI backend exists, replace those fetches in `web/src/lib/library.ts` with `/api/works/*`. The rendering rules (section headings from the ref hierarchy, rubrics, out-of-period marking) live in `web/src/lib/render.ts`.
+
+*Search (#142):* `/search` sends the query and the library index's facets (author, language, genre, collection, dates) to `/api/search`. Results are listed by score, citation first (`{author}, *{title}* {ref}`), then the text in its own script, an English machine translation for the rare languages, and language, date, collection/edition, licence and source. Each result opens the reader at the passage, highlighted.
 
 ### 3.3 API Routes (FastAPI)
 
@@ -211,11 +250,14 @@ GET  /api/authors                      → Author list/browse
 ### 3.4 Deployment
 
 - Docker Compose: `web` (Next.js), `api` (FastAPI), `db` (PostgreSQL + pgvector)
-- Production (#50): `web` stays on Vercel; `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached), with a nightly `pg_dump` to R2
+- Production (#50, #117, #132): `web`, `api` and `db` run on one DigitalOcean droplet (NYC, 8 GB; 16 GB if the index doesn't stay cached) behind Caddy, provisioned with OpenTofu, with a nightly `pg_dump` to DigitalOcean Spaces. The runbook is `infra/README.md`.
+- *Decided 2026-10-15:* consolidate on DigitalOcean rather than spreading over three providers. The static library moves from R2 to Spaces (#131, done), and `web` moves from Vercel to the droplet (#132, done). The cost is a single point of failure, no preview deploys and no edge CDN for the app shell (the library data is on the Spaces CDN).
+- Hostnames: the app is on the apex `patristica.app` (`www` redirects to it) and the API on `api.patristica.app`. Caddy also routes `/api/*` on the apex to the API with the prefix stripped, so the browser calls it same-origin and needs no CORS: the routes in §3.3 are `/api/…` as the web app sees them and are declared without `/api` in FastAPI.
+- Deploys: merging to `master` runs `infra/deploy.sh --keep-env` from GitHub Actions (`.github/workflows/deploy.yml`), which rebuilds the images on the droplet. `NEXT_PUBLIC_*` settings are Docker build arguments.
 - Separate `scripts/` container for ingestion jobs
 - Environment-based config for API keys (OpenAI/Anthropic)
 
-*Current (library browser, #17):* production is https://patristica-beta.vercel.app/. The Next.js app is on Vercel (Hobby plan, production branch `master`, root directory `web`). The static library export is in a Cloudflare R2 bucket, uploaded with `scripts/upload_library.py`. Vercel's `NEXT_PUBLIC_LIBRARY_URL` points at the bucket's public URL (https://pub-7022ba788905451f9b1a0db66d769964.r2.dev). The R2 public URL and Vercel production URL are reachable by anyone who has them; Vercel Hobby can only restrict preview deployments.
+*Current (library browser, #17):* production is https://patristica.app, the `web` service on the droplet (`web/Dockerfile`, `output: "standalone"`). The static library export is in the DigitalOcean Spaces bucket `patristica-library` (provisioned in `infra/tofu`), uploaded with `scripts/upload_library.py`, and the app's `NEXT_PUBLIC_LIBRARY_URL` points at its CDN endpoint (https://patristica-library.nyc3.cdn.digitaloceanspaces.com). The earlier Vercel deployment (https://patristica-beta.vercel.app/) is retired once the droplet serves the site.
 
 ### 3.5 Licensing & Attribution Requirements
 
@@ -240,11 +282,11 @@ Every text carries its licence in `Work.license` (and provenance in `Work.proven
 
 ## Open Questions (to resolve before implementation)
 
-- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vectors are 512-dim `halfvec` (#50); the full 1024-dim output is kept in R2.
+- **Embedding model choice**: *decided 2026-10-13* (#3, #84; `docs/embedding-eval.md`): Voyage `voyage-4-large`, with GPT-6.1 Sol English translations as a second vector for the rare languages (#93). Vectors are 512-dim `halfvec` (#50); the full 1024-dim output is kept in object storage (DigitalOcean Spaces, #131).
 - **Database hosting**: *decided 2026-10-14* (#50). Postgres 16 + pgvector and the FastAPI service run together under Docker Compose on one self-managed DigitalOcean Basic droplet in NYC (8 GB RAM, 4 vCPU, ~$48/mo), close to Vercel's `iad1` functions. Reasons:
-  - **Size.** Splitting into verse-sized units (#2) gives ~3.9M units plus ~0.14M English translation vectors for the rare languages, so about 4.0M vectors. That made 1024 dims too big for 8 GB (≈ 8 GB of vectors alone), so vectors are 512-dim `halfvec`: ≈ 4.1 GB of vectors and an HNSW index of roughly 5–5.5 GB. The eval scored 512 dims at paraphrase/topical recall 0.99 / 0.97, against 0.99 / 0.99 at 1024, with the same worst language cell (`docs/embedding-eval.md`). Voyage vectors can be shortened, so the full 1024-dim vectors are stored in R2 and the size can change without re-embedding.
+  - **Size.** Splitting into verse-sized units (#2) gives ~3.9M units plus ~0.14M English translation vectors for the rare languages, so about 4.0M vectors. That made 1024 dims too big for 8 GB (≈ 8 GB of vectors alone), so vectors are 512-dim `halfvec`: ≈ 4.1 GB of vectors and an HNSW index of roughly 5–5.5 GB. The eval scored 512 dims at paraphrase/topical recall 0.99 / 0.97, against 0.99 / 0.99 at 1024, with the same worst language cell (`docs/embedding-eval.md`). Voyage vectors can be shortened, so the full 1024-dim vectors are stored in object storage and the size can change without re-embedding.
   - **8 GB is tight.** The index needs most of the droplet's memory to stay cached. Start on 8 GB, measure query latency, and resize to the 16 GB droplet (~$96/mo, an in-place resize on DigitalOcean) if the index doesn't stay in memory.
-  - **The database is derived data.** Text and translations are in git, and the Voyage vectors are kept as a file in R2, so a lost database is rebuilt without re-embedding. Managed hosts mostly sell backups, failover and point-in-time recovery, which don't matter until the app stores user data. Backup is a nightly `pg_dump` to R2.
+  - **The database is derived data.** Text and translations are in git, and the Voyage vectors are kept as a file in object storage, so a lost database is rebuilt without re-embedding. Managed hosts mostly sell backups, failover and point-in-time recovery, which don't matter until the app stores user data. Backup is a nightly `pg_dump` to DigitalOcean Spaces (#117).
   - **Alternatives (Oct 2026 prices).** Supabase Pro + Large (8 GB) ~$125/mo; Neon is cheap with scale-to-zero, but the HNSW index has to reload after every pause, so the first queries are slow (~$77/mo for 4 GB always on); RDS / DO Managed Postgres $100–245/mo. Hetzner's US regions are no cheaper after its June 2026 price increase.
   - **Revisit** when Phase 3 adds accounts or saved searches. Moving to managed Postgres (Supabase Large) is a dump and restore.
 - **Copyrighted texts**: Identify specific modern translations (RSV, ESV, etc.) where licensing may be obtainable

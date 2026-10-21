@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "first1k/tlg1329/tlg001/1st1K-grc1",
+ "pivot": "first1k/tlg1329/tlg001/1st1K-grc1",
+ "groups": 19,
+ "inputs": "260d421baa279b33",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/dionysius-of-corinth-fragments", "units": 27, "ids": "4126d5501925f9f6", "inputs": "c4324a6d67073f94", "spans": "+10=+++++++++..-18++.++..++..++", "conf": "9999999999998299999"},
+  {"work_id": "first1k/tlg1329/tlg001/1st1K-grc1", "units": 31, "ids": "69e17b0dde439a8e", "inputs": "260920d1fcad628d", "spans": "+=++++=++=+=++++=...+++=.++=++=", "conf": "9982999999999999999"}
+ ]
+}

@@ -7,17 +7,22 @@ import { useMemo } from "react";
 import {
   DEFAULT_VIEW,
   filterWorks,
+  libraryFacets,
   parseViewState,
   sortWorks,
   viewStateToParams,
   type SortKey,
   type ViewState,
 } from "@/lib/filter";
-import { formatDate, GENRES } from "@/lib/format";
+import { formatDate } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
-import { loadIndex, workHref, type LibraryIndex } from "@/lib/library";
+import { loadLibrary, workAuthors, workHref, type Library } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
+import { versionCounts } from "@/lib/versions";
 
+import AuthorLinks from "./AuthorLinks";
+import FilterFields from "./FilterFields";
+import filterStyles from "./Filters.module.css";
 import LoadError from "./LoadError";
 import styles from "./LibraryBrowser.module.css";
 
@@ -31,13 +36,14 @@ const COLUMNS: { key: SortKey; label: string; numeric?: boolean }[] = [
 ];
 
 export default function LibraryBrowser() {
-  const index = useLoaded(loadIndex);
-  if (index.status === "loading") return <p>Loading the library…</p>;
-  if (index.status === "error") return <LoadError error={index.error} />;
-  return <Browser index={index.data} />;
+  const library = useLoaded(loadLibrary);
+  if (library.status === "loading") return <p>Loading the library…</p>;
+  if (library.status === "error") return <LoadError error={library.error} />;
+  return <Browser library={library.data} />;
 }
 
-function Browser({ index }: { index: LibraryIndex }) {
+function Browser({ library }: { library: Library }) {
+  const { index, authors } = library;
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -50,20 +56,18 @@ function Browser({ index }: { index: LibraryIndex }) {
 
   const rows = useMemo(
     () =>
-      sortWorks(filterWorks(index.works, view, index.sources), view.sort, view.dir, index.sources),
-    [index, view],
+      sortWorks(
+        filterWorks(index.works, view, index.sources, authors),
+        view.sort,
+        view.dir,
+        index.sources,
+        authors,
+      ),
+    [index, authors, view],
   );
 
-  const facets = useMemo(() => {
-    const present = (key: "language" | "genre") => [...new Set(index.works.map((w) => w[key]))];
-    return {
-      languages: present("language").sort((a, b) =>
-        languageInfo(a).name.localeCompare(languageInfo(b).name),
-      ),
-      genres: present("genre").sort(),
-      sources: Object.entries(index.sources).sort((a, b) => a[1].localeCompare(b[1])),
-    };
-  }, [index]);
+  const facets = useMemo(() => libraryFacets(index, authors), [index, authors]);
+  const versions = useMemo(() => versionCounts(index.works), [index]);
 
   const sortBy = (key: SortKey) =>
     update({ sort: key, dir: view.sort === key && view.dir === "asc" ? "desc" : "asc" });
@@ -73,69 +77,17 @@ function Browser({ index }: { index: LibraryIndex }) {
 
   return (
     <div>
-      <form className={styles.filters} role="search" onSubmit={(e) => e.preventDefault()}>
-        <label className={styles.query}>
+      <form className={filterStyles.filters} role="search" onSubmit={(e) => e.preventDefault()}>
+        <label className={filterStyles.query}>
           <span>Search authors and titles</span>
           <input
             type="search"
             value={view.q}
-            placeholder="e.g. Augustine, homily, Ἰωάννης"
+            placeholder="e.g. Augustine, Hieronymus, homily, Ἰωάννης"
             onChange={(e) => update({ q: e.target.value })}
           />
         </label>
-        <label>
-          <span>Language</span>
-          <select value={view.language} onChange={(e) => update({ language: e.target.value })}>
-            <option value="">All</option>
-            {facets.languages.map((code) => (
-              <option key={code} value={code}>
-                {languageInfo(code).name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Genre</span>
-          <select value={view.genre} onChange={(e) => update({ genre: e.target.value })}>
-            <option value="">All</option>
-            {facets.genres.map((g) => (
-              <option key={g} value={g}>
-                {GENRES[g] ?? g}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Collection</span>
-          <select value={view.source} onChange={(e) => update({ source: e.target.value })}>
-            <option value="">All</option>
-            {facets.sources.map(([id, label]) => (
-              <option key={id} value={id}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <fieldset className={styles.years}>
-          <legend>Date (negative = BC)</legend>
-          <input
-            type="number"
-            inputMode="numeric"
-            aria-label="From year"
-            placeholder="From"
-            value={view.from ?? ""}
-            onChange={(e) => update({ from: e.target.value === "" ? null : Number(e.target.value) })}
-          />
-          <span aria-hidden="true">–</span>
-          <input
-            type="number"
-            inputMode="numeric"
-            aria-label="To year"
-            placeholder="To"
-            value={view.to ?? ""}
-            onChange={(e) => update({ to: e.target.value === "" ? null : Number(e.target.value) })}
-          />
-        </fieldset>
+        <FilterFields value={view} facets={facets} onChange={update} />
       </form>
 
       <p className={styles.count} aria-live="polite">
@@ -177,15 +129,28 @@ function Browser({ index }: { index: LibraryIndex }) {
           <tbody>
             {rows.map((w) => {
               const lang = languageInfo(w.language);
+              const byline = workAuthors(w, authors);
+              // Names from the author index are English; a fallback is the source's own string.
+              const sourceString = byline.some((a) => a.id === null);
+              const nVersions = w.version_group ? (versions.get(w.version_group) ?? 0) : 0;
               return (
                 <tr key={w.id}>
-                  <td lang={lang.lang} dir="auto">
-                    {w.author ?? <span className={styles.muted}>Anonymous</span>}
+                  <td lang={sourceString ? lang.lang : undefined} dir="auto">
+                    {byline.length > 0 ? (
+                      <AuthorLinks authors={byline} />
+                    ) : (
+                      <span className={styles.muted}>Anonymous</span>
+                    )}
                   </td>
                   <td lang={lang.lang} dir="auto">
                     <Link href={workHref(w.id)}>
                       {w.title}
                     </Link>
+                    {nVersions > 1 && (
+                      <span className={styles.versions} lang="en" dir="ltr">
+                        {nVersions} versions
+                      </span>
+                    )}
                   </td>
                   <td>{lang.name}</td>
                   <td className={styles.numeric}>{formatDate(w)}</td>

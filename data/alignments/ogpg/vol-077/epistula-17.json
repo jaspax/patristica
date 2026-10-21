@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-077/epistula-17",
+ "pivot": "ogpg/vol-077/epistula-17",
+ "groups": 133,
+ "inputs": "3602960542aeec45",
+ "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/cyril-twelve-anathemas", "units": 29, "ids": "5b06c7f8f269b62a", "inputs": "d5c5c1d90a131c4d", "spans": "+7+21+3=+5+2+11+2+64+++++++=++++++=+++++", "conf": "85978789999999888899988997"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_0_ann", "units": 166, "ids": "6ea11b5ed514fd62", "inputs": "92ada5774397b5a0", "spans": "........+=.++=.++=....+=+++++++++.+=+++++++++++++++2+++++++++++++++++++=+=+.+++++++++++++++++++++=+=+++++++++++++++++++++++++++++..+++++=+++=++......+2+++2++++=+.+++++++", "conf": "938889999999999999999999999999889999999999999999999999999999999999999999999999999988889999999999999999999999999999999999969999999"},
+  {"work_id": "ogpg/vol-077/epistula-17", "units": 157, "ids": "8b3d7540e770754b", "inputs": "e6c00d23503b9b4b", "spans": "+++=+++=+++++++=++++++++++++=+=++++=....+=+++++++=+++.++++++++++=+=+++.+++=++++++++++++.++++=++++++++++++++=++=++++++++++++=+++.++++++++++=++++++++++++++++++", "conf": "9388899999999999999999999999999889999999999999999999999999999999999999999999999999988889999999999999999999999999999999999999899999997"}
+ ]
+}

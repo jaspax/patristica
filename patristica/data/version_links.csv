@@ -1,0 +1,140 @@
+work_id,other_work_id,relation,reason
+armenian/1esd,pta-lxx/1esr,same_work,"Greek 1 Esdras (Esdras A) under another book code; verse-by-verse match, 1Esd.1.1 = 1Esr.1.1 (Josiah's Passover) to 9.55"
+pta-peshitta/3esr,pta-lxx/1esr,same_work,"3 Esdras is the Vulgate-style name of Greek 1 Esdras (Esdras A); verses match in order through 9.55"
+pta-lxx/danthdt,pta-lxx/dan,different_edition,Theodotion's Greek Daniel beside the Old Greek; same book and chapters
+pta-lxx/susthdt,pta-lxx/sus,different_edition,Theodotion's Greek Susanna beside the Old Greek
+pta-lxx/beldrthdt,pta-lxx/beldr,different_edition,Theodotion's Greek Bel and the Dragon beside the Old Greek
+pta-lxx/judgvat,pta-lxx/judg,different_edition,Judges in Codex Vaticanus (Rahlfs's B text) beside the Alexandrinus text
+pta-lxx/tobsin,armenian/tob,same_work,Tobit in the long recension of Codex Sinaiticus
+pta-lxx/tobvatal,armenian/tob,same_work,Tobit in the short recension of Vaticanus/Alexandrinus
+gez/kings,pta-lxx/2kgs,same_work,"Ge'ez 'Kings' is 2 Kings (4 Kingdoms): opens with Moab's rebellion after Ahab's death (2 Kgs 1:1), 25 chapters to 25:30; refs use the book code 'Kings' (#188)"
+first1k/tlg1463/tlg001/1st1K-grc1,gez/1en,same_work,"Greek 1 Enoch (Apocalypsis Enochi: chapters 1-32 and the Greek fragments), the Greek of the Ge'ez book; genre apocrypha in the Greek tradition, scripture in the Ethiopian"
+first1k/tlg1701/tlg002/1st1K-grc1,first1k/tlg1701/tlg001/1st1K-grc1,same_work,"Testament of Abraham, recension B beside recension A; the shorter B follows A's story in order"
+ogpg/vol-002/hermae-pastor,pta/pta0038/pta001/pta-grc1,different_edition,"Migne's Greek Hermas (PG 2); partial, its passages match in order"
+ogpg/vol-024/contra-marcellum,pta/pta0003/pta007/pta-grc1,different_edition,Eusebius Contra Marcellum (PG 24); same text in order
+ogpg/vol-024/de-ecclesiastica-theologia,pta/pta0003/pta009/pta-grc1,different_edition,Eusebius De ecclesiastica theologia (PG 24); same text in order
+ogpg/vol-024/commentaria-in-isaiam,pta/pta0003/pta017/pta-grc1,different_edition,Eusebius Commentarius in Isaiam (PG 24); same text in order
+ogpg/vol-025/de-incarnatione,pta/pta0022/pta002/pta-grc1,different_edition,Athanasius De incarnatione (PG 25); same text in order
+ogpg/vol-025/contra-gentes,pta/pta0022/pta001/pta-grc1,different_edition,Athanasius Contra gentes (PG 25); same text in order
+ogpg/vol-025/de-decretis,pta/pta0022/pta003/pta-grc1,different_edition,Athanasius De decretis (PG 25); same text in order
+ogpg/vol-025/de-sententia-dionysii,pta/pta0022/pta004/pta-grc1,different_edition,Athanasius De sententia Dionysii (PG 25); same text in order
+ogpg/vol-025/apologia-ad-constantium,pta/pta0022/pta010/pta-grc1,different_edition,Athanasius Apologia ad Constantium (PG 25); same text
+ogpg/vol-025/ad-dracontium,pta/pta0022/pta013/pta-grc1,different_edition,Athanasius Epistula ad Dracontium (PG 25); same text in order
+ogpg/vol-026/ad-afros,pta/pta0022/pta014/pta-grc1,different_edition,Athanasius Epistula ad Afros (PG 26); same text in order
+ogpg/vol-026/tomus-ad-antiochenos,pta/pta0022/pta015/pta-grc1,different_edition,Athanasius Tomus ad Antiochenos (PG 26); same text in order
+ogpg/vol-026/ad-jovianum,pta/pta0022/pta016/pta-grc1,different_edition,"Athanasius Epistula ad Jovianum (PG 26); the PTA letter matches in order, PG adds the surrounding text"
+ogpg/vol-028/de-sabbatis,pta/pta0029/pta002/pta-grc1,different_edition,Pseudo-Athanasius De sabbatis et circumcisione (PG 28); same text in order
+ogpg/vol-011/exhortatio-ad-martyrium,pta/pta0007/pta007/pta-grc1,different_edition,Origen Exhortatio ad martyrium (PG 11); same text in order
+ogpg/vol-011/de-oratione,pta/pta0007/pta008/pta-grc1,different_edition,Origen De oratione (PG 11); same text in order
+ogpg/vol-067/sozomenus-historia-ecclesiastica,pta/pta0012/pta001/pta-grc1,different_edition,Sozomen Historia ecclesiastica (PG 67); same text in order
+ogpg/vol-082/historia-ecclesiastica,pta/pta0004/pta003/pta-grc1,different_edition,Theodoret Historia ecclesiastica (PG 82); same text in order
+first1k/tlg4089/tlg004/1st1K-grc1,ogpg/vol-082/historia-religiosa,different_edition,Theodoret Historia religiosa (Philotheus) (PG 82); same text in order
+ogpg/vol-085/gelasius-cyzicenus,pta/pta0036/pta001/pta-grc1,different_edition,"PG 85's 'Gelasius of Cyzicus', Historia concilii Nicaeni, is the work now ascribed to the Anonymous of Cyzicus; same text in order"
+ogpg/vol-062/in-colossenses,pta/pta0002/pta161/pta-grc1,different_edition,"Chrysostom, Homilies on Colossians (PG 62); same text in order"
+ogpg/vol-068/de-adoratione,pta/pta0005/pta001/pta-grc1,different_edition,Cyril of Alexandria De adoratione (PG 68); same text in order
+ogpg/vol-069/glaphyra,pta/pta0005/pta002/pta-grc1,different_edition,Cyril of Alexandria Glaphyra in Pentateuchum (PG 69); same text in order
+ogpg/vol-056/de-legislatore,pta/pta0001/pta008/pta-grc1,different_edition,"Severian of Gabala, Homilia de legislatore, printed among Chrysostom's spuria (PG 56); same text in order"
+ogpg/vol-056/de-serpente,pta/pta0001/pta011/pta-grc1,different_edition,"Severian of Gabala, De serpente, printed among Chrysostom's spuria (PG 56); same text in order"
+ogpg/vol-056/in-qua-potestate,pta/pta0001/pta009/pta-grc1,different_edition,"Severian of Gabala, In illud: In qua potestate (PG 56); same text in order"
+ogpg/vol-063/severianus-de-sigillis,pta/pta0001/pta025/pta-grc1,different_edition,"Severian of Gabala, De sigillis (PG 63); same text in order"
+ogpg/vol-063/in-principio-erat-verbum,pta/pta0001/pta026/pta-grc1,different_edition,"Severian of Gabala, In illud: In principio erat Verbum (PG 63); same text in order"
+first1k/tlg2022/tlg007/1st1K-grc1,ogpg/vol-036/oratio-27,different_edition,"Gregory of Nazianzus, Oration 27 (Theological Oration 1) (PG 36); same text in order"
+first1k/tlg2022/tlg008/1st1K-grc1,ogpg/vol-036/oratio-28,different_edition,"Gregory of Nazianzus, Oration 28 (Theological Oration 2) (PG 36); same text in order"
+first1k/tlg2022/tlg009/1st1K-grc1,ogpg/vol-036/oratio-29,different_edition,"Gregory of Nazianzus, Oration 29 (Theological Oration 3) (PG 36); same text"
+first1k/tlg2022/tlg010/1st1K-grc1,ogpg/vol-036/oratio-30,different_edition,"Gregory of Nazianzus, Oration 30 (Theological Oration 4) (PG 36); same text in order"
+first1k/tlg2022/tlg011/1st1K-grc1,ogpg/vol-036/oratio-31,different_edition,"Gregory of Nazianzus, Oration 31 (Theological Oration 5) (PG 36); same text in order"
+first1k/tlg2042/tlg011/opp-grc1,ogpg/vol-013/selecta-in-threnos,different_edition,"Origen on Lamentations: the catena fragments, printed as Selecta in Threnos in PG 13; same text in order"
+first1k/tlg2042/tlg048/1st1K-grc1,ogpg/vol-012/selecta-in-genesim,different_edition,Origen Selecta in Genesim (PG 12); same text in order
+first1k/tlg2042/tlg050/1st1K-grc1,ogpg/vol-012/selecta-in-exodum,different_edition,Origen Selecta in Exodum (PG 12); same text in order
+first1k/tlg2042/tlg051/1st1K-grc1,ogpg/vol-012/selecta-in-leviticum,different_edition,Origen Selecta in Leviticum (PG 12); same text in order
+first1k/tlg2042/tlg052/1st1K-grc1,ogpg/vol-012/selecta-in-numeros,different_edition,Origen Selecta in Numeros (PG 12); same text in order
+first1k/tlg2042/tlg053/1st1K-grc1,ogpg/vol-012/selecta-in-deuteronomium,different_edition,Origen Selecta in Deuteronomium (PG 12); same text in order
+first1k/tlg2042/tlg054/1st1K-grc1,ogpg/vol-012/selecta-in-jesum-nave,different_edition,Origen Selecta in Jesum Nave (PG 12); same text in order
+first1k/tlg2042/tlg055/1st1K-grc1,ogpg/vol-012/selecta-in-judices,different_edition,Origen Selecta in Judices (PG 12); same text in order
+first1k/tlg2042/tlg057/1st1K-grc1,ogpg/vol-012/selecta-in-job,different_edition,Origen Selecta in Job (PG 12); same text in order
+first1k/tlg2042/tlg058/1st1K-grc1,ogpg/vol-012/selecta-in-psalmos,different_edition,Origen Selecta in Psalmos (PG 12); same text in order
+first1k/tlg2042/tlg001/perseus-grc1,ogpg/vol-011/contra-celsum,different_edition,Origen Contra Celsum (PG 11); same text in order
+first1k/tlg2042/tlg045/1st1K-grc1,ogpg/vol-011/epistula-ad-africanum,different_edition,Origen Epistula ad Africanum (PG 11); same text in order
+first1k/tlg2042/tlg005/1st1K-grc1,ogpg/vol-014/commentarii-in-joannem,different_edition,Origen Commentary on John (PG 14); same text in order
+first1k/tlg2042/tlg079/1st1K-grc1,first1k/tlg2042/tlg005/1st1K-grc1,different_edition,"Books 19, 20, 28 and 32 of Origen's Commentary on John, a second First1K edition of part of the whole"
+first1k/tlg2042/tlg029/opp-grc1,ogpg/vol-013/commentarii-in-matthaeum,different_edition,"Origen Commentary on Matthew, books 10-11, part of the PG 13 text; same text in order"
+first1k/tlg2042/tlg030/opp-grc1,ogpg/vol-013/commentarii-in-matthaeum,different_edition,"Origen Commentary on Matthew, books 12-17, part of the PG 13 text; same text in order"
+first1k/tlg2042/tlg009/opp-grc1,ogpg/vol-013/homiliae-in-jeremiam,different_edition,"Origen Homilies on Jeremiah 1-11, part of the PG 13 Homiliae in Jeremiam; same text in order"
+first1k/tlg2042/tlg021/opp-grc1,ogpg/vol-013/homiliae-in-jeremiam,different_edition,"Origen Homilies on Jeremiah 12-20, part of the PG 13 Homiliae in Jeremiam; same text in order"
+first1k/tlg2018/tlg001/1st1K-grc1,ogpg/vol-021/praeparatio-evangelica,different_edition,Eusebius Praeparatio evangelica (PG 21); same text in order
+first1k/tlg2018/tlg002/1st1K-grc1,ogpg/vol-020/historia-ecclesiastica,different_edition,Eusebius Historia ecclesiastica (PG 20); same text in order
+first1k/tlg2018/tlg005/1st1K-grc1,ogpg/vol-022/demonstratio-evangelica,different_edition,Eusebius Demonstratio evangelica (PG 22); same text in order
+first1k/tlg2018/tlg023/1st1K-grc1,ogpg/vol-022/eclogae-propheticae,different_edition,Eusebius Eclogae propheticae (PG 22); same text in order
+first1k/tlg2018/tlg020/1st1K-grc1,ogpg/vol-020/vita-constantini,different_edition,Eusebius Vita Constantini (PG 20); same text in order
+first1k/tlg2018/tlg021/1st1K-grc1,ogpg/vol-020/oratio-constantini,different_edition,Constantine's Oratio ad sanctorum coetum (PG 20); same text in order
+first1k/tlg2018/tlg022/1st1K-grc1,ogpg/vol-020/de-laudibus-constantini,different_edition,"Eusebius De laudibus Constantini (PG 20); the PG text is shorter, same text in order"
+first1k/tlg2018/tlg010/1st1K-grc1,ogpg/vol-024/de-theophania,different_edition,Eusebius De theophania (Greek fragments) (PG 24); same fragments in order
+first1k/tlg2021/tlg001/1st1K-grc1,ogpg/vol-043/ancoratus,different_edition,Epiphanius Ancoratus (PG 43); same text in order
+first1k/tlg2021/tlg002/1st1K-grc1,ogpg/vol-041/panarion-1,different_edition,"Epiphanius Panarion; First1K's text matches PG 41's Haer. I-LXIV in order (PG 42's LXV-LXXX does not match it)"
+first1k/tlg2733/tlg001/1st1K-grc1,ogpg/vol-086-pt2/evagrius-scholasticus,different_edition,Evagrius Scholasticus Historia ecclesiastica (PG 86); same text in order
+first1k/tlg2057/tlg002/1st1K-grc1,ogpg/vol-067/socrates-historia-ecclesiastica,different_edition,"Socrates Historia ecclesiastica (PG 67); the PG text is shorter, same text in order"
+first1k/tlg2058/tlg001/1st1K-grc1,ogpg/vol-065/philostorgius,different_edition,Philostorgius: Photius's epitome of the Historia ecclesiastica (PG 65); same text in order
+first1k/tlg2959/tlg001/opp-grc1,ogpg/vol-018/methodius-convivium,different_edition,Methodius Symposium (PG 18); same text in order
+first1k/tlg4090/tlg001/1st1K-grc1,ogpg/vol-071/in-xii-prophetas-1,different_edition,"Cyril of Alexandria on the Twelve Prophets; PG 71 holds the first part, in order"
+first1k/tlg4090/tlg001/1st1K-grc1,ogpg/vol-072/in-xii-prophetas-2,different_edition,"Cyril of Alexandria on the Twelve Prophets; PG 72 holds the continuation, in order"
+first1k/tlg4102/tlgX02/1st1K-grc1,ogpg/vol-106/arethas,different_edition,Arethas's Commentary on the Apocalypse (PG 106); same text in order
+first1k/tlg4102/tlgX03/1st1K-grc1,ogpg/vol-106/andreas-caesariensis,different_edition,Andrew of Caesarea's Commentary on the Apocalypse (PG 106); same text in order
+first1k/tlg2371/tlg001/1st1K-grc1,ogpg/vol-092/chronicon-paschale,different_edition,"Chronicon Paschale (PG 92); the PG text is shorter, same text in order"
+first1k/tlg1447/tlg001/1st1K-grc1,ogpg/vol-007/adversus-haereses,different_edition,"Irenaeus Adversus haereses (PG 7, its Greek); same text in order"
+first1k/tlg1725/tlg001/perseus-grc1,ogpg/vol-006/theophilus,different_edition,"Theophilus Ad Autolycum (PG 6); the PG text is shorter, same text in order"
+first1k/tlg0645/tlg001/1st1K-grc1,ogpg/vol-006/apologia-1,different_edition,Justin First Apology (PG 6); same text in order
+first1k/tlg0645/tlg002/perseus-grc2,ogpg/vol-006/apologia-2,different_edition,Justin Second Apology (PG 6); same text in order
+first1k/tlg0645/tlg003/perseus-grc2,ogpg/vol-006/dialogus-cum-tryphone,different_edition,"Justin Dialogue with Trypho (PG 6); the PG OCR is partial, its passages are in the First1K text"
+first1k/tlg0555/tlg001/1st1K-grc1,ogpg/vol-008/protrepticus,different_edition,Clement of Alexandria Protrepticus (PG 8); same text in order
+ogpg/vol-008/stromata-1-4,perseus/tlg0555/tlg004/perseus-grc2,different_edition,"Clement of Alexandria Stromata I-IV (PG 8), part of the Perseus text; same text in order"
+ogpg/vol-009/stromata-5-8,perseus/tlg0555/tlg004/perseus-grc2,different_edition,"Clement of Alexandria Stromata V-VIII (PG 9), part of the Perseus text"
+first1k/tlg0555/tlg005/1st1K-grc1,ogpg/vol-009/eclogae-propheticae,different_edition,Clement of Alexandria Eclogae propheticae (PG 9); same text in order
+first1k/tlg0555/tlg006/1st1K-grc1,ogpg/vol-009/quis-dives-salvetur,different_edition,Clement of Alexandria Quis dives salvetur (PG 9); same text in order
+first1k/tlg0555/tlg007/1st1K-grc1,ogpg/vol-009/excerpta-ex-theodoto,different_edition,Clement of Alexandria Excerpta ex Theodoto (PG 9); same text in order
+first1k/tlg0646/tlg004/1st1K-grc1,ogpg/vol-002/epistula-ad-diognetum,different_edition,Epistle to Diognetus (PG 2); same text
+first1k/tlg1216/tlg001/opp-grc1,ogpg/vol-002/barnabae-epistula,different_edition,Epistle of Barnabas (PG 2); same text in order
+first1k/tlg1271/tlg001/1st1K-grc1,ogpg/vol-001/1-clementis,different_edition,1 Clement (PG 1); same text in order
+first1k/tlg1271/tlg002/1st1K-grc1,ogpg/vol-001/2-clementis,different_edition,2 Clement (PG 1); same text in order
+first1k/tlg1271/tlg006/1st1K-grc1,ogpg/vol-002/clementina-homiliae,different_edition,"Pseudo-Clementine Homilies (PG 2, with the prefatory letters); same text in order"
+first1k/tlg1271/tlg011/1st1K-grc1,ogpg/vol-002/clementina-epitome,different_edition,"The first Clementine Epitome ('prior edita'), PG 2's Epitome de gestis S. Petri; same text in order"
+first1k/tlg1443/tlg001/1st1K-grc1,ogpg/vol-005/ignatius-epistulae-genuinae,different_edition,Ignatius's seven letters (middle recension) (PG 5); same text in order
+first1k/tlg1443/tlg002/1st1K-grc1,ogpg/vol-005/ignatius-epistulae-interpolatae,different_edition,"Ignatius's long recension and spurious letters (PG 5); same letters, ordered differently"
+first1k/tlg1484/tlg001/1st1K-grc1,ogpg/vol-005/martyrium-polycarpi,different_edition,"Martyrium Polycarpi (PG 5); the PG text is partial, same text in order"
+first1k/tlg1622/tlg001/1st1K-grc1,ogpg/vol-005/polycarpi-epistula,different_edition,Polycarp to the Philippians (PG 5); same text in order
+first1k/tlg0572/tlg001/1st1K-grc1,ogpg/vol-010/caius-fragmenta,different_edition,"Caius of Rome, fragments (PG 10); the same fragments in order"
+first1k/tlg1131/tlg001/1st1K-grc1,ogpg/vol-010/asterius-urbanus,different_edition,"The anonymous anti-Montanist to Avircius Marcellus (Eusebius HE 5.16-17), printed under Asterius Urbanus in PG 10; same fragments in order"
+first1k/stoa0146d/stoa001/1st1K-grc1,ogpg/vol-010/acta-archelai,different_edition,Acta Archelai: the Greek fragments (PG 10); same text in order
+ogpg/vol-032/epistulae,perseus/tlg2040/tlg004/perseus-grc2,different_edition,Basil's letters (PG 32); same letters in order
+ogpg/vol-096/barlaam-et-joasaph,perseus/tlg2934/tlg066/perseus-grc2,different_edition,Barlaam and Ioasaph (PG 96); same text in order
+ogpg/vol-030/de-hominis-structura,ogpg/vol-044/in-verba-faciamus,different_edition,"The two homilies on 'Let us make man', printed among Basil's works (PG 30) and again among Gregory of Nyssa's (PG 44); same text in order"
+oglt-pl/boethius/pl64_22_qu,perseus/stoa0058/stoa025/perseus-lat1,different_edition,Boethius De Trinitate (PL 64); same text in order
+oglt-pl/boethius/pl64_24_an,perseus/stoa0058/stoa028/perseus-lat1,different_edition,Boethius Utrum Pater et Filius (PL 64); same text
+oglt-pl/boethius/pl64_26_qu,perseus/stoa0058/stoa003/perseus-lat1,different_edition,Boethius Quomodo substantiae (PL 64); same text in order
+oglt-pl/boethius/pl64_29_un,perseus/stoa0058/stoa023/perseus-lat1,different_edition,Boethius Contra Eutychen et Nestorium (PL 64); same text in order
+oglt-pl/pseudo-boethius/pl64_28_m.,perseus/stoa0058/stoa006/perseus-lat1,different_edition,PL 64's 'Brevis fidei Christianae complexio' is Boethius's De fide catholica; same text in order
+oglt-pl/severus-minoricensis/pl20_19_annodominiccccxvii,oglt-pl/severus-minoricensis/pl41_6_epi,different_edition,"Severus of Minorca's letter on the conversion of the Jews, printed in PL 20 and again in PL 41; same text in order"
+oglt-pl/martinus-bracarensis/pl72_6_opu,oglt-pl/pseudo-isidorus/pl83_31_ap,different_edition,"Martin of Braga's Exhortatio humilitatis, printed again in PL 83 among Isidore's spuria; same text in order"
+oglt-pl/vigilius-thapsensis/pl42_20_co,oglt-pl/vigilius-thapsensis/pl62_9_vig,different_edition,"Vigilius of Thapsus, Contra Felicianum, printed in PL 42 (among Augustine's spuria) and PL 62; same text in order"
+oglt-pl/fulgentius-ruspensis/pl40_22_de,oglt-pl/fulgentius-ruspensis/pl65_19_s.,different_edition,"Fulgentius, De fide ad Petrum, printed in PL 40 (among Augustine's spuria) and PL 65; same text in order"
+oglt-pl/prosperus-aquitanus/pl17_33_li,oglt-pl/prosperus-aquitanus/pl51_25_li,different_edition,"De vocatione omnium gentium, printed in PL 17 (among Ambrose's works) and PL 51; same text in order"
+oglt-pl/orosius/pl31_4_oro,oglt-pl/orosius/pl42_7_con,different_edition,"Orosius's Commonitorium to Augustine, printed in PL 31 and PL 42; same text in order"
+oglt-pl/pseudo-cyprian/pl4_0_ded,oglt-pl/pseudo-cyprian/pl40_38_de,different_edition,"De duodecim abusionibus saeculi, printed in PL 4 and PL 40; same text in order"
+oglt-pl/fastidius/pl40_36_de,oglt-pl/fastidius/pl50_4_amo,different_edition,"De vita Christiana, printed in PL 40 (among Augustine's spuria) and PL 50; same text in order"
+oglt-pl/anonymus/pl6_4_anon,oglt-pl/anonymus/pl61_11_au,different_edition,"Carmen de laudibus Domini, printed in PL 6 and again in PL 61 ('alterum exemplar'); same text in order"
+oglt-pl/gregorius-illiberitanus/pl17_17_de,oglt-pl/gregorius-illiberitanus/pl20_1_unknown,different_edition,"Gregory of Elvira, De fide orthodoxa, printed in PL 17 and PL 20; same text in order"
+oglt-pl/pseudo-hieronymus/pl23_44_unknown,oglt-pl/pseudo-augustinus/pl35_10_de,different_edition,"De benedictionibus Jacob patriarchae, printed among Jerome's (PL 23) and Augustine's (PL 35) spuria; same text in order"
+oglt-pl/ambrosius-autpertus/pl17_32_li,oglt-pl/ambrosius-autpertus/pl40_40_de,different_edition,"Ambrose Autpert's De conflictu vitiorum et virtutum, printed in PL 17 and PL 40; same text in order"
+oglt-pl/ambrosius-autpertus/pl17_32_li,oglt-pl/pseudo-isidorus/pl83_28_ap,different_edition,"Ambrose Autpert's De conflictu vitiorum et virtutum, printed again in PL 83 among Isidore's spuria; same text in order"
+oglt-pl/gennadius-massiliensis/pl42_26_de,oglt-pl/pseudo-isidorus/pl83_34_ap,different_edition,"Gennadius's De ecclesiasticis dogmatibus, printed in PL 42 and again in PL 83; same text in order"
+oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard,oglt-pl/concilium-sardicense/pl8_25_eademepistolaexhi,different_edition,"The Synod of Serdica's letter to Pope Julius, and 'the same letter, from Hilary' (PL 8)"
+oglt-pl/augustinus/pl32_14_re,oglt-pl/anonymus/pl66_13_aliaregulaincerti,different_edition,"The Ordo monasterii (Regula secunda, PL 32), printed again in PL 66 as 'Alia regula incerti auctoris'; same text in order"
+oglt-pl/augustinus/pl32_13_re,oglt-pl/anonymus/pl66_12_regulaconsensoriam,different_edition,"PL 32's 'Regulae clericis traditae fragmentum' is the Regula consensoria monachorum of PL 66 ('Communi definitione decrevimus apud nos…'); same text in order"
+oglt-pl/hieronymus/pl23_26_s.eusebiihieronymi,first1k/tlg2018/tlg011/1st1K-grc1,translation_of,"Jerome's Liber de situ et nominibus locorum Hebraicorum is his Latin version of Eusebius's Onomasticon; entries match in order"
+oglt-pl/hieronymus/pl26_1_unknown,first1k/tlg2042/tlg016/opp-grc1,same_work,"Jerome's Latin translation of Origen's Homilies on Luke; First1K's GCS text prints the same Latin (opening 'Ante paucos dies…') with the Greek fragments"
+oglt-pl/dionysius-exiguus/pl67_16_d.,ogpg/vol-044/de-opificio-hominis,translation_of,Dionysius Exiguus's Latin version of Gregory of Nyssa's De hominis opificio; chapters match in order
+oglt-pl/eustathius-afer/pl53_23_eu,ogpg/vol-029/in-hexaemeron,translation_of,Eustathius's Latin version of Basil's Homilies on the Hexaemeron; passages match in order
+oglt-pl/dionysius-exiguus/pl67_0_ann,ogpg/vol-077/epistula-17,translation_of,"Dionysius Exiguus's Latin version of Cyril's synodal letter to Nestorius (Ep. 17, with the Twelve Anathemas); passages match in order"
+oglt-pl/cyrillus-alexandrinus/pl48_20_sa,ogpg/vol-075/scholia-de-incarnatione,translation_of,"Marius Mercator's Latin version of Cyril's Scholia de incarnatione Unigeniti (chapter 1 'Quid est Christus' = 'Τί ἐστιν ὁ Χριστός'); the Greek survives only in part"
+oglt-pl/constantinus-i/pl8_2_unknown,first1k/tlg2018/tlg021/1st1K-grc1,same_work,PL 8 prints Constantine's Oratio ad sanctorum coetum in Greek with a Latin translation; both match the First1K Greek in order
+first1k/tlg2016/tlg001/1st1K-grc1,oglt-pl/anonymus/pl3_0_pass,same_work,The Greek and Latin Passion of Perpetua and Felicitas; the Greek matches the Latin narrative in order
+coptic-scriptorium/acts_pilate,anf-works/gospel-of-nicodemus,same_work,Coptic fragment of the Acts of Pilate (Gospel of Nicodemus); its passages match the trial narrative of the Greek and Latin forms in the English

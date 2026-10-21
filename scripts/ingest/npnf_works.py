@@ -695,14 +695,121 @@ _WORKS: tuple[_WorkSpec, ...] = (
 
 # ---------------------------------------------------------------------------
 # Translation linkage: slug → work_id of the original-language Work in the
-# corpus (First1KGreek, PTA, Perseus, OGLT PL).  Matched by author + title and
-# reviewed by hand; unsure cases are left out (see _UNLINKED).
+# corpus (First1KGreek, PTA, Perseus, OGLT PL, OGPG).  Matched by author + title,
+# then checked by hand against a passage of the original; unsure cases are
+# left out (see _UNLINKED).
 # ---------------------------------------------------------------------------
 
 _F1K = "first1k/{}/1st1K-grc1"
 _AUG_PL = "oglt-pl/augustinus/{}"
 _JER_PL = "oglt-pl/hieronymus/{}"
 _AMB_PL = "oglt-pl/ambrosius/{}"
+
+_PG51_HOMILIES = "ogpg/vol-051/in-loca-novi-testamenti"
+_PG52_OPUSCULA = "ogpg/vol-052/de-motibus-constantinopolitanis"
+_PG52_LETTERS = "ogpg/vol-052/epistulae"
+
+#: Originals in OGPG (see the note where ``_ORIGINALS`` includes this table).
+_PG_ORIGINALS: dict[str, str] = {
+    # NPNF1 vol. 9: Chrysostom's treatises and homilies
+    "chrysostom-exhortation-to-theodore": "ogpg/vol-047/ad-theodorum-lapsum",
+    # PG 48 prints both tractates to the widow; NPNF translates the first.
+    "chrysostom-letter-to-a-young-widow": "ogpg/vol-048/ad-viduam-juniorem",
+    "chrysostom-on-the-priesthood": "ogpg/vol-048/de-sacerdotio",
+    "chrysostom-homilies-on-the-power-of-demons": "ogpg/vol-049/de-diabolo-tentatore",
+    "chrysostom-homilies-on-the-statues": "ogpg/vol-049/de-statuis",
+    "chrysostom-instructions-to-catechumens": "ogpg/vol-049/catecheses-ad-illuminandos",
+    # In S. Ignatium and De S. Babyla are among PG 50's Sermones panegyrici.
+    "chrysostom-homilies-on-ignatius-and-babylas": "ogpg/vol-050/sermones-panegyrici",
+    # Five of the Homiliae XXV in quaedam loca Novi Testamenti (PG 51).
+    "chrysostom-homily-on-father-if-it-be-possible": _PG51_HOMILIES,
+    "chrysostom-homily-on-the-paralytic": _PG51_HOMILIES,
+    "chrysostom-homily-to-those-absent-from-the-assembly": _PG51_HOMILIES,
+    "chrysostom-homily-on-lowliness-of-mind": _PG51_HOMILIES,
+    "chrysostom-homily-against-publishing-errors": _PG51_HOMILIES,
+    # In Eutropium and Quod nemo laeditur are among PG 52's Opuscula de
+    # motibus Constantinopolitanis.
+    "chrysostom-homilies-on-eutropius": _PG52_OPUSCULA,
+    "chrysostom-no-one-can-harm-the-man-who-does-not-injure-himself": _PG52_OPUSCULA,
+    # Both are part of PG 52's letter collection (Innocent's replies too).
+    "chrysostom-letters-to-olympias": _PG52_LETTERS,
+    "chrysostom-correspondence-with-innocent": _PG52_LETTERS,
+    # NPNF1 vols. 10-14: Chrysostom's homily series.  Migne prints the
+    # Matthew homilies over PG 57-58; linked to the first half (PG 57).
+    "chrysostom-homilies-on-matthew": "ogpg/vol-057/in-matthaeum-1",
+    "chrysostom-homilies-on-john": "ogpg/vol-059/in-joannem",
+    "chrysostom-homilies-on-acts": "ogpg/vol-060/in-acta",
+    "chrysostom-homilies-on-first-corinthians": "ogpg/vol-061/in-1-corinthios",
+    "chrysostom-homilies-on-second-corinthians": "ogpg/vol-061/in-2-corinthios",
+    "chrysostom-homilies-on-ephesians": "ogpg/vol-062/in-ephesios",
+    "chrysostom-homilies-on-philippians": "ogpg/vol-062/in-philippenses",
+    "chrysostom-homilies-on-first-thessalonians": "ogpg/vol-062/in-1-thessalonicenses",
+    "chrysostom-homilies-on-second-thessalonians": "ogpg/vol-062/in-2-thessalonicenses",
+    "chrysostom-homilies-on-first-timothy": "ogpg/vol-062/in-1-timotheum",
+    "chrysostom-homilies-on-hebrews": "ogpg/vol-063/in-hebraeos",
+    # NPNF2 vol. 3: Theodoret; Cyril's anathemas close his third letter to
+    # Nestorius (Ep. 17).
+    "theodoret-eranistes": "ogpg/vol-083/eranistes",
+    "theodoret-letters": "ogpg/vol-083/epistulae",
+    "cyril-twelve-anathemas": "ogpg/vol-077/epistula-17",
+    # NPNF2 vol. 4: Athanasius (the works PTA does not have)
+    "athanasius-circular-to-the-bishops-of-egypt-and-libya": "ogpg/vol-025/ad-episcopos-aegypti",
+    "athanasius-defence-against-the-arians": "ogpg/vol-025/apologia-contra-arianos",
+    "athanasius-defence-of-his-flight": "ogpg/vol-025/apologia-de-fuga",
+    "athanasius-encyclical-letter": "ogpg/vol-025/epistula-encyclica",
+    "athanasius-history-of-the-arians": "ogpg/vol-025/historia-arianorum",
+    "athanasius-on-luke-x-22": "ogpg/vol-025/in-illud-omnia",
+    # OGPG files it as Pseudo-Athanasius; same Expositio fidei.
+    "athanasius-statement-of-faith": "ogpg/vol-025/expositio-fidei",
+    "athanasius-de-synodis": "ogpg/vol-026/de-synodis",
+    # One Work for all four orations (First1KGreek has them as four Works).
+    "athanasius-discourses-against-the-arians": "ogpg/vol-026/orationes-contra-arianos",
+    "athanasius-life-of-antony": "ogpg/vol-026/vita-antonii",
+    # NPNF2 vol. 5: Gregory of Nyssa.  PG 45's Contra Eunomium libri XII
+    # includes the answer to Eunomius' second book.
+    "gregory-of-nyssa-against-eunomius": "ogpg/vol-045/contra-eunomium",
+    "gregory-of-nyssa-answer-to-eunomius-second-book": "ogpg/vol-045/contra-eunomium",
+    "gregory-of-nyssa-on-the-holy-spirit": "ogpg/vol-045/adversus-macedonianos",
+    "gregory-of-nyssa-not-three-gods": "ogpg/vol-045/ad-ablabium",
+    "gregory-of-nyssa-on-the-faith": "ogpg/vol-045/ad-simplicium",
+    "gregory-of-nyssa-great-catechism": "ogpg/vol-045/oratio-catechetica",
+    "gregory-of-nyssa-on-the-making-of-man": "ogpg/vol-044/de-opificio-hominis",
+    "gregory-of-nyssa-on-the-soul-and-the-resurrection": "ogpg/vol-046/de-anima-et-resurrectione",
+    "gregory-of-nyssa-on-virginity": "ogpg/vol-046/de-virginitate",
+    "gregory-of-nyssa-on-infants-early-deaths": "ogpg/vol-046/de-infantibus",
+    "gregory-of-nyssa-on-the-baptism-of-christ": "ogpg/vol-046/in-baptismum-christi",
+    "gregory-of-nyssa-funeral-oration-on-meletius": "ogpg/vol-046/in-meletium",
+    # On Pilgrimages is Ep. 2 of the PG 46 letters.
+    "gregory-of-nyssa-letters": "ogpg/vol-046/epistulae",
+    "gregory-of-nyssa-on-pilgrimages": "ogpg/vol-046/epistulae",
+    # NPNF2 vol. 7: Cyril of Jerusalem.  OGPG has the Procatechesis as a
+    # Work of its own; the NPNF work is linked to the eighteen lectures.
+    "cyril-of-jerusalem-catechetical-lectures": "ogpg/vol-033/catecheses",
+    "cyril-of-jerusalem-mystagogical-lectures": "ogpg/vol-033/catecheses-mystagogicae",
+    # NPNF2 vol. 7: Gregory Nazianzen (Orations 27-31 are linked to First1K above)
+    **{f"gregory-nazianzen-oration-{n:02d}": f"ogpg/vol-{35 if n < 27 else 36:03d}/oratio-{n}"
+       for n in (1, 2, 3, 7, 8, 12, 16, 18, 21, 33, 34, 37, 38, 39, 40, 41, 42, 43, 45)},
+    # The three NPNF letter groups are selections from the PG 37 letters.
+    "gregory-nazianzen-correspondence-with-basil": "ogpg/vol-037/epistulae",
+    "gregory-nazianzen-letters-on-the-apollinarian-controversy": "ogpg/vol-037/epistulae",
+    "gregory-nazianzen-miscellaneous-letters": "ogpg/vol-037/epistulae",
+    # NPNF2 vol. 8: Basil
+    "basil-hexaemeron": "ogpg/vol-029/in-hexaemeron",
+    "basil-on-the-holy-spirit": "ogpg/vol-032/de-spiritu-sancto",
+    # NPNF2 vol. 9: John of Damascus
+    "john-of-damascus-exposition-of-the-orthodox-faith": "ogpg/vol-094/expositio-fidei",
+    # NPNF2 vol. 14: canonical epistles.  NPNF prints most of these abridged
+    # (Johnson's summaries), so they are renderings of part of the original.
+    "dionysius-of-alexandria-letter-to-basilides": "ogpg/vol-010/dionysius-alexandrinus",
+    "gregory-thaumaturgus-canonical-epistle": "ogpg/vol-010/thaumaturgus-epistula-canonica",
+    "peter-of-alexandria-canons": "ogpg/vol-018/petrus-alexandrinus",
+    # The poem on the canon is Carmen I.1.12 of the Carmina dogmatica.
+    "gregory-nazianzen-verses-on-the-canon": "ogpg/vol-037/carmina-dogmatica",
+    "gregory-of-nyssa-canonical-epistle-to-letoius": "ogpg/vol-045/epistula-canonica",
+    "theophilus-of-alexandria-canonical-writings": "ogpg/vol-065/theophilus-alexandrinus",
+    # The letter to Domnus is among PG 77's Epistulae.
+    "cyril-of-alexandria-canonical-epistles": "ogpg/vol-077/epistulae",
+}
 
 _ORIGINALS: dict[str, str] = {
     # NPNF1: Augustine (OGLT PL)
@@ -729,6 +836,9 @@ _ORIGINALS: dict[str, str] = {
     "augustine-soliloquies": _AUG_PL.format("pl32_0_s."),
     # Only the PL 36 file of the Enarrationes is in the corpus.
     "augustine-expositions-on-the-psalms": _AUG_PL.format("pl36_0_san"),
+    # Sermons 51-147 (Benedictine numbering), all in PL 38's first class of
+    # sermons (De Scripturis, Sermons 1-183).
+    "augustine-sermons-on-new-testament-lessons": _AUG_PL.format("pl38_0_s."),
     # NPNF1: Chrysostom (PTA)
     "chrysostom-homilies-on-colossians": "pta/pta0002/pta161/pta-grc1",
     # NPNF2 vol. 1-3: historians (First1KGreek), Jerome/Rufinus/Gennadius (OGLT)
@@ -794,19 +904,38 @@ _ORIGINALS: dict[str, str] = {
     # Both NPNF volumes translate a selection of the one PL Registrum.
     "gregory-the-great-register-books-1-8": "oglt-pl/gregorius-i-magnus/pl77_9_",
     "gregory-the-great-register-books-9-14": "oglt-pl/gregorius-i-magnus/pl77_9_",
+    # NPNF2 vol. 10: the selected letters (Epp. 17-63), the Sermon against
+    # Auxentius (printed after Ep. 21) and Symmachus's Relatio III (printed
+    # after Ep. 17) are all in PL 16's first class of Ambrose's letters.
+    "ambrose-selected-letters": _AMB_PL.format("pl16_19_sa"),
+    "ambrose-sermon-against-auxentius": _AMB_PL.format("pl16_19_sa"),
+    "symmachus-memorial-on-the-altar-of-victory": _AMB_PL.format("pl16_19_sa"),
+    # NPNF2 vol. 14: Basil's canonical epistles (Epp. 188, 199, 217) belong to
+    # the same Perseus letter collection as basil-letters.
+    "basil-canonical-epistles": "perseus/tlg2040/tlg004/perseus-grc2",
+    # -- Open Patrologia Graeca (OGPG): OCR of Migne's Greek columns, one Work
+    # per text (``scripts/ingest/data/ogpg_index.csv``).  Used only where no
+    # critical edition of the text is in the corpus, and only split works
+    # (``ogpg/vol-NNN/{slug}``), never a volume's ``other`` remainder.  Where
+    # the Migne Work holds more than the translation, the comment says so.
+    **_PG_ORIGINALS,
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).
 _UNLINKED: dict[str, str] = {
-    "augustine-sermons-on-new-testament-lessons": "spread over the PL 38-39 sermon classes",
-    "athanasius-discourses-against-the-arians": "first1k has the four orations as four works",
     "athanasius-canonical-epistles": "excerpts from three letters, not one work",
+    "athanasius-personal-letters": "letters spread over several OGPG PG 25-26 works",
+    "athanasius-festal-letters": "survive in Syriac; OGPG PG 26 has only a Greek fragment",
     "eusebius-letter-to-his-church": "Opitz Urk. 22 is not among the PTA Dokumente in corpus",
     "rufinus-prefaces-to-translations": "prefaces scattered across several PL works",
     "jerome-prefaces": "prefaces scattered across many PL 28-29 files",
-    "ambrose-selected-letters": "selection spread over PL 16 'prima/secunda classis'",
-    "ambrose-sermon-against-auxentius": "printed inside the PL letter classes",
-    "symmachus-memorial-on-the-altar-of-victory": "PL 18 file is the letter collection; Relatio placement unverified",
+    "gregory-of-nyssa-on-the-holy-trinity": "printed as Basil's Ep. 189, not as a work of Gregory",
+    "apostolic-canons": "not inside OGPG PG 1's Constitutiones apostolicae (which ends at 8.46)",
+    "amphilochius-iambics-to-seleucus": "the Iambi are not in OGPG PG 39's Amphilochius",
+    "gennadius-encyclical-letter": "not found in the OCR of OGPG PG 85's Gennadius",
+    "timothy-of-alexandria-canonical-answers": "OGPG prints it in a two-author Work (PG 33)",
+    "theodoret-counter-statements": (
+        "quoted in Cyril's Apologia contra Theodoretum, not a split OGPG PG 76 Work"),
 }
 
 _WORKS = link_originals(_WORKS, _ORIGINALS)

@@ -143,3 +143,13 @@
   border-radius: 3px;
   color: var(--muted);
 }
+
+/* The unit, derived verse or heading named by the URL fragment (useHashTarget):
+   where a search result points. */
+.text [data-target] {
+  background: var(--highlight);
+  border-radius: 3px;
+  /* Land with some of the preceding text in view. */
+  scroll-margin-top: 20vh;
+  transition: background-color 0.6s;
+}

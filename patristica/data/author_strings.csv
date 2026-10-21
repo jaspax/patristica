@@ -1,0 +1,65 @@
+# Author strings that are not a simple alias in authors.csv (#82): anonymous works, work titles and
+# collective bodies in the author field, modern editors, ambiguous bare names, multi-person strings.
+# author_ids is |-separated and may be empty (no author). See patristica/authors.py.
+source_string,author_ids,reason
+Acacius and Paul,acacius-of-beroea|paul-of-chalcis,two senders of the letter to Epiphanius (Acacius usually identified with Acacius of Beroea)
+Acta Barnabae,,work title in the author field (anonymous apocryphal acts)
+Acta Joannis,,work title in the author field (anonymous apocryphal acts)
+Acta Philippi,,work title in the author field (anonymous apocryphal acts)
+Acta Thomae,,work title in the author field (anonymous apocryphal acts)
+Anonymous,,anonymous work
+Anonymous (trans. F. James Issaverdens),,anonymous liturgy; Issaverdens is the 19th-century translator
+Anonymus,,anonymous work
+Anonymus (Author of Vita Cononis),,anonymous work
+Anonymus (Chronographus anni 354),,anonymous compiler (the Chronographer of 354)
+Anonymus (Liber Pontificalis),,anonymous compilers of the Liber Pontificalis
+Anonymus (Onomastica sacra),,anonymous onomastic lists
+Anonymus (Pseudo-John Chrysostom / Pseudo-Basil of Caesarea),pseudo-john-chrysostom|pseudo-basil,anonymous homily transmitted under Chrysostom's and Basil's names
+Anonymus (Pseudo-John Chrysostom),pseudo-john-chrysostom,anonymous homily transmitted under Chrysostom's name
+Anonymus Ad Avircium Marcellum contra Cataphrygas,,the anonymous anti-Montanist quoted by Eusebius
+Anonymus antimontanista (Asterius Urbanus),,"the anonymous anti-Montanist quoted by Eusebius, once identified with Asterius Urbanus"
+Anonymus Arianus,,anonymous Arian author(s)
+Catenae,,work title in the author field (anonymous compilations)
+Catenae (Novum Testamentum),,work title in the author field (anonymous compilations)
+"Ceretius, Salonius et Veranus",ceretius-of-grenoble|salonius-of-geneva|veranus-of-vence,three Gallic bishops writing jointly to Leo I
+Chronicon Paschale,,work title in the author field (anonymous chronicle)
+Collectio Hispana,,work title in the author field (canonical collection)
+Concilia Carthaginiensia,,collective (councils of Carthage)
+Concilium Arausicanum I,,collective (council)
+Concilium Arausicanum II,,collective (council)
+Concilium Constantinopolitanum (382),,collective (council)
+Concilium Constantinopolitanum I,,collective (council)
+Concilium Parisiense,,collective (council)
+Concilium Romanum,,collective (council)
+Concilium Sardicense,,collective (council)
+Congregation for the Oriental Churches,,"modern publisher of the liturgical edition, not its author"
+Decretum Gelasianum,,work title in the author field (anonymous; transmitted under Gelasius I's name)
+Dokumente zur Geschichte des arianischen Streites (Athanasius Werke III),,edition title in the author field (documents by many authors)
+Episcopi Africae,,collective (the bishops of Africa)
+Episcopi Italiae,,collective (the bishops of Italy)
+Episcopi Orientales,,collective (the Eastern bishops)
+Faustinus et Marcellinus,faustinus-the-luciferian|marcellinus-the-luciferian,joint petition of two Luciferian presbyters
+Gelasius,anonymous-of-cyzicus,"First1K tlg2768: the Church History of ""Gelasius of Cyzicus"" (bare name is ambiguous with Pope Gelasius I)"
+George the Monk (continuatus),,anonymous continuation of George the Monk's chronicle
+Georgios Violakis,,"editor of the 1888 Typikon, not its author"
+Leo III and Constantine V,leo-iii-the-isaurian|constantine-v,"the Ecloga, issued jointly by the two emperors"
+Liber Enoch,,work title in the author field (pseudepigraphon)
+Liturgia Mozarabica,,work title in the author field (liturgy)
+Lupus Trecensis et Euphronius Augustodunensis,lupus-of-troyes|euphronius-of-autun,joint letter of two bishops
+Martyrium Perpetuae et Felcitatis,,work title in the author field (anonymous martyr act)
+Martyrium Polycarpi,,work title in the author field (anonymous martyr act)
+Oracula Sibyllina,,work title in the author field (pseudepigraphon)
+Paulus et Stephanus abbates,paul-abbot-of-the-regula|stephen-abbot-of-the-regula,joint rule of two abbots
+Petrus Diaconus et socii,peter-the-deacon-scythian,letter of Peter the Deacon and the other Scythian monks
+Pseudo-Athanasius (Vigilius Thapsensis?),pseudo-athanasius,"De Trinitate transmitted under Athanasius's name, perhaps by Vigilius of Thapsus"
+Scriptor incertus,,"anonymous work (""unknown writer"")"
+Seniores Alexandrini,,"collective (""the Alexandrian elders"")"
+Seniores Apud Irenaeum,,"collective (""the elders"" quoted by Irenaeus)"
+Suda,,work title in the author field (anonymous lexicon)
+Testamentum Abrahae,,work title in the author field (pseudepigraphon)
+Theophanes Continuatus,,anonymous continuation of Theophanes's chronicle
+Thoma Darmo,,"20th-century editor of the Hudra, not its author"
+Valens et Ursacius,valens-of-mursa|ursacius-of-singidunum,joint letter of two bishops
+Varii,,collection of pieces by various authors
+Various Desert Fathers,,collection (Apophthegmata Patrum)
+Vitae Prophetarum,,work title in the author field (anonymous)
