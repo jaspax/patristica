@@ -119,8 +119,13 @@
   color: var(--muted);
 }
 
-.badge,
-.nc {
+/* The collection, shown only beside another version in the same language. */
+.cardSource {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.badge {
   margin-inline-start: 0.5rem;
   padding: 0 0.35rem;
   border: 1px solid var(--border);
@@ -129,11 +134,6 @@
   font-weight: 400;
   color: var(--foreground);
   white-space: nowrap;
-}
-
-.nc {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .controls {

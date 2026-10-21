@@ -1,16 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
-import { pseudonymsOf, worksByLanguage } from "@/lib/authors";
-import { authorFilterHref, workCounts } from "@/lib/filter";
+import { authorFacets, authorWorks, pseudonymsOf, worksByLanguage } from "@/lib/authors";
+import {
+  DEFAULT_VIEW,
+  filterWorks,
+  parseViewState,
+  viewStateToParams,
+  workCounts,
+  type ViewState,
+} from "@/lib/filter";
 import { formatAuthorDate, formatDate, TRADITIONS } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
 import { authorHref, loadLibrary, workHref, type Author, type Library } from "@/lib/library";
 import { useLoaded } from "@/lib/useLoaded";
 
+import FilterFields from "./FilterFields";
+import filterStyles from "./Filters.module.css";
 import LoadError from "./LoadError";
 import styles from "./AuthorPage.module.css";
 
@@ -53,11 +62,30 @@ function AuthorLink({ author, count }: { author: Author; count?: number }) {
 
 function Profile({ author, library }: { author: Author; library: Library }) {
   const { index, authors } = library;
-  const groups = useMemo(() => worksByLanguage(index.works, author.id), [index, author]);
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useSearchParams();
+  // The library's filters (and URL parameters), less the author facet: this page is one author's.
+  const view = useMemo(
+    () => ({ ...parseViewState(new URLSearchParams(params.toString())), author: [] }),
+    [params],
+  );
+  const update = (changes: Partial<ViewState>) => {
+    const query = viewStateToParams({ ...view, ...changes, author: [] }).toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
+  const own = useMemo(() => authorWorks(index.works, author.id), [index, author]);
+  const facets = useMemo(() => authorFacets(index, own, authors), [index, own, authors]);
+  const shown = useMemo(() => filterWorks(own, view, index.sources, authors), [own, view, index, authors]);
+  const groups = useMemo(() => worksByLanguage(shown, author.id), [shown, author]);
   const counts = useMemo(() => workCounts(index.works), [index]);
   const pseudonyms = useMemo(() => pseudonymsOf(authors, author.id), [authors, author]);
   const real = author.pseudo_of ? authors.get(author.pseudo_of) : undefined;
-  const total = counts.get(author.id) ?? 0;
+  const total = own.length;
+  const isFiltered = viewStateToParams({ ...view, sort: DEFAULT_VIEW.sort, dir: DEFAULT_VIEW.dir }).toString() !== "";
+  // The same filters in the library, with this author selected.
+  const libraryHref = `/works?${viewStateToParams({ ...view, author: [author.id] })}`;
 
   return (
     <article>
@@ -140,11 +168,39 @@ function Profile({ author, library }: { author: Author; library: Library }) {
         <h2 id="works" className={styles.worksTitle}>
           {total === 0 ? "No works in the library" : `${total.toLocaleString()} ${total === 1 ? "work" : "works"}`}
           {total > 0 && (
-            <Link className={styles.browse} href={authorFilterHref(author.id)}>
+            <Link className={styles.browse} href={libraryHref}>
               Filter the library to these works
             </Link>
           )}
         </h2>
+        {total > 1 && (
+          <form
+            className={`${filterStyles.filters} ${styles.filters}`}
+            role="search"
+            aria-label={`Filter ${author.name}'s works`}
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <label className={filterStyles.query}>
+              <span>Search titles</span>
+              <input
+                type="search"
+                value={view.q}
+                placeholder="e.g. homily, De sacerdotio"
+                onChange={(e) => update({ q: e.target.value })}
+              />
+            </label>
+            <FilterFields value={view} facets={facets} onChange={update} withAuthor={false} />
+          </form>
+        )}
+        {isFiltered && (
+          <p className={styles.count} aria-live="polite">
+            {shown.length.toLocaleString()} of {total.toLocaleString()} {total === 1 ? "work" : "works"}
+            {" · "}
+            <button type="button" className={styles.reset} onClick={() => update(DEFAULT_VIEW)}>
+              Clear filters
+            </button>
+          </p>
+        )}
         {groups.map((group) => {
           const lang = languageInfo(group.language);
           return (

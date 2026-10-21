@@ -101,6 +101,11 @@ export function authorFilterHref(authorId: string): string {
   return `/works?${viewStateToParams({ ...DEFAULT_VIEW, author: [authorId] })}`;
 }
 
+/** Library index URL listing the works in one language (an ISO 639-3 code). */
+export function languageFilterHref(language: string): string {
+  return `/works?${viewStateToParams({ ...DEFAULT_VIEW, language: [language] })}`;
+}
+
 // Haystacks depend on the author index too, so they are cached per author map.
 const haystacks = new WeakMap<AuthorMap, WeakMap<WorkRow, string>>();
 
