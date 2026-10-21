@@ -1,9 +1,9 @@
 """Staleness of normalized data (#130): fingerprints in scripts.normalize.
 
-The first tests check the committed ``data/normalized`` against the code on
-this branch; they are what makes CI fail when normalize's code or the genre
-overrides change without a re-normalize.  The rest exercise the skip / raw
-guard logic on a small corpus.
+The first tests check the committed ``data/normalized`` against the code and
+curated data on this branch; they are what makes CI fail when normalize's code,
+``genre_overrides.csv`` or the author index change without a re-normalize.
+The rest exercise the skip / raw-guard logic on a small corpus.
 """
 
 from __future__ import annotations
@@ -33,15 +33,15 @@ def test_committed_data_was_normalized_with_this_code() -> None:
 
 
 def test_every_work_has_a_current_fingerprint() -> None:
-    manifest = nz.read_works_manifest(NORMALIZED)
-    missing = sorted(p for p, e in manifest.items() if "fingerprint" not in e)
+    works = nz.read_works_manifest(NORMALIZED)
+    fps = nz.read_work_fingerprints(NORMALIZED)
+    missing = sorted(set(works) - set(fps))
     assert not missing, f"works without a fingerprint ({RERUN}): {missing[:10]}"
-    stale = sorted(
-        p for p, e in manifest.items()
-        if e["fingerprint"]["override"]
-        != nz.work_fingerprint(b"", e["work"]["work_id"])["override"]
+    assert not set(fps) - set(works), "_fingerprints.jsonl lists works not in _works.jsonl"
+    stale = sorted(p for p, w in works.items() if fps[p]["curated"] != nz.curated_hash(w))
+    assert not stale, (
+        f"genre_overrides.csv or the author index changed for these works ({RERUN}): {stale[:10]}"
     )
-    assert not stale, f"genre_overrides.csv changed for these works ({RERUN}): {stale[:10]}"
 
 
 def test_manifest_lists_exactly_the_normalized_files() -> None:
@@ -52,6 +52,12 @@ def test_manifest_lists_exactly_the_normalized_files() -> None:
     listed = set(nz.read_works_manifest(NORMALIZED))
     assert files - listed == set(), f"normalized files missing from _works.jsonl ({RERUN})"
     assert listed - files == set(), "_works.jsonl lists normalized files that don't exist"
+
+
+def test_fingerprints_stay_out_of_the_works_manifest() -> None:
+    """build_index hashes whole _works.jsonl lines: a new key would reload the DB."""
+    line = (NORMALIZED / nz.WORKS_MANIFEST).read_text(encoding="utf-8").splitlines()[0]
+    assert set(json.loads(line)) == {"path", "work"}
 
 
 # ---------------------------------------------------------------------------
@@ -76,7 +82,7 @@ def code(monkeypatch: pytest.MonkeyPatch) -> list[str]:
 
 @pytest.fixture
 def built(monkeypatch: pytest.MonkeyPatch) -> list[str]:
-    """Paths of the works normalized (rebuilt) in each run."""
+    """Paths of the works normalized (rebuilt), in order."""
     calls: list[str] = []
     original = nz._normalize_record
 
@@ -112,6 +118,10 @@ def chunk_text(norm: Path, rel: str) -> str:
     return json.loads((norm / rel).read_text(encoding="utf-8"))[0]["text"]
 
 
+def manifest_text(norm: Path) -> str:
+    return (norm / nz.WORKS_MANIFEST).read_text(encoding="utf-8")
+
+
 ALL = ["a/one.json", "a/two.json", "b/three.json"]
 
 
@@ -120,19 +130,21 @@ def test_first_run_records_fingerprints(corpus, code, built) -> None:
     nz.normalize_all(raw, norm)
     assert built == ALL
     assert nz.read_step_fingerprints(norm) == {"normalize": {"code": "code-1"}}
-    manifest = nz.read_works_manifest(norm)
-    assert sorted(manifest) == ALL
-    assert all(set(e["fingerprint"]) == {"raw", "override"} for e in manifest.values())
+    fps = nz.read_work_fingerprints(norm)
+    assert sorted(fps) == ALL
+    assert all(set(fp) == {"raw", "curated"} for fp in fps.values())
+    assert all(set(json.loads(line)) == {"path", "work"}
+               for line in manifest_text(norm).splitlines())
 
 
 def test_unchanged_inputs_are_skipped(corpus, code, built) -> None:
     raw, norm = corpus
     nz.normalize_all(raw, norm)
     built.clear()
-    before = (norm / "_works.jsonl").read_text(encoding="utf-8")
+    before = manifest_text(norm), (norm / nz.FINGERPRINTS_FILE).read_text()
     nz.normalize_all(raw, norm)
     assert built == []
-    assert (norm / "_works.jsonl").read_text(encoding="utf-8") == before
+    assert (manifest_text(norm), (norm / nz.FINGERPRINTS_FILE).read_text()) == before
     nz.normalize_all(raw, norm, force=True)
     assert built == ALL
 
@@ -151,14 +163,14 @@ def test_changed_raw_is_refused_until_accepted(corpus, code, built) -> None:
     raw, norm = corpus
     nz.normalize_all(raw, norm)
     built.clear()
-    manifest_before = (norm / "_works.jsonl").read_text(encoding="utf-8")
+    before = manifest_text(norm), nz.read_work_fingerprints(norm)
     write_raw(raw, "a/two.json", text="Older text")
 
     with pytest.raises(nz.RawChangedError, match="a/two.json"):
         nz.normalize_all(raw, norm)
     assert built == []
     assert chunk_text(norm, "a/two.json") == "Text"
-    assert (norm / "_works.jsonl").read_text(encoding="utf-8") == manifest_before
+    assert (manifest_text(norm), nz.read_work_fingerprints(norm)) == before
 
     with pytest.raises(nz.RawChangedError):  # --force doesn't bypass the guard
         nz.normalize_all(raw, norm, force=True)
@@ -169,6 +181,18 @@ def test_changed_raw_is_refused_until_accepted(corpus, code, built) -> None:
     assert built == ["a/two.json"]
     assert chunk_text(norm, "a/two.json") == "Older text"
     nz.normalize_all(raw, norm)  # now recorded: no refusal
+
+
+def test_refused_work_keeps_its_manifest_entry(corpus, code) -> None:
+    raw, norm = corpus
+    nz.normalize_all(raw, norm)
+    path = raw / "a/two.json"
+    record = json.loads(path.read_text())
+    record["work"]["title"] = "Old title"
+    path.write_text(json.dumps(record))
+    with pytest.raises(nz.RawChangedError):
+        nz.normalize_all(raw, norm)
+    assert nz.read_works_manifest(norm)["a/two.json"]["title"] == "T"
 
 
 def test_refused_work_blocks_new_code_hash(corpus, code) -> None:
@@ -189,37 +213,47 @@ def test_new_source_normalizes_only_its_works(corpus, code, built) -> None:
     write_raw(raw, "newsrc/beta.json")
     nz.normalize_all(raw, norm)
     assert built == ["newsrc/alpha.json", "newsrc/beta.json"]
-    assert sorted(nz.read_works_manifest(norm)) == ALL + ["newsrc/alpha.json", "newsrc/beta.json"]
+    assert sorted(nz.read_work_fingerprints(norm)) == ALL + [
+        "newsrc/alpha.json", "newsrc/beta.json"]
     assert nz.read_step_fingerprints(norm)["normalize"]["code"] == "code-1"
 
 
 def test_missing_raw_keeps_entries_and_blocks_new_code_hash(corpus, code, built) -> None:
     raw, norm = corpus
     nz.normalize_all(raw, norm)
-    before = nz.read_works_manifest(norm)
-    for path in (raw / "b").iterdir():  # another machine: no raw for source b
-        path.unlink()
+    before = nz.read_works_manifest(norm), nz.read_work_fingerprints(norm)
+    (raw / "b/three.json").unlink()  # another machine: no raw for source b
     (raw / "b").rmdir()
 
     nz.normalize_all(raw, norm)
-    assert nz.read_works_manifest(norm) == before
+    assert (nz.read_works_manifest(norm), nz.read_work_fingerprints(norm)) == before
 
     code[0] = "code-2"
     built.clear()
     nz.normalize_all(raw, norm)
     assert built == ["a/one.json", "a/two.json"]
-    assert nz.read_works_manifest(norm)["b/three.json"] == before["b/three.json"]
+    assert nz.read_work_fingerprints(norm)["b/three.json"] == before[1]["b/three.json"]
     assert nz.read_step_fingerprints(norm)["normalize"]["code"] == "code-1"
 
 
-def test_override_change_rebuilds_only_that_work(corpus, code, built, overrides) -> None:
+def test_curation_change_rebuilds_only_that_work(corpus, code, built, overrides) -> None:
     raw, norm = corpus
     nz.normalize_all(raw, norm)
     built.clear()
     overrides["a/two"] = "apocrypha"
     nz.normalize_all(raw, norm)
     assert built == ["a/two.json"]
-    assert nz.read_works_manifest(norm)["a/two.json"]["work"]["genre"] == "apocrypha"
+    assert nz.read_works_manifest(norm)["a/two.json"]["genre"] == "apocrypha"
+
+
+def test_curated_hash_sees_a_removed_override(overrides) -> None:
+    """Checked from the manifest's (curated) record, so removing an override
+    must still change it."""
+    work = {"work_id": "a/two", "genre": "patristic", "author": None}
+    overrides["a/two"] = "apocrypha"
+    with_override = nz.curated_hash({**work, "genre": "apocrypha"})
+    del overrides["a/two"]
+    assert nz.curated_hash({**work, "genre": "apocrypha"}) != with_override
 
 
 def test_main_exits_nonzero_on_refusal(corpus, code, monkeypatch) -> None:
