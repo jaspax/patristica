@@ -20,6 +20,8 @@ import {
   type SearchResponse,
   type SearchResult,
   type SearchState,
+  type ResultTranslation,
+  translationHref,
   versionLanguages,
   withoutQuotes,
 } from "@/lib/search";
@@ -372,17 +374,17 @@ export function ResultItem({ result }: { result: SearchResult }) {
           <span className={styles.ref}>{result.canonical_ref}</span>
         </Link>
       </p>
+      {/* The hit, with the units before and after it, dimmed, for context. */}
       <p className={styles.text} lang={lang.lang} dir={lang.dir}>
-        {result.text_start > 0 && "…"}
-        {highlight(result.text, result.matches).map((s, i) => (s.match ? <mark key={i}>{s.text}</mark> : s.text))}
-        {result.text_truncated && "…"}
+        <Context text={result.context?.before?.text} side="before" />
+        <span className={styles.hit}>
+          {result.text_start > 0 && "…"}
+          {highlight(result.text, result.matches).map((s, i) => (s.match ? <mark key={i}>{s.text}</mark> : s.text))}
+          {result.text_truncated && "…"}
+        </span>
+        <Context text={result.context?.after?.text} side="after" />
       </p>
-      {result.translation && (
-        <div className={styles.translation}>
-          <p className={styles.label}>Machine translation (English)</p>
-          <p lang="en">{result.translation.text}</p>
-        </div>
-      )}
+      {result.translation && <Translation translation={result.translation} />}
       <p className={styles.meta}>
         {[lang.name, date, collection].filter(Boolean).join(" · ")}
         {" · "}
@@ -397,6 +399,45 @@ export function ResultItem({ result }: { result: SearchResult }) {
       </p>
       <OtherVersions result={result} />
     </li>
+  );
+}
+
+/** A unit before or after a result, dimmed; nothing when there is none. */
+function Context({ text, side }: { text: string | null | undefined; side: "before" | "after" }) {
+  if (!text) return null;
+  return (
+    <span className={styles.context}>
+      {side === "after" && " "}
+      {text}
+      {side === "before" && " "}
+    </span>
+  );
+}
+
+/**
+ * A result's English, with the English of its context: a linked version in
+ * the library, named and linked to its passage, or our machine translation.
+ */
+function Translation({ translation }: { translation: ResultTranslation }) {
+  const href = translationHref(translation);
+  return (
+    <div className={styles.translation}>
+      <p className={styles.label}>
+        {href ? (
+          <>
+            English: <Link href={href}>{translation.source_label}</Link>
+            {translation.canonical_ref && <span className={styles.ref}> {translation.canonical_ref}</span>}
+          </>
+        ) : (
+          "Machine translation (English)"
+        )}
+      </p>
+      <p lang="en">
+        <Context text={translation.before} side="before" />
+        <span className={styles.hit}>{translation.text}</span>
+        <Context text={translation.after} side="after" />
+      </p>
+    </div>
   );
 }
 
