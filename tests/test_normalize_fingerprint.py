@@ -195,7 +195,7 @@ def test_refused_work_blocks_new_code_hash(corpus, code) -> None:
     code[0] = "code-2"
     with pytest.raises(nz.RawChangedError):
         nz.normalize_all(raw, norm)
-    assert nz.read_step_fingerprints(norm)["normalize"]["code"] == "code-1"
+    assert nz.STEP not in nz.read_step_fingerprints(norm)  # neither code is recorded
 
 
 def test_new_source_normalizes_only_its_works(corpus, code, built) -> None:
@@ -226,7 +226,7 @@ def test_missing_raw_keeps_entries_and_blocks_new_code_hash(corpus, code, built)
     nz.normalize_all(raw, norm)
     assert built == ["a/one.json", "a/two.json"]
     assert nz.read_work_fingerprints(norm)["b/three.json"] == before[1]["b/three.json"]
-    assert nz.read_step_fingerprints(norm)["normalize"]["code"] == "code-1"
+    assert nz.STEP not in nz.read_step_fingerprints(norm)  # neither code is recorded
 
 
 def test_curation_change_rebuilds_only_that_work(corpus, code, built, overrides) -> None:
@@ -257,3 +257,56 @@ def test_main_exits_nonzero_on_refusal(corpus, code, monkeypatch) -> None:
     with pytest.raises(SystemExit) as exc:
         nz.main()
     assert exc.value.code == 1
+
+
+# ---------------------------------------------------------------------------
+# Review fixes (#135): fingerprints advance only on success
+# ---------------------------------------------------------------------------
+
+
+def test_empty_reingest_fails_and_keeps_no_fingerprint(corpus, code, built) -> None:
+    raw, norm = corpus
+    nz.normalize_all(raw, norm)
+    path = raw / "a/two.json"
+    record = json.loads(path.read_text())
+    record["paragraphs"] = []  # an accepted re-ingest that lost the text
+    path.write_text(json.dumps(record))
+    with pytest.raises(nz.FailedWorksError, match="a/two.json"):
+        nz.normalize_all(raw, norm, accept_raw_change=True)
+    assert chunk_text(norm, "a/two.json") == "Text"  # old output kept …
+    assert "a/two.json" not in nz.read_work_fingerprints(norm)  # … but not as current
+    with pytest.raises(nz.FailedWorksError):  # and it stays failed
+        nz.normalize_all(raw, norm)
+
+
+def test_raw_files_that_are_not_works_are_ignored(corpus, code) -> None:
+    raw, norm = corpus
+    (raw / "a" / "catalog.json").write_text('{"works": []}')
+    nz.normalize_all(raw, norm)  # no FailedWorksError
+    assert "a/catalog.json" not in nz.read_works_manifest(norm)
+
+
+def test_partial_run_keeps_other_sources_manifest_entries(corpus, code) -> None:
+    """A run over data/raw/a doesn't pick up unchecked raw metadata of source b."""
+    raw, norm = corpus
+    nz.normalize_all(raw, norm)
+    path = raw / "b/three.json"
+    record = json.loads(path.read_text())
+    record["work"]["title"] = "Stale title"
+    path.write_text(json.dumps(record))
+    nz.normalize_all(raw / "a", norm)
+    assert nz.read_works_manifest(norm)["b/three.json"]["title"] == "T"
+
+
+def test_partial_code_change_run_clears_the_code_hash(corpus, code) -> None:
+    """Half-rebuilt data can't pass as current, even after the code is reverted."""
+    raw, norm = corpus
+    nz.normalize_all(raw, norm)
+    (raw / "b/three.json").unlink()  # this machine lacks source b's raw data
+    (raw / "b").rmdir()
+    code[0] = "code-2"
+    nz.normalize_all(raw, norm)
+    assert nz.STEP not in nz.read_step_fingerprints(norm)
+    code[0] = "code-1"  # the change is reverted
+    nz.normalize_all(raw, norm)
+    assert nz.STEP not in nz.read_step_fingerprints(norm)
