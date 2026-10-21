@@ -413,8 +413,8 @@ def _record_ingest_stamps(output_dir: Path, json_files: list[Path], refused: lis
     """Copy each normalized source's ingest stamp into ``_fingerprint.json``.
 
     ``{"ingest": {source_id: ingestor code hash}}`` tells ``scripts.status``
-    which ingestor code the tracked data comes from. A source with a refused
-    work keeps its old entry (its data wasn't rebuilt from this raw); one
+    which ingestor code the tracked data comes from. A source with a refused or
+    failed work keeps its old entry (its data wasn't rebuilt from this raw); one
     whose raw has no stamp loses it (unknown).
     """
     sources: dict[str, Path] = {}
@@ -562,7 +562,7 @@ def normalize_all(
          if rel in fingerprints or (rel in previous and rel not in failed)},
     )
 
-    _record_ingest_stamps(output_dir, json_files, refused)
+    _record_ingest_stamps(output_dir, json_files, refused + failed)
     if not code_current:
         uncovered = sorted(set(listed) - set(fingerprints))
         if uncovered:
