@@ -2,8 +2,9 @@
 // (patristica/versions.py, #178), which one is the original, and where to open
 // another version so the reader keeps its place.
 
+import { alignedMember, alignUnit, unitIndex, unitRef } from "./alignment";
 import { languageInfo } from "./lang";
-import type { LibraryIndex, WorkFile, WorkRow } from "./library";
+import type { AlignmentFile, LibraryIndex, WorkFile, WorkRow } from "./library";
 import { fragmentId, NO_HIGHLIGHT_PARAM, TARGET_ATTRIBUTE } from "./useHashTarget";
 
 /**
@@ -185,14 +186,26 @@ export interface PositionRequest {
   to: WorkRow;
   /** Load the target's work file (cached: the reader reuses it). */
   loadTarget: () => Promise<WorkFile>;
+  /**
+   * Load the passage alignment of the version group (#179); absent when the
+   * library has none for it (or predates alignments).
+   */
+  loadAlignment?: () => Promise<AlignmentFile>;
+}
+
+/** A target ref that is near the reader's passage rather than the passage itself. */
+export interface ApproximateRef {
+  ref: string;
+  approximate: true;
 }
 
 /**
  * Finds the passage in `to` that corresponds to `ref` in `from`. Returns the
- * target ref, null when it applies but finds no passage, or undefined when it
- * doesn't apply to this pair, so the next mapper is tried.
+ * target ref (or an ApproximateRef for a nearby passage), null when it
+ * applies but finds no passage, or undefined when it doesn't apply to this
+ * pair, so the next mapper is tried.
  */
-export type PositionMapper = (req: PositionRequest) => Promise<string | null | undefined>;
+export type PositionMapper = (req: PositionRequest) => Promise<string | ApproximateRef | null | undefined>;
 
 /** Scripture: native ref → org ref → the target's native ref. */
 export const scripturePosition: PositionMapper = async ({ from, fromWork, ref, to, loadTarget }) => {
@@ -208,19 +221,55 @@ export const scripturePosition: PositionMapper = async ({ from, fromWork, ref, t
 };
 
 /**
- * Mappers tried in order. Passage alignment for other works (#179) plugs in
- * here as another mapper; until then, those versions open at the top.
+ * Passage alignment (#179), for every other work: the reader's unit → its
+ * alignment group → the first unit of the target's span in that group. A
+ * unit in no group, or in one whose span is below MIN_CONFIDENCE in either
+ * version, falls back to the nearest preceding unit that has one
+ * (approximate), else the top. Doesn't apply when the group has no alignment
+ * file or either version has no row in it (left out as stale), and gives the
+ * top when a work file doesn't have the units its row counts (a stale cache).
  */
-export const POSITION_MAPPERS: readonly PositionMapper[] = [scripturePosition];
+export const alignmentPosition: PositionMapper = async ({ from, fromWork, ref, to, loadTarget, loadAlignment }) => {
+  if (!loadAlignment || !from.version_group || from.version_group !== to.version_group) return undefined;
+  // A failed load (a library without the file yet) is the same as no alignment.
+  const file = await loadAlignment().catch(() => null);
+  if (!file) return undefined;
+  const source = alignedMember(file, from.id);
+  const target = alignedMember(file, to.id);
+  if (!source || !target) return undefined;
+  if (source.groupOf.length !== fromWork.chunks.length) return null;
+  const u = unitIndex(fromWork, ref);
+  if (u < 0) return null;
+  const found = alignUnit(source, target, u);
+  if (!found) return null;
+  const toWork = await loadTarget();
+  if (target.groupOf.length !== toWork.chunks.length) return null;
+  const targetRef = unitRef(toWork, found.unit);
+  return found.exact ? targetRef : { ref: targetRef, approximate: true };
+};
 
-/** The ref to open in `req.to`, or null to open it at the top. */
+/**
+ * Mappers tried in order: Scripture's versification (exact and complete for
+ * a Scripture book), then passage alignment for every other work.
+ */
+export const POSITION_MAPPERS: readonly PositionMapper[] = [scripturePosition, alignmentPosition];
+
+/** Where to open the target: a ref, and whether it is only near the reader's passage. */
+export interface MappedPosition {
+  ref: string;
+  approximate: boolean;
+}
+
+/** The passage to open in `req.to`, or null to open it at the top. */
 export async function mapPosition(
   req: PositionRequest,
   mappers: readonly PositionMapper[] = POSITION_MAPPERS,
-): Promise<string | null> {
+): Promise<MappedPosition | null> {
   for (const mapper of mappers) {
-    const ref = await mapper(req);
-    if (ref !== undefined) return ref;
+    const found = await mapper(req);
+    if (found === undefined) continue;
+    if (found === null) return null;
+    return typeof found === "string" ? { ref: found, approximate: false } : found;
   }
   return null;
 }

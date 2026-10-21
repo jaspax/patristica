@@ -33,3 +33,32 @@ describe("loadWork", () => {
     expect((await loadWork("works/a.json")).work_id).toBe("a");
   });
 });
+
+describe("alignments", () => {
+  it("maps a version group to its file", async () => {
+    const { alignmentPath, hasAlignment } = await import("./library");
+    expect(alignmentPath("book:gen")).toBe("alignments/book/gen.json");
+    expect(alignmentPath("ogpg/vol-032/epistulae")).toBe("alignments/ogpg/vol-032/epistulae.json");
+    const index = { version: "v", sources: {}, works: [], alignments: ["book:gen"] };
+    expect(hasAlignment(index, "book:gen")).toBe(true);
+    expect(hasAlignment(index, "book:ex")).toBe(false);
+    expect(hasAlignment(index, null)).toBe(false);
+    // A library published before alignments were exported has no list.
+    expect(hasAlignment({ ...index, alignments: undefined }, "book:gen")).toBe(false);
+  });
+
+  it("loads an alignment once and retries a failed load", async () => {
+    const { loadAlignment } = await import("./library");
+    const file = { group: "g", pivot: "a", groups: 0, members: {} };
+    const fetch = vi
+      .fn()
+      .mockResolvedValueOnce(new Response("", { status: 404, statusText: "Not Found" }))
+      .mockImplementation(async () => new Response(JSON.stringify(file)));
+    vi.stubGlobal("fetch", fetch);
+    await expect(loadAlignment("g")).rejects.toThrow(/404/);
+    expect((await loadAlignment("g")).group).toBe("g");
+    await loadAlignment("g");
+    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(fetch.mock.calls[1][0]).toMatch(/alignments\/g\.json$/);
+  });
+});

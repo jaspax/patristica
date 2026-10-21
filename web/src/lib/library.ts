@@ -36,6 +36,11 @@ export interface LibraryIndex {
   /** source_id → readable collection label (patristica/sources.py). */
   sources: Record<string, string>;
   works: WorkRow[];
+  /**
+   * Version groups that have a passage alignment file (alignmentFile(group)),
+   * #179. Absent in a library published before alignments were exported.
+   */
+  alignments?: string[];
 }
 
 /** A year or year range from the author index, with its certainty. */
@@ -204,5 +209,62 @@ export function loadWork(file: string): Promise<WorkFile> {
   }
   workCache.set(file, promise);
   while (workCache.size > WORK_CACHE_SIZE) workCache.delete(workCache.keys().next().value!);
+  return promise;
+}
+
+/** One member of an alignment file: its units' groups and confidences (lib/alignment.ts). */
+export interface AlignmentMember {
+  /** Number of units (chunks of the work file) the spans count. */
+  units: number;
+  /** One token per unit: `.` none, `+` next group, `+N`/`-N` jumps, `=` same group. */
+  spans: string;
+  /** One confidence digit (tenths) per group of the member, in order of first appearance. */
+  conf: string;
+}
+
+/**
+ * The passage alignment of a version group (scripts/export_library.py,
+ * patristica/alignment_store.py): alignment groups numbered in the pivot's
+ * order, and per member which group each unit is in.
+ */
+export interface AlignmentFile {
+  group: string;
+  pivot: string;
+  groups: number;
+  members: Record<string, AlignmentMember>;
+}
+
+/** Library path of a version group's alignment: `book:gen` → `alignments/book/gen.json`. */
+export function alignmentPath(group: string): string {
+  const rel = group.startsWith("book:") ? group.replace(":", "/") : group;
+  return `alignments/${rel}.json`;
+}
+
+/** True if the index says `group` has an alignment file. */
+export function hasAlignment(index: LibraryIndex, group: string | null): group is string {
+  return Boolean(group && index.alignments?.includes(group));
+}
+
+const ALIGNMENT_CACHE_SIZE = 4;
+const alignmentCache = new Map<string, Promise<AlignmentFile>>();
+
+/**
+ * Load a version group's alignment file. The last few are kept, so switching
+ * back and forth within a group loads it once. A failed load is retried on
+ * the next call.
+ */
+export function loadAlignment(group: string): Promise<AlignmentFile> {
+  const file = alignmentPath(group);
+  let promise = alignmentCache.get(file);
+  if (promise) {
+    alignmentCache.delete(file);
+  } else {
+    promise = fetchJson<AlignmentFile>(libraryUrl(file)).catch((err) => {
+      alignmentCache.delete(file);
+      throw err;
+    });
+  }
+  alignmentCache.set(file, promise);
+  while (alignmentCache.size > ALIGNMENT_CACHE_SIZE) alignmentCache.delete(alignmentCache.keys().next().value!);
   return promise;
 }
