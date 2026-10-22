@@ -69,6 +69,10 @@ BOOK_SCHEME_OVERRIDES: dict[tuple[str, str], Scheme] = {
     ("gez", "Eccl"): "eng",         # 0.570 → 0.666
     ("gez", "Joel"): "eng",         # 0.738 → 0.874; 3 chapters, English-style
     ("gez", "Ezra"): "org",         # 0.752 → 0.900
+    # Chosen like CHAPTER_SCHEME_OVERRIDES below (stored vectors, neighbour test;
+    # values are misaligned verses default → override):
+    ("gez", "2Kgs"): "eng",         # vs KJV 31 → 9; 11.21 / 12.1–21 English-style (#188)
+    ("gez", "1Esd"): "vul",         # vs Armenian 152 → 44; chapter verse counts match vul exactly (#76)
 }
 
 #: Chapters that follow a different scheme from their book (#186).  Some
