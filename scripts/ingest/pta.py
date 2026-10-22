@@ -40,7 +40,6 @@ from __future__ import annotations
 
 import logging
 import re
-import subprocess
 from pathlib import Path
 
 from lxml import etree
@@ -48,7 +47,7 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from patristica.period import work_in_period
-from scripts.ingest._common import dedupe_refs, slugify_ref
+from scripts.ingest._common import dedupe_refs, ensure_repo, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -91,20 +90,8 @@ _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
-    """Clone the PTA repo if absent; pull latest on force."""
-    if not repo_dir.exists():
-        log.info("Cloning PTA repo into %s …", repo_dir)
-        repo_dir.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            ["git", "clone", "--depth=1", _REPO_URL, str(repo_dir)],
-            check=True,
-        )
-    elif force:
-        log.info("Pulling latest PTA data …")
-        subprocess.run(
-            ["git", "-C", str(repo_dir), "pull", "--ff-only"],
-            check=True,
-        )
+    """Clone the repo if absent; pull latest on force (not offline, #215)."""
+    ensure_repo(_REPO_URL, repo_dir, "PTA", force)
 
 
 def _read_author_name(cts_path: Path) -> str | None:

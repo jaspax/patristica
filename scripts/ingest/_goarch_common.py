@@ -24,7 +24,7 @@ from pathlib import Path
 import httpx
 from bs4 import BeautifulSoup, Tag
 
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import offline, require_network, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -80,9 +80,10 @@ def fetch_dcs_html(
 
     Returns the HTML string, or None if the fetch fails.
     """
-    if cache_path.exists() and not force:
+    if cache_path.exists() and (not force or offline()):
         log.info("Using cached HTML: %s", cache_path)
         return cache_path.read_text(encoding="utf-8")
+    require_network(f"fetching {dcs_url}")
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -272,9 +273,10 @@ def fetch_greek_html(
 
     If manual HTML is available at ``cache_path``, it will be used as-is.
     """
-    if cache_path.exists() and not force:
+    if cache_path.exists() and (not force or offline()):
         log.info("Using cached HTML: %s", cache_path)
         return cache_path.read_text(encoding="utf-8")
+    require_network(f"fetching the Greek page for {english_url}")
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
 

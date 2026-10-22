@@ -35,6 +35,7 @@ from bs4 import BeautifulSoup
 from tqdm import tqdm
 
 from patristica.models import Work
+from scripts.ingest._common import offline, require_network
 from scripts.ingest._scripture_meta import BOOK_DATES, BOOK_TITLE
 
 log = logging.getLogger(__name__)
@@ -179,8 +180,9 @@ def _chapter_url(arak_id: str, ch_id: str) -> str:
 
 def _fetch_cached(url: str, cache_path: Path, force: bool, client: httpx.Client) -> str | None:
     """Return HTML from cache or live fetch. Returns None on HTTP error."""
-    if cache_path.exists() and not force:
+    if cache_path.exists() and (not force or offline()):
         return cache_path.read_text(encoding="utf-8", errors="replace")
+    require_network(f"fetching {url}")
     try:
         resp = client.get(url, timeout=30)
         if resp.status_code == 404:

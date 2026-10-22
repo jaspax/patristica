@@ -68,6 +68,7 @@ from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_columns as cols
 from scripts.ingest import _ogpg_index as pgi
 from scripts.ingest import _ogpg_volumes as pgv
+from scripts.ingest._common import offline, require_network
 
 log = logging.getLogger(__name__)
 
@@ -133,8 +134,9 @@ def _github_headers() -> dict[str, str]:
 
 def _list_repos(cache_file: Path, force: bool = False) -> list[str]:
     """Return list of all repo names in the OPG GitHub org (cached)."""
-    if cache_file.exists() and not force:
+    if cache_file.exists() and (not force or offline()):
         return json.loads(cache_file.read_text())
+    require_network("listing the OpenGreekAndLatin repositories")
 
     repos: list[str] = []
     page = 1
@@ -183,6 +185,7 @@ _SPARSE_PATTERNS = [
 def _sparse_clone_with_pattern(repo_name: str, pattern: str, clone_dir: Path) -> int:
     """Sparse-clone files matching ``pattern`` from the repo. Returns count of .txt files found."""
     clone_url = f"{_BASE_URL}/{repo_name}"
+    require_network(f"cloning {clone_url}")
 
     # Remove any partial clone
     if clone_dir.exists():
@@ -786,8 +789,10 @@ def _extract_volume(
 
     clone_dir = repos_dir / repo_name
     has_clone = clone_dir.exists() and (clone_dir / ".git").exists()
-    if force or not has_clone or not any(clone_dir.rglob("*.txt")):
-        if force and clone_dir.exists():
+    # Offline, --force re-extracts from the existing clone instead of re-cloning.
+    refetch = (force and not offline()) or not has_clone or not any(clone_dir.rglob("*.txt"))
+    if refetch:
+        if force and clone_dir.exists() and not offline():
             shutil.rmtree(clone_dir)
         if not _sparse_clone(repo_name, clone_dir):
             return None
