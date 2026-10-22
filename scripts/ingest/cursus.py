@@ -49,7 +49,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import Work
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import offline, require_network, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -81,9 +81,10 @@ _MS_INFO: dict[str, tuple[str, str, str, int]] = {
 
 def _ensure_zip(zip_path: Path, force: bool) -> None:
     """Download the CURSUS ZIP if not already present."""
-    if zip_path.exists() and not force:
+    if zip_path.exists() and (not force or offline()):
         log.debug("ZIP already present: %s", zip_path)
         return
+    require_network(f"downloading {_ZIP_URL}")
     import httpx
     log.info("Downloading CURSUS ZIP from Zenodo…")
     zip_path.parent.mkdir(parents=True, exist_ok=True)
