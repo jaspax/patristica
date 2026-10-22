@@ -259,7 +259,7 @@ class TestTrackedLinks:
         gen = g.members["book:gen"]
         for wid in ("kjv/gen", "oshb/gen", "clementine/gen", "lxx-rahlfs/gen", "pta-peshitta/gen"):
             assert wid in gen
-        assert g.group("gez/1en") == g.group("coptic-nt/1en") == "book:1en"
+        assert g.group("gez/1en") == g.group("first1k/tlg1463/tlg001/1st1K-grc1") == "book:1en"
         # A translation shares its original's group.
         assert g.group("anf-works/epistle-of-barnabas") == g.group("first1k/tlg1216/tlg001/opp-grc1")
 
