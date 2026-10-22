@@ -963,10 +963,8 @@ _ORIGINALS: dict[str, str] = {
     "irenaeus-fragments": "ogpg/vol-007/fragmenta",
     # ANF05: Migne's Fragmenta exegetica cover the ANF collection.
     "hippolytus-exegetical-fragments": "ogpg/vol-010/hippolytus-exegetica",
-    # The ogpg_index row "de-consummatione-mundi" (PG 10, 829-850) holds
-    # other text; De consummatione mundi (cols. 903-952) falls inside the
-    # in-theophaniam Work (#149).
-    "pseudo-hippolytus-end-of-the-world": "ogpg/vol-010/in-theophaniam",
+    # PG 10, cols. 903-950 (#149).
+    "pseudo-hippolytus-end-of-the-world": "ogpg/vol-010/de-consummatione-mundi",
     "pseudo-hippolytus-twelve-and-seventy-apostles": "ogpg/vol-010/de-apostolis",
     # ANF06
     "gregory-thaumaturgus-declaration-of-faith": "ogpg/vol-010/thaumaturgus-expositio-fidei",
