@@ -257,6 +257,15 @@ class TestScrollmapperParser:
         result = _parse_scrollmapper_csv(csv_content.encode(), "test")
         assert result == {"Gen": [("Gen.1.2", "ⲁⲩⲱ")]}
 
+    def test_xml_tags_stripped_editorial_brackets_kept(self):
+        """TEI residue goes; CopSahBible2's <…> editorial supplements are text (#220)."""
+        csv_content = (
+            "Book,Chapter,Verse,Text\n"
+            'Genesis,5,4,ⲥⲁϣϥⲉ <ⲛϣⲉ> ⲛⲣⲟⲙⲡⲉ <gap reason="lost"/></ab>\n'
+        )
+        result = _parse_scrollmapper_csv(csv_content.encode(), "test")
+        assert result == {"Gen": [("Gen.5.4", "ⲥⲁϣϥⲉ <ⲛϣⲉ> ⲛⲣⲟⲙⲡⲉ")]}
+
     def test_book_without_text_removed_from_raw(self, tmp_path, monkeypatch):
         from scripts.ingest import _scrollmapper
 

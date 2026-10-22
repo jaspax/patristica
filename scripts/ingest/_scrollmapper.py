@@ -35,6 +35,7 @@ _CSV_BASE = (
 
 #: How the CSVs spell a missing verse.
 _NULL = "null"
+_XML_TAG_RE = re.compile(r"</?[A-Za-z][^>]*>")
 
 
 def _csv_url(translation: str) -> str:
@@ -63,9 +64,11 @@ def _parse_scrollmapper_csv(
         verse = row.get("Verse", "").strip()
         verse_text = row.get("Text", "").strip()
 
-        # Some CSVs (e.g. CopSahBible2) contain residual TEI/XML tags such as
-        # </ab> at the end of every verse and <gap reason="…"/> for lacunae.
-        verse_text = re.sub(r"<[^>]+>", "", verse_text).strip()
+        # Some CSVs (e.g. older CopSahBible2) contain residual TEI/XML tags such as
+        # </ab> at the end of every verse and <gap reason="…"/> for lacunae. Only
+        # strip tags with an ASCII name: CopSahBible2 marks editorial supplements
+        # with angle brackets around Coptic text (Gen 5:4 "<ⲛϣⲉ>"), which is text.
+        verse_text = _XML_TAG_RE.sub("", verse_text).strip()
 
         abbrev = book_abbrev(book_name)
         if abbrev is None:
