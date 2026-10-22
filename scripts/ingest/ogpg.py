@@ -729,6 +729,11 @@ def _cols_label(parts: list[pgi.IndexRow], last_col: int | None) -> str:
     return ("cols. " if len(spans) > 1 or "–" in spans[0] else "col. ") + ", ".join(spans)
 
 
+def index_external_ids(row: pgi.IndexRow) -> list[str]:
+    """Catalogue ids of an index row, as ``Work.external_ids`` (#192)."""
+    return ([f"CPG:{row.cpg}"] if row.cpg else []) + ([f"TLG:{row.tlg}"] if row.tlg else [])
+
+
 def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
                      parts: list[pgi.IndexRow], last_col: int | None,
                      scan: str | None) -> Work:
@@ -745,8 +750,6 @@ def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
         conf = meta.date_confidence if meta is not None else "uncertain"
     label = _vol_label(vol_nums, part).replace("PG Vol.", "vol.")
     edition = f"{_EDITION}, {label}, {_cols_label(parts, last_col)}"
-    if row.cpg:
-        edition += f" (CPG {row.cpg})"
     edition += _scan_note(scan)
     if row.duplicate_of:
         edition += f"; a cleaner edition of this text is {row.duplicate_of}"
@@ -765,6 +768,7 @@ def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
         provenance_url=f"https://github.com/{_GITHUB_ORG}/{repo_name}",
         edition=edition,
         translation_of=None,
+        external_ids=index_external_ids(row),
     )
 
 
