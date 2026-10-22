@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-22": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-22",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -48,10 +54,10 @@
     },
     {
       "chunk_id": "coptic-nt/hag#Hag.2.5",
-      "source_sha256": "0a9f07b24641d4b6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 21,
-      "text": "The promise that I established with you when you were coming out of Egypt, and my [?] stood in your midst. Take courage."
+      "source_sha256": "64bd6b86347f3750",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 2,
+      "text": "The promise I made to you when you were coming out of Egypt, and my Spirit stood among you. Take courage."
     },
     {
       "chunk_id": "coptic-nt/hag#Hag.2.6",
@@ -174,10 +180,10 @@
     },
     {
       "chunk_id": "coptic-nt/hag#Hag.2.23",
-      "source_sha256": "4c1be77c2c9e2c0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 21,
-      "text": "On that day, says the Lord Almighty, I will take you, Zerubbabel, [?]"
+      "source_sha256": "79c19e21a37b20b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 2,
+      "text": "On that day, says the Lord Almighty, I will take you, Zerubbabel..."
     }
   ]
 }

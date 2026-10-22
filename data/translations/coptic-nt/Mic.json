@@ -4,26 +4,26 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
+      "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-22": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-22",
       "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-nt/mic#Mic.1.1",
-      "source_sha256": "de4ed0aa76044feb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The word of the Lord came to Micah, the son of Moresheth, in the days of Jotham, Ahaz, and Hezekiah, kings of Judah—the things he saw concerning Jerusalem and Samaria."
+      "source_sha256": "418b65c069427ad5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "The word of the Lord came to Micah son of Morathi in the days of Jotham, Ahaz, and Hezekiah, kings of Judah—the things he saw concerning Jerusalem and Samaria."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.2",
@@ -48,10 +48,10 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.5",
-      "source_sha256": "85b1ee17b8dc9927",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "All this is because of Jacob’s ungodliness and the sin of the house of Israel. What is Jacob’s ungodliness? Is it not Samaria? And what is the sin of the house of Judah? Is it not Jerusalem?"
+      "source_sha256": "996c8f53fd388c89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "All this is because of Jacob’s ungodliness and because of the sin of the house of Israel. What is Jacob’s ungodliness? Is it not Samaria? And what is the sin of the house of Judah? Is it not Jerusalem?"
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.6",
@@ -76,10 +76,10 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.9",
-      "source_sha256": "bd80f29592152985",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For her wound has taken hold of her, because it has come as far as Judah and drawn near to the gate of my people, as far as Jerusalem."
+      "source_sha256": "ddd6dac2c7146079",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "For her wound has overwhelmed her, because it has reached Judah and drawn near to the gate of my people, as far as Jerusalem."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.10",
@@ -97,24 +97,24 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.12",
-      "source_sha256": "a23c1599e23eea1a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 2,
-      "text": "For calamities have come from the Lord upon the gates of [?]."
+      "source_sha256": "7988e19ce31bc303",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "For disasters have come from the Lord upon the gates of Jerusalem."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.13",
-      "source_sha256": "c763f33699adeb9e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The sound of the chariots and those riding the horses. You who live in Lachish, the daughter of Zion is the originator of her sin, for the ungodly acts of Israel were found in you."
+      "source_sha256": "14a2bffa322cac85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "The noise of the chariots and those riding horses, you who live in Lachish! The daughter of Zion is the instigator of her sin, for Israel’s ungodly deeds were found in you."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.14",
-      "source_sha256": "53ee51af2f5d5d70",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Because of this, she will give what she is going to send as far as the inheritance of Gath. Empty houses have become a useless thing for the kings of Israel."
+      "source_sha256": "dd6b7dd69399077d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "Because of this, she will give those whom she will send as far as the inheritance of Gath. Empty houses have become useless to the kings of Israel."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.1.15",
@@ -174,10 +174,10 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.2.7",
-      "source_sha256": "83808115f7e55fa4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 2,
-      "text": "The one who says, “The house of Jacob has provoked the Lord’s [?].” If his deeds were like these, would his words not be good with him? And he walked uprightly."
+      "source_sha256": "e067407707b84688",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "The one who says, “The house of Jacob has angered the Spirit of the Lord.” If his deeds were like this, are his words not good with him? And he walked uprightly."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.2.8",
@@ -202,17 +202,17 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.2.11",
-      "source_sha256": "245c5fbb63d20d95",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They pursued you when there was no one pursuing you. A liar stood up and dripped wine and beer for you. And she will come from the drippings of this people."
+      "source_sha256": "b419b583e9de8b6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "You were pursued, though no one was pursuing you. A lying spirit stood up and dripped wine and strong drink for you. And it will come from the drippings of this people."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.2.12",
-      "source_sha256": "af7fd07bcde43db6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Jacob will surely be gathered together with everyone. I will surely gather to myself the remnant of [?] together. I will place his flock like a flock of sheep in humiliation, and like a herd in the middle of its enclosure. They will rush out from among the people."
+      "source_sha256": "35415e98c0c62a3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "They will surely gather Jacob together with everyone. I will surely take to myself the remnant of Israel together. I will set his return like a flock of sheep in distress, and like a herd in the middle of its pen. They will rush out from among the people."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.2.13",
@@ -230,10 +230,10 @@
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.4.2",
-      "source_sha256": "2584ea2650dfcb7c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Many nations will go and say, “Come, let us go up to the mountain of the Lord and up to the house of the God of Jacob. Let them teach us his ways, and let us walk in his paths. For the law will come out of Zion, and the word of the Lord from [?].”"
+      "source_sha256": "7f546b4ace3687e4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 10,
+      "text": "And many nations will go and say, “Come, let us go up to the mountain of the Lord and to the house of the God of Jacob, so that we may be taught his ways and go up along his paths.” For the law will come out of Zion, and the word of the Lord from Jerusalem."
     },
     {
       "chunk_id": "coptic-nt/mic#Mic.4.3",

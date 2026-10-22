@@ -15,15 +15,21 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-22": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-22",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-nt/prov#Prov.1.1",
-      "source_sha256": "448594dfee551cb0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The proverbs of Solomon, the son of David, who reigned in [?]."
+      "source_sha256": "d6b7eeab659bb1db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 1,
+      "text": "The proverbs of Solomon son of David, who reigned in Israel."
     },
     {
       "chunk_id": "coptic-nt/prov#Prov.1.2",
