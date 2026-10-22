@@ -22,8 +22,14 @@ module cuts that stream into works using the curated table
 ``author``, ``title``
     English author name (as in ``_ogpg_volumes``), title as printed by Migne
     (Latin), normalised.
-``cpg``
-    *Clavis Patrum Graecorum* number, when known.
+``cpg``, ``tlg``
+    *Clavis Patrum Graecorum* number (``5200``) and TLG work id
+    (``tlg4090.tlg096``), when the row is one whole work with a known number.
+    Left empty for a row holding several works.  The ingestor writes them to
+    ``Work.external_ids`` (``CPG:…``, ``TLG:…``), where the version-group
+    crosswalk (``patristica/versions.py``) joins the work to its other
+    editions; they come from the PTA catalogue and the TLG ids of First1K and
+    Perseus works checked against the text (#192).
 ``date_composed``, ``date_start``, ``date_end``, ``date_confidence``
     As in ``Work``.  Empty dates fall back to the volume's (``_ogpg_volumes``).
     A work whose range starts after the collection period
@@ -61,6 +67,7 @@ from __future__ import annotations
 
 import csv
 import functools
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -71,8 +78,10 @@ INDEX_PATH = Path(__file__).parent / "data" / "ogpg_index.csv"
 BASES = frozenset({"elenchus", "heads", "curated"})
 _CONFIDENCES = frozenset({"established", "approximate", "uncertain"})
 REMAINDER_SLUG = "other"
+_CPG = re.compile(r"^\d{4}[a-z]?(\.\d+)?$")
+_TLG = re.compile(r"^tlg\d{4}\.tlg\d{3}$")
 # Columns that must agree between the rows of a work with several ranges.
-_WORK_FIELDS = ("author", "title", "cpg", "date_composed", "date_start", "date_end",
+_WORK_FIELDS = ("author", "title", "cpg", "tlg", "date_composed", "date_start", "date_end",
                 "date_confidence", "basis", "duplicate_of")
 
 
@@ -89,6 +98,7 @@ class IndexRow:
     author: str | None
     title: str
     cpg: str | None
+    tlg: str | None
     date_composed: int | None
     date_range: tuple[int, int] | None
     date_confidence: DateConfidence | None
@@ -145,6 +155,11 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
         lo, hi = _int(rec["date_start"], where), _int(rec["date_end"], where)
         if (lo is None) != (hi is None) or (lo is not None and hi is not None and lo > hi):
             raise OgpgIndexError(f"{where}: bad date range {lo}–{hi}")
+        cpg, tlg = rec["cpg"].strip() or None, rec["tlg"].strip() or None
+        if cpg is not None and not _CPG.match(cpg):
+            raise OgpgIndexError(f"{where}: bad cpg {cpg!r}")
+        if tlg is not None and not _TLG.match(tlg):
+            raise OgpgIndexError(f"{where}: bad tlg {tlg!r}")
         composed = _int(rec["date_composed"], where)
         if composed is not None and lo is not None and hi is not None \
                 and not lo <= composed <= hi:
@@ -156,7 +171,8 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
             col_end=_int(rec["col_end"], where),
             author=rec["author"].strip() or None,
             title=rec["title"].strip(),
-            cpg=rec["cpg"].strip() or None,
+            cpg=cpg,
+            tlg=tlg,
             date_composed=composed,
             date_range=(lo, hi) if lo is not None and hi is not None else None,
             date_confidence=conf,  # type: ignore[arg-type]

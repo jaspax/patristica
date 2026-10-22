@@ -10,7 +10,7 @@ from scripts.ingest import _ogpg_columns as oc
 from scripts.ingest import _ogpg_index as pgi
 from scripts.ingest import ogpg
 
-HEADER = ("volume,slug,col_start,col_end,author,title,cpg,date_composed,date_start,date_end,"
+HEADER = ("volume,slug,col_start,col_end,author,title,cpg,tlg,date_composed,date_start,date_end,"
           "date_confidence,basis,duplicate_of,note\n")
 
 
@@ -123,10 +123,10 @@ class TestMapColumns:
 class TestParseIndex:
     def test_end_defaults_to_next_start(self):
         idx = _index(
-            "vol-045,b,115,,Gregory of Nyssa,Quod non sint tres dii,3139,,,,,elenchus,,",
-            "vol-045,a,9,,Gregory of Nyssa,Oratio catechetica,3150,385,380,390,approximate,"
+            "vol-045,b,115,,Gregory of Nyssa,Quod non sint tres dii,3139,,,,,,elenchus,,",
+            "vol-045,a,9,,Gregory of Nyssa,Oratio catechetica,3150,,385,380,390,approximate,"
             "elenchus,,",
-            "vol-045,c,135,140,Gregory of Nyssa,Ad Simplicium,,,,,,heads,,",
+            "vol-045,c,135,140,Gregory of Nyssa,Ad Simplicium,,,,,,,heads,,",
         )
         rows = idx["vol-045"]
         assert [r.slug for r in rows] == ["a", "b", "c"]
@@ -135,17 +135,19 @@ class TestParseIndex:
         assert rows[1].date_range is None
 
     def test_last_row_open_ended(self):
-        rows = _index("vol-045,a,9,,X,T,,,,,,elenchus,,")["vol-045"]
+        rows = _index("vol-045,a,9,,X,T,,,,,,,elenchus,,")["vol-045"]
         assert rows[0].col_end is None
 
     @pytest.mark.parametrize("row,msg", [
-        ("vol-045,a,9,,X,T,,,,,,guess,,", "basis"),
-        ("vol-045,a,,,X,T,,,,,,elenchus,,", "col_start"),
-        ("vol-045,A,9,,X,T,,,,,,elenchus,,", "slug"),
-        ("vol-045,other,9,,X,T,,,,,,elenchus,,", "slug"),
-        ("vol-045,a,9,,X,T,,500,300,400,,elenchus,,", "date_composed"),
-        ("vol-045,a,9,,X,T,,,300,,,elenchus,,", "date range"),
-        ("vol-045,a,9,8,X,T,,,,,,elenchus,,", "before it starts"),
+        ("vol-045,a,9,,X,T,,,,,,,guess,,", "basis"),
+        ("vol-045,a,,,X,T,,,,,,,elenchus,,", "col_start"),
+        ("vol-045,A,9,,X,T,,,,,,,elenchus,,", "slug"),
+        ("vol-045,other,9,,X,T,,,,,,,elenchus,,", "slug"),
+        ("vol-045,a,9,,X,T,,,500,300,400,,elenchus,,", "date_composed"),
+        ("vol-045,a,9,,X,T,,,,300,,,elenchus,,", "date range"),
+        ("vol-045,a,9,8,X,T,,,,,,,elenchus,,", "before it starts"),
+        ("vol-045,a,9,,X,T,CPG 3150,,,,,,elenchus,,", "bad cpg"),
+        ("vol-045,a,9,,X,T,,TLG:tlg2017.tlg046,,,,,elenchus,,", "bad tlg"),
     ])
     def test_rejects_bad_rows(self, row: str, msg: str):
         with pytest.raises(pgi.OgpgIndexError, match=msg):
@@ -153,18 +155,18 @@ class TestParseIndex:
 
     def test_rejects_overlap_and_duplicates(self):
         with pytest.raises(pgi.OgpgIndexError, match="overlaps"):
-            _index("vol-045,a,9,120,X,T,,,,,,elenchus,,", "vol-045,b,115,,X,T,,,,,,elenchus,,")
+            _index("vol-045,a,9,120,X,T,,,,,,,elenchus,,", "vol-045,b,115,,X,T,,,,,,,elenchus,,")
         with pytest.raises(pgi.OgpgIndexError, match="different metadata"):
-            _index("vol-045,a,9,,X,T,,,,,,elenchus,,", "vol-045,a,15,,Y,T,,,,,,elenchus,,")
+            _index("vol-045,a,9,,X,T,,,,,,,elenchus,,", "vol-045,a,15,,Y,T,,,,,,,elenchus,,")
 
     def test_repeated_slug_is_one_work_in_several_ranges(self):
-        rows = _index("vol-003,ch,9,14,X,T,,,,,,heads,,", "vol-003,par,15,16,P,Q,,,,,,heads,,",
-                      "vol-003,ch,17,20,X,T,,,,,,heads,,note")["vol-003"]
+        rows = _index("vol-003,ch,9,14,X,T,,,,,,,heads,,", "vol-003,par,15,16,P,Q,,,,,,,heads,,",
+                      "vol-003,ch,17,20,X,T,,,,,,,heads,,note")["vol-003"]
         assert [(r.slug, r.col_start, r.col_end) for r in rows] == [
             ("ch", 9, 14), ("par", 15, 16), ("ch", 17, 20)]
 
     def test_out_of_period_row(self):
-        rows = _index("vol-003,pach,700,,George Pachymeres,Paraphrasis,,1290,1280,1300,"
+        rows = _index("vol-003,pach,700,,George Pachymeres,Paraphrasis,,,1290,1280,1300,"
                       "approximate,elenchus,,")["vol-003"]
         assert not rows[0].in_period
 
@@ -175,6 +177,18 @@ def test_repository_index_is_valid():
         assert vol.startswith("vol-")
         for row in rows:
             assert row.title and row.basis in pgi.BASES
+
+
+def test_repository_catalogue_ids_name_one_work():
+    """A CPG or TLG id is on one OGPG work only: two works with one id would be
+    set aside by the version-group crosswalk as a collection (#192)."""
+    owners: dict[str, set[str]] = {}
+    for vol, rows in pgi.load_index().items():
+        for row in rows:
+            for ident in ogpg.index_external_ids(row):
+                owners.setdefault(ident, set()).add(f"{vol}/{row.slug}")
+    shared = {i: w for i, w in owners.items() if len(w) > 1}
+    assert not shared, shared
 
 
 # ---------------------------------------------------------------------------
@@ -202,9 +216,9 @@ class TestAssignRefs:
 
 class TestAssignWorks:
     ROWS = _index(
-        "vol-045,a,11,,X,A,,,,,,elenchus,,",
-        "vol-045,b,16,,X,B,,,,,,elenchus,,",
-        "vol-045,c,21,22,X,C,,,,,,elenchus,,",
+        "vol-045,a,11,,X,A,,,,,,,elenchus,,",
+        "vol-045,b,16,,X,B,,,,,,,elenchus,,",
+        "vol-045,c,21,22,X,C,,,,,,,elenchus,,",
     )["vol-045"]
 
     def test_pages_inside_works_and_front_matter(self):
@@ -290,8 +304,9 @@ class TestSplitVolume:
 
     def test_split_with_remainder_and_dropped_row(self):
         rows = _index(
-            "vol-045,cat,11,14,Gregory of Nyssa,Oratio catechetica,3150,385,380,390,,elenchus,,",
-            "vol-045,late,15,,George Pachymeres,Paraphrasis,,1290,1280,1300,,curated,,",
+            "vol-045,cat,11,14,Gregory of Nyssa,Oratio catechetica,3150,tlg2017.tlg046,385,380,390,,"
+            "elenchus,,",
+            "vol-045,late,15,,George Pachymeres,Paraphrasis,,,1290,1280,1300,,curated,,",
         )["vol-045"]
         out = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
         by_rel = {rel: (work, paras) for rel, work, paras in out}
@@ -299,17 +314,19 @@ class TestSplitVolume:
         work, paras = by_rel["vol-045/cat.json"]
         assert work.work_id == "ogpg/vol-045/cat"
         assert work.title == "Oratio catechetica" and work.date_range == (380, 390)
-        assert "cols. 11–14" in (work.edition or "") and "CPG 3150" in (work.edition or "")
+        assert "cols. 11–14" in (work.edition or "") and "CPG" not in (work.edition or "")
+        assert work.external_ids == ["CPG:3150", "TLG:tlg2017.tlg046"]
         assert [p["text"] for p in paras] == ["text 1", "text 2"]
         other, rest = by_rel["vol-045/other.json"]
         assert other.work_id == "ogpg/vol-045/other" and other.author is None
+        assert other.external_ids == []
         assert [p["text"] for p in rest] == ["text 0"]     # front matter; "late" is dropped
 
     def test_work_in_several_ranges(self):
         rows = _index(
-            "vol-045,dion,9,12,Pseudo-Dionysius,De caelesti hierarchia,,500,480,520,,heads,,",
-            "vol-045,pach,13,14,George Pachymeres,Paraphrasis,,1290,1280,1300,,heads,,",
-            "vol-045,dion,15,18,Pseudo-Dionysius,De caelesti hierarchia,,500,480,520,,heads,,",
+            "vol-045,dion,9,12,Pseudo-Dionysius,De caelesti hierarchia,,,500,480,520,,heads,,",
+            "vol-045,pach,13,14,George Pachymeres,Paraphrasis,,,1290,1280,1300,,heads,,",
+            "vol-045,dion,15,18,Pseudo-Dionysius,De caelesti hierarchia,,,500,480,520,,heads,,",
         )["vol-045"]
         out = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
         assert [rel for rel, _, _ in out] == ["vol-045/dion.json"]      # pach is dropped
@@ -318,13 +335,13 @@ class TestSplitVolume:
         assert "cols. 9–12, 15–18" in (work.edition or "")
 
     def test_duplicate_named_in_edition(self):
-        rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,elenchus,"
+        rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,,elenchus,"
                       "pta/x/y/pta-grc1,")["vol-045"]
         (_, work, _), = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
         assert (work.edition or "").endswith("a cleaner edition of this text is pta/x/y/pta-grc1")
 
     def test_missing_dates_fall_back_to_volume(self):
-        rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,elenchus,,"
+        rows = _index("vol-045,cat,9,,Gregory of Nyssa,Oratio catechetica,,,,,,,elenchus,,"
                       )["vol-045"]
         (_, work, _), = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
         assert work.date_range == (370, 395) and work.date_confidence == "established"
