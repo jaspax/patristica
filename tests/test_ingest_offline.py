@@ -14,6 +14,14 @@ from scripts.ingest import _common, _stamp
 from scripts.ingest._common import OfflineError, offline_mode
 
 
+@pytest.fixture(autouse=True)
+def _no_git_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Drop the GIT_* variables a git hook sets (pre-push runs these tests), so
+    the code under test runs git in its tiny test repos, not in this checkout."""
+    for key in [k for k in os.environ if k.startswith("GIT_")]:
+        monkeypatch.delenv(key)
+
+
 @pytest.fixture
 def no_subprocess(monkeypatch: pytest.MonkeyPatch) -> list[list[str]]:
     """Record subprocess.run calls in _common instead of running them."""
