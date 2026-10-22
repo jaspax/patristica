@@ -12,6 +12,7 @@ import io
 import json
 import logging
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 from tqdm import tqdm
@@ -96,6 +97,7 @@ def ingest_scrollmapper(
     edition: str,
     tradition: str | None = None,
     force: bool = False,
+    transform: Callable[[str, list[tuple[str, str]]], list[tuple[str, str]]] | None = None,
 ) -> list[Work]:
     """Download a scrollmapper CSV translation and write per-book JSON files.
 
@@ -107,6 +109,8 @@ def ingest_scrollmapper(
     license_:     License string from ``patristica.models.License``.
     edition:      Human-readable edition description.
     tradition:    Optional tradition string.
+    transform:    Optional ``(book, verses) -> verses`` applied to every book before it
+                  is written (the ASV's Psalm titles, #220).
     """
     source_dir = output_dir / source_id
     source_dir.mkdir(parents=True, exist_ok=True)
@@ -135,6 +139,8 @@ def ingest_scrollmapper(
             works.append(Work(**data["work"]))
             continue
 
+        if transform is not None:
+            verse_list = transform(book_abbr, verse_list)
         if not verse_list:
             continue
 

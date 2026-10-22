@@ -222,6 +222,31 @@ describe("versificationMembers", () => {
     const [m] = versificationMembers([merged]);
     expect(m.groupOf).toEqual([0, 0, 1, -1]);
   });
+
+  it("pairs the ASV's title unit (Ps.N.0) with the other versions' title verse (#220)", () => {
+    const asv: WorkFile = {
+      work_id: "asv/ps",
+      ref_prefix: "Ps",
+      org_refs: { "3.0": "Ps.3.1", "3.1": "Ps.3.2", "23.0": "Ps.23.1" },
+      chunks: [
+        ["3.0", "A Psalm of David, when he fled from Absalom his son."],
+        ["3.1", "Jehovah, how are mine adversaries increased!"],
+        ["23.0", "A Psalm of David."],
+        ["23.1", "Jehovah is my shepherd"],
+      ],
+    };
+    // Leading: title beside title, verse beside verse; Hebrew 23:1 (title and verse) spans ASV 23:0–1.
+    expect(show(buildRows(versificationMembers([asv, kjv, vul, oshb])))).toEqual([
+      "0-1||0-1|0-1",
+      "1-2|0-1|1-2|1-2",
+      "2-4|1-2|2-3|2-3",
+    ]);
+    // Following the KJV: the shared title row stays before verse 1.
+    expect(show(buildRows(versificationMembers([kjv, asv, oshb])))).toEqual(["|0-1|0-1", "0-1|1-2|1-2", "1-2|2-4|2-3"]);
+    // The ASV's title is a heading in the reader.
+    const [section] = parseWork(asv, "scripture");
+    expect(section.title).toBe("A Psalm of David, when he fled from Absalom his son.");
+  });
 });
 
 describe("sectionBlocks", () => {
