@@ -60,6 +60,19 @@ describe("renamed work ids", () => {
     }
   });
 
+  it("redirects a re-attributed Patrologia Latina work to its new id (#184)", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/oglt-pl/augustinus/pl47_0_unk",
+      destination: "/works/oglt-pl/cyprianus-carthaginensis/pl47_0_unk",
+      permanent: true,
+    });
+    const renamed = "oglt-pl/cyprianus-carthaginensis/pl47_0_unk";
+    expect(currentWorkId("oglt-pl/augustinus/pl47_0_unk")).toBe(renamed);
+    expect(currentWorkId("oglt_pl/augustinus/pl47_0_unk")).toBe(renamed);
+    // Other works of the volume keep their ids.
+    expect(currentWorkId("oglt-pl/augustinus/pl47_1_unk")).toBe("oglt-pl/augustinus/pl47_1_unk");
+  });
+
   it("leaves current ids alone", () => {
     for (const id of ["kjv/gen", "ogpg/vol-045/ad-graecos", "first1k/tlg2042/tlg001/1st1K-grc1"]) {
       expect(currentWorkId(id)).toBe(id);

@@ -22,13 +22,17 @@ export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: stri
 /**
  * Single works whose id changed (old id → new id), for renames that no prefix
  * in `RENAMED_ID_PREFIXES` covers. Scripture work ids are `{source}/{osis book}`,
- * so a book found to be ingested under the wrong code gets a new id.
+ * so a book found to be ingested under the wrong code gets a new id; an OGLT PL
+ * work id carries its author (`oglt-pl/{author}/{stem}`), so a re-attribution
+ * in `oglt_pl_index.csv` does too.
  */
 export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]> = [
   // #188: the Ge'ez "Kings" is 2 Kings only.
   ["gez/kings", "gez/2kgs"],
   // #76: the Ge'ez "Apocalypse of Ezra" is 1 Esdras.
   ["gez/apez", "gez/1esd"],
+  // #184: PL 47's "Opusculum I sive liber de oratione" is Cyprian's De dominica oratione.
+  ["oglt-pl/augustinus/pl47_0_unk", "oglt-pl/cyprianus-carthaginensis/pl47_0_unk"],
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */

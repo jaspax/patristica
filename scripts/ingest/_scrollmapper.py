@@ -33,6 +33,10 @@ _CSV_BASE = (
 )
 
 
+#: How the CSVs spell a missing verse.
+_NULL = "null"
+
+
 def _csv_url(translation: str) -> str:
     return _CSV_BASE.format(translation=translation)
 
@@ -43,7 +47,10 @@ def _parse_scrollmapper_csv(
 ) -> dict[str, list[tuple[str, str]]]:
     """Parse a scrollmapper CSV file into a dict keyed by OSIS book abbreviation.
 
-    Returns ``{abbrev: [(canonical_ref, text), ...]}``.
+    Returns ``{abbrev: [(canonical_ref, text), ...]}``.  Verses with no text are
+    left out: empty cells, and cells holding the string ``null`` (CopSahBible2 has
+    no Sahidic text for 1 Enoch, 1 Esdras and Jude, and every verse reads
+    ``null``; #187).  A book with no text at all is therefore absent.
     """
     text = csv_bytes.decode("utf-8", errors="replace")
     reader = csv.DictReader(io.StringIO(text))
@@ -68,7 +75,7 @@ def _parse_scrollmapper_csv(
                     "Unknown book name %r in %s CSV; skipping its rows", book_name, source_id
                 )
             continue
-        if not verse_text:
+        if not verse_text or verse_text.lower() == _NULL:
             continue
 
         ref = f"{abbrev}.{chapter}.{verse}"
@@ -109,6 +116,12 @@ def ingest_scrollmapper(
     books_data = _parse_scrollmapper_csv(csv_bytes, source_id)
 
     works: list[Work] = []
+
+    # Books the CSV no longer gives any text for (#187).
+    for stale in sorted(source_dir.glob("*.json")):
+        if stale.stem not in books_data and not stale.name.startswith("_"):
+            log.info("Removing %s (no text in %s)", stale, translation)
+            stale.unlink()
 
     for book_abbr, verse_list in tqdm(books_data.items(), desc=source_id.split("/")[-1].upper()):
         out_file = source_dir / f"{book_abbr}.json"

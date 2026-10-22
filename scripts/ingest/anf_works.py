@@ -1009,9 +1009,9 @@ _ORIGINALS: dict[str, str] = {
     # ANF08: the letter of the presbyters and deacons of Achaia (PG 2, cols.
     # 1217-1248); the Work opens with short notices on Andrew (cols. 1191-1197).
     "acts-and-martyrdom-of-andrew": "ogpg/vol-002/de-martyrio-andreae",
-    # ANF05: PL 47 prints Cyprian's De dominica oratione, word for word, as
-    # Augustine's "Opusculum I sive liber de oratione" (#184).
-    "cyprian-lords-prayer": "oglt-pl/augustinus/pl47_0_unk",
+    # ANF05: PL 47 prints Cyprian's De dominica oratione among works ascribed
+    # to Augustine ("Opusculum I sive liber de oratione"); attributed to Cyprian (#184).
+    "cyprian-lords-prayer": "oglt-pl/cyprianus-carthaginensis/pl47_0_unk",
     # ANF06: the "Logos eis ta baia" (PG 18, p. 293 of the OCR), inside the
     # Work that also holds Simeon and Anna.
     "pseudo-methodius-oration-on-the-palms": "ogpg/vol-018/methodius-opera-varia",
