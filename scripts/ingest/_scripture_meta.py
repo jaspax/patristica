@@ -49,8 +49,8 @@ ETHIOPIC_EXTRA_BOOKS: list[str] = [
     "2Meq",  # 2 Meqabyan
     "3Meq",  # 3 Meqabyan
     "4Bar",  # 4 Baruch / Paraleipomena of Jeremiah
-    "Kings", # Combined Ethiopic Kings (1Sam–2Kgs folded; LXX "1–4 Kingdoms")
-    "ApEz",  # Apocalypse of Ezra
+    "Kings", # Source code of Ge'ez 2 Kings only; gez.py maps it to 2Kgs (#62)
+    "ApEz",  # Source code of Ge'ez 1 Esdras (titled "Apocalypse of Ezra"); gez.py maps it to 1Esd (#76)
     "Lef",   # Lefafa Sedq
     "MysHE", # Mysteries of Heaven and Earth
     "TestLd",# Testament of Our Lord

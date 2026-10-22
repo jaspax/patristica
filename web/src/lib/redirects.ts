@@ -19,6 +19,18 @@ export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: stri
   ["oglt_pl", "oglt-pl"],
 ];
 
+/**
+ * Single works whose id changed (old id → new id), for renames that no prefix
+ * in `RENAMED_ID_PREFIXES` covers. Scripture work ids are `{source}/{osis book}`,
+ * so a book found to be ingested under the wrong code gets a new id.
+ */
+export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]> = [
+  // #188: the Ge'ez "Kings" is 2 Kings only.
+  ["gez/kings", "gez/2kgs"],
+  // #76: the Ge'ez "Apocalypse of Ezra" is 1 Esdras.
+  ["gez/apez", "gez/1esd"],
+];
+
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
 export const LEGACY_GENRE_PREFIXES: readonly string[] = ["scripture", "patristic", "liturgical", "councils"];
 
@@ -31,15 +43,17 @@ export function currentSourceId(sourceId: string): string {
   return sourceId;
 }
 
-/** The current id of a work id from an old link, following `RENAMED_ID_PREFIXES`. */
+/** The current id of a work id from an old link, following `RENAMED_ID_PREFIXES` and `RENAMED_WORK_IDS`. */
 export function currentWorkId(workId: string): string {
+  let id = workId;
   for (const [from, to] of RENAMED_ID_PREFIXES) {
-    if (workId.startsWith(`${from}/`)) {
-      const rest = workId.slice(from.length + 1);
-      return to ? `${to}/${rest}` : rest;
+    if (id.startsWith(`${from}/`)) {
+      const rest = id.slice(from.length + 1);
+      id = to ? `${to}/${rest}` : rest;
+      break;
     }
   }
-  return workId;
+  return RENAMED_WORK_IDS.find(([from]) => from === id)?.[1] ?? id;
 }
 
 /**
@@ -220,11 +234,20 @@ export function legacyPageRedirects(): PermanentRedirect[] {
   return [{ source: "/search", destination: "/", permanent: true }];
 }
 
-/** Reader redirects for `RENAMED_ID_PREFIXES` and `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. */
+/**
+ * Reader redirects for `RENAMED_ID_PREFIXES`, `RENAMED_WORK_IDS` and
+ * `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. An old id under a renamed
+ * prefix that is also a renamed work takes two hops.
+ */
 export function legacyWorkRedirects(): PermanentRedirect[] {
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({
     source: `/works/${from}/:rest+`,
     destination: to ? `/works/${to}/:rest+` : "/works/:rest+",
+    permanent: true as const,
+  }));
+  const works = RENAMED_WORK_IDS.map(([from, to]) => ({
+    source: `/works/${from}`,
+    destination: `/works/${to}`,
     permanent: true as const,
   }));
   const split = SPLIT_OGPG_VOLUMES.map((vol) => ({
@@ -232,5 +255,5 @@ export function legacyWorkRedirects(): PermanentRedirect[] {
     destination: `/works?q=ogpg/${vol}/`,
     permanent: true as const,
   }));
-  return [...renamed, ...split];
+  return [...renamed, ...works, ...split];
 }
