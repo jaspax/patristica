@@ -47,6 +47,7 @@ Usage::
 
 from __future__ import annotations
 
+import fnmatch
 import hashlib
 import json
 import logging
@@ -183,7 +184,8 @@ _SPARSE_PATTERNS = [
 
 
 def _sparse_clone_with_pattern(repo_name: str, pattern: str, clone_dir: Path) -> int:
-    """Sparse-clone files matching ``pattern`` from the repo. Returns count of .txt files found."""
+    """Sparse-clone files matching ``pattern`` from the repo. Returns the count of
+    .txt files found, or -1 if git failed."""
     clone_url = f"{_BASE_URL}/{repo_name}"
     require_network(f"cloning {clone_url}")
 
@@ -199,7 +201,7 @@ def _sparse_clone_with_pattern(repo_name: str, pattern: str, clone_dir: Path) ->
         )
     except subprocess.CalledProcessError as exc:
         log.error("git clone failed for %s: %s", repo_name, exc.stderr[:300])
-        return 0
+        return -1
 
     sparse_cfg = clone_dir / ".git" / "info" / "sparse-checkout"
     sparse_cfg.write_text(pattern + "\n")
@@ -216,32 +218,55 @@ def _sparse_clone_with_pattern(repo_name: str, pattern: str, clone_dir: Path) ->
     except subprocess.CalledProcessError as exc:
         log.error("git checkout failed for %s: %s", repo_name,
                   exc.stderr[:300] if exc.stderr else "")
-        return 0
+        return -1
 
     return len(list(clone_dir.rglob("*.txt")))
 
 
-def _sparse_clone(repo_name: str, clone_dir: Path) -> bool:
+def _tree_has_ocr(clone_dir: Path) -> bool:
+    """Whether a local clone's tree has any path matching ``_SPARSE_PATTERNS``.
+
+    True when that can't be told (git fails), so the caller doesn't treat an
+    unreadable clone as empty.
+    """
+    tree = subprocess.run(["git", "ls-tree", "-r", "--name-only", "HEAD"], cwd=clone_dir,
+                          capture_output=True, text=True)
+    if tree.returncode != 0:
+        return True
+    return any(fnmatch.fnmatch(path, pattern)
+               for path in tree.stdout.splitlines() for pattern in _SPARSE_PATTERNS)
+
+
+def _sparse_clone(repo_name: str, clone_dir: Path) -> bool | None:
     """Sparse-clone .txt files from one *_ocr directory of the given repo.
 
     Tries glob patterns in preference order (hvd* first) without needing
     a GitHub API call to discover directory names. Returns True if any
-    .txt files were successfully checked out.
+    .txt files were successfully checked out, False if every pattern was
+    tried and the repo has none, None if git failed.
     """
     existing_txts = list(clone_dir.rglob("*.txt")) if clone_dir.exists() else []
     if existing_txts:
         log.debug("Sparse clone already present: %s (%d files)", clone_dir, len(existing_txts))
         return True
+    if offline() and (clone_dir / ".git").exists() and not _tree_has_ocr(clone_dir):
+        # The clone (--filter=blob:none) has the whole tree: nothing to check out.
+        log.warning("No .txt files found via any pattern in %s (its local tree)", repo_name)
+        return False
 
     clone_dir.parent.mkdir(parents=True, exist_ok=True)
 
+    failed = False
     for pattern in _SPARSE_PATTERNS:
         count = _sparse_clone_with_pattern(repo_name, pattern, clone_dir)
         if count > 0:
             log.debug("Cloned %s via pattern %r: %d .txt files", repo_name, pattern, count)
             return True
+        failed = failed or count < 0
         log.debug("Pattern %r found no files in %s, trying next", pattern, repo_name)
 
+    if failed:
+        return None
     log.warning("No .txt files found via any pattern in %s", repo_name)
     return False
 
@@ -782,19 +807,29 @@ def _extract_volume(
     out_path = extract_dir / f"{vol_slug}.json"
     pipeline = _pipeline_id()
 
-    if out_path.exists() and not force:
-        saved = json.loads(out_path.read_text(encoding="utf-8"))
-        if saved.get("pipeline", {}).get("id") == pipeline:
-            return saved
-
     clone_dir = repos_dir / repo_name
     has_clone = clone_dir.exists() and (clone_dir / ".git").exists()
+    # Offline without a clone, --force reuses the extraction made with this same
+    # pipeline: it is what re-extracting would produce (#215).
+    saved = json.loads(out_path.read_text(encoding="utf-8")) if out_path.exists() else None
+    current = saved is not None and saved.get("pipeline", {}).get("id") == pipeline
+    if current and saved.get("empty") and (not force or offline()):
+        log.debug("%s has no OCR text (recorded): skipping", repo_name)
+        return None
+    if current and (not force or (offline() and not has_clone)):
+        return saved
     # Offline, --force re-extracts from the existing clone instead of re-cloning.
     refetch = (force and not offline()) or not has_clone or not any(clone_dir.rglob("*.txt"))
     if refetch:
         if force and clone_dir.exists() and not offline():
             shutil.rmtree(clone_dir)
-        if not _sparse_clone(repo_name, clone_dir):
+        cloned = _sparse_clone(repo_name, clone_dir)
+        if cloned is False:
+            # Record it, so later runs (and offline ones) don't clone it again.
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(json.dumps({"repo": repo_name, "pipeline": {"id": pipeline},
+                                            "empty": True}) + "\n", encoding="utf-8")
+        if not cloned:
             return None
 
     # (clone_dir, scan_dir, files) for every scan of this volume, preferred first

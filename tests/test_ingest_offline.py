@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+import subprocess
 from pathlib import Path
 
 import httpx
@@ -141,6 +143,73 @@ def test_ogpg_never_clones_offline(tmp_path: Path) -> None:
 
     with offline_mode(), pytest.raises(OfflineError, match="cloning"):
         ogpg._sparse_clone_with_pattern("Vol.-1", "*.txt", tmp_path / "clone")
+
+
+def test_ogpg_offline_force_without_a_clone_reuses_a_current_extraction(tmp_path: Path,
+                                                                       monkeypatch) -> None:
+    """The extraction made with this pipeline is what re-extracting would produce."""
+    from scripts.ingest import ogpg
+
+    extract_dir = tmp_path / "_extract"
+    extract_dir.mkdir()
+    saved = {"repo": "Vol.-1", "pipeline": {"id": ogpg._pipeline_id()}, "page_heads": {},
+             "paragraphs": []}
+    (extract_dir / "vol-001.json").write_text(json.dumps(saved))
+    monkeypatch.setattr(ogpg, "_sparse_clone",
+                        lambda *a, **k: pytest.fail("must not clone offline"))
+    with offline_mode():
+        assert ogpg._extract_volume("Vol.-1", tmp_path / "_repos", extract_dir, force=True) == saved
+
+
+def test_ogpg_offline_force_without_a_clone_needs_a_current_extraction(tmp_path: Path) -> None:
+    from scripts.ingest import ogpg
+
+    extract_dir = tmp_path / "_extract"
+    extract_dir.mkdir()
+    (extract_dir / "vol-001.json").write_text(json.dumps({"pipeline": {"id": "older"}}))
+    with offline_mode(), pytest.raises(OfflineError, match="cloning"):
+        ogpg._extract_volume("Vol.-1", tmp_path / "_repos", extract_dir, force=True)
+
+
+def _git_repo(path: Path, files: dict[str, str]) -> None:
+    """A committed repo at *path*. git runs without the GIT_* variables of an
+    enclosing hook, so it can't touch another repository."""
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    path.mkdir(parents=True)
+    for rel, text in files.items():
+        (path / rel).parent.mkdir(parents=True, exist_ok=True)
+        (path / rel).write_text(text)
+
+    def git(*args: str) -> None:
+        subprocess.run(["git", "-C", str(path), *args], check=True, capture_output=True, env=env)
+
+    git("init", "-q")
+    git("-c", "user.email=t@example.com", "-c", "user.name=t", "add", ".")
+    git("-c", "user.email=t@example.com", "-c", "user.name=t", "commit", "-q", "-m", "x")
+
+
+def test_ogpg_offline_marks_a_repo_whose_tree_has_no_ocr_text(tmp_path: Path) -> None:
+    from scripts.ingest import ogpg
+
+    repos, extract_dir = tmp_path / "_repos", tmp_path / "_extract"
+    _git_repo(repos / "Vol.-61-62", {".gitignore": "*.pyc\n"})
+    with offline_mode():
+        assert ogpg._extract_volume("Vol.-61-62", repos, extract_dir, force=True) is None
+    marker = json.loads((extract_dir / "vol-061-062.json").read_text())
+    assert marker["empty"] and marker["pipeline"]["id"] == ogpg._pipeline_id()
+    with offline_mode():  # a later run reads the marker
+        assert ogpg._extract_volume("Vol.-61-62", repos, extract_dir, force=True) is None
+
+
+def test_ogpg_offline_still_refuses_a_clone_with_ocr_text_not_checked_out(tmp_path: Path) -> None:
+    """Text in the tree but not on disk needs a checkout: that is unknown offline."""
+    from scripts.ingest import ogpg
+
+    repo = tmp_path / "_repos" / "Vol.-1"
+    _git_repo(repo, {"hvd.123_ocr/0001.txt": "κείμενον"})
+    (repo / "hvd.123_ocr" / "0001.txt").unlink()
+    with offline_mode(), pytest.raises(OfflineError, match="cloning"):
+        ogpg._extract_volume("Vol.-1", tmp_path / "_repos", tmp_path / "_extract", force=True)
 
 
 # ---------------------------------------------------------------------------
