@@ -11,9 +11,21 @@ Coverage: 36 books — standard OT books, Ethiopian Orthodox deuterocanon,
 and books unique to the Ethiopic tradition (1 Enoch, Jubilees, Meqabyan,
 Kebra Nagast, etc.). NT books are NOT included in this source.
 
-Note on Kings: the Ethiopic tradition uses a combined "Kings" book
-(LXX-style 1–4 Kingdoms merged), assigned the abbreviation ``Kings`` here
-with chapter/verse refs as ``Kings.{ch}.{v}``.
+Some of the source's book codes don't name the book they hold, so
+``_RENAMED_BOOKS`` maps them onto OSIS books (work id ``gez/{osis book}``,
+refs ``{osis book}.{ch}.{v}``), which version groups and translation linking
+key on:
+
+- ``Kings`` ("Kings", ነገሥት፡) is only 2 Kings (4 Kingdoms): 25 chapters, from
+  Moab's rebellion after Ahab's death (2 Kgs 1:1) to 25:30 (#62, #66, #188).
+  1 Samuel – 1 Kings are not in the source (#64).
+- ``ApEz`` ("Apocalypse of Ezra") is 1 Esdras (Esdras A), and its chapter 1 is
+  a bare "Chapter 1" heading, so its chapter N is 1 Esdras N − 1 (#76).  The
+  source has no separate Ezra apocalypse: its only 4 Ezra text is chapters
+  11–13 of ``Ezra`` (4 Ezra 12–14).
+
+Every book's ``Work.edition`` names the edition (``EDITION``), not the book's
+Ge'ez title (#34).
 
 Works after the collection period: Kebra Nagast (c.1200–1325 CE, a national epic, not scripture
 or liturgy) is excluded (``_EXCLUDED_BOOKS``).  The Synaxarion (Ethiopic
@@ -47,7 +59,17 @@ _LITURGICAL_BOOKS = {"Sinod", "Synax"}
 #: Books left out of the corpus entirely, with the reason.
 _EXCLUDED_BOOKS: dict[str, str] = {
     "KN": "Kebra Nagast — composed c.1200–1325 CE, after the collection period",
+    "TestLd": "Testament of Our Lord — no Ge'ez text, only English chapter titles (#76)",
 }
+#: Source book code → (OSIS book, chapter offset).  Chapters that the offset
+#: moves below 1 are headings and are left out.
+_RENAMED_BOOKS: dict[str, tuple[str, int]] = {
+    "Kings": ("2Kgs", 0),
+    "ApEz": ("1Esd", -1),
+}
+#: Titles that differ from ``BOOK_TITLE``.
+_TITLES: dict[str, str] = {"2Kgs": "2 Kings (4 Kingdoms)"}
+EDITION = "Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible"
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -102,14 +124,20 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     works: list[Work] = []
 
     for book in tqdm(books, desc="gez books"):
-        abbrev: str = book["abbrev"]
-        if abbrev in _EXCLUDED_BOOKS:
-            stale = dest_dir / f"{abbrev.lower()}.json"
+        source_abbrev: str = book["abbrev"]
+        if source_abbrev in _EXCLUDED_BOOKS:
+            stale = dest_dir / f"{source_abbrev.lower()}.json"
             if stale.exists():
-                log.info("Removing %s (%s)", stale, _EXCLUDED_BOOKS[abbrev])
+                log.info("Removing %s (%s)", stale, _EXCLUDED_BOOKS[source_abbrev])
                 stale.unlink()
             continue
-        title: str = BOOK_TITLE.get(abbrev, book.get("name", abbrev))
+        abbrev, chapter_offset = _RENAMED_BOOKS.get(source_abbrev, (source_abbrev, 0))
+        if abbrev != source_abbrev:
+            stale = dest_dir / f"{source_abbrev.lower()}.json"
+            if stale.exists():
+                log.info("Removing %s (now %s)", stale, abbrev)
+                stale.unlink()
+        title: str = _TITLES.get(abbrev) or BOOK_TITLE.get(abbrev, book.get("name", abbrev))
         n_chapters: int = book.get("chapters", 0)
 
         dest_path = dest_dir / f"{abbrev.lower()}.json"
@@ -119,14 +147,13 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             works.append(Work(**raw["work"]))
             continue
 
-        book_chapters_dir = chapters_dir / abbrev
+        book_chapters_dir = chapters_dir / source_abbrev
         if not book_chapters_dir.exists():
             log.warning("No chapter directory for %s — skipping", abbrev)
             continue
 
         dm = _date_meta(abbrev)
         genre = _genre(abbrev)
-        geez_name: str = book.get("geez_name") or book.get("geez") or ""
 
         work = Work(
             work_id=f"{SOURCE_ID}/{abbrev.lower()}",
@@ -141,11 +168,13 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             date_confidence=dm["date_confidence"],
             license="cc-by-sa-4.0",
             provenance_url="https://github.com/LPettay/ethiopian-bible",
-            edition=geez_name or None,
+            edition=EDITION,
         )
 
         verses: list[dict] = []
         for ch in range(1, n_chapters + 1):
+            if ch + chapter_offset < 1:
+                continue
             ch_file = book_chapters_dir / f"{ch}.json"
             if not ch_file.exists():
                 log.debug("Missing chapter file %s", ch_file)
@@ -161,11 +190,11 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
                 if not text:
                     continue
                 v_num = verse.get("num")
-                ref = f"{abbrev}.{ch}.{v_num}"
+                ref = f"{abbrev}.{ch + chapter_offset}.{v_num}"
                 verses.append({"ref": ref, "text": text})
 
         if not verses:
-            log.warning("No verses extracted for %s", abbrev)
+            log.warning("No verses extracted for %s", source_abbrev)
             continue
 
         key = "verses" if genre == "scripture" else "paragraphs"
