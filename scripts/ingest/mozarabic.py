@@ -34,7 +34,7 @@ import httpx
 from tqdm import tqdm
 
 from patristica.models import Work
-from scripts.ingest._common import download_file, slugify_ref
+from scripts.ingest._common import download_file, offline, require_network, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -120,12 +120,13 @@ def _ia_search_first_id(query: str, cache_dir: Path, force: bool) -> str | None:
     """Search Internet Archive and return the identifier of the best match."""
     cache_key = re.sub(r"[^a-z0-9]", "_", query.lower())[:50]
     cache_path = cache_dir / f"_ia_search_{cache_key}.json"
-    if cache_path.exists() and not force:
+    if cache_path.exists() and (not force or offline()):
         try:
             return json.loads(cache_path.read_text())["identifier"]
         except Exception:
             pass
 
+    require_network(f"searching the Internet Archive for {query!r}")
     params = {
         "q": query,
         "fl[]": ["identifier", "title"],
