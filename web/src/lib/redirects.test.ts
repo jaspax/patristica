@@ -8,6 +8,7 @@ import {
   legacyAuthorRedirects,
   legacyPageRedirects,
   legacyWorkRedirects,
+  RENAMED_WORK_IDS,
   SPLIT_OGPG_VOLUMES,
 } from "./redirects";
 
@@ -39,7 +40,27 @@ describe("renamed work ids", () => {
     expect(currentWorkId("oglt_pl/augustinus/pl32_5_s")).toBe("oglt-pl/augustinus/pl32_5_s");
   });
 
-  it("redirects a single re-attributed work to its new id (#184)", () => {
+  it("redirects single renamed works (#188, #76), also from their pre-#102 ids", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/gez/kings",
+      destination: "/works/gez/2kgs",
+      permanent: true,
+    });
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/gez/apez",
+      destination: "/works/gez/1esd",
+      permanent: true,
+    });
+    expect(currentWorkId("gez/kings")).toBe("gez/2kgs");
+    expect(currentWorkId("scripture/gez/apez")).toBe("gez/1esd");
+    expect(currentWorkId("gez/kings/x")).toBe("gez/kings/x");
+    for (const [from, to] of RENAMED_WORK_IDS) {
+      expect(currentWorkId(to)).toBe(to);
+      expect(from).not.toBe(to);
+    }
+  });
+
+  it("redirects a re-attributed Patrologia Latina work to its new id (#184)", () => {
     expect(legacyWorkRedirects()).toContainEqual({
       source: "/works/oglt-pl/augustinus/pl47_0_unk",
       destination: "/works/oglt-pl/cyprianus-carthaginensis/pl47_0_unk",

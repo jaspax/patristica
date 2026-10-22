@@ -19,6 +19,22 @@ export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: stri
   ["oglt_pl", "oglt-pl"],
 ];
 
+/**
+ * Single works whose id changed (old id → new id), for renames that no prefix
+ * in `RENAMED_ID_PREFIXES` covers. Scripture work ids are `{source}/{osis book}`,
+ * so a book found to be ingested under the wrong code gets a new id; an OGLT PL
+ * work id carries its author (`oglt-pl/{author}/{stem}`), so a re-attribution
+ * in `oglt_pl_index.csv` does too.
+ */
+export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]> = [
+  // #188: the Ge'ez "Kings" is 2 Kings only.
+  ["gez/kings", "gez/2kgs"],
+  // #76: the Ge'ez "Apocalypse of Ezra" is 1 Esdras.
+  ["gez/apez", "gez/1esd"],
+  // #184: PL 47's "Opusculum I sive liber de oratione" is Cyprian's De dominica oratione.
+  ["oglt-pl/augustinus/pl47_0_unk", "oglt-pl/cyprianus-carthaginensis/pl47_0_unk"],
+];
+
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
 export const LEGACY_GENRE_PREFIXES: readonly string[] = ["scripture", "patristic", "liturgical", "councils"];
 
@@ -30,16 +46,6 @@ export function currentSourceId(sourceId: string): string {
   }
   return sourceId;
 }
-
-/**
- * Single works whose id changed (old id → new id), e.g. a Patrologia Latina
- * work re-attributed in `oglt_pl_index.csv`, whose id carries the author
- * (`oglt-pl/{author}/{stem}`). Both ids are spelled after `RENAMED_ID_PREFIXES`.
- */
-export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]> = [
-  // #184: PL 47's "Opusculum I sive liber de oratione" is Cyprian's De dominica oratione.
-  ["oglt-pl/augustinus/pl47_0_unk", "oglt-pl/cyprianus-carthaginensis/pl47_0_unk"],
-];
 
 /** The current id of a work id from an old link, following `RENAMED_ID_PREFIXES` and `RENAMED_WORK_IDS`. */
 export function currentWorkId(workId: string): string {
@@ -233,19 +239,19 @@ export function legacyPageRedirects(): PermanentRedirect[] {
 }
 
 /**
- * Reader redirects for `RENAMED_WORK_IDS`, `RENAMED_ID_PREFIXES` and
- * `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. A pre-#102 link to a renamed
- * work takes two hops (prefix, then id).
+ * Reader redirects for `RENAMED_ID_PREFIXES`, `RENAMED_WORK_IDS` and
+ * `SPLIT_OGPG_VOLUMES`, in `next.config.ts` form. An old id under a renamed
+ * prefix that is also a renamed work takes two hops.
  */
 export function legacyWorkRedirects(): PermanentRedirect[] {
-  const works = RENAMED_WORK_IDS.map(([from, to]) => ({
-    source: `/works/${from}`,
-    destination: `/works/${to}`,
-    permanent: true as const,
-  }));
   const renamed = RENAMED_ID_PREFIXES.map(([from, to]) => ({
     source: `/works/${from}/:rest+`,
     destination: to ? `/works/${to}/:rest+` : "/works/:rest+",
+    permanent: true as const,
+  }));
+  const works = RENAMED_WORK_IDS.map(([from, to]) => ({
+    source: `/works/${from}`,
+    destination: `/works/${to}`,
     permanent: true as const,
   }));
   const split = SPLIT_OGPG_VOLUMES.map((vol) => ({
@@ -253,5 +259,5 @@ export function legacyWorkRedirects(): PermanentRedirect[] {
     destination: `/works?q=ogpg/${vol}/`,
     permanent: true as const,
   }));
-  return [...works, ...renamed, ...split];
+  return [...renamed, ...works, ...split];
 }

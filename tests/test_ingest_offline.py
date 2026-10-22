@@ -16,8 +16,8 @@ from scripts.ingest._common import OfflineError, offline_mode
 
 @pytest.fixture(autouse=True)
 def _no_git_env(monkeypatch: pytest.MonkeyPatch) -> None:
-    """Drop the GIT_* variables of an enclosing hook (#231): the code under test
-    runs git in temporary repos, and GIT_DIR would point it at the pushing one."""
+    """Drop the GIT_* variables a git hook sets (pre-push runs these tests), so
+    the code under test runs git in its tiny test repos, not in this checkout."""
     for key in [k for k in os.environ if k.startswith("GIT_")]:
         monkeypatch.delenv(key)
 
