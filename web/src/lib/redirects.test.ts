@@ -8,6 +8,7 @@ import {
   legacyAuthorRedirects,
   legacyPageRedirects,
   legacyWorkRedirects,
+  RENAMED_WORK_IDS,
   SPLIT_OGPG_VOLUMES,
 } from "./redirects";
 
@@ -37,6 +38,26 @@ describe("renamed work ids", () => {
     });
     expect(currentWorkId("councils/nicaea1")).toBe("ecumenical/nicaea1");
     expect(currentWorkId("oglt_pl/augustinus/pl32_5_s")).toBe("oglt-pl/augustinus/pl32_5_s");
+  });
+
+  it("redirects single renamed works (#188, #76), also from their pre-#102 ids", () => {
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/gez/kings",
+      destination: "/works/gez/2kgs",
+      permanent: true,
+    });
+    expect(legacyWorkRedirects()).toContainEqual({
+      source: "/works/gez/apez",
+      destination: "/works/gez/1esd",
+      permanent: true,
+    });
+    expect(currentWorkId("gez/kings")).toBe("gez/2kgs");
+    expect(currentWorkId("scripture/gez/apez")).toBe("gez/1esd");
+    expect(currentWorkId("gez/kings/x")).toBe("gez/kings/x");
+    for (const [from, to] of RENAMED_WORK_IDS) {
+      expect(currentWorkId(to)).toBe(to);
+      expect(from).not.toBe(to);
+    }
   });
 
   it("leaves current ids alone", () => {
