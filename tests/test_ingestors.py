@@ -250,6 +250,28 @@ class TestScrollmapperParser:
         result = _parse_scrollmapper_csv(csv_content.encode(), "test")
         assert result == {}
 
+    def test_null_text_skipped(self):
+        """CopSahBible2 spells a missing verse ``null`` (#187); a book of nulls is absent."""
+        csv_content = "Book,Chapter,Verse,Text\nJude,1,1,null\nJude,1,2,NULL</ab>\n"
+        csv_content += "Genesis,1,1,null\nGenesis,1,2,ⲁⲩⲱ\n"
+        result = _parse_scrollmapper_csv(csv_content.encode(), "test")
+        assert result == {"Gen": [("Gen.1.2", "ⲁⲩⲱ")]}
+
+    def test_book_without_text_removed_from_raw(self, tmp_path, monkeypatch):
+        from scripts.ingest import _scrollmapper
+
+        (tmp_path / "_csvs").mkdir()
+        (tmp_path / "_csvs" / "T.csv").write_text(
+            "Book,Chapter,Verse,Text\nJude,1,1,null\nGenesis,1,1,In the beginning\n",
+            encoding="utf-8")
+        monkeypatch.setattr(_scrollmapper, "download_file", lambda url, dest, force=False: dest)
+        (tmp_path / "t").mkdir()
+        (tmp_path / "t" / "Jude.json").write_text("{}", encoding="utf-8")  # from an older run
+        works = _scrollmapper.ingest_scrollmapper(
+            tmp_path, "T", "t", "eng", "public_domain", "Test", force=False)
+        assert [w.work_id for w in works] == ["t/gen"]
+        assert sorted(p.name for p in (tmp_path / "t").iterdir()) == ["Gen.json"]
+
 
 # ---------------------------------------------------------------------------
 # LXX Rahlfs parser tests
