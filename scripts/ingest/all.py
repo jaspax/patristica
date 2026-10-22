@@ -28,6 +28,7 @@ from pathlib import Path
 
 import scripts.ingest as _ingest_pkg
 from patristica.models import Work
+from scripts.ingest._common import OfflineError, offline_mode
 from scripts.ingest._stamp import run_stamped
 
 log = logging.getLogger(__name__)
@@ -65,18 +66,28 @@ def _source_id_to_module(source_id: str) -> str:
     return f"scripts.ingest.{name}"
 
 
-def run_one(source_id: str, output_dir: Path, force: bool = False) -> list[Work]:
-    """Run a single ingestor by source_id and return its Work records."""
+def run_one(source_id: str, output_dir: Path, force: bool = False,
+            offline: bool = False) -> list[Work]:
+    """Run a single ingestor by source_id and return its Work records.
+
+    With *offline*, it runs from what is on disk only (``_common.offline_mode``).
+    """
     module_name = _source_id_to_module(source_id)
     log.info("Running ingestor: %s", module_name)
     mod = importlib.import_module(module_name)
-    works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
+    with offline_mode(offline):
+        works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
     log.info("  → %d works from %s", len(works), module_name)
     return works
 
 
-def run_all(output_dir: Path, force: bool = False) -> list[Work]:
-    """Import and run every discovered ingestor, returning all Work records."""
+def run_all(output_dir: Path, force: bool = False, offline: bool = False) -> list[Work]:
+    """Import and run every discovered ingestor, returning all Work records.
+
+    A failing ingestor is logged and skipped; the failures are listed at the
+    end. With *offline*, ingestors run from what is on disk only, and one that
+    would need the network fails with ``OfflineError``.
+    """
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -86,16 +97,25 @@ def run_all(output_dir: Path, force: bool = False) -> list[Work]:
         return []
 
     all_works: list[Work] = []
+    failed: dict[str, str] = {}
     for module_name in ingestors:
         log.info("Running ingestor: %s", module_name)
         try:
             mod = importlib.import_module(module_name)
-            works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
+            with offline_mode(offline):
+                works = run_stamped(mod.ingest, output_dir, mod.SOURCE_ID, force=force)
             log.info("  → %d works from %s", len(works), module_name)
             all_works.extend(works)
-        except Exception:
+        except OfflineError as exc:
+            log.error("Ingestor %s can't run offline: %s", module_name, exc)
+            failed[module_name] = str(exc)
+        except Exception as exc:
             log.exception("Ingestor %s failed", module_name)
+            failed[module_name] = f"{type(exc).__name__}: {exc}"
 
+    if failed:
+        log.error("%d ingestors failed (their raw data was left as it was):\n%s", len(failed),
+                  "\n".join(f"  {m}: {why}" for m, why in sorted(failed.items())))
     return all_works
 
 
@@ -110,6 +130,7 @@ def main() -> None:
             "  python -m scripts.ingest.all\n"
             "  python -m scripts.ingest.all --source oshb\n"
             "  python -m scripts.ingest.all --source kjv --force\n"
+            "  python -m scripts.ingest.all --force --offline   # regenerate + stamp from caches\n"
         ),
     )
     parser.add_argument(
@@ -128,16 +149,22 @@ def main() -> None:
         action="store_true",
         help="Re-download and re-parse even if output already exists",
     )
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Never use the network: work from cached downloads and existing clones only "
+             "(with --force: regenerate and stamp the raw data from them, #215)",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if args.source:
-        works = run_one(args.source, output_dir, force=args.force)
+        works = run_one(args.source, output_dir, force=args.force, offline=args.offline)
         print(f"Ingestion complete. {len(works)} works from {args.source}.")
     else:
-        works = run_all(output_dir, force=args.force)
+        works = run_all(output_dir, force=args.force, offline=args.offline)
         print(f"Ingestion complete. {len(works)} total works.")
 
 

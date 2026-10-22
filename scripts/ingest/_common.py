@@ -4,6 +4,8 @@ Common utilities shared across all ingestion modules.
 Functions
 ---------
 download_file   — idempotent HTTP download with ETag caching
+ensure_repo     — shallow-clone a git repo if absent; pull on force
+offline_mode    — run ingestors without network access (``--offline``, #215)
 parse_tei       — TEI P5 XML parser → (metadata, paragraphs)
 parse_osis      — OSIS XML parser  → (metadata, [(ref, text)])
 parse_usfm      — USFM line parser → (metadata, [(ref, text)])
@@ -15,6 +17,9 @@ from __future__ import annotations
 
 import logging
 import re
+import subprocess
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -23,6 +28,77 @@ from bs4 import BeautifulSoup
 from lxml import etree
 
 log = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Offline mode (#215)
+# ---------------------------------------------------------------------------
+#
+# ``--offline`` regenerates raw data from what is on disk: cached downloads,
+# cached pages and existing git clones, never the network. It is meant for
+# ``--force --offline``: rewrite every output with the current code (and so
+# stamp it, ``_stamp``) from the inputs already here. ``--force`` then means
+# "rewrite the outputs", not "fetch the inputs again", so an ingestor's cache
+# check is ``cache.exists() and (not force or offline())``. Anything that would
+# still need the network raises ``OfflineError``; as a safety net every httpx
+# request raises it too while offline mode is on.
+
+
+class OfflineError(RuntimeError):
+    """An --offline run needed something that isn't on disk."""
+
+
+_offline = False
+
+
+def offline() -> bool:
+    """Whether ingestors run without network access (``--offline``)."""
+    return _offline
+
+
+def require_network(what: str) -> None:
+    """Raise ``OfflineError`` in offline mode: *what* needs the network."""
+    if _offline:
+        raise OfflineError(f"--offline: {what}, and there is no copy on disk")
+
+
+def _refuse_request(self: Any, request: Any, *args: Any, **kwargs: Any) -> Any:
+    raise OfflineError(f"--offline: an ingestor tried to fetch {request.url}")
+
+
+@contextmanager
+def offline_mode(enabled: bool = True) -> Iterator[None]:
+    """Run the enclosed ingestors offline (a no-op when *enabled* is false)."""
+    global _offline
+    if not enabled:
+        yield
+        return
+    saved = (_offline, httpx.Client.send, httpx.AsyncClient.send)
+    _offline = True
+    httpx.Client.send = _refuse_request  # type: ignore[method-assign]
+    httpx.AsyncClient.send = _refuse_request  # type: ignore[method-assign]
+    try:
+        yield
+    finally:
+        _offline, httpx.Client.send, httpx.AsyncClient.send = saved  # type: ignore[method-assign]
+
+
+def ensure_repo(repo_url: str, repo_dir: Path, label: str, force: bool = False) -> None:
+    """Shallow-clone *repo_url* into *repo_dir* if absent; pull the latest on *force*.
+
+    Offline, an existing clone is used as it is and a missing one raises
+    ``OfflineError``.
+    """
+    if not repo_dir.exists():
+        require_network(f"cloning {repo_url}")
+        log.info("Cloning %s repo into %s …", label, repo_dir)
+        repo_dir.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(["git", "clone", "--depth=1", repo_url, str(repo_dir)], check=True)
+    elif force and offline():
+        log.info("--offline: using the existing %s clone without pulling", label)
+    elif force:
+        log.info("Pulling latest %s data …", label)
+        subprocess.run(["git", "-C", str(repo_dir), "pull", "--ff-only"], check=True)
+
 
 # ---------------------------------------------------------------------------
 # HTTP download
@@ -57,8 +133,16 @@ def download_file(
     Returns
     -------
     Path to the downloaded (or already-present) file.
+
+    Offline (``offline_mode``), an existing *dest* is returned without any
+    request, even with *force*, and a missing one raises ``OfflineError``.
     """
     dest = Path(dest)
+    if offline():
+        if dest.exists():
+            log.debug("--offline: using cached %s", dest)
+            return dest
+        require_network(f"downloading {url} to {dest}")
     dest.parent.mkdir(parents=True, exist_ok=True)
     etag_path = dest.with_suffix(dest.suffix + _ETAG_SUFFIX)
 

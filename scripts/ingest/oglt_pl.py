@@ -81,7 +81,6 @@ import functools
 import json
 import logging
 import re
-import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -90,7 +89,7 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Work
 from patristica.period import work_in_period
-from scripts.ingest._common import dedupe_refs, slugify_ref
+from scripts.ingest._common import dedupe_refs, ensure_repo, slugify_ref
 from scripts.ingest._patristic_meta import AUTHORS
 
 log = logging.getLogger(__name__)
@@ -230,20 +229,8 @@ def _apply_pl_index(
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
-    """Clone the patrologia_latina-dev repo if absent; pull latest on force."""
-    if not repo_dir.exists():
-        log.info("Cloning OGLT Patrologia Latina repo into %s …", repo_dir)
-        repo_dir.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            ["git", "clone", "--depth=1", _REPO_URL, str(repo_dir)],
-            check=True,
-        )
-    elif force:
-        log.info("Pulling latest OGLT PL data …")
-        subprocess.run(
-            ["git", "-C", str(repo_dir), "pull", "--ff-only"],
-            check=True,
-        )
+    """Clone the repo if absent; pull latest on force (not offline, #215)."""
+    ensure_repo(_REPO_URL, repo_dir, "OGLT Patrologia Latina", force)
 
 
 def _extract_dates(

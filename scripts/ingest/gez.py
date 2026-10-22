@@ -26,12 +26,12 @@ from __future__ import annotations
 
 import json
 import logging
-import subprocess
 from pathlib import Path
 
 from tqdm import tqdm
 
 from patristica.models import Work
+from scripts.ingest._common import ensure_repo
 from scripts.ingest._scripture_meta import BOOK_DATES, BOOK_TITLE
 
 log = logging.getLogger(__name__)
@@ -51,20 +51,8 @@ _EXCLUDED_BOOKS: dict[str, str] = {
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
-    """Shallow-clone the repo if absent; pull on force=True."""
-    if not repo_dir.exists():
-        log.info("Cloning ethiopian-bible repo into %s …", repo_dir)
-        repo_dir.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            ["git", "clone", "--depth=1", _REPO_URL, str(repo_dir)],
-            check=True,
-        )
-    elif force:
-        log.info("Pulling latest ethiopian-bible data …")
-        subprocess.run(
-            ["git", "-C", str(repo_dir), "pull", "--ff-only"],
-            check=True,
-        )
+    """Clone the repo if absent; pull latest on force (not offline, #215)."""
+    ensure_repo(_REPO_URL, repo_dir, "ethiopian-bible", force)
 
 
 def _date_meta(abbrev: str) -> dict:
