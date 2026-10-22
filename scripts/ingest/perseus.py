@@ -35,7 +35,6 @@ from __future__ import annotations
 import json
 import logging
 import re
-import subprocess
 from pathlib import Path
 
 from lxml import etree
@@ -43,7 +42,7 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from patristica.period import work_in_period
-from scripts.ingest._common import dedupe_refs, slugify_ref
+from scripts.ingest._common import dedupe_refs, ensure_repo, slugify_ref
 from scripts.ingest._cts_scope import (
     author_id_from_path,
     edition_matches_language,
@@ -80,20 +79,8 @@ _XML_PARSER = etree.XMLParser(load_dtd=False, no_network=True, resolve_entities=
 
 
 def _ensure_repo(repo_dir: Path, repo_url: str, label: str, force: bool) -> None:
-    """Clone a repo if absent; pull latest on force."""
-    if not repo_dir.exists():
-        log.info("Cloning %s repo into %s …", label, repo_dir)
-        repo_dir.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            ["git", "clone", "--depth=1", repo_url, str(repo_dir)],
-            check=True,
-        )
-    elif force:
-        log.info("Pulling latest %s data …", label)
-        subprocess.run(
-            ["git", "-C", str(repo_dir), "pull", "--ff-only"],
-            check=True,
-        )
+    """Clone a repo if absent; pull latest on force (not offline, #215)."""
+    ensure_repo(repo_url, repo_dir, label, force)
 
 
 def _build_first1k_ids(raw_dir: Path) -> set[str]:

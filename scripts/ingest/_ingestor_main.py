@@ -18,10 +18,12 @@ from __future__ import annotations
 
 import argparse
 import logging
+import sys
 from pathlib import Path
 from typing import Callable
 
 from patristica.models import Work
+from scripts.ingest._common import OfflineError, offline_mode
 from scripts.ingest._stamp import run_stamped
 
 
@@ -45,7 +47,18 @@ def ingestor_main(
         action="store_true",
         help="Re-download and re-parse even if output already exists",
     )
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Never use the network: work from cached downloads and existing clones only "
+             "(with --force: regenerate and stamp the raw data from them, #215)",
+    )
     args = parser.parse_args()
 
-    works = run_stamped(ingest_fn, Path(args.output_dir), source_id, force=args.force)
+    try:
+        with offline_mode(args.offline):
+            works = run_stamped(ingest_fn, Path(args.output_dir), source_id, force=args.force)
+    except OfflineError as exc:
+        logging.getLogger(__name__).error("%s can't run offline: %s", source_id, exc)
+        sys.exit(1)
     print(f"{source_id}: {len(works)} works written to {args.output_dir}")
