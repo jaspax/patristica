@@ -257,6 +257,53 @@ class TestScrollmapperParser:
         result = _parse_scrollmapper_csv(csv_content.encode(), "test")
         assert result == {"Gen": [("Gen.1.2", "ⲁⲩⲱ")]}
 
+    def test_asv_psalm_titles_get_their_own_unit(self):
+        """The ASV CSV starts Ps N:1 with the title; it becomes Ps.N.0 (#220)."""
+        from scripts.ingest.asv import split_psalm_titles
+
+        verses = [
+            ("Ps.1.1", "Blessed is the man that walketh not in the counsel of the wicked,"),
+            ("Ps.3.1", "A Psalm of David, when he fled from Absalom his son. Jehovah, how are"
+                       " mine adversaries increased!"),
+            ("Ps.3.2", "Many there are that say of my soul,"),
+            ("Ps.4.1", "For the Chief Musician; on stringed instruments. A Psalm of David."
+                       " Answer me when I call."),
+            ("Ps.18.1", "For the Chief Musician. A Psalm of David the servant of Jehovah, who"
+                        " spake unto Jehovah the words of this song in the day that Jehovah"
+                        " delivered him from the hand of all his enemies, and from the hand of"
+                        " Saul: and he said, I love thee, O Jehovah, my strength."),
+            ("Ps.54.1", "For the Chief Musician; on stringed instruments. Maschil of David; when"
+                        " the Ziphites came and said to Saul, Doth not David hide himself with"
+                        " us? Save me, O God, by thy name,"),
+        ]
+        out = dict(split_psalm_titles("Ps", verses))
+        assert "Ps.1.0" not in out
+        assert out["Ps.3.0"] == "A Psalm of David, when he fled from Absalom his son."
+        assert out["Ps.3.1"] == "Jehovah, how are mine adversaries increased!"
+        assert out["Ps.4.0"] == "For the Chief Musician; on stringed instruments. A Psalm of David."
+        assert out["Ps.18.1"] == "I love thee, O Jehovah, my strength."  # from the title table
+        assert out["Ps.54.0"].endswith("Doth not David hide himself with us?")
+        assert [r for r, _ in split_psalm_titles("Ps", verses)][:4] == [
+            "Ps.1.1", "Ps.3.0", "Ps.3.1", "Ps.3.2"]
+        assert split_psalm_titles("Hab", [("Hab.3.19", "A Psalm.")]) == [("Hab.3.19", "A Psalm.")]
+
+    def test_asv_title_table_must_match(self):
+        from scripts.ingest.asv import split_psalm_title
+
+        with pytest.raises(ValueError):
+            split_psalm_title("Ps.18.1", "I love thee, O Jehovah, my strength.")
+        with pytest.raises(ValueError):
+            split_psalm_title("Ps.98.1", "A Psalm.")
+
+    def test_xml_tags_stripped_editorial_brackets_kept(self):
+        """TEI residue goes; CopSahBible2's <…> editorial supplements are text (#220)."""
+        csv_content = (
+            "Book,Chapter,Verse,Text\n"
+            'Genesis,5,4,ⲥⲁϣϥⲉ <ⲛϣⲉ> ⲛⲣⲟⲙⲡⲉ <gap reason="lost"/></ab>\n'
+        )
+        result = _parse_scrollmapper_csv(csv_content.encode(), "test")
+        assert result == {"Gen": [("Gen.5.4", "ⲥⲁϣϥⲉ <ⲛϣⲉ> ⲛⲣⲟⲙⲡⲉ")]}
+
     def test_book_without_text_removed_from_raw(self, tmp_path, monkeypatch):
         from scripts.ingest import _scrollmapper
 
@@ -558,3 +605,18 @@ class TestNormalizeLayout:
         assert not (norm / "anf-works/anf01/a.json").exists()
         assert (norm / "didache/didache.json").exists()
         assert (norm / "pta/w.json").exists()
+
+
+class TestGallicanHeadings:
+    """Gallican OCR: real prayer headings open a section, OCR noise starting "Missa" doesn't (#241)."""
+
+    def test_heading_regex(self):
+        from scripts.ingest.gallican import _HEADING_RE
+
+        for heading in ("MISSA  IN  DEDICATIONE.", "Missa  in  vigilia  natalis  domini.",
+                        "ITEM  MISSA  JEJUNII.", "Collectio  sequitur.", "IN  DIE  PENTECOSTES."):
+            assert _HEADING_RE.match(heading), heading
+        for noise in ("MISSA LE  VESONTIONENSB.",  # running head
+                      "Missa Dominicaii.”— Mab.  quo  ait  Salvator",  # footnote
+                      "missa non  reddere.  Ne  dederis  os  tuum  ut"):  # prose
+            assert not _HEADING_RE.match(noise), noise

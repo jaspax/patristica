@@ -1,0 +1,4 @@
+# ASV Psalm titles the rule in scripts/ingest/asv.py (split_psalm_title) can't find: the CSV joins title and verse 1 with no marker (#220).
+# title is the exact text the CSV's verse 1 starts with; ingest fails if it doesn't.
+ref,title,reason
+Ps.18.1,"For the Chief Musician. A Psalm of David the servant of Jehovah, who spake unto Jehovah the words of this song in the day that Jehovah delivered him from the hand of all his enemies, and from the hand of Saul: and he said,","the title runs into verse 1 without a sentence end (""and he said, I love thee"")"

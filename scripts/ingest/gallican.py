@@ -3,7 +3,7 @@ Ingestor for Gallican liturgical texts.
 
 Sources (via Internet Archive OCR text):
   GothMiss — Missale Gothicum: Neale & Forbes, "Ancient Liturgies of the
-             Gallican Church" (Pitsligo Press 1855), IA item
+             Gallican Church" (Pitsligo Press, 1855–67), IA item
              AncientLiturgiesOfTheGallicanChurch.  English/Latin bilingual edition.
   GallVet  — Missale Gallicanum Vetus: Muratori, "Codices sacramentorum
              nongentis annis vetustiores" (1680), IA item bub_gb_6rVhPJ6sHdkC.
@@ -53,9 +53,11 @@ _ENGLISH_FN = frozenset([
     "shall", "upon", "unto", "wherein", "thereof", "therefore",
 ])
 
-# Prayer-type headings within Gallican masses
+# Prayer-type headings within Gallican masses. A bare "MISSA …" is not one:
+# in the Neale & Forbes OCR it matches a running head ("MISSA LE
+# VESONTIONENSB."), a footnote and a line of prose (#241).
 _HEADING_RE = re.compile(
-    r"^\s*(MISSA\s+IN|MISSA\s+DE|MISSA\s+PRO|MISSA\s+(?:AD|IN)\s|MISSA[-\s]|"
+    r"^\s*(MISSA\s+IN|MISSA\s+DE|MISSA\s+PRO|MISSA\s+(?:AD|IN)\s|"
     r"COLLECTIO|COLLECTA|PRAEFATIO|POST\s+NOMINA|POST\s+PRIDIE|"
     r"CONTESTATIO|IMMOLATIO|ANTE\s+ORATIONEM|AD\s+PACEM|ORATIO|"
     r"BENEDICTIO|BENEDICTIONES|INCIPIT|ITEM|ALIA\s+ORATIO|ALIA\b|"
@@ -87,7 +89,9 @@ _WORKS: list[_WorkSpec] = [
         date_composed=700, date_range=(650, 750),
         ref_abbrev="GothMiss",
         ia_id="AncientLiturgiesOfTheGallicanChurch",
-        edition="ed. Neale & Forbes (Pitsligo Press, 1855)",
+        # The scan holds all three parts (title pages dated 1855, 1858, 1867),
+        # and the work's text runs through all of them.
+        edition="ed. Neale & Forbes (Burntisland: Pitsligo Press, 1855–67)",
         provenance_url="https://archive.org/details/AncientLiturgiesOfTheGallicanChurch",
     ),
     _WorkSpec(

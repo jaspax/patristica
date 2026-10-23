@@ -32,6 +32,16 @@ def test_overrides_name_known_sources_books_and_schemes() -> None:
         assert scheme in ("org", "eng", "lxx", "vul")
 
 
+def test_english_psalm_title_maps_to_org_title_verse() -> None:
+    """ASV Ps.N.0 (the title as its own unit, #220) pairs with org verse 1."""
+    assert vz.to_org_ref("asv", "Ps.3.0") == "Ps.3.1"    # org title is its own verse
+    assert vz.to_org_ref("asv", "Ps.3.1") == "Ps.3.2"
+    assert vz.to_org_ref("asv", "Ps.23.0") == "Ps.23.1"  # org title starts verse 1
+    assert vz.to_org_ref("asv", "Ps.23.1") == "Ps.23.1"
+    assert vz.to_org_ref("asv", "Ps.51.0") == "Ps.51.1"  # org title is verses 1–2
+    assert vz.to_org_ref("asv", "Ps.51.1") == "Ps.51.3"
+
+
 def test_unregistered_source_still_raises() -> None:
     with pytest.raises(vz.VersificationError):
         vz.scheme_for("nope", "Gen", 1)
