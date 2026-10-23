@@ -7,16 +7,29 @@ export function formatYear(year: number): string {
   return year < 0 ? `${-year} BC` : String(year);
 }
 
-/** Short date for tables: "c. 397", "397", or "" when undated. */
-export function formatDate(row: Pick<WorkRow, "date" | "date_confidence">): string {
-  if (row.date === null) return "";
+/** "374–430" (or "430" for a single year), for an author activity range. */
+function formatSpan([lo, hi]: [number, number]): string {
+  return lo === hi ? formatYear(lo) : `${formatYear(lo)}–${formatYear(hi)}`;
+}
+
+/**
+ * Short date for tables: "c. 397", "397", or "" when undated. A work dated
+ * only by its authors (#151) shows their activity, marked as theirs:
+ * "author fl. 374–430".
+ */
+export function formatDate(
+  row: Pick<WorkRow, "date" | "date_confidence" | "author_date_range">,
+): string {
+  if (row.date === null) {
+    return row.author_date_range ? `author fl. ${formatSpan(row.author_date_range)}` : "";
+  }
   const prefix = row.date_confidence === "established" ? "" : "c. ";
   return prefix + formatYear(row.date);
 }
 
 /** Full date for the reader header, with range and confidence. */
 export function formatDateLong(
-  row: Pick<WorkRow, "date" | "date_range" | "date_confidence">,
+  row: Pick<WorkRow, "date" | "date_range" | "date_confidence" | "author_date_range">,
 ): string {
   const parts: string[] = [];
   if (row.date !== null) parts.push(formatYear(row.date));
@@ -24,7 +37,11 @@ export function formatDateLong(
   if (lo !== null && hi !== null && lo !== hi) {
     parts.push(`(${formatYear(lo)}–${formatYear(hi)})`);
   }
-  if (parts.length === 0) return "Undated";
+  if (parts.length === 0) {
+    return row.author_date_range
+      ? `Undated (author active ${formatSpan(row.author_date_range)})`
+      : "Undated";
+  }
   return `${parts.join(" ")}, ${row.date_confidence}`;
 }
 

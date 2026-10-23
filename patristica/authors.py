@@ -146,6 +146,20 @@ class Author:
             return min(later)
         return None
 
+    @property
+    def activity_range(self) -> tuple[int, int] | None:
+        """When the author was writing, for dating their undated works (#151).
+
+        The ``floruit`` when recorded; otherwise from 20 years after the
+        earliest possible birth to the latest possible death (or the death
+        year alone if that is earlier); otherwise ``None``.
+        """
+        if self.floruit is not None:
+            return (self.floruit.low, self.floruit.high)
+        if self.birth is not None and self.death is not None:
+            return (min(self.birth.low + 20, self.death.high), self.death.high)
+        return None
+
     def to_json(self) -> dict:
         """The record exported to the library's ``authors.json``."""
         return {
@@ -282,6 +296,18 @@ class AuthorIndex:
         return max(y for y in years if y is not None)
 
 
+    def activity_range(self, author_ids: list[str]) -> tuple[int, int] | None:
+        """Activity range of a work's authors (``Author.activity_range``), if all are known.
+
+        A work by several authors spans all of theirs; an anonymous work, or
+        one with an author without dates (pseudonymous authors), has none.
+        """
+        ranges = [self.authors[a].activity_range for a in author_ids]
+        if not ranges or any(r is None for r in ranges):
+            return None
+        return (min(r[0] for r in ranges if r), max(r[1] for r in ranges if r))
+
+
 def build_index(
     authors_path: Path = AUTHORS_PATH, strings_path: Path = AUTHOR_STRINGS_PATH
 ) -> AuthorIndex:
@@ -338,6 +364,37 @@ def apply_author_ids(work: dict) -> dict:
     if work.get("author_ids") == ids:
         return work
     return {**work, "author_ids": ids}
+
+
+def work_author_date_range(work: dict) -> tuple[int, int] | None:
+    """``Work.author_date_range`` for a work record (#151).
+
+    Only a work without a date of its own (no ``date_range`` and no
+    ``date_composed``) gets one: its authors' ``activity_range``. It never
+    feeds the period rule or the chunk dates: it is a separate, approximate
+    date for filtering and sorting.
+    """
+    if work.get("date_range") is not None or work.get("date_composed") is not None:
+        return None
+    return author_index().activity_range(work.get("author_ids") or [])
+
+
+def apply_author_date_range(work: dict) -> dict:
+    """Return the work record (with ``author_ids`` resolved) with ``author_date_range`` set.
+
+    The key is present only when there is a range, so works without one keep
+    their ``_works.jsonl`` line (and so their search-index hash). Returns
+    *work* itself when nothing changes, otherwise a copy.
+    """
+    derived = work_author_date_range(work)
+    have = work.get("author_date_range")
+    if derived is None:
+        if "author_date_range" not in work:
+            return work
+        return {k: v for k, v in work.items() if k != "author_date_range"}
+    if have is not None and tuple(have) == derived:
+        return work
+    return {**work, "author_date_range": list(derived)}
 
 
 def work_author_birth_year(author_ids: list[str]) -> int | None:

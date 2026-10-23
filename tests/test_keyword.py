@@ -211,6 +211,22 @@ def test_filters_and_paging(corpus) -> None:
     assert _search(conn, "the earth", filters=Filters(date_from=0)) == ([], None)
 
 
+def test_date_filter_matches_an_undated_work_by_its_authors_dates(corpus) -> None:
+    """Quoted search filters by ``works.author_date_range`` too (#151)."""
+    conn, *_ = corpus
+    conn.execute("INSERT INTO works (work_id, source_id, title, date_range, author_date_range, "
+                 "date_confidence, genre, language, license, path, content_sha) VALUES "
+                 "('pta/undated', 'pta', 'Undated', NULL, '[350,373]', 'uncertain', "
+                 "'patristic', 'eng', 'cc-by-4.0', 'x', 'x')")
+    conn.execute("INSERT INTO chunks (chunk_id, work_id, canonical_ref, chunk_index, "
+                 "language, text, date_confidence, out_of_period, text_folded) VALUES "
+                 "('pta/undated#1', 'pta/undated', '1', 0, 'eng', 'x', 'uncertain', false, %s)",
+                 (kw.index_text("as it is written: the earth"),))
+    assert _search(conn, "the earth", filters=Filters(date_from=300, date_to=400)) == (
+        ["pta/undated#1"], 1)
+    assert _search(conn, "the earth", filters=Filters(date_from=400)) == ([], None)
+
+
 def test_scripture_first_then_earliest(corpus) -> None:
     conn, *_ = corpus
     # Two patristic chunks quoting Genesis, one older than the Bible's date estimate.

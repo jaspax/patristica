@@ -234,7 +234,7 @@ def content_sha(entry: dict, files: Iterable[Path]) -> str:
 #: in place. Every other field of the manifest entry is part of ``body_sha``.
 WORK_META_FIELDS = ("title", "author", "author_ids", "date_composed", "date_range",
                     "date_confidence", "genre", "language", "tradition", "license",
-                    "provenance_url", "edition", "translation_of")
+                    "provenance_url", "edition", "translation_of", "author_date_range")
 #: Chunk fields that only metadata depends on (the dates); the rest is body.
 CHUNK_META_FIELDS = ("date_composed", "date_range", "date_confidence", "out_of_period")
 
@@ -359,13 +359,14 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
         cur.execute(
             "INSERT INTO works (work_id, source_id, title, author, author_ids, date_composed, "
             "date_range, date_confidence, genre, language, tradition, license, provenance_url, "
-            "edition, translation_of, path, content_sha, body_sha) VALUES (%s, %s, %s, %s, %s, "
-            "%s, %s::int4range, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "edition, translation_of, author_date_range, path, content_sha, body_sha) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s::int4range, %s, %s, %s, %s, %s, %s, %s, %s, "
+            "%s::int4range, %s, %s, %s)",
             (w["work_id"], w["source_id"], w["title"], w.get("author"), w.get("author_ids", []),
              w.get("date_composed"), pg_range(w.get("date_range")), w["date_confidence"],
              w["genre"], w["language"], w.get("tradition"), w["license"],
              w.get("provenance_url"), w.get("edition"), w.get("translation_of"),
-             entry["path"], sha, body))
+             pg_range(w.get("author_date_range")), entry["path"], sha, body))
         with cur.copy(f"COPY chunks ({', '.join(_CHUNK_COLUMNS)}) FROM STDIN") as copy:
             for c in chunks:
                 copy.write_row((c["chunk_id"], c["work_id"], c["canonical_ref"],
@@ -425,11 +426,13 @@ def update_metadata(conn: psycopg.Connection, entry: dict, sha: str, body: str,
             "UPDATE works SET title = %s, author = %s, author_ids = %s, date_composed = %s, "
             "date_range = %s::int4range, date_confidence = %s, genre = %s, language = %s, "
             "tradition = %s, license = %s, provenance_url = %s, edition = %s, "
-            "translation_of = %s, path = %s, content_sha = %s, body_sha = %s WHERE work_id = %s",
+            "translation_of = %s, author_date_range = %s::int4range, path = %s, "
+            "content_sha = %s, body_sha = %s WHERE work_id = %s",
             (w["title"], w.get("author"), w.get("author_ids", []), w.get("date_composed"),
              pg_range(w.get("date_range")), w["date_confidence"], w["genre"], w["language"],
              w.get("tradition"), w["license"], w.get("provenance_url"), w.get("edition"),
-             w.get("translation_of"), entry["path"], sha, body, w["work_id"]))
+             w.get("translation_of"), pg_range(w.get("author_date_range")), entry["path"],
+             sha, body, w["work_id"]))
         with cur.copy("COPY meta_stage (chunk_id, date_composed, date_range, date_confidence, "
                       "out_of_period) FROM STDIN") as copy:
             for c in chunks:

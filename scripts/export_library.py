@@ -172,6 +172,8 @@ def index_row(
         "date": work.date_composed,
         "date_range": list(work.date_range) if work.date_range else None,
         "date_confidence": work.date_confidence,
+        # Approximate, for undated works only: their authors' activity (#151).
+        "author_date_range": list(work.author_date_range) if work.author_date_range else None,
         "source_id": work.source_id,
         "edition": work.edition,
         "license": work.license,

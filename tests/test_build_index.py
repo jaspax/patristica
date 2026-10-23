@@ -317,6 +317,30 @@ def test_metadata_change_is_updated_in_place(pg_url: str, tmp_path: Path) -> Non
         assert (changed.loaded, changed.updated) == (1, 0)
 
 
+def test_author_date_range_touches_works_only(pg_url: str, tmp_path: Path) -> None:
+    """A derived author date (#151) is metadata of the work alone: updated in
+    place, with no chunk and no chunk_vectors row rewritten."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        rows = ("SELECT chunk_id, xmin::text, ctid::text FROM chunks UNION ALL "
+                "SELECT chunk_id || '/' || kind, xmin::text, ctid::text FROM chunk_vectors "
+                "ORDER BY 1")
+        before = conn.execute(rows).fetchall()
+        manifest = norm / "_works.jsonl"
+        entries = [json.loads(line) for line in manifest.read_text().splitlines()]
+        for e in entries:
+            if e["work"]["work_id"] == "pta/hymns":
+                e["work"]["author_date_range"] = [326, 373]
+        manifest.write_text("".join(json.dumps(e) + "\n" for e in entries))
+        stats = build_index.run(conn, norm, trans, store)
+        assert (stats.loaded, stats.updated, stats.updated_chunks, stats.vectors) == (0, 1, 0, 0)
+        assert conn.execute("SELECT author_date_range::text FROM works "
+                            "WHERE work_id = 'pta/hymns'").fetchone() == ("[326,374)",)
+        assert conn.execute(rows).fetchall() == before
+
+
 def test_status_reports_metadata_updates_apart(pg_url: str, tmp_path: Path) -> None:
     psycopg = pytest.importorskip("psycopg")
     from scripts import status

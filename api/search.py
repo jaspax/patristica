@@ -154,8 +154,13 @@ class Filters:
             if ids:
                 params["author"] = ids
         if self.date_from is not None or self.date_to is not None:
-            # Undated chunks can't match a date filter.
-            conds.append("date_range && int4range(%(date_from)s, %(date_to)s, '[]')")
+            # A chunk without a date (nor its work) matches through its work's
+            # authors' activity range (#151), which lives in works only: the
+            # derived date never rewrites chunks or chunk_vectors rows.
+            conds.append("(date_range && int4range(%(date_from)s, %(date_to)s, '[]') "
+                         "OR (date_range IS NULL AND work_id IN (SELECT work_id FROM works "
+                         "WHERE author_date_range && int4range(%(date_from)s, %(date_to)s, "
+                         "'[]'))))")
             params["date_from"], params["date_to"] = self.date_from, self.date_to
         if not self.include_out_of_period:
             conds.append("NOT out_of_period")

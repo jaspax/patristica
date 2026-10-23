@@ -14,12 +14,14 @@ from patristica.authors import (
     AuthorDate,
     AuthorIndexError,
     UnknownAuthorError,
+    apply_author_date_range,
     apply_author_ids,
     author_index,
     build_index,
     load_authors,
     parse_author_date,
     resolve_author,
+    work_author_date_range,
 )
 from patristica.models import Work
 from patristica.period import AUTHOR_BORN_BEFORE
@@ -143,6 +145,17 @@ def test_period_birth_year(index) -> None:
     # An uncertain late birth year is no evidence for exclusion.
     assert a["late-author"].period_birth_year is None
     assert a["known-late"].period_birth_year == 1040
+
+
+def test_activity_range(index) -> None:
+    a = index.authors
+    assert a["flourished"].activity_range == (500, 520)  # the floruit
+    assert a["augustine-of-hippo"].activity_range == (374, 430)  # birth + 20 .. death
+    assert a["jerome"].activity_range == (367, 420)  # c. 347: the earliest birth
+    assert a["pseudo-augustine"].activity_range is None
+    assert index.activity_range(["jerome", "augustine-of-hippo"]) == (367, 430)  # the span
+    assert index.activity_range(["jerome", "pseudo-augustine"]) is None  # one unknown
+    assert index.activity_range([]) is None
 
 
 def test_birth_year_of_a_work(index) -> None:
@@ -345,3 +358,69 @@ def test_normalize_rejects_unknown_author(tmp_path: Path) -> None:
     _write_raw(raw, "src/w.json", _work("src/w", "Nobody Whatsoever", 400))
     with pytest.raises(UnknownAuthorError, match="Nobody Whatsoever"):
         normalize_all(raw, norm)
+
+
+# ---------------------------------------------------------------------------
+# Author dates for undated works (#151)
+# ---------------------------------------------------------------------------
+
+def test_work_author_date_range() -> None:
+    undated = {"work_id": "x/y", "author_ids": ["augustine-of-hippo"]}
+    assert work_author_date_range(undated) == (374, 430)
+    # A date of the work's own wins, even a single year or a range alone.
+    assert work_author_date_range({**undated, "date_composed": 400}) is None
+    assert work_author_date_range({**undated, "date_range": [390, 400]}) is None
+    assert work_author_date_range({**undated, "author_ids": []}) is None
+    assert work_author_date_range({**undated, "author_ids": ["pseudo-augustine"]}) is None
+
+
+def test_apply_author_date_range() -> None:
+    work = {"work_id": "x/y", "author_ids": ["augustine-of-hippo"], "date_range": None,
+            "date_composed": None}
+    out = apply_author_date_range(work)
+    assert out == {**work, "author_date_range": [374, 430]}
+    assert "author_date_range" not in work  # not mutated
+    assert apply_author_date_range(out) is out
+    # A work that gets a date of its own loses the derived one; others never get the key.
+    dated = {**out, "date_range": [390, 400], "date_composed": 395}
+    assert "author_date_range" not in apply_author_date_range(dated)
+    plain = {"work_id": "x/z", "author_ids": []}
+    assert apply_author_date_range(plain) is plain
+
+
+def test_manifest_carries_author_date_range() -> None:
+    """_works.jsonl was regenerated after the author dates last changed (#151)."""
+    stale = {}
+    for w in _manifest_works():
+        want = work_author_date_range(w)
+        have = w.get("author_date_range")
+        if (list(want) if want else None) != have:
+            stale[w["work_id"]] = (have, want)
+    assert not stale, f"re-run scripts.normalize: {dict(list(stale.items())[:10])}"
+
+
+@pytest.mark.parametrize(
+    ("author", "expected"),
+    [
+        ("Augustinus", [374, 430]),
+        (None, None),  # anonymous
+        ("Pseudo-Augustinus", None),  # a pseudonym has no dates
+    ],
+)
+def test_normalize_gives_undated_works_their_author_dates(
+    tmp_path: Path, author: str | None, expected: list[int] | None
+) -> None:
+    """The range goes into _works.jsonl only: the chunks keep no date and the
+    period rule is unchanged."""
+    raw, norm = tmp_path / "raw", tmp_path / "normalized"
+    work = {**_work("src/w", author, 0), "date_composed": None, "date_range": None}
+    _write_raw(raw, "src/w.json", work)
+    normalize_all(raw, norm)
+    entry = json.loads((norm / "_works.jsonl").read_text(encoding="utf-8"))["work"]
+    assert entry.get("author_date_range") == expected
+    assert (entry["date_range"], entry["date_composed"]) == (None, None)
+    chunks = json.loads((norm / "src" / "w.json").read_text(encoding="utf-8"))
+    assert {(c["date_range"], c["date_composed"], c["out_of_period"]) for c in chunks} \
+        == {(None, None, False)}
+    if expected is None:
+        assert "author_date_range" not in entry

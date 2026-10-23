@@ -73,6 +73,16 @@ class Work(BaseModel):
         description="Inclusive (earliest, latest) composition range in CE years.",
     )
     date_confidence: DateConfidence = Field(default="uncertain")
+    author_date_range: tuple[int, int] | None = Field(
+        default=None,
+        description=(
+            "For a work with no date of its own (date_range and date_composed null): "
+            "its authors' activity range from the author index (floruit, else birth+20 "
+            "to death; patristica.authors, #151). Approximate, for filtering and sorting "
+            "only: it never sets date_range, the chunk dates or out_of_period. Set by "
+            "scripts.normalize; omitted from _works.jsonl when null."
+        ),
+    )
 
     # Classification
     genre: Genre
