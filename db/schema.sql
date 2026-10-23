@@ -48,8 +48,11 @@ CREATE TABLE IF NOT EXISTS works (
     edition         text,
     translation_of  text,
     path            text NOT NULL,              -- under data/normalized/
-    content_sha     text NOT NULL               -- of everything loaded for the work
+    content_sha     text NOT NULL,              -- of everything loaded for the work
+    body_sha        text                        -- of what needs a reload (#234): not metadata
 );
+-- Added after the first production load; build_index fills it in place (hash format 3).
+ALTER TABLE works ADD COLUMN IF NOT EXISTS body_sha text;
 CREATE INDEX IF NOT EXISTS works_author_ids ON works USING gin (author_ids);
 
 -- Every unit of every work, including the ones too short to embed.

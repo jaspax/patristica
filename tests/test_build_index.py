@@ -245,11 +245,135 @@ def test_staging_joins_are_never_prepared(pg_url: str, tmp_path: Path,
         build_index.run(conn, norm, trans, store)
         _swap_kjv_gen_1(monkeypatch)
         build_index.run(conn, norm, trans, store)
+        _change_metadata(norm)
+        build_index.run(conn, norm, trans, store)
     staged = [prepare for sql, prepare in calls
-              if any(f"FROM {t}_stage" in sql for t in ("vector", "fold", "group"))]
-    # vectors for 3 works, then folds for 3 works, then the groups of kjv/gen
-    assert len(staged) == 3 + 3 + 1
+              if any(f"FROM {t}_stage" in sql for t in ("vector", "fold", "group", "meta"))
+              or sql.startswith("UPDATE chunk_vectors")]
+    # vectors for 3 works, then folds for 3 works, then the groups of kjv/gen;
+    # then the chunk dates and vector filter columns of kjv/gen (#234), and the
+    # groups of both Genesis works (kjv/gen is no longer Scripture)
+    assert len(staged) == 3 + 3 + 1 + 2 + 2
     assert set(staged) == {False}
+
+
+def _change_metadata(norm: Path) -> None:
+    """Metadata-only changes to kjv/gen (#234): its record, and the dates of its chunks."""
+    manifest = norm / "_works.jsonl"
+    entries = [json.loads(line) for line in manifest.read_text().splitlines()]
+    for e in entries:
+        if e["work"]["work_id"] == "kjv/gen":
+            e["work"].update(title="Genesis (KJV)", author_ids=["moses"], date_range=[-1000, -400],
+                             date_composed=-700, date_confidence="uncertain", genre="apocrypha")
+    manifest.write_text("".join(json.dumps(e) + "\n" for e in entries))
+    path = norm / fx.work_path("kjv/gen")
+    chunks = json.loads(path.read_text())
+    chunks[0].update(date_range=None, date_composed=None, date_confidence="uncertain")
+    chunks[1].update(date_range=[1100, 1200], out_of_period=True)
+    path.write_text(json.dumps(chunks))
+
+
+_VECTORS = "SELECT chunk_id, kind, embedding::text FROM chunk_vectors ORDER BY 1, 2"
+
+
+def test_metadata_change_is_updated_in_place(pg_url: str, tmp_path: Path) -> None:
+    """A change to a work's metadata only rewrites rows; no vector is re-sent (#234)."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        vectors = conn.execute(_VECTORS).fetchall()
+        _change_metadata(norm)
+        dry = build_index.run(conn, norm, trans, store, dry_run=True)
+        assert (dry.loaded, dry.updated, dry.unchanged) == (0, 1, 2)
+        stats = build_index.run(conn, norm, trans, store)
+        assert (stats.loaded, stats.updated, stats.updated_chunks, stats.vectors) == (0, 1, 2, 0)
+        assert conn.execute(
+            "SELECT title, author_ids, date_composed, date_range::text, date_confidence, genre "
+            "FROM works WHERE work_id = 'kjv/gen'").fetchone() == (
+            "Genesis (KJV)", ["moses"], -700, "[-1000,-399)", "uncertain", "apocrypha")
+        assert conn.execute(
+            "SELECT chunk_id, date_range::text, date_confidence, out_of_period FROM chunks "
+            "WHERE work_id = 'kjv/gen' ORDER BY 1").fetchall() == [
+            ("kjv/gen#Gen.1.1", None, "uncertain", False),
+            ("kjv/gen#Gen.1.2", "[1100,1201)", "approximate", True)]
+        # The filter columns copied into chunk_vectors follow (a chunk without a
+        # date takes the work's), and the vectors are the ones loaded before.
+        assert conn.execute(
+            "SELECT chunk_id, genre, author_ids, date_range::text, out_of_period "
+            "FROM chunk_vectors WHERE work_id = 'kjv/gen' ORDER BY 1").fetchall() == [
+            ("kjv/gen#Gen.1.1", "apocrypha", ["moses"], "[-1000,-399)", False),
+            ("kjv/gen#Gen.1.2", "apocrypha", ["moses"], "[1100,1201)", True)]
+        assert conn.execute(_VECTORS).fetchall() == vectors
+        again = build_index.run(conn, norm, trans, store)
+        assert (again.loaded, again.updated, again.unchanged) == (0, 0, 3)
+
+        # A text change is not metadata: the work is reloaded.
+        path = norm / fx.work_path("kjv/gen")
+        chunks = json.loads(path.read_text())
+        chunks[0]["text"] = "In the beginning."
+        path.write_text(json.dumps(chunks))
+        changed = build_index.run(conn, norm, trans, store)
+        assert (changed.loaded, changed.updated) == (1, 0)
+
+
+def test_status_reports_metadata_updates_apart(pg_url: str, tmp_path: Path) -> None:
+    psycopg = pytest.importorskip("psycopg")
+    from scripts import status
+
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+    _change_metadata(norm)
+    (row,) = [r for r in status.db_rows(pg_url, norm, trans, store, tmp_path / "alignments")
+              if r.check == "database"]
+    assert row.level == "warn"
+    assert row.detail.startswith("0 works to load (vectors re-sent), 1 to update in place")
+
+
+@pytest.mark.parametrize("legacy", ["no body_sha column", "body_sha column empty"])
+def test_body_hash_migration_reloads_nothing(pg_url: str, tmp_path: Path, legacy: str) -> None:
+    """The first run on a database loaded before #234 (hash format 2) fills in
+    every body_sha in place and reloads nothing; after it, metadata changes are
+    updated in place."""
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB")
+        # As the loader before #234 left it: format 2, no body hashes.
+        if legacy == "no body_sha column":
+            conn.execute("ALTER TABLE works DROP COLUMN body_sha")
+        else:
+            conn.execute("UPDATE works SET body_sha = NULL")
+        conn.execute("UPDATE index_meta SET value = '2' WHERE key = 'hash_format'")
+        shas = conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall()
+        vectors = conn.execute(_VECTOR_ROWS).fetchall()
+
+        dry = build_index.run(conn, norm, trans, store, dry_run=True)
+        assert (dry.loaded, dry.updated, dry.unchanged, dry.backfilled) == (0, 0, 3, 3)
+        # A partial run fills in the hashes it checks but leaves the format at 2.
+        part = build_index.run(conn, norm, trans, store, sources=["pta"])
+        assert (part.loaded, part.backfilled) == (0, 1)
+        assert build_index.hash_format(conn) == 2
+        stats = build_index.run(conn, norm, trans, store)
+        assert (stats.loaded, stats.updated, stats.unchanged, stats.backfilled) == (0, 0, 3, 2)
+        assert build_index.hash_format(conn) == build_index.HASH_FORMAT == 3
+        assert conn.execute("SELECT count(*) FROM works WHERE body_sha IS NULL").fetchone() == (0,)
+        assert conn.execute("SELECT work_id, content_sha FROM works ORDER BY 1").fetchall() \
+            == shas
+        assert conn.execute(_VECTOR_ROWS).fetchall() == vectors  # not a row rewritten
+        again = build_index.run(conn, norm, trans, store)
+        assert (again.loaded, again.unchanged, again.backfilled) == (0, 3, 0)
+        # The filled-in hashes are the ones a fresh load stores.
+        entries = {e["work"]["work_id"]: e for e in build_index.load_works(norm)}
+        for work_id, body in conn.execute("SELECT work_id, body_sha FROM works"):
+            e = entries[work_id]
+            chunks = json.loads((norm / e["path"]).read_text())
+            files = (tr.translation_path(trans, e["path"]), emb.shard_path(store, e["path"]))
+            assert body == build_index.body_sha(e, chunks, files)
+        _change_metadata(norm)
+        changed = build_index.run(conn, norm, trans, store)
+        assert (changed.loaded, changed.updated) == (0, 1)
 
 
 def _swap_kjv_gen_1(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -349,12 +473,18 @@ def test_hash_format_transition_reloads_nothing(pg_url: str, tmp_path: Path,
         assert _groups(conn)["kjv/gen#Gen.1.2"] == "Gen.1.1"
         again = build_index.run(conn, norm, trans, store)
         assert (again.loaded, again.unchanged, again.rehashed, again.regrouped) == (0, 3, 0, 0)
-        # Format 2 no longer accepts a format-1 hash: a stale one means a reload.
+        # The current format no longer accepts a format-1 hash: a stale one is a
+        # change. Its body is the stored one, so it is rewritten in place (#234);
+        # without a body hash it is reloaded.
         e = entries["pta/hymns"]
         files = [norm / e["path"], tr.translation_path(trans, e["path"]),
                  emb.shard_path(store, e["path"])]
         conn.execute("UPDATE works SET content_sha = %s WHERE work_id = 'pta/hymns'",
                      (_format1_sha(e, files, {}),))
+        assert (lambda s: (s.loaded, s.updated))(build_index.run(conn, norm, trans, store)) \
+            == (0, 1)
+        conn.execute("UPDATE works SET content_sha = %s, body_sha = NULL "
+                     "WHERE work_id = 'pta/hymns'", (_format1_sha(e, files, {}),))
         assert build_index.run(conn, norm, trans, store).loaded == 1
 
 

@@ -23,7 +23,8 @@ Checks that need local data run only when asked: ``--raw`` compares
 the alignment groups whose inputs changed or that align would refuse; ``--db``
 connects to the search database (``DATABASE_URL``; on the droplet through
 ``infra/db-tunnel.sh``) for build_index's code hash and, with ``--vectors``,
-the works it would reload.
+the works it would reload, apart from those it would only update in place
+(metadata, #234).
 
 Usage::
 
@@ -245,10 +246,13 @@ def db_rows(url: str, norm: Path, trans: Path, vecs: Path | None,
                          "full run (bump LOADER_VERSION if stored data should change)")))
         if vecs is not None and vecs.is_dir():
             st = build_index.run(conn, norm, trans, vecs, dry_run=True, align_dir=align_dir)
-            busy = st.loaded or st.deleted or st.regrouped or st.passages
+            busy = (st.loaded or st.updated or st.deleted or st.regrouped or st.passages
+                    or st.backfilled)
             rows.append(Row("build_index", "database", "warn" if busy or st.stale_alignments
                             else "ok",
-                            f"{st.loaded} works to load, {st.deleted} to delete, "
+                            f"{st.loaded} works to load (vectors re-sent), "
+                            f"{st.updated} to update in place (metadata only, #234), "
+                            f"{st.backfilled} body hashes to fill in, {st.deleted} to delete, "
                             f"{st.regrouped} chunks to regroup, {st.passages} passage rows, "
                             f"{len(st.stale_alignments)} works with stale alignments"
                             + ("; run scripts.build_index" if busy else "")))

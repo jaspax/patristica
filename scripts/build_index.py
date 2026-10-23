@@ -24,7 +24,10 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   (its manifest record, normalized file, translations and vectors);
   a work whose hash is unchanged is skipped, a changed one is deleted and
   reloaded in one transaction, so an interrupted run resumes where it
-  stopped. A full run (no ``--source``/``--work``) deletes works that are no
+  stopped. Unless only its metadata changed (#234): a second hash,
+  ``body_sha``, leaves out the work record's metadata and the chunks' dates,
+  and a work whose body is unchanged is updated in place
+  (``update_metadata``) without re-sending a vector. A full run (no ``--source``/``--work``) deletes works that are no
   longer in the manifest.
 - When ``chunk_vectors`` is empty (the first load), or with
   ``--rebuild-index``, the HNSW indexes are dropped first and built after the
@@ -93,8 +96,12 @@ LOADER_VERSION = 1
 # (sync_groups, #186). index_meta.hash_format is the format of every stored
 # hash (no row: 1). While it is 1, a stored hash that is the format-1 hash of
 # the work's current inputs and its stored groups is rewritten in place, so
-# the first run after the change reloads nothing.
-HASH_FORMAT = 2
+# the first run after the change reloads nothing. Format 3 keeps content_sha as
+# in format 2 and adds works.body_sha (#234), the hash without the metadata: a
+# work whose content_sha changed but whose body_sha didn't is updated in place
+# (update_metadata). Below format 3, an unchanged work without a body_sha gets
+# it computed and stored in place, so that migration reloads nothing either.
+HASH_FORMAT = 3
 DIMS = 512  # stored vector size (#50); chunk_vectors.embedding is halfvec(512)
 HNSW_M = 16
 HNSW_EF_CONSTRUCTION = 64
@@ -133,10 +140,15 @@ class Stats:
     passages: int = 0  # passage_groups rows written or deleted in place
     stale_alignments: list[str] = field(default_factory=list)  # members whose ids changed
     rehashed: int = 0  # unchanged works whose format-1 hash was rewritten
+    updated: int = 0  # works whose metadata was updated in place (#234)
+    updated_chunks: int = 0  # chunks whose dates were updated in place
+    backfilled: int = 0  # unchanged works whose body_sha was filled in (hash format 3)
     no_vectors: list[str] = field(default_factory=list)  # works without a shard
 
     def summary(self) -> str:
-        return (f"{self.works} works: {self.loaded} loaded, {self.unchanged} unchanged, "
+        return (f"{self.works} works: {self.loaded} loaded, "
+                f"{self.updated} updated in place ({self.updated_chunks} chunks), "
+                f"{self.unchanged} unchanged, "
                 f"{self.deleted} deleted ({self.excluded} for their licence); "
                 f"{self.chunks} chunks, {self.translations} translations, "
                 f"{self.vectors} vectors loaded, {self.stale_vectors} stale vectors skipped, "
@@ -144,7 +156,8 @@ class Stats:
                 f"{self.folded} chunks folded in place, "
                 f"{self.regrouped} chunks regrouped in place, "
                 f"{self.passages} passage-group rows synced, "
-                f"{self.rehashed} format-1 hashes rewritten")
+                f"{self.rehashed} format-1 hashes rewritten, "
+                f"{self.backfilled} body hashes filled in")
 
 
 def pg_range(r: list[int] | tuple[int, int] | None) -> str | None:
@@ -215,6 +228,36 @@ def content_shas(entry: dict, files: Iterable[Path],
 def content_sha(entry: dict, files: Iterable[Path]) -> str:
     """Hash of everything ``load_work`` loads for *entry*, except its translation groups."""
     return content_shas(entry, files)[0]
+
+
+#: Work fields that only metadata depends on: ``update_metadata`` rewrites them
+#: in place. Every other field of the manifest entry is part of ``body_sha``.
+WORK_META_FIELDS = ("title", "author", "author_ids", "date_composed", "date_range",
+                    "date_confidence", "genre", "language", "tradition", "license",
+                    "provenance_url", "edition", "translation_of")
+#: Chunk fields that only metadata depends on (the dates); the rest is body.
+CHUNK_META_FIELDS = ("date_composed", "date_range", "date_confidence", "out_of_period")
+
+
+def body_sha(entry: dict, chunks: list[dict], files: Iterable[Path]) -> str:
+    """Hash of what a work can't be updated in place without (#234).
+
+    Like ``content_sha``, but without the metadata: the work fields in
+    ``WORK_META_FIELDS`` (and ``path``, ``external_ids``) and the chunk fields
+    in ``CHUNK_META_FIELDS``. What is left is the work's id and source, its
+    chunks (ids, refs, order, languages, texts) and the translation and vector
+    *files*. Two versions of a work with the same body differ only in what
+    ``update_metadata`` writes, so no vector needs re-sending.
+    """
+    work = {k: v for k, v in entry["work"].items()
+            if k not in WORK_META_FIELDS and k != "external_ids"}
+    body = [{k: v for k, v in c.items() if k not in CHUNK_META_FIELDS} for c in chunks]
+    head = {"loader": LOADER_VERSION, "schema": SCHEMA_VERSION, "dims": DIMS,
+            "work": work, "chunks": body}
+    h = hashlib.sha256(json.dumps(head, sort_keys=True, ensure_ascii=False).encode("utf-8"))
+    for path in files:
+        _file_digest([h], path)
+    return h.hexdigest()
 
 
 def apply_schema(conn: psycopg.Connection) -> None:
@@ -298,7 +341,8 @@ def copy_binary_vectors(rows: list[tuple[str, int, int]], vecs: np.ndarray) -> b
 
 def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict],
               translations: tr.WorkTranslations | None, shard: emb.WorkEmbeddings | None,
-              groups: dict[str, str], models: dict[tuple[str, str], int], stats: Stats) -> None:
+              groups: dict[str, str], models: dict[tuple[str, str], int], stats: Stats,
+              body: str | None = None) -> None:
     """Replace one work and everything under it, in one transaction."""
     import numpy as np
 
@@ -315,13 +359,13 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
         cur.execute(
             "INSERT INTO works (work_id, source_id, title, author, author_ids, date_composed, "
             "date_range, date_confidence, genre, language, tradition, license, provenance_url, "
-            "edition, translation_of, path, content_sha) VALUES (%s, %s, %s, %s, %s, %s, "
-            "%s::int4range, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "edition, translation_of, path, content_sha, body_sha) VALUES (%s, %s, %s, %s, %s, "
+            "%s, %s::int4range, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
             (w["work_id"], w["source_id"], w["title"], w.get("author"), w.get("author_ids", []),
              w.get("date_composed"), pg_range(w.get("date_range")), w["date_confidence"],
              w["genre"], w["language"], w.get("tradition"), w["license"],
              w.get("provenance_url"), w.get("edition"), w.get("translation_of"),
-             entry["path"], sha))
+             entry["path"], sha, body))
         with cur.copy(f"COPY chunks ({', '.join(_CHUNK_COLUMNS)}) FROM STDIN") as copy:
             for c in chunks:
                 copy.write_row((c["chunk_id"], c["work_id"], c["canonical_ref"],
@@ -363,6 +407,52 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
             "c.out_of_period FROM vector_stage s JOIN chunks c USING (chunk_id) "
             "JOIN works w ON w.work_id = c.work_id", prepare=False)
         stats.vectors += len(rows)
+
+
+def update_metadata(conn: psycopg.Connection, entry: dict, sha: str, body: str,
+                    chunks: list[dict]) -> int:
+    """Rewrite one work's metadata in place, in one transaction (#234).
+
+    For a work whose ``body_sha`` is unchanged: the ``works`` row, the date
+    fields of its ``chunks`` and the filter columns ``chunk_vectors`` copies
+    from them (``genre``, ``author_ids``, ``date_range``, ``out_of_period``).
+    No row is deleted and no vector is sent. Returns the number of chunks
+    whose dates changed. The staging joins are never prepared (#170).
+    """
+    w = entry["work"]
+    with conn.transaction(), conn.cursor() as cur:
+        cur.execute(
+            "UPDATE works SET title = %s, author = %s, author_ids = %s, date_composed = %s, "
+            "date_range = %s::int4range, date_confidence = %s, genre = %s, language = %s, "
+            "tradition = %s, license = %s, provenance_url = %s, edition = %s, "
+            "translation_of = %s, path = %s, content_sha = %s, body_sha = %s WHERE work_id = %s",
+            (w["title"], w.get("author"), w.get("author_ids", []), w.get("date_composed"),
+             pg_range(w.get("date_range")), w["date_confidence"], w["genre"], w["language"],
+             w.get("tradition"), w["license"], w.get("provenance_url"), w.get("edition"),
+             w.get("translation_of"), entry["path"], sha, body, w["work_id"]))
+        with cur.copy("COPY meta_stage (chunk_id, date_composed, date_range, date_confidence, "
+                      "out_of_period) FROM STDIN") as copy:
+            for c in chunks:
+                copy.write_row((c["chunk_id"], c.get("date_composed"),
+                                pg_range(c.get("date_range")), c["date_confidence"],
+                                c["out_of_period"]))
+        cur.execute(
+            "UPDATE chunks c SET date_composed = s.date_composed, date_range = s.date_range, "
+            "date_confidence = s.date_confidence, out_of_period = s.out_of_period "
+            "FROM meta_stage s WHERE c.chunk_id = s.chunk_id AND c.work_id = %s "
+            "AND (c.date_composed, c.date_range, c.date_confidence, c.out_of_period) "
+            "IS DISTINCT FROM (s.date_composed, s.date_range, s.date_confidence, s.out_of_period)",
+            (w["work_id"],), prepare=False)
+        changed = cur.rowcount
+        cur.execute(
+            "UPDATE chunk_vectors v SET genre = w.genre, author_ids = w.author_ids, "
+            "date_range = coalesce(c.date_range, w.date_range), out_of_period = c.out_of_period "
+            "FROM chunks c JOIN works w ON w.work_id = c.work_id "
+            "WHERE v.chunk_id = c.chunk_id AND v.work_id = %s AND c.work_id = %s "
+            "AND (v.genre, v.author_ids, v.date_range, v.out_of_period) IS DISTINCT FROM "
+            "(w.genre, w.author_ids, coalesce(c.date_range, w.date_range), c.out_of_period)",
+            (w["work_id"], w["work_id"]), prepare=False)
+    return changed
 
 
 def hnsw_indexes(conn: psycopg.Connection) -> list[str]:
@@ -612,6 +702,20 @@ def _has_table(conn: psycopg.Connection, name: str) -> bool:
                         "current_schema() AND tablename = %s)", (name,)).fetchone()[0]
 
 
+def stored_bodies(conn: psycopg.Connection) -> dict[str, str | None]:
+    """work_id → stored ``body_sha`` (None: not computed yet, hash format below 3).
+
+    A dry run can see a database from before the column existed: every value
+    is then None, as the real run will find it after adding the column.
+    """
+    has_column = conn.execute(
+        "SELECT EXISTS (SELECT FROM information_schema.columns WHERE table_schema = "
+        "current_schema() AND table_name = 'works' AND column_name = 'body_sha')").fetchone()[0]
+    if not has_column:
+        return {r[0]: None for r in conn.execute("SELECT work_id FROM works")}
+    return dict(conn.execute("SELECT work_id, body_sha FROM works"))
+
+
 def hash_format(conn: psycopg.Connection) -> int:
     """The format of the stored ``content_sha`` values (``HASH_FORMAT``).
 
@@ -693,6 +797,10 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         conn.execute("CREATE TEMP TABLE IF NOT EXISTS vector_stage (chunk_id text, "
                      "kind smallint, model_id smallint, embedding halfvec(512)) "
                      "ON COMMIT DELETE ROWS")
+        conn.execute("CREATE TEMP TABLE IF NOT EXISTS meta_stage (chunk_id text, "
+                     "date_composed integer, date_range int4range, date_confidence text, "
+                     "out_of_period boolean) ON COMMIT DELETE ROWS")
+    bodies = stored_bodies(conn) if stored else {}
 
     gone = set(stored) & excluded
     if not sources and not prefixes:
@@ -708,6 +816,7 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     models: dict[tuple[str, str], int] = {}
     checked: dict[str, Path] = {}  # works whose stored text matches their file
     rehash: dict[str, str] = {}  # work_id → new hash, for unchanged works with a format-1 hash
+    backfill: dict[str, str] = {}  # work_id → body_sha, for unchanged works without one
     loaded: set[str] = set()
     for entry in tqdm(wanted, desc="works", unit="work"):
         path = entry["path"]
@@ -721,16 +830,31 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         if work_id in stored and stored[work_id] in (sha, old_sha):
             if stored[work_id] != sha:
                 rehash[work_id] = sha
+            if bodies.get(work_id) is None:
+                # Hash format 3 (#234): the stored work is the current one, so
+                # its body hash can be computed from the files, in place.
+                stats.backfilled += 1
+                if not dry_run:
+                    with norm.open(encoding="utf-8") as f:
+                        backfill[work_id] = body_sha(entry, json.load(f), (tpath, spath))
             stats.unchanged += 1
+            checked[work_id] = norm
+            continue
+        with norm.open(encoding="utf-8") as f:
+            chunks = json.load(f)
+        body = body_sha(entry, chunks, (tpath, spath))
+        if work_id in stored and bodies.get(work_id) == body:
+            # Only metadata changed: update it in place, no vector is re-sent.
+            stats.updated += 1
+            if not dry_run:
+                stats.updated_chunks += update_metadata(conn, entry, sha, body, chunks)
             checked[work_id] = norm
             continue
         stats.loaded += 1
         if dry_run:
             continue
-        with norm.open(encoding="utf-8") as f:
-            chunks = json.load(f)
         load_work(conn, entry, sha, chunks, tr.load(trans_dir, path), emb.load(store_dir, path),
-                  work_groups, models, stats)
+                  work_groups, models, stats, body)
         loaded.add(work_id)
         checked[work_id] = norm
 
@@ -755,6 +879,10 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         conn.execute("UPDATE works w SET content_sha = r.sha FROM unnest(%s::text[], %s::text[]) "
                      "AS r(work_id, sha) WHERE w.work_id = r.work_id",
                      (list(rehash), list(rehash.values())))
+    if backfill:
+        conn.execute("UPDATE works w SET body_sha = r.sha FROM unnest(%s::text[], %s::text[]) "
+                     "AS r(work_id, sha) WHERE w.work_id = r.work_id",
+                     (list(backfill), list(backfill.values())))
     if fmt != HASH_FORMAT and not sources and not prefixes:
         # A full run: every stored hash is now of this format.
         set_hash_format(conn)
@@ -764,7 +892,8 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     # Also after an index build alone: a rerun after a failed build loads
     # nothing, and the first run never got to its ANALYZE.
     built = build_hnsw(conn, maintenance_work_mem)
-    if built or stats.loaded or stats.deleted or stats.folded or stats.regrouped or stats.passages:
+    if (built or stats.loaded or stats.updated or stats.deleted or stats.folded
+            or stats.regrouped or stats.passages):
         conn.execute("ANALYZE works, chunks, chunk_translations, chunk_vectors, passage_groups")
     if not sources and not prefixes:
         conn.execute("INSERT INTO index_meta VALUES (%s, %s) ON CONFLICT (key) "
