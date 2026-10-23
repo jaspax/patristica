@@ -1,29 +1,36 @@
 /* The landing page (Landing.tsx): the hero over the search box, then examples, counts, features and the Word strip. */
 
+/* The hero is a mosaic (a hand writing on a scroll before a starry vault):
+   a dark panel with light text in both colour schemes. */
 .hero {
+  --hero-bg: #121a30; /* the vault's blue, behind the text */
+  --hero-ink: #f5f0e6;
+  --hero-muted: #c9c6d8;
+  --hero-gilt: #e3c27a;
   position: relative;
   overflow: hidden;
   margin-bottom: 1.75rem;
   border-radius: calc(var(--radius) * 2);
-  border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, var(--hero-bg));
   box-shadow: var(--shadow-md);
-  background-color: var(--surface);
+  color: var(--hero-ink);
+  background-color: var(--hero-bg);
   background-image: image-set(url("/images/hero-768.jpg") 1x, url("/images/hero-1536.jpg") 2x);
   background-size: cover;
   background-position: right center;
 }
 
-/* The text sits on the empty wall at the left; the scrim fades the image out beneath it. */
+/* The text sits on the starry vault at the left; the scrim deepens it beneath the text. */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--surface) 94%, transparent) 0%,
-    color-mix(in srgb, var(--surface) 82%, transparent) 42%,
-    color-mix(in srgb, var(--surface) 25%, transparent) 68%,
-    transparent 85%
+    color-mix(in srgb, var(--hero-bg) 88%, transparent) 0%,
+    color-mix(in srgb, var(--hero-bg) 70%, transparent) 38%,
+    color-mix(in srgb, var(--hero-bg) 15%, transparent) 60%,
+    transparent 72%
   );
 }
 
@@ -45,7 +52,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--hero-gilt);
 }
 
 /* A short gilt rule after the eyebrow. */
@@ -55,7 +62,7 @@
   width: 3rem;
   height: 2px;
   margin-top: 0.6rem;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, var(--hero-gilt), transparent);
 }
 
 .title {
@@ -65,6 +72,7 @@
   line-height: 1.2;
   letter-spacing: -0.005em;
   text-wrap: balance;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.35);
 }
 
 .lead {
@@ -75,10 +83,19 @@
 
 .lead + .lead {
   margin-top: 0.75rem;
-  color: var(--muted);
+  color: var(--hero-muted);
 }
 
-/* Narrow screens: the image becomes a band above the text. */
+/* Links in the hero (none yet) and its focus ring must show on the dark panel. */
+.hero a {
+  color: var(--hero-gilt);
+}
+
+.hero :focus-visible {
+  outline-color: var(--hero-ink);
+}
+
+/* Narrow screens: the mosaic becomes a band above the text, fading into the vault's blue. */
 @media (max-width: 47.99rem) {
   .hero {
     padding-top: 9rem;
@@ -91,16 +108,9 @@
     background: linear-gradient(
       180deg,
       transparent 0,
-      color-mix(in srgb, var(--surface) 70%, transparent) 7rem,
-      var(--surface) 11rem
+      color-mix(in srgb, var(--hero-bg) 60%, transparent) 7rem,
+      var(--hero-bg) 11rem
     );
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero {
-    background-blend-mode: multiply;
-    background-color: #6b6152;
   }
 }
 
