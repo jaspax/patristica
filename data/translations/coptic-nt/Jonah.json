@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-22": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-22",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -97,9 +103,9 @@
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.1.12",
-      "source_sha256": "8b80812c12f3bdad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "1f8b95f62663d996",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 3,
       "text": "Jonah said to them, “Pick me up and throw me into the sea, and it will stop raging against you. For I know that this great storm has come upon you because of me.”"
     },
     {
@@ -244,10 +250,10 @@
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.3.6",
-      "source_sha256": "0b1bcb8d543c2a35",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "And the message reached the king of Nineveh. He rose from his throne, laid aside his robe, covered himself with sackcloth, and sat on ashes."
+      "source_sha256": "68a22df1fde6fb3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 3,
+      "text": "The news reached the king of Nineveh. He rose from his throne, took off his robe, covered himself with sackcloth, and sat on ashes."
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.3.7",
@@ -328,10 +334,10 @@
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.4.8",
-      "source_sha256": "d761203299020da8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "And when the sun was about to rise, God commanded a scorching and [?] weakening wind. And the sun beat down on Jonah’s head, and he grew faint and gave up. He said, “It is better for me to die than to live.”"
+      "source_sha256": "82934cb0b0135871",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-22",
+      "group_size": 3,
+      "text": "When the sun was about to rise, God commanded a wind that was scorching and [?] hot. The sun beat down on Jonah’s head, and he became fainthearted and gave up. He said, “It is better for me to die than to live.”"
     },
     {
       "chunk_id": "coptic-nt/jonah#Jonah.4.9",

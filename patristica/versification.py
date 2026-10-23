@@ -248,5 +248,11 @@ def to_org_ref(source_id: str, canonical_ref: str) -> str:
     if usfm is None:
         return canonical_ref if parts[0] != "EzraNeh" else f"{book}.{chapter}.{verse}"
 
+    if verse == "0" and scheme == "eng" and usfm == "PSA":
+        # An English psalm title as its own unit (ASV Ps.N.0, #220) is the org
+        # title, which starts verse 1: its own verse (Ps 3), the start of a
+        # verse that also holds text (Ps 23), or verses 1–2 (Ps 51; upstream
+        # maps that title to verse 2, the later of the two).
+        return f"Ps.{chapter}.1"
     d_book, d_ch, d_v = _scheme_map(scheme).get((usfm, chapter, verse), (usfm, chapter, verse))
     return f"{_USFM_TO_OSIS.get(d_book, d_book)}.{d_ch}.{d_v}"
