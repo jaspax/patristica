@@ -119,6 +119,9 @@ class TestExport:
         assert rows["pta/x"]["author_ids"] == ["augustine-of-hippo"]
         assert rows["kjv/gen"]["author_ids"] == []
         assert rows["pta/x"]["license"] == "cc-by-sa-4.0"
+        # An undated work carries its author's activity range (#151); a dated one doesn't.
+        assert rows["pta/x"]["author_date_range"] == [374, 430]
+        assert rows["kjv/gen"]["author_date_range"] is None
         for row in index["works"]:
             assert (out / row["file"]).exists()
 

@@ -302,7 +302,8 @@ class AuthorIndex:
         A work by several authors spans all of theirs; an anonymous work, or
         one with an author without dates (pseudonymous authors), has none.
         """
-        ranges = [self.authors[a].activity_range for a in author_ids]
+        # An unknown id has no dates (callers such as export_library report it).
+        ranges = [a.activity_range if (a := self.authors.get(i)) else None for i in author_ids]
         if not ranges or any(r is None for r in ranges):
             return None
         return (min(r[0] for r in ranges if r), max(r[1] for r in ranges if r))
@@ -367,7 +368,7 @@ def apply_author_ids(work: dict) -> dict:
 
 
 def work_author_date_range(work: dict) -> tuple[int, int] | None:
-    """``Work.author_date_range`` for a work record (#151).
+    """The ``author_date_range`` of a work record (#151) (a ``_works.jsonl`` key).
 
     Only a work without a date of its own (no ``date_range`` and no
     ``date_composed``) gets one: its authors' ``activity_range``. It never

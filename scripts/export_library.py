@@ -62,7 +62,7 @@ from typing import Any
 from tqdm import tqdm
 
 from patristica import alignment_store
-from patristica.authors import author_index
+from patristica.authors import author_index, work_author_date_range
 from patristica.models import Chunk, Work
 from patristica.sources import SOURCE_LABELS, source_label
 from patristica.versification import to_org_ref
@@ -161,6 +161,9 @@ def index_row(
     work: Work, file: str, n_chunks: int, version_group: str | None = None
 ) -> dict[str, Any]:
     """Build the ``index.json`` row for *work*."""
+    # Approximate, for undated works only: their authors' activity (#151). The
+    # same value normalize writes to _works.jsonl (a test checks it is current).
+    author_dates = work_author_date_range(work.model_dump())
     return {
         "id": work.work_id,
         "author": work.author,
@@ -172,8 +175,7 @@ def index_row(
         "date": work.date_composed,
         "date_range": list(work.date_range) if work.date_range else None,
         "date_confidence": work.date_confidence,
-        # Approximate, for undated works only: their authors' activity (#151).
-        "author_date_range": list(work.author_date_range) if work.author_date_range else None,
+        "author_date_range": list(author_dates) if author_dates else None,
         "source_id": work.source_id,
         "edition": work.edition,
         "license": work.license,
