@@ -605,3 +605,18 @@ class TestNormalizeLayout:
         assert not (norm / "anf-works/anf01/a.json").exists()
         assert (norm / "didache/didache.json").exists()
         assert (norm / "pta/w.json").exists()
+
+
+class TestGallicanHeadings:
+    """Gallican OCR: real prayer headings open a section, OCR noise starting "Missa" doesn't (#241)."""
+
+    def test_heading_regex(self):
+        from scripts.ingest.gallican import _HEADING_RE
+
+        for heading in ("MISSA  IN  DEDICATIONE.", "Missa  in  vigilia  natalis  domini.",
+                        "ITEM  MISSA  JEJUNII.", "Collectio  sequitur.", "IN  DIE  PENTECOSTES."):
+            assert _HEADING_RE.match(heading), heading
+        for noise in ("MISSA LE  VESONTIONENSB.",  # running head
+                      "Missa Dominicaii.”— Mab.  quo  ait  Salvator",  # footnote
+                      "missa non  reddere.  Ne  dederis  os  tuum  ut"):  # prose
+            assert not _HEADING_RE.match(noise), noise
