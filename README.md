@@ -90,7 +90,7 @@ Then open http://localhost:3000. Re-run the export after the normalized data cha
 
 **Live site:** https://patristica-beta.vercel.app/
 
-The deployed app runs on Vercel (root directory `web`) and reads the library from a DigitalOcean Spaces bucket through its CDN. Merges to `master` that change the corpus publish it automatically (GitHub Actions, *Publish library*). To publish by hand:
+The deployed app runs on Vercel (root directory `web`) and reads the library from a DigitalOcean Spaces bucket through its CDN. The data pipeline publishes it as its last step (`uv run --extra pipeline python -m scripts.pipeline`, #248); merging a data change publishes nothing. To publish by hand:
 
 ```bash
 uv sync --extra deploy                                   # once: installs boto3

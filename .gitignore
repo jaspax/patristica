@@ -33,3 +33,6 @@ data/eval/
 
 # OpenTofu working directory (providers, cached backend config); the lock file is tracked
 infra/tofu/.terraform/
+
+# scripts.pipeline run logs
+logs/

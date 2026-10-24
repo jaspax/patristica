@@ -36,8 +36,12 @@ Usage::
     python -m scripts.embed --dry-run                     # what would be sent, and the cost
     python -m scripts.embed --source gez --workers 4      # pilot
     python -m scripts.embed [--work oshb/] [--limit-works 50]
+    python -m scripts.embed --no-requests                 # rewrite and prune shards only
 
 Needs ``VOYAGE_API_KEY`` (environment or ``.env``) and the ``embed`` extra.
+``--no-requests`` needs no key: it does everything but call the API, and
+fails if any text is still to embed (``scripts.pipeline`` uses it when the
+estimate is $0, #248).
 """
 
 from __future__ import annotations
@@ -57,7 +61,7 @@ from tqdm import tqdm
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import load_works, select  # noqa: F401  (re-exported)
-from patristica.embedders import ApiEmbedder, VoyageEmbedder, cl100k
+from patristica.embedders import ApiEmbedder, ApiError, VoyageEmbedder, cl100k
 
 if TYPE_CHECKING:
     import numpy as np
@@ -109,6 +113,23 @@ class Stats:
     written: int = 0
     deleted: int = 0
     untranslated_works: dict[str, int] = field(default_factory=dict)
+
+
+class NoRequests(ApiEmbedder):
+    """Stands in for the API client when nothing is to be embedded
+    (``--no-requests``): shards are still rewritten and pruned, and any
+    request fails instead of being sent."""
+
+    batch_size = VoyageEmbedder.batch_size
+    max_batch_tokens = VoyageEmbedder.max_batch_tokens
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.name, self.dims = f"voyage/{MODEL}", DIMS
+
+    def _embed(self, texts: list[str], kind: str) -> list[list[float]]:
+        raise ApiError(f"--no-requests: {len(texts)} texts would have been sent; "
+                       "run scripts.embed without it")
 
 
 def wanted_items(chunks: list[dict], translations: tr.WorkTranslations | None,
@@ -319,12 +340,16 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true", help="report the work and cost only")
     p.add_argument("--include-unpublishable", action="store_true",
                    help="also embed works whose licence keeps them out of the index")
+    p.add_argument("--no-requests", action="store_true",
+                   help="never call the API (no key needed): rewrite and prune shards, "
+                        "and fail if any text is still to embed")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     run(args.input_dir, args.store, args.translations, sources=args.source,
         prefixes=args.work, limit_works=args.limit_works, workers=args.workers,
-        dry_run=args.dry_run, include_unpublishable=args.include_unpublishable)
+        dry_run=args.dry_run, include_unpublishable=args.include_unpublishable,
+        **({"make_embedder": NoRequests} if args.no_requests else {}))
 
 
 if __name__ == "__main__":

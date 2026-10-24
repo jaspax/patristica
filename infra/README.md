@@ -83,12 +83,13 @@ The static library export (`scripts.export_library`) is served from the Spaces b
 
 - The bucket listing is private. `scripts.upload_library` uploads each file gzipped and public-read, and keeps its change manifest `_manifest.json` private. The CORS rule (GET/HEAD from any origin) is part of the tofu config.
 - The CDN caches each file for `library_cdn_ttl` seconds (600), so `index.json` can be up to 10 minutes stale after a publish.
-- The *Publish library* workflow uploads with a Spaces key that can only touch this bucket. Store it as repo secrets once after the first `apply`, without printing it:
+- The library is published by `scripts.pipeline` as its last step (#248), not by a GitHub workflow. It uploads with a Spaces key that can only touch this bucket. Put it in `web/.env` (gitignored) once after the first `apply`, with `LIBRARY_BUCKET=patristica-library`, without printing it:
   ```bash
-  infra/tofu.sh output -raw library_access_key | gh secret set LIBRARY_ACCESS_KEY_ID
-  infra/tofu.sh output -raw library_secret_key | gh secret set LIBRARY_SECRET_ACCESS_KEY
+  { echo "LIBRARY_ACCESS_KEY_ID=$(infra/tofu.sh output -raw library_access_key)"
+    echo "LIBRARY_SECRET_ACCESS_KEY=$(infra/tofu.sh output -raw library_secret_key)"
+    echo "LIBRARY_BUCKET=patristica-library"; } >> web/.env
   ```
-- To publish by hand, put the same two values plus `LIBRARY_BUCKET=patristica-library` in `web/.env` and run `uv run --extra deploy python -m scripts.upload_library` (`--dry-run` first).
+- To publish without the rest of the pipeline, run `uv run --extra deploy python -m scripts.upload_library` after `scripts.export_library` (`--dry-run` first).
 - The bucket has no `prevent_destroy`: everything in it is rebuilt from `data/normalized` by one publish run.
 
 ## Backups
