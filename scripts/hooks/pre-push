@@ -8,6 +8,8 @@
 #      Every pushed ref is checked against its own base. validate reads the
 #      working tree, so a pushed revision that needs it must be the checked-out
 #      HEAD: push other branches from their own checkout.
+#   4. Upload the git-lfs objects the pushed commits use (data/, #244), with
+#      git lfs pre-push: core.hooksPath replaces the hook git lfs installs.
 #
 # Install once per clone:   git config core.hooksPath scripts/hooks
 # Bypass in an emergency:   git push --no-verify
@@ -16,6 +18,7 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 zero=0000000000000000000000000000000000000000
+refs="$(cat)"  # read once: git lfs pre-push needs the same lines
 pushed=()  # "local_sha base" for every ref pushed (not deleted)
 # git feeds one line per ref being pushed: <local ref> <local sha> <remote ref> <remote sha>
 while read -r _local_ref local_sha remote_ref remote_sha; do
@@ -24,7 +27,7 @@ while read -r _local_ref local_sha remote_ref remote_sha; do
         echo "pre-push: push a feature branch and open a pull request instead." >&2
         exit 1
     fi
-    [[ "$local_sha" == "$zero" ]] && continue  # a deletion
+    [[ -z "$local_sha" || "$local_sha" == "$zero" ]] && continue  # a deletion
     base=""
     if [[ "$remote_sha" != "$zero" ]] && git cat-file -e "$remote_sha" 2>/dev/null; then
         base="$remote_sha"
@@ -37,7 +40,12 @@ while read -r _local_ref local_sha remote_ref remote_sha; do
         done
     fi
     pushed+=("$local_sha $base")
-done
+done <<<"$refs"
+
+if ! command -v git-lfs >/dev/null; then
+    echo "pre-push: git-lfs is required: data/ is stored in git-lfs (#244)." >&2
+    exit 1
+fi
 
 echo "pre-push: running unit tests (uv run pytest)..." >&2
 if ! uv run --extra dev pytest -q -p no:cacheprovider; then
@@ -45,12 +53,10 @@ if ! uv run --extra dev pytest -q -p no:cacheprovider; then
     exit 1
 fi
 
-if [[ "${PATRISTICA_SKIP_VALIDATE:-}" == "1" ]]; then
-    exit 0
-fi
 head="$(git rev-parse HEAD)"
 validate=0
-for entry in "${pushed[@]}"; do
+[[ "${PATRISTICA_SKIP_VALIDATE:-}" == "1" ]] && pushed=()
+for entry in "${pushed[@]+"${pushed[@]}"}"; do
     read -r local_sha base <<<"$entry"
     if [[ -z "$base" ]]; then
         echo "pre-push: no master here to compare ${local_sha:0:12} with; not validating it." >&2
@@ -76,3 +82,5 @@ if [[ "$validate" == 1 ]]; then
         exit 1
     fi
 fi
+
+git lfs pre-push "$@" <<<"$refs"

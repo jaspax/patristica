@@ -31,6 +31,11 @@ esac
 exit 0
 """
 
+# git runs `git lfs …` as git-lfs on PATH: record the call and the ref lines it was given.
+STUB_LFS = """#!/usr/bin/env bash
+{ echo "lfs $*"; cat; } >> "$LFS_LOG"
+"""
+
 
 def clean_env(**extra: str) -> dict[str, str]:
     """``os.environ`` without git's per-repository variables, plus *extra*."""
@@ -65,19 +70,24 @@ def repo(tmp_path: Path) -> dict:
     bin_dir.mkdir()
     (bin_dir / "uv").write_text(STUB_UV)
     (bin_dir / "uv").chmod(0o755)
+    (bin_dir / "git-lfs").write_text(STUB_LFS)
+    (bin_dir / "git-lfs").chmod(0o755)
     return {"root": root, "base": shas[0], "other": shas[1], "head": shas[2],
-            "bin": bin_dir, "changed": tmp_path / "changed", "log": tmp_path / "log"}
+            "bin": bin_dir, "changed": tmp_path / "changed", "log": tmp_path / "log",
+            "lfs_log": tmp_path / "lfs_log"}
 
 
 def push(repo: dict, lines: list[str], changed: list[str], **env: str) -> tuple[int, str, int]:
     """Run the hook; return (exit code, stderr, number of full validations)."""
     repo["changed"].write_text("".join(f"{c}\n" for c in changed))
     repo["log"].write_text("")
+    repo["lfs_log"].write_text("")
     proc = subprocess.run(
         ["bash", str(HOOK)], cwd=repo["root"], input="".join(f"{line}\n" for line in lines),
         capture_output=True, text=True,
         env=clean_env(PATH=f"{repo['bin']}:{os.environ['PATH']}",
-                      CHANGED=str(repo["changed"]), LOG=str(repo["log"]), **env))
+                      CHANGED=str(repo["changed"]), LOG=str(repo["log"]),
+                      LFS_LOG=str(repo["lfs_log"]), **env))
     return proc.returncode, proc.stderr, len(repo["log"].read_text().splitlines())
 
 
@@ -121,3 +131,18 @@ def test_push_to_master_is_refused(repo) -> None:
 def test_skip_variable(repo) -> None:
     assert push(repo, [ref(repo["head"], repo["base"])], changed=[repo["head"]],
                 PATRISTICA_SKIP_VALIDATE="1")[::2] == (0, 0)
+
+
+def test_lfs_objects_are_pushed_with_the_same_ref_lines(repo) -> None:
+    """data/ is in git-lfs (#244): the hook hands git's ref lines to git lfs pre-push,
+    also when validation is skipped."""
+    line = ref(repo["head"], repo["base"])
+    for env in ({}, {"PATRISTICA_SKIP_VALIDATE": "1"}):
+        code, _, _ = push(repo, [line], [], **env)
+        assert code == 0
+        assert repo["lfs_log"].read_text().splitlines() == ["lfs pre-push", line]
+
+
+def test_lfs_objects_are_not_pushed_when_a_check_fails(repo) -> None:
+    code, _, _ = push(repo, [ref(repo["head"], repo["base"], "master")], [])
+    assert code == 1 and repo["lfs_log"].read_text() == ""

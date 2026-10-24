@@ -1,0 +1,10 @@
+# data/ in git-lfs (#244; scripts/data.py). Raw data, vectors and normalized
+# work files are LFS objects; the manifests, fingerprints and stamps that tests,
+# CI and reviews read stay plain git. Later lines win.
+data/raw/** filter=lfs diff=lfs merge=lfs -text
+data/embeddings/** filter=lfs diff=lfs merge=lfs -text
+data/normalized/** filter=lfs diff=lfs merge=lfs -text
+data/normalized/_* !filter !diff !merge !text
+data/raw/**/_ingest.json !filter !diff !merge !text
+data/raw/**/.gitignore !filter !diff !merge !text
+data/raw/_repo_archives/_manifest.json !filter !diff !merge !text

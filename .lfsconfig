@@ -1,0 +1,5 @@
+# Fetch no data/ LFS objects by default (#244): checkouts get pointer files.
+# Materialize with scripts.data: `pull --all` on the pipeline machine,
+# `pull --job tests` in CI.
+[lfs]
+	fetchexclude = data/**
