@@ -83,6 +83,14 @@ def book_group_paths(norm: Path) -> set[str]:
     return {e["path"] for e in works if e["work"]["work_id"] in members}
 
 
+def scripture_book_paths(norm: Path) -> set[str]:
+    """Works whose id names a Scripture book (``patristica.versions.scripture_book``),
+    also those with no other version: ``tests/test_versions.py`` reads their refs."""
+    from patristica.versions import scripture_book
+
+    return {e["path"] for e in _works(norm) if scripture_book(e["work"]["work_id"])}
+
+
 def language_sample_paths(norm: Path, per_language: int = 2) -> set[str]:
     """The first works of each language in ``_works.jsonl`` (``tests/test_textfold.py``)."""
     seen: dict[str, int] = {}
@@ -119,8 +127,8 @@ def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> l
     align_dir = align_dir or REPO / store.DEFAULT_DIR
     if job not in ("tests", "status"):
         raise ValueError(f"unknown job {job!r}")
-    paths = (book_group_paths(norm) | aligned_paths(norm, align_dir)
-             | language_sample_paths(norm))
+    paths = (book_group_paths(norm) | scripture_book_paths(norm)
+             | aligned_paths(norm, align_dir) | language_sample_paths(norm))
     if job == "status":
         paths |= translated_paths(norm)
     prefix = norm.relative_to(REPO).as_posix()
