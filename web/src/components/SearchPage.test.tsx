@@ -68,15 +68,14 @@ function page(results: SearchResult[], overrides: Partial<SearchResponse> = {}):
     phrases: [],
     text: "faith",
     total: null,
-    offset: 0,
     limit: 20,
-    next_offset: null,
+    next_cursor: null,
     results,
     ...overrides,
   };
 }
 
-/** Serve the library files, and `api` for /api/search requests (by offset). */
+/** Serve the library files, and `api` for /api/search requests (by cursor). */
 function serve(api: (url: URL) => Response) {
   const fetch = vi.fn(async (input: string) => {
     const url = new URL(input, "http://localhost");
@@ -327,9 +326,9 @@ describe("SearchPage", () => {
     it("loads more results through the API's paging", async () => {
     search = "q=faith";
     serve((url) =>
-      url.searchParams.get("offset") === "20"
-        ? json(page([result({ chunk_id: "b", canonical_ref: "Hymn.2.1" })], { offset: 20 }))
-        : json(page([result()], { next_offset: 20 })),
+      url.searchParams.get("cursor") === "page2"
+        ? json(page([result({ chunk_id: "b", canonical_ref: "Hymn.2.1" })]))
+        : json(page([result()], { next_cursor: "page2" })),
     );
     await renderPage();
     fireEvent.click(await screen.findByRole("button", { name: "More results" }));
@@ -350,7 +349,7 @@ describe("SearchPage", () => {
 
   it("announces how many passages are shown", async () => {
     search = "q=faith";
-    serve(() => json(page([result()], { next_offset: 20 })));
+    serve(() => json(page([result()], { next_cursor: "page2" })));
     await renderPage();
     await screen.findByText("Hymn.1.1");
     await waitFor(() => expect(screen.getByRole("status").textContent).toBe("1 passage shown, more available."));
@@ -415,7 +414,7 @@ describe("SearchPage", () => {
           matches: [[0, 12]],
         }),
       ],
-      { mode: "keyword", phrases: ["in principio"], text: "", total: 386, next_offset: 20, ...overrides },
+      { mode: "keyword", phrases: ["in principio"], text: "", total: 386, next_cursor: "page2", ...overrides },
     );
   }
 
@@ -455,7 +454,7 @@ describe("SearchPage", () => {
 
   it("offers a semantic search when no passage contains the phrase", async () => {
     search = "q=%22in+principio%22+%C2%ABverbum%C2%BB";
-    serve(() => json(phrasePage({ results: [], total: null, next_offset: null, phrases: ["in principio", "verbum"] })));
+    serve(() => json(phrasePage({ results: [], total: null, next_cursor: null, phrases: ["in principio", "verbum"] })));
     await renderPage();
     expect(await screen.findByText(/No passages contain these phrases/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Search by meaning instead" }));

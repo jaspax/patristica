@@ -6,6 +6,9 @@ into the Postgres of ``PATRISTICA_TEST_DATABASE_URL`` and skip without it.
 
 from __future__ import annotations
 
+import logging
+import re
+import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -201,8 +204,8 @@ class FakeSearcher:
     def __init__(self, exc: Exception | None = None) -> None:
         self.exc, self.calls = exc, []
 
-    def search(self, q, filters, limit, offset):
-        self.calls.append((q, filters, limit, offset))
+    def search(self, q, filters, limit, cursor):
+        self.calls.append((q, filters, limit, cursor))
         if self.exc:
             raise self.exc
         return {"results": []}
@@ -219,17 +222,17 @@ def test_search_parses_parameters() -> None:
     fake = FakeSearcher()
     r = _client(fake).get("/search", params=[
         ("q", "faith"), ("language", "syc,cop"), ("language", "grc"), ("author", "anonymous"),
-        ("date_from", "300"), ("out_of_period", "true"), ("limit", "5"), ("offset", "10")])
+        ("date_from", "300"), ("out_of_period", "true"), ("limit", "5"), ("cursor", "WzIwXQ")])
     assert r.status_code == 200
-    q, filters, limit, offset = fake.calls[0]
-    assert (q, limit, offset) == ("faith", 5, 10)
+    q, filters, limit, cursor = fake.calls[0]
+    assert (q, limit, cursor) == ("faith", 5, "WzIwXQ")
     assert filters == s.Filters(language=["syc", "cop", "grc"], author=["anonymous"],
                                 date_from=300, include_out_of_period=True)
 
 
 @pytest.mark.parametrize("params", [
     {"q": "x" * (s.MAX_QUERY_CHARS + 1)}, {"q": ""}, {"q": "   "}, {},
-    {"q": "x", "limit": s.MAX_LIMIT + 1}, {"q": "x", "offset": s.MAX_OFFSET + 1},
+    {"q": "x", "limit": s.MAX_LIMIT + 1}, {"q": "x", "cursor": "x" * (s.MAX_CURSOR_CHARS + 1)},
 ])
 def test_search_rejects_bad_requests(params: dict) -> None:
     fake = FakeSearcher()
@@ -323,7 +326,8 @@ def test_search_ranks_by_cosine(searcher: s.Searcher) -> None:
     assert top["work"]["license"] == "public_domain"
     assert top["date_range"] == [-900, -400]
     assert "source_id" not in top["work"]
-    assert res["next_offset"] == 2  # 4 searchable chunks
+    cursor = s.Cursor.decode(res["next_cursor"])
+    assert cursor == s.Cursor(2, ((s.pool_size(0, 2), cursor.levels[0][1], _ids(res)[1]),))
 
 
 def test_translation_vector_match_appears_once(searcher: s.Searcher) -> None:
@@ -342,7 +346,7 @@ def test_translation_vector_match_appears_once(searcher: s.Searcher) -> None:
     # The other vector of the chunk scores 0 but doesn't make it appear twice.
     # (3 results: the two versions of Gen.1.1 are one.)
     assert len(ids) == len(set(ids)) == 3
-    assert res["next_offset"] is None
+    assert res["next_cursor"] is None
 
 
 def test_filters(searcher: s.Searcher) -> None:
@@ -383,9 +387,69 @@ def test_unpublishable_works_are_not_searchable(searcher: s.Searcher) -> None:
 
 def test_pagination(searcher: s.Searcher) -> None:
     first = searcher.search("void", s.Filters(), limit=2)
-    second = searcher.search("void", s.Filters(), limit=2, offset=2)
+    second = searcher.search("void", s.Filters(), limit=2, cursor=first["next_cursor"])
     assert len(_ids(first) + _ids(second)) == len(set(_ids(first) + _ids(second))) == 3
-    assert second["next_offset"] is None
+    assert second["next_cursor"] is None
+
+
+def test_cursor_round_trip() -> None:
+    for cursor in (s.Cursor(), s.Cursor(20),
+                   s.Cursor(40, ((168, 0.123456789012345, "kjv/gen#Gen.1.2"),
+                                 (336, 0.2, "kjv/gen#Gen.1.3"))),
+                   s.Cursor(1, ((16, -0.5, "pta/ἅγιος#1.1"),))):
+        token = cursor.encode()
+        assert "=" not in token and "/" not in token and "+" not in token
+        assert s.Cursor.decode(token) == cursor
+
+
+@pytest.mark.parametrize("token", [
+    "!", "bm90IGpzb24", s.Cursor(s.MAX_DEPTH + 1).encode(), s.Cursor(-1).encode(),
+    "eyJhIjoxfQ",  # {"a":1}
+    "WzEsIngiLCJ5Il0",  # [1,"x","y"]
+    "WzEuNV0",  # [1.5]
+    s.Cursor(1, ((s.MAX_POOL + 1, 0.5, "x"),)).encode(),
+    s.Cursor(1, ((32, 0.5, "x"), (16, 0.6, "y"))).encode(),  # pools must grow
+    s.Cursor(1, ((16, 0.5, "x"), (16, 0.6, "y"))).encode(),
+])
+def test_bad_cursors_are_query_errors(token: str) -> None:
+    with pytest.raises(s.QueryError):
+        s.Cursor.decode(token)
+
+
+def test_cursor_of_the_other_mode_is_refused(searcher: s.Searcher) -> None:
+    vector_cursor = searcher.search("void", s.Filters(), limit=1)["next_cursor"]
+    with pytest.raises(s.QueryError):
+        searcher.search('"the earth"', s.Filters(), cursor=vector_cursor)
+    with pytest.raises(s.QueryError):
+        searcher.search("void", s.Filters(), cursor=s.Cursor(1).encode())
+    r = _client(searcher).get("/search", params={"q": "void", "cursor": "!"})
+    assert r.status_code == 422 and "cursor" in r.json()["error"]
+
+
+def test_pages_scan_the_first_pages_pool(searcher: s.Searcher,
+                                         caplog: pytest.LogCaptureFixture) -> None:
+    caplog.set_level(logging.INFO, logger="api.search")
+    first = searcher.search("void", s.Filters(), limit=1)
+    searcher.search("void", s.Filters(), limit=1, cursor=first["next_cursor"])
+    pools = [int(m) for m in re.findall(r"pool (\d+)", caplog.text)]
+    assert pools == [s.pool_size(0, 1)] * 2
+
+
+def test_a_short_pool_doubles(corpus_url: str, caplog: pytest.LogCaptureFixture,
+                              monkeypatch: pytest.MonkeyPatch) -> None:
+    # 20 passages in 12 versions each: 8 rows a result fold into too few results.
+    monkeypatch.setattr(sys.modules[__name__], "GROUP_SIZE", 12)
+    _add_tied_groups(corpus_url)
+    searcher = _searcher(corpus_url)
+    try:
+        caplog.set_level(logging.INFO, logger="api.search")
+        res = searcher.search("void", s.Filters(), limit=10)
+        assert len(res["results"]) == 10
+        pool = int(re.findall(r"pool (\d+)", caplog.text)[-1])
+        assert pool == s.pool_size(0, 10) * 2
+        assert s.Cursor.decode(res["next_cursor"]).levels[-1][0] == pool
+    finally:
+        searcher.pool.close()
 
 
 TIES = 30
@@ -409,12 +473,13 @@ def _add_ties(url: str) -> None:
 
 
 def _all_pages(searcher: s.Searcher, limit: int) -> list[str]:
-    ids, offset = [], 0
-    while offset is not None:
-        res = searcher.search("void", s.Filters(), limit=limit, offset=offset)
+    ids, cursor = [], None
+    while True:
+        res = searcher.search("void", s.Filters(), limit=limit, cursor=cursor)
         ids += _ids(res)
-        offset = res["next_offset"]
-    return ids
+        cursor = res["next_cursor"]
+        if cursor is None:
+            return ids
 
 
 @pytest.mark.parametrize("forced_hnsw", [False, True])
@@ -609,7 +674,11 @@ def _add_tied_groups(url: str) -> None:
 
 
 @pytest.mark.parametrize("forced_hnsw", [False, True])
-def test_folded_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool) -> None:
+@pytest.mark.parametrize("group_size", [GROUP_SIZE, 12])  # 12: pages cross pool doublings
+def test_folded_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: bool,
+                                               group_size: int,
+                                               monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(sys.modules[__name__], "GROUP_SIZE", group_size)
     _add_tied_groups(corpus_url)
     settings = ({"enable_seqscan": "off", "enable_bitmapscan": "off", "enable_sort": "off"}
                 if forced_hnsw else {})
@@ -626,18 +695,26 @@ def test_folded_pagination_with_ties_is_stable(corpus_url: str, forced_hnsw: boo
         for r in tied:
             # Every version scores 1: the lowest chunk id leads, the others follow in order.
             assert r["chunk_id"] == f"ed0/gen#{r['canonical_ref']}"
-            assert _versions(r) == [f"ed{v}/gen#{r['canonical_ref']}"
-                                    for v in range(1, GROUP_SIZE)]
+            # (As sets: the database's collation orders ed10 before ed1/.)
+            assert set(_versions(r)) == {f"ed{v}/gen#{r['canonical_ref']}"
+                                         for v in range(1, GROUP_SIZE)}
             assert {v["score"] for v in r["versions"]} == {1.0}
     finally:
         searcher.pool.close()
 
 
 def test_pool_has_room_for_folded_versions() -> None:
-    # Each result can take FOLD_ROWS passages' worth of rows (text and translation
-    # vectors) from the pool, and the deepest page still has one result to spare.
-    assert s.CANDIDATES == s.FOLD_ROWS * 2 * (s.MAX_OFFSET + s.MAX_LIMIT + 1)
+    # Each result up to the page can take FOLD_ROWS passages' worth of rows (text
+    # and translation vectors) from the pool, with one result to spare.
+    assert s.pool_size(0, 20) == s.FOLD_ROWS * 2 * 21 == 168
+    assert s.pool_size(s.MAX_DEPTH, s.MAX_LIMIT) == s.FOLD_ROWS * 2 * (s.MAX_DEPTH + s.MAX_LIMIT + 1)
     assert s.FOLD_ROWS > 1
+
+
+def test_no_cursor_past_the_depth_cap(searcher: s.Searcher) -> None:
+    res = searcher.search("void", s.Filters(), limit=1,
+                          cursor=s.Cursor(s.MAX_DEPTH, ((16, -1.0, ""),)).encode())
+    assert res["results"] and res["next_cursor"] is None
 
 
 def test_keyword_search_folds_versions(versions: s.Searcher) -> None:
@@ -653,9 +730,10 @@ def test_keyword_search_folds_versions(versions: s.Searcher) -> None:
          "edition": "King James Version (1769)", "score": None}]
     # The total counts folded results, and pages are cut from them.
     res = versions.search('"the earth"', s.Filters(), limit=1)
-    assert (_ids(res), res["total"], res["next_offset"]) == (["asv/gen#Gen.1.1"], 2, 1)
-    res = versions.search('"the earth"', s.Filters(), limit=1, offset=1)
-    assert (_ids(res), res["total"], res["next_offset"]) == (["kjv/gen#Gen.1.2"], 2, None)
+    assert (_ids(res), res["total"]) == (["asv/gen#Gen.1.1"], 2)
+    assert s.Cursor.decode(res["next_cursor"]) == s.Cursor(1)
+    res = versions.search('"the earth"', s.Filters(), limit=1, cursor=res["next_cursor"])
+    assert (_ids(res), res["total"], res["next_cursor"]) == (["kjv/gen#Gen.1.2"], 2, None)
     assert res["results"][0]["versions"] == []
 
 
@@ -709,9 +787,9 @@ def test_quote_with_free_text_ranks_by_meaning(searcher: s.Searcher) -> None:
 def test_keyword_search_filters_and_pages(searcher: s.Searcher) -> None:
     assert _ids(searcher.search('"the earth"', s.Filters(language=["hbo"]))) == []
     first = searcher.search('"the earth"', s.Filters(), limit=1)
-    assert (_ids(first), first["next_offset"], first["total"]) == (["kjv/gen#Gen.1.1"], 1, 2)
-    second = searcher.search('"the earth"', s.Filters(), limit=1, offset=1)
-    assert (_ids(second), second["next_offset"]) == (["kjv/gen#Gen.1.2"], None)
+    assert (_ids(first), first["total"]) == (["kjv/gen#Gen.1.1"], 2)
+    second = searcher.search('"the earth"', s.Filters(), limit=1, cursor=first["next_cursor"])
+    assert (_ids(second), second["next_cursor"]) == (["kjv/gen#Gen.1.2"], None)
 
 
 def test_unsearchable_queries(searcher: s.Searcher) -> None:

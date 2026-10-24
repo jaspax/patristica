@@ -21,8 +21,8 @@ from fastapi.responses import JSONResponse
 
 from api.keyword import PhraseTooBroad
 from api.search import (
+    MAX_CURSOR_CHARS,
     MAX_LIMIT,
-    MAX_OFFSET,
     MAX_QUERY_CHARS,
     Filters,
     QueryEmbedder,
@@ -124,7 +124,8 @@ def search(
     out_of_period: Annotated[bool, Query(description="include chunks dated after the period")
                              ] = False,
     limit: Annotated[int, Query(ge=1, le=MAX_LIMIT)] = 20,
-    offset: Annotated[int, Query(ge=0, le=MAX_OFFSET)] = 0,
+    cursor: Annotated[str | None, Query(max_length=MAX_CURSOR_CHARS,
+                                        description="next_cursor of the page before")] = None,
 ) -> JSONResponse:
     if not q.strip():
         return JSONResponse({"error": "empty query"}, status_code=422)
@@ -137,4 +138,4 @@ def search(
     filters = Filters(language=_list(language), genre=_list(genre), source=_list(source),
                       work=_list(work), author=_list(author), date_from=date_from,
                       date_to=date_to, include_out_of_period=out_of_period)
-    return JSONResponse(searcher.search(q, filters, limit=limit, offset=offset))
+    return JSONResponse(searcher.search(q, filters, limit=limit, cursor=cursor))

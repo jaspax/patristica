@@ -12,10 +12,12 @@ and ranks ``chunk_vectors`` of the same model by cosine distance through the
 model's HNSW index. A chunk with a translation vector scores the better of its
 two vectors and appears once. The versions of one passage (``api.passages``,
 #180) fold into one result, led by the best-scoring one, with the others in
-``versions``. Pages are slices of one fixed candidate pool per query
-(``CANDIDATES``), folded before paging. Filters are columns of
-``chunk_vectors`` (``db/schema.sql``) and apply before folding, and the HNSW
-scan is iterative, so narrow filters still fill a page.
+``versions``. Each page scans only as many candidates as the results up to
+it need (``pool_size``, #251), folded before paging. Pages follow a cursor
+(``Cursor``): the next page is the leads after the last one shown, by
+distance and chunk id. Filters are columns of ``chunk_vectors``
+(``db/schema.sql``) and apply before folding, and the HNSW scan is
+iterative, so narrow filters still fill a page.
 
 Each result of either mode comes with the unit before and after it, and an
 English version of all three when it is not in English (``api.context``).
@@ -23,6 +25,9 @@ English version of all three when it is not in English (``api.context``).
 
 from __future__ import annotations
 
+import base64
+import binascii
+import json
 import logging
 import re
 import threading
@@ -52,21 +57,42 @@ DIMS = 512
 DOCUMENT_INPUT = "document"  # the input type of the stored vectors
 MAX_QUERY_CHARS = 500
 MAX_LIMIT = 50
-MAX_OFFSET = 200
-# Every page of a query is cut from the same candidate rows: enough for the
-# deepest page (and one more result, to tell whether there is a next page),
-# with two rows per chunk at most (text and translation vectors). A pool that
-# grew with the offset would rank each page from a different set, so pages
-# could repeat or skip results.
+MAX_DEPTH = 200  # results shown before the last page a query can reach
+MAX_CURSOR_CHARS = 1000
+# Each page scans just enough candidate rows for the results up to it (and one
+# more, to tell whether there is a next page), with two rows per chunk at most
+# (text and translation vectors). A cold scan costs a random read per HNSW
+# page it visits, so a fixed pool sized for the deepest page made every first
+# page ~10x slower (#249).
 #
 # The pool is folded by passage group before paging (#180), so several rows
 # can make one result: a Scripture verse is in ~9 versions on average
-# (330,708 verses in 37,060 groups). FOLD_ROWS more rows per result keep the
-# deepest page reachable for a query that finds mostly Scripture in a few
-# languages; a query that matches every version of every verse runs out of
-# pages earlier, which only shortens the last pages, never repeats a result.
+# (330,708 verses in 37,060 groups). FOLD_ROWS more rows per result keep a
+# page full for a query that finds mostly Scripture in a few languages. When
+# a full pool still folds into too few results for the page, the page is run
+# again with twice the pool, up to MAX_POOL (the old fixed pool); the second
+# run reads index pages the first one just cached. A query that matches
+# every version of every verse can still run out of results before
+# MAX_DEPTH, which only shortens the last pages, never repeats a result.
+#
+# A query's pages are cut from the first page's pool until one runs short, so
+# the cursor needs the pool sizes and the last lead shown from each (Cursor).
+# A page skips every passage group the pages before showed, so no result
+# repeats: an index scan returns its rows in the same order whatever its
+# LIMIT, so a smaller pool is the prefix of a bigger one. A passage a bigger
+# pool finds ahead of results already shown is shown on the next page.
 FOLD_ROWS = 4
-CANDIDATES = FOLD_ROWS * 2 * (MAX_OFFSET + MAX_LIMIT + 1)
+
+
+def pool_size(shown: int, limit: int) -> int:
+    """Candidate rows for *limit* results after *shown* (the first page's pool)."""
+    return FOLD_ROWS * 2 * (shown + limit + 1)
+
+
+MAX_POOL = pool_size(MAX_DEPTH, MAX_LIMIT)
+MAX_LEVELS = 10  # pool sizes in a cursor: pools double, from 16 rows at least
+
+
 TEXT_CHARS = 2000  # longer chunk texts are cut in results (a few Scripture chapters)
 EF_SEARCH = 100
 TRANSLATION_LANGUAGE = "eng"
@@ -123,6 +149,51 @@ def parse_query(q: str) -> ParsedQuery:
     (phrases if inside else free).append("".join(part))
     return ParsedQuery(tuple(p for p in map(normalize_query, phrases) if p),
                        normalize_query(" ".join(free)))
+
+
+#: One pool a vector query's pages were cut from: its size, and the last lead
+#: shown from it (distance, chunk id).
+Level = tuple[int, float, str]
+
+
+@dataclass(frozen=True)
+class Cursor:
+    """Where a page starts: the next page token of the response before it (#251).
+
+    *shown* counts the results on the pages before. A keyword page starts
+    after *shown* results, since keyword search orders every match exactly.
+
+    A vector page uses the pool of the last of *levels*. Each level is a pool
+    the pages before were cut from, with the last lead shown from it; the
+    pages before showed exactly the passage groups with a member up to a
+    level's lead in that level's pool. Pools grow (doubling) only when a page
+    runs short, so a cursor has a few levels at most.
+    """
+
+    shown: int = 0
+    levels: tuple[Level, ...] = ()
+
+    def encode(self) -> str:
+        fields = [self.shown, *(list(level) for level in self.levels)]
+        raw = json.dumps(fields, separators=(",", ":"), ensure_ascii=False).encode()
+        return base64.urlsafe_b64encode(raw).decode().rstrip("=")
+
+    @classmethod
+    def decode(cls, token: str) -> Cursor:
+        """The cursor in *token*; a QueryError if it isn't one."""
+        try:
+            shown, *levels = json.loads(base64.urlsafe_b64decode(token + "=" * (-len(token) % 4)))
+            pools = [level[0] for level in levels]
+            ok = (type(shown) is int and 0 <= shown <= MAX_DEPTH and len(levels) <= MAX_LEVELS
+                  and all(type(pool) is int and 0 < pool <= MAX_POOL
+                          and type(distance) in (int, float) and isinstance(chunk_id, str)
+                          for pool, distance, chunk_id in levels)
+                  and pools == sorted(set(pools)))
+        except (binascii.Error, ValueError, TypeError):
+            ok = False
+        if not ok:
+            raise QueryError("The cursor is not valid: start the search again.")
+        return cls(shown, tuple((pool, float(d), cid) for pool, d, cid in levels))
 
 
 @dataclass
@@ -269,27 +340,34 @@ def _vec_literal(vec: np.ndarray) -> str:
     return "[" + ",".join(f"{float(x):.6g}" for x in vec) + "]"
 
 
-# hits: the candidate pool; best: each chunk's better vector; folded: each
-# chunk's passage group and its place in it (n = 1 leads: the best score,
-# then the chunk id); page: a slice of the leads; versions: the other members
-# of the page's groups found in the pool.
-_SEARCH_SQL = """
-WITH hits AS MATERIALIZED (
+# The candidate scan: the first %(pool)s rows of the HNSW scan (or the
+# planner's exact plan for narrow filters).
+_SCAN = """
     SELECT chunk_id, kind, embedding <=> %(q)s::halfvec AS distance
     FROM chunk_vectors
     WHERE model_id = {model_id} AND {where}
     ORDER BY embedding <=> %(q)s::halfvec
-    LIMIT %(candidates)s
-), best AS (
+    LIMIT {limit}
+"""
+
+# hits: the candidate pool; best: each chunk's better vector; folded: each
+# chunk's passage group and its place in it (n = 1 leads: the best score,
+# then the chunk id); seen: the groups the pages before showed ({seen}, one
+# part per cursor level); page: the next leads of the other groups;
+# versions: the other members of the page's groups found in the pool.
+_SEARCH_SQL = """
+WITH hits AS MATERIALIZED ({hits}),{levels} best AS (
     SELECT DISTINCT ON (chunk_id) chunk_id, kind, distance
     FROM hits ORDER BY chunk_id, distance, kind
 ), folded AS (
     SELECT b.chunk_id, b.kind, b.distance, {group} AS grp,
            row_number() OVER (PARTITION BY {group} ORDER BY b.distance, b.chunk_id) AS n
     FROM best b JOIN chunks c ON c.chunk_id = b.chunk_id
+), seen AS ({seen}
 ), page AS (
-    SELECT chunk_id, kind, distance, grp FROM folded WHERE n = 1
-    ORDER BY distance, chunk_id OFFSET %(offset)s LIMIT %(limit)s
+    SELECT chunk_id, kind, distance, grp FROM folded
+    WHERE n = 1 AND grp NOT IN (SELECT grp FROM seen)
+    ORDER BY distance, chunk_id LIMIT %(limit)s
 ), versions AS (
     SELECT grp, json_agg(json_build_array(chunk_id, distance) ORDER BY distance, chunk_id)
            AS versions
@@ -303,7 +381,7 @@ SELECT b.distance, b.kind, c.chunk_id, c.work_id, c.canonical_ref, c.language,
        w.genre, w.tradition, w.date_composed, lower(w.date_range), upper(w.date_range) - 1,
        coalesce((SELECT array_agg(a.name ORDER BY i.n) FROM unnest(w.author_ids)
                  WITH ORDINALITY AS i(id, n) JOIN authors a ON a.author_id = i.id), '{{}}'),
-       coalesce(v.versions, '[]')
+       coalesce(v.versions, '[]'), (SELECT count(*) FROM hits)
 FROM page b
 JOIN chunks c ON c.chunk_id = b.chunk_id
 JOIN works w ON w.work_id = c.work_id
@@ -311,6 +389,14 @@ LEFT JOIN chunk_translations t ON t.chunk_id = c.chunk_id AND t.language = %(tr_
 LEFT JOIN versions v ON v.grp = b.grp
 ORDER BY b.distance, c.chunk_id
 """
+
+# The groups shown from one cursor level: those with a member up to its last
+# lead in its pool (a scan, or hits when the page uses the same pool).
+_SEEN_SQL = """
+    SELECT {group} AS grp
+    FROM (SELECT chunk_id, min(distance) AS distance FROM {pool} GROUP BY chunk_id) b
+    JOIN chunks c ON c.chunk_id = b.chunk_id
+    WHERE (b.distance, b.chunk_id) <= (%(distance{i})s::float8, %(chunk{i})s::text)"""
 
 # The fields a result shows for each of its other versions.
 _VERSIONS_SQL = """
@@ -438,32 +524,39 @@ class Searcher:
             self._model_id = int(row[0])
         return self._model_id
 
-    def search(self, q: str, filters: Filters, limit: int = 20, offset: int = 0
+    def search(self, q: str, filters: Filters, limit: int = 20, cursor: str | None = None
                ) -> dict[str, Any]:
+        """One page of results; *cursor* is the ``next_cursor`` of the page before."""
         parsed = parse_query(q)
+        start = Cursor.decode(cursor) if cursor else Cursor()
         if parsed.phrases:
-            return self._keyword(q, parsed, filters, limit, offset)
+            if start.levels:
+                raise QueryError("The cursor is not for this query: start the search again.")
+            return self._keyword(q, parsed, filters, limit, start)
         if not parsed.text:
             raise QueryError("The query has nothing to search for.")
-        return self._vector(q, parsed, filters, limit, offset)
+        if start.shown and not start.levels:
+            raise QueryError("The cursor is not for this query: start the search again.")
+        return self._vector(q, parsed, filters, limit, start)
 
-    def _response(self, q: str, parsed: ParsedQuery, offset: int, limit: int,
-                  more: bool, total: int | None, results: list[dict[str, Any]]) -> dict[str, Any]:
+    def _response(self, q: str, parsed: ParsedQuery, limit: int, next_cursor: Cursor | None,
+                  total: int | None, results: list[dict[str, Any]]) -> dict[str, Any]:
         return {
             "query": normalize_query(q),
             "mode": parsed.mode,
             "phrases": list(parsed.phrases),
             "text": parsed.text,
             "model": MODEL_NAME,
-            "offset": offset,
             "limit": limit,
             "total": total,
-            "next_offset": offset + limit if more and offset + limit <= MAX_OFFSET else None,
+            # None after the last page, and once MAX_DEPTH results are shown.
+            "next_cursor": (None if next_cursor is None or next_cursor.shown > MAX_DEPTH
+                            else next_cursor.encode()),
             "results": results,
         }
 
     def _keyword(self, q: str, parsed: ParsedQuery, filters: Filters, limit: int,
-                 offset: int) -> dict[str, Any]:
+                 start: Cursor) -> dict[str, Any]:
         for phrase in parsed.phrases:  # reject a bad phrase before paying for an embedding
             phrase_pattern(phrase)
         started = time.monotonic()
@@ -473,7 +566,7 @@ class Searcher:
         with self.pool.connection() as conn:
             rank = None if vec is None else (_vec_literal(vec), self.model_id(conn))
             page, total = phrase_search(conn, list(parsed.phrases), where, params,
-                                        limit + 1, offset, rank)
+                                        limit + 1, start.shown, rank)
             distances = {cid: distance for cid, distance, _ in page[:limit]}
             rows = conn.execute(_HYDRATE_SQL, {"ids": list(distances),
                                                "tr_lang": TRANSLATION_LANGUAGE}).fetchall()
@@ -491,40 +584,74 @@ class Searcher:
                           versions=versions[row[2]])
             results.append(result)
         self._add_context(results)
-        return self._response(q, parsed, offset, limit, len(page) > limit, total, results)
+        more = Cursor(start.shown + limit) if len(page) > limit else None
+        return self._response(q, parsed, limit, more, total, results)
 
     def _vector(self, q: str, parsed: ParsedQuery, filters: Filters, limit: int,
-                offset: int) -> dict[str, Any]:
+                start: Cursor) -> dict[str, Any]:
         started = time.monotonic()
         vec, cached = self.embedder.embed(parsed.text)
         embedded = time.monotonic()
         where, params = filters.sql()
-        params.update(q=_vec_literal(vec), candidates=CANDIDATES, offset=offset,
-                      limit=limit + 1, text_chars=TEXT_CHARS, tr_lang=TRANSLATION_LANGUAGE)
+        levels = list(start.levels)
+        pool = levels[-1][0] if levels else pool_size(0, limit)
+        for i, (_, distance, chunk_id) in enumerate(levels):
+            params[f"distance{i}"], params[f"chunk{i}"] = distance, chunk_id
+        params.update(q=_vec_literal(vec), limit=limit + 1, text_chars=TEXT_CHARS,
+                      tr_lang=TRANSLATION_LANGUAGE)
         with self.pool.connection() as conn, conn.transaction():
-            # Inlined, not a parameter: a generic plan of a prepared statement
-            # can't prove model_id = n, so it would never use the partial index.
-            sql = _SEARCH_SQL.format(model_id=self.model_id(conn), where=where,
-                                     group=passage_group("c"))
+            model_id = self.model_id(conn)
             # JIT compilation costs more than this short query; on the full
             # index the cost estimates can exceed jit_above_cost.
             conn.execute("SELECT set_config('hnsw.ef_search', %s, true), "
                          "set_config('hnsw.iterative_scan', 'relaxed_order', true), "
                          "set_config('jit', 'off', true)",
                          (str(self.ef_search),))
-            rows = conn.execute(sql, params).fetchall()
-            versions = _versions(conn, [[(cid, d) for cid, d in r[-1]] for r in rows[:limit]])
+            while True:
+                rows = conn.execute(self._search_sql(model_id, where, pool, levels),
+                                    {**params, "pool": pool}).fetchall()
+                # The pool filled up but folded into too few results: the index has more.
+                if len(rows) > limit or not rows or rows[0][-1] < pool or pool >= MAX_POOL:
+                    break
+                pool = min(2 * pool, MAX_POOL)
+            versions = _versions(conn, [[(cid, d) for cid, d in r[-2]] for r in rows[:limit]])
         done = time.monotonic()
-        log.info("search: vector, %d chars, embed %.0f ms (%s), db %.0f ms, %d rows",
+        log.info("search: vector, %d chars, embed %.0f ms (%s), db %.0f ms, pool %d, %d rows",
                  len(parsed.text), 1000 * (embedded - started),
-                 "cached" if cached else "voyage", 1000 * (done - embedded), len(rows))
+                 "cached" if cached else "voyage", 1000 * (done - embedded), pool, len(rows))
         results = []
         for row, members in zip(rows[:limit], versions):
-            result = _result(row[:-1])
+            result = _result(row[:-2])
             result["versions"] = members
             results.append(result)
         self._add_context(results)
-        return self._response(q, parsed, offset, limit, len(rows) > limit, None, results)
+        more = None
+        if len(rows) > limit:
+            lead = rows[limit - 1]
+            if levels and levels[-1][0] == pool:
+                levels.pop()  # the same pool: its new last lead covers the old one
+            more = Cursor(start.shown + limit, (*levels, (pool, float(lead[0]), lead[2])))
+        return self._response(q, parsed, limit, more, None, results)
+
+    @staticmethod
+    def _search_sql(model_id: int, where: str, pool: int, levels: list[Level]) -> str:
+        """_SEARCH_SQL over a pool of *pool* rows, after the pages of cursor *levels*."""
+        def scan(limit: str) -> str:
+            # Inlined, not a parameter: a generic plan of a prepared statement
+            # can't prove model_id = n, so it would never use the partial index.
+            return _SCAN.format(model_id=model_id, where=where, limit=limit)
+
+        group = passage_group("c")
+        scans, seen = [], []
+        for i, (level_pool, _, _) in enumerate(levels):
+            name = "hits"
+            if level_pool != pool:
+                name = f"level{i}"
+                scans.append(f" {name} AS MATERIALIZED ({scan(str(level_pool))}),")
+            seen.append(_SEEN_SQL.format(group=group, pool=name, i=i))
+        return _SEARCH_SQL.format(
+            hits=scan("%(pool)s"), levels="".join(scans), group=group,
+            seen="\n    UNION".join(seen) or "\n    SELECT NULL::text AS grp WHERE false")
 
     def _add_context(self, results: list[dict[str, Any]]) -> None:
         """The units around each result, and English versions (``api.context``)."""
