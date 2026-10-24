@@ -53,6 +53,10 @@ CREATE TABLE IF NOT EXISTS works (
 );
 -- Added after the first production load; build_index fills it in place (hash format 3).
 ALTER TABLE works ADD COLUMN IF NOT EXISTS body_sha text;
+-- For a work without a date of its own: its authors' activity range (#151).
+-- Approximate, and never copied into chunks or chunk_vectors: a date filter
+-- matches it through works (api/search.py, Filters.sql).
+ALTER TABLE works ADD COLUMN IF NOT EXISTS author_date_range int4range;
 CREATE INDEX IF NOT EXISTS works_author_ids ON works USING gin (author_ids);
 
 -- Every unit of every work, including the ones too short to embed.

@@ -93,7 +93,10 @@ def test_filters_sql() -> None:
                               include_out_of_period=True).sql()
     assert where == ("language = ANY(%(language)s) AND source_id = ANY(%(source)s) AND "
                      "(author_ids && %(author)s::text[] OR author_ids = '{}') AND "
-                     "date_range && int4range(%(date_from)s, %(date_to)s, '[]')")
+                     "(date_range && int4range(%(date_from)s, %(date_to)s, '[]') "
+                     "OR (date_range IS NULL AND work_id IN (SELECT work_id FROM works "
+                     "WHERE author_date_range && int4range(%(date_from)s, %(date_to)s, "
+                     "'[]'))))")
     assert params == {"language": ["syc", "cop"], "source": ["pta"],
                       "author": ["ephrem-the-syrian"], "date_from": 300, "date_to": None}
     assert s.Filters(author=["anonymous"]).sql()[0] == "(author_ids = '{}') AND NOT out_of_period"
@@ -352,6 +355,26 @@ def test_filters(searcher: s.Searcher) -> None:
         "pta/hymns#Hymn.1.1"]
     assert _ids(searcher.search("void", s.Filters(work=["oshb/gen"]))) == ["oshb/gen#Gen.1.1"]
     assert _ids(searcher.search("void", s.Filters(genre=["liturgical"]))) == []
+
+
+def test_date_filter_matches_an_undated_work_by_its_authors_dates(
+        searcher: s.Searcher, corpus_url: str) -> None:
+    """A work with no date of its own matches through ``works.author_date_range`` (#151)."""
+    psycopg = pytest.importorskip("psycopg")
+    with psycopg.connect(corpus_url, autocommit=True) as conn:
+        conn.execute("UPDATE works SET date_range = NULL, author_date_range = '[300,330]' "
+                     "WHERE work_id = 'oshb/gen'")
+        conn.execute("UPDATE chunks SET date_range = NULL WHERE work_id = 'oshb/gen'")
+        conn.execute("UPDATE chunk_vectors SET date_range = NULL WHERE work_id = 'oshb/gen'")
+    assert set(_ids(searcher.search("void", s.Filters(date_from=300, date_to=400)))) == {
+        "pta/hymns#Hymn.1.1", "oshb/gen#Gen.1.1"}
+    assert _ids(searcher.search("void", s.Filters(date_from=340, date_to=400))) == [
+        "pta/hymns#Hymn.1.1"]
+    # A work's own date wins: the author range of a dated work is never consulted.
+    with psycopg.connect(corpus_url, autocommit=True) as conn:
+        conn.execute("UPDATE works SET author_date_range = '[300,330]' WHERE work_id = 'kjv/gen'")
+    assert "kjv/gen#Gen.1.2" not in _ids(searcher.search("void", s.Filters(date_from=300,
+                                                                            date_to=330)))
 
 
 def test_unpublishable_works_are_not_searchable(searcher: s.Searcher) -> None:

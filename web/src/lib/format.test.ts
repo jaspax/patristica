@@ -25,6 +25,16 @@ describe("dates", () => {
       "Undated",
     );
   });
+
+  it("marks a date that comes from the authors (#151)", () => {
+    const row = { date: null, date_range: null, date_confidence: "uncertain" as const,
+                  author_date_range: [374, 430] as [number, number] };
+    expect(formatDate(row)).toBe("author fl. 374–430");
+    expect(formatDateLong(row)).toBe("Undated (author active 374–430)");
+    expect(formatDate({ ...row, author_date_range: [170, 170] })).toBe("author fl. 170");
+    // A work's own date wins.
+    expect(formatDate({ ...row, date: 397, date_confidence: "established" })).toBe("397");
+  });
 });
 
 describe("author dates", () => {

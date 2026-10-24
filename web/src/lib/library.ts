@@ -15,6 +15,13 @@ export interface WorkRow {
   date: number | null;
   date_range: [number, number] | null;
   date_confidence: "established" | "approximate" | "uncertain";
+  /**
+   * For a work with no date of its own: its authors' activity range from the
+   * author index (#151). Approximate; used by the date filter and sort, and
+   * shown as the author's dates, never as the work's. Absent in libraries
+   * exported before it.
+   */
+  author_date_range?: [number, number] | null;
   source_id: string;
   edition: string | null;
   license: string;

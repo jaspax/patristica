@@ -94,6 +94,14 @@ describe("filterWorks", () => {
     expect(ids(filterWorks(rows, view({ to: 0 }), sources))).toEqual(["c"]);
     expect(ids(filterWorks(rows, view({ from: 380, to: 398 }), sources))).toEqual(["a", "b"]);
   });
+
+  it("matches an undated work by its authors' dates (#151)", () => {
+    const withAuthorDate = [...rows, row({ id: "e", title: "Sermones", author_date_range: [374, 430] })];
+    expect(ids(filterWorks(withAuthorDate, view({ from: 380, to: 398 }), sources))).toEqual(["a", "b", "e"]);
+    expect(ids(filterWorks(withAuthorDate, view({ from: 431 }), sources))).toEqual([]);
+    // Sorted by the middle of the range (402), between its neighbours; still-undated works last.
+    expect(ids(sortWorks(withAuthorDate, "date", "asc", sources))).toEqual(["c", "b", "a", "e", "d"]);
+  });
 });
 
 describe("sortWorks", () => {

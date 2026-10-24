@@ -17,6 +17,7 @@
 - `chunk_vectors` repeats the filter columns of its chunk and work (`work_id`, `source_id`, `language`, `genre`, `author_ids`, `date_range`, `out_of_period`), so a filtered vector search reads a single table.
 - Each model has a partial HNSW index, `chunk_vectors_hnsw_m{model_id}` (`halfvec_cosine_ops`, `m = 16`, `ef_construction = 64`, `WHERE model_id = …`). A query must use the same `model_id` condition to use it. `build_index` creates the index after a bulk load.
 - `chunks.text_folded` is the keyword index for quoted search (#86): `' ' || fold(text) || ' '` (`patristica.keyword.index_text`) under the `pg_trgm` GIN index `chunks_text_folded_trgm`, which `build_index` creates after folding. A phrase matches as whole words: `text_folded LIKE '% folded phrase %'` (`api/keyword.py`). When `patristica.keyword.FOLD_VERSION` changes, `build_index` refolds every chunk.
+- `works.author_date_range` (#151) is the authors' activity range of a work with no date of its own. It is approximate and lives in `works` only: a search date filter matches a chunk whose `date_range` is null through it (`work_id IN (SELECT … FROM works WHERE author_date_range && …)`), so it never rewrites `chunk_vectors`.
 - Year ranges are `int4range` with inclusive input (`[350,373]`), which Postgres shows as `[350,374)`.
 
 ## Loading

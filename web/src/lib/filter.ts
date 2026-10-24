@@ -129,10 +129,22 @@ function haystack(row: WorkRow, sources: Record<string, string>, authors: Author
   return h;
 }
 
-/** Whether the work's date (or date range) overlaps [from, to]. Undated works never match a date filter. */
+/** Midpoint of an undated work's authors' activity range (#151), or null. */
+function authorDateMidpoint(row: WorkRow): number | null {
+  const r = row.author_date_range;
+  return r ? Math.floor((r[0] + r[1]) / 2) : null;
+}
+
+/**
+ * Whether the work's date (or date range) overlaps [from, to]. A work with no
+ * date of its own matches by its authors' activity range (#151); a work with
+ * neither never matches a date filter.
+ */
 function inDateRange(row: WorkRow, from: number | null, to: number | null): boolean {
   if (from === null && to === null) return true;
-  const [lo, hi] = row.date_range ?? (row.date !== null ? [row.date, row.date] : [null, null]);
+  const [lo, hi] =
+    row.date_range ??
+    (row.date !== null ? [row.date, row.date] : (row.author_date_range ?? [null, null]));
   if (lo === null || hi === null) return false;
   return (from === null || hi >= from) && (to === null || lo <= to);
 }
@@ -241,7 +253,7 @@ function sortValue(
     case "language":
       return row.language;
     case "date":
-      return row.date;
+      return row.date ?? authorDateMidpoint(row);
     case "source":
       return sources[row.source_id] ?? row.source_id;
     case "chunks":

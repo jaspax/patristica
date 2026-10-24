@@ -50,7 +50,13 @@ from pathlib import Path
 from tqdm import tqdm
 
 from patristica import fingerprint
-from patristica.authors import apply_author_ids, resolve_author, work_author_birth_year
+from patristica.authors import (
+    apply_author_date_range,
+    apply_author_ids,
+    resolve_author,
+    work_author_birth_year,
+    work_author_date_range,
+)
 from patristica.genres import apply_genre_override, override_for
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
@@ -361,18 +367,24 @@ def curated_hash(work: dict) -> str:
     """Hash of the curation applied to *work* (a raw or manifest work record).
 
     Covers the curated genre (``genre_overrides.csv``), the author ids
-    resolved from ``author`` and the authors' birth year (``authors.csv``,
-    ``author_strings.csv``), the inputs that change a work's chunks or manifest
-    entry without changing its raw file.  It is computed from the override
-    and the author string, not from the curated record, so it can be checked
-    from ``_works.jsonl`` without raw data.
+    resolved from ``author``, the authors' birth year and, for an undated work,
+    their activity range (``authors.csv``, ``author_strings.csv``): the inputs
+    that change a work's chunks or manifest entry without changing its raw
+    file.  It is computed from the override, the author string and the work's
+    own dates, not from the curated record, so it can be checked from
+    ``_works.jsonl`` without raw data.
     """
     ids = resolve_author(work.get("author"))
-    return fingerprint.value_hash({
+    curation = {
         "genre": override_for(work.get("work_id", "")),
         "author_ids": ids,
         "birth_year": work_author_birth_year(ids),
-    })
+    }
+    # Only works that get one (#151), so the others keep their hash.
+    derived = work_author_date_range({**work, "author_ids": ids})
+    if derived is not None:
+        curation["author_date_range"] = list(derived)
+    return fingerprint.value_hash(curation)
 
 
 def work_fingerprint(raw_bytes: bytes, work: dict) -> dict[str, str]:
@@ -608,7 +620,8 @@ def write_works_manifest(
     license, provenance) for Phase 2.  Entries are refreshed from the raw file
     when it exists; when it does not (fresh clone) the previous entry is kept.
     Either way the curated genre from ``patristica.genres`` is applied and
-    ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82).
+    ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82),
+    and an undated work gets its authors' ``author_date_range`` (#151).
     An empty ``external_ids`` is left out.  *raw_root* defaults to the
     ``raw`` directory next to *output_dir*.  Entries in *keep* (works whose raw
     change normalize refused) are left as they were.  With *refresh*, only those
@@ -648,7 +661,7 @@ def write_works_manifest(
         if work is None:
             log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
             continue
-        work = apply_author_ids(apply_genre_override(work))
+        work = apply_author_date_range(apply_author_ids(apply_genre_override(work)))
         if not work.get("external_ids", True):
             # Only sources that record catalogue ids carry the field (#178), so
             # adding it to Work doesn't rewrite every manifest entry.
