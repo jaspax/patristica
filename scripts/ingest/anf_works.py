@@ -44,6 +44,8 @@ from scripts.ingest._ccel_works import (  # noqa: F401  (re-exported for tests)
     link_originals,
 )
 
+from scripts.ingest._printed_verses import rechunk
+
 log = logging.getLogger(__name__)
 
 SOURCE_ID = "anf-works"
@@ -792,7 +794,11 @@ _WORKS: tuple[_WorkSpec, ...] = (
       P("iii.ii", "Gospel According to Peter")),
     W("anf09", "apocalypse-of-peter", "The Apocalypse of Peter", None,
       135, (100, 150), "approximate", "greek", "ApocPetr",
-      P("v.ii", "Apocalypse of Peter", "1"), P("v.iii", "Fragments", "2")),
+      P("v.ii", "Apocalypse of Peter", "1"), P("v.iii", "Fragments", "2"),
+      # #122: part 1 is printed in verses 1–33 (no verse 2), several per paragraph.
+      rechunk=lambda paras: rechunk(
+          paras, lambda ref: "ApocPetr.1" if ref.startswith("ApocPetr.1.") else None,
+          restart=False, max_gap=2)),
     W("anf09", "vision-of-paul", "The Vision of Paul (Apocalypse of Paul)", None,
       400, (388, 450), "approximate", "greek", "ApocPaul",
       P("vi.ii", "Vision of Paul")),

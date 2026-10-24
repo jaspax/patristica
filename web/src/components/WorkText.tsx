@@ -59,7 +59,7 @@ function SectionView({ section, inline }: { section: Section; inline: boolean })
   return (
     <section id={section.id} className={styles.section}>
       {heading && (
-        <Heading id={section.ref ?? undefined} className={section.title ? styles.title : styles.label}>
+        <Heading id={section.ref ?? section.anchor ?? undefined} className={section.title ? styles.title : styles.label}>
           {heading}
         </Heading>
       )}
