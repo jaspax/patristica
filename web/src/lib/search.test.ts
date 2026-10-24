@@ -39,8 +39,8 @@ describe("search URL state", () => {
 
 describe("searchApiUrl", () => {
   it("maps the state onto the API's parameters", () => {
-    const url = searchApiUrl({ ...DEFAULT_SEARCH, q: " faith ", genre: ["patristic"], from: -100, to: 400 }, 20);
-    expect(url).toBe("/api/search?q=faith&genre=patristic&date_from=-100&date_to=400&limit=20&offset=20");
+    const url = searchApiUrl({ ...DEFAULT_SEARCH, q: " faith ", genre: ["patristic"], from: -100, to: 400 }, "WzIwXQ");
+    expect(url).toBe("/api/search?q=faith&genre=patristic&date_from=-100&date_to=400&limit=20&cursor=WzIwXQ");
   });
 
   it("repeats a parameter for each value of a facet", () => {
@@ -167,8 +167,8 @@ describe("fetchSearch", () => {
   const state = { ...DEFAULT_SEARCH, q: "x" };
 
   it("returns the response", async () => {
-    respond(200, { results: [], next_offset: null });
-    await expect(fetchSearch(state)).resolves.toEqual({ results: [], next_offset: null });
+    respond(200, { results: [], next_cursor: null });
+    await expect(fetchSearch(state)).resolves.toEqual({ results: [], next_cursor: null });
   });
 
   it.each([
@@ -215,7 +215,7 @@ describe("fetchSearch", () => {
           new Promise((_resolve, reject) => init.signal?.addEventListener("abort", () => reject(new Error("aborted")))),
       ),
     );
-    await expect(fetchSearch(state, 0, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
+    await expect(fetchSearch(state, null, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
   });
 
   /** A response whose body never arrives, and errors when the request is aborted. */
@@ -237,13 +237,13 @@ describe("fetchSearch", () => {
 
   it("times out while the body is still arriving", async () => {
     stallBody();
-    await expect(fetchSearch(state, 0, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
+    await expect(fetchSearch(state, null, undefined, 5)).rejects.toMatchObject({ kind: "timeout" });
   });
 
   it("cancels the body read when the caller aborts", async () => {
     stallBody();
     const controller = new AbortController();
-    const pending = fetchSearch(state, 0, controller.signal);
+    const pending = fetchSearch(state, null, controller.signal);
     await new Promise((r) => setTimeout(r, 0));
     controller.abort();
     const err = await pending.catch((e: unknown) => e);
@@ -259,7 +259,7 @@ describe("fetchSearch", () => {
       ),
     );
     const controller = new AbortController();
-    const pending = fetchSearch(state, 0, controller.signal);
+    const pending = fetchSearch(state, null, controller.signal);
     controller.abort();
     const err = await pending.catch((e: unknown) => e);
     expect(err).not.toBeInstanceOf(SearchError);
