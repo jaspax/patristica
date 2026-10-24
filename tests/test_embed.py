@@ -231,6 +231,32 @@ def test_api_error_keeps_finished_shards(tmp_path: Path):
     assert fake.sent == ["second work text here"]
 
 
+def test_no_requests_rewrites_shards_and_refuses_to_send(corpus: Path, monkeypatch):
+    """--no-requests (scripts.pipeline at $0, #248): no key, no calls; shards are
+    still rewritten, and a text still to embed fails the run."""
+    monkeypatch.delenv("VOYAGE_API_KEY", raising=False)
+    monkeypatch.chdir(corpus)  # no .env to read a key from
+
+    class Voyage(FakeEmbedder):  # rows look like the real model's, so NoRequests reuses them
+        name = f"voyage/{embed.MODEL}"
+
+    run(corpus, Voyage(embed.DIMS))
+    aphrahat = ("syc", [("1.1", "ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ ܡܠܬܐ"), ("1.2", "ܘܗܘ ܡܠܬܐ ܐܝܬܘܗܝ ܗܘܐ ܠܘܬ")])
+    gen = ("eng", [("Gen.1.1", "In the beginning God created the heaven.")])  # 1.2 dropped
+    write_corpus(corpus, {"kjv/gen": gen, "pta/aphrahat": aphrahat})
+    stats = embed.run(corpus / "normalized", corpus / "embeddings", corpus / "translations",
+                      make_embedder=embed.NoRequests, workers=1)
+    assert stats.to_embed == 0 and stats.written == 1
+    shard = emb.load(corpus / "embeddings", "kjv/gen.json")
+    assert [r.chunk_id for r in shard.rows] == ["kjv/gen#Gen.1.1"]
+
+    write_corpus(corpus, {"kjv/gen": ("eng", [("Gen.1.1", "A text never embedded before.")]),
+                          "pta/aphrahat": aphrahat})
+    with pytest.raises(embed.ApiError, match="--no-requests"):
+        embed.run(corpus / "normalized", corpus / "embeddings", corpus / "translations",
+                  make_embedder=embed.NoRequests, workers=1)
+
+
 def test_store_round_trip_and_rejects_mismatched_vectors(tmp_path: Path):
     r = emb.EmbeddingRun(model="m", dims=4, input_type="document", date="2026-10-17",
                          script="t")

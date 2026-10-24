@@ -27,7 +27,6 @@ patristica/
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
-├── .github/workflows/publish-library.yml  # on master: export_library + upload_library → Spaces (no-op if unchanged)
 ├── .github/workflows/deploy.yml           # on master: infra/deploy.sh --keep-env → web + api on the droplet
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
@@ -56,9 +55,10 @@ patristica/
 │   │   ├── _clone.py          # ensure_clone: PTA/First1K/OGLT PL clones with their git dir in data/raw/_gitdirs (#244)
 │   │   ├── all.py             # run all ingestors, or a single one via --source
 │   │   └── {source_id}.py     # one module per source (e.g. oshb.py, kjv.py)
+│   ├── pipeline.py            # every pipeline step in one run, gated by --pay (#248); the steps below stay runnable alone
 │   ├── normalize.py           # raw → normalized Chunk JSON
-│   ├── chunk.py               # normalized → chunked records (adds context overlap)
-│   ├── link_translations.py   # assign translation_group_id across parallel chunks
+│   ├── chunk.py               # normalized → chunked records (adds context overlap; embedding eval only)
+│   ├── link_translations.py   # assign translation_group_id across parallel chunks (data/chunks; embedding eval only)
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
@@ -222,11 +222,20 @@ Keep module filenames consistent with this convention.
 
 ## Pipeline Scripts
 
+After a batch of data work, bring every derived store up to date in one run, then review and commit the changed `data/` files:
+
+```bash
+uv run --extra pipeline python -m scripts.pipeline --dry-run   # what is stale, the costs, the preflight
+uv run --extra pipeline python -m scripts.pipeline --pay       # unattended; or `uv run --extra pipeline pipeline --pay`
+```
+
+`scripts.pipeline` (#248) runs normalize → validate → translate → embed → align → build_index → export_library → upload_library, each as a subprocess exactly as by hand, so every step skips what its fingerprints show is current. Paid steps (translate, embed) send requests only with `--pay`: without it the run stops before the first paid step that has paid work, prints the estimate and exits 0, while a paid step whose estimate is $0 (a metadata-only change) runs without calling the API (`embed --no-requests`) and the run goes on. `--max-cost USD` caps the run's estimated spend. A preflight lists every problem up front: missing `data/raw` or vectors (or git-lfs pointer files), API keys with `--pay` (OpenAI and Anthropic keys are tried against their free model listings), the production database through `infra/db-tunnel.sh` (or `--database-url`) and the `LIBRARY_*` upload key. A failing step stops the run, and the next run resumes. It never commits: it ends with `scripts.status --check` and the changed `data/` paths, and logs to `logs/pipeline-{time}.log` (gitignored). `--skip STEP` leaves a step out, `--accept-raw-change` goes to normalize after a re-ingest. Ingestors aren't part of it.
+
+The steps stay runnable on their own for targeted work:
+
 ```bash
 uv run python -m scripts.normalize        # raw → Chunk objects (+ derived verses); also maintains data/normalized/_works.jsonl
                                           #   [--accept-raw-change] after an intended re-ingest (see "Stale data")
-uv run python -m scripts.chunk            # add 50-token context overlap
-uv run python -m scripts.link_translations # assign translation_group_id (works with genre scripture)
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
@@ -236,6 +245,8 @@ uv run python -m scripts.catalog          # status table with last-run timestamp
 uv run python -m scripts.status [--raw] [--vectors]  # what is stale or pending in every step (#130)
 uv run python -m scripts.export_library   # normalized → data/library/ (index.json, authors.json, slim per-work JSON)
 uv run --extra deploy python -m scripts.upload_library  # data/library → Spaces (incremental; --dry-run)
+uv run python -m scripts.chunk            # embedding eval only: data/chunks with 50-token context overlap
+uv run python -m scripts.link_translations # embedding eval only: translation_group_id in data/chunks
 ```
 
 ### Stale data (#130)
@@ -326,9 +337,9 @@ The app runs on the droplet as the `web` service of the compose stack (`infra/co
 - `NEXT_PUBLIC_LIBRARY_URL` is the Spaces CDN URL (`infra/tofu.sh output -raw library_url`, `LIBRARY_URL` in the host `.env`). `NEXT_PUBLIC_*` values are inlined at build time, so they are Docker build arguments; changing one means rebuilding the image.
 - **`/api/*` on `patristica.app` is the FastAPI app**, with the prefix stripped by Caddy: `/api/search` reaches FastAPI as `/search`. Declare FastAPI routes without `/api`, call them from the web app same-origin at `/api/…`, and never add Next.js routes under `/api`. `api.patristica.app` serves the same routes without the prefix.
 
-- **Data is published automatically.** On every push to `master` that touches `data/normalized/**`, the export/upload code or what the export derives from (authors, version links), `.github/workflows/publish-library.yml` runs `scripts.export_library` and then `scripts.upload_library`, using the repo secrets `LIBRARY_ACCESS_KEY_ID` and `LIBRARY_SECRET_ACCESS_KEY` (a Spaces key that can only touch the library bucket; tofu outputs `library_access_key` / `library_secret_key`). The bucket name and region are plain values in the workflow. Unchanged data uploads nothing. Re-run it manually from the Actions tab (`workflow_dispatch`).
-- To publish by hand, run the same two scripts locally. Local credentials (`LIBRARY_*`) go in `web/.env` (gitignored). Never print or commit them.
-- The export is deterministic: `index.json` has a content hash (`version`), not a timestamp. A from-scratch export is byte-identical to an incremental one, which is what makes CI runs no-ops. Keep it that way: no timestamps or other run-dependent values in exported files.
+- **Data is published by the pipeline run, not by GitHub (#248).** `scripts.pipeline` runs `scripts.export_library` and then `scripts.upload_library` as its last steps, after embed, align and build_index, so the library never shows a work that search and the alignments don't know yet. Merging a data PR publishes nothing. The upload uses a Spaces key that can only touch the library bucket (tofu outputs `library_access_key` / `library_secret_key`), as `LIBRARY_ACCESS_KEY_ID`, `LIBRARY_SECRET_ACCESS_KEY` and `LIBRARY_BUCKET` in `.env` or `web/.env` (gitignored). Never print or commit them. Unchanged data uploads nothing.
+- To publish by hand, run the same two scripts locally.
+- The export is deterministic: `index.json` has a content hash (`version`), not a timestamp. A from-scratch export is byte-identical to an incremental one, which is what makes repeated publishes no-ops. Keep it that way: no timestamps or other run-dependent values in exported files.
 - Objects are stored gzipped with `Content-Encoding: gzip`. Changes are detected through `_manifest.json` in the bucket, which maps each key to the SHA-256 of its *uncompressed* content and is written last. Don't compare gzip bytes or ETags: gzip output differs between Python and zlib versions (even the header's OS byte, #46), so CI and local runs would keep re-uploading everything. A no-op run takes a few seconds.
 - The bucket, its CORS rule (GET/HEAD from any origin), the CDN and the upload key are OpenTofu resources in `infra/tofu` (runbook: `infra/README.md` → "Library"). The bucket listing is private: `upload_library` makes the work files and `index.json` public-read and keeps `_manifest.json` private. The CDN caches files for `library_cdn_ttl` (10 minutes), so a publish can take that long to show.
 - `EXCLUDED_LICENSES` in `upload_library.py` keeps unpublishable works (`unknown`) out of the public copy.
