@@ -47,7 +47,8 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from patristica.period import work_in_period
-from scripts.ingest._common import dedupe_refs, ensure_repo, slugify_ref
+from scripts.ingest._clone import ensure_clone
+from scripts.ingest._common import dedupe_refs, slugify_ref
 
 log = logging.getLogger(__name__)
 
@@ -90,8 +91,9 @@ _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
-    """Clone the repo if absent; pull latest on force (not offline, #215)."""
-    ensure_repo(_REPO_URL, repo_dir, "PTA", force)
+    """Clone the repo if absent; pull latest on force (not offline, #215). Its git
+    dir lives in ``_gitdirs/`` so the tree can be tracked (#244)."""
+    ensure_clone(_REPO_URL, repo_dir, "PTA", force)
 
 
 def _read_author_name(cts_path: Path) -> str | None:

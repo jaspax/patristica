@@ -52,6 +52,7 @@ patristica/
 │   │   ├── _ebible_usfm.py    # shared USFM ingestor for eBible.org zip archives (handles Strong's + footnotes)
 │   │   ├── _ingestor_main.py  # shared CLI entry-point helper for individual ingestors
 │   │   ├── _stamp.py          # ingest stamps: data/raw/{source}/_ingest.json = ingestor code hash (#130)
+│   │   ├── _clone.py          # ensure_clone: PTA/First1K/OGLT PL clones with their git dir in data/raw/_gitdirs (#244)
 │   │   ├── all.py             # run all ingestors, or a single one via --source
 │   │   └── {source_id}.py     # one module per source (e.g. oshb.py, kjv.py)
 │   ├── pipeline.py            # every pipeline step in one run, gated by --pay (#248); the steps below stay runnable alone
@@ -63,6 +64,7 @@ patristica/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── status.py              # freshness of every pipeline step in one table (#130)
+│   ├── data.py                # data/ in git-lfs (#244): pull a job's files or all, archive/restore the upstream clones
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
 │   ├── version_groups.py      # report version groups per language pair (#178)
@@ -91,14 +93,14 @@ patristica/
 │                              # parallel.ts (parallel reading: URL state, rows), useHashTarget.ts (jump to #ref),
 │                              # lang.ts, format.ts, config.ts
 └── data/
-    ├── raw/                   # downloaded source files (large; gitignored)
+    ├── raw/                   # downloaded source files (git-lfs, #244; the clones in _repos/ are archives in _repo_archives/)
     │   ├── _zips/             # cached GitHub/eBible ZIP archives
     │   ├── _csvs/             # cached scrollmapper CSV files
     │   └── {source_id}/       # per-book JSON files (e.g. oshb/Gen.json)
-    ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work)
+    ├── normalized/            # normalized Chunk JSON, {source_id}/… mirroring raw/ (one file per work; git-lfs, manifests plain)
     ├── chunks/                # chunked records ready for embedding
     ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
-    ├── embeddings/            # corpus vectors, {source_id}/….npz mirroring normalized/ (gitignored; scripts.embed)
+    ├── embeddings/            # corpus vectors, {source_id}/….npz mirroring normalized/ (git-lfs, #244; scripts.embed)
     ├── alignments/            # passage alignments, one file per version group (tracked; scripts.align, #179)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
@@ -264,9 +266,18 @@ What follows from that:
 - `build_index` records its code hash in `index_meta` (`code`) after a full run, never in a work's `content_sha`, so a code change never reloads anything by itself. `scripts.status --db` reports it, and with `--vectors` the works a run would load, update in place or delete. Bump `LOADER_VERSION` when a change should reload the stored data.
 - A work whose metadata changed but whose text, chunk ids, translations and vectors didn't (`works.body_sha`, #234) is updated in place by `build_index`, with no vectors re-sent. Metadata covers the work record (title, author ids, dates, genre, edition, …) and the chunks' date fields and `out_of_period`. So an attribution or dating fix costs SQL updates, not a reload (db/README.md → "Loading").
 - Alignments have the same kind of check ("Passage alignment" above).
-- `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job, which also runs `scripts.validate` when a file validate reads changed (`--if-changed`): it fails on validation errors and lists the warnings. The plan is on #130.
+- `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job. `scripts.validate` reads every normalized work, so it runs where the data is (the pre-push hook, the pipeline), not in CI (#244). The plan is on #130.
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
+
+### Data in git-lfs (#244)
+
+`data/raw`, `data/embeddings` and the normalized work files are git-lfs files (`.gitattributes`); `_works.jsonl`, the fingerprints, the ingest stamps and `data/translations` / `data/alignments` stay plain git, so their PR diffs stay readable. `.lfsconfig` fetches no `data/` object by default: a clone, worktree or CI checkout has pointer files. Spot-check a normalized change with a local `git diff` on a materialized checkout.
+
+- **The pipeline machine** has everything: `uv run python -m scripts.data pull --all`, then `uv run python -m scripts.data unpack` for the clones. Its disk holds each file twice (working tree and `.git/lfs/objects`).
+- **Other jobs** pull what they read: `scripts.data needs --job tests|status` lists it, `pull --job …` fetches it. CI caches `.git/lfs` keyed on those pointers.
+- **Upstream clones:** the clones under `data/raw/_repos/` (gitignored) are archived one `.tar.gz` each in `data/raw/_repo_archives/` with URL and HEAD in its `_manifest.json`: OGPG keeps its secondary scans only in each clone's object store. After an ingest that clones or pulls, run `scripts.data pack` (only changed clones are re-archived) and commit. PTA, First1K and OGLT PL are clones the ingestors write into, so their files are tracked and their git dirs live in `data/raw/_gitdirs/` (gitignored, `scripts/ingest/_clone.py`): never run `git -C` in such a tree, since with no `.git` there git climbs to this repo. `scripts.data status` shows what is materialized and which clones changed since they were archived.
+- **Pushing** needs git-lfs: the pre-push hook runs `git lfs pre-push` (`core.hooksPath` replaces the hook git-lfs would install). GitHub bills LFS storage and bandwidth above the free quota, and storage is never freed short of deleting the repo, so keep `data/` changes to real data changes.
 
 ### Embedding eval (`scripts/embed_eval/`, #3)
 
@@ -387,9 +398,9 @@ These rules are mandatory for all changes, including ones made by Claude.
 
 ### Tests, hooks and CI
 
-- Unit tests: `uv run pytest`. Tests that need downloaded source data under `data/raw/` must skip themselves when it is absent (CI has no source data), so the suite passes on a clean checkout. Database tests use `PATRISTICA_TEST_DATABASE_URL` (a Postgres with pgvector; CI runs one as a service) through the `pg_url` fixture, each in its own schema, and skip without it.
+- Unit tests: `uv run pytest`. Tests that need source data under `data/raw/` must skip themselves when it is absent or only LFS pointers (CI pulls none of it), so the suite passes on a clean checkout. A test that reads normalized work files gets them in CI only if `scripts.data needs --job tests` lists them: add the paths there. Database tests use `PATRISTICA_TEST_DATABASE_URL` (a Postgres with pgvector; CI runs one as a service) through the `pg_url` fixture, each in its own schema, and skip without it.
 - The **pre-push hook** (`scripts/hooks/pre-push`) rejects any push to `master` and runs the unit tests, aborting the push on failure. When a pushed revision changes a file `scripts.validate` reads (`data/normalized`, `patristica/data`, its code; each pushed ref is compared with its own base), it also runs validate (a few minutes) and aborts on validation errors. validate reads the working tree, so such a revision must be the checked-out `HEAD`: the hook refuses to push another branch that needs validating, so push it from its own checkout. `PATRISTICA_SKIP_VALIDATE=1` skips validation. (GitHub branch protection is unavailable on this private repo without GitHub Pro, so this hook is the guard.) Enable it once per clone: `git config core.hooksPath scripts/hooks`. Use `git push --no-verify` only in an emergency.
-- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has four jobs: Python unit tests, pipeline (`scripts.status` in the job summary, and `scripts.validate` when its inputs changed, #130), the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
+- **CI** (`.github/workflows/ci.yml`) runs on every PR, not on pushes to `master`: PR runs already cover everything that merges. If `master` has moved since a PR's last CI run, re-run its checks before merging (GitHub shows "This branch is out-of-date"). To check `master` itself, run the workflow manually (Actions → CI → Run workflow). It has four jobs: Python unit tests (after pulling the LFS files the tests read, #244), pipeline (`scripts.status` in the job summary, #130), the web app job (lint, typecheck, Vitest, build), and infra (tofu, compose and Caddyfile validation, the web Docker image, shellcheck). Add heavier suites (pipeline/integration tests, data validation, lint) as separate jobs in that workflow.
 - New code should come with unit tests.
 
 ## Working with the Plan Docs
