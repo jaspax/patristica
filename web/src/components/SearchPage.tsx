@@ -94,7 +94,7 @@ function statusText(pages: Pages): string {
   const shown = pages.pages.reduce((n, p) => n + p.results.length, 0);
   if (shown === 0) return "No passages found.";
   const last = pages.pages[pages.pages.length - 1];
-  const more = last?.next_offset != null;
+  const more = last?.next_cursor != null;
   const of = last?.total != null && last.total > shown ? ` of ${last.total}` : "";
   const noun = (last?.total ?? shown) === 1 ? "passage" : "passages";
   return `${shown}${of} ${noun} shown${more ? ", more available" : ""}.`;
@@ -228,7 +228,7 @@ interface ResultsProps {
 
 function Results({ state, onStatus, onBusy, onSearch }: ResultsProps) {
   const [pages, setPages] = useState<Pages>({ status: "loading", pages: [] });
-  const [offset, setOffset] = useState(0);
+  const [cursor, setCursor] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => onStatus(statusText(pages)), [pages, onStatus]);
@@ -238,8 +238,8 @@ function Results({ state, onStatus, onBusy, onSearch }: ResultsProps) {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchSearch(state, offset, controller.signal).then(
-      (page) => setPages((p) => ({ status: "ready", pages: offset ? [...p.pages, page] : [page] })),
+    fetchSearch(state, cursor, controller.signal).then(
+      (page) => setPages((p) => ({ status: "ready", pages: cursor ? [...p.pages, page] : [page] })),
       (err: unknown) => {
         if (controller.signal.aborted) return;
         const error = err instanceof SearchError ? err : new SearchError("failed", String(err));
@@ -249,15 +249,15 @@ function Results({ state, onStatus, onBusy, onSearch }: ResultsProps) {
     return () => controller.abort();
     // `state` is the key of this component, so it is fixed for its lifetime.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset, attempt]);
+  }, [cursor, attempt]);
 
   const loaded = pages.pages;
   const results = loaded.flatMap((p) => p.results);
   const last = loaded[loaded.length - 1];
   const more = () => {
-    if (last?.next_offset == null) return;
+    if (last?.next_cursor == null) return;
     setPages({ status: "loading", pages: loaded });
-    setOffset(last.next_offset);
+    setCursor(last.next_cursor);
   };
   const retry = () => {
     setPages({ status: "loading", pages: loaded });
@@ -287,7 +287,7 @@ function Results({ state, onStatus, onBusy, onSearch }: ResultsProps) {
       )}
       {pages.status === "loading" && <p className={styles.status}>Searching…</p>}
       {pages.status === "error" && <ErrorMessage error={pages.error} onRetry={retry} />}
-      {pages.status === "ready" && last?.next_offset != null && (
+      {pages.status === "ready" && last?.next_cursor != null && (
         <button type="button" className={styles.more} onClick={more}>
           More results
         </button>

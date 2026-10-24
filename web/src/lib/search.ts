@@ -49,7 +49,7 @@ export function searchHref(state: Partial<SearchState>): string {
 }
 
 /** The API request for one page of results. */
-export function searchApiUrl(state: SearchState, offset = 0, limit = PAGE_SIZE): string {
+export function searchApiUrl(state: SearchState, cursor: string | null = null, limit = PAGE_SIZE): string {
   const params = new URLSearchParams({ q: state.q.trim() });
   // The API takes repeated parameters for the multi-valued facets.
   for (const key of MULTI_KEYS) {
@@ -59,7 +59,7 @@ export function searchApiUrl(state: SearchState, offset = 0, limit = PAGE_SIZE):
   if (state.from !== null) params.set("date_from", String(state.from));
   if (state.to !== null) params.set("date_to", String(state.to));
   params.set("limit", String(limit));
-  if (offset) params.set("offset", String(offset));
+  if (cursor) params.set("cursor", cursor);
   return `${API_URL}/search?${params}`;
 }
 
@@ -159,9 +159,9 @@ export interface SearchResponse {
   text: string;
   /** How many passages contain the phrases (keyword mode only). */
   total: number | null;
-  offset: number;
   limit: number;
-  next_offset: number | null;
+  /** Pass as `cursor` for the next page; null on the last one (#251). */
+  next_cursor: string | null;
   results: SearchResult[];
 }
 
@@ -224,7 +224,7 @@ async function responseError(res: Response): Promise<SearchError> {
  */
 export async function fetchSearch(
   state: SearchState,
-  offset = 0,
+  cursor: string | null = null,
   signal?: AbortSignal,
   timeoutMs = TIMEOUT_MS,
 ): Promise<SearchResponse> {
@@ -235,7 +235,7 @@ export async function fetchSearch(
   const onAbort = () => controller.abort(signal?.reason);
   signal?.addEventListener("abort", onAbort);
   try {
-    const res = await fetch(searchApiUrl(state, offset), { signal: controller.signal });
+    const res = await fetch(searchApiUrl(state, cursor), { signal: controller.signal });
     if (!res.ok) throw await responseError(res);
     return (await res.json()) as SearchResponse;
   } catch (err) {
