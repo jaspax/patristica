@@ -44,23 +44,37 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --extra dev --extra eval --extra api --extra deploy --extra index
 
+      # data/ is in git-lfs and the checkout has pointer files (.lfsconfig, #244):
+      # pull only the files this job reads, through a cache keyed on their pointers.
+      - name: Which LFS files this job reads
+        id: lfs
+        run: |
+          uv run python -m scripts.data needs --job tests > "$RUNNER_TEMP/lfs-needs"
+          echo "key=lfs-tests-$(xargs cat < "$RUNNER_TEMP/lfs-needs" | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          key: ${{ steps.lfs.outputs.key }}
+          restore-keys: lfs-tests-
+
+      - name: Pull them
+        run: uv run python -m scripts.data pull --job tests
+
       - name: Run unit tests
         run: uv run pytest
 
   # Pipeline freshness (#130). The hard checks (stale normalized data or
   # alignments) are pytest tests in unit-tests; this job reports what CI can't
-  # run (pending translations and their cost) in the job summary, and runs
-  # scripts.validate when a file it reads changed: it fails on validation
-  # errors and lists the warning counts. Needs no raw data or API keys.
+  # run (pending translations and their cost) in the job summary. Needs no raw
+  # data or API keys. scripts.validate reads every normalized work, which are
+  # LFS files (#244): the pre-push hook and scripts.pipeline run it where the
+  # data is, so CI doesn't download the corpus.
   pipeline:
-    name: Pipeline status and validation
+    name: Pipeline status
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          # A PR checks out its merge commit: HEAD^1 is the base, so the PR's
-          # changes are `git diff HEAD^1 HEAD` without fetching any history.
-          fetch-depth: 2
 
       - uses: astral-sh/setup-uv@v6
         with:
@@ -69,18 +83,25 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --extra eval
 
+      # data/ is in git-lfs and the checkout has pointer files (.lfsconfig, #244):
+      # pull only the files this job reads, through a cache keyed on their pointers.
+      - name: Which LFS files this job reads
+        id: lfs
+        run: |
+          uv run python -m scripts.data needs --job status > "$RUNNER_TEMP/lfs-needs"
+          echo "key=lfs-status-$(xargs cat < "$RUNNER_TEMP/lfs-needs" | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          key: ${{ steps.lfs.outputs.key }}
+          restore-keys: lfs-status-
+
+      - name: Pull them
+        run: uv run python -m scripts.data pull --job status
+
       - name: Pipeline status
         run: uv run python -m scripts.status --summary "$GITHUB_STEP_SUMMARY"
-
-      - name: Validate (when its inputs changed)
-        # Also when the status step failed: they check different things.
-        if: ${{ !cancelled() }}
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            changed="--if-changed HEAD^1"
-          fi
-          uv run python -m scripts.validate $changed --output "$RUNNER_TEMP/validation_report.json" \
-            --summary "$GITHUB_STEP_SUMMARY"
 
   # Next.js frontend (web/): lint, typecheck, unit tests, production build.
   web:
