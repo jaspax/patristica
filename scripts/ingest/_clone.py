@@ -59,6 +59,9 @@ def ensure_clone(repo_url: str, repo_dir: Path, label: str, force: bool = False)
         return
     if repo_dir.exists() and not force:
         return  # the tracked files; a clone is only needed to update them
+    if repo_dir.exists() and offline():
+        log.info("--offline: using the %s files without a clone to pull", label)
+        return
     require_network(f"cloning {repo_url}")
     log.info("Cloning %s repo into %s …", label, repo_dir)
     scratch = git_dir.parent / f"{repo_dir.name}.clone"

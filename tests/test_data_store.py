@@ -192,3 +192,17 @@ def test_ensure_clone_uses_tracked_files_and_reclones_on_force(tmp_path: Path):
     assert (tree / "out.json").read_text() == "{}"
     assert not (tree / ".git").exists()
     assert not (tmp_path / "raw" / "_gitdirs" / "pta.clone").exists()
+
+
+def test_ensure_clone_offline_uses_the_tracked_files(tmp_path: Path):
+    """A fresh checkout has the tree but no git dir: --force --offline re-ingests
+    from the tree (re-stamping, #215) instead of trying to clone."""
+    from scripts.ingest._common import offline_mode
+
+    tree = tmp_path / "raw" / "oglt-pl"
+    tree.mkdir(parents=True)
+    (tree / "a.xml").write_text("tracked")
+    with offline_mode():
+        _clone.ensure_clone("https://example.org/never.git", tree, "t", force=True)
+    assert (tree / "a.xml").read_text() == "tracked"
+    assert not (tmp_path / "raw" / "_gitdirs").exists()
