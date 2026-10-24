@@ -1,0 +1,1218 @@
+{
+ "gitdirs": {
+  "first1k": {
+   "head": "0d8a06b524b277397ca70968e94edb9d41a12a2f",
+   "url": "https://github.com/OpenGreekAndLatin/First1KGreek.git"
+  },
+  "oglt-pl": {
+   "head": "8c651f859f821f0868755596f1a513946ca25350",
+   "url": "https://github.com/OpenGreekAndLatin/patrologia_latina-dev.git"
+  },
+  "pta": {
+   "head": "fc6cee8ad9839e3073df88b1abe57ee2bd59c039",
+   "url": "https://github.com/PatristicTextArchive/pta_data.git"
+  }
+ },
+ "repos": {
+  "coptic-scriptorium": {
+   "head": "6c2acf0ebebf62f40c3834259cf6fd734238e371",
+   "sha256": "74b4d3942dd2e26ef5016bc11a45a5ea74f7aaf76f17ed5654c6b46f5f90d2ae",
+   "state": "d6252881aa08325b",
+   "url": "https://github.com/CopticScriptorium/corpora"
+  },
+  "ethiopian-bible": {
+   "head": "f773460cbca872508863966d9f61e0413ae6e00f",
+   "sha256": "4ac9d8e0d8ba8b941e0724e21c92c2947180b7ed8bf3f136ddbf461491f3eaf0",
+   "state": "2dc7b0fae86a43e1",
+   "url": "https://github.com/LPettay/ethiopian-bible.git"
+  },
+  "ogpg/Vol.-1": {
+   "head": "9b73fc5603fc01e7a16b0cffb2ef7db001df5a85",
+   "sha256": "b20ec851045909abb2e2da5c8aa788b03d2f87820134ad3666ea432688720bb5",
+   "state": "83a1a6e02429d9b5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-1"
+  },
+  "ogpg/Vol.-10": {
+   "head": "5daf9b7025c55c443d5504f8b4cfe41e1e5c95af",
+   "sha256": "3aaf19da4ca7125088e1849286cd01f5310277efadea142ecc1edc05c085c79c",
+   "state": "f279665de41bdc88",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-10"
+  },
+  "ogpg/Vol.-100": {
+   "head": "b6e83fdf0ca65d3e6ed16553bb09a0e34c4821a8",
+   "sha256": "1c9e735066b5965029f16cdee43a9976923b976e019865d0fcd8e6ca3fc3449d",
+   "state": "adf2273f467f7d34",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-100"
+  },
+  "ogpg/Vol.-101": {
+   "head": "9427c3fe095e63ecf12de885cab462e62d0c40e8",
+   "sha256": "b638987b805c0ae9d268992cdb1668645e214fb29ff9a7580ba9f84f85528e56",
+   "state": "e449a1ba4080bd30",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-101"
+  },
+  "ogpg/Vol.-102": {
+   "head": "b8f944c3f79d5d70d488369ef3615c2438fa80e7",
+   "sha256": "ff4f76761a08fdb96226628727254f8751c0c9cb4bc160c8692eb2f147034d05",
+   "state": "f98255485105c858",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-102"
+  },
+  "ogpg/Vol.-103": {
+   "head": "ec1a37dbfcff324e0799029c7082aca4e366eea7",
+   "sha256": "b87a99e8b57b7503c35214d65e4f5b6ab79fbf5d06c76bb26939a93ad3d4c81f",
+   "state": "9a41ee81ee7568bc",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-103"
+  },
+  "ogpg/Vol.-104": {
+   "head": "a435ded8d9a5b7803c1adc1421176b425f5da568",
+   "sha256": "fc68bfb707d6d8082915ab76f63bd56b0e8ec632472dcd5752c64cb553de787b",
+   "state": "24a88bf520b03bc7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-104"
+  },
+  "ogpg/Vol.-105": {
+   "head": "c175b32a6257ef8128033f1f620690d8959e572d",
+   "sha256": "d029f25efb6a881bc430defb511ffe490d9adf7e010e4e76b6afdd9d8fc4e09f",
+   "state": "c96ebac584cff791",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-105"
+  },
+  "ogpg/Vol.-106": {
+   "head": "cdfe5634d1594743317f8dd59492e1ebeb8e2b2b",
+   "sha256": "d7a116497946ec216bb0c803589f3a37f6d5340bb58459039d8dbc77460f6ded",
+   "state": "42848de8f53f41de",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-106"
+  },
+  "ogpg/Vol.-107": {
+   "head": "b00984f4b823b3d5824301f818bf71ddd1b5d0bc",
+   "sha256": "70a50812e4c15ee5d3ecf8ad493b8c9234fac7eeaa3fc13cc7ec0af1c9f715d8",
+   "state": "a54e4957af3270bd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-107"
+  },
+  "ogpg/Vol.-108": {
+   "head": "17fd5c9bd63e10a05419f6079aa177941903552b",
+   "sha256": "8a62892ce5c3505c8fb24a9143e23f4a7b44006e5c1a7e6bbfefb8aa417a95ba",
+   "state": "1bcf5c0e3f719265",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-108"
+  },
+  "ogpg/Vol.-109": {
+   "head": "fbe93d63affb67faca0ef3c4aaf9b5c0b193e474",
+   "sha256": "dbbf5f1c5c224fb1b0c5c6099b1eb6c9af0dc682ab8507df7beb0e09f1a1a75a",
+   "state": "bcdbdd5f6a3c774c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-109"
+  },
+  "ogpg/Vol.-11": {
+   "head": "f1bf290bbfc16888433d7421c194b9c1ca4b415c",
+   "sha256": "53640ee5c19f8d35d0168260541ec7e7053cdae14acfa102b2668575091687df",
+   "state": "01ed2688f9c03070",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-11"
+  },
+  "ogpg/Vol.-110": {
+   "head": "03f7ab1a2edea689cf270dc0431ccf1a5d8278f4",
+   "sha256": "ef9aa28d526dc4f81ce47a559e99356257f93f4a51bc0257918d806e7e7d25d3",
+   "state": "db40408680904fb8",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-110"
+  },
+  "ogpg/Vol.-111": {
+   "head": "9102d71ae726714f89c17f3055d2a06010802ec7",
+   "sha256": "201cfa5bc52a423c85fdeb5b7de3b40e98ec32e26f0f7f9b58d9562f64cbb7b2",
+   "state": "b11c3c345504cb6e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-111"
+  },
+  "ogpg/Vol.-112": {
+   "head": "172c954a228a76ff6677188c83d085704cf9b179",
+   "sha256": "2347bdae040df992db3152aa46c7e7831278699d4cc465f6d513c8def0588846",
+   "state": "fd846f4b6696f5fe",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-112"
+  },
+  "ogpg/Vol.-113": {
+   "head": "faab2e25a126880a1f8ed9ef509992246ae962df",
+   "sha256": "79404b36a00fc03788fabda070ad03afc667e273d0aedc1676cd45d46f886d13",
+   "state": "f250a04feef7fe9c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-113"
+  },
+  "ogpg/Vol.-114": {
+   "head": "884b893bed2300f4faf224d3afe886897d35ff92",
+   "sha256": "db209036387e5a6ce52808d18ab25e87737e6f340caaf622936e2810ed8f4b9e",
+   "state": "a09ff132133b0661",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-114"
+  },
+  "ogpg/Vol.-115": {
+   "head": "b5b3063a6b38c8280a1ef1d9ba78ced04cb6ef85",
+   "sha256": "9963bccea041f226f6e610b65cb9306a07ef30df3ec15cf89b2b70affcef5550",
+   "state": "d3ca9df03496e821",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-115"
+  },
+  "ogpg/Vol.-115-116": {
+   "head": "dbf234e785716e78739758bc616ee45bc9f258b2",
+   "sha256": "3df0072c1f08d6d509253138a40a60191a6d11619daf84295a557ef2580d7184",
+   "state": "c9791224cbc8e5fc",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-115-116"
+  },
+  "ogpg/Vol.-116": {
+   "head": "338a0565d9c2e1a41a2994267f0c8b450e7abbf2",
+   "sha256": "437ed542f8e119fcd3c12775a3c778d62105c8396db6d4d0391a595790dc403a",
+   "state": "684edc40fe9e3048",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-116"
+  },
+  "ogpg/Vol.-117": {
+   "head": "5e8f0947e4ed741e40e09d2d20fdfd338c2e55f7",
+   "sha256": "14dd8dd379436536f4d88eefd2a6861bf7967055dd6ed42ce65d7cc8d71adfe1",
+   "state": "57c1b73cf559f86c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-117"
+  },
+  "ogpg/Vol.-118": {
+   "head": "9219b94dc558ced739ae46e3cd36e15829b8caaa",
+   "sha256": "3f172a0f4a60a54ad7e74d012e9b082ef6d6409dbe21ab6896f183cdaec91557",
+   "state": "ff633feb52154d1c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-118"
+  },
+  "ogpg/Vol.-119": {
+   "head": "44c55d420e4cb4289fed38d227d6240710312d3d",
+   "sha256": "9295d257d36b8cf121fe2db3b97ba14c20a4568629578c30f00f6c73224fe829",
+   "state": "07ac27e049bb0355",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-119"
+  },
+  "ogpg/Vol.-12": {
+   "head": "b2fcbe4da34a862b7078f3131bdfc3516f958a85",
+   "sha256": "471854c4af8158933b9b9799b6e6068bc1a920e4114c687bca01e9050079ebeb",
+   "state": "4eb4cb6d69fd1bff",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-12"
+  },
+  "ogpg/Vol.-12-13": {
+   "head": "24bcc570ceabf9c253b191216e4553148c6384c0",
+   "sha256": "be0a3673d772e79e6eedaa68b5c781c038e4182fba3744d6a824b0d85e44023e",
+   "state": "a32819a146c60cab",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-12-13"
+  },
+  "ogpg/Vol.-120": {
+   "head": "bb6492eb17c5b977993ca63bb89f14dc0305eca5",
+   "sha256": "a97cfaf7f1bfa122147db335185ae68d41bf1b9e5001eace7b9d122f950e9284",
+   "state": "4fd1ce6bfe27740c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-120"
+  },
+  "ogpg/Vol.-121": {
+   "head": "dfec9e5faea04571b1151dc4e788938a0a9281e0",
+   "sha256": "4bd34d8f76855d18eab201adeb41d491f3538ad742b602b7bc4fb502e6b5c90c",
+   "state": "a6afa606b56870d3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-121"
+  },
+  "ogpg/Vol.-122": {
+   "head": "a07caf57a4918b746c9cd9759bd9e1ebdb81c8f9",
+   "sha256": "6b7e88900a1a19808b2a8accb6d0223da97d50bb5ca2a3f0f62dde02bc0bdc3e",
+   "state": "6a8d7729186e1edd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-122"
+  },
+  "ogpg/Vol.-123": {
+   "head": "d00b37476de5344a1aef5d298ffdaed6f062bfb6",
+   "sha256": "fa62ec89e99eb8090d19b7d31300178dbb61554100f04be26b0ed8fb2fe590f7",
+   "state": "0506f85f473755fb",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-123"
+  },
+  "ogpg/Vol.-124": {
+   "head": "f35660f8405392262a41e2ca2817b92730458df2",
+   "sha256": "fb6c683d6e72307ce9d7e9ce9b03d9871647c124e272f3fbe5beb20cebe49230",
+   "state": "75a42374418fc534",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-124"
+  },
+  "ogpg/Vol.-125": {
+   "head": "e46e0d72c8c1eaebf94685d7bfc143b67c2e4a04",
+   "sha256": "d8d05f172ed193bf1edbe82686f52465e01ce724e637506bac472023100bf722",
+   "state": "3a1a828589495157",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-125"
+  },
+  "ogpg/Vol.-126": {
+   "head": "5e5b0ff548f8e8bb24616b01b60369143664b8d2",
+   "sha256": "2042a38236d2dfe38e348d615fd6724c41b22df2d7993175dfc0d0a7b52584a1",
+   "state": "d31497c7033d9878",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-126"
+  },
+  "ogpg/Vol.-127": {
+   "head": "69b1b0b745b6a1bbfcf6689c89e52919912b85c2",
+   "sha256": "8ad7e6d4c68c8b9897097f0517f173bb65f2e76e23ade77e51fd6f249f92edff",
+   "state": "fb64b2ab55cc8983",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-127"
+  },
+  "ogpg/Vol.-127-128": {
+   "head": "674584598ecef552fdcee26bd2719f059fa55b22",
+   "sha256": "5243f6ee71a9bfbd93e90a40b5a66b1ad5f18c2370a31482db07d6dba1de07d7",
+   "state": "3297ba59a3fafb44",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-127-128"
+  },
+  "ogpg/Vol.-128": {
+   "head": "8487e39aaa137c05fa33ce2d136526be1954c5e2",
+   "sha256": "0f16cea02dae12133fefb31174e5eae70b528a734259ad499df701b69c40d883",
+   "state": "890177975968755d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-128"
+  },
+  "ogpg/Vol.-129": {
+   "head": "34d39af8f11a29c59e94d6e6ce32d7c48ec72926",
+   "sha256": "057a52656ff94def7e0d6712897c53920c84aecdf78cfd52b574021d201cfb43",
+   "state": "42496f264a16705d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-129"
+  },
+  "ogpg/Vol.-13": {
+   "head": "901d5974d98ec19d0dee40b69c35a582196e890d",
+   "sha256": "c10c1a62974ab431351194a2244ae3825294aecd9db47644d98ab8fd74c7cf56",
+   "state": "1797c6ab3286e6a7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-13"
+  },
+  "ogpg/Vol.-130": {
+   "head": "293abe9d8fee47382f9f7324df73a9df7656ceaf",
+   "sha256": "21edca4c421f7b9fd2262f22f88f43941ab5804f44127aa6ea80b22b0c868a7e",
+   "state": "38e418f8c3da633a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-130"
+  },
+  "ogpg/Vol.-131": {
+   "head": "67d95b8f64c7a84d210105628f98883884b290b7",
+   "sha256": "96dcdfa5458073a322437306db25a2f99a6e323560b83cff6f9c40c463e70f8a",
+   "state": "fc72c08c4a922d22",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-131"
+  },
+  "ogpg/Vol.-132": {
+   "head": "110164660f0444faa8d37ad9a8e6c7518c911381",
+   "sha256": "521afde40e26ae09f086e12e45b68ca80143480c44be890c44afd70d663fa6c0",
+   "state": "4ff7deec59c4f3b4",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-132"
+  },
+  "ogpg/Vol.-133": {
+   "head": "bbce196e8b1984290edda87367831a7ed5b9aac0",
+   "sha256": "c8b2fa41c6c58f50b0099fe02d3ccf367db309fc0f7eaa2774ef348a62c60049",
+   "state": "0ba388ef30ad2c2e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-133"
+  },
+  "ogpg/Vol.-134": {
+   "head": "9c54a98cd78c1480270b9279dc95542b33a7b2f2",
+   "sha256": "45abc2f33c00f7ea098489e4bb8134a8f98d2d0c712864a5493d3aee0e893178",
+   "state": "2e6afeb92d0d070a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-134"
+  },
+  "ogpg/Vol.-134-135": {
+   "head": "4ea0733850cf4f3c0d5275605e5c61876a6e87cd",
+   "sha256": "49754ef5d3c555441244e6300acfef5465f076bcd39e7769156965c93ec59a81",
+   "state": "cbd7730d6cc545af",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-134-135"
+  },
+  "ogpg/Vol.-135": {
+   "head": "f533eaac922d4a4683a2aaba6930b11eeab577d9",
+   "sha256": "d80a6eac23ee9f4ffd772b03ac691ad7d1afc139b6e6cb247b6d4a000a7f0de6",
+   "state": "2e6cf0f920f203fe",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-135"
+  },
+  "ogpg/Vol.-136": {
+   "head": "0da53039a415774b80f7a1d5c403b8624a2f04e8",
+   "sha256": "0ec75d78f3ac15f78f77ed4047ca375c355b9513903f46aa49020e22d993693a",
+   "state": "a0e215fdda16a274",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-136"
+  },
+  "ogpg/Vol.-136-137": {
+   "head": "dbb49516aae5473086ffd80c950ba8c3386cbf8b",
+   "sha256": "a9582825c3409188830f1766ca6dd0c490e8ce015d67523a5c67bd1e2023a667",
+   "state": "2f409572caff58f2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-136-137"
+  },
+  "ogpg/Vol.-137": {
+   "head": "72aae52082ec1cf2bf0dc22383350cd647c2a9c2",
+   "sha256": "f817b34e9c76023180de9eb02cce9f984b9842cfb02b29cb3c0e7e0a830226a8",
+   "state": "d589c43ea3e53960",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-137"
+  },
+  "ogpg/Vol.-138": {
+   "head": "f8e8165f9fd01dd4b8fb4b6c3820328f78e2b94a",
+   "sha256": "3f6acb4c07754b6d288e3b9a98c9d2bc6c9cfd7521d3c09c0935d8a583747bff",
+   "state": "402199d0ee1cd4c7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-138"
+  },
+  "ogpg/Vol.-139": {
+   "head": "2ddaec7cf7a5e36e31c3d632a66d09e177e3dd40",
+   "sha256": "5ee7aded8328374fc6f2345d3bcecc011fbd7df80fbf17547ab5fbb13d9b3cf6",
+   "state": "cd5995f2790e3eff",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-139"
+  },
+  "ogpg/Vol.-14": {
+   "head": "6d15a58239e2d22d01d5a4df584d6335f459fb59",
+   "sha256": "2f03fae1b41637a01672ea9a335e1903cc16f09aaf0bd867d71f43495a753685",
+   "state": "126e75c3ef413c00",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-14"
+  },
+  "ogpg/Vol.-140": {
+   "head": "d080f21195f56386f915c23cf3b6fdddd089abd7",
+   "sha256": "f29131f00b0abd416ddaea58d4e47219bd0bc3f133cc99ee7ae9fd391f687d78",
+   "state": "3ce1494f696af21f",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-140"
+  },
+  "ogpg/Vol.-140-141": {
+   "head": "329303772291975364d95896d826d4df89655cdc",
+   "sha256": "d9b95cd2ef2a6887824c0611425836eb4d55b8f2ac0229be450d9cd0b0217571",
+   "state": "8b04eb3898f2d3a2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-140-141"
+  },
+  "ogpg/Vol.-141": {
+   "head": "330f2b4301a975043e735657d65c5e4cea6763cf",
+   "sha256": "d3e7d4ab6302a57920d3fa2556bd21c7babe8ed00b1413ee11c984b689f01219",
+   "state": "92d683f67979e2cd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-141"
+  },
+  "ogpg/Vol.-142": {
+   "head": "e77ba7a7587c4abab70a14ecd85483820c3f7c03",
+   "sha256": "7250670bd820a591cea1cce8cda016419bbb09a558c15e607ac35ccedf965bec",
+   "state": "63c94ba552762739",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-142"
+  },
+  "ogpg/Vol.-142-143": {
+   "head": "92f598378c6a10e7199b21751e30657b5df216cd",
+   "sha256": "c9f58fc3c6ec585005a15ad3193c08b2eb8f82143b939a4ac148e5b510e526f5",
+   "state": "38b7c418914dcaf8",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-142-143"
+  },
+  "ogpg/Vol.-143": {
+   "head": "e01af6fb0db6ac68e20aeb2084cfde04226a48eb",
+   "sha256": "aaa33f3e6505ed3f9420aa45c8771842d5b0a9adf9b7dc8c3fefadd01f5f5ef6",
+   "state": "676118c00cb2b370",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-143"
+  },
+  "ogpg/Vol.-144": {
+   "head": "98dc1bbfe2275ebf26a21dda1874089b76939f08",
+   "sha256": "43a9067f8bb7fcb6440057ca7af35b32b2e03555a19d5339e0f75451c9f803b5",
+   "state": "c37a289e7cefe011",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-144"
+  },
+  "ogpg/Vol.-144-145": {
+   "head": "3346416561412f1f261eaf7b2b5dfbbbb3e0acd2",
+   "sha256": "38895b6ab36ec0937593d812115ee8ff77e7d8d4e4d53ea598bda79b3160c047",
+   "state": "ceac0fa22a286df2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-144-145"
+  },
+  "ogpg/Vol.-145": {
+   "head": "988d9cf3dd574762ebcfaec3e76caccb33bcd038",
+   "sha256": "56adec5fb2ada2eed6647635e73b2dfb62901ea759bff835382aa5a0973105b9",
+   "state": "6b9309d94f6b79e1",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-145"
+  },
+  "ogpg/Vol.-146": {
+   "head": "44695c4c53bb22566082eb43d6a6256bc6641e8f",
+   "sha256": "1b06afea08721f17b7a0f6d35e22272dcaac118c4970b6b258a1906cd047c3a1",
+   "state": "e7d4613417d75cee",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-146"
+  },
+  "ogpg/Vol.-147": {
+   "head": "0376753996c727dec5bf79dc046d7f0d5da817c3",
+   "sha256": "42452bd925c96303a9734131aa528d8862cc18734d8894e1aa14ac163920bb1f",
+   "state": "47e4f41e6276a5f3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-147"
+  },
+  "ogpg/Vol.-148": {
+   "head": "147d22aa989f56472a71b66058d4dacea6799951",
+   "sha256": "2db27fd54467206b1df1d7c051462762c7c56f949638a5362859af543731080c",
+   "state": "31441cede4bb9e8b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-148"
+  },
+  "ogpg/Vol.-149": {
+   "head": "07cd393b5b10415db1c07840188007b86a81e48d",
+   "sha256": "f6668e752f078fd124c74d849e54babd71f793e8ab99ed044e1c78d9f8e6c41b",
+   "state": "92cfc1dc85f3be1c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-149"
+  },
+  "ogpg/Vol.-15": {
+   "head": "6edf116a636f080dedd1338de5c257b0bd427d37",
+   "sha256": "90984df71a636202edb8c10d8e3555e2882c08917fd4a00ab3ca6ec5be7d30e5",
+   "state": "c5996ff8d5de530f",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-15"
+  },
+  "ogpg/Vol.-150": {
+   "head": "8ceb1d2d7e4f47f90eed9afda2f889303330a286",
+   "sha256": "04f680693dc5990fe0ae88bb76edd219830dc7da99711a0f791bbb9bdf7297ec",
+   "state": "b2d0e24845a2e50e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-150"
+  },
+  "ogpg/Vol.-151": {
+   "head": "e057513b9ec1fa046e50047f32669634756f5af6",
+   "sha256": "b5f6951f8549d7d19a6e99eb9490e6d43d46c4fb047efeba0b9e47a3174906a3",
+   "state": "fe51eabf1b7f9fbd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-151"
+  },
+  "ogpg/Vol.-152": {
+   "head": "9a1fed65681b0b367afd787f1030179cd5adf340",
+   "sha256": "6a8de5a1e69b9399f1e9048cfb25358636eebf837641ae66d42093b09b0af62c",
+   "state": "e06e385aa2f0af0d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-152"
+  },
+  "ogpg/Vol.-153": {
+   "head": "f0f8e97dcc49d31297b7ddfa41517229e6f717d3",
+   "sha256": "49cd341fa0c325b9e6f0e942ce8f11361c9b1984df5f68d931c78e4cf9a502ad",
+   "state": "7784ec6689fe8cea",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-153"
+  },
+  "ogpg/Vol.-153-154": {
+   "head": "658a65a203b5b6e7c469281ef07fb42f8da80818",
+   "sha256": "80db6c0ef7babfdbdfc723e41eaa78b931485ba7e97bc580af0364acb59b9d24",
+   "state": "f75ac3dfaf0de2b2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-153-154"
+  },
+  "ogpg/Vol.-154": {
+   "head": "767aa6517d3c0d43f92d2847fe9844cfd1a15d83",
+   "sha256": "f5e35f780c3c1946e13e817bb9cbc4fa0567e57d180f5fa7bac166016fabac78",
+   "state": "37286190bda28d9b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-154"
+  },
+  "ogpg/Vol.-155": {
+   "head": "b14809532fa45970fdcaec5f0a9bc41e9f62e00a",
+   "sha256": "3c64ae6837ec095b43b93be94ef10477e0b180f9a7246bcbc77783ae79234c6b",
+   "state": "ef4bc18b85787ee6",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-155"
+  },
+  "ogpg/Vol.-156": {
+   "head": "010620d79b82fcf55ffcb32aaa8d6ea1188cf58e",
+   "sha256": "0e45478418e27ee09a8f31a9966a5468679375e85a504490d8c263fb95ca10bc",
+   "state": "1f62eaafcf9a0099",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-156"
+  },
+  "ogpg/Vol.-156-157": {
+   "head": "d7f01b274e38c091589420fdaa769a59e8c61e01",
+   "sha256": "843f4cf8a69d32af5d2b81f248e62909bc3e67ec581fbf9bf70c39c1ef847751",
+   "state": "01856b23f4d58a9d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-156-157"
+  },
+  "ogpg/Vol.-157": {
+   "head": "a071fb464eb216098c8b9a7a5a08bc3862a3c63d",
+   "sha256": "b9b1d453829b189c5d92f6518c3d161eabc7c8ca021db741d84361624b62b09d",
+   "state": "301ce801d4339a03",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-157"
+  },
+  "ogpg/Vol.-158": {
+   "head": "f7c7ab4ba8969fe5067b26d3c394abd0f156140f",
+   "sha256": "1af196d3cd2ce4fd295250cbee915a8f39c249477c7db3315cf972cc6e13f9c4",
+   "state": "c041154ca0846721",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-158"
+  },
+  "ogpg/Vol.-159": {
+   "head": "9537fa1fb5257a9006077732c0a23378cf1bcbc3",
+   "sha256": "bcabef3a2d6bb35ffaaae10461da225976c30de3718e575779d94ec04944d609",
+   "state": "71fa329d9ee4c88d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-159"
+  },
+  "ogpg/Vol.-16": {
+   "head": "6431175d1c441aa011ba2687ad990e880347cc2b",
+   "sha256": "3b490f149daa181cb5b953317ca9d82cf54cc1e4422d88bfe3a4d1baf888c5af",
+   "state": "4eb108494458d3a9",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-16"
+  },
+  "ogpg/Vol.-16.1": {
+   "head": "b1646e8a049b72bc8d8e793b2861950548cac23e",
+   "sha256": "9e7d9aca033901e01131c6c25ac2e45c37247583fe87b81123c5455a35f070b4",
+   "state": "ff5dc5265bfc2a22",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-16.1"
+  },
+  "ogpg/Vol.-16.2": {
+   "head": "d0a4e82b12f465952705f3c7290042c4abc15ea5",
+   "sha256": "b5b94c70fa4fd520c413c393311871d01d3124f962dfa43bc973cbe65217ac38",
+   "state": "22a70d687113efb5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-16.2"
+  },
+  "ogpg/Vol.-16.3": {
+   "head": "522e7d7a8f5a29854c3c078559e20b50ca1b157d",
+   "sha256": "be21e23330a2ecbf15f159eabda3b30e95076d49e386f40c541f886c372ff7dc",
+   "state": "16f56f2b26df7a4b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-16.3"
+  },
+  "ogpg/Vol.-160": {
+   "head": "647b1f7cc1690210e42ed57e01903aacfe799566",
+   "sha256": "124c3e6edbbbd5cd29ee931be55140e1e18f8b694d87d301ea28f5961f20ce18",
+   "state": "9af35d7abc3f92ef",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-160"
+  },
+  "ogpg/Vol.-161": {
+   "head": "9ae889041a3e77e980bf6b8651a27a10afd9663a",
+   "sha256": "40e7a6fc42f8e87a70e0d1a2722812980a9132c4793784abcbb4d0820abf9c90",
+   "state": "07de272b7b3b48b6",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-161"
+  },
+  "ogpg/Vol.-17": {
+   "head": "ce9078cadc7f37354b2da049d45314e9e318928d",
+   "sha256": "23fd8c856d9a42fd7379616ea8a90ed8360941a092f4f35bd4c76e8b1f86f82d",
+   "state": "ef10f6ce33d55f31",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-17"
+  },
+  "ogpg/Vol.-18": {
+   "head": "7a30f0d45ea2f593850a450acd97facdfdbcb917",
+   "sha256": "c0499bd124e63691b3f9bfbb4d3e941b2e2bc334e48690140d6e50c515930658",
+   "state": "43752577a48416d5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-18"
+  },
+  "ogpg/Vol.-18-19": {
+   "head": "fea66895d06c989e9f04b94cdf3e1c15b68e3e13",
+   "sha256": "c9782d9921ec0fdaafe378a472bc3fc33fa120370a0d2c39ff06ccc3cfd88e0a",
+   "state": "00c3d0335626d0f0",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-18-19"
+  },
+  "ogpg/Vol.-19": {
+   "head": "512d532b8bd18b8b8a5a050e51f06078907d787f",
+   "sha256": "f21312ddccd365dedf48133b4c49568566bb0278c0badab6cc80b91b05436024",
+   "state": "322f922cf21f5ae5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-19"
+  },
+  "ogpg/Vol.-2": {
+   "head": "398eaa64083ecf1f08d510337e4a54d6471f267d",
+   "sha256": "d44e57cbc9fef9c9bbd8f973a5fdf70b6d863f095bbd22fde3ed6067c8e4a027",
+   "state": "c5c26c477c1dffaf",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-2"
+  },
+  "ogpg/Vol.-20": {
+   "head": "624d11c87934fd5ea686d9892cd9268043a8adac",
+   "sha256": "78933bbdecbf50224c315d59c4b856cbc764d4aafa641079e27daf8edbf81c8b",
+   "state": "4ae435517fe0ffcd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-20"
+  },
+  "ogpg/Vol.-20-21": {
+   "head": "e954532ce239997327cf19555ef487e3a18a332e",
+   "sha256": "ea1f12f2ae9c78fb4d785002655e5d2cd9f7dc85a19331307dd3b233b3cf6efb",
+   "state": "ddbbac14dfeddca6",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-20-21"
+  },
+  "ogpg/Vol.-21": {
+   "head": "7bda3625d6a05ec98decd2c71c81247e39e33cae",
+   "sha256": "8b743844b71d26fdd3fbbc1843cfd22b577809e12cce332bf573c3774b4d80fd",
+   "state": "f385e16243fecd96",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-21"
+  },
+  "ogpg/Vol.-22": {
+   "head": "e5b649c9fb30facf094bcc7e03b0ec22a68f103b",
+   "sha256": "fd2c9f0224f362c133757c8066019b791823d82b64c3790935b9c6547c416026",
+   "state": "671eb9d95e107353",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-22"
+  },
+  "ogpg/Vol.-23": {
+   "head": "75bc6b3a838d0dc4176d2afa3de907c482d2ef7a",
+   "sha256": "0e8857c95ac46b3e3728792cf5373da360e7ddf3e206ffb69a8267555ac0f266",
+   "state": "a8778113e04568ec",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-23"
+  },
+  "ogpg/Vol.-24": {
+   "head": "b444862c79b943c84bd317a678771a6088236143",
+   "sha256": "ac2bff8fe7918f25e1b406633f86b178562584487e09a0c75cfc431d9fcf1689",
+   "state": "9f5f43f4a8e98ccd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-24"
+  },
+  "ogpg/Vol.-25": {
+   "head": "78fb1505c67692e0def1f969dbd4653032f43aec",
+   "sha256": "d4f9d013ed9d0d518615aeeea2dd2484e3c473d4adcf8f0b36e0c924d396b50b",
+   "state": "193b5c06562e7648",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-25"
+  },
+  "ogpg/Vol.-26": {
+   "head": "20f9aedea2a2a248e2ece008414bb05c206180eb",
+   "sha256": "a8cc2edc9a00689f1ac2f4045d96c091a8de51bdb4b6f2aeae835f4317c3182d",
+   "state": "03e2d97929209b6a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-26"
+  },
+  "ogpg/Vol.-27": {
+   "head": "61f7a75b1465912336e575f9b21adf71402bbcbd",
+   "sha256": "644a65d79f74922ae95f2b707511eb17b9d6a319d8904dff74a5954af60a1cdc",
+   "state": "cc23013eb061c7a3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-27"
+  },
+  "ogpg/Vol.-28": {
+   "head": "6bedf05a22c7a81d3fe825df988fa541d4887949",
+   "sha256": "ab4785917d4256637522d6cfc8e528960492fb88e8e1672d6c43b7a7b0412bbe",
+   "state": "0ae30a017dc647a3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-28"
+  },
+  "ogpg/Vol.-29": {
+   "head": "f8bbff5e090bd58eb31af9e230602111c9eea69c",
+   "sha256": "500ab14d5eb44881b85ec96cdd78f6d36dbb23cfe13e699dd92b30442250c226",
+   "state": "03ba10ff2d605f63",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-29"
+  },
+  "ogpg/Vol.-3": {
+   "head": "b3e69b05110b2fbf248a3849beb1073afda42f7b",
+   "sha256": "f861dc69ee43a9e29c1eee31f80bf3aeeb8a752127de65410cf1e829d70af1af",
+   "state": "28b119ece23156ff",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-3"
+  },
+  "ogpg/Vol.-30": {
+   "head": "487c815ea2d2543a95f10149d4d11c35a59b36d2",
+   "sha256": "63450a6eef04ea6bccc916c423c503e621686ed810fc654aec2431cb00f431b4",
+   "state": "270f084008469df7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-30"
+  },
+  "ogpg/Vol.-31": {
+   "head": "6ab9d35854a87d527057bcdba0b09846c1ef2690",
+   "sha256": "23e1bf335a0206fb3c4c1b1f6ff5aa29d76fcf69c68c04bd50d64a097411a362",
+   "state": "920b03ba2ce8b70e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-31"
+  },
+  "ogpg/Vol.-32": {
+   "head": "61a1044e95e42bd06b3cb8f266c38050b97c592a",
+   "sha256": "179e967055b33bee236240955023bcdad1163d2f7beb7bf893944dfaa9731e76",
+   "state": "98eb0ced8f764443",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-32"
+  },
+  "ogpg/Vol.-33": {
+   "head": "f31366fe387ae926d6e42ae238af1e16292f21d8",
+   "sha256": "5b7d9a9e89777e5a3362cd175dbe674fec2903542e73fa78f5ef4acd1f016081",
+   "state": "46dc2d627d251e91",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-33"
+  },
+  "ogpg/Vol.-34": {
+   "head": "07a87f716c9503347997737ccea05d79546fd023",
+   "sha256": "2776cbf2e411b0a15b90582a8595a9d8332b8dadb389c567ef88f47501df1c92",
+   "state": "e6f9f0c5db83856d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-34"
+  },
+  "ogpg/Vol.-35": {
+   "head": "1d1d289eb7862995d26a3db9e06634ee0f6a78ca",
+   "sha256": "31b866034d2bc8076a37a1be4654bb5ef2c589c1b2db1c53dbc06bc69e187859",
+   "state": "6aa049793cc72ee0",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-35"
+  },
+  "ogpg/Vol.-36": {
+   "head": "35bbdc44581d0f86a61548832ebad01602ee244c",
+   "sha256": "7ebfaa1132cb75e039ffaa7514b89c78ea8c8599cd9ed01c3c4ae48b968ca012",
+   "state": "f9792951ae3de5d2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-36"
+  },
+  "ogpg/Vol.-37": {
+   "head": "cc72a6b0a4b0819d4e487d6e63c8a09085533961",
+   "sha256": "a742365a849c7b1410545c55734b51e6fc559563fc464d7176065763222e6c3a",
+   "state": "bf302027f5cb3085",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-37"
+  },
+  "ogpg/Vol.-38": {
+   "head": "f12cbd8cdba615e7b59660d2fb797ff5998580c2",
+   "sha256": "3dda1710af2428f378e5be02100a0c27cfb39d608abd651cdac72e78a0f34fc3",
+   "state": "0771ce003e0d49a4",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-38"
+  },
+  "ogpg/Vol.-39": {
+   "head": "7dff2bd18c786114e2c2f18d37c1deee3bb89f66",
+   "sha256": "0889ce6bf47d68bac5b86366b01fff6217ad38ed0372ff03f85910039425a1a8",
+   "state": "933b94f212e9debf",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-39"
+  },
+  "ogpg/Vol.-4": {
+   "head": "f7da5430684ea22e2dd9804ced7706916b7cbc5c",
+   "sha256": "5f1a1ec8799fd73f753a5885b43e1a88162c527713e5dc0a4c99e0b8e8868939",
+   "state": "605a0166d467b21d",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-4"
+  },
+  "ogpg/Vol.-40": {
+   "head": "8d39289b15d1b70678df637807e47cb9705af4b7",
+   "sha256": "b5797e48089d17852fd5d5c24f0a033eda721268aaa54d52eb49393256e375c5",
+   "state": "688f98d20c509171",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-40"
+  },
+  "ogpg/Vol.-40-41": {
+   "head": "e4841bc55d21309994d870b268694712e930fc5a",
+   "sha256": "ff949540329a51d8cca290a18f67b9b8d6e2ae4c06683d3e7c05077c064c82b0",
+   "state": "dd12fa15fdea7ba0",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-40-41"
+  },
+  "ogpg/Vol.-41": {
+   "head": "556ef6f0f8ce30bb848fee98d1d2f0b93f2e8e5c",
+   "sha256": "200dd9333bfce7b836329af23c9e7118c15bf5729155b653d1b53baf976f0ee9",
+   "state": "4bd315ab231990dd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-41"
+  },
+  "ogpg/Vol.-42": {
+   "head": "89ee22bb703954fdcc80fd1f12a43a52ea3880cd",
+   "sha256": "0d1139e32125d15a1c91bbe452bece18b934b537fa30a4be6f8a7efd8f5df466",
+   "state": "bb4ab2dc18742580",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-42"
+  },
+  "ogpg/Vol.-43": {
+   "head": "b2fa0e4cafdf114be4808f0fd547fadc9643ae0d",
+   "sha256": "a1e75f70518c79e64ca7c777a17bc34673cabe2e79606e8d609d1ccc45ab16c7",
+   "state": "ea219ac00357f73b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-43"
+  },
+  "ogpg/Vol.-44": {
+   "head": "d79b94446168ccd6fa244ac95df267946f8fa2e2",
+   "sha256": "8ca36468475e4584efc6c50e057d0917f3a124aeb80b01d090179b10d47d6028",
+   "state": "d861f4c6b501d9e4",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-44"
+  },
+  "ogpg/Vol.-44-45": {
+   "head": "d9acff5737e4ea41bcb777280dd8769e613636fe",
+   "sha256": "7d1bf0514cefe0aee1571533d435653fa7f7ac10839c61289714b6b563c3d0ba",
+   "state": "0eff2c9045799b14",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-44-45"
+  },
+  "ogpg/Vol.-45": {
+   "head": "2849dbab4f70a1e221c9f676db876abc86948080",
+   "sha256": "715bb86dbd83ab6a172bacd651a2bf8fd988fee1da5b927749e7ec0da92de008",
+   "state": "cb21025443bc6016",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-45"
+  },
+  "ogpg/Vol.-46": {
+   "head": "b0cb5fe5fb1d5a4e2d767903208a72649f3a770c",
+   "sha256": "31a68f31c2a164177d77b0997f4481515288c8a98ecbb5d49a354cc9d9273790",
+   "state": "7ec1d870f3c300d5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-46"
+  },
+  "ogpg/Vol.-46-47": {
+   "head": "4bb39f6949d9f8d79b05ed5f1f804fad084bac7e",
+   "sha256": "5735ba6d113fd16a93c7a76593e126f1e353f21be5c2b3703c402b0ccda4948c",
+   "state": "576805ff2bca620c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-46-47"
+  },
+  "ogpg/Vol.-47": {
+   "head": "460343eabc6bd5597a7e36e56a546be02c3ef490",
+   "sha256": "ce020953875024a5e010bf59850b6f80019c37c12533af8a8f3f1f43526461e7",
+   "state": "615aba2b24d65538",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-47"
+  },
+  "ogpg/Vol.-47-48": {
+   "head": "ac30a031eb1730015be08e570110cb659d5fb55d",
+   "sha256": "e6629156b056881f1fc67fa74d93777e8e1a6d74c1ff3a0bc1c703e1c18191ad",
+   "state": "7a14af43d7fa3102",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-47-48"
+  },
+  "ogpg/Vol.-48": {
+   "head": "8b8c809c7a92a31c780c50ccdfc794c1fe03ba0f",
+   "sha256": "3c86d7bd06d274c5fc030c93f3243e5da8d15cbcd918d2f31139863bba436dcc",
+   "state": "15956e0b667af56a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-48"
+  },
+  "ogpg/Vol.-49": {
+   "head": "7a62675584994337d9270b826b40e7824ee98cd2",
+   "sha256": "6fec7bf06dc75eff12ee093755ea521aa3d0669e52289c41a792ddf8f01d18c8",
+   "state": "6c0e7bf060e23c41",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-49"
+  },
+  "ogpg/Vol.-49-50": {
+   "head": "6fdda514820073e11e540b33d50749e5796de167",
+   "sha256": "7187dad81b2d7b72c845de49aea2701fce802991455dff54111e0eff1c212eaf",
+   "state": "0755f99f45403996",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-49-50"
+  },
+  "ogpg/Vol.-5": {
+   "head": "a4caa21e304eaeeed2121f8f3d7fc2900d928f88",
+   "sha256": "f6c4778fe53957c9ec2f47acfef935664ce35f00ab954adfed7c889e3edc2928",
+   "state": "ab5c04b562dc8e91",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-5"
+  },
+  "ogpg/Vol.-50": {
+   "head": "f8c943f3af09229b0c301248c63d04823e9acec6",
+   "sha256": "c943727b8a8e6a78f7938f666dcca82a4abeff89d855eeb3a3e2c27fd3b715c9",
+   "state": "911467131ad0ea1f",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-50"
+  },
+  "ogpg/Vol.-51": {
+   "head": "c735708124408dc272f57e5311b78639f87a6a39",
+   "sha256": "a1939658ea9fc5606c0befab4b7de20a95908cbbd41e2be108a8934e15d40e68",
+   "state": "97bd24e0aa20a5a7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-51"
+  },
+  "ogpg/Vol.-52": {
+   "head": "3bbf79361cd8119d374030abb76b5814424475c2",
+   "sha256": "ed40f77317658785533e26d6d7a68e1d347d84bebd1221455657dd1f59e7f831",
+   "state": "7eb96c5c6af2bfed",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-52"
+  },
+  "ogpg/Vol.-53": {
+   "head": "a065f593a9963f4f173dcca486d122ed7438620c",
+   "sha256": "6f4daeb43ca88c9009b412ae5adc8a6637f58b9d69b921021b7c3e447166b5b5",
+   "state": "7b6f9912a56a4cb9",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-53"
+  },
+  "ogpg/Vol.-53-54": {
+   "head": "3222447dc72378b23daa3be56383994fff87c8bc",
+   "sha256": "6c2176a7ab19794331a9447692e46af184aa0e1995322596333fe0be4f54627a",
+   "state": "f631dcf7ef02e453",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-53-54"
+  },
+  "ogpg/Vol.-54": {
+   "head": "349fae471f417112541dd0baf78fb4a774f66414",
+   "sha256": "cc6a14baa4c1ec1bfdde75a2e26d563b92514d366762673cf5b59b2022df9d75",
+   "state": "f265194d1d00b587",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-54"
+  },
+  "ogpg/Vol.-55": {
+   "head": "333e7235d6be9a8338b89b203ea32177fcbc110a",
+   "sha256": "26a8f0b1dde6bb604508b77c5583e8180a2a1161460e2ce52db89c5e01b86a6c",
+   "state": "e3c3a368e629621c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-55"
+  },
+  "ogpg/Vol.-56": {
+   "head": "68b2e02718223366915a17d9460c26ed95feaa59",
+   "sha256": "f16512d41f6671f4baf15a005801f2fe91d0b46782e71d91665857d107f0b020",
+   "state": "0a7d43154cd4c857",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-56"
+  },
+  "ogpg/Vol.-57": {
+   "head": "e5921e83683b030bd887a41a52b6d0300d6a54de",
+   "sha256": "903293ab7c4a7c8f4056adcd9150059a9311499bc68df755b733080b9c9305fb",
+   "state": "49fe7fa8247bc651",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-57"
+  },
+  "ogpg/Vol.-57-58": {
+   "head": "cbed972db3ea5ca572e9b5ae12df1fbdd2f65707",
+   "sha256": "e42cc82c3f6b0d0a79c72ab78aa1e047c0cf410d62520225027750db01677585",
+   "state": "095af91842ad945c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-57-58"
+  },
+  "ogpg/Vol.-58": {
+   "head": "1b45f1d8a223f35130a592bd6719ca26956589c5",
+   "sha256": "927d6b765ff283974c4af4678639ec7d4cb9b29fb25810f5b2641d067342aebf",
+   "state": "356869f8e1b7db34",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-58"
+  },
+  "ogpg/Vol.-58-59": {
+   "head": "ee031c426ee3a6a6f74ce1dac9a5b738eba9f396",
+   "sha256": "7a9f01ab271fcf318b3128f95c15193c4ee8e8dc3cfca99d311c88fb9092c02b",
+   "state": "29fd79fe77a21bc5",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-58-59"
+  },
+  "ogpg/Vol.-59": {
+   "head": "d526c3234839d41066ed6725def4410d72056d1c",
+   "sha256": "f9f428d0d86f20c33ff6948ad8a01b3845aa6b94c83f2a4d5623f307b327b1e5",
+   "state": "42f5d94d0eb94f4a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-59"
+  },
+  "ogpg/Vol.-6": {
+   "head": "ca4df5aeb7fd78d2d3a84863a3ac39905292a3b2",
+   "sha256": "f05528c968ba98a3d8e1bc1ec7780d9e36ab0c9aa42cd2f09ff45b925f487a19",
+   "state": "c8895a5d0ebfd981",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-6"
+  },
+  "ogpg/Vol.-60": {
+   "head": "43f09e27490bc7707f36f081f6a815650ab15a1a",
+   "sha256": "23f5cfd56390d24dd51d4fbb5ec70e513e73c6c3d595f8022f933005e1fe7488",
+   "state": "5a70f0ca4cc06931",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-60"
+  },
+  "ogpg/Vol.-61": {
+   "head": "f76a8b453ada3000438c64ddd8cf34ff9031a857",
+   "sha256": "55854784845cabd7d856e342117e7024956cccc4f08d4d1fc9d01046117ca1a7",
+   "state": "07491b07cac45609",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-61"
+  },
+  "ogpg/Vol.-61-62": {
+   "head": "e02f1e418afe030d1b6002182bb8e75f76e77339",
+   "sha256": "d5cb3702d3801bd5dd427a264dc600dac43c841753512faa2a2aa3b851dd7484",
+   "state": "5cd7256580ba3337",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-61-62"
+  },
+  "ogpg/Vol.-62": {
+   "head": "8f73908479adb1f7de2d761783b78b71ea3463e8",
+   "sha256": "340398ad49cc93af9da5360ef72555f84a82b2a562f54c9c0226b257aa28c786",
+   "state": "a081a85512c3c2f7",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-62"
+  },
+  "ogpg/Vol.-63": {
+   "head": "88ba8c2c83694521320cd9abd23ea5932e377f55",
+   "sha256": "0e8f1f760dad4a9c7324536c80f276f454fd4aae1381d69ce41455343006e0aa",
+   "state": "a80b70b2fdb9d130",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-63"
+  },
+  "ogpg/Vol.-64": {
+   "head": "2e5e5926fb2d20e4f1948457c7f292fb59c503bc",
+   "sha256": "650ded19ba25c0ccbd8a84a8e6f8b7d97444d1258523282e2fa8eaae0cda4b57",
+   "state": "8bb423793485c9fc",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-64"
+  },
+  "ogpg/Vol.-65": {
+   "head": "2b24d9dc2e5d74ac3375a45e997d094140c585fc",
+   "sha256": "96be81d3deaa8a030efd8e80b569fdf87d1be3a82e3e3293164681fed9cedcc6",
+   "state": "90c528ffa7ec956c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-65"
+  },
+  "ogpg/Vol.-65-66": {
+   "head": "6fe41ac8d8af2459e6ac050a7c91fb007e1f2246",
+   "sha256": "c2628ba5fdada892b3e28e9dcc5c017e18c54ba9712cd33db917ba0216d34b72",
+   "state": "5629d973c29a0dd2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-65-66"
+  },
+  "ogpg/Vol.-66": {
+   "head": "b3045a0577d1c4dcbd801f45e558adf51bbd7555",
+   "sha256": "73339dc6c973d020c1f285ac411e38758a5dd8072831d1f6d4412110109a022a",
+   "state": "d90640b61cf80435",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-66"
+  },
+  "ogpg/Vol.-67": {
+   "head": "c4aaed043da8a9d5a5364da311894e4dfb0a086e",
+   "sha256": "b69a01a289b18db07a8f2e34e6b43bdaf431c65a13402c9e2bf657a60c2606d7",
+   "state": "981c36b3ac09f2a3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-67"
+  },
+  "ogpg/Vol.-68": {
+   "head": "9d9b7c8cc7483878398cd8bc0f68786bf58b25b6",
+   "sha256": "5260d6a6ec09575a50c19a8dffa07c0025905332f87181c971ca957f00251396",
+   "state": "9aef1cf2b3d5d9cc",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-68"
+  },
+  "ogpg/Vol.-69": {
+   "head": "ff12969bcd18a37ffe6ffeb2c7bf86a2824faa69",
+   "sha256": "feda41cbf6a3c94baba02ab11586d02fb9ce12f3311ca956ce78fd85f1612251",
+   "state": "dcf4b032b85d96a3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-69"
+  },
+  "ogpg/Vol.-7": {
+   "head": "fc23282fed37ac785962d40c903b65bf8365ab77",
+   "sha256": "9649704cab26abcd6d8011df410f7231685735b1cdda5f04c6fcbde87543b25f",
+   "state": "1ebcd3f194ad2dc8",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-7"
+  },
+  "ogpg/Vol.-70": {
+   "head": "342710ba4014b95dc8391ec2bdb9b9163342ffea",
+   "sha256": "7a4a24f42a9754cc0a0fc0002a114e6a2738d8ecac2a82609936542e84ff7a50",
+   "state": "8f5e4e1a2a57e540",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-70"
+  },
+  "ogpg/Vol.-71": {
+   "head": "be64247c0f3849fc6b4d20f0ca9dd42282b546de",
+   "sha256": "c57171907dfdcc079e824d4368443f261f7d4f760669aac077b4371e7c60b069",
+   "state": "0a7782c911381ef2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-71"
+  },
+  "ogpg/Vol.-72": {
+   "head": "861f419584ce114ab8f568e8c0df91c59a144352",
+   "sha256": "7d23d91c5b78d2c10751d2891c49b0cccb63d8c4b0f2ea7e863acc09865aaa7a",
+   "state": "9ebd4693ec13c395",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-72"
+  },
+  "ogpg/Vol.-73": {
+   "head": "ff7939b6bf0522be471a87e65d45833f53e94ca4",
+   "sha256": "1a4c49e1fca37fe0d51479c1200e399c7f9d4d2c1c3720e9c8e87f16d707f5f2",
+   "state": "ade36271e125c2cd",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-73"
+  },
+  "ogpg/Vol.-74": {
+   "head": "e88817c928a0be89285d95e6f3109035258b469e",
+   "sha256": "a8123158a34f150c0e452f782e9735238573f4cb2309dfce0d0902d7d6a08369",
+   "state": "2893ca2b701f58bf",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-74"
+  },
+  "ogpg/Vol.-75": {
+   "head": "a2d52aa9ce1c7a1ea993d088e5a639ae77925426",
+   "sha256": "537170c631473ca7e6cec0b38d74de4fb79fd871ab2f9fa938b7e8ecd7a482d6",
+   "state": "9a085911978d3e01",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-75"
+  },
+  "ogpg/Vol.-76": {
+   "head": "c670c2adef418df0d94793a41edfeedd189448d9",
+   "sha256": "e88e52329ba2942ecbce7183ec620b0c296ebecd8f00b33303d30eb52b6f4ec1",
+   "state": "6f9ebf6993ba4cba",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-76"
+  },
+  "ogpg/Vol.-77": {
+   "head": "c3129bc4a37dd621c4d5954391833025444104fd",
+   "sha256": "cdba67a2c7ddeb31df41683163305f9c613c3f251fe41206c8627050873935a7",
+   "state": "a78968d456a794ba",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-77"
+  },
+  "ogpg/Vol.-78": {
+   "head": "73abc48112457e7fd5e968990544c33ec2454963",
+   "sha256": "f5572d8d0d0c980a8e607bf280a122b89ca927dae379ec72c9d77e88a618e36d",
+   "state": "50c421d6655e39ab",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-78"
+  },
+  "ogpg/Vol.-79": {
+   "head": "13fc61290b4becb294dee3ba095e3578ac20745a",
+   "sha256": "6f8c4708b8b80a93f80aef53e7e39d824e918ce267e1ad98d258791609d7e73c",
+   "state": "c8ae0f614b5fe18f",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-79"
+  },
+  "ogpg/Vol.-8": {
+   "head": "08c3641fbf120e87b3138dadb6d3a86b6cf95634",
+   "sha256": "e0e937a857f569ee550ee2c11d33e7a6e5da0e1f694203b1b29fa1fd4cce8361",
+   "state": "894371d6ad84dffc",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-8"
+  },
+  "ogpg/Vol.-80": {
+   "head": "3d39f1aefe2bf93afdc19abb5e8d9ff024d7ad0f",
+   "sha256": "ad3b5e8781125397236b078db0b72f58a1d7a04a5e6c2235d05728594240f348",
+   "state": "9ab57acd2b7f72d2",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-80"
+  },
+  "ogpg/Vol.-81": {
+   "head": "9fab08f40b364d418ac2d583804c086f47a44301",
+   "sha256": "c00f5162349bcec88cd79daff67b994e7fc5b82f048026968fc374ff14550917",
+   "state": "006939e57bf41db8",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-81"
+  },
+  "ogpg/Vol.-82": {
+   "head": "ac8cfc36b15046740b458cde472d7c2414700b76",
+   "sha256": "c44992773618b549731b72fc616f05195f39bfbb8e63e8c7b8a48dfc0bbf8713",
+   "state": "2aac8fd4d508d530",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-82"
+  },
+  "ogpg/Vol.-83": {
+   "head": "c6b77b3ded029dcec97792e8b142239c6ce6b765",
+   "sha256": "b6de56a88048e914e3acff83f55902a6c156bc26cb366670fe7024a8b904aecf",
+   "state": "ba6355f44e23ede6",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-83"
+  },
+  "ogpg/Vol.-84": {
+   "head": "79e8579889b393ef24d6a09af63cbdc52155f57b",
+   "sha256": "826f3cf5fefbefa27948fb592c4a3fa56297f242a8bd3f1aa3b46f4999231789",
+   "state": "5f71ed2093db0d42",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-84"
+  },
+  "ogpg/Vol.-85": {
+   "head": "184947e2d7373e52bee3d9ec7da9b2184ab0e65e",
+   "sha256": "a775c89e39024dacdf4acda29b22bbf74d0ccf42f96b9ed486ea40ba5c1bc2fc",
+   "state": "176c8d534f023b9e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-85"
+  },
+  "ogpg/Vol.-86": {
+   "head": "2ab13e5443d741915a3c37d4e102ad7d287ad36a",
+   "sha256": "44742e80a6e27527e1d698fd965514d9b8fa07b5b4fe0e89e9fbbe9e9b31bbaf",
+   "state": "687269b743ee7420",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-86"
+  },
+  "ogpg/Vol.-86.1": {
+   "head": "3c5f59053be3019016f392a0f10d63c127914c4b",
+   "sha256": "3b0093a2aba8105b6697751d8c7fdc901390a76ae83d44aa56d0f8e2a2ad102c",
+   "state": "432e781fb0a3c750",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-86.1"
+  },
+  "ogpg/Vol.-86.2": {
+   "head": "252ad1d3f5c2aa3dce1144e7eb9fade622f58f4d",
+   "sha256": "363e56790f550a40702d29f5466d368f6062350bcc0066cef469413fdd8ef524",
+   "state": "93473afe00237d36",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-86.2"
+  },
+  "ogpg/Vol.-87": {
+   "head": "3fdc0e0e076bb5ac0371687ea6f78d1db989f66a",
+   "sha256": "75bb879a4079fead4ec7c3bcd5c944ac84c27a1d013319cec4d3a9e86d44489f",
+   "state": "fa71941a4607a983",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-87"
+  },
+  "ogpg/Vol.-87-88": {
+   "head": "4c43abc3e77da9a1c48b9d2bdf638a57a4eee20c",
+   "sha256": "ab4b501d5262bc4aa465f4430f955a07d12ac67c1455d49d07b67077af113098",
+   "state": "552d92b086acc25f",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-87-88"
+  },
+  "ogpg/Vol.-87.1": {
+   "head": "efaa2ebb4ac780e91f4ae7a32bc2c018bd3ac044",
+   "sha256": "6cb80333750da386039ce37be6e1be721816c5157f9e4726e9f9df747fbb7e81",
+   "state": "7d723a3974333414",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-87.1"
+  },
+  "ogpg/Vol.-87.2": {
+   "head": "acc6b80fdebe1578ab863c5eb3c6387c8dfbc02a",
+   "sha256": "7de73ddabe4d51f94a9bbcfec38a51392aeeff390d45940c25c7bb6af4dd0e95",
+   "state": "19f601c7d0f7ec4a",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-87.2"
+  },
+  "ogpg/Vol.-87.3": {
+   "head": "6adeb6f1386d3c7d2c240105bf7fb268606b7181",
+   "sha256": "c7f36d9b54430e74e3117ef4e4c0715cd8d58117ee523d8856dcbfb54b90b75e",
+   "state": "bc69a4bce2e41056",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-87.3"
+  },
+  "ogpg/Vol.-88": {
+   "head": "c9aa8a5d3fe24ec186b4f8822d8aa031f980ba22",
+   "sha256": "3417af6c4bc7bb73a7a6c3ff918b45a2c0954df29f476fff8efab596984eea19",
+   "state": "d724917d1baa0d5e",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-88"
+  },
+  "ogpg/Vol.-88-89": {
+   "head": "0070fe87ce19c9b92ce2be7d8c61b20b9701a8ca",
+   "sha256": "67a353336aa5bffa062fb347a7f143bfba71cdf98f39614a27db012f28767fdf",
+   "state": "94832e7a17bc1077",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-88-89"
+  },
+  "ogpg/Vol.-89": {
+   "head": "57177d0fbc430deac088e9548c0c621700020780",
+   "sha256": "aab362ed6eb3ab4ef0840e908c5dcc27ad701b777ed44bdcfa302938d7f9bd06",
+   "state": "ffaf546eafe5cc7b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-89"
+  },
+  "ogpg/Vol.-9": {
+   "head": "0ce53e95901148622cdb75288071102cbbf67815",
+   "sha256": "6e395e3a3150cdbbc77b123260015e76d9caef7adbfca28922ffa8504171252f",
+   "state": "164da9402e0971a0",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-9"
+  },
+  "ogpg/Vol.-90": {
+   "head": "2a88d46eaf78501e88aff2277e06e2f812037663",
+   "sha256": "ce39c6a0f86cd2a8179154a85d53124bc6dbf471ac83d6ac05f9527c65a7eac8",
+   "state": "88ccfa4693f99fea",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-90"
+  },
+  "ogpg/Vol.-90-91": {
+   "head": "b55811ea0b3964fadc7048eb1eda62f52a8b52ae",
+   "sha256": "f927d687ba0e49dd3e6c84cbff554cb587b53b03517e4b57fbf385a189127a49",
+   "state": "85140b70239d04bf",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-90-91"
+  },
+  "ogpg/Vol.-91": {
+   "head": "8fe54814eae943a5635117b1b8ee3a1d73278478",
+   "sha256": "2a561135d7426f37f986314d5d175f0839a1208bd6cfa29f35acaf4685cf0761",
+   "state": "2d25c86ca9d7b210",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-91"
+  },
+  "ogpg/Vol.-92": {
+   "head": "fc5200b7ce8b7fe3b11f9b9602baf14a5f3ffa1d",
+   "sha256": "530d5e8b23cf6b53222ab576f221f3cf960b59e528ba69a264a750870dc9e1f4",
+   "state": "75e7f1c3fdeff20b",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-92"
+  },
+  "ogpg/Vol.-92-93": {
+   "head": "5f7df7b1124cd2ea9780d49f0506938849c88568",
+   "sha256": "342883cbb6b3dcb533ca4909664cef4bfdc422f5e6e3984bca5cd77aed569e78",
+   "state": "dd17a9da65e86b74",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-92-93"
+  },
+  "ogpg/Vol.-93": {
+   "head": "10153abbe0496d2586956ad970401f593e42d35f",
+   "sha256": "929c57c7870a836ee5869fa6e5ec704adc34ae10ff627e5487134fa00d4337bf",
+   "state": "80cdc3c85412dce3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-93"
+  },
+  "ogpg/Vol.-94": {
+   "head": "7a7ffa722979fe69d3319b378875a8b63f7a0b50",
+   "sha256": "16ced0acbd8c13fa0ef8d1663aa0f0dc8f7e5f9189a6c222d853c8bfbd867a33",
+   "state": "3d8c767706bf7813",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-94"
+  },
+  "ogpg/Vol.-95": {
+   "head": "036f91edab510152ebfccdf626d12c2637edd0e6",
+   "sha256": "1684f2dba2256531fdfda3d812e1db67f8e3af20787ec3a476421694a1f0797e",
+   "state": "8071dca6bca41751",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-95"
+  },
+  "ogpg/Vol.-96": {
+   "head": "1d3ded2b941587b25faa4961207b070449b5fbfc",
+   "sha256": "efffdd6110e729f664dafe16130b500dc6f252fff3263735cf374d7af6f7bb59",
+   "state": "7508debd5d272d65",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-96"
+  },
+  "ogpg/Vol.-97": {
+   "head": "0b3209bd1ea13c17fbff0fc0f4f573dda8218086",
+   "sha256": "5081613bb015bbe3231fc5738024e8ccde0a2174c338621a0113530efcaae235",
+   "state": "6edfab47628d00d3",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-97"
+  },
+  "ogpg/Vol.-98": {
+   "head": "c1983ae377958baa7881a680761302906c5f96ba",
+   "sha256": "69a55a34dfe9dc1effd0bd16a050eae1d245486ab0ee5485e919e2b48ac1f300",
+   "state": "4d69b6fa319314ff",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-98"
+  },
+  "ogpg/Vol.-99": {
+   "head": "7ab998598927b5461e853265b77a3429367a241d",
+   "sha256": "589f030da725c9f69ea8f3093254e259a4ba1f01de519b4fda40513774a6c016",
+   "state": "2f9dea5fc4a72d7c",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-99"
+  },
+  "ogpg/Vol.-99-100": {
+   "head": "75e0f54362ae899d53745e01846a3ef4fa37ae74",
+   "sha256": "c96d18d58045f1e6132b04cba37f9965dc14c8d3eb44464f9240271bdf440006",
+   "state": "d808b7a67bc244de",
+   "url": "https://github.com/OGL-PatrologiaGraecaDev/Vol.-99-100"
+  },
+  "perseus-greeklit": {
+   "head": "d295344341f7a114ca44f44b0830cfd845b01644",
+   "sha256": "da1a41650d1557e2e372b6930797e1a139ffeacff9cecc64b014e7917a533e21",
+   "state": "8717741f902c431c",
+   "url": "https://github.com/PerseusDL/canonical-greekLit.git"
+  },
+  "perseus-latinlit": {
+   "head": "b2a135df22f812afc622e7e14d30889718c252ee",
+   "sha256": "90b11be591e2d026aacf52b46529b226e663a17c5256d5337ecf1f1a2833f84e",
+   "state": "6481a76796deb7ea",
+   "url": "https://github.com/PerseusDL/canonical-latinLit.git"
+  }
+ }
+}
