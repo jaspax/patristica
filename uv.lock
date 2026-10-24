@@ -1440,6 +1440,14 @@ index = [
     { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "psycopg", extra = ["binary"] },
 ]
+pipeline = [
+    { name = "anthropic" },
+    { name = "boto3" },
+    { name = "httpx" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "psycopg", extra = ["binary"] },
+]
 usfm = [
     { name = "usfm-grammar" },
 ]
@@ -1459,6 +1467,7 @@ requires-dist = [
     { name = "numpy", marker = "extra == 'eval'" },
     { name = "numpy", marker = "extra == 'eval-local'" },
     { name = "numpy", marker = "extra == 'index'" },
+    { name = "patristica", extras = ["embed", "index", "deploy", "eval"], marker = "extra == 'pipeline'" },
     { name = "playwright", specifier = ">=1.59.0" },
     { name = "psycopg", extras = ["binary"], marker = "extra == 'api'" },
     { name = "psycopg", extras = ["binary"], marker = "extra == 'index'" },
@@ -1475,7 +1484,7 @@ requires-dist = [
     { name = "usfm-grammar", marker = "extra == 'usfm'" },
     { name = "uvicorn", extras = ["standard"], marker = "extra == 'api'" },
 ]
-provides-extras = ["dev", "usfm", "deploy", "api", "embed", "index", "eval", "eval-local"]
+provides-extras = ["dev", "usfm", "deploy", "api", "embed", "index", "eval", "eval-local", "pipeline"]
 
 [[package]]
 name = "playwright"
