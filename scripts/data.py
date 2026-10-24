@@ -70,11 +70,29 @@ def _works(norm: Path) -> list[dict]:
     return load_works(norm)
 
 
-def scripture_paths(norm: Path) -> set[str]:
-    """Works of a Scripture source: ``scripts.align.group_record`` reads their refs."""
-    from patristica.versification import SOURCE_SCHEMES
+def book_group_paths(norm: Path) -> set[str]:
+    """Members of a Scripture book's version group (``book:…``): ``scripts.align``'s
+    ``group_record`` reads their refs (``tests/test_align_fingerprint.py``)."""
+    from patristica.versions import derive_version_groups
 
-    return {e["path"] for e in _works(norm) if e["work"]["source_id"] in SOURCE_SCHEMES}
+    works = _works(norm)
+    groups = derive_version_groups(
+        {e["work"]["work_id"]: e["work"].get("translation_of") for e in works},
+        external_ids={e["work"]["work_id"]: e["work"].get("external_ids", []) for e in works})
+    members = {w for g, ms in groups.members.items() if g.startswith("book:") for w in ms}
+    return {e["path"] for e in works if e["work"]["work_id"] in members}
+
+
+def language_sample_paths(norm: Path, per_language: int = 2) -> set[str]:
+    """The first works of each language in ``_works.jsonl`` (``tests/test_textfold.py``)."""
+    seen: dict[str, int] = {}
+    out = set()
+    for e in _works(norm):
+        lang = e["work"]["language"]
+        if seen.get(lang, 0) < per_language:
+            seen[lang] = seen.get(lang, 0) + 1
+            out.add(e["path"])
+    return out
 
 
 def aligned_paths(norm: Path, align_dir: Path) -> set[str]:
@@ -93,15 +111,18 @@ def translated_paths(norm: Path) -> set[str]:
 
 
 def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> list[str]:
-    """Repo-relative LFS paths *job* reads."""
+    """Repo-relative LFS paths *job* reads: ``tests`` the unit tests, ``status``
+    also ``scripts.status``. A new test that reads normalized work files adds
+    its set here."""
     from patristica import alignment_store as store
 
     align_dir = align_dir or REPO / store.DEFAULT_DIR
-    paths = scripture_paths(norm)
-    if job == "status":
-        paths |= aligned_paths(norm, align_dir) | translated_paths(norm)
-    elif job != "tests":
+    if job not in ("tests", "status"):
         raise ValueError(f"unknown job {job!r}")
+    paths = (book_group_paths(norm) | aligned_paths(norm, align_dir)
+             | language_sample_paths(norm))
+    if job == "status":
+        paths |= translated_paths(norm)
     prefix = norm.relative_to(REPO).as_posix()
     return sorted(f"{prefix}/{p}" for p in paths)
 

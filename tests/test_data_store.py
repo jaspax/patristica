@@ -131,7 +131,7 @@ def test_needs_lists_paths_under_the_repo():
     assert tests and all(p.startswith("data/normalized/") for p in tests)
     assert any(p.startswith("data/normalized/kjv/") for p in tests)
     status = data.needs("status")
-    assert set(tests) < set(status)
+    assert set(tests) <= set(status)
     with pytest.raises(ValueError):
         data.needs("deploy")
 
