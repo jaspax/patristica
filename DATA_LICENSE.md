@@ -24,6 +24,10 @@ period flags. In particular:
   licence (ShareAlike).
 - **CC BY-NC 4.0 and CC BY-NC-SA 4.0**: non-commercial use only.
 - **Custom terms** (`academic-noncommercial`): the source's own terms apply.
+- **`used-with-permission`**: the rights holder gave Patristica permission to
+  include the text. The permission is ours, not a licence for others: anyone
+  else who wants to reuse the text must ask the rights holder. Each grant is
+  recorded under "Used with permission" below.
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
   and must be excluded from public distribution until then.
 
@@ -37,11 +41,21 @@ The corpus breaks down as follows (October 2026, by chunks):
 | CC BY-NC 4.0 | 6% | PTA Peshitta, CURSUS |
 | CC BY-NC-SA 4.0 | 2% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration) |
 | Academic, non-commercial | 1% | SBL Greek New Testament, Wulfila Gothic Bible |
-| Unknown | <0.1% | Hudra (2 works) |
+| Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
 
 The web app's **Sources & licences** page (`/sources`) lists every collection
 with its licences, edition and source link. It is generated from the library
 index, so it stays current as the corpus changes.
+
+### Used with permission
+
+| Collection | Granted by | Date | Covers | Conditions |
+|---|---|---|---|---|
+| `hudra`: *The Hudra of the Assyrian Church of the East*, Vol. I (Darmo, Thrissur 1960) and *Taksa d'Raze*, Editio Typica (2003) | Hendo Academy, for its transcriptions on [hudra.day](https://hudra.day) | 2026-10-25 | Including the transcriptions in Patristica: the library, the reader and search (with machine translations and embeddings made from them) | None recorded yet (to be confirmed) |
+
+hudra.day's own terms grant personal viewing only (#32); this permission is
+what lets Patristica include the texts. Each work credits the transcription
+to hudra.day (Hendo Academy) in its edition line, and links to its page there.
 
 ### Non-commercial material
 

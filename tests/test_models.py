@@ -1,9 +1,13 @@
 """Tests for patristica.models — Work and Chunk Pydantic models."""
 
+import re
+from pathlib import Path
+from typing import get_args
+
 import pytest
 from pydantic import ValidationError
 
-from patristica.models import Chunk, Work
+from patristica.models import Chunk, License, Work
 
 
 class TestWork:
@@ -127,3 +131,12 @@ class TestChunk:
             translation_group_id="Gen.1.1",
         )
         assert c.translation_group_id == "Gen.1.1"
+
+
+def test_every_licence_has_a_web_label():
+    """The reader, search and /sources show a licence through LICENSES in format.ts."""
+    src = (Path(__file__).parents[1] / "web/src/lib/format.ts").read_text(encoding="utf-8")
+    block = src[src.index("export const LICENSES"):]
+    block = block[:block.index("\n};")]
+    labelled = set(re.findall(r'^  "?([\w.-]+)"?: \{', block, re.M))
+    assert set(get_args(License)) == labelled

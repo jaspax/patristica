@@ -133,7 +133,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Text | Language | Source | Notes |
 |----|------|----------|--------|-------|
-| `hudra` | East Syriac Hudra texts | Syriac (`syc`) | hudra.day | Free; may require scraping |
+| `hudra` | East Syriac Hudra texts | Syriac (`syc`) | hudra.day | Read through hudra.day's Firestore REST API, not scraped; no cache, so it can't be ingested offline (#215). Transcriptions used with permission of Hendo Academy (2026-10-25, licence `used-with-permission`, #262); hudra.day's own terms allow viewing only (#32). |
 | `goarch-chrysostom` | Liturgy of St. John Chrysostom (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
 | `goarch-basil` | Liturgy of St. Basil (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
 | `typikon` | Greek Typikon (selected first-millennium sections) | Greek (`grc`) | Violakis 1900 ed. via archive.org/details/typikontstou00orth | OCR plain text; date filtering required via flag_liturgical.py second pass |
