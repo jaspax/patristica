@@ -42,6 +42,24 @@ def test_english_psalm_title_maps_to_org_title_verse() -> None:
     assert vz.to_org_ref("asv", "Ps.51.1") == "Ps.51.3"
 
 
+def test_armenian_psalm_title_maps_to_org_title_verse() -> None:
+    """Armenian (vul) Ps.N.0 goes where the psalm starts in org numbering (#255)."""
+    assert vz.to_org_ref("armenian", "Ps.12.0") == "Ps.13.1"   # org title is its own verse
+    assert vz.to_org_ref("armenian", "Ps.12.1") == "Ps.13.2"
+    assert vz.to_org_ref("armenian", "Ps.110.0") == "Ps.111.1"  # Hallelujah inside org v1
+    assert vz.to_org_ref("armenian", "Ps.2.0") == "Ps.2.1"     # no org title
+    assert vz.to_org_ref("armenian", "Ps.114.0") == "Ps.116.1"
+    # Psalms that start inside an org psalm, numbered on from it (115:10–19,
+    # 147:12–20): the title is where they start.
+    assert vz.to_org_ref("armenian", "Ps.115.0") == "Ps.116.10"
+    assert vz.to_org_ref("armenian", "Ps.115.10") == "Ps.116.10"
+    assert vz.to_org_ref("armenian", "Ps.147.0") == "Ps.147.12"
+    assert vz.to_org_ref("armenian", "Ps.147.12") == "Ps.147.12"
+    assert vz.to_org_ref("armenian", "Ps.146.0") == "Ps.147.1"
+    # A two-verse org title (Ps 51–52, 54, 60): the title goes to verse 1.
+    assert vz.to_org_ref("armenian", "Ps.53.0") == "Ps.54.1"
+
+
 def test_unregistered_source_still_raises() -> None:
     with pytest.raises(vz.VersificationError):
         vz.scheme_for("nope", "Gen", 1)

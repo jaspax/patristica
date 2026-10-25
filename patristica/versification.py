@@ -19,8 +19,9 @@ follow another scheme (``BOOK_SCHEME_OVERRIDES``, ``CHAPTER_SCHEME_OVERRIDES``).
 
 Some books follow no scheme: Ge'ez Proverbs (26 chapters, 766 verses) and
 most of Ge'ez Job divide verses their own way, with offsets that change
-within chapters, and verses that merge or split (the Armenian psalm titles)
-cannot be mapped one to one. Aligning those by content is #179.
+within chapters, and verses that merge or split cannot be mapped one to one.
+Aligning those by content is #179.  Psalm titles kept as their own unit,
+``Ps.N.0`` (ASV, Armenian), map to where the psalm starts (``_psalm_title``).
 """
 
 from __future__ import annotations
@@ -228,6 +229,44 @@ def _esdras_b(chapter: int) -> tuple[str, int]:
     return ("Ezra", chapter) if chapter <= 10 else ("Neh", chapter - 10)
 
 
+@cache
+def _max_verses(scheme: Scheme, usfm: str, chapter: int) -> int:
+    """Number of verses of *usfm* *chapter* in *scheme* (0 when the scheme lacks it)."""
+    raw = json.loads((_DATA_DIR / f"{scheme}.json").read_text(encoding="utf-8"))
+    chapters = raw["maxVerses"].get(usfm, [])
+    return int(chapters[chapter - 1]) if 0 < chapter <= len(chapters) else 0
+
+
+def _psalm_title(source_id: str, chapter: int) -> str:
+    """The org ref of a psalm title kept as its own unit, ``Ps.N.0`` (#220, #255).
+
+    Only sources whose scheme doesn't number titles have one (ASV, the
+    Armenian Zohrab).  The title goes where the source's psalm starts in org
+    numbering: org verse 1 when the psalm starts an org psalm, whether the org
+    title is its own verse (Ps 3), the start of a verse that also holds text
+    (Ps 23, the Hallelujah of Ps 111–113), verses 1–2 (Ps 51, 52, 54, 60;
+    upstream maps a title spanning two verses to the later one) or absent
+    (Ps 2, where the Armenian title only notes that the Hebrew has none).  A
+    psalm that starts inside an org psalm (Vulgate/LXX Ps 115 = Heb 116:10–19,
+    Ps 147 = Heb 147:12–20) puts its title at the org verse where it starts;
+    the Vulgate scheme numbers such a psalm on from the org one (115:10–19).
+    """
+    numbered = sorted(int(v) for (b, c, v) in _scheme_map(scheme_for(source_id, "Ps", chapter))
+                      if b == "PSA" and c == chapter and v.isdigit() and v != "0")
+    first_v = numbered[0] if numbered and numbered[0] > 1 else 1
+    first = to_org_ref(source_id, f"Ps.{chapter}.{first_v}")
+    org_ch = first.split(".")[1]
+    if chapter > 1:
+        prev_scheme = scheme_for(source_id, "Ps", chapter - 1)
+        last = _max_verses(prev_scheme, "PSA", chapter - 1)
+        if last and to_org_ref(source_id, f"Ps.{chapter - 1}.{last}").split(".")[1] == org_ch:
+            return first
+    if first_v > 1:
+        first = to_org_ref(source_id, f"Ps.{chapter}.1")
+        org_ch = first.split(".")[1]
+    return f"Ps.{org_ch}.1"
+
+
 def to_org_ref(source_id: str, canonical_ref: str) -> str:
     """Map a source-native ``Book.C.V`` ref onto org versification.
 
@@ -248,11 +287,7 @@ def to_org_ref(source_id: str, canonical_ref: str) -> str:
     if usfm is None:
         return canonical_ref if parts[0] != "EzraNeh" else f"{book}.{chapter}.{verse}"
 
-    if verse == "0" and scheme == "eng" and usfm == "PSA":
-        # An English psalm title as its own unit (ASV Ps.N.0, #220) is the org
-        # title, which starts verse 1: its own verse (Ps 3), the start of a
-        # verse that also holds text (Ps 23), or verses 1–2 (Ps 51; upstream
-        # maps that title to verse 2, the later of the two).
-        return f"Ps.{chapter}.1"
+    if verse == "0" and usfm == "PSA" and scheme != "org":
+        return _psalm_title(source_id, chapter)
     d_book, d_ch, d_v = _scheme_map(scheme).get((usfm, chapter, verse), (usfm, chapter, verse))
     return f"{_USFM_TO_OSIS.get(d_book, d_book)}.{d_ch}.{d_v}"
