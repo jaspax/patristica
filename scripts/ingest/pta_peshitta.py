@@ -23,6 +23,17 @@ Coverage:
 The PTA repo must already exist at ``data/raw/pta/``
 (cloned by the ``pta.py`` ingestor or manually).  This ingestor does NOT
 re-clone; it only reads from the existing checkout.
+
+OT word breaks (#60):
+    PTA converted the OT from ETCBC/peshitta, whose plain text wraps each
+    verse at about 70 characters, always between words. The conversion
+    dropped those line breaks instead of turning them into spaces, so about
+    half of the OT verses run two words together at each wrap
+    (``ܐܢܫܐܘܡܢ`` for ``ܐܢܫܐ ܘܡܢ``, Jer 33:10). The ingestor downloads the
+    ETCBC plain text at a pinned commit (``data/raw/_cache/etcbc-peshitta/``)
+    and takes its word breaks for a verse only when its letters are exactly
+    PTA's. A verse that differs otherwise, or that ETCBC lacks, keeps PTA's
+    text and is logged at ERROR.
 """
 
 from __future__ import annotations
@@ -36,7 +47,7 @@ from lxml import etree
 from tqdm import tqdm
 
 from patristica.models import DateConfidence, Work
-from scripts.ingest._common import slugify_ref
+from scripts.ingest._common import download_file, slugify_ref
 from scripts.ingest._scripture_meta import BOOK_DATES
 
 log = logging.getLogger(__name__)
@@ -145,6 +156,104 @@ _PTA_TO_TITLE: dict[str, str] = {p: t for p, _, t in _BOOK_MAP}
 # NT work IDs (CC-BY 4.0); OT is CC-BY-NC 4.0
 _NT_WORK_IDS = {f"pta{n:03d}" for n in range(63, 90)}
 
+# ---------------------------------------------------------------------------
+# ETCBC plain text: the word breaks PTA's OT lost (#60)
+# ---------------------------------------------------------------------------
+
+ETCBC_COMMIT = "9850f5addade26f681334aa475570bef9b0b440a"
+_ETCBC_URL = "https://raw.githubusercontent.com/ETCBC/peshitta/{commit}/plain/0.2/{name}.txt"
+ETCBC_TREE_URL = f"https://github.com/ETCBC/peshitta/tree/{ETCBC_COMMIT}/plain/0.2"
+
+# OSIS book → ETCBC plain/0.2 file name. Where ETCBC has two texts of a book
+# (A/B), PTA's is the A text: every verse of it matches.
+ETCBC_FILES: dict[str, str] = {
+    "Gen": "Genesis", "Exod": "Exodus", "Lev": "Leviticus", "Num": "Numbers",
+    "Deut": "Deuteronomy", "Josh": "Joshua", "Judg": "Judges", "Ruth": "Ruth",
+    "1Sam": "Samuel_1", "2Sam": "Samuel_2", "1Kgs": "Kings_1", "2Kgs": "Kings_2",
+    "1Chr": "Chronicles_1", "2Chr": "Chronicles_2", "PrMan": "Prayer_of_Manasseh_A",
+    "Ezra": "Ezra", "Neh": "Nehemia", "3Esr": "Esdras_3", "4Esr": "Esdras_4",
+    "Esth": "Esther", "Jdt": "Judith", "Tob": "Tobit_A", "1Macc": "Maccabees_1_A",
+    "2Macc": "Maccabees_2", "3Macc": "Maccabees_3", "4Macc": "Maccabees_4",
+    "Ps": "Psalms", "Odes": "Odes", "Prov": "Proverbs", "Eccl": "Ecclesiastes",
+    "Song": "Song_of_Songs", "Job": "Job", "Wis": "Wisdom_of_Solomon", "Sir": "Sirach",
+    "PsSol": "Psalms_of_Solomon", "Hos": "Hosea", "Amos": "Amos", "Mic": "Micah",
+    "Joel": "Joel", "Obad": "Obadiah", "Jonah": "Jonah", "Nah": "Nahum",
+    "Hab": "Habakkuk", "Zeph": "Zephaniah", "Hag": "Haggai", "Zech": "Zechariah",
+    "Mal": "Malachi", "Isa": "Isaiah", "Jer": "Jeremiah", "Bar": "Baruch",
+    "Lam": "Lamentations", "EpJer": "Letter_of_Jeremiah", "LetBar": "Letter_of_Baruch_A",
+    "2Bar": "Apocalypse_of_Baruch", "Ezek": "Ezekiel", "Sus": "Susanna", "Dan": "Daniel",
+    "BelDr": "Bel_and_the_Dragon",
+}
+
+_OT_EDITION = (
+    "Peshitta (ETCBC via PTA; word breaks restored from ETCBC plain text 0.2, "
+    f"commit {ETCBC_COMMIT[:10]})"
+)
+_NT_EDITION = "Peshitta (Digital Syriac Corpus / ETCBC via PTA)"
+
+
+def etcbc_path(output_dir: Path, osis: str) -> Path:
+    """Cache path of the ETCBC plain text of *osis* under ``output_dir``."""
+    return (output_dir / "_cache" / "etcbc-peshitta" / ETCBC_COMMIT[:10]
+            / f"{ETCBC_FILES[osis]}.txt")
+
+
+def fetch_etcbc(output_dir: Path, osis: str) -> Path:
+    """Download (once) the ETCBC plain text of *osis*; the commit is pinned."""
+    url = _ETCBC_URL.format(commit=ETCBC_COMMIT, name=ETCBC_FILES[osis])
+    return download_file(url, etcbc_path(output_dir, osis), etag_cache=False)
+
+
+def parse_etcbc_plain(text: str) -> dict[tuple[str, str], list[str]]:
+    """ETCBC plain text → ``{(chapter, verse): [line, …]}``.
+
+    A ``Chapter N`` line starts a chapter, a line starting with a number
+    starts a verse, and any other non-empty line continues the verse.
+    """
+    verses: dict[tuple[str, str], list[str]] = {}
+    chapter: str | None = None
+    current: tuple[str, str] | None = None
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        m = re.fullmatch(r"Chapter (\S+)", line)
+        if m:
+            chapter = m.group(1)
+            current = None
+            continue
+        m = re.match(r"(\d+)\s+(.*)$", line)
+        if m and chapter is not None:
+            current = (chapter, m.group(1))
+            if current in verses:
+                raise ValueError(f"ETCBC verse {chapter}:{m.group(1)} occurs twice")
+            verses[current] = [m.group(2)]
+        elif current is not None:
+            verses[current].append(line)
+        else:
+            raise ValueError(f"ETCBC line outside a verse: {line[:40]!r}")
+    return verses
+
+
+def restore_word_breaks(
+    text: str, lines: list[str] | None, where: str
+) -> tuple[str, bool]:
+    """PTA verse *text* with ETCBC's word breaks, if its letters are PTA's.
+
+    Returns ``(text, changed)``. A verse ETCBC lacks (*lines* None) or whose
+    letters differ keeps PTA's text and is logged at ERROR.
+    """
+    if lines is None:
+        log.error("%s: not in the ETCBC text; PTA's word breaks kept", where)
+        return text, False
+    etcbc = " ".join(" ".join(lines).split())
+    if etcbc == text:
+        return text, False
+    if etcbc.replace(" ", "") != text.replace(" ", ""):
+        log.error("%s: PTA and ETCBC texts differ beyond word breaks; PTA's kept", where)
+        return text, False
+    return etcbc, True
+
 
 def _extract_license(root: etree._Element) -> str:
     """Extract license from TEI availability element."""
@@ -164,8 +273,12 @@ def _extract_license(root: etree._Element) -> str:
 def _extract_verses(
     root: etree._Element,
     book_abbrev: str,
+    word_breaks: dict[tuple[str, str], list[str]] | None = None,
 ) -> list[dict[str, str]]:
     """Extract all verses from a Peshitta TEI file.
+
+    With *word_breaks* (ETCBC lines per verse, #60), each verse takes
+    ETCBC's word breaks where ``restore_word_breaks`` allows.
 
     Returns list of ``{"ref": "Matt.1.1", "text": "…"}`` dicts.
     """
@@ -176,6 +289,7 @@ def _extract_verses(
         return []
 
     verses: list[dict[str, str]] = []
+    restored = 0
 
     for chapter_div in edition_div.findall(
         "tei:div[@type='textpart'][@subtype='chapter']", ns
@@ -206,8 +320,14 @@ def _extract_verses(
                 continue
 
             ref = slugify_ref(f"{book_abbrev}.{ch_n}.{vs_n}")
+            if word_breaks is not None:
+                text, changed = restore_word_breaks(text, word_breaks.get((ch_n, vs_n)), ref)
+                restored += changed
             verses.append({"ref": ref, "text": text})
 
+    if word_breaks is not None:
+        log.info("%s: word breaks restored from ETCBC in %d of %d verses",
+                 book_abbrev, restored, len(verses))
     return verses
 
 
@@ -276,7 +396,12 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             skipped += 1
             continue
 
-        verses = _extract_verses(root, osis_abbrev)
+        is_ot = pta_work_id not in _NT_WORK_IDS
+        word_breaks = None
+        if is_ot:
+            etcbc_file = fetch_etcbc(output_dir, osis_abbrev)
+            word_breaks = parse_etcbc_plain(etcbc_file.read_text(encoding="utf-8"))
+        verses = _extract_verses(root, osis_abbrev, word_breaks)
         if not verses:
             log.debug("No verses extracted from %s — skipping", xml_path)
             skipped += 1
@@ -301,7 +426,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
                 f"https://github.com/PatristicTextArchive/pta_data/tree/main"
                 f"/data/pta9999/{pta_work_id}"
             ),
-            edition="Peshitta (Digital Syriac Corpus / ETCBC via PTA)",
+            edition=_OT_EDITION if is_ot else _NT_EDITION,
             translation_of=None,
         )
 

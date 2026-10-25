@@ -27,6 +27,25 @@ key on:
 Every book's ``Work.edition`` names the edition (``EDITION``), not the book's
 Ge'ez title (#34).
 
+Text cleanup (#65), all of it noise in the source's JSON, done by ``clean_text``:
+
+- runs of whitespace left from the XML indentation (newlines, long space runs)
+  become one space;
+- the space some books put before the word separator and the other
+  punctuation (``ቃል ፡ ቃል``, ``ቃል ።``: Genesis–Ruth, Jubilees, 2 Kings) is
+  dropped, so every book writes the usual ``ቃል፡ ቃል``.
+
+The edition's brackets (``[…]``, ``(…)``: text found only in some manuscripts)
+are editorial material and are kept as they are (#236).
+
+A few verses end in a proclitic that belongs to the first word of the next
+verse (``1Meq.28.3`` "አንስተ፡ ወ" + 28:4 "ተባዕተ፡ …"): the source's verse
+division cuts the word.  ``_SPLIT_WORDS`` lists the cases checked against the
+text, and the fragment is moved to the start of the next verse.  Other verses
+that end in a cut word (``Prov.11.26`` "… መዓትም፡ ሕ", ``1Meq.4.4`` "… ለ") have
+lost the rest of it upstream: the next verse doesn't continue the word, so
+they are left alone.
+
 Works after the collection period: Kebra Nagast (c.1200–1325 CE, a national epic, not scripture
 or liturgy) is excluded (``_EXCLUDED_BOOKS``).  The Synaxarion (Ethiopic
 recension 14th c.) is a hybrid hagiographic calendar commemorating mostly
@@ -38,6 +57,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 
 from tqdm import tqdm
@@ -70,6 +90,38 @@ _RENAMED_BOOKS: dict[str, tuple[str, int]] = {
 #: Titles that differ from ``BOOK_TITLE``.
 _TITLES: dict[str, str] = {"2Kgs": "2 Kings (4 Kingdoms)"}
 EDITION = "Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible"
+#: Ethiopic punctuation: word separator, full stop, comma, semicolon, colon,
+#: preface colon, question mark, paragraph separator.
+_PUNCTUATION = "፡።፣፤፥፦፧፨"
+_SPACE_BEFORE_PUNCT = re.compile(rf"\s+(?=[{_PUNCTUATION}])")
+#: Verses (source book, chapter, verse) that end in the first part of a word
+#: the next verse finishes, with that fragment: a proclitic (ወ "and", እም
+#: "from") cut from its word, moved to the start of the next verse (#65).
+_SPLIT_WORDS: dict[tuple[str, int, int], str] = {
+    ("1Meq", 8, 3): "እም",    # እም|ነፋስት "from the winds" (cf. 8:4 ወእምነፋስ)
+    ("1Meq", 8, 6): "እም",    # እም|መሬት "from the earth"
+    ("1Meq", 28, 3): "ወ",    # አንስተ፡ ወ|ተባዕተ "female and male"
+}
+
+
+def clean_text(text: str) -> str:
+    """Collapse whitespace and drop the space before Ethiopic punctuation (#65)."""
+    return _SPACE_BEFORE_PUNCT.sub("", " ".join(text.split()))
+
+
+def _rejoin_split_words(book: str, chapter: int, verses: list[dict]) -> None:
+    """Move each ``_SPLIT_WORDS`` fragment of this chapter to the next verse, in place."""
+    for i, verse in enumerate(verses):
+        fragment = _SPLIT_WORDS.get((book, chapter, verse.get("num")))
+        if fragment is None:
+            continue
+        text = verse["geez"]
+        nxt = verses[i + 1] if i + 1 < len(verses) else None
+        if not text.endswith(" " + fragment) or nxt is None or not nxt["geez"]:
+            raise ValueError(f"{book} {chapter}:{verse.get('num')} no longer ends in the "
+                             f"split word {fragment!r}: check _SPLIT_WORDS against the source")
+        verse["geez"] = text[: -len(fragment)].rstrip()
+        nxt["geez"] = fragment + nxt["geez"]
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -185,8 +237,11 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
                 log.error("Failed to parse %s: %s", ch_file, exc)
                 continue
 
-            for verse in ch_data.get("verses", []):
-                text: str = (verse.get("geez") or "").strip()
+            ch_verses = [{**v, "geez": clean_text(v.get("geez") or "")}
+                         for v in ch_data.get("verses", [])]
+            _rejoin_split_words(source_abbrev, ch, ch_verses)
+            for verse in ch_verses:
+                text: str = verse["geez"]
                 if not text:
                     continue
                 v_num = verse.get("num")
