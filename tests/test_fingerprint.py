@@ -114,3 +114,52 @@ def test_real_normalize_closure():
         "patristica.versify", "scripts", "scripts.normalize",
     ]
     assert len(fp.code_hash("scripts.normalize")) == 16
+
+
+MODELS = ('from typing import Literal\n\nLicense = Literal["cc-by-4.0", "unknown"]\n'
+          'Language = Literal["grc"]\nGenre = Literal["scripture"]\nTradition = Literal["greek"]\n'
+          'DateConfidence = Literal["uncertain"]\n\n'
+          'class Work:\n    license: License = "unknown"\n')
+
+
+@pytest.fixture
+def models_repo(repo: Path) -> Path:
+    write(repo, "patristica/models.py", MODELS)
+    write(repo, "scripts/models_step.py", "from patristica.models import Work\n")
+    return repo
+
+
+def test_new_vocabulary_value_does_not_change_hash(models_repo: Path):
+    """#262: a new licence or language leaves every stamp and code hash current."""
+    before = fp.code_hash("scripts.models_step", root=models_repo)
+    write(models_repo, "patristica/models.py",
+          MODELS.replace('"unknown"]', '"used-with-permission", "unknown"]')
+                .replace('Literal["grc"]', 'Literal["grc", "lat"]'))
+    assert fp.code_hash("scripts.models_step", root=models_repo) == before
+
+
+def test_other_models_change_still_changes_hash(models_repo: Path):
+    before = fp.code_hash("scripts.models_step", root=models_repo)
+    write(models_repo, "patristica/models.py", MODELS.replace('= "unknown"\n', '= "cc-by-4.0"\n'))
+    assert fp.code_hash("scripts.models_step", root=models_repo) != before
+    write(models_repo, "patristica/models.py", MODELS + "\nScope = Literal['x']\n")
+    assert fp.code_hash("scripts.models_step", root=models_repo) != before
+
+
+def test_vocabulary_must_be_a_literal_of_strings(models_repo: Path):
+    write(models_repo, "patristica/models.py",
+          MODELS.replace('Literal["grc"]', 'Literal["grc"] if True else str'))
+    with pytest.raises(fp.FingerprintError, match="Language"):
+        fp.code_hash("scripts.models_step", root=models_repo)
+    write(models_repo, "patristica/models.py", MODELS.replace('Genre = Literal["scripture"]\n', ""))
+    with pytest.raises(fp.FingerprintError, match="Genre"):
+        fp.code_hash("scripts.models_step", root=models_repo)
+
+
+def test_real_models_vocabularies_are_excluded():
+    from typing import get_args
+
+    from patristica import models
+    for name in fp.VOCABULARIES["patristica.models"]:
+        assert all(isinstance(v, str) for v in get_args(getattr(models, name)))
+    assert len(fp.module_hash("patristica.models")) == 16
