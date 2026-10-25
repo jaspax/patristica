@@ -23,11 +23,12 @@ Canonical ref format
 
 Licence
 -------
-hudra.day's own terms grant personal viewing only (#32), but Hendo Academy, which
-runs hudra.day, gave Patristica explicit permission to include these
-transcriptions in the library and search (2026-10-25, #262). The works carry the
-licence id ``used-with-permission``; DATA_LICENSE.md records the grant. It was
-given to Patristica and is not a licence for anyone else to reuse the texts.
+hudra.day's own terms grant personal viewing only (#32), but its maintainer
+(Hendo Academy) gave Patristica explicit permission to include these
+transcriptions in the library and search (2026-10-24, #262): non-commercial
+use, with attribution, for Patristica only. The works carry the licence id
+``used-with-permission`` and credit hudra.day in their edition line;
+DATA_LICENSE.md records the grant.
 
 The content is read through the Firestore REST API (the web app's public API
 key). There is no cache, so this ingestor cannot run offline (#215).

@@ -25,9 +25,10 @@ period flags. In particular:
 - **CC BY-NC 4.0 and CC BY-NC-SA 4.0**: non-commercial use only.
 - **Custom terms** (`academic-noncommercial`): the source's own terms apply.
 - **`used-with-permission`**: the rights holder gave Patristica permission to
-  include the text. The permission is ours, not a licence for others: anyone
-  else who wants to reuse the text must ask the rights holder. Each grant is
-  recorded under "Used with permission" below.
+  include the text, on the terms recorded under "Used with permission" below
+  (so far: non-commercial use, with attribution). The permission is Patristica's
+  only and is not a licence for others: anyone else who wants to reuse the text,
+  including from Patristica's data, needs the rights holder's own permission.
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
   and must be excluded from public distribution until then.
 
@@ -49,19 +50,36 @@ index, so it stays current as the corpus changes.
 
 ### Used with permission
 
-| Collection | Granted by | Date | Covers | Conditions |
-|---|---|---|---|---|
-| `hudra`: *The Hudra of the Assyrian Church of the East*, Vol. I (Darmo, Thrissur 1960) and *Taksa d'Raze*, Editio Typica (2003) | Hendo Academy, for its transcriptions on [hudra.day](https://hudra.day) | 2026-10-25 | Including the transcriptions in Patristica: the library, the reader and search (with machine translations and embeddings made from them) | None recorded yet (to be confirmed) |
+#### Hudra (`hudra`)
+
+- **Texts:** the transcriptions on [hudra.day](https://hudra.day) of *The Hudra
+  of the Assyrian Church of the East*, Vol. I (Thoma Darmo ed., Thrissur 1960)
+  and the *Taksa d'Raze*, Editio Typica (2003).
+- **Granted by:** the maintainer of hudra.day (Hendo Academy), on 2026-10-24, in
+  reply to Patristica's request of 2026-10-12. The request described Patristica
+  as a non-commercial library, free to use, and asked to include the Syriac
+  texts on hudra.day. The reply: *"Yes, I would be happy if you can include
+  them - please feel free to use anything you find on the site."* The project
+  owner keeps the correspondence.
+- **Covers:** including the texts in Patristica's library, reader and search,
+  with our machine translations and embeddings of them.
+- **Conditions:** non-commercial use, and attribution to hudra.day (Hendo
+  Academy). Each work's edition line reads "transcription on hudra.day (Hendo
+  Academy), used with permission" and links to the book's page on hudra.day; the
+  reader and the `/sources` page show both.
+- **Not transferable:** this is not a CC BY-NC licence. It was given to
+  Patristica only, so anyone reusing Patristica's data needs their own
+  permission from hudra.day for these texts.
 
 hudra.day's own terms grant personal viewing only (#32); this permission is
-what lets Patristica include the texts. Each work credits the transcription
-to hudra.day (Hendo Academy) in its edition line, and links to its page there.
+what lets Patristica include the texts.
 
 ### Non-commercial material
 
 The non-commercial texts mean that **Patristica as a whole may only be used and
 served non-commercially**: no ads, paid tiers or API fees. If that ever changes,
-remove or replace those texts first. For the Septuagint, `pta-lxx` is a
+remove or replace those texts first. That includes the Hudra texts, which are
+used with permission for non-commercial use (`used-with-permission`). For the Septuagint, `pta-lxx` is a
 CC BY-SA alternative to Rahlfs.
 
 If you reuse the data, filter on `Work.license` to keep only what your use permits.

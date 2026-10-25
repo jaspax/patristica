@@ -3,7 +3,13 @@
 import type { LibraryIndex } from "./library";
 
 /** Licences that forbid commercial use (see DATA_LICENSE.md). */
-export const NON_COMMERCIAL = new Set(["cc-by-nc-4.0", "cc-by-nc-sa-4.0", "academic-noncommercial"]);
+export const NON_COMMERCIAL = new Set([
+  "cc-by-nc-4.0",
+  "cc-by-nc-sa-4.0",
+  "academic-noncommercial",
+  // Hudra (#262): granted to Patristica for non-commercial use.
+  "used-with-permission",
+]);
 
 export interface SourceSummary {
   sourceId: string;

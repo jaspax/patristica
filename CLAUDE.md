@@ -416,8 +416,8 @@ Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source lic
 
 - Every new ingestor must set `Work.license` accurately from the source's actual terms. Use `unknown` only while the terms are being checked; works marked `unknown` must not be published.
 - Don't add anything that imposes extra terms on CC BY or public-domain text, or that puts CC BY-SA text under a different licence.
-- Non-commercial texts (CC BY-NC, CC BY-NC-SA, `academic-noncommercial`) mean the public site must stay non-commercial. `web/src/lib/sources.ts` (`NON_COMMERCIAL`) flags them on the `/sources` page.
-- `used-with-permission` is for a text whose rights holder gave Patristica explicit permission (Hudra, from Hendo Academy, #262). Record every grant in `DATA_LICENSE.md` (who, when, what it covers, any conditions) and credit the rights holder in the work's `edition`. It is published like any other licence; a grant that is non-commercial also goes in `NON_COMMERCIAL`.
+- Non-commercial texts (CC BY-NC, CC BY-NC-SA, `academic-noncommercial`, and the Hudra's `used-with-permission`) mean the public site must stay non-commercial. `web/src/lib/sources.ts` (`NON_COMMERCIAL`) flags them on the `/sources` page.
+- `used-with-permission` is for a text whose rights holder gave Patristica explicit permission (Hudra, from hudra.day / Hendo Academy, #262: non-commercial, with attribution, for Patristica only). Record every grant in `DATA_LICENSE.md` (who, when, what it covers, its conditions; no personal names or email addresses) and credit the rights holder in the work's `edition`. It is published like any other licence. The id is in `NON_COMMERCIAL` because the only grant so far is non-commercial; a grant on other terms needs its own id.
 
 ## Known Issues / Gotchas
 
