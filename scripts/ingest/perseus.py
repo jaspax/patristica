@@ -42,6 +42,7 @@ from tqdm import tqdm
 
 from patristica.models import DateConfidence, Language, License, Tradition, Work
 from patristica.period import work_in_period
+from patristica.mojibake import repair_double_utf8
 from scripts.ingest._common import dedupe_refs, ensure_repo, slugify_ref
 from scripts.ingest._cts_scope import (
     author_id_from_path,
@@ -212,7 +213,9 @@ def _extract_paragraphs(
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
         if tag in ("p", "ab"):
-            text = _element_inner_text(element).strip()
+            # Repair before collapsing whitespace: a mojibake run can hold
+            # U+00A0 (the second byte of "Π"), which \s would eat.
+            text = repair_double_utf8(_element_inner_text(element)).strip()
             text = re.sub(r"\s+", " ", text)
             if text:
                 ref = slugify_ref(".".join([work_cts_id] + path_parts))
