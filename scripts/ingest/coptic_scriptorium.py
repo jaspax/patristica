@@ -36,7 +36,8 @@ The ``*_TEI`` directories hold two formats:
 
 Both join bound groups within each ``<ab>``/``<p>`` container to produce
 paragraph strings, skipping scholarly apparatus (``<note>``, ``<gap>``,
-``<unclear>``, ``<supplied>``).
+``<unclear>``, ``<supplied>``).  Layout placeholders (``▢``) and the printed
+editions' footnote markers (``⁽²⁾``, ``¹``) are dropped (``_paragraph_text``).
 
 Canonical references
 --------------------
@@ -76,6 +77,17 @@ _TEI = f"{{{_TEI_NS}}}"
 _COPTIC_RE = re.compile(r"[Ⲁ-⳿Ͱ-Ͽ]")
 
 _WS_RE = re.compile(r"\s+")
+
+# Noise in the transcriptions that carries no text (#28, #125):
+# - ``▢`` (U+25A2): the Marcion transcriptions of Budge's editions (MERC.*
+#   manuscripts: pseudo-timothy, mysteries-john, life-john-kalybites) tag it
+#   PUNCT and use it for blank layout space: the spacing between the letters of
+#   a decorated title (Budge prints "ⲁ   ⲱ̅    ⲓ̅ⲥ̅ ✠ ⲭ̅ⲥ̅" where the source has
+#   "▢▢▢ Ⲁ ▢▢▢ Ⲱ̅ ▢▢▢▢ Ⲓ̅Ⲥ̅ ▢✠▢ Ⲭ̅Ⲥ̅") and the indent at a section's start.  It
+#   is not a lacuna (those are ``[....]``/``<gap>``) and stands for no glyph.
+# - Superscript digits, bare or parenthesised (``⁽²⁾``, ``¹``): footnote
+#   markers of the printed edition, whose notes the source doesn't carry.
+_NOISE_RE = re.compile(r"[▢⁽⁾⁰¹²³⁴-⁹]")
 
 # Tags whose text content we skip during extraction (scholarly apparatus)
 _SKIP_TAGS = frozenset({
@@ -450,6 +462,11 @@ def _collect_children(el: etree._Element, out: list[str]) -> None:
             out.append(child.tail.strip())
 
 
+def _paragraph_text(words: list[str]) -> str:
+    """Join a paragraph's bound groups, dropping placeholder and footnote noise."""
+    return _WS_RE.sub(" ", _NOISE_RE.sub("", " ".join(words))).strip()
+
+
 def _extract_paragraphs_tei(
     root: etree._Element, file_n: int, corpus_name: str, start_n: int
 ) -> list[dict]:
@@ -488,7 +505,7 @@ def _extract_paragraphs_tei(
             words = _elem_words(el)
             if not words:
                 continue
-            text = " ".join(words)
+            text = _paragraph_text(words)
             if not _COPTIC_RE.search(text):
                 continue
             ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
@@ -528,7 +545,7 @@ def _extract_paragraphs_custom(
         ]
         if not words:
             continue
-        text = " ".join(words)
+        text = _paragraph_text(words)
         if not _COPTIC_RE.search(text):
             continue
         ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
