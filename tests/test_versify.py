@@ -117,6 +117,41 @@ def test_standard_versification_is_never_split():
     assert versify_chunks(chunks, standard=True) == chunks
 
 
+def test_listed_units_of_a_standard_work_are_split(monkeypatch: pytest.MonkeyPatch):
+    """Only the units in UNVERSIFIED_UNITS are split in a standard work (#129)."""
+    import patristica.versify as versify
+
+    long = " ".join([LATIN] * 3)
+    chunks = [_chunk("Gen.1.1", long, 0), _chunk("Gen.1.2", long, 1), _chunk("Gen.1.3", "Fiat.", 2)]
+    monkeypatch.setattr(versify, "UNVERSIFIED_UNITS", {"w/x#Gen.1.2": "test"})
+    out = versify_chunks(chunks, standard=True)
+    refs = [c.canonical_ref for c in out]
+    assert refs[0] == "Gen.1.1" and refs[-1] == "Gen.1.3"   # a long real verse is kept
+    assert out[0].text == long
+    assert all(r.startswith("Gen.1.2.s") for r in refs[1:-1]) and len(refs) > 3
+    assert [c.chunk_index for c in out] == list(range(len(out)))
+    assert versify_chunks(out, standard=True) == out          # idempotent
+
+    # A listed work splits every long unit, and a short one keeps its ref.
+    monkeypatch.setattr(versify, "UNVERSIFIED_UNITS", {"w/x": "test"})
+    refs = [c.canonical_ref for c in versify_chunks(chunks, standard=True)]
+    assert "Gen.1.3" in refs and "Gen.1.1" not in refs and "Gen.1.2" not in refs
+
+
+def test_unversified_units_name_corpus_works():
+    """Every UNVERSIFIED_UNITS key is a work id, or a chunk id of a work, in the corpus."""
+    import json
+    from pathlib import Path
+
+    from patristica.versify import UNVERSIFIED_UNITS
+
+    manifest = Path(__file__).parent.parent / "data" / "normalized" / "_works.jsonl"
+    works = {json.loads(line)["work"]["work_id"]
+             for line in manifest.read_text(encoding="utf-8").splitlines()}
+    for key, reason in UNVERSIFIED_UNITS.items():
+        assert key.split("#")[0] in works and reason
+
+
 def test_is_derived_ref():
     assert is_derived_ref("Aug.Conf.1.1.s3")
     assert not is_derived_ref("Aug.Conf.1.1.3")
