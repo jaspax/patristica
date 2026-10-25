@@ -29,6 +29,11 @@ Canonical references
 ``{author_id}.{work_id_short}.{div_n_path}.{para_index}``
 
 e.g. ``tlg0559.tlg002.1.3`` (Justin Martyr, Second Apology, book 1, paragraph 3)
+
+A div's ``<head>`` (the work's title on the edition div, a book's or
+chapter's title) is kept as a heading record at the div's ref wherever that
+ref is the parent of the text that follows (#71). ``<gap>`` and ``<note>``
+are still dropped.
 """
 
 from __future__ import annotations
@@ -167,6 +172,49 @@ def _element_inner_text(el: etree._Element) -> str:
     return "".join(parts)
 
 
+def _clean_text(el: etree._Element) -> str:
+    """An element's text with notes etc. dropped and whitespace collapsed."""
+    return re.sub(r"\s+", " ", _element_inner_text(el).strip())
+
+
+def _place_headings(
+    paragraphs: list[dict[str, str]],
+    headings: list[tuple[int, str, str]],
+) -> list[dict[str, str]]:
+    """Insert the ``<head>`` texts as heading records (#71).
+
+    *headings* are ``(position, ref, text)``: the head's div path as ref, and
+    the number of paragraphs that came before it.  The reader treats a chunk
+    whose ref is the parent of the next chunk's ref as a section heading
+    (``web/src/lib/render.ts``), so a head is kept only where that holds: its
+    ref is no paragraph's ref and the next paragraph lies inside its div.  A
+    head whose div holds its paragraphs directly (they share the div's ref)
+    can't be a heading without renumbering them, so it stays out.  Paragraph
+    refs are never changed: they are reader URLs.  Several heads of one div
+    (title and subtitle) are joined into one heading.
+    """
+    taken = {p["ref"] for p in paragraphs}
+    kept: dict[str, tuple[int, list[str]]] = {}  # ref → (position, texts), in order
+    for pos, ref, text in headings:
+        if ref in taken or pos >= len(paragraphs):
+            continue
+        if not paragraphs[pos]["ref"].startswith(f"{ref}."):
+            continue
+        if ref in kept:
+            if kept[ref][0] == pos:
+                kept[ref][1].append(text)
+            continue  # a second head of the div after some of its text
+        kept[ref] = (pos, [text])
+    before: dict[int, list[dict[str, str]]] = {}
+    for ref, (pos, texts) in kept.items():
+        before.setdefault(pos, []).append({"ref": ref, "text": " ".join(texts)})
+    result: list[dict[str, str]] = []
+    for i, para in enumerate(paragraphs):
+        result.extend(before.get(i, ()))
+        result.append(para)
+    return result
+
+
 def _extract_paragraphs(
     body_el: etree._Element,
     work_cts_id: str,
@@ -176,15 +224,23 @@ def _extract_paragraphs(
 
     Handles both ``type="textpart"`` (PTA-style) and named div types used
     by First1KGreek (``type="book"``, ``type="chapter"``, ``type="section"``, etc.).
+    A div's ``<head>`` becomes a heading record where the reader can show it
+    as one (:func:`_place_headings`).
     """
     records: list[dict[str, str]] = []
+    headings: list[tuple[int, str, str]] = []
+
+    def _head(element: etree._Element, path_parts: list[str]) -> None:
+        text = _clean_text(element)
+        if any(ch.isalpha() for ch in text):  # a bare "3" only repeats the ref
+            ref = slugify_ref(".".join([work_cts_id] + path_parts))
+            headings.append((len(records), ref, text))
 
     def _walk(element: etree._Element, path_parts: list[str]) -> None:
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
         if tag in ("p", "ab"):
-            text = _element_inner_text(element).strip()
-            text = re.sub(r"\s+", " ", text)
+            text = _clean_text(element)
             if text:
                 ref = slugify_ref(".".join([work_cts_id] + path_parts))
                 records.append({"ref": ref, "text": text})
@@ -199,14 +255,59 @@ def _extract_paragraphs(
                     _walk(child, new_parts)
                 return
 
+        if tag == "head" and element.getparent() is not None \
+                and etree.QName(element.getparent().tag).localname == "div":
+            _head(element, path_parts)
+            return
+
         if tag not in _SKIP_ELEMENTS:
             for child in element:
                 _walk(child, path_parts)
 
+    # The edition div's own <head> (the work's title) is a child of body_el.
     for child in body_el:
         _walk(child, [])
 
-    return dedupe_refs(records)
+    return _place_headings(dedupe_refs(records), headings)
+
+
+# Per-work text corrections: OCR damage and stray footnote markers that no
+# general rule can tell from content.  ``work_id → ((ref, old, new), …)``; *old*
+# is an exact substring of that paragraph's text and is replaced once.
+_TEXT_CORRECTIONS: dict[str, tuple[tuple[str, str, str], ...]] = {
+    # Greek 1 Enoch: leading superscript verse numbers damaged by OCR, so they
+    # don't equal the ref and normalize leaves them (#123).
+    "first1k/tlg1463/tlg001/1st1K-grc1": (
+        ("tlg1463.tlg001.1.2", "⁰Καὶ ἀναλαβὼν", "Καὶ ἀναλαβὼν"),
+        ("tlg1463.tlg001.5.5", "⁴τοιγὰρ", "τοιγὰρ"),
+        ("tlg1463.tlg001.7.5", "⁰καὶ ἤρξαντο", "καὶ ἤρξαντο"),
+        ("tlg1463.tlg001.10.22", "²⁸καὶ καθαρισθήσεται", "καὶ καθαρισθήσεται"),
+    ),
+    # Footnote markers left in the text; the footnotes themselves (<note>)
+    # are not ingested (#125).
+    "first1k/tlg2021/tlg002/1st1K-grc1": (
+        ("tlg2021.tlg002.26.11.7", "ἐστι².", "ἐστι."),
+    ),
+    "first1k/tlg2042/tlg075/1st1K-grc1": (
+        ("tlg2042.tlg075.17.7", "Μωϋσῆς ⁵⁴ ἐν", "Μωϋσῆς ἐν"),
+    ),
+}
+
+
+def _apply_corrections(work_id: str, paragraphs: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Apply :data:`_TEXT_CORRECTIONS` for *work_id*; log one that no longer matches."""
+    corrections = _TEXT_CORRECTIONS.get(work_id, ())
+    if not corrections:
+        return paragraphs
+    by_ref = {p["ref"]: i for i, p in enumerate(paragraphs)}
+    result = list(paragraphs)
+    for ref, old, new in corrections:
+        i = by_ref.get(ref)
+        if i is None or old not in result[i]["text"]:
+            log.warning("%s: correction for %s no longer matches %r; skipped", work_id, ref, old)
+            continue
+        result[i] = {**result[i], "text": result[i]["text"].replace(old, new, 1)}
+    return result
 
 
 def _is_grc_file(xml_path: Path) -> bool:
@@ -325,7 +426,7 @@ def _parse_first1k_file(
         translation_of=None,
     )
 
-    paragraphs = _extract_paragraphs(body_el, work_cts_id, ns)
+    paragraphs = _apply_corrections(work_id, _extract_paragraphs(body_el, work_cts_id, ns))
     return work, paragraphs
 
 
