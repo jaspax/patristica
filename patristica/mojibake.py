@@ -9,8 +9,12 @@ by its continuation bytes (U+0080–U+00BF).
 
 :func:`repair_double_utf8` decodes such runs back, and only those that are
 *provably* double-encoded: a run is replaced only when its Latin-1 bytes are
-well-formed UTF-8 as a whole, so ordinary accented text (``é``, ``«``, ``·``)
-is left alone.  :data:`MOJIBAKE_RE` is the same pattern, for ``validate.py``.
+well-formed UTF-8 as a whole *and* decode to characters of the scripts this
+corpus has (Latin with its diacritics, combining marks, Greek, Cyrillic,
+general punctuation).  So ordinary accented text (``é``, ``«``, ``·``) is left
+alone, and so is OCR's ``Æ`` + soft hyphen, which happens to be the UTF-8 of
+U+01AD.  :data:`MOJIBAKE_RE` is the byte pattern; :func:`mojibake_runs` is
+what ``validate.py`` reports.
 """
 
 from __future__ import annotations
@@ -27,11 +31,19 @@ MOJIBAKE_RE = re.compile(
 )
 
 
+#: What a repaired run may decode to: Latin-1 letters and Latin Extended-A,
+#: combining diacritics, Greek, Cyrillic, Greek Extended, general punctuation.
+_PLAUSIBLE = re.compile(
+    "[\u00a0-\u017f\u0300-\u036f\u0370-\u03ff\u0400-\u04ff\u1f00-\u1fff\u2000-\u206f]+"
+)
+
+
 def _decode(run: str) -> str | None:
     try:
-        return run.encode("latin-1").decode("utf-8")
+        decoded = run.encode("latin-1").decode("utf-8")
     except UnicodeDecodeError:
         return None
+    return decoded if _PLAUSIBLE.fullmatch(decoded) else None
 
 
 def mojibake_runs(text: str) -> list[str]:

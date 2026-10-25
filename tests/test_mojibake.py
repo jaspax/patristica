@@ -28,6 +28,7 @@ def test_repairs_double_encoded_words(original: str) -> None:
     "café, naïve, Ægyptus, ½ et ¾",          # Latin-1 text that is not UTF-8 bytes
     "Ã alone, Ã« broken Ã",                   # a lone lead byte, then Ã« (ë) mid-word
     "é»",                                     # E9 BB: a three-byte lead with one continuation
+    "PRÆ\u00adFATIO",                           # OCR soft hyphen: UTF-8 of U+01AD, implausible
 ])
 def test_leaves_text_that_is_not_provably_double_encoded(text: str) -> None:
     expected = text.replace("Ã«", "ë")  # the one well-formed run
