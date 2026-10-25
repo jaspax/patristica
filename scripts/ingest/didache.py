@@ -20,12 +20,17 @@ mark_liturgy ingestor caches.
 Note: ccel_anf.py already ingests this text as ccel-anf/anf07/008.json
 but with anonymous attribution and no date or tradition metadata. This dedicated
 ingestor supersedes that entry with correct metadata.
+
+Refs are ``Did.{chapter}.{verse}``: ANF prints the verse numbers inline, and
+each chapter is cut at them (#122), as in the Greek. ``Did.17`` and below is
+the editor's elucidation.
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 
 from lxml import etree
@@ -38,6 +43,8 @@ from scripts.ingest._ccel_common import (
     _get_head_text,
     download_volume,
 )
+
+from scripts.ingest._printed_verses import rechunk
 
 log = logging.getLogger(__name__)
 
@@ -73,6 +80,19 @@ def _find_didache_div2(body: etree._Element) -> etree._Element | None:
     return None
 
 
+#: The 16 chapters; ``Did.17`` and below is the editor's elucidation.
+_CHAPTER_RE = re.compile(r"Did\.(\d+)")
+_CHAPTERS = 16
+
+
+def rechunk_chapters(paragraphs: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Cut each chapter ``Did.C`` at its printed verse numbers into ``Did.C.V`` (#122)."""
+    def chapter(ref: str) -> str | None:
+        m = _CHAPTER_RE.fullmatch(ref)
+        return ref if m and int(m.group(1)) <= _CHAPTERS else None
+    return rechunk(paragraphs, chapter, restart=True)
+
+
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     out_dir = output_dir / SOURCE_ID
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -101,6 +121,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     log.info("Found Didache div2")
     paragraphs = _extract_paragraphs_from_div1(div2, "Did")
     log.info("Extracted %d paragraphs from Didache", len(paragraphs))
+    paragraphs = rechunk_chapters(paragraphs)
 
     work = Work(
         work_id=f"didache/{_WORK_SLUG}",

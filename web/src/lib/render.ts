@@ -42,6 +42,13 @@ export interface Section {
   id: string;
   /** Ref of the heading chunk the title comes from (an anchor too, for search results). */
   ref: string | null;
+  /**
+   * For a section with no heading chunk, the ref its path names (`Did.1` for
+   * units `Did.1.1`, `Did.1.2`, …), an anchor on its heading: a link to a unit
+   * that was later cut into numbered verses still opens there (#122). Null on
+   * a repeat of the path and for the top level.
+   */
+  anchor: string | null;
   path: string[];
   /** Heading text taken from the source, if the source has a heading chunk. */
   title: string | null;
@@ -109,6 +116,7 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     const section: Section = {
       id: seen ? `${base}-${seen + 1}` : base,
       ref,
+      anchor: ref === null && !seen && path.length > 0 ? joinRef(work.ref_prefix, path.join(".")) : null,
       path,
       title,
       label: sectionLabel(path, genre),
