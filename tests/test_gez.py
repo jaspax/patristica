@@ -1,4 +1,4 @@
-"""Ge'ez ingestor: book codes mapped to OSIS books, excluded books, edition (#188, #76, #34)."""
+"""Ge'ez ingestor: OSIS book codes, excluded books, edition, text cleanup (#188, #76, #34, #65)."""
 
 from __future__ import annotations
 
@@ -59,3 +59,27 @@ def test_renamed_and_excluded_books(raw: Path) -> None:
 def test_edition_is_the_edition_not_the_geez_title(raw: Path) -> None:
     for work in gez.ingest(raw, force=True):
         assert work.edition == gez.EDITION
+
+
+def test_clean_text_whitespace_and_separator_spacing() -> None:
+    assert gez.clean_text("ወአይድዖሙ ፡ እመቦ ፡ ብእሲ ፡\n                ") == "ወአይድዖሙ፡ እመቦ፡ ብእሲ፡"
+    assert gez.clean_text("ምላክከ\n                  ።]") == "ምላክከ።]"
+    assert gez.clean_text("አዕይንቲከ ፤ ወ   ቃል፡ ቃል።") == "አዕይንቲከ፤ ወ ቃል፡ ቃል።"
+    # Editorial brackets stay (#236).
+    assert gez.clean_text("አምላክነ ፡ [ወንሰምዕ ፡ ወንገብር ።]") == "አምላክነ፡ [ወንሰምዕ፡ ወንገብር።]"
+
+
+def test_split_word_moves_to_next_verse() -> None:
+    verses = [{"num": 2, "geez": "ወቦ፡ ነቢያትኒ።"}, {"num": 3, "geez": "አንስተ፡ ወ"},
+              {"num": 4, "geez": "ተባዕተ፡ ወቦ፡ እምኔሆሙ።"}]
+    gez._rejoin_split_words("1Meq", 28, verses)
+    assert [v["geez"] for v in verses] == ["ወቦ፡ ነቢያትኒ።", "አንስተ፡", "ወተባዕተ፡ ወቦ፡ እምኔሆሙ።"]
+    # Other chapters are untouched.
+    other = [{"num": 3, "geez": "አንስተ፡ ወ"}, {"num": 4, "geez": "ተባዕተ፡"}]
+    gez._rejoin_split_words("1Meq", 27, other)
+    assert other[0]["geez"] == "አንስተ፡ ወ"
+
+
+def test_split_word_that_no_longer_matches_raises() -> None:
+    with pytest.raises(ValueError, match="_SPLIT_WORDS"):
+        gez._rejoin_split_words("1Meq", 28, [{"num": 3, "geez": "አንስተ፡"}, {"num": 4, "geez": "ተ"}])

@@ -201,3 +201,74 @@ def test_tei_keeps_combining_marks_and_prefers_reg(tmp_path: Path) -> None:
 def test_meta_format_uses_norm_group(tmp_path: Path) -> None:
     paras = _extract(tmp_path, _META)
     assert [p["text"] for p in paras] == ["ⲡⲃⲓⲟⲥ ⲛⲁⲡⲁⲁⲫⲟⲩ ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ"]
+
+
+# Excerpts of on_abbaton.01.xml (pseudo-timothy), helias_martyrdom_part3.xml
+# and Encomium_Michael_BL_OR_7021_part2.xml (theodosius-alexandria) with the
+# layout placeholder ``▢`` and the printed editions' footnote markers
+# (#28, #125).
+_TEI_NOISE = """\
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader><fileDesc><titleStmt><title>t</title></titleStmt></fileDesc></teiHeader>
+<text><body>
+<p n="1">
+<phr><w type="PUNCT" lemma="▢▢▢">
+▢▢▢
+</w></phr>
+<phr><w type="PUNCT" lemma="ⲁ">
+Ⲁ
+</w></phr>
+<phr><w type="PUNCT" lemma="▢▢▢▢">
+▢▢▢▢
+</w></phr>
+<phr><w type="NPROP" lemma="ⲓⲏⲥⲟⲩⲥ">
+Ⲓ̅Ⲥ̅
+</w></phr>
+<phr><w type="PUNCT" lemma="▢✠▢">
+▢✠▢
+</w></phr>
+<phr><w type="N" lemma="ⲭⲣⲓⲥⲧⲟⲥ">
+Ⲭ̅Ⲥ̅
+</w></phr>
+</p>
+<p n="2">
+<phr><w type="PREP" lemma="ⲉ">
+ⲉⲣⲟ
+</w><w type="PPERO" lemma="ⲛⲧⲟϥ">
+ϥ
+</w></phr>
+<phr><w type="PUNCT" lemma="⁽²⁾ⲇⲩⲙⲟⲥⲓⲁ">
+⁽²⁾
+<lb n="18"/>
+ⲇⲩⲙⲟⲥⲓ̈ⲁ
+</w></phr>
+<phr><w type="PUNCT" lemma="·">
+·
+</w></phr>
+<phr><w type="PUNCT" lemma="¹">
+¹
+</w></phr>
+<phr><w type="V" lemma="ϯ">
+ϯ
+</w><w type="V" lemma="ⲣⲁϣⲉ">
+ⲣⲁϣⲉ
+</w></phr>
+</p>
+</body></text>
+</TEI>
+"""
+
+
+def test_drops_layout_placeholders_and_footnote_markers(tmp_path: Path) -> None:
+    paras = _extract(tmp_path, _TEI_NOISE)
+    assert [p["text"] for p in paras] == [
+        "Ⲁ Ⲓ̅Ⲥ̅ ✠ Ⲭ̅Ⲥ̅",
+        "ⲉⲣⲟϥ ⲇⲩⲙⲟⲥⲓ̈ⲁ · ϯⲣⲁϣⲉ",
+    ]
+
+
+def test_meta_format_drops_noise(tmp_path: Path) -> None:
+    xml = _META.replace('norm_group="ⲡⲃⲓⲟⲥ"', 'norm_group="ⲡ⁽³⁾ⲃⲓⲟⲥ ▢"')
+    assert 'norm_group="ⲡ⁽³⁾ⲃⲓⲟⲥ ▢"' in xml
+    paras = _extract(tmp_path, xml)
+    assert [p["text"] for p in paras] == ["ⲡⲃⲓⲟⲥ ⲛⲁⲡⲁⲁⲫⲟⲩ ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ"]
