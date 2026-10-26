@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -27,17 +33,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.1",
-      "source_sha256": "3f80b599cd4ce9be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "In the twelfth year of the reign of Nebuchadnezzar, king of Assyria, who reigned in the great city of Nineveh, in the days of Arphaxad, king of Media, who reigned in Ecbatana."
+      "source_sha256": "6a290df44cc0786c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "In the twelfth year of the reign of Nebuchadnezzar, king of Assyria, who reigned in Nineveh, the great city, in the days of Arphaxad, king of Media, who reigned in Ecbatana."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.2",
-      "source_sha256": "8e20e925216dde49",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2dfeb8cb00b5f803",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He built a tower at Ecbatana and surrounded it with a wall of cut stones. Each stone was three cubits wide and six cubits long, and the wall was seventy cubits high."
+      "text": "He built a tower for Ecbatana and surrounded it with a wall of cut stones. Each stone was three cubits wide and six cubits long, and the wall was seventy cubits high."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.3",
@@ -48,31 +54,31 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.4",
-      "source_sha256": "429a39bf2ca90669",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "be68729847133aaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He made gates and pillars sixty cubits high and forty cubits wide, so that the chariots of his army could pass out through them."
+      "text": "He made gates and gateposts sixty cubits high and forty cubits wide, so that the chariots of his army could pass through."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.5",
-      "source_sha256": "82d1c272675de6e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "69697d39697f9b85",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "In those days King Nebuchadnezzar fought against King Arphaxad on the plain, that is, the plain of Dura."
+      "text": "In those days King Nebuchadnezzar made war against King Arphaxad in the plain, that is, the plain of Dura."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.6",
-      "source_sha256": "865513b0edf6a39b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "274fc26106fd869d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "All the inhabitants of the hill country and all who lived along the Euphrates, the Tigris, and the Ulai came out to meet him, in the plain of Arioch, king of Elam. Many nations gathered to fight against the Chaldeans."
+      "text": "All the inhabitants of the mountain region and all who lived along the Euphrates, the Tigris, and the Ulai came out against him, in the plain of Arioch, king of Elam. Many nations gathered to fight against the Chaldeans."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.7",
-      "source_sha256": "359f10140004dc48",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a18d0108bc685513",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Nebuchadnezzar, king of Assyria, sent word to all the inhabitants of Libnah, to all who lived in Cilicia, Damascus, Lebanon and its surrounding regions, and to all who lived along the sea,"
+      "text": "Nebuchadnezzar, king of Assyria, sent word to all the inhabitants of Lebana, to all who lived in Cilicia, Damascus, Lebanon and its surrounding regions, and to all who lived along the sea."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.8",
@@ -83,10 +89,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.9",
-      "source_sha256": "f290283be417018a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b4589caa96b5d9f6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "and to all those in Samaria and its cities, to those beyond the Jordan as far as Jerusalem, to those in Betane, Chelon, and Kadesh, to those along the River of Egypt, to those in Tahpanhes and Rameses, and to all Goshen as far as Zoan,"
+      "text": "He also sent to everyone in Samaria and its cities, to those beyond the Jordan as far as Jerusalem, to those in Betane, Chelon, and Kadesh, to those along the river of Egypt, to those in Tahpanhes and Rameses, and to all Goshen as far as Zoan."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.10",
@@ -97,31 +103,31 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.11",
-      "source_sha256": "e50a678f46192d7e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "42a39105ed56b25a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "All the inhabitants of the land rejected King Nebuchadnezzar’s commands. They did not come to battle and were not afraid of him, because they were all united as one man. They sent his messengers back in disgrace."
+      "text": "All the inhabitants of the land rejected King Nebuchadnezzar’s words. They did not come to the war and were not afraid of him, because they were all united as one man. They sent his messengers back with their faces disgraced."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.12",
-      "source_sha256": "17522c1b7626d842",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d50d0ec1e6a5a57c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Nebuchadnezzar became very angry with this whole land. He swore by his throne and his kingdom that he would take revenge on all the territories of Cilicia, Damascus, and Bashan, kill with the sword all the inhabitants of Moab, the Ammonites, all Judah, and everyone in Egypt, and advance as far as the shores of both seas."
+      "text": "Nebuchadnezzar became very angry with this whole land. He swore by his throne and his kingdom that he would take revenge on all the territories of Cilicia, Damascus, and Bashan, kill with the sword all the inhabitants of Moab, the Ammonites, all Judah, and everyone in Egypt, and advance as far as the borders of both seas."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.13",
-      "source_sha256": "5710ffc99ad95fcd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fc4e03c2a97da057",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "In the seventeenth year he prepared his army against King Arphaxad. He prevailed in battle and drove back Arphaxad’s entire army, all his cavalry, and all his chariots."
+      "text": "In the seventeenth year he prepared his army against King Arphaxad. He prevailed in battle and routed Arphaxad’s entire army, all his cavalry, and all his chariots."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.14",
-      "source_sha256": "11ce68fc2dd1be2e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "55d502d4d205709c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He took control of his cities and reached Ecbatana. He captured the towers, plundered their open areas, and turned all their splendor into disgrace."
+      "text": "He took control of his cities and reached Ecbatana. He captured the towers, plundered their open squares, and turned all their splendor into disgrace."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.15",
@@ -132,24 +138,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.1.16",
-      "source_sha256": "acc0958400a22489",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1fa7b1e7530f8943",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He returned to Nineveh with his army and a great multitude of warriors. There he lived in pride and luxury, he and his entire army, for a hundred and twenty days."
+      "text": "He returned to Nineveh with his army and a multitude of fighting men. There he boasted and feasted, he and his entire army, for one hundred and twenty days."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.1",
-      "source_sha256": "eedc08dbdd92a12c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "609ba25d86df53cf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "In the twenty-eighth year, on the twelfth day of the first month, an order was issued in the palace of King Nebuchadnezzar to take revenge on the whole land, as he had said."
+      "text": "In the twenty-eighth year, on the twelfth day of the first month, a decision was made in the palace of King Nebuchadnezzar to take revenge on the whole land, as he had said."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.2",
-      "source_sha256": "6ca7ba5e50f8b83e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "15b71b61515b8249",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He summoned all his servants and nobles and revealed to them the secret of his heart. When he had finished speaking of disaster against the whole land,"
+      "text": "He summoned all his servants and nobles and revealed to them the secret of his heart. And it happened, when he had finished speaking of harm against the whole land—"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.3",
@@ -160,17 +166,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.4",
-      "source_sha256": "1feb2f343f21aa69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8467b36b7e781aa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When their deliberations were finished, Nebuchadnezzar, king of Assyria, summoned Holofernes, the commander of his army, who was second in command, and said to him:"
+      "text": "When they had reached agreement, Nebuchadnezzar, king of Assyria, summoned Holofernes, the commander of his army, because he was second in command, and said to him:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.5",
-      "source_sha256": "aceb946b3d9de1e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f005df3aa13cde9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“This is what the great king, lord of the whole earth, says: You are to go out from my presence and take with you strong men—one hundred and twenty thousand infantry, and a force of twelve thousand horses with their riders."
+      "text": "“This is what the great king, the lord of the whole earth, says: You are to go out from my presence and take with you one hundred and twenty thousand strong infantrymen and a great number of horses with their riders, twelve thousand in all."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.6",
@@ -181,15 +187,15 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.7",
-      "source_sha256": "b1c35fc776e8b880",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "36426c76d93fb1b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tell them to prepare earth and water for me, because I am coming against them in my anger. I will cover the face of the whole land with the infantry of my army, and I will hand them over to the army to be plundered."
+      "text": "Tell them to prepare land and water for me, because I am coming against them in my anger. I will cover the face of the whole land with the infantry of my army and hand them over to the army as plunder."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.8",
-      "source_sha256": "d55e56005f840451",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9e0f801b544d61af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Their valleys and ravines will be filled with their slain, and the river will overflow with their slain and be filled."
     },
@@ -202,17 +208,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.10",
-      "source_sha256": "186badeb84fb0c03",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "88e286cda4bce820",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Go out and seize all their territories for me. If they surrender, keep them for me until the day of their punishment.”"
+      "text": "Go out and seize all their territories for me. If they surrender, keep them for me until the day of their punishment."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.11",
-      "source_sha256": "9e564f87b3565af5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "53f0fd5fa7ac7d7c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "As for those who will not submit, show them no pity: hand them over to slaughter and plunder throughout the land."
+      "text": "As for those who refuse to submit, show them no pity, but hand them over to slaughter and the whole land to plunder."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.12",
@@ -223,24 +229,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.13",
-      "source_sha256": "fbabc516d97317e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5ff85be14f5574a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "You must not transgress a single command of your lord. Instead, carry them out completely, just as I commanded you to do these things."
+      "text": "You must not disobey a single command of your lord. Instead, carry out in full what I have commanded you to do.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.14",
-      "source_sha256": "52cbe9eb557afd64",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d4a2cc85c5fc0134",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes went out from his lord’s presence and summoned the rulers, the army commanders, and the officers of the Assyrian forces."
+      "text": "Holofernes went out from his lord’s presence and summoned the nobles, the army commanders, and the officers of the Assyrian forces."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.15",
-      "source_sha256": "7e974ef228d10311",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bfceea12e36af05d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He counted out men chosen for battle, as his lord had commanded him: one hundred and twenty thousand, and twelve thousand mounted archers."
+      "text": "He mustered men chosen for war, as his lord had commanded him: one hundred and twenty thousand men and twelve thousand mounted archers."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.16",
@@ -251,10 +257,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.17",
-      "source_sha256": "ed3d23ab60fdb867",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a51f18edc51fbf2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He took a very large number of camels and donkeys to carry their provisions, and countless rams, cattle, and sheep for their food."
+      "text": "He took a very great number of camels and donkeys to carry their provisions, and sheep, cattle, and flocks beyond counting for their food."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.18",
@@ -265,24 +271,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.19",
-      "source_sha256": "56f79a8d1656d901",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "21b9368860372f61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He and his army set out from Nineveh to march before the king and cover the face of the whole western land with chariots and chosen infantry."
+      "text": "He and his army set out from Nineveh to march ahead of the king and cover the face of the whole western land with chariots and chosen infantry."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.20",
-      "source_sha256": "268ecb19e49b7cb4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a89f68056db69aaa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A great mixed multitude went out with them, like locusts and like the sand of the earth; their total number could not be counted."
+      "text": "A great mixed crowd went out with them, like locusts and like the sand of the earth, and their total could not be counted."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.21",
-      "source_sha256": "ff817bf94fd872d2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ce81a22e133ec252",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He went out from Nineveh, a journey of three days, toward the plain of Bectileth. They camped opposite Bectileth, beside Mount Ange, to the north of Upper Cilicia."
+      "text": "He went out from Nineveh a three-day journey toward the plain of Bectileth. They camped opposite Bectileth, beside Mount Ange, to the north of Upper Cilicia."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.22",
@@ -293,24 +299,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.23",
-      "source_sha256": "60ea16472c95c179",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "He devastated the Putites and the Lydians. They took captive all the descendants of Tiras, the descendants of Rameses, and the descendants of Ishmael who lived in the desert to the south."
+      "source_sha256": "3dd38822ba3966b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "He devastated the people of Put and Lydia. They took captive all the descendants of Tiras, the descendants of Rameses, and the descendants of Ishmael who lived in the southern wilderness."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.24",
-      "source_sha256": "bfe6f0a1f0fd924b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1d5a82706d7dea14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "And [?] the land of the Chaldeans. He crossed the Euphrates and passed into southern Mesopotamia. He demolished all the fortified towns beside the Jabbok River, until they reached the sea."
+      "text": "And [?] the land of the Chaldeans. He crossed the Euphrates and passed through southern Mesopotamia. He demolished all the fortified cities beside the Jabbok River, until they reached the sea."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.25",
-      "source_sha256": "c13fecdacde18087",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cb7a41419c6df93f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They seized the territory of Cilicia. He destroyed everyone who opposed him and came to the territory of Japheth in the south, facing the whole of Arabia."
+      "text": "They seized the territory of Cilicia, and he destroyed everyone who stood against him. He came to the southern territory of Japheth, facing all Arabia."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.26",
@@ -321,17 +327,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.27",
-      "source_sha256": "2d5b27d65c015ee8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "56b6b72a8f391471",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They went down to the fields of Damascus during the wheat harvest. They burned all their fields, devastated their plain and the pastureland of their sheep, destroyed their cattle and flocks, plundered their towns, and killed their young men with the sword."
+      "text": "They went down to the fields of Damascus during the wheat harvest. They burned all their fields and devastated their plain and the grazing grounds of their sheep. They destroyed their cattle and their herds, plundered their cities, and killed their young men with the sword."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.2.28",
-      "source_sha256": "a5b333a744c5fe95",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a62b2a91a622ddc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Fear and trembling fell on everyone living along the coast, in Tyre and Sidon, on the inhabitants of Syria, on everyone living in Lebanon, and on the inhabitants of Ashdod, Ashkelon, and Gaza. They were very afraid of him."
+      "text": "Fear and trembling fell on everyone living along the sea, in Tyre and Sidon, on the inhabitants of Sur, on everyone living in Lebana, and on the inhabitants of Ashdod, Ashkelon, and Gaza. They were very afraid of him."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.1",
@@ -342,17 +348,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.2",
-      "source_sha256": "e819157386536ea5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c81ea45b17d31d6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“We declare that we are servants of Nebuchadnezzar, the great king. Here we stand before you. Do to us whatever seems right to you."
+      "text": "They said, “We are servants of Nebuchadnezzar, the great king. Here we stand before you. Do with us whatever seems good to you.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.3",
-      "source_sha256": "f46141a06748334b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "13b9c8c2f160d761",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Here before you are all the land where we live, all our fields and grain-growing plains, our sheep and cattle, and every place where our livestock live. Do to us whatever pleases you."
+      "text": "“Here before you are all the land where we live, all our fields and grain-bearing plains, our sheep and cattle, and every dwelling place of our livestock. Do with us whatever seems good to you.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.4",
@@ -370,10 +376,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.6",
-      "source_sha256": "c8339062ed2078d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "420f419f191fddbf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He and his army went down to the coastal towns. He stationed garrisons in the fortified towns and took chosen men from them as auxiliary troops."
+      "text": "He and his army went down to the cities along the sea. He stationed garrisons in the fortified cities and took from them auxiliary troops of chosen men."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.7",
@@ -384,10 +390,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.8",
-      "source_sha256": "8b9fc7cc834f54ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "515428e907160415",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He demolished all their temples, and they cut down all their objects of worship. For he had secretly ordered the destruction of all the gods of the earth, so that all peoples and languages would serve and worship Nebuchadnezzar himself and call him god."
+      "text": "He demolished all their temples, and they cut down all their objects of worship, because he had secretly given orders to destroy all the gods of the earth, so that all peoples and languages would serve and worship Nebuchadnezzar himself and call him a god."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.9",
@@ -398,17 +404,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.3.10",
-      "source_sha256": "ef3f6997dc683de9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d7f003cd702d9642",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He camped between Geba and Beth-shean and spent a month there preparing everything his army needed."
+      "text": "He camped between Geba and Beth-shean and spent a month there putting all the affairs of his army in order."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.1",
-      "source_sha256": "d2fd8393050902ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a96c207a97d431d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Israelites living in Judea heard everything that Holofernes, the commander of the army of Nebuchadnezzar, king of Assyria, had done among the nations, and how they had taken their gods and handed them over for destruction."
+      "text": "The Israelites living in Judea heard everything that Holofernes, the commander of the army of Nebuchadnezzar, king of Assyria, had done among the nations, and how they had taken their gods and handed them over to destruction."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.2",
@@ -419,45 +425,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.3",
-      "source_sha256": "fd8916225bea582c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f68e7ed8638fe80f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For they had only recently returned from captivity, and the Jewish people had only just been gathered together. The vessels and the altar had only recently been purified from defilement."
+      "text": "For they had only recently returned from captivity, and the Jewish people had only recently been gathered together. The sacred vessels and the altar had only recently been consecrated after their defilement."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.4",
-      "source_sha256": "e8f85c5bbcf9d852",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7ccd21cf5543d0f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They sent word to the territory of Samaria, to the villages of Beth-horon, to Abel-meholah, to Jericho, to the district, to Beth-horon, and to the oak of Gallim."
+      "text": "They sent word to the territory of Samaria, to the villages of Beth-horon, to Abel-meholah, to Jericho, to Kikkar, to Beth-horon, and to the valley of Gallim."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.5",
-      "source_sha256": "d2ee793e482662d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "They occupied all the high mountain peaks, fortified the villages on them, and stocked them for war, since their fields had already been harvested."
+      "source_sha256": "7540f5a3347bd8d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "They occupied all the high mountain peaks, fortified the villages on them, and equipped them for war, since their lands had only recently been harvested."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.6",
-      "source_sha256": "434e3b65ae88bf42",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4fb000bbe8daf5d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Eliakim, who was high priest in Jerusalem in those days, wrote to the inhabitants of Bethulia and Betomesthaim, above the pass opposite Jezreel and opposite the great plain beside Dothan,"
+      "text": "Eliakim, who was high priest in Jerusalem in those days, wrote to the inhabitants of Bethulia and Betomesthaim, which is above Masra, opposite Jezreel and facing the great plain beside Dothan."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.7",
-      "source_sha256": "c71dbc096787e930",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "68fa01e735facc64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "saying, “Hold the mountain ascent, for that is the entrance into Judea. It was not easy for those coming up, because the ascent was narrow even for two men together.”"
+      "text": "He said, “Hold the mountain pass, for that is the entrance into Judea.” It was not easy for those coming up, because the ascent was narrow even for two men together."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.8",
-      "source_sha256": "c1a49dfe22d7e295",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6419fbba8cfd1837",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Israelites did as Eliakim the high priest and the elders of all the people of Israel living in Jerusalem had instructed."
+      "text": "The Israelites did as Eliakim the high priest and the elders of all the people of Israel who lived in Jerusalem had instructed."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.9",
@@ -468,66 +474,66 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.10",
-      "source_sha256": "13a632d5160b020a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0145867cd0dc1ea5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They, their wives, their children, every resident foreigner and hired worker, and everyone bought with money tied sackcloth around their waists."
+      "text": "They, their wives, their children, every resident, every hired worker, and every slave bought with silver tied sackcloth around their waists."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.11",
-      "source_sha256": "557302cec5712659",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b20ebae9f399d24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Every Israelite man, woman, and child living in Jerusalem fell facedown before the Lord’s temple, and they wrapped the altar in sackcloth."
+      "text": "Every Israelite man, woman, and child living in Jerusalem fell facedown before the temple of the Lord, and they wrapped the altar in sackcloth."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.12",
-      "source_sha256": "4bcf2fa237f3db18",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8c7f49a610e5e99d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Together they cried out to the God of Israel not to hand over their children as plunder, their wives as captives, their cities to destruction, or the sanctuary to defilement and disgrace, to the delight of the nations."
+      "text": "Together they cried out to the God of Israel not to give their children over to plunder, their wives to captivity, their cities to destruction, or the sanctuary to defilement and disgrace, to the delight of the nations."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.13",
-      "source_sha256": "83bf9f117658fa51",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e05bced237fbd4f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord heard and saw their distress. The people fasted for many days throughout Judea and in Jerusalem, and they fell down before the sanctuary of the Lord Almighty."
+      "text": "The Lord heard and saw their afflictions. The people fasted for many days throughout Judea and in Jerusalem, and they fell down before the sanctuary of the mighty Lord."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.14",
-      "source_sha256": "dd400e318eec3cd7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "de25fa7cb1ca023c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Eliakim the high priest and all who served before the Lord, the priests and ministers, had sackcloth tied around their waists. They offered the regular whole burnt offerings, the offerings vowed, the dedicated gifts, and the people’s offerings."
+      "text": "Eliakim the high priest and all who served before the Lord, the priests and ministers, had sackcloth tied around their waists as they offered the regular whole burnt offerings, the votive offerings, the dedicated gifts, and the offerings of the people."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.4.15",
-      "source_sha256": "d190372b36d89779",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "97d0d5285ff68314",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He put ashes on their caps, and they cried out to the Lord with all their strength to look favorably upon the whole house of Israel."
+      "text": "Ashes were put on their turbans, and they cried out to the Lord with all their strength to look favorably upon the whole house of Israel."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.1",
-      "source_sha256": "912eab59c28af31b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afc4b4bdb2a727c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes, the commander of the Assyrian army, was told that the Israelites had assembled for battle, had seized the entrance to the mountain country, had fortified all the high mountain peaks, and had set ambushes in the fields."
+      "text": "Holofernes, the commander of the Assyrian army, was told that the Israelites had assembled for battle, occupied the mountain pass, fortified all the high mountain peaks, and set ambushes in the fields."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.2",
-      "source_sha256": "1bc13f42de730e93",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "06ec23eb20773359",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes became fiercely angry and summoned all the nobles of Moab, the rulers of the Ammonites, and all the leaders of the coastal cities."
+      "text": "Holofernes became very angry. He summoned all the nobles of Moab, the rulers of the Ammonites, and all the leaders of the coastal cities."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.3",
-      "source_sha256": "7e847f4e7a6b7620",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "He said to them, “Tell me, descendants of Canaan, who are these people who live in the mountains? What are their cities, and how numerous is their army? What is their strength and power, and who is the ruler set over them?”"
+      "source_sha256": "54ea44336018604c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "He said to them, “Tell me, Canaanites, who are these people who live in the mountains? What are their cities, and how large is their army? What is their military strength and power? Who is the leader who rules over them?”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.4",
@@ -538,10 +544,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.5",
-      "source_sha256": "a7a379b015bc101d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "37e69a2928305a4b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Achihud, the leader of the Ammonites, said to him, “Let my lord listen to the words of his servant. I will tell you the truth about the people living beside you in this mountain country. No false word at all will come from your servant’s mouth."
+      "text": "Achior, the leader of the Ammonites, said to him, “Let my lord listen to the words of his servant. I will tell you the truth about the people who live near you in these mountains. No, no lying word will come from your servant’s mouth."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.6",
@@ -552,45 +558,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.7",
-      "source_sha256": "48cc331c91b4b2c6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "88436ea343349108",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They first settled in Mesopotamia because they did not want to follow the gods of their ancestors, who were honored in the land of the Chaldeans."
+      "text": "“They first lived in Mesopotamia, because they were unwilling to follow the gods of their ancestors, who were honored in the land of the Chaldeans."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.8",
-      "source_sha256": "5ba9bc849e5c7fda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "23482921c64beafc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Instead, they turned away from their ancestors’ gods and worshiped the God of heaven, the God whom they knew. He brought them out from the presence of their gods, and they fled to Mesopotamia and lived there for a long time."
+      "text": "“Instead, they turned away from their ancestors’ gods and worshiped the God of heaven, the God whom they knew. He drove them out from the presence of their gods, and they fled to Mesopotamia and lived there for many days."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.9",
-      "source_sha256": "79e510d13f71e832",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "51824b7f54614a2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Their God told them to leave their ancestral homeland and go to the land of Canaan. They lived there and became rich in gold, silver, and very large numbers of livestock."
+      "text": "“Their God told them to leave their ancestral homeland and go to the land of Canaan. They lived there and became rich in gold, silver, and very large herds of livestock."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.10",
-      "source_sha256": "3829e67e4c48d47f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2d955ac8af010e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They went down to Egypt because of a famine in the land of Canaan. They settled there and were provided with food. They increased greatly there, and their families were beyond counting."
+      "text": "“They went down to Egypt because of the famine that struck the land of Canaan. They settled there and were fed. They increased greatly there, and their families were beyond counting."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.11",
-      "source_sha256": "39c4b8130a9e9577",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9497501e6eb42417",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Egyptians rose against them, dealt shrewdly with them, and enslaved them to work with clay and bricks. They humbled the people and made them slaves."
+      "text": "“The Egyptians rose against them and dealt cunningly with them. They enslaved them to work with clay and bricks, humbled the people, and made them slaves."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.12",
-      "source_sha256": "0332843e6a053375",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ce3cefc97136fa8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They cried out to their God, and he struck the whole land of Egypt with incurable plagues. Then the Egyptians drove them out of their land."
+      "text": "“They cried out to their God, and he struck the whole land of Egypt with incurable sores. The Egyptians drove them out of their land."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.13",
@@ -608,59 +614,59 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.15",
-      "source_sha256": "1bd365c96dd7b6d4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d8063729ecbd2d6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "By their strength they destroyed everyone living in the land of the Amorites and the people of Heshbon. They crossed the Jordan and took possession of all the mountains."
+      "text": "“By their strength they destroyed everyone who lived in the land of the Amorites and the people of Heshbon. They crossed the Jordan and took possession of all the mountains."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.16",
-      "source_sha256": "3d30dd284974ad7e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e6f9306f825fdb46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They drove out before them the Canaanites, the Perizzites, the Hivites, the Jebusites, and all the Girgashites, and they lived there for many days."
+      "text": "“They drove out before them the Canaanites, Perizzites, Hivites, Jebusites, and all the Girgashites, and they lived there for many days."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.17",
-      "source_sha256": "921813e5c289fc87",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cbc8677da70d2471",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "As long as they did not sin before their God, good things were with them, because he is a God who hates wrongdoing."
+      "text": "“As long as they did not sin against their God, good things were with them, because he is a God who hates wrongdoing."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.18",
-      "source_sha256": "c6f6f2e1b5faa253",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a15747e05acabbf2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "But when they departed from the way he had commanded them, they were destroyed in many battles and taken captive to a land not their own. The temple of their God was trampled down, and their city was captured by enemies."
+      "text": "“But when they departed from the way he had commanded them to follow, they perished in many battles and were taken captive to a land that was not their own. Their God’s temple was trampled underfoot, and their city was captured by enemies."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.19",
-      "source_sha256": "3c586bb320da1881",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "Now they have returned to their God and gathered from the countries to which they were scattered. They have taken possession of Jerusalem, where their sanctuary is, and settled in the mountain country that had been devastated."
+      "source_sha256": "86a4bc0950e3d39b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "“Now they have returned to their God and gathered from the places to which they were scattered. They have regained control of Jerusalem, where their sanctuary is, and have settled in the mountains that had been deserted."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.20",
-      "source_sha256": "b83d9f8dea463dc0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80a73c0b5a81121a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now, my lord, if there is sin among this people and they are offending their God, let us consider that this will bring about their downfall, and let us go up and fight against them."
+      "text": "“Now, my lord, if there is sin among these people and they are offending their God, let us consider that this will be a stumbling block for them, and let us go up and fight them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.21",
-      "source_sha256": "041a714b55877fa4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "37a4e2f55d88bfd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "But if there is no wrongdoing among their people, let us pass them by, my lord, lest their God help them and we become a disgrace throughout the whole earth."
+      "text": "“But if there is no wrongdoing among their people, let my lord pass them by. Otherwise their God may help them, and we will become a disgrace throughout the whole earth.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.22",
-      "source_sha256": "d6b2f5429c0f5f98",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e63df73201d3d47d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When Achior finished saying these words, all the people standing around the tent grumbled. Holofernes’ officers, the inhabitants of the seacoast, and the inhabitants of Moab called for Achior to be taken out for execution."
+      "text": "When Achior finished speaking these words, all the people standing around the tent began to grumble. Holofernes’ nobles, the inhabitants of the coast, and the inhabitants of Moab said that Achior should be driven out."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.5.23",
@@ -678,45 +684,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.1",
-      "source_sha256": "c44552eddde43dda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "980cf64193ff97ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When the crowd of men surrounding them grew quiet, Holofernes, commander of the Assyrian army, said to Achior before all the people:"
+      "text": "When the uproar of the men surrounding them had subsided, Holofernes, the commander of the Assyrian army, said to Achior in front of all the people:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.2",
-      "source_sha256": "c209e1a3101f077d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "53c22c725e863f1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Who are you, Achior, and all the people of Moab and the hired men of Ammon, that you have prophesied to us as you have today? You told us not to fight against the people of Israel because their God helps them. Who is God except Nebuchadnezzar, king of the whole earth?"
+      "text": "“Who are you, Achior, and all the Moabites and the hired men of Ammon, that you have prophesied to us as you have today? You told us not to fight the people of Israel because their God helps them. Who is God except Nebuchadnezzar, king of the whole earth?"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.3",
-      "source_sha256": "caf69e47bb4d65eb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8cd23743a036e569",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He will send his army and destroy them from the face of the earth, and their God will not rescue them. We, the servants of Nebuchadnezzar, will strike them down as though they were one man. They will not withstand the neighing of our horses."
+      "text": "“He will send his army and destroy them from the face of the earth, and their God will not rescue them. We, Nebuchadnezzar’s servants, will strike them down as though they were a single man. They will not withstand the neighing of our horses."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.4",
-      "source_sha256": "63155374792f856b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "23235099e517115e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For we will destroy them. Their territories will be drenched with their blood, and their plains will be filled with their corpses. Not a footprint of theirs will remain before us; they will be utterly destroyed, says Nebuchadnezzar, lord of the whole earth. His words will not be turned back."
+      "text": "“For we will destroy them. Their lands will be drenched with their blood, and their plains will be filled with their corpses. Not even a footprint of theirs will remain before us. They will be utterly destroyed, says Nebuchadnezzar, lord of the whole earth, and his words will not be revoked."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.5",
-      "source_sha256": "53c43a16f5965552",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a270bd2ff0b32b9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "But you, Achior, a hired man among them, who have spoken these words—from today you will not see the day of your return until I have taken vengeance on the people who came up from Egypt."
+      "text": "“But you, Achior, a hired man of Ammon, who have spoken these words—on the day of your wrongdoing, you will not see [?] from today until I take vengeance on the people who came up from Egypt."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.6",
-      "source_sha256": "08b35e4c7001a3c3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a1652067294b05c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Then the sword of my army and the spear of my servants will enter your side, and you will fall among their slain when I return."
+      "text": "“Then the sword of my army and the spear of my servants will pierce your side, and you will fall among their slain when I return."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.7",
@@ -734,66 +740,66 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.9",
-      "source_sha256": "355ef56f8d4401c9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4ddf20a4ef8f9a25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For you thought in your heart that they would not be captured. We will not see your face in prosperity. For I have spoken, and not one of my words will fail.”"
+      "text": "“For you thought in your heart that they could not be captured. Your face will not see you in prosperity [?]. For I have spoken, and not one of my words will fail.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.10",
-      "source_sha256": "a1de8aa1f757a2c5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1d23707a44a91906",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes ordered his servants who stood in his tent to seize Achior, take him to Bethulia, and hand him over to the Israelites."
+      "text": "Holofernes ordered the servants attending him in his tent to seize Achior, take him to Bethulia, and hand him over to the Israelites."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.11",
-      "source_sha256": "d8b3178c6bc8ee45",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "07112af4564d5eb9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A man seized him, brought him outside the army’s camp, and took him to the mountain. They went to the spring of water below the city."
+      "text": "A man seized him and brought him outside the army's camp. He took him to the mountain, and they went to the spring of water below the city."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.12",
-      "source_sha256": "d45673dbc3b9f2c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a213fc6937c7617d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When the men of the city saw them, they took their weapons and went outside the city to the mountaintop—every man who could use a sling. They held the ascent and hurled stones at them."
+      "text": "When the men of the city saw them, they took their weapons and went outside the city to the mountaintop, every man who could use a sling. They secured the ascent and slung stones at them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.13",
-      "source_sha256": "a48ef7d177f92ddb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a035147de4988e0c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They withdrew from there, tied up Achior, and left him lying at the foot of the mountain. Then they went back to their master."
+      "text": "They withdrew from there, tied Achior up, and left him lying at the foot of the mountain. Then they went back to their master."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.14",
-      "source_sha256": "e25da807cc7c5220",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9c54735d06c3b0f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Israelites came down from the city, stood beside him, and untied him. They brought him up to the city and took him to the leaders of their city."
+      "text": "The Israelites came down from the city, stood over him, and untied him. They brought him up to the city and took him to their city's leaders."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.15",
-      "source_sha256": "a63139dcbd4cf46c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f991dd1210281c2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "These were the leaders in those days: Uzziah son of Micah, from the tribe of Simeon; Chabris son of Othniel; and Charmis son of Mishael."
+      "text": "In those days these were Uzziah son of Micah, from the tribe of Simeon; Chabris son of Othniel; and Charmi son of Mishael."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.16",
-      "source_sha256": "f72b5548d42ad140",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4234ad33dce4eb8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They summoned the elders of the city, and all their young men, women, and children hurried to the assembly. They placed Achior in the midst of all the people, and Uzziah asked him what had happened."
+      "text": "They summoned the city's elders, and all their young men, women, and children hurried to the assembly. They stood Achior in the midst of all the people, and Uzziah asked him what had happened."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.17",
-      "source_sha256": "e3f1763b47650006",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "547217f6ce5eb6bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He answered and told them all the statements of Holofernes's people, everything he had said in the presence of the Assyrian leaders, and how Holofernes had boasted against the house of Israel."
+      "text": "He answered and told them everything Holofernes's people had said, everything he himself had said before the Assyrian leaders, and how Holofernes had boasted against the house of Israel."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.18",
@@ -804,10 +810,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.19",
-      "source_sha256": "72512029d19c26d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "397daf10fc6e1cb8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Lord, God of heaven, look at their arrogance and have mercy on the humiliation of your people. Look upon your sanctuary this day.”"
+      "text": "Lord, God of heaven, look upon their arrogance and have mercy on the humiliation of your people. Look upon your sanctuary this day."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.20",
@@ -818,66 +824,66 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.6.21",
-      "source_sha256": "4c7d979db0199722",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f5782c0a07d15df2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Uzziah took him from the assembly and brought him to his house. He made room for the elders and called upon the God of Israel throughout the night to help them."
+      "text": "Uzziah took him away from the assembly and brought him to his house. He made room for the elders and called upon the God of Israel all night to help them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.1",
-      "source_sha256": "a8607529880756a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "967c127a651439c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The next day Holofernes ordered his entire army, and everyone who had come with him to help him, to march against Bethulia, seize all the mountain passes, and fight against the Israelites."
+      "text": "The next day Holofernes ordered his entire army and all who had come with him to help him to march against Bethulia, seize all the mountain ascents, and wage war against the Israelites."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.2",
-      "source_sha256": "c9211f78ee317f39",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e7bd3030034e5c55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "That day all the men set out with their entire force: one hundred seventy-two thousand men and twenty-two thousand cavalry, besides their baggage and the very large number of people who accompanied them."
+      "text": "That day all the men and their entire army set out: one hundred seventy-two thousand men and twenty-two thousand cavalry, besides their baggage and the very large number of people who accompanied them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.3",
-      "source_sha256": "3cc4a57affcb475b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "edf2b955550f1a2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "They camped in the valley beside the city, by the spring of water. The camp stretched in width from Routhim to Abel-meholah, and in length as far as Karmon, opposite Jezreel."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.4",
-      "source_sha256": "9097bd12e2e95745",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "de25da143dc1100b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When the Israelites saw their great numbers, they were deeply disturbed and said to one another, “Now neither the whole surface of the earth, nor the high mountains, nor the hills can bear their weight.”"
+      "text": "When the Israelites saw how numerous they were, they were greatly alarmed and said to one another, “Now neither the whole surface of the earth, nor the high mountains, nor the hills can bear their weight.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.5",
-      "source_sha256": "576be871da27bd82",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "95c36a9d95f21dd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Each man took up his weapons. They lit fires in the towers of their walls and kept watch throughout that night."
+      "text": "Each man took his weapons of war. They lit fires on the towers of their walls and kept watch throughout that night."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.6",
-      "source_sha256": "ef5cb15081062526",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5c28f876e52953c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "On the second day Holofernes brought out his entire army against the Israelites who lived in Bethulia."
+      "text": "On the second day Holofernes brought out his entire army against the Israelites living in Bethulia."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.7",
-      "source_sha256": "bf32d98e144022d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c140040e47245d28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They explored the ascent to the city, went to the springs of water, and seized them. They assigned them to all the companies of fighting men, and he returned to his people."
+      "text": "They explored the ascent to the city, went to the springs of water, and seized them. They assigned them to all the companies of warriors, and he returned to his people."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.8",
-      "source_sha256": "54f189621d199a4b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6c54eaac5142d671",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "All the leaders of the descendants of Esau and all the rulers of Moab, the heads of the city beside the sea, approached him and said to him:"
+      "text": "All the leaders of the descendants of Esau and all the rulers of Moab, the chiefs of the city beside the sea, approached him and said to him:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.9",
@@ -888,10 +894,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.10",
-      "source_sha256": "52389c2b6b1fa3b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e2020889180728d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "These people do not rely on spears. Rather, they rely on the height of the mountains where they live, because it is not easy to approach the mountain peaks."
+      "text": "“This people does not rely on spears. Instead, they rely on the height of the mountains where they live, because it is not easy to approach the mountaintops."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.11",
@@ -902,24 +908,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.12",
-      "source_sha256": "f0817208abecd3d7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "83f75fe76047b38b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Instead, remain in your camp and keep all the men of your army safe. Let your servants seize the spring of water that flows from beneath the foot of the mountain."
+      "text": "But remain in your camp and keep all the men of your army there. Let your servants seize the spring of water that flows from beneath the foot of the mountain."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.13",
-      "source_sha256": "5d635fbb691cc820",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2b69bb5b94c38437",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For all the inhabitants of Bethulia draw water from there. Thirst will destroy them, and they will surrender their cities. We who are with you will go up to the nearby mountain peaks and camp on them. We will keep watch so that not a single person can leave the city."
+      "text": "For all the inhabitants of Bethulia draw water from there. Thirst will destroy them, and they will surrender their cities. We who are with you will go up to the nearby mountaintops and camp on them. They will be kept under watch so that not a single person can leave the city."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.14",
-      "source_sha256": "8f5c3a37d420a863",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ab343c1f290e7bc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They, their wives, and their children will waste away from hunger and thirst until the sword comes upon them and they fall in the streets."
+      "text": "They will perish from hunger and thirst, together with their wives and children, until the sword comes upon them and they fall in the streets.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.15",
@@ -937,87 +943,87 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.17",
-      "source_sha256": "21a7536132bd28bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d10e7f111b3c0970",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Moabite force set out, accompanied by five thousand Assyrian infantrymen. They camped in the valley and seized the Israelites' water sources and springs."
+      "text": "The Moabite force set out, accompanied by five thousand Assyrian infantry. They camped in the valley and seized the Israelites' waters and springs."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.18",
-      "source_sha256": "eba2c184da198e12",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8d6cab35900a0cab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The descendants of Esau and the Ammonites went up, together with twelve thousand Assyrians, and camped in the hill country opposite Rauthim. Some of them camped to the south and east, opposite Akraboth, facing Cush, which lies on the stream of Peor. The rest of the Assyrian army camped in the plain and covered the face of the land. Their tents and equipment were spread among them in very great numbers."
+      "text": "The descendants of Esau and the Ammonites went up, accompanied by twelve thousand Assyrians, and camped on the mountain opposite Routhim. Some of them camped to the south and east, opposite Akraboth, which faces Cush, on the Peor stream. The rest of the Assyrian army camped on the plain and covered the face of the earth. Their tents and equipment, spread out among them, were very numerous."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.19",
-      "source_sha256": "b78755847f35fee2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bacf3724b0791cd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The Israelites cried out to their God, and their spirits were distressed, because their enemies had surrounded them and there was no way to escape from among them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.20",
-      "source_sha256": "21f25160d632eecb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afbebd6443c29ea8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Assyrian forces—infantry, chariots, and cavalry—remained encamped around them for two months and four days. The inhabitants of Bethulia emptied their water cisterns."
+      "text": "The Assyrian armies—infantry, chariots, and cavalry—remained camped around them for two months and four days. The inhabitants of Bethulia emptied their water cisterns."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.21",
-      "source_sha256": "eb8a5204cc11ea32",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5a35fe6cf1c4653e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Their water jars were emptied, and they had no drinking water left. Their children and wives grew faint, since they had no drinking water left to satisfy them even for one day, because water was being given to them by measure."
+      "text": "Their water jars were emptied, and they had no water left to drink. Their children and wives were fainting, because they had no water left to drink their fill even for one day, since water was being rationed to them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.22",
-      "source_sha256": "2d26ba86f5d075e2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "11f1f7b6c4f6546a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Their children, wives, and soldiers grew very faint and were perishing from thirst. They collapsed in the city streets and at the entrances to the gates, with no strength left in them."
+      "text": "Their children, wives, and troops grew very faint and were dying of thirst. They fell in the streets of the cities and at the entrances to the gates, with no strength left in them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.23",
-      "source_sha256": "76ad53d57ab3ba97",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cda2bb6b9703a04b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The young men, women, and children gathered against Uzziah and the leaders of the city. They cried out loudly and said in the presence of the elders:"
+      "text": "The young men, women, and children gathered against Uzziah and the city's leaders. They cried out loudly and said in the presence of the elders:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.24",
-      "source_sha256": "447b8c6130be6634",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "086cd44a0947a68e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "“May the Lord judge between us and you, because you have done us a great wrong by not negotiating peace with the Assyrians."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.25",
-      "source_sha256": "b50bd8f5d9284a91",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "88829e5386b0d9f0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now we have no one to help us. Instead, the Lord has delivered us into your hands to perish before them from thirst and utter destruction."
+      "text": "Now we have no one to help us. Instead, the Lord has handed us over through you, to perish before them from thirst and in utter destruction."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.26",
-      "source_sha256": "9bf8abcc6799483e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "239eed185342f817",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now summon them and hand the city over to them, to be plundered and its people taken captive by the people of Holofernes and his entire army."
+      "text": "Now summon them and surrender the city to them, to Holofernes' people and his whole army, to be taken captive and plundered."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.27",
-      "source_sha256": "8e6428ef0d2419cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fda7bd87624306f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For it is better for us to become their slaves, men and women alike, and stay alive, rather than see with our own eyes the death of our children, our wives, and our sons as their lives ebb away."
+      "text": "For it is better for us to become their male and female slaves and stay alive than to see with our own eyes the death of our little children, our wives, and our sons as their lives waste away."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.28",
-      "source_sha256": "31ec61720cc5d2aa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f84ff41264bf5fa4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "We call heaven and earth and the Lord, the God of our ancestors, to witness against you—he who is calling us to account according to our sins—that you must carry out these words this very day.”"
+      "text": "We call heaven and earth to witness against you, and the Lord, the God of our ancestors, who is exacting punishment from us according to our sins, that you must act on these words this very day.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.29",
@@ -1028,10 +1034,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.30",
-      "source_sha256": "1251660aabaafc03",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f68ca7077bacf536",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Uzziah said to them, “Take courage, my brothers, and let us endure for five more days. Perhaps the Lord God will turn his mercy toward us, for he will not abandon us completely."
+      "text": "Uzziah said to them, “Take courage, my brothers, and let us endure another five days. Perhaps the Lord God will turn his mercy toward us, for he will not abandon us completely.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.31",
@@ -1042,15 +1048,15 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.7.32",
-      "source_sha256": "b06264b39f91bdee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a7298ec10af398e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He led the people away, each to his own quarters, and to the walls and towers of the city. He sent the women and children home. They were in very deep distress."
+      "text": "He sent the people away, each to his tent and to the city's walls and towers. He sent the women and children home. They were in very deep distress."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.1",
-      "source_sha256": "9a1342a96cd4f0b3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3507b2db7ecf3ca3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "In those days Judith lived in the city. She was the daughter of Merari, daughter of Uz, son of Joseph, son of Uzziel, son of Elkanah, son of Hanan, son of Gibeon, son of Daphnin, son of Ahitub, son of Nain, son of Malchiah, son of Ir, son of Nethaniah, son of Shelumiel, son of Simeon, son of Israel."
     },
@@ -1063,10 +1069,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.3",
-      "source_sha256": "1939639c23e07b5d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "99bbd25c44bdc74c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "While he was supervising the reapers in the field, the heat struck his head. He took to his bed and died in Bethulia, his city. They buried him with his ancestors in the field between Rauthim and Baalmon."
+      "text": "He had been overseeing the reapers in the field when the heat struck his head. He took to his bed and died in Bethulia, his city. They buried him with his ancestors in the field of Beth-ruthim and Beth-baalmon."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.4",
@@ -1077,24 +1083,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.5",
-      "source_sha256": "e693c57947f41f03",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fca6afec863207e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She made herself a shelter on the roof of her house, tied sackcloth around her waist, and wore her widow’s clothing."
+      "text": "She made herself a shelter on the roof of her house, tied sackcloth around her waist, and wore her widow's clothes."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.6",
-      "source_sha256": "303ed9f220f92d6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "23751e3d624859fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "She fasted throughout her widowhood, except on Sabbaths, new moons, festivals, celebrations of renewal, and commemorations of the house of Israel."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.7",
-      "source_sha256": "9c9c14e0eb8cebe5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "35de9c43e314252e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She was beautiful in appearance and lovely in form. She was wise at heart, good, and discerning. She was also very wealthy, because her husband Manasseh had left her gold and silver, male and female slaves, livestock, and villages, and she retained possession of them."
+      "text": "She was beautiful to look at and lovely in appearance, wise at heart, good, and intelligent. She was also very rich, because her husband Manasseh had left her gold and silver, male and female slaves, livestock, and villages, and she managed them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.8",
@@ -1105,29 +1111,29 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.9",
-      "source_sha256": "e236e4121d8a5736",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "29cb1ad18a2c682a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She heard the harsh words that the people had spoken to their leader because they were distressed by the shortage of water. Judith also heard everything Uzziah had said to them: he had yielded to them and sworn that after five days they would surrender the city to the Assyrians."
+      "text": "She heard the people's harsh words to the leader, because they were distressed by the shortage of water. Judith also heard everything Uzziah had said to them: he had listened to them and sworn to them that after five days they would surrender the city to the Assyrians."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.10",
-      "source_sha256": "de783c745409ac29",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cd99fb7e7fb5a3af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She sent her personal maid, who was in charge of her wardrobe, and summoned Uzziah, Chabris, and Charmis, the elders of the city."
+      "text": "She sent her maid, who was in charge of her storeroom, and summoned Uzziah, Chabris, and Charmis, the elders of the city."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.11",
-      "source_sha256": "4acd67c046afec7d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5aae46a62d653c2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They came to Judith, and she said to them, “Listen to me, inhabitants and inhabitants of Bethulia. What you said before the people today was not right. You established oaths that you swore between yourselves and God, and you said you would hand the city over to our enemies unless the Lord our God turned to help us within those days."
+      "text": "They came to Judith, and she said to them, “Listen to me, inhabitants and inhabitants of Bethulia. What you said before the people today was not right. You established the oaths sworn between you and God, and said that you would surrender the city to our enemies unless the Lord our God turned to help us within that time."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.12",
-      "source_sha256": "92af9e5262d2229a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a53aebc241998f2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Now who are you to put God to the test and make yourselves gods among human beings?"
     },
@@ -1140,24 +1146,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.14",
-      "source_sha256": "eb3ee39c1f220a03",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "77311d3e92e76b4f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The depths of human hearts cannot be discovered, and the thoughts before their eyes cannot be grasped. How, then, can you comprehend God, who made all these things? Or how can you know his purpose and understand his thoughts? No, my brothers! Do not anger the Lord our God."
+      "text": "The depths of human hearts cannot be discovered, and the thoughts in their eyes cannot be grasped. How, then, can you comprehend God, who made all these things, or know his mind and understand his thoughts? No, my brothers, do not anger the Lord our God."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.15",
-      "source_sha256": "ac02d7df3d2bcfc0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4d816df9bd157aa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For if he does not wish to help us within five days, he has the authority to protect us whenever he wishes and to crush our enemies before us."
+      "text": "For if he does not choose to help us within five days, he has the power to protect us whenever he chooses and to shatter our enemies before us."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.16",
-      "source_sha256": "b17e1929dda8bfe8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "But you must not belittle the mind of the Lord God, for God is not like a human being who can be exposed, nor like a mortal who can be diminished."
+      "source_sha256": "95e08a14ac30c904",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "But you must not constrain the purpose of the Lord God. For God is not like a human being, to be exposed, nor like a mortal, to be diminished."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.17",
@@ -1168,17 +1174,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.18",
-      "source_sha256": "cea0f3408f4e212d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fa9ff51aaa5f6c6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For neither in our generation nor in our days has there arisen among you any tribe, family, people, or city that worships a god made by human hands, as happened in the days before us."
+      "text": "For no tribe, clan, people, or city among you has arisen in our generation or existed in our days that worships a god made by human hands, as happened in former days."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.19",
-      "source_sha256": "3da49a68ec7fbf27",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c7ef26dcf4015f33",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Because of this, our ancestors were handed over to plunder and the sword, and they suffered a great downfall before their enemies."
+      "text": "For this reason our ancestors were handed over to plunder and the sword, and suffered a great defeat before their enemies."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.20",
@@ -1189,17 +1195,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.21",
-      "source_sha256": "37d654ad1c685b3a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "For if we are surrendered, all Judea will also be surrendered, and our holy places will be plundered. The Lord will hold our blood accountable for their defilement."
+      "source_sha256": "7ce62103fc275ba0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "For if we surrender, all Judea will surrender too. Our holy things will be plundered, and the Lord will hold us accountable with our blood for their defilement."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.22",
-      "source_sha256": "9bf579648f8fa8a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "13cf275c07fba66e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The slaughter of our brothers, the captivity of the land, and the defilement of our inheritance will fall back upon our heads among the nations where we will serve. We will become a stumbling block and a disgrace among all our captors."
+      "text": "The slaughter of our brothers, the captivity of the land, and the defilement of our inheritance will fall back on our own heads among the nations where we will serve. We will become a stumbling block and a disgrace among all our captors."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.23",
@@ -1210,10 +1216,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.24",
-      "source_sha256": "678de5c3b4866865",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c215910c3a8c4bc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now let us take responsibility for our brothers, because their lives depend on us, and the sanctuary, the temple, and the altar stand because of us."
+      "text": "Now let us take responsibility for our brothers, because their lives depend on us, and the sanctuary, the temple, and the altar stand or fall with us."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.25",
@@ -1224,17 +1230,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.26",
-      "source_sha256": "39a69237224cfe11",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "09d03e28011f9926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Remember everything he did with Abraham and Isaac, and everything that happened to Jacob in Mesopotamia while he was tending the sheep of Laban, his mother’s brother."
+      "text": "Remember everything he did with Abraham and Isaac, and everything that happened to Jacob in Mesopotamia while he was tending the sheep of Laban, his mother's brother."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.27",
-      "source_sha256": "3c318b16b653b13a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ca5323d4f35d0808",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He tested them to examine their hearts. Likewise, the Lord strikes us not for vengeance but for discipline, because we are close to him.”"
+      "text": "He tested them to examine their hearts. Likewise, the Lord strikes us not for vengeance but for discipline, because we are close to him."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.28",
@@ -1245,38 +1251,38 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.29",
-      "source_sha256": "1e28ceb2b4949f9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ba0a2069265f938a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Your wisdom has not become known only today. From earlier days all the people have known your understanding, because the intentions of your heart are good."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.30",
-      "source_sha256": "24ccced179ab87bd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6fd87526bf7034d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "But the people were very thirsty, and they forced us to do for them what we told them. They imposed an oath on us, and we cannot break it."
+      "text": "But the people were very thirsty and forced us to do for them as we told them. They put us under an oath, and we cannot break it."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.31",
-      "source_sha256": "e1f60249a0f5c6b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f9429ce96dc8d532",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now pray for us. Perhaps the Lord God will answer you, because you are a God-fearing woman, and the Lord our God will send rain. Then our cisterns will be filled, and we will not perish.”"
+      "text": "Now pray for us. Perhaps the Lord God will answer you, because you are a woman who fears God, and the Lord our God will send rain, so that our cisterns will be filled and we will not perish."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.32",
-      "source_sha256": "07f1e6a5ca156bdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "29c737f1369ee279",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Judith said to them, “Listen to me. I will do a wise deed, and it will be remembered for generations and generations among our people."
+      "text": "Judith said to them, “Listen to me. I will do something wise, and it will be remembered for generation after generation among our people."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.33",
-      "source_sha256": "5958043fd46acd2b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ecc02351b5b68a54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Stand at the gate tonight, and I and my maidservant [?]. Within the days after which you said you would surrender the city to our enemies, the Lord will deliver Israel through my hands, by what I am confident of doing."
+      "text": "You are to stand at the gate tonight, and I and my maidservant [?]. Within the days after which you said you would surrender the city to our enemies, the Lord will deliver Israel through my hands, by the means in which I am confident.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.34",
@@ -1287,10 +1293,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.35",
-      "source_sha256": "aeea67b8dd345867",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e85fa7aee49880ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Uzziah and the leaders said to her, “Go in peace. May the Lord go before you and avenge us upon our enemies.”"
+      "text": "Uzziah and the leaders said to her, “Go in peace. May the Lord go before you and avenge us on our enemies.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.8.36",
@@ -1301,66 +1307,66 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.1",
-      "source_sha256": "48e14aee2d109c57",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "595be2cf5bacccb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Judith fell on her face, put ashes on her head, and tore her tunic, revealing the sackcloth she was wearing. At the time when the evening incense was being offered in Jerusalem in the house of the Lord, Judith cried out to the Lord in a loud voice and said:"
+      "text": "Judith fell on her face, put ashes on her head, and tore her tunic, exposing the sackcloth she was wearing. At the very time when the evening incense was being offered in Jerusalem in the house of the Lord, Judith cried out to the Lord in a loud voice and said:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.2",
-      "source_sha256": "0423b94362b36691",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b5357c3f97d012e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Lord, God of my father Simeon, you put a sword into his hand to take vengeance on the enemies who loosened the virgin’s hair to defile her, exposed her nakedness to shame her, and defiled her womb to disgrace her. For you said that this should not happen."
+      "text": "“Lord, God of my ancestor Simeon, you put a sword in his hand to take vengeance on the enemies who loosened a virgin's hair to defile her, uncovered her nakedness to shame her, and defiled her womb to disgrace her. For you had said that this must not happen."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.3",
-      "source_sha256": "9f5a249097968357",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0aec30a8f8cac90e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Therefore you handed over to slaughter their leaders and their bed, which had received the blood of your beloved. You struck down slaves along with their masters, and rulers along with their thrones."
+      "text": "For this reason you handed their leaders over to slaughter, and their bed, which had received the blood of your beloved. You struck down slaves together with their masters, and rulers together with their thrones."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.4",
-      "source_sha256": "ea8e79abbae8516e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a80f812fa02f4a76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They gave their wives over to captivity and their daughters to plunder, and divided all their spoils among your beloved. They maintained your zeal, exposed the defilement of their blood, and called on you to help them. My God, hear me too, for I am a widow."
+      "text": "They gave their wives over to captivity and their houses to plunder, and divided all their spoils among your beloved ones. They upheld your zeal, exposed the defilement of their blood, and called on you to help them. My God, hear me too, for I am a widow."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.5",
-      "source_sha256": "770d82604b79bd8c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2634bd9aa0e3f6f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For you made the first things, the things in between, and also the things that came afterward. For you intended them, and they came to be, and you planned."
+      "text": "For you brought about the first things, the things in between, and also the things that came afterward. You intended them, and they came to be; you planned them,"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.6",
-      "source_sha256": "1a3ad3e6a4d891a1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "They stood before you, and you called, and they said, “Here we are.” For all your ways are prepared, and your creation lay open before you."
+      "source_sha256": "7129f262260b7b05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "and they stood before you. You called, and they said, ‘Here we stand.’ For all your ways are prepared, and your creation lay open before you."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.7",
-      "source_sha256": "7f28785acc69ca14",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "57d5e82955271445",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look, the Assyrians have grown great in their strength. They are proud of their horses and chariots, boast of the might of their infantry, take strength in their swords, and trust in bows and slings. They do not know that you are the Lord who crushes wars."
+      "text": "Now the Assyrians have grown great in their strength. They have become proud of their horses and chariots. They boast of the might of their infantry, take pride in their swords, and trust in bows and slings. They do not know that you are the Lord who crushes wars."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.8",
-      "source_sha256": "dbac1166dfd7b2fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5540977360ce27c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord is your name. Break their might, King of the ages, and crush their multitudes. Break their strength in your wrath, because they intend to defile the sanctuary where the glory of your name dwells and to cast down the horns of your altar with iron."
+      "text": "The Lord is your name. Break their force, King of the ages, and crush their multitudes. Break their strength in your fury, because they have planned to defile the sanctuary where the glory of your name dwells, and to cast down the horns of your altar with iron."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.9",
-      "source_sha256": "da71c5e7efcb8e15",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a7844c5b07edd71f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look at their arrogance and send your wrath upon their heads. Put into my hands, though I am a widow, the strength you have intended."
+      "text": "Look at their arrogance, and send your wrath upon their heads. Give my hands, the hands of a widow, strength for what I have planned."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.10",
@@ -1371,101 +1377,101 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.11",
-      "source_sha256": "c4bc7960448e8785",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fc5740b003d96860",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For your power and strength do not depend on numbers, nor are your gifts reserved for the mighty. Rather, you are the God of the humble, the helper of the lowly, the supporter of the weak, and the savior of the lost."
+      "text": "For your power and strength do not depend on great numbers, nor are your gifts reserved for the mighty. Rather, you are the God of the humble, the helper of the lowly, the supporter of the weak, and the savior of the lost."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.12",
-      "source_sha256": "a282b109ad3c6d8b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "da51b18439fafe9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Yes, Lord, God of my father and God of Israel’s inheritance, Lord of heaven and earth, creator of the waters, King of all creation, hear the voice of my prayer."
+      "text": "Yes, Lord, God of my ancestor and God of the inheritance of Israel, Lord of heaven and earth, creator of the waters, King of all creation, hear the voice of my prayer."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.13",
-      "source_sha256": "70a5a6b0eed54d3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "666168bee87c8c27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Make my cunning and deception bring death and injury to those who stand against your covenant, your holy temple, Mount Zion, and the home your children possess. For they have plotted evil against us."
+      "text": "Make my cunning and deception bring death and injury to those who stand against your covenant, your holy temple, Mount Zion, and the land possessed by your children. For they have planned evil against us."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.9.14",
-      "source_sha256": "38bdfa205b1f8efb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dbf165fcf3b61853",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Make all the people and all the tribes know that you are the God of all power and all authority, and that no one watches over Israel besides you."
+      "text": "Make all the people and all generations know that you are the God of all power and all authority, and that there is no one who watches over Israel besides you.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.1",
-      "source_sha256": "5f0e15da5faf27c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0c3913522da33e6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "When Judith had finished crying out to the God of Israel and had completed all these words,"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.2",
-      "source_sha256": "c13dc3d89fa1f7a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7f0afededad71d18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "she rose from where she had been lying, called her maid, and went down to her house, where she stayed on Sabbaths and festivals."
+      "text": "She rose from where she had been lying, called her maid, and went down to her house, where she stayed on Sabbaths and festivals."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.3",
-      "source_sha256": "cbf9849888835781",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "138da6b61160f2e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She removed the sackcloth she was wearing, took off her widow’s clothes, washed her mouth with water, and anointed herself with fine oil. She oiled the hair of her head, put sandals on her feet, and dressed in the fine clothes she had worn during the lifetime of her husband Manasseh."
+      "text": "She unfastened the sackcloth she was wearing and took off her widow’s clothes. She washed her mouth with water, anointed herself with choice oil, anointed the hair of her head, put sandals on her feet, and dressed in the fine clothes she used to wear during the lifetime of her husband Manasseh."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.4",
-      "source_sha256": "4888548168cb4b44",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ac27f4da9723ddcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She put a hairnet on her head and put on her bracelets, necklaces, rings, earrings, and all her ornaments. She adorned herself beautifully, so as to capture the eyes of anyone who saw her."
+      "text": "She put a headdress on her head and put on her bracelets, anklets, rings, earrings, and all her ornaments. She adorned herself lavishly, so as to catch the eyes of the men who saw her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.5",
-      "source_sha256": "2d161c81fe51be12",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5135b06c8ad54d51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She gave her maid a wineskin and a vessel of oil. She filled a bag with roasted flour, cakes of dried figs, and bread, and put cheese in it. She packed her things and put them on her maid."
+      "text": "She gave her maid a skin of wine and a container of oil. She filled a bag with roasted flour, fig cakes, and bread, and put cheese in it. She packed her things and put them on her maid."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.6",
-      "source_sha256": "7cda51485bf94473",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2e814c0b212ee938",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The two of them went out and came to the [?] of the city. There they found Uzziah and the elders of the city, Chabris and Charmis."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.7",
-      "source_sha256": "8cf650cd5de88366",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "99cc572aa96f2e99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They saw the change in her appearance and the clothing she had wrapped around herself, and they were greatly amazed at her beauty. They said to her,"
+      "text": "They saw the change in her appearance and the way she was dressed, and they were greatly amazed at her beauty. They said to her:"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.8",
-      "source_sha256": "2538ba6b9d6ba82b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "84de8624d8393c53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“May the God of our fathers grant you mercy, and may you accomplish your plan for the glory of the Israelites and the exaltation of Jerusalem.” She fell facedown and worshiped God."
+      "text": "“May the God of our ancestors grant you mercy, and may you carry out your plan for the glory of the Israelites and the exaltation of Jerusalem.” She fell on her face and worshiped God."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.9",
-      "source_sha256": "ac1f7097280bbd3f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dd85f3a7a0eac53a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She said to them, “Order the city gates to be opened, so that I may go out and carry out the things you discussed with me.” They ordered the young men to open the gate for her, as she had said."
+      "text": "She said to them, “Order the city gates to be opened, so that I may go out and fulfill the words you have spoken with me.” They ordered the young men to open the gate for her, as she had requested."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.10",
-      "source_sha256": "08c15dc0c7ae94d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "The people of the city did so. Judith went out, with her maid accompanying her. The people of the city watched until she had descended from the mountain, and when she came into the valley, they could no longer see her."
+      "source_sha256": "3fe65655b9584458",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The people of the city did so, and Judith went out with her maid. The people of the city watched until she had gone down the mountain. When she came to the valley, they could no longer see her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.11",
@@ -1476,17 +1482,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.12",
-      "source_sha256": "919d2a54f684f7a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ce06c8760566e757",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They seized her and questioned her, saying, “What is your business? Where have you come from, and where are you going?” She said to them, “I am a Hebrew woman, and I have fled from them, because they are about to be handed over to you to be devoured."
+      "text": "They seized her and questioned her, saying, “What is your business? Where have you come from, and where are you going?” She said to them, “I am a Hebrew woman, and I have fled from them, because they are about to be handed over to you to be devoured.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.13",
-      "source_sha256": "8ea6d69b540d18cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "54e1241bedf9099a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I have come to Holofernes, the commander of your army, to give him truthful information and show him the route he should take. He will gain control of the entire hill country, and not a single human being or living creature will escape him.”"
+      "text": "“I have come to Holofernes, the commander of your army, to give him a truthful report and show him the road he should take. He will gain control of the whole hill country without losing a single human being, or even a breath of life.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.14",
@@ -1497,10 +1503,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.15",
-      "source_sha256": "5ec564974f802f95",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "16eeebb7e0947da8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They said to her, “You have done well to save your life by hurrying down to our lord. Now approach his tent, and some of our men will escort you until they hand you over to him."
+      "text": "They said to her, “You have done well to save your life by hurrying down into our lord’s presence. Now go toward his tent. Some of our men will escort you until they hand you over to him.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.16",
@@ -1511,24 +1517,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.17",
-      "source_sha256": "4baa716331f17395",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2aaf5927d87f0a93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They chose a hundred men from among them, placed her and her maid in their care, and brought them to the tent of Holofernes."
+      "text": "They chose a hundred men from among themselves and entrusted her and her maid to them. They brought them to Holofernes’ tent."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.18",
-      "source_sha256": "c9d583b82cfed708",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4a9462cbf907ede9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "There was a commotion throughout the camp, because those in the tents had heard of her arrival. They came and gathered around her as she stood outside Holofernes’ tent, until he was told about her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.19",
-      "source_sha256": "175db7778dc55157",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "944a27865229513f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They marveled at her beauty and welcomed her words, because they were very good. Because of her, they were astonished at the Israelites, and they said to one another, “Who could despise a people who have women like these among them? Not one of them should be left alive, lest the survivors outwit the whole earth.”"
+      "text": "They marveled at her beauty and welcomed her words because they were very good. Because of her, they were amazed at the Israelites, and they said to one another, “Who could despise a people who have women like these among them? Not one of them should be left alive, or those who survive will outwit the whole world.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.20",
@@ -1539,45 +1545,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.21",
-      "source_sha256": "56ce3a58706f500e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "069d13dfeb50569a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes was lying at rest on his bed, inside his canopy, which was woven with purple, gold, emeralds, and precious stones."
+      "text": "Holofernes was lying at rest on his bed, beneath his canopy, which was woven with purple, gold, emeralds, and precious stones."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.22",
-      "source_sha256": "4caa2d4a2ba93219",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9b15a70715dbd393",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They told him about her. When he heard, he came out into the courtyard of the tent, with silver lamps burning before him, and they brought her to him."
+      "text": "They told him about her. When he heard, he went out into the courtyard of the tent, with silver lamps burning before him, and they brought her in to him."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.10.23",
-      "source_sha256": "dcf777412a843e1c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c506f4b654c7a8a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When Judith stood before him and his servants, they were all astonished at the beauty of her face. She fell facedown and bowed before him, but his servants took hold of her and raised her up."
+      "text": "When Judith stood before him and his servants, they were all amazed at the beauty of her face. She fell on her face and bowed before him, but his servants took hold of her and raised her up."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.1",
-      "source_sha256": "4aee5cb62fd8aae4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "13c6c706b75912d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes said to her, “Take courage, woman, and do not be afraid in your heart, for I have harmed no one who wishes to serve Nebuchadnezzar, king of the whole earth."
+      "text": "Holofernes said to her, “Take courage, woman. Do not be afraid in your heart, for I have harmed no one who is willing to serve Nebuchadnezzar, king of the whole earth.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.2",
-      "source_sha256": "77e2d93830a94faa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "02fc42f02c5c82f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Even now, if your people who live in the hill country had not rejected me, I would not have raised a spear against them. They have brought these things upon themselves."
+      "text": "“Even now, if your people who live in the hill country had not rejected me, I would not have raised a spear against them. They have brought these things on themselves.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.3",
-      "source_sha256": "16bd5af41f4d31f7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b51ba65bb819183d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now tell me why you fled from them and came to us. You have come to safety. Take courage: from this night onward you will live."
+      "text": "“Now tell me why you fled from them and came to us. You have come to safety. Take courage: from this night onward you will live.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.4",
@@ -1588,94 +1594,94 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.5",
-      "source_sha256": "d71c01c9d586ff3a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "048c2375b4f6e032",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Judith said to him, “Listen to your servant’s words, and let your servant speak before you. I will tell you no lies tonight."
+      "text": "Judith said to him, “Listen to the words of your servant, and let your servant speak before you. I will tell you no lies tonight.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.6",
-      "source_sha256": "230c9ebe26282525",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "efc8ae0f875d8246",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If you listen to my words, everything will be delivered into your hands in all that God does with you, and my lord’s plans will not fail as long as he lives."
+      "text": "“If you listen to my words, everything will be delivered into your hands—all that God will accomplish with you. My lord will not fail in his plans as long as he lives.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.7",
-      "source_sha256": "af5e33c4bd9bd917",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "17f7a787bf538ba7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For as surely as Nebuchadnezzar, king of the whole earth, lives, not only will human beings serve him because of you, but even wild animals, livestock, and the birds of heaven will acknowledge Nebuchadnezzar through your power."
+      "text": "“For as surely as Nebuchadnezzar, king of the whole earth, lives, not only will human beings serve him because of you, but wild animals, livestock, and the birds of the sky will also acknowledge Nebuchadnezzar through your power.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.8",
-      "source_sha256": "e6464ff585345b56",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "eeffb89123fc399c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "We have heard of your wisdom and the skill of your mind. It is said throughout the earth that you alone are outstanding in the whole kingdom, remarkable in knowledge and mighty in battle."
+      "text": "“We have heard of your wisdom and the skill of your mind. It is said throughout the earth that you alone are the best in the whole kingdom, remarkable in knowledge and mighty in battle.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.9",
-      "source_sha256": "723d12ff8c4ff887",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d83f274c0af99aa6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now, my lord, concerning what Achior said before you in the assembly: we have heard his words, because the people of the town received him, and he told them everything he had said before you."
+      "text": "And now, my lord, concerning what Achior said in the assembly before you: we have heard his words, because the people of the city received him, and he told them everything he had said before you."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.10",
-      "source_sha256": "e309d8554cfd470c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fbccfcd78f4f476c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Therefore, my lord, do not disregard his words, but take them to heart, for they are true. Our people cannot be punished, nor can the sword prevail against them, unless they sin against their God."
+      "text": "Therefore, my lord, do not disregard his words, but take them to heart, because they are true. Our people cannot be punished, nor can the sword prevail against them, unless they sin against their God."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.11",
-      "source_sha256": "8a9d21e025c632ed",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "adde7e3f41b0097c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now, so that my lord will not be without success, death lies before them, and a great sin has overtaken them. By committing it, they will provoke their God to anger."
+      "text": "And now, so that my lord may not be without success, death has fallen upon them, and a great sin has overtaken them. By committing it, they will provoke their God to anger."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.12",
-      "source_sha256": "944e3984915a7201",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "496c3f2ffbc8cfd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Because their food has run short and their water has run out, they have planned to lay hands on their livestock and on everything their God has forbidden them to eat in his laws."
+      "text": "Because their provisions have run short and their water has run out, they have decided to slaughter their livestock and eat everything that their God, in his laws, commanded them not to eat."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.13",
-      "source_sha256": "3452a7e0a417c166",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "523012f54320e205",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They have decided to eat the firstfruits of grain, wine, and oil, which they had all kept to consecrate for the priests who stand before God in Jerusalem. They have chosen to eat things that no ordinary member of the people is permitted even to touch with their hands."
+      "text": "They have decided to eat the firstfruits of the grain, wine, and oil, all of which they had reserved as sacred offerings for the priests who stand before God in Jerusalem. They want to eat things that no one among the people is permitted even to touch with their hands."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.14",
-      "source_sha256": "8130e8fe8bed6ff6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4398507f532e220",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They have also sent to Jerusalem those who carried their message to the elders, because the inhabitants there have also done all these things."
+      "text": "They have also sent to Jerusalem, to those who carried their message to the elders, because the inhabitants there have also done all these things."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.15",
-      "source_sha256": "c007142040fbb48f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "042179a18a787209",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When they send them a reply and they do this, they will be delivered into your hands that very day, and you will destroy them."
+      "text": "When they send word back to them and they do this, they will be handed over to you that very day, and you will destroy them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.16",
-      "source_sha256": "640b3814e26638d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bbcd5371d753a5dd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For this reason I too, your servant, fled from them when I saw these things. God sent me to accomplish something with you that will astonish the whole earth—all who hear of it."
+      "text": "For this reason I, your servant, fled from them when I saw these things. God sent me to accomplish something with you that will astonish the whole earth—all who hear about it."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.17",
-      "source_sha256": "7a10a36f174ee2cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "For your servant fears God and serves the God of heaven day and night. From now on I will stay with you, my lord. Your servant will go out at night to the ravine, and I will pray to God, and he will show me when their sins are being committed."
+      "source_sha256": "6cf3ab9f2a45ec20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "For your servant fears God and worships before the God of heaven day and night. Now I will stay with you, my lord, but your servant will go out at night to the valley. I will pray to God, and he will show me when they are committing their sins."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.18",
@@ -1686,38 +1692,38 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.19",
-      "source_sha256": "9862ffd33d6f9f6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e3f7e541c23f1467",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I will lead you through Judea until you reach Jerusalem, and I will set your throne in its midst. You will lead them like sheep that have no shepherds, and no dog will bark with its tongue before you. For these things have been revealed to my understanding, and I have been sent to tell you."
+      "text": "I will lead you through Judea until you reach Jerusalem, and I will set your throne in its midst. You will lead them like sheep without shepherds, and not a dog will bark at you. These things have been revealed to my mind, and I have been sent to tell you."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.20",
-      "source_sha256": "ccc03a86b4a020c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dd373a588909c951",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Her words pleased Holofernes and all his servants, and they marveled at her beauty and wisdom. They said to her,"
+      "text": "Her words pleased Holofernes and all his servants. They marveled at her beauty and wisdom, and said to her,"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.21",
-      "source_sha256": "6dbece8497393013",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "For there is no woman like this, from one end of the earth to the other, in beauty of face and words of understanding."
+      "source_sha256": "48883d1a9eca7095",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "“From one end of the earth to the other, there is no woman like this, so beautiful in appearance and so intelligent in her words.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.22",
-      "source_sha256": "14c491b6e738b933",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7353b9b8d1af31da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "And Holofernes said to her, “God has done well to send you ahead of your people, so that there may be a remembrance among us, and destruction may come upon those who have despised my lord.”"
+      "text": "Holofernes said to her, “God has done well to send you ahead of your people, so that honor may be remembered among us, while destruction comes upon those who despised my lord."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.11.23",
-      "source_sha256": "c0a2bd607d974a7e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "de1a9dfb46ec962d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“And now, you are beautiful in appearance and excellent in your understanding and your words. If you do as you have said, your God will be my God. You will live in the king’s palace, and your reputation will be more distinguished than anyone’s in the whole land.”"
+      "text": "And now, you are beautiful in appearance and good in your understanding and your words. If you do as you have said, your God will be my God. You will live in the king’s palace, and your reputation will be more distinguished than that of anyone else in the whole earth.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.1",
@@ -1728,108 +1734,108 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.2",
-      "source_sha256": "5cf83dce86835c36",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3677c8f458f05832",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Judith said, “I will not eat any of it, lest it become a stumbling block for me. What I have brought with me is enough for me.”"
+      "text": "Judith said, “I will not eat any of it, lest it become a cause of sin for me. What I have brought with me will be enough for me.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.3",
-      "source_sha256": "fc4b774deae52eab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1b9932db47e37894",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes said to her, “And if it runs out, where can we get more like it to give you? For there is no one from your people with us who has anything like it.”"
+      "text": "Holofernes said to her, “If it runs out, where will we get more of the same to give you? There is no one from your people here with us who has such food.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.4",
-      "source_sha256": "9c7020e71a7c07a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b79e9a02df8375b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Judith said, “As surely as you live, my lord, your servant will not use up what she has brought with her before God accomplishes through my hands what he has planned.”"
+      "text": "Judith said, “As surely as you live, my lord, your servant will not finish what she has brought with her before God accomplishes through my hands what you have planned.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.5",
-      "source_sha256": "21c7097bca975441",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
+      "source_sha256": "4b4a916b145ca126",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
       "text": "Holofernes’ servants brought her into the tent. She slept until midnight and rose during the morning watch."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.6",
-      "source_sha256": "4bafd23f70b05a66",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6caea2da2bb2c273",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She sent word to Holofernes, saying, “Let my lord give orders that they allow your servant to go out to pray.”"
+      "text": "She sent word to Holofernes, saying, “Let my lord give orders that your servant be allowed to go out to pray.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.7",
-      "source_sha256": "c96bb93286ee32a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bfb3ea65dcf1e762",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Holofernes ordered the guards not to stop her. She remained in the camp for three days, going out at night to the valley of Bethulia and bathing in the spring of water."
+      "text": "Holofernes ordered the guards not to stop her. She stayed in the camp for three days. At night she would go out to the valley of Bethulia and bathe in the spring."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.8",
-      "source_sha256": "10c98c4ff82eac2c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c7f9493d5c3e0105",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When she came up, she would ask the God of Israel to direct her way toward the restoration of her people."
+      "text": "When she came up, she would ask the God of Israel to direct her path toward the restoration of her people."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.9",
-      "source_sha256": "892fe00cb1548e23",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a02ac3d22802d3fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When she went back in, she would remain in purity inside the tent until she took her food in the evening."
+      "text": "When she returned, she would remain in purity inside the tent until she took her food in the evening."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.10",
-      "source_sha256": "d68a6fa5ace7f157",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "On the fourth day, Holofernes held a drinking feast for his servants alone. He invited none of the soldiers or officers."
+      "source_sha256": "916d0c6029442bda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "On the fourth day, Holofernes held a banquet for his servants alone. He invited none of the soldiers or officers."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.11",
-      "source_sha256": "2df6827b41b572b7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3fbc9fd450d9c3da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He said to Bagoas, the eunuch who was in charge of everything he had, “Go now and persuade that Hebrew woman who is with you to come to us and eat and drink with us.”"
+      "text": "He said to Bagoas, the eunuch who was in charge of everything he owned, “Go now and persuade that Hebrew woman who is with you to come to us and eat and drink with us."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.12",
-      "source_sha256": "b3fcaf6b82f2c8c3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a71ae83b9e72ae65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“For it would be a disgrace for us to leave a woman like this without speaking with her. If we do not bring her out, she will laugh at us.”"
+      "text": "It would be a disgrace for us to let a woman like this go without being intimate with her. If we do not seduce her, she will laugh at us.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.13",
-      "source_sha256": "9fbf6452cddf227d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Bagoas went out from Holofernes, came in to her, and said, “Do not hesitate, beautiful young woman, to come before my lord and be honored in his presence. You will drink wine with us and enjoy yourself. Today you will be honored like one of the daughters of the Assyrian nobles who serve in Nebuchadnezzar’s palace.”"
+      "source_sha256": "ed1f47afac59c7f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Bagoas went out from Holofernes, went in to her, and said, “Do not hesitate, beautiful young woman, to come before my lord and be honored in his presence. Drink wine with us and enjoy yourself. Today you will be honored like one of the daughters of the Assyrian nobles who serve in Nebuchadnezzar’s palace.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.14",
-      "source_sha256": "738823eac923759f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith said to her, “Who am I to say no to my lord? For I will eagerly do everything that pleases him, and this will be a source of pride to me until the day of my death.”"
+      "source_sha256": "7825b058ce113c0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith said to her, “Who am I to say no to my lord? I will eagerly do whatever pleases him, and this will be a source of pride to me until the day of my death.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.15",
-      "source_sha256": "ab935b3b6c17711e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She got up and dressed herself in her clothes and all her womanly finery. Her maid went in and spread on the ground for her before Holofernes the lambskins she had received from Bagoas to sleep on, so that she could sit on them to eat."
+      "source_sha256": "25622462edb7b631",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "She got up and adorned herself with her clothes and all her womanly ornaments. Her maid went in and spread on the ground before Holofernes the lambskins she had received from Bagoas to sleep on, so that she could sit on them to eat."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.16",
-      "source_sha256": "99505af2941f6c3a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith came in and sat down. Holofernes’s heart was stirred by her, and his soul was agitated, for he greatly desired to be with her. Ever since the day he saw her, he had been looking for an opportunity to have sexual relations with her."
+      "source_sha256": "3c739259d85c122a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith went in and sat down. Holofernes’ heart was stirred by her, and his soul was agitated, because he longed intensely to be with her. Ever since the day he saw her, he had been looking for an opportunity to have sexual relations with her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.17",
@@ -1840,10 +1846,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.18",
-      "source_sha256": "279c5af0be205d9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith said, “I will drink, my lord, for today my life has been exalted more than on any day I have lived.”"
+      "source_sha256": "e0ee07b14ba15f76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith said, “I will drink, my lord, because today my life has been enriched far more than on any day I have lived.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.19",
@@ -1854,45 +1860,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.12.20",
-      "source_sha256": "7d4b2a1266ed0a27",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Holofernes delighted in her presence and drank a great deal of wine, more than he had drunk on any single day since he was born."
+      "source_sha256": "44cae4ac502bbe3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Holofernes delighted in her company and drank a great deal of wine, more than he had ever drunk on any day since his birth."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.1",
-      "source_sha256": "42255a4f4e256565",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When evening came, his servants got up to leave. Bagoas closed the entrance of the tent from outside and sent away everyone who attended his master. They each went to their own tent, for they were exhausted by all the drinking that had taken place."
+      "source_sha256": "b6f24c8e8e4ce599",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "When evening came, his servants got up to leave. Bagoas closed the entrance of the tent from outside and sent away everyone who attended his master. Each went to his own tent, because they were exhausted by all the drinking that had taken place."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.2",
-      "source_sha256": "0826e0c46a7a29e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith was left alone in the tent, and Holofernes was lying on his bed, for the wine had overwhelmed him."
+      "source_sha256": "4f77f7292bd4e44d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith was left alone in the tent, and Holofernes lay on his bed, overcome by wine."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.3",
-      "source_sha256": "afaa2c212d051632",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith told her maid to stand outside the bedroom and wait for her to come out, as she did every day, for she had said, “I am going out to pray.” She had also said the same thing to Bagoas."
+      "source_sha256": "66b90e61357ba852",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith told her maid to stand outside the bedroom and wait for her to come out, as she did every day, because she had said, “I am going out to pray.” She had also said the same thing to Bagoas."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.4",
-      "source_sha256": "4f06bb4c1a3725e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They all went away from there, and no one, great or small, remained in the bedroom. Judith stood beside Holofernes’ head and said, “Lord, Lord, God of all powers, look at this hour upon the work of my hands, for the exaltation of Jerusalem.”"
+      "source_sha256": "a2072a8860086c97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "They all went away from there, and no one, great or small, remained in the bedroom. Judith stood beside Holofernes’ head and said, “Lord, Lord, God of all powers, look at this moment upon the work of my hands for the exaltation of Jerusalem."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.5",
-      "source_sha256": "124599028b975981",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "For it is time to show compassion to your inheritance. Carry out the devices of my heart to crush the nations that have risen against us."
+      "source_sha256": "acd8c9a68e3fd0c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "For it is time to have compassion on your inheritance. Carry out the plans of my heart to crush the nations that have risen against us.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.6",
@@ -1903,9 +1909,9 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.7",
-      "source_sha256": "784c44bdd2ce4b8e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "3ef82e3a41bc5d1a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
       "text": "She approached his bed, took hold of the hair of his head, and said, “Strengthen me today, God of Israel.”"
     },
     {
@@ -1917,72 +1923,72 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.9",
-      "source_sha256": "7d1504048a3027cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She rolled his body off the bedding and took the canopy down from the posts. A little later she went out and gave Holofernes’ head to her maid."
+      "source_sha256": "4d28a79242312e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "She rolled his body off the bedding and took the canopy from the posts. Shortly afterward she went out and gave Holofernes’ head to her maid."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.10",
-      "source_sha256": "c6b81db6d744f33b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She put it in her food bag, and the two of them went out together as they did at the time of prayer. They passed through the Assyrian camp, went around that entire valley, and went up to the city and came to the gate."
+      "source_sha256": "5a627c3f84f39acf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "She put it in her food bag, and the two of them went out together, as they did at the time of prayer. They passed through the Assyrian camp, went around the whole of that valley, went up toward the city, and came to the gate."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.11",
-      "source_sha256": "ee5587e21057038f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith called to the guards from a distance, “Open the gate for me! Open it! For our God is with us, giving strength to Israel and power over their enemies, as he has today.”"
+      "source_sha256": "03f9d0a009958d2d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Judith called to the guards from a distance, “Open the gate for me! Open it! For our God is with us. He has given Israel strength and power over their enemies, as he has today.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.12",
-      "source_sha256": "422e9c030305c588",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When the people of the city heard her voice, they hurried to open their city’s gate for her and summoned the elders of the city."
+      "source_sha256": "ea822ce331395454",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "When the people of the city heard her voice, they hurried to open their city gate for her and called the elders of the city."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.13",
-      "source_sha256": "0501fa08a494a412",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They all ran, from the youngest to the oldest, because her arrival seemed astonishing to them. They opened the gate and welcomed the women. They lit a fire so that they could see and gathered around her."
+      "source_sha256": "c35d42ecd16502cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "They all ran, from the least to the greatest, because they were amazed that she had returned. They opened the gate and welcomed the two women. They lit a fire so that they could see and gathered around her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.14",
-      "source_sha256": "a49254a4e0eb214d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "685529423a7ba5c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
       "text": "She said to them in a loud voice, “Give thanks to the Lord our God, who has not withdrawn his mercy from Israel, but has crushed our enemies by our hands this night.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.15",
-      "source_sha256": "95bd802220f0e95e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She took the head out of the bag, showed it to them, and said, “Here is the head of Holofernes, commander of the Assyrian army! And here is the canopy under which he lay in his drunkenness. The Lord has crushed him by the hand of a woman."
+      "source_sha256": "c0ab6cf277b69fa7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "She took the head out of the bag, showed it to them, and said, “Here is the head of Holofernes, the commander of the Assyrian army! And here is the canopy under which he lay in his drunkenness. The Lord has crushed him by the hand of a woman."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.16",
-      "source_sha256": "a0e39927b8673b44",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“As the Lord lives, who protected me on the road I traveled, my appearance deceived him, but he committed no sin with me through shameful defilement.”"
+      "source_sha256": "ecdadd2aaa5b41e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "As surely as the Lord lives, who protected me on the way I traveled, my appearance led him astray, but he committed no sin with me through shameful defilement.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.17",
-      "source_sha256": "845b676db878dce8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "All the people were greatly amazed. They fell down and worshiped the Lord, and all said together, “Blessed is the Lord our God, who today has crushed the enemies of his people!”"
+      "source_sha256": "d8329b3cf1a7a5ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "All the people were utterly amazed. They fell down and worshiped the Lord, and all said together, “Blessed is the Lord our God, who today has crushed the enemies of his people!”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.18",
-      "source_sha256": "4e08d958c2c7cfb0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "2d29cc8972bf165b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
       "text": "Uzziah said to her, “My daughter, you are blessed by God Most High above all the women on earth. And blessed is the Lord, who created heaven and earth, who guided you to take the head of the leader of our enemies."
     },
     {
@@ -1994,10 +2000,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.13.20",
-      "source_sha256": "54ec26e575932176",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“May God establish these things for you forever and show you kindness, because you did not spare your own life when our people were brought low, but went out because of our downfall and walked uprightly before our God.” And all the people said, “Amen and amen!”"
+      "source_sha256": "021cc2c34b7d24e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "May God make these things yours for an everlasting day, and may he show you kindness, because you did not spare your own life when our people were humiliated, but went out because of our downfall and walked uprightly before our God.” And all the people said, “Amen! Amen!”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.1",
@@ -2008,52 +2014,52 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.2",
-      "source_sha256": "a76a59b25628b71d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“When morning dawns and the sun rises over the earth, each of you must take his weapons, and every warrior must go out of the city. Appoint a leader over them and go out as though to attack the first Assyrian outpost, but do not go down."
+      "source_sha256": "3752fe61d0dbcea4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“When morning dawns and the sun rises over the earth, each of you is to take his weapons. Bring every fighting man outside the city and appoint a leader over them. Go out as though to attack the Assyrians’ forward outpost, but do not go down.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.3",
-      "source_sha256": "fd1f59c303058c8f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "12cc3be55d3b0088",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Then they will take their weapons, go to their camp, and rouse their commanders. They will run to Holofernes’ tent and will not find him. Fear will fall upon them, and they will flee before you."
+      "text": "Then they will take up their weapons, go to their camp, and wake their army commanders. They will run to Holofernes’ tent but will not find him. Fear will fall upon them, and they will flee before you."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.4",
-      "source_sha256": "fe8c79dccc3b4283",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b566ae596d491051",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Then you and all who live within the territory of Israel must go after them and strike them down, leaving them lying on the roads."
+      "text": "Then all of you who live within the borders of Israel will go out, strike them down, and leave them lying along the roads."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.5",
-      "source_sha256": "a31e675b5eab14fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1a115fdd300f5a1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“But before you do these things, summon Achior the Ammonite, so that he may see and recognize the one who rescued the house of Israel—the one whom they sent to us as though to his death.”"
+      "text": "But before you do this, summon Achior the Ammonite, so that he may see and recognize the one who has restored the house of Israel—the man whom they sent to us as though to his death."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.6",
-      "source_sha256": "c57bcbe42e98bd2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fd80d2533cf250e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They summoned Achior from Uzziah’s house. When he came and saw Holofernes’ head in the hand of a man in the assembly of the people, he fell on his face and fainted."
+      "text": "They summoned Achior from Uzziah’s house. When he came and saw Holofernes’ head in a man’s hand in the assembly of the people, he fell on his face and his spirit failed him."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.7",
-      "source_sha256": "9f649c569a9d9f4d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d5939362d75eb705",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When they took hold of him and raised him up, he fell at Judith’s feet and bowed before her. He said to her, “You are blessed among every people. They will hear of you and be afraid."
+      "text": "When they took hold of him and raised him up, he fell at Judith’s feet, bowed before her, and said to her, “Blessed are you among every people! They will hear of you and be afraid."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.8",
-      "source_sha256": "1e4168e837b13709",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "51cdf5a8234e1432",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Now tell me everything you have done during these days.” She told him everything she had done, from the day she went out until the day she spoke with them."
+      "text": "Now tell me everything you have done during these days.” She told him everything she had done, from the day she went out until the day she spoke with them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.9",
@@ -2064,31 +2070,31 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.10",
-      "source_sha256": "58257dd1e4991a01",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "abc2170f00ae5f97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When Achior saw everything God had done for Israel, he believed in God and circumcised the flesh of his foreskin. He joined the people of the house of Israel, remaining among them to this day."
+      "text": "When Achior saw everything God had done for Israel, he believed in God, circumcised the flesh of his foreskin, and joined the people of the house of Israel, remaining among them to this day."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.11",
-      "source_sha256": "59f233d79e594708",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ebb8f5d9b53e3278",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "When dawn broke, they hung Holofernes’ head outside the wall. Each man took up his weapons, and they went out toward the camp by the ascent into the mountains."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.12",
-      "source_sha256": "f712a6fc4fd0b31e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1b37c6a33f66d9c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "When the Assyrians saw them, they sent word to their leaders, their commanders of thousands, and all their officers."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.13",
-      "source_sha256": "d31c54c55ae913fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7e35ff6394458d0d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They went to Holofernes’ tent and said to Bagoas, who was in charge of all his affairs, “Go in and wake our master, because these men have dared to come down against us in battle, so that they may be destroyed forever.”"
+      "text": "They went to Holofernes’ tent and said to Bagoas, who was in charge of all his affairs, “Go in and wake our master, because these men have dared to come down against us for battle, only to perish forever.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.14",
@@ -2099,10 +2105,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.15",
-      "source_sha256": "2cd29f38d8c04b1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9e2a13bd06b918d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When no one answered him, he opened the entrance and went into the bedroom. He found Holofernes lying naked, with his head cut off."
+      "text": "When no one answered him, he opened the entrance and went into the bedchamber. He found Holofernes lying naked, with his head cut off."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.16",
@@ -2113,22 +2119,22 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.17",
-      "source_sha256": "8e0877dc5f1f963e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1c88c258044c559c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He went into the tent where Judith had been staying, but did not find her. He went out to the people and said to them,"
+      "text": "He went into the tent where Judith had been staying but did not find her. He went out to the people and said to them,"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.18",
-      "source_sha256": "099bfda1a097f27c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8f33f483a4e4b4a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“The slaves have betrayed their masters! One Hebrew woman has brought this disgrace upon the house of Nebuchadnezzar. Look, Holofernes is lying on the ground with his head cut off!”"
+      "text": "“The slaves have betrayed their masters! A single Hebrew woman has brought this disgrace upon the house of Nebuchadnezzar. Look, Holofernes is lying on the ground with his head cut off!”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.14.19",
-      "source_sha256": "2b99dde956d8303f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4fc8a59d73c09458",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "When the commanders of the Assyrian army heard his words, they tore their tunics, and they were deeply shaken there in the camp."
     },
@@ -2141,122 +2147,122 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.2",
-      "source_sha256": "a97d5f0b4e465b07",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "Fear and trembling fell upon them. No one stayed beside his companion; instead, they turned and fled together along every road through the plains and mountains."
+      "source_sha256": "316f687ba0769a72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Fear and trembling fell upon them. No one stayed beside his neighbor; instead, they turned and fled together along every road through the valleys and mountains."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.3",
-      "source_sha256": "4d1a470f7f0e2694",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d6446f023020316d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Those encamped in the mountains and the surrounding areas began to flee. Then the Israelites, all their fighting men, attacked them, and slaughter broke out among them."
+      "text": "Those who were encamped in the mountains and the surrounding area also took to flight. Then the Israelites—all their fighting men—attacked them, and they were slaughtered by them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.4",
-      "source_sha256": "c2079cfdb0ef40b5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fb1ffac296ed44c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Uzziah sent messengers throughout all the territory of Israel to tell them what had happened, so that they would all go out against the enemy and destroy them."
+      "text": "Uzziah sent messengers throughout all the territory of Israel to tell them what had happened, so that they would all go out against the enemies and destroy them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.5",
-      "source_sha256": "9cf60418d129dcd5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3365696e3ba19316",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When the Israelites heard, they all fell upon them together and kept killing them as far as Choba. So did the people of Jerusalem who came from all the hill country, because they had heard everything that had happened to their enemies’ camp. Those in Gilead and Galilee went out against them and struck them with a great slaughter, until they had passed beyond Damascus and its territory."
+      "text": "When the Israelites heard, they all fell upon them together and kept killing them as far as Choba. So did the people of Jerusalem who came from all the mountain regions, because they had heard everything that had happened to their enemies’ camp. Those in Gilead and Galilee also went out against them and struck them down in a great slaughter until they had passed beyond Damascus and its territory."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.6",
-      "source_sha256": "a75a5c5d4a7aa900",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3f788d0d6c45f9e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The rest of the inhabitants of Bethulia fell upon the Assyrian camps, plundered them, took captives, and became very wealthy."
+      "text": "The rest of the inhabitants of Bethulia fell upon the Assyrian camps, plundered them, took spoils, and became very rich."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.7",
-      "source_sha256": "da335684ec0f85e7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "77d2689dea90f7c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Israelites returned from the battle and took control of the remaining towns in the mountains and on the plain, taking a great deal of plunder."
+      "text": "The Israelites returned from battle and took possession of the remaining towns in the mountains and the valley, taking a great deal of plunder."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.8",
-      "source_sha256": "69f6bdc16de9d04c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4133026d55a4b26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Joakim the high priest and the elders of Israel who lived in Jerusalem came to greet Judith."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.9",
-      "source_sha256": "2e002a3a566e19ee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e3e9cd1699db78bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When she came out to them, they all gathered around her and said, “You are the glory of Jerusalem, the pride of Israel, and the honor of our people,"
+      "text": "When she came out to them, they all surrounded her together and said, “You are the glory of Jerusalem, the pride of Israel, and the honor of our people!"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.10",
-      "source_sha256": "03091215f4529459",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ac110932a2e2366a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "because you have done all these things with your own hands. You have done good things for Israel, and the Lord has been pleased with them. May you be blessed by the Lord Almighty forever and ever.” And all the people said, “Amen.”"
+      "text": "You have done all these things with your own hands. You have done good things for Israel, and the Lord has been pleased with them. May you be blessed by the Lord Almighty forever and ever.” And all the people said, “Amen.”"
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.11",
-      "source_sha256": "1284a12a14e707cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1b48ee8b1a8306ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The people spent three days clearing out the Assyrians’ camps. They gave Judith Holofernes’ tent and all its furnishings, his bed, his livestock, and his belongings. She took them and loaded them onto mules, harnessed her wagons, and put the things in them."
+      "text": "The people spent three days clearing out the Assyrians’ camps. They gave Judith Holofernes’ tent, all the furnishings of his tent, his bed, his livestock, and his belongings. She took them and loaded them onto mules; she harnessed her wagons and put the goods in them."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.12",
-      "source_sha256": "bfbdd4e3b0368e63",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "39cc54074c8a1b31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "All the women of Israel ran to her and gathered around her. She selected groups of women from among them to sing praises. She took palm branches in her hand and gave some to the women with her."
+      "text": "All the women of Israel ran to her and surrounded her. She chose groups of women from among them to sing praises. She took palm branches in her hand and gave them to the women with her."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.13",
-      "source_sha256": "c742ca581987b673",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She and her companion put olive wreaths on their heads. All the leading men of the house of Israel and all the leading women of Israel came. All the Israelites came along with them, armed and wearing wreaths, with songs of praise on their lips."
+      "source_sha256": "4e1a11a4f8ff779e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "She put olive wreaths on her head, as did her companion. All the leaders of the house of Israel came, along with all the leading women of Israel. All the Israelites came with them, armed and wearing wreaths, with praise on their lips."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.15.14",
-      "source_sha256": "842584671a357704",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith led all Israel in thanksgiving, and all the people responded with praise to the Lord."
+      "source_sha256": "17fe279cdb214044",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Judith led all Israel in her thanksgiving, and all the people responded with praise to the Lord."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.1",
-      "source_sha256": "81b696d9fb4a53b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Judith said, “Praise the Lord with tambourines! Sing to him with cymbals! Sing him a new song of praise! Exalt him and call upon his name!"
+      "source_sha256": "9321d5fcafa4e5ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Judith said: Praise the Lord with tambourines; sing to him with cymbals. Sing him a new song of praise; exalt him and call upon his name."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.2",
-      "source_sha256": "022c031c8336c835",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "You are the God who brings wars to an end, the Lord who has pitched a camp among your people to rescue them from the hands of their oppressors."
+      "source_sha256": "c2748f8613835b6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "You are the God who crushes wars, the Lord who established a camp among your people to rescue them from the hands of their oppressors."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.3",
-      "source_sha256": "69b205a87c37848e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The Assyrian came from the northern mountains; he came with the tens of thousands of his army. Their numbers blocked the streams, and their horses covered the hills."
+      "source_sha256": "1f3a53b17c7a23ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "The Assyrian came from the mountains of the north; he came with the myriads of his army. By their great numbers they blocked the streams, and their horses covered the hills."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.4",
-      "source_sha256": "d08141e0c022a1a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They said they would burn my territory, kill my troops with the sword, dash the infants to the ground, take the children captive, and carry off my virgins as plunder."
+      "source_sha256": "5a4b18da5f176efb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "They spoke of burning my territories, killing my troops with the sword, dashing infants to the ground, taking children captive, and carrying off my virgins as plunder."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.5",
@@ -2267,17 +2273,17 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.6",
-      "source_sha256": "9bc90bbb88064dc6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "For their mighty warriors did not fall at the hands of troops, nor did the sons of powerful men strike him, nor did men of towering height attack them. Rather, Judith daughter of Merari enticed him with the beauty of her face."
+      "source_sha256": "eee6b812841606e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "For their mighty men did not fall at the hands of soldiers, nor did the sons of strong men strike him down, nor did men of towering height fall upon them. Instead, Judith daughter of Merari enticed him with the beauty of her face."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.7",
-      "source_sha256": "cb8bb72b9ac5f9cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "She took off her widow’s clothing to bring glory to the sufferings of Israel. She anointed her face with perfume."
+      "source_sha256": "37ac82e16e064223",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "She took off her widow's clothes, for the glory of Israel's sufferings, and anointed her face with perfume."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.8",
@@ -2309,101 +2315,101 @@
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.12",
-      "source_sha256": "c9c4871a16893a5b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "They stabbed them as though they were a young girl, and killed them as though they were rebellious slaves. They perished as though before the army of the Lord our God."
+      "source_sha256": "3f8b2f9e9de9e2bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "They stabbed them as though they were a young woman, and killed them like rebellious slaves. They perished as though struck by the camp of the Lord our God."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.13",
-      "source_sha256": "b49281b87fe1fabb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "I will sing a new song of praise to my God. Mighty Lord, you are great and glorious, a warrior mighty in strength, and you cannot be defeated."
+      "source_sha256": "c382b3bf7af5cdc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "I will sing my God a new song of praise. Mighty Lord, you are great and glorious, a warrior of strength, and you cannot be defeated."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.14",
-      "source_sha256": "40faea20c23ba5a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Let all the nations serve you, and let the whole earth, your creation, submit to you. For you spoke, and they came into being; you set them in order, and they stood firm. No one can stand against your word."
+      "source_sha256": "d53702e6f6561b24",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "All nations will serve you, and the whole earth, your creation, will submit to you. For you spoke, and they came into being; you set them in order, and they stood firm. There is no one who can stand against your word."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.15",
-      "source_sha256": "15121d826d0e9090",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "The mountains will shake from their foundations, together with their waters, and the rocks will melt like wax before you. But you will have mercy on those who fear you."
+      "source_sha256": "34692354259e3178",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "The mountains will shake from their foundations, together with their waters, and the rocks will melt like wax before you. But you will show mercy to those who fear you."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.16",
-      "source_sha256": "a9006d576f31a1f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "For every sacrifice is too small to provide a pleasing aroma, and all the fat is insufficient for whole burnt offerings. But whoever fears the Lord is great in his sight at all times."
+      "source_sha256": "83cbcd19239ce3d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "For every sacrifice is too small for an aroma of [?], and all the fat is insufficient for whole burnt offerings. But whoever fears the Lord is great in his sight at all times."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.17",
-      "source_sha256": "e82ef581b4d64227",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Woe to the nation that rises against my people! The mighty Lord will exact retribution from them. On the day of judgment he will call them to account and punish them. He will give their flesh to fire and worms, and they will [?] in wickedness forever."
+      "source_sha256": "cc67abd29197ac2f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Woe to the nation that rises against my people! The mighty Lord will exact repayment from them. On the day of judgment he will call them to account and punish them. He will give their flesh to fire and worms, and they will cry out in their wickedness forever."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.18",
-      "source_sha256": "ff05e1c61426b622",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "And it happened that when she came to Jerusalem, they worshiped the Lord. When the people had purified themselves, they continually brought their whole burnt offerings and sacrifices to the Lord."
+      "source_sha256": "462805a1a5f5a2e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "When she came to Jerusalem, they worshiped the Lord. The people purified themselves and continually brought their whole burnt offerings and sacrifices to the Lord."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.19",
-      "source_sha256": "fab29dee191a05b6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Judith brought the belongings of Holofernes and the canopy she had taken from his bedchamber, and dedicated them to the Lord."
+      "source_sha256": "f7083ae182c579ef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Judith brought Holofernes' belongings and the canopy she had taken from his bedroom, and dedicated them irrevocably to the Lord."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.20",
-      "source_sha256": "764e59c56428a5a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "The people rejoiced in Jerusalem before the sanctuary for a full month, and Judith remained with them there in Jerusalem."
+      "source_sha256": "c4c5b2ff7cb49883",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "The people rejoiced in Jerusalem before the sanctuary for a month, and Judith remained with them there in Jerusalem."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.21",
-      "source_sha256": "c84f08746be79327",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "After those days, everyone returned to their own dwelling. Judith went to Bethulia, to her estate, and she was honored throughout the whole land."
+      "source_sha256": "0b42136c3a1de34a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "After these days, everyone returned to his own dwelling. Judith went to Bethulia, to her own estate, and she was honored throughout the land."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.22",
-      "source_sha256": "b97586c8a6a68380",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 23,
-      "text": "Many desired to marry her, but no man had sexual relations with her throughout all the days of her life, from the day her husband Manasseh died."
+      "source_sha256": "f8d94d978835c48c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Many desired to marry her, but no man had sexual relations with her for the rest of her life after the death of her husband Manasseh."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.23",
-      "source_sha256": "68f90364b8a4886a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Her renown continued to grow until she became very famous. She grew old in the house of her husband Manasseh and reached the age of one hundred and five. She died in Bethulia and was buried in the burial caves with her husband Manasseh."
+      "source_sha256": "08ace9956776b61f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "As time went on, she grew older, until she reached a very advanced age. She grew old in the house of her husband Manasseh and reached the age of one hundred and five. She died in Bethulia and was buried in the burial caves with her husband Manasseh."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.24",
-      "source_sha256": "0abb968fc2fe44e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "The whole house of Israel mourned her for seven days. Before her death she had divided her property among all the relatives of her husband Manasseh and those related to her own family, and she had set her female slaves free."
+      "source_sha256": "d94d2463d83cba76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "The whole house of Israel mourned her for seven days. Before her death she distributed her possessions among all the relatives of her husband Manasseh and those related to her own family, and she set her female slaves free."
     },
     {
       "chunk_id": "pta-peshitta/jdt#Jdt.16.25",
-      "source_sha256": "fc996ed796c3bbbc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "No one again frightened the Israelites throughout Judith’s lifetime, or for many days after her death. The book of Judith is finished."
+      "source_sha256": "4cb0907187452527",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "No one again terrified the Israelites throughout Judith's lifetime, or for many days after her death. The book of Judith is finished."
     }
   ]
 }

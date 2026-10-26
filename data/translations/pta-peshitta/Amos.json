@@ -15,29 +15,35 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.1",
-      "source_sha256": "814aee6d225a8f69",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a2f9e516b500dae5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The words of Amos, who was one of the shepherds of Tekoa, which he saw concerning the people of Israel in the days of Uzziah king of Judah and in the days of Jeroboam son of Joash, king of Israel, two years before the earthquake."
+      "text": "The words of Amos, who was among the sheep breeders of Tekoa, which he saw concerning the people of Israel in the days of Uzziah king of Judah and in the days of Jeroboam son of Joash, king of Israel, two years before the earthquake."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.2",
-      "source_sha256": "ae9a2233d36879d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "15320c549011c0e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He said: The Lord will roar from Zion and raise his voice from Jerusalem. The shepherds’ dwellings will mourn, and the summit of Carmel will wither."
+      "text": "He said: The Lord will roar from Zion and raise his voice from Jerusalem. The shepherds’ encampments will sit in mourning, and the summit of Carmel will dry up."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.3",
-      "source_sha256": "73718ea270d8f986",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dd76105582e41bbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Damascus, and for four, I will not relent, because they threshed Gilead with iron threshing blades."
+      "text": "This is what the Lord says: For three sins of Damascus, and for four, I will not relent toward them, because they threshed Gilead with iron threshing blades."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.4",
@@ -48,17 +54,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.5",
-      "source_sha256": "c2513d8f77ca6cfb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cd72c339811bd0f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I will break the bars of Damascus and destroy the inhabitants of the Valley of Aven and the one who holds the scepter in Beth-eden. The people of Aram will be taken captive to Kir, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.6",
-      "source_sha256": "f70d005f90c2f5a1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7a86c816107e66b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Gaza, and for four, I will not relent, because they took an entire population captive to hand them over to Edom."
+      "text": "This is what the Lord says: For three sins of Gaza, and for four, I will not relent toward them, because they took an entire population captive to hand them over to Edom."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.7",
@@ -69,17 +75,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.8",
-      "source_sha256": "42daf6db3889f801",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8e466325ec7a5442",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I will destroy the inhabitants of Ashdod and the one who holds the scepter in Ashkelon. I will turn my hand against Ekron, and the remaining Philistines will perish, says the Lord of lords."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.9",
-      "source_sha256": "38a67821198f2962",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7c9889506be4f109",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Tyre, and for four, I will not relent, because they handed over an entire population of captives to Edom and did not remember the covenant of brotherhood."
+      "text": "This is what the Lord says: For three sins of Tyre, and for four, I will not relent toward them, because they handed an entire population of captives over to Edom and did not remember the covenant of brotherhood."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.10",
@@ -90,10 +96,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.11",
-      "source_sha256": "1b63ed4ac390a042",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9a5adbcebc09cf9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Edom, and for four, I will not relent, because he pursued his brother with the sword and destroyed his compassion. He maintained his anger forever and kept his resentment for all time."
+      "text": "This is what the Lord says: For three sins of Edom, and for four, I will not relent toward them, because he pursued his brother with the sword and stifled his compassion. He maintained his anger forever and kept his resentment for all time."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.12",
@@ -104,17 +110,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.13",
-      "source_sha256": "ae3f29a447589422",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5cc602024d83990",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of the Ammonites, and for four, I will not relent, because they ripped open the pregnant women of Gilead to enlarge their territory."
+      "text": "This is what the Lord says: For three sins of the Ammonites, and for four, I will not relent toward them, because they ripped open the pregnant women of Gilead to enlarge their territory."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.14",
-      "source_sha256": "6931c27494301de5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0cd2d13d96043d54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I will unleash fire in the streets of Rabbah, and it will consume its fortress amid shouting on the day of battle, amid a whirlwind on the day of the storm."
+      "text": "I will set fire to the streets of Rabbah, and it will consume its citadel, amid shouting on the day of battle, amid a whirlwind on the day of the storm."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.1.15",
@@ -125,17 +131,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.1",
-      "source_sha256": "14574c90708ec96f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1d24bc592a06d4cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Moab, and for four, I will not relent, because they burned the bones of the king of Edom into lime."
+      "text": "This is what the Lord says: For three sins of Moab, and for four, I will not relent toward them, because they burned the bones of the king of Edom into lime."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.2",
-      "source_sha256": "34c554d96705770a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4f31192e2012db6b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I will send fire upon Moab, and it will consume the fortresses of Kerioth. Moab will die amid turmoil, shouting, and the sound of the trumpet."
+      "text": "I will send fire upon Moab, and it will consume the citadels of Kerioth. Moab will die amid turmoil, amid shouting and the sound of the trumpet."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.3",
@@ -146,10 +152,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.4",
-      "source_sha256": "d7b41d9d949dc9de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "This is what the Lord says: For three sins of Judah, and for four, I will not turn back from them, because they rejected the Lord’s law and did not keep his commandments. The worthless things that their ancestors followed led them astray."
+      "source_sha256": "53f1d85b56570d95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "This is what the Lord says: For three sins of Judah, and for four, I will not relent toward them, because they rejected the law of the Lord and did not keep his commandments. Their worthless idols, which their ancestors followed, led them astray."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.5",
@@ -160,43 +166,43 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.6",
-      "source_sha256": "b92b2a158098fa3b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5cea51b79bf8c240",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: For three sins of Israel, and for four, I will not relent, because they sold the righteous for silver and the poor for a pair of sandals."
+      "text": "This is what the Lord says: For three sins of Israel, and for four, I will not relent toward them, because they sold the righteous for silver and the poor for a pair of sandals."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.7",
-      "source_sha256": "b8e0b525ae828fc5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "82f9dbd5966a20d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They trample on the dust of the earth and crush the poor, and they twist the path of the wretched. A man and his father go to the same woman, to defile my holy name."
+      "text": "They trample on the dust of the earth and crush the poor, and they twist the path of the afflicted. A man and his father go to the same woman, defiling my holy name."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.8",
-      "source_sha256": "29dc151c09a8390f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e1ac6b40b935fa41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They used to wrap themselves in garments taken as pledges beside every altar and drink aged wine in the house of their gods."
+      "text": "They wrapped themselves in garments taken as pledges beside every altar, and they drank aged wine in the house of their gods."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.9",
-      "source_sha256": "53b710eb79e950c8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "642b6d4ab1de5178",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Yet I destroyed the Amorite before them, whose height was like the height of a cedar and who was strong as an oak. I destroyed his fruit above and his roots below."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.10",
-      "source_sha256": "71df86478ee0b1b2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "45d8c92539692523",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I brought you up from the land of Egypt and led you through the wilderness for forty years. I brought you to this place to possess the land of the Amorites."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.2.11",
-      "source_sha256": "6353a74f0504c86d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8d075d77cd85e2d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I raised up prophets from among your sons and Nazirites from among your young men. Is this not so, people of Israel? says the Lord."
     },
@@ -237,17 +243,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.1",
-      "source_sha256": "83bd4473ed4e9adf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4c4393a11c54a33d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Hear this word that the Lord has spoken against you, people of Israel, against the whole family that I brought up from the land of Egypt, saying:"
+      "text": "Hear this word that the Lord has spoken against you, people of Israel, against the whole family that I brought up from the land of Egypt. I said:"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.2",
-      "source_sha256": "4246785ef0d1b24b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "02ae2a57559347e6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "You alone have I known among all the nations and all the families of the earth. Therefore I will punish you for all your sins."
+      "text": "You alone have I known among all the peoples and all the families of the earth. Therefore I will punish you for all your sins."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.3",
@@ -258,10 +264,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.4",
-      "source_sha256": "17ab6511cefb67ae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "47d6152049361dd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Does a lion roar in the forest when it has no prey? Or does a lion raise its voice from its den unless it has killed?"
+      "text": "Does a lion roar in the forest when it has no prey? Does a lion raise its voice from its den unless it has made a kill?"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.5",
@@ -272,10 +278,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.6",
-      "source_sha256": "7643cf3ecad7e39e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7dcd78723db9a035",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Is a trumpet sounded in a city without the people trembling? Or does disaster happen in a city without the Lord having done it?"
+      "text": "Is a trumpet sounded in a city without the people trembling? Does disaster happen in a city unless the Lord has brought it about?"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.7",
@@ -293,10 +299,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.9",
-      "source_sha256": "0306b157f2447665",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "10e824b3ae001a2c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Proclaim in the palaces of Ashdod and in the palaces of the land of Egypt, and say: Gather, all of you, on the mountain of Samaria, and see the great turmoil within it and the oppression in it."
+      "text": "Proclaim on the citadels of Ashdod and on the citadels of the land of Egypt, and say: Gather, all of you, on the mountain of Samaria, and see the great turmoil within it and the oppression there."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.10",
@@ -307,17 +313,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.11",
-      "source_sha256": "2ef5ab4adea8be1e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3629bc74d61bcbac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For this is what the Lord says: Distress will surround the land, its strength will be brought down, and its palaces will be plundered."
+      "text": "For this is what the Lord says: Distress will surround the land, its strength will be brought down, and its citadels will be plundered."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.12",
-      "source_sha256": "ef9a7e610e12d188",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "90e73b28af0b467f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "This is what the Lord says: Just as a shepherd snatches two legs or a piece of an ear from a lion’s mouth, so will the people of Israel who live in Samaria be rescued, by a rod that comes suddenly and by a people from Damascus."
+      "text": "This is what the Lord says: Just as a shepherd rescues two legs or a piece of an ear from a lion’s mouth, so the Israelites who live in Samaria will be rescued, with a sudden rod and with the people from Damascus."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.13",
@@ -328,31 +334,31 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.14",
-      "source_sha256": "8ece8a14f909e88c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a7d6b90a4375a66a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For on the day when I punish Israel for its wrongdoing, I will punish the altars of Bethel. The horns of the altars will be cut off and fall to the ground."
+      "text": "For on the day when I punish Israel for its wrongdoing, I will also punish the altars of Bethel. The horns of the altars will be cut off and fall to the ground."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.3.15",
-      "source_sha256": "a7e3b20b21854072",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b234c74a79c9c8f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I will destroy the winter house along with the summer house. The ivory houses will perish, and many houses will come to an end, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.1",
-      "source_sha256": "ffb2ec7280715b84",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b198e85ddda7e662",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Hear this word, you cows of Bashan on the mountain of Samaria, who oppress the poor and torment the needy, and who say to your masters, ‘Bring us something to drink.’"
+      "text": "Hear this word, you cows of Bashan on the mountain of Samaria, who oppress the poor and torment the needy, who say to their masters, ‘Bring us something to drink!’"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.2",
-      "source_sha256": "611b0f9b76384008",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bd270f7497ad6592",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord of lords has sworn by his holiness: Look, days are coming upon you when they will carry you away with weapons, and those of you who remain in fishermen’s pots."
+      "text": "The Lord of lords has sworn by his holiness: Look, days are coming upon you when they will carry you away with weapons, and those of you who remain with fishermen’s hooks."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.3",
@@ -363,73 +369,73 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.4",
-      "source_sha256": "238491a43a5fad19",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "48e66a1efc60c1ba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Go into Bethel and sin; at Gilgal multiply your sins. Bring your sacrifices in the morning and your tithes every three days."
+      "text": "Go into Bethel and sin! Multiply your sins at Gilgal! Bring your sacrifices in the morning and your tithes every three days."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.5",
-      "source_sha256": "c3dae35e58f130b3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8f21f72cc9a1b757",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Offer a thanksgiving sacrifice of leavened bread, make vows, and fulfill them, for this is what you love, people of Israel, says the Lord."
+      "text": "Offer a thanksgiving sacrifice made with leavened bread, make vows, and fulfill them, for this is what you love, Israelites, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.6",
-      "source_sha256": "a17e191ff5945c89",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2e3ff0bb9bb249ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I also gave you teeth set on edge in all your cities and a shortage of bread in all your settlements. Yet you did not return to me, says the Lord."
+      "text": "I also gave you dull teeth in all your cities and a shortage of bread in all your settlements. Yet you did not return to me, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.7",
-      "source_sha256": "a97286936d08b661",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "324be8ac138f6d9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I also withheld rain from you three months before the harvest. I sent rain down on one city but not on another. Rain would fall on one plot, while a plot on which no rain fell would dry up."
+      "text": "I also withheld rain from you three months before harvest. I sent rain down on one city but not on another. Rain would fall on one field, while a plot on which no rain fell would dry up."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.8",
-      "source_sha256": "23d1929ba5986f2c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "da4f938618a77fb2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Two or three cities would gather at one city to drink water, but they would not have enough. Yet you did not return to me, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.9",
-      "source_sha256": "46b25172a41f44f3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c49dbb17d0f638d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I struck you with blight, mildew, and hail. The locust devoured the abundance of your gardens, vineyards, fig trees, and olive trees. Yet you did not return to me, says the Lord."
+      "text": "I struck you with scorching heat, mildew, and hail. The locust devoured the abundance of your gardens, vineyards, fig trees, and olive trees. Yet you did not return to me, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.10",
-      "source_sha256": "7ecc0a8c26b3d8f1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "abd1d0b523d3e8e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I sent a plague among you as I did in Egypt. I killed your young men with the sword, and your horses were taken captive. I made the stench of your decay strike your faces. Yet you did not return to me, says the Lord."
+      "text": "I sent a plague among you as I did in Egypt. I killed your young men with the sword, while your horses were taken captive. I brought the stench of your rotting bodies into your faces. Yet you did not return to me, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.11",
-      "source_sha256": "15fb16aedbaac425",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "359e0b405771a63c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I overthrew you as God overthrew Sodom and Gomorrah, and you became like a burning stick rescued from the flames. Yet you did not return to me, says the Lord."
+      "text": "I brought destruction among you as God destroyed Sodom and Gomorrah. You became like a burning stick rescued from the flames. Yet you did not return to me, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.12",
-      "source_sha256": "c4e34c839a627ee8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fc32abfde7db8b1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Therefore, this is what I will do to you in the end, Israel. Because I am doing this to you, prepare to meet your God, Israel."
+      "text": "Therefore this is what I will do to you in the end, Israel. Because I am doing this to you, prepare, Israel, to call upon your God."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.4.13",
-      "source_sha256": "001de3c669437703",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "91e42ccf43b05e78",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For the one who created the winds and created the mountains, who reveals to human beings what his glory is, who makes the morning dark and treads on the heights of the earth—the Lord, the mighty God, is his name."
+      "text": "For the one who created the winds and created the mountains, who makes known to human beings what his praise is, who makes the dawn dark and treads upon the heights of the earth—the Lord, the mighty God, is his name."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.1",
@@ -447,10 +453,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.3",
-      "source_sha256": "ba8baefd34342935",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c286dafec0b2735e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For this is what the Lord of lords says: The city from which a thousand went out will have a hundred left, and the one from which a hundred went out will have ten left for the house of Israel."
+      "text": "For this is what the Lord of lords says: A city from which a thousand went out will have a hundred left, and one from which a hundred went out will have ten left for the house of Israel."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.4",
@@ -461,10 +467,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.5",
-      "source_sha256": "b2f0d64a7755af9e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "Do not seek Bethel, do not enter Gilgal, and do not cross over to Beersheba, because Gilgal will certainly go into captivity, and Bethel will become as though it did not exist."
+      "source_sha256": "ba5317ef79e24416",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Do not seek Bethel, do not enter Gilgal, and do not cross over to Beersheba. For Gilgal will certainly go into captivity, and Bethel will become as though it had never existed."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.6",
@@ -482,10 +488,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.8",
-      "source_sha256": "1d7481ed47a1f503",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ada4af4d226aaeee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Seek the one who made the Pleiades and the Hyades, who turns the shadows of death into morning and darkens day into night, who calls for the waters of the sea and pours them over the surface of the earth—the Lord is his name."
+      "text": "The one who made the Pleiades and Arcturus, who turns the shadows of death into morning and darkens day into night, who calls for the waters of the sea and pours them over the face of the earth—the Lord is his name."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.9",
@@ -503,17 +509,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.11",
-      "source_sha256": "048c63f8a87845a9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f044f134374e7014",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Therefore, because you have oppressed the poor and taken choice offerings from them, you will not live in the houses of cut stone that you have built, and you will not drink the wine of the delightful vineyards that you have planted."
+      "text": "Therefore, because you have beaten down the poor and taken choice gifts from them, you will not live in the houses of cut stone that you have built, and you will not drink the wine of the desirable vineyards that you have planted."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.12",
-      "source_sha256": "082d00b58fb5932a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4234a3e7a2f73c82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For I know that your offenses are many and your sins are great. You oppress the righteous, take bribes, and turn away the poor at the gate."
+      "text": "For I know that your offenses are many and your sins are grave. You oppressors of the righteous have taken bribes and turned the poor aside at the city gate."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.13",
@@ -531,17 +537,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.15",
-      "source_sha256": "136c8fbc51dbd4e9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e964bd6c3fd9c212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Hate evil, love good, and establish justice at the gate. Perhaps the Lord, the mighty God, will have mercy on the remnant of Joseph."
+      "text": "Hate evil, love good, and establish justice at the city gate. Perhaps the Lord, the mighty God, will have mercy on the remnant of Joseph."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.16",
-      "source_sha256": "fe47ba007bfccbbc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f3ee0997885cc488",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For this is what the Lord, the mighty God, says: There will be wailing in all the squares, and in all the streets they will say, 'Alas! Alas!' They will call the farmers to mourning, and the mourners and those skilled in lamentation."
+      "text": "For this is what the Lord, the mighty God, says: In all the marketplaces there will be mourning women, and in all the open places people will say, ‘Alas! Alas!’ They will call the farmers to mourning, along with the mourning women and those skilled in lamentation."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.17",
@@ -559,10 +565,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.19",
-      "source_sha256": "fa0a5be379ffa480",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "436d67bf0ec220b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "It is like a man fleeing from a lion only to encounter a bear, or entering a house and resting his hand on the wall only to be bitten by a snake."
+      "text": "It is like a man who flees from a lion and encounters a bear, or enters a house, rests his hand against the wall, and is bitten by a snake."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.20",
@@ -580,10 +586,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.22",
-      "source_sha256": "5c173c6d755970b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0a2b11b3344d1ee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Even if you offer me burnt offerings and peace offerings, I will not accept your offerings or look favorably on the fine appearance of your fattened animals."
+      "text": "Even if you offer me whole burnt offerings, I will not be pleased with your offerings, nor will I look upon the fine appearance of your fattened animals."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.5.23",
@@ -622,17 +628,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.1",
-      "source_sha256": "22adfb25ec70161d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9917ce15d196e1fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Woe to those who despise Zion and trust in the mountain of Samaria, those singled out as leaders of the nations, to whom the Israelites went into exile!"
+      "text": "Woe to those who despise Zion and trust in the mountain of Samaria, who appoint the leaders of the nations, and to whom the Israelites have gone into exile!"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.2",
-      "source_sha256": "5e7113abb2589435",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "05dcb0ac2216991b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Cross over to Calneh and look; go from there to Hamath the great, and go down to Gath of the Philistines. Is it better than all these kingdoms, or is their territory larger than yours?"
+      "text": "Cross over to Calneh and see. Go from there to Hamath the Great, and go down to Gath of the Philistines. Is it better than all these kingdoms? Is their territory larger than yours?"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.3",
@@ -643,10 +649,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.4",
-      "source_sha256": "f4af2c6274f65faa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9920b3f9767157ae",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "who lie on ivory beds and revel on their couches, who eat fattened animals from the flock and calves from among the herds,"
+      "text": "They lie on ivory beds and lounge on their couches, eating fattened lambs from the flock and calves from among the cattle."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.5",
@@ -671,10 +677,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.8",
-      "source_sha256": "7dc5f33d77cfedd2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d51ec1b2d512aa9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord of lords has sworn by himself, and the Lord God Almighty has said: “I despise Jacob’s glory and hate his fortresses. I will hand over the city and everything in it.”"
+      "text": "The Lord of lords has sworn by himself, and the Lord, the mighty God, has said, “I despise Jacob’s glory and hate his palaces. I will hand over the city and everything in it.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.9",
@@ -685,10 +691,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.10",
-      "source_sha256": "a773994b2f8e3329",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c5270cef6135a7e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "His uncle or a close relative will carry him out to remove the bones from the house. He will say to whoever is in the house, “Is anyone else with you in the house?” He will answer him, “No,” for they have perished because they did not call on the name of the Lord."
+      "text": "His uncle or a close relative will carry him away to bring the bones out of the house. He will say to the one who is in the house, “Is anyone else with you in the house?” He will answer him, “No,” because they have perished for not calling on the name of the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.11",
@@ -699,10 +705,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.12",
-      "source_sha256": "60bcd6eab5501398",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7587b2547fe69b1f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Do horses run on rock, or are plow teams driven over it? For you have turned justice into bitterness and the fruit of righteousness into wormwood."
+      "text": "Do horses run on rock, or does anyone draw a plow with them? Yet you have turned justice into bitterness and the fruit of righteousness into wormwood."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.13",
@@ -713,24 +719,24 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.6.14",
-      "source_sha256": "a15c757ee9d3f79e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9dd9d28cddae7b4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For look, I am raising up a nation against you, house of Israel, says the Lord God Almighty, and they will oppress you from the entrance of Hamath to the stream of the Arabah."
+      "text": "“For look, I am raising up a nation against you, house of Israel,” says the Lord, the mighty God. “They will oppress you from the entrance to Hamath as far as the ravine of the Arabah.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.1",
-      "source_sha256": "9d2ea1d88a8e4956",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d0194b9d31681431",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord of lords showed me this: locusts being formed as the late crop began to sprout. This late crop came after the king’s mowing."
+      "text": "This is what the Lord of lords showed me: the forming of locusts when the late crop was beginning to sprout. That late crop came after the king’s mowing."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.2",
-      "source_sha256": "12d47dea5e1f356c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "434e33828168b174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When they had finished eating the vegetation of the land, I said, “Lord of lords, spare me! Who will raise Jacob up? For he is small.”"
+      "text": "When it had finished eating the vegetation of the land, I said, “Lord of lords, have mercy on me! Who will raise Jacob up? He is so small!”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.3",
@@ -741,10 +747,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.4",
-      "source_sha256": "d2dd8a157031df5c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0cfb316c41e17d1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord of lords showed me this: look, the Lord of lords called for judgment by fire. It consumed the great deep and consumed the allotted portion."
+      "text": "This is what the Lord of lords showed me: the Lord of lords was calling for judgment by fire. It consumed the great deep and consumed the allotted portion."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.5",
@@ -769,10 +775,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.8",
-      "source_sha256": "27f80b8fa43953b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7be5e76559fde77f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord said to me, “What do you see, Amos?” I said, “Adamant.” The Lord said to me, “Look, I am placing adamant among my people Israel, and I will no longer pass over them.”"
+      "text": "The Lord said to me, “What do you see, Amos?” I said, “Adamant.” The Lord said to me, “Look, I am placing adamant among my people Israel. I will no longer pass over them.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.9",
@@ -783,10 +789,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.10",
-      "source_sha256": "f48a01ccf05683d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "53c221a383d75bc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Amaziah, the priest of Bethel, sent word to Jeroboam king of Israel, saying, “Amos has rebelled against you within the house of Israel. The land cannot endure his words."
+      "text": "Amaziah, the priest of Bethel, sent word to Jeroboam king of Israel, saying, “Amos has rebelled against you within the house of Israel. The land cannot endure his words.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.11",
@@ -797,10 +803,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.12",
-      "source_sha256": "5e7f87d9880a9113",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b83028b75ffa982f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Amaziah said to Amos, “Seer, flee! Go away to the land of Judah. Eat bread there, and prophesy there."
+      "text": "Amaziah said to Amos, “Seer, flee! Go away to the land of Judah. Eat your bread there, and prophesy there.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.13",
@@ -811,10 +817,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.14",
-      "source_sha256": "6d92aa2ebe843c5a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "Amos answered Amaziah, saying, “I was not a prophet, nor a son of prophets, but I am a shepherd and a gatherer of sycamore figs.”"
+      "source_sha256": "4a43ae8969b050d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Amos answered Amaziah, “I was not a prophet, nor was I a prophet’s son. Rather, I am a shepherd and a gatherer of sycamore figs.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.15",
@@ -825,17 +831,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.16",
-      "source_sha256": "fd23bdc0ac4c20dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4a28be85b157ecbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now hear the word of the Lord. You said, “Do not prophesy against the house of Israel, and do not teach the house of Isaac.”"
+      "text": "“Now hear the word of the Lord. You said, ‘Do not prophesy against the house of Israel, and do not teach the house of Isaac.’”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.7.17",
-      "source_sha256": "e950649a16ea235f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6659a211f1dc43ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Therefore this is what the Lord says: “Your wife will become a prostitute in your city, your sons and daughters will fall by the sword, and your land will be divided with a measuring line. You yourself will die in an unclean land, and Israel will be taken captive from its land.”"
+      "text": "“Therefore this is what the Lord says: ‘Your wife will become a prostitute in your city. Your sons and daughters will fall by the sword. Your land will be divided with a measuring line. You yourself will die in an unclean land, and Israel will be taken captive from its land.’”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.1",
@@ -846,17 +852,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.2",
-      "source_sha256": "b315bb97bc342c0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9164aa1d52588a43",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The Lord said to me, “What do you see, Amos?” I said, “A sign of the end.” The Lord said to me, “The end has come upon my people Israel. I will no longer turn it away from them.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.3",
-      "source_sha256": "446c4bef09f0815b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "The temple’s songs of praise will fall on that day. On that very day, says the Lord of lords, corpses will multiply everywhere and will be thrown out to destruction."
+      "source_sha256": "29f8f073da0b3d84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "“The temple’s songs of praise will cease on that day. On that very day,” says the Lord of lords, “corpses will multiply everywhere and be thrown out for destruction.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.4",
@@ -867,10 +873,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.5",
-      "source_sha256": "b9e6de7d9b1eb9be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "004c585d35c0aaf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "saying, “When will the new moon be over, so that we can sell grain, and the Sabbath be over, so that we can open the storehouses, make the measures smaller and the weights larger, and use dishonest scales?"
+      "text": "They say, “When will the new moon be over so that we can sell grain, and the Sabbath be over so that we can open the storehouses, make the measures smaller, make the weights heavier, and use dishonest scales?”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.6",
@@ -888,10 +894,10 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.8",
-      "source_sha256": "a83b4288d3fd048c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "29547696cdf43dd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Will the earth not tremble because of these things, and all its inhabitants sit in mourning? Its edge will rise like a river, be driven back, and sink like the river of Egypt."
+      "text": "Will the earth not tremble because of these things, and all its inhabitants sit in mourning? Its edge will rise like a river; it will surge and subside like the river of Egypt."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.9",
@@ -902,24 +908,24 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.10",
-      "source_sha256": "2c0dd1e7a7a16463",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "18f55ec0f9d201b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I will turn your festivals into mourning and all your songs into laments. I will fasten sackcloth around all your waists and bring baldness upon all your heads. I will make it like mourning for an only child, and its end like a bitter day.”"
+      "text": "I will turn your festivals into mourning and all your songs into laments. I will fasten sackcloth around all your waists and bring baldness upon all your heads. I will make it like mourning for an only child, and its end like a bitter day."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.11",
-      "source_sha256": "fa6204259dcb7911",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 10,
-      "text": "Look, days are coming, says the Lord, when I will send a famine in the land—not a hunger for bread or a thirst for water, but for hearing the word of the Lord."
+      "source_sha256": "0e8305799a5b2473",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "“Look, the days are coming,” says the Lord, “when I will send a famine in the land—not hunger for bread or thirst for water, but for hearing the word of the Lord.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.12",
-      "source_sha256": "0fb38f8ace5e50c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7e3638729e560716",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They will gather from sea to sea and from north to east. They will run about seeking the word of the Lord, but they will not find it."
+      "text": "They will gather from sea to sea and from north to east. They will hurry about seeking the word of the Lord, but they will not find it."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.13",
@@ -930,17 +936,17 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.8.14",
-      "source_sha256": "ff7d9c733cb4673f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "97008f417cb241a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Those who swore by the idols of Samaria and said, “As your god lives, Dan,” and, “As the way of Beersheba lives,” will fall and will not rise."
+      "text": "Those who used to swear by the idols of Samaria and say, “As your god lives, Dan,” and, “As the way of Beersheba lives,” will fall and will not rise."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.1",
-      "source_sha256": "bb7449aa3ecd311c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7aa94504201b2734",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I saw the Lord standing over the altar. He said, “Strike the capital so that the thresholds shake, and shatter them upon the heads of them all. I will kill those who remain with the sword. No fugitive among them will get away, and no one escaping will be delivered."
+      "text": "I saw the Lord standing over the altar. He said, “Strike the pillar’s capital so that the thresholds shake, and break them over everyone’s heads. I will kill the rest of them with the sword. Not one of them who flees will escape, and not one of them who gets away will be saved.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.2",
@@ -951,52 +957,52 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.3",
-      "source_sha256": "b890def27dd509c5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a80485186a765dbe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If they hide on the summit of Carmel, I will search them out and take them from there. If they hide from my sight in the depths of the sea, there I will command the serpent to bite them."
+      "text": "“If they hide on the summit of Carmel, I will search them out and take them from there. If they hide from my sight in the depths of the sea, I will command the serpent there to bite them.”"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.4",
-      "source_sha256": "33bfd3272ce5c919",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Even if they go into captivity before their enemies, there I will command the sword to kill them. I will set my eyes on them for harm and not for good."
+      "source_sha256": "90bb5d309dcf36df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "And if they go into captivity before their enemies, there I will command the sword to kill them. I will set my eyes on them for harm and not for good."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.5",
-      "source_sha256": "aa6ecfbd849a5328",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "The mighty Lord of lords says, he who touches the earth and it shakes, and all its inhabitants sit in mourning; its edge rises like a river and sinks like the river of Egypt."
+      "source_sha256": "ff555d63ada5214f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "The mighty Lord of lords says, he who touches the earth and it shakes, and all its inhabitants sit in mourning: its edge rises like a river and sinks like the river of Egypt."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.6",
-      "source_sha256": "25cad5c388e7b648",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "He builds his stairways in heaven and establishes his dominion on earth. He calls for the waters of the sea and pours them over the surface of the earth. The mighty Lord is his name."
+      "source_sha256": "cd3b110e50ca2343",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "He builds his stairways in heaven, and his dominion is established on earth. He calls for the waters of the sea and pours them over the surface of the earth. The mighty Lord is his name."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.7",
-      "source_sha256": "33c9a2ab0c30d0a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Look, you Israelites are like the Cushites to me, says the Lord. Look, I brought Israel up from the land of Egypt, the Philistines from Cappadocia, and Aram from Kir."
+      "source_sha256": "6e7dcb6c2ab62627",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "Look, you are like the Cushites to me, people of Israel, says the Lord. Did I not bring Israel up from the land of Egypt, the Philistines from Cappadocia, and Aram from Kir?"
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.8",
-      "source_sha256": "240765ecf5ddc295",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Look, the eyes of the Lord of lords are on the sinful kingdom, and I will destroy it from the face of the earth. But I will not destroy the house of Jacob in this way, says the Lord."
+      "source_sha256": "501dfb9f886031dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "Look, the eyes of the Lord of lords are on the sinful kingdom, and I will destroy it from the face of the earth. Yet I will not destroy the house of Jacob in this way, says the Lord."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.9",
-      "source_sha256": "e4e990ec39e890d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "For look, I will give the command and scatter the house of Israel among all the nations, as grain is sifted in a sieve, but their fine grain will not fall to the ground."
+      "source_sha256": "2708c736a12f5050",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "For look, I am giving the command, and I will scatter the house of Israel among all the nations, as things are sifted in a sieve, and not even their smallest grain will fall to the ground."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.10",
@@ -1007,31 +1013,31 @@
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.11",
-      "source_sha256": "5642542298ff29b3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "On that day I will raise up David’s fallen tent. I will close up their breaches and raise up their ruins. I will rebuild it as in the days of old and as in the years of generations past."
+      "source_sha256": "7659e8348a2c5df9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "On that day I will raise up David’s fallen tent. I will close their breaches and raise up their ruins, and I will rebuild it as in the days of old and as in the years of past generations."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.12",
-      "source_sha256": "5f19189ae387fcd3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "40a7f522bff47e39",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 10,
       "text": "So that they may possess the remnant of Edom and all the nations over whom my name has been called, says the Lord, who does these things."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.13",
-      "source_sha256": "4cd588708f206ab6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "Look, the days are coming, says the Lord, when threshing will overtake the grape harvest, and the pressing of grapes will overtake sowing. The mountains will flow with sweetness, and all the hills will become delightful."
+      "source_sha256": "b86e7db233580fa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "Look, the days are coming, says the Lord, when threshing will overtake harvesting, and the pressing of grapes will overtake sowing. The mountains will flow with sweetness, and all the hills will delight in it."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.14",
-      "source_sha256": "0ebebeb0f82f9ca9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "I will bring back the captives of my people Israel. They will rebuild the ruined cities and live in them. They will plant vineyards and drink their wine; they will plant gardens and eat their fruit."
+      "source_sha256": "de190b54eb57dffc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 10,
+      "text": "I will bring back the captives of my people Israel. They will rebuild the ruined cities and live in them. They will plant vineyards and drink their wine, and they will plant gardens and eat their fruit."
     },
     {
       "chunk_id": "pta-peshitta/amos#Amos.9.15",

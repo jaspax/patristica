@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -41,10 +47,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.4",
-      "source_sha256": "39687bcf8c21aa2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "Draw me after you; let us run. Bring me, O king, into your chamber. We will rejoice and delight in you. We will remember your love more than wine, and I have loved you more than the upright."
+      "source_sha256": "d9a804c25f88fe96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Draw me after you; let us run. Bring me, O king, into your chamber. Let us rejoice and delight in you. We will remember your love more than wine. I have loved you sincerely [?]."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.5",
@@ -55,24 +61,24 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.6",
-      "source_sha256": "5d82764c6080437f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "97d50a7621794394",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Do not stare at me because I have become black, because the sun has darkened me. My mother's sons fought against me; they made me keeper of the vineyards, but my own vineyard I did not keep."
+      "text": "Do not stare at me because I have become dark, because the sun has darkened me. My mother’s sons fought against me; they made me keeper of the vineyards, but I did not keep my own vineyard."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.7",
-      "source_sha256": "582267e3a6ac175b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2c785d7927c13786",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tell me, you whom my soul loves, where you graze your flock and how you rest at noon, so that I will not be like a woman wandering among the flock of your sheep."
+      "text": "Tell me, you whom my soul loves, where you pasture your flock and how you rest at noon, so that I will not be like a woman wandering among the flock of your sheep."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.8",
-      "source_sha256": "0f5a59751965dad5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e71c7bdd1cc12a1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If you do not know yourself, most beautiful of women, follow the tracks of the flock and graze your young goats by the shepherds' tent."
+      "text": "If you do not know yourself, most beautiful of women, follow the tracks of the sheep, and pasture your young goats by the shepherds’ tents."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.1.9",
@@ -153,10 +159,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.3",
-      "source_sha256": "fdc12c08a257c758",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8e16a8384328ad32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Like an apple tree among the trees of the forest, so is my beloved among young men. I longed for his shade and sat there, and his fruit was sweet to my taste."
+      "text": "Like an apple tree among the trees of the forest, so is my beloved among the young men. I longed for his shade and sat beneath it, and his fruit was sweet to my taste."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.4",
@@ -181,10 +187,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.7",
-      "source_sha256": "663d967875cef3a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "I charge you under oath, daughters of Jerusalem, by the gazelles or the deer of the field: do not awaken or stir up love until it wishes."
+      "source_sha256": "c08f3f26290d605a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "I put you under oath, daughters of Jerusalem, by the gazelles or the young deer of the field: do not stir up or awaken love until it wishes."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.8",
@@ -195,10 +201,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.9",
-      "source_sha256": "c28131694fa59d63",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5201723bbb83b246",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "My beloved is like a gazelle or a young deer. Look, he stands behind our wall, peering through the windows, leaning through the latticework."
+      "text": "My beloved is like a gazelle or a young stag. Look, he is standing behind our wall, peering through the windows, leaning through the latticework."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.10",
@@ -223,17 +229,17 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.13",
-      "source_sha256": "ff053e04c67d5b71",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5b3a9737729dad3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The fig tree has put out its early figs, and the vines in blossom have given off their fragrance. Rise, my beautiful one, my companion, and come away."
+      "text": "The fig tree has put out its unripe figs; the vines and their blossoms have given their fragrance. Rise, my beautiful one, my dear one, and come away."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.14",
-      "source_sha256": "c3496aab6bfa1dcb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "96e135862efd2b0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "My dove, in the cleft of the rock, in the shelter of the hedge, show me your face and let me hear your voice, for your voice is sweet and your face is lovely."
+      "text": "My dove, in the cleft of the rock, in the shelter of the wall, show me your face and let me hear your voice, for your voice is sweet and your face is lovely."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.15",
@@ -251,10 +257,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.2.17",
-      "source_sha256": "42098a09c5c82296",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "aed3cdcb52cb0c17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Until the day grows cool and the shadows lengthen, turn back, my beloved, and be like a gazelle or a young deer on the mountains of spices."
+      "text": "Until the day cools and the shadows lengthen, turn back, my beloved, and be like a gazelle or a young stag on the mountains of spices."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.1",
@@ -265,10 +271,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.2",
-      "source_sha256": "8bd6f412f97b9bc3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5eacc3afcd73cc4e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Let me get up now and go around the city, through the streets and squares. I will seek the one my soul loves. I sought him but did not find him."
+      "text": "Let me rise now and go around the city, through the streets and squares. I will seek the one whom my soul loves. I sought him but did not find him."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.3",
@@ -279,24 +285,24 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.4",
-      "source_sha256": "6a53679368894a39",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3bace87b1196c376",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I had gone only a little beyond them when I found the one my soul loves. I held him and would not let him go until I brought him into my mother's house, into the chamber of the woman who bore me."
+      "text": "I had gone only a little way beyond them when I found the one whom my soul loves. I held him and would not let him go until I brought him into my mother’s house, into the chamber of the woman who bore me."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.5",
-      "source_sha256": "9e0e17bad572cc3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6cf03ea882ed9710",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I put you under oath, daughters of Jerusalem, by the gazelles or the deer of the field: do not awaken or stir up love until it wishes."
+      "text": "I put you under oath, daughters of Jerusalem, by the gazelles or the deer of the field: do not stir up or awaken love until it wishes."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.6",
-      "source_sha256": "137da8a26aa7e30c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "88a57d5093d8da6d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Who is this coming up from the wilderness like a plume of smoke, perfumed with myrrh and frankincense, with every fragrant powder?"
+      "text": "Who is this coming up from the wilderness like a cloud of smoke, perfumed with myrrh and frankincense, with every fragrant powder?"
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.7",
@@ -321,31 +327,31 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.10",
-      "source_sha256": "f2830e0080d7f41f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b3a385c812320b54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He made its pillars of silver, its bedding of gold, and its covering of purple. Its interior was paved with love by the daughters of Jerusalem."
+      "text": "He made its pillars of silver, its couch of gold, and its covering of purple. Its interior is paved with love from the daughters of Jerusalem."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.3.11",
-      "source_sha256": "7ae64dc800a3331a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "037ef831bcdc7802",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Go out, daughters of Zion, and look at King Solomon wearing the crown with which his mother crowned him on his wedding day, on the day of his heart's joy."
+      "text": "Go out, daughters of Zion, and look at King Solomon wearing the crown with which his mother crowned him on his wedding day, on the day of his heart’s joy."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.1",
-      "source_sha256": "5b9851f481ca7525",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80a00053a03221cc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look, you are beautiful, my companion; look, you are beautiful. Your eyes are doves, apart from your silence. Your hair is like a flock of goats coming up from Mount Gilead."
+      "text": "Look, you are beautiful, my dear one; look, you are beautiful. Your eyes are doves behind your veil. Your hair is like a flock of goats coming up from Mount Gilead."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.2",
-      "source_sha256": "9be22e4ef450531f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "Your teeth are like a flock of shorn sheep coming up from washing. All of them bear twins, and none of them is bereaved."
+      "source_sha256": "53ff2bf933d61943",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Your teeth are like a flock of shorn sheep coming up from washing, all of them bearing twins, with none among them bereaved."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.3",
@@ -356,10 +362,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.4",
-      "source_sha256": "5ad46102fa3e0df0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "Your neck is like David’s tower, built with [?]. A thousand shields hang on it, all the shields of mighty warriors."
+      "source_sha256": "c9cf9949463273fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Your neck is like David’s tower, built with battlements. A thousand bucklers hang on it, all the shields of warriors."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.5",
@@ -384,10 +390,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.8",
-      "source_sha256": "7780456e2faaf76d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b1b1da05671e7d5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Come from Lebanon, bride; come from Lebanon. Come and pass over from the summit of Amana, from the summit of Senir and Hermon, from the lions' dens and the mountains of leopards."
+      "text": "Come from Lebanon, bride; come from Lebanon. Come and pass from the summit of Amana, from the summit of Senir and Hermon, from the lions’ dens and the mountains of leopards."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.9",
@@ -398,17 +404,17 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.10",
-      "source_sha256": "95d756c524c890e7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f5a9740f29c9a85c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "How beautiful your breasts are, my sister, my bride! How much more beautiful your breasts are than wine, and the fragrance of your perfumes than every spice!"
+      "text": "How beautiful are your breasts, my sister, my bride! How much more delightful are your breasts than wine, and the fragrance of your perfumes than every spice!"
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.11",
-      "source_sha256": "5795ff52a1f9e4b9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "21fc0dc7de2ab14a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Your lips drip honey from the comb, [?]. Honey and milk are beneath your lips, and the fragrance of your clothing is like the fragrance of Lebanon."
+      "text": "Your lips drip honey from the comb, [?]; honey and milk are beneath your lips, and the fragrance of your clothing is like the fragrance of Lebanon."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.12",
@@ -426,10 +432,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.14",
-      "source_sha256": "75ce595028d52cf1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "344eac2d67bf0424",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Nard and saffron, sweet cane and cinnamon, with frankincense wood, myrrh and aloes, with all the finest spices."
+      "text": "Nard and saffron, aromatic cane and cinnamon, with frankincense trees; myrrh and aloes, with all the finest spices."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.15",
@@ -440,24 +446,24 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.4.16",
-      "source_sha256": "d7dbfc5d4aa36567",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1462a740c78c3a9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Awake, north wind, and come, south wind! Blow through my garden; let my spices flow. Let my beloved come to his garden and eat the fruit of its blossoms."
+      "text": "Awake, north wind, and come, south wind! Blow through my garden so that its spices may flow. Let my beloved come into his garden and eat the fruit of its blossoms."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.1",
-      "source_sha256": "745fbe9fe120e9e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5133048c7890c392",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I have come to my garden, my sister, my bride. I have come to my garden. I have gathered my myrrh with my spices; I have eaten my sweet things with my honey; I have drunk my wine with my milk. Eat, my friends; drink and become drunk, my beloved ones!"
+      "text": "I have come into my garden, my sister, my bride; I have come into my garden. I have gathered my myrrh with my spices. I have eaten my sweet food with my honey; I have drunk my wine with my milk. Eat, my friends; drink and become drunk, my beloved ones."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.2",
-      "source_sha256": "3bb42b72d306ee45",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I was sleeping, but my heart was awake. The sound of my beloved knocking! “Open to me, my sister, my darling, my dove, my perfect one, for my head is covered with dew, and my locks with the droplets of the night.”"
+      "source_sha256": "047c0b7a57d0b1c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "I am asleep, but my heart is awake. It is the voice of my beloved knocking: “Open to me, my sister, my dear one, my dove, my perfect one, for my head is filled with dew, and my locks with the drops of the night.”"
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.3",
@@ -482,16 +488,16 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.6",
-      "source_sha256": "fdbce7c9a02d35b2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I opened to my beloved, but my beloved had turned away and gone. I felt faint when he spoke. I sought him but did not find him; I called him, but he did not answer me."
+      "source_sha256": "2b4a0e825a375d3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "I opened to my beloved, but my beloved had turned away and passed on. My soul failed me when he spoke. I sought him but did not find him; I called him, but he did not answer me."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.7",
-      "source_sha256": "5491934f631051cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "605ac07e24ee276b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
       "text": "The watchmen making their rounds in the city found me. They struck me and wounded me; the guards of the wall took my shawl away from me."
     },
     {
@@ -545,10 +551,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.15",
-      "source_sha256": "92e4443c8d063401",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "His legs are pillars of marble set upon golden bases. His chest is like Lebanon, choice as the cedars."
+      "source_sha256": "bd80486cc41e563a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "His legs are pillars of marble set on bases of gold. His chest is like Lebanon, and he is choice as the cedars."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.5.16",
@@ -587,17 +593,17 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.5",
-      "source_sha256": "0a81082de65977d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Turn your eyes away from me, for they make me flee. Your hair is like a flock of goats coming up from Mount Gilead."
+      "source_sha256": "fc780e789d17756f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Turn your eyes away from me, for they overwhelm me. Your hair is like a flock of goats coming up from Mount Gilead."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.6",
-      "source_sha256": "71b69e15a7a8b41d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Your teeth are like a flock of shorn sheep coming up from washing. All of them bear twins, and none among them is bereaved."
+      "source_sha256": "fe42311b66b2c8c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Your teeth are like a flock of shorn sheep coming up from washing. All of them bear twins, and none among them has lost her young."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.7",
@@ -615,17 +621,17 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.9",
-      "source_sha256": "01d41520b04e1d68",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "My dove, my perfect one, is unique. She is her mother's only one, the chosen one of the woman who bore her. The daughters saw her and praised her; queens and concubines praised her."
+      "source_sha256": "328dc339fd84d75a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "My dove, my perfect one, is the only one. She is her mother’s only one, the chosen one of the woman who bore her. The young women saw her and praised her; queens and concubines praised her."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.10",
-      "source_sha256": "8ffe5f920a493dc6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Who is this who looks out like the dawn, beautiful as the moon, pure as the sun, fearsome as mighty hosts?"
+      "source_sha256": "dbb1010e1a830c5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Who is this who looks out like the dawn, beautiful as the moon, pure as the sun, fearsome as mighty ones?"
     },
     {
       "chunk_id": "pta-peshitta/song#Song.6.11",
@@ -643,17 +649,17 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.1",
-      "source_sha256": "f60e919a4c4a144d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "b4b838303631c962",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
       "text": "Return, return, Shulammite! Return, return, so that we may look at you. What will you see in the Shulammite, who comes down like a celebration, like a celebration of the camps?"
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.2",
-      "source_sha256": "cf0c63f7ae6a62ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "How beautiful are your feet in sandals, daughter of a nobleman! The curves of your thighs are like ornaments, the work of a craftsman's hands."
+      "source_sha256": "d003ceb97fb0ba98",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "How beautiful are your feet in sandals, noble daughter! The curves of your thighs are like jewels, the work of a craftsman’s hands."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.3",
@@ -671,10 +677,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.5",
-      "source_sha256": "01c4bbfd615699ad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Your neck is like an ivory tower. Your eyes are like the pools of Heshbon by the gate of Bath-rabbim. Your nose is like the tower of Lebanon looking toward Damascus."
+      "source_sha256": "e70d29c6ec1f84be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Your neck is like a tower of ivory. Your eyes are like the pools of Heshbon by the gate of Bath-rabbim. Your nose is like the tower of Lebanon that looks toward Damascus."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.6",
@@ -699,10 +705,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.9",
-      "source_sha256": "220ebf0543f2e67e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I said, 'I will climb the palm tree and grasp its branches.' May your breasts be like clusters of grapes on the vines, and the fragrance of your face like apples."
+      "source_sha256": "38589a6b4be3fb87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "I said, “I will climb the palm tree and take hold of its branches.” May your breasts be like clusters of grapes on the vines, and the fragrance of your face like apples."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.10",
@@ -727,10 +733,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.13",
-      "source_sha256": "06697e5a3a904afd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Let us go early to the vineyard and see whether the vine has sprouted, whether the blossoms have appeared, and whether the pomegranates have blossomed. There I will give you my breasts."
+      "source_sha256": "16d92582977ba218",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Let us go early to the vineyard and see whether the vine has budded, whether its blossoms have come out, and whether the pomegranates have bloomed. There I will give you my breasts."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.7.14",
@@ -748,10 +754,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.2",
-      "source_sha256": "d9474dc1d4267206",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I would lead you and bring you into my mother's house, into the chamber of the woman who bore me. I would give you my sweet wine to drink, and the sweet juice of my pomegranates."
+      "source_sha256": "c44ab52b37daea9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "I will lead you and bring you into my mother’s house, into the chamber of the woman who bore me. I will give you my sweet wine to drink, and the sweet juice of my pomegranates."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.3",
@@ -769,24 +775,24 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.5",
-      "source_sha256": "b49ab7dd654a20a1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "f7f56fd3007d860b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
       "text": "Who is this coming up from the wilderness, leaning on her beloved? Under the apple tree I awakened you. There your mother was in labor with you; there the woman who bore you was in labor."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.6",
-      "source_sha256": "bbd5864064398fa8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Set me as a seal upon your heart, as a seal upon your arm, because love is strong as death, and jealousy is harsh as Sheol. Its flashes are flashes of fire and flame."
+      "source_sha256": "3126fbe706619385",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Set me as a seal on your heart, as a seal on your arm, for love is strong as death, and jealousy is harsh as Sheol. Its flashes are flashes of fire and flame."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.7",
-      "source_sha256": "3076497fd5f5c4fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Many waters cannot extinguish love, and rivers cannot sweep it away. If a man gave all the wealth of his house for love, he would be utterly scorned."
+      "source_sha256": "c1f39f3c4a8ec165",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Many waters cannot extinguish love, and rivers cannot sweep it away. If a man gave all the wealth of his house for love, he would be utterly despised."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.8",
@@ -811,10 +817,10 @@
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.11",
-      "source_sha256": "d8149df33f0d74c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 6,
-      "text": "Solomon had a vineyard, and its fruit was abundant. I gave the vineyard to keepers; each man paid a thousand in silver for its fruit."
+      "source_sha256": "cfe516b57603f930",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 18,
+      "text": "Solomon had a vineyard, and its fruit was abundant. I gave the vineyard to keepers; each man would give a thousand pieces of silver for its fruit."
     },
     {
       "chunk_id": "pta-peshitta/song#Song.8.12",
