@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 
+from patristica.translation_links import curated_translation_of
 from patristica.versions import (
     LINKS_PATH,
     RELATIONS,
@@ -210,12 +211,21 @@ class TestTrackedLinks:
         assert g.dangling == ()
 
     def test_curated_links_add_something(self) -> None:
-        """A curated link that the derived rules already imply is noise: drop it."""
-        works = _works()
+        """A curated link that the derived rules already imply is noise: drop it.
+
+        The curated ``translation_of`` links (#153: the Scripture table and this
+        file's own ``translation_of`` rows) are left out of the base: a link here
+        may restate one the Scripture table also implies, so the group doesn't
+        hang on a single rule there.  A ``translation_of`` row is never noise:
+        it also sets the work's ``translation_of``, the direction."""
+        works = {w: {**rec, "translation_of": None}
+                 if curated_translation_of(w) is not None else rec
+                 for w, rec in _works().items()}
         base = _derive(works, links=[])
         redundant = [
             (link.work_id, link.other_work_id) for link in load_version_links(LINKS_PATH)
-            if base.group(link.work_id) is not None
+            if link.relation != "translation_of"
+            and base.group(link.work_id) is not None
             and base.group(link.work_id) == base.group(link.other_work_id)
         ]
         assert not redundant, (

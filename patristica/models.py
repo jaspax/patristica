@@ -91,7 +91,13 @@ class Work(BaseModel):
         description="Edition or version description, e.g. 'Clementine 1592' or 'NPNF Series 1 Vol. 1'.",
     )
 
-    # Translation linkage
+    # Translation linkage.  The work this one was translated from, for every
+    # version, not only English: ingestors set it for English translations
+    # (#11/#150); patristica.translation_links curates it for the ancient
+    # versions (#153), applied by scripts.normalize.  It may chain (Coptic →
+    # LXX → Hebrew) and names one designated edition of the source text.
+    # (Kept in a comment: editing the description string below would change
+    # this module's code hash and with it every ingest stamp, #130.)
     translation_of: str | None = Field(
         default=None,
         description="work_id of the original-language work this is a translation of.",

@@ -34,6 +34,7 @@ patristica/
 │   ├── authors.py             # author index: resolve_author(), dates (data/authors.csv, data/author_strings.csv; #82)
 │   ├── genres.py              # curated per-work genres (data/genre_overrides.csv, #103)
 │   ├── versions.py            # work-level version groups (translation_of + books + CTS + data/version_links.csv, #178)
+│   ├── translation_links.py   # curated translation_of for the ancient versions (data/scripture_translation_of.csv, #153)
 │   ├── alignment.py           # passage alignment inside a version group: n:m groups from the vectors (#179)
 │   ├── alignment_store.py     # alignment store (data/alignments/): one file per version group, no numpy
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
@@ -114,6 +115,7 @@ See `patristica/models.py`. Key types:
   - `work_id` is `{source_id}/{local id}` (`oshb/gen`, `ogpg/vol-045/ad-graecos`); a chunk's `chunk_id` is `{work_id}#{canonical_ref}`.
   - Genre lives only in `Work.genre`; a source may mix genres (`gez`, `anf-works`). Select works by genre from `_works.jsonl`, never by path or id prefix.
   - `author` is the source's own spelling (`Augustinus`, `Augustine of Hippo`), kept for provenance. `author_ids` holds canonical author ids (`augustine-of-hippo`) from the author index (`patristica/authors.py`, #82); `scripts.normalize` fills it, and anonymous works get `[]`. Select works by author through `author_ids`, never by the `author` string. Author ids are URLs in the web app, so never rename one.
+  - `translation_of` is the work this one was translated from. Ingestors set it only for English translations (#11/#150); the ancient versions get it from curated tables that `scripts.normalize` applies (`patristica/translation_links.py`, #153): `patristica/data/scripture_translation_of.csv` for every Scripture work (per source and book, `*`/`ot`/`nt` or book keys; `original` and `unlinked` rows set none) and the `translation_of` rows of `version_links.csv` for other works. Links may chain (Coptic → LXX → Hebrew, no cycles) and name one designated edition of the source text (Hebrew `oshb`, Greek OT `pta-lxx`, Greek NT `sblgnt`); a secondary source goes in the row's note, since the field is one id. Never set these links in ingestor code or `_scripture_meta` (ingest stamps, #130), and never change the field's type. After editing either table, re-run `scripts.normalize`; `build_index` updates the works in place (#234).
   - `external_ids` holds the catalogue identifiers a source records for the work, as `KIND:value` (`TLG:tlg4090.tlg096`, `CPG:5200`, `BHG:…`, `Pinakes-Oeuvre:…`); PTA fills it from its `__cts__.xml` catalogue, OGPG from the `cpg`/`tlg` columns of `scripts/ingest/data/ogpg_index.csv` (#192; only on a row that is one whole work). When a source records such ids, have its ingestor store them: the version-group crosswalk uses them. `_works.jsonl` omits the field when it is empty, and `build_index` leaves it out of a work's content hash.
 
 ### Author index (#82)
