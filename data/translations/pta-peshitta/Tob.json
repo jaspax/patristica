@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -27,73 +33,73 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.1",
-      "source_sha256": "54bed10cda890732",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The book of the words of Tobit, son of Biael, son of Ananiel, son of Aduel, son of Gabael, of the descendants of Asiel, of the tribe of Naphtali."
+      "source_sha256": "ee4a3cfac019257a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "The book of the words of Tobit, son of Biel, son of Hananel, son of Aduel, son of Gabael, of the descendants of Asael, of the tribe of Naphtali."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.2",
-      "source_sha256": "c316b0572ce92c7e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He was taken captive in the days of Shalmaneser, king of the Assyrians, from Thisbe, which is to the south of Kedesh in Naphtali, in Galilee, above Asher."
+      "source_sha256": "448d9067e3c67eb1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "He was taken captive in the days of Shalmaneser, king of the Assyrians, from Thisbe, which is south of Kedesh in Naphtali, in Galilee, above Asher."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.3",
-      "source_sha256": "649eeaf17039398e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I, Tobit, walked in the ways of truth and righteousness all the days of my life. I performed many acts of charity for my fellow Israelites and for the people who went with me to Nineveh in the land of the Assyrians."
+      "source_sha256": "7c4fa61ee261ad58",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I, Tobit, walked in the ways of truth and righteousness all the days of my life. I performed many acts of mercy for my fellow Israelites and for the people who went with me to Nineveh in the land of the Assyrians."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.4",
-      "source_sha256": "f924226bfb41d039",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When I was in my own country, in the land of Israel, while I was still a boy, the whole tribe of Naphtali my forefather withdrew from the house in Jerusalem. That city had been chosen from among all the tribes of Israel for all the tribes to offer sacrifices there, and the temple, the dwelling place of the Most High, which was built there, had been consecrated for all generations forever."
+      "source_sha256": "ac39f6deb6234e11",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "When I was in my own country, in the land of Israel, while I was still a boy, the whole tribe of my ancestor Naphtali withdrew from the house in Jerusalem. That city had been chosen from among all the tribes of Israel for all the tribes to offer sacrifices there, and the temple, the dwelling place of the Most High, which had been built there, was consecrated for all generations forever."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.5",
-      "source_sha256": "9184e5ca7d280783",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "All the tribes of the Lord, having turned away, were sacrificing to the calf at Baal, as was the house of Naphtali my forefather."
+      "source_sha256": "af8f28b5ed61a550",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "All the tribes of the Lord, having turned away, were sacrificing to Baal, the calf, as was the house of my ancestor Naphtali."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.6",
-      "source_sha256": "cb57355ad838e002",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I alone would often travel to Jerusalem for the festivals, as prescribed for all Israel by an everlasting commandment. I took with me the firstfruits, the firstborn animals, the tithes of the produce, and the first shearings of the sheep."
+      "source_sha256": "a6e237f4095ec89f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "But I alone often went to Jerusalem for the festivals, as prescribed for all Israel by an everlasting commandment. I brought the firstfruits, the firstborn animals, the tithes of the produce, and the first wool [?] of the sheep."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.7",
-      "source_sha256": "794e948d74df8758",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I would give these to the priests, the descendants of Aaron, before the altar. I would give the tithes of all the produce to the descendants of Levi who served in Jerusalem. I would sell the second tithe and go and spend the money in Jerusalem every year."
+      "source_sha256": "7188f12577f9c60e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I would give these to the priests, the descendants of Aaron, before the altar. I gave the tithes of all the produce to the descendants of Levi who served in Jerusalem. I would sell the second tithe and go and spend the money in Jerusalem every year."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.8",
-      "source_sha256": "d8b26e48ba2f0f09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The third tithe I would give to those entitled to it, as Deborah my mother had instructed me, because I had been left fatherless."
+      "source_sha256": "66c67d45e0a5c2df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I would give the third tithe to those entitled to it, as Deborah my mother had instructed me, because I had been left fatherless."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.9",
-      "source_sha256": "0a9deb972092bf98",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "44cce6455a3ec836",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
       "text": "When I became a man, I married Anna, a woman descended from our own tribe. I had a son by her and named him Tobias."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.10",
-      "source_sha256": "e1b27a199cc85171",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When I was taken captive to Nineveh, all my fellow Israelites and my relatives ate the food of the nations."
+      "source_sha256": "bae04b70d7e7370e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "When I was taken captive to Nineveh, all my fellow Israelites and those of my own family ate the food of the Gentiles."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.11",
@@ -118,17 +124,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.14",
-      "source_sha256": "f026b404e3297193",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I would travel to Media, and I deposited ten talents of silver with Gabael, the brother of Gabriel, at Rages in Media."
+      "source_sha256": "6c1e064f9749198d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I used to travel to Media, and I deposited ten talents of silver with Gabael, the brother of Gabriel, at Rages in Media."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.15",
-      "source_sha256": "bfc0a9c9a568252b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When Shalmaneser died, his son Sennacherib became king in his place. The roads under his rule were in disorder, and I could no longer travel to Media."
+      "source_sha256": "f14edc97b449e49b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "When Shalmaneser died, his son Sennacherib became king in his place. His ways were disorderly, and I could no longer travel to Media."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.16",
@@ -139,59 +145,59 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.17",
-      "source_sha256": "48e267b6a71323ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I would give my bread to the hungry and clothing to the naked. If I saw anyone of my own people who had been struck down and thrown behind the wall of Nineveh, I would bury him."
+      "source_sha256": "0541c55bd12d63e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I would give my bread to the hungry and clothing to the naked. If I saw anyone of my own people struck down and thrown behind the wall of Nineveh, I would bury him."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.18",
-      "source_sha256": "4b0be3224387944b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "If King Sennacherib killed anyone when he returned after fleeing from Judea, I would bury him secretly. For he killed many in his anger. The king then had these bodies searched for, but they were not found."
+      "source_sha256": "e08c80d37973a941",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "If King Sennacherib killed anyone when he returned after fleeing from Judea, I would bury him secretly. For he killed many people in his anger. The king then had these bodies searched for, but they could not be found."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.19",
-      "source_sha256": "077848bd6c2da35b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "One of the people of Nineveh went and told the king about me, that I was burying them. I hid when I learned that I was being sought for execution, and in fear I fled."
+      "source_sha256": "9fd0fab748b89774",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "But one of the people of Nineveh went and informed the king about me, saying that I was burying them. I hid when I learned that I was being sought for execution, and in fear I fled."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.20",
-      "source_sha256": "8e410ab80109243d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "06a02e195d58d8d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
       "text": "Everything I owned was seized, and nothing was left to me except my wife Anna and my son Tobias."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.21",
-      "source_sha256": "8d5d48b69aa8f2db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Fewer than fifty days passed before his two sons killed him, and [?] fled to Mount Ararat. His son Esarhaddon became king and appointed Ahikar, the son of Ananiel my brother, over all the accounts of his kingdom and over its entire administration."
+      "source_sha256": "80a52d118fb7f6e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "Not fifty days had passed before his two sons killed him, and [?] fled to Mount Ararat. His son Esarhaddon became king and appointed Ahikar, the son of my brother Hananel, over all the accounts of his kingdom and over its entire administration."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.1.22",
-      "source_sha256": "7003abd834ff5201",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Ahikar interceded for me, and I returned to Nineveh. Ahikar was cupbearer, keeper of the signet ring, administrator, and accountant. Esarhaddon, his son, appointed him a second time. He was my brother’s son."
+      "source_sha256": "d1118b81cf713889",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "Ahikar interceded for me, and I returned to Nineveh. Ahikar was the cupbearer, keeper of the signet ring, administrator, and accountant. Esarhaddon, his son, appointed him a second time. He was my brother’s son."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.1",
-      "source_sha256": "1e80ba9030778c09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When I went down to my house and my wife Anna and my son Tobias were restored to me, a fine meal was prepared for me at the festival of Pentecost, the holy festival of seven weeks. When I reclined to eat,"
+      "source_sha256": "00f861b5d0003a14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "When I returned home and my wife Anna and my son Tobias were restored to me, at the festival of Pentecost, the holy festival of seven weeks, a fine meal was prepared for me. When I reclined to eat,"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.2",
-      "source_sha256": "d0a239ee0cbd81f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I saw many dishes and said to my son, “Go and bring someone from among our fellow Israelites, any needy person you can find who remembers the Lord. I will wait for you.”"
+      "source_sha256": "0e9550c3f09f98ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I saw many dishes, and I said to my son, “Go and bring anyone in need whom you find among our fellow Israelites who remembers the Lord. I will wait for you.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.3",
@@ -216,10 +222,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.6",
-      "source_sha256": "ae4ff8e5085aea3f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "And I remembered the prophecy of Amos, how he said, “Our festivals will turn into mourning, and all your joys into lamentations.”"
+      "source_sha256": "0b5cd607bae965d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "I remembered the prophecy of Amos, how he said, “Our festivals will be turned into mourning, and all your celebrations into lamentations.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.7",
@@ -230,24 +236,24 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.8",
-      "source_sha256": "39d9e2197070e2cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "My relatives were laughing and saying, “Was he not afraid of being killed for doing this, and did he not flee? Yet here he is burying the dead again!”"
+      "source_sha256": "1b006f17ff60b20f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "The neighbors laughed and said, “Was he not afraid of being killed for doing this, and did he not flee? Yet here he is burying the dead again!”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.9",
-      "source_sha256": "9be9d6a18c7ecfdf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "That same night, after burying him, I returned and lay down, still unclean, beside the courtyard wall. My face was uncovered."
+      "source_sha256": "a5481e57e5d5892e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 23,
+      "text": "That same night, after I had finished burying him, I returned and lay down, ritually unclean, beside the courtyard wall. My face was uncovered."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.10",
-      "source_sha256": "28780ddf4a2b5085",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I did not know there were birds on the wall. While my eyes were open, the hot droppings of these birds fell into my eyes, and white films formed over them. I went to physicians, but they did not help me. Achior supported me until I went to Elymais."
+      "source_sha256": "0fd626df9fb72261",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "I did not know that there were birds on the wall. While my eyes were open, the hot droppings of these birds fell into my eyes, and white films formed over them. I went to physicians, but they did not help me. Achior supported me until I went to Elymais."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.11",
@@ -265,17 +271,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.13",
-      "source_sha256": "4ba0f8902f1650de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When she came to me, it began to bleat. I said to her, “Where did this young goat come from? Could it be stolen? Return it to its owners, for it is not lawful to eat anything stolen.”"
+      "source_sha256": "4db14631e8912dc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "When she came to me, it began to bleat. I said to her, “Where did this young goat come from? Could it be stolen? Return it to its owners, for it is not lawful to eat stolen property.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.2.14",
-      "source_sha256": "343a16c276f4b367",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "But she said, “It was given to me as a gift in addition to my wages.” I did not believe her and kept saying that it should be returned to its owners. I kept contradicting her. Then she answered me, “Where are your acts of mercy and righteousness? Look, they are all plain to see in you!”"
+      "source_sha256": "2c1f3266510c109f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "But she said, “It was given to me as a gift in addition to my wages.” I did not believe her and kept saying that it should be returned to its owners, and I argued with her. But she answered me, “Where are your acts of mercy and your righteous deeds? Look, they are all evident in what has happened to you!”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.1",
@@ -286,73 +292,73 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.2",
-      "source_sha256": "f28c7f289d58e9a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“You are righteous, Lord, and so are all your works. All your ways are mercy and truth, and you judge forever with just and true judgment."
+      "source_sha256": "5e95ef6e2c1aba3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "You are righteous, Lord, and so are all your deeds. All your ways are mercy and truth, and you judge forever with just and true judgment."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.3",
-      "source_sha256": "ab35c623aedd8225",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Remember me and turn toward me. Do not call me to account for my sins and my unwitting offenses, or those of my ancestors who sinned before you."
+      "source_sha256": "8d177780a7536ed4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Remember me and turn toward me. Do not hold me accountable for my sins and my unwitting offenses, or those of my ancestors, who sinned before you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.4",
-      "source_sha256": "e9069117388ed3cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For they did not obey your commandments, and you handed us over to plunder, captivity, death, and disgrace as a spectacle among all the nations where we have been scattered."
+      "source_sha256": "434e534f69d59b05",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "For they did not obey your commandments, and you gave us over to plunder, captivity, death, and being a byword of disgrace among all the nations among whom we are scattered."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.5",
-      "source_sha256": "5c7e125d1f0b0bba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "And now your many judgments against me are just, because of my sins and those of my ancestors. We have not carried out your commandments, nor have we walked in truth before you."
+      "source_sha256": "bfe73c15fe4bd11b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "And now your many judgments are just in what you do to me because of my sins and those of my ancestors, for we have not carried out your commandments. We have not walked in truth before you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.6",
-      "source_sha256": "6ffac4a980410baa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now deal with me as you see fit. Command that my spirit be taken away, so that I may be released and become earth. It is better for me to die than to live, because I have heard false insults and there is great distress within me. Command that I be released from this affliction, even now, to the eternal place. Do not turn your face away from me.”"
+      "source_sha256": "a83152aa9edac242",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Now do with me as you see fit. Command that my spirit be taken away, so that I may be released and become earth, for it is better for me to die than to live. I have heard false insults, and there is great distress within me. Command that I be released from this anguish—now, to the eternal dwelling. Do not turn your face away from me."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.7",
-      "source_sha256": "b7e4288f57a4bd62",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "On that very day Sarah, the daughter of Raguel, in Ecbatana in Media, was also insulted by her father's servant women."
+      "source_sha256": "642ed95b9bb5bdfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "On that very same day, Sarah, the daughter of Raguel, in Ecbatana in Media, also happened to be insulted by her father’s servant women."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.8",
-      "source_sha256": "e170a4a900420ec2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "For she had been given to seven husbands, and Asmodeus, the evil demon, had killed them before they could be with her as husbands. They said to her, “Do you not realize that you are strangling your husbands? Look, you have had seven, and you have gained nothing from any one of them.”"
+      "source_sha256": "d3d2edb6f86e83b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "For she had been given in marriage to seven men, and Asmodeus, the evil demon, had killed them before they could be with her as husbands. They said to her, “Do you not realize that you are strangling your husbands? Look, you have had seven, and you have gained nothing from any one of them.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.9",
-      "source_sha256": "ef3cfc31b3d55f30",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“Why do you beat us? As for your husbands, if they have died, go along with them! May we never see a son or daughter of yours!”"
+      "source_sha256": "a6a8b9126cb9fb46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“Why do you beat us because of your husbands? If they have died, go with them! May we never see you have a son or daughter!”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.10",
-      "source_sha256": "0a967580679e3e2e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When she heard these things, she became so distressed that she wanted to strangle herself. But she said, “I am my father's only child. If I do this, it will bring disgrace on him, and I will bring him down to Sheol in his old age with sorrow.”"
+      "source_sha256": "ffd9e7f5006d5758",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "When she heard these things, she was so deeply distressed that she wanted to hang herself. But she said, “I am my father’s only child. If I do this, it will bring disgrace upon him, and I will bring his old age down to Sheol in sorrow.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.11",
-      "source_sha256": "883514189c05b405",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She prayed at the window and said, “Blessed are you, Lord my God, and blessed is your holy and glorious name forever. May all your works bless you forever."
+      "source_sha256": "71116b0c5e06cd2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "She prayed pleadingly at the window and said, “Blessed are you, Lord my God, and blessed is your holy and glorious name forever. May all your works bless you forever.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.12",
@@ -377,10 +383,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.15",
-      "source_sha256": "b649c412261fa16e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I have not dishonored my name or my father's name in the land of captivity. I am my father's only child, and he has no son to inherit from him, nor a close relative, nor anyone with a son for whom I should keep myself as a wife. Look, seven have already been lost to me. Why should I go on living? But if it does not please you to put me to death, command that I be treated with regard and mercy, so that I may no longer hear insults.”"
+      "source_sha256": "2dc4619c1219fc02",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“I have not defiled my name or my father’s name in the land of captivity. I am my father’s only child, and he has no son to inherit from him, nor any close relative, nor anyone who has a son for whom I should keep myself as a wife. Look, seven have already died on me. Why should I go on living? But if it does not please you to kill me, command that I be looked upon with mercy, so that I may hear no more insults.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.16",
@@ -391,10 +397,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.3.17",
-      "source_sha256": "2b14d54f63faa16d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Raphael was sent to heal them both: to remove the white films from Tobit’s eyes, to give Sarah, Raguel’s daughter, as a wife to Tobias, Tobit’s son, and to bind Asmodeus, the evil demon, because Tobias had the right to inherit her. At that same time, Tobit returned and entered his house, and Sarah, Raguel’s daughter, came down from her upstairs room."
+      "source_sha256": "b5bb7c31488d2e1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Raphael was sent to heal them both: to remove the white films from Tobit’s eyes, and to give Sarah, Raguel’s daughter, as a wife to Tobias, Tobit’s son, and to bind Asmodeus, that evil demon, because Tobias had the right to inherit her. At that same time, Tobit returned and entered his house, and Sarah, Raguel’s daughter, came down from her upstairs room."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.1",
@@ -405,52 +411,52 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.2",
-      "source_sha256": "5c3676d42385e559",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to himself, “I have asked for death. Why, then, do I not call my son Tobias so that I can tell him about it before I die?”"
+      "source_sha256": "7cd2b5627496f438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "He said to himself, “I have asked for death. Why, then, do I not call my son Tobias, so that I may tell him before I die?”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.3",
-      "source_sha256": "c387492a5c01e7d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He called him and said, “My son, if I die, bury me, and do not neglect your mother. Honor her all the days of your life. Do what pleases her, and do not cause her distress."
+      "source_sha256": "47ea9084c5d66330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "When he had called him, he said, “My son, if I die, bury me, and do not neglect your mother. Honor her all the days of your life. Do what pleases her, and do not cause her distress.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.4",
-      "source_sha256": "0b465f85a7b032ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Remember, my son, that she faced many dangers because of you while you were in her womb. When she dies, bury her beside me in the same grave."
+      "source_sha256": "bba8318b8ea03bbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“Remember, my son, that she faced many dangers because of you while you were in her womb. When she dies, bury her beside me in the same grave.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.5",
-      "source_sha256": "eac237e5fbe3c973",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "My son, remember the Lord our God every day. Do not choose to sin or to break his commandment. Practice righteousness all the days of your life, and do not walk in the paths of injustice."
+      "source_sha256": "ffa151978597183e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“My son, remember the Lord our God every day. Do not desire to sin or to transgress his commandment. Practice righteousness all the days of your life, and do not walk in the ways of wrongdoing.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.6",
-      "source_sha256": "3a8059cea2088104",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For when you act faithfully, your deeds will prosper, as will those of everyone who practices righteousness."
+      "source_sha256": "2f061845d88e3462",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“For when you act truthfully, you will prosper in your work, as will all those who practice righteousness.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.7",
-      "source_sha256": "5a431b731186407c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Give to the needy from what you have. Do not turn your face away from anyone in distress, and the face will not be turned away from you."
+      "source_sha256": "abc69cded071e470",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "“Give alms from what you have. Do not turn your face away from anyone in misery, and the face will not be turned away from you.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.8",
-      "source_sha256": "02a44f09e85e7d2b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "If you have plenty, give generously from it. If you have little, do not be afraid to give from that little."
+      "source_sha256": "cc8738bbe4c1235b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Give alms from what you have, in proportion to your abundance. If you have little, do not be afraid to give alms in proportion to that little."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.9",
@@ -475,38 +481,38 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.12",
-      "source_sha256": "2b0573174b84d9db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Guard yourself, my son, against all sexual immorality. Above all, take a wife from the descendants of your ancestors. Do not take a foreign wife who does not belong to your father’s family, because we are descendants of prophets: Noah, Abraham, Isaac, and Jacob, our ancestors of old. Remember, my son, that all of them took wives from among their own relatives. They were blessed with children, and their descendants inherited the land."
+      "source_sha256": "190259a2863b996d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Guard yourself, my son, against every kind of sexual immorality. First, take a wife from the descendants of your ancestors. Do not marry a foreign woman who does not belong to your father's family, for we are children of prophets. Noah, Abraham, Isaac, and Jacob are our ancestors from ancient times. Remember, my son, that all these men married women from among their own relatives. They were blessed with children, and their descendants inherited the land."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.13",
-      "source_sha256": "c2d919f644d4cc6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "And now, my son, love your relatives. Do not be proud in your heart toward your relatives, the sons and daughters of your people. Take a wife from among them. For pride brings destruction and great disorder, and idleness brings poverty and great need. For idleness is the mother of hunger."
+      "source_sha256": "25b83d4a458c7076",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "And now, my son, love your relatives. Do not exalt yourself in your heart above your relatives, the sons and daughters of your people. Take a wife from among them. For pride brings destruction and great disorder, and idleness brings deprivation and great poverty. Idleness is the mother of hunger."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.14",
-      "source_sha256": "b029445d177337a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Do not let the wages of anyone who works for you remain with you overnight, but pay him immediately. If you serve God, you will be repaid. Watch yourself, my son, in everything you do. Be disciplined in all your conduct."
+      "source_sha256": "f6a4f090ec925af7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Do not keep overnight the wages of anyone who works for you, but pay him immediately. If you serve God, you will be repaid. Watch yourself, my son, in everything you do. Be disciplined in all your conduct."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.15",
-      "source_sha256": "a79769be0031a9e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Do not do to anyone what you yourself hate. Do not drink wine to the point of drunkenness, and do not let drunkenness accompany you anywhere on your journey."
+      "source_sha256": "a9a43261983a4bfe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Do not do to anyone what you yourself hate. Do not drink wine to the point of drunkenness, and do not let drunkenness accompany you anywhere you go."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.16",
-      "source_sha256": "621721c0b91e06c5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Give some of your bread to the hungry and some of your clothing to the naked. Whatever you have to spare, give to the needy."
+      "source_sha256": "4c2948e03743b623",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Give some of your bread to the hungry and some of your clothing to the naked. Give as alms whatever you have left over."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.17",
@@ -524,24 +530,24 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.19",
-      "source_sha256": "1ec3b8b81067bba3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Bless the Lord God at all times, and ask him to make your ways straight and to make all your paths and plans succeed. For no nation possesses sound judgment on its own; rather, the Lord himself gives all good things, and he humbles whomever he chooses, as he wishes."
+      "source_sha256": "d9759ee32f77f4df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Bless the Lord God at all times, and ask him to make your ways straight and to make all your paths and plans succeed. For no nation has understanding; rather, the Lord himself gives all good things, and he humbles whomever he chooses, as he wishes."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.20",
-      "source_sha256": "9f9a6fb71377b1e2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I am also telling you about ten talents of silver that I entrusted to Gabael, the son of Gabriel, in Rages in Media."
+      "source_sha256": "713a203391f6f23e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "I am telling you about ten talents of silver that I entrusted to Gabael, the one associated with Gabriel, in Rages in Media."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.4.21",
-      "source_sha256": "d75e42357cf1240d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Do not be afraid, my son, because we have become poor. You have great wealth if you fear God, keep away from every sin, and do what is pleasing before him.”"
+      "source_sha256": "bae09326112e5724",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Do not be afraid, my son, because we have become poor. You have great wealth if you fear God, keep away from every sin, and do what is pleasing in his sight."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.1",
@@ -559,10 +565,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.3",
-      "source_sha256": "0e5395defb5c6c07",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He gave him the written acknowledgment and said to him, “Find someone to go with you, and I will pay him while I am still alive. Take him with you when you go to get the money.”"
+      "source_sha256": "12155f10dcc45abb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He gave him the written document and said to him, \"Find someone to go with you, and I will pay him while I am still alive. Take this with you when you go to get the money.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.4",
@@ -573,17 +579,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.5",
-      "source_sha256": "cc5c0f20e6beaf0b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to him, “Can I go with you to Rages in Media? Are you familiar with those places?”"
+      "source_sha256": "e1efe324c466dcc2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He said to him, \"Can you go with me to Rages in Media? Are you familiar with those places?\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.6",
-      "source_sha256": "c9afa7b800316720",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The angel said to him, “I will go with you. I am familiar with the road, and I have stayed with your kinsman Gabael.”"
+      "source_sha256": "e03341ed6a16540c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "The angel said to him, \"I will go with you. I know the road, and I have stayed with your relative Gabael.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.7",
@@ -601,10 +607,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.9",
-      "source_sha256": "5019dd9d8eb99309",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When he went in, he said to his father, “Look, I have found someone to go with me.” His father said, “Call him here to me so that I can find out what family he belongs to and whether he can be trusted to go with you.”"
+      "source_sha256": "458fdba3caade197",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "When he went in, he said to his father, \"Look, I have found someone who will go with me.\" His father said, \"Call him here to me so that I can learn what family he belongs to and whether he can be trusted to go with you.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.10",
@@ -622,10 +628,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.12",
-      "source_sha256": "017565d69b8cd9de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "And he said to him, “Are you looking for a tribe and a family, or a hired man to go with your son?” Tobit said to him, “Brother, I want to know your ancestry and your name.”"
+      "source_sha256": "2cbd92aef2fa99d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He said to him, \"Are you looking for a tribe and a family, or for a hired man to go with your son?\" Tobit said to him, \"Brother, I want to know your ancestry and your name.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.13",
@@ -636,17 +642,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.14",
-      "source_sha256": "b8dced40b2eaa1e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to him, “Welcome, my brother! Do not be angry because I wanted to learn your tribe and family. You are my kinsman, from a fine and good lineage. I knew Hananiah and Jathan, the sons of the great Shimei, when we used to go together to Jerusalem to worship, bringing up the firstfruits and the tithes of our crops. They did not stray into the error of our kinsmen. You come from good stock, my brother.”"
+      "source_sha256": "d8e7b67c71839438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He said to him, \"Welcome, brother! Do not be angry because I wanted to learn your tribe and family. You are my brother, from a fine and good lineage. I knew Hananiah and Jathan, the sons of the great Shemaiah, when we used to go together to Jerusalem to worship, bringing up the firstfruits and tithes of our crops. They did not go astray in the error of our relatives. You come from good stock, brother.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.15",
-      "source_sha256": "1b45bfb2050630c9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "“But tell me, what wages shall I give you? A drachma a day, and whatever you need, just as for my son.”"
+      "source_sha256": "cee4ea368319bdd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "But tell me, what wages shall I pay you? A silver coin a day, along with what you need, just as for my son."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.16",
@@ -657,17 +663,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.17",
-      "source_sha256": "074f647c77a3eb2f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They agreed to this, and he said to Tobias, “Get ready for the journey.” His father said to him, “Go with the man. May God, who lives in heaven, make your journey successful, and may his angel go with you.” The two of them set out, and the young man’s dog went with them."
+      "source_sha256": "8a5dfea490a1d141",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "They agreed to this. He said to Tobias, \"Get ready for the journey.\" His father said to him, \"Go with the man. May God, who dwells in heaven, make your journey successful, and may his angel go with you.\" The two of them set out, and the young man's dog went with them."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.18",
-      "source_sha256": "0bf42d32b02d5bd2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "His mother wept and said to Tobit, “Why have you sent our son away? Is he not the staff in our hands, as he comes and goes before us?”"
+      "source_sha256": "4384a20aa37dbef5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "His mother wept and said to Tobit, \"Why have you sent our son away? Is he not the staff in our hand, as he comes and goes before us?\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.19",
@@ -685,10 +691,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.21",
-      "source_sha256": "f117866bf77630c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Tobit said to her, “Do not worry, my sister. He will come back safe and sound, and your eyes will see him.”"
+      "source_sha256": "74291eadc5566b40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Tobit said to her, \"Do not worry, my sister. He will return safely, and your eyes will see him.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.5.22",
@@ -706,10 +712,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.2",
-      "source_sha256": "8ff94bb9107517a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "As they traveled along the road, they came in the evening to the Tigris River and spent the night there."
+      "source_sha256": "bd135164835e4ef7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "As they traveled along the road, they came in the evening to the Tigris River and stayed there for the night."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.3",
@@ -720,23 +726,23 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.4",
-      "source_sha256": "834219ad349ae8ca",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The angel said to him, “Catch the fish!” The young man caught the fish and brought it onto the land."
+      "source_sha256": "1b2375cc61f0b782",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "The angel said to him, \"Catch the fish!\" The young man caught the fish and brought it onto the land."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.5",
-      "source_sha256": "90df29b32aee6a41",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The angel said to him, “Cut the fish open. Take out its heart, liver, and gall, and put them away carefully.”"
+      "source_sha256": "5945677d0cc5f14e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "The angel said to him, \"Cut the fish open. Take out its heart, liver, and gall, and put them away carefully.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.6",
-      "source_sha256": "4743e0b6411f00a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "3519c3e43bcf4d84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
       "text": "The young man did as the angel told him. They roasted the fish and ate it. The two of them continued their journey until they came near Ecbatana."
     },
     {
@@ -748,10 +754,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.8",
-      "source_sha256": "c9301ece0fe51cfb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to him, “As for the heart and liver, if anyone is tormented by a demon or an evil spirit, burn these to make smoke in front of that man or woman, and that person will no longer be tormented.”"
+      "source_sha256": "eb0630cba460ca6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He said to him, \"As for the heart and liver, if someone is tormented by a demon or an evil spirit, burn these as incense before the man or woman, and that person will no longer be tormented.\""
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.9",
@@ -769,80 +775,80 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.11",
-      "source_sha256": "aac6c932d97392ed",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "The angel said to the young man, “My brother, today we will stay with Raguel. He is a relative of yours, and he has an only daughter named Sarah."
+      "source_sha256": "44da3a47e8408f00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "The angel said to the young man, “My brother, today we will stay with Raguel. He is a member of your family, and he has an only daughter named Sarah.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.12",
-      "source_sha256": "46ca5eb34cf766df",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Her inheritance belongs to you, because you alone are of her family. The young woman is beautiful and wise."
+      "source_sha256": "657725b1e8da9697",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“For her inheritance belongs to you, and you alone are of her family. The young woman is beautiful and sensible.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.13",
-      "source_sha256": "abab17132f798134",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now listen to me, and I will speak to her father. When we return from Rages, we will hold the wedding feast. For I know that Raguel will not give her to a stranger, according to the law of Moses, or he would incur the death penalty. For by right of inheritance you are entitled to marry her, rather than anyone else.”"
+      "source_sha256": "1be661317e164182",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“Now listen to me, and I will speak to her father. When we return from Rages, we will hold the wedding feast. For I know that Raguel will not give her to a stranger, in accordance with the law of Moses; otherwise, he would be liable to death. For you have the right to take her as your inheritance rather than anyone else.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.14",
-      "source_sha256": "37774924c9da3e24",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Then the young man said to the angel, “Azariah, my brother, I have heard that the young woman was given to seven men, and all of them perished when they entered into union with her."
+      "source_sha256": "e5d26b6511feb2d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Then the young man said to the angel, “Azariah, my brother, I have heard that the young woman was given to seven men, and all of them died when they entered into marriage with her.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.15",
-      "source_sha256": "11cc0e8eebc72b98",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now I am my father’s only child, and I am afraid that when I go in, I will die as those before me did. For a demon loves her, and he harms no one except those who approach her. Now I am afraid that I will die and bring my father and mother down to their grave in grief over me. They have no other son to bury them.”"
+      "source_sha256": "871d0ff39cc0dbbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“Now I am my father’s only child, and I am afraid that when I go in to her, I will die as those before me did. For a demon loves her, and it harms no one except those who approach her. Now I am afraid that I will die and bring my father and mother down to their grave in grief over me. They have no other son to bury them.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.16",
-      "source_sha256": "6546d7e949b4bf70",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "But the angel said to him, “Do you not remember the words your father commanded you concerning taking a wife from your own family? Now listen to me, my brother: she will become your wife, and you will have no trouble at all from that demon. For tonight she will be given to you as your wife."
+      "source_sha256": "d6556b5667ef2172",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "But the angel said to him, “Do you not remember the words your father commanded you about taking a wife from your own family? Now listen to me, my brother: she will be your wife, and that demon will not cause you any harm. For this very night she will be given to you as your wife.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.17",
-      "source_sha256": "1fbe869d1071a1c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When you enter the bridal chamber, take the incense ashes and put some of that fish’s heart and liver on them, and make them smoke."
+      "source_sha256": "deae19fa16dcfe1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“When you enter the bridal chamber, take some incense ashes, put some of that fish’s heart and liver on them, and make them smoke.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.6.18",
-      "source_sha256": "8dd00e81f1a054e2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "That demon will smell it and flee, and he will never return, forever and ever. When you approach her, both of you must stand up and cry out to the merciful God, and he will save you and have mercy on you. So do not be afraid, for she has been prepared for you from long ago. I expect that you will have children by her.” When Tobias heard these things, he loved her, and his soul became deeply attached to her."
+      "source_sha256": "e8f5f5c17cee4415",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“The demon will smell it and flee, and will never return. When you approach her, both of you must stand up and cry out to the merciful God, and he will save you and have mercy on you. So do not be afraid, for she has been prepared for you from long ago. I expect that you will have children by her.” When Tobias heard these things, he loved her, and his soul became deeply attached to her."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.1",
-      "source_sha256": "c1c649072be29013",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When they came to Ecbatana, they went to Raguel’s house. Sarah met him and greeted him, and he greeted her. She brought them into the house."
+      "source_sha256": "537b52ef24687786",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "When they arrived at Ecbatana and came to Raguel’s house, Sarah met him and greeted him, and he greeted her. She brought them into the house."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.2",
-      "source_sha256": "d4a69b0eaf86f125",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Raguel said to Edna his wife, “How much this young man resembles Tobit, my relative!”"
+      "source_sha256": "8541a3e719b198a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Raguel said to his wife Edna, “How much this young man resembles my relative Tobit!”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.3",
-      "source_sha256": "ce86c53ebb3b7092",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Raguel asked them, “Where are you from, our brothers?” He answered him, “We are descendants of Naphtali, captives from Nineveh.”"
+      "source_sha256": "d1ea3671728f512c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Raguel asked them, “Where are you from, our brothers?” He said to him, “We are descendants of Naphtali, captives from Nineveh.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.4",
@@ -853,10 +859,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.5",
-      "source_sha256": "dad33998f184921f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "They said, “We know him.” And he said to them, “Is he well?” Tobias said, “He is my father.”"
+      "source_sha256": "6c8a42796fa50923",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "They said, “We know him.” He said to them, “Is he well?” Tobias said, “He is my father.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.6",
@@ -867,10 +873,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.7",
-      "source_sha256": "2b757dc5e44199c7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "And he blessed him and said to him, “Oh, what a fine and good man!” When he heard that Tobit had lost his sight, he was distressed and wept."
+      "source_sha256": "4572b55db60ad86d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He blessed him and said to him, “Oh, son of a fine and good man!” When he heard that Tobit had lost his sight, he was distressed and wept."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.8",
@@ -881,38 +887,38 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.9",
-      "source_sha256": "b77aa581486fbbe4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He slaughtered a ram from the flock, and they set out an abundance of food. But Tobias said to Raphael, “Azariah, my brother, speak about those things you mentioned on the journey, and let the matter be completed.”"
+      "source_sha256": "d779134190a3d9c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He slaughtered a ram from the flock, and they served an abundance of food. But Tobias said to Raphael, “Azariah, my brother, speak about the things you were saying on the journey, and let the matter be settled.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.10",
-      "source_sha256": "54cbabc155aaf575",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He brought the matter up with Raguel. Raguel said to Tobias, “Eat and drink and enjoy yourself, for you are entitled to marry my daughter. Nevertheless, I will tell you the truth."
+      "source_sha256": "31973a187ccd6610",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He brought the matter before Raguel. Raguel said to Tobias, “Eat and drink and enjoy yourself, for you have the right to marry my daughter. But I will tell you the truth.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.11",
-      "source_sha256": "c571138b017bbfa3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I gave my daughter to seven men, and whenever they went in to her, they died that very night. But now enjoy yourself.” Tobias said, “I will not taste anything here until you settle the matter and confirm it to me.” Raguel said, “Take her as yours from now on, according to the law. You are her relative, and she is yours. May the merciful God grant you success and good things.”"
+      "source_sha256": "ceb4d982964aceb3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "“I gave my daughter to seven men, and whenever they went in to her, they died that very night. But for now, enjoy yourself.” Tobias said, “I will not taste anything here until you make the agreement binding and she stands beside me.” Raguel said, “Take her as yours from now on, according to the law. You are her kinsman, and she is yours. May the merciful God grant you success and good things.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.12",
-      "source_sha256": "ece5c4a5e5f5e6ff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He called Sarah his daughter, took her by the hand, and handed her over to Tobias as his wife. He said, “Here, take her according to the law of Moses, and bring her to your father.” Then he blessed them."
+      "source_sha256": "6a34656b6aaebf4d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He called his daughter Sarah, took her by the hand, and handed her over to Tobias as his wife. He said, “Here, take her according to the law of Moses, and bring her to your father.” And he blessed them."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.13",
-      "source_sha256": "4d7bdb04ef8155f6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He called Edna his wife, and, taking a document, they wrote out an agreement and sealed it. He gave her to him as his wife according to the customary law."
+      "source_sha256": "f605ec8fdc3c3fbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "He called his wife Edna, and he took writing material. They wrote out an agreement and sealed it, and he gave her to him as his wife according to the law of the land."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.14",
@@ -923,23 +929,23 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.15",
-      "source_sha256": "7ab42d1517c52109",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Raguel called his wife Edna and said to her, “Sister, prepare another room and bring her into it.”"
+      "source_sha256": "09e5b09a811546eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Raguel called his wife Edna and said to her, “My sister, prepare another room and bring her into it.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.16",
-      "source_sha256": "7cfaf5667310ae7d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "She did as he said and brought her in there. She wept, and her mother received her tears and said to her,"
+      "source_sha256": "e233cf194ef99fbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "She did as he had said and brought her in there, and she wept. She caught her tears and said to her:"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.7.17",
-      "source_sha256": "bf03c89e79dddd9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "5c86b70c91155889",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
       "text": "“Take courage, my daughter. May the Lord of heaven and earth give you kindness in place of this distress of yours. Take courage, my daughter.”"
     },
     {
@@ -951,10 +957,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.2",
-      "source_sha256": "7ae7634d59c929f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "As he went, he remembered Raphael’s words. He took the incense ashes and put the heart and liver of that fish on them, and they gave off smoke."
+      "source_sha256": "d00e50937d08bc1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "As he went, he remembered Raphael’s words. He took the incense ashes and put the fish’s heart and liver on them, and they began to smoke."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.3",
@@ -965,31 +971,31 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.4",
-      "source_sha256": "0a0f5ee9b9ccb611",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When the two of them were shut in, Tobias rose from the bed and said, “Get up, my sister, and let us pray, so that the Lord may have mercy on us.”"
+      "source_sha256": "c04b3e51162a338e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "When the two of them were shut in together, Tobias rose from the bed and said, “Get up, my sister, and let us pray, so that the Lord may have mercy on us.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.5",
-      "source_sha256": "e0ac1e74940e2678",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Tobias began to say, “Blessed are you, God of our ancestors, and blessed is your holy and glorious name forever. May the heavens and all your creation bless you."
+      "source_sha256": "f8f984afa00c0cb0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 24,
+      "text": "Tobias began to say, “Blessed are you, God of our ancestors, and blessed is your holy and glorious name forever. May heaven and all your creation bless you.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.6",
-      "source_sha256": "4cb54c52ab975304",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f8753ac2cdb507e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "You made Adam and gave him Eve, his wife, as a helper and support. From these two came the human race. You said, ‘It is not good for the man to be alone. Let us make him a helper like him.’"
+      "text": "You made Adam, and you gave him Eve as a helper and support, his wife. From these two came the human race. You said, “It is not good for the man to be alone. Let us make him a helper like him.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.7",
-      "source_sha256": "d8ac2ca382a5ce7a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8aae6964e37fa6b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "And now, Lord, I am taking this sister of mine as my wife not out of lust, but in sincerity. Grant that I may receive mercy and grow old with her.”"
+      "text": "And now, Lord, I am taking this sister of mine not out of lust, but in sincerity. Grant that I may receive mercy and grow old with her."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.8",
@@ -1021,8 +1027,8 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.12",
-      "source_sha256": "6954e043f66277ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a9089742cbfd7aa0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "He said to Edna his wife, “Send one of the servant women to see whether he is alive. If not, let us bury him without anyone knowing.”"
     },
@@ -1042,24 +1048,24 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.15",
-      "source_sha256": "9e0e266ace6dc682",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Raguel blessed God, saying, “Blessed are you, God, with every pure and holy blessing. May your holy ones bless you—all your creatures, all your angels and chosen ones. May they bless you through all ages.”"
+      "source_sha256": "e1ce91a1e16a787c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Raguel blessed God, saying, “Blessed are you, God, with every pure and holy blessing. May your holy ones bless you, all your creatures, all your angels and chosen ones. May they bless you through all ages.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.16",
-      "source_sha256": "37c23d9f2965b554",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "806f43655db4d6f9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Blessed are you, because you have made me glad. What I expected did not happen to me; instead, you have dealt with us according to your abundant mercy."
+      "text": "Blessed are you because you have made me glad, and what I feared did not happen to me. Instead, you have dealt with us according to your abundant mercy."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.17",
-      "source_sha256": "a85b7d3bf04c6230",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9560573e15f35dd5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Blessed are you, because you have had mercy on two only children. Show them mercy, our Lord. Bring their lives to completion in health, with joy and mercy.”"
+      "text": "Blessed are you because you have had mercy on two only children. Show them mercy, our Lord. Bring their lives to completion in health, with joy and mercy."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.18",
@@ -1077,17 +1083,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.20",
-      "source_sha256": "4a47b9c92dad7404",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b7ac9c5fa822f79e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Before the days of the feast were over, Raguel declared under oath that he must not leave until the fourteen days of the feast were completed."
+      "text": "Before the days of the wedding feast were over, Raguel declared with oaths that he must not leave until the fourteen days of the wedding feast were completed."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.8.21",
-      "source_sha256": "39ac5c739aae59a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2fa0756c082c2959",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Then, taking half of what Raguel owned, he was to go safely to his father. “And the rest, when my wife and I die.”"
+      "text": "Then, after taking half of what he owned, he could go safely to his father. “And the rest, when I and my wife die.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.9.1",
@@ -1098,10 +1104,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.9.2",
-      "source_sha256": "06d29bdd27403361",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "73bfb80b776f2f55",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“Azariah, my brother, take a servant and two camels with you, and go to Gabael at Rages in Media to bring back that money. Bring him too to the feast,"
+      "text": "Azariah, my brother, take a servant and two camels with you, and go to Gabael at Rages in Media to bring back that money. Bring him too to the wedding feast."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.9.3",
@@ -1119,10 +1125,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.9.5",
-      "source_sha256": "2ab9893d174e7b38",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1cf94ee4a9188cbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Raphael went to Gabael and gave him the document. Gabael brought out the moneybags with their seals intact and gave them to him."
+      "text": "Raphael went to Gabael and gave him the document. Gabael then brought out the money bags with their seals intact and gave them to him."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.9.6",
@@ -1133,10 +1139,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.1",
-      "source_sha256": "0b11baf714fe0551",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6c602a80cc51c706",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tobit, his father, was counting every day. When the days allowed for the journey had passed and he had not returned,"
+      "text": "Tobit, his father, was worried every day. And when the days needed for the journey had passed and he had not come,"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.2",
@@ -1175,17 +1181,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.7",
-      "source_sha256": "a35255fee6c564db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e7638323c3fd04a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She said to him, “Be quiet! Do not deceive me. My son has perished.” Every day she went out to the road by which he had gone. During the day she ate no bread, and at night she did not stop mourning for her son Tobias, until the fourteen days of the wedding feast were completed, which Raguel had sworn that he should spend there. Then Tobias said to Raguel, “Send me home, because my father and mother no longer expect to see me.”"
+      "text": "she said to him, “Be quiet! Do not deceive me. My son is lost.” Every day she would go outside to the road by which he had left. During the day she ate no food, and at night she never stopped mourning for Tobias her son, until the fourteen days of the wedding feast were completed, which Raguel had sworn he must spend there. Then Tobias said to Raguel, “Send me home, because my father and mother no longer expect to see me.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.8",
-      "source_sha256": "61bc309aefd253ae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5d381f49e533452c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "His father-in-law said to him, “Stay with me, and I will send messengers to your father, and they will tell him about you.”"
+      "text": "But his father-in-law said to him, “Stay with me, and I will send word to your father, so that they can tell him how you are.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.9",
@@ -1196,10 +1202,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.10",
-      "source_sha256": "7cd873773e7ff945",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c851e6a9b1c5a6df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Then Raguel got up and gave him his daughter Sarah and half of what he owned: slaves, livestock, and silver."
+      "text": "Then Raguel got up and gave him Sarah his daughter and half of what he owned: slaves, livestock, and money."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.11",
@@ -1210,17 +1216,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.10.12",
-      "source_sha256": "834ef7cce64aca08",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e577f7e0ce655266",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He said to his daughter, “Honor your parents-in-law. They are now your parents. Let me hear a good report of you.” And he kissed her. Edna said to Tobias, “My dear brother, may the Lord of heaven bring you home and let me see children of yours by my daughter Sarah, so that I may rejoice before the Lord. Look, I entrust my daughter to your care. Do not cause her distress.”"
+      "text": "He said to his daughter, “Honor your parents-in-law. They are now your parents. May I hear good news about you.” And he kissed her. Edna said to Tobias, “My dear brother, may the Lord of heaven guide you and let me see your children by Sarah my daughter, so that I may rejoice before the Lord. Look, I entrust my daughter to your care. Do not cause her distress.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.1",
-      "source_sha256": "fcdf96fb6bb5436c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "db5bea88c9283e54",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "After this, Tobias went on his way, blessing God because he had made his journey successful. He also blessed Raguel and his wife Edna. They traveled until they drew near to Nineveh."
+      "text": "After this, Tobias went on his way, blessing God because he had made his journey successful. He also blessed Raguel and Edna his wife. They traveled on until they came near Nineveh."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.2",
@@ -1252,10 +1258,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.6",
-      "source_sha256": "d83844a1e2801273",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "74b5ed654d0965ac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "She recognized him as he came and said to his father, “Look, your son is coming, and the man who went with him!”"
+      "text": "She recognized him as he approached and said to his father, “Look, your son is coming, and the man who went with him!”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.7",
@@ -1266,17 +1272,17 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.8",
-      "source_sha256": "011a2c910f3519ea",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3cbf74c3aa70aabf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“So smear the gall on his eyes. When it stings, he will rub them and shed the white films, and he will see you.”"
+      "text": "So smear the gall on his eyes. When it stings, he will rub them and shed the white films, and he will see you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.9",
-      "source_sha256": "3d2491413fde0aa5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Anna ran and threw her arms around her son's neck. She said to him, “Now that I have seen you, my son, I can die.” And they both wept."
+      "source_sha256": "bd5750361f3c8216",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Anna ran and threw her arms around her son's neck. She said to him, “I have seen you, my son. Now I can die.” And they both wept."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.10",
@@ -1301,38 +1307,38 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.13",
-      "source_sha256": "9b041b744b06baee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "142eb71a056a4235",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The white films peeled away from his eyelids. When he saw his son, he threw his arms around his neck"
+      "text": "The white films peeled away from his eyelids. When he saw his son, he threw his arms around his neck."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.14",
-      "source_sha256": "166998f1fc44822b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cc66e282d9b83741",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "and wept, saying, “Blessed are you, God, and blessed is your name forever, and blessed are all your holy angels!"
+      "text": "He wept and said, “Blessed are you, God, and blessed is your name forever, and blessed are all your holy angels.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.15",
-      "source_sha256": "6a935f4a313a239f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5daa8daa72e018f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“For you disciplined me and had mercy on me. Look, I can see my son Tobias!” His son went inside rejoicing and told his father about the great things that had happened to him in Media."
+      "text": "For you have chastised me and had mercy on me. Look, I can see Tobias my son!” His son went inside joyfully and told his father about the great things that had happened to him in Media."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.16",
-      "source_sha256": "51410b2d5da94bc5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "67a62b73303e45e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tobit went out to meet his daughter-in-law at the gate of Nineveh, rejoicing and blessing God. Those who saw him walking were astonished because he could see."
+      "text": "Tobit went out to meet his daughter-in-law at the gate of Nineveh, rejoicing and blessing God. Those who saw him walking were amazed because he could see."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.17",
-      "source_sha256": "fc362d764549d19e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f89bc3fc78260f2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tobias declared before him that God had had mercy on them. When Tobit approached Sarah, his daughter-in-law, he blessed her, saying, “You have arrived safely, my daughter. Blessed is God, who brought you to us, and blessed is your father.” And there was joy among all their relatives in Nineveh."
+      "text": "Tobias declared before him that God had had mercy on them. When Tobit approached Sarah his daughter-in-law, he blessed her, saying, “You have arrived safely, my daughter. Blessed is God, who brought you to us, and blessed is your father.” There was joy among all their relatives in Nineveh."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.11.18",
@@ -1350,10 +1356,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.1",
-      "source_sha256": "53e17876b4f71b22",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d6db1db7335d308c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Tobit called his son Tobias and said to him, “My son, see to the wages of the man who helped you. It is right to give him something extra.”"
+      "text": "Tobit called Tobias his son and said to him, “My son, see to the wages of the man who helped you. It is right to give him something extra.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.2",
@@ -1364,10 +1370,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.3",
-      "source_sha256": "8b3ddd33314ff6fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "52e5bce78ff1cdfd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For he brought me back to you in good health, gave relief to my wife, brought me the money, and likewise healed you.”"
+      "text": "For he brought me to you in good health, brought relief to my wife, brought me the money, and likewise healed you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.4",
@@ -1385,31 +1391,31 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.6",
-      "source_sha256": "012c845cc862bc8a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Then the angel called the two of them aside privately and said to them, “Bless God and give thanks to him before all the living for what he has done for you. It is good to bless God and exalt his name, making known the accounts of God's deeds with due honor. Do not be reluctant to give thanks to him.”"
+      "source_sha256": "69cf00391c0b5617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Then the angel called the two of them aside privately and said to them, “Bless God and thank him before all the living for what he has done for you. It is good to bless God and exalt his name, honorably making known the accounts of God's deeds. Do not grow weary of thanking him."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.7",
-      "source_sha256": "213d2ca9d7d86dc4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b8324c0c2391c966",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“It is good to conceal a king’s secret, but to make God’s deeds known with praise. Do good, and evil will not find you."
+      "text": "It is good to conceal a king's secret, but to make God's deeds known with praise. Do good, and evil will not find you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.8",
-      "source_sha256": "5cf11042bddd305f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c5a4e8bf4baeff41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Prayer is good with fasting, charity, and righteousness. A little with righteousness is better than much with injustice. It is better to practice charity than to store up gold in treasuries."
+      "text": "Prayer is good with fasting, charity, and righteousness. A little with righteousness is better than much with injustice. It is better to give to the poor than to put gold into treasuries."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.9",
-      "source_sha256": "8a26d6d7915a99d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "be37ddc4ad9a622c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Charity rescues from death, and it cleanses every sin. Those who practice charity and righteousness will be filled with life."
+      "text": "Charity rescues from death and cleanses every sin. Those who practice charity and righteousness will be filled with life."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.10",
@@ -1420,24 +1426,24 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.11",
-      "source_sha256": "67d2de7767aad274",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4a1c175d8cad402",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I will not hide anything from you. I have said that it is good to conceal a king’s secret, but to make God’s deeds known with praise."
+      "text": "I will not conceal anything from you. I have said that it is good to conceal a king's secret, but to make God's deeds known with praise."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.12",
-      "source_sha256": "3e79abd560e9914e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5cc122d13c5cf721",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now, when you and your daughter-in-law Sarah prayed, I brought the remembrance of your prayer before the Holy One. When you were burying the dead, I was likewise near you."
+      "text": "Now, when you and your daughter-in-law Sarah prayed, I brought the remembrance of your prayer before the Holy One. And when you were burying the dead, I was likewise beside you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.13",
-      "source_sha256": "550cec111da81277",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5c4e77e4b86aa65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When you did not hesitate to get up and leave your meal to go and bury that dead man, you did not escape my notice as you did good deeds; rather, I was with you."
+      "text": "When you did not hesitate to get up and leave your meal to go and bury that dead man, you did not escape my notice as you were doing good. Rather, I was with you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.14",
@@ -1448,10 +1454,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.15",
-      "source_sha256": "eb95bb1d53ee24e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c8fb12dad3dd186c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I am Raphael, one of the seven holy angels who ascend and enter before the glory of the Holy One.”"
+      "text": "I am Raphael, one of the seven holy angels who ascend and enter before the glory of the Holy One."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.16",
@@ -1469,45 +1475,45 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.18",
-      "source_sha256": "7ed0dbd5fa06a275",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "59b7a1681cb589a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For I came not out of my own kindness, but by the will of our God. Therefore bless him forever."
+      "text": "For I came not out of my own goodwill, but by the will of our God. Therefore bless him forever."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.19",
-      "source_sha256": "2820434a4ee1f7a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8d3926509456356a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Throughout all those days when I appeared to you, I neither ate nor drank; you were seeing a vision."
+      "text": "Throughout all those days when I appeared to you, I neither ate nor drank. You were seeing a vision."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.20",
-      "source_sha256": "b69a51fd764138a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d7f6694792a20661",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now give thanks to God, for I am ascending to the one who sent me. Write in a book all these things that have taken place.”"
+      "text": "Now thank God, for I am ascending to the one who sent me. Write in a book everything that has taken place.”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.12.21",
-      "source_sha256": "89cfb4d127aff3f3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f49c67b406cf6a5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They stood up and did not see him. They gave thanks for these great and marvelous deeds of his, and because the angel of the Lord had appeared to them."
+      "text": "They stood up and did not see him. They praised these great and wonderful deeds of his and acknowledged that the angel of the Lord had appeared to them."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.1",
-      "source_sha256": "46b20019177a6efb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "791928ac23befb1b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Tobit wrote a prayer with joy and said, “Blessed is God, who lives forever, and blessed is his kingdom."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.2",
-      "source_sha256": "e97f6cf7b9d479b1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9e2491a64dcc8470",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For he punishes and shows mercy; he brings down to Sheol and brings up again. There is no one who can escape his hand."
+      "text": "For he punishes and shows mercy; he brings down to Sheol and brings up again. No one can escape his hand."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.3",
@@ -1518,24 +1524,24 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.4",
-      "source_sha256": "c79d17fe53f5d718",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8cca79c6ec8e2605",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "There proclaim his greatness and exalt him before every living being, for he is our Lord and God, our Father forever and ever."
+      "text": "There make his greatness known and exalt him before every living being, for he is our Lord and God, our Father for all ages."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.5",
-      "source_sha256": "6299b45e276be8ad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "He punishes us for our wrongdoings, but he will again show mercy and gather us from all the nations, wherever you may be scattered among them."
+      "source_sha256": "91388836c1571906",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "He punishes us for our wrongdoings, but he will again show mercy and gather us from all the nations among whom you may be scattered."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.6",
-      "source_sha256": "a9dfbf1e75580dc9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "91d03ed20abde744",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If you turn to him with all your heart and all your soul, to act faithfully before him, then he will turn to you and will not hide his face from you. See what he has done for you, and give thanks to him with all your voice. Bless the Lord of righteousness, and exalt the King of the ages. In the land of my captivity I give thanks to him, and I show his mighty greatness to a sinful nation. Turn back, you sinners, and practice righteousness before him. Who knows whether he will seek you out and show you mercy?"
+      "text": "If you turn to him with all your heart and all your soul, to act faithfully before him, then he will turn to you and will not hide his face from you. See what he has done for you, and thank him with your whole voice. Bless the Lord of righteousness and exalt the King of the ages. In the land of my captivity I thank him and make known the power of his greatness to a sinful nation. Turn back, you sinners, and practice righteousness before him. Who knows whether he will seek you out and show you mercy?"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.7",
@@ -1553,29 +1559,29 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.9",
-      "source_sha256": "cbfbb1e94d947978",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4a04e73b287ed682",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "the city of the Holy One. He punishes you for the deeds of your children, but he will again have mercy on the children of the righteous."
+      "text": "City of the Holy One, he punishes you for the deeds of your children, but he will again show mercy to the children of the righteous."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.10",
-      "source_sha256": "134c4884d23abe89",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4f8ed295a18c3f68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Give thanks to the Lord wholeheartedly, and bless the King of the ages, so that his dwelling may be rebuilt in you with joy. May he bring joy to the captives within you and love the afflicted within you, throughout all generations forever."
+      "text": "Give fitting thanks to the Lord and bless the King of the ages, so that his dwelling may again be built within you with joy, and he may gladden the captives within you and love the afflicted within you throughout all generations forever."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.11",
-      "source_sha256": "c1a9537b10b72859",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b80d66faf06151c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Many nations will come from far away to the name of the Lord God, carrying offerings in their hands, offerings for the King of heaven. He will give joy from generation to generation."
+      "text": "Many nations will come from far away to the name of the Lord God, carrying offerings in their hands, offerings for the King of heaven. Generation after generation will bring joy."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.12",
-      "source_sha256": "177e80786a402072",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b65f6127a5be67e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Cursed are all who hate you. Blessed forever will be all who love you."
     },
@@ -1588,8 +1594,8 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.14",
-      "source_sha256": "d8e16267c75fe3c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e4337fd8f7572af4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "How blessed are those who love you! They will rejoice over your peace. Blessed are those who grieved over all your punishments, for they will rejoice in you when they see all your glory, and your soul will delight forever."
     },
@@ -1602,10 +1608,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.16",
-      "source_sha256": "32f0632996c07027",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6bbcabadde049bfa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For Jerusalem will be built with sapphire, emerald, and precious stone. Your wall, towers, and battlements will be of pure gold."
+      "text": "For Jerusalem will be built with sapphire, emerald, and precious stone, and your wall, towers, and battlements with pure gold."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.17",
@@ -1616,10 +1622,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.13.18",
-      "source_sha256": "0beced1cd01e9ca7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "843787125eb7f4b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "All her streets will say, “Hallelujah!” They will offer praise, saying, “Blessed is God, who has exalted her for all ages!”"
+      "text": "All her streets will say, ‘Hallelujah!’ They will offer praise, saying, ‘Blessed is God, who has exalted you for all ages.’”"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.1",
@@ -1630,45 +1636,45 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.2",
-      "source_sha256": "e1fb9177ba38134c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He was fifty-eight years old when he lost his sight, and after eight years he could see again. He performed acts of mercy and continued to fear the Lord God and give thanks to him."
+      "source_sha256": "2ae63d887f756291",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "He was fifty-eight years old when he lost his sight, and after eight years he could see again. He performed acts of mercy, continued to fear the Lord God, and gave thanks to him."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.3",
-      "source_sha256": "6d00fe41029a3a27",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When he had grown very old, he called his son and said to him, “My son, look, I have grown old and am about to depart from this life. Take your children"
+      "source_sha256": "7db1ec15168f3fcb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "When he had grown very old, he called his son and said to him, “My son, look, I have grown old and am near to departing this life. Take your children"
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.4",
-      "source_sha256": "4b9ad1870c352820",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "and go to Media, my son, for I am convinced of everything that Jonah the prophet said about Nineveh: it will be overthrown. In Media there will be greater peace for a time. Our brothers will be scattered from the good land into other lands. Jerusalem will become a ruin, and the temple of God within it will be burned and remain desolate for a time."
+      "source_sha256": "05338a6db073b1e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "and go to Media, my son, because I believe everything that the prophet Jonah said about Nineveh: it will be overthrown. In Media there will be greater peace for a time. Our brothers will be scattered from the good land into other lands. Jerusalem will become a ruin, and the temple of God within it will be burned and will remain desolate for a time."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.5",
-      "source_sha256": "255cb9872b6c0a71",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Then God will again have mercy on them and bring them back to the land. They will rebuild the house, though not like the former one, until the times of the age are fulfilled. After this they will return from captivity and rebuild Jerusalem magnificently. The house of God within it will be rebuilt as a glorious building for all generations forever, just as the prophets spoke about it."
+      "source_sha256": "cf05c92f0b152846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Then God will again have mercy on them and bring them back to the land. They will rebuild the temple, though not like the first one, until the times of the world are fulfilled. After this they will return from captivity and rebuild Jerusalem in splendor. The house of God within it will be rebuilt as a glorious building for all generations forever, just as the prophets said about it."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.6",
-      "source_sha256": "c5c5ff8a0e9e24e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "c8ee50fa91bf0c48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
       "text": "All the nations will truly turn to fear the Lord God, for they will bury their idols."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.7",
-      "source_sha256": "0dd0736b1ef3fc99",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "All the nations will bless the Lord, and the people will give thanks to God. The Lord will exalt his people, and all who love the Lord God in truth and righteousness will rejoice, showing mercy to their brothers."
+      "source_sha256": "9156426e89b0bf4c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "All the nations will bless the Lord, and the people will give thanks to God. The Lord will exalt his people, and all who love the Lord God in truth and righteousness, showing mercy to their brothers, will rejoice."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.8",
@@ -1679,38 +1685,38 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.9",
-      "source_sha256": "eb8f25d07c98e93b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "But you must keep the law and the commandments. Love acts of mercy and be righteous, so that things may go well for you."
+      "source_sha256": "da4c072781ca4ae7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "But you must keep the law and the commandments. Love mercy and be righteous, so that things may go well with you."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.10",
-      "source_sha256": "d46d437198be47a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Bury me properly, and your mother with me, and do not remain in Nineveh any longer, my son. See what Adam did to Ahikar, who had raised him: he brought him from light into darkness. See all the ways he repaid him! He saved Ahikar, but retribution came back upon the other, and he went down into darkness. Manasseh performed acts of mercy and was rescued from the trap of death that he had set for him, but Adam fell into the trap and perished."
+      "source_sha256": "44e5e0d6dc08adcd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Bury me properly, and your mother with me, and do not live in Nineveh any longer, my son. See what Adam did to Ahikar, who had raised him, how he brought him from light into darkness, and all the ways he repaid him. Ahikar, however, was rescued, while retribution came back upon the other, and he descended into darkness. Manasseh showed mercy and was saved from the deathtrap that he had set for him. But Adam fell into the trap and perished."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.11",
-      "source_sha256": "651831b3a738944c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now, my children, see what mercy accomplishes and how righteousness delivers.” While he was saying these things, his life came to an end on his bed. He was one hundred and fifty-eight years old, and his son buried him with great honor."
+      "source_sha256": "364d8778e50dbb18",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "And now, my children, see what mercy does and how righteousness saves.” While he was saying these things, his life came to an end on his bed. He was one hundred and fifty-eight years old, and his son buried him with honor."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.12",
-      "source_sha256": "a7b315e2a0925423",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "4e8667f88e2c894d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
       "text": "When Anna died, he buried her with his father. Then Tobias went with his wife and children to Ecbatana, to his father-in-law Raguel."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.13",
-      "source_sha256": "908f493762e4f7bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "And he grew old in honor. He buried his parents-in-law with great honor and inherited their property and that of Tobit his father."
+      "source_sha256": "9e8109021fcf15c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "He grew old in honor, buried his parents-in-law with honor, and inherited their property and that of his father Tobit."
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.14",
@@ -1721,10 +1727,10 @@
     },
     {
       "chunk_id": "pta-peshitta/tob#Tob.14.15",
-      "source_sha256": "9c019f366b3a94cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "Before he died, he heard of the destruction of Nineveh, which Nebuchadnezzar and Ahasuerus had taken captive. And before he died, he rejoiced over Nineveh.\nThe book of Tobit is finished, according to the tradition of the Seventy. Seven hundred lines."
+      "source_sha256": "9360311f72be57e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Before he died, he heard of the destruction of Nineveh, which Nebuchadnezzar and Ahasuerus had captured. Before his death he rejoiced over Nineveh. The book of Tobit is finished, according to the tradition of the Seventy. Seven hundred lines."
     }
   ]
 }

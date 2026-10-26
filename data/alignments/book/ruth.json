@@ -3,8 +3,8 @@
  "group": "book:ruth",
  "pivot": "asv/ruth",
  "groups": 85,
- "inputs": "be42f79f28fae52e",
- "run": {"aligner": 2, "date": "2026-10-22", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "8521bc2c44cf57b4",
+ "run": {"aligner": 2, "date": "2026-10-25", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/ruth", "units": 85, "ids": "6991fd07ce044379", "inputs": "52d198e569175f1a", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "asv/ruth", "units": 85, "ids": "47879017c84eb326", "inputs": "abee04340e948563", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
@@ -15,7 +15,7 @@
   {"work_id": "lxx-rahlfs/ruth", "units": 85, "ids": "3c7baa4e84874088", "inputs": "73b4f17c18fe1e10", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "oshb/ruth", "units": 85, "ids": "eb8725d41ad59927", "inputs": "2e7fc2d95e0a090d", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "pta-lxx/ruth", "units": 85, "ids": "cdf9ed3a36a6ef06", "inputs": "2d879c724831e3ca", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "pta-peshitta/ruth", "units": 86, "ids": "17a5e5392013987e", "inputs": "a8fd430c210fb9c1", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-peshitta/ruth", "units": 86, "ids": "17a5e5392013987e", "inputs": "a568847efe8e39b9", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "web/ruth", "units": 85, "ids": "1e8a9a85cc7c5b27", "inputs": "0aab0dd1bc25f920", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

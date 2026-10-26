@@ -43,6 +43,8 @@ describe("parseWork", () => {
     ]);
     expect(sections[0].units[0].ref).toBe("Gen.1.1");
     expect(sections[0].ref).toBeNull();
+    // A section without a heading chunk anchors its path's ref (#122).
+    expect(sections.map((s) => s.anchor)).toEqual(["Gen.1", "Gen.2"]);
   });
 
   it("treats a parent ref as the section's heading", () => {
@@ -62,6 +64,7 @@ describe("parseWork", () => {
     ]);
     // The heading chunk's ref stays an anchor, so a search result on it resolves.
     expect(sections.map((s) => s.ref)).toEqual(["Ancyra.Canon.1", "Ancyra.Canon.2"]);
+    expect(sections.map((s) => s.anchor)).toEqual([null, null]);
   });
 
   it("joins derived verses back into their source paragraph", () => {
@@ -205,6 +208,7 @@ describe("parseWork", () => {
       "patristic",
     );
     expect(sections.map((s) => s.id)).toEqual(["s-1", "s-2", "s-1-2"]);
+    expect(sections.map((s) => s.anchor)).toEqual(["X.1", "X.2", null]);
   });
 });
 

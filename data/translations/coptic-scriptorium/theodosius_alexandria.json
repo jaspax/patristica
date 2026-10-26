@@ -21,6 +21,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-15",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -10134,10 +10140,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0240",
-      "source_sha256": "bac0e294610c8142",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "“Yes,” Solomon said, “I rejoice today, because Michael the archangel,"
+      "source_sha256": "975d9a7598607228",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 1,
+      "text": "“Yes,” Solomon said, “I rejoice today because Michael the archangel"
     },
     {
       "chunk_id": "coptic-scriptorium/theodosius_alexandria#CopScr.theodosius-alexandria.005.0241",

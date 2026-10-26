@@ -15,15 +15,21 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "pta-peshitta/job#Job.1.1",
-      "source_sha256": "73556cf2567e24ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "86bc3c83e08df997",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "There was a man in the land of Uz whose name was Job. He was blameless and righteous, feared God, and turned away from evil."
+      "text": "There was a man in the land of Uz whose name was Job. He was a blameless and righteous man who feared God and turned away from evil."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.2",
@@ -34,43 +40,43 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.3",
-      "source_sha256": "a36e85636848bab5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "365375cf83ca80fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "He owned seven thousand sheep, three thousand camels, five hundred yoke of oxen, five hundred female donkeys, and a very large number of servants. This man was greater than all the people of the East."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.4",
-      "source_sha256": "94b3e844eea1d057",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "192bfa9f64ec570d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "His sons would go and hold a feast in each man's house on his day, and they would send for their three sisters and invite them to eat and drink with them."
+      "text": "His sons used to go and hold a feast at each man's house on his appointed day. They would send and invite their three sisters to eat and drink with them."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.5",
-      "source_sha256": "08fd83b6b630e6b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6e15706584316fdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When the days of feasting had run their course, Job would send for them and consecrate them. Job would rise early in the morning and offer sacrifices corresponding to the number of them all, because Job said, “Perhaps my children have sinned and cursed God in their hearts.” Job did this continually."
+      "text": "When the days of feasting had run their course, Job would send for them and consecrate them. Job would rise early in the morning and offer sacrifices according to the number of them all, for Job said, “Perhaps my children have sinned and cursed God in their hearts.” Job did this regularly."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.6",
-      "source_sha256": "e4de3ecd7dcfd2c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "98f1ba79daa9f6f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "One day the sons of God came to stand before the Lord, and Satan also came among them to stand before the Lord."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.7",
-      "source_sha256": "ebf4806be85e4069",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "57ecb02e8ac134d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord said to Satan, “Where have you come from?” Satan answered the Lord, “I have been roaming the earth and walking around on it.”"
+      "text": "The Lord said to Satan, “Where have you come from?” Satan answered the Lord, “I have been roaming the earth and walking around in it.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.8",
-      "source_sha256": "25d19c6459ceb93b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4541b4c3c263667d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The Lord said to Satan, “Have you taken notice of my servant Job? There is no one like him on earth, a blameless and upright man who fears God and turns away from evil.”"
     },
@@ -83,10 +89,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.10",
-      "source_sha256": "0ca2456b417da740",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5c37f9248daa6516",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "You have spread your hand protectively over him, his household, his children, and everything he has everywhere. You have blessed the work of his hands, and his possessions have multiplied in the land."
+      "text": "“You have spread your hand protectively over him, his household, his children, and everything he has everywhere. You have blessed the work of his hands, and his possessions have increased in the land.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.11",
@@ -97,10 +103,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.12",
-      "source_sha256": "e06ea144436a3aa0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4afa32bbb30f3999",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord said to Satan, “Look, everything he has is handed over to you. Only do not stretch out your hand against him.” Then Satan left the Lord’s presence."
+      "text": "The Lord said to Satan, “Look, everything he has is handed over to you. Only do not stretch out your hand against him.” Then Satan went out from the Lord's presence."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.13",
@@ -111,10 +117,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.14",
-      "source_sha256": "cde2f82687bf9502",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "63de88c4c688dec1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A messenger came to Job and said to him, “The oxen were pulling the plows, and the female donkeys were grazing beside them."
+      "text": "A messenger came to Job and said to him, “The oxen were pulling the plows, and the female donkeys were grazing beside them.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.15",
@@ -125,31 +131,31 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.16",
-      "source_sha256": "a118ca095d38a57e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "99975eb412bbb136",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "While he was still speaking, another came and said to him, “The fire of God fell from heaven, swept through the sheep and the shepherds, and burned them up. I alone escaped to tell you.”"
+      "text": "While he was still speaking, another came and said to him, “The fire of God fell from heaven and swept through the sheep and the shepherds and burned them up. I alone escaped to tell you.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.17",
-      "source_sha256": "03dc42c9a2e14523",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "3cadc9fad9d70800",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "While he was still speaking, another came and said to him, “The Chaldeans divided into three bands, attacked the camels, and carried them away. They killed the servants with the sword, and I alone escaped to tell you.”"
+      "text": "While he was still speaking, another came and said to him, “The Chaldeans divided into three bands, attacked the camels, and carried them off. They killed the young men with the sword. I alone escaped to tell you.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.18",
-      "source_sha256": "6cb18abf7623b35a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d2316c8c4cac1a7f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "While he was still speaking, another came and said to him, “Your sons and daughters were eating and drinking in their oldest brother’s house."
+      "text": "While he was still speaking, another came and said to him, “Your sons and daughters were eating and drinking in their oldest brother's house.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.19",
-      "source_sha256": "31006471b69ce697",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "70e3e4c69feabc3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“And suddenly a strong wind came from across the wilderness and struck the four corners of the house. It fell on the young people, and they died. I alone escaped to tell you.”"
+      "text": "“Suddenly a strong wind came from across the wilderness and struck the four corners of the house. It fell on the young people, and they died. I alone escaped to tell you.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.20",
@@ -160,10 +166,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.21",
-      "source_sha256": "25d84c7034d58781",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "891b24e8213ebcc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He said, “Naked I came from my mother's womb, and naked I will return. The Lord gave, and the Lord took away. May the Lord's name be blessed.”"
+      "text": "He said, “Naked I came out of my mother's womb, and naked I will return. The Lord gave, and the Lord has taken away. May the name of the Lord be blessed.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.1.22",
@@ -174,29 +180,29 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.1",
-      "source_sha256": "e4de3ecd7dcfd2c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "98f1ba79daa9f6f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "One day the sons of God came to stand before the Lord, and Satan also came among them to stand before the Lord."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.2",
-      "source_sha256": "ca02c758c8d0c95a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "56804ff6aac632c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord said to Satan, “Where have you come from?” Satan answered the Lord, “I have been roaming the earth and walking around on it.”"
+      "text": "The Lord said to Satan, “Where have you come from?” Satan answered the Lord, “I have been roaming the earth and walking around in it.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.3",
-      "source_sha256": "26da3787bbfba03f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b324889a3c02681f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord said to Satan, “Have you taken notice of my servant Job? There is no one like him on earth, a blameless and upright man who fears God and turns away from evil. Even now he holds firmly to his integrity, although you are inciting me against him to destroy him without cause.”"
+      "text": "The Lord said to Satan, “Have you taken notice of my servant Job? There is no one like him on earth, a blameless and upright man who fears God and turns away from evil. Even now he holds firmly to his integrity, though you incite me against him to destroy him for no reason.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.4",
-      "source_sha256": "f9be02414c4c893e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d954b7c69bd93aa2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Satan answered the Lord, “Skin for skin! A man will give everything he has in exchange for his life and escape.”"
     },
@@ -216,10 +222,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.7",
-      "source_sha256": "a681c7c34ad2b15d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4c6628cedc43515a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Then Satan left the Lord’s presence and struck Job with painful boils from the sole of his foot to the crown of his head."
+      "text": "Satan went out from the Lord's presence and struck Job with painful sores from the sole of his foot to the crown of his head."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.8",
@@ -237,31 +243,31 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.10",
-      "source_sha256": "e3bee2ec6611cd1f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a056fda52596afa4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He said to her, “You have spoken like one of the foolish women. We have accepted good things from God; should we not also accept bad things?” In all this Job did not sin or blaspheme against God with his lips."
+      "text": "He said to her, “You have spoken as one of the foolish women speaks. Shall we accept good things from God and not accept bad things from him?” In all this Job did not sin or blaspheme against God with his lips."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.11",
-      "source_sha256": "a47d46f975c640f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "434959febbdb39f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Job’s three friends heard about all this calamity that had come upon him. They arranged to come to him, each from his own country: Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite. They agreed to come together to encourage and comfort him."
+      "text": "Job's three friends heard about all this suffering that had come upon him. They arranged to meet and came to him, each from his own country: Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite. They agreed together to come and offer him sympathy and comfort him."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.12",
-      "source_sha256": "e85351aa8ce54cd5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f6e1cc6c5fc14be7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They looked up from a distance and did not recognize him. They raised their voices and wept, and each tore his robe. They threw dust toward heaven over their heads."
+      "text": "They looked up from a distance and did not recognize him. They raised their voices and wept. Each tore his robe, and they threw dust up toward heaven over their heads."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.2.13",
-      "source_sha256": "6d3da25133c28778",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "eb17b728a94dd870",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They sat with him on the ground for seven days and seven nights, and no one said a word, because they saw that his suffering was very severe."
+      "text": "They sat with him on the ground for seven days and seven nights, and no one said a word, because they saw that his suffering was very great."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.3.1",
@@ -300,10 +306,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.3.6",
-      "source_sha256": "18eed2d783c862e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3188ef8a830f4175",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "May thick darkness cover that night. May that day not be counted among the days of the year, and may it not enter into the numbering of the months."
+      "text": "Let thick darkness cover that night. Let that day not be counted among the days of the year, and let it not enter into the reckoning of the months."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.3.7",
@@ -1133,10 +1139,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.7.21",
-      "source_sha256": "3d8a0924fae64051",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6d1dfb4260e34d9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "How long will you refuse to forgive my offenses and remove my sins? For now I will lie down in the dust; you will look for me, but I will be gone."
+      "text": "How long will you refuse to forgive my sins and overlook my offenses? For now I will lie down in the dust; you will look for me, but I will no longer be there."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.8.1",
@@ -1707,10 +1713,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.11.3",
-      "source_sha256": "a951841a84f5d216",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b9e7ae53b93a944f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look, only the dead would remain silent at your words! You speak, and no one restrains you; and if you mock, no one rebukes you."
+      "text": "Look, even the dead would fall silent at your words! You speak, and no one restrains you; even when you mock, no one rebukes you."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.11.4",
@@ -1728,10 +1734,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.11.6",
-      "source_sha256": "a9165ac8e948ff74",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5ad4f849d7b6fc92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "And he would show you wisdom’s secrets, for wisdom has many folds, and you would know that God forgives your sins."
+      "text": "He would show you the hidden things of wisdom, for wisdom has many folds. Then you would know that God was forgiving your sins."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.11.7",
@@ -1868,10 +1874,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.12.6",
-      "source_sha256": "21b08a061f7093cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "1292e6f4bf085405",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The tents of robbers grow strong, and those who provoke God are secure, because God is not in their hearts."
+      "text": "The tents of robbers are at ease, and those who provoke God are secure, because God is not in their hearts."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.12.7",
@@ -2232,10 +2238,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.14.5",
-      "source_sha256": "1bb2efcc73f7d2af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "983436b755691389",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If his days are determined and the number of his months is decreed, you have established a limit that he cannot pass."
+      "text": "If his days are fixed and the number of his months is decreed, you have established a limit that he cannot cross."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.14.6",
@@ -2288,10 +2294,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.14.13",
-      "source_sha256": "32e608c57f9a1a1f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "18f08ca66d55218f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Who could bring it about that you would hide me in Sheol and conceal me until your anger passes, and then appoint a time for me and remember me?"
+      "text": "If only you would hide me in Sheol and conceal me until your anger passes, set an appointed time for me, and remember me!"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.14.14",
@@ -2624,10 +2630,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.16.4",
-      "source_sha256": "dea93860c03fc776",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6d3a74faa73bb357",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "I too could speak as you do. If only you were in my place! I would put you to the test with words and shake my head at you."
+      "text": "I too could speak as you do. If only you were in my place! Then I would test you with words and shake my head at you."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.16.5",
@@ -4059,10 +4065,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.11",
-      "source_sha256": "1e27656d5388370f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "02ebfcc7cb25c4d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "At meals they bend down and go hungry while carrying a seah and a measure; at times they go hungry at their meals. They tread winepresses and go thirsty."
+      "text": "Among the [?] they bend over and go hungry, carrying the seah and the measuring vessel. At times they go hungry among their [?]; they press winepresses and go thirsty."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.12",
@@ -4122,10 +4128,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.20",
-      "source_sha256": "a4a28724c8ffc0fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "edb988112e8a2c6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They were forgotten by the womb; the worm found them sweet. The dead will no longer be remembered, and the wrongdoer will be broken like a tree."
+      "text": "They are forgotten by the womb; worms feed on them. The dead are no longer remembered, and wickedness is broken like a tree."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.21",
@@ -4150,10 +4156,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.24",
-      "source_sha256": "2309ac90cacdcc0c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d16c31a4bc7dbce4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A little while, and they are gone. They will be brought low, and all who provoke anger will perish. Like heads of grain, they will dry up and crumble."
+      "text": "In a little while they are gone. All who provoke anger will be brought low and perish; like heads of grain, they will dry up and crumble."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.24.25",
@@ -4297,10 +4303,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.26.14",
-      "source_sha256": "5060f9e96861ba26",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "358c55365ea40c5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look, all these are only part of his ways. What evil word has been heard about him? And who can understand the greatness of his might?"
+      "text": "Look, all these are only the edges of his ways. What evil word has been heard about him? Who can comprehend the greatness of his power?"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.27.1",
@@ -4388,10 +4394,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.27.13",
-      "source_sha256": "ca5d687316688abc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "662d45f36cdf257a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Look, this is the wicked person's portion from God, and the inheritance that evildoers will receive from the Mighty One."
+      "text": "Look, this is the wicked person's portion from God, the inheritance that evildoers will receive from the Almighty."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.27.14",
@@ -4577,17 +4583,17 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.28.17",
-      "source_sha256": "9a6701ed960917d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "222fe9d9ecda21f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Gold, glass, and fine pearls cannot compare with it; rings and beads cannot compare with it."
+      "text": "Gold, glass, and fine pearls do not compare with it; rings and beads do not compare with it."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.28.18",
-      "source_sha256": "e2d16d9209539dee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2cf510071999038d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Wisdom is better than precious stones. [?] cannot compare with it, and it cannot be exchanged for emeralds or carbuncles. For wisdom is better than everything, and nothing can compare with it."
+      "text": "Wisdom is better than precious stones. The topaz of [?] does not compare with it, and it cannot be exchanged for emeralds or garnets. For wisdom is better than everything, and nothing compares with it."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.28.19",
@@ -4829,10 +4835,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.30.1",
-      "source_sha256": "d624ee84f739745f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1d2d70120d725809",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "But now, look, those younger than I am laugh at me—those whose fathers I rejected and would not even rank with the dogs of my flock."
+      "text": "But now, look, those younger than I am laugh at me—people whose fathers I despised and would not count among the dogs of my flock."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.30.2",
@@ -5193,10 +5199,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.31.24",
-      "source_sha256": "cc0f5c7bacd96ee4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f50ebe748f89d008",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If I made gold my confidence, and if I said to a precious stone, “You are my confidence,” and if I said to fine gold, “You are my hope”;"
+      "text": "If I have made gold my confidence, or said to a precious stone, ‘You are my confidence,’ or said to refined gold, ‘You are my hope’—"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.31.25",
@@ -5263,17 +5269,17 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.31.34",
-      "source_sha256": "bf31fd7f8babae19",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2c3311a21e6da7e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "and if I trampled the strength of many—but the multitude of clans broke me, and I did not turn anyone away at the gate, and I did not dwell on the speech of lips. God’s threats humbled me."
+      "text": "And if I trampled the strength of many—but it was the multitude of clans that broke me—and I did not turn anyone away at the gate, nor did I ponder the speech of lips; God's terrors humbled me."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.31.35",
-      "source_sha256": "bb77619ca0210a5d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5f18859938f4f3af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Who, then, will give me someone to hear me? If he is God, let him answer me and write the man's case in a book."
+      "text": "If only someone would give me a hearing! If God is there, let him answer me, and let him write the man's case in a book."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.31.36",
@@ -5312,17 +5318,17 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.32.1",
-      "source_sha256": "f4c67f6ae1436907",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "125fd63be0615af9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "These three men stopped trying to condemn Job, because he was righteous in their eyes."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.32.2",
-      "source_sha256": "cd2c10eaceb24814",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a15c5cf59985530",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Then Elihu son of Barachel the Buzite, from the family of Ram, became angry. His anger burned against Job because he considered himself more righteous than God."
+      "text": "Then Elihu son of Barachel the Buzite, from the clan of Ram, became angry. His anger burned against Job because Job considered himself more righteous than God."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.32.3",
@@ -5347,10 +5353,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.32.6",
-      "source_sha256": "c61e3097bbf89ee1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6694bbe31f806392",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Elihu son of Barachel the Buzite answered and said, “Because I am younger than you and you are old, I was afraid and trembled at the thought of showing you what I know."
+      "text": "Elihu son of Barachel the Buzite answered and said, ‘Because I am younger than you and you are elderly, I was afraid and trembled to tell you what I know.’"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.32.7",
@@ -5641,8 +5647,8 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.33.26",
-      "source_sha256": "4d1a0e97f9b5cd6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d496c7089c4baf3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "He will pray before God, and God will hear him and be pleased with him. He will appear before him in glory, and God will repay the man for his righteousness."
     },
@@ -5823,17 +5829,17 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.19",
-      "source_sha256": "e9a5523ea8cbe4ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "aa31f4e9dfbf9a2a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He shows no partiality to the great and no partiality to the poor, because they are all the work of his hands."
+      "text": "He shows no favoritism to nobles and no favoritism to the poor, because they are all the work of his hands."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.20",
-      "source_sha256": "bbb57a982ebdcc6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ea9437924e1f8d62",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Suddenly they die, and in the middle of the night they perish and are lost; they acknowledge the Mighty One, not through force."
+      "text": "Suddenly they die; in the middle of the night they are swept away and perish, and they acknowledge the Mighty One without force."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.21",
@@ -5893,10 +5899,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.29",
-      "source_sha256": "f42ca719580de1a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ae97dcd9b7c4b665",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If he forgives, who can condemn? If he turns his face away, who can forgive, whether a nation or an individual?"
+      "text": "If he forgives, who can condemn? If he turns his face away, who can forgive—whether a nation or an individual alike?"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.30",
@@ -5921,10 +5927,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.33",
-      "source_sha256": "7d2a480c7f5ba9df",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I will no longer give you an answer because I have sinned. For you have examined the matter, not I. Say what you know."
+      "source_sha256": "890c8cfbf35c3caa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "I will give you no further answer concerning your sin, for you have considered it, not I. Say what you know."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.34.34",
@@ -6110,10 +6116,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.36.7",
-      "source_sha256": "33e04349d2f280af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For the righteous person does not pass out of his sight. He seats kings on the throne, and they are exalted forever."
+      "source_sha256": "67ddbfdc47839af6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "For the righteous do not pass from his sight. He seats kings on the throne, and they are exalted forever."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.36.8",
@@ -6747,10 +6753,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.38.41",
-      "source_sha256": "6e3d22502348acf6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "And who gives the raven its food? For its young cry out to God and grow faint from lack of food."
+      "source_sha256": "32eafcea8c3c73be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Who gives the raven its food when its young cry out to God and grow weak for lack of food?"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.39.1",
@@ -7370,10 +7376,10 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.3",
-      "source_sha256": "e11ece28264cda29",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Who is this who devises counsel with words without knowledge? Therefore you showed me things I did not understand or know, things too great for me."
+      "source_sha256": "d10c9186a498c137",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Who is this who forms plans with words without knowledge? Therefore you have shown me that I did not understand or know things too great for me."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.4",
@@ -7398,44 +7404,44 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.7",
-      "source_sha256": "82d5f12ad0a1ccb8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "After the Lord had spoken these words to Job, the Lord said to Eliphaz the Temanite, “My anger has burned against you and your two friends, because you have not spoken rightly before me as my servant Job has."
+      "source_sha256": "f1457edb406e8a70",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "After the Lord had spoken these words to Job, the Lord said to Eliphaz the Temanite, “My anger burns against you and your two companions, because you have not spoken rightly before me as my servant Job has."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.8",
-      "source_sha256": "3bcc095ac9030a54",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "Now take seven bulls and seven rams, and go to my servant Job. Let him offer a sacrifice on your behalf, and let my servant Job pray for you. I will show him favor, so that I do not bring you into disgrace, because you have not spoken rightly before me as my servant Job has.”"
+      "source_sha256": "5fa95ddf1b6c983f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Now take seven bulls and seven rams and go to my servant Job. He will offer a sacrifice on your behalf, and my servant Job will pray for you. I will show him favor so that I do not treat you with contempt, because you have not spoken rightly before me as my servant Job has.”"
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.9",
-      "source_sha256": "3b8f0da3002a7a3d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "So Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite went and did as the Lord had told them, and the Lord showed favor to Job."
+      "source_sha256": "21edc92f56d5636d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite went and did as the Lord had told them, and the Lord showed Job favor."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.10",
-      "source_sha256": "a18ca48e16181eb0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "The Lord restored Job’s fortunes as he prayed for his friends, and the Lord gave Job twice as much as he had possessed."
+      "source_sha256": "9744eeba20d1ac23",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "The Lord restored Job’s fortunes when he prayed for his friends, and the Lord gave Job twice as much as he had possessed before."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.11",
-      "source_sha256": "2321fd75a0e13be1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "All his brothers and sisters and everyone who had known him before came to him and ate bread with him in his house. They had grieved over him, and they comforted him for all the calamities the Lord had brought upon him. Each gave him a ewe and a gold earring."
+      "source_sha256": "82ef34908423b52b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "All his brothers and sisters and everyone who had known him before came to him and ate bread with him in his house. They grieved for him and comforted him over all the troubles the Lord had brought upon him. Each gave him one ewe and one gold earring."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.12",
-      "source_sha256": "a94cf3ca4a13babf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
+      "source_sha256": "1b77ef85cd176398",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
       "text": "The Lord blessed Job’s later life more than his earlier life. He had fourteen thousand sheep, six thousand camels, a thousand pairs of oxen, and a thousand female donkeys."
     },
     {
@@ -7454,17 +7460,17 @@
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.15",
-      "source_sha256": "6143660f9ef22958",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "In all the land no women were found as beautiful as Job’s daughters, and their father gave them an inheritance along with their brothers."
+      "source_sha256": "95afa7d48c23cdcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "In the whole land no women were found as beautiful as Job’s daughters, and their father gave them an inheritance along with their brothers."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.16",
-      "source_sha256": "5b9a8ffc68cd3666",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 18,
-      "text": "After this Job lived a hundred and forty years, and he saw his children and his children’s children for four generations."
+      "source_sha256": "6fcb55c2ed1f33c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 12,
+      "text": "After this, Job lived a hundred and forty years and saw his children and his children’s children, to four generations."
     },
     {
       "chunk_id": "pta-peshitta/job#Job.42.17",

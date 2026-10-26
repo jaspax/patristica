@@ -3,8 +3,8 @@
  "group": "book:jonah",
  "pivot": "asv/jonah",
  "groups": 48,
- "inputs": "43c7c2c606d8c8ee",
- "run": {"aligner": 2, "date": "2026-10-22", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "04aef9f8ace9713c",
+ "run": {"aligner": 2, "date": "2026-10-25", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/jonah", "units": 48, "ids": "d49437082c1e80f1", "inputs": "e68f8473097c55a0", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
   {"work_id": "asv/jonah", "units": 48, "ids": "7cc6cd504e007f82", "inputs": "619879b8111d0b13", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
@@ -15,7 +15,7 @@
   {"work_id": "lxx-rahlfs/jonah", "units": 48, "ids": "f4b9721ac690b6e5", "inputs": "d44fe973f4c86a7f", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
   {"work_id": "oshb/jonah", "units": 48, "ids": "405fe2115aff146e", "inputs": "7c4983eac041c8f5", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
   {"work_id": "pta-lxx/jonah", "units": 48, "ids": "afa27c79ac741173", "inputs": "20790ae8798b4202", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
-  {"work_id": "pta-peshitta/jonah", "units": 48, "ids": "c615f7a1c099055f", "inputs": "e458f8d9b25ea0db", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta-peshitta/jonah", "units": 48, "ids": "c615f7a1c099055f", "inputs": "88b12f97359cb3ee", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
   {"work_id": "web/jonah", "units": 48, "ids": "3ccd95c16486c242", "inputs": "b318ecd04f82b34c", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"}
  ]
 }
