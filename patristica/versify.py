@@ -17,7 +17,8 @@ verse is ~31 ``cl100k_base`` tokens and a Coptic one ~221.
 ``ref.s2``, …. The ``s`` marks a unit we made, as opposed to one numbered by
 the source (:func:`is_derived_ref`); no source uses ``s<digits>`` segments.
 Chunks that are already about a verse long keep their ref, and works that
-come with a standard versification are never split (:func:`versify_chunks`).
+come with a standard versification are not split (:func:`versify_chunks`),
+except the units listed in :data:`UNVERSIFIED_UNITS` (#129).
 
 **Stability.** Derived refs are in reader URLs and translation keys, so the
 split must be repeatable: it depends only on the chunk's text and language,
@@ -52,6 +53,19 @@ VERSE_TOKENS: dict[str, int] = {
 
 #: A unit is at most this many verses long, unless it is a single word.
 MAX_VERSES = 3.0
+
+#: Units of standard-versification works (Scripture, works ingested as verses)
+#: that are not one verse but many run together, so they are split like prose
+#: (#129). Keyed by work id (every unit of the work) or chunk id, with the
+#: reason. Only what is listed here is split: a long real verse keeps its ref.
+UNVERSIFIED_UNITS: dict[str, str] = {
+    "gez/4bar": "the source (LPettay/ethiopian-bible) has no verse numbers for 4 Baruch: "
+                "one unit per chapter, each the whole chapter",
+    "armenian/1kgs#1Kgs.2.35": "the LXX additions 2:35a–o run together in one unit (~16 verses)",
+    "clementine/sir#Sir.1.1": "the Prologue (Multorum nobis…) merged into 1:1 (~14 verses)",
+    "pta-lxx/john#John.7.52": "the edition's 7:53–8:11 (pericope adulterae, with its own "
+                              "verse numbers) appended to 7:52 (~12 verses)",
+}
 
 # Boundary strengths, from strongest to weakest, and the cost of breaking at
 # each. A unit costs (length / target − 1)², so a sentence break is worth
@@ -237,15 +251,22 @@ def versify_chunks(chunks: Sequence[Chunk], standard: bool = False) -> list[Chun
     A derived verse copies its chunk's metadata, with ref ``ref.sN``.
     ``chunk_index`` is renumbered when anything was split. A work whose units
     are a *standard* versification (Scripture, and any work ingested as
-    verses, such as apocrypha from a Bible edition) is left alone, and so are
-    chunks that are already derived verses, so this is idempotent.
+    verses, such as apocrypha from a Bible edition) is left alone, except
+    its units in :data:`UNVERSIFIED_UNITS`. Chunks that are already derived
+    verses are left alone too, so this is idempotent.
     """
-    if standard:
+    if standard and not any(
+        c.work_id in UNVERSIFIED_UNITS or c.chunk_id in UNVERSIFIED_UNITS for c in chunks
+    ):
         return list(chunks)
     out: list[Chunk] = []
     split = False
     for chunk in chunks:
-        if is_derived_ref(chunk.canonical_ref):
+        if is_derived_ref(chunk.canonical_ref) or (
+            standard
+            and chunk.work_id not in UNVERSIFIED_UNITS
+            and chunk.chunk_id not in UNVERSIFIED_UNITS
+        ):
             out.append(chunk)
             continue
         units = split_text(chunk.text, chunk.language)

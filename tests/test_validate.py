@@ -134,6 +134,12 @@ class TestScriptureByGenre:
         ]
         assert result["prose_ref_malformed"]["status"] == "pass"
 
+    def test_derived_verse_of_a_scripture_ref_is_well_formed(self, records: dict[str, dict]):
+        """A split many-verse unit (#129) is a verse ref plus ``.sN``."""
+        chunks = [_chunk("bib/gen", "Gen.2.35.s1"), _chunk("bib/gen", "Gen.2.s1", 1)]
+        result = _check_canonical_refs(chunks, records)
+        assert result["scripture_ref_malformed"]["examples"] == ["bib/gen#Gen.2.s1 ('Gen.2.s1')"]
+
     def test_coverage_uses_genre(self, records: dict[str, dict]):
         coverage = _check_scripture_coverage(
             records, [_chunk("bib/gen", "Gen.1.1"), _chunk("bib/notes", "X.1.1")]
