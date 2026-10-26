@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-26": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-26",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -628,11 +634,74 @@
       "text": "Benaiah son of Jehoiada went out, struck Joab, and killed him. He buried him at his own house in the wilderness."
     },
     {
-      "chunk_id": "armenian/1kgs#1Kgs.2.35",
-      "source_sha256": "d805673c596c7b6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "The king appointed Benaiah son of Jehoiada as commander in his place, and the kingdom was established in Jerusalem. The king appointed Zadok the priest in place of Abiathar as priest before the Lord. The Lord gave Solomon very great understanding and wisdom, and breadth of mind like the sand along the seashore. Solomon’s understanding surpassed that of all the descendants of the ancients and the wisdom of the Egyptians. He married Pharaoh’s daughter and brought her into the City of David until he finished building his own house. First he built the house of the Lord and the wall all around Jerusalem, completing them in seven years. Solomon had seventy thousand burden bearers and eighty thousand stonecutters in the mountains. Solomon made the Sea, the supports, the large basins, the pillars, the fountains of the portico, and the bronze Sea. He built the raised terrace with monuments and separated off the City of David. Then Pharaoh’s daughter went up from the City of David to her own house, which he had built for her, and then he built the raised terrace. Three times a year Solomon offered burnt offerings and peace offerings on the altar he had built for the Lord, and he burned incense before the Lord. He completed the house. These were the officials overseeing Solomon’s work: three thousand six hundred supervisors of the people who did the work. He built Hazor, Megiddo, Gezer, Upper Beth-horon, and Baalath. But it was after he had built the house of the Lord and the wall all around Jerusalem that he built those cities. While David was still alive, he commanded Solomon, saying, “Look, you have with you Shimei son of Gera, a son of the line of Benjamin, from Hebron. He cursed me with grievous curses on the day when I went to Mahanaim. He came down to meet me on the bank of the Jordan, and I swore to him by the Lord, ‘You shall not die by the sword.’ Now do not treat him as innocent, for you are a wise man and will know what to do to him. Bring his gray hair down to the realm of the dead in blood.”"
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s1",
+      "source_sha256": "8f27d8001ac767b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "And the king appointed Benaiah son of Jehoiada as commander in his place, and the kingdom was firmly established in Jerusalem. And the king appointed Zadok the priest in place of Abiathar as priest before"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s2",
+      "source_sha256": "3754d2c6774a6740",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "the Lord. And the Lord gave Solomon very great understanding and wisdom, and breadth of mind like the sand along the seashore. And Solomon’s understanding surpassed that of all the sons of the ancients and"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s3",
+      "source_sha256": "a92104a74feb156d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "the wisdom of the Egyptians. And he took Pharaoh’s daughter and brought her into the City of David until he had finished his own house. And first, the house of the Lord and the wall around Jerusalem—for seven years"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s4",
+      "source_sha256": "9d5bfb2f7a84c1f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "he worked on them and completed them. And Solomon had seventy thousand burden bearers and eighty thousand stonecutters in the mountain. And Solomon made the Sea, the stands, the large basins, the pillars, and"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s5",
+      "source_sha256": "062bb7a2e539d0a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "the fountains of the portico and the bronze Sea. And he built the citadel with battlements and partitioned the City of David. And then Pharaoh’s daughter went up from the City of David to her own house, which he had built for her,"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s6",
+      "source_sha256": "8b1365ed013b8556",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "and then he built the citadel. And three times a year Solomon offered burnt offerings and peace offerings on the altar that he had built for the Lord, and he burned incense before the Lord. And he completed"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s7",
+      "source_sha256": "7c7168eb29abf03d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "the house. And these were the officials who supervised Solomon’s work: three thousand six hundred overseers of the people who carried out the work. And he built Hazor, Megiddo, Gezer, and"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s8",
+      "source_sha256": "76e55a151ebdcee4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "Upper Beth-horon and Baalath. But it was after he had built the house of the Lord and the wall around Jerusalem that he built those cities. And while David was still alive, he instructed"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s9",
+      "source_sha256": "b67f1e10ef0bf438",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "Solomon, saying, “Look, you have with you Shimei son of Gera, a descendant of Benjamin, from Hebron. He cursed me with bitter curses on the day when I went to Mahanaim. And he came down to meet me on the bank"
+    },
+    {
+      "chunk_id": "armenian/1kgs#1Kgs.2.35.s10",
+      "source_sha256": "0788360976752ce8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
+      "group_size": 10,
+      "text": "of the Jordan, and I swore to him by the Lord, ‘You shall not die by the sword.’ Now, therefore, do not hold him guiltless, for you are a wise man and will know what to do to him, and you shall bring his gray hairs down to Sheol in blood.”"
     },
     {
       "chunk_id": "armenian/1kgs#1Kgs.2.36",
