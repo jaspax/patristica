@@ -1,9 +1,9 @@
 """
-Ingestion module for the Sahidic Coptic New Testament.
+Ingestion module for the Sahidic Coptic Bible (Old and New Testament books).
 
 Source:  https://github.com/scrollmapper/bible_databases  (formats/csv/CopSahBible2.csv)
          The scrollmapper CopSahBible2 translation provides a clean verse-per-row
-         Sahidic Coptic NT in Unicode.
+         Sahidic Coptic text (OT books and the NT) in Unicode.
 License: Presumed public domain (ancient text; digital encoding freely available)
 """
 
@@ -18,7 +18,7 @@ SOURCE_ID = "coptic-nt"
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
-    """Download and parse the Sahidic Coptic NT (scrollmapper CopSahBible2)."""
+    """Download and parse the Sahidic Coptic Bible (scrollmapper CopSahBible2)."""
     return ingest_scrollmapper(
         output_dir=output_dir,
         translation="CopSahBible2",

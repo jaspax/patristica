@@ -329,6 +329,7 @@ def _check_language_script(chunks: list[dict]) -> dict[str, CheckResult]:
 def _check_canonical_refs(
     chunks: list[dict], work_records: dict[str, dict]
 ) -> dict[str, CheckResult]:
+    from patristica.versify import is_derived_ref
     from scripts.ingest._scripture_meta import ALL_BOOKS as all_books
     scripture_work_ids = {
         wid for wid in work_records if _genre_of(wid, work_records) == "scripture"
@@ -351,6 +352,10 @@ def _check_canonical_refs(
             empty_ref.append(cid)
             continue
         parts = ref.split(".")
+        if wid in scripture_work_ids and is_derived_ref(ref):
+            # A unit split into derived verses (UNVERSIFIED_UNITS, #129): the
+            # ref is a verse ref plus ``.sN``.
+            parts = parts[:-1]
         if wid in scripture_work_ids:
             if len(parts) != 3 or parts[0] not in all_books:
                 bad_scripture.append(f"{cid} ({ref!r})")
