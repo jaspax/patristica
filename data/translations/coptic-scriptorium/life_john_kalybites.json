@@ -21,15 +21,21 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-15",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0000",
-      "source_sha256": "8fa0c67409c99a48",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "This is the life of the blessed John, the perfect monk, whose parents had a Gospel made for him in gold."
+      "source_sha256": "eed061def379345b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 1,
+      "text": "This is the life of the blessed John, the perfect monk, whose parents had a Gospel book of gold made for him."
     },
     {
       "chunk_id": "coptic-scriptorium/life_john_kalybites#CopScr.life-john-kalybites.000.0001.s1",

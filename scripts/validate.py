@@ -43,6 +43,7 @@ from tqdm import tqdm
 from patristica import fingerprint
 from patristica.authors import UnknownAuthorError, resolve_author, work_author_birth_year
 from patristica.period import AUTHOR_BORN_BEFORE, COMPOSED_BY
+from patristica.mojibake import mojibake_runs
 from patristica.section_numbers import STRAY_SCRIPT_DIGIT_RE, leading_section_number
 
 log = logging.getLogger(__name__)
@@ -215,7 +216,7 @@ def _check_schema(parse_errors: list[str]) -> dict[str, CheckResult]:
 # ---------------------------------------------------------------------------
 
 def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
-    empty, short, html, replacement, low_alpha = [], [], [], [], []
+    empty, short, html, replacement, low_alpha, mojibake = [], [], [], [], [], []
     for c in chunks:
         cid = c.get("chunk_id", "?")
         text = c.get("text", "")
@@ -227,6 +228,9 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
             html.append(cid)
         if text and _REPLACEMENT_CHAR in text:
             replacement.append(cid)
+        runs = mojibake_runs(text) if text else []
+        if runs:
+            mojibake.append(f"{cid} ({runs[0]!r})")
         if text and text.strip() and _alpha_ratio(text) < MIN_ALPHA_RATIO:
             low_alpha.append(cid)
     return {
@@ -235,6 +239,11 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
         "text_has_html_tags": _result("warning", html, "many are OCR artifacts in OGLT PL/OGPG/Gallican"),
         "text_has_replacement_char": _result("warning", replacement, "U+FFFD indicates encoding failure"),
         "text_low_alpha_ratio": _result("warning", low_alpha, f"< {MIN_ALPHA_RATIO:.0%} alphabetic chars"),
+        "text_has_mojibake": _result(
+            "warning", mojibake,
+            "double-encoded UTF-8 (\"Î»á½¹Î³Î¿Î½\" for \"λόγον\"): repair at ingest with "
+            "patristica.mojibake.repair_double_utf8 (#124)",
+        ),
     }
 
 

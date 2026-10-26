@@ -47,6 +47,12 @@ describe("useHashTarget", () => {
     expect(container.querySelector(`[${TARGET_ATTRIBUTE}]`)?.id).toBe("Gen.1.1");
   });
 
+  it("opens a derived verse that is gone at its unit or section heading (#122)", () => {
+    window.location.hash = "#Gen.1.1.s4";
+    render(<Text ready />);
+    expect(scrolled).toHaveBeenCalledWith("Gen.1.1");
+  });
+
   it("follows fragment changes, including derived verses", () => {
     window.location.hash = "#Gen.1.1";
     const { container } = render(<Text ready />);

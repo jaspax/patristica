@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import { isDerivedRef } from "./render";
+
 /** Attribute set on the element the URL fragment names (styled in WorkText.module.css). */
 export const TARGET_ATTRIBUTE = "data-target";
 
@@ -101,6 +103,13 @@ export function useHashTarget(ready: boolean, resolve: (id: string) => Element |
   }, [ready]);
 }
 
-function byId(id: string): Element | null {
-  return document.getElementById(id);
+/**
+ * The element with id `id`; for a derived verse (`Did.1.s3`) that isn't on
+ * the page, its unit (`Did.1`), or the section heading that took over that
+ * ref when the unit was cut into printed verses (#122).
+ */
+export function byId(id: string): Element | null {
+  const el = document.getElementById(id);
+  if (el || !isDerivedRef(id)) return el;
+  return document.getElementById(id.slice(0, id.lastIndexOf(".")));
 }

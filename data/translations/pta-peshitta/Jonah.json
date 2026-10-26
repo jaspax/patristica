@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -34,43 +40,43 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.3",
-      "source_sha256": "22fcabfcaebad4f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5b20f11e1bbd47d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Jonah got up to flee to Tarshish from the presence of the Lord. He went down to Joppa and found a ship going to Tarshish. He paid the fare and boarded it to go with them to Tarshish, fleeing from the presence of the Lord."
+      "text": "Jonah set out to flee to Tarshish from the presence of the Lord. He went down to Joppa and found a ship going to Tarshish. He paid the fare and went aboard to travel with them to Tarshish, fleeing from the presence of the Lord."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.4",
-      "source_sha256": "4e829e5aba75ba7e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c7e76b013d10babe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The Lord hurled a great wind onto the sea, and a great storm arose on the sea. The ship was being tossed about and was about to break apart."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.5",
-      "source_sha256": "52456ced3bd21762",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d646df66d9359f38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The sailors were afraid, and each cried out to his god. They threw the cargo from the ship into the sea to lighten their load. But Jonah had gone down into the bottom of the ship and fallen asleep."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.6",
-      "source_sha256": "e89bb36a831fb574",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "The captain approached him and said to him, “Why are you sleeping? Get up and call on your god. Perhaps God will rescue us, and we will not perish.”"
+      "source_sha256": "cf851330f5e87847",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The captain approached him and said, “Why are you sleeping? Get up and call on your god! Perhaps God will rescue us, and we will not perish.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.7",
-      "source_sha256": "c0cc9c85413abce5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "aa04f846527e7aa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They said to one another, “Come, let us cast lots and find out on whose account this disaster has come upon us.” They cast lots, and the lot fell to Jonah."
+      "text": "They said to one another, “Come, let us cast lots and find out on whose account this disaster has come upon us.” They cast lots, and Jonah’s lot came up."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.8",
-      "source_sha256": "aa6a8e9e581bd56f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ebd1edaf2ad7ea5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "They said to him, “Tell us why this disaster has come upon us. What is your occupation? Where do you come from? What is your country, and what people do you belong to?”"
     },
@@ -83,10 +89,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.10",
-      "source_sha256": "acd62117b6127979",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b02541c5e8d739f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The men were greatly afraid and said to him, “What have you done?” For the men knew that he was fleeing from the presence of the Lord, since he had told them."
+      "text": "Those men became very frightened and said to him, “What have you done?” For the men knew that he was fleeing from the presence of the Lord, since he had told them."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.11",
@@ -97,24 +103,24 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.12",
-      "source_sha256": "d50e74dcbed230a9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d15ee0a98a2d7843",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Jonah said to them, “Pick me up and throw me into the sea, and the sea will become calm for you. For I know that this great storm has come upon you because of me.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.13",
-      "source_sha256": "b95f77d838de9e38",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "30affa95102e970b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The men struggled to return to dry land, but they could not, because the sea was growing increasingly turbulent against them."
+      "text": "The men struggled to return to dry land, but they could not, because the sea kept growing more turbulent against them."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.14",
-      "source_sha256": "34ceb222acc30f8d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "79c835dba3eb25e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They called to the Lord and said, “Please, Lord, do not let us perish because of this man's life, and do not hold us accountable for innocent blood. For you are the Lord, and you do as you please.”"
+      "text": "They called out to the Lord and said, “Please, Lord, do not let us perish on account of this man’s life, and do not hold us responsible for innocent blood. For you are the Lord, and you do as you please.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.1.15",
@@ -132,10 +138,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.2.1",
-      "source_sha256": "622cf7165594d170",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "62171d802ffaea82",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The Lord prepared a great fish, and it swallowed Jonah. Jonah was in the fish's belly for three days and three nights."
+      "text": "The Lord prepared a great fish, and it swallowed Jonah. Jonah was in the belly of the fish for three days and three nights."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.2.2",
@@ -174,8 +180,8 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.2.7",
-      "source_sha256": "6ee2c4f3c01ca788",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "eeef08514d2cc8fc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "I went down to the foundations of the mountains, and the earth shut its bars against me forever. But you brought my life up from destruction, Lord my God."
     },
@@ -223,45 +229,45 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.3",
-      "source_sha256": "20f79650577b0f25",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Jonah got up and went to Nineveh according to the word of the LORD. Nineveh was a great city in God's sight, a three-day journey across."
+      "source_sha256": "1849e7354ea827c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Jonah set out and went to Nineveh according to the word of the Lord. Nineveh was a city great in God’s sight, a journey of three days."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.4",
-      "source_sha256": "7234b3eba64d1749",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Jonah began to enter Nineveh, going a day's journey, and proclaimed, “In forty days Nineveh will be overthrown!”"
+      "source_sha256": "38c43c944d636e30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Jonah began to enter Nineveh, going a day’s journey, and proclaimed, “In forty days Nineveh will be overthrown!”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.5",
-      "source_sha256": "94f710aae8461d7b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The people of Nineveh believed God. They proclaimed a fast and put on sackcloth, from the greatest of them to the least."
+      "source_sha256": "0b083276a8121b8f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The people of Nineveh believed God. They declared a fast and put on sackcloth, from the greatest of them to the least."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.6",
-      "source_sha256": "b835716033320882",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The news reached the king of Nineveh. He rose from his throne, took off his crown, put on sackcloth, and sat in ashes."
+      "source_sha256": "d8d34b5cef970cda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The news reached the king of Nineveh. He rose from his throne, removed his crown, put on sackcloth, and sat on ashes."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.7",
-      "source_sha256": "a148e141ff3f738a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "He had this proclamation made in Nineveh: “By decree of the king and his nobles: Neither people nor animals, cattle nor sheep, are to taste anything. They must not graze or drink water."
+      "source_sha256": "aaa238de38029855",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "He issued this proclamation in Nineveh: “By order of the king and his nobles: Neither people nor animals, cattle nor sheep, are to taste anything. They must not graze or even drink water."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.8",
-      "source_sha256": "e1723483dd724198",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Instead, people and animals must be covered with sackcloth, and they must cry out earnestly to God. Everyone must turn from their evil ways and from the violence in their hands."
+      "source_sha256": "75cbbcf539c7694d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Instead, people and animals must be covered with sackcloth. They must cry out earnestly to God, and everyone must turn from their evil ways and from the violence in their hands."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.9",
@@ -272,9 +278,9 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.3.10",
-      "source_sha256": "5b6a9cd00d110047",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
+      "source_sha256": "721f95c5895bfa10",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
       "text": "God saw their deeds, that they had turned from their evil ways. He turned his fierce anger away from them and did not destroy them."
     },
     {
@@ -286,10 +292,10 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.2",
-      "source_sha256": "606ff6e37dae02cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "He prayed before the LORD and said, “Ah, LORD, was this not what I said while I was still in my own country? That is why I fled to Tarshish beforehand. For I knew that you are a merciful and compassionate God, slow to anger and abundant in kindness, and that you turn away calamity."
+      "source_sha256": "f81e012e86e02810",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "He prayed before the Lord and said, “Please, Lord, was this not what I said while I was still in my own country? That is why I fled to Tarshish in the first place. For I knew that you are a merciful and compassionate God, slow to anger and abundant in kindness, and that you turn aside disaster.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.3",
@@ -307,52 +313,52 @@
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.5",
-      "source_sha256": "d8677ca349ca259e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "Jonah went outside the city and sat to the east of it. He made himself a shelter there and sat beneath it in the shade to see what would happen to the city."
+      "source_sha256": "35cf8b3a511b96df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "Jonah went out of the city and sat down east of it. He made himself a shelter there and sat beneath it in the shade to see what would happen to the city."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.6",
-      "source_sha256": "569368fd929b8514",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The LORD God appointed a gourd vine, and it sprouted and grew up over Jonah, providing shade over his head and relieving his distress. Jonah was very happy about the gourd vine."
+      "source_sha256": "0b1b1d6a315fe588",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The Lord God commanded a gourd vine, and it sprouted and grew up over Jonah. It provided shade over his head and relieved his discomfort. Jonah was very happy about the gourd vine."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.7",
-      "source_sha256": "aae381cb4327fefe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "At dawn the next day, the LORD God appointed a worm, and it attacked the gourd vine and cut it down."
+      "source_sha256": "1fa49cf2f7c7938a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "At dawn the next day, the Lord God commanded a worm, and it attacked the gourd vine and cut it down."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.8",
-      "source_sha256": "06d17a4ebdddb2e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "When the sun rose, the LORD God appointed a scorching wind, and it dried up the gourd. The sun beat down on Jonah's head, and he grew faint. He asked to die and said, “It is in your power, LORD, to take my life from me, for I am no better than my ancestors.”"
+      "source_sha256": "e1f28d37e8e41853",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "When the sun rose, the Lord God commanded a scorching wind, and it dried up the gourd. The sun beat down on Jonah’s head, and he grew faint. He asked that he might die and said, “Reach out your hands, Lord, to take my life from me, for I am no better than my ancestors.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.9",
-      "source_sha256": "540669c61d4b8d11",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The LORD God said to Jonah, “Are you so deeply upset about the gourd vine?” Jonah said, “I am deeply upset, to the point of death.”"
+      "source_sha256": "9879a4c0ffffde34",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 25,
+      "text": "The Lord God said to Jonah, “Are you very upset about the gourd vine?” Jonah said, “I am very upset, even to the point of death.”"
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.10",
-      "source_sha256": "61399197f2fe73e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 19,
-      "text": "The LORD said to him, “You felt pity for the gourd vine, which you did not labor over or raise. It grew in a night and withered in a night."
+      "source_sha256": "25991dab57d199df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 2,
+      "text": "The Lord said to him, “You had pity on the gourd plant, for which you did not labor and which you did not make grow. It sprang up in a night and dried up in a night."
     },
     {
       "chunk_id": "pta-peshitta/jonah#Jonah.4.11",
-      "source_sha256": "70425e143ab5a8fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 4,
-      "text": "“Should I not have pity on Nineveh, the great city, where there are more than one hundred and twenty thousand people who do not know their right hand from their left, and many livestock?”"
+      "source_sha256": "91ce4760872e8916",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 2,
+      "text": "Should I not have pity on Nineveh, that great city, in which there are more than a hundred and twenty thousand people who do not know their right hand from their left, and many animals?”"
     }
   ]
 }

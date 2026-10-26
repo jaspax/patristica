@@ -21,15 +21,21 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-15",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0000.s1",
-      "source_sha256": "3309114b09760e38",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "[?] Alpha [?] Omega [?] Jesus [?] Christ [?] A eulogy delivered by our holy father, honored in every way:"
+      "source_sha256": "d35c34c6836187c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 1,
+      "text": "Alpha. Omega. Jesus ✠ Christ. A speech of praise delivered by our holy father, who is honored in every way."
     },
     {
       "chunk_id": "coptic-scriptorium/pseudo_timothy#CopScr.pseudo-timothy.000.0000.s2",

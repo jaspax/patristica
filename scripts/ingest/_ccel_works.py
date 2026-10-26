@@ -26,6 +26,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, replace
 from pathlib import Path
 
@@ -102,6 +103,9 @@ class _WorkSpec:
     split: str | None = None
     #: work_id of the original-language Work in the corpus (``Work.translation_of``).
     translation_of: str | None = None
+    #: Re-chunks the extracted paragraphs, e.g. at the verse numbers the edition
+    #: prints inline (``_printed_verses.rechunk``, #122).
+    rechunk: Callable[[list[dict[str, str]]], list[dict[str, str]]] | None = None
 
 
 def P(
@@ -116,9 +120,10 @@ def W(
     date: int | None, rng: tuple[int, int], conf: DateConfidence,
     tradition: Tradition | None, ref_prefix: str, *parts: _Part,
     genre: Genre = "patristic", split: str | None = None,
+    rechunk: Callable[[list[dict[str, str]]], list[dict[str, str]]] | None = None,
 ) -> _WorkSpec:
     return _WorkSpec(volume, slug, title, author, date, rng, conf, tradition,
-                     ref_prefix, tuple(parts), genre, split)
+                     ref_prefix, tuple(parts), genre, split, rechunk=rechunk)
 
 
 def link_originals(
@@ -202,6 +207,8 @@ def extract_work(spec: _WorkSpec, ids: dict[str, etree._Element]) -> list[dict[s
         paragraphs.extend(paras)
     if spec.split:
         paragraphs = _split_commentary(paragraphs, spec.split)
+    if spec.rechunk:
+        paragraphs = spec.rechunk(paragraphs)
     refs = [p["ref"] for p in paragraphs]
     if len(set(refs)) != len(refs):
         raise RuntimeError(f"Duplicate canonical refs in {spec.slug}")
