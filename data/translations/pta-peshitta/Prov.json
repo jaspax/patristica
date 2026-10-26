@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -167,10 +173,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.1.22",
-      "source_sha256": "e9daf4ac53499e4e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e66faab882470d8e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "“How long, you simple people, will you love simplicity? You mockers, how long will you crave mockery? You fools, how long will you hate knowledge?"
+      "text": "How long, you childish people, will you love childishness? How long, you mockers, will you crave mockery, and you fools hate knowledge?"
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.1.23",
@@ -419,10 +425,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.3.3",
-      "source_sha256": "14d522cb6396c83a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3701c0c6f8c1a8b2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "And peace, kindness, and truth will not leave you. Bind them around your neck and write them on the tablets of your heart."
+      "text": "Do not let peace, kindness, and truth leave you. Instead, tie them around your neck and write them on the tablets of your heart."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.3.4",
@@ -979,10 +985,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.5.21",
-      "source_sha256": "19d8e68ca562032f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6801ee9f64b8f6a9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For a man's ways are before the eyes of the Lord, and all his paths are laid bare before him."
+      "text": "For a person's ways are before the eyes of the Lord, and all his paths lie open before him."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.5.22",
@@ -1014,10 +1020,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.6.3",
-      "source_sha256": "d561cf2fd362eb60",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a324f7cbc32eae3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Do this, my son, and free yourself: because of your neighbor you have fallen into the hands of your enemy. So urge the neighbor for whom you stood as guarantor."
+      "text": "Do this, my son, and escape: because of your friend you have fallen into your enemy's hands. So urge the friend for whom you have given a guarantee."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.6.4",
@@ -1147,10 +1153,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.6.22",
-      "source_sha256": "b00ae88a20f63eb6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b5a05196d92a947",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When you walk, take them along with you, and they will be with you. Keep them so that they may keep you, and when you awaken, they will be your meditation."
+      "text": "When you walk, keep them close to you, and let them be with you. Guard them so that they may guard you, and when you wake, let them be your meditation."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.6.23",
@@ -1392,17 +1398,17 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.7.22",
-      "source_sha256": "f89f71d9f03a08b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c14052143a0150f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He followed her like a child, like an ox going to slaughter, and like a dog going to be bound."
+      "text": "He was following her like a child, like an ox going to slaughter, and like a dog going to be bound."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.7.23",
-      "source_sha256": "14cec12dd640deb6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "93e69595078b0964",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Like a deer whose liver an arrow pierces, he rushes like a bird into a trap, not knowing that he is going to his own death."
+      "text": "Like a deer into whose liver an arrow flies, he rushes like a bird into a trap, not knowing that he is going to his own death."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.7.24",
@@ -1490,10 +1496,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.8.9",
-      "source_sha256": "f15b1feca0816cb4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7393de38524252dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They are all clear to anyone who understands them, and straightforward to anyone who wishes to know them."
+      "text": "They are all clear to anyone who understands them, and straightforward to anyone who wants to know them."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.8.10",
@@ -1518,8 +1524,8 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.8.13",
-      "source_sha256": "d85daba1463cb05f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0d75f46d0d2ec224",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "The fear of the Lord hates evil. I hate pride, arrogance, the evil way, and a perverse mouth."
     },
@@ -1763,10 +1769,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.9.12",
-      "source_sha256": "ae18360432584c6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6b549b79581874f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "My son, if you are wise, you are wise for yourself and for those who love you. But if you become wicked, you alone will bear your evil deeds. Whoever denies deceitfully feeds on winds and chases the birds of heaven. For he has abandoned the path to his vineyard and strayed from the paths of his work, to walk in a wilderness without water. And from the hand of [?] he walks in thirst; he too will gather nothing."
+      "text": "My son, if you are wise, you are wise for yourself and for your friends. But if you become evil, you alone will bear your evil deeds. Whoever makes a false denial tends the winds and chases the birds of the sky. For he has left the path of his vineyard and strayed from the paths of his work to walk in a waterless wilderness. Leaving the well-trodden way, he wanders in thirst; he too will gather nothing."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.9.13",
@@ -1805,10 +1811,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.9.18",
-      "source_sha256": "4ade6a9a9c139b04",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "b62f98d9a1cd4953",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "He does not know that mighty men perish with her, and that all who visit her are in the depths of Sheol. But leap away and do not linger in that place, and do not let your eye be caught by it. For in this way you will cross foreign waters and pass over a foreign river. Turn aside from foreign waters, and do not drink foreign waters, for many days and years of life will be added to you."
+      "text": "He does not know that mighty men perish with her, and that all her guests are in the depths of Sheol. But hurry away and do not linger in that place. Do not let your eye be caught there. For in this way you will pass foreign waters and cross a foreign river. Turn away from foreign waters, and do not drink foreign waters, so that many days and years of life may be added to you."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.10.1",
@@ -1980,10 +1986,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.10.25",
-      "source_sha256": "f24c95e2c978bec9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d72d53918e4c518a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Just as a whirlwind passes suddenly, so the wicked person will perish and not be found. But the foundations of the righteous will be established forever."
+      "text": "As a whirlwind suddenly passes, so the wicked person will perish and no longer be found. But the foundations of the righteous will be established forever."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.10.26",
@@ -2141,10 +2147,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.16",
-      "source_sha256": "44204ebd7098aad2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bcfbae2b83f6c6eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A compassionate woman brings honor to a man, but a woman who hates truth is a throne of disgrace. The lazy are needy even amid their wealth, but the strong uphold knowledge."
+      "text": "A compassionate woman brings honor to a man, but a woman who hates truth is a throne of disgrace. Lazy people become needy even with their wealth, but strong people uphold knowledge."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.17",
@@ -2211,10 +2217,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.26",
-      "source_sha256": "daf7d5a0d0488547",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8c1721728866fa66",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "In a time of distress, they will abandon the one who withholds grain to his enemies, but a blessing will rest on the head of the one who sells it."
+      "text": "The one who withholds grain in a time of distress will be abandoned to his enemies, but a blessing will rest on the head of the one who sells it."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.27",
@@ -2232,10 +2238,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.29",
-      "source_sha256": "27454177c47748c8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9a89fdbe8baa9d1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Whoever builds his house with [?] will leave groans to his children. Whoever does not gather into his house will distribute wind to his children, and a fool will become a servant to the wise."
+      "text": "Whoever builds his household on terror will leave his children sighs. Whoever does not work in his household will distribute winds to his children, and a fool will become a servant to the wise."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.11.30",
@@ -2274,10 +2280,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.12.4",
-      "source_sha256": "9798c4a82c02f0a9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "28ab2227ca0a3859",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A capable wife is her husband’s crown, but like [?] and a worm in wood, a wife who does evil destroys her husband."
+      "text": "A capable woman is her husband's crown, but like a beetle and a worm in wood, a woman who does evil destroys a man."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.12.5",
@@ -2526,17 +2532,17 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.13.12",
-      "source_sha256": "8dbe122fc2a2aa6a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b5a355decdb430a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A person who begins to help is better than someone who keeps holding out hope; hope brings a tree of life."
+      "text": "A person who begins to help is better than one who keeps hope hanging, and hope that comes to fulfillment is a tree of life."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.13.13",
-      "source_sha256": "d352810ed07b6c19",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a88caa44c200f823",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Whoever despises the word will be ruined by it, but whoever fears the commandment will be saved. A deceitful person will receive no favor, but a wise person whose deeds are upright will also advance to the top."
+      "text": "Whoever despises the word will be ruined by it, but whoever fears the commandment will be saved. A deceitful man will receive no favor, but a wise man whose deeds are upright will also rise to the top in his course."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.13.14",
@@ -2596,10 +2602,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.13.22",
-      "source_sha256": "8257dad0c336ece0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "07b2aaf5c2f1e855",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A good man leaves an inheritance to his grandchildren, and the sinner’s wealth is stored up for the righteous. Those for whom a life of many years was not fitting lost their wealth, and some perished completely."
+      "text": "A good man leaves an inheritance to his grandchildren, and the sinner's wealth is stored up for the righteous. Those whose lives did not last many years lost their wealth, and some perished completely."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.13.24",
@@ -2673,10 +2679,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.9",
-      "source_sha256": "f3febb2a23600eda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d0fba7ffa7630057",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The houses of the wicked rightly need cleansing, but the houses of the righteous are accepted. Fools commit sins, but the children of the upright have favor."
+      "text": "The households of the wicked rightly need purification, but the households of the righteous are accepted. Fools commit sins, but the children of the upright enjoy favor."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.10",
@@ -2764,17 +2770,17 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.22",
-      "source_sha256": "84868c2b5c187a1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "04bbfc847790edda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The wicked who do evil go astray, but the compassionate and righteous do every kind of good. Those who do evil will not understand mercy and faithfulness, but compassion and faithfulness are with those who do good."
+      "text": "The wicked go astray by doing evil, but the compassionate and righteous do every kind of good. Those who do evil will not understand mercy and faithfulness, but compassion and faithfulness are with those who do good."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.23",
-      "source_sha256": "57e9d99e888b8219",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "70e3ca5fd6a44c2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "In everything you labor at, there is something that brings profit. Whoever is humble in his way of life will be gentle and kind. The Lord heals every pain, but the words from the lips of the wicked bring them loss."
+      "text": "In everything you work at, there is something to be gained. Whoever is modest in his way of life will be gentle and pleasant. The Lord heals every pain, but the speech of the wicked impoverishes them."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.24",
@@ -2855,10 +2861,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.14.35",
-      "source_sha256": "58ecca519cbbe26e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f307656397593626",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The king favors a prudent servant. By his own wisdom the wicked person is overthrown. Whoever is confident that he has no sins is righteous. But anger destroys even the wise."
+      "text": "A king favors an understanding servant, but the wicked person is overthrown by his own wisdom. Whoever is confident that he has no sins is righteous, but anger destroys even the wise."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.15.1",
@@ -3261,8 +3267,8 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.16.25",
-      "source_sha256": "79f76e61c4cdf48e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b8cd65b2aefd2d5f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "There is a way that seems right in people's eyes, but its paths are paths of death."
     },
@@ -3667,8 +3673,8 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.18.22",
-      "source_sha256": "1a8940bc40e11001",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "09ed5766d2fd8906",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
       "text": "Whoever finds a good wife finds something good and receives favor from the Lord. Whoever sends away a good wife sends goodness out of his house."
     },
@@ -3730,10 +3736,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.19.7",
-      "source_sha256": "522d987cea494af5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "All a poor person's brothers hate him, and even his friends are far from him. Whoever [?] in his words is not reliable."
+      "source_sha256": "7ae07e1c5c371650",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "All the poor man's brothers hate him, and even his friends keep far away from him. Anyone who is [?] in his words is not trustworthy."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.19.8",
@@ -4017,9 +4023,9 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.20.19",
-      "source_sha256": "22505a85b1c40718",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "94789d8967fc4a45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
       "text": "A slanderer reveals secrets, but someone trustworthy in spirit conceals a matter. Do not associate with someone whose lips are hasty."
     },
     {
@@ -4717,17 +4723,17 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.23.29",
-      "source_sha256": "be8a762e6281d898",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Who has woe? Who has sorrow? Who has disputes? Who has troubles? Who has wounds for no reason? And whose eyes are discolored?"
+      "source_sha256": "880b7b134ba3eb51",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Who has woe? Who has sorrow? Who has disputes? Who has troubles? Who has wounds for no reason? Whose eyes are discolored?"
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.23.30",
-      "source_sha256": "fde76c0db809e0ef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Who but those who linger over wine and search out where there is a drinking house? Do not get drunk on wine, but speak with righteous people, and walk and talk with them."
+      "source_sha256": "e3498463d316dfc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Who but those who linger over wine and search out places where there is a drinking house? Do not become drunk with wine, but speak with righteous people, and walk and talk with them."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.23.31",
@@ -4759,10 +4765,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.23.35",
-      "source_sha256": "854989ea56242abc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "You will say, “They struck me, but I felt no pain. They mocked me, but I was unaware. When will I wake up and go looking for it?”"
+      "source_sha256": "665da4e1bd3e35c8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "You will say, “They struck me, but I felt no pain. They were mocking me, but I did not know it. When will I wake up and go looking for it?”"
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.24.1",
@@ -4843,10 +4849,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.24.12",
-      "source_sha256": "511f9f7e3aea59d7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 20,
-      "text": "If you say, “I do not know,” know that God examines the thoughts of the heart. The one who guards your life knows, and he repays each person according to their deeds."
+      "source_sha256": "649bf158f9de6130",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "If you say, “I do not know,” know that God searches the thoughts of the heart. The one who watches over your life knows, and he repays each person according to their deeds."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.24.13",
@@ -5046,10 +5052,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.7",
-      "source_sha256": "dd765cfb2cfce0f6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For it is better for him to say to you, “Come up higher,” than to humiliate you before a ruler. Say what your eyes have seen."
+      "source_sha256": "6654c24ba6147be6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "For it is better that he say to you, “Come up higher,” than that he humiliate you before a ruler. Say what your eyes have seen."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.8",
@@ -5088,17 +5094,17 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.13",
-      "source_sha256": "4713054b17086017",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Just as falling snow cools the heat on a harvest day, so is a faithful messenger to those who send him: he refreshes his masters' spirits."
+      "source_sha256": "4af1ef0bf31510c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Just as snow falling on a harvest day cools the heat, so a faithful messenger refreshes those who send him and revives his masters' spirits."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.14",
-      "source_sha256": "8c5c134eb254802a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Like clouds and wind without rain is a man who boasts of gifts he does not give."
+      "source_sha256": "ca7797550d59a019",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Like clouds and wind without rain is a man who boasts of gifts that are a lie."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.15",
@@ -5137,10 +5143,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.20",
-      "source_sha256": "f5ddd8cdf5001fd1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Someone who takes a covering from his neighbor on a cold day is like someone who pours vinegar on [?] and torments an aching heart. As a moth damages a garment and a woodworm damages wood, so sorrow wears away a person's heart."
+      "source_sha256": "2553f42853c8e02f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Someone who takes a garment from his neighbor on a cold day is like someone who pours vinegar on a string and aggravates an aching heart. As a moth eats away at a garment and a worm at wood, so sorrow eats away at a person's heart."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.21",
@@ -5172,9 +5178,9 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.25.25",
-      "source_sha256": "97122f18ace1f712",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "dd077fa34513cfdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
       "text": "Like cold water to a thirsty soul is good news that comes from a distant land."
     },
     {
@@ -5459,10 +5465,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.27.10",
-      "source_sha256": "9f8a63bd59c65887",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Do not abandon your friend or your father’s friend, and do not enter your brother’s house on the day of your disaster. A nearby neighbor is better than a distant brother."
+      "source_sha256": "49e23445da739756",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Do not abandon your friend or your father's friend, and do not enter your brother's house on the day of your disaster. A neighbor nearby is better than a brother far away."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.27.11",
@@ -5536,10 +5542,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.27.21",
-      "source_sha256": "12c72ebc8c833257",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "A refiner tests silver, and a furnace tests gold; a man is tested by the words of those who praise him. The heart of the wicked seeks evil, and the heart of the righteous seeks knowledge."
+      "source_sha256": "92a6603544b4404a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "A refiner tests silver, and a furnace tests gold; a man is tested by the mouths of those who praise him. The heart of the wicked seeks evil, but the heart of the righteous seeks knowledge."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.27.22",
@@ -5669,10 +5675,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.28.13",
-      "source_sha256": "fdcd63892c9ffba1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "A person who conceals his wrongdoing will not prosper, but God will have mercy on whoever confesses his sins and turns away from them."
+      "source_sha256": "a1c4118605b3c4f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "A person who conceals his wrongdoing will not prosper, but God will have mercy on someone who confesses his sins and turns away from them."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.28.14",
@@ -5991,10 +5997,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.4",
-      "source_sha256": "e4ac287c15204574",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Tell me: Who has gone up to heaven and come down? Who has held the wind in his handfuls? Who has wrapped the waters in a cloth? Who has established all the ends of the earth? What is his name, and what is his son's name, if you know?"
+      "source_sha256": "089a6924edf32c96",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Tell me: Who has gone up to heaven and come down? Who has held the wind in his hands? Who has wrapped up the waters in a cloth? Who has established all the ends of the earth? What is his name, and what is his son's name, if you know?"
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.5",
@@ -6019,10 +6025,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.8",
-      "source_sha256": "82a095f1451b99cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Keep emptiness and lying speech far from me. Give me neither poverty nor riches; give me enough to live on."
+      "source_sha256": "341653fef3bdb1de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "Keep falsehood and lying speech far from me. Give me neither poverty nor wealth; give me enough to live on."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.9",
@@ -6061,10 +6067,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.14",
-      "source_sha256": "7c19bce60922c9f1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "A generation whose teeth are swords and whose fangs are knives, to devour the poor of the earth and the destitute among humankind."
+      "source_sha256": "7a25a899a0c547a4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "There is a generation whose teeth are swords and whose fangs are knives, to devour the poor of the earth and the wretched among humankind."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.15",
@@ -6082,9 +6088,9 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.17",
-      "source_sha256": "70f1d886bad1eff6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "6a50e779ead055c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
       "text": "The eye that mocks its father and despises its mother's old age—the ravens of the valley will peck it out, and young eagles will eat it."
     },
     {
@@ -6096,10 +6102,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.19",
-      "source_sha256": "311e477bd6a7bae7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "the way of an eagle in the sky, the way of a snake on a rock, the way of a ship in the heart of the sea, and the way of a man in his youth."
+      "source_sha256": "cff35221785e643a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "The way of an eagle in the sky, the way of a snake on a rock, the way of a ship in the heart of the sea, and the way of a man in his youth."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.20",
@@ -6180,10 +6186,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.31",
-      "source_sha256": "bb437fb5112aecd5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "And the rooster that struts among the hens, the male goat that walks at the head of the flock, and the king who speaks among the nations."
+      "source_sha256": "cb8958686dc30469",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "A rooster strutting among the hens, a male goat walking at the head of the flock, and a king speaking among the nations."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.32",
@@ -6194,10 +6200,10 @@
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.30.33",
-      "source_sha256": "ea8ebefa71da1cb4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Butter comes from the fat of milk, and if you press your hand against the nose, blood comes out. In the same way, a dispute comes from a clash of anger."
+      "source_sha256": "0c905845a166cfc9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 21,
+      "text": "From the fat of milk comes butter, and if you press your hand against the nose, blood comes out. So angry contention produces a lawsuit."
     },
     {
       "chunk_id": "pta-peshitta/prov#Prov.31.1",

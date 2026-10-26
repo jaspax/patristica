@@ -4,26 +4,26 @@
   "source_language": "syc",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
+      "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-25",
       "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.0",
-      "source_sha256": "94a5dbc516b3fb37",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1df09c2edec0add1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "A copy of the letter that Jeremiah sent to the captives taken to Babylon, whom Nebuchadnezzar king of Babylon had taken captive, to inform them as he had been commanded by the Lord."
+      "text": "A copy of the letter that Jeremiah sent to the captives taken to Babylon, whom Nebuchadnezzar king of Babylon had taken captive, to instruct them as he had been commanded by the Lord."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.1",
@@ -34,31 +34,31 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.2",
-      "source_sha256": "1f0a6f98c77537d2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "90964f80fe0b74ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When you enter Babylon, you will remain there for many years and a long time, up to seventy years. After seventy years, I will bring you out of there in peace."
+      "text": "When you enter Babylon, you will be there for many years, a long time, up to seventy years. After seventy years, I will bring you out of there in peace."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.3",
-      "source_sha256": "b4d7388359d3b450",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80414ed261bbce2e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Now, look: in Babylon you see gods of silver, gold, wood, and stone, carried on shoulders, which become objects of fear to the nations."
+      "text": "Now look: in Babylon you see gods of silver, gold, wood, and stone, carried on shoulders, which become objects of fear for the nations."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.4",
-      "source_sha256": "d6145de2a4b3c222",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ad7ef11666758ef0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "So take care that you do not become like the nations. Do not fear these gods or tremble before them."
+      "text": "So take care that you too do not become like the nations. Do not fear them or tremble before them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.5",
-      "source_sha256": "1f6efab401094e4d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1077ad623580ba99",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "When you see great crowds before and behind them, worshiping them, say in your hearts instead, “You alone, Lord, should be worshiped.”"
+      "text": "When you see large crowds in front of them and behind them worshiping them, say instead in your hearts, “You alone, Lord, should be worshiped.”"
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.6",
@@ -69,10 +69,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.7",
-      "source_sha256": "1a16c2f5976b790d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b224da0bd061c294",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For they have a tongue carved by a carpenter, and they are covered with gold and silver. They cannot speak, because they are worthless and dead."
+      "text": "For they have a tongue carved by a carpenter, and they are overlaid with gold and silver, but they cannot speak, because they are worthless and dead."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.8",
@@ -83,17 +83,17 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.9",
-      "source_sha256": "05c9570e51a985b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d477aa2fdd7001e3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "and fashion crowns and place them on the heads of their gods. But it is well known that when their priests are enjoying themselves, they remove gold and silver from their gods and spend it on themselves."
+      "text": "People forge crowns and place them on the heads of their gods. Yet it is well known that when their priests are enjoying themselves, they remove gold and silver from their gods and spend it on themselves."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.10",
-      "source_sha256": "a4f89ddd03952d52",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "028142ae9f7f9793",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They give some of what has been made to prostitutes. They dress their gods of gold, silver, and wood in clothing like human beings."
+      "text": "They give some of the crafted material to prostitutes, and they adorn them with clothing like human beings—these gods of gold, silver, and wood."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.11",
@@ -111,17 +111,17 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.13",
-      "source_sha256": "05db46cf389da43c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6a0d6472c4208209",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "One holds a scepter like a man who judges this land, but it cannot destroy those who sin against it."
+      "text": "One holds a staff like a man who judges this region, yet it cannot destroy those who sin against it."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.14",
-      "source_sha256": "21a778e9a46aaae3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a0ad7b6cae66c634",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "It holds a sword in its right hand and an ax in its left, but it cannot save itself from war or robbers. From these things, let it be known that they are not gods. Do not fear them."
+      "text": "It holds a sword in its right hand and an axe in its left, but it cannot save itself from war or robbers. From these things you should recognize that they are not gods. Do not fear them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.15",
@@ -132,17 +132,17 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.16",
-      "source_sha256": "bca8dba1e478aaac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e4edb2681db09ec2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "so are their gods. They set them upright in buildings. Their eyes are full of dirt from the dust on the feet of those going in and out."
+      "text": "This is what their gods are like: they are set upright in buildings, and their eyes are full of dust from the dirt on the feet of those who enter and leave."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.17",
-      "source_sha256": "1c830e81d80af515",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "57efee5af86f1629",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Like someone condemned by a king, their arms are restrained as though they were condemned to death. Their priests secure their buildings and shut them with locks and bars so that robbers will not steal them."
+      "text": "Like someone condemned by a king, their arms are confined, as though they were condemned to death. Their priests secure their buildings and shut them with bolts and bars so that robbers will not steal them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.18",
@@ -153,10 +153,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.19",
-      "source_sha256": "4d646bc2ca3fb74d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "324e11912fe60ffa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They are like the beams of houses. Their hearts wander and go astray. They are ruined by creatures that crawl on the ground, and both they and their clothes are eaten away. Yet they do not know"
+      "text": "They are like the beams of houses, and their heart wanders and goes astray. They are ruined by the crawling creatures of the earth; both they and their clothes are eaten away, and they do not know it."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.20",
@@ -167,10 +167,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.21",
-      "source_sha256": "d8afa6c6669dfdfc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "46de755f304b8432",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "On their bodies and heads sit bats, swallows, and ravens together, and cats as well."
+      "text": "On their bodies and on their heads sit bats, swallows, and ravens together, and cats as well."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.22",
@@ -181,10 +181,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.23",
-      "source_sha256": "228f7f642bf03e09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "14799ecbbb3961a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For the gold with which they are covered for beauty does not shine unless someone polishes away its tarnish. They were not even aware when they were being melted down."
+      "text": "For the gold with which they are overlaid for beauty does not shine unless someone polishes away its tarnish. Even when they were being melted down, they felt nothing."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.24",
@@ -195,45 +195,45 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.25",
-      "source_sha256": "d272c72c0d6f26d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ac46a0c26d3fd09f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "They are carried on shoulders because they cannot walk. They display their shame to people, and their attendants too should be ashamed."
+      "text": "They are carried on shoulders because they cannot walk, and they display their shame to human beings. Let those who serve them also be ashamed."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.26",
-      "source_sha256": "da4eba3a40dbca85",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0cad7e0ca4be5ef5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For if they fall to the ground, they cannot get up. Even if someone stands them upright, they cannot move. Nor can one straighten itself if it leans over. Instead, food is set before them as before the dead."
+      "text": "For if they fall to the ground, they cannot get up. Even if someone sets them upright, they cannot move. Nor, if one leans over, can it straighten itself. Instead, food is set before them as before the dead."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.27",
-      "source_sha256": "075420c166e1c638",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ab5828daff8df0e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Their priests eat the sacrifices offered to them, and their wives feast on them. They give nothing to the poor and needy"
+      "text": "Their priests eat the sacrifices offered to them, and their wives take their pleasure from them. They give nothing to the poor and needy"
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.28",
-      "source_sha256": "661958c1c6fc9cc1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e43e0169c0a626d1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "from their sacrifices. A woman approaches them during her menstruation, childbirth, and uncleanness. From these things you should know that they are not gods, and you should not fear them."
+      "text": "from their sacrifices. A woman approaches them during her menstruation, during childbirth, and in her uncleanness. From these things you should know that they are not gods, and you should not fear them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.29",
-      "source_sha256": "51494f8b02c97645",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "def44ecc4f971702",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "For how can they be called gods? Look, women adorn these gods of gold, silver, and wood."
+      "text": "For how can they be called gods? Look, women prepare these gods of gold, silver, and wood."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.30",
-      "source_sha256": "75ac47d19e5fa983",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "814cce7aeda46780",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The priests seat them in their seats, with their clothes torn, their heads shaved, and their beards clipped, and with their heads shaved and uncovered."
+      "text": "In their dwelling places the priests sit with their clothes torn, their heads shaved, their beards clipped, and their shaved heads uncovered."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.31",
@@ -251,17 +251,17 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.33",
-      "source_sha256": "d4a86740c9774fe6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ed0ad1df7d74e687",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "If someone does them either harm or good, they cannot repay him. Nor can they appoint or remove a king."
+      "text": "Even if someone does them harm or good, they cannot repay him. Nor can they appoint or remove a king."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.34",
-      "source_sha256": "c2b83abed36ea42d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "699d3d2754c05685",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Likewise, they cannot give anyone wealth or money. If someone makes a vow to them and does not fulfill it, they will not demand it of him."
+      "text": "Likewise, they cannot give anyone wealth or money. If someone makes a vow to them and does not fulfill it, they will not demand it from him."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.35",
@@ -286,10 +286,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.38",
-      "source_sha256": "7059a3500e477645",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5f31bcbdc50695b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "The gods of wood, silver, and gold are like stones lying in the mountains. Their attendants should be ashamed, for they know that there is no usefulness in them, yet they lead people astray through them."
+      "text": "The gods of wood, silver, and gold are like stones lying in the mountains. Let those who serve them be ashamed, for they know that there is no usefulness in them, yet they lead people astray through them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.39",
@@ -300,10 +300,10 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.40",
-      "source_sha256": "21c83e1da664201a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3e308a8cc9b42c9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 25,
-      "text": "Even the Chaldeans treat them with contempt: when they see someone with a speech impediment who cannot speak, they bring him up to the doorway, and he asks that he speak and cry out, as though he could understand."
+      "text": "Look, even the Chaldeans treat them with contempt: when they see someone with a speech impediment who cannot speak, they bring him up to the entrance and ask him to speak and call out, as though he could understand."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.41",
@@ -321,24 +321,24 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.43",
-      "source_sha256": "fcc0cef0daf77522",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "When one of them is drawn away by a passerby and sleeps with him, she taunts her companion and says, “I do not consider you my equal.” Nor has her companion’s cord been cut."
+      "source_sha256": "ccad108c5f8cdc9c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "But when one of them is led away by a passerby and sleeps with him, she taunts her companion, saying, “I have not made you my equal.” Nor has her companion’s cord been cut."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.44",
-      "source_sha256": "600feea16b68d733",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Everything done for them is worthless. How, then, can people testify that they are gods? Or how can they be called gods?"
+      "source_sha256": "618bd24fb3682327",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "Everything done for them is futile. How, then, can people testify that they are gods? Or how can they be called gods?"
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.45",
-      "source_sha256": "fa5a6990fd290901",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "They were made by the hands of a carpenter and a metalworker, and they are nothing. They were not made as they themselves wished; instead, their craftsmen make them as they wish."
+      "source_sha256": "7e6934ca19dfe263",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "They were made by the hands of a carpenter and a metalworker, and they are nothing. They were not made as they themselves wished; rather, their craftsmen make them as they wish."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.46",
@@ -349,31 +349,31 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.47",
-      "source_sha256": "f542ebf6e0031978",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "how, then, can the things they made be gods? For they have left falsehood and disgrace to those born after them."
+      "source_sha256": "c4cd7d3c331b2d65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "How, then, is it possible for the things they made to be gods? For they have left falsehood and disgrace to those born after them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.48",
-      "source_sha256": "ae8c92eaecfd4d82",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "For when war and disaster come upon them, their priests deliberate among themselves about where to hide them together with themselves."
+      "source_sha256": "65dd868f0cbcec5c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "For when war and disaster come upon them, their priests deliberate among themselves about where to hide them along with themselves."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.49",
-      "source_sha256": "f415d3d85eb293e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "How, then, can people fail to recognize that they are not gods, but the work of human hands? They cannot save themselves from war or disaster."
+      "source_sha256": "f8f8c14e9653c38e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "How, then, should people not recognize that they are not gods, but the work of human hands? They cannot save themselves from war or from disaster."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.50",
-      "source_sha256": "cda37da8882a7221",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 1,
-      "text": "For the things made of wood, silver, and gold will in the end be known to all nations as false. To the king, however, it will be clearly apparent that they are not gods, but the work of human hands. There is nothing of the works of God in them."
+      "source_sha256": "2362a55b58d0753e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "group_size": 22,
+      "text": "For these things made of wood, silver, and gold will eventually be known to all nations as falsehoods. It will be clearly apparent to the king that they are not gods, but the work of human hands, and that none of God’s works are in them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.51",
@@ -384,24 +384,24 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.52",
-      "source_sha256": "f5d717a55d1a1ffc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1734df0ec4b04829",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "For they cannot establish a king on earth. They cannot do harm or deliver anyone, and they cannot give rain to human beings."
+      "text": "For they cannot establish a king over the earth, nor can they harm or rescue anyone. They cannot give rain to human beings."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.53",
-      "source_sha256": "862a47b5a66cee7f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3512aafb5e552a9e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "They cannot pass judgment, even for themselves. Nor can they rescue someone who is wronged from someone stronger than he is, because they are powerless."
+      "text": "They cannot pass judgment, even on their own behalf. Nor can they deliver someone who is wronged from someone stronger than he is, because they are powerless."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.54",
-      "source_sha256": "c060ab6a18c1511e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a42f5d87cfcb3369",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "Nor do they fly through the air between heaven and earth like ravens. For when fire breaks out in the temples of the gods, their priests run away, going outside and saving themselves. But the gods themselves burn like beams in the midst of it."
+      "text": "Nor do they fly through the air between heaven and earth like ravens. For when fire breaks out in the temples of the gods, their priests flee outside and save themselves, while the gods burn like beams in the midst of it."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.55",
@@ -412,31 +412,31 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.56",
-      "source_sha256": "52dca859bc9c0eae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ed397bde84a2c0d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "How, then, can they be recognized or believed to be gods? Look, they cannot even save themselves from thieves or robbers—these gods of wood, silver, and gold."
+      "text": "How, then, can they be recognized or believed to be gods, when these gods of wood, silver, and gold cannot even save themselves from thieves or robbers?"
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.57",
-      "source_sha256": "049e59ac2ed42a81",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "062997fb0cb67bc7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "For those who are strong and powerful take the gold and clothing that are on them and go away, and not one of them can help himself."
+      "text": "For strong and powerful people take the gold and the clothing that are on them and go away, and not one of them can help itself."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.58",
-      "source_sha256": "bcc705997a57e843",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b6b1ebc43dd15a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
       "text": "A king who displays courage is better than they are. A useful household utensil that its owner uses is better than false gods. A door that protects its owner is also better than false gods."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.59",
-      "source_sha256": "ae3ef5e908a720f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "87987ea2a4277d8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "The sun, moon, and stars are lights in heaven over the earth. They are sent to perform their tasks, and they obey."
+      "text": "The sun, moon, and stars are lights in heaven shining upon the earth. They are sent to perform their tasks, and they obey."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.60",
@@ -447,24 +447,24 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.61",
-      "source_sha256": "6e7cb9e212f2f3a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "abec1e1dfdb7b66b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "And when the clouds are commanded by God to go and bring rain upon the whole world, they go and carry out what they are commanded."
+      "text": "When the clouds are commanded by God to go and bring rain upon the whole inhabited world, they go and carry out what they are commanded."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.62",
-      "source_sha256": "76e1490ffd2d7cb9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7a122f6e47d6ee28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "The fire sent from above to burn mountains, hills, and forests also does what it has been commanded. But these gods do not resemble any of these works, either in appearance, power, or action."
+      "text": "Even the fire sent from above to burn mountains, hills, and forests does what it has been commanded. But these gods do not resemble any of these works in appearance, power, or action."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.63",
-      "source_sha256": "3dbbec68a98a25e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "81485f1e84d85e3b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "How, then, can they be called gods or thought to be gods? Look, they cannot even pass judgment, or do good or harm to human beings."
+      "text": "For this reason, how can they be called gods, or thought to be gods, when they cannot even pass judgment, or do good or harm to human beings?"
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.64",
@@ -482,17 +482,17 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.66",
-      "source_sha256": "d8de6ff1805dc43d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1670c79dc8263f9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "They cannot display signs in heaven to the nations. Nor can they make their light shine like the sun, and they do not give light like the moon."
+      "text": "They cannot display signs in heaven to the nations. Nor can they make their light rise like the sun, and they do not shine like the moon."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.67",
-      "source_sha256": "158074034c9a229c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "96ef719e0753030a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "Wild animals are better than they are, because these can run away and save themselves."
+      "text": "Wild animals are better than they are, because the animals can flee and save themselves."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.68",
@@ -503,24 +503,24 @@
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.69",
-      "source_sha256": "6573f4f7253572c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c6408e6a5742fa9a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "For just like a hut in a cucumber patch that guards nothing, so are their gods of wood, silver, and gold: there is no benefit in them."
+      "text": "For like a shelter in a cucumber patch that guards nothing, so are their gods of wood, silver, and gold. There is no benefit in them."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.70",
-      "source_sha256": "996181994c471e06",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c5b5b1582ea22f53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "They are like a thornbush in a garden on which every bird settles. Their gods of wood, silver, and gold also resemble a dead person thrown into the darkness."
+      "text": "They are like a scarecrow in a garden on which every bird settles. Their gods of wood, silver, and gold are also like a dead person lying in darkness."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.71",
-      "source_sha256": "c1ab72bb944792be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "359c0edb3a2f56e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
       "group_size": 22,
-      "text": "For from the purple cloth and the [?] upon them, which decay, you will know that they are not gods. In the end, they themselves will also decay forever and become a disgrace in the land."
+      "text": "For from the purple cloth and silk upon them, which decay, you will know that they are not gods. They themselves will also ultimately decay forever and become a disgrace in the land."
     },
     {
       "chunk_id": "pta-peshitta/epjer#EpJer.1.72",
