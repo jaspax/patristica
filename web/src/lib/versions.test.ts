@@ -71,6 +71,27 @@ describe("originalIds", () => {
     expect(originalIds([eng, lat, grc])).toEqual(new Set(["grc"]));
   });
 
+  it("follows Scripture chains to the Hebrew (#153)", () => {
+    // Coptic → LXX → Hebrew; the Vulgate Psalter from the Greek; both Greek
+    // editions translate the Hebrew; an unlinked version (source not in the
+    // corpus) is not an original either.
+    const heb = book("oshb", "hbo", { id: "oshb/ps" });
+    const pta = book("pta-lxx", "grc", { id: "pta-lxx/ps", translation_of: "oshb/ps" });
+    const rahlfs = book("lxx-rahlfs", "grc", { id: "lxx-rahlfs/ps", translation_of: "oshb/ps" });
+    const cop = book("coptic-nt", "cop", { id: "coptic-nt/ps", translation_of: "pta-lxx/ps" });
+    const lat = book("clementine", "lat", { id: "clementine/ps", translation_of: "pta-lxx/ps" });
+    const gez = book("gez", "gez", { id: "gez/ps" });
+    const eng = book("kjv", "eng", { id: "kjv/ps", translation_of: "oshb/ps" });
+    expect(originalIds([eng, gez, lat, cop, rahlfs, pta, heb])).toEqual(new Set(["oshb/ps"]));
+  });
+
+  it("marks both Greek editions where the Greek is the original (#153)", () => {
+    const pta = book("pta-lxx", "grc", { id: "pta-lxx/wis" });
+    const rahlfs = book("lxx-rahlfs", "grc", { id: "lxx-rahlfs/wis" });
+    const arm = book("armenian", "hye", { id: "armenian/wis", translation_of: "pta-lxx/wis" });
+    expect(originalIds([arm, rahlfs, pta])).toEqual(new Set(["pta-lxx/wis", "lxx-rahlfs/wis"]));
+  });
+
   it("marks every edition of the original, but not its translations", () => {
     const first1k = workRow({ id: "first1k", language: "grc" });
     const migne = workRow({ id: "pg", language: "grc" });

@@ -111,7 +111,7 @@ def test_real_normalize_closure():
     assert fp.module_closure("scripts.normalize") == [
         "patristica", "patristica.authors", "patristica.genres", "patristica.models",
         "patristica.period", "patristica.section_numbers", "patristica.textfold",
-        "patristica.versify", "scripts", "scripts.normalize",
+        "patristica.translation_links", "patristica.versify", "scripts", "scripts.normalize",
     ]
     assert len(fp.code_hash("scripts.normalize")) == 16
 

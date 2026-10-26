@@ -5,7 +5,9 @@ or edition: a Greek Father, its English and Latin translations and a second
 Greek edition; or Genesis in every Scripture source.  Groups are derived, never
 stored: they are the connected components of the graph whose edges are
 
-1. ``Work.translation_of`` (set by the ingestors; the direction is known),
+1. ``Work.translation_of`` (set by the ingestors for English, and curated for
+   the ancient versions by ``patristica.translation_links``, #153; the
+   direction is known; links may chain, Coptic → LXX → Hebrew),
 2. **Scripture books**: works of a Scripture source (``versification.SOURCE_SCHEMES``)
    whose book is the same, i.e. whose local id is the same OSIS book
    (``kjv/gen``, ``oshb/gen``, ``lxx-rahlfs/gen``), whatever their genre,
@@ -32,7 +34,8 @@ stored: they are the connected components of the graph whose edges are
    id (OGPG vs First1K/PTA, OGLT PL vs Perseus), versions in the Oriental
    languages, and Scripture books whose sources name them differently.
 
-``relation`` is ``translation_of`` (``work_id`` translates ``other_work_id``),
+``relation`` is ``translation_of`` (``work_id`` translates ``other_work_id``;
+``scripts.normalize`` also writes it to the work's ``translation_of``, #153),
 ``same_work`` (sibling versions, neither known to be the other's original) or
 ``different_edition`` (the same text in the same language, another edition).
 

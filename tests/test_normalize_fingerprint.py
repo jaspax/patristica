@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from patristica import genres
+from patristica import genres, translation_links
 from scripts import normalize as nz
 from scripts import status
 
@@ -237,6 +237,24 @@ def test_curation_change_rebuilds_only_that_work(corpus, code, built, overrides)
     nz.normalize_all(raw, norm)
     assert built == ["a/two.json"]
     assert nz.read_works_manifest(norm)["a/two.json"]["genre"] == "apocrypha"
+
+
+def test_curated_translation_of_rebuilds_only_that_work(corpus, code, built, monkeypatch) -> None:
+    """A curated translation_of (#153) is curation: it reaches the manifest
+    and rebuilds just that work, and the other works keep their hash."""
+    raw, norm = corpus
+    links: dict[str, str] = {}
+    monkeypatch.setattr(translation_links, "_curated_links", lambda: links)
+    nz.normalize_all(raw, norm)
+    before = nz.read_work_fingerprints(norm)
+    built.clear()
+    links["a/two"] = "b/three"
+    nz.normalize_all(raw, norm)
+    assert built == ["a/two.json"]
+    assert nz.read_works_manifest(norm)["a/two.json"]["translation_of"] == "b/three"
+    after = nz.read_work_fingerprints(norm)
+    assert after["a/one.json"] == before["a/one.json"]
+    assert after["a/two.json"] != before["a/two.json"]
 
 
 def test_curated_hash_sees_a_removed_override(overrides) -> None:

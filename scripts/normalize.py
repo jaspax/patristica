@@ -14,8 +14,8 @@ Staleness (#130) is decided by fingerprints, not file times.
 ``_fingerprint.json`` records the hash of this step's code
 (``patristica.fingerprint.code_hash``), and ``_fingerprints.jsonl`` records,
 per work, the hash of its raw file and of its curation (genre override, author
-ids and the authors' birth year).  A work is rebuilt when any of them changed,
-so a code or curation change re-runs exactly the affected works without
+ids, the authors' birth year and the curated ``translation_of``, #153).  A work
+is rebuilt when any of them changed, so a code or curation change re-runs exactly the affected works without
 ``--force``.  The code hash is recorded only once every work in the manifest
 was rebuilt with that code; a run that couldn't (raw data missing for some
 source, refused works) leaves it, and ``tests/test_normalize_fingerprint.py``
@@ -61,6 +61,7 @@ from patristica.genres import apply_genre_override, override_for
 from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
+from patristica.translation_links import apply_translation_of, curated_translation_of
 from patristica.versify import versify_chunks
 
 log = logging.getLogger(__name__)
@@ -307,7 +308,7 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path) -> int
         log.debug("Skipping %s: no 'work' key", raw_path)
         return None
 
-    work_dict = apply_author_ids(apply_genre_override(work_dict))
+    work_dict = apply_translation_of(apply_author_ids(apply_genre_override(work_dict)))
     raw_record = {**raw_record, "work": work_dict}
     genre = work_dict.get("genre", "")
     if genre == "scripture":
@@ -368,7 +369,8 @@ def curated_hash(work: dict) -> str:
 
     Covers the curated genre (``genre_overrides.csv``), the author ids
     resolved from ``author``, the authors' birth year and, for an undated work,
-    their activity range (``authors.csv``, ``author_strings.csv``): the inputs
+    their activity range (``authors.csv``, ``author_strings.csv``), and a
+    curated ``translation_of`` (``patristica.translation_links``): the inputs
     that change a work's chunks or manifest entry without changing its raw
     file.  It is computed from the override, the author string and the work's
     own dates, not from the curated record, so it can be checked from
@@ -384,6 +386,10 @@ def curated_hash(work: dict) -> str:
     derived = work_author_date_range({**work, "author_ids": ids})
     if derived is not None:
         curation["author_date_range"] = list(derived)
+    # Likewise only works with a curated link (#153).
+    translation_of = curated_translation_of(work.get("work_id", ""))
+    if translation_of is not None:
+        curation["translation_of"] = translation_of
     return fingerprint.value_hash(curation)
 
 
@@ -621,7 +627,8 @@ def write_works_manifest(
     when it exists; when it does not (fresh clone) the previous entry is kept.
     Either way the curated genre from ``patristica.genres`` is applied and
     ``author_ids`` is resolved from ``author`` (``patristica.authors``, #82),
-    and an undated work gets its authors' ``author_date_range`` (#151).
+    an undated work gets its authors' ``author_date_range`` (#151), and the
+    curated ``translation_of`` is applied (``patristica.translation_links``, #153).
     An empty ``external_ids`` is left out.  *raw_root* defaults to the
     ``raw`` directory next to *output_dir*.  Entries in *keep* (works whose raw
     change normalize refused) are left as they were.  With *refresh*, only those
@@ -661,7 +668,8 @@ def write_works_manifest(
         if work is None:
             log.warning("No work metadata for %s (no raw file, not in manifest)", rel)
             continue
-        work = apply_author_date_range(apply_author_ids(apply_genre_override(work)))
+        work = apply_translation_of(
+            apply_author_date_range(apply_author_ids(apply_genre_override(work))))
         if not work.get("external_ids", True):
             # Only sources that record catalogue ids carry the field (#178), so
             # adding it to Work doesn't rewrite every manifest entry.
