@@ -282,7 +282,7 @@ AXES = {
     "hebrew creation": fx.axis_of("oshb/gen", "Gen.1.1"),
     "faith": fx.axis_of("pta/hymns", "Hymn.1.1", translation=True),
     "syriac faith": fx.axis_of("pta/hymns", "Hymn.1.1"),
-    "unlicensed": fx.axis_of("hudra/secret", "H.1"),
+    "unlicensed": fx.axis_of("unlicensed/secret", "H.1"),
 }
 
 
@@ -382,7 +382,7 @@ def test_date_filter_matches_an_undated_work_by_its_authors_dates(
 
 
 def test_unpublishable_works_are_not_searchable(searcher: s.Searcher) -> None:
-    assert "hudra/secret#H.1" not in _ids(searcher.search("unlicensed", s.Filters(), limit=50))
+    assert "unlicensed/secret#H.1" not in _ids(searcher.search("unlicensed", s.Filters(), limit=50))
 
 
 def test_pagination(searcher: s.Searcher) -> None:

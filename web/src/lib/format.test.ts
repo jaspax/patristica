@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatAuthorDate, formatDate, formatDateLong, formatLifespan, formatYear } from "./format";
+import { formatAuthorDate, formatDate, formatDateLong, formatLifespan, formatYear, LICENSES } from "./format";
 
 describe("dates", () => {
   it("formats years", () => {
@@ -59,5 +59,11 @@ describe("author dates", () => {
     expect(formatLifespan({ birth: null, death: d(438, 438, "approximate"), floruit: null })).toBe("d. c. 438");
     expect(formatLifespan({ birth: null, death: null, floruit: d(431, 438) })).toBe("fl. 431–438");
     expect(formatLifespan({ birth: null, death: null, floruit: null })).toBe("");
+  });
+});
+
+describe("licences", () => {
+  it("labels permission grants", () => {
+    expect(LICENSES["used-with-permission"].label).toBe("Used with permission");
   });
 });

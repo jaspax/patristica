@@ -4,7 +4,7 @@ Ingestor for Syriac liturgical books from hudra.day.
 Source: hudra.day — a Firestore-backed collaborative transcription platform
         for East Syriac (Assyrian/Chaldean) liturgical manuscripts.
 API:    Firestore REST API (public read, no auth required for books/pages collections)
-Language: syc  Tradition: syriac  Genre: liturgical  License: see notes
+Language: syc  Tradition: syriac  Genre: liturgical  License: used-with-permission
 
 Works ingested
 --------------
@@ -21,11 +21,17 @@ Canonical ref format
   EastSyrLit.Hudra.{page_num:03d}   — Hudra page paragraphs, sequential within page
   EastSyrLit.Taksa.{page_num:03d}   — Taksa d'Raze page paragraphs
 
-Note: hudra.day content is publicly accessible via the Firestore REST API
-(same API key as the web app). The project appears to be a community digitization
-effort with no explicit license stated. Content derives from 1960 and 2003 print
-editions that are copyrighted but digitized as community heritage texts.
-Ingest with attribution; re-use limitations may apply.
+Licence
+-------
+hudra.day's own terms grant personal viewing only (#32), but its maintainer
+(Hendo Academy) gave Patristica explicit permission to include these
+transcriptions in the library and search (2026-10-24, #262): non-commercial
+use, with attribution, for Patristica only. The works carry the licence id
+``used-with-permission`` and credit hudra.day in their edition line;
+DATA_LICENSE.md records the grant.
+
+The content is read through the Firestore REST API (the web app's public API
+key). There is no cache, so this ingestor cannot run offline (#215).
 """
 
 from __future__ import annotations
@@ -88,14 +94,28 @@ def _fs_value(fv: dict) -> object:
     return fv
 
 
+_ATTEMPTS = 3
+
+
 def _fetch_doc(client: httpx.Client, path: str) -> dict | None:
-    """GET a single Firestore document; return its fields dict or None on error."""
+    """GET a single Firestore document; return its fields dict, or None once
+    every attempt failed (transport errors, 429 and 5xx are retried)."""
     url = f"{_FIRESTORE_BASE}/{path}?key={_API_KEY}"
-    resp = client.get(url)
-    if resp.status_code == 200:
-        raw = resp.json()
-        return {k: _fs_value(v) for k, v in raw.get("fields", {}).items()}
-    log.warning("Firestore %s: HTTP %s", path, resp.status_code)
+    for attempt in range(1, _ATTEMPTS + 1):
+        try:
+            resp = client.get(url)
+        except httpx.TransportError as e:
+            log.warning("Firestore %s: %s (attempt %d/%d)", path, e, attempt, _ATTEMPTS)
+        else:
+            if resp.status_code == 200:
+                raw = resp.json()
+                return {k: _fs_value(v) for k, v in raw.get("fields", {}).items()}
+            log.warning("Firestore %s: HTTP %s (attempt %d/%d)",
+                        path, resp.status_code, attempt, _ATTEMPTS)
+            if resp.status_code != 429 and resp.status_code < 500:
+                return None
+        if attempt < _ATTEMPTS:
+            time.sleep(2 ** attempt)
     return None
 
 
@@ -143,10 +163,7 @@ def _ingest_book(
         raise RuntimeError(f"Could not fetch book document: {slug}")
 
     title = book.get("title", slug)
-    syriac_title = book.get("syriacTitle", "")
     author = book.get("author") or None
-    description = book.get("description", "")
-    pub_year = book.get("publicationYear")
     page_list = book.get("pages", [])
 
     log.info("%s: %d pages listed", slug, len(page_list))
@@ -154,6 +171,7 @@ def _ingest_book(
     paragraphs: list[dict[str, str]] = []
     pages_with_text = 0
     pages_skipped = 0
+    pages_failed = 0
 
     for page_entry in page_list:
         page_id = page_entry.get("pageId")
@@ -165,7 +183,9 @@ def _ingest_book(
         time.sleep(0.05)  # gentle rate limiting
         page_doc = _fetch_doc(client, f"pages/{page_id}")
         if page_doc is None:
-            pages_skipped += 1
+            # A page that failed is missing from the work: no ingest stamp (#130).
+            log.error("%s: page %s (%s) could not be fetched; left out", slug, page_num, page_id)
+            pages_failed += 1
             continue
 
         pm_doc = page_doc.get("currentTextJson", {})
@@ -181,12 +201,11 @@ def _ingest_book(
         log.debug("Page %s: %d chars", page_num, len(text))
 
     log.info(
-        "%s: %d/%d pages have text, %d skipped (not yet transcribed)",
-        slug, pages_with_text, len(page_list), pages_skipped,
+        "%s: %d/%d pages have text, %d skipped (not yet transcribed), %d failed",
+        slug, pages_with_text, len(page_list), pages_skipped, pages_failed,
     )
 
     # Build Work metadata
-    date_conf = "approximate"
     if slug == "hudra-of-the-assyrian-church-of-the-east-volume-i":
         work = Work(
             work_id=f"hudra/{work_slug}",
@@ -199,11 +218,11 @@ def _ingest_book(
             genre="liturgical",
             language="syc",
             tradition="syriac",
-            license="unknown",
+            license="used-with-permission",
             provenance_url=f"https://hudra.day/books/{slug}",
             edition=(
                 f"Thoma Darmo (ed.), Thrissur: Mar Narsai Press, 1960; "
-                f"digitized by hudra.day community. "
+                f"transcription on hudra.day (Hendo Academy), used with permission. "
                 f"Partial: {pages_with_text}/{len(page_list)} pages transcribed."
             ),
             translation_of=None,
@@ -220,11 +239,11 @@ def _ingest_book(
             genre="liturgical",
             language="syc",
             tradition="syriac",
-            license="unknown",
+            license="used-with-permission",
             provenance_url=f"https://hudra.day/books/{slug}",
             edition=(
                 f"Congregation for the Oriental Churches, Editio Typica (2003); "
-                f"digitized by hudra.day community. "
+                f"transcription on hudra.day (Hendo Academy), used with permission. "
                 f"{pages_with_text}/{len(page_list)} pages transcribed."
             ),
             translation_of=None,

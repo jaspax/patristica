@@ -69,6 +69,12 @@ describe("summarizeSources", () => {
   it("flags non-commercial collections", () => {
     expect(pta.nonCommercial).toBe(false);
     expect(lxx.nonCommercial).toBe(true);
+    // Hudra (#262): used with permission, for non-commercial use only.
+    const [hudra] = summarizeSources({
+      ...index,
+      works: [row({ id: "h", source_id: "hudra", license: "used-with-permission" })],
+    });
+    expect(hudra.nonCommercial).toBe(true);
   });
 });
 

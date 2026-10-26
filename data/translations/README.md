@@ -42,8 +42,8 @@ dropped, and so are provenance entries no row uses.
 `python -m scripts.translate` (run `--dry-run` first to see the chunk count and
 estimated cost). It skips chunks with a fresh translation and reuses
 translations of identical text, so reruns only pay for new or changed text.
-Works with an `unknown` licence (Hudra) are kept out of the search index and
-are skipped unless you pass `--include-unpublishable`.
+Works with an `unknown` licence are kept out of the search index and are
+skipped unless you pass `--include-unpublishable`.
 
 ## Licensing
 

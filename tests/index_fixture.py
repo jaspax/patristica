@@ -35,10 +35,10 @@ WORKS = {
                       author_ids=["ephrem-the-syrian"], genre="patristic", language="syc",
                       license="cc-by-sa-4.0", date_composed=360, date_range=[350, 373],
                       tradition="syriac", edition="PTA"),
-    "hudra/secret": dict(source_id="hudra", title="Unlicensed", author=None, author_ids=[],
-                         genre="liturgical", language="syc", license="unknown",
-                         date_composed=1960, date_range=[1960, 1960], tradition="syriac",
-                         edition="Hudra"),
+    "unlicensed/secret": dict(source_id="unlicensed", title="Unlicensed", author=None,
+                              author_ids=[], genre="liturgical", language="syc", license="unknown",
+                              date_composed=1960, date_range=[1960, 1960], tradition="syriac",
+                              edition="Unlicensed edition"),
 }
 
 # (work_id, ref, text, English translation or None)
@@ -48,7 +48,7 @@ CHUNKS = [
     ("oshb/gen", "Gen.1.1", "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ", None),
     ("pta/hymns", "Hymn.1.1", "ܗܝܡܢܘܬܐ ܕܝܠܢ ܫܪܝܪܬܐ ܗܝ ܘܡܫܒܚܬܐ", "Our faith is true and glorious."),
     ("pta/hymns", "Hymn.1.2", "ܐ", None),  # too short to embed
-    ("hudra/secret", "H.1", "ܫܘܒܚܐ ܠܐܠܗܐ ܒܪܘܡܐ ܘܫܠܡܐ", None),
+    ("unlicensed/secret", "H.1", "ܫܘܒܚܐ ܠܐܠܗܐ ܒܪܘܡܐ ܘܫܠܡܐ", None),
 ]
 
 

@@ -254,6 +254,7 @@ uv run python -m scripts.link_translations # embedding eval only: translation_gr
 `normalize` decides what to rebuild from fingerprints (`patristica/fingerprint.py`), not file times:
 
 - `data/normalized/_fingerprint.json` holds the hash of normalize's code: every repo module `scripts.normalize` imports, hashed from the syntax tree, so comment and docstring edits don't count (`fingerprint.import_chain` shows why a module is included).
+- The controlled vocabularies of `patristica/models.py` (`Language`, `Genre`, `Tradition`, `DateConfidence`, `License`; `fingerprint.VOCABULARIES`) are left out of every code hash, so a new language or licence value doesn't invalidate every ingest stamp and the normalize and align hashes (#262). They must stay `Literal`s of strings (`code_hash` raises otherwise). Removing a value isn't hashed either: data using it then fails validation, so re-run what uses it.
 - `data/normalized/_fingerprints.jsonl` holds, per work, the hash of its raw file and of its curation: the genre override, the author ids and the authors' birth year. It is kept out of `_works.jsonl` because `build_index` hashes those lines; a new key there would reload the whole search DB.
 
 What follows from that:
@@ -415,7 +416,8 @@ Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source lic
 
 - Every new ingestor must set `Work.license` accurately from the source's actual terms. Use `unknown` only while the terms are being checked; works marked `unknown` must not be published.
 - Don't add anything that imposes extra terms on CC BY or public-domain text, or that puts CC BY-SA text under a different licence.
-- Non-commercial texts (CC BY-NC, CC BY-NC-SA, `academic-noncommercial`) mean the public site must stay non-commercial. `web/src/lib/sources.ts` (`NON_COMMERCIAL`) flags them on the `/sources` page.
+- Non-commercial texts (CC BY-NC, CC BY-NC-SA, `academic-noncommercial`, and the Hudra's `used-with-permission`) mean the public site must stay non-commercial. `web/src/lib/sources.ts` (`NON_COMMERCIAL`) flags them on the `/sources` page.
+- `used-with-permission` is for a text whose rights holder gave Patristica explicit permission (Hudra, from hudra.day / Hendo Academy, #262: non-commercial, with attribution, for Patristica only). Record every grant in `DATA_LICENSE.md` (who, when, what it covers, its conditions; no personal names or email addresses) and credit the rights holder in the work's `edition`. It is published like any other licence. The id is in `NON_COMMERCIAL` because the only grant so far is non-commercial; a grant on other terms needs its own id.
 
 ## Known Issues / Gotchas
 

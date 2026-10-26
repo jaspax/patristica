@@ -21,6 +21,15 @@ registry from its code hash (``exclude``) and hashes each source's entries
 separately with ``value_hash``.  A registry excluded this way must be a single
 top-level assignment.
 
+The *controlled vocabularies* of ``patristica.models`` (``Language``,
+``License``, …: ``Literal`` aliases of strings, listed in ``VOCABULARIES``) are
+left out of every module hash.  Every ingestor imports the models, so a new
+licence or language would otherwise invalidate every ingest stamp and the
+normalize and align code hashes (#262), although allowing one more value can't
+change what existing code produces.  Removing a value makes data that uses it
+fail validation, loudly.  Only a ``Literal`` of string constants may be listed;
+anything else raises ``FingerprintError``, so no logic hides there.
+
 Imports are found statically (``import`` statements anywhere in a module,
 including inside functions); ``importlib`` calls are not followed.
 ``import_chain(entry, module)`` shows why a module is part of a step's code.  All hashes
@@ -41,6 +50,12 @@ LOCAL_PACKAGES = ("patristica", "scripts")
 
 #: Modules that never count as a step's code: the fingerprinting itself.
 IGNORED_MODULES = frozenset({"patristica.fingerprint"})
+
+#: Controlled vocabularies (``Literal`` aliases of strings) left out of every
+#: module hash, per module: see the module docstring.
+VOCABULARIES: Mapping[str, tuple[str, ...]] = {
+    "patristica.models": ("Language", "Genre", "Tradition", "DateConfidence", "License"),
+}
 
 
 class FingerprintError(ValueError):
@@ -207,6 +222,23 @@ def _strip_assignments(tree: ast.Module, names: Collection[str], module: str) ->
         raise FingerprintError(f"{module}: no top-level assignment to {sorted(missing)}")
 
 
+def _check_vocabularies(tree: ast.Module, names: Collection[str], module: str) -> None:
+    """Each of *names* must be a top-level ``X = Literal["a", "b", …]``."""
+    for stmt in tree.body:
+        if not (isinstance(stmt, ast.Assign) and len(stmt.targets) == 1
+                and isinstance(stmt.targets[0], ast.Name) and stmt.targets[0].id in names):
+            continue
+        value = stmt.value
+        elts = []
+        if isinstance(value, ast.Subscript) and isinstance(value.value, ast.Name) \
+                and value.value.id == "Literal":
+            elts = value.slice.elts if isinstance(value.slice, ast.Tuple) else [value.slice]
+        if not elts or not all(isinstance(e, ast.Constant) and isinstance(e.value, str)
+                               for e in elts):
+            raise FingerprintError(
+                f"{module}: vocabulary {stmt.targets[0].id} must be a Literal of strings")
+
+
 def _canonical_ast(node: object) -> object:
     if isinstance(node, ast.AST):
         fields = {}
@@ -224,16 +256,19 @@ def _canonical_ast(node: object) -> object:
 def module_hash(name: str, exclude: Collection[str] = (), root: Path = REPO_ROOT) -> str:
     """Hash of module *name*'s code, ignoring docstrings, comments and layout.
 
-    Top-level assignments to the names in *exclude* (per-key registries) are
-    left out; each must exist.
+    Top-level assignments to the names in *exclude* (per-key registries) and
+    to the module's ``VOCABULARIES`` are left out; each must exist.
     """
     path = module_path(name, root)
     if path is None:
         raise FingerprintError(f"No module {name!r} under {root}")
     tree = ast.parse(path.read_bytes(), filename=str(path))
     _strip_docstrings(tree)
-    if exclude:
-        _strip_assignments(tree, exclude, name)
+    vocabularies = VOCABULARIES.get(name, ())
+    if vocabularies:
+        _check_vocabularies(tree, vocabularies, name)
+    if exclude or vocabularies:
+        _strip_assignments(tree, {*exclude, *vocabularies}, name)
     return sha16(json.dumps(_canonical_ast(tree), ensure_ascii=False))
 
 

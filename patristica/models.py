@@ -32,6 +32,7 @@ License = Literal[
     "cc-by-nc-sa-4.0",
     "cc-by-nc-4.0",
     "academic-noncommercial",
+    "used-with-permission",
     "unknown",
 ]
 

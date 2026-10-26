@@ -179,12 +179,12 @@ def test_identical_texts_are_sent_once(tmp_path: Path):
 
 def test_filters_unpublishable_and_prune(tmp_path: Path):
     write_corpus(tmp_path, {"kjv/gen": ("eng", [("Gen.1.1", "In the beginning God.")]),
-                            "hudra/a": ("syc", [("1", "ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ")])},
-                 licence={"hudra/a": "unknown"})
+                            "unlicensed/a": ("syc", [("1", "ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ")])},
+                 licence={"unlicensed/a": "unknown"})
     fake = FakeEmbedder()
     stats = run(tmp_path, fake)
     assert stats.works == 1 and fake.sent == ["In the beginning God."]
-    assert not emb.shard_path(tmp_path / "embeddings", "hudra/a.json").exists()
+    assert not emb.shard_path(tmp_path / "embeddings", "unlicensed/a.json").exists()
 
     stale = emb.shard_path(tmp_path / "embeddings", "gone/work.json")
     stale.parent.mkdir(parents=True)
