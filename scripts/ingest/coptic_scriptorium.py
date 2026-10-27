@@ -54,6 +54,13 @@ scholarly apparatus (``<note>``, ``<gap>``, ``<unclear>``, ``<supplied>``).
 Layout placeholders (``▢``) and the printed editions' footnote markers
 (``⁽²⁾``, ``¹``) are dropped (``_paragraph_text``).
 
+Lacunae: the normalized layer marks lost text with brackets holding only dots
+or ellipses (``[....]``, ``[…]``, ``[]``).  They stay in the text for readers
+and are marked as editorial material of kind ``lacuna`` (the paragraph's
+``editorial`` key, ``patristica.editorial``, #236), so they are not translated
+or embedded.  Brackets around letters (``[ⲉ]``, ``[ⲥⲟ]``, a handful) are the
+editor's restoration of a word and stay unmarked.
+
 Canonical references
 --------------------
 ``CopScr.{corpus_slug}.{file_n:03d}.{para_n:04d}``
@@ -103,6 +110,10 @@ _WS_RE = re.compile(r"\s+")
 # - Superscript digits, bare or parenthesised (``⁽²⁾``, ``¹``): footnote
 #   markers of the printed edition, whose notes the source doesn't carry.
 _NOISE_RE = re.compile(r"[▢⁽⁾⁰¹²³⁴-⁹]")
+
+# A lacuna marker of the normalized layer: brackets around nothing but dots,
+# ellipses and spaces.  Marked as editorial material (#236).
+_LACUNA_RE = re.compile(r"\[[.…\s]*\]")
 
 # Tags whose text content we skip during extraction (scholarly apparatus)
 _SKIP_TAGS = frozenset({
@@ -542,9 +553,14 @@ def _norm_map(root: etree._Element, tei_path: Path) -> NormMap:
 
 
 def _paragraph(corpus_name: str, file_n: int, para_n: int, text: str, orig: str) -> dict:
-    """A raw paragraph record: normalized ``text`` and diplomatic ``orig``."""
+    """A raw paragraph record: normalized ``text`` and diplomatic ``orig``, and its
+    lacunae as ``editorial`` spans (``[start, end, "lacuna"]``) when it has any."""
     ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
-    return {"ref": ref, "text": text, "orig": orig}
+    record: dict = {"ref": ref, "text": text, "orig": orig}
+    lacunae = [[m.start(), m.end(), "lacuna"] for m in _LACUNA_RE.finditer(text)]
+    if lacunae:
+        record["editorial"] = lacunae
+    return record
 
 
 def _extract_paragraphs_tei(

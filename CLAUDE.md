@@ -39,6 +39,7 @@ patristica/
 │   ├── alignment.py           # passage alignment inside a version group: n:m groups from the vectors (#179)
 │   ├── alignment_store.py     # alignment store (data/alignments/): one file per version group, no numpy
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
+│   ├── editorial.py           # editorial spans (#236): kept for readers, source_text() for translate/embed
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching; fold_spans() maps back
 │   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
 │   ├── translations.py        # translation store (data/translations/)
@@ -129,6 +130,13 @@ Inside a version group, `scripts.align` aligns the passages of the versions: an 
 
 - **`Chunk`**: one text unit (verse, paragraph, stanza) with `canonical_ref`, `language`, `text`, optional `translation_group_id`
 
+### Editorial material (#236)
+Titles and headings an editor added, supplements, lacuna markers, metadata in the text (CANTUS feast and mode) and notes are *editorial material*: readers see it, but it is not translated or embedded. It is **marked, not stripped**: the text stays whole and a list of spans `[start, end, kind]` says which parts are editorial (`patristica/editorial.py`; kinds `title`, `heading`, `supplement`, `lacuna`, `metadata`, `note`; offsets are Python `str` indices into the unit's text). A unit that is editorial as a whole (an added heading) has one span over all of it.
+- An ingestor writes the spans on the raw unit, `{"ref", "text", "editorial": [[s, e, kind], …]}`, offsets into that raw text, and doesn't import `patristica.editorial` (its stamp would change with that module). `scripts.normalize` checks them, moves them onto the cleaned text and onto derived verses, and writes `editorial` on the normalized chunk only when it has spans. It is not a `Chunk` field (a model field would invalidate every ingest stamp), so code that loads chunks as `Chunk` doesn't see it.
+- `scripts.translate`, `scripts.embed`, `scripts.align` and `scripts.build_index` use `editorial.source_text(chunk)`, the text without its spans, and hash that. **Supplements are the exception:** an editor's addition the passage needs for its sense stays in the source text (translated and embedded), and only its brackets are dropped (`KEPT_KINDS`; `ⲡⲁⲅⲅⲉ<ⲗⲟⲥ>` → `ⲡⲁⲅⲅⲉⲗⲟⲥ`). Marking a span re-translates and re-embeds exactly the units it is in, and an unmarked unit hashes as before. A wholly editorial unit gets no translation and no vector. The keyword index and the search DB keep the full text. Derived verses are cut from the full text, so marking never renumbers them.
+- The library export writes `editorial: {ref_suffix: spans}` per work file with UTF-16 offsets; the reader shows the spans with a neutral marker (`EditorialText`); the dedicated style is #291.
+- **Rule:** keep ingest-side stripping only for noise (OCR damage, layout placeholders, footnote markers whose notes the source doesn't carry). Anything a reader should see but search shouldn't (an added title or heading, a lacuna, catalogue metadata, a note or variant) is marked, never deleted, and never inserted into `text` without a mark. An editor's supplement is marked too (`supplement`, the span including its brackets) but stays embedded. A conversion is a data PR: re-ingest (`--force --offline`) or change normalize, then the paid steps for the changed units. Scripture superscriptions are text, not editorial material: they keep the verse-0 scheme (`Ps.N.0`, #239, #300). Converted so far: Coptic Scriptorium lacunae; the rest are tracked on #236.
+
 ### Language codes (ISO 639-3)
 `grc` Greek · `lat` Latin · `hbo` Hebrew · `syc` Syriac · `cop` Coptic · `gez` Ge'ez · `hye` Armenian · `got` Gothic · `eng` English
 
@@ -156,7 +164,7 @@ Every ingestor writes per-book JSON files to `data/raw/{source_id}/`. Each file 
 }
 ```
 
-For prose/patristic sources (M3+), use `"paragraphs"` instead of `"verses"` with the same `{"ref": ..., "text": ...}` structure. `normalize.py` reads this format and produces `Chunk` objects.
+For prose/patristic sources (M3+), use `"paragraphs"` instead of `"verses"` with the same `{"ref": ..., "text": ...}` structure. `normalize.py` reads this format and produces `Chunk` objects. A unit may also carry `"editorial": [[start, end, kind], …]`, its editorial material ("Editorial material" above); other extra keys (Coptic Scriptorium's diplomatic `orig`) are ignored by normalize.
 
 ## Ingestion Modules
 

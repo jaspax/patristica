@@ -9,6 +9,7 @@ import { columnRef, sectionBlocks, type Row, type Span } from "@/lib/parallel";
 import { chunkRoles, parseWork, type ChunkRole, type Section } from "@/lib/render";
 import { useHashTarget } from "@/lib/useHashTarget";
 
+import EditorialText from "./EditorialText";
 import styles from "./ParallelText.module.css";
 
 const DERIVED_TITLE =
@@ -232,7 +233,12 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
       );
       i += 1;
     } else if (role.kind === "heading") {
-      const text = role.section.title ?? work.chunks[i][1];
+      const text =
+        role.section.title !== null ? (
+          <EditorialText text={role.section.title} spans={role.section.titleEditorial} />
+        ) : (
+          work.chunks[i][1]
+        );
       if (p.lead) {
         const Heading = (["h2", "h3", "h4"] as const)[Math.min(role.section.depth, 2)];
         out.push(
@@ -256,7 +262,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
           <a className={styles.marker} href={`#${anchorId(p, ref)}`} aria-label={`Paragraph ${u.n}`}>
             {u.n}
           </a>
-          {u.text}
+          <EditorialText text={u.text} spans={u.editorial} />
         </p>,
       );
       i += 1;
@@ -289,7 +295,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
               >
                 {part.n}
               </a>
-              {part.text}
+              <EditorialText text={part.text} spans={part.editorial} />
             </span>
           ))}
         </p>,
