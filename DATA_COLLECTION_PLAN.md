@@ -120,7 +120,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `vetus-latina` | Vetus Latina fragments | Latin (`lat`) | itseeweb.cal.bham.ac.uk | HTML | Check licensing; fragmentary |
 | `ogpg` | Open Patrologia Graeca (OCR) | Greek (`grc`) | github.com/OGL-PatrologiaGraecaDev | .txt/.hocr | Public domain; OCR noise |
 | `dco` | Documenta Catholica Omnia | Latin (`lat`) | documentacatholicaomnia.eu | PDF/DOC | Unclear license; Latin originals |
-| `gallican` | Gallican Liturgy (Neale/Forbes 1855) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
+| `gallican` | Gallican Liturgy (Neale/Forbes 1855–67: Missale Richenovense, Gothicum, Gallicanum Vetus, Vesontionense = Bobbio Missal, one work each, #245; Muratori's Missale Gallicanum Vetus) | Latin (`lat`) | Internet Archive | OCR text | Public domain; OCR needed |
 | `mozarabic` | Mozarabic Rite (Ferotin editions) | Latin (`lat`) | Internet Archive | PDF | Public domain; OCR needed |
 | `gez-anaphoras` | Ethiopian Anaphoras (14 anaphoras) | Ge'ez (`gez`) | ethiopianorthodox.org + Internet Archive | PDF | Public domain |
 | `syriac-james` | Liturgy of St. James (Syriac) | Syriac (`syc`) | Internet Archive | PDF | Public domain |
