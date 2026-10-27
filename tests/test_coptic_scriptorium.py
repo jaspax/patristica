@@ -364,6 +364,19 @@ def test_drops_layout_placeholders_and_footnote_markers(tmp_path: Path) -> None:
     ]
 
 
+def test_lacunae_are_marked_as_editorial_material() -> None:
+    """``[....]``-style lacunae stay in the text and are marked (#236); brackets
+    around letters (the editor's restoration of a word) are not."""
+    from scripts.ingest.coptic_scriptorium import _paragraph
+
+    text = "ⲁⲩⲱ […] ⲛⲟⲛ [..] ⲡⲣ[ⲉ]ⲥⲃⲩⲧⲉⲣⲟⲥ []"
+    para = _paragraph("test-corpus", 1, 2, text, "orig")
+    assert para["text"] == text
+    assert [text[s:e] for s, e, _ in para["editorial"]] == ["[…]", "[..]", "[]"]
+    assert {k for _, _, k in para["editorial"]} == {"lacuna"}
+    assert "editorial" not in _paragraph("test-corpus", 1, 3, "ⲡⲣ[ⲉ]ⲥⲃⲩⲧⲉⲣⲟⲥ", "orig")
+
+
 def test_meta_format_drops_noise(tmp_path: Path) -> None:
     xml = _META.replace('norm_group="ⲡⲃⲓⲟⲥ"', 'norm_group="ⲡ⁽³⁾ⲃⲓⲟⲥ ▢"')
     assert 'norm_group="ⲡ⁽³⁾ⲃⲓⲟⲥ ▢"' in xml
