@@ -23,7 +23,7 @@ from scripts.ingest.coptic_scriptorium import (
     _corpus_meta,
     ingest,
 )
-from tests.test_coptic_scriptorium import _TEI
+from tests.test_coptic_scriptorium import _TEI, _TEI_TT
 
 
 @pytest.mark.parametrize("corpus", sorted(_CORPUS_META))
@@ -53,6 +53,9 @@ def test_ingest_writes_work_ids_under_source_id(tmp_path: Path) -> None:
     tei_dir = tmp_path / "_repos" / "coptic-scriptorium" / "dormition-john" / "dormition-john_TEI"
     tei_dir.mkdir(parents=True)
     (tei_dir / "dormition.xml").write_text(_TEI, encoding="utf-8")
+    tt_dir = tei_dir.parent / "dormition-john_TT"
+    tt_dir.mkdir()
+    (tt_dir / "dormition.tt").write_text(_TEI_TT, encoding="utf-8")
 
     works = ingest(tmp_path)
 
