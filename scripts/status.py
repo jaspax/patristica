@@ -99,6 +99,32 @@ def curation_stale_works(norm: Path = NORMALIZED) -> list[str]:
                   if p in fps and fps[p]["curated"] != nz.curated_hash(w))
 
 
+def anchor_stale_works(norm: Path = NORMALIZED) -> list[str]:
+    """Works whose anchor record (#292) doesn't match their anchor's current cuts.
+
+    A work of a source enrolled for anchored derived verses
+    (``patristica.anchoring``) records the work it was cut on and a hash of
+    that work's cuts; after the anchor changes, normalize must re-split it.
+    A record on a work of a source that is no longer enrolled is stale too.
+    """
+    from patristica import anchoring
+    from scripts import normalize as nz
+
+    works, fps = nz.read_works_manifest(norm), nz.read_work_fingerprints(norm)
+    paths = {w.get("work_id"): p for p, w in works.items()}
+    stale: list[str] = []
+    for p, w in works.items():
+        if p not in fps:
+            continue
+        recorded = fps[p].get("anchor")
+        if anchoring.is_enrolled(nz.source_of(p)):
+            if recorded != nz.anchor_record(w, norm, paths):
+                stale.append(p)
+        elif recorded is not None:
+            stale.append(p)
+    return sorted(stale)
+
+
 def manifest_mismatch(norm: Path = NORMALIZED) -> tuple[list[str], list[str]]:
     """(normalized files not in ``_works.jsonl``, manifest entries with no file)."""
     from scripts import normalize as nz
@@ -296,10 +322,12 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
 
     def works() -> list[Row]:
         missing, curated = unfingerprinted_works(norm), curation_stale_works(norm)
-        return [Row("normalize", "works", "fail" if missing or curated else "ok",
-                    f"{len(missing)} without a fingerprint, {len(curated)} with changed curation"
-                    + (f" ({_examples(missing + curated)}): {renorm}" if missing or curated
-                       else ""))]
+        anchored = anchor_stale_works(norm)
+        bad = missing + curated + anchored
+        return [Row("normalize", "works", "fail" if bad else "ok",
+                    f"{len(missing)} without a fingerprint, {len(curated)} with changed curation, "
+                    f"{len(anchored)} with a changed anchor"
+                    + (f" ({_examples(bad)}): {renorm}" if bad else ""))]
 
     absent: list[str] = []
 
