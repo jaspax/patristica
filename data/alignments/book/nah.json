@@ -3,8 +3,8 @@
  "group": "book:nah",
  "pivot": "asv/nah",
  "groups": 47,
- "inputs": "bbba0b9137ce4051",
- "run": {"aligner": 2, "date": "2026-10-25", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "336b7d82fe8bf3be",
+ "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/nah", "units": 47, "ids": "c7de373a82d8fb91", "inputs": "d09dfc1190590744", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "asv/nah", "units": 47, "ids": "69e249c6c1e8f5e0", "inputs": "9cf4f538d2a5a1fe", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
@@ -12,7 +12,7 @@
   {"work_id": "coptic-nt/nah", "units": 12, "ids": "d3d893775617b8ef", "inputs": "e3c6389daeb881c5", "spans": "++++++++++++2", "conf": "999999999999"},
   {"work_id": "kjv/nah", "units": 47, "ids": "a53cc2660c8ba62c", "inputs": "57b6a868703d3b8a", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "lxx-rahlfs/nah", "units": 47, "ids": "52f48eb981802e52", "inputs": "5d6ecb0573368ea6", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
-  {"work_id": "oshb/nah", "units": 47, "ids": "da318374d07c850c", "inputs": "00c90c7127262cb8", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
+  {"work_id": "oshb/nah", "units": 47, "ids": "da318374d07c850c", "inputs": "39eec8d2a1fad1ea", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "pta-lxx/nah", "units": 47, "ids": "6e124f23bc2794d8", "inputs": "922f378cbea564a2", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "pta-peshitta/nah", "units": 47, "ids": "33add1271fb322f6", "inputs": "76ed501d4bb52951", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "web/nah", "units": 47, "ids": "171f22dac3474042", "inputs": "85be6ae1668e8806", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"}

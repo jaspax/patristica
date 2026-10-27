@@ -4,165 +4,159 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
     },
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-27": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-15",
+      "date": "2026-10-27",
       "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0000",
-      "source_sha256": "40f860b92881d72a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a72ec634670bcab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “All my days have wasted away in shame.”"
+      "text": "And again: “All my days have passed in shame.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0001",
-      "source_sha256": "53c4062d2348b881",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dfc1bd0b2f655b45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Again: “But you despised him; you rejected your anointed one; you abandoned him, Lord.”"
+      "text": "Again: “But you have disgraced him; you have rejected your anointed one and abandoned him, Lord.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0002",
-      "source_sha256": "d428d0d57f61f1a9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5f7cd2850fc6adbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And: “You poured shame down upon him.”"
+      "text": "And: “You have poured shame down upon him.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0003",
-      "source_sha256": "0b8071a228207ad1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "And again: “I was an object of reproach among men and of contempt among the people.”"
+      "source_sha256": "1e9db3dc7381a084",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And again: “I was a reproach among human beings, despised by the people.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0004",
-      "source_sha256": "6c6ad7d7ceb982d0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
+      "source_sha256": "4e5f44ce83245cdf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
       "text": "“Everyone who sees me mocks me. They speak with their lips and shake their heads.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0005",
-      "source_sha256": "0ddfe14a3d5dac1d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "And again: “Those who sit at the gates spoke against me, and those who drink wine sang songs about me.”"
+      "source_sha256": "4e49afb54cb4c296",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And again: “Those who sit at the gates talked against me; those who drink wine sang songs about me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0006",
-      "source_sha256": "4151ce1be6dba3ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "And: “Because of you I have borne reproach; shame has covered my face.” And again: “I encountered affliction and distress, and I cried out to the Lord.”"
+      "source_sha256": "81d2f820474995f1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And: “Because of you I bore reproach. I was ashamed; [?] covered my face.” And again: “I found distress and anguish, and I cried out to the Lord.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0007",
-      "source_sha256": "11cbcb40ad036f18",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "And again: “Do not be silent, God, and do not remain still. Look, your enemies have cried out, and those who hate me have raised their heads.”"
+      "source_sha256": "07862891a2b4616d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And again: “Do not be silent, God, and do not remain still. For look, your enemies have cried out, and those who hate me have raised their heads.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0008.s1",
-      "source_sha256": "0f98e3e0a25c0671",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "My God, do not remain silent at my praise, for the mouth of the sinner and the deceitful mouth have opened against me."
+      "source_sha256": "0f8ef0afaafdc53d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "“My God, do not remain silent at my praise, for the mouth of the sinner and the deceitful mouth have opened against me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0008.s2",
-      "source_sha256": "f832eeec95339814",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "And again: “You have sheltered me beneath the shadow of your wings, in the presence of the ungodly who have oppressed me.”"
+      "source_sha256": "752d441612ded511",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Again: “You sheltered me under the shadow of your wings, before the ungodly who afflicted me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0009",
-      "source_sha256": "c43cf3fa4a017eaf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "95f288e5f5f4e717",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “You brought me out of my troubles, and I saw that my enemies had been destroyed.”"
+      "text": "And again: “Bring me out of my troubles, and look at my enemies, for they have multiplied.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0010",
-      "source_sha256": "088fe7c4d1ab0e28",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d65ba834d8b1cd0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “They cast me out, the beloved one, like a loathed dead man.”"
+      "text": "And again: “They cast me out, the beloved one, like a detested murderer.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0011",
-      "source_sha256": "3a16200743a62092",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "44e207d58018dbdd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “They confronted me on the day of my suffering.”"
+      "text": "And again: “They rejoiced over me on the day of my suffering.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0012",
-      "source_sha256": "e947c9f3032db397",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "da55fd560c37dfeb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “They gave me bitterness to drink; he made me experience gall.”"
+      "text": "And again: “They gave me bitterness to drink; he made me live in gall.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0013",
-      "source_sha256": "b8624970eb3dcfe1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fe3160777d01abab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again: “You brought us into the trap; you placed afflictions before us.”"
+      "text": "And again: “You brought us into the snare; you set afflictions before us.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0014",
-      "source_sha256": "aaea9029cae6bfb1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "06d987f52c350c45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The testimony of their love for the Lord and his law is that they do not turn away from him amid their hardships and afflictions."
+      "text": "The proof of their love for the Lord and his law is that they do not turn away from him amid their sufferings and afflictions."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0015",
-      "source_sha256": "e5c490a7d77f05cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "32340c84b8af42b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "As he said: “All these things came upon us, but we did not forget you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0016",
-      "source_sha256": "cc24ef56d47d0c24",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7b42844e60e993b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "And: “The ropes of sinners entangled me, but I did not forget your law.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0017",
-      "source_sha256": "50cac66588f9437b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "420004268a655834",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For we, at this present time, boast of human glory and honor,"
+      "text": "For we, in this present time, boast in human glory and honor."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.000.0018",
-      "source_sha256": "d05568e93851f132",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8c4cc4b91f9933b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "but the prophets themselves, the apostles, and all the righteous boast"
+      "text": "But the prophets, the apostles, and all the righteous boast"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0000",
@@ -173,101 +167,101 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0001",
-      "source_sha256": "972a1a2e94eb6fba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9197ca0e3d5e26b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For just as the fighter runs—does the one who wages war not run?—the soldier himself runs all the more. Or has he not come out to the battlefield?"
+      "text": "For just as the fighter runs—for does someone waging war not run?—the soldier himself runs all the harder. Or did he not indeed go out to battle?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0002",
-      "source_sha256": "6c7606416ce009d0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a1d23d93c05e8404",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Or if the fighter concerns himself with his own affairs, where will he find [?] any longer?"
+      "text": "Or if the fighter concerns himself with his own affairs, where will he find [?] anymore?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0003",
-      "source_sha256": "c753158130ec8205",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c6ef4209f1708571",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And why will the soldier receive anything if he does not concern himself with what he has been assigned?"
+      "text": "And what will the soldier receive if he does not concern himself with what he has been assigned?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0004",
-      "source_sha256": "1b267210ea812582",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1e60889c52cd69b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "In this way we are all exposed to danger and to judgment from God."
+      "text": "This is how we are all in danger and under judgment from God."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0005",
-      "source_sha256": "841068e84beed06f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "As for me, I do not make an effort to do what I ought to do."
+      "source_sha256": "96131f49ebb22b3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "I, for my part, because I do not make an effort to do what I ought to do."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0006",
-      "source_sha256": "a6381c10e5e91502",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "But as for these others, this is a way of death: even if regions are laid waste, they pursue their own business, namely plunder."
+      "source_sha256": "9dac2f1d64abdafa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "As for these others, this is how I find them: even if whole regions are abandoned, they pursue their own business, namely, taking."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0007",
-      "source_sha256": "3c9b7b6f3238db0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
+      "source_sha256": "12b08178298fbabd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
       "text": "For often, even if the soldier does his utmost and does not win, it is clear that God is the one who raises our enemies against us because of our sins."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0008",
-      "source_sha256": "f1cd4566562478ef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "At other times, however, it is nothing but the negligence of those who govern, who fail to do what they ought to do."
+      "source_sha256": "838bf273d83e0f3f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "At other times, however, it is nothing but the negligence of those in authority that keeps them from doing what they ought to do."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0009.s1",
-      "source_sha256": "c65b6c801074c980",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "For the matter is evident when the ruler and the soldier give their lives over to death for those they fight for, knowing that it is the Lord who gives strength and victory."
+      "source_sha256": "b5dccf095ff34ba2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For the matter is clear when the high-ranking official, as well as the soldier, gives his life to death for those he fights to defend, knowing that the Lord is the one who gives strength and victory."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0009.s2",
-      "source_sha256": "98d1cefe7086b2e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "And when they pay no attention to the work, you will find them all the more readily when it is time to receive."
+      "source_sha256": "ce035a799131d759",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And again, when they pay no attention to the work, you will find them all the more readily when it is time to take."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0010",
-      "source_sha256": "1cbe8a15b2ba79c1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "075817f46226ab41",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "You will find them again at the time of need."
+      "text": "You will also find them in the time of need."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0011",
-      "source_sha256": "c9281be137005a37",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dc9c93d47444f100",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "This has been their thinking since they came from distant regions and nearby ones: “We will not die because of other people.”"
+      "text": "This has been their thinking since they came from regions far away and nearby: “We are not going to die for people.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0012",
-      "source_sha256": "de54f63c689cd10b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "88eb4accc158e6aa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But they forget this, and it is not in their minds whether it is even lawful to take—for I will not say “plunder”—and to live in the houses of those against whom they are not fighting."
+      "text": "But they forget this, and he does not consider whether he himself is allowed to take—not to say plunder—and live in the houses of those they do not fight to defend."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0013",
-      "source_sha256": "67893c70598016d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0402d129e8563170",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Or is there really no soldier ready to rob and plunder more than the barbarians?"
+      "text": "Or is there really no soldier ready to rob and plunder more than a barbarian?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0014",
@@ -278,185 +272,185 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0015",
-      "source_sha256": "7446a32153673c52",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "29b58f6e60602366",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But only one among many spares a weak person."
+      "text": "Only one out of many spares a weak person."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0016",
-      "source_sha256": "f6b42c609f453ed4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fd4b427b0f47e0ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "This is how it is: blessed is the person who has the power to do evil to his neighbor but does not do it."
+      "text": "Thus, blessed is the person who has the power to harm his neighbor but does not do it."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0017",
-      "source_sha256": "3f7b6062b208be1c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "96b14afa9b717e09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For arrogance has gained power over everyone living in the world, from those who do not know God to those who say, “We know him better.”"
+      "text": "For greed has gained power over everyone who lives in the world, from those who do not know God to those who say, “We know him better.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0018",
-      "source_sha256": "97cd8392aab53dd6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "45ee8f37e547d4a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Even the poor and women do this. Even wicked children mistreat their father who fathered them"
+      "text": "Even the poor and women do this. Even wicked children oppress their father who begot them,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0019",
-      "source_sha256": "9c8288ea86885f93",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a55ab7b6f76cb37f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and their mother who raised them, and even one brother another brother,"
+      "text": "and the mother who raised them, and it extends even to one brother and another,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0020",
-      "source_sha256": "dd3f8bfde70f20d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "31467fa993cf32fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and even a brother his sister."
+      "text": "and even to a brother and his sister,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0021",
-      "source_sha256": "1276378e3bf1ccec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3eba9545b21963a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And even foreigners and local inhabitants—these too envy one another."
+      "text": "and even to strangers and sojourners. These others, too, envy one another."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0022",
-      "source_sha256": "5b96b555c3573f77",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a8798553d4770d26",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Those who commit sin are many."
+      "text": "Many are those who sin."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0023",
-      "source_sha256": "c44c4793f5c8f86d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6c9fa99107799643",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Those who envy them are also many, learning from them and outdoing one another in violence."
+      "text": "Many, too, are those who compete with them, learning from them and outdoing one another in extortion."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0024.s1",
-      "source_sha256": "88bc6a603bbf5bda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "What does the hunter do? He takes trouble over an animal, or some animals, and places it around his nets"
+      "source_sha256": "70ac4993b130eea9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "What does the hunter do? He takes pains to obtain an animal, or some animals, and places it around his nets"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0024.s2",
-      "source_sha256": "5fe4f76a548f619a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "and his trapping equipment, until many are caught and many come, and they fall over one another in the snare."
+      "source_sha256": "ea5230fcb82b94b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "and his trapping equipment, until many are caught, and until many come, and until they are piled on top of one another in the trap."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0025",
-      "source_sha256": "3423248654b582be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "359e2e6489c1c966",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "A person does not see a demon committing a sin and then do it himself. Rather, it is a person seeing another person practicing ungodliness who then does it himself. What—what—"
+      "text": "A person does not see a demon committing a sin and then commit it himself. Rather, it is a person who sees another person acting wickedly and then does it himself. [?]"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0026",
-      "source_sha256": "754c1157d09a9b38",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4108952c24dd7b27",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "What, then, does the fisherman do? He looks for very small creatures that are appetizing and puts them on his hook until he catches choice fish."
+      "text": "Again, what does the fisherman do? He searches for very small living creatures and puts them on his hook until he catches choice fish."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0027",
-      "source_sha256": "07b82ab9906760ef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3a4adfe312fe0abc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "In the same way, and even more so, Satan looks for people who are pleasing to Jesus and binds them in his lawlessness until he draws very many people into evil."
+      "text": "In the same way, and even more so, Satan spots living people for himself, [?] and binds them in his lawlessness until he draws very many into evil."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0028",
-      "source_sha256": "e3f3b32de2402d5e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5bc63e4ee2867cc3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "This is how it is: woe to us, because each one has become a stumbling block to his neighbor."
+      "text": "Thus, woe to us, because each of us has become a stumbling block to his neighbor."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0029",
-      "source_sha256": "37be53fe84eb13f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "404f061e60030be0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For someone says, “If I had not seen you plundering and committing violence, I would not have plundered or committed violence.”"
+      "text": "For if I had not seen you robbing and extorting, I would not have robbed, nor would I have practiced extortion."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0030",
-      "source_sha256": "19a3cecbd609af58",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "839ff9fcbe6522d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And, “If you had not practiced deceit in wickedness, I would not have practiced deceit.”"
+      "text": "And, “If you had not lied in wickedness, I would not have lied.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0031",
-      "source_sha256": "6ecb8eca378bdd2d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "74e5dd3c84fa66a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And, “If you had not practiced deceit in every kind of evil, I would not have done these things.”"
+      "text": "And, “If you had not lied in every kind of evil, I would not have done these things.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0032",
-      "source_sha256": "6235f71fa0657bd2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d8bdef6a76d8d92b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And, “Indeed, if you had not roared against the poor like these lions, I would not have roared.”"
+      "text": "And furthermore, “If you had not roared against the poor like these lions, I would not have roared.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0033",
-      "source_sha256": "44b3996145caddb3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fd08c5425447d25c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "And if anyone is safe, it is Jesus who helped him and rescued him."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0034.s1",
-      "source_sha256": "ae63ecaa0688aba8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "A person who is drunk will not recognize someone else who is drunk. For there are many evils beneath the sky, before those who have sobered up from their wine,"
+      "source_sha256": "6d0230e426081063",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "The drunken person will not recognize what makes him drunk. For there are many evils under heaven before those who have [?] their wine."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0034.s2",
-      "source_sha256": "4d53f9bb5e38b15a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "or those who have not concerned themselves with that wine—the wine he speaks of when he says, “He is drunk with a sinner’s wine,” and, “Those who are drunk without wine.”"
+      "source_sha256": "84bd9a9f4b2dbf5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Or those who have not become weighed down by that wine, the wine he speaks about when he says, “He is drunk on the wine of sinners,” and, “Those who are drunk without wine.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0035",
-      "source_sha256": "6b728b2eceeb3d62",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b8056b237ff98a08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For do not the words of this voice cry out into the air: “If you see oppression being inflicted on a poor person in a region, and justice and righteousness being taken away,"
+      "text": "For do not the words of this voice cry out into the air, “If you see oppression being inflicted on the poor in a region, and judgment and justice being taken away,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0036",
-      "source_sha256": "ca59c4897b4ed799",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d66464763a987b3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "do not be astonished at the matter.”"
+      "text": "do not be amazed at the matter”?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0037",
-      "source_sha256": "8f379df00b5d3760",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "659ef31ed518c1c5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "And, “Look at the tears of those who are oppressed.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0038",
-      "source_sha256": "e22059bac7b5a5c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3d29d4509b51e476",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“There is no one to comfort them against those who oppress him with force—[?] the one who will comfort them.”"
+      "text": "There is no one to comfort them from the hands of those who will oppress him by force, [?] one who will comfort them."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0039",
@@ -467,129 +461,129 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0040",
-      "source_sha256": "dbd987159e3a4c32",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0af69ff75721ac3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“The heart of human beings has agreed with them to do evil among them.”"
+      "text": "For the hearts of human beings have encouraged them to do evil among themselves."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0041",
-      "source_sha256": "abd654dffc721b70",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "17acdd42c10e4dbb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And again, “The heart of human beings is filled with evil.”"
+      "text": "And again, “The hearts of human beings are full of evil.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0042",
-      "source_sha256": "32c1f4f1ea076f10",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 12,
-      "text": "The one who committed the sin also committed the evil deed."
+      "source_sha256": "251c8eecca5e0fc6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "The person who committed sin also committed evil."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0043",
-      "source_sha256": "665d0dba7e5b624b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "For this evil swelling in our hearts has made us unaware that we are members of one another and that we are God's offspring. We are not ashamed to oppress one another."
+      "source_sha256": "7cf9b4f9fd8be5fd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For this great amount of evil in our hearts has made us forget that we are members of one another and that we are God's offspring. We are not ashamed to wrong one another."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0044",
-      "source_sha256": "47cb7ea0f0f423ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Nor do we fear the words of the prophets that fight against us:"
+      "source_sha256": "5334bf0f0f903ec4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Nor do we fear the words of the prophets that contend against us:"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0045",
-      "source_sha256": "d500d426121c53cd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "“Was it not one God who formed you?"
+      "source_sha256": "71a4cea050ee219c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "“Was it not one God who established you?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0046",
-      "source_sha256": "6e770932a034fb44",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Is it not one Father who is over us all? Why"
+      "source_sha256": "74221505967cc70c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Is there not one Father over us all? Why"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0047",
-      "source_sha256": "d146dd065039d3d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "does each one abandon his brother, defiling the covenant of your fathers?” And: “The Lord will wipe out the person who does these things.”"
+      "source_sha256": "21e762a1c97c5048",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "does each person abandon his brother, defiling the covenant of your ancestors?” And, “The Lord will wipe out the person who does these things.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0048",
-      "source_sha256": "6346dc4600813c19",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "For if I say that the devil [?] thinks up worse evil than the people who are in turmoil [?], so that you wonder, “Where do these people get the idea for these lawless acts?”—"
+      "source_sha256": "a6dcacfd3b89fdf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For if I say that the devil devises evil more than the people who are swept along after it, so that you wonder, “Where do these people get their ideas for these lawless deeds?”—"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0049.s1",
-      "source_sha256": "0c5b68aa6a949979",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "He himself is the one who advises them and reveals these things to them as a great mystery among great mysteries."
+      "source_sha256": "1da8398207cf6161",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "it is he who advises them and reveals these things to them like great [?] mysteries."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0049.s2",
-      "source_sha256": "bcc93f81c904a92b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "Otherwise, where would he be at work, or in what, except in these—in hearts that love evil?"
+      "source_sha256": "0ff5fdba72c6eaa9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Otherwise, where would he work, or in what, except in these—in hearts that love evil?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0050",
-      "source_sha256": "ac906d91781b29d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "For he is powerless to act in the mountains, or the earth, or anything else."
+      "source_sha256": "84128f9a529aa64b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For he is powerless to work in the mountains, or the earth, or anything else."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0051",
-      "source_sha256": "98e9d4e261c3fa65",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
+      "source_sha256": "11d23436f7a80534",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
       "text": "What is written in the Psalms about people who do not want to do what is right, and who also do not want to be excluded because of their acts of oppression?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0052.s1",
-      "source_sha256": "7380c0d68f8cbef7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "They want God’s dwelling to enter them, but they do not want to carry out his words."
+      "source_sha256": "795243c96f793b30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "They want to enter God's places, but they do not want to put his words into practice."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0052.s2",
-      "source_sha256": "7a01d8c2508b02e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "They said: “They will return in the evening and be hungry like dogs, and go around the city. If they are not satisfied, they will grumble.”"
+      "source_sha256": "5346a5cd2d61b05f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "They said, “They will return in the evening and hunger like dogs, and go around the city. If they are not satisfied, they will grumble.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0053.s1",
-      "source_sha256": "99a38bb16465af21",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "Listen to “evening.” This means that they will return in their dark thinking and go around Christ’s congregations."
+      "source_sha256": "0dff857bd0aa0aea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Listen to the words “in the evening,” which mean that they will return in their dark thinking and prowl around the congregation of Christ."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0053.s2",
-      "source_sha256": "88cffe5c37218efd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "But if they are not admitted, they will say these words, grumbling: “Let him bring us the Scriptures! For not only does he refuse to admit us,"
+      "source_sha256": "766ffe1d8b63d2a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "But if they are not admitted, they will grumble and say these words: “Let him bring us the Scriptures, because not only does he refuse to receive us,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0053.s3",
-      "source_sha256": "47569301268ce812",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "but he also refuses to admit our wives and our children.” They trust in their false knowledge, thinking that they will prevail with these words: “The son will not bear his father’s wrongdoing.”"
+      "source_sha256": "f15b1dd5d0718fb7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "but he also refuses to receive our wives and our children.” They are confident in their false knowledge that they will prevail with these words: “The son will not bear his father’s wrongdoing.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0054",
@@ -607,73 +601,66 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0056",
-      "source_sha256": "11e9d8f7f647eeb3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "The occasion for speaking about these things is quite different from the occasion for what you are saying now."
+      "source_sha256": "25573d8239182f19",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Leave aside for the moment speaking about these things and about what you are saying now."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0057.s1",
-      "source_sha256": "828706d7383ee739",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "Let those who think this way say: The goods stolen from our poor people [?] that are in their houses—"
+      "source_sha256": "1df8cfaed92a7466",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Let those who think this way say: “As for the things plundered from our poor that are in their houses,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0057.s2",
-      "source_sha256": "d70da0e6d8e2b6e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "do they not enjoy them together with their wives and children? Or do they not cause grief to those they oppress, together with their wives and children?"
+      "source_sha256": "e7765f915110b5c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "do they not enjoy them along with their wives and children? Or do those who are robbed by force not grieve along with their wives and children?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0058",
-      "source_sha256": "7ebb0427cc7b4156",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "And why is it not right for us to cause you grief—you and those who share in your evil deeds?"
+      "source_sha256": "73a65c1eaea21a28",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "And why should you not grieve, along with those who share in your evil deeds?"
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0059.s1",
-      "source_sha256": "9dd08c07211a246d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "If I do not instruct you from the Scriptures and dispose of your arguments once and for all,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0059.s2",
-      "source_sha256": "2d9817d739d78d7f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 19,
-      "text": "so that you understand that you ought to feel remorse at least once, then you may judge me."
+      "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0059",
+      "source_sha256": "a55212edcaa9aaa3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "If I do not instruct you from the Scriptures and dispose of your arguments once and for all, so that you understand that you ought to grieve together, then you may judge me,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0060",
-      "source_sha256": "1b8663d8fdc505fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "as you said: “He is a slave to the curse,” because I excluded you."
+      "source_sha256": "b21f99da53300fd6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "just as you said, “He is a cursed slave,” because I excluded you."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0061",
-      "source_sha256": "d8f6115e3288d57a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Did Achan, son of Zerah, steal a possession from a poor person, or kill anyone? Just as you too said this: “Have we really killed anyone?”"
+      "source_sha256": "b1bddecc8ee3f873",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Did Achan son of Zerah take anything by force from a poor person? Or did he murder anyone, as you too said, “Have we actually murdered anyone?”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0062",
-      "source_sha256": "2f8fe0e38a412468",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Was it not a cloak and a bar of gold that he stole from the spoils of the enemies?"
+      "source_sha256": "8de08444deb3334a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Was it not a cloak and a bar of gold that he stole from the spoils of our enemies?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0063",
-      "source_sha256": "b78c73be22f00af0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 22,
-      "text": "Or was he not the only one who did evil?"
+      "source_sha256": "92e8f959284232a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 12,
+      "text": "Or was he not the only one who committed the evil deed?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_unknown5_1#CopScr.shenoute-unknown51.001.0064",

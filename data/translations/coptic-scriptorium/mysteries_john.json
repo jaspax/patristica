@@ -4,176 +4,164 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
     },
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-27": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-15",
-      "script": "__main__"
-    },
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-25": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-25",
+      "date": "2026-10-27",
       "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0000",
-      "source_sha256": "6c014d6eaa83fdbe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "b2eed3085dd761e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "These are the mysteries of John, the apostle and holy virgin, which he was taught in truth. In the peace of God. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0001",
-      "source_sha256": "98f5eb8790e9c54a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "b06f8d095717efa9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When our Savior rose from the dead, he went up onto the Mount of Olives and sat down. He made a cloud go around to all the regions where the apostles were."
+      "text": "Now it happened that when our Savior rose from the dead, he went up onto the Mount of Olives and sat down. He sent a cloud around to all the regions where the apostles were."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0002",
-      "source_sha256": "1ce17a234e7c6720",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1e1e2393ef413128",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "It gathered them together beside the Savior on the Mount of Olives."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0003",
-      "source_sha256": "628878254faf489e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afb980539d12740d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "John spoke and said to the Savior, “My Lord,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0004",
-      "source_sha256": "ba1d1f5730177b3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fdd9c2b159abea95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "look, you say to me, ‘You are beloved to me, and you have found favor with me.’"
+      "text": "you tell me, ‘You are beloved to me, and you have found favor with me.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0005",
-      "source_sha256": "b7f6986e7306d8b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "445dd4246a82ca3a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "So now, my Lord, I want you to take me to the heavens and tell me about everything, so that I may understand it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0006",
-      "source_sha256": "840020741a7a567f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9c36a8f2da0a358b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The Savior answered."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0007",
-      "source_sha256": "d09cc4e3ebcb02ca",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "952d55ec1618de53",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to him, “John, you have asked me an upright question."
+      "text": "He said to him, “John, you have asked me rightly."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0008",
-      "source_sha256": "a7647698c120a806",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "173c08518cd08033",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I, for my part, will hide nothing from you."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0009",
-      "source_sha256": "41b83d9892088e55",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e3a1c352c1798e59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Get up, and let us pray to my blessed Father. He will listen to us.”"
+      "text": "Get up, and let us pray to my blessed Father. He will hear us.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0010",
-      "source_sha256": "74235c44afd48e8b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "07dea7ea9913e7e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Then the Savior stood up with the apostles and recited the great, blessed prayer."
+      "text": "Then the Savior stood up with the apostles and recited this great, blessed prayer."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0011",
-      "source_sha256": "ae63dc98cb3bc2fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cddfbcd0dceda514",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When he said the Amen, the heavens shook from side to side."
+      "text": "When he said the Amen, the heavens shook this way and that."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0012",
-      "source_sha256": "4327240e0b5a4a83",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "77f010d934db16a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "They opened one after another, as far as the seventh heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0013",
-      "source_sha256": "7c4c04e76201a521",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ca89aa9abc18e208",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Look, a great cherub came out of heaven, and the whole place became bright."
+      "text": "Then a great cherub came out of heaven, and the whole place lit up."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0014",
-      "source_sha256": "78e71afc0c1eec12",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "333eb328659b6db5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "His whole body was covered with eyes, and he came radiating light."
+      "text": "His whole body was covered with eyes, and as he came, he sent out flashes of light."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0015",
-      "source_sha256": "0b7b018db15b9b0e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "70e9a7ea824526c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Then the apostles became like the dead."
+      "text": "Then the apostles became like dead people."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0016",
-      "source_sha256": "54715f9d5c19b618",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "f5b5bd40895257cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "They fell to the ground in fear."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0017",
-      "source_sha256": "97a86d1ca29fba41",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "679c707a4524fc09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The Savior took them by the hand and raised them up. He took their fear away from them, and their hearts became steady again."
+      "text": "The Savior took them by the hand and raised them up. He took their fear away, and their hearts became steady again."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0018",
-      "source_sha256": "7a626f7fe2d2642e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f2f3bf5f240c41f4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "John spoke: “My Lord, tell me about the role of this very fearsome cherub.”"
+      "text": "John spoke and said, “My Lord, tell me about the rank of this cherub who is so terrifying.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0019",
-      "source_sha256": "7c1812745a77f606",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3f08e26823e55dee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The Savior answered and said to John,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0020",
-      "source_sha256": "747a0ad38d173740",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fb84a91a6bbc4038",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "“Listen to me, and I will tell you about everything."
     },
@@ -186,192 +174,192 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0022",
-      "source_sha256": "bde268c75aa83546",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "905b414ccf8ea11b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The Father's words are hidden within him, from their beginning to their completion."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0023",
-      "source_sha256": "abd5d56982e2f4b5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3e4ef87e07b09868",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Look, I have made him come to you so that he may tell you about everything, my beloved John.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0024",
-      "source_sha256": "534628097bad93f4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ed6fd3d155bcc089",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The Savior turned to the cherub and said to him, “I charge you: take my beloved John to the heavens,"
+      "text": "The Savior turned to the cherub and said to him, “I adjure you: take my beloved John to the heavens,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0025",
-      "source_sha256": "488d68904eab17f9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0831bbf1539d2db6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "and tell him about everything he asks about.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0026",
-      "source_sha256": "7d5478d6fc84347a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3589755ea15b2174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Immediately the cherub lifted John onto his wing of light and took him to the heavens."
+      "text": "Immediately, the cherub lifted John onto his wing of light and carried him to the heavens."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0027",
-      "source_sha256": "aea17d7484b70ac2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2aac0129efc949de",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He reached the first gate."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0028",
-      "source_sha256": "5abddc70dbd13c42",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3041f28eb8294219",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The gatekeepers opened it for him with reverence and fear."
+      "text": "The bolts opened for him at once and in fear."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0029",
-      "source_sha256": "f876d9d1ed84f170",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "edfb3d52c672ecbd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I, John, saw great mysteries in the first heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0030",
-      "source_sha256": "6b2de203c48cebcc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "79de07ba87f5f984",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw twelve men sitting on twelve thrones inside the great gate, in great glory and trembling."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0031",
-      "source_sha256": "10f2e33e31e9972d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b73aefde8ec2a043",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “My lord, who are these who sit in such great honor?”"
+      "text": "I said to the cherub, “My lord, who are these sitting in such great honor?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0032",
-      "source_sha256": "394ffe614931b945",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8033844ea71140d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “Do you see these twelve men? These are the twelve rulers of the aeons of light. Each rules over his own year in turn, but Michael appoints them so that the earth may produce its fruit.”"
+      "text": "The cherub said to me, “Do you see these twelve men? These are the twelve rulers of the realms of light. Each rules over his own year in turn, but Michael appoints them so that the earth may yield its fruit."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0033",
-      "source_sha256": "3626e159157c066c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "997946f62ac35c1e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“For there are years when the famine is worse than in another year.”"
+      "text": "For there are years when famine strikes some people.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0034",
-      "source_sha256": "8e1c32c3c32e9cce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3e5a343c0b3eb361",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub answered and said to me, “Look, I have told you about what you spoke to me about.”"
+      "text": "The cherub answered and said to me, “Look, I have told you about what you mentioned to me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0035",
-      "source_sha256": "7b16082dd6b867d1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "046732b6ad3e5c3d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I answered and said to the cherub, “My lord, is there a year when the water decreases and there is abundance?"
+      "text": "I answered and said to the cherub, “My lord, there are years when the water decreases and there is abundance."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0036",
-      "source_sha256": "ac2b6913d63015e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fff1d613e1139afd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“There are also years when the water rises high, yet famine occurs.”"
+      "text": "There are also years when the water rises and there is famine.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0037",
-      "source_sha256": "0eedeb3710dad6cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8dcfafd56bd8b65a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He answered and said to me, “You have seen the water beneath the Father's feet."
+      "text": "He answered and said to me, “You have seen the water lying beneath the Father’s feet."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0038",
-      "source_sha256": "ac334d0b56046be3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "908f0951a444ce59",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "When the Father lifts his feet, the water rises."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0039",
-      "source_sha256": "4e11203ea8f75092",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e7f9d56b6eca5003",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But if people sin at the time when God is about to bring the water up, he makes the earth's fruit diminish because of people's sins."
+      "text": "But if people sin at the time when God is about to bring the water up, he causes its fruit to decrease because of people’s sins."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0040",
-      "source_sha256": "162239ea6bfad5ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2116c9b7f891e4e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But at the time when it fills only a little,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0041",
-      "source_sha256": "adb7d2e069bcc66e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "c0b2088a27bae033",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And if people guard themselves against sinning, does the Father bless them and their crops?”"
+      "text": "and people guard themselves against sinning, the Father blesses it, and its fruits"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0042",
-      "source_sha256": "594658884c1f793a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0a76bd6b2cc7036b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "it increases through Michael's prayers."
+      "text": "multiply through Michael’s prayers."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0043",
-      "source_sha256": "d22886a92933a2be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "d33bdbc57e85df92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If people knew Michael’s pleas when the water is about to come upon the earth, they would not sin at all."
+      "text": "If people knew about Michael’s prayers at the time when the water is about to come upon the earth, they would not sin at all."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0044",
-      "source_sha256": "414543cc6fff31b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "94efa756d1e4a748",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "For Michael takes twelve myriads of angels with him, and they go in to the Father."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0045",
-      "source_sha256": "b83f00e1b1bfb510",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2dd457475a8d71af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "They prostrate themselves before him and do not get up"
+      "text": "They prostrate themselves before him and do not rise"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0046",
-      "source_sha256": "e3605cad7b8dca5b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "826e674783365011",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "at all until God sends the water down upon the world.”"
+      "text": "at all until God sends the water upon the world.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0047",
-      "source_sha256": "b280c600b8636ce0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "94465d85642e919b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I answered and said to the cherub, “I heard him saying"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0048",
-      "source_sha256": "dce97ad5c93fdefc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8977aaa4ab28308f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "that God created heaven and earth,"
+      "text": "that God created heaven and earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0049",
@@ -382,157 +370,157 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0050",
-      "source_sha256": "349c9d16a2fcb921",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5eff8aa860f384bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The cherub said to me, “Listen, and I will tell you everything."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0051",
-      "source_sha256": "9a86ae06e04f1bbb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9db7dca8db6a9b44",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Before God created heaven and earth, the waters existed, and no one knows how the water was created except God alone."
+      "text": "In the beginning, before God created heaven and earth, the waters existed, and no one knows how the water was created except God alone."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0052",
-      "source_sha256": "922c13778e8109e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "84e8af4fab1168fa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Therefore, whoever swears falsely by the name of the water will receive no forgiveness.”"
+      "text": "For this reason, whoever swears falsely by the name of the water will have no forgiveness."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0053",
-      "source_sha256": "d92a913f8b76625b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b53cd8e12331278",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And whoever swears by the seed of wheat—"
+      "text": "And whoever swears by the grain of wheat—"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0054",
-      "source_sha256": "85a84f0864d7e9ff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c15b4842816818d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "this same rule applies to both of them."
+      "text": "the same rule applies to both of them."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0055",
-      "source_sha256": "b8d7bae149e26b5c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "11d8ac54d5008357",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “My lord, I want you to tell me about the ordinance concerning wheat: where it was first found, before they sowed it in the ground,”"
+      "text": "I said to the cherub, “My lord, I want you to tell me about the rule concerning wheat: where it was first found, up until it was sown in the ground,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0056",
-      "source_sha256": "b8e97f25c9e3439a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e2acda973c658e68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“so that people could live on it.”"
+      "text": "so that people might live on it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0057",
-      "source_sha256": "c4c088f95862ff96",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "362b50d6c54ee4e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “Listen, and I will tell you everything.”"
+      "text": "The cherub said to me, “Listen, and I will tell you everything."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0058.s1",
-      "source_sha256": "f81fc74eed2901fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "765a6c8bf4575c63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When God created Adam, he placed him in the paradise of delight and commanded him, saying, “From every tree in paradise"
+      "text": "Now when God created Adam, he placed him in the paradise of delight and commanded him, saying, ‘From every tree in paradise"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0058.s2",
-      "source_sha256": "3af70655655acff9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "you may eat, except the tree of the knowledge of good and evil. You must not eat from it, for on the day you eat from it, you will surely die.”"
+      "source_sha256": "528e92885f472816",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "you may eat, except the tree of the knowledge of good and evil. You must not eat from it. On the day you eat from it, you will surely die.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0059",
-      "source_sha256": "9dbe396cdd918e93",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b507ce117018de22",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But the devil envied him because he saw the great glory surrounding him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0060",
-      "source_sha256": "628f81d0dc656c14",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ffa6f65f27fd1132",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The sun and the moon, the two great lights, used to come every day and bow down to Adam before rising over the earth."
+      "text": "The sun and the moon, the two great lights, would come every day and bow down to Adam before rising over the earth."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0061",
-      "source_sha256": "37e701fc5ea6d0c5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c52bd796f8f35127",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The devil went and led Adam and his wife astray, until they were thrown out of paradise and he was banished to the land of Havilah."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0062",
-      "source_sha256": "9ffea09f000c35dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fd77494340baef08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He became troubled by worries."
+      "text": "He became burdened with worries."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0063",
-      "source_sha256": "d84d778e5d7872a4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7cbc8e1204b6b79c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After all this, he became hungry and could find no food to eat like what they used to eat every day in paradise."
+      "text": "After all this, he grew hungry and could find no food to eat like what they used to eat every day in paradise."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0064",
-      "source_sha256": "13a4f63228a4b99a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a8bce8e8ecdcf4a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He cried out to the Lord in sorrow and anguish of heart."
+      "text": "He cried out to the Lord in sorrow and anguish."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0065",
-      "source_sha256": "7eea5d051982c23a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2a56b6c5de63afd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The Son of Goodness had compassion on him, for he was the one who had taken responsibility for him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0066",
-      "source_sha256": "eb9d71bccbcf0741",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7f4081398d1e707d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He spoke to his good Father, the Lord of the angels and the spirits: “Look, the man we created according to our likeness and his image is hungry.”"
+      "text": "He spoke to his good Father, the Lord of the angels and the spirits: ‘Look, the man whom we created according to our likeness and his image is hungry."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0067",
-      "source_sha256": "b95c7e3756786313",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "31c8d0beccfc4bc4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“I have compassion on him, my Father. If it is your will, do not let him die before you.” The Father of Compassion answered in this way:"
+      "text": "I have compassion on him, my Father. If it is your will, do not let him die before your eyes.’ Then the Father of Compassion answered in this way."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0068",
-      "source_sha256": "b3d0e7a21498de2f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "191a3fc2504aebb5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to his beloved Son, “If you have compassion on the man we created, even though he abandoned our commandment,”"
+      "text": "He said to his beloved Son, ‘If you have compassion on the man whom we created, even though he abandoned the commandment,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0069",
-      "source_sha256": "fe9fd112ef18c7c4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dffac159326f11b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“go and give him your flesh to eat, for you are the one who took responsibility for him.”"
+      "text": "go and give him your flesh to eat, for you are the one who took responsibility for him.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0070",
-      "source_sha256": "2752c5fe9a4cba4e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "183700167259758d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The Son of Goodness answered his Father, saying, “Your word is blessed.”"
+      "text": "The Son of Goodness answered and said to his Father, ‘Your word is blessed.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0071",
@@ -543,255 +531,255 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0072",
-      "source_sha256": "af039d0f847327b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "40ae853e407f48e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The beloved Son went out from the presence of his good Father."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0073",
-      "source_sha256": "db801d9dcc00c28b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d17e41e8e647b64b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He took a little from his right rib, from his divine flesh."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0074",
-      "source_sha256": "a76a1d064d20a695",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bb5c8d7d0984b8b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He crushed it and brought it to his holy Father. His Father said to him, “What is this?”"
+      "text": "He crushed it and brought it to his holy Father. His Father said to him, ‘What is this?’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0075",
-      "source_sha256": "0763e4148aab828b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "102018517d9b1ea5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said, “This is my flesh, just as you told me.”"
+      "text": "He said, ‘This is my flesh, just as you told me.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0076",
-      "source_sha256": "7d2144f6f67271ea",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "aec6fbc87ae644b7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "His father answered, “Yes, my son. Wait, and I will give you something from my invisible body.”"
+      "text": "His Father answered, ‘Yes, my Son. Wait, and I will give you some of my invisible body.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0077",
-      "source_sha256": "baea101ab933b166",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "58e20bf90df08757",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "His Father, in turn, took something from his own body and made it into a grain of wheat. He brought out the seal of light with which he had sealed the aeons of light, and he sealed the grain of wheat at its center."
+      "text": "His Father, in turn, took something from his own body and made it into a grain of wheat. He brought out the seal of light in which he had sealed the aeons of light, and sealed the grain of wheat in its center."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0078",
-      "source_sha256": "60a2925fa056e8fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4070bf2398c6cedb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to his beloved Son, “Take this and give it to Michael the archangel, so that he may give it to Adam to sow, and Adam and his children may live on it.”"
+      "text": "He said to his beloved Son, “Take this and give it to Michael the archangel, so that he may give it to Adam, and Adam may sow it and live on it with his children."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0079",
-      "source_sha256": "727ca72894dbeccb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "73d076567bd53a29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And he will teach him how to sow it and harvest it."
+      "text": "And let him teach him how to sow it and how to harvest it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0080",
-      "source_sha256": "5a0efe13a75c3def",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dc0759ed791a53d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Jesus called Michael and said to him, “Take this and give it to Adam, so that he and all his children may live on it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0081",
-      "source_sha256": "6781f5749c26c2e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8f9f34e130f9d811",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Michael came to Adam while he was in the Jordan. It was his eighth day without eating, and he was crying out to the Lord."
+      "text": "Michael came to Adam, who was at the Jordan. It was his eighth day without eating, and he was crying out to the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0082",
-      "source_sha256": "d2dee59bf3e85d79",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bf57f97ce3ac52f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Michael said to him, “Peace to you.”"
+      "text": "Michael said to him, “Peace be with you."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0083",
-      "source_sha256": "13e25d2c3c3c002c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "db699d5e80487fd4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“The Lord has heard your prayer and has sent you seed to sow.”"
+      "text": "The Lord has heard your prayer and has sent you seed to sow.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0084",
-      "source_sha256": "b0b21e38de402d6e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "73e27b77e222afe5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When Adam heard these things from Michael, his body gained strength. He came up out of the water and threw himself at Michael’s feet, and Michael gave him the seed, which was soaked."
+      "text": "When Adam heard these things from Michael, his body regained its strength. He came up out of the water and threw himself at Michael’s feet. Then he gave him the sealed seed."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0085",
-      "source_sha256": "c9d4ef611fa8fc85",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "840058e6ac806897",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He taught him how to sow it and how to harvest it, and then went up to heaven in glory."
+      "text": "He taught him how to sow it and how to harvest it, and went up to heaven in glory."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0086",
-      "source_sha256": "0713aa7a29906afb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "f3052cf264772c1d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The water, the wheat, the seed, and the Father’s throne all share this same rank, and they are equal to the Son of God."
+      "text": "The water, the wheat, the seed, and the Father’s throne all have this same rank, and they are equal to the Son of God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0087",
-      "source_sha256": "364eff0afd0a8b81",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5fd23fe0d881a1f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I, Joseph, saw and rejoiced when I heard these things."
+      "text": "I, John, saw and rejoiced when I heard these things."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0088",
-      "source_sha256": "a0850100e4dc8da1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4d81ee32dcbab926",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After these things, the cherub lifted me onto his wings of light and took me to the seventh heaven."
+      "text": "After this, the cherub lifted me onto his wings of light and took me to the seventh heaven."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0089",
-      "source_sha256": "797b29e82f638393",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d63de24c79680458",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw great wonders in that place."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0090",
-      "source_sha256": "3b9a5861746bea71",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "25e5bbecca057db7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw all the orders of angels."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0091",
-      "source_sha256": "06ee179974af24af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3d1e2e9c5c418baa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The first order consists of seraphim who cover the Father. They have golden censers in their hands and say, “Hallelujah.”"
+      "text": "The first order consisted of the seraphim who cover the Father, holding golden censers in their hands and saying, “Hallelujah!”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0092",
-      "source_sha256": "6c5ac0ef84e9e9e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3c7129a6b098ed48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The second order have golden bowls in their hands, filled with dew, which they pour out over the fields."
+      "text": "The second order held golden bowls full of dew in their hands, which they poured out over the fields."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0093",
-      "source_sha256": "561d549c4d82eaa6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "d69376055ecd7b72",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Michael is the chief over them, assigning each one to his work."
+      "text": "Michael is the leader over them, assigning each one to his work."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0094",
-      "source_sha256": "9bbcde090cc24815",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "876b4e70687dc212",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw another great wonder."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0095",
-      "source_sha256": "8e484c4ae77ad2e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2fca630219331cd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When I, Joseph, saw the angels arranged in all their orders, I found Michael’s name written on all their garments. They called it out at all times."
+      "text": "When I, John, saw the angels assigned to all their orders, I found Michael’s name written on all their garments, and they were calling it out continually."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0096",
-      "source_sha256": "19d8d16477cf082c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "a94f9ff707fd40fe",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I answered and said to the cherub, “How is Michael’s name written on their garments as they read it aloud?”"
+      "text": "I spoke and said to the cherub, “Why is Michael’s name written on their garments, and why are they calling it out?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0097",
-      "source_sha256": "c93f136cf1b7a253",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fa7e42562d0eb949",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub answered and said to me, “No angel comes to earth unless Michael’s name is written on their garments, because of the devil, so that he may not lead them astray.”"
+      "text": "The cherub answered me, “No angel comes down to earth unless Michael’s name is written on their garments, because of the devil, so that he will not lead them astray.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0098",
-      "source_sha256": "b8c776b45133bd0b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "1d80818b5aeb1ee9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After this, I saw a great spring of water, white as snow, so that I said its water was milk. An angel was standing over it."
+      "text": "After this, I saw a great spring of water, white as snow, so that I said, “Its water is milk.” An angel stood over it."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0099",
-      "source_sha256": "0958f854db82bd07",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "81b3ee8d04a261d4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "His wings were submerged in the water."
+      "text": "His wings were immersed in the water."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0100.s1",
-      "source_sha256": "878d706fdd63d267",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "The area around the spring was flourishing with trees laden with fruit of many kinds."
+      "source_sha256": "aacf30c6f6bfed12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Around the spring grew trees laden with many kinds of fruit."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0100.s2",
-      "source_sha256": "c174c20d96963918",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "This spring was like a sea, and all the trees beside it formed a single branch all the way to their tops."
+      "source_sha256": "29c4b25199310a50",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "This spring resembled the sea, and all the trees along it formed a single branch all the way to their ends."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0101",
-      "source_sha256": "068cfc8c475358a9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4495f2d8fe2a9ed5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I, Joseph, saw another great wonder."
+      "text": "I, John, saw another great wonder."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0102",
-      "source_sha256": "3e9c31c51407be3e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ad04af080fe93c31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw the root of the trees."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0103",
-      "source_sha256": "a354ec78589d1480",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "32494e49d86e25ea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "It was what sent water out into the spring."
+      "text": "It is this that pours water into the spring."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0104",
-      "source_sha256": "4544a0f8a505d1ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5c95985c2641467",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “My lord, tell me the purpose of this spring of water that is so white, with this angel over it.”"
+      "text": "I said to the cherub, “Lord, tell me about the purpose of this spring of water that is so white, with this angel standing over it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0105",
-      "source_sha256": "de138105747a460c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c805581e5222f18f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “This is what sends dew onto the earth.”"
+      "text": "The cherub said to me, “This is what sends dew upon the earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0106",
-      "source_sha256": "ee04f3dc81329dc6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5b9c1b5c3fe88580",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “Why is this angel over it, with his wings submerged in it at all times?”"
+      "text": "I said to him, “How is it that this angel stands over it, with his wings always immersed in it?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0107",
@@ -802,857 +790,843 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0108",
-      "source_sha256": "ba0df0468a4cee8b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ac6a5bbb1d791638",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "This is his task: whenever the trumpet is about to sound, he rises, shakes his wings, which are full of dew, and casts it into the heavens."
+      "text": "“This is his task at all times: whenever the trumpet is about to sound, he rises, shakes his wings, which are full of dew, and casts it into the heavens,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0109",
-      "source_sha256": "a3d085912123135e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4d2364bb2d96dc8d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Then the heavens open apart, and the dew pours down onto the earth.”"
+      "text": "and the heavens open one after another, and the dew pours down upon the earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0110",
-      "source_sha256": "048db981de169737",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f8df07930b1d2384",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “How will these seven heavens open apart so that the dew pours down onto the world?”"
+      "text": "I said to the cherub, “How will these seven heavens open one after another so that the dew pours down upon the world?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0111",
-      "source_sha256": "faeb76f6a522f274",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "b022550d92fc526c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub answered, “Listen, and I will tell you everything.”"
+      "text": "The cherub answered, “Listen, and I will tell you everything."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0112",
-      "source_sha256": "805b22fba3c3e6db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d7ea70fc88e1a421",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“Seven trumpets are appointed over the dew, and they all sound before it comes down onto the earth."
+      "text": "Seven trumpets are appointed over the dew, and they all sound before it comes upon the earth."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0113",
-      "source_sha256": "cb0f44c9b6d40e0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ce0e38f8cd229467",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the first trumpet sounds, and the second, all the way to the seventh, the dew rushes after their sound from one heaven to another."
+      "text": "When the first trumpet sounds, and the second, on through the seventh, the dew follows the sound from one heaven to another."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0114",
-      "source_sha256": "f7bd23b84e56f839",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "23d77434c5b6face",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The seventh trumpet belongs to Michael. When Michael blows his trumpet, the dew rushes onward,"
+      "text": "The seventh trumpet belongs to Michael. When Michael blows his trumpet, the dew rushes forth,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0115",
-      "source_sha256": "f7906fe1ebf91af9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bea5af23895e5c7e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and all the rulers withdraw until it comes down onto the earth and all the crops grow abundantly.”"
+      "text": "and all the rulers withdraw until it comes upon the earth and all the crops flourish.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0116",
-      "source_sha256": "fca69346143bd7c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "95dab8191383f13f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "While I was marveling, I saw another angel coming from afar in anger."
+      "text": "While I was marveling, I saw another angel coming from far away in anger."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0117",
-      "source_sha256": "3d13ed388e6a027b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e921b30254e75e94",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He stood over the spring that was full of dew."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0118",
-      "source_sha256": "36817282fc8f573f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "79792a3252ed8c76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He wept, and his eyes poured blood down into the spring that was full of dew."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0119",
-      "source_sha256": "a2133a67db5d7c01",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "95dba3cd65d54afd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For he was filled with anger against all humanity."
+      "text": "For he was full of anger against all humanity."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0120",
-      "source_sha256": "58dfdb12fc324eda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "be4cbcdea6eb8325",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The whole place shook when he took his stand."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0121",
-      "source_sha256": "f5db0513ab1099a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "cd828f84b9cbd9e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The heavens opened on this side and that."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0122",
-      "source_sha256": "8b01e6345c0c56ef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d8cbfc0491753cf4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I saw a great, mighty angel come out of the heavens. His name was Michael."
+      "text": "I saw a great, mighty angel come out of the heavens, whose name was Michael."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0123",
-      "source_sha256": "e8ef4f9ff0e8bd42",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "862f66930c6a25e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He had a golden belt fastened around his waist."
+      "text": "He had a golden band tied around his forehead."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0124",
-      "source_sha256": "9b50674f7ffb806c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afdbeaf4b5b64339",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He had a sponge in his hand, and he wiped away all the tears of the angel of wrath."
+      "text": "With a sponge in his hand, he wiped away all the tears of the angel of wrath."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0125",
-      "source_sha256": "cf57ad7ae4807bb2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0f0599566e2763e9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He pushed him away, saying, “Withdraw from the spring, angel of wrath! Do you want to bring famine upon the earth?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0126",
-      "source_sha256": "e82a466e2797b7c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f19d7bf226001367",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “My lord, tell me about the appointed task of the angel of wrath, whose eyes poured blood into the spring.”"
+      "text": "I said to the cherub, “My lord, tell me about the purpose of the angel of wrath, whose eyes poured blood into the spring.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0127",
-      "source_sha256": "3da8a6ba708ac07f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f090d8a2c2bcfa61",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “You see the angel of wrath. He is the angel of famine."
+      "text": "He said to me, “Do you see the angel of wrath? He is the angel of famine.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128.s1",
-      "source_sha256": "5341b1281a5ec4fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "If Michael had continued shedding his tears,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128.s2",
-      "source_sha256": "cc04f9b86a131b5c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "if he had let them go down into the spring and mingle with this dew that descends upon the earth, blight and mildew would have come, and the earth would have become barren."
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0128",
+      "source_sha256": "39a67f9f2fa41b1c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "“If Michael had stopped gathering his tears, if he had let them flow down into the spring and mix with the dew that descends upon the earth, drought and scorching heat would follow, and the earth would suffer famine.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0129",
-      "source_sha256": "513abc8119d02e1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "72c8f90a2a3a7471",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He also said to me, “There are forty legions, each legion numbering ten thousand. They sing hymns over it in this way until it comes upon the earth, without any defilement in it.”"
+      "text": "He also said to me, “There are forty legions, each numbering ten thousand, singing hymns over this dew until it reaches the earth without anything harmful in it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0130",
-      "source_sha256": "95ab1912b32f3ca6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "594a0e1475e0c64b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After this, he brought me to the land of Eden."
+      "text": "After this he brought me to the land of Eden."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0131",
-      "source_sha256": "01feb63a480b814b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dc080c8f027805f5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He lifted me onto his wings of light and brought me to the places where the sun rises, beside the spring that supplies water to the four rivers: Pishon, Tigris, Gihon, and Euphrates."
+      "text": "He lifted me onto his wings of light and brought me to the place where the sun rises, beside the spring that supplies water to the four rivers: Pishon, Tigris, Gihon, and Euphrates."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0132",
-      "source_sha256": "0760b00c70abe1c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "28f09a7e72b8404b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I saw the paradise of delight, full of every kind of tree bearing every kind of fruit."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0133",
-      "source_sha256": "8c719ac0ee0de67a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e84d4abfe4c6e7d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I said to the cherub, “My lord, I want you to tell me about the tree from which Adam ate and became naked, so that God became angry with him.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0134",
-      "source_sha256": "5c54ed42d62c1959",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "265a864f2d2dc7d5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub answered and said to me, “You have asked about great mysteries."
+      "text": "The cherub answered and said to me, “You have asked about great mysteries.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0135",
-      "source_sha256": "d7e96edc0b1e55a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "20295e0fd16d0174",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For my part, I will hide nothing from you."
+      "text": "“For my part, I will hide nothing from you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.000.0136",
-      "source_sha256": "d9ee6f8e8df8098a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "74c82eb84729648b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Now, then, get up and follow me, so that I may tell you about everything and tell you about the tree from which Adam ate.”"
+      "text": "“Now get up and follow me, and I will tell you about everything. I will also tell you about the tree from which Adam ate.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0000",
-      "source_sha256": "938da4fe179bc547",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "16591608d247ce17",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I got up and followed him. I got up and followed him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0001",
-      "source_sha256": "adbc5b2c96c364cb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9d5ba64e713dce09",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I walked through paradise, looked, and saw the tree in the middle of paradise."
+      "text": "I walked through paradise, looked, and saw the tree in the middle of paradise,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0002",
-      "source_sha256": "4034044c78b318aa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "64004db615c01bbc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "It was fruitless and growing thorns, and the tree was bent very far down."
+      "text": "bearing no fruit and overgrown with thorns, with the tree bending very low toward the ground."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0003",
-      "source_sha256": "45bcc8c8ec1de1b6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b24c378581e3ad5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I answered and said to the cherub, “Tell me about the nature of this fruitless tree,"
+      "text": "I spoke and said to the cherub, “Tell me about the condition of this fruitless tree,”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0004",
-      "source_sha256": "e0d5dca8fc8b4fb2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7d360f2f0b25db90",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "which is also growing thorns.”"
+      "text": "“which is also overgrown with thorns.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0005",
-      "source_sha256": "16fec870c4342bdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0eae126b09965a3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He said to me, “This is the tree from which Adam ate and became naked.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0006",
-      "source_sha256": "cd2c0c5bd2ecb85c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b941e82ffc05281",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “There is no fruit on it."
+      "text": "I said to him, “There is no fruit on it.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0007",
-      "source_sha256": "6ca785c1e8bf6bbb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3c937b0010c84717",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Where did he find any to eat?”"
+      "text": "“Where did he find any to eat?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0008",
-      "source_sha256": "9ac983d389f6b501",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b3bd28f6630acaee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He said to me, “It once had a kind of fruit; it was not fruitless.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0009",
-      "source_sha256": "0393e80c8dba221e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c03e23e60e310525",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “What kind of fruit did it have?”"
+      "text": "I said to him, “What is its fruit like?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0010",
-      "source_sha256": "167775024b7c388b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "eae5a4f2ff4b1c95",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “It is a kind of apple.”"
+      "text": "He said to me, “It is a kind of fig.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0011",
-      "source_sha256": "839492ad2f46411e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "91b81809a79193e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “It is completely fruitless, is it not?”"
+      "text": "I said to the cherub, “Is it completely fruitless, or not?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0012",
-      "source_sha256": "de14c4009f6f8f61",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "dfb17a9160932282",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “This is the task that God assigned to him from the beginning.”"
+      "text": "He said to me, “This is the condition God assigned to it from the beginning.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0013",
-      "source_sha256": "c09b75deaad7a0ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "e0bef797c6f92b20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "While I was marveling, I saw Adam."
+      "text": "While I was marveling, I saw Adam,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0014",
-      "source_sha256": "db6054285314549a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4e3ade82a5c968b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "who had come from a distance like a man in mourning."
+      "text": "coming from a distance like someone in mourning."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0015",
-      "source_sha256": "c2efbae296bb696e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "f943c92e295979a0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He spread out his robe, gathered from beneath the tree, dug in the ground, and buried them."
+      "text": "He spread out his robe, gathered up what lay beneath the tree, dug in the ground, and buried them."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0016",
-      "source_sha256": "d7744662c85cc008",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c4177723d608bdda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “How is it that Adam spread out his robe, put into it the dry leaves lying beneath the tree, dug in the ground, and buried them?”"
+      "text": "I said to the cherub, “Why did Adam spread out his robe, put into it the dry leaves lying beneath the tree, dig in the ground, and bury them?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0017",
-      "source_sha256": "e4f668472cef36fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1ca05128d646bca4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “Ever since the devil entered paradise and deceived Adam and Eve his wife, the trees have shed their fragrance, and their leaves have fallen down."
+      "text": "The cherub said to me, “When the devil entered paradise and deceived Adam and Eve his wife, the trees lost their fragrance and their leaves fell down."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0018",
-      "source_sha256": "329aec385320b58d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bd85b78065bcddc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Adam was hiding the leaves so that they would serve as witnesses against him at the judgment concerning what he had done.”"
+      "text": "Adam was hiding the leaves so that they would be evidence against him at the judgment concerning what he had done.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0019",
-      "source_sha256": "9178d2c231ebb4db",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f785f2cc0c72ac79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But I said to the cherub, “My lord, how did the devil enter paradise and deceive Adam?"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0020",
-      "source_sha256": "da2c1cea843d2403",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a299a0a887077fea",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If this decree did not come from God, could he enter? Nothing can happen without God.”"
+      "text": "If this decree was not from God, could he have entered? Nothing can happen without God.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0021",
-      "source_sha256": "43b733558fdf8fe9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "8c886991bdeb62f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “Twenty-four angels are assigned to paradise each day.”"
+      "text": "The cherub said to me, “Twenty-four angels are assigned to paradise every day."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0022",
-      "source_sha256": "a27775510721d6b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cc5cd0acdd7bd0a3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Twelve go in every day and worship God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0023",
-      "source_sha256": "6c6cfaf41eddddc8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1a232e219428f288",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the devil entered Paradise and deceived Adam, there was no angel in Paradise."
+      "text": "But when the devil entered paradise and deceived Adam, there were no angels in paradise."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0024",
-      "source_sha256": "a96c42802ae017d2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80c9236f44861901",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Rather, permission was given for Adam to eat from the tree."
+      "text": "Rather, permission was granted until Adam ate from the tree.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0025",
-      "source_sha256": "78a9804a6a433dbc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5772a923ac07b7ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “If this decree came from God, then Adam bears no guilt.” He said, “No. If Adam had been patient a little longer, God would have told him, ‘Eat from the tree.’”"
+      "text": "I said to him, “If this decree came from God, then Adam is not guilty of sin.” He said, “No. If Adam had been patient a little longer, God would have said to him, ‘Eat from the tree.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0026",
-      "source_sha256": "d98bf187a2fdc29a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "679a61e023bec736",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "God took away the righteousness that clothed you and threw him out of Paradise, so that the things he had said would be fulfilled and he would send his Son into the world."
+      "text": "God took away the righteousness you were wearing and threw him out of paradise, so that what he had said would be fulfilled and he would send his Son into the world.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0027",
-      "source_sha256": "0c6b957872a200e2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "598c4ec421cd7617",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “My lord, what is the righteousness that clothed him and was taken away from him?”"
+      "text": "I said to him, “My lord, what was the righteousness that covered him and was taken away from him?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0028",
-      "source_sha256": "9ac433079bb5f66a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d14618f3286f87b1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He said to me, “On the day God created Adam, he was twelve cubits tall,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0029",
-      "source_sha256": "ba6f06827a2b8b2b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "36056985dc551229",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and six cubits wide,"
+      "text": "six cubits wide,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0030",
-      "source_sha256": "fb790690fd7de828",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a0ce76b723f5c8b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and three cubits thick. He was like an alabaster stone, without any blemish in it."
+      "text": "and three cubits thick. He was like an alabaster stone without any blemish in it."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0031",
-      "source_sha256": "38a3eaa52a9384dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "08c6a8969bac5d14",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But when he ate from the tree, his body shrank and became small. The righteousness that clothed him went away and left him,"
+      "text": "But when he ate from the tree, his body shrank and became small, and the righteousness he was wearing went away and left him,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0032",
-      "source_sha256": "f1470db3ec08818d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ba28968504af75b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "except at the tips of his fingers, namely his fingernails."
+      "text": "except for the tips of his fingers, that is, his nails."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0033",
-      "source_sha256": "60a170c45238aac3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "40f3691e8bdac709",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Previously, he did not become cold in winter or become parched in summer.”"
+      "text": "He used not to get cold in winter or hot in summer.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0034",
-      "source_sha256": "cd36fc7e19de043c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3b825f4e9ca8dd3e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I replied and said to the cherub, “My lord, when God created Adam, did he also create Eve with him from the beginning?"
+      "text": "I answered and said to the cherub, “My lord, when God created Adam, did he also create Eve with him from the beginning?"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0035",
-      "source_sha256": "3988e4961925e131",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "90c8d23a89f11150",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "For I have heard that God created Adam and Eve from the beginning."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0036",
-      "source_sha256": "5995d21c77996590",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "32249b13df9a54d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Again, I hear that God brought a deep sleep upon Adam, and he fell asleep, and God took one of his ribs."
+      "text": "Yet I also hear that God brought a deep sleep upon Adam, and he fell asleep, and God took one of his ribs."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0037",
-      "source_sha256": "4aa027a0c765cddf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bfa9265a660282a8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He made it into a [?] woman and filled the rib’s place with flesh."
+      "text": "He made it into a woman and filled the rib’s place with flesh."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0038",
-      "source_sha256": "0a78bd97d2a622f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f8e316fc624b188f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Did the Creator, then, not create two bodies,"
+      "text": "Did not the Creator, then, make two bodies,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0039",
-      "source_sha256": "9e05d81d6214253e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ade568af6eef9dd8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "though they were one body?”"
+      "text": "though they were a single body?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0040",
-      "source_sha256": "a968ebdbb2625825",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f3594a9c61d6c9b4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub answered and said to me, “Listen, and I will tell you everything."
+      "text": "The cherub answered and said to me, “Listen, and I will explain everything to you."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0041",
-      "source_sha256": "082815df02edbcae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "22d989ea0d229e75",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When God created Adam, he also created Eve with him as one body."
+      "text": "When God created Adam, he also created Eve together with him as a single body."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0042",
-      "source_sha256": "7ab3aa5382b1baf2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b09fdfda7e894afb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For when the Lord was working on Adam, the thought of Eve was also with him."
+      "text": "For while the Master was working on Adam, the thought of Eve was also with him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0043",
-      "source_sha256": "d36722d41b5d4c2f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4353a1ad4623537d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For this reason, the two bodies came from one body."
+      "text": "That is why the two bodies came from a single body."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0044",
-      "source_sha256": "1636044169836f4e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9fffc81d0bfd6a48",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But he did not separate them from each other immediately."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0045",
-      "source_sha256": "67c38fe8386cd391",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d453f5356e2eae84",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When he brought the deep sleep upon him, he fell asleep."
+      "text": "When he brought sleep upon him, he fell asleep."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0046",
-      "source_sha256": "e18e4da7f8532a0e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c4005c2545950884",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He became unconscious, and God brought Eve out of him, and she became his wife. For she had been hidden in his left rib since the day God created him."
+      "text": "He lost awareness, and God brought Eve out of him, and she became his wife. For she had been hidden in his left rib since the day God created him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0047",
-      "source_sha256": "8fa5f3198158293a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f82c18d54eb3855e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Pay attention to the sign found among Adam’s children.”"
+      "text": "Pay attention to the sign that is in Adam’s children.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0048",
-      "source_sha256": "76f7c7ec3b0a77b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "372aca7d19539baa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I said to him, “O my lord,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0049",
-      "source_sha256": "e7d9b1dc4cb6f4b7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b952d5fdac47190f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "what is the sign among Adam’s children?”"
+      "text": "what is the sign that is in Adam’s children?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0050",
-      "source_sha256": "23532ead6a24651b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "4f073ed9d0f33236",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “When drought comes upon the earth, the first things in a person’s body to dry up are the breasts.”"
+      "text": "The cherub said to me, “When frost comes upon the earth, a person’s nails are the first part of his body to change."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0051",
-      "source_sha256": "b863416d82afde91",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4e52109e68882b0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For when God stripped Adam of the righteousness that covered him,"
+      "text": "For when God stripped Adam of the righteousness that clothed him,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0052",
-      "source_sha256": "2e6e041796a9607a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "30738ccd5edce5ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "his nails were the first to shrink. He wept before the Lord,"
+      "text": "his nails were the first to change, and he wept before the Lord,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0053",
-      "source_sha256": "9c1f4e4722f4844e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a7f47be9de8c60e8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "saying, ‘Woe to me, my Lord! When I was keeping God’s commandments,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0054",
-      "source_sha256": "6de45aa4cfad673e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4229ffd553d8a5e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "before I had eaten from the tree,"
+      "text": "before I ate from the tree,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0055",
-      "source_sha256": "b83843bc5094bbdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1710ed9b1f661b32",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "my whole body was white like my nails.’"
+      "text": "my whole body was white like my fingernail.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0056",
-      "source_sha256": "0d3e89aad5169d37",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "748b890f3d1b89df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For this reason, whenever Adam looks at his nails, he weeps and mourns, like Hezekiah, who became ill and looked toward the wall."
+      "text": "That is why whenever Adam looked at his nails, he would weep and mourn, like Hezekiah, who became sick and turned his gaze toward the wall"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0057",
-      "source_sha256": "d31e38dc60da6f90",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8b3494a3dac93566",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He wept. But why did he not look at a person and weep?”"
+      "text": "and wept. Why did he not look at a person and weep instead?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0058",
-      "source_sha256": "ca3b59cead67aec0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "754134b09fa03eda",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The cherub said to me, “I will reveal everything to you,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0059",
-      "source_sha256": "6c59c0e2654cf66d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e6cd5f349c178711",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "O faithful virgin. Now it happened in the time of Solomon,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0060",
-      "source_sha256": "6b4e988379c40b3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "67f6b6769a3bedba",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "the king, that he compelled the demons,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0061",
-      "source_sha256": "a1e6ea0fe6ab1a52",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d9d0fb5e9e2c1c64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "all of them, to tell him about every kind of medicine."
+      "text": "all of them, to tell him about every kind of remedy"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0062",
-      "source_sha256": "da2a466166eabace",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "c05e80b94a874e40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And the kinds of herbs that are given to the sick so that they recover."
+      "text": "and the kinds of herbs that are given to sick people so that they recover."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0063",
-      "source_sha256": "5bb443bfcba2a0b6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "58730ba80461fede",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Solomon wrote them all on the wall of God’s house."
+      "text": "Solomon wrote them all on the wall of the house of God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0064",
-      "source_sha256": "1c5b9105090d19d0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "0c082447c5f6c7b3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Anyone who becomes ill with any disease goes into the temple and looks at the wall. He finds the remedy written on the wall corresponding to his illness."
+      "text": "Whenever anyone suffered from any illness, he would enter the temple and look at the wall, and he would find the remedy for his illness written on the wall."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0065",
-      "source_sha256": "65b77b3425c0d00f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b5292bd76fdecf80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "take it, and go home, glorifying God."
+      "text": "and he should pick it up and go to his house, giving glory to God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0066",
-      "source_sha256": "32bdc09e3cd18ba0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "903017a374641eb4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Now when King Solomon died, Hezekiah plastered the walls of the temple, and they were not found again."
+      "text": "After King Solomon died, Hezekiah plastered the walls of the temple, and they could no longer be found."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0067",
-      "source_sha256": "53529a2b42a6dd4d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "994706b8e2292b81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But when King Hezekiah became ill, he was distressed: he could not find the medicine that would cure his illness,"
+      "text": "When King Hezekiah became ill, he suffered and could find no medicine to cure his illness,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0068",
-      "source_sha256": "ec2f90f0a5fb4496",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9feedd3b5917acad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "because he himself had coated the temple walls with plaster,"
+      "text": "because he was the one who had covered the walls with plaster,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0069",
-      "source_sha256": "c487ebf6aa3182b9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "70fbd42c7329f552",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "on which the medicines were written. He could not find them again. He went into the Lord’s house,"
+      "text": "on which the medicines were written. He could no longer find them, so he went into the house of the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0070",
-      "source_sha256": "1a2138714ec6b864",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "dfacadd044ea7f64",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "lay down, looked toward the wall, and wept, saying,"
+      "text": "He lay down, looked toward the wall, and wept, saying,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0071",
-      "source_sha256": "a41881913ee12d2d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "65132f1b2966e074",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "‘Lord, was it a sin that I committed when I plastered over the walls on which the medicines were written, saying, “If they plead with God in hope, they will recover”?’"
+      "text": "“Lord, was it a sin that I committed? I covered the walls on which the medicines were written with plaster, saying, ‘If they plead with God in hope, they will recover.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0072",
-      "source_sha256": "f4fa3004d48edc9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "a23554b8216f7407",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Otherwise, I would have found the medicine and brought healing."
+      "text": "Otherwise, I would have found medicine to cure me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0073",
-      "source_sha256": "ab5354115f676f9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0991dc81a42ae498",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The Lord heard and had compassion on him. He sent the prophet Isaiah to him, and he spoke with him, saying, ‘Take a fig cake and apply it to yourself, and you will find relief.’"
+      "text": "The Lord heard and had compassion on him. He sent Isaiah the prophet to him, who spoke with him, saying, “Take a cake of figs and apply it to yourself, and you will find relief.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0074",
-      "source_sha256": "80f147c4a020ad3b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4ccdd7d6176f4cf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Now then, O John, the one who acts for God [?]—he does not abandon him."
+      "text": "“Now then, John, God does not abandon anyone who acts for him.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0075",
-      "source_sha256": "bc76f8b0e2a9271e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "cdb4ed1c5f2497e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Again I said to the cherub:"
+      "text": "Again I said to the cherub,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0076",
-      "source_sha256": "ce776cd013a8fed2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "dfd6857941a88290",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“My lord, I want you to tell me about the task of the cherubim, whose voices sound"
+      "text": "“My lord, I want you to tell me about the order of the cherubim and how their sound arises"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0077",
-      "source_sha256": "331d5bdf056f4826",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "e67516bbd49f6d0e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "in heaven, so that humanity is shaken on earth.”"
+      "text": "in heaven and makes humanity tremble on earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0078",
-      "source_sha256": "0ace65de06923aa4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "6017408d7ccb16cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The cherub said to me, “Do you see these great winds stored in their storehouses, with the angels over them?"
+      "text": "The cherub said to me, “Do you see these great winds gathered in their storehouses, with the angels over them?"
     },
     {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079.s1",
-      "source_sha256": "de5082a9b52151cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "When the trumpet sounds inside the curtain, the still winds come out and blow against the wings of the angel"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079.s2",
-      "source_sha256": "a206158cf219c201",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "who is over the spring of dew. Then the angel moves his wings, and the dew comes upon the earth, and the seeds of the earth grow."
+      "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0079",
+      "source_sha256": "a8e645b9989884d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "When the trumpet gives a signal from inside the curtain, the winds that are still come out and blow against the wings of the angel who is over the spring of dew. Then the angel moves his wings, and the dew comes upon the earth, so that the seeds of the earth grow,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0080",
-      "source_sha256": "3a3f54a0f5c9d33d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c302295d950b17e7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The trees, the fields, and the fruits."
+      "text": "along with the trees, the fields, and the fruits."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0081",
-      "source_sha256": "2855d475bb2cee93",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "85466dce1f211538",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If the trumpet does not sound, a mighty voice comes out of heaven, and abundant rain comes upon the earth and causes the crops to increase, along with the rainwater."
+      "text": "If the trumpet does not sound, a powerful voice comes out of heaven, and rain comes upon the earth in abundance, making the fruits multiply with the rainwater,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0082",
-      "source_sha256": "08f0dfc0e832e9b9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d74a8740b52d4480",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And the thunderclaps are what people fear."
+      "text": "along with the thunderclaps that people fear."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0083",
-      "source_sha256": "eb17e427407a549c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0b292ac0425dc0cb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For it is the sound of the seraphim’s wings that controls the rain,"
+      "text": "For it is the sound of the seraphim’s wings that controls the rain"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0084",
-      "source_sha256": "b46644c121627371",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "938c55bf18da9e7a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "until it descends to the firmament and comes gently upon the earth,"
+      "text": "until it comes down to the firmament and falls gently upon the earth,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0085",
-      "source_sha256": "1137082eb05d58d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "235ff663c8e35084",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "so that it does not come violently and turn the earth into a wilderness, as in the days of Noah, when there was no thunder."
+      "text": "so that it does not come down violently and turn the earth into a desert, as in the days of Noah, when there was no thunder."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0086",
-      "source_sha256": "e78dfe767fbde5de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "b097ab9aaacc3c3c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“Since the seraphim did not come down to steer the flood, because all the waters were in the sky and the heavens.”"
+      "text": "For the seraphim did not come down to control the rain, because all the waters were in the sky and the heavens."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0087",
-      "source_sha256": "c6165237296fc9f2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3ac7a26a1fd6898d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Look, I have revealed to you—I have revealed to you all the mysteries."
+      "text": "Look, I have appeared to you; I have revealed all the mysteries to you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0088",
-      "source_sha256": "6a3b74ab79f5d407",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ef144e36fa10bb83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I answered and said to the cherub, “My lord, I want you to tell me what stands beneath heaven,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0089",
-      "source_sha256": "70deddf77ba0adcd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d8fb85e6995aa544",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "as it hangs like this?”"
+      "text": "as it hangs like this.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0090",
-      "source_sha256": "f1cba0884b83560e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "322f2d39f7bc9daa",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “It hangs by faith and by God’s decree.”"
+      "text": "He said to me, “It is suspended by faith and by a decree of God.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0091",
@@ -1663,339 +1637,339 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0092",
-      "source_sha256": "d4c20ea67c76d1da",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "56579c99cb9c9247",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He said to me, “Four pillars stand beneath the earth, sealed with seven seals.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0093",
-      "source_sha256": "8be79ec3df4d4ab6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "07c662d4d2764c93",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "I said to him, “My lord, do not be angry with me"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0094",
-      "source_sha256": "02c75418294fb54e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "55de18a0942b365d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "until I have asked you about this other matter."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0095",
-      "source_sha256": "98d4a2732d46595b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8ff6b3096bb8e12c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Tell me what stands beneath the four pillars.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0096",
-      "source_sha256": "b8d7c58c818bab9a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "375320e05023966b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “The one who made them is the one who knows their workings.”"
+      "text": "He said to me, “The one who made them knows how they work.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0097",
-      "source_sha256": "92b10909c3875f6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6f878fd72298908c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “My lord, what is the appointed order of these hours of the night and the day?”"
+      "text": "I said to him, “My lord, how are these hours of night and day determined?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0098",
-      "source_sha256": "acace147b99f7d31",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "4b47e85ca517eda3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “Listen, and I will tell you.”"
+      "text": "He said to me, “Listen, and I will tell you."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0099",
-      "source_sha256": "978727f4fc35dd42",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3d47283d9d849fc0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "God has placed twelve cherubim standing outside the curtain. They never grow tired at all, and they sing twelve hymns every day."
+      "text": "God has stationed twelve cherubim outside the curtain. They never grow weary at all, and they sing twelve hymns every day."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0100",
-      "source_sha256": "35fb78f58c9b0f05",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "411ff2f79fcc1533",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the first finishes his hymn, then the first hour has been completed."
+      "text": "When the first finishes his hymn, the first hour is complete."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0101",
-      "source_sha256": "c010c47b265c904a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1526803c4c6e22ed",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the second finishes his hymn, the second hour is completed, and so on through the twelfth."
+      "text": "When the second finishes his hymn, the second hour is complete, and so on until the twelfth."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0102",
-      "source_sha256": "05f288b13662176a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b3b2b37730cf3ca0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the twelfth hour is completed, then the twelfth hour has been completed."
+      "text": "When the twelfth hour is complete, then the twelfth hour is complete.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0103",
-      "source_sha256": "55b19e40752688e9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "f1cc0a8391b0c3df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “Then are the seraphim also assigned to the twelve hours of the night, or not?”"
+      "text": "I said to him, “Then are the twelve hours of the night also assigned to the seraphim, or not?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0104",
-      "source_sha256": "d7d4026004429b97",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "818333bc07882076",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “No, but to the animals, the birds, and the creeping things."
+      "text": "He said to me, “No, but to the animals, the birds, and the reptiles."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0105",
-      "source_sha256": "e9c68c1354630992",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "87b8f075a1d3b61c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When they offer their prayer, the first hour is completed."
+      "text": "When they offer their prayer, the first hour is complete."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0106",
-      "source_sha256": "f80b0bc4db836881",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8209fb0b0cf43286",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the second hour is completed, the wild animals give voice, and so on through the twelfth hour of the night."
+      "text": "When the second hour is complete, the wild animals raise their voices, continuing until the twelfth hour of the night."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0107",
-      "source_sha256": "1ff0bd989edde468",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "17e0b39e3ead6a52",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "It is God’s living creatures who assign them their appointed times.”"
+      "text": "The living creatures of God are the ones who give them their orders.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0108",
-      "source_sha256": "2936d526aea62752",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a62924572bb3440b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “How does the sun know that the twelve hours have ended,"
+      "text": "I said to the cherub, “How does the sun know that the twelve hours are complete,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0109",
-      "source_sha256": "108a6548a0773720",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9e78fc4359583fac",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "so that it goes to its setting place or rises?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0110",
-      "source_sha256": "5b9e8fab6a6c88f5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9ceb2d2c20f3b6d6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “The angels are the ones who sound the trumpets. When they finish, Michael knows that the twelfth hymn has ended. He speaks to the angel of the sun, so that it moves on and completes its appointed course.”"
+      "text": "He said to me, “The angels are the ones who sound the trumpets. When they finish, Michael knows that the twelfth hymn is complete. He speaks to the angel of the sun, and the angel goes and carries out his appointed duty.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0111",
-      "source_sha256": "041b0686c32f6503",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "54ce76fb6b04492a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I replied and said to the cherub, “My lord, does God determine a person’s destiny from the time he is in his mother’s womb, or not?”"
+      "text": "I answered and said to the cherub, “My lord, is it God who assigns a person’s lot while he is still in his mother’s womb, or not?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0112",
-      "source_sha256": "6f393e97b9c411d7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "7f599ed8d731281e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “God knows how much mischief or goodness a person will do from his birth until his end.”"
+      "text": "He said to me, “God knows how much mischief or how much goodness a person will do from his birth to his end."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0113",
-      "source_sha256": "661194a4ab88cb15",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4ffc667cdf5dec2b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For God marks the righteous person before he is formed."
+      "text": "For God marks out the righteous person before he is formed."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0114",
-      "source_sha256": "3e4087c8799cc869",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4907496d8f96f905",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "For nothing can come into being without God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0115",
-      "source_sha256": "59cfc51b47d4bea0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0a31b0b2fcbfe25a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But sin is foreign to God.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0116",
-      "source_sha256": "dbf2b048cff7041c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "5ea61c10a5a93f25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For indeed, he created humanity without sin."
+      "text": "For he created the human being without sin."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0117",
-      "source_sha256": "2c80bbc34b7bff6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "a1e01b43a036eaaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Human beings themselves sin according to their own will"
+      "text": "It is the human being himself who sins according to his own will"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0118",
-      "source_sha256": "0baa21e6d6092811",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "950b6fe9d6e490fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "and according to the devil’s desire.”"
+      "text": "and according to the devil’s desire."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0119",
-      "source_sha256": "cb92b3b915891437",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
+      "source_sha256": "9da3feea017a17fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to the cherub, “A person is born to suffer.”"
+      "text": "I said to the cherub, “Human beings are born to suffer,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0120",
-      "source_sha256": "7120363a6c02590a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "675dc3ee4dbafc5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "as Job said, ‘My mother bore me to suffering.’”"
+      "text": "just as Job said, ‘My mother gave birth to me for suffering.’”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0121",
-      "source_sha256": "8481a28668722249",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1122a02af5171382",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He said to me, “God is compassionate."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0122",
-      "source_sha256": "559832532a5d2db3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1f6d9dd41886bf31",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He does not abandon a person completely."
+      "text": "He does not abandon a human being completely."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0123",
-      "source_sha256": "13ff37f11bb3cab2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fd05fce2d419f0cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Instead, he has compassion on him because he is his likeness and his image,"
+      "text": "Instead, he has compassion on him, because he is his likeness and his image,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0124",
-      "source_sha256": "44fada8a7ac83390",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7bd44d215e97b6d8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "and he is the work of his hands."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0125",
-      "source_sha256": "a018eb31d64e0f4b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "50aae5ee6940907c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Now then, John, God does not abandon anyone who does his will. Anyone who does good deeds will receive them back many times over in the house of God.”"
+      "text": "Now then, John, God does not abandon anyone who does his will. Whoever does good deeds will receive them back many times over in the house of God.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0126",
-      "source_sha256": "1db2072e23d7bcd5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "21fbc25220f3e832",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “My lord, when God creates a person, does he name him as righteous or as a sinner, or not?”"
+      "text": "I said to him, “My lord, when God creates a human being, does he designate him as righteous or as a sinner, or not?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0127",
-      "source_sha256": "acace147b99f7d31",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
-      "group_size": 3,
-      "text": "He said to me, “Listen, and I will tell you.”"
+      "source_sha256": "4b47e85ca517eda3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "He said to me, “Listen, and I will tell you."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0128",
-      "source_sha256": "1f30240c00f099cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c62cbb3e85dff2c1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "“When God is about to create a person, before he places him"
+      "text": "When God is about to create a human being, before he places him"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0129",
-      "source_sha256": "50fb4e469308092f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e77956d6524af71e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "in his mother’s womb, he calls all the angels, and they come and stand."
+      "text": "in his mother’s womb, he calls all the angels to come and stand before him."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0130",
-      "source_sha256": "78406b27b42f0501",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "db6ccca02caf3b6e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "The Father blesses the soul, and the angels answer, ‘Amen.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0131",
-      "source_sha256": "8776162e6c24a1f4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "33b5f1dd938e55bc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If the word comes from his mouth, ‘This soul will give me rest,’ the angels answer, ‘Amen.’"
+      "text": "If the words come out of his mouth, ‘The soul will give me rest,’ the angels answer, ‘Amen.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0132",
-      "source_sha256": "ce7766a6ccdac499",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0dae4067f7d50848",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If he says, ‘This soul will commit lawless deeds,’"
+      "text": "If he says, ‘The soul will commit lawless deeds,’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0133",
-      "source_sha256": "743c441bca7b61af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d798cddd7d9ee803",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "the angels answer, ‘Amen.’"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0134",
-      "source_sha256": "38f70d8e0c1dffc4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "31a38581a0afb9ad",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "It is what comes from the Father’s mouth.”"
+      "text": "Whatever comes out of the Father’s mouth, that is what will be.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0135",
-      "source_sha256": "c1cf2a26474a71d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fe59f71cca40d88a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I said to him, “My lord, is the clay of humans different from that of animals?”"
+      "text": "I said to him, “My lord, is the clay of human beings different from that of animals?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0136",
-      "source_sha256": "abafff96446096b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8f5d07b5878e3f68",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He said to me, “As for humans, when they die, each one will be taken"
+      "text": "He said to me, “As for human beings, when they die, each one will be taken"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0137",
-      "source_sha256": "bdd0069e7b23fb0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c085cf50ecd3debd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "to the place he deserves."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0138",
-      "source_sha256": "e7f01e6aaea2f622",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "547d08789d775025",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But as for animals, even if they die,"
+      "text": "But as for animals, whether they die"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0139",
-      "source_sha256": "260b8be27ab0ba0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9205535ff1eb872c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Even if they live,"
+      "text": "or live—”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0140",
@@ -2006,171 +1980,171 @@
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0141",
-      "source_sha256": "ffa0666664a2aa25",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
-      "group_size": 3,
-      "text": "I said to him, “Do they have souls?”"
+      "source_sha256": "037131bc627b6486",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "I said to him, “Do they have a soul?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0142",
-      "source_sha256": "4173b111d328d294",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to me, “Every creature has a soul."
+      "source_sha256": "6e7887f1d9d38ab3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "He said to me, “All creatures have souls."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0143",
-      "source_sha256": "c71cd3d5f0d8ba2e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Now, the soul of every creature is its blood.”"
+      "source_sha256": "30af484918823415",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "Now the soul of every creature is its blood.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0144",
-      "source_sha256": "766ec8c39385c533",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I said to him, “Then will they be punished,"
+      "source_sha256": "d4cf79ce41bf801e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "I said to him, “Then will they be punished?"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0145",
-      "source_sha256": "e821755eaae032a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "or will they be given rest?”"
+      "source_sha256": "969d15860972fb63",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "Or will they be given rest?”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0146",
-      "source_sha256": "209123f372023a44",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said to me, “Certainly not! That must never happen. They will not be given rest,"
+      "source_sha256": "75ca6634ef0724b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "He said to me, “God forbid! That must not happen. They will not be given rest,"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0147",
-      "source_sha256": "6e1506734a1d1aae",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "nor suffering. Rather, it is the human being who suffers and rests.” When I had heard all these things, I marveled at the works of God that he does with human beings."
+      "source_sha256": "24ac8fdccf42c226",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "nor suffering. Rather, it is human beings themselves who suffer and rest.” When I heard all these things, I marveled at the works that God does among human beings."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0148",
-      "source_sha256": "e1fc6dbe9e2a61e3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I said to him, “Do not be angry with me; let me ask you about this other matter."
+      "source_sha256": "c270461551fec8f2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "I said to him, “Do not be angry with me if I ask you about this other matter."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0149",
-      "source_sha256": "6f22cfdd07ab489b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I want you to tell me about the stars that we see in the firmament, because when the sun rises, we stop seeing them."
+      "source_sha256": "dcdadbcf40d1fef8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "I want you to tell me about the stars we see in the firmament, because when the sun rises, we stop seeing them."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0150",
-      "source_sha256": "bf03626ae26ad909",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "I want you to tell me where they go until the time of their service.” He said to me, “The stars are arranged in ranks."
+      "source_sha256": "b87f39de363bcfd9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "I want you to tell me where they go until the time of their service.” He said to me, “The stars are arranged rank by rank."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0151",
-      "source_sha256": "ab2e549cf27fdae6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "There is a star that remains in the sky until noon,"
+      "source_sha256": "d59df5ea797095d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "There is a star that remains in the sky until noon."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0152",
-      "source_sha256": "7b360b6c13257081",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "but they cannot be seen because of the sunlight."
+      "source_sha256": "4500e567d599440e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "But they are not seen because of the sunlight."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0153",
-      "source_sha256": "5163372521ecccb1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "691f74939b1480cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
       "text": "There are seven stars that rise in the north of the world, for those are in the sky at all times."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0154",
-      "source_sha256": "ed0aafb49f14a101",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "There are seven stars in the sky that are called [?]. They never allow those"
+      "source_sha256": "af2ccc668cf0d9d9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "There are seven stars in the sky called [?]. Those are not allowed"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0155",
-      "source_sha256": "3b70d84914894d4b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "to come out of their chambers,"
+      "source_sha256": "a7a8081554b40f69",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "to come out of their chambers"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0156",
-      "source_sha256": "0a6349348d4208e7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "unless [?] death comes upon the earth.”"
+      "source_sha256": "e4a44b7d6d45573f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "unless a sign of death comes upon the earth.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0157",
-      "source_sha256": "9a4b6b06d842a623",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-25",
-      "group_size": 3,
-      "text": "I said to him, “My lord, why does one star differ from another?”"
+      "source_sha256": "2ad65645f7283020",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "I said to him, “My lord, why does one star differ from another?"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0158",
-      "source_sha256": "57d17b5fdea896cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "c490658f2a1c8724",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
       "text": "There is a star that moves away from its original place.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0159",
-      "source_sha256": "349c9d16a2fcb921",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "5eff8aa860f384bf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
       "text": "The cherub said to me, “Listen, and I will tell you about everything."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0160",
-      "source_sha256": "096ccb426ec055da",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
+      "source_sha256": "37a7d85d2af9db97",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
       "text": "There are many ranks among the stars that move away from their original places."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0161",
-      "source_sha256": "527b7b82404e9741",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Nevertheless, God's decree remains forever."
+      "source_sha256": "c7d820aa3968d291",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "Nevertheless, God’s decree endures forever."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0162",
-      "source_sha256": "e1794e734f2119f7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Look, I have revealed [?] everything, you who are loved by God. Get up, go into the world, and tell everything you have seen.”"
+      "source_sha256": "195c7d54fa582e07",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "Look, I have revealed everything to you [?], beloved of God. Get up, go into the world, and tell everything you have seen.”"
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0163",
-      "source_sha256": "e248c52794fe9230",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "Immediately he brought me onto the Mount of Olives. I found the apostles gathered together. I told them what I had seen, and we greeted one another. Each one went to his own region, giving glory to God."
+      "source_sha256": "130510d8e1f02158",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "Immediately he brought me onto the Mount of Olives. I found the apostles gathered together and told them what I had seen. We greeted one another, and each went to his own country, giving glory to God."
     },
     {
       "chunk_id": "coptic-scriptorium/mysteries_john#CopScr.mysteries-john.001.0164",
-      "source_sha256": "b371c0196c47fd65",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 1,
-      "text": "And through him they proclaimed the name of Christ. Glory to him and to his good Father and to the Holy Spirit forever. Amen."
+      "source_sha256": "cf56b7e0e2275a0b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 23,
+      "text": "And they proclaimed the name of Christ, through whom be glory to him and his good Father and the Holy Spirit forever. Amen."
     }
   ]
 }

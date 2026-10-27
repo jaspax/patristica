@@ -4,109 +4,96 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
-      "model": "gpt-6.1-sol",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-12",
-      "script": "scripts.embed_eval.translate"
-    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-14",
       "script": "__main__"
     },
-    "gpt-6.1-sol/bulk-2026-10-12/2026-10-15": {
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-27": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-15",
+      "date": "2026-10-27",
       "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0000",
-      "source_sha256": "29e1c81f56dbfb09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b4329dfb284b017d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The repose of Saint John, the evangelist and apostle of Christ. In the peace of God. Amen."
+      "text": "The passing into rest of Saint John, the evangelist and apostle of Christ. In the peace of God. Amen."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0001",
-      "source_sha256": "7cebc5dddedd6ef8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "623ca172cf748da0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The blessed John was in Ephesus with the brothers, rejoicing in the Lord."
+      "text": "Blessed John was in Ephesus with the brothers, rejoicing in the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0002",
-      "source_sha256": "94cf9aa68dac6c30",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a6379b668de4fc88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "On the Lord’s Day, all the brothers were gathered together."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0003.s1",
-      "source_sha256": "6cf3d0416c75a074",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "582c3ce751197e92",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "John began speaking with them, saying, “My brothers and my fellow heirs,"
+      "text": "John began speaking to them, saying, “My brothers and fellow heirs,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0003.s2",
-      "source_sha256": "d0e031449aa47004",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "fcace3f12937cd30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "and fellow sharers in Christ Jesus our Lord, understand, then, that the Lord has given you power through himself."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0004",
-      "source_sha256": "405e4ba48bc752fb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "21a138b57c15e729",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "How many miracles, wonders, and spiritual gifts"
+      "text": "How many mighty deeds, wonders, and spiritual gifts"
     },
     {
-      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0005.s1",
-      "source_sha256": "8af4b58aa1052067",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0005",
+      "source_sha256": "ae82580cc9cf3e87",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He has done these things for you, and you know what the teachings and skilled works are, and the relief and the service,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0005.s2",
-      "source_sha256": "6291bbce6707ad08",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "and the favors and gifts, and all the other things that you have seen with your own eyes."
+      "text": "he has worked for you! And you know the teachings, the marvels, the relief, the service, the favors, the gifts, and all the other things you have seen with your own eyes,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0006",
-      "source_sha256": "1fa1117e3db6b5dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "16124e68760212e5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "which are given to you through our master."
+      "text": "as they are given to you through our teacher."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0007.s1",
-      "source_sha256": "2142899deb7bca1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "5b5f4cd303a58445",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He did not appear to you through bodily eyes, nor did you hear him through bodily ears,"
+      "text": "He was not visible to you through bodily eyes, nor did you hear him through bodily ears."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0007.s2",
-      "source_sha256": "0c960fb8ce1d554d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "1a5443a316932269",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "but he revealed himself to you through the uprightness of your heart, in a vision, through holy deeds."
+      "text": "Rather, he reveals himself to you through the uprightness of your heart, in a vision, through holy deeds."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0008",
-      "source_sha256": "8c8cb3ad97bc6cff",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "6840d75e9edcefe5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "So be firmly established in him, remembering him at all times, and remembering also the mystery and the fellowship that came to you."
+      "text": "Therefore, stand firm in him, remembering him at all times, and remembering also the mystery and the fellowship that have come to you."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0009",
@@ -117,843 +104,829 @@
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0010",
-      "source_sha256": "a6cc99a8d6da0647",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "72e55f63bb36edee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Now, brothers, he appeals to you through him and urges you, wanting you to stop wishing to grieve him, insult him, or plot against him."
+      "text": "Now, brothers, he himself begs and urges you, wanting you to stop wishing to grieve him, insult him, or plot against him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0011",
-      "source_sha256": "67eaa3df5590ec33",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "209b10fbd9a5a9b9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "For he knows the insult that comes from you."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0012",
-      "source_sha256": "7d1b72cb37d3d13c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4a30ebd4bbc28b6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He also understands the humiliation, and he knows the plotting and the punishment with which you punish him."
+      "text": "He also perceives the dishonor, and he knows the plotting and the torment with which you torment him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0013",
-      "source_sha256": "7a9a77978af5cfdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "When you obey his holy commandments, he will have mercy on you too."
+      "source_sha256": "cebb486b1ef66aa5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Whenever you obey his holy commandments, he in turn will have mercy on you."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0014.s1",
-      "source_sha256": "bc7f456696f2761d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "d3af7ea3902a38c6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Do not cause the good God to grieve because of you—the merciful and compassionate one, the undefiled, the unalterable,"
+      "text": "Do not let the good God grieve because of you—the merciful and compassionate one, who cannot be defiled or overcome,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0014.s2",
-      "source_sha256": "870c3e317420f08e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "1760f4d43e9d9ea6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "the incomprehensible, the one who alone exists, the unchanging, the undeceiving, the one without anger, the name above every name that can be conceived.”"
+      "text": "who cannot be grasped, who alone is one, who cannot change, be deceived, or become angry, the name above every name that can be conceived."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0015",
-      "source_sha256": "4f8b88396a85b22a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Let him be glad with you as you conduct yourselves well for him."
+      "source_sha256": "0ed824be7df2fc80",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Let him rejoice with you as you live well for him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0016",
-      "source_sha256": "d175e86a8ccb5e9c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Let him rejoice with you as you live in gladness and moderation."
+      "source_sha256": "1890b9dd8c8596ee",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Let him be glad with you as you live in joy and [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0017",
-      "source_sha256": "184de397b16baba1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Let him find rest in you as you conduct yourselves with dignity."
+      "source_sha256": "7b34a7b50bb4a490",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Let him rest within you as you conduct yourselves with dignity."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0018",
-      "source_sha256": "36612fb4571bfdb3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a3e26d8ac9381d13",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let him be free from worry as you live in self-control."
+      "text": "Let him be free from worry as you live with self-control."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0019",
-      "source_sha256": "a0918f57027b5830",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b5bbfcbb55e0135c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Let him rejoice as you share in the good things and the promises."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0020",
-      "source_sha256": "240053587036015f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1e1f993609b58c65",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Let him delight as you love him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0021",
-      "source_sha256": "ba364b5c7e9cb01b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "68a0ae43a8648d81",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let him smile as you remain sober."
+      "text": "Let him smile as you act wisely."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0022",
-      "source_sha256": "f00bf7fdeff805ab",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "These things, then, my brothers, I say to you because I am eager to go forward with the work he has set before me, whose completion will come to me through the Lord."
+      "source_sha256": "ab062cee4f13d1f8",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "I tell you these things, my brothers, because I am eager to proceed toward the task he has appointed for me, whose completion will come to me through the Lord.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0023",
-      "source_sha256": "d59cf83adc2a68d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "771f3da0098345db",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For what other word shall I say to you, when you have the pledge of your God?"
+      "text": "For what else can I say to you, since you have the pledge of your God?"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0024",
-      "source_sha256": "a1a5060a1307ed53",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "You have the pledge of his kingdom."
+      "source_sha256": "ae775e18da562b00",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "You have the down payment of his kingdom."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0025",
-      "source_sha256": "e595b2793a923b6e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0b982a3e90f2d63b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "You have his presence, which cannot be rejected."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0026",
-      "source_sha256": "eb6874615d1689df",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "936933c94d0ef261",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "If you do not sin from now on, then he will forgive you for what you did in ignorance."
+      "text": "If you stop sinning from now on, he will forgive you for what you did in ignorance."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0027",
-      "source_sha256": "e6eefab23a6f6cdd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "84afccaba47aea08",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "But if, after coming to know him, you continue persisting in these same deeds, the former deeds will be counted against you, and you will be handed over to the fire.”"
+      "text": "But if, after coming to know him, you continue to persist in these same deeds, your former deeds will be counted against you, and you will be handed over to the fire."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0028",
-      "source_sha256": "a4660b492202c9ac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f538a6118c002fdb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After saying these things, he prayed, saying, “Jesus, you who wove your crown, this crown that is in your own weaving,"
+      "text": "When he had said these things, he prayed, saying, “Jesus, you who wove your crown, the one that is of your own weaving;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0029",
-      "source_sha256": "6a4b01e5cd982a14",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "38d74ad558dd3521",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you who created your crown of all the saints, and these many [?], which he transformed among people—your flower, which never withers,"
+      "text": "O you who formed your crown from all the saints and these many [?], having transformed them among human beings—your flower that never withers;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0030",
-      "source_sha256": "73408764a900128a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d53918f38de61acc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you who sowed his words within us,"
+      "text": "O you who sowed his words within us;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0031",
-      "source_sha256": "099a7797f7126dd0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "83ce4d17c6ed2b83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you who alone care for his servants,"
+      "text": "O you who alone care for his servants;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0032",
-      "source_sha256": "067bfc08c70f2b74",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "67be4875222c9f25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O physician of our body, who heals them all freely!"
+      "text": "O physician of our body, who heals them all free of charge;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0033",
-      "source_sha256": "80965b66eb91be43",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a3e6a2ff8698a26c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you alone who do good to us!"
+      "text": "O you who alone are our benefactor;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0034",
-      "source_sha256": "77baf91dd92b331f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "bde516319222d02c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you in whom no arrogance is hidden!"
+      "text": "O you in whom no arrogance is hidden;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0035",
-      "source_sha256": "f3ffebd50bbb379b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c339e5057fbfc0c9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you alone who are merciful and love every human being!"
+      "text": "O you who alone are merciful and love every human being;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0036",
-      "source_sha256": "69064bb3f571a4e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5731fab46ca09d0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "O you alone who are the Savior and the righteous one, who are everywhere, who have existed forever, God, Jesus Christ!"
+      "text": "O you who alone are Savior and the righteous one, who are everywhere, who have existed from eternity, God, Christ Jesus;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0037",
-      "source_sha256": "bff8f7ff53d457d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c8839dcea978b5e1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "You shelter everyone who hopes in you with your gifts and your acts of mercy, knowing every scheme and every malicious attack of the enemy who opposes us at all times."
+      "text": "You shelter everyone who hopes in you with your gifts and your mercies, knowing every trick and every abuse of the enemy who fights against us at all times.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0038.s1",
-      "source_sha256": "74a1f02e280c5007",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "d69eb519bf8a2d9f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "After Saint John the evangelist had said these things, he took a loaf of bread."
+      "text": "After Saint John the Evangelist had said these things, he took a loaf of bread and gave thanks in this way, saying, “What other blessing,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0038.s2",
-      "source_sha256": "47150a1bf2b586ee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "177f287ac08aedf3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He gave thanks in this way, saying, “What other blessing, or what other expression in words,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0038.s3",
-      "source_sha256": "57e6d5474f2600eb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "or what other thanksgiving shall we pronounce over this bread that we break, except you alone, Lord Jesus Christ?"
+      "text": "or what other expression of the word, or what other thanksgiving shall we pronounce over this bread that we break, except you alone, Lord Jesus Christ?"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0039",
-      "source_sha256": "1f21581410e78d1a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "We give you glory, Lord Jesus Christ, whose name was revealed through the Father."
+      "source_sha256": "a2ff7896b2799227",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "We glorify you, Lord Jesus Christ, whose name was revealed by the Father."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0040",
-      "source_sha256": "e7b8a5b47b27057c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0ea47a88c73dfe12",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "We glorify your entrance through the door."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0041",
-      "source_sha256": "7d7d3f25105118d8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b7d6e034aeebd5f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "We glorify your holy resurrection from the dead, which we were taught through you."
+      "text": "We glorify your holy resurrection from the dead, about which we were taught through you."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0042",
-      "source_sha256": "d812d50e002e329c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "393ccfdf1d291bd0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "We glorify you, the way."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0043.s1",
-      "source_sha256": "d0db94c1395e8978",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "1c3ab120af4a2352",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "We glorify you, the seed, the Word, the salt, the true stone, the holy treasure, the plow, the net, the greatness,"
+      "text": "We glorify you, the seed, the Word, the salt, the true stone, the holy treasure, the plow, the net, the greatness;"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0043.s2",
-      "source_sha256": "b5a1329c1f9e04ca",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "9156806e2f953900",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "the one who was called ‘Son of Man’ for our sake, so that he might save the human race.”"
+      "text": "You who were called ‘Son of Man’ for our sake, so that you might save the human race."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0044",
-      "source_sha256": "f33747b00997a857",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2f828a1b5ed6ef47",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "We glorify you, the truth, the rest, the glory, the power, the commandment, the boldness, the freedom, our refuge.”"
+      "text": "We glorify you, the truth, the rest, the glory, the power, the commandment, the confidence, the freedom, our refuge."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0045",
-      "source_sha256": "494d1052e17468fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "For you are the Lord, the root of immortality, the spring of incorruptibility, and the foundation of the ages."
+      "source_sha256": "bf8d66e025a05ff0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For you are the Lord, the root of immortality, the spring of incorruptibility, and the firm foundation of the ages."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0046",
-      "source_sha256": "fc93c3251465d80c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "Your name has been pronounced over all these things, so that we too may call upon you through them."
+      "source_sha256": "9777307fb1b34388",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Your name has been pronounced over all these things, so that we too may call on you through them."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0047",
-      "source_sha256": "7486352200ccea60",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "For we know your invisible greatness, which is not revealed to us now."
+      "source_sha256": "a4421939e27b01e0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "For we know your invisible greatness, which has not yet been revealed to us."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0048",
-      "source_sha256": "a61c7fd072414c63",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "When you purify us, then we will see you in the very body that you made new in old age."
+      "source_sha256": "4cbc568a63ee9a79",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "When you purify us, then we will see you in the body itself, which you have made new in old age."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0049",
-      "source_sha256": "62ee5b4e0229044d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "And when he broke the bread, he prayed over each of the brothers, so that they might be worthy of the Lord’s grace."
+      "source_sha256": "a40d0601ed6cce76",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "And when he had broken the bread, he prayed over each of the brothers, so that they might be worthy of the Lord’s grace."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0050",
-      "source_sha256": "69dedfca51f24ff7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7e2f1012a12ef313",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Likewise, Saint John himself, when he had tasted the bread,"
+      "text": "Likewise, the holy John himself, when he had tasted the bread,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0051",
-      "source_sha256": "6464628bae913473",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9aa44044c276b694",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "John the Theologian spoke in this way, saying, “Let me too have a share with you in peace, my beloved ones.”"
+      "text": "John the Theologian spoke in this way, saying, “Let me too have a share with you in peace, my beloved.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0052",
-      "source_sha256": "0c52d5700e2ff497",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a81cf4de08de8831",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Then he said to Byrrhus, “Take two brothers with you, carrying baskets and shovels, and follow me.”"
+      "text": "Then he said to Byrrhus, “Take two brothers with you, with picks and shovels in their hands, and follow me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0053",
-      "source_sha256": "0f2b6a81e09b74d5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2b5e18f85b4caa6c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Byrrhus did not neglect this at all, but did what he had been commanded by Saint John the Theologian, the servant of God."
+      "text": "Byrrhus did not neglect this at all, but did what he had been commanded through the holy John the Theologian, the servant of God."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0054",
-      "source_sha256": "c038f45eb53b8daf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2dd20ab820f4dae6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "When the blessed John came out of his house, he walked outside the city gate, having told most of the crowd following him to go away and leave him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0055",
-      "source_sha256": "2345f4359cf009a7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a7481263dac2c5a1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When he reached a burial place belonging to one of the brothers, he said to the young men, “Dig in this place, my children.”"
+      "text": "When he reached a burial place belonging to one of the brothers, he said to the young men, “Dig here, my children.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0056",
-      "source_sha256": "bc20c1189718a9e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "50aad10a0594d55f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "They dug down."
+      "text": "And they dug down."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0057",
-      "source_sha256": "e649d32d0e74babd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "90499add05aa5a7b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "John the Theologian instructed them, “Dig down well.”"
+      "text": "John the Theologian himself was instructing them, “Dig down properly.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0058",
-      "source_sha256": "2135c20dc6f78c70",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8ba91a0c60e8ff25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And he said, “Go deeper.”"
+      "text": "And he was saying, “Dig still deeper.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0059",
-      "source_sha256": "0ee2e36c88dbae5e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a58f7ca233980442",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "While they were digging deeper,"
+      "text": "While they were digging down,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0060",
-      "source_sha256": "8f56e61195a5996e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "3712361bde70bfcc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "he spoke with them about the word and encouraged them, building them up, preparing them, and persuading them to enter the kingdom of God."
+      "text": "he spoke to them about the word and encouraged them, building them up, preparing them, and persuading them to enter the kingdom of God."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0061",
-      "source_sha256": "9d7823143efa9acc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "da1026cb3a37b0c2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "And he prayed over each one of them."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0062",
-      "source_sha256": "43f8bc3fa988b31a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1d8e8d52742ee093",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the young men had finished deepening the place where they were digging, having prepared it well according to his wishes,"
+      "text": "When the young men had finished deepening the place where they were digging, having prepared it properly, just as he wanted,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0063",
-      "source_sha256": "a8d45e9b78b0a755",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "31e05989489c231d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And we understood nothing."
+      "text": "we still did not understand anything."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0064",
-      "source_sha256": "0f963c25c27e516a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "18b9eb8d5f0b5ce6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Then he stripped off the clothes he was wearing."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0065",
-      "source_sha256": "89b785538a997747",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c807e7c585f937d2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He threw them down into the place that had been dug out, a broad space."
+      "text": "He threw them down into the place they had dug out, like a spread-out bed."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0066",
-      "source_sha256": "c56f4393f70d5bbb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d5aac85c27a5f0da",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He stood wearing only a robe, which had [?] on both sides."
+      "text": "He himself stood there wearing only a tunic, fringed on both sides."
     },
     {
-      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0067.s1",
-      "source_sha256": "16bbafc0348454e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0067",
+      "source_sha256": "6e74c7dfd6d0326c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Then he stretched out his hands and prayed in this way, saying, “God, who chose me for himself,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0067.s2",
-      "source_sha256": "d9fb0694d560a89a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "to be an apostle to the nations, you sent me out into the inhabited world."
+      "text": "And he stretched out his hands and prayed in this way, saying, “God, who chose me for himself to be an apostle to the nations, you sent me out into the inhabited world."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0068",
-      "source_sha256": "d479b02418816f1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c82ac53c59ac2aa1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who revealed himself to the prophets and his apostles."
+      "text": "You are the one who revealed himself to his prophets and his apostles,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0069",
-      "source_sha256": "e8283e400fbb0e16",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f88c30d7e3ea9529",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who has never stopped doing good since the foundation of the world, saving all who have no strength."
+      "text": "who has never stopped doing good since the foundation of the world, saving all who are powerless,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0070",
-      "source_sha256": "d7522a697e7ed290",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "5b75c990c82ab201",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who made himself known through every rational human being and every living creature, as they are cared for through his providence."
+      "text": "who made himself known through every rational person and every living creature, caring for them through his providence."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0071",
-      "source_sha256": "60f7f04ea533da46",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "202a59068fa50a38",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who made our soul tame and quieted it when it was savage and wild."
+      "text": "He who tamed our soul and calmed it when it was desolate and wild."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0072",
-      "source_sha256": "f30f325aaa29af70",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2b69442a1f02f038",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who gave it to himself as it laughed at his enemies."
+      "text": "He who took it for himself to laugh at his enemies."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0073",
-      "source_sha256": "9090ec7f9f630bbb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "13f7e55b945533eb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who uncovered it for himself when it was dead, and established a law for it when it was sinking in the mire of lawlessness."
+      "text": "He who uncovered it for himself when it was dead, and gave it a law when it was submerged in the mire of lawlessness."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0074",
-      "source_sha256": "8cbbf4c33cb7df2d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "The one who made her overcome her enemies when she fled to him."
+      "source_sha256": "045a3e7bfc1cf846",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "He who made it victorious over its enemies when it fled to him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0075",
-      "source_sha256": "74d1f82fb4e508fb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "be4c57ba90c47ea6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who gave it his hand and saved it from the underworld."
+      "text": "He who gave it his hand and saved it from Hades."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0076",
-      "source_sha256": "e6cdea46d5b9f03e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d6f4ac0f61abd17b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who did not allow it to live according to the ways of the world."
+      "text": "He who did not allow it to live according to the ways of the world."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0077",
-      "source_sha256": "ee6bc094e854d687",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7837e4c32cb2a6c4",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who taught it to overcome its enemies."
+      "text": "He who taught it to wash itself clean of its enemies."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0078",
-      "source_sha256": "319e0cbf3de415ee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0f5bd0f2b03977d3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The one who made the knowledge of him shine everywhere."
+      "text": "He who made the knowledge of him shine everywhere."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0079",
-      "source_sha256": "a9a525464c204793",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "0aadc6a08ef094e2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The Son of God, the Savior, the Lord, the order of those in the air."
+      "text": "The Son of God, the Savior, the Lord, the one who orders those in the air."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0080",
-      "source_sha256": "5b33accf5ef751ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "df78e8a51e7cac5d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "The guardian of those on the earth, the grace and joy of those who belong to him."
+      "text": "The guardian of those on earth, the grace and joy of those who are gold."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0081",
-      "source_sha256": "5b649a8fc3f90473",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d65663cbc0366cdc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Receive the soul of John, who belongs to you, the soul you made worthy of being known by you."
+      "text": "Receive for yourself the soul of John, who belongs to you—the soul you made worthy of being known by you."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0082",
-      "source_sha256": "4ac1cedb25cbfd30",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "82f094f5dd51ca46",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "For you are the one who has protected me until now, and I have never been defiled with a woman."
+      "text": "For you are the one who has guarded me until now, so that I have not defiled myself with a woman at all."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0083",
-      "source_sha256": "71153004f7eb44e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8ca6a40171d98359",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "You revealed yourself to me when I wanted to marry in my youth."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0084",
-      "source_sha256": "bbdda81e5f5bc0f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "55f95ed0b304eb30",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And you said to me, ‘John, I need you.’"
+      "text": "And you said to me, “John, I need you.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0085",
-      "source_sha256": "e0fcd58865aee158",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "a5b5622398f24356",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "You acted first."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0086",
-      "source_sha256": "8ab572c1aa6bdb05",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9d964ebcaaf34a29",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "You dealt with my body through a period of physical illness."
+      "text": "You arranged for my body a [?] of physical illness."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0087",
-      "source_sha256": "bcbcfdca3a68350f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "89a5adfdb40c180d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "You are the one who hindered me many times when I wanted to marry."
+      "text": "You are the one who repeatedly put obstacles in my way when I wanted to marry."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0088.s1",
-      "source_sha256": "0eb11eb74597dbac",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "8c8dc392a98fb763",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Afterward, you spoke with me at the third hour of the day beside the sea: ‘John, if you were not mine,"
+      "text": "Afterward you spoke with me at the third hour of the day on the sea: “John, if you did not belong to me,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0088.s2",
-      "source_sha256": "7ed2ded6e2622930",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "2cc1a3d5852bd37e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "I would have left you to marry a woman and become blind in both eyes, and remain grieving and pleading with me.’"
+      "text": "I would leave you alone, and you would marry and become blind in both eyes, and remain in sorrow, pleading with me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0089",
-      "source_sha256": "e48d3d0a5c1bb4cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2d107733e77e43c0",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "He who opened my heart in my third year."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0090",
-      "source_sha256": "fab21fd4f726a836",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "51d22d1f647181d7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "You granted me other eyes, which are not visible."
+      "text": "You granted me other eyes that are not visible."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0091",
-      "source_sha256": "57566f5d5b511c57",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "343690929999844d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who made anger and desire for women repulsive to me."
+      "text": "He who made passion or desire for women abhorrent to me."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0092",
-      "source_sha256": "565cfba012b09c62",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afcd7a6049d91b40",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who saved me from the illusions of the present age, preserving me for everlasting life."
+      "text": "He who rescued me from passing illusions and preserved me for everlasting life."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0093",
-      "source_sha256": "af5b626ced656e83",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "55acb80902e78269",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who made me a stranger to the evil madness that exists in the flesh, making me turn away from bitter death."
+      "text": "He who made me a stranger to the evil madness that exists in the flesh, and kept me far from bitter death."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0094",
-      "source_sha256": "8a3d7efdcb312d04",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "The one who saved me from the second death, which is the fiery Gehenna, as you made me stand in holiness."
+      "source_sha256": "4f44ae127082e6a2",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "He who rescued me from the second death, which is fiery Gehenna, while you made me stand in holiness."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0095",
-      "source_sha256": "0a2cf596baeceaa0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "4076115618cd2a25",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who silenced the hidden sickness of my soul."
+      "text": "The one who silenced the hidden disease of my soul."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0096",
-      "source_sha256": "9a00892ecd3348d3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9cf3c895bc856725",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And you removed the secret act and the visible deed that is performed in the body."
+      "text": "And you rooted out the hidden practice or the visible deed that is done in the body."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0097",
-      "source_sha256": "2e7870679c910a28",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8d03f8bbd04e99a7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who saved me and cast out of me what troubled me."
+      "text": "The one who saved me and cast out of me what was troubling me."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0098",
-      "source_sha256": "a77a16aaa87cff2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cfb6606618a717a6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who prepared my journey to him to be holy."
+      "text": "The one who prepared my journey to him to be holy."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0099",
-      "source_sha256": "35e667803d8ed8ea",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a69869732b415a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who kept my thoughts toward him undefiled."
+      "text": "The one who kept my thoughts toward him undefiled."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0100",
-      "source_sha256": "1dfd4690c02d6e9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "077563f2f7027aef",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who granted me his undivided faith."
+      "text": "The one who freely granted me undivided faith in him."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0101",
-      "source_sha256": "698f9fa0a41d2cad",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "d2fa5b457e651d71",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who made my thoughts and my plans grow more abundant toward him."
+      "text": "The one who caused my thoughts and my intentions toward him to abound."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0102",
-      "source_sha256": "d4599fbd24b3eff4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "faeeab1109caa482",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He who gives to each person according to their deeds. He who put it into my soul not to keep anything for myself except you alone, Lord."
+      "text": "The one who gives each person according to their deeds, who put it into my soul to keep nothing for myself except you alone, Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0103",
-      "source_sha256": "6e7ca2ebf25bef24",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ad1578704e39b88b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "For what will I find that is more excellent and purer than you?"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0104",
-      "source_sha256": "ddf9509e3cdc76bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "51fc21d3715d6363",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But now I have found you, and I have completed the task you entrusted to me."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0105.s1",
-      "source_sha256": "54114ebe2557d67e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "ca19193e89a6942f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Make me worthy, then, for you to give me rest in your holy rest, and grant me the perfection that is in you,"
+      "text": "Therefore make me worthy for you to give me rest in your holy rest, and freely grant me the perfection that is in you,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0105.s2",
-      "source_sha256": "4cb22471c8561490",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "e69810c2ddbe2c49",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "which is sinlessness, and salvation that cannot be spoken of, searched out, or comprehended. I am coming to you, my Lord Jesus Christ."
+      "text": "which is sinlessness and salvation that cannot be spoken of, searched out, or grasped. I am coming to you, my Lord Jesus Christ."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0106.s1",
-      "source_sha256": "f19f679051a98a8c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "258dda91249aaa89",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let the fire become still, let darkness withdraw, let chaos become weak, and let the fiery flame become powerless."
+      "text": "Let the fire be extinguished, let the darkness withdraw, let chaos grow weak, and let the fiery furnace become powerless."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0106.s2",
-      "source_sha256": "48e8aba8a3604698",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "b95d233ea6f5c872",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let Gehenna be extinguished, let the holy angels follow me, and let the demons be afraid."
+      "text": "Let Gehenna be quenched, let the holy angels follow me, and let the demons be afraid."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0106.s3",
-      "source_sha256": "6b97d33052d8acd1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "c34cc5d6be48ecf9",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let the rulers be brought to nothing, let the powers of darkness withdraw and fall down, and let the places on the right stand firm.”"
+      "text": "Let the rulers be crushed, let the powers of darkness withdraw and fall down, and let the places on the right stand firm."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0107",
-      "source_sha256": "43572f456f535ed4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "e7e71680ea5ddca7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Let the devil be put to shame, and let Satan be mocked."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0108",
-      "source_sha256": "8f6504d4dc7d6dc0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80f7df0e07853673",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let his anger be extinguished, and let his madness be stilled."
+      "text": "Let his anger be quenched, and let his madness be extinguished."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0109",
-      "source_sha256": "5968dc02dbd3965a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "c5127dc43b40c1cd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Let his honor be put to shame, and let his wrath be crushed. Let his children be dragged down, and let their entire root be pulled out."
+      "text": "Let his honor be put to shame, and let his wrath be crushed. Let his children be dragged down, and let their entire root be torn out."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0110",
-      "source_sha256": "15b8f0b2fe1a31a6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ccc7db61e5c9c47c",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "Give me the authority to walk and to complete my journey without hardship or turmoil, as I come to you, my Lord, so that I may receive in full measure the good things of those who have lived."
+      "text": "Give me the authority to travel and to complete my journey without suffering or turmoil, as I come to you, my Lord, so that I may receive the good things of those who have lived [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0111",
-      "source_sha256": "062d85789f91998b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 16,
-      "text": "When John the Theologian had said these things, he looked toward the east, giving glory to God."
+      "source_sha256": "d6eaa1cf0646f3df",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "After John the Theologian had said these things, looking toward the east and glorifying God,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0112",
-      "source_sha256": "cf5de781f5998a02",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "de8664aa68b720a5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "He stretched out his hands again and prayed, saying, “You are with me, my Lord Jesus Christ.”"
+      "text": "he stretched out his hands again and prayed, saying, “You are with me, my Lord Jesus Christ.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0113",
-      "source_sha256": "bd4c5da2caadf341",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "cd6cc40b1249ca6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And immediately he threw himself down into the pit they had dug, where his clothes were spread out."
+      "text": "And immediately he lowered himself into the pit they had dug, where his clothes were spread out."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0114",
-      "source_sha256": "da404012d5bae67c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ab191541d2c118ab",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "And when he had said to them, “Peace and grace,” he dismissed the brothers. They went away and came out the next day."
+      "text": "After saying to them, “Peace and grace,” he dismissed the brothers. They went away and came out the next day."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0115",
-      "source_sha256": "b620d0c6c1a11541",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "afbdc91307f69d6a",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "They did not find him, but they found his sandal and fresh earth in the place into which he had gone down."
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0116",
-      "source_sha256": "6a30fd54b3f2eda3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "Then they remembered the words that the Lord had spoken to Peter: “If I want him to remain until I come, who are you? You, follow me.”"
+      "source_sha256": "e25a82863dc9a979",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 25,
+      "text": "Then they remembered the words that the Lord had said to Peter: “If I want him to remain until I come, who are you? You follow me.”"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0117.s1",
-      "source_sha256": "05e569c0a770fedf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "And they glorified the Lord Jesus Christ for the miracle that happened to the blessed apostle, evangelist, and theologian,"
+      "source_sha256": "da8837a40578f90b",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 4,
+      "text": "And they gave glory to the Lord Jesus Christ for the miracle that happened to the blessed apostle, evangelist, and theologian,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0117.s2",
-      "source_sha256": "14b1180039da5f1e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "and holy virgin, Saint John, the beloved of Christ Jesus, our Lord and our God and our Savior,"
+      "source_sha256": "7cd1f5a8a98f75f3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 4,
+      "text": "and the holy virgin, Saint John, the beloved of Christ Jesus, our Lord and our God and our Savior,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0118.s1",
-      "source_sha256": "feb045ce20fed8fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "to whom all glory is due, together with the Father and the Holy Spirit, the giver of life to all."
+      "source_sha256": "ef9781683a50bb45",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 4,
+      "text": "with whom all glory is due to the Father and to the Holy Spirit, the giver of life to all,"
     },
     {
       "chunk_id": "coptic-scriptorium/dormition_john#CopScr.dormition-john.000.0118.s2",
-      "source_sha256": "2f60aed6f06b5f3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 1,
-      "text": "And of the same essence, now and always, forever and ever. Amen."
+      "source_sha256": "aad613edbf4e694d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 4,
+      "text": "and who is of the same essence, now and always, forever and ever. Amen."
     }
   ]
 }

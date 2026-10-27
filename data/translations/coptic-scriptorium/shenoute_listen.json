@@ -21,15 +21,21 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-15",
       "script": "__main__"
+    },
+    "gpt-6.1-sol/bulk-2026-10-12/2026-10-27": {
+      "model": "gpt-6.1-sol",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-27",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0000.s1",
-      "source_sha256": "0133be0d4e5e6ed7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "Rebuke us in his place [?]. This too is the way in which someone is [?]."
+      "source_sha256": "fe16092c915674bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "Rebuke him in his place [?]. This, again, is the way in which someone is [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0000.s2",
@@ -54,17 +60,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0002.s1",
-      "source_sha256": "4d06fd2f9414f381",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "Was it not under extreme distress, because of those who had also committed pernicious deeds before today, that I spoke these words on a day of affliction,"
+      "source_sha256": "d18ab0bad1a1261d",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "Was it not, rather, out of overwhelming indignation at those who had also committed corrupt deeds before today that I said these words on a day of distress,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0002.s2",
-      "source_sha256": "464c98a9a92457d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "when we were gathered together: “Am I to gather together or offer up the offering with impure people who commit pernicious deeds?"
+      "source_sha256": "ba95dd36a714e6af",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "while we were gathered together: “Am I to assemble or offer an offering with impure people who commit corrupt deeds?”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0003",
@@ -75,31 +81,38 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0004",
-      "source_sha256": "56bb72dd8592373e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 12,
-      "text": "[?] Not because they have turned away from their evil deeds—or rather, because they have not turned away from them—but because no judgment falls upon him if he assembles or offers the offering with them. For they have not been entrusted to him, so that he should be questioned about them."
+      "source_sha256": "bdc66c6d2780cbf7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "[?] because they have not turned away from their evil deeds, or rather because they did not turn away from them, but because no judgment rests upon him if he assembles or offers an offering with them. For they had not been exposed to him so that he could question them about these things."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0005",
-      "source_sha256": "c355eb0f3f346d6a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 12,
-      "text": "How, in turn, will it not be difficult for someone to whom people have been entrusted to assemble with impure people who commit corrupt deeds among them, or to offer offerings with them, when their blood and their judgment fall upon him?"
+      "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0005.s1",
+      "source_sha256": "7f51144518a8d1ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "How, on the other hand, will the matter not weigh heavily upon someone to whom people have been exposed, if he assembles with impure people who commit"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0005.s2",
+      "source_sha256": "6047a4808589322f",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "corrupt deeds among them, or offers offerings with them, while their blood and their judgment rest upon him?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0006.s1",
-      "source_sha256": "ed855756d37770a7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "“Rather, their condemnation and their blood are upon the congregation itself.” For not only is the soul of the one in charge of them not in agreement with those who commit that evil"
+      "source_sha256": "a9584e1d31d73db3",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "Rather, let us say that their judgment and their blood rest upon the assembly, because not only is the soul of the one in charge of them not in agreement with those who commit that evil"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0006.s2",
-      "source_sha256": "489eb5864c4499df",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "among you, but it is also laid down for him, through the rule and the decision established by God—as it has been from the beginning until now—that he must not eat bread"
+      "source_sha256": "c4db7bac91095a01",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "among us, but an obligation is also laid upon him by the ordinance and the decision decreed by God, as it has been from the beginning until now, not to let him eat bread"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0006.s3",
@@ -110,24 +123,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0007",
-      "source_sha256": "126c9937d6a74b46",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 12,
-      "text": "because someone might again dare to commit such abominable deeds in the Lord’s congregations, among our holy brothers who guard themselves against every defilement and every deceitful deed."
+      "source_sha256": "a6f39d2b07a192bd",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "if a person again dares to commit such abominable deeds in the Lord’s congregations, among the holy brothers who keep themselves from every defilement and every deceitful deed."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0008.s1",
-      "source_sha256": "5cd83585887b6e1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "It will not happen again this time, or in the remaining days, as it has often happened within you, O congregation, with disturbances, retreats, and harsh deeds—"
+      "source_sha256": "053814b204c1611e",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "You will not, congregation, again be in turmoil, with retreats and harsh measures, as has often happened within you—either this time or during the remaining days"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0008.s2",
-      "source_sha256": "faa969bdd0ee2ebe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "the days that the one speaking with you will spend alive. Rather, those who are shown to him to have committed pernicious deeds within you, he will exclude from you, without disturbance and without shouting."
+      "source_sha256": "9999a66fe546fd83",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "that the one speaking with you will spend alive. Rather, those who are revealed to him as having committed corrupt deeds within you he will exclude from you, without turmoil and without shouting."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0009",
@@ -138,24 +151,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0010.s1",
-      "source_sha256": "38d17abce76d5341",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "For anyone whom you do not know to be committing pernicious deeds within you—the curses themselves that are written in the Scriptures, together with the curses in the books written for us, know them and know how to deal with them, with all their torments."
+      "source_sha256": "68b511f60bb268dc",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "For anyone whom you do not know to be committing corrupt deeds within you—the curses written in the Scriptures and the curses in the books written for us themselves know them, to deal with them and all their sufferings."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0010.s2",
-      "source_sha256": "b371d145d9d7be47",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "As for the belts and bandages that this man took off and laid down because they had not been useful to him, or had become useless, or had no use left in them, you will see some of them in one condition at one time, and another portion"
+      "source_sha256": "f58c020678b2d4f7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "[?] the belts and bandages that this man laid aside after they had been tied around him, because they had not helped him, or had become useless, or had no use, as you will see some of them in one condition at one time, and another portion"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0010.s3",
-      "source_sha256": "94fc87817a0653dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "in another condition, another portion like this, and another portion like that, so that you may understand, brothers, that this man did not wrap himself in so much cloth or so many bandages for any other reason than the matter that he himself knows."
+      "source_sha256": "4fc4312903f90aaf",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "in another condition, another portion like this, and another portion like that, so that you may understand, brothers, that this man did not wrap himself in so many belts or bandages for any other reason than the matter that he himself knows about."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0011.s1",
@@ -180,10 +193,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0013",
-      "source_sha256": "7bb081c8518a6405",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 17,
-      "text": "For everything that this man who is speaking to you, congregation, did before today, he did because he wanted to remove the shame from those who do these corrupt deeds among us, turning it back upon himself, because he loves his neighbor as himself."
+      "source_sha256": "6084771eb7b29396",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "For everything that this man who is speaking with you, congregation, did before today, he did because he wished to remove the disgrace from those committing these corrupt deeds among us and turn it upon himself, because he loves his neighbor as himself,"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0014",
@@ -201,17 +214,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0016",
-      "source_sha256": "7a697560ae3aa93b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 17,
-      "text": "And honoring them again in the presence of this man who is now distressed [?], in the same way—especially a blow with a staff in his hand—from today onward is a shame to him himself."
+      "source_sha256": "5936aaf064f96bc1",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "and to honor them as well in the face of this. Now what is distressing is to give them a single blow. In particular, a rod of carob wood in his hand from today onward is a disgrace to him too."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0017",
-      "source_sha256": "3acccb43ec90dd90",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 17,
-      "text": "This statement is not about my esteemed brothers or beloved children, because of their purity and their love for God. Rather, it concerns those whom this holy place does not benefit and who gain no benefit in it, because they are destroying their hope, as we said earlier."
+      "source_sha256": "ec5ffa6cd1e435be",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "These words are not directed at the brothers who are worthy of esteem, or the children who deserve love because of their purity and their love for God. Rather, they concern those from whom this holy place gains no benefit and who gain no benefit from it, because they are destroying their hope, as we said before."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0018",
@@ -243,10 +256,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0022",
-      "source_sha256": "2a2c7b7aa2682c82",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 11,
-      "text": "What is easy [?] down to [?] those who fear God in these congregations? With what will he be able to honor them, or with what will he be able to bless them, beyond what the saints said: “Blessed are all who fear the Lord, who walk in his ways.”"
+      "source_sha256": "04b7576435a207ec",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "What is easy [?] concerning those who fear God in these congregations—how could he honor them, or how could he bless them, beyond what the saints said: “Blessed are all who fear the Lord, who walk in his ways”?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0023",
@@ -257,10 +270,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0024.s1",
-      "source_sha256": "d9a41db7699a9325",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "But the one who is continually grieved over those who commit abominable deeds in these congregations will condemn them with a [?]"
+      "source_sha256": "0199f91bbf3f9674",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "But what is distressing, again, concerning those who continually commit abominable deeds in these congregations—how will he put them to shame?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0024.s2",
@@ -278,10 +291,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0025.s2",
-      "source_sha256": "3db7a6f246bcbd92",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "has committed pernicious deeds within you”—is it not clear that he is free of that condemnation and of the blood of those who afflict him because they were not ashamed to commit those abominable, ungodly deeds within you?"
+      "source_sha256": "ccd3c73cb9bd28fb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "[?] committed corrupt deeds within you, it is not evident that he is free of this judgment and the blood of those who distress him, because they were not ashamed to commit those abominable, godless deeds within you."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0026",
@@ -299,31 +312,31 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0028.s1",
-      "source_sha256": "405e8eef8d73273e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "Before today, the person or people who knew the measure, or who had measured the evil deeds they had committed within you, [?] will say [?]."
+      "source_sha256": "ab82477a15d0cb77",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "Before today, the one who knows, or those who know the extent, or those who have measured the evil deeds they committed within you [?] will say [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0028.s2",
-      "source_sha256": "fe42431c0a26b550",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "They ended by saying that these deeds had reached parts of those who committed them—or rather, had completely overwhelmed them like a great flood, and they had sunk into it like animals. God found us in it in his mercy."
+      "source_sha256": "c04346337cfe7500",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 22,
+      "text": "They have finished saying that they have reached the portions of what they did, or rather that these things have overwhelmed them like a great flood, and that they themselves have drowned in it like animals, while God found us in it in his mercy."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0029.s1",
-      "source_sha256": "19e60d5d0adc0127",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "But now, in this present time, those who measure it or take its measurements will say, or are saying, “It reaches the knees [?].”"
+      "source_sha256": "c0d93731c0547e88",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "Now, however, at this present time, those who measure it or take its measurements will say, or are saying, that it reaches the knees [?], and yet it does not reach as far as [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0029.s2",
-      "source_sha256": "ba652ff6882f3f77",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 24,
-      "text": "Yet it has not reached [?], and those who fell into it, or onto it, sank up to their thighs."
+      "source_sha256": "422674cc75fad424",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "[?] And those who fell into it, or down upon it, sank up to their thighs."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0030",
@@ -348,22 +361,22 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0033",
-      "source_sha256": "a7dea5996b279d36",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "e807e0194b6f40b6",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 11,
-      "text": "But those who fell into it wallowed in it like pigs, not merely until it reached their thighs, or until they sank into it up to their thighs, but until they appeared filthy and smeared with it, from their toenails to the hair on their heads."
+      "text": "But those who fell into it wallowed in it like pigs, so that it did not merely reach their thighs, nor did they merely sink up to their thighs, but they appeared smeared and wallowing in it, from the soles of their feet to the hair on their heads."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0034",
-      "source_sha256": "0e8dd02e74ba2d36",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "171a0b965f843a20",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 11,
-      "text": "If that mud had been deeper at this present time, or if it still reached the thighs according to its former depth, those who saw the people in it would have said, “Certainly they could not get up or come out of it, because it is deep.”"
+      "text": "Indeed, if that mire were deeper at this present time, or if it still reached the thighs according to its former measurements, those who saw the people who had fallen into it would say, “Certainly they could not stand up or get out of it [?], because it is so deep.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0035",
-      "source_sha256": "df70e84191d00b7c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
+      "source_sha256": "3b17fd3d08850330",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 11,
       "text": "And whoever says that it has not diminished very, very greatly is like someone who sheds blood, because he has insulted the grace that the Lord Jesus Christ has shown us."
     },
@@ -383,17 +396,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0037.s2",
-      "source_sha256": "307eb1f649c1b1bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "“They have taken account of what you did not know or understand, and those who came to learn about or see the things that have happened to you have taken account of what shook you, in the enclosed and hidden places that are full of darkness, or are dark within you.”"
+      "source_sha256": "45886976ebef8919",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "For those who came to learn or see what happened to you in the deep and hidden places, which are full of darkness—or which are dark within you—have taken account of what you did not know, what it was, and have taken account of the one who sent you."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0038.s1",
-      "source_sha256": "504e6e969d70551f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "But if someone asks, “What are these measurements or this taking of measurements? Who are those who took measurements? Or what did they measure?” let him tell us, or let him tell me, how the house of the Lord in Jerusalem was measured with a reed,"
+      "source_sha256": "c34fd43bfe6d0ebb",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "But if someone asks, “What are these measurements, or this measuring?” or “Who are those who took measurements?” or “What did they measure?” let him tell us, or let him tell me: by what means was the house of the Lord in Jerusalem measured with a reed?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0038.s2",
@@ -411,24 +424,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0039.s2",
-      "source_sha256": "ea41f2756e1e8ceb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "was it, then, in mercy and compassion—or rather in anger and wrath—that he said afterward, “I will take my beautiful staff and throw it away, to break the covenant that I established with all the peoples."
+      "source_sha256": "56d3b2b8d12de189",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "Was it, then, in mercy and compassion, or rather in anger and wrath, that he said afterward, “I will take my beautiful staff and throw it away, to dissolve the covenant that I established with all the peoples”?"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0040.s1",
-      "source_sha256": "c90bb3fc5d1ca47c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "And they will be destroyed in those days, and the Canaanites will recognize [?] the sheep that trust in me, because it is the word of the Lord.”"
+      "source_sha256": "e1cc692335f742b5",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "“And they will be scattered in those days, and the Canaanites will bring out the sheep that trust in me, for it is the word of the Lord.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0040.s2",
-      "source_sha256": "c6e8683a40ffadf0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 8,
-      "text": "Then again: “I threw away the second staff, Cord, to break the covenant between Judah and Jerusalem.”"
+      "source_sha256": "538d1808754e7dde",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "Then again: “I threw away the second staff, Measuring Line, to dissolve the covenant between Judah and Jerusalem.”"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0041",
@@ -439,10 +452,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_listen#CopScr.shenoute-listen.000.0042",
-      "source_sha256": "bdc7a748f142d84a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 3,
-      "text": "And whether those who measured that portion were from God, like the one who measured the house of the Lord in Jerusalem, and as with the designation of the two staffs, Beauty and Cord, which we mentioned earlier, or whether they were from..."
+      "source_sha256": "5cca704e71e685c7",
+      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "group_size": 11,
+      "text": "And whether those who measured that region were people from God, like the one who measured the house of the Lord in Jerusalem, and in accordance with the designation of the two staffs, Beauty and Measuring Line, which we mentioned earlier—or, instead, outsiders."
     }
   ]
 }
