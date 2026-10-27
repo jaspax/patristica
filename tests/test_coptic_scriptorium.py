@@ -1,16 +1,26 @@
-"""Tests for the Coptic Scriptorium ingestor's text extraction (#41).
+"""Tests for the Coptic Scriptorium ingestor's text extraction (#41, #57).
 
 Coptic is written in bound groups: an article, preposition or verb prefix is
 written together with the following word.  Both input formats must produce
-bound groups separated by spaces, never morphemes.  The fixtures are small
-inline excerpts of the real files, so the tests need no ``data/raw``.
+bound groups separated by spaces, never morphemes.  The text is the
+normalized layer for every work (#57): for a TEI file, the ``norm_group`` of
+its TreeTagger export, one per ``<phr>``; the diplomatic form is kept as
+``orig``.  The fixtures are small inline excerpts of the real files, so the
+tests need no ``data/raw``.
 """
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 
-from scripts.ingest.coptic_scriptorium import _extract_paragraphs_from_tei
+import pytest
+
+from scripts.ingest.coptic_scriptorium import (
+    CopticLayerError,
+    _extract_paragraphs_from_tei,
+    ingest,
+)
 
 # Standard TEI P5: <phr> is a bound group, <w> a morpheme.  Excerpt of
 # pseudo.basil.temple.xml, including a manuscript line break inside a <w>
@@ -171,36 +181,112 @@ _META = """\
 """
 
 
-def _extract(tmp_path: Path, xml: str) -> list[dict]:
-    path = tmp_path / "doc.xml"
+def _tt(*norm_groups: str) -> str:
+    """A TreeTagger export with one bound group per *norm_groups* item (the
+    real files nest morphemes, lemmas and tags inside each)."""
+    groups = "\n".join(
+        f'<orig_group orig_group="x">\n<norm_group norm_group="{n}">\n<orig orig="x">\n'
+        f'<norm norm="{n}">\n{n}\n</norm>\n</orig>\n</norm_group>\n</orig_group>'
+        for n in norm_groups
+    )
+    return f'<meta corpus="test.corpus">\n<verse_n verse_n="1">\n{groups}\n</verse_n>\n</meta>\n'
+
+
+# The normalized layer of _TEI: pseudo.basil.temple.tt's norm_group values
+# for the same bound groups.
+_TEI_TT = _tt(
+    "ⲟⲩϩⲟⲙⲟⲗⲟⲅⲓⲁ", "ⲛⲧⲉⲁⲡⲁ", "ⲃⲁⲥⲓⲗⲓⲟⲥ", "ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ", "ⲛⲧⲕⲁⲓⲥⲁⲣⲓⲁ",
+    "ⲉⲁϥⲧⲁⲩⲟⲥ", "ⲧϭⲓⲛⲉⲓ", "ⲛⲙⲙⲁⲩ", "ϩⲛⲡⲥⲱⲙⲁ",
+)
+
+
+def _extract(tmp_path: Path, xml: str, tt: str | None = None) -> list[dict]:
+    """Extract *xml* laid out as in the repo: ``{corpus}/{corpus}_TEI/`` with
+    its TreeTagger export *tt* in ``{corpus}_TT/``, named in other case (as
+    AP's are)."""
+    tei_dir = tmp_path / "test-corpus" / "test.corpus_TEI"
+    tei_dir.mkdir(parents=True, exist_ok=True)
+    path = tei_dir / "doc.01.xml"
     path.write_text(xml, encoding="utf-8")
+    if tt is not None:
+        tt_dir = tmp_path / "test-corpus" / "test.corpus_TT"
+        tt_dir.mkdir(exist_ok=True)
+        (tt_dir / "DOC.01.tt").write_text(tt, encoding="utf-8")
     return _extract_paragraphs_from_tei(path, 0, "test-corpus")
 
 
-def test_tei_joins_morphemes_into_bound_groups(tmp_path: Path) -> None:
-    paras = _extract(tmp_path, _TEI)
+def test_tei_text_is_the_normalized_layer(tmp_path: Path) -> None:
+    paras = _extract(tmp_path, _TEI, _TEI_TT)
     assert [p["text"] for p in paras] == [
-        "ⲞⲨϨⲞⲘⲞⲖⲞⲄⲒⲀ Ⲛ̅ⲦⲈⲀⲠⲀ ⲂⲀⲤⲒⲖⲒⲞⲤ ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ ⲚⲦ̅ⲔⲀⲒⲤⲀⲢⲒⲀ",
-        "ⲈⲀϤⲦⲀⲨⲞⲤ ⲦϬⲒⲚⲈⲒ̈ ⲛ̄ⲙⲙⲁⲩ ϨⲚⲠⲤⲰⲘⲀ",
+        "ⲟⲩϩⲟⲙⲟⲗⲟⲅⲓⲁ ⲛⲧⲉⲁⲡⲁ ⲃⲁⲥⲓⲗⲓⲟⲥ ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ ⲛⲧⲕⲁⲓⲥⲁⲣⲓⲁ",
+        "ⲉⲁϥⲧⲁⲩⲟⲥ ⲧϭⲓⲛⲉⲓ ⲛⲙⲙⲁⲩ ϩⲛⲡⲥⲱⲙⲁ",
     ]
+    # Paragraphs and refs still come from the TEI
     assert [p["ref"] for p in paras] == [
         "CopScr.test-corpus.000.0000",
         "CopScr.test-corpus.000.0001",
     ]
 
 
-def test_tei_keeps_combining_marks_and_prefers_reg(tmp_path: Path) -> None:
-    text = " ".join(p["text"] for p in _extract(tmp_path, _TEI))
+def test_tei_orig_joins_morphemes_into_bound_groups(tmp_path: Path) -> None:
+    paras = _extract(tmp_path, _TEI, _TEI_TT)
+    assert [p["orig"] for p in paras] == [
+        "ⲞⲨϨⲞⲘⲞⲖⲞⲄⲒⲀ Ⲛ̅ⲦⲈⲀⲠⲀ ⲂⲀⲤⲒⲖⲒⲞⲤ ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ ⲚⲦ̅ⲔⲀⲒⲤⲀⲢⲒⲀ",
+        "ⲈⲀϤⲦⲀⲨⲞⲤ ⲦϬⲒⲚⲈⲒ̈ ⲛ̄ⲙⲙⲁⲩ ϨⲚⲠⲤⲰⲘⲀ",
+    ]
+
+
+def test_tei_orig_keeps_combining_marks_and_prefers_reg(tmp_path: Path) -> None:
+    paras = _extract(tmp_path, _TEI, _TEI_TT)
+    orig = " ".join(p["orig"] for p in paras)
     # Supralinear strokes (U+0305, U+0304) and diaeresis (U+0308) survive
-    assert "̅" in text and "̄" in text and "̈" in text
+    assert "̅" in orig and "̄" in orig and "̈" in orig
     # <choice>: <reg> wins over <orig>; <note> is skipped
-    assert "ϨⲚⲠⲤⲰⲘⲀ" in text
-    assert "ϨⲘ" not in text and "note" not in text
+    assert "ϨⲚⲠⲤⲰⲘⲀ" in orig
+    assert "ϨⲘ" not in orig and "note" not in orig
+    # ... and none of them is in the normalized text
+    text = " ".join(p["text"] for p in paras)
+    assert not any(mark in text for mark in "̅̄̈")
+
+
+def test_tei_without_tt_export_is_an_error(tmp_path: Path) -> None:
+    with pytest.raises(CopticLayerError, match="no TreeTagger export"):
+        _extract(tmp_path, _TEI)
+
+
+def test_tei_tt_count_mismatch_is_an_error(tmp_path: Path) -> None:
+    # One norm_group short: the layers can't be paired, so nothing is guessed.
+    short = _tt("ⲟⲩϩⲟⲙⲟⲗⲟⲅⲓⲁ", "ⲛⲧⲉⲁⲡⲁ", "ⲃⲁⲥⲓⲗⲓⲟⲥ", "ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ", "ⲛⲧⲕⲁⲓⲥⲁⲣⲓⲁ",
+                "ⲉⲁϥⲧⲁⲩⲟⲥ", "ⲧϭⲓⲛⲉⲓ", "ⲛⲙⲙⲁⲩ")
+    with pytest.raises(CopticLayerError, match="9 bound groups.*8 norm_group"):
+        _extract(tmp_path, _TEI, short)
+
+
+def test_ingest_skips_a_corpus_without_its_normalized_layer(
+    tmp_path: Path, caplog: pytest.LogCaptureFixture
+) -> None:
+    corpus = tmp_path / "_repos" / "coptic-scriptorium" / "dormition-john"
+    (corpus / "dormition.john_TEI").mkdir(parents=True)
+    (corpus / "dormition.john_TEI" / "dormition.xml").write_text(_TEI, encoding="utf-8")
+    (corpus / "dormition.john_TT").mkdir()
+    (corpus / "dormition.john_TT" / "dormition.tt").write_text(_tt("ⲁ"), encoding="utf-8")
+
+    with caplog.at_level(logging.ERROR):
+        works = ingest(tmp_path)
+
+    assert works == []
+    assert not (tmp_path / "coptic-scriptorium" / "dormition_john.json").exists()
+    assert any(r.levelno == logging.ERROR and "dormition-john" in r.getMessage()
+               for r in caplog.records)
 
 
 def test_meta_format_uses_norm_group(tmp_path: Path) -> None:
-    paras = _extract(tmp_path, _META)
+    # Give one bound group a diplomatic form that differs from its norm.
+    xml = _META.replace('orig_group="ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ"', 'orig_group="ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ"')
+    assert xml != _META
+    paras = _extract(tmp_path, xml)
     assert [p["text"] for p in paras] == ["ⲡⲃⲓⲟⲥ ⲛⲁⲡⲁⲁⲫⲟⲩ ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ"]
+    assert [p["orig"] for p in paras] == ["ⲡⲃⲓⲟⲥ ⲛⲁⲡⲁⲁⲫⲟⲩ ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ"]
 
 
 # Excerpts of on_abbaton.01.xml (pseudo-timothy), helias_martyrdom_part3.xml
@@ -259,9 +345,20 @@ _TEI_NOISE = """\
 """
 
 
+# The normalized layer keeps ``▢`` too (#28), and expands the nomina sacra.
+_TEI_NOISE_TT = _tt(
+    "▢▢▢", "ⲁ", "▢▢▢▢", "ⲓⲏⲥⲟⲩⲥ", "▢✠▢", "ⲭⲣⲓⲥⲧⲟⲥ",
+    "ⲉⲣⲟϥ", "⁽²⁾ⲇⲏⲙⲟⲥⲓⲁ", "·", "¹", "ϯⲣⲁϣⲉ",
+)
+
+
 def test_drops_layout_placeholders_and_footnote_markers(tmp_path: Path) -> None:
-    paras = _extract(tmp_path, _TEI_NOISE)
+    paras = _extract(tmp_path, _TEI_NOISE, _TEI_NOISE_TT)
     assert [p["text"] for p in paras] == [
+        "ⲁ ⲓⲏⲥⲟⲩⲥ ✠ ⲭⲣⲓⲥⲧⲟⲥ",
+        "ⲉⲣⲟϥ ⲇⲏⲙⲟⲥⲓⲁ · ϯⲣⲁϣⲉ",
+    ]
+    assert [p["orig"] for p in paras] == [
         "Ⲁ Ⲓ̅Ⲥ̅ ✠ Ⲭ̅Ⲥ̅",
         "ⲉⲣⲟϥ ⲇⲩⲙⲟⲥⲓ̈ⲁ · ϯⲣⲁϣⲉ",
     ]

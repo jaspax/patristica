@@ -21,23 +21,38 @@ Excludes:
 One Work is written per qualifying corpus.  All TEI XML files in
 ``{corpus}/{corpus}_TEI/`` are concatenated into a single paragraph list.
 
-TEI text extraction
--------------------
+Text layers (#57)
+-----------------
+Coptic Scriptorium transcribes every text in two layers: the *diplomatic*
+form of the manuscript (case as printed, supralinear strokes, diaereses,
+abbreviations and nomina sacra such as ``Ⲓ̅Ⲥ̅``, the edition's brackets) and a
+*normalized* form (lower case, no strokes, abbreviations and nomina sacra
+written out: ``ⲓⲏⲥⲟⲩⲥ``, editorial brackets around supplied letters
+removed, standard spelling).  Search, translation and the reader use the
+normalized form for every work, so the same word is spelled the same way in
+all of them; the diplomatic form is kept in each paragraph's ``orig`` key,
+which ``scripts.normalize`` ignores.
+
 The ``*_TEI`` directories hold two formats:
 
-- Standard TEI P5 (most corpora).  Each ``<w>`` is a *morpheme* (article,
-  preposition, verb prefix, …) and each ``<phr>`` is a *bound group*, the unit
-  Coptic writes as one word.  We write the ``<w>`` texts of a ``<phr>`` together
-  without spaces ("Ⲡ" + "ⲈⲠⲒⲤⲔⲞⲠⲞⲤ" → "ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ") and separate bound groups
-  with spaces.  Whitespace inside a ``<w>`` is manuscript line breaks and
-  markup layout, so it is dropped.
-- A custom ``<meta>``-rooted export (e.g. ``life-aphou``, ``besa-letters``),
-  where the bound group is the ``norm_group`` attribute of ``<norm_group>``.
+- Standard TEI P5 (most corpora), which has only the diplomatic layer.  Each
+  ``<w>`` is a *morpheme* (article, preposition, verb prefix, …) and each
+  ``<phr>`` is a *bound group*, the unit Coptic writes as one word.  The
+  paragraphs (``<ab>``/``<p>``/…) come from the TEI; the text of each
+  ``<phr>`` is the ``norm_group`` at the same position in the corpus's TreeTagger
+  export (``*_TT/{same file name}.tt``), which has exactly one ``norm_group``
+  per ``<phr>``: a missing TT file or a different count is an error
+  (``CopticLayerError``).  ``orig`` joins the ``<w>`` texts of a ``<phr>``
+  without spaces ("Ⲡ" + "ⲈⲠⲒⲤⲔⲞⲠⲞⲤ" → "ⲠⲈⲠⲒⲤⲔⲞⲠⲞⲤ"); whitespace inside a
+  ``<w>`` is manuscript line breaks and markup layout, so it is dropped.
+- The TreeTagger export itself, ``<meta>``-rooted (``life-aphou``,
+  ``besa-letters``, …): the text is the ``norm_group`` attributes of a
+  paragraph's ``<norm_group>`` elements, ``orig`` its ``orig_group``s.
 
-Both join bound groups within each ``<ab>``/``<p>`` container to produce
-paragraph strings, skipping scholarly apparatus (``<note>``, ``<gap>``,
-``<unclear>``, ``<supplied>``).  Layout placeholders (``▢``) and the printed
-editions' footnote markers (``⁽²⁾``, ``¹``) are dropped (``_paragraph_text``).
+Both join bound groups with spaces within each paragraph container, skipping
+scholarly apparatus (``<note>``, ``<gap>``, ``<unclear>``, ``<supplied>``).
+Layout placeholders (``▢``) and the printed editions' footnote markers
+(``⁽²⁾``, ``¹``) are dropped (``_paragraph_text``).
 
 Canonical references
 --------------------
@@ -404,14 +419,29 @@ def _ensure_repo(repo_dir: Path, force: bool) -> None:
 # TEI text extraction
 # ---------------------------------------------------------------------------
 
-def _elem_words(el: etree._Element) -> list[str]:
-    """Collect word-level text from an element, skipping apparatus tags."""
+class CopticLayerError(ValueError):
+    """A TEI file's normalized layer (its TreeTagger export) is missing or
+    doesn't match the TEI's bound groups."""
+
+
+# Normalized text of each <phr> of one TEI document, keyed by element.
+NormMap = dict[etree._Element, str]
+
+_PARSER_KW = {"recover": True, "no_network": True, "load_dtd": False}
+
+
+def _elem_words(el: etree._Element, norms: NormMap | None = None) -> list[str]:
+    """Collect word-level text from an element, skipping apparatus tags.
+
+    With *norms*, a ``<phr>`` contributes its normalized text; without, its
+    diplomatic ``<w>`` text.
+    """
     words: list[str] = []
-    _collect_words(el, words)
+    _collect_words(el, words, norms)
     return words
 
 
-def _collect_words(el: etree._Element, out: list[str]) -> None:
+def _collect_words(el: etree._Element, out: list[str], norms: NormMap | None) -> None:
     """Recursively collect text, preferring <w> and <reg> over raw PCDATA."""
     if not isinstance(el.tag, str):
         return
@@ -422,17 +452,24 @@ def _collect_words(el: etree._Element, out: list[str]) -> None:
     if ns_tag in _SKIP_TAGS:
         return
 
+    # Normalized layer: the bound group's norm_group from the TT export.
+    if tag == "phr" and norms is not None:
+        word = _WS_RE.sub("", norms[el])
+        if word:
+            out.append(word)
+        return
+
     # Inside <choice>, use <reg> (normalized) not <orig> (manuscript)
     if tag == "choice":
         reg = el.find(f"{_TEI}reg")
         if reg is not None:
-            _collect_words(reg, out)
+            _collect_words(reg, out, norms)
         else:
             # No <reg>; fall back to <corr> then first child
             corr = el.find(f"{_TEI}corr")
             target = corr if corr is not None else (el[0] if len(el) else None)
             if target is not None:
-                _collect_words(target, out)
+                _collect_words(target, out, norms)
         return
 
     # Bound group (<phr>) and morpheme (<w>): written together as one word.
@@ -442,22 +479,22 @@ def _collect_words(el: etree._Element, out: list[str]) -> None:
     # the <choice> and apparatus handling inside words.
     if tag in ("phr", "w"):
         parts: list[str] = []
-        _collect_children(el, parts)
+        _collect_children(el, parts, norms)
         word = _WS_RE.sub("", "".join(parts))
         if word:
             out.append(word)
         return
 
     # For any other element, recurse into children; also pick up direct PCDATA
-    _collect_children(el, out)
+    _collect_children(el, out, norms)
 
 
-def _collect_children(el: etree._Element, out: list[str]) -> None:
+def _collect_children(el: etree._Element, out: list[str], norms: NormMap | None) -> None:
     """Collect an element's own text, its children's words, and their tails."""
     if el.text and el.text.strip():
         out.append(el.text.strip())
     for child in el:
-        _collect_words(child, out)
+        _collect_words(child, out, norms)
         if child.tail and child.tail.strip() and child.tag not in _SKIP_TAGS:
             out.append(child.tail.strip())
 
@@ -467,8 +504,51 @@ def _paragraph_text(words: list[str]) -> str:
     return _WS_RE.sub(" ", _NOISE_RE.sub("", " ".join(words))).strip()
 
 
+def _tt_path(tei_path: Path) -> Path | None:
+    """The TreeTagger export of *tei_path*: ``{corpus}/*_TT/{same name}.tt``.
+
+    File names are matched without case: AP's TEI files are ``ap.*.xml`` and
+    its TT files ``AP.*.tt``.
+    """
+    stem = tei_path.stem.lower()
+    for tt_dir in sorted(tei_path.parent.parent.glob("*_TT")):
+        for tt in sorted(tt_dir.glob("*.tt")):
+            if tt.stem.lower() == stem:
+                return tt
+    return None
+
+
+def _norm_map(root: etree._Element, tei_path: Path) -> NormMap:
+    """Map every ``<phr>`` of a TEI document to its normalized form.
+
+    The TT export of the same document has one ``norm_group`` per ``<phr>``, in
+    the same order; anything else raises ``CopticLayerError``.
+    """
+    tt_path = _tt_path(tei_path)
+    if tt_path is None:
+        raise CopticLayerError(f"{tei_path}: no TreeTagger export (*_TT/{tei_path.stem}.tt)")
+    tt_root = etree.parse(str(tt_path), etree.XMLParser(**_PARSER_KW)).getroot()
+    norms = [ng.get("norm_group", "") for ng in tt_root.iter("norm_group")]
+    phrs = [
+        el for el in root.iter()
+        if isinstance(el.tag, str) and etree.QName(el.tag).localname == "phr"
+    ]
+    if len(phrs) != len(norms):
+        raise CopticLayerError(
+            f"{tei_path}: {len(phrs)} bound groups (<phr>) but {tt_path.name} has "
+            f"{len(norms)} norm_group"
+        )
+    return dict(zip(phrs, norms))
+
+
+def _paragraph(corpus_name: str, file_n: int, para_n: int, text: str, orig: str) -> dict:
+    """A raw paragraph record: normalized ``text`` and diplomatic ``orig``."""
+    ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
+    return {"ref": ref, "text": text, "orig": orig}
+
+
 def _extract_paragraphs_tei(
-    root: etree._Element, file_n: int, corpus_name: str, start_n: int
+    root: etree._Element, file_n: int, corpus_name: str, start_n: int, norms: NormMap
 ) -> list[dict]:
     """Extract paragraphs from a standard TEI P5 document.
 
@@ -502,14 +582,11 @@ def _extract_paragraphs_tei(
         paragraphs: list[dict] = []
         para_n = start_n
         for el in elements:
-            words = _elem_words(el)
-            if not words:
-                continue
-            text = _paragraph_text(words)
+            text = _paragraph_text(_elem_words(el, norms))
             if not _COPTIC_RE.search(text):
                 continue
-            ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
-            paragraphs.append({"ref": ref, "text": text})
+            orig = _paragraph_text(_elem_words(el))
+            paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
             para_n += 1
 
         if paragraphs:
@@ -521,10 +598,11 @@ def _extract_paragraphs_tei(
 def _extract_paragraphs_custom(
     root: etree._Element, file_n: int, corpus_name: str, start_n: int
 ) -> list[dict]:
-    """Extract paragraphs from the Coptic Scriptorium custom ``<meta>`` format.
+    """Extract paragraphs from the TreeTagger ``<meta>`` export.
 
-    This format stores word tokens in ``<norm_group norm_group="word">`` elements,
-    grouped under ``<p_n>`` or ``<p>`` paragraph containers.
+    This format stores bound groups in ``<orig_group orig_group="…">`` /
+    ``<norm_group norm_group="…">`` elements, grouped under ``<p_n>`` or ``<p>``
+    paragraph containers.
     """
     para_n = start_n
     paragraphs: list[dict] = []
@@ -538,33 +616,35 @@ def _extract_paragraphs_custom(
         para_elems = [root]
 
     for para_el in para_elems:
-        words = [
-            ng.get("norm_group", "").strip()
-            for ng in para_el.findall(".//norm_group")
-            if ng.get("norm_group", "").strip()
-        ]
+        words = _groups(para_el, "norm_group")
         if not words:
             continue
         text = _paragraph_text(words)
         if not _COPTIC_RE.search(text):
             continue
-        ref = slugify_ref(f"CopScr.{corpus_name}.{file_n:03d}.{para_n:04d}")
-        paragraphs.append({"ref": ref, "text": text})
+        orig = _paragraph_text(_groups(para_el, "orig_group"))
+        paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
         para_n += 1
 
     return paragraphs
+
+
+def _groups(para_el: etree._Element, tag: str) -> list[str]:
+    """The non-empty *tag* attributes of the *tag* elements under *para_el*."""
+    return [g.get(tag, "").strip() for g in para_el.iter(tag) if g.get(tag, "").strip()]
 
 
 def _extract_paragraphs_from_tei(xml_path: Path, file_n: int, corpus_name: str) -> list[dict]:
     """Parse a single Coptic Scriptorium XML file into paragraph records.
 
     Dispatches to the appropriate parser based on the root element tag:
-    - Standard TEI P5 (``{...}TEI`` root) → ``_extract_paragraphs_tei``
-    - Custom format (``meta`` root) → ``_extract_paragraphs_custom``
+    - TreeTagger export (``meta`` root) → ``_extract_paragraphs_custom``
+    - Standard TEI P5 (``{...}TEI`` root, or anything else) →
+      ``_extract_paragraphs_tei``, with the normalized text from the TT
+      export; raises ``CopticLayerError`` when that is missing or differs.
     """
     try:
-        parser = etree.XMLParser(recover=True, no_network=True, load_dtd=False)
-        tree = etree.parse(str(xml_path), parser)
+        tree = etree.parse(str(xml_path), etree.XMLParser(**_PARSER_KW))
         root = tree.getroot()
     except Exception as exc:
         log.error("  XML parse error %s: %s", xml_path.name, exc)
@@ -572,13 +652,11 @@ def _extract_paragraphs_from_tei(xml_path: Path, file_n: int, corpus_name: str) 
 
     root_local = etree.QName(root.tag).localname if isinstance(root.tag, str) else ""
 
-    if root_local == "TEI":
-        return _extract_paragraphs_tei(root, file_n, corpus_name, start_n=0)
-    elif root_local == "meta":
+    if root_local == "meta":
         return _extract_paragraphs_custom(root, file_n, corpus_name, start_n=0)
-    else:
+    if root_local != "TEI":
         log.debug("  Unknown root element <%s> in %s; trying TEI parser", root_local, xml_path.name)
-        return _extract_paragraphs_tei(root, file_n, corpus_name, start_n=0)
+    return _extract_paragraphs_tei(root, file_n, corpus_name, 0, _norm_map(root, xml_path))
 
 
 # ---------------------------------------------------------------------------
@@ -637,9 +715,15 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
         # Extract paragraphs from all TEI files in this corpus
         all_paragraphs: list[dict] = []
-        for file_n, xml_path in enumerate(tei_files):
-            paras = _extract_paragraphs_from_tei(xml_path, file_n, corpus_name)
-            all_paragraphs.extend(paras)
+        try:
+            for file_n, xml_path in enumerate(tei_files):
+                paras = _extract_paragraphs_from_tei(xml_path, file_n, corpus_name)
+                all_paragraphs.extend(paras)
+        except CopticLayerError as exc:
+            # Without the normalized layer the work would be spelled
+            # differently from the others (#57): leave it out, loudly.
+            log.error("  Skipping %s: %s", corpus_name, exc)
+            continue
 
         if not all_paragraphs:
             log.warning("  No text extracted from %s (%d files)", corpus_name, len(tei_files))
