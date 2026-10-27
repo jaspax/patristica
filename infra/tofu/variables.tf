@@ -13,7 +13,7 @@ variable "region" {
 variable "droplet_size" {
   description = "Droplet size slug. Memory-optimized, so the HNSW index stays in the page cache (#252). Changing it from a size with a larger root disk is a replacement, not a resize: DigitalOcean can't shrink a disk (infra/README.md)."
   type        = string
-  default     = "m-2vcpu-16gb-intel"
+  default     = "m-2vcpu-16gb"
 }
 
 variable "droplet_image" {

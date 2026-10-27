@@ -4,7 +4,7 @@ Production host (#117, #132): one DigitalOcean droplet running Postgres 16 with 
 
 | Piece | Where | What it does |
 |---|---|---|
-| `tofu/` | OpenTofu | Creates the droplet (`m-2vcpu-16gb-intel`, memory-optimized, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
+| `tofu/` | OpenTofu | Creates the droplet (`m-2vcpu-16gb`, memory-optimized, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
 | `tofu/cloud-init.yaml` | first boot | Installs Docker, rclone and unattended-upgrades. Adds 4 GB of swap, turns off SSH passwords and mounts the volume at `/mnt/pgdata`. It contains no secrets. |
 | `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`), `web` (built from `web/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
 | `deploy.sh` | your machine, CI | Syncs `compose/` and the API and web source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and the prewarm unit, runs `docker compose up --build` and loads the search index into the page cache. Idempotent. With `--keep-env` it leaves the host `.env` alone and needs no tofu: the *Deploy* workflow runs it that way. |
@@ -27,7 +27,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
    ```bash
    uv run --extra deploy python -m scripts.bootstrap_infra
    ```
-4. **Provision**: running `apply` starts billing: the droplet + ~$4 volume + $5 Spaces. The plain `m-2vcpu-16gb` is $84/mo; the API doesn't list the `-intel` variant's price, so read it on the DigitalOcean Create screen.
+4. **Provision**: running `apply` starts billing (~$84/mo droplet + ~$4 volume + $5 Spaces).
    ```bash
    infra/tofu.sh init
    infra/tofu.sh plan
@@ -136,7 +136,7 @@ infra/db-tunnel.sh psql
 
 ## Postgres sizing
 
-The droplet is memory-optimized, `m-2vcpu-16gb-intel` (#252): the search load is bound by memory and I/O, not CPU. `compose/postgres/postgresql.conf` is tuned for its 16 GB with the ~5.2 GB HNSW index (`chunk_vectors_hnsw_m1`, 512-dim `halfvec`, ~4.0M vectors; ~1.3 GB more per million vectors):
+The droplet is memory-optimized, `m-2vcpu-16gb` (#252): the search load is bound by memory and I/O, not CPU. `compose/postgres/postgresql.conf` is tuned for its 16 GB with the ~5.2 GB HNSW index (`chunk_vectors_hnsw_m1`, 512-dim `halfvec`, ~4.0M vectors; ~1.3 GB more per million vectors):
 - `shared_buffers=4GB`, with the OS page cache holding the index (`effective_cache_size=12GB`). That keeps the index cached up to roughly 7–8M vectors.
 - `pg_prewarm.autoprewarm` reloads the buffers after a restart.
 - `compose/postgres/prewarm.sh` loads every `chunk_vectors_hnsw_m*` index, `chunks_pkey` and `passage_groups_pkey` into the OS page cache with `pg_prewarm(…, 'prefetch')`. It runs at boot (`patristica-prewarm.service`, installed by `deploy.sh`), after every deploy and after the nightly backup. It is idempotent, returns at once (the kernel reads ahead in the background) and warms nothing on a database without the indexes yet. Its output: `journalctl -u patristica-prewarm`. `free -g` shows the index under `buff/cache` once it is read.
@@ -149,7 +149,7 @@ With the index cached, `build_index` inserts into the live index at ~130 vectors
 
 A memory-optimized droplet has a 50 GB root disk, and DigitalOcean can't shrink a disk on resize, so moving between it and a Basic size with a larger disk (the old `s-4vcpu-8gb` had 160 GB) is a **replacement**, not a resize. Tofu is set up for that: the volume (`prevent_destroy`) holds the database and the host `.env` (`/mnt/pgdata/compose.env`, with `POSTGRES_PASSWORD`), the new droplet gets it at creation and cloud-init mounts it at `/mnt/pgdata`, and the reserved IP is reassigned. 50 GB is enough for the root disk: it holds the OS and the Docker images only.
 
-The changeover from `s-4vcpu-8gb` (#252) goes in this order, because merging anything under `infra/compose/` deploys it: the 16 GB Postgres settings must not reach the 8 GB droplet. Expect 10–20 minutes of downtime.
+The changeover from `s-4vcpu-8gb` to `m-2vcpu-16gb` ($84/mo; the `m-2vcpu-16gb-intel` variant had no capacity in `nyc3` as of 2026-10-27) (#252) goes in this order, because merging anything under `infra/compose/` deploys it: the 16 GB Postgres settings must not reach the 8 GB droplet. Expect 10–20 minutes of downtime.
 
 1. **Quiesce.** No `build_index` or pipeline run in progress. Note the time.
 2. **Fresh backup.** On the droplet, `systemctl start patristica-backup.service`, and check that the dump landed in `patristica-backups/pg-backups/` (see "Backups"). Optionally take a volume snapshot in the DigitalOcean panel.
@@ -160,9 +160,9 @@ The changeover from `s-4vcpu-8gb` (#252) goes in this order, because merging any
 7. **Merge the held PR** with the 16 GB settings. Its automatic deploy brings the Postgres settings and the prewarm. Merging it before step 4 would put 16 GB settings on the 8 GB droplet.
 8. **Verify.** `https://api.patristica.app/healthz`; `infra/db-tunnel.sh uv run python -m scripts.status --db` (`index_meta` intact, nothing to load); a cold search (the API log's `search:` line) and the warm timing; `journalctl -u patristica-prewarm` lists the indexes and `free -g` shows them in `buff/cache`.
 9. **Reload rate.** On the next pipeline run, compare `build_index`'s vectors/s with the old ~12.
-10. **Clean up.** The replace destroys the old droplet; delete any manual snapshot after a few days. The new droplet gets the backup timer from `deploy.sh`: check it with `systemctl list-timers`.
+10. **Clean up.** The replace destroys the old droplet; delete any manual snapshot after a few days. The backup timer and the prewarm unit come from `deploy.sh`, not cloud-init: step 6 (from `master`) reinstalls the timer and step 7 adds the prewarm unit. Check with `systemctl list-timers` (`patristica-backup.timer`) and `systemctl is-enabled patristica-prewarm`.
 
-**Rollback:** if the new droplet misbehaves, revert `droplet_size` (and the Postgres settings, through a PR, before or after as in steps 4–7 above) and `-replace` again; the volume and the IP move back the same way. If the database itself is damaged, restore the step-2 dump (see "Backups").
+**Rollback:** if the new droplet misbehaves, set `droplet_size` back to `s-4vcpu-8gb` and `-replace` again; the volume and the IP move back the same way. Restore the 8 GB Postgres settings too (`shared_buffers=2GB`, `effective_cache_size=6GB`, `maintenance_work_mem=512MB`, `shm_size: 5g`; a revert PR of this change), and deploy them before Postgres runs on the 8 GB droplet, i.e. right after the replace instead of step 6: otherwise Postgres starts with 4 GB of buffers and up to 9 GB of shared memory on 8 GB of RAM. If the database itself is damaged, restore the step-2 dump (see "Backups").
 
 ## Changing the host
 
