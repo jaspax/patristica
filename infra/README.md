@@ -4,7 +4,7 @@ Production host (#117, #132): one DigitalOcean droplet running Postgres 16 with 
 
 | Piece | Where | What it does |
 |---|---|---|
-| `tofu/` | OpenTofu | Creates the droplet (`m-2vcpu-16gb-intel`, memory-optimized, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
+| `tofu/` | OpenTofu | Creates the database host in `droplet_region` (a 16 GB droplet, a 40 GB volume for the Postgres data and a reserved IP; during the #252 move also the old `nyc3` host, see "Moving the host"), a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key (Spaces, in `region`, `nyc3`), and a project. State lives in the Spaces bucket `patristica-tfstate`. |
 | `tofu/cloud-init.yaml` | first boot | Installs Docker, rclone and unattended-upgrades. Adds 4 GB of swap, turns off SSH passwords and mounts the volume at `/mnt/pgdata`. It contains no secrets. |
 | `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`), `web` (built from `web/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
 | `deploy.sh` | your machine, CI | Syncs `compose/` and the API and web source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and the prewarm unit, runs `docker compose up --build` and loads the search index into the page cache. Idempotent. With `--keep-env` it leaves the host `.env` alone and needs no tofu: the *Deploy* workflow runs it that way. |
@@ -27,7 +27,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
    ```bash
    uv run --extra deploy python -m scripts.bootstrap_infra
    ```
-4. **Provision**: running `apply` starts billing: the droplet + ~$4 volume + $5 Spaces. The plain `m-2vcpu-16gb` is $84/mo; the API doesn't list the `-intel` variant's price, so read it on the DigitalOcean Create screen.
+4. **Provision**: running `apply` starts billing: the droplet + ~$4 volume + $5 Spaces. The droplet's price depends on `droplet_size` (`m-2vcpu-16gb` is $84/mo); read any other size's price on the DigitalOcean Create screen, which also shows whether the region has it in stock (the API lists sizes it can't create).
    ```bash
    infra/tofu.sh init
    infra/tofu.sh plan
@@ -136,37 +136,72 @@ infra/db-tunnel.sh psql
 
 ## Postgres sizing
 
-The droplet is memory-optimized, `m-2vcpu-16gb-intel` (#252): the search load is bound by memory and I/O, not CPU. `compose/postgres/postgresql.conf` is tuned for its 16 GB with the ~5.2 GB HNSW index (`chunk_vectors_hnsw_m1`, 512-dim `halfvec`, ~4.0M vectors; ~1.3 GB more per million vectors):
+The droplet has 16 GB (#252; `droplet_size`, e.g. `m-2vcpu-16gb`): the search load is bound by memory and I/O, not CPU. `compose/postgres/postgresql.conf` is tuned for 16 GB and 2 vCPU with the ~5.2 GB HNSW index (`chunk_vectors_hnsw_m1`, 512-dim `halfvec`, ~4.0M vectors; ~1.3 GB more per million vectors):
 - `shared_buffers=4GB`, with the OS page cache holding the index (`effective_cache_size=12GB`). That keeps the index cached up to roughly 7–8M vectors.
 - `pg_prewarm.autoprewarm` reloads the buffers after a restart.
 - `compose/postgres/prewarm.sh` loads every `chunk_vectors_hnsw_m*` index, `chunks_pkey` and `passage_groups_pkey` into the OS page cache with `pg_prewarm(…, 'prefetch')`. It runs at boot (`patristica-prewarm.service`, installed by `deploy.sh`), after every deploy and after the nightly backup. It is idempotent, returns at once (the kernel reads ahead in the background) and warms nothing on a database without the indexes yet. Its output: `journalctl -u patristica-prewarm`. `free -g` shows the index under `buff/cache` once it is read.
 
 With the index cached, `build_index` inserts into the live index at ~130 vectors/s instead of ~12/s from the network volume (#249, #252), so routine loads insert into it. Keep `--rebuild-index` for one-off giant batches (#200), since it takes search down while the index is rebuilt.
 
-`build_index` builds the index with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`); on this droplet up to `8GB` is reasonable for a full rebuild (`--rebuild-index --maintenance-work-mem 8GB`). By hand, in that session only: `SET maintenance_work_mem = '8GB'; SET max_parallel_maintenance_workers = 1;` (2 vCPU). A parallel build keeps that memory in the db container's `/dev/shm`, so `shm_size` in `compose/docker-compose.yml` (9 GB) must stay larger than `maintenance_work_mem`. Otherwise the build fails with `could not resize shared memory segment … No space left on device` (#166), which is about shared memory, not the disk. The containers have no memory limits; during an 8 GB build, the index isn't in use and the page cache gives way.
+`build_index` builds the index with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`); on this droplet up to `8GB` is reasonable for a full rebuild (`--rebuild-index --maintenance-work-mem 8GB`). By hand, in that session only: `SET maintenance_work_mem = '8GB'; SET max_parallel_maintenance_workers = 1;` (2 vCPU; 3 on a 4-vCPU size). A parallel build keeps that memory in the db container's `/dev/shm`, so `shm_size` in `compose/docker-compose.yml` (9 GB) must stay larger than `maintenance_work_mem`. Otherwise the build fails with `could not resize shared memory segment … No space left on device` (#166), which is about shared memory, not the disk. The containers have no memory limits; during an 8 GB build, the index isn't in use and the page cache gives way.
 
-### Changing the droplet size
+### Moving the host (#252)
 
-A memory-optimized droplet has a 50 GB root disk, and DigitalOcean can't shrink a disk on resize, so moving between it and a Basic size with a larger disk (the old `s-4vcpu-8gb` had 160 GB) is a **replacement**, not a resize. Tofu is set up for that: the volume (`prevent_destroy`) holds the database and the host `.env` (`/mnt/pgdata/compose.env`, with `POSTGRES_PASSWORD`), the new droplet gets it at creation and cloud-init mounts it at `/mnt/pgdata`, and the reserved IP is reassigned. 50 GB is enough for the root disk: it holds the OS and the Docker images only.
+The 8 GB `s-4vcpu-8gb` host in `nyc3` moves to a 16 GB droplet in another region (memory-optimized sizes had no capacity in `nyc3`). Candidates, in order: `sfo2` `m-2vcpu-16gb` ($84/mo), `nyc1` `s-4vcpu-16gb-320gb-intel`, `atl1` or `ric1` `g5-2vcpu-16gb-50gb`. A volume can't change region, so this is a **blue-green move**: the new host gets its own droplet, volume and reserved IP next to the old one, the database is restored from a dump, and DNS switches over. The old host serves until then, so there is no downtime; `build_index` and the pipeline are frozen from the dump until the switch.
 
-The changeover from `s-4vcpu-8gb` (#252) goes in this order, because merging anything under `infra/compose/` deploys it: the 16 GB Postgres settings must not reach the 8 GB droplet. Expect 10–20 minutes of downtime.
+How tofu models it (`tofu/main.tf`): hosts are keyed by region. `droplet_region` and `droplet_size` describe the new host. `keep_old_host` keeps the original `nyc3` host with its original resource names (`moved` blocks turn the old single-host resources into the `nyc3` entries without touching them). `serving_region` picks the host the outputs `ip` and `ssh_command` name, which `deploy.sh` and `db-tunnel.sh` read; `new_host_ip` is the new host's reserved IP and `host_ips` lists both. The firewall and the project cover every host. The Spaces buckets stay in `region` (`nyc3`), and so does the tfstate bucket; the host reaches them across regions. `tofu/tests/hosts.tftest.hcl` checks the layout against a mock provider (`tofu -chdir=infra/tofu test`).
 
-1. **Quiesce.** No `build_index` or pipeline run in progress. Note the time.
-2. **Fresh backup.** On the droplet, `systemctl start patristica-backup.service`, and check that the dump landed in `patristica-backups/pg-backups/` (see "Backups"). Optionally take a volume snapshot in the DigitalOcean panel.
-3. **Stop the stack cleanly** on the droplet, so Postgres shuts down before the volume detaches: `docker compose -f /opt/patristica/compose/docker-compose.yml down`.
-4. **Replace.** With the size change in your working tree (`droplet_size` in `tofu/variables.tf`; tofu applies from the working tree, not from `master`), run `infra/tofu.sh plan -replace=digitalocean_droplet.db` and check that it replaces only the droplet (and updates the reserved-IP assignment, firewall and project), **never the volume**. Then `infra/tofu.sh apply -replace=digitalocean_droplet.db`.
-5. **Host key.** `ssh-keygen -R 159.89.246.34`, scan the new key and update the `DEPLOY_KNOWN_HOSTS` repo secret (see "Deploy workflow"). The Deploy workflow fails until then.
-6. **Deploy with the old settings** from `master`: `infra/deploy.sh --keep-env` with `DEPLOY_HOST`, `API_DOMAIN` and `WEB_DOMAIN` set (the host `.env` is the volume's `compose.env`, so it is already there). The images are rebuilt on the new droplet and the site is back up.
-7. **Merge the held PR** with the 16 GB settings. Its automatic deploy brings the Postgres settings and the prewarm. Merging it before step 4 would put 16 GB settings on the 8 GB droplet.
-8. **Verify.** `https://api.patristica.app/healthz`; `infra/db-tunnel.sh uv run python -m scripts.status --db` (`index_meta` intact, nothing to load); a cold search (the API log's `search:` line) and the warm timing; `journalctl -u patristica-prewarm` lists the indexes and `free -g` shows them in `buff/cache`.
-9. **Reload rate.** On the next pipeline run, compare `build_index`'s vectors/s with the old ~12.
-10. **Clean up.** The replace destroys the old droplet; delete any manual snapshot after a few days. The new droplet gets the backup timer from `deploy.sh`: check it with `systemctl list-timers`.
+The PR that brings the 16 GB settings is held: merging it auto-deploys to `DEPLOY_HOST`, and it must not put them on the 8 GB host. The new host gets them from the PR branch in step 3, and the PR is merged in step 11, after `DEPLOY_HOST` points to the new host. Run the steps from a checkout of the PR branch (tofu and `deploy.sh` use the working tree). Below, `OLD` is the old reserved IP (159.89.246.34), `NEW` is `infra/tofu.sh output -raw new_host_ip`, and `ssh OLD` / `ssh NEW` mean `ssh -i ~/.ssh/patristica_deploy root@<ip>`.
 
-**Rollback:** if the new droplet misbehaves, revert `droplet_size` (and the Postgres settings, through a PR, before or after as in steps 4–7 above) and `-replace` again; the volume and the IP move back the same way. If the database itself is damaged, restore the step-2 dump (see "Backups").
+1. **Choose region and size.** On the DigitalOcean Create screen, find the first candidate in stock and note its price. Set `droplet_region` and `droplet_size` in `tofu/variables.tf` (commit to the PR). A day ahead, lower the TTL of the three Cloudflare A records (`patristica.app`, `www`, `api`; DNS only) from Auto (300 s) to 60 s.
+2. **Create the new host.** `infra/tofu.sh plan` must show the `nyc3` droplet, volume, reserved IP and assignment as *moved* with no changes; creations of the new droplet, volume, reserved IP and assignment; in-place updates of the firewall and project; and **nothing destroyed**. Then `infra/tofu.sh apply`, and wait for cloud-init: `ssh NEW cloud-init status --wait`.
+3. **Copy the host `.env`, then deploy.** The volume's `compose.env` holds `POSTGRES_PASSWORD` and must be there before Postgres initialises. Copy it host to host, without printing it:
+   ```bash
+   ssh OLD cat /mnt/pgdata/compose.env | ssh NEW 'umask 077 && cat > /mnt/pgdata/compose.env'
+   DEPLOY_HOST=NEW infra/deploy.sh
+   ```
+   `deploy.sh` (full mode, from the PR branch) rewrites `.env` keeping that password, brings up the stack with the 16 GB settings on an empty database, and installs the backup timer and the prewarm unit. Its health checks follow DNS, so they still test the old host.
+4. **Certificates.** The new Caddy can't get certificates while DNS points at the old host, and its failed attempts back off. Give it the old host's (they hold private keys: host to host, never printed):
+   ```bash
+   ssh NEW 'cd /opt/patristica/compose && docker compose stop caddy'
+   ssh OLD 'docker run --rm -v patristica_caddy_data:/data alpine tar c -C /data .' \
+     | ssh NEW 'docker run --rm -i -v patristica_caddy_data:/data alpine tar x -C /data'
+   ssh NEW 'cd /opt/patristica/compose && docker compose start caddy'
+   ```
+   Without this step, keep Caddy stopped on the new host until step 8; it gets its certificates once DNS points at it.
+5. **Freeze and dump.** From here until step 11, no `build_index` or pipeline run: the new database wouldn't have it. Take a fresh dump, `ssh OLD systemctl start patristica-backup.service`, and note its name (`journalctl -u patristica-backup` on OLD prints it). Optionally snapshot the old volume.
+6. **Restore into the new host.** On NEW, into the empty `patristica` database:
+   ```bash
+   cd /opt/patristica/compose && set -a && . ./.env && set +a
+   rclone cat spaces:$BACKUP_BUCKET/pg-backups/<name>.dump \
+     | docker compose exec -T \
+         -e PGOPTIONS='-c maintenance_work_mem=8GB -c max_parallel_maintenance_workers=1' \
+         db pg_restore -U patristica -d patristica --no-owner --clean --if-exists
+   docker compose exec -T db vacuumdb -U patristica -d patristica --analyze-only
+   postgres/prewarm.sh
+   ```
+   `--clean --if-exists` replaces the extensions initdb created; `pg_restore` must end without "errors ignored on restore". Most of the time is the HNSW index build (~4M vectors, 5.2 GB: it fits in the 8 GB `maintenance_work_mem`, so it is built in memory), plus copying ~8 GB of tables and building the other indexes on the network volume. It hasn't been measured on this hardware: budget 1–3 hours, and note the real time here. Use 3 maintenance workers on a 4-vCPU size. The old host serves meanwhile.
+7. **Verify through the new IP**, before users reach it:
+   ```bash
+   curl --resolve api.patristica.app:443:NEW https://api.patristica.app/healthz
+   curl --resolve patristica.app:443:NEW 'https://patristica.app/api/search?q=logos'
+   curl --resolve patristica.app:443:NEW -o /dev/null -w '%{http_code}\n' https://patristica.app/
+   DEPLOY_HOST=NEW infra/db-tunnel.sh uv run python -m scripts.status --db   # index_meta intact, nothing to load
+   ```
+   Compare a few row counts with the old host (`DEPLOY_HOST=OLD infra/db-tunnel.sh psql -c 'SELECT count(*) FROM chunk_vectors'`, then with NEW). On NEW, the step-6 prewarm lists the indexes and `free -g` shows them in `buff/cache`; time a cold and a warm search (`docker compose logs api | grep search:`).
+8. **Switch DNS.** At Cloudflare, point the A records `patristica.app`, `www.patristica.app` and `api.patristica.app` to NEW (still DNS only). Clients move within the TTL; the old host answers the rest with the same frozen data. Without step 4, start Caddy on NEW now and watch it get its certificates (`docker compose logs -f caddy`).
+9. **Point tofu and the Deploy workflow at it.** Set `serving_region` to the new region in `tofu/variables.tf` (commit to the PR) and run `infra/tofu.sh apply` (outputs only, no resource changes). Update the repo secrets: `infra/tofu.sh output -raw ip | gh secret set DEPLOY_HOST` and `ssh-keyscan -t ed25519 NEW | gh secret set DEPLOY_KNOWN_HOSTS` (check the key; see "Deploy workflow").
+10. **Stop the old host's backups.** `ssh OLD systemctl disable --now patristica-backup.timer`, so it stops uploading dumps of the frozen database. Leave its stack running until DNS has moved.
+11. **Merge the held PR.** Its automatic deploy now goes to the new host, which already runs the same settings. Merge right after step 9: until then, any other merge that deploys would put `master`'s 8 GB settings on the new host. The freeze ends; on the next pipeline run, compare `build_index`'s vectors/s with the old ~12. Set the Cloudflare TTL back to Auto.
+12. **Retire the old host after a few days.** `ssh OLD 'cd /opt/patristica/compose && docker compose down'`. Then, in a PR, set `keep_old_host = false` and lift `prevent_destroy` on `digitalocean_volume.pgdata` for that one apply; check that `infra/tofu.sh plan` destroys only the `nyc3` droplet, volume, reserved IP and assignment (and updates the firewall and project) before applying, and put `prevent_destroy` back in the same PR. Delete any manual snapshot.
+
+**Rollback:** until step 8 nothing has changed for users; remove the new host when convenient. After the switch, point the three A records back to OLD, and `DEPLOY_HOST`, `DEPLOY_KNOWN_HOSTS` and `serving_region` with them, and re-enable the backup timer on OLD. The old database holds the step-5 state, so this is safe as long as nothing was loaded on the new host since.
+
+Later size changes within a region are ordinary: change `droplet_size` and apply. A size with a smaller root disk than the current one can't be reached by a resize (DigitalOcean can't shrink a disk); that needs a `-replace` (see "Changing the host") or another move like this one.
 
 ## Changing the host
 
-- `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To change the size, see "Changing the droplet size". To rebuild on purpose, run `infra/tofu.sh apply -replace=digitalocean_droplet.db`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
+- `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To move the host to another region, see "Moving the host". To rebuild on purpose, run `infra/tofu.sh apply -replace='digitalocean_droplet.db["<region>"]'`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
 - The volume and the backups bucket have `prevent_destroy`, so `tofu destroy` stops at them. To tear everything down, remove that line on purpose first.
 - The API hostname is `api.patristica.app` (`api_domain`). The domain is registered at Cloudflare and its DNS is managed by hand there: an A record to the reserved IP, **DNS only** (not proxied), so Caddy can get its Let's Encrypt certificate. To change it, update the record, set `api_domain`, then run `infra/tofu.sh apply` and `infra/deploy.sh`. An empty `api_domain` falls back to `<ip-with-dashes>.sslip.io`.
 - The web app's hostnames are the apex `patristica.app` and `www.patristica.app`: two more A records to the reserved IP, also **DNS only**. To use another name, run `WEB_DOMAIN=<name> infra/deploy.sh` (and change `WEB_DOMAIN` in the Deploy workflow, which uses it for its health checks). Proxying them through Cloudflare later would need SSL mode *Full (strict)* and a certificate that works behind the proxy (a DNS-01 challenge or a Cloudflare Origin CA certificate); see #132.
