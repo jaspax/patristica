@@ -70,7 +70,11 @@ describe("renamed work ids", () => {
     expect(currentWorkId("oglt-pl/augustinus/pl47_0_unk")).toBe(renamed);
     expect(currentWorkId("oglt_pl/augustinus/pl47_0_unk")).toBe(renamed);
     // Other works of the volume keep their ids.
-    expect(currentWorkId("oglt-pl/augustinus/pl47_1_unk")).toBe("oglt-pl/augustinus/pl47_1_unk");
+    expect(currentWorkId("oglt-pl/augustinus/pl47_2_unk")).toBe("oglt-pl/augustinus/pl47_2_unk");
+  });
+
+  it("redirects PL 47's De quattuor virtutibus caritatis to Quodvultdeus (#216)", () => {
+    expect(currentWorkId("oglt-pl/augustinus/pl47_1_unk")).toBe("oglt-pl/quodvultdeus/pl47_1_unk");
   });
 
   it("leaves current ids alone", () => {
