@@ -61,6 +61,18 @@ def test_fresh_vectors_skips_stale_rows() -> None:
     assert stale == 3
 
 
+def test_fresh_vectors_match_the_text_without_editorial_material() -> None:
+    """Vectors embed a unit's source text (#236), so that is what they are checked against."""
+    chunks = [{"chunk_id": "w#1", "text": "a […] b", "editorial": [[2, 5, "lacuna"]]},
+              {"chunk_id": "w#2", "text": "c […] d", "editorial": [[2, 5, "lacuna"]]}]
+    shard = _shard([
+        ("w#1", emb.KIND_TEXT, tr.text_sha("a b")),
+        ("w#2", emb.KIND_TEXT, tr.text_sha("c […] d")),   # embedded before the mark
+    ])
+    keep, stale = build_index.fresh_vectors(chunks, {}, shard)
+    assert keep == [0] and stale == 1
+
+
 def test_scripture_groups(tmp_path: Path) -> None:
     norm, _, _ = fx.write_corpus(tmp_path)
     groups = build_index.scripture_groups(build_index.load_works(norm), norm)

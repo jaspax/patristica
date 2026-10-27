@@ -37,7 +37,11 @@ writes ``data/library/`` (gitignored):
   (``patristica.versification.to_org_ref``, BHS / Nestle-Aland: the
   ``translation_group_id`` key) differs from its native ref, so the reader can
   keep its place when it switches to another version of the book (#144).
-  It is ``{}`` when every ref is already in org numbering.
+  It is ``{}`` when every ref is already in org numbering. A work with
+  editorial material (``patristica.editorial``, #236) also carries
+  ``editorial``, ``{ref_suffix: [[start, end, kind], …]}`` for its marked
+  chunks, with offsets into the chunk text in UTF-16 code units (JavaScript
+  string indices); works without any have no such key.
 
 Work files are rebuilt when their normalized source is newer (or with
 ``--force``); files whose source is gone are deleted.  Scripture books are
@@ -61,7 +65,7 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica import alignment_store
+from patristica import alignment_store, editorial
 from patristica.authors import author_index, work_author_date_range
 from patristica.models import Chunk, Work
 from patristica.sources import SOURCE_LABELS, source_label
@@ -119,16 +123,19 @@ def read_works_manifest(input_dir: Path) -> list[tuple[str, Work]]:
     return entries
 
 
-def load_chunks(path: Path) -> list[Chunk]:
-    """Load and validate a normalized chunk file, ordered by ``chunk_index``."""
+def load_chunks(path: Path) -> tuple[list[Chunk], dict[str, list[editorial.Span]]]:
+    """Load and validate a normalized chunk file, ordered by ``chunk_index``, and
+    the editorial spans of its marked chunks (chunk_id → spans, #236)."""
     if not path.exists():
         raise ExportError(f"Normalized file listed in _works.jsonl is missing: {path}")
     try:
         raw = json.loads(path.read_text(encoding="utf-8"))
         chunks = [Chunk(**c) for c in raw]
+        marks = {c["chunk_id"]: editorial.check(c["text"], c[editorial.KEY], c["chunk_id"])
+                 for c in raw if c.get(editorial.KEY)}
     except (json.JSONDecodeError, TypeError, ValueError) as exc:
         raise ExportError(f"Invalid normalized file {path}: {exc}") from exc
-    return sorted(chunks, key=lambda c: c.chunk_index)
+    return sorted(chunks, key=lambda c: c.chunk_index), marks
 
 
 def org_refs(work: Work, chunks: list[Chunk], prefix: str) -> dict[str, str]:
@@ -141,18 +148,25 @@ def org_refs(work: Work, chunks: list[Chunk], prefix: str) -> dict[str, str]:
     return mapped
 
 
-def slim_work(work: Work, chunks: list[Chunk]) -> dict[str, Any]:
-    """Build the per-work library record from its chunks."""
+def slim_work(work: Work, chunks: list[Chunk],
+              marks: dict[str, list[editorial.Span]] | None = None) -> dict[str, Any]:
+    """Build the per-work library record from its chunks and their editorial spans."""
     prefix = common_ref_prefix([c.canonical_ref for c in chunks])
     rows: list[list[Any]] = []
+    spans: dict[str, list[list[Any]]] = {}
     for c in chunks:
-        row: list[Any] = [strip_prefix(c.canonical_ref, prefix), c.text]
+        suffix = strip_prefix(c.canonical_ref, prefix)
+        row: list[Any] = [suffix, c.text]
         if c.out_of_period:
             row.append(1)
         rows.append(row)
+        if marks and c.chunk_id in marks:
+            spans[suffix] = editorial.utf16_spans(c.text, marks[c.chunk_id])
     record: dict[str, Any] = {"work_id": work.work_id, "ref_prefix": prefix}
     if scripture_book(work.work_id) is not None:
         record["org_refs"] = org_refs(work, chunks, prefix)
+    if spans:
+        record["editorial"] = spans
     record["chunks"] = rows
     return record
 
@@ -321,8 +335,9 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
             rows.append(
                 index_row(work, file, prev_counts[work.work_id], groups.group(work.work_id)))
             continue
-        chunks = load_chunks(src)
-        text = json.dumps(slim_work(work, chunks), ensure_ascii=False, separators=(",", ":"))
+        chunks, marks = load_chunks(src)
+        text = json.dumps(slim_work(work, chunks, marks), ensure_ascii=False,
+                          separators=(",", ":"))
         if not (up_to_date and dst.read_text(encoding="utf-8") == text):
             dst.parent.mkdir(parents=True, exist_ok=True)
             dst.write_text(text, encoding="utf-8")

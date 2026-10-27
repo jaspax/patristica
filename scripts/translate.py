@@ -7,8 +7,9 @@ This step reads ``data/normalized/`` and writes ``data/translations/``, one
 file per work at the work's normalized path (format: ``patristica.translations``).
 
 It is resumable and idempotent. A chunk is skipped while its stored
-translation was made from exactly its current text. A chunk with no fresh
-translation reuses any stored translation of identical text in the same
+translation was made from exactly its current text, without its editorial
+material (``patristica.editorial.source_text``, #236), which is all that is
+sent. A chunk with no fresh translation reuses any stored translation of identical text in the same
 language (renamed works, repeated refrains). Only the rest are sent to the
 model, as consecutive chunks of one work per request (up to
 ``BULK_MAX_CHARS`` / ``BULK_MAX_ITEMS``), so it sees context and the
@@ -51,6 +52,7 @@ from pydantic import BaseModel
 
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES
+from patristica.editorial import source_text
 from scripts.embed_eval.translate import (
     LANGUAGE_NAMES,
     MODELS,
@@ -112,12 +114,12 @@ def make_groups(chunks: list[dict]) -> list[list[dict]]:
     cur: list[dict] = []
     size = 0
     for c in chunks:
-        if cur and (size + len(c["text"]) > BULK_MAX_CHARS or len(cur) >= BULK_MAX_ITEMS
+        if cur and (size + len(source_text(c)) > BULK_MAX_CHARS or len(cur) >= BULK_MAX_ITEMS
                     or c["language"] != cur[0]["language"]):
             groups.append(cur)
             cur, size = [], 0
         cur.append(c)
-        size += len(c["text"])
+        size += len(source_text(c))
     if cur:
         groups.append(cur)
     return groups
@@ -154,9 +156,10 @@ def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list
         rows = store.by_chunk()
         todo = []
         for c in chunks:
-            if c["language"] != work["language"] or not c["text"].strip():
+            text = source_text(c)  # without editorial material (#236)
+            if c["language"] != work["language"] or not text.strip():
                 continue
-            sha = tr.text_sha(c["text"])
+            sha = tr.text_sha(text)
             row = rows.get(c["chunk_id"])
             if row is not None and row.source_sha256 == sha:
                 continue
@@ -178,7 +181,7 @@ def has_stale_rows(store: tr.WorkTranslations, chunks: list[dict]) -> bool:
     """True when the stored file has rows for changed or vanished chunks."""
     if not store.translations:
         return False
-    current = {c["chunk_id"]: tr.text_sha(c["text"]) for c in chunks}
+    current = {c["chunk_id"]: tr.text_sha(source_text(c)) for c in chunks}
     return any(current.get(t.chunk_id) != t.source_sha256 for t in store.translations)
 
 
@@ -219,7 +222,7 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
             if stop.is_set():
                 return
             lang = group[0]["language"]
-            user = "\n\n".join(f"[{i}]\n{c['text']}" for i, c in enumerate(group, start=1))
+            user = "\n\n".join(f"[{i}]\n{source_text(c)}" for i, c in enumerate(group, start=1))
             out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
                                       user, BulkTranslation)
             got = {it.n: it.translation for it in out.items}
@@ -233,7 +236,7 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
                         log.warning("no translation for %s", c["chunk_id"])
                         continue
                     job.store.put(tr.ChunkTranslation(
-                        chunk_id=c["chunk_id"], source_sha256=tr.text_sha(c["text"]),
+                        chunk_id=c["chunk_id"], source_sha256=tr.text_sha(source_text(c)),
                         provenance=provenance.key, group_size=len(group), text=got[i],
                     ), provenance)
                     job.dirty = True

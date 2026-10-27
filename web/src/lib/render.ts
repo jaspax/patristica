@@ -14,8 +14,12 @@
 // source's unit `3.2`, cut by the pipeline so search can point at a passage
 // about a verse long (patristica/versify.py). The derived verses of one
 // source unit are rendered together as that unit, each with its own anchor.
+//
+// Editorial material (titles, supplements, lacunae, metadata that an editor or
+// the source added, #236) stays in the text: `editorial` on a unit or a
+// derived verse says which parts of its text it is (`EditorialText` shows them).
 
-import type { WorkFile } from "./library";
+import type { EditorialSpan, WorkFile } from "./library";
 
 /** A derived verse: a piece of a source unit cut by the pipeline. */
 export interface Part {
@@ -23,6 +27,8 @@ export interface Part {
   n: string;
   ref: string;
   text: string;
+  /** Editorial material in `text`. */
+  editorial?: EditorialSpan[];
 }
 
 export interface Unit {
@@ -32,6 +38,8 @@ export interface Unit {
   text: string;
   /** The unit's derived verses, if the pipeline split it; their texts make up `text`. */
   parts?: Part[];
+  /** Editorial material in `text` (a unit with `parts` has it on each part instead). */
+  editorial?: EditorialSpan[];
   outOfPeriod: boolean;
   /** Short all-caps line in a liturgical text: a speaker or rubric label. */
   rubric: boolean;
@@ -52,6 +60,8 @@ export interface Section {
   path: string[];
   /** Heading text taken from the source, if the source has a heading chunk. */
   title: string | null;
+  /** Editorial material in `title` (offsets into the trimmed title). */
+  titleEditorial?: EditorialSpan[];
   /** Fallback heading built from the ref path ("Chapter 3", "2.4"); null for flat works. */
   label: string | null;
   /** Nesting depth for the heading level, 0 = top. */
@@ -102,6 +112,26 @@ function samePath(a: string[], b: string[]): boolean {
   return a.length === b.length && a.every((s, i) => s === b[i]);
 }
 
+/**
+ * A heading chunk's text trimmed for a title, with its editorial spans moved
+ * onto the trimmed text (clipped to it; spans left with nothing are dropped).
+ */
+export function trimmedTitle(
+  text: string,
+  spans?: readonly EditorialSpan[],
+): { title: string; editorial?: EditorialSpan[] } {
+  const title = text.trim();
+  if (!spans || spans.length === 0) return { title };
+  const lead = text.length - text.trimStart().length;
+  const editorial: EditorialSpan[] = [];
+  for (const [s, e, kind] of spans) {
+    const start = Math.max(0, s - lead);
+    const end = Math.min(title.length, e - lead);
+    if (end > start) editorial.push([start, end, kind]);
+  }
+  return editorial.length ? { title, editorial } : { title };
+}
+
 export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section[] {
   const sections: Section[] = [];
   const ids = new Map<string, number>();
@@ -137,6 +167,8 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       const base = suffix.split(".").slice(0, -1);
       const baseRef = joinRef(work.ref_prefix, base.join("."));
       const part: Part = { n: derived[1], ref: joinRef(work.ref_prefix, suffix), text };
+      const marks = work.editorial?.[suffix];
+      if (marks) part.editorial = marks;
       const path = base.slice(0, -1);
       const last = current?.units[current.units.length - 1];
       if (last?.parts && previousBase === baseRef) {
@@ -160,26 +192,35 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     previousBase = null;
     const segments = suffix.split(".");
     const next = work.chunks[i + 1]?.[0];
+    const heading = (path: string[]): Section => {
+      const { title, editorial } = trimmedTitle(text, work.editorial?.[suffix]);
+      const section = open(path, title, joinRef(work.ref_prefix, suffix));
+      if (editorial) section.titleEditorial = editorial;
+      return section;
+    };
     if (next !== undefined && next.startsWith(`${suffix}.`)) {
-      current = open(segments, text.trim(), joinRef(work.ref_prefix, suffix));
+      current = heading(segments);
       continue;
     }
     const path = segments.slice(0, -1);
     const last = segments[segments.length - 1];
     if (current === null || !samePath(current.path, path)) {
       if (zeroIsTitle && /^0+$/.test(last)) {
-        current = open(path, text.trim(), joinRef(work.ref_prefix, suffix));
+        current = heading(path);
         continue;
       }
       current = open(path, null);
     }
-    current.units.push({
+    const unit: Unit = {
       n: displaySegment(last),
       ref: joinRef(work.ref_prefix, suffix),
       text,
       outOfPeriod: oop === 1,
       rubric: liturgical && isRubric(text),
-    });
+    };
+    const marks = work.editorial?.[suffix];
+    if (marks) unit.editorial = marks;
+    current.units.push(unit);
   }
 
   // Heading depth relative to the shallowest section path.

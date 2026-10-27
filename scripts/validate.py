@@ -40,7 +40,7 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica import fingerprint
+from patristica import editorial, fingerprint
 from patristica.authors import UnknownAuthorError, resolve_author, work_author_birth_year
 from patristica.period import AUTHOR_BORN_BEFORE, COMPOSED_BY
 from patristica.mojibake import mojibake_runs
@@ -217,9 +217,15 @@ def _check_schema(parse_errors: list[str]) -> dict[str, CheckResult]:
 
 def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
     empty, short, html, replacement, low_alpha, mojibake = [], [], [], [], [], []
+    bad_spans: list[str] = []
     for c in chunks:
         cid = c.get("chunk_id", "?")
         text = c.get("text", "")
+        if c.get(editorial.KEY):
+            try:
+                editorial.check(text, c[editorial.KEY], cid)
+            except editorial.EditorialError as exc:
+                bad_spans.append(str(exc))
         if not text or not text.strip():
             empty.append(cid)
         elif len(text) < MIN_TEXT_LEN:
@@ -238,6 +244,8 @@ def _check_text_quality(chunks: list[dict]) -> dict[str, CheckResult]:
         "text_too_short": _result("warning", short, f"< {MIN_TEXT_LEN} chars"),
         "text_has_html_tags": _result("warning", html, "many are OCR artifacts in OGLT PL/OGPG/Gallican"),
         "text_has_replacement_char": _result("warning", replacement, "U+FFFD indicates encoding failure"),
+        "editorial_spans_invalid": _result(
+            "error", bad_spans, "editorial spans (#236) must fit the chunk text: re-run normalize"),
         "text_low_alpha_ratio": _result("warning", low_alpha, f"< {MIN_ALPHA_RATIO:.0%} alphabetic chars"),
         "text_has_mojibake": _result(
             "warning", mojibake,

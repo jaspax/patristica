@@ -83,6 +83,14 @@ export interface AuthorsFile {
 /** `[ref_suffix, text]`, plus a trailing `1` when the chunk is out of period. */
 export type ChunkRow = [string, string] | [string, string, 1];
 
+/**
+ * Editorial material in a chunk's text (patristica/editorial.py, #236):
+ * `[start, end, kind]`, offsets in UTF-16 code units (JavaScript string
+ * indices), end exclusive. Kinds: title, heading, supplement, lacuna,
+ * metadata, note.
+ */
+export type EditorialSpan = [number, number, string];
+
 export interface WorkFile {
   work_id: string;
   /** Dot-separated ref prefix shared by every chunk, stripped from the suffixes. */
@@ -93,6 +101,8 @@ export interface WorkFile {
    * (patristica/versification.py). Absent for works that aren't Scripture books.
    */
   org_refs?: Record<string, string>;
+  /** Ref suffix → editorial spans of that chunk; absent when the work has none. */
+  editorial?: Record<string, EditorialSpan[]>;
   chunks: ChunkRow[];
 }
 

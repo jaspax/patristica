@@ -240,6 +240,20 @@ All chunks carry a `canonical_ref` in dot-separated form:
 
 Many editions print the paragraph number at the start of the paragraph (`3 Αὐτοκράτορι…` in First1KGreek, `1. Great art Thou…` in NPNF, `α. Πᾶσαι…` in PTA, `[3] …` in ANF), and the ref already carries it. `normalize.py` strips such a prefix from non-scripture chunks, only when its value equals the ref's last segment (`patristica/section_numbers.py`, [#30](https://github.com/jaspax/patristica/issues/30)). It handles Arabic digits (bare, `3.`, `3)`, `[3]`, `(3)`, also glued to the word as in `3Καὶ…` or `2.δι’…`), superscript digits (`⁴καὶ…` in First1KGreek's 1 Enoch, including OCR-mixed runs like `¹7`; [#121](https://github.com/jaspax/patristica/issues/121)), Greek numerals with a keraia or dot (Greek text only), and Roman numerals followed by `.` or `)`. A glued number needs a following word of two or more letters that is not an ordinal suffix or a short abbreviation (`1st`, `3a.`, `4.col.a.` stay). Raw files keep the number. A bare number followed by a numbered book (`1 Cor.`, `1 Timothy`) or by `bis` or a Roman calendar word (`8 kal.`) is content and stays. `ogpg` is skipped: its refs end in a paragraph's position on its Migne page, a number the OCR text never prints, so a match there is coincidence. Not handled: printed numbers that differ from the ref, such as continuous paragraph numbering against chapter.section refs. They can't be told apart from content. `validate.py` warns (`text_starts_with_section_number`) about any chunk that still starts with its ref's number. Superscript digits anywhere else are left in the text, including a leading one that differs from the ref (OCR-damaged verse numbers such as 1 Enoch's `⁰` at 1.2): in this corpus they are footnote markers (Coptic Scriptorium's `⁽²⁾`), Migne OCR noise or mojibake, never inner verse numbers. `validate.py` lists them (`text_has_superscript_digits`).
 
+### Editorial material
+
+Material that an editor or the source added to a text (titles, headings, supplements, lacuna markers, catalogue metadata, notes) is marked, not stripped ([#236](https://github.com/jaspax/patristica/issues/236), `patristica/editorial.py`, CLAUDE.md "Editorial material"): it stays in the text for readers, and spans `[start, end, kind]` on the unit keep it out of translation and embedding. Pure noise (OCR damage, layout placeholders, footnote markers whose notes the source lacks) is still dropped at ingest. Per source:
+
+| Source | Material | Status |
+|---|---|---|
+| `coptic-scriptorium` | lacunae `[....]`, `[…]`, `[]` in the normalized layer | marked `lacuna` at ingest (#236). Bracketed letters (`[ⲉ]`) stay unmarked; the diplomatic `orig` is a whole alternative rendering, not editorial material |
+| `cantus` | `[feast] [service] … [CANTUS:id] [mode:n]` prefix | to mark `metadata` in normalize (no offline re-ingest): [#163](https://github.com/jaspax/patristica/issues/163) |
+| `first1k` | `<gap>` lacunae; `<head>`s in divs whose paragraphs share the div's ref | [#71](https://github.com/jaspax/patristica/issues/71), [#259](https://github.com/jaspax/patristica/issues/259) |
+| `gez` | the edition's `[…]` / `(…)` brackets | to mark (`supplement` where the brackets enclose an editor's addition: brackets marked, content embedded): [#297](https://github.com/jaspax/patristica/issues/297) |
+| `coptic-nt` | CopSahBible2 `<…>` supplements | to mark `supplement` (content embedded, brackets not): [#298](https://github.com/jaspax/patristica/issues/298) |
+| `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
+| `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
+
 ### Patrologia Graeca: columns, refs and works
 
 The OGL PG repos are plain page OCR with no work boundaries ([#67](https://github.com/jaspax/patristica/issues/67)). `scripts/ingest/ogpg.py` extracts each volume once (cached in `data/raw/ogpg/_extract/`, with the column numbers found on every page of the primary scan) and then cuts it into works:

@@ -281,3 +281,11 @@ class TestAuthors:
             "a/damian#D.2 (out_of_period=True, author born 1007)",
             "a/anon#A.1 (out_of_period=False, date_composed=1056)",
         ]
+
+
+def test_editorial_spans_that_do_not_fit_are_errors() -> None:
+    good = {**_chunk("a/w", "1"), "editorial": [[0, 4, "note"]]}
+    bad = {**_chunk("a/w", "2"), "editorial": [[5, 99, "note"]]}
+    result = validate._check_text_quality([good, bad, _chunk("a/w", "3")])
+    assert result["editorial_spans_invalid"]["violation_count"] == 1
+    assert "a/w#2" in result["editorial_spans_invalid"]["examples"][0]

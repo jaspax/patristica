@@ -8,7 +8,9 @@ Writes one normalized JSON file per work to ``data/normalized/{source_id}/``.
 Each normalized file is a JSON array of ``Chunk`` objects (without context
 overlap — that is added by ``chunk.py``).  Long prose chunks are split into
 verse-sized derived verses (``patristica.versify``, #2); Scripture and other
-works ingested as verses keep their own verses.
+works ingested as verses keep their own verses.  Editorial spans on raw units
+(``editorial``, ``patristica.editorial``, #236) are checked, moved onto the
+cleaned text and its derived verses, and written as the chunk's ``editorial`` key.
 
 Staleness (#130) is decided by fingerprints, not file times.
 ``_fingerprint.json`` records the hash of this step's code
@@ -49,7 +51,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from patristica import fingerprint
+from patristica import editorial, fingerprint
 from patristica.authors import (
     apply_author_date_range,
     apply_author_ids,
@@ -62,7 +64,7 @@ from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
 from patristica.translation_links import apply_translation_of, curated_translation_of
-from patristica.versify import versify_chunks
+from patristica.versify import is_derived_ref, versify_chunks
 
 log = logging.getLogger(__name__)
 
@@ -329,16 +331,70 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path) -> int
     # Works with a standard versification keep it: Scripture, and anything an
     # ingestor delivered as verses whatever its curated genre (#103).
     standard = work.genre == "scripture" or bool(raw_record.get("verses"))
+    marks = _editorial_marks(_units(raw_record), chunks)
+    units = chunks
     chunks = versify_chunks(chunks, standard=standard)
+    marks = _split_marks(marks, units, chunks)
 
     out_path = output_dir / _output_rel(raw_path)
-    content = json.dumps([chunk.model_dump() for chunk in chunks], ensure_ascii=False, indent=2)
+    content = json.dumps([_chunk_record(chunk, marks.get(chunk.chunk_id)) for chunk in chunks],
+                         ensure_ascii=False, indent=2)
     if out_path.exists() and out_path.read_text(encoding="utf-8") == content:
         return 0
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(content, encoding="utf-8")
     log.debug("Normalized %d chunks → %s", len(chunks), out_path)
     return len(chunks)
+
+
+def _editorial_marks(raw_units: list[dict], chunks: list[Chunk]) -> dict[str, list[editorial.Span]]:
+    """chunk_id → editorial spans on the chunk's text, from the raw units' ``editorial``
+    key (#236). Each chunk's ``chunk_index`` is its raw unit's position here."""
+    marked = {i: u for i, u in enumerate(raw_units) if u.get(editorial.KEY)}
+    if not marked:
+        return {}
+    spans = {i: editorial.check(u.get("text", ""), u[editorial.KEY], u.get("ref", ""))
+             for i, u in marked.items()}
+    marks: dict[str, list[editorial.Span]] = {}
+    for c in chunks:
+        if c.chunk_index in marked:
+            moved = editorial.unit_spans(marked[c.chunk_index].get("text", ""), c.text,
+                                         spans[c.chunk_index], c.chunk_id)
+            if moved:
+                marks[c.chunk_id] = moved
+    return marks
+
+
+def _split_marks(marks: dict[str, list[editorial.Span]], units: list[Chunk],
+                 chunks: list[Chunk]) -> dict[str, list[editorial.Span]]:
+    """*marks* on the *units* carried onto *chunks*, their derived verses."""
+    if not marks:
+        return {}
+    marked = {c.chunk_id: c for c in units if c.chunk_id in marks}
+    out: dict[str, list[editorial.Span]] = {}
+    pieces: dict[str, list[Chunk]] = {}
+    for c in chunks:
+        if c.chunk_id in marks:  # not split
+            out[c.chunk_id] = marks[c.chunk_id]
+        elif is_derived_ref(c.canonical_ref):
+            base = f"{c.work_id}#{c.canonical_ref.rsplit('.', 1)[0]}"
+            if base in marked:
+                pieces.setdefault(base, []).append(c)
+    for base, parts in pieces.items():
+        split = editorial.split_spans(marked[base].text, [p.text for p in parts], marks[base])
+        for part, spans in zip(parts, split):
+            if spans:
+                out[part.chunk_id] = spans
+    return out
+
+
+def _chunk_record(chunk: Chunk, spans: list[editorial.Span] | None) -> dict:
+    """A chunk as written to its normalized file: its fields, plus ``editorial``
+    when it has editorial spans (not a ``Chunk`` field, see ``patristica.editorial``)."""
+    record = chunk.model_dump()
+    if spans:
+        record[editorial.KEY] = [list(s) for s in spans]
+    return record
 
 
 # ---------------------------------------------------------------------------

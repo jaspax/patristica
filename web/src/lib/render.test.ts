@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { ChunkRow, WorkFile } from "./library";
-import { chunkRoles, displaySegment, isDerivedRef, isRubric, parseWork } from "./render";
+import { chunkRoles, displaySegment, isDerivedRef, isRubric, parseWork, trimmedTitle } from "./render";
 
 describe("chunkRoles", () => {
   it("names each chunk's role: a section heading, a unit, or a derived verse of a unit", () => {
@@ -241,5 +241,57 @@ describe("isDerivedRef", () => {
     expect(isDerivedRef("Aug.Conf.1.1.3")).toBe(false);
     expect(isDerivedRef("c12.p4")).toBe(false);
     expect(isDerivedRef("Aug.s1.2")).toBe(false);
+  });
+});
+
+describe("editorial material", () => {
+  it("attaches each chunk's editorial spans to its unit or derived verse", () => {
+    const sections = parseWork(
+      {
+        work_id: "w",
+        ref_prefix: "CopScr",
+        editorial: { "1.1": [[4, 7, "lacuna"]], "1.2.s2": [[0, 3, "lacuna"]] },
+        chunks: [
+          ["1.1", "ⲁⲩⲱ […] ⲁϥ"],
+          ["1.2.s1", "ⲁϥⲥⲱⲧⲙ."],
+          ["1.2.s2", "[…] ⲁϥⲉⲓ."],
+          ["1.3", "ⲁⲩⲱ ⲁϥ"],
+        ],
+      },
+      "patristic",
+    );
+    const [plain, split, last] = sections[0].units;
+    expect(plain.editorial).toEqual([[4, 7, "lacuna"]]);
+    expect(split.editorial).toBeUndefined();
+    expect(split.parts?.map((p) => p.editorial)).toEqual([undefined, [[0, 3, "lacuna"]]]);
+    expect(split.text).toBe("ⲁϥⲥⲱⲧⲙ. […] ⲁϥⲉⲓ.");
+    expect(last.editorial).toBeUndefined();
+  });
+
+  it("keeps a heading chunk's spans on its section title, moved past the trimmed whitespace", () => {
+    const sections = parseWork(
+      {
+        work_id: "w",
+        ref_prefix: "Ps",
+        editorial: { "3.0": [[1, 18, "title"]], "4": [[0, 3, "heading"]] },
+        chunks: [
+          ["3.0", " A Psalm of David. "],
+          ["3.1", "Lord, how are they increased!"],
+          ["4", "IV. Of the fourth"],
+          ["4.1", "Hear me when I call."],
+        ],
+      },
+      "scripture",
+    );
+    expect(sections[0].title).toBe("A Psalm of David.");
+    expect(sections[0].titleEditorial).toEqual([[0, 17, "title"]]);
+    const fourth = sections.find((s) => s.ref === "Ps.4");
+    expect(fourth?.titleEditorial).toEqual([[0, 3, "heading"]]);
+  });
+
+  it("trimmedTitle clips spans to the trimmed text", () => {
+    expect(trimmedTitle("  ab  ", [[0, 3, "note"]])).toEqual({ title: "ab", editorial: [[0, 1, "note"]] });
+    expect(trimmedTitle("  ab  ", [[4, 6, "note"]])).toEqual({ title: "ab" });
+    expect(trimmedTitle("ab")).toEqual({ title: "ab" });
   });
 });

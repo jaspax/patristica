@@ -141,6 +141,30 @@ def test_run_translates_reuses_and_is_idempotent(tmp_path: Path, monkeypatch):
     assert len(fake.requests) == 1
 
 
+def test_run_sends_and_hashes_the_text_without_editorial_material(tmp_path: Path, monkeypatch):
+    """Editorial spans (#236) are not translated: the request and the stored hash
+    cover the source text, and a wholly editorial unit is skipped."""
+    from scripts import translate
+
+    fake = FakeClients()
+    monkeypatch.setattr(translate, "Clients", lambda: fake)
+    store = tmp_path / "translations"
+    marked = {**chunk("1", "ܫܠܡܐ […] ܐܠܗܐ"), "editorial": [[5, 8, "lacuna"]]}
+    title = {**chunk("2", "ܡܐܡܪܐ"), "editorial": [[0, 5, "title"]]}
+    norm = write_corpus(tmp_path, {"a": ("public_domain", [marked, title])})
+    args = dict(input_dir=norm, store_dir=store, langs=["syc"], work_prefixes=[], workers=1,
+                max_requests=None, max_cost=None, include_unpublishable=False)
+    translate.run(dry_run=False, **args)
+    assert fake.requests == ["[1]\nܫܠܡܐ ܐܠܗܐ"]
+    (t,) = tr.load(store, "src/a.json").translations
+    assert t.chunk_id == "a#1" and t.source_sha256 == tr.text_sha("ܫܠܡܐ ܐܠܗܐ")
+
+    translate.run(dry_run=False, **args)    # fresh against the source text: nothing to do
+    assert len(fake.requests) == 1
+    chunks = json.loads((norm / "src/a.json").read_text())
+    assert tr.fresh_translations(chunks, store) == {"a#1": "EN 1"}
+
+
 def test_run_stops_at_max_cost(tmp_path: Path, monkeypatch):
     from scripts import translate
 
