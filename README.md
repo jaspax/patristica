@@ -24,6 +24,8 @@ The corpus covers:
 
 All sources are public domain unless otherwise noted.
 
+Adding a new language (Slavonic, Arabic, Georgian, …) follows the checklist in [docs/adding-a-language.md](docs/adding-a-language.md).
+
 ## Project Phases
 
 1. **Data Collection** — ingestion and normalization of source texts from CCEL, Perseus, Project Gutenberg, and other repositories
