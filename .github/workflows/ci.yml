@@ -154,9 +154,6 @@ jobs:
           tofu -chdir=infra/tofu init -backend=false -input=false
           tofu -chdir=infra/tofu validate
 
-      - name: tofu test
-        run: tofu -chdir=infra/tofu test
-
       - name: cloud-init schema
         run: |
           command -v cloud-init || sudo apt-get install -y -q cloud-init

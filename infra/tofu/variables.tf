@@ -5,36 +5,15 @@ variable "name" {
 }
 
 variable "region" {
-  description = "DigitalOcean region of the Spaces buckets (backups, library; the tfstate bucket too, outside tofu). Stays nyc3 when the droplet moves (#252)."
+  description = "DigitalOcean region. nyc3 is the closest to Vercel's default function region (iad1)."
   type        = string
   default     = "nyc3"
-}
-
-# CHOOSE before the #252 apply: the target region and size, whichever the
-# DigitalOcean Create screen has in stock (infra/README.md -> "Moving the host"):
-#   sfo2 m-2vcpu-16gb (preferred) | nyc1 s-4vcpu-16gb-320gb-intel | atl1 or ric1 g5-2vcpu-16gb-50gb
-variable "droplet_region" {
-  description = "Region of the database host: its droplet, data volume and reserved IP. CHOOSE (#252); a new value creates a new host next to the others."
-  type        = string
-  default     = "sfo2"
 }
 
 variable "droplet_size" {
-  description = "Size slug of the droplet in droplet_region: 16 GB, so the HNSW index stays in the page cache (#252). CHOOSE with droplet_region."
+  description = "Droplet size slug. Memory-optimized, so the HNSW index stays in the page cache (#252). Changing it from a size with a larger root disk is a replacement, not a resize: DigitalOcean can't shrink a disk (infra/README.md)."
   type        = string
-  default     = "m-2vcpu-16gb"
-}
-
-variable "keep_old_host" {
-  description = "Keep the original nyc3 host (s-4vcpu-8gb, its volume and reserved IP) next to the new one during the blue-green move (#252). Set to false only to remove it, with prevent_destroy lifted on purpose."
-  type        = bool
-  default     = true
-}
-
-variable "serving_region" {
-  description = "The host DNS points at: the outputs ip and ssh_command (read by deploy.sh and db-tunnel.sh) name it. nyc3 until the DNS switch of #252, then droplet_region."
-  type        = string
-  default     = "nyc3"
+  default     = "m-2vcpu-16gb-intel"
 }
 
 variable "droplet_image" {

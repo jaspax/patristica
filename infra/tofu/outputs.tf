@@ -1,16 +1,6 @@
 output "ip" {
-  description = "Reserved IP of the serving database host (serving_region; stable across droplet rebuilds)."
-  value       = local.serving_ip
-}
-
-output "host_ips" {
-  description = "Reserved IP of every database host, by region (both during the #252 move)."
-  value       = { for region, ip in digitalocean_reserved_ip.api : region => ip.ip_address }
-}
-
-output "new_host_ip" {
-  description = "Reserved IP of the host in droplet_region, to deploy to before DNS points at it."
-  value       = digitalocean_reserved_ip.api[var.droplet_region].ip_address
+  description = "Reserved IP of the database host (stable across droplet rebuilds)."
+  value       = digitalocean_reserved_ip.api.ip_address
 }
 
 output "api_hostname" {
@@ -19,8 +9,8 @@ output "api_hostname" {
 }
 
 output "ssh_command" {
-  description = "How to log in to the serving host."
-  value       = "ssh -i ${trimsuffix(pathexpand(var.ssh_public_key_path), ".pub")} root@${local.serving_ip}"
+  description = "How to log in."
+  value       = "ssh -i ${trimsuffix(pathexpand(var.ssh_public_key_path), ".pub")} root@${digitalocean_reserved_ip.api.ip_address}"
 }
 
 output "backups_bucket" {
