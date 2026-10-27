@@ -11,6 +11,10 @@ set -a
 . ./.env
 set +a
 
+# The dump reads the whole database through the page cache and evicts the
+# search index; load it again afterwards, whether or not the dump succeeded.
+trap 'postgres/prewarm.sh || echo "backup: prewarm failed" >&2' EXIT
+
 prefix="spaces:${BACKUP_BUCKET:?}/pg-backups"
 name="patristica-$(date -u +%Y%m%dT%H%MZ).dump"
 

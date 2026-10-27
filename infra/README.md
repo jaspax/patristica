@@ -4,10 +4,10 @@ Production host (#117, #132): one DigitalOcean droplet running Postgres 16 with 
 
 | Piece | Where | What it does |
 |---|---|---|
-| `tofu/` | OpenTofu | Creates the droplet (`s-4vcpu-8gb`, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
+| `tofu/` | OpenTofu | Creates the droplet (`m-2vcpu-16gb`, memory-optimized, `nyc3`), a 40 GB volume for the Postgres data, a reserved IP, a firewall, the backups bucket and its access key, the library bucket with its CORS rule, CDN and upload key, and a project. State lives in the Spaces bucket `patristica-tfstate`. |
 | `tofu/cloud-init.yaml` | first boot | Installs Docker, rclone and unattended-upgrades. Adds 4 GB of swap, turns off SSH passwords and mounts the volume at `/mnt/pgdata`. It contains no secrets. |
 | `compose/` | the droplet | Runs `db` (pgvector/pgvector), `api` (built from `api/Dockerfile`), `web` (built from `web/Dockerfile`) and `caddy` (ports 80/443, Let's Encrypt). Postgres has no published port. |
-| `deploy.sh` | your machine, CI | Syncs `compose/` and the API and web source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and runs `docker compose up --build`. Idempotent. With `--keep-env` it leaves the host `.env` alone and needs no tofu: the *Deploy* workflow runs it that way. |
+| `deploy.sh` | your machine, CI | Syncs `compose/` and the API and web source to `/opt/patristica`, writes the host's `.env`, installs the backup timer and the prewarm unit, runs `docker compose up --build` and loads the search index into the page cache. Idempotent. With `--keep-env` it leaves the host `.env` alone and needs no tofu: the *Deploy* workflow runs it that way. |
 | `tofu.sh` | your machine | Runs `tofu` with the credentials from `infra/.env`. |
 
 Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs/intro/install/)), `uv`, `ssh`, `rsync`, `curl`.
@@ -27,7 +27,7 @@ Prerequisites on your machine: `tofu` 1.13 ([OpenTofu](https://opentofu.org/docs
    ```bash
    uv run --extra deploy python -m scripts.bootstrap_infra
    ```
-4. **Provision**: running `apply` starts billing (~$48/mo droplet + ~$4 volume + $5 Spaces).
+4. **Provision**: running `apply` starts billing (~$84/mo droplet + ~$4 volume + $5 Spaces).
    ```bash
    infra/tofu.sh init
    infra/tofu.sh plan
@@ -94,7 +94,7 @@ The static library export (`scripts.export_library`) is served from the Spaces b
 
 ## Backups
 
-`patristica-backup.timer` runs `compose/backup/pg-backup.sh` every night at 03:30 UTC. It streams a `pg_dump --format=custom` to `spaces:patristica-backups/pg-backups/` under a timestamped name. The bucket's lifecycle rule deletes dumps after 15 days (`backup_keep_days`). The droplet's Spaces key can only touch that bucket.
+`patristica-backup.timer` runs `compose/backup/pg-backup.sh` every night at 03:30 UTC. It streams a `pg_dump --format=custom` to `spaces:patristica-backups/pg-backups/` under a timestamped name. The bucket's lifecycle rule deletes dumps after 15 days (`backup_keep_days`). The droplet's Spaces key can only touch that bucket. The dump reads the whole database through the page cache, so the script runs `compose/postgres/prewarm.sh` at the end, whether the dump succeeded or not.
 
 - Run one now: `systemctl start patristica-backup && journalctl -u patristica-backup`.
 - List them: `cd /opt/patristica/compose && set -a && . ./.env && rclone lsl spaces:$BACKUP_BUCKET/pg-backups/`.
@@ -130,23 +130,43 @@ infra/db-tunnel.sh psql
 - The first load copies about 4 GB of vectors (binary COPY, ~1 KB a vector) and then builds the HNSW index on the droplet with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`). Later runs reload only works whose inputs changed and insert into the live index. A run that changes most of the corpus is faster with `--rebuild-index`.
 - Each work is its own transaction, so an interrupted run picks up where it stopped. The index is built at the end of a run, so after an interruption run it again to completion.
 - A change of Scripture verse groups (`patristica/versification.py`) only updates `chunks.translation_group_id` in place; the summary line counts the chunks "regrouped in place". The first run after #186 also rewrites each work's stored hash to the new format ("format-1 hashes rewritten") and reloads nothing; check with `--dry-run` that it reports 0 loaded.
-- After the index build, warm the cache: `SELECT pg_prewarm('chunk_vectors_hnsw_m1');`.
+- After the index build, load it into the page cache: on the droplet, `/opt/patristica/compose/postgres/prewarm.sh` (or `systemctl start patristica-prewarm`). See "Postgres sizing".
 - Passage alignments (`data/alignments/`, #179) go into `passage_groups` in place, like the verse groups: the summary counts the "passage-group rows synced" and nothing is reloaded. The table is new in #179; `db/schema.sql` creates it on the first run (no schema version change). The first full run writes about 1.34M rows in 442k groups (roughly 250 MB with its indexes), one transaction per work; computing them takes about 15 s. Check with `--dry-run` that it reports 0 loaded.
 - The keyword index for quoted search (#86) needs every chunk's `text_folded`. The first run after it was added folds the loaded chunks in place from the local normalized files (no vectors are reloaded), sending about 650 MB, then builds `chunks_text_folded_trgm` (about 650 MB). The `UPDATE` rewrites every chunk row, so `chunks` temporarily takes about twice its size on the volume.
 
 ## Postgres sizing
 
-`compose/postgres/postgresql.conf` is tuned for 8 GB of RAM with a ~5–5.5 GB HNSW index (512-dim `halfvec`, ~4.0M vectors):
-- `shared_buffers=2GB`, with the OS page cache holding the rest of the index (`effective_cache_size=6GB`)
-- `pg_prewarm` reloads the buffers after a restart
+The droplet is memory-optimized, `m-2vcpu-16gb` (#252): the search load is bound by memory and I/O, not CPU. `compose/postgres/postgresql.conf` is tuned for its 16 GB with the ~5.2 GB HNSW index (`chunk_vectors_hnsw_m1`, 512-dim `halfvec`, ~4.0M vectors; ~1.3 GB more per million vectors):
+- `shared_buffers=4GB`, with the OS page cache holding the index (`effective_cache_size=12GB`). That keeps the index cached up to roughly 7–8M vectors.
+- `pg_prewarm.autoprewarm` reloads the buffers after a restart.
+- `compose/postgres/prewarm.sh` loads every `chunk_vectors_hnsw_m*` index, `chunks_pkey` and `passage_groups_pkey` into the OS page cache with `pg_prewarm(…, 'prefetch')`. It runs at boot (`patristica-prewarm.service`, installed by `deploy.sh`), after every deploy and after the nightly backup. It is idempotent, returns at once (the kernel reads ahead in the background) and warms nothing on a database without the indexes yet. Its output: `journalctl -u patristica-prewarm`. `free -g` shows the index under `buff/cache` once it is read.
 
-For the index build, raise memory in that session only: `SET maintenance_work_mem = '4GB'; SET max_parallel_maintenance_workers = 3;`. A parallel build keeps that memory in the db container's `/dev/shm`, so `shm_size` in `compose/docker-compose.yml` (5 GB) must stay larger than `maintenance_work_mem`. Otherwise the build fails with `could not resize shared memory segment … No space left on device` (#166), which is about shared memory, not the disk. The full index (~5.2 GB) is larger than 4 GB, so the last part of the build is slower; that is expected.
+With the index cached, `build_index` inserts into the live index at ~130 vectors/s instead of ~12/s from the network volume (#249, #252), so routine loads insert into it. Keep `--rebuild-index` for one-off giant batches (#200), since it takes search down while the index is rebuilt.
 
-If searches slow down because the index no longer stays cached (watch disk reads in DigitalOcean monitoring), resize: set `droplet_size = "s-8vcpu-16gb"`, run `infra/tofu.sh apply` (the droplet reboots, and the volume and IP stay), then double the memory settings in `postgresql.conf` and run `infra/deploy.sh`.
+`build_index` builds the index with `maintenance_work_mem = 4GB` (`--maintenance-work-mem`); on this droplet up to `8GB` is reasonable for a full rebuild (`--rebuild-index --maintenance-work-mem 8GB`). By hand, in that session only: `SET maintenance_work_mem = '8GB'; SET max_parallel_maintenance_workers = 1;` (2 vCPU). A parallel build keeps that memory in the db container's `/dev/shm`, so `shm_size` in `compose/docker-compose.yml` (9 GB) must stay larger than `maintenance_work_mem`. Otherwise the build fails with `could not resize shared memory segment … No space left on device` (#166), which is about shared memory, not the disk. The containers have no memory limits; during an 8 GB build, the index isn't in use and the page cache gives way.
+
+### Changing the droplet size
+
+A memory-optimized droplet has a 50 GB root disk, and DigitalOcean can't shrink a disk on resize, so moving between it and a Basic size with a larger disk (the old `s-4vcpu-8gb` had 160 GB) is a **replacement**, not a resize. Tofu is set up for that: the volume (`prevent_destroy`) holds the database and the host `.env` (`/mnt/pgdata/compose.env`, with `POSTGRES_PASSWORD`), the new droplet gets it at creation and cloud-init mounts it at `/mnt/pgdata`, and the reserved IP is reassigned. 50 GB is enough for the root disk: it holds the OS and the Docker images only.
+
+The changeover from `s-4vcpu-8gb` to `m-2vcpu-16gb` ($84/mo; the `m-2vcpu-16gb-intel` variant had no capacity in `nyc3` as of 2026-10-27) (#252) goes in this order, because merging anything under `infra/compose/` deploys it: the 16 GB Postgres settings must not reach the 8 GB droplet. Expect 10–20 minutes of downtime.
+
+1. **Quiesce.** No `build_index` or pipeline run in progress. Note the time.
+2. **Fresh backup.** On the droplet, `systemctl start patristica-backup.service`, and check that the dump landed in `patristica-backups/pg-backups/` (see "Backups"). Optionally take a volume snapshot in the DigitalOcean panel.
+3. **Stop the stack cleanly** on the droplet, so Postgres shuts down before the volume detaches: `docker compose -f /opt/patristica/compose/docker-compose.yml down`.
+4. **Replace.** With the size change in your working tree (`droplet_size` in `tofu/variables.tf`; tofu applies from the working tree, not from `master`), run `infra/tofu.sh plan -replace=digitalocean_droplet.db` and check that it replaces only the droplet (and updates the reserved-IP assignment, firewall and project), **never the volume**. Then `infra/tofu.sh apply -replace=digitalocean_droplet.db`.
+5. **Host key.** `ssh-keygen -R 159.89.246.34`, scan the new key and update the `DEPLOY_KNOWN_HOSTS` repo secret (see "Deploy workflow"). The Deploy workflow fails until then.
+6. **Deploy with the old settings** from `master`: `infra/deploy.sh --keep-env` with `DEPLOY_HOST`, `API_DOMAIN` and `WEB_DOMAIN` set (the host `.env` is the volume's `compose.env`, so it is already there). The images are rebuilt on the new droplet and the site is back up.
+7. **Merge the held PR** with the 16 GB settings. Its automatic deploy brings the Postgres settings and the prewarm. Merging it before step 4 would put 16 GB settings on the 8 GB droplet.
+8. **Verify.** `https://api.patristica.app/healthz`; `infra/db-tunnel.sh uv run python -m scripts.status --db` (`index_meta` intact, nothing to load); a cold search (the API log's `search:` line) and the warm timing; `journalctl -u patristica-prewarm` lists the indexes and `free -g` shows them in `buff/cache`.
+9. **Reload rate.** On the next pipeline run, compare `build_index`'s vectors/s with the old ~12.
+10. **Clean up.** The replace destroys the old droplet; delete any manual snapshot after a few days. The backup timer and the prewarm unit come from `deploy.sh`, not cloud-init: step 6 (from `master`) reinstalls the timer and step 7 adds the prewarm unit. Check with `systemctl list-timers` (`patristica-backup.timer`) and `systemctl is-enabled patristica-prewarm`.
+
+**Rollback:** if the new droplet misbehaves, set `droplet_size` back to `s-4vcpu-8gb` and `-replace` again; the volume and the IP move back the same way. Restore the 8 GB Postgres settings too (`shared_buffers=2GB`, `effective_cache_size=6GB`, `maintenance_work_mem=512MB`, `shm_size: 5g`; a revert PR of this change), and deploy them before Postgres runs on the 8 GB droplet, i.e. right after the replace instead of step 6: otherwise Postgres starts with 4 GB of buffers and up to 9 GB of shared memory on 8 GB of RAM. If the database itself is damaged, restore the step-2 dump (see "Backups").
 
 ## Changing the host
 
-- `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To rebuild on purpose, run `infra/tofu.sh apply -replace=digitalocean_droplet.db`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
+- `cloud-init.yaml` and the base image only apply when the droplet is created, so changing them doesn't replace the droplet. To change the size, see "Changing the droplet size". To rebuild on purpose, run `infra/tofu.sh apply -replace=digitalocean_droplet.db`, then `infra/deploy.sh`. The data volume (with the database and the host `.env`, `/mnt/pgdata/compose.env`) and the reserved IP survive. The host key changes, so remove the old entry from `~/.ssh/known_hosts` first: `ssh-keygen -R <ip>`.
 - The volume and the backups bucket have `prevent_destroy`, so `tofu destroy` stops at them. To tear everything down, remove that line on purpose first.
 - The API hostname is `api.patristica.app` (`api_domain`). The domain is registered at Cloudflare and its DNS is managed by hand there: an A record to the reserved IP, **DNS only** (not proxied), so Caddy can get its Let's Encrypt certificate. To change it, update the record, set `api_domain`, then run `infra/tofu.sh apply` and `infra/deploy.sh`. An empty `api_domain` falls back to `<ip-with-dashes>.sslip.io`.
 - The web app's hostnames are the apex `patristica.app` and `www.patristica.app`: two more A records to the reserved IP, also **DNS only**. To use another name, run `WEB_DOMAIN=<name> infra/deploy.sh` (and change `WEB_DOMAIN` in the Deploy workflow, which uses it for its health checks). Proxying them through Cloudflare later would need SSL mode *Full (strict)* and a certificate that works behind the proxy (a DNS-01 challenge or a Cloudflare Origin CA certificate); see #132.

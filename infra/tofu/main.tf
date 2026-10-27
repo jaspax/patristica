@@ -3,7 +3,7 @@
 # plus the Spaces bucket its nightly backups go to, and the public Spaces
 # bucket + CDN that serve the static library to the web app (#131).
 # Postgres data lives on a separate block-storage volume, so the droplet can
-# be resized or rebuilt without touching the database.
+# be resized or replaced without touching the database.
 
 locals {
   volume_name = "${var.name}-pgdata"
