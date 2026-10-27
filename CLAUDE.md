@@ -26,6 +26,7 @@ patristica/
 ├── DATA_LICENSE.md            # texts keep their source licences; our own metadata is CC0
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
+├── docs/adding-a-language.md # checklist for adding a new language to the corpus, with per-language decision records (#293)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
 ├── .github/workflows/deploy.yml           # on master: infra/deploy.sh --keep-env → web + api on the droplet
 ├── patristica/
@@ -130,6 +131,8 @@ Inside a version group, `scripts.align` aligns the passages of the versions: an 
 
 ### Language codes (ISO 639-3)
 `grc` Greek · `lat` Latin · `hbo` Hebrew · `syc` Syriac · `cop` Coptic · `gez` Ge'ez · `hye` Armenian · `got` Gothic · `eng` English
+
+To add a language, follow `docs/adding-a-language.md`: every touchpoint, what it costs, and the language's decision record.
 
 ### Genre values
 `scripture` · `patristic` · `liturgical` · `council` · `apocrypha`
