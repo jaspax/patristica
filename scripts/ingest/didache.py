@@ -22,12 +22,14 @@ but with anonymous attribution and no date or tradition metadata. This dedicated
 ingestor supersedes that entry with correct metadata.
 
 Refs are ``Did.{chapter}.{verse}``: ANF prints the verse numbers inline, and
-each chapter is cut at them (#122), as in the Greek. ``Did.17`` and below is
-the editor's elucidation.
+each chapter is cut at them (#122), as in the Greek. The editor's (Coxe's)
+*Elucidations* that close the div2 are left out (#256), as the other CCEL
+carve-outs leave out theirs: they are 19th-century commentary, not the Didache.
 """
 
 from __future__ import annotations
 
+import copy
 import json
 import logging
 import re
@@ -44,6 +46,7 @@ from scripts.ingest._ccel_common import (
     download_volume,
 )
 
+from scripts.ingest._ccel_works import _EDITORIAL_TITLE_RE
 from scripts.ingest._printed_verses import rechunk
 
 log = logging.getLogger(__name__)
@@ -80,7 +83,21 @@ def _find_didache_div2(body: etree._Element) -> etree._Element | None:
     return None
 
 
-#: The 16 chapters; ``Did.17`` and below is the editor's elucidation.
+def without_editorial(div2: etree._Element) -> etree._Element:
+    """A copy of *div2* without its editorial child divs (the Elucidations, #256)."""
+    div2 = copy.deepcopy(div2)
+    for child in list(div2):
+        if child.tag is etree.Comment or not isinstance(child.tag, str):
+            continue
+        if not etree.QName(child.tag).localname.startswith("div"):
+            continue
+        if _EDITORIAL_TITLE_RE.match(child.get("title", "")):
+            log.info("Leaving out editorial div %s (%r)", child.get("id"), child.get("title"))
+            div2.remove(child)
+    return div2
+
+
+#: The 16 chapters.
 _CHAPTER_RE = re.compile(r"Did\.(\d+)")
 _CHAPTERS = 16
 
@@ -119,7 +136,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         )
 
     log.info("Found Didache div2")
-    paragraphs = _extract_paragraphs_from_div1(div2, "Did")
+    paragraphs = _extract_paragraphs_from_div1(without_editorial(div2), "Did")
     log.info("Extracted %d paragraphs from Didache", len(paragraphs))
     paragraphs = rechunk_chapters(paragraphs)
 

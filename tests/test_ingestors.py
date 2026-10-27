@@ -133,8 +133,9 @@ class TestSblgntParser:
 
 class TestOshbParser:
     # Gen 1:1 word text as in morphhb wlc/Gen.xml; the other "verses" combine real
-    # morphhb words (some verses abridged from the real ones) to exercise suffix
-    # separators, maqqef, paseq, nested <seg> letters and ketiv/qere notes.
+    # morphhb words (most verses abridged from the real ones; the ketiv/qere
+    # verses are real excerpts) to exercise suffix separators, maqqef, paseq,
+    # nested <seg> letters and ketiv/qere notes (#55).
     _XML = textwrap.dedent("""\
         <?xml version="1.0" encoding="utf-8"?>
         <osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
@@ -158,7 +159,46 @@ class TestOshbParser:
             <w lemma="7563" morph="HAampa" id="18wyD">רְשָׁ<seg type="x-suspended">עִ֣</seg>ים</w>
           </verse>
           <verse osisID="Gen.8.17">
-            <w type="x-ketiv" lemma="3318" morph="HVhv2ms" id="01Pdv">אהל/ה</w><note type="variant"><catchWord>אהל/ה</catchWord><rdg type="x-qere"><w lemma="168" morph="HNcmsc/Sp3ms" id="01Gdj">אָֽהֳל/וֹ֙</w></rdg></note>
+            <w lemma="5921 a" morph="HR" id="01cPC">עַל</w><seg type="x-maqqef">־</seg><w lemma="d/776" n="1.0" morph="HTd/Ncbsa" id="01Eoc">הָ/אָ֖רֶץ</w>
+            <w type="x-ketiv" lemma="3318" morph="HVhv2ms" id="01Pdv">הוצא</w><note type="variant"><catchWord>הוצא</catchWord><rdg type="x-qere"><w lemma="3318" morph="HVhv2ms" id="01S7t">הַיְצֵ֣א</w></rdg></note>
+            <w lemma="854" n="1" morph="HR/Sp2fs" id="018F2">אִתָּ֑/ךְ</w>
+          </verse>
+          <verse osisID="2Kgs.20.4">
+            <w lemma="3318" n="1.1" morph="HVqp3ms" id="12dHk">יָצָ֔א</w>
+            <w type="x-ketiv" lemma="d/5892 b" morph="HTd/Ncfsa" id="12ydd">ה/עיר</w><note type="variant"><catchWord>ה/עיר</catchWord><rdg type="x-qere"><w lemma="2691 a" n="1.0" morph="HNcbsa" id="12kL7">חָצֵ֖ר</w></rdg></note>
+            <w lemma="d/8484" n="1" morph="HTd/Aafsa" id="12mHz">הַ/תִּֽיכֹנָ֑ה</w>
+          </verse>
+          <verse osisID="2Kgs.5.18">
+            <w lemma="5545" morph="HVqj3ms" id="12gsX">יִסְלַח</w><seg type="x-maqqef">־</seg><w type="x-ketiv" lemma="4994" morph="HTe" id="12yBx">נא</w><note type="variant"><catchWord>נא</catchWord><rdg type="x-qere"/></note>
+            <w lemma="3068" morph="HNp" id="12vE1">יְהוָ֥ה</w>
+            <w lemma="l/5650" n="0.0" morph="HR/Ncmsc/Sp2ms" id="12896">לְ/עַבְדְּ/ךָ֖</w>
+          </verse>
+          <verse osisID="1Kgs.17.15">
+            <w lemma="c/398" morph="HC/Vqw3fs" id="11AVR">וַ/תֹּ֧אכַל</w>
+            <w type="x-ketiv" lemma="1931" morph="HPp3ms" id="11fjn">הוא</w><seg type="x-maqqef" subType="x-ketiv">־</seg><w type="x-ketiv" lemma="c/1931" morph="HC/Pp3fs" id="11CTb">ו/היא</w><note type="variant"><catchWord>הוא־ו/היא</catchWord><rdg type="x-qere"><w lemma="1931" morph="HPp3fs" id="11k9N">הִֽיא</w><seg type="x-maqqef">־</seg><w lemma="c/1931" n="0.0.0" morph="HC/Pp3ms" id="111M5">וָ/ה֛וּא</w></rdg></note>
+            <w lemma="c/1004 b" n="0.0" morph="HC/Ncmsc/Sp3fs" id="11Mcv">וּ/בֵיתָ֖/הּ</w>
+          </verse>
+          <verse osisID="2Chr.34.6">
+            <w lemma="c/5704" morph="HC/R" id="14xfs">וְ/עַד</w><seg type="x-maqqef">־</seg><w lemma="5321" n="1" morph="HNp" id="14TB9">נַפְתָּלִ֑י</w>
+            <w type="x-ketiv" lemma="b/2022" morph="HR/Ncmsc" id="14iDc">ב/הר</w>
+            <w type="x-ketiv" lemma="1004 b" morph="HNcmpc/Sp3mp" id="14rFV">בתי/הם</w><note type="variant"><catchWord>ב/הר בתי/הם</catchWord><rdg type="x-qere"><w lemma="b/2719" n="0.0" morph="HR/Ncfpc/Sp3mp" id="14CXE">בְּ/חַרְבֹתֵי/הֶ֖ם</w></rdg></note>
+            <w lemma="5439" n="0" morph="HNcbsa" id="14F4V">סָבִֽיב</w><seg type="x-sof-pasuq">׃</seg>
+          </verse>
+          <verse osisID="Ezek.42.9">
+            <w type="x-ketiv" lemma="c/m/8478" morph="HC/R/R/Sd" id="26Mwv">ו/מ/תחת/ה</w>
+            <w type="x-ketiv" lemma="3957" morph="HNcfpa" id="26DfV">לשכות</w><note type="variant"><catchWord>ו/מ/תחת/ה לשכות</catchWord><rdg type="x-qere"><w lemma="c/m/8478" n="1.0" morph="HC/R/R" id="262Lg">וּ/מִ/תַּ֖חַת</w> <w lemma="d/3957" morph="HTd/Ncfpa" id="26CYE">הַ/לְּשָׁכ֣וֹת</w></rdg></note>
+            <w lemma="d/428" n="1" morph="HTd/Pdxcp" id="26FUJ">הָ/אֵ֑לֶּה</w>
+          </verse>
+          <verse osisID="Jer.48.44">
+            <w type="x-ketiv" lemma="d/5211" morph="HTd/Vqrmsa" id="24PtS">ה/ניס</w>
+            <note type="exegesis">WLC has this word divided as <rdg>הניס</rdg>.</note>
+            <note type="variant">
+              <catchWord>הניס</catchWord>
+              <rdg type="x-qere">
+                <w lemma="d/5127" n="1.2.0.0" morph="HTd/Vqrmsa" id="24Rwm">הַ/נָּ֞ס</w>
+              </rdg>
+            </note>
+            <w lemma="m/6440" morph="HR/Ncbpc" id="24Vrx">מִ/פְּנֵ֤י</w>
           </verse>
           <verse osisID="1Chr.1.11">
             <w lemma="3205" morph="HVqp3ms" id="13Xw6">יָלַ֞ד</w>
@@ -199,16 +239,16 @@ class TestOshbParser:
         assert self._verses()["Gen.4.4"] == "אִתָּ֑ךְ עַל־הָאָ֖רֶץ"
 
     def test_maqqef_before_ketiv(self) -> None:
-        # The ketiv after a maqqef attaches; the qere note in between is skipped.
-        assert self._verses()["1Chr.1.11"] == "יָלַ֞ד אֶת־לודיים וְאֶת־עֲנָמִ֛ים"
+        # The qere replaces the ketiv and keeps the maqqef binding to the word before.
+        assert self._verses()["1Chr.1.11"] == "יָלַ֞ד אֶת־לוּדִ֧ים וְאֶת־עֲנָמִ֛ים"
 
     def test_chained_maqqefs(self) -> None:
         assert self._verses()["1Kgs.1.9"] == "וַיִּקְרָ֗א אֶת־כָּל־אֶחָיו֙ בְּנֵ֣י"
 
-    def test_maqqef_at_verse_end(self) -> None:
-        # 2Sam 8:3 ends in a qere-only word (no ketiv), so the maqqef is the last
-        # character of the running text, with no trailing space.
-        assert self._verses()["2Sam.8.3"] == "בְּלֶכְתּ֕וֹ בִּֽנְהַר־"
+    def test_qere_without_ketiv(self) -> None:
+        # 2Sam 8:3 ends in a qere with no ketiv (qere we-lo ketiv): it is read,
+        # bound by the maqqef before it.
+        assert self._verses()["2Sam.8.3"] == "בְּלֶכְתּ֕וֹ בִּֽנְהַר־פְּרָֽת"
 
     def test_paseq_spaced_and_sof_pasuq_dropped(self) -> None:
         # Paseq stands between spaces as in morphhb; sof pasuq is omitted.
@@ -218,9 +258,34 @@ class TestOshbParser:
         # Large / suspended letters are <seg> children of <w>; they must not be dropped.
         assert self._verses()["Num.27.7"] == "מִשְׁפָּטָ֖ן רְשָׁעִ֣ים"
 
-    def test_ketiv_note_not_included(self) -> None:
-        # The qere reading inside <note> is not part of the running text (yet).
-        assert self._verses()["Gen.8.17"] == "אהלה"
+    def test_qere_replaces_ketiv(self) -> None:
+        # The running text is the pointed qere, not the bare ketiv consonants (#55).
+        verses = self._verses()
+        assert verses["Gen.8.17"] == "עַל־הָאָ֖רֶץ הַיְצֵ֣א אִתָּ֑ךְ"
+        assert verses["2Kgs.20.4"] == "יָצָ֔א חָצֵ֖ר הַתִּֽיכֹנָ֑ה"
+
+    def test_no_ketiv_left(self) -> None:
+        # Every ketiv is unpointed; no unpointed ketiv consonants remain.
+        text = " ".join(self._verses().values())
+        for ketiv in ("הוצא", "העיר", "נא ", "הוא־והיא", "בהר", "לשכות", "הניס", "לודיים"):
+            assert ketiv not in text
+
+    def test_ketiv_without_qere_dropped_with_its_maqqef(self) -> None:
+        # 2 Kgs 5:18 יסלח־נא: the נא is written, not read; the maqqef goes with it.
+        assert self._verses()["2Kgs.5.18"] == "יִסְלַח יְהוָ֥ה לְעַבְדְּךָ֖"
+
+    def test_multi_word_ketiv_and_qere(self) -> None:
+        verses = self._verses()
+        # Two ketiv words joined by a ketiv maqqef -> two qere words joined by a maqqef.
+        assert verses["1Kgs.17.15"] == "וַתֹּ֧אכַל הִֽיא־וָה֛וּא וּבֵיתָ֖הּ"
+        # Two ketiv words -> one qere word.
+        assert verses["2Chr.34.6"] == "וְעַד־נַפְתָּלִ֑י בְּחַרְבֹתֵיהֶ֖ם סָבִֽיב"
+        # Two ketiv words -> two qere words.
+        assert verses["Ezek.42.9"] == "וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת הָאֵ֑לֶּה"
+
+    def test_editorial_note_between_ketiv_and_qere(self) -> None:
+        # Jer 48:44: an exegesis note (with its own untyped <rdg>) sits in between.
+        assert self._verses()["Jer.48.44"] == "הַנָּ֞ס מִפְּנֵ֤י"
 
 
 # ---------------------------------------------------------------------------
@@ -620,3 +685,27 @@ class TestGallicanHeadings:
                       "Missa Dominicaii.”— Mab.  quo  ait  Salvator",  # footnote
                       "missa non  reddere.  Ne  dederis  os  tuum  ut"):  # prose
             assert not _HEADING_RE.match(noise), noise
+
+    def test_neale_forbes_is_cut_at_each_missal_title(self):
+        """One work per missal; the section running at a title line continues in the next missal (#245)."""
+        import re
+
+        import pytest
+
+        from scripts.ingest.gallican import _extract_parts, _Part
+
+        parts = (
+            _Part("a", "A", "", 0, (0, 0), "A", None),
+            _Part("b", "B", "", 0, (0, 0), "B", re.compile(r"MISSALE\s+GOTHICUM")),
+        )
+        text = "\n".join([
+            "COLLECTIO  prima.", "Deus qui nobis dominus sanctus per omnia",
+            "* m. 1 88 *MISSALE  GOTHICUM", "Grata tibi sit domine nobis per dominum",
+            "COLLECTIO  altera.", "Deus omnipotens dominus nobis sancti spiritus",
+        ])
+        a, b = _extract_parts(text, parts)
+        assert [p["ref"] for p in a] == ["GallLit.A.0001.0001"]
+        assert [p["ref"] for p in b] == ["GallLit.B.0001.0002", "GallLit.B.0002.0001"]
+        assert b[0]["text"].startswith("* m. 1 88 *MISSALE GOTHICUM")  # no heading of part A
+        with pytest.raises(ValueError, match="no title line"):
+            _extract_parts(text.replace("GOTHICUM", "X"), parts)
