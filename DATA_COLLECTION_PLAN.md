@@ -248,10 +248,10 @@ Material that an editor or the source added to a text (titles, headings, supplem
 | `coptic-scriptorium` | lacunae `[....]`, `[…]`, `[]` in the normalized layer | marked `lacuna` at ingest (#236). Bracketed letters (`[ⲉ]`) stay unmarked; the diplomatic `orig` is a whole alternative rendering, not editorial material |
 | `cantus` | `[feast] [service] … [CANTUS:id] [mode:n]` prefix | to mark `metadata` in normalize (no offline re-ingest): [#163](https://github.com/jaspax/patristica/issues/163) |
 | `first1k` | `<gap>` lacunae; `<head>`s in divs whose paragraphs share the div's ref | [#71](https://github.com/jaspax/patristica/issues/71), [#259](https://github.com/jaspax/patristica/issues/259) |
-| `gez` | the edition's `[…]` / `(…)` brackets | decision first: [#297](https://github.com/jaspax/patristica/issues/297) |
-| `coptic-nt` | CopSahBible2 `<…>` supplements | decision first (removing a supplement embeds the scribe's text): [#298](https://github.com/jaspax/patristica/issues/298) |
+| `gez` | the edition's `[…]` / `(…)` brackets | to mark (`supplement` where the brackets enclose an editor's addition: brackets marked, content embedded): [#297](https://github.com/jaspax/patristica/issues/297) |
+| `coptic-nt` | CopSahBible2 `<…>` supplements | to mark `supplement` (content embedded, brackets not): [#298](https://github.com/jaspax/patristica/issues/298) |
 | `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
-| `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text or editorial? [#300](https://github.com/jaspax/patristica/issues/300) |
+| `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
 
 ### Patrologia Graeca: columns, refs and works
 

@@ -20,7 +20,11 @@ def test_check_accepts_sorted_spans_and_rejects_bad_ones():
                 [[4, 4, "lacuna"]],            # empty
                 [[4, 99, "lacuna"]],           # past the end
                 [[5, 7, "note"], [4, 6, "note"]],  # unsorted / overlapping
-                [[4, 7]]):                     # not [start, end, kind]
+                [[4, 7]],                      # not [start, end, kind]
+                [7],                           # not a list
+                [[0, 1, []]],                  # unhashable kind
+                [[True, 2, "note"]],           # bool offset
+                "abc"):                        # not a list of spans
         with pytest.raises(EditorialError):
             editorial.check(text, bad, "w#1")
 
@@ -34,6 +38,12 @@ def test_check_accepts_sorted_spans_and_rejects_bad_ones():
     ("a [x] [y] b", [(2, 5, "note"), (6, 9, "note")], "a b"),
     ("A Psalm.", [(0, 8, "title")], ""),
     ("a  b", [], "a  b"),  # no spans: unchanged, whitespace and all
+    # Supplements stay in the source text; only their brackets go (owner, #236).
+    ("ⲡⲁⲅⲅⲉ<ⲗⲟⲥ> ⲇⲉ", [(5, 10, "supplement")], "ⲡⲁⲅⲅⲉⲗⲟⲥ ⲇⲉ"),
+    ("ⲥⲁϣϥⲉ <ⲛϣⲉ> ⲛⲣⲟⲙⲡⲉ", [(6, 11, "supplement")], "ⲥⲁϣϥⲉ ⲛϣⲉ ⲛⲣⲟⲙⲡⲉ"),
+    ("ab cd", [(3, 5, "supplement")], "ab cd"),        # no brackets: unchanged
+    ("<ab", [(0, 3, "supplement")], "ab"),             # cut by a derived verse
+    ("a […] <b> c", [(2, 5, "lacuna"), (6, 9, "supplement")], "a b c"),
 ])
 def test_strip(text: str, spans: list, want: str):
     assert editorial.strip(text, spans) == want

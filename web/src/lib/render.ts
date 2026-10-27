@@ -60,6 +60,8 @@ export interface Section {
   path: string[];
   /** Heading text taken from the source, if the source has a heading chunk. */
   title: string | null;
+  /** Editorial material in `title` (offsets into the trimmed title). */
+  titleEditorial?: EditorialSpan[];
   /** Fallback heading built from the ref path ("Chapter 3", "2.4"); null for flat works. */
   label: string | null;
   /** Nesting depth for the heading level, 0 = top. */
@@ -108,6 +110,26 @@ function joinRef(prefix: string, suffix: string): string {
 
 function samePath(a: string[], b: string[]): boolean {
   return a.length === b.length && a.every((s, i) => s === b[i]);
+}
+
+/**
+ * A heading chunk's text trimmed for a title, with its editorial spans moved
+ * onto the trimmed text (clipped to it; spans left with nothing are dropped).
+ */
+export function trimmedTitle(
+  text: string,
+  spans?: readonly EditorialSpan[],
+): { title: string; editorial?: EditorialSpan[] } {
+  const title = text.trim();
+  if (!spans || spans.length === 0) return { title };
+  const lead = text.length - text.trimStart().length;
+  const editorial: EditorialSpan[] = [];
+  for (const [s, e, kind] of spans) {
+    const start = Math.max(0, s - lead);
+    const end = Math.min(title.length, e - lead);
+    if (end > start) editorial.push([start, end, kind]);
+  }
+  return editorial.length ? { title, editorial } : { title };
 }
 
 export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section[] {
@@ -170,15 +192,21 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     previousBase = null;
     const segments = suffix.split(".");
     const next = work.chunks[i + 1]?.[0];
+    const heading = (path: string[]): Section => {
+      const { title, editorial } = trimmedTitle(text, work.editorial?.[suffix]);
+      const section = open(path, title, joinRef(work.ref_prefix, suffix));
+      if (editorial) section.titleEditorial = editorial;
+      return section;
+    };
     if (next !== undefined && next.startsWith(`${suffix}.`)) {
-      current = open(segments, text.trim(), joinRef(work.ref_prefix, suffix));
+      current = heading(segments);
       continue;
     }
     const path = segments.slice(0, -1);
     const last = segments[segments.length - 1];
     if (current === null || !samePath(current.path, path)) {
       if (zeroIsTitle && /^0+$/.test(last)) {
-        current = open(path, text.trim(), joinRef(work.ref_prefix, suffix));
+        current = heading(path);
         continue;
       }
       current = open(path, null);

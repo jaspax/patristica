@@ -61,7 +61,7 @@ function SectionView({ section, inline }: { section: Section; inline: boolean })
     <section id={section.id} className={styles.section}>
       {heading && (
         <Heading id={section.ref ?? section.anchor ?? undefined} className={section.title ? styles.title : styles.label}>
-          {heading}
+          {section.title ? <EditorialText text={section.title} spans={section.titleEditorial} /> : heading}
         </Heading>
       )}
       {inline ? (
@@ -69,7 +69,16 @@ function SectionView({ section, inline }: { section: Section; inline: boolean })
           {section.units.map((u, i) => (
             <span key={i} id={u.ref} className={u.outOfPeriod ? styles.oop : undefined}>
               <sup className={styles.n}>{u.n}</sup>
-              <EditorialText text={u.text} spans={u.editorial} />{" "}
+              {u.parts ? (
+                u.parts.map((part, k) => (
+                  <span key={part.ref} id={part.ref}>
+                    {k > 0 && " "}
+                    <EditorialText text={part.text} spans={part.editorial} />
+                  </span>
+                ))
+              ) : (
+                <EditorialText text={u.text} spans={u.editorial} />
+              )}{" "}
             </span>
           ))}
         </p>

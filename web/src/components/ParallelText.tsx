@@ -233,7 +233,12 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
       );
       i += 1;
     } else if (role.kind === "heading") {
-      const text = role.section.title ?? work.chunks[i][1];
+      const text =
+        role.section.title !== null ? (
+          <EditorialText text={role.section.title} spans={role.section.titleEditorial} />
+        ) : (
+          work.chunks[i][1]
+        );
       if (p.lead) {
         const Heading = (["h2", "h3", "h4"] as const)[Math.min(role.section.depth, 2)];
         out.push(

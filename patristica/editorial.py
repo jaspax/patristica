@@ -35,7 +35,9 @@ all of it; it gets no vector and no translation.
 
 - ``scripts.translate``, ``scripts.embed``, ``scripts.align`` and
   ``scripts.build_index`` read a unit's *source text*, its text without the
-  editorial spans (:func:`source_text`), and hash that. Marking a span
+  editorial spans (:func:`source_text`), and hash that. The exception is a
+  ``supplement``, an editor's addition the passage needs for its sense: its
+  text stays and only its brackets go (:data:`KEPT_KINDS`). Marking a span
   re-translates and re-embeds exactly the units it is in, and a unit without
   spans hashes its ``text`` as before.
 - The keyword index (``patristica.keyword``) folds the full text, editorial
@@ -55,11 +57,21 @@ from typing import Any
 KINDS: frozenset[str] = frozenset({
     "title",       # a title or superscription the source or an editor gives a text
     "heading",     # a heading an editor added inside the text
-    "supplement",  # text an editor supplied
+    "supplement",  # text an editor supplied (embedded; only its brackets are not)
     "lacuna",      # a marker for text lost or left out ([…], <gap/>)
     "metadata",    # catalogue data in the text (CANTUS feast, mode and id)
     "note",        # an editor's or transcriber's note, a variant reading
 })
+
+#: Kinds whose text stays in the source text (translated and embedded): an
+#: editor's supplement is an addition the passage needs for its sense. Only
+#: its brackets, if the span includes them, are left out. Every other kind is
+#: left out whole.
+KEPT_KINDS: frozenset[str] = frozenset({"supplement"})
+
+# Brackets an edition puts around a supplement (Leiden <…>, […], ⟨…⟩).
+_OPENERS = "<[(⟨{〈"
+_CLOSERS = ">])⟩}〉"
 
 #: The key that holds the spans, on a raw unit and on a normalized chunk.
 KEY = "editorial"
@@ -79,13 +91,16 @@ def check(text: str, spans: Iterable[Sequence[Any]], where: str = "") -> list[Sp
     """
     out: list[Span] = []
     prefix = f"{where}: " if where else ""
+    if isinstance(spans, (str, bytes)) or not isinstance(spans, Iterable):
+        raise EditorialError(f"{prefix}editorial spans {spans!r} are not a list")
     for span in spans:
-        if len(span) != 3:
+        if not isinstance(span, (list, tuple)) or len(span) != 3:
             raise EditorialError(f"{prefix}editorial span {span!r} is not [start, end, kind]")
         start, end, kind = span
-        if not (isinstance(start, int) and isinstance(end, int)):
+        if not (isinstance(start, int) and isinstance(end, int)) or isinstance(start, bool) \
+                or isinstance(end, bool):
             raise EditorialError(f"{prefix}editorial span {span!r} has non-integer offsets")
-        if kind not in KINDS:
+        if not isinstance(kind, str) or kind not in KINDS:
             raise EditorialError(f"{prefix}unknown editorial kind {kind!r} "
                                  f"(one of {', '.join(sorted(KINDS))})")
         if not 0 <= start < end <= len(text):
@@ -99,24 +114,46 @@ def check(text: str, spans: Iterable[Sequence[Any]], where: str = "") -> list[Sp
 
 
 def strip(text: str, spans: Sequence[Span]) -> str:
-    """*text* without its editorial spans.
+    """*text* without its editorial spans: the source text.
 
     A removed span and the whitespace around it become one space, or nothing
     at either end of the text, so ``a […] b``, ``a […]b`` and ``a[…]b`` all
-    give ``a b``: what was on either side of the span stays apart. Without
-    spans, *text* is returned unchanged.
+    give ``a b``: what was on either side of the span stays apart.
+
+    A ``supplement`` (:data:`KEPT_KINDS`) is the editor's addition to the text,
+    needed for its sense, so it stays: only its brackets are dropped
+    (:func:`supplement_text`), and it joins its neighbours as written, so
+    ``ⲡⲁⲅⲅⲉ<ⲗⲟⲥ>`` gives ``ⲡⲁⲅⲅⲉⲗⲟⲥ``. Without spans, *text* is returned
+    unchanged.
     """
     if not spans:
         return text
     out = ""
     pos = 0
     gap = False  # a span was removed since the last text kept
-    for start, end, _ in spans:
+    for start, end, kind in spans:
         out, gap = _append(out, text[pos:start], gap)
-        gap = True
+        if kind in KEPT_KINDS:
+            out, gap = _append(out, supplement_text(text[start:end]), gap)
+        else:
+            gap = True
         pos = end
     out, _ = _append(out, text[pos:], gap)
     return out.strip()
+
+
+def supplement_text(span_text: str) -> str:
+    """A supplement's text without the editor's brackets around it.
+
+    One opening bracket at the start and one closing bracket at the end are
+    dropped, each on its own: a supplement cut by the derived-verse split may
+    keep only one of them.
+    """
+    if span_text[:1] in _OPENERS:
+        span_text = span_text[1:]
+    if span_text[-1:] in _CLOSERS:
+        span_text = span_text[:-1]
+    return span_text
 
 
 def _append(out: str, piece: str, gap: bool) -> tuple[str, bool]:
