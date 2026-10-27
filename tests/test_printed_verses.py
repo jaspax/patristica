@@ -57,3 +57,17 @@ def test_didache_chapters_become_verses_and_the_elucidation_stays() -> None:
     assert [p["ref"] for p in rechunk_chapters(paras)] == [
         "Did.1.1", "Did.1.2", "Did.16.1", "Did.16.2", "Did.17", "Did.17.1",
     ]
+
+
+def test_didache_leaves_out_the_elucidations() -> None:
+    from lxml import etree
+
+    from scripts.ingest.didache import without_editorial
+
+    div2 = etree.fromstring(
+        '<div2 title="The Teaching"><div3 id="c1" title="Chapter I"><p>1. Two ways.</p></div3>'
+        '<div3 id="e" title="Elucidations"><p>(Thus baptize ye, p. 379.)</p></div3></div2>'
+    )
+    kept = without_editorial(div2)
+    assert [d.get("id") for d in kept] == ["c1"]
+    assert len(div2) == 2  # the parsed tree is left alone
