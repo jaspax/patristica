@@ -244,6 +244,29 @@ def test_short_units_need_no_vector(tmp_path: Path) -> None:
     assert outcome["book:gen"] == "aligned"
 
 
+def test_editorial_units_need_no_vector(tmp_path: Path) -> None:
+    """A wholly editorial unit (#236) gets no vector from embed, like a short one."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    chunks = json.loads((norm / "kjv/gen.json").read_text())
+    title = "The First Book of Moses, called Genesis"
+    chunks.append({**chunks[-1], "chunk_id": "kjv/gen#Gen.1.7", "canonical_ref": "Gen.1.7",
+                   "text": title, "chunk_index": len(chunks),
+                   "editorial": [[0, len(title), "title"]]})
+    (norm / "kjv/gen.json").write_text(json.dumps(chunks))
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome["book:gen"] == "aligned"
+
+
+def test_marking_a_span_needs_a_new_vector(tmp_path: Path) -> None:
+    """A vector embeds a unit's source text: marking a span in it makes the vector stale."""
+    norm, trans, vecs = write_corpus(tmp_path)
+    chunks = json.loads((norm / "kjv/gen.json").read_text())
+    chunks[2]["editorial"] = [[0, 2, "note"]]
+    (norm / "kjv/gen.json").write_text(json.dumps(chunks))
+    outcome = {j.group: align.run_job(j)[1] for j in jobs(tmp_path, norm, trans, vecs)}
+    assert outcome["book:gen"] == "refused: kjv/gen 1"
+
+
 def test_code_change_realigns_but_keeps_unchanged_files(tmp_path: Path) -> None:
     norm, trans, vecs = write_corpus(tmp_path)
     for job in jobs(tmp_path, norm, trans, vecs):

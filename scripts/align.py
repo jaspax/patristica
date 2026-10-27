@@ -66,6 +66,7 @@ from patristica import embeddings as emb
 from patristica import fingerprint
 from patristica import translations as tr
 from patristica.corpus import load_works, select
+from patristica.editorial import source_text
 from patristica.versification import SOURCE_SCHEMES, VersificationError, to_org_ref
 from patristica.versions import derive_version_groups
 
@@ -229,7 +230,7 @@ def load_member_checked(entry: dict, input_dir: Path, trans_dir: Path, store_dir
     with (input_dir / path).open(encoding="utf-8") as f:
         chunks = json.load(f)
     if shard is None or shard.vecs is None:
-        return None, sum(wants_vector(c["text"]) for c in chunks)
+        return None, sum(wants_vector(source_text(c)) for c in chunks)
     translated = work["language"] in tr.TRANSLATED_LANGUAGES
     trans = tr.load(trans_dir, path) if translated else None
     trans_rows = trans.by_chunk() if trans is not None else {}
@@ -240,9 +241,10 @@ def load_member_checked(entry: dict, input_dir: Path, trans_dir: Path, store_dir
     models: set[str] = set()
     missing = 0
     for u, c in enumerate(chunks):
-        sha = tr.text_sha(c["text"])
+        text = source_text(c)
+        sha = tr.text_sha(text)
         k = index.get((c["chunk_id"], emb.KIND_TEXT))
-        if wants_vector(c["text"]) and (k is None or shard.rows[k].sha != sha):
+        if wants_vector(text) and (k is None or shard.rows[k].sha != sha):
             missing += 1
         row = None
         if translated:

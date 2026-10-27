@@ -7,6 +7,7 @@ import type { WorkFile } from "@/lib/library";
 import { parseWork, type Section, type Unit } from "@/lib/render";
 import { useHashTarget } from "@/lib/useHashTarget";
 
+import EditorialText from "./EditorialText";
 import styles from "./WorkText.module.css";
 
 const DERIVED_TITLE =
@@ -68,7 +69,7 @@ function SectionView({ section, inline }: { section: Section; inline: boolean })
           {section.units.map((u, i) => (
             <span key={i} id={u.ref} className={u.outOfPeriod ? styles.oop : undefined}>
               <sup className={styles.n}>{u.n}</sup>
-              {u.text}{" "}
+              <EditorialText text={u.text} spans={u.editorial} />{" "}
             </span>
           ))}
         </p>
@@ -102,10 +103,10 @@ function Paragraph({ unit }: { unit: Unit }) {
               >
                 {part.n}
               </a>
-              {part.text}
+              <EditorialText text={part.text} spans={part.editorial} />
             </span>
           ))
-        : unit.text}
+        : <EditorialText text={unit.text} spans={unit.editorial} />}
     </p>
   );
 }

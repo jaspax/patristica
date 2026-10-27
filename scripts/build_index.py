@@ -76,6 +76,7 @@ from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.authors import author_index
 from patristica.corpus import load_works, select
+from patristica.editorial import source_text
 from patristica.embedders import env_key, shorten
 from patristica.keyword import FOLD_VERSION, index_text
 from patristica.models import Chunk
@@ -308,7 +309,7 @@ def model_ids(conn: psycopg.Connection, runs: Iterable[emb.EmbeddingRun],
 def fresh_vectors(chunks: list[dict], translations: dict[str, str],
                   shard: emb.WorkEmbeddings) -> tuple[list[int], int]:
     """Indices of the rows of *shard* that embed current text, and the number of stale rows."""
-    text_sha = {c["chunk_id"]: tr.text_sha(c["text"]) for c in chunks}
+    text_sha = {c["chunk_id"]: tr.text_sha(source_text(c)) for c in chunks}
     trans_sha = {cid: tr.text_sha(t) for cid, t in translations.items()}
     keep, stale = [], 0
     for i, row in enumerate(shard.rows):
@@ -352,7 +353,7 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
         rows = translations.by_chunk()
         for c in chunks:
             t = rows.get(c["chunk_id"])
-            if t is not None and t.source_sha256 == tr.text_sha(c["text"]) and t.text.strip():
+            if t is not None and t.source_sha256 == tr.text_sha(source_text(c)) and t.text.strip():
                 fresh[c["chunk_id"]] = t
     with conn.transaction(), conn.cursor() as cur:
         cur.execute("DELETE FROM works WHERE work_id = %s", (w["work_id"],))

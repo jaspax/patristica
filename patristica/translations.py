@@ -26,6 +26,7 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
+from patristica.editorial import source_text
 from patristica.models import Language
 
 DEFAULT_DIR = Path("data/translations")
@@ -96,7 +97,7 @@ class WorkTranslations(BaseModel):
         kept = []
         for c in chunks:
             t = rows.get(c["chunk_id"])
-            if t is not None and t.source_sha256 == text_sha(c["text"]):
+            if t is not None and t.source_sha256 == text_sha(source_text(c)):
                 kept.append(t)
         self.translations = kept
         used = {t.provenance for t in kept}
@@ -145,7 +146,7 @@ def fresh_translations(chunks: list[dict], store_dir: Path = DEFAULT_DIR,
 
     With *model*, only translations made by that model are returned.
     """
-    wanted = {c["chunk_id"]: text_sha(c["text"]) for c in chunks}
+    wanted = {c["chunk_id"]: text_sha(source_text(c)) for c in chunks}
     out = {}
     for work in iter_store(store_dir):
         for t in work.translations:

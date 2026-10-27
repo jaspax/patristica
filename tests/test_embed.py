@@ -123,6 +123,32 @@ def test_embeds_text_and_translation_vectors_and_skips_short_units(corpus: Path)
         fake.embed_batch(["ܘܗܘ ܡܠܬܐ ܐܝܬܘܗܝ ܗܘܐ ܠܘܬ"])[0], atol=1e-3)
 
 
+def test_editorial_material_is_not_embedded():
+    """A unit is embedded without its editorial spans (#236), hashed as embedded; a
+    wholly editorial unit gets no vector, and an unmarked one hashes its text as before."""
+    text = "ܒܪܫܝܬ ܐܝܬܘܗܝ […] ܗܘܐ ܡܠܬܐ"
+    chunks = [
+        {"chunk_id": "w#1", "language": "syc", "text": text, "editorial": [[13, 16, "lacuna"]]},
+        {"chunk_id": "w#2", "language": "eng", "text": "A Psalm of David, when he fled.",
+         "editorial": [[0, 31, "title"]]},
+        {"chunk_id": "w#3", "language": "eng", "text": "Lord, how are they increased!"},
+    ]
+    source = "ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ ܡܠܬܐ"
+    work = tr.WorkTranslations(work_id="w", source_path="w.json", source_language="syc")
+    prov = tr.Provenance(model="sol", prompt_version="v1", date="2026-10-27", script="t")
+    work.put(tr.ChunkTranslation(chunk_id="w#1", source_sha256=tr.text_sha(source),
+                                 provenance=prov.key, group_size=1, text="In the beginning"),
+             prov)
+    stats = embed.Stats()
+    items = embed.wanted_items(chunks, work, stats, "w")
+    assert [(i.chunk_id, i.kind, i.text) for i in items] == [
+        ("w#1", emb.KIND_TEXT, source), ("w#1", emb.KIND_TRANSLATION, "In the beginning"),
+        ("w#3", emb.KIND_TEXT, "Lord, how are they increased!")]
+    assert items[0].sha == tr.text_sha(source)
+    assert items[2].sha == tr.text_sha(chunks[2]["text"])
+    assert stats.short == 1 and stats.untranslated == 0
+
+
 def test_rerun_reuses_everything_and_rewrites_nothing(corpus: Path):
     run(corpus, FakeEmbedder())
     paths = sorted((corpus / "embeddings").rglob("*.npz"))

@@ -9,7 +9,8 @@ vectors into Postgres is a separate step (``scripts.build_index``).
 What is embedded (IMPLEMENTATION_PLAN.md §2.3–2.5):
 
 - every unit with at least ``MIN_CHARS`` characters of text, as a document,
-  its ``text`` only (no context overlap, as in the eval; #3);
+  its ``text`` only, without editorial material (``patristica.editorial.source_text``,
+  #236), and no context overlap, as in the eval (#3);
 - for Syriac, Coptic, Armenian and Ge'ez units, also their fresh English
   translation (``patristica.translations``), as a second vector (#84). A unit
   with no fresh translation is counted and reported; run ``scripts.translate``.
@@ -61,6 +62,7 @@ from tqdm import tqdm
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import load_works, select  # noqa: F401  (re-exported)
+from patristica.editorial import source_text
 from patristica.embedders import ApiEmbedder, ApiError, VoyageEmbedder, cl100k
 
 if TYPE_CHECKING:
@@ -139,7 +141,7 @@ def wanted_items(chunks: list[dict], translations: tr.WorkTranslations | None,
     items = []
     for c in chunks:
         stats.units += 1
-        text = c["text"]
+        text = source_text(c)  # without editorial material (#236)
         if len(text.strip()) < MIN_CHARS:
             stats.short += 1
             continue

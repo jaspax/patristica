@@ -14,8 +14,12 @@
 // source's unit `3.2`, cut by the pipeline so search can point at a passage
 // about a verse long (patristica/versify.py). The derived verses of one
 // source unit are rendered together as that unit, each with its own anchor.
+//
+// Editorial material (titles, supplements, lacunae, metadata that an editor or
+// the source added, #236) stays in the text: `editorial` on a unit or a
+// derived verse says which parts of its text it is (`EditorialText` shows them).
 
-import type { WorkFile } from "./library";
+import type { EditorialSpan, WorkFile } from "./library";
 
 /** A derived verse: a piece of a source unit cut by the pipeline. */
 export interface Part {
@@ -23,6 +27,8 @@ export interface Part {
   n: string;
   ref: string;
   text: string;
+  /** Editorial material in `text`. */
+  editorial?: EditorialSpan[];
 }
 
 export interface Unit {
@@ -32,6 +38,8 @@ export interface Unit {
   text: string;
   /** The unit's derived verses, if the pipeline split it; their texts make up `text`. */
   parts?: Part[];
+  /** Editorial material in `text` (a unit with `parts` has it on each part instead). */
+  editorial?: EditorialSpan[];
   outOfPeriod: boolean;
   /** Short all-caps line in a liturgical text: a speaker or rubric label. */
   rubric: boolean;
@@ -137,6 +145,8 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       const base = suffix.split(".").slice(0, -1);
       const baseRef = joinRef(work.ref_prefix, base.join("."));
       const part: Part = { n: derived[1], ref: joinRef(work.ref_prefix, suffix), text };
+      const marks = work.editorial?.[suffix];
+      if (marks) part.editorial = marks;
       const path = base.slice(0, -1);
       const last = current?.units[current.units.length - 1];
       if (last?.parts && previousBase === baseRef) {
@@ -173,13 +183,16 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       }
       current = open(path, null);
     }
-    current.units.push({
+    const unit: Unit = {
       n: displaySegment(last),
       ref: joinRef(work.ref_prefix, suffix),
       text,
       outOfPeriod: oop === 1,
       rubric: liturgical && isRubric(text),
-    });
+    };
+    const marks = work.editorial?.[suffix];
+    if (marks) unit.editorial = marks;
+    current.units.push(unit);
   }
 
   // Heading depth relative to the shallowest section path.

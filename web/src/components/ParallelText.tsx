@@ -9,6 +9,7 @@ import { columnRef, sectionBlocks, type Row, type Span } from "@/lib/parallel";
 import { chunkRoles, parseWork, type ChunkRole, type Section } from "@/lib/render";
 import { useHashTarget } from "@/lib/useHashTarget";
 
+import EditorialText from "./EditorialText";
 import styles from "./ParallelText.module.css";
 
 const DERIVED_TITLE =
@@ -256,7 +257,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
           <a className={styles.marker} href={`#${anchorId(p, ref)}`} aria-label={`Paragraph ${u.n}`}>
             {u.n}
           </a>
-          {u.text}
+          <EditorialText text={u.text} spans={u.editorial} />
         </p>,
       );
       i += 1;
@@ -289,7 +290,7 @@ function cellContent(p: Prepared, [start, end]: Span, leadLabel: string | null):
               >
                 {part.n}
               </a>
-              {part.text}
+              <EditorialText text={part.text} spans={part.editorial} />
             </span>
           ))}
         </p>,

@@ -243,3 +243,28 @@ describe("isDerivedRef", () => {
     expect(isDerivedRef("Aug.s1.2")).toBe(false);
   });
 });
+
+describe("editorial material", () => {
+  it("attaches each chunk's editorial spans to its unit or derived verse", () => {
+    const sections = parseWork(
+      {
+        work_id: "w",
+        ref_prefix: "CopScr",
+        editorial: { "1.1": [[4, 7, "lacuna"]], "1.2.s2": [[0, 3, "lacuna"]] },
+        chunks: [
+          ["1.1", "ⲁⲩⲱ […] ⲁϥ"],
+          ["1.2.s1", "ⲁϥⲥⲱⲧⲙ."],
+          ["1.2.s2", "[…] ⲁϥⲉⲓ."],
+          ["1.3", "ⲁⲩⲱ ⲁϥ"],
+        ],
+      },
+      "patristic",
+    );
+    const [plain, split, last] = sections[0].units;
+    expect(plain.editorial).toEqual([[4, 7, "lacuna"]]);
+    expect(split.editorial).toBeUndefined();
+    expect(split.parts?.map((p) => p.editorial)).toEqual([undefined, [[0, 3, "lacuna"]]]);
+    expect(split.text).toBe("ⲁϥⲥⲱⲧⲙ. […] ⲁϥⲉⲓ.");
+    expect(last.editorial).toBeUndefined();
+  });
+});
