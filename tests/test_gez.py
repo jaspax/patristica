@@ -26,7 +26,10 @@ def raw(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
         {"abbrev": "ApEz", "name": "Apocalypse of Ezra", "geez": "", "chapters": 2},
         {"abbrev": "TestLd", "name": "Testament of Our Lord", "geez": "ኪዳን፡", "chapters": 1},
         {"abbrev": "Gen", "name": "Genesis", "geez": "ኦሪት", "chapters": 1},
+        {"abbrev": "Ezra", "name": "Ezra", "geez": "ዕዝራ፡", "chapters": 13},
     ]), encoding="utf-8")
+    for ch in range(1, 14):
+        _chapter(chapters / "Ezra" / f"{ch}.json", [(1, f"ቃል፡ {ch}")])
     _chapter(chapters / "Kings" / "1.json", [(1, "ወእምድኅረ፡ ሞተ፡ አካአብ፡")])
     _chapter(chapters / "ApEz" / "1.json", [(1, "Chapter 1")])
     _chapter(chapters / "ApEz" / "2.json", [(1, "ወአምጽአ፡ ኢዮስያስ፡ ፋሲካ፡"), (2, "ወአቀሞሙ፡")])
@@ -42,8 +45,9 @@ def raw(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
 
 def test_renamed_and_excluded_books(raw: Path) -> None:
     works = {w.work_id: w for w in gez.ingest(raw, force=True)}
-    assert sorted(works) == ["gez/1esd", "gez/2kgs", "gez/gen"]
-    assert sorted(p.name for p in (raw / "gez").iterdir()) == ["1esd.json", "2kgs.json", "gen.json"]
+    assert sorted(works) == ["gez/1esd", "gez/2kgs", "gez/4esr", "gez/ezra", "gez/gen"]
+    assert sorted(p.name for p in (raw / "gez").iterdir()) == [
+        "1esd.json", "2kgs.json", "4esr.json", "ezra.json", "gen.json"]
 
     kgs = json.loads((raw / "gez" / "2kgs.json").read_text(encoding="utf-8"))
     assert kgs["work"]["title"] == "2 Kings (4 Kingdoms)"
@@ -54,6 +58,19 @@ def test_renamed_and_excluded_books(raw: Path) -> None:
     assert esd["work"]["title"] == "1 Esdras"
     assert [v["ref"] for v in esd["verses"]] == ["1Esd.1.1", "1Esd.1.2"]
     assert not any("Chapter" in v["text"] for v in esd["verses"])
+
+
+def test_ezra_chapters_11_to_13_are_4_ezra_12_to_14(raw: Path) -> None:
+    works = {w.work_id: w for w in gez.ingest(raw, force=True)}
+    ezra = json.loads((raw / "gez" / "ezra.json").read_text(encoding="utf-8"))
+    assert [v["ref"] for v in ezra["verses"]] == [f"Ezra.{ch}.1" for ch in range(1, 11)]
+    esr = json.loads((raw / "gez" / "4esr.json").read_text(encoding="utf-8"))
+    assert [v["ref"] for v in esr["verses"]] == ["4Esr.12.1", "4Esr.13.1", "4Esr.14.1"]
+    assert [v["text"] for v in esr["verses"]] == ["ቃል፡ 11", "ቃል፡ 12", "ቃል፡ 13"]
+    assert works["gez/4esr"].genre == "scripture"
+    assert works["gez/4esr"].date_range == (90, 120)
+    # A plain re-run skips both works and returns both.
+    assert sorted(w.work_id for w in gez.ingest(raw)) == sorted(works)
 
 
 def test_edition_is_the_edition_not_the_geez_title(raw: Path) -> None:
