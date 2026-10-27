@@ -2,8 +2,9 @@
 # Deploy the compose stack to the database host. Safe to re-run: it syncs
 # infra/compose and the API and web source, rewrites the host's .env (on the
 # data volume; it keeps the Postgres password, which is generated there once
-# and never leaves the box), installs the backup timer and runs
-# `docker compose up --build`.
+# and never leaves the box), installs the backup timer and the prewarm unit,
+# runs `docker compose up --build` and loads the search index into the page
+# cache (compose/postgres/prewarm.sh).
 #
 #   infra/deploy.sh            # host, hostnames and keys from `infra/tofu.sh output`
 #   DEPLOY_HOST=1.2.3.4 API_DOMAIN=1-2-3-4.sslip.io WEB_DOMAIN=… infra/deploy.sh   # override
@@ -108,14 +109,18 @@ VOYAGE_API_KEY=${voyage_key}"
     printf '%s\n' "$env_body" | ssh "${ssh_opts[@]}" "$remote" "$write_env"
 fi
 
-log "installing backup timer and starting the stack"
+log "installing backup timer and prewarm unit, starting the stack"
 ssh "${ssh_opts[@]}" "$remote" 'set -euo pipefail
 cd /opt/patristica/compose
-install -m 644 backup/patristica-backup.service backup/patristica-backup.timer /etc/systemd/system/
+install -m 644 backup/patristica-backup.service backup/patristica-backup.timer \
+    postgres/patristica-prewarm.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable --now patristica-backup.timer
+systemctl enable patristica-prewarm.service
 docker compose up -d --build --remove-orphans --wait
-docker image prune -f >/dev/null'
+docker image prune -f >/dev/null
+systemctl start patristica-prewarm.service \
+    || echo "deploy: prewarm failed (journalctl -u patristica-prewarm)" >&2'
 
 # Retries for about two minutes: Caddy may still be getting a certificate.
 check() {

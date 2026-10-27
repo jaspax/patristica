@@ -178,4 +178,4 @@ jobs:
         run: docker compose build web
 
       - name: shellcheck
-        run: shellcheck infra/*.sh infra/compose/backup/*.sh
+        run: shellcheck infra/*.sh infra/compose/backup/*.sh infra/compose/postgres/*.sh

@@ -25,9 +25,10 @@ services:
       - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
       - ./postgres/initdb:/docker-entrypoint-initdb.d:ro
     # A parallel index build keeps its working memory (maintenance_work_mem,
-    # 4 GB for the HNSW build: infra/README.md) in /dev/shm, so this must be
-    # larger than that (#166). It is RAM, used only while something is in it.
-    shm_size: 5g
+    # 4 GB by default for the HNSW build, at most 8 GB: infra/README.md) in
+    # /dev/shm, so this must be larger than that (#166). It is RAM, used only
+    # while something is in it.
+    shm_size: 9g
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "patristica", "-d", "patristica"]
       interval: 10s
