@@ -22,7 +22,14 @@ key on:
 - ``ApEz`` ("Apocalypse of Ezra") is 1 Esdras (Esdras A), and its chapter 1 is
   a bare "Chapter 1" heading, so its chapter N is 1 Esdras N − 1 (#76).  The
   source has no separate Ezra apocalypse: its only 4 Ezra text is chapters
-  11–13 of ``Ezra`` (4 Ezra 12–14).
+  11–13 of ``Ezra``.
+
+``_SPLIT_CHAPTERS`` moves chapters of a source book into a work of their own:
+``Ezra`` 11–13 are 4 Ezra (Ezra Sutuel) 12–14, not Ezra (11.1 "And when the
+lion had spoken these words" = 4 Ezra 12:1; 13.1–2 the voice from the bush =
+14:1–2), so they become ``gez/4esr`` with refs ``4Esr.{ch + 1}.{v}`` (#217).
+``4Esr`` is the book code of the Syriac 4 Esdras (``pta-peshitta/4esr``), whose
+chapters 3–14 are numbered like 2 Esdras 3–14, so the two are one version group.
 
 Every book's ``Work.edition`` names the edition (``EDITION``), not the book's
 Ge'ez title (#34).
@@ -87,8 +94,21 @@ _RENAMED_BOOKS: dict[str, tuple[str, int]] = {
     "Kings": ("2Kgs", 0),
     "ApEz": ("1Esd", -1),
 }
+#: Source book code → [(source chapters, OSIS book, chapter offset)]: chapters
+#: of a source book that belong to another book, and become a work of it (#217).
+_SPLIT_CHAPTERS: dict[str, list[tuple[range, str, int]]] = {
+    "Ezra": [(range(11, 14), "4Esr", 1)],
+}
 #: Titles that differ from ``BOOK_TITLE``.
-_TITLES: dict[str, str] = {"2Kgs": "2 Kings (4 Kingdoms)"}
+_TITLES: dict[str, str] = {
+    "2Kgs": "2 Kings (4 Kingdoms)",
+    "4Esr": "4 Ezra (Ezra Sutuel), chapters 12–14",
+}
+#: Dates of books that ``BOOK_DATES`` lacks.  4 Ezra is dated by its own
+#: "thirtieth year after the destruction of the city" (3:1), c. 100 CE.
+_DATES: dict[str, dict] = {
+    "4Esr": {"date_composed": 100, "date_range": (90, 120), "date_confidence": "approximate"},
+}
 EDITION = "Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible"
 #: Ethiopic punctuation: word separator, full stop, comma, semicolon, colon,
 #: preface colon, question mark, paragraph separator.
@@ -131,6 +151,8 @@ def _ensure_repo(repo_dir: Path, force: bool) -> None:
 
 def _date_meta(abbrev: str) -> dict:
     """Return date fields for a book, falling back to uncertain defaults."""
+    if abbrev in _DATES:
+        return dict(_DATES[abbrev])
     if abbrev in BOOK_DATES:
         d = BOOK_DATES[abbrev]
         return {
@@ -151,6 +173,35 @@ def _genre(abbrev: str) -> str:
     if abbrev in _LITURGICAL_BOOKS:
         return "liturgical"
     return "scripture"
+
+
+def _write_work(dest_path: Path, abbrev: str, book: dict, verses: list[dict]) -> Work:
+    """Write the raw file of book *abbrev* (OSIS) and return its Work."""
+    title: str = _TITLES.get(abbrev) or BOOK_TITLE.get(abbrev, book.get("name", abbrev))
+    dm = _date_meta(abbrev)
+    genre = _genre(abbrev)
+    work = Work(
+        work_id=f"{SOURCE_ID}/{abbrev.lower()}",
+        source_id=SOURCE_ID,
+        title=title,
+        author=None,
+        language="gez",
+        tradition="ethiopic",
+        genre=genre,
+        date_composed=dm["date_composed"],
+        date_range=dm["date_range"],
+        date_confidence=dm["date_confidence"],
+        license="cc-by-sa-4.0",
+        provenance_url="https://github.com/LPettay/ethiopian-bible",
+        edition=EDITION,
+    )
+    key = "verses" if genre == "scripture" else "paragraphs"
+    dest_path.write_text(
+        json.dumps({"work": work.model_dump(), key: verses}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    log.info("Wrote %d verses for %s → %s", len(verses), abbrev, dest_path.name)
+    return work
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
@@ -189,14 +240,14 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             if stale.exists():
                 log.info("Removing %s (now %s)", stale, abbrev)
                 stale.unlink()
-        title: str = _TITLES.get(abbrev) or BOOK_TITLE.get(abbrev, book.get("name", abbrev))
-        n_chapters: int = book.get("chapters", 0)
-
-        dest_path = dest_dir / f"{abbrev.lower()}.json"
-        if dest_path.exists() and not force:
-            log.debug("Skipping %s (already written)", dest_path)
-            raw = json.loads(dest_path.read_text(encoding="utf-8"))
-            works.append(Work(**raw["work"]))
+        splits = _SPLIT_CHAPTERS.get(source_abbrev, [])
+        targets = [abbrev] + [osis for _, osis, _ in splits]
+        dest_paths = {a: dest_dir / f"{a.lower()}.json" for a in targets}
+        if not force and all(p.exists() for p in dest_paths.values()):
+            for dest_path in dest_paths.values():
+                log.debug("Skipping %s (already written)", dest_path)
+                raw = json.loads(dest_path.read_text(encoding="utf-8"))
+                works.append(Work(**raw["work"]))
             continue
 
         book_chapters_dir = chapters_dir / source_abbrev
@@ -204,28 +255,14 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             log.warning("No chapter directory for %s — skipping", abbrev)
             continue
 
-        dm = _date_meta(abbrev)
-        genre = _genre(abbrev)
-
-        work = Work(
-            work_id=f"{SOURCE_ID}/{abbrev.lower()}",
-            source_id=SOURCE_ID,
-            title=title,
-            author=None,
-            language="gez",
-            tradition="ethiopic",
-            genre=genre,
-            date_composed=dm["date_composed"],
-            date_range=dm["date_range"],
-            date_confidence=dm["date_confidence"],
-            license="cc-by-sa-4.0",
-            provenance_url="https://github.com/LPettay/ethiopian-bible",
-            edition=EDITION,
-        )
-
-        verses: list[dict] = []
+        n_chapters: int = book.get("chapters", 0)
+        verses: dict[str, list[dict]] = {a: [] for a in targets}
         for ch in range(1, n_chapters + 1):
-            if ch + chapter_offset < 1:
+            target, offset = abbrev, chapter_offset
+            for chapters, osis, split_offset in splits:
+                if ch in chapters:
+                    target, offset = osis, split_offset
+            if ch + offset < 1:
                 continue
             ch_file = book_chapters_dir / f"{ch}.json"
             if not ch_file.exists():
@@ -245,20 +282,14 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
                 if not text:
                     continue
                 v_num = verse.get("num")
-                ref = f"{abbrev}.{ch + chapter_offset}.{v_num}"
-                verses.append({"ref": ref, "text": text})
+                ref = f"{target}.{ch + offset}.{v_num}"
+                verses[target].append({"ref": ref, "text": text})
 
-        if not verses:
-            log.warning("No verses extracted for %s", source_abbrev)
-            continue
-
-        key = "verses" if genre == "scripture" else "paragraphs"
-        dest_path.write_text(
-            json.dumps({"work": work.model_dump(), key: verses}, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        log.info("Wrote %d verses for %s → %s", len(verses), abbrev, dest_path.name)
-        works.append(work)
+        for target in targets:
+            if not verses[target]:
+                log.warning("No verses extracted for %s (%s)", source_abbrev, target)
+                continue
+            works.append(_write_work(dest_paths[target], target, book, verses[target]))
 
     return works
 
