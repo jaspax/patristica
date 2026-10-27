@@ -2,16 +2,27 @@
 Ingestor for Gallican liturgical texts.
 
 Sources (via Internet Archive OCR text):
-  GothMiss — Missale Gothicum: Neale & Forbes, "Ancient Liturgies of the
-             Gallican Church" (Pitsligo Press, 1855–67), IA item
-             AncientLiturgiesOfTheGallicanChurch.  English/Latin bilingual edition.
+  Neale & Forbes, "The Ancient Liturgies of the Gallican Church" (Pitsligo
+  Press, 1855–67), IA item AncientLiturgiesOfTheGallicanChurch: an
+  English/Latin edition in three parts, one work per missal it prints (#245):
+    Rich     — Missale Richenovense (the Mone Masses)
+    GothMiss — Missale Gothicum
+    GallNF   — Missale Gallicanum (Vetus), the text Muratori also prints
+    Vesont   — Missale Vesontionense, Neale & Forbes's name for Mabillon's
+               "Sacramentarium Gallicanum", the Bobbio Missal
   GallVet  — Missale Gallicanum Vetus: Muratori, "Codices sacramentorum
              nongentis annis vetustiores" (1680), IA item bub_gb_6rVhPJ6sHdkC.
              Latin-only scholarly edition with 18th-century long-s OCR.
 
-  NOTE: The Bobbio Missal and Stowe Missal are available on Internet Archive
-  only as facsimile (photographic) editions with no usable OCR text, so they
-  are not included here.
+  The book is cut into its missals at their title lines (``_Part.starts``):
+  the paragraph running at a title line ends there, and the new missal's
+  text continues that section under the next paragraph number. Section
+  numbers count through the whole book, so the Missale Gothicum keeps the
+  refs it had when it held the whole book.
+
+  NOTE: The Stowe Missal is available on Internet Archive only as a
+  facsimile (photographic) edition with no usable OCR text, so it is not
+  included here.
 
 License: Public domain
 Genre: liturgical  Language: lat  Tradition: latin
@@ -69,6 +80,18 @@ _HEADING_RE = re.compile(
 _SKIP_LINE_RE = re.compile(r"^\s*(\d+\s*$|[IVXivx]+\s*$|[-—–]+\s*$)")
 
 
+class _Part(NamedTuple):
+    """One missal of a book that prints several (#245)."""
+    slug: str
+    title: str
+    ms_location: str
+    date_composed: int
+    date_range: tuple[int, int]
+    ref_abbrev: str
+    #: The missal's title line; None for the book's first missal.
+    starts: re.Pattern[str] | None
+
+
 class _WorkSpec(NamedTuple):
     slug: str
     title: str
@@ -79,6 +102,24 @@ class _WorkSpec(NamedTuple):
     ia_id: str | None          # None = no usable text source available
     edition: str
     provenance_url: str
+    #: The missals of a book that prints several, in book order; empty for one work.
+    parts: tuple[_Part, ...] = ()
+
+
+#: The missals of Neale & Forbes, at their title lines in the OCR (#245).
+_NEALE_FORBES_PARTS: tuple[_Part, ...] = (
+    _Part("missale-richenovense", "Missale Richenovense (Mone Masses)",
+          "Karlsruhe, Badische Landesbibliothek, Aug. perg. 253",
+          650, (600, 700), "Rich", None),
+    _Part("missale-gothicum", "Missale Gothicum", "Vatican Reg. Lat. 317",
+          700, (650, 750), "GothMiss", re.compile(r"MISSALE\s+GOTHICUM")),
+    _Part("missale-gallicanum-vetus-neale-forbes", "Missale Gallicanum Vetus",
+          "Vatican Pal. Lat. 493", 750, (700, 800), "GallNF",
+          re.compile(r"^\s*MISSALE\s+GALLICANUM\.\s*$")),
+    _Part("missale-vesontionense", "Missale Vesontionense (Bobbio Missal)",
+          "Paris, BnF lat. 13246", 700, (650, 750), "Vesont",
+          re.compile(r"^\s*MISSALE\s+VESONTIONENSE")),
+)
 
 
 _WORKS: list[_WorkSpec] = [
@@ -89,10 +130,11 @@ _WORKS: list[_WorkSpec] = [
         date_composed=700, date_range=(650, 750),
         ref_abbrev="GothMiss",
         ia_id="AncientLiturgiesOfTheGallicanChurch",
-        # The scan holds all three parts (title pages dated 1855, 1858, 1867),
-        # and the work's text runs through all of them.
+        # The scan holds all three parts (title pages dated 1855, 1858, 1867);
+        # each missal in it is a work of its own (_NEALE_FORBES_PARTS).
         edition="ed. Neale & Forbes (Burntisland: Pitsligo Press, 1855–67)",
         provenance_url="https://archive.org/details/AncientLiturgiesOfTheGallicanChurch",
+        parts=_NEALE_FORBES_PARTS,
     ),
     _WorkSpec(
         slug="missale-gallicanum-vetus",
@@ -133,15 +175,26 @@ def _is_latin_block(text: str) -> bool:
 
 
 def _extract_paragraphs(text: str, ref_abbrev: str) -> list[dict[str, str]]:
-    """Extract prayer paragraphs from an OCR text string.
+    """Extract prayer paragraphs from an OCR text string (see ``_extract_parts``)."""
+    part = _Part("", "", "", 0, (0, 0), ref_abbrev, None)
+    return _extract_parts(text, (part,))[0]
+
+
+def _extract_parts(text: str, parts: tuple[_Part, ...]) -> list[list[dict[str, str]]]:
+    """Extract prayer paragraphs from an OCR text string, one list per part.
 
     Splits on form-feed if present (DjVu pages); otherwise treats entire
     text as a single block.  Detects prayer headings and groups following
     lines into paragraph records.  Skips English-dominant blocks.
+
+    A line matching the next part's ``starts`` ends the running paragraph;
+    the lines from there on are that part's, continuing the section under
+    the next paragraph number, without the previous part's heading.
     """
     pages = text.split("\x0c") if "\x0c" in text else [text]
 
-    paragraphs: list[dict[str, str]] = []
+    out: list[list[dict[str, str]]] = [[] for _ in parts]
+    part_i = 0
     section_n = 0
     para_n = 0
     current_heading: str | None = None
@@ -155,9 +208,10 @@ def _extract_paragraphs(text: str, ref_abbrev: str) -> list[dict[str, str]]:
         if len(body) < 15:
             return
         para_n += 1
-        ref = slugify_ref(f"GallLit.{ref_abbrev}.{section_n:04d}.{para_n:04d}")
+        abbrev = parts[part_i].ref_abbrev
+        ref = slugify_ref(f"GallLit.{abbrev}.{section_n:04d}.{para_n:04d}")
         display = f"[{current_heading}] {body}" if current_heading else body
-        paragraphs.append({"ref": ref, "text": display})
+        out[part_i].append({"ref": ref, "text": display})
 
     for page in pages:
         if not _is_latin_block(page):
@@ -166,6 +220,12 @@ def _extract_paragraphs(text: str, ref_abbrev: str) -> list[dict[str, str]]:
             line = raw_line.strip()
             if not line or _SKIP_LINE_RE.match(line):
                 continue
+            nxt = parts[part_i + 1] if part_i + 1 < len(parts) else None
+            if nxt is not None and nxt.starts is not None and nxt.starts.search(line):
+                _flush()
+                part_i += 1
+                current_heading = None
+                current_lines = []
             if _HEADING_RE.match(line):
                 _flush()
                 current_heading = line.rstrip(":").strip()
@@ -176,7 +236,10 @@ def _extract_paragraphs(text: str, ref_abbrev: str) -> list[dict[str, str]]:
                 current_lines.append(line)
 
     _flush()
-    return paragraphs
+    if part_i != len(parts) - 1:
+        raise ValueError(f"only {part_i + 1} of {len(parts)} parts found: "
+                         f"no title line for {parts[part_i + 1].slug!r}")
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -191,13 +254,13 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
     works: list[Work] = []
     for spec in tqdm(_WORKS, desc="Gallican manuscripts"):
-        out_path = out_dir / f"{spec.slug}.json"
-        if out_path.exists() and not force:
-            try:
-                works.append(Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"]))
-                continue
-            except Exception:
-                pass
+        parts = spec.parts or (_Part(spec.slug, spec.title, spec.ms_location, spec.date_composed,
+                                     spec.date_range, spec.ref_abbrev, None),)
+        out_paths = [out_dir / f"{part.slug}.json" for part in parts]
+        if not force and all(p.exists() for p in out_paths):
+            works.extend(Work(**json.loads(p.read_text(encoding="utf-8"))["work"])
+                         for p in out_paths)
+            continue
 
         if spec.ia_id is None:
             log.info("No text source for %s — skipping", spec.slug)
@@ -211,34 +274,33 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         text = djvu_path.read_text(encoding="utf-8", errors="replace")
         log.info("Loaded %d chars for %s from IA %s", len(text), spec.slug, spec.ia_id)
 
-        paragraphs = _extract_paragraphs(text, spec.ref_abbrev)
-        if not paragraphs:
-            log.warning("No paragraphs extracted for %s", spec.slug)
-            continue
-
-        work = Work(
-            work_id=f"gallican/{spec.slug}",
-            source_id=SOURCE_ID,
-            author=None,
-            title=spec.title,
-            date_composed=spec.date_composed,
-            date_range=spec.date_range,
-            date_confidence="approximate",
-            genre="liturgical",
-            language="lat",
-            tradition="latin",
-            license="public_domain",
-            provenance_url=spec.provenance_url,
-            edition=f"{spec.edition}; MS: {spec.ms_location}",
-            translation_of=None,
-        )
-
-        out_path.write_text(
-            json.dumps({"work": work.model_dump(), "paragraphs": paragraphs}, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        log.info("Wrote %s (%d paragraphs)", out_path, len(paragraphs))
-        works.append(work)
+        for part, out_path, paragraphs in zip(parts, out_paths, _extract_parts(text, parts)):
+            if not paragraphs:
+                log.error("No paragraphs extracted for %s", part.slug)
+                continue
+            work = Work(
+                work_id=f"gallican/{part.slug}",
+                source_id=SOURCE_ID,
+                author=None,
+                title=part.title,
+                date_composed=part.date_composed,
+                date_range=part.date_range,
+                date_confidence="approximate",
+                genre="liturgical",
+                language="lat",
+                tradition="latin",
+                license="public_domain",
+                provenance_url=spec.provenance_url,
+                edition=f"{spec.edition}; MS: {part.ms_location}",
+                translation_of=None,
+            )
+            out_path.write_text(
+                json.dumps({"work": work.model_dump(), "paragraphs": paragraphs},
+                           ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            log.info("Wrote %s (%d paragraphs)", out_path, len(paragraphs))
+            works.append(work)
 
     log.info("Gallican ingestion complete: %d works", len(works))
     return works

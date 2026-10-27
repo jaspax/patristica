@@ -620,3 +620,27 @@ class TestGallicanHeadings:
                       "Missa Dominicaii.”— Mab.  quo  ait  Salvator",  # footnote
                       "missa non  reddere.  Ne  dederis  os  tuum  ut"):  # prose
             assert not _HEADING_RE.match(noise), noise
+
+    def test_neale_forbes_is_cut_at_each_missal_title(self):
+        """One work per missal; the section running at a title line continues in the next missal (#245)."""
+        import re
+
+        import pytest
+
+        from scripts.ingest.gallican import _extract_parts, _Part
+
+        parts = (
+            _Part("a", "A", "", 0, (0, 0), "A", None),
+            _Part("b", "B", "", 0, (0, 0), "B", re.compile(r"MISSALE\s+GOTHICUM")),
+        )
+        text = "\n".join([
+            "COLLECTIO  prima.", "Deus qui nobis dominus sanctus per omnia",
+            "* m. 1 88 *MISSALE  GOTHICUM", "Grata tibi sit domine nobis per dominum",
+            "COLLECTIO  altera.", "Deus omnipotens dominus nobis sancti spiritus",
+        ])
+        a, b = _extract_parts(text, parts)
+        assert [p["ref"] for p in a] == ["GallLit.A.0001.0001"]
+        assert [p["ref"] for p in b] == ["GallLit.B.0001.0002", "GallLit.B.0002.0001"]
+        assert b[0]["text"].startswith("* m. 1 88 *MISSALE GOTHICUM")  # no heading of part A
+        with pytest.raises(ValueError, match="no title line"):
+            _extract_parts(text.replace("GOTHICUM", "X"), parts)
