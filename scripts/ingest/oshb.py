@@ -37,6 +37,7 @@ _OSIS = f"{{{_OSIS_NS}}}"
 # morphhb marks morpheme boundaries (prefix/stem/suffix) inside <w> text with
 # "/", e.g. "בְּ/רֵאשִׁ֖ית".  The WLC text itself never contains a slash.
 _MORPHEME_SEPARATOR = "/"
+_MAQQEF = "\u05be"
 
 
 def _word_text(w_el: etree._Element) -> str:
@@ -49,6 +50,31 @@ def _word_text(w_el: etree._Element) -> str:
     return "".join(w_el.itertext()).replace(_MORPHEME_SEPARATOR, "").strip()
 
 
+def _is_ketiv(el: etree._Element) -> bool:
+    """True for a ketiv word or the maqqef joining two ketiv words.
+
+    morphhb marks the written-but-not-read consonants as ``<w type="x-ketiv">``
+    and a maqqef inside a multi-word ketiv as ``<seg type="x-maqqef"
+    subType="x-ketiv">`` (1 Kgs 17:15).
+    """
+    return el.get("type") == "x-ketiv" or el.get("subType") == "x-ketiv"
+
+
+def _qere_children(note: etree._Element) -> list[etree._Element] | None:
+    """Return the words and segs of a ketiv/qere note's qere, else None.
+
+    ``None`` means *note* is not a qere note (an editorial note, an accent
+    alternative, …).  An empty list is a ketiv without qere (*ketiv we-lo
+    qere*, e.g. 2 Kgs 5:18 ``נא``): the ketiv is written but not read.
+    """
+    if note.get("type") != "variant":
+        return None
+    rdgs = [r for r in note if etree.QName(r.tag).localname == "rdg" and r.get("type") == "x-qere"]
+    if not rdgs:
+        return None
+    return [child for rdg in rdgs for child in rdg]
+
+
 def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
     """Return list of (osisID, verse_text) from a morphhb OSIS XML book file.
 
@@ -57,9 +83,18 @@ def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
     separators, handling maqqef connectors and discarding verse-end markers
     (sof-pasuq).
 
+    The running text is the text as read (#55): every ketiv (``<w
+    type="x-ketiv">``, bare consonants) is replaced by the pointed qere of the
+    ``<note type="variant"><rdg type="x-qere">`` that follows it.  A qere with no
+    ketiv (*qere we-lo ketiv*, 2 Sam 8:3 ``פְּרָֽת``) is read in place, and a ketiv
+    with an empty qere (*ketiv we-lo qere*) is left out, together with a maqqef
+    that bound it to the word before.  The ketiv itself is not kept: the raw
+    format has no place for editorial readings yet (#236).  Qere perpetuum
+    (the divine name) has no markup and stays as the WLC points it.
+
     A maqqef (``־``) binds the words on both sides into one prosodic word, so
     it is written with no space on either side: ``עַל־הָאָ֖רֶץ``.  Elements
-    skipped from the running text (``<note>``, e.g. a ketiv/qere note) do not
+    skipped from the running text (a ketiv, an editorial ``<note>``) do not
     break the binding.  Paseq (``׀``) stays a separate, space-delimited token.
     """
     root = etree.fromstring(xml_bytes)
@@ -72,32 +107,45 @@ def _parse_oshb_xml(xml_bytes: bytes) -> list[tuple[str, str]]:
 
         tokens: list[str] = []
         after_maqqef = False  # the next token attaches to tokens[-1]
-        for child in verse_el:
-            local = etree.QName(child.tag).localname
+
+        def add(el: etree._Element) -> None:
+            nonlocal after_maqqef
+            local = etree.QName(el.tag).localname
             token = ""
             is_maqqef = False
 
             if local == "w":
-                token = _word_text(child)
-
+                token = _word_text(el)
             elif local == "seg":
-                seg_type = child.get("type", "")
-                seg_text = (child.text or "").strip()
-
-                if seg_type == "x-sof-pasuq":
-                    pass  # omit end-of-verse marker from stored text
-                else:
-                    token = seg_text
+                seg_type = el.get("type", "")
+                if seg_type != "x-sof-pasuq":  # omit end-of-verse marker
+                    token = (el.text or "").strip()
                     is_maqqef = seg_type == "x-maqqef"
 
-            # <note>, <hi>, other elements: skip (a maqqef binds across them)
             if not token:
-                continue
+                return
             if (is_maqqef or after_maqqef) and tokens:
                 tokens[-1] += token
             else:
                 tokens.append(token)
             after_maqqef = is_maqqef
+
+        for child in verse_el:
+            if _is_ketiv(child):
+                continue  # replaced by the qere of the note that follows
+            if etree.QName(child.tag).localname == "note":
+                qere = _qere_children(child)
+                if qere is None:
+                    continue  # editorial note: skipped (a maqqef binds across it)
+                if not qere and after_maqqef and tokens:
+                    # ketiv we-lo qere after a maqqef: nothing is read, so the
+                    # maqqef binds nothing.
+                    tokens[-1] = tokens[-1].removesuffix(_MAQQEF)
+                    after_maqqef = False
+                for el in qere:
+                    add(el)
+                continue
+            add(child)
 
         text = " ".join(tokens)
         if text:
