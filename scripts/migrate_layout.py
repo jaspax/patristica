@@ -110,6 +110,9 @@ SOURCE_IDS: dict[str, str] = {
     "councils/ecumenical": "ecumenical",
 }
 
+# Sources added after #102: they were never in the old layout, so nothing maps to them.
+NEW_SOURCES: frozenset[str] = frozenset({"csel"})
+
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
 # ``patristic/oglt_pl``.  When two old directories map to one new directory,

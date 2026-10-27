@@ -11,10 +11,10 @@ stored: they are the connected components of the graph whose edges are
 2. **Scripture books**: works of a Scripture source (``versification.SOURCE_SCHEMES``)
    whose book is the same, i.e. whose local id is the same OSIS book
    (``kjv/gen``, ``oshb/gen``, ``lxx-rahlfs/gen``), whatever their genre,
-3. **CTS work ids**: works of the CTS sources (``first1k``, ``perseus``, ``pta``,
-   ids ``{source}/{textgroup}/{work}/{edition}``) with the same
-   ``{textgroup}/{work}``.  First1KGreek and Perseus share one CTS namespace
-   (``tlg``/``stoa``/``ogl``); PTA numbers its own (``pta``), so PTA ids are
+3. **CTS work ids**: works of the CTS sources (``csel``, ``first1k``, ``perseus``,
+   ``pta``, ids ``{source}/{textgroup}/{work}/{edition}``) with the same
+   ``{textgroup}/{work}``.  First1KGreek, Perseus and OGL's CSEL share one CTS
+   namespace (``tlg``/``stoa``/``ogl``); PTA numbers its own (``pta``), so PTA ids are
    compared only with PTA ids here; PTA reaches the other two through
 4. the **identifier crosswalk**: works that share a catalogue identifier
    (``CROSSWALK_KINDS``: TLG, CPG, BHG) are one work.  Identifiers come from
@@ -78,7 +78,7 @@ from patristica.versification import SOURCE_SCHEMES
 LINKS_PATH = Path(__file__).parent / "data" / "version_links.csv"
 RELATIONS: tuple[str, ...] = ("translation_of", "same_work", "different_edition")
 #: Sources whose work ids are ``{source}/{textgroup}/{work}/{edition}`` CTS URNs.
-CTS_SOURCES: frozenset[str] = frozenset({"first1k", "perseus", "pta"})
+CTS_SOURCES: frozenset[str] = frozenset({"csel", "first1k", "perseus", "pta"})
 #: Sources whose works are one Scripture book each, with the OSIS book (lower case) as local id.
 SCRIPTURE_SOURCES: frozenset[str] = frozenset(SOURCE_SCHEMES)
 
@@ -142,7 +142,7 @@ def scripture_book(work_id: str) -> str | None:
 def cts_work(work_id: str) -> str | None:
     """The CTS ``{textgroup}/{work}`` of a CTS-source work, else None.
 
-    ``first1k`` and ``perseus`` share a namespace, so their keys are bare;
+    ``csel``, ``first1k`` and ``perseus`` share a namespace, so their keys are bare;
     ``pta`` keys are prefixed, since PTA numbers its own text groups.
     """
     parts = work_id.split("/")

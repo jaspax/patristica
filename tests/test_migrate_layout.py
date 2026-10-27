@@ -51,11 +51,12 @@ def test_ingestor_source_id_is_a_bare_slug(module: str) -> None:
     source_id = importlib.import_module(module).SOURCE_ID
     assert "/" not in source_id
     assert _source_id_to_module(source_id) == module
-    assert source_id in ml.SOURCE_IDS.values()
+    assert source_id in ml.SOURCE_IDS.values() or source_id in ml.NEW_SOURCES
 
 
 def test_mapping_covers_every_labelled_source() -> None:
-    assert set(SOURCE_LABELS) <= set(ml.SOURCE_IDS.values())
+    assert set(SOURCE_LABELS) <= set(ml.SOURCE_IDS.values()) | ml.NEW_SOURCES
+    assert not ml.NEW_SOURCES & set(ml.SOURCE_IDS.values())
 
 
 # ---------------------------------------------------------------------------
