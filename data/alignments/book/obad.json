@@ -3,15 +3,15 @@
  "group": "book:obad",
  "pivot": "asv/obad",
  "groups": 21,
- "inputs": "36ad0ba3658034ad",
- "run": {"aligner": 2, "date": "2026-10-25", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "54b2ef3e30840772",
+ "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/obad", "units": 21, "ids": "3cfbce09d77e64fc", "inputs": "537e3c917a6f6af5", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "asv/obad", "units": 21, "ids": "10117c24311b7698", "inputs": "998b6b461df647f6", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "clementine/obad", "units": 21, "ids": "f104d2b335918aba", "inputs": "d76d855e3efcc8c1", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "coptic-nt/obad", "units": 18, "ids": "699794881d3aed59", "inputs": "e27fbdb2a35597b5", "spans": "++++++++++++++++++", "conf": "999999999999999999"},
   {"work_id": "kjv/obad", "units": 21, "ids": "a88767a9ec3c7630", "inputs": "69336a5e2bba7497", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
-  {"work_id": "oshb/obad", "units": 21, "ids": "ee68335ab7299ca2", "inputs": "069a4284d4cfb04b", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
+  {"work_id": "oshb/obad", "units": 21, "ids": "ee68335ab7299ca2", "inputs": "45d384387747d079", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "pta-lxx/obad", "units": 21, "ids": "19f7039ca66169b6", "inputs": "d0f0c3534031fa04", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "pta-peshitta/obad", "units": 21, "ids": "b56823cfd88f79c2", "inputs": "c66cd4addffefb97", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"},
   {"work_id": "web/obad", "units": 21, "ids": "4958bfa4cdb61c25", "inputs": "c3e0b48708e5cc8c", "spans": "+++++++++++++++++++++", "conf": "999999999999999999999"}
