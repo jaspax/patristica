@@ -2139,7 +2139,8 @@
   "first1k/tlg1626/tlg001/1st1K-grc1": {
    "members": [
     "anf-works/polycrates-of-ephesus-epistle",
-    "first1k/tlg1626/tlg001/1st1K-grc1"
+    "first1k/tlg1626/tlg001/1st1K-grc1",
+    "ogpg/vol-005/polycrates"
    ]
   },
   "first1k/tlg1701/tlg001/1st1K-grc1": {
@@ -3061,6 +3062,24 @@
     "ogpg/vol-002/testamenta-xii-patriarcharum"
    ]
   },
+  "ogpg/vol-005/aristo-pellaeus": {
+   "members": [
+    "anf-works/aristo-of-pella-fragments",
+    "ogpg/vol-005/aristo-pellaeus"
+   ]
+  },
+  "ogpg/vol-005/claudius-apollinaris": {
+   "members": [
+    "anf-works/claudius-apollinaris-fragments",
+    "ogpg/vol-005/claudius-apollinaris"
+   ]
+  },
+  "ogpg/vol-005/hegesippus": {
+   "members": [
+    "anf-works/hegesippus-fragments",
+    "ogpg/vol-005/hegesippus"
+   ]
+  },
   "ogpg/vol-005/martyrium-ignatii": {
    "members": [
     "anf-works/martyrdom-of-ignatius",
@@ -3073,10 +3092,40 @@
     "ogpg/vol-005/melito-fragmenta"
    ]
   },
+  "ogpg/vol-005/pantaenus": {
+   "members": [
+    "anf-works/pantaenus-fragments",
+    "ogpg/vol-005/pantaenus"
+   ]
+  },
   "ogpg/vol-005/papias-fragmenta": {
    "members": [
     "anf-works/papias-fragments",
     "ogpg/vol-005/papias-fragmenta"
+   ]
+  },
+  "ogpg/vol-005/quadratus-fragmentum": {
+   "members": [
+    "anf-works/quadratus-apology-fragment",
+    "ogpg/vol-005/quadratus-fragmentum"
+   ]
+  },
+  "ogpg/vol-005/rhodon": {
+   "members": [
+    "anf-works/rhodon-fragments",
+    "ogpg/vol-005/rhodon"
+   ]
+  },
+  "ogpg/vol-005/serapion-antiochenus": {
+   "members": [
+    "anf-works/serapion-of-antioch-fragments",
+    "ogpg/vol-005/serapion-antiochenus"
+   ]
+  },
+  "ogpg/vol-005/theophilus-caesariensis": {
+   "members": [
+    "anf-works/theophilus-of-caesarea-fragment",
+    "ogpg/vol-005/theophilus-caesariensis"
    ]
   },
   "ogpg/vol-006/cohortatio-ad-graecos": {
@@ -3122,6 +3171,24 @@
     "ogpg/vol-008/stromata-1-4",
     "ogpg/vol-009/stromata-5-8",
     "perseus/tlg0555/tlg004/perseus-grc2"
+   ]
+  },
+  "ogpg/vol-010/alexander-hierosolymitanus": {
+   "members": [
+    "anf-works/alexander-of-jerusalem-epistles",
+    "ogpg/vol-010/alexander-hierosolymitanus"
+   ]
+  },
+  "ogpg/vol-010/anatolius-arithmetica": {
+   "members": [
+    "anf-works/anatolius-arithmetic",
+    "ogpg/vol-010/anatolius-arithmetica"
+   ]
+  },
+  "ogpg/vol-010/anatolius-de-pascha": {
+   "members": [
+    "anf-works/anatolius-paschal-canon",
+    "ogpg/vol-010/anatolius-de-pascha"
    ]
   },
   "ogpg/vol-010/de-apostolis": {
@@ -3180,6 +3247,12 @@
     "ogpg/vol-010/pamphilus-expositio"
    ]
   },
+  "ogpg/vol-010/pierius": {
+   "members": [
+    "anf-works/pierius-fragment",
+    "ogpg/vol-010/pierius"
+   ]
+  },
   "ogpg/vol-010/thaumaturgus-epistula-canonica": {
    "members": [
     "anf-works/gregory-thaumaturgus-canonical-epistle",
@@ -3203,6 +3276,12 @@
    "members": [
     "anf-works/gregory-thaumaturgus-panegyric-to-origen",
     "ogpg/vol-010/thaumaturgus-panegyricus"
+   ]
+  },
+  "ogpg/vol-010/theognostus": {
+   "members": [
+    "anf-works/theognostus-hypotyposes",
+    "ogpg/vol-010/theognostus"
    ]
   },
   "ogpg/vol-011/africanus-epistula-ad-originem": {
