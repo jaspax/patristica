@@ -2,12 +2,13 @@
  "format": 1,
  "group": "wikisource-canons/ancyra",
  "pivot": "ecumenical/ancyra",
- "groups": 64,
- "inputs": "72cb1ebdc1d1e9bd",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 79,
+ "inputs": "645c7ca46e588f55",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ecumenical/ancyra", "units": 272, "ids": "0d59dd35ea1efd31", "inputs": "f2c8c816d514561a", "spans": "++.+=+++===....+===+..........+++=+++.........+=+.....++++.......+++++=.....++........+=....+++.....+====..+=====....+==.....+==...+==....+=...........++.........+++.....++++++........+===................+++......+==.....++..............++....+==.....+.+==.++....++.......", "conf": "9999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/dionysius-exiguus/pl67_3_con", "units": 73, "ids": "95c76aac63287741", "inputs": "fca4bb2af069293f", "spans": "++=+++++++=++++=++=++=++++=+++++++++++=++++++++++2++=+++++=+++..++++++2++++", "conf": "99999999999999999999999999999999999999999999999999999998999999"},
-  {"work_id": "wikisource-canons/ancyra", "units": 84, "ids": "360ded6687e0328a", "inputs": "478b37b075269063", "spans": ".+3++.+2+.++++++.++.++++.+++++.++.+.+++.++=.+.+.+.+2+.++++++=+++.+.+++.+.+2.++.+.+.+2+.++", "conf": "7999999999899999999999989999999999999999999999999999999998"}
+  {"work_id": "ecumenical/ancyra", "units": 272, "ids": "0d59dd35ea1efd31", "inputs": "f2c8c816d514561a", "spans": "++.+=+++===....+===+..........+++=++++=.....+==++.....++++.......+++++==....+++==.....+=+=..+++.....+==+===+=====+==.+==.....+=====+==....+=.......+...++=++......++=++...++++++.+......+===................++++.....+==.+=..+++=............++....+==.....++===.+++...++.......", "conf": "9999999999999999999999999999999899999999999999999999999999899998999989999999899"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_11_co-ancyra", "units": 91, "ids": "e823037a6c82e6a1", "inputs": "0f2e14fa39bf8b09", "spans": "+++=+++++.++=+++=++++++++++=++++=+++++++++++++=+=++2+2++++2+.+++=+++++=+=++++=+.+2++++++=+=++++", "conf": "989999999999999999999999999999989999999999999999999999989999899989999999899"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_3_con", "units": 73, "ids": "95c76aac63287741", "inputs": "fca4bb2af069293f", "spans": "++=+++++++=++++=++2+++=++++=+++++++2+2++++++2++++2++3++3++=++++2+=+++2..+2++2+++2+++2+", "conf": "9999999999999999999999999999999999999999999999999999999998999999"},
+  {"work_id": "wikisource-canons/ancyra", "units": 84, "ids": "360ded6687e0328a", "inputs": "478b37b075269063", "spans": ".+3++.+2+.++++++.+3+.++++.+++++.++.+2.+2++.+2+=.+2.+.+.+3+.+3+=+3++=+++.+2.+++.+2.+3.+2+.+.+.+2+.+2+", "conf": "799999999989999999999998999999999999999999999999999999998"}
  ]
 }
