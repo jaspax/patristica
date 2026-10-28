@@ -7,12 +7,17 @@ License: CC-BY 4.0 for the TEI ("The Syriac base text is in the public domain. T
          edition is copyrighted by James E. Walters and is released under a Creative Commons
          Attribution 4.0 International Public License")
 
-Only the texts in :data:`WORKS` are ingested: the originals of English works in
-the corpus (#79).  Most come from editions in the public domain (Parisot
+The works are :data:`WORKS` (the originals of English works in the corpus,
+#79) and the rows of ``scripts/ingest/data/dsc_works.csv`` (the rest of the
+corpus, #322: one row per work, grouped by DSC's series).  Left out: the
+Peshitta New Testament (covered by ``pta-peshitta``) and the authors after the
+collection period (Dionysius bar Salibi, Bar Hebraeus, Timothy II).  Most of the
+#79 texts come from editions in the public domain (Parisot
 1894–1907, Phillips 1876, Cureton 1855, Wright–McLean 1898).  Ephrem's hymns
 and Bardaisan are transcribed from Beck's CSCO volumes (1959–63) and Drijvers
-(1965); they are taken under the corpus's CC BY 4.0, which states that the
-Syriac base text is in the public domain (a decision recorded on #79).  Most
+(1965); they, and the other modern editions in the CSV, are taken under the
+corpus's CC BY 4.0, which states that the Syriac base text is in the public
+domain (a decision recorded on #79).  Most
 files are ``uncorrectedTranscription``.
 
 A work may join several files: Aphrahat's 23 demonstrations and the letter
@@ -37,6 +42,7 @@ Text and refs
 
 from __future__ import annotations
 
+import csv
 import json
 import logging
 import re
@@ -56,6 +62,7 @@ SOURCE_ID = "dsc"
 _REPO_URL = "https://github.com/srophe/syriac-corpus.git"
 _TEI = "http://www.tei-c.org/ns/1.0"
 _NS = {"t": _TEI}
+_XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
 _XML_PARSER = etree.XMLParser(load_dtd=False, no_network=True, resolve_entities=False)
 _SKIP = frozenset({"note", "head", "fw", "figure"})
 
@@ -72,10 +79,36 @@ class DscWork:
     files: tuple[tuple[int, str], ...]  # (DSC id, ref prefix)
     title: str
     author: str | None
-    date_composed: int
-    date_range: tuple[int, int]
+    date_composed: int | None
+    date_range: tuple[int, int] | None
     date_confidence: str
     edition: str
+    genre: str = "patristic"
+
+
+_WORKS_CSV = Path(__file__).parent / "data" / "dsc_works.csv"
+
+
+def load_csv_works(path: Path = _WORKS_CSV) -> tuple[DscWork, ...]:
+    """The works of ``data/dsc_works.csv`` (#322): the rest of the corpus, one row per work.
+
+    A row's ``ids`` are its DSC files in order; with several, file *k* gets the
+    ref prefix ``{prefix}.{k}``.  Blank dates leave the work to its author's.
+    """
+    with path.open(encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(line for line in f if not line.startswith("#")))
+    works = []
+    for r in rows:
+        ids = [int(x) for x in r["ids"].split()]
+        files = ((ids[0], r["prefix"]),) if len(ids) == 1 else \
+            tuple((n, f"{r['prefix']}.{k}") for k, n in enumerate(ids, 1))
+        start, end = r["date_start"].strip(), r["date_end"].strip()
+        works.append(DscWork(
+            r["slug"], files, r["title"], r["author"] or None,
+            int(r["date_composed"]) if r["date_composed"].strip() else None,
+            (int(start), int(end)) if start else None, r["date_confidence"], r["edition"],
+            r["genre"]))
+    return tuple(works)
 
 
 WORKS: tuple[DscWork, ...] = (
@@ -165,6 +198,9 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
     if body is None:
         raise ValueError(f"{path.name}: no body")
     has_sections = body.find(".//t:div[@type='section']", _NS) is not None
+    # Several titles: parts (Titus's four books, Balai's poems) whose sections restart.
+    in_parts = len(body.findall(".//t:div[@type='title']", _NS)) > 1
+    part = 0
     records: list[dict[str, str]] = []
     counters: dict[str, int] = {}
     books_seen: set[str] = set()
@@ -179,11 +215,16 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
         return f"{prefix}.{kind}.{counters[kind]}"
 
     def walk(el: etree._Element, section: str | None, kind: str | None) -> None:
-        nonlocal page
+        nonlocal page, part
         for child in el:
             if not isinstance(child.tag, str):
                 continue
             tag = etree.QName(child).localname
+            if (child.get(_XML_LANG) or "").startswith("en") and not (
+                    tag == "div" and child.get("type") == "title"):
+                continue  # an English translation, note or apparatus in the file
+            if "footnote" in (child.get("rend") or ""):
+                continue
             if tag == "pb":
                 page = child.get("n") or page
             elif tag == "div":
@@ -195,8 +236,13 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
                                  child.get("n"))
                         continue
                     books_seen.add(whole)
+                base = f"{prefix}.{part}" if in_parts and part else prefix
                 if dtype == "section" and child.get("n"):
-                    walk(child, _section_ref(prefix, child.get("n")), None)
+                    walk(child, _section_ref(base, child.get("n")), None)
+                elif dtype == "title" and in_parts:  # each title starts a part
+                    part += 1
+                    add(f"{prefix}.{part}", " ".join(_text(x) for x in child
+                                                     if isinstance(x.tag, str)))
                 elif dtype == "title":
                     add(prefix, " ".join(_text(x) for x in child if isinstance(x.tag, str)))
                 elif dtype in ("toc", "rubric", "melody", "response", "superscript"):
@@ -232,7 +278,7 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
 
 
 def _number_repeats(records: list[dict[str, str]]) -> list[dict[str, str]]:
-    """Join units that share a ref into one (a page or a section's paragraphs)."""
+    """Join units that share a ref in a row (a page, a section); letter later repeats (184b)."""
     merged: list[dict[str, str]] = []
     for r in records:
         if merged and merged[-1]["ref"] == r["ref"]:
@@ -240,11 +286,17 @@ def _number_repeats(records: list[dict[str, str]]) -> list[dict[str, str]]:
         else:
             merged.append(r)
     seen: set[str] = set()
-    for r in merged:
-        if r["ref"] in seen:
-            raise ValueError(f"ref {r['ref']} occurs twice, not in a row")
-        seen.add(r["ref"])
-    return merged
+    out: list[dict[str, str]] = []
+    for r in merged:  # a number used again later (a second series of sections): 184b, 184c
+        ref, letter = r["ref"], ord("b")
+        while ref in seen:
+            ref = f"{r['ref']}{chr(letter)}"
+            letter += 1
+        if ref != r["ref"]:
+            log.info("ref %s repeats; renamed %s", r["ref"], ref)
+        seen.add(ref)
+        out.append({**r, "ref": ref})
+    return out
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
@@ -253,7 +305,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     _ensure_repo(repo_dir, force)
     tei = repo_dir / "data" / "tei"
     works: list[Work] = []
-    for spec in WORKS:
+    for spec in WORKS + load_csv_works():
         out_path = output_dir / SOURCE_ID / f"{spec.slug}.json"
         if out_path.exists() and not force:
             works.append(Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"]))
@@ -270,7 +322,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             date_composed=spec.date_composed,
             date_range=spec.date_range,
             date_confidence=spec.date_confidence,  # type: ignore[arg-type]
-            genre="patristic",
+            genre=spec.genre,  # type: ignore[arg-type]
             language="syc",
             tradition="syriac",
             license="cc-by-4.0",

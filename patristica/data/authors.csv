@@ -1,6 +1,7 @@
 # Author index (#82): one row per person; see patristica/authors.py for the columns and date syntax.
 # Dates: 354 = established, c. 347 = approximate, 350? = uncertain, 340/345 = range. Aliases and external ids are |-separated.
 author_id,name,aliases,birth,death,floruit,tradition,external_ids,pseudo_of,note
+abraham-of-nathpar,Abraham of Nathpar,,,,600/650,syriac,,,East Syriac monastic writer
 acacius-of-beroea,Acacius of Beroea,Acacius Beroeensis,c. 322,437,,greek,,,
 acacius-of-melitene,Acacius of Melitene,Acacius Melitenensis,,c. 438,431/438,greek,,,
 adomnan-of-iona,Adomnán of Iona,"Adamnan, Saint|Adamnanus|Adomnanus",c. 628,704,,latin,,,
@@ -34,6 +35,7 @@ andrew-of-samosata,Andrew of Samosata,Andreas Samosatenus,,c. 444,430/444,greek,
 anonymous-of-cyzicus,Anonymous of Cyzicus (Gelasius of Cyzicus),Anonymus of Cyzicus|Anonymus Cyzicenus|Gelasius of Cyzicus|Gelasius Cyzicenus,,,c. 475/480,greek,tlg2768|pta0036,,"Author of the Church History once ascribed to ""Gelasius of Cyzicus"""
 antiochus-of-saba,Antiochus of Saba,Antiochus Monachus|Antiochus Strategos,,,614/630,greek,,,
 antipater-of-bostra,Antipater of Bostra,Antipater Bostrensis,,,450/460,greek,,,
+anton-of-tagrit,Anton of Tagrit,Antony of Tagrit|Anton the Rhetor,,,825/850,syriac,,,
 aphrahat,Aphrahat,Aphrahat the Persian Sage|Aphraates,c. 270,c. 345,,syriac,,,
 apollinaris-of-laodicea,Apollinaris of Laodicea,Apollinaris Laodicenus|Apollinarius of Laodicea,c. 310,c. 390,,greek,,,
 apollonius-the-anti-montanist,Apollonius the Anti-Montanist,Apollonius (anti-Montanist)|Apollonius of Ephesus,,,c. 197/210,greek,,,
@@ -60,7 +62,9 @@ autbert-of-cambrai,Autbert of Cambrai,Autbertus Cameracensis,,669,633/669,latin,
 avitus-of-braga,Avitus of Braga,Avitus Bracarensis,,,415/416,latin,,,
 avitus-of-vienne,Avitus of Vienne,Avitus Viennensis,c. 450,518,,latin,,,
 bachiarius,Bachiarius,,,,380/410?,latin,,,
+balai,Balai,Balai of Balsh|Balaeus,,,410/450,syriac,,,Chorepiscopus near Aleppo
 bardaisan,Bardaisan of Edessa,Bardesanes,154,222,,syriac,,,
+barlaha,Barlaha,,,,,syriac,,,Writer of a letter on the translation of relics (Digital Syriac Corpus); date unknown
 barnabas-the-apostle,Barnabas the Apostle,,,,c. 30/60,greek,,,Named in pseudonymous works only (see pseudo-barnabas)
 barsanuphius,Barsanuphius of Gaza,Barsanuphius,,c. 543,520/540,greek,,,
 bartholomew-of-edessa,Bartholomew of Edessa,Bartholomaeus Edessenus,,,850/1250?,greek,,,Date disputed (9th–13th century)
@@ -226,8 +230,10 @@ hydatius,Hydatius,Hydatius Lemicensis|Idatius,c. 400,c. 469,,latin,,,
 ignatius-of-antioch,Ignatius of Antioch,Ignatius Antiochenus,,c. 108/140,c. 105/115,greek,tlg1443,,
 ignatius-the-deacon,Ignatius the Deacon,Ignatius Diaconus,c. 775?,c. 850,800/847,greek,,,
 irenaeus-of-lyon,Irenaeus of Lyon,"Irenaeus of Lyons|Irenaeus, Saint, Bishop of Lyon|Irenaeus Lugdunensis",c. 130,c. 202,,greek,tlg1447,,
+isaac-of-antioch,Isaac of Antioch,Isaac Antiochenus,,c. 460,430/460,syriac,,,
 isaac-of-nineveh,Isaac of Nineveh,Isaac the Syrian|Isaac Syrus,c. 613,c. 700,,syriac,,,
 isaiah-the-abbot,Isaiah the Abbot,Isaias Abbas|Isaiah of Scetis,,489/491,450/489,greek,,,
+ishoyahb-iii-of-adiabene,Ishoʿyahb III of Adiabene,Ishoyahb III|Isho'yahb III,c. 580,659,,syriac,,,Catholicos of the Church of the East
 isidore-of-pelusium,Isidore of Pelusium,Isidorus Pelusiota,c. 360?,c. 450,390/440,greek,,,
 isidore-of-seville,Isidore of Seville,Isidorus Hispalensis,c. 560,636,,latin,,,
 jacob-of-serugh,Jacob of Serugh,Jacob of Sarug,c. 451,521,,syriac,,,
@@ -252,11 +258,14 @@ john-of-euboea,John of Euboea,Joannes Euboeensis,,,740/760,greek,,,
 john-of-jerusalem,John of Jerusalem (biographer of John of Damascus),John of Jerusalem,,,950/1050?,greek,,,
 john-of-nicaea,John of Nicaea,Joannes Nicaenus,,,750/850?,greek,,,
 john-of-scythopolis,John of Scythopolis,Joannes Scythopolitanus,,,530/550,greek,,,
+john-rufus,John Rufus,John of Maiuma|Iohannes Rufus,,,475/515,syriac,,,Bishop of Maiuma
 john-the-deacon-byzantine,John the Deacon (biographer of Joseph the Hymnographer),John the Deacon,,,886/920,greek,,,
 john-the-deacon-of-rome,John the Deacon of Rome (biographer of Gregory),Ioannes Diaconus|John Hymmonides,,c. 880,873/876,latin,,,
 john-the-deacon-roman-5th,John the Deacon (correspondent of Senarius),Ioannes Diaconus Romanus,,,490/510,latin,,,Sometimes identified with Pope John I
 john-the-monk,John the Monk (hymnographer),Joannes Monachus|John the Monk,,,700/1000?,greek,,,
+john-the-solitary,John the Solitary,John of Apamea|Iohannes Solitarius,,,430/450,syriac,,,
 john-viii-xiphilinus,John VIII Xiphilinus,Joannes Xiphilinus,c. 1010,1075,,greek,,,
+joseph-hazzaya,Joseph Hazzaya,Joseph the Seer,c. 710,,760/790,syriac,,,
 joseph-the-hymnographer,Joseph the Hymnographer,Josephus Hymnographus,c. 816,886,,greek,,,
 josephus,Flavius Josephus,Josephus,37,c. 100,,jewish,tlg0526,,
 joseppus,Joseppus,,,,380/500?,greek,,,Author of the Hypomnesticon
@@ -319,6 +328,7 @@ michael-syncellus,Michael Syncellus,Michael Syncellus Hierosolymitanus,c. 761,84
 minucius-felix,Minucius Felix,"Minucius Felix, Marcus|Marcus Minucius Felix",,,160/240?,latin,stoa0203,,
 modestus-of-jerusalem,Modestus of Jerusalem,Modestus Hierosolymitanus,,630/634,614/630,greek,,,
 montanus-of-toledo,Montanus of Toledo,Montanus Toletanus,,,522/531,latin,,,
+moses-bar-kepha,Moses bar Kepha,Moshe bar Kepha,c. 813,903,,syriac,,,
 moses-of-khoren,Moses of Khoren,Movses Khorenatsi|Moses Chorenensis,,,450/800?,armenian,,,Date disputed (5th or 8th century)
 narsai,Narsai of Nisibis,Narsai|Narses of Nisibis,c. 399,c. 502,,syriac,,,Not yet in the corpus (scripts/ingest/_patristic_meta.py)
 nazarius,Nazarius,,,,321,latin,,,Panegyrist
@@ -384,6 +394,7 @@ phileas-of-thmuis,Phileas of Thmuis,Phileas Thmuitanus,,c. 306,303/306,greek,,,
 philo-of-alexandria,Philo of Alexandria,Philo Judaeus|Philo|Philo Alexandrinus,c. -20,c. 50,,jewish,tlg0018,,
 philo-of-carpasia,Philo of Carpasia,Philo Carpasius,,,390/410,greek,,,
 philostorgius,Philostorgius,,c. 368,c. 439,,greek,tlg2058,,
+philoxenus-of-mabbug,Philoxenus of Mabbug,Philoxenos of Mabbug|Xenaias,c. 440,523,,syriac,,,
 phoebadius-of-agen,Phoebadius of Agen,Phoebadius Aginnensis,,c. 392,357/392,latin,,,
 photius,Photius of Constantinople,Photius|Photius I,c. 810/820,893,,greek,,,
 pierius-of-alexandria,Pierius of Alexandria,Pierius,,c. 309,275/309,greek,,,
@@ -470,7 +481,7 @@ pseudo-cassiodorus,Pseudo-Cassiodorus,,,,,latin,,cassiodorus,
 pseudo-celestine,Pseudo-Celestine,Pseudo-Celestinus,,,,coptic,,pope-celestine-i,
 pseudo-chromatius,Pseudo-Chromatius,,,,,latin,,chromatius-of-aquileia,
 pseudo-claudianus-mamertus,Pseudo-Claudianus Mamertus,,,,,latin,,claudianus-mamertus,
-pseudo-clement-of-rome,Pseudo-Clement of Rome,Pseudo-Clement (2 Clement)|Pseudo-Clement|Pseudo-Clemens,,,,greek,,clement-of-rome,
+pseudo-clement-of-rome,Pseudo-Clement of Rome,Pseudo-Clement (2 Clement)|Pseudo-Clement|Pseudo-Clemens|(Ps.-)Clement of Rome,,,,greek,,clement-of-rome,
 pseudo-constantine,Pseudo-Constantine,Pseudo-Constantinus,,,,latin,,constantine-the-great,
 pseudo-cyprian,Pseudo-Cyprian,Pseudo-Cyprianus,,,,latin,,cyprian-of-carthage,
 pseudo-cyril-of-alexandria,Pseudo-Cyril of Alexandria,,,,,greek,,cyril-of-alexandria,
@@ -570,6 +581,8 @@ severian-of-gabala,Severian of Gabala,Severianus Gabalensis,,c. 408,398/408,gree
 severus-of-minorca,Severus of Minorca,Severus Minoricensis,,,417/418,latin,,,
 shenoute,Shenoute of Atripe,Shenoute|Shenute|Sinuthius,c. 348,465,,coptic,,,
 sidonius-apollinaris,Sidonius Apollinaris,Gaius Sollius Sidonius Apollinaris,c. 430,c. 486,,latin,,,
+simeon-of-beth-arsham,Simeon of Beth Arsham,Simeon the Persian Debater,,c. 548,503/548,syriac,,,
+simeon-of-mart-maryam,Simeon of Mart Maryam,,,,,syriac,,,Answered Barlaha's letter (Digital Syriac Corpus); date unknown
 sisebut,Sisebut,Sisebutus,,621,612/621,latin,,,Visigothic king
 socrates-scholasticus,Socrates Scholasticus,Socrates of Constantinople,c. 380,c. 450,,greek,tlg2057,,
 sonnatius-of-reims,Sonnatius of Reims,Sonnatius Remensis,,631,613/631,latin,,,
@@ -613,6 +626,7 @@ theophilus-of-alexandria,Theophilus of Alexandria,Theophilus Alexandrinus,,412,3
 theophilus-of-antioch,Theophilus of Antioch,Theophilus|Theophilus Antiochenus,,c. 183/185,169/183,greek,tlg1725,,
 theophilus-of-caesarea,Theophilus of Caesarea,Theophilus Caesariensis,,,c. 190/200,greek,,,
 theotimus-of-tomi,Theotimus of Tomi,Theotimus Tomitanus,,,457/460,greek,,,
+thomas-of-edessa,Thomas of Edessa,,,c. 542,530/542,syriac,,,
 timothy-i-of-alexandria,Timothy I of Alexandria,Timothy of Alexandria|Timotheus Alexandrinus,,385,381/385,greek,,,
 timothy-i-of-constantinople,Timothy I of Constantinople,Timothy of Constantinople,,518,511/518,greek,,,
 timothy-iii-of-alexandria,Timothy III of Alexandria,Timotheus III Alexandrinus,,535,517/535,greek,,,
