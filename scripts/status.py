@@ -12,7 +12,8 @@ Levels:
 
 - ``fail``: tracked data doesn't match this branch's code or curated data. The
   same checks are pytest tests (``tests/test_normalize_fingerprint.py``,
-  ``tests/test_align_fingerprint.py``), so CI and the pre-push hook fail too.
+  ``tests/test_anchor_fingerprint.py``, ``tests/test_align_fingerprint.py``),
+  so CI and the pre-push hook fail too.
 - ``warn``: work is pending that CI can't do (paid steps, local data), or
   local data differs from what the tracked output was made from.
 - ``ok``.
@@ -55,6 +56,7 @@ RAW = Path("data/raw")
 TRANSLATIONS = tr.DEFAULT_DIR
 EMBEDDINGS = Path("data/embeddings")
 ALIGNMENTS = store.DEFAULT_DIR
+ANCHORS = Path("data/anchors")
 
 
 @dataclass
@@ -147,6 +149,37 @@ def ingest_drift(norm: Path = NORMALIZED) -> tuple[list[str], list[str]]:
     sources = sorted({w["source_id"] for w in nz.read_works_manifest(norm).values()})
     drift = [s for s in sources if s in recorded and recorded[s] != _stamp.ingest_code_hash(s)]
     return drift, [s for s in sources if s not in recorded]
+
+
+# ---------------------------------------------------------------------------
+# anchor
+# ---------------------------------------------------------------------------
+
+
+def anchor_rows(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS) -> list[Row]:
+    """The cut files of anchored derived verses (#304; ``scripts.anchor.check_works``).
+
+    ``fail``: a missing cut file, one whose translation's words changed, one
+    normalize hasn't applied, an orphan. ``warn``: a *frozen* cut file (its
+    original's cuts, its anchor or the method changed: re-cut only with
+    ``scripts.anchor --recut``) and cuts made on another model's vectors.
+    """
+    from scripts import anchor
+
+    states = [s for s in anchor.check_works(norm, anchors_dir) if s.status != anchor.CURRENT]
+    failing = [anchor.describe(s) for s in states if s.status in anchor.FAILING]
+    frozen = [anchor.describe(s) for s in states if s.status in anchor.FROZEN]
+    other = [anchor.describe(s) for s in states
+             if s.status not in anchor.FAILING and s.status not in anchor.FROZEN]
+    level = "fail" if failing else "warn" if frozen or other else "ok"
+    detail = (f"{len(failing)} missing or stale cut files, {len(frozen)} frozen (their "
+              f"original changed), {len(other)} on another model")
+    if failing:
+        detail += (f" ({_examples(failing)}): run scripts.anchor --pay (ask the owner "
+                   "first), or scripts.normalize where the output is stale")
+    elif frozen or other:
+        detail += f" ({_examples(frozen + other)}): scripts.anchor --recut WORK to re-cut"
+    return [Row("anchor", "cuts", level, detail)]
 
 
 # ---------------------------------------------------------------------------
@@ -371,7 +404,8 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
         _guarded(rows, step, check, fn)
     # The rest read the normalized files: with entries whose file is missing they
     # can't run, which the manifest row already reports.
-    dependent = (("align", "groups", align_groups), ("align", "units", align_units),
+    dependent = (("anchor", "cuts", lambda: anchor_rows(norm, norm.parent / ANCHORS.name)),
+                 ("align", "groups", align_groups), ("align", "units", align_units),
                  ("translate", "pending", translate), ("embed", "pending", vectors))
     for step, check, fn in dependent:
         if fn is vectors and vecs is None:

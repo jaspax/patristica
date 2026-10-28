@@ -1,10 +1,65 @@
 # Anchored derived verses through vectors (design, #304)
 
-**Status: design.** Nothing here is implemented in the pipeline yet. The
-prototype in `prototypes/anchored_verses/` is experimental and evaluation-only:
-it writes nothing under `data/normalized` or `data/embeddings`. Part of #304;
-it replaces the length-only projection of draft PR #303 (#292), which stays
-offline.
+**Status: implemented** (#304, #292), with the owner's decisions of
+2026-10-28 (§13) and the deviations listed below. No source is enrolled yet:
+Slavonic (#29) enrols `torot` in its own data PR. The code is
+`patristica/anchoring.py` (enrolment, applying cut files, `RefineParams`),
+`patristica/anchor_store.py` (cut files), `patristica/anchor_refine.py` (the
+refinement of §4), `scripts/anchor.py` (the step) and `scripts/anchor_eval.py`
+(the evaluation of §8). The prototype this document was written from
+(`prototypes/anchored_verses/`) was removed; the implementation reproduces its
+cuts exactly on synthetic data. It replaced the length-only projection of draft
+PR #303 (#292), which was not merged.
+
+### As implemented: decisions and deviations
+
+- **Decisions (§13):** a separate `scripts.anchor` step with tracked cut
+  files (1); data PRs of enrolled sources run `scripts.anchor --pay`, and an
+  agent does so only after asking the owner, every time (2;
+  `docs/adding-a-language.md` §8); published cuts are **frozen** (3b);
+  **3 exploring rounds** plus the exact-only round (4, `RefineParams.max_rounds`);
+  the higher share of comma cuts is accepted (5); #200's migration stays
+  separate (7).
+- **Staleness (§6).** A cut file records its inputs itself (`method`: a hash of
+  `ANCHOR_VERSION` and `RefineParams`; `anchor`; `anchor_cuts`; `words`; and,
+  for information, `model` and `stats`), so there is no
+  `data/anchors/_fingerprint.json`. `scripts.anchor` cuts a work whose cut file
+  is *missing* or whose *words* changed. A changed anchor, original cuts or
+  method makes the file **frozen**: `scripts.status` warns, nothing is re-cut
+  until `scripts.anchor --recut WORK` (or `--recut all`). So the redirect map
+  of §6 isn't needed yet. `tests/test_anchor_fingerprint.py` (no vectors) fails
+  on a missing cut file, changed words, a normalized output not cut as its file
+  says, an enrolled work normalize hasn't built since enrolment, and an orphan
+  cut file; not on frozen ones. A model change is a warning.
+- **normalize's record** is a separate `anchor` key in `_fingerprints.jsonl`
+  (`{"cuts": hash of the cut file or null}`; `null` for an enrolled work with a
+  standard versification, which is never anchored), not part of the `curated`
+  hash. The effect is the one §3 describes.
+- **The step re-normalizes from `data/raw`** (`scripts.normalize`'s
+  `normalize_all(..., only=…)`), instead of rebuilding the output from
+  `data/normalized` (§3): the whitespace at the provisional cuts and the
+  editorial spans (#236) can't be recovered from the normalized units. So
+  `scripts.anchor` needs the raw data of the works it cuts (a data PR has it).
+  It still reads only `data/normalized` and `data/embeddings` to compute.
+- **Provisional units without vectors are embedded too.** A new source has no
+  vectors for its provisional cut, which the band, the calibration and the
+  exact-only fallback use, so the first embed sends them along with the
+  segments. That adds up to about 1× the text (less the provisional units equal
+  to a segment) to the costs of §7, which assumed stored vectors. Still cents.
+- **Final units** whose exact text the refinement never embedded (a new unit
+  spanning a provisional cut where the raw text had other whitespace, or one
+  with editorial material) are embedded after the re-normalize, so every final
+  unit's text vector is in `data/embeddings`.
+- **Cost estimate** (`--dry-run`, `scripts.pipeline`): the first embed
+  exactly, the rounds as an upper bound of 2× the translation's text tokens.
+  The pipeline gates the step on `--pay` whenever a work is to be cut.
+- **Runtime.** The DP is vectorized over the run lengths of a segment
+  boundary: one round on the Tractates (40,502 segments, 15,217 Latin units)
+  takes about 40 s, against about 2.6 min in the prototype. A whole run there
+  is a few minutes.
+- **The evaluation** is `scripts/anchor_eval.py` (not `scripts.anchor --eval`):
+  the prototype's pairs, metrics and hand-check samples, without #303's
+  projection, which was dropped.
 
 ## 1. The problem in one paragraph
 
@@ -116,7 +171,7 @@ but the refs would change between the PR and the publish.
 
 ## 4. The refinement algorithm
 
-Prototype: `prototypes/anchored_verses/refine.py`.
+Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
 
 ### 4.1 Segments: the candidate cut points
 - Each source paragraph of the translation is cut into segments at every
@@ -341,7 +396,8 @@ parallelized per work.
 
 ## 8. Evaluation
 
-`prototypes/anchored_verses/evaluate.py` evaluates #303's measurement pairs.
+The prototype's `evaluate.py` (now `scripts/anchor_eval.py`, without #303)
+evaluated #303's measurement pairs.
 For each translation it compares three cuts:
 - **today**: independent per-language cuts;
 - **#303**: its Gale–Church projection, run from a scratch copy of its branch;
@@ -352,9 +408,11 @@ parameters, text vectors on both sides, so native Armenian vectors too).
 Run it with:
 
 ```
-uv run --extra embed python -m prototypes.anchored_verses.evaluate --pay \
-    --pr303-dir data/eval/anchor-refine/pr303 --sample 20
+uv run --extra embed python -m scripts.anchor_eval --pay --sample 20
 ```
+
+(The numbers below were measured with the prototype, 4 exploring rounds, and
+#303's projection from a scratch copy of its branch.)
 
 ### Automatic measures
 
@@ -491,10 +549,12 @@ The machinery is the same; only the inputs differ:
 | deferred build order inside normalize | **drop**: normalize no longer needs the original |
 | `split_text(target=…)` / `versify_chunks(units_of=…)` | **reuse** `units_of` (apply a cut, keeping #236's marks); `target` isn't needed |
 | Gale–Church `project`, `align_lengths`, margins, the 70% gate | **drop** from the pipeline. Its paragraph-level DP could serve as a vector-free band for an original with no vectors, but the step refuses that case instead |
-| `scripts/anchor_eval.py` | **reuse** its pairs, `_translation` and the alignment-based reference. Merge it with `prototypes/anchored_verses/evaluate.py` as `scripts.anchor --eval` |
+| `scripts/anchor_eval.py` | **reuse** its pairs, `_translation` and the alignment-based reference. Merge it with the prototype's `evaluate.py` as `scripts.anchor --eval` (done as `scripts/anchor_eval.py`, without #303's projection) |
 | CLAUDE.md "Derived verses" standard, the `adding-a-language.md` item | **reuse**, reworded for the anchor step |
 
 ## 12. Implementation plan (follow-up PRs)
+
+Steps 1–4 were done in one PR (see "As implemented" at the top); step 5 is #29's.
 
 1. `patristica/anchoring.py`:
    - from #303: enrolment, anchors, `cuts_hash`, `anchor_order`;

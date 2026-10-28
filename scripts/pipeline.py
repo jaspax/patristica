@@ -1,7 +1,7 @@
 """
 Run every data pipeline step once, in order, skipping what is current (#248).
 
-    normalize → validate → translate → embed → align → build_index
+    normalize → anchor → validate → translate → embed → align → build_index
     → export_library → upload_library
 
 Each step is its own script, run as a subprocess exactly as by hand, and each
@@ -11,8 +11,9 @@ tools for targeted work (``scripts.embed --work …``, ``scripts.align --group �
 Ingestors are not run: re-ingest by hand, then run this with
 ``--accept-raw-change``.
 
-Paid steps (translate: OpenAI, plus Anthropic for what Sol's content filter
-blocks; embed: Voyage) send requests only with ``--pay``. Without it the run
+Paid steps (anchor: Voyage, for the derived verses of enrolled translations,
+#304; translate: OpenAI, plus Anthropic for what Sol's content filter blocks;
+embed: Voyage) send requests only with ``--pay``. Without it the run
 stops before the first paid step that has paid work, prints the estimate and
 exits 0. A paid step whose estimate is $0 (a metadata-only change) runs anyway,
 without calling the API or needing a key, and the run goes on. ``--max-cost``
@@ -62,9 +63,9 @@ ALIGNMENTS = REPO / alignment_store.DEFAULT_DIR
 LOG_DIR = REPO / "logs"
 TUNNEL = REPO / "infra" / "db-tunnel.sh"
 
-STEPS = ("normalize", "validate", "translate", "embed", "align", "build_index",
+STEPS = ("normalize", "anchor", "validate", "translate", "embed", "align", "build_index",
          "export_library", "upload_library")
-PAID = frozenset({"translate", "embed"})
+PAID = frozenset({"anchor", "translate", "embed"})
 LIBRARY_KEYS = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_BUCKET")
 LFS_POINTER = b"version https://git-lfs"
 
@@ -150,6 +151,13 @@ class Estimates:
         from scripts import status
 
         return status.pending_vectors(NORMALIZED, TRANSLATIONS, EMBEDDINGS)
+
+    def anchor(self) -> tuple[int, float]:
+        """Works to cut and an upper bound of the cost (``scripts.anchor``)."""
+        from scripts import anchor
+
+        return anchor.pending(NORMALIZED, REPO / anchor.ANCHORS, EMBEDDINGS,
+                              REPO / anchor.SCRATCH)
 
 
 def changed_paths() -> list[str]:
@@ -258,7 +266,7 @@ def preflight(opts: Options, *, lookup: Callable[[str], str | None] = env_value,
                     "" if (normalized / "_works.jsonl").is_file() else "no _works.jsonl"),
               Check("data/raw", raw.is_dir(), "" if raw.is_dir() else
                     "missing: run the pipeline on the fully materialized checkout")]
-    if "embed" not in opts.skip:
+    if not {"embed", "anchor"} <= opts.skip:
         shards = embeddings.is_dir() and any(embeddings.rglob("*.npz"))
         pointers = lfs_pointers(embeddings, "*.npz") if shards else 0
         checks.append(Check(
@@ -270,7 +278,7 @@ def preflight(opts: Options, *, lookup: Callable[[str], str | None] = env_value,
         wanted = []
         if "translate" not in opts.skip:
             wanted += ["OPENAI_API_KEY", "ANTHROPIC_API_KEY"]
-        if "embed" not in opts.skip:
+        if not {"embed", "anchor"} <= opts.skip:
             wanted.append("VOYAGE_API_KEY")
         for name in wanted:
             value = lookup(name)
@@ -353,6 +361,14 @@ class Pipeline:
         self._run(python("scripts.normalize",
                          *(["--accept-raw-change"] if self.opts.accept_raw_change else [])))
         return "", 0.0
+
+    def anchor(self) -> tuple[str, float]:
+        works, cost = self.estimates.anchor()
+        if not works:  # no cut file missing or stale: nothing to run, no key needed
+            return "nothing to cut", 0.0
+        self._budget(works, cost)
+        self._run(python("scripts.anchor", "--pay", *self._cap()))
+        return f"{works:,} works cut (the estimate is an upper bound)", cost
 
     def validate(self) -> tuple[str, float]:
         changed = self.validate_changes()
@@ -439,10 +455,12 @@ def dry_run(opts: Options, run_cmd: Runner) -> int:
             tunnel="--db" in status_args and not opts.database_url,
             env={"DATABASE_URL": opts.database_url} if opts.database_url else None)
     est = Estimates()
+    works, acost = est.anchor() if "anchor" not in opts.skip else (0, 0.0)
     units, cost = est.translate()
     vectors, vcost = est.embed()
     changed = validate_inputs()
-    print("\nBefore normalize runs (its rebuilt works can add to both):")
+    print("\nBefore normalize runs (its rebuilt works can add to these):")
+    print(f"  anchor: {works:,} works to cut (≤ ~${acost:,.2f})")
     print(f"  translate: {units:,} units (~${cost:,.2f})")
     print(f"  embed: {vectors:,} vectors (~${vcost:,.2f}), more once translate has run")
     print(f"  validate: {'runs' if changed else 'skipped'} "
@@ -451,7 +469,8 @@ def dry_run(opts: Options, run_cmd: Runner) -> int:
     for c in checks:
         print(f"  {'ok  ' if c.ok else 'FAIL'} {c.name}" + (f": {c.detail}" if c.detail else ""))
     if not opts.pay:
-        print("\nWithout --pay the run stops before translate or embed if either has work.")
+        print("\nWithout --pay the run stops before anchor, translate or embed if one "
+              "has work.")
     return 0 if all(c.ok for c in checks) else 1
 
 
@@ -459,7 +478,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--pay", action="store_true",
-                   help="let translate and embed send paid requests")
+                   help="let anchor, translate and embed send paid requests")
     p.add_argument("--max-cost", type=float, metavar="USD",
                    help="refuse paid work that would take the run's estimated spend past this")
     p.add_argument("--dry-run", action="store_true",

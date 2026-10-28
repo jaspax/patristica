@@ -37,3 +37,6 @@ infra/tofu/.terraform/
 
 # scripts.pipeline run logs
 logs/
+
+# Scratch vectors of scripts.anchor (#304): segment and candidate vectors, regenerable
+data/anchor_vectors/

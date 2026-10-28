@@ -79,9 +79,9 @@ def built(monkeypatch: pytest.MonkeyPatch) -> list[str]:
     calls: list[str] = []
     original = nz._normalize_record
 
-    def record(raw_record: dict, raw_path: Path, output_dir: Path) -> int:
+    def record(raw_record: dict, raw_path: Path, output_dir: Path, *args: object) -> int:
         calls.append(nz._output_rel(raw_path).as_posix())
-        return original(raw_record, raw_path, output_dir)
+        return original(raw_record, raw_path, output_dir, *args)
 
     monkeypatch.setattr(nz, "_normalize_record", record)
     return calls

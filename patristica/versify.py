@@ -29,7 +29,7 @@ renumbers derived verses across the corpus; treat them as frozen.
 from __future__ import annotations
 
 import re
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from functools import lru_cache
 
 import tiktoken
@@ -245,7 +245,11 @@ def _candidate_ends(tokens: Sequence[int], strengths: Sequence[int], target: int
     return ends
 
 
-def versify_chunks(chunks: Sequence[Chunk], standard: bool = False) -> list[Chunk]:
+def versify_chunks(
+    chunks: Sequence[Chunk],
+    standard: bool = False,
+    units_of: Mapping[str, list[str]] | None = None,
+) -> list[Chunk]:
     """Replace each long chunk of a work with its derived verses.
 
     A derived verse copies its chunk's metadata, with ref ``ref.sN``.
@@ -254,6 +258,11 @@ def versify_chunks(chunks: Sequence[Chunk], standard: bool = False) -> list[Chun
     verses, such as apocrypha from a Bible edition) is left alone, except
     its units in :data:`UNVERSIFIED_UNITS`. Chunks that are already derived
     verses are left alone too, so this is idempotent.
+
+    *units_of* gives the units of some chunks by chunk id, cut elsewhere
+    (anchored derived verses, ``patristica.anchoring``, #304): contiguous
+    stripped slices of the chunk's text. Every other chunk is cut by
+    :func:`split_text`.
     """
     if standard and not any(
         c.work_id in UNVERSIFIED_UNITS or c.chunk_id in UNVERSIFIED_UNITS for c in chunks
@@ -269,7 +278,10 @@ def versify_chunks(chunks: Sequence[Chunk], standard: bool = False) -> list[Chun
         ):
             out.append(chunk)
             continue
-        units = split_text(chunk.text, chunk.language)
+        if units_of is not None and chunk.chunk_id in units_of:
+            units = units_of[chunk.chunk_id]
+        else:
+            units = split_text(chunk.text, chunk.language)
         if len(units) == 1:
             out.append(chunk)
             continue
