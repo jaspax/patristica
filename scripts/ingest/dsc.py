@@ -8,11 +8,12 @@ License: CC-BY 4.0 for the TEI ("The Syriac base text is in the public domain. T
          Attribution 4.0 International Public License")
 
 Only the texts in :data:`WORKS` are ingested: the originals of English works in
-the corpus (#79) whose printed edition is old enough to be in the public domain
-(Parisot 1894–1907, Phillips 1876, Cureton 1855, Wright–McLean 1898).  The
-corpus also has Ephrem's hymns and Bardaisan, but from Beck's CSCO volumes
-(1959–63) and Drijvers (1965), whose copyright is not settled; they are left
-out.  Most files are ``uncorrectedTranscription``.
+the corpus (#79).  Most come from editions in the public domain (Parisot
+1894–1907, Phillips 1876, Cureton 1855, Wright–McLean 1898).  Ephrem's hymns
+and Bardaisan are transcribed from Beck's CSCO volumes (1959–63) and Drijvers
+(1965); they are taken under the corpus's CC BY 4.0, which states that the
+Syriac base text is in the public domain (a decision recorded on #79).  Most
+files are ``uncorrectedTranscription``.
 
 A work may join several files: Aphrahat's 23 demonstrations and the letter
 are one work, as the English *Select Demonstrations* is one work; the books of
@@ -25,8 +26,9 @@ Text and refs
   the file with prefix ``EusHE.1`` → ``EusHE.1.13``).
 - A file with no sections (Addai, Mara, the Hypomnemata) is cut at its page
   breaks: one unit per printed page, ``{prefix}.{page}``.
-- The title div is the file's heading (``{prefix}``); a table of contents or
-  rubric outside the sections becomes ``{prefix}.toc.{k}`` / ``{prefix}.rubric.{k}``.
+- The title div is the file's heading (``{prefix}``); a table of contents,
+  rubric, melody, response or superscript outside the sections becomes
+  ``{prefix}.{kind}.{k}`` (``Ephr.Nis.1.melody.1``).
 - A book div identical to one before it is skipped (Books 8 and 9 of the
   *History* are in their files twice).
 - Consecutive ``<l>`` lines are one unit, joined by " / ".  ``<head type="editorial">``
@@ -58,6 +60,12 @@ _XML_PARSER = etree.XMLParser(load_dtd=False, no_network=True, resolve_entities=
 _SKIP = frozenset({"note", "head", "fw", "figure"})
 
 
+# DSC file id → hymn number (Beck's numbering; Nisibene 8 and 22–24 are lost).
+_NISIBENE: tuple[tuple[int, int], ...] = tuple(
+    zip(range(259, 332), (h for h in range(1, 78) if h not in (8, 22, 23, 24))))
+_NATIVITY: tuple[tuple[int, int], ...] = tuple((548 + h, h) for h in range(1, 29))
+
+
 @dataclass(frozen=True)
 class DscWork:
     slug: str
@@ -87,6 +95,17 @@ WORKS: tuple[DscWork, ...] = (
     DscWork("mara-bar-serapion", ((488, "Mara"),),
             "Letter of Mara bar Serapion", "Mara bar Serapion", 75, (73, 200), "uncertain",
             "W. Cureton, Spicilegium Syriacum (London 1855)"),
+    DscWork("ephrem-carmina-nisibena",
+            tuple((n, f"Ephr.Nis.{h}") for n, h in _NISIBENE),
+            "Carmina Nisibena (Madrashe on Nisibis)", "Ephrem the Syrian", 363, (350, 373),
+            "approximate", "E. Beck, CSCO 218/240 (Louvain 1961–63)"),
+    DscWork("ephrem-de-nativitate",
+            tuple((n, f"Ephr.Nat.{h}") for n, h in _NATIVITY),
+            "Hymni de Nativitate (Madrashe on the Nativity)", "Ephrem the Syrian", 363, (350, 373),
+            "approximate", "E. Beck, CSCO 186 (Louvain 1959)"),
+    DscWork("bardaisan-laws-of-countries", ((186, "LegReg"),),
+            "Book of the Laws of Countries", "Bardaisan of Edessa", 210, (196, 225), "approximate",
+            "H. J. W. Drijvers, The Book of the Laws of Countries (Assen 1965)"),
     DscWork("hypomnemata", ((525, "Hypomn"),),
             "Hypomnemata (Against the Greeks; ascribed to Ambrose, a version of Ps.-Justin's "
             "Oratio ad Graecos)", None, 200, (150, 250), "uncertain",
@@ -180,7 +199,7 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
                     walk(child, _section_ref(prefix, child.get("n")), None)
                 elif dtype == "title":
                     add(prefix, " ".join(_text(x) for x in child if isinstance(x.tag, str)))
-                elif dtype in ("toc", "rubric"):
+                elif dtype in ("toc", "rubric", "melody", "response", "superscript"):
                     walk(child, None, dtype)
                 else:
                     walk(child, section, kind)
@@ -199,7 +218,7 @@ def parse_file(path: Path, prefix: str) -> list[dict[str, str]]:
                     add(section, text)
                 elif kind is not None:
                     add(numbered(kind), text)
-                elif not has_sections and tag == "p":
+                elif not has_sections and tag in ("p", "ab"):
                     pieces, page = _pages(child, page)
                     for pg, piece in pieces:
                         add(f"{prefix}.{pg}", piece)
