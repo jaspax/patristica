@@ -105,7 +105,8 @@ The script reads `LIBRARY_ACCESS_KEY_ID`, `LIBRARY_SECRET_ACCESS_KEY`, `LIBRARY_
 
 - Work is tracked in [GitHub issues](https://github.com/jaspax/patristica/issues), not in checklists in the docs.
 - Don't commit directly to `master`. Do each change on a feature branch and merge it with a pull request.
-- Every PR must link the issue it resolves (`Closes #123` in the description).
+- Every PR must link the issue it resolves (`Closes #123` in the description). PRs that only commit a pipeline run's data use the short template `.github/PULL_REQUEST_TEMPLATE/pipeline.md` instead.
+- Do each branch in its own git worktree (under `.claude/worktrees/`), so parallel work streams don't collide; pipeline and data runs stay in the main checkout, which has the git-lfs data.
 - CI (GitHub Actions, `.github/workflows/ci.yml`) must pass before merging.
 
 See [CLAUDE.md](CLAUDE.md) → "Development Workflow" for the details.
