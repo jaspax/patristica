@@ -40,6 +40,8 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   ["ogpg/vol-010/alexandrina-fragmenta", "ogpg/vol-010/alexander-hierosolymitanus"],
   // #315: ANF's Hippolytus "Dogmatical and Historical" is one work per treatise; the old id opens the first.
   ["anf-works/hippolytus-dogmatical-and-historical", "anf-works/hippolytus-christ-and-antichrist"],
+  // PG 33's two-author work: Peter II's encyclical first, then Timothy's Responsa.
+  ["ogpg/vol-033/alexandrina-varia", "ogpg/vol-033/petrus-ii-epistula-encyclica"],
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
