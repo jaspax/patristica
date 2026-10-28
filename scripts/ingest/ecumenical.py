@@ -74,10 +74,11 @@ _PROVINCIAL: dict[str, _SynodInfo] = {
 # Sardica/Carthage group: container div1 id="xv", one Work per div2
 _SARDICA: dict[str, _SynodInfo] = {
     "xv.iii": _SynodInfo("sardica",          "Council of Sardica",                        343, (343, 344), "Sardica"),
-    # The Latin Codex canonum Ecclesiae Africanae is part of Dionysius
-    # Exiguus's collection (PL 67), from which NPNF takes the introduction.
+    # The Latin Codex canonum Ecclesiae Africanae as printed in Dionysius
+    # Exiguus's collection (PL 67, its own part of the Dionysiana since #306),
+    # from which NPNF takes the introduction.
     "xv.iv":  _SynodInfo("carthage-african", "Code of Canons of the African Church",      419, (393, 419), "Carthage",
-                         "oglt-pl/dionysius-exiguus/pl67_11_co"),
+                         "oglt-pl/dionysius-exiguus/pl67_11_co-africa"),
     "xv.v":   _SynodInfo("const-nect",       "Council of Constantinople under Nectarius", 381, (381, 381), "ConstNect"),
     # The Sententiae episcoporum (Latin), the same target as ANF's
     # anf-works/seventh-council-of-carthage; the appended Ep. 70 is not in it.

@@ -127,3 +127,36 @@ def test_loader_rejects_half_open_dates(tmp_path: Path) -> None:
     )
     with pytest.raises(ValueError, match="both or neither"):
         oglt_pl._load_pl_index.__wrapped__(bad)
+
+
+def test_part_rows_split_the_dionysiana() -> None:
+    # PL67_11_CO holds the whole Dionysiana; its councils are part rows (#306).
+    parts = dict(oglt_pl._parts_of("PL67_11_CO"))
+    assert {"apostolorum", "nicaea", "sardica", "africa"} <= set(parts)
+    assert oglt_pl._load_pl_index()["PL67_11_CO"].keep_refs == ("PL67.CO..PL67.CO.20",)
+
+
+def test_part_row_cuts_its_paragraphs_and_names_its_work() -> None:
+    paragraphs = [{"ref": f"PL67.CO.{i}", "text": str(i)} for i in range(1, 8)]
+    entry = oglt_pl.PLIndexEntry("Dionysius Exiguus", "Canones", (497, 540), "curated",
+                                 ("PL67.CO.3..PL67.CO.5",))
+    work, kept = oglt_pl._apply_entry(_work("PL67_11_CO"), "PL67_11_CO-nicaea", paragraphs, entry)
+    assert work.work_id == "oglt-pl/dionysius-exiguus/pl67_11_co-nicaea"
+    assert [p["ref"] for p in kept] == ["PL67.CO.3", "PL67.CO.4", "PL67.CO.5"]
+
+
+@pytest.mark.parametrize("stem, keep_refs, error", [
+    ("PL1_1_X/Bad", "PL1.X", "lower-case slug"),
+    ("PL1_1_X/part", "", "needs keep_refs"),
+])
+def test_part_rows_are_checked(tmp_path: Path, stem: str, keep_refs: str, error: str) -> None:
+    path = tmp_path / "index.csv"
+    path.write_text("stem,author,title,date_start,date_end,basis,keep_refs,cts_urn,note\n"
+                    f"{stem},Anonymus,Title,400,500,curated,{keep_refs},,\n", encoding="utf-8")
+    with pytest.raises(ValueError, match=error):
+        oglt_pl._load_pl_index.__wrapped__(path)
+
+
+def test_part_path_sits_beside_the_file(tmp_path: Path) -> None:
+    out = tmp_path / "split" / "PL67" / "PL67_11_CO.json"
+    assert oglt_pl._part_path(out, "africa") == out.with_name("PL67_11_CO-africa.json")

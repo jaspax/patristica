@@ -2,12 +2,13 @@
  "format": 1,
  "group": "wikisource-canons/neocaesarea",
  "pivot": "ecumenical/neocaesarea",
- "groups": 25,
- "inputs": "60480596c17ca788",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 40,
+ "inputs": "2e1ab0fbc173d2a0",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ecumenical/neocaesarea", "units": 186, "ids": "9eebe885812a3936", "inputs": "e9a9f7ef30432a15", "spans": "+=.+++=........+=+...........+................+..................+=.......+=......+=.+.......++.....++..+............+.....++...............+=..........+=........+==.+.....+===..........", "conf": "9999999999999999999999999"},
-  {"work_id": "oglt-pl/dionysius-exiguus/pl67_4_con", "units": 30, "ids": "71ba63de44ce298d", "inputs": "29811b2e185d089a", "spans": "++2.++=++++=+=++2++++++++=+=+2+..", "conf": "9999999999999999999999"},
-  {"work_id": "wikisource-canons/neocaesarea", "units": 37, "ids": "2b8fe09cffa74e2f", "inputs": "d52fb286f7f77fe2", "spans": ".+2.+3+.+.+.+.+.+2.++.+++.+.++.+=.++.+.+", "conf": "999999999994999989999"}
+  {"work_id": "ecumenical/neocaesarea", "units": 186, "ids": "9eebe885812a3936", "inputs": "e9a9f7ef30432a15", "spans": "+=.+=+=.......+++++..........++==.............++=................++.......+=+=..+=+=+==......++.....++=+==...+==+=...++==.++++=.............+++.........++........+==.+.....+===..........", "conf": "9997999899999999999999999799999899999999"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_11_co-neocaesarea", "units": 40, "ids": "cb53df1f31fbdf1b", "inputs": "2ff8418165c2484a", "spans": "+=++++++++++++++2++=++++2++++2+.+++++++++2+=", "conf": "999799989999999999999997999989999999"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_4_con", "units": 30, "ids": "71ba63de44ce298d", "inputs": "29811b2e185d089a", "spans": "++.++2+++2+2+2++=+3+2+++++3+3++3=+2++2+..", "conf": "9999999999999999999999999"},
+  {"work_id": "wikisource-canons/neocaesarea", "units": 37, "ids": "2b8fe09cffa74e2f", "inputs": "d52fb286f7f77fe2", "spans": ".+2.+3+2.+2.+2.+2.+2.+4.++.+++.+3.+3+.+2+.+2+2.+.+", "conf": "9999999999949999989999"}
  ]
 }
