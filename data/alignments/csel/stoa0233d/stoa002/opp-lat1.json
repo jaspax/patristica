@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "csel/stoa0233d/stoa002/opp-lat1",
+ "pivot": "oglt-pl/anonymus/pl3_38_act",
+ "groups": 48,
+ "inputs": "36807c8a8ef44898",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "csel/stoa0233d/stoa002/opp-lat1", "units": 48, "ids": "3aed9251c2d89530", "inputs": "fe9da8bb291d2b22", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "299999999999999999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/anonymus/pl3_38_act", "units": 201, "ids": "4042f81e2aaa19aa", "inputs": "df62ec607fa48ced", "spans": "+++=.................++++=++++......+=.....+==.....+=+.+++++...............+==+=++++...................+++++++.+...............++++=................................++++.........++++=...............++==", "conf": "299999999999999999999999999999999999999999999999"}
+ ]
+}
