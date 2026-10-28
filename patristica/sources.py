@@ -27,6 +27,7 @@ SOURCE_LABELS: dict[str, str] = {
     "anf-works": "Ante-Nicene Fathers",
     "apostolic-constitutions": "Apostolic Constitutions (Ante-Nicene Fathers)",
     "coptic-scriptorium": "Coptic Scriptorium",
+    "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",
     "didache": "Didache (Ante-Nicene Fathers)",
     "first1k": "First Thousand Years of Greek",
     "npnf-works": "Nicene and Post-Nicene Fathers",

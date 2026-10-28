@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "csel/stoa0252/stoa003/opp-lat1",
+ "pivot": "csel/stoa0252/stoa003/opp-lat2",
+ "groups": 112,
+ "inputs": "7556c3453a74b26d",
+ "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "csel/stoa0252/stoa003/opp-lat1", "units": 112, "ids": "3b05be63a52e6356", "inputs": "68b363e8a373999a", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "csel/stoa0252/stoa003/opp-lat2", "units": 156, "ids": "b97dea88d1e9f724", "inputs": "e205b085f9048e71", "spans": "............................................++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

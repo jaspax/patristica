@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "csel/stoa0104p/stoa013/opp-lat1",
+ "pivot": "anf-works/novatian-on-the-public-shows",
+ "groups": 101,
+ "inputs": "cff85324cb68d6ba",
+ "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/novatian-on-the-public-shows", "units": 123, "ids": "8e71e5aa13e55f09", "inputs": "0f0a3a76045f6227", "spans": ".+...+++++=++.+++=+=++=+++++=++++=++=+=+++=++++++++++++++++++++++++++=++=+++=++++=++++++++=+++++=+++++=++++=+++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "csel/stoa0104p/stoa013/opp-lat1", "units": 104, "ids": "b009640f8be6f5a0", "inputs": "3d97aa6e23e7b960", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++.++++++++++++++++++++++=++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
