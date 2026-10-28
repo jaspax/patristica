@@ -3,10 +3,28 @@
   "code": "ff8991b3344a72a4"
  },
  "groups": {
+  "anf-works/acts-of-andrew-and-matthias": {
+   "members": [
+    "anf-works/acts-of-andrew-and-matthias",
+    "dsc/history-of-matthew-and-andrew"
+   ]
+  },
+  "anf-works/acts-of-paul-and-thecla": {
+   "members": [
+    "anf-works/acts-of-paul-and-thecla",
+    "dsc/history-of-thecla"
+   ]
+  },
   "anf-works/gospel-of-nicodemus": {
    "members": [
     "anf-works/gospel-of-nicodemus",
     "coptic-scriptorium/acts_pilate"
+   ]
+  },
+  "anf-works/pseudo-clementine-recognitions": {
+   "members": [
+    "anf-works/pseudo-clementine-recognitions",
+    "dsc/pseudo-clementine-recognitions"
    ]
   },
   "book:1chr": {
@@ -1888,6 +1906,13 @@
     "perseus/tlg0526/tlg003/perseus-grc2"
    ]
   },
+  "dsc/acts-of-thomas": {
+   "members": [
+    "anf-works/acts-of-thomas",
+    "dsc/acts-of-thomas",
+    "first1k/tlg2038/tlg001/1st1K-grc1"
+   ]
+  },
   "dsc/aphrahat-demonstrations": {
    "members": [
     "dsc/aphrahat-demonstrations",
@@ -2059,6 +2084,7 @@
   "first1k/tlg1271/tlg006/1st1K-grc1": {
    "members": [
     "anf-works/pseudo-clementine-homilies",
+    "dsc/pseudo-clementine-homilies",
     "first1k/tlg1271/tlg006/1st1K-grc1",
     "ogpg/vol-002/clementina-homiliae"
    ]
@@ -2210,6 +2236,7 @@
   },
   "first1k/tlg2018/tlg010/1st1K-grc1": {
    "members": [
+    "dsc/eusebius-theophania",
     "first1k/tlg2018/tlg010/1st1K-grc1",
     "ogpg/vol-024/de-theophania"
    ]
@@ -2312,12 +2339,6 @@
     "npnf-works/athanasius-de-decretis",
     "ogpg/vol-025/de-decretis",
     "pta/pta0022/pta003/pta-grc1"
-   ]
-  },
-  "first1k/tlg2038/tlg001/1st1K-grc1": {
-   "members": [
-    "anf-works/acts-of-thomas",
-    "first1k/tlg2038/tlg001/1st1K-grc1"
    ]
   },
   "first1k/tlg2041/tlg001/1st1K-grc1": {
