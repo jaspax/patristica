@@ -2763,11 +2763,18 @@
     "oglt-pl/concilium-sardicense/pl8_25_eademepistolaexhi"
    ]
   },
-  "oglt-pl/dionysius-exiguus/pl67_11_co": {
+  "oglt-pl/dionysius-exiguus/pl67_11_co-africa": {
    "members": [
     "ecumenical/carthage-african",
-    "oglt-pl/dionysius-exiguus/pl67_11_co",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-africa",
     "wikisource-canons/carthage"
+   ]
+  },
+  "oglt-pl/dionysius-exiguus/pl67_11_co-sardica": {
+   "members": [
+    "ecumenical/sardica",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-sardica",
+    "wikisource-canons/sardica"
    ]
   },
   "oglt-pl/fastidius/pl40_36_de": {
@@ -3997,6 +4004,7 @@
   "wikisource-canons/ancyra": {
    "members": [
     "ecumenical/ancyra",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-ancyra",
     "oglt-pl/dionysius-exiguus/pl67_3_con",
     "wikisource-canons/ancyra"
    ]
@@ -4004,6 +4012,7 @@
   "wikisource-canons/antioch": {
    "members": [
     "ecumenical/antioch-syn",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-antiochia",
     "oglt-pl/dionysius-exiguus/pl67_6_con",
     "wikisource-canons/antioch"
    ]
@@ -4011,6 +4020,7 @@
   "wikisource-canons/apostolic-canons": {
    "members": [
     "npnf-works/apostolic-canons",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-apostolorum",
     "wikisource-canons/apostolic-canons"
    ]
   },
@@ -4018,12 +4028,14 @@
    "members": [
     "ecumenical/chalcedon",
     "oglt-pl/dionysius-exiguus/pl67_10_co",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-chalcedon",
     "wikisource-canons/chalcedon"
    ]
   },
   "wikisource-canons/const1": {
    "members": [
     "ecumenical/const1",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-constantinopolis",
     "oglt-pl/dionysius-exiguus/pl67_8_con",
     "wikisource-canons/const1"
    ]
@@ -4038,6 +4050,7 @@
   "wikisource-canons/gangra": {
    "members": [
     "ecumenical/gangra",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-gangra",
     "oglt-pl/dionysius-exiguus/pl67_5_con",
     "wikisource-canons/gangra"
    ]
@@ -4045,6 +4058,7 @@
   "wikisource-canons/laodicea": {
    "members": [
     "ecumenical/laodicea",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-laodicea",
     "oglt-pl/dionysius-exiguus/pl67_7_con",
     "wikisource-canons/laodicea"
    ]
@@ -4052,6 +4066,7 @@
   "wikisource-canons/neocaesarea": {
    "members": [
     "ecumenical/neocaesarea",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-neocaesarea",
     "oglt-pl/dionysius-exiguus/pl67_4_con",
     "wikisource-canons/neocaesarea"
    ]
@@ -4059,6 +4074,7 @@
   "wikisource-canons/nicaea1": {
    "members": [
     "ecumenical/nicaea1",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-nicaea",
     "oglt-pl/dionysius-exiguus/pl67_2_cod",
     "wikisource-canons/nicaea1"
    ]
@@ -4067,12 +4083,6 @@
    "members": [
     "ecumenical/nicaea2",
     "wikisource-canons/nicaea2"
-   ]
-  },
-  "wikisource-canons/sardica": {
-   "members": [
-    "ecumenical/sardica",
-    "wikisource-canons/sardica"
    ]
   },
   "wikisource-canons/trullo": {
