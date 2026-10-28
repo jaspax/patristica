@@ -3,6 +3,12 @@
   "code": "ff8991b3344a72a4"
  },
  "groups": {
+  "anf-works/dionysius-of-rome-against-the-sabellians": {
+   "members": [
+    "anf-works/dionysius-of-rome-against-the-sabellians",
+    "oglt-pl/dionysius-papa/pl5_2_epis"
+   ]
+  },
   "anf-works/gospel-of-nicodemus": {
    "members": [
     "anf-works/gospel-of-nicodemus",
@@ -1888,6 +1894,48 @@
     "perseus/tlg0526/tlg003/perseus-grc2"
    ]
   },
+  "dsc/aphrahat-demonstrations": {
+   "members": [
+    "dsc/aphrahat-demonstrations",
+    "npnf-works/aphrahat-select-demonstrations"
+   ]
+  },
+  "dsc/bardaisan-laws-of-countries": {
+   "members": [
+    "dsc/bardaisan-laws-of-countries",
+    "syriac-documents/bardaisan-laws-of-countries"
+   ]
+  },
+  "dsc/doctrina-addai": {
+   "members": [
+    "dsc/doctrina-addai",
+    "syriac-documents/teaching-of-addai"
+   ]
+  },
+  "dsc/ephrem-carmina-nisibena": {
+   "members": [
+    "dsc/ephrem-carmina-nisibena",
+    "npnf-works/ephrem-nisibene-hymns"
+   ]
+  },
+  "dsc/ephrem-de-nativitate": {
+   "members": [
+    "dsc/ephrem-de-nativitate",
+    "npnf-works/ephrem-hymns-on-the-nativity"
+   ]
+  },
+  "dsc/hypomnemata": {
+   "members": [
+    "dsc/hypomnemata",
+    "syriac-documents/ambrose-memorial"
+   ]
+  },
+  "dsc/mara-bar-serapion": {
+   "members": [
+    "dsc/mara-bar-serapion",
+    "syriac-documents/mara-bar-serapion-letter"
+   ]
+  },
   "first1k/stoa0146d/stoa001/1st1K-grc1": {
    "members": [
     "anf-works/acts-of-archelaus",
@@ -2097,7 +2145,8 @@
   "first1k/tlg1626/tlg001/1st1K-grc1": {
    "members": [
     "anf-works/polycrates-of-ephesus-epistle",
-    "first1k/tlg1626/tlg001/1st1K-grc1"
+    "first1k/tlg1626/tlg001/1st1K-grc1",
+    "ogpg/vol-005/polycrates"
    ]
   },
   "first1k/tlg1701/tlg001/1st1K-grc1": {
@@ -2130,6 +2179,7 @@
   "first1k/tlg2018/tlg002/1st1K-grc1": {
    "members": [
     "anf-works/letter-of-the-churches-of-vienne-and-lyons",
+    "dsc/eusebius-historia-ecclesiastica",
     "first1k/tlg2018/tlg002/1st1K-grc1",
     "first1k/tlg2018/tlg002/1st1K-grc2",
     "npnf-works/eusebius-church-history",
@@ -2518,6 +2568,12 @@
     "ogpg/vol-106/andreas-caesariensis"
    ]
   },
+  "ocp/apocalypsis-mosis": {
+   "members": [
+    "anf-works/revelation-of-moses",
+    "ocp/apocalypsis-mosis"
+   ]
+  },
   "oglt-pl/ambrosius-autpertus/pl17_32_li": {
    "members": [
     "oglt-pl/ambrosius-autpertus/pl17_32_li",
@@ -2757,17 +2813,30 @@
     "oglt-pl/commodianus/pl5_13_com"
    ]
   },
+  "oglt-pl/concilium-romanum/pl3_19_unk": {
+   "members": [
+    "anf-works/acts-and-records-baptism-of-heretics",
+    "oglt-pl/concilium-romanum/pl3_19_unk"
+   ]
+  },
   "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard": {
    "members": [
     "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard",
     "oglt-pl/concilium-sardicense/pl8_25_eademepistolaexhi"
    ]
   },
-  "oglt-pl/dionysius-exiguus/pl67_11_co": {
+  "oglt-pl/dionysius-exiguus/pl67_11_co-africa": {
    "members": [
     "ecumenical/carthage-african",
-    "oglt-pl/dionysius-exiguus/pl67_11_co",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-africa",
     "wikisource-canons/carthage"
+   ]
+  },
+  "oglt-pl/dionysius-exiguus/pl67_11_co-sardica": {
+   "members": [
+    "ecumenical/sardica",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-sardica",
+    "wikisource-canons/sardica"
    ]
   },
   "oglt-pl/fastidius/pl40_36_de": {
@@ -3008,7 +3077,26 @@
   "ogpg/vol-002/testamenta-xii-patriarcharum": {
    "members": [
     "anf-works/testaments-of-the-twelve-patriarchs",
-    "ogpg/vol-002/testamenta-xii-patriarcharum"
+    "ogpg/vol-002/testamenta-xii-patriarcharum",
+    "wikisource-apocrypha/testamenta-xii-patriarcharum"
+   ]
+  },
+  "ogpg/vol-005/aristo-pellaeus": {
+   "members": [
+    "anf-works/aristo-of-pella-fragments",
+    "ogpg/vol-005/aristo-pellaeus"
+   ]
+  },
+  "ogpg/vol-005/claudius-apollinaris": {
+   "members": [
+    "anf-works/claudius-apollinaris-fragments",
+    "ogpg/vol-005/claudius-apollinaris"
+   ]
+  },
+  "ogpg/vol-005/hegesippus": {
+   "members": [
+    "anf-works/hegesippus-fragments",
+    "ogpg/vol-005/hegesippus"
    ]
   },
   "ogpg/vol-005/martyrium-ignatii": {
@@ -3017,16 +3105,52 @@
     "ogpg/vol-005/martyrium-ignatii"
    ]
   },
+  "ogpg/vol-005/maximus-de-materia": {
+   "members": [
+    "anf-works/methodius-concerning-matter",
+    "ogpg/vol-005/maximus-de-materia"
+   ]
+  },
   "ogpg/vol-005/melito-fragmenta": {
    "members": [
     "anf-works/melito-fragments",
     "ogpg/vol-005/melito-fragmenta"
    ]
   },
+  "ogpg/vol-005/pantaenus": {
+   "members": [
+    "anf-works/pantaenus-fragments",
+    "ogpg/vol-005/pantaenus"
+   ]
+  },
   "ogpg/vol-005/papias-fragmenta": {
    "members": [
     "anf-works/papias-fragments",
     "ogpg/vol-005/papias-fragmenta"
+   ]
+  },
+  "ogpg/vol-005/quadratus-fragmentum": {
+   "members": [
+    "anf-works/quadratus-apology-fragment",
+    "ogpg/vol-005/quadratus-fragmentum"
+   ]
+  },
+  "ogpg/vol-005/rhodon": {
+   "members": [
+    "anf-works/rhodon-fragments",
+    "ogpg/vol-005/rhodon"
+   ]
+  },
+  "ogpg/vol-005/serapion-antiochenus": {
+   "members": [
+    "anf-works/serapion-of-antioch-fragments",
+    "ogpg/vol-005/serapion-antiochenus"
+   ]
+  },
+  "ogpg/vol-005/theophilus-caesariensis": {
+   "members": [
+    "anf-works/theophilus-of-caesarea-fragment",
+    "ogpg/vol-005/theophilus-caesariensis"
    ]
   },
   "ogpg/vol-006/cohortatio-ad-graecos": {
@@ -3072,6 +3196,24 @@
     "ogpg/vol-008/stromata-1-4",
     "ogpg/vol-009/stromata-5-8",
     "perseus/tlg0555/tlg004/perseus-grc2"
+   ]
+  },
+  "ogpg/vol-010/alexander-hierosolymitanus": {
+   "members": [
+    "anf-works/alexander-of-jerusalem-epistles",
+    "ogpg/vol-010/alexander-hierosolymitanus"
+   ]
+  },
+  "ogpg/vol-010/anatolius-arithmetica": {
+   "members": [
+    "anf-works/anatolius-arithmetic",
+    "ogpg/vol-010/anatolius-arithmetica"
+   ]
+  },
+  "ogpg/vol-010/anatolius-de-pascha": {
+   "members": [
+    "anf-works/anatolius-paschal-canon",
+    "ogpg/vol-010/anatolius-de-pascha"
    ]
   },
   "ogpg/vol-010/de-apostolis": {
@@ -3130,6 +3272,12 @@
     "ogpg/vol-010/pamphilus-expositio"
    ]
   },
+  "ogpg/vol-010/pierius": {
+   "members": [
+    "anf-works/pierius-fragment",
+    "ogpg/vol-010/pierius"
+   ]
+  },
   "ogpg/vol-010/thaumaturgus-epistula-canonica": {
    "members": [
     "anf-works/gregory-thaumaturgus-canonical-epistle",
@@ -3155,10 +3303,22 @@
     "ogpg/vol-010/thaumaturgus-panegyricus"
    ]
   },
+  "ogpg/vol-010/theognostus": {
+   "members": [
+    "anf-works/theognostus-hypotyposes",
+    "ogpg/vol-010/theognostus"
+   ]
+  },
   "ogpg/vol-011/africanus-epistula-ad-originem": {
    "members": [
     "anf-works/africanus-letter-to-origen",
     "ogpg/vol-011/africanus-epistula-ad-originem"
+   ]
+  },
+  "ogpg/vol-011/de-principiis": {
+   "members": [
+    "anf-works/origen-de-principiis",
+    "ogpg/vol-011/de-principiis"
    ]
   },
   "ogpg/vol-011/epistula-ad-gregorium": {
@@ -3183,6 +3343,7 @@
   "ogpg/vol-018/methodius-opera-varia": {
    "members": [
     "anf-works/methodius-discourse-on-the-resurrection",
+    "anf-works/methodius-fragments",
     "anf-works/pseudo-methodius-oration-on-the-palms",
     "anf-works/pseudo-methodius-simeon-and-anna",
     "ogpg/vol-018/methodius-opera-varia"
@@ -3387,6 +3548,12 @@
    "members": [
     "npnf-works/cyril-of-jerusalem-mystagogical-lectures",
     "ogpg/vol-033/catecheses-mystagogicae"
+   ]
+  },
+  "ogpg/vol-033/timotheus-responsa-canonica": {
+   "members": [
+    "npnf-works/timothy-of-alexandria-canonical-answers",
+    "ogpg/vol-033/timotheus-responsa-canonica"
    ]
   },
   "ogpg/vol-035/oratio-1": {
@@ -3994,9 +4161,22 @@
     "pta/pta0100/pta002/pta-grc1"
    ]
   },
+  "wikisource-apocrypha/apocalypsis-esdrae": {
+   "members": [
+    "anf-works/revelation-of-esdras",
+    "wikisource-apocrypha/apocalypsis-esdrae"
+   ]
+  },
+  "wikisource-apocrypha/apocalypsis-sedrach": {
+   "members": [
+    "anf-works/apocalypse-of-sedrach",
+    "wikisource-apocrypha/apocalypsis-sedrach"
+   ]
+  },
   "wikisource-canons/ancyra": {
    "members": [
     "ecumenical/ancyra",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-ancyra",
     "oglt-pl/dionysius-exiguus/pl67_3_con",
     "wikisource-canons/ancyra"
    ]
@@ -4004,6 +4184,7 @@
   "wikisource-canons/antioch": {
    "members": [
     "ecumenical/antioch-syn",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-antiochia",
     "oglt-pl/dionysius-exiguus/pl67_6_con",
     "wikisource-canons/antioch"
    ]
@@ -4011,6 +4192,7 @@
   "wikisource-canons/apostolic-canons": {
    "members": [
     "npnf-works/apostolic-canons",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-apostolorum",
     "wikisource-canons/apostolic-canons"
    ]
   },
@@ -4018,12 +4200,14 @@
    "members": [
     "ecumenical/chalcedon",
     "oglt-pl/dionysius-exiguus/pl67_10_co",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-chalcedon",
     "wikisource-canons/chalcedon"
    ]
   },
   "wikisource-canons/const1": {
    "members": [
     "ecumenical/const1",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-constantinopolis",
     "oglt-pl/dionysius-exiguus/pl67_8_con",
     "wikisource-canons/const1"
    ]
@@ -4038,6 +4222,7 @@
   "wikisource-canons/gangra": {
    "members": [
     "ecumenical/gangra",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-gangra",
     "oglt-pl/dionysius-exiguus/pl67_5_con",
     "wikisource-canons/gangra"
    ]
@@ -4045,6 +4230,7 @@
   "wikisource-canons/laodicea": {
    "members": [
     "ecumenical/laodicea",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-laodicea",
     "oglt-pl/dionysius-exiguus/pl67_7_con",
     "wikisource-canons/laodicea"
    ]
@@ -4052,6 +4238,7 @@
   "wikisource-canons/neocaesarea": {
    "members": [
     "ecumenical/neocaesarea",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-neocaesarea",
     "oglt-pl/dionysius-exiguus/pl67_4_con",
     "wikisource-canons/neocaesarea"
    ]
@@ -4059,6 +4246,7 @@
   "wikisource-canons/nicaea1": {
    "members": [
     "ecumenical/nicaea1",
+    "oglt-pl/dionysius-exiguus/pl67_11_co-nicaea",
     "oglt-pl/dionysius-exiguus/pl67_2_cod",
     "wikisource-canons/nicaea1"
    ]
@@ -4067,12 +4255,6 @@
    "members": [
     "ecumenical/nicaea2",
     "wikisource-canons/nicaea2"
-   ]
-  },
-  "wikisource-canons/sardica": {
-   "members": [
-    "ecumenical/sardica",
-    "wikisource-canons/sardica"
    ]
   },
   "wikisource-canons/trullo": {

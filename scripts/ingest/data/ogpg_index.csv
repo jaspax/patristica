@@ -140,7 +140,17 @@ vol-005,polycarpi-epistula,1005,1028,Polycarp of Smyrna,Epistula ad Philippenses
 vol-005,martyrium-polycarpi,1029,1036,,Martyrium Polycarpi (epistula Smyrnaeorum),,tlg1484.tlg001,160,155,170,approximate,elenchus,first1k/tlg1484/tlg001/1st1K-grc1,
 vol-005,melito-fragmenta,1145,1248,Melito of Sardis,Fragmenta,,,170,160,190,approximate,elenchus,,
 vol-005,papias-fragmenta,1249,1264,Papias of Hierapolis,Fragmenta,,,120,100,140,approximate,elenchus,,
-vol-005,fragmenta-varia,1265,,,"Fragmenta saeculi II (Quadratus, Agrippa Castor, Aristo of Pella, Hegesippus, Pantaenus, Rhodon, Maximus, Serapion of Antioch, Acta Timothei)",,,,120,220,approximate,elenchus,,"Several authors; boundaries inside follow the Elenchus (Hegesippus 1307, Pantaenus 1329, Maximus 1339, Serapion 1371)."
+vol-005,quadratus-fragmentum,1265,1268,Quadratus of Athens,Apologia pro Christianis (fragmentum),,,125,124,129,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-005,agrippa-castor,1269,1272,Agrippa Castor,Notitia de opere contra Basilidem,,,130,125,135,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-005,aristo-pellaeus,1273,1290,Aristo of Pella,Fragmenta (Disputatio Iasonis et Papisci),,,140,135,175,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 1277; Origen's testimonium begins at 1273"
+vol-005,claudius-apollinaris,1291,1302,Claudius Apollinaris,Fragmenta,,,172,165,180,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus column illegible; cols. 1287-1294 hold no Greek, so the start within them changes nothing"
+vol-005,hegesippus,1303,1328,Hegesippus,Fragmenta ex quinque libris Commentariorum,,,175,165,185,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 1307; Eusebius's notice of Hegesippus begins at 1303"
+vol-005,pantaenus,1329,1332,Pantaenus,Fragmenta,,,190,180,200,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-005,rhodon,1333,1338,Rhodon,Fragmenta,,,190,180,200,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus 'col. 1355' is an OCR misreading; Rhodon on the Marcionites begins at 1333"
+vol-005,maximus-de-materia,1339,1356,Maximus of Jerusalem,Fragmentum ex libro De materia,,,190,185,200,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Eusebius's attribution; the same text is in Methodius, De autexusio"
+vol-005,polycrates,1357,1368,Polycrates of Ephesus,Epistula ad Victorem papam (fragmenta); Acta S. Timothei (Latin only),,,190,189,196,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-005,theophilus-caesariensis,1369,1372,Theophilus of Caesarea,Epistula synodi Caesariensis de quaestione paschali (fragmentum),,,195,190,200,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus 'col. 1569' is 1369"
+vol-005,serapion-antiochenus,1373,,Serapion of Antioch,Fragmenta (epistula ad Caricum et Pontium; de Evangelio Petri),,,200,190,211,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 1371; the end of Theophilus's letter is on 1371-1372"
 vol-006,oratio-ad-graecos,229,240,Pseudo-Justin Martyr,Oratio ad Graecos,,,,200,300,uncertain,elenchus,,
 vol-006,cohortatio-ad-graecos,241,310,Pseudo-Justin Martyr,Cohortatio ad Graecos,,,,220,300,uncertain,curated,,
 vol-006,de-monarchia,311,326,Pseudo-Justin Martyr,De monarchia,,,,200,300,uncertain,elenchus,,
@@ -174,7 +184,11 @@ vol-010,caius-fragmenta,25,34,Gaius of Rome,Fragmenta (Dialogus adversus Proclum
 vol-010,julius-africanus,35,96,Sextus Julius Africanus,Epistulae ad Origenem et ad Aristidem; Chronographiae fragmenta; Passio S. Symphorosae,,,225,210,240,approximate,elenchus,,
 vol-010,narratio-de-rebus-persicis,97,120,Pseudo-Julius Africanus,Narratio de iis quae Christo nato in Persia acciderunt,,,,400,700,uncertain,elenchus,,Spurious.
 vol-010,asterius-urbanus,145,164,Anonymus antimontanista (Asterius Urbanus),Fragmenta contra Montanistas ad Abercium Marcellum,,tlg1131.tlg001,192,190,195,approximate,elenchus,,
-vol-010,alexandrina-fragmenta,203,246,,"Fragmenta (Alexander of Jerusalem, Anatolius of Laodicea, Theognostus, Pierius)",,,260,210,300,approximate,elenchus,,"Several authors: Alexander of Jerusalem 203, Anatolius 207, Theognostus 235, Pierius 241."
+vol-010,alexander-hierosolymitanus,203,206,Alexander of Jerusalem,Epistulae (fragmenta),,,230,212,250,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-010,anatolius-de-pascha,207,230,Anatolius of Laodicea,De ratione paschali (fragmenta),,,275,265,283,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-010,anatolius-arithmetica,231,236,Anatolius of Laodicea,Institutiones arithmeticae (fragmenta),,,275,265,283,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
+vol-010,theognostus,237,242,Theognostus of Alexandria,Hypotyposes (fragmenta),,,265,250,282,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 235; col. 235 is still Anatolius, Photius on Theognostus begins at 237"
+vol-010,pierius,243,246,Pierius of Alexandria,Fragmenta,,,290,275,309,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 241; col. 241 is still Theognostus, Photius on Pierius begins at 243"
 vol-010,malchion-epistula,247,260,Malchion of Antioch,Epistula synodi Antiochenae contra Paulum Samosatenum,,,268,268,270,approximate,elenchus,,
 vol-010,hippolytus-exegetica,261,724,Hippolytus of Rome,Fragmenta exegetica (in Genesin … in Danielem; Susanna; in Matthaeum; in Apocalypsin),,,220,200,235,approximate,elenchus,,
 vol-010,de-christo-et-antichristo,725,786,Hippolytus of Rome,Demonstratio de Christo et Antichristo,,,202,200,210,approximate,heads,,
@@ -381,7 +395,8 @@ vol-033,homilia-in-paralyticum,1131,1164,Cyril of Jerusalem,Homilia in paralytic
 vol-033,epistula-ad-constantium,1165,1178,Cyril of Jerusalem,Epistula ad Constantium imperatorem,,,351,351,351,established,elenchus,,
 vol-033,fragmenta,1179,1187,Cyril of Jerusalem,Fragmenta,,,,,,uncertain,elenchus,,
 vol-033,supposita,1188,1210,Pseudo-Cyril of Jerusalem,Opera S. Cyrillo supposita,,,,400,800,uncertain,elenchus,,
-vol-033,alexandrina-varia,1275,1312,Peter II of Alexandria; Timothy of Alexandria,Epistula encyclica et fragmenta (Peter II); Responsa canonica (Timothy),,,378,373,385,approximate,elenchus,,
+vol-033,petrus-ii-epistula-encyclica,1275,1294,Peter II of Alexandria,Epistula encyclica et fragmenta,,,378,373,381,approximate,curated,,Split from alexandrina-varia (two authors); Timothy's Responsa begin at col. 1295
+vol-033,timotheus-responsa-canonica,1295,1312,Timothy of Alexandria,Responsa canonica,,,382,381,385,approximate,curated,,"Split from alexandrina-varia; begins with the first question, Ἐὰν παιδίον κατηχούμενον"
 vol-033,metaphrasis-psalmorum,1313,1538,Pseudo-Apollinaris,Metaphrasis Psalmorum,,,460,450,470,approximate,heads,,Hexameter paraphrase printed under Apollinaris's name.
 vol-034,apophthegmata,229,384,Macarius of Egypt,Apophthegmata,,,,350,500,uncertain,elenchus,,
 vol-034,sermo-de-exitu,385,448,Pseudo-Macarius,Sermo de exitu animae justorum et peccatorum,,,,400,800,uncertain,elenchus,,

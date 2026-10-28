@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-005/maximus-de-materia",
+ "pivot": "anf-works/methodius-concerning-matter",
+ "groups": 130,
+ "inputs": "2e77cf9e9de44598",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/methodius-concerning-matter", "units": 191, "ids": "19450bfc662e81b6", "inputs": "a96cb30b4392ee83", "spans": ".......+=+.+++++=+++=+++++++++.+++++++++=+.++==.+...........+.+=+=++=+++=++++.+.+...+.+++.++.++++++=++++++++++++++++++++++++=+++++...++=..+++++=.+++=+++++++++++++.+++++++++..+.+.++.+.+.++=+++", "conf": "9999999999999999999999999999898799999999999979999999999999999999997779999999999999999999999999999889999888999999999999999999999997"},
+  {"work_id": "ogpg/vol-005/maximus-de-materia", "units": 133, "ids": "e2f52e5e87da3972", "inputs": "9f8c0e8f7c307065", "spans": "++++++++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++++++++++++++.+++++", "conf": "9999999999999999999999999999898799999999999979999999999999999999997779999999999999999999999999999889999888999999999999999999999997"}
+ ]
+}

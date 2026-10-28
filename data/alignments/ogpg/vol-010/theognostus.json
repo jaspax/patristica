@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-010/theognostus",
+ "pivot": "ogpg/vol-010/theognostus",
+ "groups": 13,
+ "inputs": "992c8f0f6c9416b8",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/theognostus-hypotyposes", "units": 17, "ids": "0629ec618e348a20", "inputs": "f72be85cf7edcb9f", "spans": "+.++++.+++++..+++", "conf": "8999999999799"},
+  {"work_id": "ogpg/vol-010/theognostus", "units": 24, "ids": "43984ef215a7660b", "inputs": "a38a5a8cdbf70702", "spans": "..++++++++++..+.++......", "conf": "8999999999799"}
+ ]
+}
