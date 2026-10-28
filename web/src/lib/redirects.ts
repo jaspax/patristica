@@ -38,6 +38,8 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   // #81: PG 5's and PG 10's fragment collections are one work per author; the old id opens the first.
   ["ogpg/vol-005/fragmenta-varia", "ogpg/vol-005/quadratus-fragmentum"],
   ["ogpg/vol-010/alexandrina-fragmenta", "ogpg/vol-010/alexander-hierosolymitanus"],
+  // PG 33's two-author work: Peter II's encyclical first, then Timothy's Responsa.
+  ["ogpg/vol-033/alexandrina-varia", "ogpg/vol-033/petrus-ii-epistula-encyclica"],
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
