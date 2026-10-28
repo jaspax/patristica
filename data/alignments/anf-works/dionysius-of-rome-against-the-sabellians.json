@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "anf-works/dionysius-of-rome-against-the-sabellians",
+ "pivot": "oglt-pl/dionysius-papa/pl5_2_epis",
+ "groups": 26,
+ "inputs": "b5bb8c6c7f435ece",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/dionysius-of-rome-against-the-sabellians", "units": 26, "ids": "9eb8a91f571c3d53", "inputs": "666e7a4c1a794d84", "spans": "++++++++++++++++++++++++++", "conf": "99999999999999999999999999"},
+  {"work_id": "oglt-pl/dionysius-papa/pl5_2_epis", "units": 152, "ids": "789d2094ac2e9dde", "inputs": "d969ac9b20d93070", "spans": ".+..+=+=+++................................................++++..................................................+++++++++=+=++++++.....................", "conf": "99999999999999999999999999"}
+ ]
+}
