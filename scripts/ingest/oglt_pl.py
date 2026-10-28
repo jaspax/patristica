@@ -58,6 +58,15 @@ space-separated items, each either ``REF`` (that ref and its descendants,
 ``REF.*``) or ``A..B`` (inclusive positional range from ref A to ref B).
 Filtering by ref is idempotent, so it can be re-applied to saved JSON.
 
+A split file that holds several works gets *part rows* (#306): ``stem`` is
+``{file stem}/{part}`` (``PL67_11_CO/sardica``, ``part`` a lower-case slug)
+and ``keep_refs`` selects the part's paragraphs from the whole file.  Each part
+is its own work, ``oglt-pl/{author}/{file stem}-{part}``, written beside the
+file's JSON as ``{file stem}-{part}.json``; the file's own row keeps the rest
+(its ``keep_refs`` lists what is left), so its work id stays the same.  Parts
+are cut from a fresh parse of the XML on every run, and a part file whose row
+is gone is removed.
+
 An index row overrides whatever the TEI header gives.  Its dates go through
 the same collection-period filter as TEI dates (``patristica.period`` →
 excluded; works straddling the boundary keep ``date_composed`` as the midpoint).
@@ -149,6 +158,12 @@ def _load_pl_index(path: Path = _PL_INDEX_PATH) -> dict[str, PLIndexEntry]:
         index: dict[str, PLIndexEntry] = {}
         for row in rows:
             stem = row["stem"]
+            if "/" in stem:
+                part = stem.split("/", 1)[1]
+                if not re.fullmatch(r"[a-z][a-z0-9]*", part):
+                    raise ValueError(f"{path}: part row {stem!r} needs a lower-case slug")
+                if not (row.get("keep_refs") or "").strip():
+                    raise ValueError(f"{path}: part row {stem!r} needs keep_refs")
             if not row["author"].strip() or not row["title"].strip():
                 raise ValueError(f"{path}: row {stem!r} lacks author or title")
             if row["basis"] not in _INDEX_BASES:
@@ -166,6 +181,18 @@ def _load_pl_index(path: Path = _PL_INDEX_PATH) -> dict[str, PLIndexEntry]:
                 row["author"].strip(), row["title"].strip(), date_range, row["basis"], keep_refs
             )
     return index
+
+
+def _parts_of(stem: str) -> list[tuple[str, PLIndexEntry]]:
+    """The part rows of split file *stem*, as ``(part, entry)``, in index order."""
+    prefix = f"{stem}/"
+    return [(key[len(prefix):], entry) for key, entry in _load_pl_index().items()
+            if key.startswith(prefix)]
+
+
+def _part_path(out_path: Path, part: str) -> Path:
+    """Where part *part* of the split file written to *out_path* goes."""
+    return out_path.with_name(f"{out_path.stem}-{part}.json")
 
 
 def _filter_paragraphs(
@@ -209,6 +236,13 @@ def _apply_pl_index(
     entry = _load_pl_index().get(stem)
     if entry is None:
         return work, paragraphs
+    return _apply_entry(work, stem, paragraphs, entry)
+
+
+def _apply_entry(
+    work: Work, stem: str, paragraphs: list[dict[str, str]], entry: PLIndexEntry
+) -> tuple[Work, list[dict[str, str]]] | None:
+    """Apply one index row to *work*; *stem* names the work (a part's is ``{stem}-{part}``)."""
     if entry.excluded:
         return None
     if entry.date_range is None:
@@ -359,11 +393,13 @@ def _work_prefix_from_filename(xml_path: Path) -> str:
 
 
 def _parse_oglt_pl_file(
-    xml_path: Path,
+    xml_path: Path, apply_index: bool = True,
 ) -> tuple[Work, list[dict[str, str]]] | None:
     """Parse a single OGLT PL TEI/EpiDoc file.
 
     Returns ``(Work, paragraphs)`` or ``None`` if the file should be skipped.
+    With ``apply_index=False`` the file's index row is not applied: the whole
+    file, as its part rows cut it.
     """
     try:
         tree = etree.parse(str(xml_path))
@@ -467,6 +503,8 @@ def _parse_oglt_pl_file(
     )
 
     paragraphs = _extract_paragraphs(body_el, work_prefix, ns)
+    if not apply_index:
+        return work, paragraphs
     indexed = _apply_pl_index(work, xml_path.stem, paragraphs)
     if indexed is None:
         log.debug("Skipping %s: excluded by attribution index", xml_path.stem)
@@ -503,6 +541,38 @@ def _collect_xml_files(repo_dir: Path) -> list[Path]:
     return all_files
 
 
+def _write_parts(xml_path: Path, out_path: Path) -> list[Work]:
+    """Write the part works of *xml_path* (see "part rows"); remove stale part files."""
+    parts = _parts_of(xml_path.stem)
+    wanted = {_part_path(out_path, part) for part, _ in parts}
+    stale = re.compile(rf"{re.escape(xml_path.stem)}-[a-z][a-z0-9]*\.json")
+    if out_path.parent.is_dir():
+        for path in out_path.parent.glob(f"{xml_path.stem}-*.json"):
+            if stale.fullmatch(path.name) and path not in wanted:
+                log.info("Removing %s: its part row is gone", path)
+                path.unlink()
+    if not parts:
+        return []
+    parsed = _parse_oglt_pl_file(xml_path, apply_index=False)
+    if parsed is None:
+        raise ValueError(f"{xml_path.name}: has part rows but no text")
+    whole, paragraphs = parsed
+    works: list[Work] = []
+    for part, entry in parts:
+        applied = _apply_entry(whole, f"{xml_path.stem}-{part}", paragraphs, entry)
+        if applied is None:
+            continue
+        work, kept = applied
+        path = _part_path(out_path, part)
+        payload = json.dumps({"work": work.model_dump(), "paragraphs": kept},
+                             ensure_ascii=False, indent=2)
+        if not path.exists() or path.read_text(encoding="utf-8") != payload:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(payload, encoding="utf-8")
+        works.append(work)
+    return works
+
+
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """Clone/pull the OGLT PL repo and ingest all Latin text editions.
 
@@ -531,6 +601,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     for xml_path in tqdm(xml_files, desc="OGLT PL ingest"):
         rel = xml_path.relative_to(repo_dir)
         out_path = output_dir / SOURCE_ID / rel.with_suffix(".json")
+        works.extend(_write_parts(xml_path, out_path))
 
         if out_path.exists() and not force:
             saved = json.loads(out_path.read_text(encoding="utf-8"))
