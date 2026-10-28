@@ -53,6 +53,7 @@ SOURCE_LABELS: dict[str, str] = {
     "typikon": "Typikon (Violakis)",
     # Councils
     "ecumenical": "Ecumenical and Local Councils (Nicene and Post-Nicene Fathers)",
+    "wikisource-canons": "Holy Canons, Greek (Wikisource)",
 }
 
 
