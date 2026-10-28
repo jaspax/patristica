@@ -41,10 +41,10 @@ This design uses the same vectors to place the boundaries.
   nothing left to send for them.
 - **Translation happens once**, after the cut is final: `translate` runs after
   `anchor`, so the rare languages never pay for translating a provisional cut.
-- **Cost** is a fraction of a normal embed of the same text: the measured
-  total over the four evaluation works was about 1.6× the cost of embedding the
-  translation once (§7). For a Slavonic source of TOROT's size it is well
-  under a dollar.
+- **Cost** is cents: 1.4–2.6× one embed of the translation's text, and the
+  final units' vectors come out of it, so the ordinary embed shrinks
+  accordingly (§7). For a Slavonic source of TOROT's size it is about
+  $0.07–0.25.
 - **A data PR runs `scripts.anchor --pay`** for its new sources, as #308 ran
   `scripts.embed`, and commits the cut files with the normalized output. A
   test fails when an enrolled work's cut file is missing or stale, so master
@@ -127,8 +127,8 @@ Prototype: `prototypes/anchored_verses/refine.py`.
   words, as `split_text` does.
 - A derived verse of the result is always a run of whole segments inside one
   source paragraph. Boundaries therefore stay at sentence and clause breaks:
-  in the evaluation, 0% of refined cuts fell between words, and the comma
-  share was 5–12% (§8).
+  in the evaluation, 0% of refined cuts fell between words, and 10–22% fell
+  at commas (§8).
 - Derived verses never cross source paragraphs. This is the rule of #2 and
   #292, unchanged.
 
@@ -208,9 +208,8 @@ maps onto the DP like this:
   pieces that have their own vector (the provisional units are always among
   them, so it can't fail). The final cut is therefore scored entirely on real
   vectors, and every final unit already has its production vector.
-- New pieces per round in the evaluation:
-  - Severian: 25 → 16 → 12 → 5.
-  - Basil and the Tractates: see §8.
+- New pieces per round in the evaluation fall by about half each round
+  (Tractates 5,572 → 2,149 → 1,195 → 724; §8).
 - The cache only grows and the hysteresis favours embedded pieces, so the
   rounds can't oscillate for long. Each round costs less than the one before.
 
@@ -271,7 +270,7 @@ A work is **stale** when:
 - its enrolment or `translation_of` changed;
 - `ANCHOR_VERSION` was bumped.
 
-Stale works re-run in `scripts.anchor`. Segments whose text is unchanged hit
+Stale works re-run in `scripts.anchor`. Whether a work that is already published re-runs automatically or is only reported is decision 3 in §13. Segments whose text is unchanged hit
 the scratch cache (free when it is present, cheap when it is not).
 
 **Not stale: a change to the anchor code's hash.** Derived refs are reader
@@ -297,20 +296,24 @@ contains its first word), the mechanism #200 needs anyway.
 
 Voyage `voyage-4-large`, $0.12 per million tokens.
 
-**Measured** (the evaluation, §8), per translation:
-- segments: about 1.0× the translation's tokens, less the segments that equal
-  a provisional unit (17–20% of segments);
-- exploring rounds: 0.3–0.6× in all;
-- the final units' vectors are among those, so the later `scripts.embed`
-  saves 1×.
+**Measured** in the evaluation (§8), in cl100k tokens of the translation:
 
-Net: about **0.6× to 1× an ordinary embed of the same text, on top of it**.
+| translation | text | segments (1st embed) | rounds 1–5 | total | × text |
+|---|---|---|---|---|---|
+| Tractates, NPNF (eng), 40,502 segments | 496k | 401k | 198k + 77k + 45k + 29k + 1k | 751k | **1.5×** |
+| Basil letters, NPNF (eng), 16,065 segments | 209k | 158k | ≈ 137k over 2 runs | ≈ 295k | **1.4×** |
+| Severian pta031 (hye), 929 segments | 76k | 65k | ≈ 132k over 2 runs | ≈ 197k | **2.6×** |
 
-| corpus | translation tokens | anchor step | of which per round after the first |
-|---|---|---|---|
-| Basil, NPNF (English) | 0.21 M | see §8 | |
-| Tractates, NPNF (English) | 0.50 M | see §8 | |
-| Severian ×2 (Armenian) | 0.27 M (cl100k) | see §8 | |
+Notes:
+- The segments cost less than the text. 17–20% of segments equal a
+  provisional unit, whose vector is already stored.
+- Each round costs less than the one before: about 40%, then 50–60%.
+- The free Armenian version explores more.
+- Voyage billed Armenian at about 0.55× its cl100k count, and English at about
+  1×.
+- **The final units' vectors are part of this total.** The later
+  `scripts.embed` sends nothing for their text vectors, so the anchor step
+  adds 0.4–1.6× an ordinary embed of the translation, not 1.4–2.6×.
 
 **Slavonic (TOROT, #29).**
 - TOROT's Old Church Slavonic is on the order of 250k words in all. Most of
@@ -319,21 +322,115 @@ Net: about **0.6× to 1× an ordinary embed of the same text, on top of it**.
 - The anchored part is the Suprasliensis homilies and lives, the Clozianus
   and similar: of the order of 60–100k words, about 0.4–0.8M cl100k tokens in
   Cyrillic (4× that if stored as Glagolitic, `docs/adding-a-language.md` §2).
-- The anchor step for them costs about **$0.05–0.20**, on top of the
-  ordinary embed of $0.05–0.10.
-- If Slavonic needs translation vectors (`TRANSLATED_LANGUAGES`), the
-  saving is the real one: Sol translation at ~$0.0014 per unit, paid once on
-  the final cut instead of twice.
+- At 1.5–2.5× that, the anchor step costs **about $0.07–0.25**, and it
+  replaces the text part of the ordinary embed.
+- If Slavonic needs translation vectors (`TRANSLATED_LANGUAGES`), the real
+  saving is translation: Sol at ~$0.0014 per unit, paid once on the final
+  cut instead of on a provisional one and again after a re-cut.
 
-**#200's migration** of the existing ~1.28M derived verses (§10) would cost
-about $10–15 of Voyage, in the range #200 estimated for re-embedding alone.
-Most of that is the Greek editions, which #199's string alignment would
-handle instead.
+**Runtime.** The prototype is pure Python plus numpy:
+- 13 minutes for the Tractates' 40k segments × 5 rounds;
+- 5 minutes for Basil;
+- 20 seconds for a Severian homily.
+
+That is fine for a source PR. For #200's corpus-wide migration, the DP's
+inner loop should be vectorized over the segment-run length, or the step
+parallelized per work.
+
+**#200's migration** of the existing ~1.28M derived verses (§10): see there.
 
 ## 8. Evaluation
 
-See the PR description for the table and the hand check (filled in from
-`prototypes/anchored_verses/evaluate.py`).
+`prototypes/anchored_verses/evaluate.py` evaluates #303's measurement pairs.
+For each translation it compares three cuts:
+- **today**: independent per-language cuts;
+- **#303**: its Gale–Church projection, run from a scratch copy of its branch;
+- **refined**: §4, with 4 exploring rounds plus the exact-only round.
+
+Every cut is aligned with the original by `align_pair` (#179, default
+parameters, text vectors on both sides, so native Armenian vectors too).
+Run it with:
+
+```
+uv run --extra embed python -m prototypes.anchored_verses.evaluate --pay \
+    --pr303-dir data/eval/anchor-refine/pr303 --sample 20
+```
+
+### Automatic measures
+
+| pair | units: today / #303 / refined | original units in a confident 1:1 row: today / #303 / refined | refined units that differ from today's | refined cuts at sentence / clause / comma / word |
+|---|---|---|---|---|
+| Basil, Perseus grc → NPNF eng | 6,613 / 6,803 / 6,964 | 74.8% / 80.6% / **94.0%** | 2,629 (38%) | 69 / 9 / 22 / 0% (today 77 / 9 / 14 / 0.1%) |
+| Tractates, PL 35 lat → NPNF eng | 14,818 / 14,658 / 14,975 | 81.8% / 88.9% / **97.7%** | 5,709 (38%) | 70 / 19 / 11 / 0% (today 73 / 19 / 8 / 0%) |
+| Severian pta014, grc → hye | 282 / (as today) / 258 | 60.9% / – / **78.3%** | 148 | 44 / 46 / 10 / 0% (today 56 / 40 / 4 / 0%) |
+| Severian pta031, grc → hye | 347 / (as today) / 312 | 65.7% / – / **92.1%** | 184 | 40 / 48 / 12 / 0% (today 50 / 40 / 10 / 0%) |
+
+**These measures favour the refinement.** It optimizes the aligner's own
+objective on the aligner's own vectors, so "1:1 in the alignment" is partly
+circular. "Today" here is a fresh pairwise alignment, so its numbers differ
+from #303's, which used the stored group alignments: three members for Basil,
+translation vectors for Armenian.
+
+The hand check is the real measure.
+
+### Hand check (#303's protocol)
+
+20 random original units per pair (seed 1). For each, the row that each cut
+gives it: is it **exactly 1:1 and right**? I judged by reading:
+- the Latin and Greek against the English;
+- for Armenian, the Greek against the English machine translations of
+  today's units that the row overlaps (`data/translations`). That makes the
+  Armenian judgements coarser.
+
+Units with no counterpart in the translation (NPNF's omissions, PL's
+editorial notes and headings) count as wrong for every cut.
+
+| pair | today | #303 | refined | no counterpart |
+|---|---|---|---|---|
+| Basil | 12 / 20 | 9 / 20 | **17 / 20** | 2 |
+| Tractates | 11 / 20 | 12 / 20 | **14 / 20** | 3 |
+| Severian pta031 | 7 / 20 | 7 / 20 (not anchored: free) | **15 / 20** | 0; 2 more unclear for both, counted wrong |
+
+What the errors look like:
+- **Refined, right where today is wrong.** It splits today's 2:1 and 1:2 rows
+  (Basil 965, 3868; Tractates 1033, 9325, 10675; Severian 60, 117). It drops
+  a trailing or leading clause that belongs to the neighbour (Basil 1100,
+  3109, 3193; Severian 14, 48, 68, 107, 241). And it pulls in a clause today
+  left in the neighbour (Severian 130, 136).
+- **Refined, wrong.**
+  - Basil 2089: it cut the relative clause off a sentence that the original
+    unit ends inside.
+  - Tractates 1537, 1931, 13144: the original unit starts or ends in
+    mid-sentence at a citation ("I, 53).") or a question, and the
+    translation's sentence order differs. These were wrong today too.
+  - Severian 199: it took one sentence too many from the previous unit.
+- **#303 made today worse on Basil** (9 vs 12; it was ≥ 7 in #303's own
+  check). It merges rows where its margin wasn't sure (Basil 232, 1719) and
+  cuts one clause short (4058).
+
+### Convergence
+
+New pieces per round fall by about half each round (Tractates 5,572 → 2,149 →
+1,195 → 724). After 4 exploring rounds, the exact-only round left only
+4–30 units unembedded: units that took in a skipped segment. None of the
+runs reached the strict fixed point within 4 rounds. That doesn't matter
+for the result, because the exact-only round scores the final cut on real
+vectors; it does cost the extra rounds. A cap of 3 rounds would lose little:
+round 4 found 0.2–0.5% new pieces.
+
+### Caveats
+- The hand check is one reader's judgement on 20 units per pair, and the
+  Armenian is judged through machine translations.
+- **Severian and Basil were resumed** from the scratch cache of an earlier
+  run that was stopped by a bug in the final round (fixed). Those two
+  therefore had up to 8 exploring rounds in effect. The Tractates run had 4.
+- **Basil: 651 of 1,487 English paragraphs were touched by no bead** and kept
+  today's cut. Most are short (salutations, letter headings), but some are
+  letters whose Greek the monotone DP skipped: NPNF reorders the late letters,
+  as #303 found. A per-letter window (the structural anchors of #302: letter
+  numbers in both refs) would recover them.
+- **Comma cuts rise** (Basil 14% → 22%), because original units end at
+  commas. That is the price of following the original. Word cuts stay at 0%.
 
 ## 9. Free translations and same-language editions
 
@@ -342,7 +439,8 @@ See the PR description for the table and the hand check (filled in from
 - The vector DP has no gate. It pairs what it can and leaves additions and
   omissions to the skips.
 - On both Severian homilies it raised the aligner's count of confident 1:1
-  rows (§8) with Armenian's native vectors.
+  rows from 61–66% to 78–92%, with Armenian's native vectors. In the hand
+  check on pta031 it went from 7 to 15 of 20 (§8).
 - A free version still gets fewer 1:1 rows than a close one, because its
   passages genuinely don't correspond unit for unit. The DP then merges
   (2–3 originals into one unit) instead of forcing a cut.
@@ -371,8 +469,11 @@ The machinery is the same; only the inputs differ:
   units for free.
 - Segments have to be embedded once: English 12M, Latin 12M and Greek 75M
   cl100k tokens over all derived verses. Most of the Greek is originals or
-  same-language editions (#199), so the vector part is roughly 25–40M
-  tokens, about $3–5 for segments plus rounds.
+  same-language editions (#199), so the translations to refine come to
+  roughly 25–40M tokens.
+- At the measured 1.4–2.6×, that is **about $4–10 of Voyage**. The final
+  vectors come out of it, so it replaces most of #200's "re-embedding"
+  line (~$11–12) instead of adding to it.
 - What #200 lists stays: the redirect map, the re-translation of 643
   Armenian/Coptic units, and a reload with `build_index --rebuild-index`.
 - **Migration should run per version group, original first.** A group whose
@@ -413,3 +514,48 @@ The machinery is the same; only the inputs differ:
    - `docs/adding-a-language.md` §5 and §8 (the in-PR anchor exception).
 5. Slavonic (#29) enrols `torot` in its own data PR and runs
    `scripts.anchor --pay` there.
+
+## 13. Recommendation and decisions for the owner
+
+**Recommendation: build this, not #303's projection.**
+- It beats today's cuts on all three hand-checked pairs: Basil 12 → 17,
+  Tractates 11 → 14, Severian 7 → 15 of 20.
+- #303 managed 9 and 12, and it can't touch free versions.
+- It costs cents per source.
+- Through the cut file, normalize stays free and deterministic.
+
+**Don't merge #303 as it stands.** Take from it, in the first implementation
+PR (§11):
+- the enrolment table and its loader;
+- `Anchor`, `cuts_hash` and `anchor_order`;
+- `versify_chunks(units_of=…)`;
+- `anchor_eval`'s pairs and reference code, merged into the new eval.
+
+Then close #303.
+
+**Decisions for the owner:**
+1. **A separate `scripts.anchor` step plus tracked cut files** (this design),
+   rather than vectors inside normalize. Normalize stays vector-free, and a
+   cut is reproducible without the API.
+2. **An exception to "a PR never sends embed requests"** for
+   `scripts.anchor --pay` and the embed of its originals, so master never
+   holds provisional cuts of enrolled works (the #308 precedent). Without
+   it, the owner's pipeline run anchors after merge, and refs change between
+   the PR and the publish.
+3. **What happens after publication when an original changes:**
+   - (a) re-cut automatically, with a redirect map (§6 as written); or
+   - (b) freeze published cuts, and only report the staleness until someone
+     runs `scripts.anchor --recut WORK`.
+
+   I lean to (b) for the first sources: refs are reader URLs, and the
+   originals of new languages (Greek) change rarely.
+4. **Rounds:** 3 exploring rounds plus the exact-only round (round 4 found
+   ≤ 0.5% new pieces), or 4 as measured.
+5. **More comma cuts** (up to ~22% of cuts, from 14%): accept, as the price of
+   following the original. A larger comma `break_cost` trades 1:1 rows for
+   cleaner breaks.
+6. **Same-language editions** wait for #199 (string alignment, the same DP with
+   a different scorer).
+7. **#200:** pilot the migration on these same groups with this machinery
+   (their vectors exist) before deciding on the corpus-wide run.
+
