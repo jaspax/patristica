@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "wikisource-canons/gangra",
+ "pivot": "ecumenical/gangra",
+ "groups": 43,
+ "inputs": "2ef848299c120eec",
+ "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ecumenical/gangra", "units": 264, "ids": "2cd31ed77c42f651", "inputs": "d53d2ef3a1b7f6d7", "spans": "+........................++.............+==...........+..........+........+.....+=+............+..++==........+=+=+.+=.+...................+=+..............++.......+.......+=.........+++=....+==..+..+.+=......++===.....+=+=.......+...............++++++++.........", "conf": "9999999989999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_5_con", "units": 31, "ids": "753a9f1c526da9ff", "inputs": "33cce32ac620f84e", "spans": "++++=+++++++++++2++++++++3++++3+++", "conf": "999999998999999999999999999999"},
+  {"work_id": "wikisource-canons/gangra", "units": 51, "ids": "c2cde04c24c63fd1", "inputs": "9084d824f7bd18f0", "spans": ".+3.+.+.+.+.+.+2.+2.+2.+.+3.+2+.+.+.+++2.+3.+.+2.+2.+++++=+++", "conf": "999999999999999999999999999999"}
+ ]
+}
