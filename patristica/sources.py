@@ -31,10 +31,12 @@ SOURCE_LABELS: dict[str, str] = {
     "didache": "Didache (Ante-Nicene Fathers)",
     "first1k": "First Thousand Years of Greek",
     "npnf-works": "Nicene and Post-Nicene Fathers",
+    "ocp": "Online Critical Pseudepigrapha",
     "oglt-pl": "Patrologia Latina (Open Greek and Latin)",
     "ogpg": "Patrologia Graeca (Open Greek and Latin)",
     "perseus": "Perseus Digital Library",
     "pta": "Patristic Text Archive",
+    "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
