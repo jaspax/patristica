@@ -118,6 +118,24 @@ def translated_paths(norm: Path) -> set[str]:
     return {e["path"] for e in _works(norm) if e["work"]["language"] in tr.TRANSLATED_LANGUAGES}
 
 
+def anchored_paths(norm: Path) -> set[str]:
+    """Works of sources enrolled for anchored derived verses and their originals
+    (``tests/test_anchor_fingerprint.py`` and ``scripts.status``'s anchor row read
+    both, #304)."""
+    from patristica import anchoring
+
+    works = _works(norm)
+    by_id = {e["work"]["work_id"]: e["path"] for e in works}
+    out: set[str] = set()
+    for e in works:
+        if anchoring.is_enrolled(e["work"]["source_id"]):
+            out.add(e["path"])
+            target = anchoring.anchor_id(e["work"])
+            if target in by_id:
+                out.add(by_id[target])
+    return out
+
+
 def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> list[str]:
     """Repo-relative LFS paths *job* reads: ``tests`` the unit tests, ``status``
     also ``scripts.status``. A new test that reads normalized work files adds
@@ -128,7 +146,8 @@ def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> l
     if job not in ("tests", "status"):
         raise ValueError(f"unknown job {job!r}")
     paths = (book_group_paths(norm) | scripture_book_paths(norm)
-             | aligned_paths(norm, align_dir) | language_sample_paths(norm))
+             | aligned_paths(norm, align_dir) | language_sample_paths(norm)
+             | anchored_paths(norm))
     if job == "status":
         paths |= translated_paths(norm)
     prefix = norm.relative_to(REPO).as_posix()

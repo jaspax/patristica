@@ -206,6 +206,16 @@ def test_enrolling_a_source_rebuilds_its_works(corpus, enrolled, monkeypatch) ->
     assert nz.read_work_fingerprints(norm)["tr/w.json"]["anchor"] == {"cuts": None}
 
 
+def test_only_never_prunes_other_works(corpus) -> None:
+    """A partial rebuild (scripts.anchor) leaves works whose raw file is absent."""
+    raw, norm, anchors = corpus
+    nz.normalize_all(raw, norm, anchors_dir=anchors)
+    (raw / "tr/v.json").unlink()
+    nz.normalize_all(raw / "tr", norm, anchors_dir=anchors, only={"tr/w.json"})
+    assert (norm / "tr/v.json").exists()
+    assert "tr/v.json" in nz.read_works_manifest(norm)
+
+
 def test_only_limits_the_run(corpus) -> None:
     raw, norm, anchors = corpus
     nz.normalize_all(raw / "tr", norm, anchors_dir=anchors, only={"tr/w.json"})

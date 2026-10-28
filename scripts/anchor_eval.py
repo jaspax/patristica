@@ -168,17 +168,17 @@ def refined_units(today: Units, result, cache) -> Units:
     """The refined cut as ``Units`` (refs ``para.sN``; vectors from the cache)."""
     import numpy as np
 
-    from patristica.anchor_refine import Units, normalize_rows, piece_text
+    from patristica.anchor_refine import Units, normalize_rows
 
-    refs, texts = [], []
+    refs = []
     for p, ps in enumerate(result.pieces):
-        for n, (a0, a1) in enumerate(ps, start=1):
+        for n in range(1, len(ps) + 1):
             refs.append(result.paras[p].ref if len(ps) == 1 else f"{result.paras[p].ref}.s{n}")
-            texts.append(piece_text(result.paras, p, a0, a1))
-    cache.ensure([t for t in texts if anchor.wants_vector(t)])
+    texts, keys = result.texts(), result.embed_texts()
+    cache.ensure([t for t in keys if anchor.wants_vector(t)])
     vecs = np.zeros((len(texts), anchor.DIMS), dtype=np.float32)
-    for u, t in enumerate(texts):
-        v = cache.get(t)
+    for u, t in enumerate(keys):
+        v = cache.get(t) if t.strip() else None
         if v is not None:
             vecs[u] = v
     return Units(today.work_id, today.language, refs, texts, normalize_rows(vecs))
@@ -211,7 +211,8 @@ def main() -> None:
         from patristica.embedders import VoyageEmbedder
 
         embedder = VoyageEmbedder(anchor.MODEL, anchor.DIMS)
-    budget = int(args.budget_usd / anchor.PRICE_PER_MTOK * 1e6)
+    budget = int(args.budget_usd / anchor.PRICE_PER_MTOK * 1e6)  # for all pairs together
+    spent = 0
     rows = []
     for name, orig_id, trans_id in PAIRS:
         if args.pair and name not in args.pair:
@@ -220,7 +221,7 @@ def main() -> None:
         c = anchor.Candidate(paths[trans_id], trans_id, language, orig_id, paths[orig_id])
         orig, missing, _ = anchor.load_original(c, norm, store)
         cache = anchor.make_cache(c, args.scratch_dir, embedder.embed_documents if embedder
-                                  else None, budget)
+                                  else None, budget - spent)
         today = anchor.load_translation(c, norm, store, cache)
         if args.dry_run:
             est = cache.estimate(first_texts(today, language))
@@ -231,15 +232,20 @@ def main() -> None:
                   f"{missing} original units without a vector")
             continue
         started = time.monotonic()
-        result = refine(orig, today, cache, anchoring.RefineParams(max_rounds=args.max_rounds))
-        refined = refined_units(today, result, cache)
+        try:
+            result = refine(orig, today, cache,
+                            anchoring.RefineParams(max_rounds=args.max_rounds))
+            refined = refined_units(today, result, cache)
+        finally:
+            spent += cache.sent_tokens
         seconds = time.monotonic() - started
         tvecs = np.zeros((len(today.texts), anchor.DIMS), dtype=np.float32)
-        for u, t in enumerate(today.texts):
-            v = cache.get(t)
+        for u, t in enumerate(today.source_texts()):
+            v = cache.get(t) if t.strip() else None
             if v is not None:
                 tvecs[u] = v
-        today = Units(today.work_id, today.language, today.refs, today.texts, tvecs)
+        today = Units(today.work_id, today.language, today.refs, today.texts, tvecs,
+                      today.spans)
         cuts = {"today": (today, align_pair(today.version(), orig.version())),
                 "refined": (refined, align_pair(refined.version(), orig.version()))}
         today_set = set(today.texts)

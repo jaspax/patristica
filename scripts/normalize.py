@@ -694,7 +694,8 @@ def normalize_all(
             anchor_record(cut, is_standard(raw_record)) if enrolled else NOT_ENROLLED)
 
     log.info("Normalization complete: %d total chunks written", total)
-    _prune_orphans(raw_dir, output_dir)
+    if only is None:  # a partial rebuild (scripts.anchor) never deletes other works
+        _prune_orphans(raw_dir, output_dir)
     write_works_manifest(output_dir, keep=refused, refresh=set(fingerprints))
     listed = read_works_manifest(output_dir)
     _write_work_fingerprints(

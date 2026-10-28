@@ -50,6 +50,7 @@ from pathlib import Path
 
 import numpy as np
 
+from patristica import editorial
 from patristica import embeddings as emb
 from patristica.alignment import Bead, Params, Version, align_pair, anchor_chain
 from patristica.anchoring import RefineParams
@@ -95,9 +96,17 @@ class Units:
     refs: list[str]
     texts: list[str]
     vecs: np.ndarray  # float32, units × dims
+    #: Editorial spans per unit (#236; offsets into its text), or None.
+    spans: list[list[editorial.Span]] | None = None
 
     def version(self) -> Version:
         return Version(self.work_id, self.vecs)
+
+    def source_texts(self) -> list[str]:
+        """The units' texts without editorial material: what is embedded."""
+        if self.spans is None:
+            return list(self.texts)
+        return [editorial.strip(t, sp) for t, sp in zip(self.texts, self.spans)]
 
 
 # --------------------------------------------------------------- vector cache
@@ -170,6 +179,8 @@ class VectorCache:
         seen: set[str] = set()
         out = []
         for t in texts:
+            if not t.strip():
+                continue  # wholly editorial: no vector, as in scripts.embed
             s = text_sha(t)
             if s not in self.raw and s not in seen:
                 seen.add(s)
@@ -216,12 +227,24 @@ class VectorCache:
 
 @dataclass
 class Paragraph:
-    """A translation source paragraph: its words (``_atoms``, whitespace kept)
-    and the provisional cut (word indices where its units start, 0 first)."""
+    """A translation source paragraph: its words (``_atoms``, whitespace kept),
+    the provisional cut (word indices where its units start, 0 first) and its
+    editorial spans (#236), as offsets into ``"".join(atoms)``."""
 
     ref: str
     atoms: list[str]
     today: list[int]
+    spans: list[editorial.Span] = field(default_factory=list)
+    _offsets: list[int] | None = None
+
+    def offset(self, atom: int) -> int:
+        """The character offset of *atom* in the joined paragraph."""
+        if self._offsets is None or len(self._offsets) != len(self.atoms) + 1:
+            offs = [0]
+            for a in self.atoms:
+                offs.append(offs[-1] + len(a))
+            self._offsets = offs
+        return self._offsets[atom]
 
 
 def paragraphs_of(units: Units) -> list[Paragraph]:
@@ -229,14 +252,17 @@ def paragraphs_of(units: Units) -> list[Paragraph]:
     agree with ``patristica.anchoring.words`` of the paragraph."""
     out: list[Paragraph] = []
     last: str | None = None
-    for ref, text in zip(units.refs, units.texts):
+    spans = units.spans or [[] for _ in units.texts]
+    for ref, text, sp in zip(units.refs, units.texts, spans):
         parent = ref.rsplit(".", 1)[0] if is_derived_ref(ref) else ref
         if parent != ref and parent == last and out:
             para = out[-1]
+            at = len("".join(para.atoms)) + 1  # the unit follows a space
             para.today.append(len(para.atoms))
             para.atoms.extend(_atoms(" " + text))
+            para.spans.extend((a + at, b + at, k) for a, b, k in sp)
         else:
-            out.append(Paragraph(parent, _atoms(text), [0]))
+            out.append(Paragraph(parent, _atoms(text), [0], list(sp)))
         last = parent if parent != ref else None
     return out
 
@@ -249,6 +275,7 @@ class Segment:
     text: str
     tokens: int
     end: int  # break strength at its end (SENTENCE at a paragraph end)
+    key: str = ""  # the text embedded: without editorial material (``embed_text``)
 
 
 def segments_of(paras: Sequence[Paragraph], language: str) -> list[Segment]:
@@ -283,9 +310,11 @@ def segments_of(paras: Sequence[Paragraph], language: str) -> list[Segment]:
             text = "".join(atoms[prev:stop]).strip()
             if text:
                 out.append(Segment(p, prev, stop, text, sum(tok[prev:stop]),
-                                   SENTENCE if stop == n else st[stop - 1]))
+                                   SENTENCE if stop == n else st[stop - 1],
+                                   embed_text(paras, p, prev, stop)))
             elif out and out[-1].para == p:
                 out[-1].a1 = stop
+                out[-1].key = embed_text(paras, p, out[-1].a0, stop)
             prev = stop
     return out
 
@@ -303,6 +332,19 @@ def _word_cuts(tok: Sequence[int], a: int, b: int, target: int) -> list[int]:
 
 def piece_text(paras: Sequence[Paragraph], para: int, a0: int, a1: int) -> str:
     return "".join(paras[para].atoms[a0:a1]).strip()
+
+
+def embed_text(paras: Sequence[Paragraph], para: int, a0: int, a1: int) -> str:
+    """What a piece embeds: its text without editorial material (#236), as
+    ``editorial.source_text`` gives it for a unit with that text. Cut positions
+    stay word positions of the full text."""
+    pa = paras[para]
+    raw = "".join(pa.atoms[a0:a1])
+    text = raw.strip()
+    if not pa.spans or not text:
+        return text
+    start = pa.offset(a0) + len(raw) - len(raw.lstrip())
+    return editorial.strip(text, editorial.clip(pa.spans, start, start + len(text)))
 
 
 def _parts(segs: Sequence[Segment], j0: int, j1: int) -> list[tuple[int, int, int]]:
@@ -450,8 +492,8 @@ def _candidate_runs(segs: Sequence[Segment], paras: Sequence[Paragraph], j: int,
             break
         lengths.append(L)
         crosses.append(cross)
-        keys.append(tuple(text_sha(piece_text(paras, q, a0, a1))
-                          for q, a0, a1 in _parts(segs, j - L, j)))
+        parts = (embed_text(paras, q, a0, a1) for q, a0, a1 in _parts(segs, j - L, j))
+        keys.append(tuple(text_sha(t) for t in parts if t.strip()))
     return _Runs(np.array(lengths, dtype=np.int64), np.array(crosses, dtype=np.float64), keys)
 
 
@@ -559,7 +601,10 @@ def _score_runs(j: int, runs: _Runs, ks: np.ndarray, best: np.ndarray, bp: np.nd
     exact = np.zeros(len(runs.lengths), dtype=bool)
     for r, key in enumerate(runs.keys):
         parts = [cache.get_sha(s) for s in key]
-        if all(v is not None for v in parts):
+        if not parts:  # wholly editorial: no vector (dropped below)
+            W[r] = 0.0
+            exact[r] = True
+        elif all(v is not None for v in parts):
             W[r] = np.sum(parts, axis=0)
             exact[r] = True
     keep = exact if exact_only else np.ones(len(exact), dtype=bool)
@@ -686,6 +731,11 @@ class Result:
         return [piece_text(self.paras, p, a0, a1)
                 for p, ps in enumerate(self.pieces) for a0, a1 in ps]
 
+    def embed_texts(self) -> list[str]:
+        """The units' texts as embedded (without editorial material)."""
+        return [embed_text(self.paras, p, a0, a1)
+                for p, ps in enumerate(self.pieces) for a0, a1 in ps]
+
     def starts(self) -> list[list[int]]:
         """Per paragraph, the word index where each unit starts."""
         return [[a0 for a0, _ in ps] for ps in self.pieces]
@@ -709,7 +759,7 @@ def first_texts(today: Units, language: str) -> list[str]:
     """What the first embed sends at most: the segments and the provisional units."""
     paras = paragraphs_of(today)
     segs = segments_of(paras, language)
-    return [s.text for s in segs] + [t for t in today.texts if wants_vector(t)]
+    return [s.key for s in segs] + [t for t in today.source_texts() if wants_vector(t)]
 
 
 def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = RefineParams(),
@@ -722,19 +772,24 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
     """
     paras = paragraphs_of(today)
     segs = segments_of(paras, today.language)
-    seg_texts = [s.text for s in segs]
-    unit_texts = [t for t in today.texts if wants_vector(t)]
+    seg_texts = [s.key for s in segs]
+    sources = today.source_texts()
+    unit_texts = [t for t in sources if wants_vector(t)]
     log.info("%s: %d paragraphs, %d segments; first embed ~%d tokens",
              today.work_id, len(paras), len(segs), cache.estimate(seg_texts + unit_texts))
     cache.ensure(seg_texts + unit_texts)
-    seg_vecs = np.stack([cache.get(t) for t in seg_texts]).astype(np.float64) if segs \
-        else np.zeros((0, orig.vecs.shape[1]))
-    tvecs = np.zeros((len(today.texts), orig.vecs.shape[1]), dtype=np.float32)
-    for u, t in enumerate(today.texts):
-        v = cache.get(t)
+    dims = orig.vecs.shape[1]
+    seg_vecs = np.zeros((len(segs), dims))
+    for j, t in enumerate(seg_texts):
+        v = cache.get(t) if t.strip() else None
+        if v is not None:
+            seg_vecs[j] = v
+    tvecs = np.zeros((len(today.texts), dims), dtype=np.float32)
+    for u, t in enumerate(sources):
+        v = cache.get(t) if t.strip() else None
         if v is not None:
             tvecs[u] = v
-    today = Units(today.work_id, today.language, today.refs, today.texts, tvecs)
+    today = Units(today.work_id, today.language, today.refs, today.texts, tvecs, today.spans)
     today_beads = align_pair(today.version(), orig.version(), params)
     lo, hi = provisional_band(len(orig.texts), segs, paras, today_beads, p.band)
     calib = calibrate(paras, segs, seg_vecs, today, orig, today_beads, p.min_calibration)
@@ -751,7 +806,7 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
                                            today.language, p, exact_only=final, runs=runs)
         pieces, fallback = pieces_from(beads, skipped, segs, paras)
         result = Result(paras, pieces, beads, r, False, calib, fallback, history)
-        texts = [t for t in result.texts() if wants_vector(t)]
+        texts = [t for t in result.embed_texts() if wants_vector(t)]
         todo = cache.missing(texts)
         history.append({"round": r, "exact_only": final, "units": len(result.texts()),
                         "beads": len(beads), "exact_beads": int(sum(exact)),

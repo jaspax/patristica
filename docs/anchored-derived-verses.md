@@ -47,12 +47,28 @@ PR #303 (#292), which was not merged.
   segments. That adds up to about 1× the text (less the provisional units equal
   to a segment) to the costs of §7, which assumed stored vectors. Still cents.
 - **Final units** whose exact text the refinement never embedded (a new unit
-  spanning a provisional cut where the raw text had other whitespace, or one
-  with editorial material) are embedded after the re-normalize, so every final
-  unit's text vector is in `data/embeddings`.
-- **Cost estimate** (`--dry-run`, `scripts.pipeline`): the first embed
-  exactly, the rounds as an upper bound of 2× the translation's text tokens.
-  The pipeline gates the step on `--pay` whenever a work is to be cut.
+  spanning a provisional cut where the raw text had other whitespace) are
+  embedded after the re-normalize, so every final unit's text vector is in
+  `data/embeddings`.
+- **Editorial material (#236) is never embedded:** segments, candidate pieces
+  and units are embedded as their source text (spans left out, as
+  `scripts.embed` does), while cut positions stay word positions of the full
+  text.
+- **Eligibility:** works with an unpublishable licence (`corpus.EXCLUDED_LICENSES`),
+  or whose original has one, aren't anchored (they are never embedded). Vectors
+  of another model, size or input type count as missing, for the original
+  (the work is refused) and for rows of the translation (replaced).
+- **Cost estimate and cap** (`--dry-run`, `scripts.pipeline`): per work, the
+  first embed exactly, plus 2× the translation's text tokens for the rounds
+  and final units. `scripts.anchor` enforces each work's sum as its budget, so
+  the estimate is a real upper bound (in cl100k tokens, like `scripts.embed`'s)
+  and the pipeline can debit it. A work whose original is cut earlier in the
+  same run is estimated too.
+- **A work is all or nothing:** if anything fails after its cut file is saved
+  (re-normalize, final embed, writing vectors), the previous cut file and
+  output are restored, so a plain re-run resumes it (from the scratch store).
+  The pipeline's anchor step also fails, before anything is published, when a
+  cut file is stale in a way the step can't fix (`scripts.anchor --check`).
 - **Runtime.** The DP is vectorized over the run lengths of a segment
   boundary: one round on the Tractates (40,502 segments, 15,217 Latin units)
   takes about 40 s, against about 2.6 min in the prototype. A whole run there

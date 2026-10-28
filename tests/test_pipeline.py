@@ -58,18 +58,20 @@ def test_runs_every_step_in_order_and_sends_nothing_at_zero_cost():
     p, runner = make()
     assert p.run() == 0
     assert runner.commands == [
-        ["scripts.normalize"], ["scripts.validate"], ["scripts.translate"],
+        ["scripts.normalize"], ["scripts.anchor", "--check"], ["scripts.validate"],
+        ["scripts.translate"],
         ["scripts.embed", "--no-requests"], ["scripts.align"], ["scripts.build_index"],
         ["scripts.export_library"], ["scripts.upload_library"]]
     assert [r.step for r in p.results] == list(pl.STEPS)
     assert set(statuses(p).values()) == {"done"}
-    assert dict(runner.calls[5][1]) == {"tunnel": True}  # build_index: production via the tunnel
+    assert dict(runner.calls[6][1]) == {"tunnel": True}  # build_index: production via the tunnel
 
 
 def test_without_pay_stops_before_the_first_paid_step_with_work():
     p, runner = make(translate=[(100, 0.14)])
     assert p.run() == 0
-    assert runner.commands == [["scripts.normalize"], ["scripts.validate"]]
+    assert runner.commands == [["scripts.normalize"], ["scripts.anchor", "--check"],
+                               ["scripts.validate"]]
     assert statuses(p)["translate"] == "stopped"
     assert "100 units" in p.results[3].detail and "--pay" in p.results[3].detail
     assert all(r.status == "skipped" for r in p.results[4:])
@@ -104,7 +106,7 @@ def test_what_sol_left_is_retried_with_opus():
     p, runner = make(pay=True, max_cost=20.0,
                      translate=[(100, 1.0), (3, 0.5), (1, 0.0)])
     assert p.run() == 0
-    assert runner.commands[2:4] == [["scripts.translate", "--max-cost", "20.00"],
+    assert runner.commands[3:5] == [["scripts.translate", "--max-cost", "20.00"],
                                     ["scripts.translate", "--model", "opus", "--max-cost", "19.00"]]
     translate = p.results[3]
     assert translate.cost == pytest.approx(1.5)
@@ -122,8 +124,16 @@ def test_a_failing_step_stops_the_run():
 def test_anchor_is_free_when_no_cut_file_is_stale():
     p, runner = make()
     p.run()
-    assert not any(c[0] == "scripts.anchor" for c in runner.commands)
+    assert [c for c in runner.commands if c[0] == "scripts.anchor"] == [
+        ["scripts.anchor", "--check"]]  # no --pay: no key, nothing sent
     assert p.results[1].step == "anchor" and p.results[1].detail == "nothing to cut"
+
+
+def test_a_failing_anchor_check_stops_the_run_before_publishing():
+    p, runner = make(fail=("scripts.anchor",))
+    assert p.run() == 1
+    assert statuses(p)["anchor"] == "failed"
+    assert runner.commands[-1] == ["scripts.anchor", "--check"]
 
 
 def test_anchor_needs_pay_and_counts_against_max_cost():

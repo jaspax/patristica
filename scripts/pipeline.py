@@ -364,10 +364,13 @@ class Pipeline:
 
     def anchor(self) -> tuple[str, float]:
         works, cost = self.estimates.anchor()
-        if not works:  # no cut file missing or stale: nothing to run, no key needed
+        if not works:  # nothing to send, no key needed; but a stale cut file stops the run
+            self._run(python("scripts.anchor", "--check"))
             return "nothing to cut", 0.0
         self._budget(works, cost)
         self._run(python("scripts.anchor", "--pay", *self._cap()))
+        # scripts.anchor caps each work at its share of the estimate, so the
+        # estimate bounds what it sends (in cl100k tokens, as for embed).
         return f"{works:,} works cut (the estimate is an upper bound)", cost
 
     def validate(self) -> tuple[str, float]:

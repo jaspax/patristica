@@ -61,8 +61,8 @@ from typing import TYPE_CHECKING
 
 from patristica import anchor_store, anchoring
 from patristica import embeddings as emb
-from patristica.corpus import load_works
-from patristica.editorial import source_text
+from patristica.corpus import EXCLUDED_LICENSES, load_works
+from patristica.editorial import source_text, spans_of
 from patristica.translations import text_sha
 
 if TYPE_CHECKING:
@@ -142,7 +142,10 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
     A work of an enrolled source is anchorable when normalize cut it as prose
     (its fingerprint's ``anchor`` record isn't null) and its ``translation_of``
     is in the corpus in another language (an edition in its own language waits
-    for #199).
+    for #199). Works whose licence keeps them out of the index
+    (``corpus.EXCLUDED_LICENSES``), and works whose original's does, aren't
+    anchored: neither is embedded (``scripts.embed``), so their text is never
+    sent and they keep the size cut.
     """
     from scripts import normalize as nz
 
@@ -165,6 +168,8 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
         if target is None or target not in by_id:
             continue
         orig = by_id[target]["work"]
+        if work.get("license") in EXCLUDED_LICENSES or orig.get("license") in EXCLUDED_LICENSES:
+            continue
         if anchoring.same_language(work["language"], orig["language"]):
             continue
         out.append(Candidate(path, work["work_id"], work["language"], target,
@@ -240,7 +245,9 @@ def wants_vector(text: str) -> bool:
 
 def load_original(c: Candidate, norm: Path, store_dir: Path) -> tuple[Units, int, set[str]]:
     """The original's units with their current text vectors, the number of
-    units that should have one but don't, and the vectors' models."""
+    units that should have one but don't, and the vectors' models. A row of
+    another model, size or input type counts as missing: it can't be compared
+    with the vectors this step makes."""
     import numpy as np
 
     from patristica.anchor_refine import Units, normalize_rows
@@ -251,10 +258,12 @@ def load_original(c: Candidate, norm: Path, store_dir: Path) -> tuple[Units, int
     vecs = np.zeros((len(chunks), DIMS), dtype=np.float32)
     missing = 0
     models: set[str] = set()
+    spec = run_spec()
     for u, ch in enumerate(chunks):
         text = source_text(ch)
         k = index.get((ch["chunk_id"], emb.KIND_TEXT))
-        if k is not None and shard.rows[k].sha == text_sha(text):
+        if (k is not None and shard.rows[k].sha == text_sha(text)
+                and shard.runs[shard.rows[k].run].same_space(spec)):
             vecs[u] = shard.vecs[k]
             models.add(shard.runs[shard.rows[k].run].model)
         elif wants_vector(text):
@@ -278,7 +287,8 @@ def load_translation(c: Candidate, norm: Path, store_dir: Path, cache: VectorCac
             if row.kind == emb.KIND_TEXT:
                 cache.seed(row.sha, v, shard.runs[row.run])
     return Units(c.work_id, c.language, [ch["canonical_ref"] for ch in chunks],
-                 [ch["text"] for ch in chunks], np.zeros((len(chunks), DIMS), dtype=np.float32))
+                 [ch["text"] for ch in chunks], np.zeros((len(chunks), DIMS), dtype=np.float32),
+                 [spans_of(ch) for ch in chunks])
 
 
 def run_spec() -> emb.EmbeddingRun:
@@ -317,13 +327,15 @@ def write_vectors(c: Candidate, norm: Path, store_dir: Path, cache: VectorCache)
     vecs: list[np.ndarray] = []
     runs: dict[str, emb.EmbeddingRun] = dict(shard.runs) if shard is not None else {}
     left = 0
+    spec = run_spec()
     for ch in chunks:
         cid = ch["chunk_id"]
         text = source_text(ch)
         if wants_vector(text):
             sha = text_sha(text)
             k = index.get((cid, emb.KIND_TEXT))
-            if k is not None and shard.rows[k].sha == sha:
+            if (k is not None and shard.rows[k].sha == sha
+                    and shard.runs[shard.rows[k].run].same_space(spec)):
                 rows.append(shard.rows[k])
                 vecs.append(shard.vecs[k])
             elif sha in cache.raw:
@@ -408,31 +420,45 @@ class Estimate:
         return self.tokens / 1e6 * PRICE_PER_MTOK
 
 
-def estimate(p: Plan, norm: Path = NORMALIZED, store_dir: Path = EMBEDDINGS,
-             scratch: Path | None = SCRATCH, verbose: bool = False) -> Estimate:
-    """What cutting *p*'s works would send (no requests)."""
+def work_bound(cache: VectorCache, today: Units) -> tuple[int, int]:
+    """(the first embed, exact; the rest, a cap) in cl100k tokens for one work.
+
+    ``run`` enforces their sum as the work's budget, so the estimate is a real
+    upper bound of what the step sends: a work that would need more stops
+    (``NeedsVectors``) and its cut is rolled back.
+    """
     from patristica.anchor_refine import first_texts
     from patristica.versify import count_tokens
 
+    first = cache.estimate(first_texts(today, today.language))
+    text = sum(count_tokens(t) for t in today.source_texts())
+    return first, int(ROUNDS_FACTOR * text)
+
+
+def estimate(p: Plan, norm: Path = NORMALIZED, store_dir: Path = EMBEDDINGS,
+             scratch: Path | None = SCRATCH, verbose: bool = False) -> Estimate:
+    """What cutting *p*'s works would send at most (no requests). A work whose
+    original lacks vectors is counted when that original is cut earlier in the
+    same run (it gets its vectors then), else listed as refused."""
     est = Estimate()
+    earlier: set[str] = set()
     for s in p.todo:
         c = s.candidate
         _, missing, _ = load_original(c, norm, store_dir)
-        if missing:
+        if missing and c.anchor not in earlier:
             est.refused.append(f"{c.work_id} (original {c.anchor}: {missing} units without "
                                "a current vector)")
             continue
+        earlier.add(c.work_id)
         cache = make_cache(c, scratch, None)
         today = load_translation(c, norm, store_dir, cache)
-        first = cache.estimate(first_texts(today, c.language))
-        text = sum(count_tokens(t) for t in today.texts)
-        rounds = int(ROUNDS_FACTOR * text)
+        first, rounds = work_bound(cache, today)
         est.works += 1
         est.first_tokens += first
         est.rounds_tokens += rounds
         if verbose:
-            log.info("%s (%s): first embed ~%s tokens, rounds ≤ ~%s (text %s tokens)",
-                     c.work_id, s.status, f"{first:,}", f"{rounds:,}", f"{text:,}")
+            log.info("%s (%s): first embed ~%s tokens, rounds and final units ≤ ~%s",
+                     c.work_id, s.status, f"{first:,}", f"{rounds:,}")
     return est
 
 
@@ -456,7 +482,12 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
     """Cut what :func:`plan` lists; ``{"cut", "refused", "frozen", "failing"}``.
 
     *embed* sends texts to Voyage (None: a work that needs vectors raises
-    ``NeedsVectors``). Raises ``AnchorError`` when normalize isn't current.
+    ``NeedsVectors``). Each work may send at most its :func:`work_bound`, and
+    all of them at most *budget_tokens*. A work is complete only once its cut
+    file, normalized output and final vectors are all written: a failure after
+    the cut file is saved (the final embed, the re-normalize) restores the
+    previous cut file and output and re-raises, so a plain re-run resumes it.
+    Raises ``AnchorError`` when normalize isn't current.
     """
     from patristica.anchor_refine import refine
     from scripts import normalize as nz
@@ -478,13 +509,19 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
                       c.anchor)
             done["refused"].append(c.work_id)
             continue
-        left = None if budget_tokens is None else budget_tokens - sent
-        cache = make_cache(c, scratch, embed, left)
+        cache = make_cache(c, scratch, embed)
         today = load_translation(c, norm, store_dir, cache)
+        first, rest = work_bound(cache, today)
+        cache.budget_tokens = first + rest
+        if budget_tokens is not None:
+            cache.budget_tokens = min(cache.budget_tokens, budget_tokens - sent)
         started = time.monotonic()
-        result = refine(orig, today, cache, params)
-        stats = result.stats(len(orig.texts))
-        stats["seconds"] = round(time.monotonic() - started, 1)
+        try:
+            result = refine(orig, today, cache, params)
+        finally:
+            sent += cache.sent_tokens
+        seconds = time.monotonic() - started
+        stats = result.stats(len(orig.texts))  # no timings: the file must be repeatable
         paras = anchoring.paragraphs(_chunks(norm, c.path))
         starts = result.starts()
         cut = anchor_store.CutFile(
@@ -498,18 +535,42 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
         if [pp.ref for pp in paras] != [rp.ref for rp in result.paras]:
             raise AnchorError(f"{c.work_id}: paragraphs differ between the refinement and "
                               "the cut file (a bug)")
+        previous = anchor_store.load(anchors_dir, c.path)
+        before = cache.sent_tokens
         anchor_store.save(anchors_dir, c.path, cut)
-        renormalize(c, norm, raw, anchors_dir)
-        # Final units whose exact text the refinement didn't embed (whitespace
-        # at an old cut, editorial material): embed them now, then store all.
-        final = [source_text(ch) for ch in _chunks(norm, c.path)]
-        cache.ensure([t for t in final if wants_vector(t)])
-        left_units = write_vectors(c, norm, store_dir, cache)
-        sent += cache.sent_tokens
-        log.info("%s: cut on %s (%s); ~%s tokens sent; %d units left for scripts.embed",
-                 c.work_id, c.anchor, json.dumps(stats), f"{cache.sent_tokens:,}", left_units)
+        try:
+            renormalize(c, norm, raw, anchors_dir)
+            # Final units whose exact text the refinement didn't embed
+            # (whitespace at an old cut): embed them now, then store all.
+            final = [source_text(ch) for ch in _chunks(norm, c.path)]
+            cache.ensure([t for t in final if wants_vector(t)])
+            left_units = write_vectors(c, norm, store_dir, cache)
+        except BaseException:
+            sent += cache.sent_tokens - before
+            log.error("%s: not completed; restoring its previous cut file and output", c.work_id)
+            restore(c, previous, norm, raw, anchors_dir)
+            raise
+        sent += cache.sent_tokens - before
+        log.info("%s: cut on %s in %.0f s (%s); ~%s tokens sent; %d units left for "
+                 "scripts.embed", c.work_id, c.anchor, seconds, json.dumps(stats),
+                 f"{cache.sent_tokens:,}", left_units)
         done["cut"].append(c.work_id)
     return done
+
+
+def restore(c: Candidate, previous: anchor_store.CutFile | None, norm: Path, raw: Path,
+            anchors_dir: Path) -> None:
+    """Put back the cut file a failed run replaced (none: remove the new one) and
+    re-normalize the work with it, so the work is stale again, not half done."""
+    if previous is None:
+        anchor_store.cut_path(anchors_dir, c.path).unlink(missing_ok=True)
+    else:
+        anchor_store.save(anchors_dir, c.path, previous)
+    try:
+        renormalize(c, norm, raw, anchors_dir)
+    except Exception:
+        log.exception("%s: could not re-normalize after restoring its cut file: run "
+                      "scripts.normalize", c.work_id)
 
 
 def main() -> None:
@@ -545,8 +606,11 @@ def main() -> None:
     pl = plan(args.normalized_dir, args.anchors_dir, args.recut, args.work)
     for s in pl.frozen:
         log.warning("frozen (re-cut only with --recut %s): %s", s.candidate.work_id, describe(s))
-    for s in pl.failing + pl.reported:
+    for s in pl.reported:
         log.warning("%s", describe(s))
+    for s in pl.failing:
+        log.error("%s: not fixed by this step (scripts.normalize, or remove an orphan "
+                  "cut file)", describe(s))
     if args.dry_run:
         est = estimate(pl, args.normalized_dir, args.embeddings_dir, args.scratch_dir,
                        verbose=True)
@@ -559,7 +623,7 @@ def main() -> None:
         return
     if not pl.todo:
         log.info("nothing to cut")
-        return
+        sys.exit(1 if pl.failing else 0)
 
     from patristica.anchor_refine import NeedsVectors
 
@@ -586,7 +650,7 @@ def main() -> None:
             log.info("Voyage tokens billed: %s (~$%.2f)", f"{embedder.tokens_used:,}",
                      embedder.tokens_used / 1e6 * PRICE_PER_MTOK)
     log.info("cut %d works; refused %d", len(done["cut"]), len(done["refused"]))
-    if done["refused"]:
+    if done["refused"] or done["failing"]:
         sys.exit(1)
 
 

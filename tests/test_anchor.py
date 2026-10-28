@@ -73,17 +73,25 @@ def english(sents: list[list[int]]) -> str:
     return " ".join(out)
 
 
+#: An editor's heading at the start of the English, marked as editorial (#236).
+HEADING = "Edhead the editor's heading."
+
+
 def write_work(raw: Path, rel: str, language: str, paragraphs: list[str],
-               translation_of: str | None = None) -> None:
+               translation_of: str | None = None, license: str = "public_domain",
+               heading: bool = False) -> None:
     source_id, name = rel.split("/")[0], Path(rel).stem
     work = {"work_id": f"{source_id}/{name}", "source_id": source_id, "title": "T",
-            "genre": "patristic", "language": language, "license": "public_domain"}
+            "genre": "patristic", "language": language, "license": license}
     if translation_of:
         work["translation_of"] = translation_of
+    units = [{"ref": f"P.{i}", "text": t} for i, t in enumerate(paragraphs, 1)]
+    if heading:
+        units[0] = {"ref": "P.1", "text": HEADING + " " + paragraphs[0],
+                    "editorial": [[0, len(HEADING), "heading"]]}
     path = raw / rel
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({"work": work, "paragraphs": [
-        {"ref": f"P.{i}", "text": t} for i, t in enumerate(paragraphs, 1)]}), encoding="utf-8")
+    path.write_text(json.dumps({"work": work, "paragraphs": units}), encoding="utf-8")
 
 
 def embed_work(norm: Path, store: Path, rel: str, fake: FakeEmbedder) -> None:
@@ -247,3 +255,116 @@ def test_refine_matches_original_units_on_a_close_translation() -> None:
     want = [concepts(t) for t in lat]
     assert got == want
     assert result.history[-1]["new_units"] == 0
+
+
+# ------------------------------------------------------- review fixes (#319)
+
+
+def other_model_run() -> emb.EmbeddingRun:
+    return anchor.run_spec().model_copy(update={"model": "voyage/voyage-3"})
+
+
+def test_unpublishable_works_and_originals_are_not_anchored(corpus) -> None:
+    d = corpus
+    write_work(d["raw"], "tr/w.json", "eng", [english(SENTENCES[:8]), english(SENTENCES[8:])],
+               translation_of="orig/w", license="unknown")
+    nz.normalize_all(d["raw"], d["normalized"], anchors_dir=d["anchors"], accept_raw_change=True)
+    assert anchor.check_works(d["normalized"], d["anchors"]) == []
+    write_work(d["raw"], "tr/w.json", "eng", [english(SENTENCES[:8]), english(SENTENCES[8:])],
+               translation_of="orig/w")
+    write_work(d["raw"], "orig/w.json", "lat", [latin(SENTENCES[:8]), latin(SENTENCES[8:])],
+               license="unknown")
+    nz.normalize_all(d["raw"], d["normalized"], anchors_dir=d["anchors"], accept_raw_change=True)
+    assert anchor.check_works(d["normalized"], d["anchors"]) == []
+
+
+def test_original_vectors_of_another_model_count_as_missing(corpus) -> None:
+    d = corpus
+    embed_work(d["normalized"], d["embeddings"], "orig/w.json", FakeEmbedder())
+    shard = emb.load(d["embeddings"], "orig/w.json")
+    old = other_model_run()
+    shard.runs = {old.key: old}
+    shard.rows = [emb.Row(r.chunk_id, r.kind, r.sha, old.key) for r in shard.rows]
+    emb.save(d["embeddings"], shard)
+    assert run(d, FakeEmbedder())["refused"] == ["tr/w"]
+
+
+def test_translation_rows_of_another_model_are_replaced(corpus) -> None:
+    d = corpus
+    embed_work(d["normalized"], d["embeddings"], "orig/w.json", FakeEmbedder())
+    embed_work(d["normalized"], d["embeddings"], "tr/w.json", FakeEmbedder())
+    shard = emb.load(d["embeddings"], "tr/w.json")
+    old = other_model_run()
+    shard.runs = {old.key: old}
+    shard.rows = [emb.Row(r.chunk_id, r.kind, r.sha, old.key) for r in shard.rows]
+    emb.save(d["embeddings"], shard)
+    assert run(d, FakeEmbedder())["cut"] == ["tr/w"]
+    shard = emb.load(d["embeddings"], "tr/w.json")
+    assert all(shard.runs[r.run].same_space(anchor.run_spec()) for r in shard.rows)
+    assert len(shard.rows) == len(units(d, "tr/w.json"))
+
+
+def test_editorial_material_is_never_embedded(corpus) -> None:
+    d = corpus
+    write_work(d["raw"], "tr/w.json", "eng", [english(SENTENCES[:8]), english(SENTENCES[8:])],
+               translation_of="orig/w", heading=True)
+    nz.normalize_all(d["raw"], d["normalized"], anchors_dir=d["anchors"], accept_raw_change=True)
+    embed_work(d["normalized"], d["embeddings"], "orig/w.json", FakeEmbedder())
+    fake = FakeEmbedder()
+    assert run(d, fake)["cut"] == ["tr/w"]
+    sent = [t for call in fake.calls for t in call]
+    assert sent and not any("Edhead" in t or "heading." in t for t in sent)
+    first = units(d, "tr/w.json")[0]
+    assert first["text"].startswith("Edhead") and first.get("editorial")
+    shard = emb.load(d["embeddings"], "tr/w.json")
+    assert {r.chunk_id for r in shard.rows} == {
+        c["chunk_id"] for c in units(d, "tr/w.json") if anchor.wants_vector(
+            anchor.source_text(c))}
+
+
+def test_a_failure_after_the_cut_is_saved_rolls_it_back(corpus, monkeypatch) -> None:
+    d = corpus
+    embed_work(d["normalized"], d["embeddings"], "orig/w.json", FakeEmbedder())
+    before = (d["normalized"] / "tr/w.json").read_bytes()
+
+    def boom(*args, **kw):
+        raise RuntimeError("the final embed failed")
+
+    monkeypatch.setattr(anchor, "write_vectors", boom)
+    with pytest.raises(RuntimeError):
+        run(d, FakeEmbedder())
+    assert not (d["anchors"] / "tr/w.json").exists()
+    assert (d["normalized"] / "tr/w.json").read_bytes() == before
+    [state] = anchor.check_works(d["normalized"], d["anchors"])
+    assert state.status == anchor.MISSING
+    monkeypatch.undo()
+    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {"tr": "test"})
+    fake = FakeEmbedder()
+    assert run(d, fake)["cut"] == ["tr/w"]
+    assert fake.calls == []  # resumed from the scratch store
+
+
+def test_each_work_is_capped_at_its_estimate(corpus, monkeypatch) -> None:
+    d = corpus
+    embed_work(d["normalized"], d["embeddings"], "orig/w.json", FakeEmbedder())
+    p = anchor.plan(d["normalized"], d["anchors"])
+    est = anchor.estimate(p, d["normalized"], d["embeddings"], d["scratch"])
+    fake = FakeEmbedder()
+    run(d, fake)
+    from patristica.versify import count_tokens
+    assert sum(count_tokens(t) for c in fake.calls for t in c) <= est.tokens
+    # A work that would send more than its bound stops, uncut.
+    monkeypatch.setattr(anchor, "work_bound", lambda cache, today: (10, 0))
+    d2 = {**d, "scratch": d["scratch"].parent / "scratch2"}
+    (d["embeddings"] / "tr" / "w.npz").unlink()  # nothing cached: it must embed
+    cut = (d["anchors"] / "tr" / "w.json").read_bytes()
+    with pytest.raises(anchor_refine.NeedsVectors):
+        run(d2, FakeEmbedder(), recut=["tr/w"])
+    assert (d["anchors"] / "tr" / "w.json").read_bytes() == cut
+
+
+def test_cut_files_hold_no_timings(corpus) -> None:
+    embed_work(corpus["normalized"], corpus["embeddings"], "orig/w.json", FakeEmbedder())
+    run(corpus, FakeEmbedder())
+    cut = anchor_store.load(corpus["anchors"], "tr/w.json")
+    assert "seconds" not in cut.stats
