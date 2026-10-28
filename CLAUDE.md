@@ -29,6 +29,7 @@ patristica/
 ├── docs/adding-a-language.md # checklist for adding a new language to the corpus, with per-language decision records (#293)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
 ├── .github/workflows/deploy.yml           # on master: infra/deploy.sh --keep-env → web + api on the droplet
+├── .github/PULL_REQUEST_TEMPLATE/pipeline.md  # short PR template for committing a pipeline run's data
 ├── patristica/
 │   ├── models.py              # Pydantic data models (Work, Chunk)
 │   ├── sources.py             # readable label for every source_id (SOURCE_LABELS)
@@ -407,8 +408,17 @@ These rules are mandatory for all changes, including ones made by Claude.
 - **Never commit directly to `master`.** Start each piece of work on a feature branch off an up-to-date `master` (e.g. `git switch -c 12-ruff-cleanup`).
 - Every change lands on `master` through a **pull request**.
 - **Every PR must link the issue it resolves**, with a closing keyword in the PR description (`Closes #12`, `Fixes #12`). If no issue exists yet, create one first. A PR that only partially addresses an issue says `Part of #12` instead.
+- **Pipeline-run PRs are the exception**: a PR that only commits the `data/` outputs of a `scripts.pipeline` run (translations, embeddings, alignments, normalized files) needs no issue and uses the short template `.github/PULL_REQUEST_TEMPLATE/pipeline.md` ("Pipeline ran on YYYY-MM-DD"): `gh pr create --template pipeline.md`, or `?template=pipeline.md` on the compare URL.
 - **CI must pass** before a PR is merged. Don't merge over a red build; fix it or, if the failure is unrelated, file an issue and fix that first.
 - Keep PRs focused on one issue.
+
+### Worktrees and parallel work
+
+Several work streams run at once, so keep them out of each other's way:
+
+- **Work in a git worktree by default**, not in the main checkout: one worktree per branch under `.claude/worktrees/` (gitignored), e.g. `git worktree add .claude/worktrees/12-ruff-cleanup -b 12-ruff-cleanup origin/master`. Run `uv sync` (and `npm ci` in `web/`) in the new tree; the pre-push hook comes along, since `core.hooksPath` is shared. Remove the worktree (`git worktree remove …`) once its PR is merged.
+- **Exception: pipeline and data runs.** A worktree has git-lfs pointer files, not the data (`.lfsconfig`, "Data in git-lfs" above), so ingest, `scripts.pipeline` and anything else that reads `data/raw` or `data/embeddings` run in the main checkout, which has it all materialized. A worktree branch that only needs a few data files pulls them with `scripts.data pull --job …`.
+- **Given several independent tasks, start one sub-agent per task and run them in parallel**, each in its own worktree (Agent tool `isolation: "worktree"`), with its own issue, branch and PR. Do tasks one after another only when they depend on each other or touch the same files.
 
 ### Tests, hooks and CI
 
