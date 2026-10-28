@@ -35,6 +35,9 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   ["oglt-pl/augustinus/pl47_0_unk", "oglt-pl/cyprianus-carthaginensis/pl47_0_unk"],
   // #216: PL 47's "Opusculum II sive liber de quatuor virtutibus charitatis" is Quodvultdeus's sermon.
   ["oglt-pl/augustinus/pl47_1_unk", "oglt-pl/quodvultdeus/pl47_1_unk"],
+  // #81: PG 5's and PG 10's fragment collections are one work per author; the old id opens the first.
+  ["ogpg/vol-005/fragmenta-varia", "ogpg/vol-005/quadratus-fragmentum"],
+  ["ogpg/vol-010/alexandrina-fragmenta", "ogpg/vol-010/alexander-hierosolymitanus"],
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */
