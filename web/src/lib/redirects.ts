@@ -38,6 +38,8 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   // #81: PG 5's and PG 10's fragment collections are one work per author; the old id opens the first.
   ["ogpg/vol-005/fragmenta-varia", "ogpg/vol-005/quadratus-fragmentum"],
   ["ogpg/vol-010/alexandrina-fragmenta", "ogpg/vol-010/alexander-hierosolymitanus"],
+  // #315: ANF's Hippolytus "Dogmatical and Historical" is one work per treatise; the old id opens the first.
+  ["anf-works/hippolytus-dogmatical-and-historical", "anf-works/hippolytus-christ-and-antichrist"],
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */

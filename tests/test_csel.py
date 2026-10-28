@@ -92,3 +92,19 @@ def test_work_record_from_the_header(tmp_path: Path) -> None:
 def test_text_group_after_the_period_is_skipped(tmp_path: Path) -> None:
     path = _write_tei(tmp_path, "stoa0227b", '<div type="textpart" n="1"><p>Incipit</p></div>')
     assert parse_file(path, "Petrus Diaconus") is None
+
+
+def test_a_part_is_cut_out_of_its_collection() -> None:
+    from patristica.models import Work
+    from scripts.ingest.csel import split_parts
+    work = Work(work_id="csel/stoa0040/stoa011/opp-lat2", source_id="csel", title="Epistulae",
+                genre="patristic", language="lat", license="cc-by-sa-4.0")
+    paras = [{"ref": r, "text": r} for r in
+             ("stoa0040.stoa011.184.7", "stoa0040.stoa011.185", "stoa0040.stoa011.185.1",
+              "stoa0040.stoa011.1850", "stoa0040.stoa011.186.1")]
+    (stem, rest, kept), (pstem, part, mine) = split_parts("stoa0040.stoa011.opp-lat2", work, paras)
+    assert stem == "stoa0040.stoa011.opp-lat2" and pstem == "stoa0040.stoa011-ep185.opp-lat2"
+    assert part.work_id == "csel/stoa0040/stoa011-ep185/opp-lat2"  # its own CTS work id
+    assert [p["ref"] for p in mine] == ["stoa0040.stoa011.185", "stoa0040.stoa011.185.1"]
+    assert [p["ref"] for p in kept] == ["stoa0040.stoa011.184.7", "stoa0040.stoa011.1850",
+                                         "stoa0040.stoa011.186.1"]
