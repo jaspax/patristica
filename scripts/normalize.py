@@ -16,11 +16,15 @@ Staleness (#130) is decided by fingerprints, not file times.
 ``_fingerprint.json`` records the hash of this step's code
 (``patristica.fingerprint.code_hash``), and ``_fingerprints.jsonl`` records,
 per work, the hash of its raw file and of its curation (genre override, author
-ids, the authors' birth year and the curated ``translation_of``, #153).  A work
-is rebuilt when any of them changed, so a code or curation change re-runs exactly the affected works without
-``--force``.  The code hash is recorded only once every work in the manifest
-was rebuilt with that code; a run that couldn't (raw data missing for some
-source, refused works) leaves it, and ``tests/test_normalize_fingerprint.py``
+ids, the authors' birth year and the curated ``translation_of``, #153), and
+for a work of a source enrolled for anchored derived verses
+(``patristica.anchoring``, #304) the hash of its cut file in ``data/anchors``
+(``{"anchor": {"cuts": hash or null}}``; ``{"anchor": null}`` for an enrolled
+work with a standard versification, which is never anchored).  A work is
+rebuilt when any of them changed, so a code or curation change re-runs exactly
+the affected works without ``--force``.  The code hash is recorded only once
+every work in the manifest was rebuilt with that code; a run that couldn't (raw
+data missing for some source, refused works) leaves it, and ``tests/test_normalize_fingerprint.py``
 keeps failing until the data is current.  The fingerprints are kept out of
 ``_works.jsonl`` because ``build_index`` hashes its lines.  The ingest stamp
 of each source (``scripts.ingest._stamp``) is copied into
@@ -51,7 +55,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from patristica import editorial, fingerprint
+from patristica import anchor_store, anchoring, editorial, fingerprint
 from patristica.authors import (
     apply_author_date_range,
     apply_author_ids,
@@ -301,10 +305,23 @@ def _output_rel(raw_path: Path) -> Path:
         return Path(raw_path.name)
 
 
-def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path) -> int | None:
+def is_standard(raw_record: dict) -> bool:
+    """Whether a raw work keeps its own versification (no derived verses but
+    ``UNVERSIFIED_UNITS``): Scripture, and anything an ingestor delivered as
+    verses whatever its curated genre (#103)."""
+    work = apply_genre_override(raw_record.get("work") or {})
+    return work.get("genre") == "scripture" or bool(raw_record.get("verses"))
+
+
+def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path,
+                      cut: anchor_store.CutFile | None = None) -> int | None:
     """Build and write one work: the number of chunks written (0 when the file
     was already identical), or None when the record produced no output (not a
-    work, a genre normalize doesn't handle, or no chunks)."""
+    work, a genre normalize doesn't handle, or no chunks).
+
+    With *cut* (the cut file of an anchored work, ``patristica.anchoring``,
+    #304), its paragraphs are cut at the recorded positions where the record
+    still matches their words."""
     work_dict = raw_record.get("work")
     if not work_dict:
         log.debug("Skipping %s: no 'work' key", raw_path)
@@ -333,7 +350,8 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path) -> int
     standard = work.genre == "scripture" or bool(raw_record.get("verses"))
     marks = _editorial_marks(_units(raw_record), chunks)
     units = chunks
-    chunks = versify_chunks(chunks, standard=standard)
+    units_of = anchoring.units_of(chunks, cut) if cut is not None and not standard else None
+    chunks = versify_chunks(chunks, standard=standard, units_of=units_of)
     marks = _split_marks(marks, units, chunks)
 
     out_path = output_dir / _output_rel(raw_path)
@@ -404,7 +422,7 @@ def _chunk_record(chunk: Chunk, spans: list[editorial.Span] | None) -> dict:
 STEP = "normalize"
 WORKS_MANIFEST = "_works.jsonl"
 FINGERPRINT_FILE = "_fingerprint.json"     # {step: {"code": hash}}
-FINGERPRINTS_FILE = "_fingerprints.jsonl"  # one {"path", "raw", "curated"} per work
+FINGERPRINTS_FILE = "_fingerprints.jsonl"  # one {"path", "raw", "curated"[, "anchor"]} per work
 
 
 class RawChangedError(RuntimeError):
@@ -449,9 +467,34 @@ def curated_hash(work: dict) -> str:
     return fingerprint.value_hash(curation)
 
 
-def work_fingerprint(raw_bytes: bytes, work: dict) -> dict[str, str]:
-    """The per-work inputs of a normalized work: its raw file and curation."""
-    return {"raw": fingerprint.sha16(raw_bytes), "curated": curated_hash(work)}
+#: ``work_fingerprint``'s *anchor* for a work of a source that isn't enrolled.
+NOT_ENROLLED = object()
+
+
+def work_fingerprint(raw_bytes: bytes, work: dict, anchor: object = NOT_ENROLLED) -> dict:
+    """The per-work inputs of a normalized work: its raw file and curation, and
+    for a work of an enrolled source its *anchor* record (:func:`anchor_record`)."""
+    fp: dict = {"raw": fingerprint.sha16(raw_bytes), "curated": curated_hash(work)}
+    if anchor is not NOT_ENROLLED:
+        fp["anchor"] = anchor
+    return fp
+
+
+def source_of(rel: str) -> str:
+    """The source id of a normalized path (``ogpg/vol-032/epistulae.json`` → ``ogpg``)."""
+    return rel.split("/", 1)[0]
+
+
+def anchor_record(cut: anchor_store.CutFile | None, standard: bool) -> dict | None:
+    """What ``_fingerprints.jsonl`` records of an enrolled work: None when it keeps
+    a standard versification (never anchored), else the hash of its cut file
+    (None while it has none: the provisional cut)."""
+    return None if standard else {"cuts": cut.sha if cut is not None else None}
+
+
+def default_anchors_dir(output_dir: Path) -> Path:
+    """``data/anchors`` next to ``data/normalized``."""
+    return output_dir.resolve().parent / anchor_store.DEFAULT_DIR.name
 
 
 def read_step_fingerprints(output_dir: Path) -> dict[str, dict]:
@@ -522,10 +565,10 @@ def _record_ingest_stamps(output_dir: Path, json_files: list[Path], visited: Col
         path.write_text(json.dumps(steps, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def read_work_fingerprints(output_dir: Path) -> dict[str, dict[str, str]]:
-    """``{path: {"raw", "curated"}}`` from ``{output_dir}/_fingerprints.jsonl``."""
+def read_work_fingerprints(output_dir: Path) -> dict[str, dict]:
+    """``{path: {"raw", "curated"[, "anchor"]}}`` from ``{output_dir}/_fingerprints.jsonl``."""
     path = output_dir / FINGERPRINTS_FILE
-    fps: dict[str, dict[str, str]] = {}
+    fps: dict[str, dict] = {}
     if path.exists():
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
@@ -534,7 +577,7 @@ def read_work_fingerprints(output_dir: Path) -> dict[str, dict[str, str]]:
     return fps
 
 
-def _write_work_fingerprints(output_dir: Path, fps: dict[str, dict[str, str]]) -> None:
+def _write_work_fingerprints(output_dir: Path, fps: dict[str, dict]) -> None:
     content = "".join(
         json.dumps({"path": rel, **fps[rel]}, sort_keys=True) + "\n" for rel in sorted(fps)
     )
@@ -561,6 +604,8 @@ def normalize_all(
     output_dir: Path,
     force: bool = False,
     accept_raw_change: bool = False,
+    anchors_dir: Path | None = None,
+    only: Collection[str] | None = None,
 ) -> int:
     """Walk *raw_dir* recursively and normalize every raw work JSON file.
 
@@ -573,6 +618,12 @@ def normalize_all(
     (``data/raw`` is gitignored, so on a fresh clone without raw data
     nothing is pruned).
 
+    Works of sources enrolled for anchored derived verses are cut at the
+    positions their cut file in *anchors_dir* (default ``data/anchors``) records
+    (``patristica.anchoring``, #304).  With *only* (normalized paths), just
+    those works are considered (``scripts.anchor`` re-normalizes the works it
+    re-cut).
+
     Returns the total number of chunks written.
     """
     # Files and directories starting with "_" are caches and indexes
@@ -581,6 +632,10 @@ def normalize_all(
         p for p in raw_dir.rglob("*.json")
         if not any(part.startswith("_") for part in p.relative_to(raw_dir).parts)
     )
+    if only is not None:
+        json_files = [p for p in json_files if _output_rel(p).as_posix() in only]
+    if anchors_dir is None:
+        anchors_dir = default_anchors_dir(output_dir)
 
     code = normalize_code_hash()
     code_current = read_step_fingerprints(output_dir).get(STEP, {}).get("code") == code
@@ -592,7 +647,7 @@ def normalize_all(
         _write_step_code(output_dir, None)
     works = read_works_manifest(output_dir)
     previous = read_work_fingerprints(output_dir)
-    fingerprints: dict[str, dict[str, str]] = {}  # works built or confirmed this run
+    fingerprints: dict[str, dict] = {}  # works built or confirmed this run
     refused: list[str] = []
     failed: list[str] = []  # works to rebuild that produced no output
 
@@ -608,9 +663,15 @@ def normalize_all(
         if prev and prev["raw"] != fingerprint.sha16(raw_bytes) and not accept_raw_change:
             refused.append(rel)
             continue
+        enrolled = anchoring.is_enrolled(source_of(rel))
+        cut = anchor_store.load(anchors_dir, rel) if enrolled else None
+        anchor: object = NOT_ENROLLED
+        if enrolled and prev and "anchor" in prev:
+            anchor = anchor_record(cut, prev["anchor"] is None)
         if (
             not force and code_current and prev and rel in works and (output_dir / rel).exists()
-            and prev == work_fingerprint(raw_bytes, works[rel])
+            and (not enrolled or "anchor" in prev)
+            and prev == work_fingerprint(raw_bytes, works[rel], anchor)
         ):
             fingerprints[rel] = prev
             continue
@@ -619,7 +680,7 @@ def normalize_all(
         except json.JSONDecodeError as exc:
             log.warning("Skipping %s: JSON error: %s", path, exc)
             raw_record = None
-        written = (_normalize_record(raw_record, path, output_dir)
+        written = (_normalize_record(raw_record, path, output_dir, cut)
                    if isinstance(raw_record, dict) else None)
         if written is None:
             # No output: a file that never was a work (a catalogue) is
@@ -628,10 +689,13 @@ def normalize_all(
                 failed.append(rel)
             continue
         total += written
-        fingerprints[rel] = work_fingerprint(raw_bytes, raw_record["work"])
+        fingerprints[rel] = work_fingerprint(
+            raw_bytes, raw_record["work"],
+            anchor_record(cut, is_standard(raw_record)) if enrolled else NOT_ENROLLED)
 
     log.info("Normalization complete: %d total chunks written", total)
-    _prune_orphans(raw_dir, output_dir)
+    if only is None:  # a partial rebuild (scripts.anchor) never deletes other works
+        _prune_orphans(raw_dir, output_dir)
     write_works_manifest(output_dir, keep=refused, refresh=set(fingerprints))
     listed = read_works_manifest(output_dir)
     _write_work_fingerprints(

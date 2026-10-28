@@ -109,7 +109,8 @@ def test_real_normalize_closure():
     """normalize's code: no ingestor and no per-source registry, so adding a
     data source never changes its hash (#130)."""
     assert fp.module_closure("scripts.normalize") == [
-        "patristica", "patristica.authors", "patristica.editorial", "patristica.genres",
+        "patristica", "patristica.anchor_store", "patristica.anchoring", "patristica.authors",
+        "patristica.editorial", "patristica.genres",
         "patristica.models",
         "patristica.period", "patristica.section_numbers", "patristica.textfold",
         "patristica.translation_links", "patristica.versify", "scripts", "scripts.normalize",

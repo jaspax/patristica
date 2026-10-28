@@ -40,6 +40,9 @@ patristica/
 │   ├── alignment.py           # passage alignment inside a version group: n:m groups from the vectors (#179)
 │   ├── alignment_store.py     # alignment store (data/alignments/): one file per version group, no numpy
 │   ├── versify.py             # split long prose chunks into verse-sized derived verses (#2)
+│   ├── anchoring.py           # anchored derived verses (#304): enrolment, applying cut files, RefineParams
+│   ├── anchor_store.py        # cut-file store (data/anchors/): word positions per paragraph, no numpy
+│   ├── anchor_refine.py       # the refinement: segments, vector DP, rounds (numpy; run by scripts.anchor)
 │   ├── editorial.py           # editorial spans (#236): kept for readers, source_text() for translate/embed
 │   ├── textfold.py            # fold(): normalize diacritics/spelling for keyword matching; fold_spans() maps back
 │   ├── keyword.py             # keyword index for quoted search: index_text(), phrase_pattern(), FOLD_VERSION (#86)
@@ -64,6 +67,8 @@ patristica/
 │   ├── chunk.py               # normalized → chunked records (adds context overlap; embedding eval only)
 │   ├── link_translations.py   # assign translation_group_id across parallel chunks (data/chunks; embedding eval only)
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
+│   ├── anchor.py              # enrolled translations' derived verses cut on their original → data/anchors/ (paid Voyage, #304)
+│   ├── anchor_eval.py         # anchor evaluation on existing version groups: today vs refined, hand-check samples
 │   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
@@ -106,6 +111,8 @@ patristica/
     ├── translations/          # machine translations, {source_id}/… mirroring normalized/ (one file per work; tracked)
     ├── embeddings/            # corpus vectors, {source_id}/….npz mirroring normalized/ (git-lfs, #244; scripts.embed)
     ├── alignments/            # passage alignments, one file per version group (tracked; scripts.align, #179)
+    ├── anchors/               # cut files of anchored derived verses, {source_id}/….json (tracked; scripts.anchor, #304)
+    ├── anchor_vectors/        # scratch segment vectors of scripts.anchor (gitignored, regenerable)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 
@@ -243,13 +250,14 @@ uv run --extra pipeline python -m scripts.pipeline --dry-run   # what is stale, 
 uv run --extra pipeline python -m scripts.pipeline --pay       # unattended; or `uv run --extra pipeline pipeline --pay`
 ```
 
-`scripts.pipeline` (#248) runs normalize → validate → translate → embed → align → build_index → export_library → upload_library, each as a subprocess exactly as by hand, so every step skips what its fingerprints show is current. Paid steps (translate, embed) send requests only with `--pay`: without it the run stops before the first paid step that has paid work, prints the estimate and exits 0, while a paid step whose estimate is $0 (a metadata-only change) runs without calling the API (`embed --no-requests`) and the run goes on. `--max-cost USD` caps the run's estimated spend. A preflight lists every problem up front: missing `data/raw` or vectors (or git-lfs pointer files), API keys with `--pay` (OpenAI and Anthropic keys are tried against their free model listings), the production database through `infra/db-tunnel.sh` (or `--database-url`) and the `LIBRARY_*` upload key. A failing step stops the run, and the next run resumes. It never commits: it ends with `scripts.status --check` and the changed `data/` paths, and logs to `logs/pipeline-{time}.log` (gitignored). `--skip STEP` leaves a step out, `--accept-raw-change` goes to normalize after a re-ingest. Ingestors aren't part of it.
+`scripts.pipeline` (#248) runs normalize → anchor → validate → translate → embed → align → build_index → export_library → upload_library, each as a subprocess exactly as by hand, so every step skips what its fingerprints show is current. Paid steps (anchor, translate, embed) send requests only with `--pay`: without it the run stops before the first paid step that has paid work, prints the estimate and exits 0, while a paid step whose estimate is $0 (a metadata-only change) runs without calling the API (`embed --no-requests`) and the run goes on. `--max-cost USD` caps the run's estimated spend. A preflight lists every problem up front: missing `data/raw` or vectors (or git-lfs pointer files), API keys with `--pay` (OpenAI and Anthropic keys are tried against their free model listings), the production database through `infra/db-tunnel.sh` (or `--database-url`) and the `LIBRARY_*` upload key. A failing step stops the run, and the next run resumes. It never commits: it ends with `scripts.status --check` and the changed `data/` paths, and logs to `logs/pipeline-{time}.log` (gitignored). `--skip STEP` leaves a step out, `--accept-raw-change` goes to normalize after a re-ingest. Ingestors aren't part of it.
 
 The steps stay runnable on their own for targeted work:
 
 ```bash
 uv run python -m scripts.normalize        # raw → Chunk objects (+ derived verses); also maintains data/normalized/_works.jsonl
                                           #   [--accept-raw-change] after an intended re-ingest (see "Stale data")
+uv run --extra embed python -m scripts.anchor --dry-run  # anchored derived verses → data/anchors/ (paid Voyage; --pay only with the owner's OK)
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
@@ -269,7 +277,7 @@ uv run python -m scripts.link_translations # embedding eval only: translation_gr
 
 - `data/normalized/_fingerprint.json` holds the hash of normalize's code: every repo module `scripts.normalize` imports, hashed from the syntax tree, so comment and docstring edits don't count (`fingerprint.import_chain` shows why a module is included).
 - The controlled vocabularies of `patristica/models.py` (`Language`, `Genre`, `Tradition`, `DateConfidence`, `License`; `fingerprint.VOCABULARIES`) are left out of every code hash, so a new language or licence value doesn't invalidate every ingest stamp and the normalize and align hashes (#262). They must stay `Literal`s of strings (`code_hash` raises otherwise). Removing a value isn't hashed either: data using it then fails validation, so re-run what uses it.
-- `data/normalized/_fingerprints.jsonl` holds, per work, the hash of its raw file and of its curation: the genre override, the author ids and the authors' birth year. It is kept out of `_works.jsonl` because `build_index` hashes those lines; a new key there would reload the whole search DB.
+- `data/normalized/_fingerprints.jsonl` holds, per work, the hash of its raw file and of its curation: the genre override, the author ids and the authors' birth year. It is kept out of `_works.jsonl` because `build_index` hashes those lines; a new key there would reload the whole search DB. A work of a source enrolled for anchored derived verses (#304, "Derived verses" below) also records `anchor`: the hash of its cut file (`{"cuts": null}` before it has one; `null` for a work with a standard versification), so a new or changed cut file rebuilds exactly that work.
 
 What follows from that:
 
@@ -281,6 +289,7 @@ What follows from that:
 - `build_index` records its code hash in `index_meta` (`code`) after a full run, never in a work's `content_sha`, so a code change never reloads anything by itself. `scripts.status --db` reports it, and with `--vectors` the works a run would load, update in place or delete. Bump `LOADER_VERSION` when a change should reload the stored data.
 - A work whose metadata changed but whose text, chunk ids, translations and vectors didn't (`works.body_sha`, #234) is updated in place by `build_index`, with no vectors re-sent. Metadata covers the work record (title, author ids, dates, genre, edition, …) and the chunks' date fields and `out_of_period`. So an attribution or dating fix costs SQL updates, not a reload (db/README.md → "Loading").
 - Alignments have the same kind of check ("Passage alignment" above).
+- Cut files of anchored derived verses too (#304): `tests/test_anchor_fingerprint.py` and `scripts.status` (row "anchor cuts", `scripts.anchor --check`) fail when an enrolled work with an original in the corpus has no cut file, one made from other words, or a normalized output not cut as it says. A cut file whose original's cuts, anchor or method (`ANCHOR_VERSION`, `RefineParams`) changed is **frozen**: a warning, re-cut only with `scripts.anchor --recut WORK`. A change to the anchor code alone re-cuts nothing.
 - `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job. `scripts.validate` reads every normalized work, so it runs where the data is (the pre-push hook, the pipeline), not in CI (#244). The plan is on #130.
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
@@ -456,4 +465,9 @@ Code is MIT (`LICENSE`). Texts are **not** relicensed: each keeps its source lic
 - **Scripture versification**: `canonical_ref` is always in the source's *native* numbering; `link_translations.py` groups verses via `patristica/versification.py`, which maps refs onto org (BHS / Nestle-Aland) numbering. A new scripture source must be added to `SOURCE_SCHEMES` there (org / eng / lxx / vul) or linking raises `VersificationError` — check its per-chapter verse counts against the schemes' `maxVerses` to pick one. A book or chapter that follows another scheme goes in `BOOK_SCHEME_OVERRIDES` / `CHAPTER_SCHEME_OVERRIDES`. `scripts.build_index` applies group changes in place (no vectors reloaded, #186).
 - **OGPG works** come from `scripts/ingest/data/ogpg_index.csv` (Migne column ranges per work, #67). Never rename a row's `slug` (it is in reader URLs); when you split a new volume, add it to `SPLIT_OGPG_VOLUMES` in `web/src/lib/redirects.ts` (a test checks). Edits apply on a plain `python -m scripts.ingest.ogpg` run from the cached `_extract/` files.
 - **Derived verses (#2)**: `normalize` splits every chunk longer than about a verse, except in Scripture and other works ingested as `verses` (there only the units listed in `UNVERSIFIED_UNITS`, many verses run together: 4 Baruch, LXX 1 Kgs 2:35a–o, the Sirach prologue, John 7:53–8:11; #129), into derived verses `{ref}.s1`, `{ref}.s2`, … (`patristica/versify.py`), breaking at sentence ends where it can. The target size is the mean Scripture verse in the chunk's language (`VERSE_TOKENS`). Derived refs are reader URLs and translation keys, so the split must stay repeatable: don't change `VERSE_TOKENS`, the break costs or the punctuation tables casually, since that renumbers derived verses across the corpus and invalidates their translations. The reader joins a paragraph's derived verses back together and marks them in a style distinct from source numbering (`render.ts`, `isDerivedRef`).
+- **Anchored derived verses (#304, the standard for new sources)**: a translation's derived verses should be cut where it renders its original's derived verses, so parallel reading gets 1:1 rows. The design and its evaluation are `docs/anchored-derived-verses.md`.
+  - **Enrol every new source whose works translate a work already in the corpus** (Slavonic, Arabic, Georgian versions of Greek Fathers; checklist `docs/adding-a-language.md`) in `patristica/data/anchored_sources.csv` (`source_id,reason`), in the PR that adds it, before its refs are published. Existing works aren't enrolled and keep their derived verses byte for byte (migrating them is #200). The anchor is the work's `translation_of`, in another language (an edition in its own language waits for #199); Scripture and works ingested as verses are never anchored.
+  - `scripts.anchor` (paid: Voyage, cents per source) cuts each enrolled work on its original's vectors (the original needs current vectors: `scripts.embed --work {original}`), writes the tracked cut file `data/anchors/{normalized path}` (word positions only), re-normalizes the work from `data/raw` and writes the final units' vectors into `data/embeddings`; a work is all or nothing (a failure restores its previous cut file), each work is capped at its share of the `--dry-run` estimate, editorial material is never embedded, and unpublishable works (or originals) are not anchored. `scripts.normalize` applies cut files with no vectors and no API calls; an enrolled work without one gets the provisional (size) cut, and the anchor fingerprint test fails.
+  - **A data PR for an enrolled source runs `scripts.anchor --pay` after normalize** and commits `data/anchors/`, `data/normalized/` and the changed `data/embeddings` shards, so master never holds provisional cuts of enrolled works. This is the one exception to "a PR never sends paid requests" (with `scripts.embed --work` for originals that lack vectors). **An agent runs it only with the owner's permission, asked first, every time**: report `scripts.anchor --dry-run`'s works and cost (an upper bound) and wait.
+  - Published cuts are frozen: when an original changes, its translations' cut files are reported stale, not re-cut, until `scripts.anchor --recut WORK`. `RefineParams` and `ANCHOR_VERSION` (`patristica/anchoring.py`) are frozen like `VERSE_TOKENS`.
 - **`beta2unicode`** does not exist on PyPI. Betacode conversion for any CCAT source (Tier 2) will need a per-ingestor solution.

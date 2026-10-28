@@ -129,7 +129,10 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
   - Old Georgian manuscripts use `჻` (U+10FB) and colon-like marks; check what the source has.
 
   Also check word separators in `_ATOM_RE` (as for Ge'ez `፡`).
-- [ ] **Derived verses anchored on the original (#292).** New sources whose works translate an original already in the corpus are enrolled in anchored splitting. Their derived verses follow the original's boundaries within each source paragraph, and `VERSE_TOKENS` is only the fallback. This is the go-forward standard: enroll the source as #292 specifies, so its works never need re-splitting (or re-translating) when #200 migrates the rest.
+- [ ] **Derived verses anchored on the original (#292, #304).** New sources whose works translate an original already in the corpus are enrolled: a row in `patristica/data/anchored_sources.csv` (`source_id,reason`), in the PR that adds the source. Their derived verses follow the original's boundaries within each source paragraph (`scripts.anchor`, from Voyage vectors; `docs/anchored-derived-verses.md`), and `VERSE_TOKENS` is only the fallback. This is the go-forward standard, so their works never need re-splitting (or re-translating) when #200 migrates the rest.
+  - Set `translation_of` first (section 6): it is the anchor. A work whose original isn't in the corpus, or is in its own language (another edition, #199), is cut by size.
+  - Anchoring uses the language's native text vectors, so check in section 3 that they align at all. A language whose vectors are too weak to align shouldn't be enrolled.
+  - After normalize, run `scripts.anchor` in the PR (section 8): `tests/test_anchor_fingerprint.py` fails while an enrolled work has no current cut file.
 - [ ] **Editorial material is marked, not stripped (#236).** Mark titles, supplements, headings, apparatus and chant metadata as editorial spans with #236's mechanism, so the reader shows them and embed, translate and alignment leave them out. Don't add a new per-source stripping rule.
 
 ## 6. Cross-language links
@@ -160,7 +163,15 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
   - Embedding: Voyage `voyage-4-large` at $0.12 per million tokens (`PRICE_PER_MTOK` in `scripts/embed.py`). Rare scripts count up to about 2× cl100k. Every unit of at least `MIN_CHARS` characters gets a vector. For scale, the whole corpus (4.02M vectors) cost about $34 (#136).
   - Translation: units × $0.0014, plus the translation vectors, if the language is enrolled.
 - [ ] **Reload size.** `build_index` loads only new works: their chunks and vectors. It updates metadata-only changes in place. A `FOLD_VERSION` bump refolds every chunk; a `LOADER_VERSION` bump reloads everything (avoid). `scripts.status --db --vectors` on the pipeline machine lists the works a run would load, update or delete.
-- [ ] **Paid steps run only in `scripts.pipeline --pay`** on master, after merge, by the owner. A PR never sends translate or embed requests.
+- [ ] **Paid steps run only in `scripts.pipeline --pay`** on master, after merge, by the owner. A PR never sends translate or embed requests, with one exception:
+- [ ] **Anchored derived verses are cut in the PR** (#304), so master never holds provisional cuts of enrolled works and refs don't change between the PR and the publish. After normalize:
+  1. `uv run --extra embed python -m scripts.anchor --dry-run`: the works to cut and the cost (an upper bound; cents for a source the size of TOROT's anchored part, about $0.07–0.25);
+  2. if an original lacks vectors (the step refuses it), `scripts.embed --work {original}` (paid);
+  3. **ask the owner**, with the dry run's numbers, and wait for a yes. An agent never sends these requests without that permission, asked each time;
+  4. `uv run --extra embed python -m scripts.anchor --pay`, then `uv run python -m scripts.normalize` (a no-op check);
+  5. commit `data/anchors/`, `data/normalized/` and the changed `data/embeddings` shards, and put the cost in the PR description.
+
+  Translation and the remaining embeds still happen in the owner's `scripts.pipeline --pay` after merge.
 
 ## Worked example: first ingest (skeleton)
 
@@ -181,7 +192,7 @@ uv run python -m scripts.ingest.torot           # first run into an empty dir st
 #    versification.py SOURCE_SCHEMES + scripture_translation_of.csv for Scripture books.
 
 # 3. Structure: VERSE_TOKENS["chu"] (measure first) and punctuation marks; enroll
-#    translations of corpus originals in anchored splitting (#292).
+#    translations of corpus originals in anchored splitting (anchored_sources.csv, #304).
 uv run python -m scripts.normalize               # rebuilds all works once (versify hash)
 uv run python -m scripts.validate
 uv run python -m scripts.status --raw
@@ -193,6 +204,11 @@ uv run python -m scripts.embed_eval.run --retriever bm25 --retriever dense:voyag
 uv run python -m scripts.embed_eval.report
 #    If translation vectors are needed: TRANSLATED_LANGUAGES + LANGUAGE_NAMES, then
 #    scripts.align over the corpus (no API calls) to refresh its fingerprint.
+
+# 4b. Anchored derived verses (section 8, #304): estimate, ASK THE OWNER, then cut.
+uv run --extra embed python -m scripts.anchor --dry-run
+uv run --extra embed python -m scripts.anchor --pay   # only after the owner said yes
+uv run python -m scripts.normalize                    # a no-op check
 
 # 5. Dry run: what is stale and what --pay would cost. Agents skip the steps whose
 #    preflight reaches production (the DB tunnel, the upload key).
@@ -221,7 +237,8 @@ Copy into the PR description and tick:
 - [ ] `scripts.validate` has no errors (the pre-push hook runs it when its inputs change).
 - [ ] `scripts.status` is clean apart from the pending paid steps.
 - [ ] `scripts.pipeline --dry-run` output is summarized in the PR (agents add `--skip build_index --skip upload_library`, so nothing connects to production): the stale steps, the translate and embed estimates, and the new works and units (the reload size).
-- [ ] No paid requests were sent. An "After merge" section lists what `scripts.pipeline --pay` will do and cost (as in #262).
+- [ ] No paid requests were sent, apart from `scripts.anchor --pay` (and the embed of its originals) with the owner's permission, its cost stated. An "After merge" section lists what `scripts.pipeline --pay` will do and cost (as in #262).
+- [ ] `tests/test_anchor_fingerprint.py` passes: every enrolled work has a current cut file in `data/anchors/`.
 - [ ] Reader checked in light and dark themes (and RTL if relevant), with a screenshot of one work and of a parallel view.
 - [ ] Decision record added or updated below, and `docs/embedding-eval.md` if measured.
 - [ ] Docs updated (section 7) and the `lang:` label description updated.
