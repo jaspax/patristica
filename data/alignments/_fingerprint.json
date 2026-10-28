@@ -15,6 +15,12 @@
     "dsc/history-of-thecla"
    ]
   },
+  "anf-works/dionysius-of-rome-against-the-sabellians": {
+   "members": [
+    "anf-works/dionysius-of-rome-against-the-sabellians",
+    "oglt-pl/dionysius-papa/pl5_2_epis"
+   ]
+  },
   "anf-works/gospel-of-nicodemus": {
    "members": [
     "anf-works/gospel-of-nicodemus",
@@ -1215,6 +1221,12 @@
    "members": [
     "csel/stoa0040/stoa006/opp-lat1",
     "npnf-works/augustine-faith-and-the-creed"
+   ]
+  },
+  "csel/stoa0040/stoa011-ep185/opp-lat2": {
+   "members": [
+    "csel/stoa0040/stoa011-ep185/opp-lat2",
+    "npnf-works/augustine-correction-of-the-donatists"
    ]
   },
   "csel/stoa0040/stoa011/opp-lat2": {
@@ -2828,10 +2840,22 @@
     "oglt-pl/commodianus/pl5_13_com"
    ]
   },
+  "oglt-pl/concilium-romanum/pl3_19_unk": {
+   "members": [
+    "anf-works/acts-and-records-baptism-of-heretics",
+    "oglt-pl/concilium-romanum/pl3_19_unk"
+   ]
+  },
   "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard": {
    "members": [
     "oglt-pl/concilium-sardicense/pl8_24_epistolasynodisard",
     "oglt-pl/concilium-sardicense/pl8_25_eademepistolaexhi"
+   ]
+  },
+  "oglt-pl/cyprianus-gallus/pl19_0_unk": {
+   "members": [
+    "anf-works/pseudo-tertullian-genesis",
+    "oglt-pl/cyprianus-gallus/pl19_0_unk"
    ]
   },
   "oglt-pl/dionysius-exiguus/pl67_11_co-africa": {
@@ -3023,10 +3047,10 @@
     "perseus/stoa0058/stoa006/perseus-lat1"
    ]
   },
-  "oglt-pl/pseudo-hieronymus/pl30_0_": {
+  "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas": {
    "members": [
     "anf-works/gospel-of-the-nativity-of-mary",
-    "oglt-pl/pseudo-hieronymus/pl30_0_"
+    "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas"
    ]
   },
   "oglt-pl/rufinus-aquileiensis/pl21_2_com": {
@@ -3112,6 +3136,12 @@
    "members": [
     "anf-works/martyrdom-of-ignatius",
     "ogpg/vol-005/martyrium-ignatii"
+   ]
+  },
+  "ogpg/vol-005/maximus-de-materia": {
+   "members": [
+    "anf-works/methodius-concerning-matter",
+    "ogpg/vol-005/maximus-de-materia"
    ]
   },
   "ogpg/vol-005/melito-fragmenta": {
@@ -3201,6 +3231,24 @@
     "perseus/tlg0555/tlg004/perseus-grc2"
    ]
   },
+  "ogpg/vol-010/adversus-beronem": {
+   "members": [
+    "anf-works/pseudo-hippolytus-against-beron-and-helix",
+    "ogpg/vol-010/adversus-beronem"
+   ]
+  },
+  "ogpg/vol-010/adversus-graecos": {
+   "members": [
+    "anf-works/hippolytus-against-plato",
+    "ogpg/vol-010/adversus-graecos"
+   ]
+  },
+  "ogpg/vol-010/adversus-judaeos": {
+   "members": [
+    "anf-works/hippolytus-against-the-jews",
+    "ogpg/vol-010/adversus-judaeos"
+   ]
+  },
   "ogpg/vol-010/alexander-hierosolymitanus": {
    "members": [
     "anf-works/alexander-of-jerusalem-epistles",
@@ -3219,10 +3267,28 @@
     "ogpg/vol-010/anatolius-de-pascha"
    ]
   },
+  "ogpg/vol-010/capitula-de-fide": {
+   "members": [
+    "anf-works/pseudo-gregory-thaumaturgus-twelve-topics",
+    "ogpg/vol-010/capitula-de-fide"
+   ]
+  },
+  "ogpg/vol-010/contra-noetum": {
+   "members": [
+    "anf-works/hippolytus-against-noetus",
+    "ogpg/vol-010/contra-noetum"
+   ]
+  },
   "ogpg/vol-010/de-apostolis": {
    "members": [
     "anf-works/pseudo-hippolytus-twelve-and-seventy-apostles",
     "ogpg/vol-010/de-apostolis"
+   ]
+  },
+  "ogpg/vol-010/de-christo-et-antichristo": {
+   "members": [
+    "anf-works/hippolytus-christ-and-antichrist",
+    "ogpg/vol-010/de-christo-et-antichristo"
    ]
   },
   "ogpg/vol-010/de-consummatione-mundi": {
@@ -3250,11 +3316,23 @@
     "ogpg/vol-010/hippolytus-exegetica"
    ]
   },
+  "ogpg/vol-010/in-theophaniam": {
+   "members": [
+    "anf-works/pseudo-hippolytus-on-the-theophany",
+    "ogpg/vol-010/in-theophaniam"
+   ]
+  },
   "ogpg/vol-010/julius-africanus": {
    "members": [
     "anf-works/africanus-chronography",
     "anf-works/africanus-epistle-to-aristides",
     "ogpg/vol-010/julius-africanus"
+   ]
+  },
+  "ogpg/vol-010/kata-meros-pistis": {
+   "members": [
+    "anf-works/pseudo-gregory-thaumaturgus-sectional-confession",
+    "ogpg/vol-010/kata-meros-pistis"
    ]
   },
   "ogpg/vol-010/malchion-epistula": {
@@ -3279,6 +3357,12 @@
    "members": [
     "anf-works/pierius-fragment",
     "ogpg/vol-010/pierius"
+   ]
+  },
+  "ogpg/vol-010/thaumaturgus-dubia": {
+   "members": [
+    "anf-works/pseudo-gregory-thaumaturgus-dubious-writings",
+    "ogpg/vol-010/thaumaturgus-dubia"
    ]
   },
   "ogpg/vol-010/thaumaturgus-epistula-canonica": {
@@ -3318,6 +3402,12 @@
     "ogpg/vol-011/africanus-epistula-ad-originem"
    ]
   },
+  "ogpg/vol-011/de-principiis": {
+   "members": [
+    "anf-works/origen-de-principiis",
+    "ogpg/vol-011/de-principiis"
+   ]
+  },
   "ogpg/vol-011/epistula-ad-gregorium": {
    "members": [
     "anf-works/origen-letter-to-gregory",
@@ -3340,6 +3430,7 @@
   "ogpg/vol-018/methodius-opera-varia": {
    "members": [
     "anf-works/methodius-discourse-on-the-resurrection",
+    "anf-works/methodius-fragments",
     "anf-works/pseudo-methodius-oration-on-the-palms",
     "anf-works/pseudo-methodius-simeon-and-anna",
     "ogpg/vol-018/methodius-opera-varia"
@@ -3469,10 +3560,22 @@
     "pta/pta0022/pta014/pta-grc1"
    ]
   },
+  "ogpg/vol-026/ad-amunem": {
+   "members": [
+    "npnf-works/athanasius-letter-to-ammus",
+    "ogpg/vol-026/ad-amunem"
+   ]
+  },
   "ogpg/vol-026/ad-jovianum": {
    "members": [
     "ogpg/vol-026/ad-jovianum",
     "pta/pta0022/pta016/pta-grc1"
+   ]
+  },
+  "ogpg/vol-026/ad-rufinianum": {
+   "members": [
+    "npnf-works/athanasius-letter-to-rufinianus",
+    "ogpg/vol-026/ad-rufinianum"
    ]
   },
   "ogpg/vol-026/de-synodis": {
@@ -3544,6 +3647,12 @@
    "members": [
     "npnf-works/cyril-of-jerusalem-mystagogical-lectures",
     "ogpg/vol-033/catecheses-mystagogicae"
+   ]
+  },
+  "ogpg/vol-033/timotheus-responsa-canonica": {
+   "members": [
+    "npnf-works/timothy-of-alexandria-canonical-answers",
+    "ogpg/vol-033/timotheus-responsa-canonica"
    ]
   },
   "ogpg/vol-035/oratio-1": {

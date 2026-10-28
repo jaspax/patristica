@@ -82,6 +82,15 @@ _OUT_OF_PERIOD: dict[str, str] = {
     "stoa0227b": "Peter the Deacon of Monte Cassino (b. c. 1107), De locis sanctis (1137)",
 }
 
+# Single works printed inside a collection, cut out as works of their own (#315):
+# ``{file stem}: ((section n, work segment, title), …)``.  The part's id is
+# ``csel/{author}/{work segment}/{edition}``, a CTS work id of its own, so the CTS
+# rule doesn't put it back into the collection's version group.
+_PARTS: dict[str, tuple[tuple[str, str, str], ...]] = {
+    "stoa0040.stoa011.opp-lat2": (
+        ("185", "stoa011-ep185", "Epistula CLXXXV ad Bonifatium (De correctione Donatistarum)"),),
+}
+
 # A word broken at a line end: "existi- memus", "SE- CVNDVS".
 _HYPHEN = re.compile(r"(\w)[-¬]\s+(\w)")
 # CSEL prints a line number every five lines in the margin; the OCR often
@@ -264,6 +273,26 @@ def parse_file(xml_path: Path, author_name: str | None) -> tuple[Work, list[dict
     return work, extract_paragraphs(edition_div, work_cts_id)
 
 
+def split_parts(stem: str, work: Work, paragraphs: list[dict[str, str]]
+                ) -> list[tuple[str, Work, list[dict[str, str]]]]:
+    """*work* without its :data:`_PARTS` sections, then each part: ``(file stem, work, paras)``."""
+    parts = _PARTS.get(stem, ())
+    if not parts:
+        return [(stem, work, paragraphs)]
+    author_id, _, version = work.work_id.split("/")[1:]
+    rest, out = list(paragraphs), []
+    for n, segment, title in parts:
+        prefix = f"{author_id}.{work.work_id.split('/')[2]}.{n}"
+        mine = [p for p in rest if p["ref"] == prefix or p["ref"].startswith(prefix + ".")]
+        if not mine:
+            raise ValueError(f"{stem}: part {n} has no paragraphs")
+        rest = [p for p in rest if p not in mine]
+        part = work.model_copy(update={"work_id": f"{SOURCE_ID}/{author_id}/{segment}/{version}",
+                                       "title": title})
+        out.append((f"{author_id}.{segment}.{version}", part, mine))
+    return [(stem, work, rest), *out]
+
+
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:
     """Clone csel-dev and write one raw JSON file per work to ``output_dir/csel/``."""
     repo_dir = output_dir / "_repos" / "csel-dev"
@@ -292,13 +321,12 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if not paragraphs:
             log.error("%s: no text extracted; work dropped", xml_path.name)
             continue
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(
-            json.dumps({"work": work.model_dump(), "paragraphs": paragraphs},
-                       ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        works.append(work)
+        for stem, piece, paras in split_parts(xml_path.stem, work, paragraphs):
+            path = out_path.with_name(f"{stem}.json")
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps({"work": piece.model_dump(), "paragraphs": paras},
+                                       ensure_ascii=False, indent=2), encoding="utf-8")
+            works.append(piece)
 
     log.info("CSEL ingestion complete: %d works", len(works))
     return works

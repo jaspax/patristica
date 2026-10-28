@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-010/contra-noetum",
+ "pivot": "anf-works/hippolytus-against-noetus",
+ "groups": 143,
+ "inputs": "7742dda7f9e55508",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/hippolytus-against-noetus", "units": 231, "ids": "f40ffc6d28a3c1ae", "inputs": "a88bd860d7bac25e", "spans": ".+=......++++++++++++++++++++++=++...............++++++++++++++++++++++++++++=++++++++++++++++++++++++.+....+=++++.++=++++.+.+.+++++=+++=+++++++++=+++++++=.+=........+=++++++++++++++..++=++=++++=+++...+.............................", "conf": "89999999999999999977999999999999999999999999999999999999999999999999999988999769446799998898899999999999999999999989999999999999998999999999995"},
+  {"work_id": "ogpg/vol-010/contra-noetum", "units": 156, "ids": "00929252ef45b76f", "inputs": "9b6a6ec0200c5271", "spans": "+=++++++++++++=+++++++++++++++++++++++=++++++++=+++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++=++++=+++.+.++++++=+++++++++.+=+++=++++++++", "conf": "89999999999999999977999999999999999999999999999999999999999999999999999988999769446799998898899999999999999999999989999999999999998999999999995"}
+ ]
+}
