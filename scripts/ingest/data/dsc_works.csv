@@ -1,0 +1,56 @@
+# Digital Syriac Corpus works beyond the hand-written WORKS table in scripts/ingest/dsc.py (#322).
+# ids: DSC file ids (data/tei/{id}.xml), space-separated, in order; a work of several files gets prefixes {prefix}.1, {prefix}.2, ...
+# Dates blank: the author index supplies them. Edition: the first file's sourceDesc.
+slug,ids,prefix,title,author,genre,date_composed,date_start,date_end,date_confidence,edition
+memre-on-joseph,26 110 111 112 113 114 115 116 117 118,JacSerJos,Memre on Joseph,Jacob of Serugh,patristic,,,,uncertain,
+narsai-homilies,27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 101 102 103 104 105 106 107 108 109,Narsai,Homilies (Memre),Narsai,patristic,,,,uncertain,Alphonse Mingana Narsai doctoris Syri homiliæ et carmina
+chronicle-of-edessa,57,DSC57,Chronicle of Edessa,,patristic,545,540,550,approximate,IgnazioGuidi Chronica Minora I Typographeo Reipublicae Paris Corpus Scriptorum Christ
+odes-of-solomon,146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185,OdesSol,Odes of Solomon,,apocrypha,150,100,200,uncertain,James H.Charlesworth The Odes of Solomon: The Syriac Texts 10
+abraham-of-nathpar-on-the-solitaries,187,DSC187,On the Solitaries,Abraham of Nathpar,patristic,,,,uncertain,
+liber-graduum,188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218,LibGrad,Book of Steps (Liber Graduum),,patristic,400,350,450,approximate,RobertKitchen The Syriac Book of Steps
+pseudo-clementine-recognitions,219 220 221 222,ClemRec,"Pseudo-Clementine Recognitions (Syriac, Books 1–3)",(Ps.-)Clement of Rome,patristic,360,320,411,approximate,Paul deLagarde Clementis Romani Recognitiones syriace htt
+pseudo-clementine-homilies,223 224 225 226 227,ClemHom,Pseudo-Clementine Homilies 10–14 (Syriac),(Ps.-)Clement of Rome,patristic,360,320,411,approximate,Paul deLagarde Clementis Romani Recognitiones syriace htt
+acts-of-thomas,332,DSC332,Acts of Judas Thomas,,apocrypha,225,200,250,approximate,WilliamWright Apocryphal Acts of the Apostles
+decease-of-john,333,DSC333,"An Account of the Decease of Saint John, Apostle and Evangelist",,apocrypha,400,300,500,uncertain,WilliamWright Apocryphal Acts of the Apostles
+history-of-john,334,DSC334,"History of John, the Son of Zebedee",,apocrypha,450,400,500,uncertain,WilliamWright Apocryphal Acts of the Apostles
+history-of-matthew-and-andrew,335,DSC335,"History of Mar Matthew and Mar Andrew, Blessed Apostles",,apocrypha,500,400,600,uncertain,WilliamWright Apocryphal Acts of the Apostles
+history-of-philip,336,DSC336,"History of Philip, the Apostle and Evangelist",,apocrypha,500,400,600,uncertain,WilliamWright Apocryphal Acts of the Apostles
+history-of-thecla,337,DSC337,"History of Thecla, Disciple of Paul the Apostle",,apocrypha,400,300,500,uncertain,WilliamWright Apocryphal Acts of the Apostles
+hymn-of-the-soul,338,DSC338,Hymn of the Soul,,apocrypha,225,200,250,approximate,"A. ABevan The hymn of the soul, contained in the Syriac Acts of St. Thomas"
+john-the-solitary-dialogue-on-the-soul,339,DSC339,Dialogue on the Soul,John the Solitary,patristic,,,,uncertain,SvenDedering Johannes Von Lykopolis. Ein Dialog Über Die Seele Und Die Affekte Des Mensche
+jacob-of-serugh-memre,340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368,JacSer,Memre,Jacob of Serugh,patristic,,,,uncertain,PaulBedjan Homiliae selectae Mar-Jacobi Sarugensis http:/
+exhortation-of-the-apostle-peter,372,DSC372,Exhortation of the Apostle Peter,,apocrypha,450,300,600,uncertain,
+philoxenus-discourses,374 375 376 377 378 379 380 381 382 383 384 385 386,Philox,Discourses (on the Christian life),Philoxenos of Mabbug,patristic,,,,uncertain,"E. A. WallisBudge The Discourses of Philoxenus Bishop of Mabbôgh, A.D. 485–519, Edited fro"
+martyrdom-of-jacob-and-mary,387,DSC387,"Martyrdom of Jacob and His Sister Mary, a Covenanter",,patristic,400,340,450,approximate,Paul Bedjan Acta martyrum et sanctorum 2
+titus-of-bostra-against-the-manichaeans,388,DSC388,Against the Manichaeans (Syriac version),Titus of Bostra,patristic,,,,uncertain,Paul de Lagarde Titi Bostreni contra Manichaeos libri quatuor syriace Edinburgh Willi
+travels-of-peter,389,DSC389,Travels of Peter,,apocrypha,550,400,700,uncertain,
+nestorius-book-of-heraclides,391,DSC391,The Book of Heraclides,Nestorius,patristic,,,,uncertain,Paulus Bedjan Nestorius. Le Livre d’Héraclide de Damas Paris / Leipzig Otto Harrassow
+isaac-of-nineveh-ascetic-discourses,392 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 438 439 440 441 442 443 444 445 446 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473,IsNin,"Ascetic Discourses, Part 1",Isaac of Nineveh,patristic,,,,uncertain,Paulus Bedjan Mar Isaacus Ninivita. De perfectione religiosa. Paris/Leipzig Otto Harr
+moses-bar-kepha-on-the-soul,474,DSC474,On the Soul,Moshe bar Kepha,patristic,,,,uncertain,
+chronicle-of-pseudo-joshua,485,DSC485,Chronicle of Pseudo-Joshua the Stylite,,patristic,507,506,507,established,"William Wright The Chronicle of Joshua the Stylite, composed in Syriac A.D. zoter"
+history-of-karka-d-beth-slok,486,DSC486,History of Karka d-Beth Slok,,patristic,625,600,650,approximate,Paul Bedjan Acta martyrum et sanctorum 2
+life-of-jacob-of-serugh,487,DSC487,Life of Jacob of Serugh,,patristic,625,550,700,uncertain,
+martyrdom-of-miles,489,DSC489,Martyrdom of Miles and his Companions,,patristic,400,340,450,approximate,Paul Bedjan Acta martyrum et sanctorum 2
+life-of-rabbula,490,DSC490,Life of Rabbula,,patristic,445,436,460,approximate,"Julian Joseph Overbeck S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque Oper"
+rabbula-corpus,491 492 493 494 495 496 497 498 499 500,Rabbula,"Rabbula: canons, admonitions, letters, homily, hymns",Rabbula of Edessa,patristic,,,,uncertain,"Julian Joseph Overbeck S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque Oper"
+joseph-hazzaya-on-prayer,501,DSC501,On Prayer (On Spiritual Theoria),Joseph Hazzaya,patristic,,,,uncertain,Alphonse Mingana Woodbrooke Studies VII: Early Christian Mystics
+anton-of-tagrit-on-providence,502,DSC502,On Divine Providence,Anton of Tagrit,patristic,,,,uncertain,
+balai-on-the-church-of-qenneshrin,503,DSC503,On the Dedication of the Church as Qenneshrin,Balai of Balsh,patristic,,,,uncertain,"Julian Joseph Overbeck S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque Oper"
+balai-on-acacius,504,DSC504,On Bishop Acacius,Balai of Balsh,patristic,,,,uncertain,"Julian Joseph Overbeck S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque Oper"
+cause-of-all-causes,505 506 507 508 509 510 511 512,CausCaus,Book of the Cause of all Causes,,patristic,1075,1000,1150,uncertain,C. Kayser Das Buch von der Erkenntniss der Wahrheit oder der Ursache aller Ursachen L
+simeon-of-beth-arsham-letter-on-barsawma,513,DSC513,Letter of Simeon of Beth Arsham concerning Barsawma,Simeon of Beth Arsham,patristic,,,,uncertain,Josephus Simonius Assemani Bibliotheca Orientalis Clementino-Vaticana
+thomas-of-edessa-on-the-nativity,514,DSC514,On the Birth of the Lord Jesus Christ,Thomas of Edessa,patristic,,,,uncertain,Simon Joseph Carr Thomae Edesseni Tractatus de nativitate Domini Nostri Christi https
+barlaha-letter-to-simeon,515,DSC515,Letter from Barlaha to Simeon on the Translation of the Psalms,Barlaha,patristic,,,,uncertain,
+simeon-of-mart-maryam-reply-to-barlaha,516,DSC516,Letter from Simeon of Mart Maryam in Response to Barlaha,Simeon of Mart Maryam,patristic,,,,uncertain,
+chronicle-of-zuqnin,517 518 519 520,Zuqnin,Chronicle of Zuqnin,,patristic,775,775,775,established,Jean Baptiste Chabot Chronicon Pseudo-Dionysianum vulgo dictum: [pars] I
+john-rufus-life-of-peter-the-iberian,521,DSC521,Life of Peter the Iberian,John Rufus,patristic,,,,uncertain,Richard Raabe Petrus der Iberer: ein Charakterbild zur Kirchen und Sittengeschichte des fü
+john-rufus-plerophoriae,522,DSC522,Plerophoriae,John Rufus,patristic,,,,uncertain,"Françoise Nau Jean Rufus, Évêque de Maïouma: Plérophories Paris Firmin-Didot Pat"
+testament-of-adam,523,DSC523,Testament of Adam,,apocrypha,350,200,500,uncertain,Michael Kmosko Testamentum patris nostri Adam Patrologia Syriaca 1.2 Paris Firmin-Did
+disputation-of-peter-and-nero,524,DSC524,Disputation between the Apostle Peter and Nero,,apocrypha,550,400,700,uncertain,Paul Bedjan Acta martyrum et sanctorum 2
+julian-romance,526,DSC526,Julian Romance,,patristic,525,500,550,approximate,"Georg Hoffmann Julianos der Abtruennige, syrische Erzaehlungen"
+ephrem-prose-refutations,527 528 529 530 531 532 533 534 535 536,EphrRef,"Prose Refutations of Mani, Marcion and Bardaisan",Ephrem the Syrian,patristic,,,,uncertain,"Julian Joseph Overbeck S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque Oper"
+eusebius-theophania,548,DSC548,Theophania (Syriac version),Eusebius of Caesarea,patristic,,,,uncertain,"Samuel Lee Eusebius Bishop of Caesarea, On the Theophania or Divine Manifestation of Our L"
+history-of-qardagh,577,DSC577,History of Mar Qardagh,,patristic,625,600,650,approximate,Paul Bedjan Acta martyrum et sanctorum 2
+ishoyahb-iii-letters,578 579 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597 598 599 600 601 602 603 604 605 606 607 608 609 610 611 612 613 614 615 616 617 618 619 620 621 622 623 624 625 626 627 628 629,IshoIII,Letters,Ishoʿyahb III of Adiabene,patristic,,,,uncertain,RubensDuval Išō‘yahb III Patriarcha: Liber epistularum. 2 vols.
+isaac-of-antioch-on-the-end-times,684,DSC684,On the End Times,Isaac of Antioch,patristic,,,,uncertain,
+papa-bar-aggai-letters,685 686 687 688 689 690 691 692,Papa,Letters of Papa bar Aggai (spurious correspondence),,patristic,600,500,700,uncertain,

@@ -56,3 +56,33 @@ def test_works_have_unique_slugs_and_files() -> None:
     assert len(files) == len(set(files))
     assert len({w.slug for w in WORKS}) == len(WORKS)
     assert sum(1 for w in WORKS if w.slug == "ephrem-carmina-nisibena" for _ in w.files) == 73
+
+
+def test_several_titles_make_parts(tmp_path: Path) -> None:
+    body = ('<div type="title"><ab>ܐ</ab></div><div type="section" n="1"><p>ܒ</p></div>'
+            '<div type="title"><ab>ܓ</ab></div><div type="section" n="1"><p>ܕ</p></div>')
+    assert _units(tmp_path, body, "T") == [
+        ("T.1", "ܐ"), ("T.1.1", "ܒ"), ("T.2", "ܓ"), ("T.2.1", "ܕ")]
+
+
+def test_english_and_footnotes_are_left_out(tmp_path: Path) -> None:
+    body = ('<div type="title" xml:lang="en"><ab xml:lang="en">Nisibis I</ab></div>'
+            '<div type="section" n="1"><p>ܐ</p><p xml:lang="en">a translation</p>'
+            '<p rend="footnote text">M2 omits</p></div>')
+    assert _units(tmp_path, body, "N") == [("N", "Nisibis I"), ("N.1", "ܐ")]
+
+
+def test_a_number_used_again_later_gets_a_letter(tmp_path: Path) -> None:
+    body = ('<div type="section" n="5"><p>ܐ</p></div><div type="section" n="6"><p>ܒ</p></div>'
+            '<div type="section" n="5"><p>ܓ</p></div>')
+    assert [r for r, _ in _units(tmp_path, body, "X")] == ["X.5", "X.6", "X.5b"]
+
+
+def test_csv_works_are_well_formed() -> None:
+    from scripts.ingest.dsc import load_csv_works
+    works = load_csv_works()
+    ids = [n for w in WORKS + works for n, _ in w.files]
+    assert len(ids) == len(set(ids))
+    assert len({w.slug for w in WORKS + works}) == len(WORKS) + len(works)
+    assert all(w.genre in ("patristic", "apocrypha") for w in works)
+    assert all(w.author or w.date_range for w in works)  # anonymous works carry their own dates
