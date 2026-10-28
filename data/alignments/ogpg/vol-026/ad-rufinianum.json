@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-026/ad-rufinianum",
+ "pivot": "ogpg/vol-026/ad-rufinianum",
+ "groups": 6,
+ "inputs": "7806661cf7e0671c",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/athanasius-letter-to-rufinianus", "units": 7, "ids": "71e95fa9c62d5f14", "inputs": "c35216d0b820880b", "spans": "++++++=", "conf": "994999"},
+  {"work_id": "ogpg/vol-026/ad-rufinianum", "units": 15, "ids": "7ef444e19014dab9", "inputs": "d69866a0b102662d", "spans": "++==.+..+=+.+=.", "conf": "994999"}
+ ]
+}

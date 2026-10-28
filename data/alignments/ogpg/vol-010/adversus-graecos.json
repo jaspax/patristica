@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-010/adversus-graecos",
+ "pivot": "anf-works/hippolytus-against-plato",
+ "groups": 46,
+ "inputs": "7b5e1c59d9f93b5c",
+ "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/hippolytus-against-plato", "units": 55, "ids": "c9beb29b871dbe92", "inputs": "2ab369aaf4e88113", "spans": "++++++++++++++=++++++=+=++=++++++++=+..+++++++=+++=++++", "conf": "9999999999999999989999999999999999999999999999"},
+  {"work_id": "ogpg/vol-010/adversus-graecos", "units": 55, "ids": "8a717c2a99de6d15", "inputs": "5cc3c6b0f937b902", "spans": "++++++.++++++++++++.....++++++++++++++.+++=+++++++++++.", "conf": "9999999999999999989999999999999999999999999999"}
+ ]
+}

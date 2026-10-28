@@ -423,14 +423,17 @@ _ANF_WORKS_DIVS: dict[str, str] = {
         vi.viii vi.ix
     """,
     "anf05": """
-        iii.iii iii.iv.i iii.iv.ii iii.v.i iii.v.ii iii.v.iii iii.v.iv iii.v.v
+        iii.iii iii.iv.i iii.iv.ii.i iii.iv.ii.ii iii.iv.ii.iii iii.iv.ii.iv
+        iii.iv.ii.v iii.iv.ii.vi iii.iv.ii.vii iii.iv.ii.viii iii.iv.ii.ix
+        iii.v.i iii.v.ii iii.v.iii iii.v.iv iii.v.v
         iv.iii iv.iv iv.v.i iv.v.ii iv.v.iii iv.v.iv iv.v.v iv.v.vi iv.v.vii
         iv.v.viii iv.v.ix iv.v.x iv.v.xi iv.v.xii iv.vi iv.vii.ii iv.vii.iii
         iv.vii.iv iv.vii.v v.iii.i v.iii.ii v.iii.iii vi.iii vi.iv vii.iii.ii
         vii.iv.ii vii.ii
     """,
     "anf06": """
-        iii.iii.i iii.iii.ii iii.iii.iii iii.iii.iv iii.iv iv.iii iv.iv v.iii v.iv
+        iii.iii.i iii.iii.ii iii.iii.iii iii.iii.iv iii.iv.i iii.iv.ii iii.iv.iii
+        iii.iv.iv iii.iv.v iii.iv.vi iii.iv.vii iv.iii iv.iv v.iii v.iv
         v.v v.vi vi.iii.ii vi.iii.iii vi.iv.ii vi.v.ii vi.vi.ii vi.vi.iii vi.vii.ii
         vi.viii.ii vi.viii.iii vi.ix.ii vi.x.ii vi.x.iii vi.x.iv vi.x.v vii.iii
         vii.iv viii.iii ix.iii ix.iv ix.vi x.iii xi.iii xi.iv xi.v xi.vi xi.x xi.xi

@@ -657,11 +657,13 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("npnf214", "gregory-thaumaturgus-canonical-epistle", "Canonical Epistle",
       "Gregory Thaumaturgus", 258, (254, 262), "approximate", "greek", "GregThaum.EpCan",
       P("xvii.vii", "Canonical Epistle of St. Gregory")),
-    W("npnf214", "athanasius-canonical-epistles", "Canonical Epistles (to Ammus; Festal "
-      "Letter XXXIX on the Canon; to Rufinianus)", _ATH, 360, (354, 372), "approximate",
-      "greek", "Ath.EpCan",
-      P("xvii.viii", "Monk Ammus", "Amm"), P("xvii.ix", "XXXIX", "Fest39"),
-      P("xvii.x", "Ruffinian", "Ruf")),
+    # The three canonical letters as works of their own (#315).
+    W("npnf214", "athanasius-letter-to-ammus", "Canonical Epistle to the Monk Ammus", _ATH,
+      354, (354, 356), "approximate", "greek", "Ath.EpAmun", P("xvii.viii", "Monk Ammus")),
+    W("npnf214", "athanasius-canonical-epistles", "Festal Letter XXXIX (on the Canon)", _ATH,
+      367, (367, 367), "established", "greek", "Ath.EpCan", P("xvii.ix", "XXXIX", "Fest39")),
+    W("npnf214", "athanasius-letter-to-rufinianus", "Canonical Epistle to Rufinianus", _ATH,
+      362, (362, 363), "approximate", "greek", "Ath.EpRuf", P("xvii.x", "Ruffinian")),
     W("npnf214", "basil-canonical-epistles", "Canonical Epistles and Canonical Extracts",
       "Basil of Caesarea", 375, (370, 378), "approximate", "greek", "Bas.EpCan",
       *(P(f"xvii.{r}", "", r) for r in (
@@ -864,6 +866,8 @@ _ORIGINALS: dict[str, str] = {
     "athanasius-de-sententia-dionysii": "pta/pta0022/pta004/pta-grc1",
     "athanasius-apology-to-constantius": "pta/pta0022/pta010/pta-grc1",
     "athanasius-tome-to-the-antiochenes": "pta/pta0022/pta015/pta-grc1",
+    "athanasius-letter-to-ammus": "ogpg/vol-026/ad-amunem",
+    "athanasius-letter-to-rufinianus": "ogpg/vol-026/ad-rufinianum",
     "athanasius-letter-to-the-bishops-of-africa": "pta/pta0022/pta014/pta-grc1",
     # Urkunde 4 (Opitz): Alexander's letters deposing Arius.
     "alexander-deposition-of-arius": "pta/pta0100/pta002/pta-grc1",
@@ -923,7 +927,7 @@ _ORIGINALS: dict[str, str] = {
 
 #: Plausible originals deliberately *not* linked (slug → reason).
 _UNLINKED: dict[str, str] = {
-    "athanasius-canonical-epistles": "excerpts from three letters, not one work",
+    "athanasius-canonical-epistles": "Festal 39's Greek is inside OGPG PG 26's Epistulae festales",
     "athanasius-personal-letters": "letters spread over several OGPG PG 25-26 works",
     "athanasius-festal-letters": "survive in Syriac; OGPG PG 26 has only a Greek fragment",
     "eusebius-letter-to-his-church": "Opitz Urk. 22 is not among the PTA Dokumente in corpus",
