@@ -29,6 +29,7 @@ SOURCE_LABELS: dict[str, str] = {
     "coptic-scriptorium": "Coptic Scriptorium",
     "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",
     "didache": "Didache (Ante-Nicene Fathers)",
+    "dsc": "Digital Syriac Corpus",
     "first1k": "First Thousand Years of Greek",
     "npnf-works": "Nicene and Post-Nicene Fathers",
     "ocp": "Online Critical Pseudepigrapha",
