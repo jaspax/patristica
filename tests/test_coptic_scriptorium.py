@@ -181,15 +181,20 @@ _META = """\
 """
 
 
-def _tt(*norm_groups: str) -> str:
+_CC_BY = "&lt;a href='https://creativecommons.org/licenses/by/4.0/'&gt;CC-BY 4.0&lt;/a&gt;"
+
+
+def _tt(*norm_groups: str, license: str = _CC_BY) -> str:
     """A TreeTagger export with one bound group per *norm_groups* item (the
-    real files nest morphemes, lemmas and tags inside each)."""
+    real files nest morphemes, lemmas and tags inside each), its header
+    carrying *license* (escaped, as in the real files)."""
     groups = "\n".join(
         f'<orig_group orig_group="x">\n<norm_group norm_group="{n}">\n<orig orig="x">\n'
         f'<norm norm="{n}">\n{n}\n</norm>\n</orig>\n</norm_group>\n</orig_group>'
         for n in norm_groups
     )
-    return f'<meta corpus="test.corpus">\n<verse_n verse_n="1">\n{groups}\n</verse_n>\n</meta>\n'
+    return (f'<meta corpus="test.corpus" license="{license}">\n'
+            f'<verse_n verse_n="1">\n{groups}\n</verse_n>\n</meta>\n')
 
 
 # The normalized layer of _TEI: pseudo.basil.temple.tt's norm_group values
@@ -277,6 +282,40 @@ def test_ingest_skips_a_corpus_without_its_normalized_layer(
     assert works == []
     assert not (tmp_path / "coptic-scriptorium" / "dormition_john.json").exists()
     assert any(r.levelno == logging.ERROR and "dormition-john" in r.getMessage()
+               for r in caplog.records)
+
+
+_CC_BY_NC_SA = ("&lt;a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'&gt;"
+                "CC BY-NC-SA 4.0&lt;/a&gt;")
+
+
+def _corpus_with_licences(tmp_path: Path, *licenses: str) -> None:
+    """A dormition-john corpus of one document per licence in its TT header."""
+    corpus = tmp_path / "_repos" / "coptic-scriptorium" / "dormition-john"
+    (corpus / "dormition-john_TEI").mkdir(parents=True)
+    (corpus / "dormition-john_TT").mkdir()
+    for i, license in enumerate(licenses):
+        (corpus / "dormition-john_TEI" / f"doc{i}.xml").write_text(_TEI, encoding="utf-8")
+        (corpus / "dormition-john_TT" / f"doc{i}.tt").write_text(
+            _TEI_TT.replace(f'license="{_CC_BY}"', f'license="{license}"'), encoding="utf-8")
+
+
+def test_ingest_records_the_tt_header_licence(tmp_path: Path) -> None:
+    # The TEI's own <licence> is boilerplate CC BY; the TT header is the
+    # document's (#382), and a corpus takes its most restrictive.
+    _corpus_with_licences(tmp_path, _CC_BY, _CC_BY_NC_SA)
+    works = ingest(tmp_path)
+    assert [w.license for w in works] == ["cc-by-nc-sa-4.0"]
+
+
+def test_ingest_skips_a_corpus_with_an_unrecordable_licence(
+    tmp_path: Path, caplog: pytest.LogCaptureFixture
+) -> None:
+    _corpus_with_licences(tmp_path, "CC BY 3.0")
+    with caplog.at_level(logging.ERROR):
+        works = ingest(tmp_path)
+    assert works == []
+    assert any(r.levelno == logging.ERROR and "unrecognised licence" in r.getMessage()
                for r in caplog.records)
 
 

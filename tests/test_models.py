@@ -140,3 +140,12 @@ def test_every_licence_has_a_web_label():
     block = block[:block.index("\n};")]
     labelled = set(re.findall(r'^  "?([\w.-]+)"?: \{', block, re.M))
     assert set(get_args(License)) == labelled
+
+
+def test_every_noncommercial_cc_licence_is_flagged_on_the_web():
+    """/sources marks non-commercial texts through NON_COMMERCIAL in sources.ts."""
+    src = (Path(__file__).parents[1] / "web/src/lib/sources.ts").read_text(encoding="utf-8")
+    block = src[src.index("export const NON_COMMERCIAL"):]
+    block = block[:block.index("]);")]
+    flagged = set(re.findall(r'"([\w.-]+)"', block))
+    assert {v for v in get_args(License) if "-nc" in v} <= flagged

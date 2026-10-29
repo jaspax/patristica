@@ -91,6 +91,11 @@ export const LICENSES: Record<string, { label: string; url?: string }> = {
     label: "CC BY-NC-SA 4.0",
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   },
+  "cc-by-sa-3.0": { label: "CC BY-SA 3.0", url: "https://creativecommons.org/licenses/by-sa/3.0/" },
+  "cc-by-nc-sa-3.0": {
+    label: "CC BY-NC-SA 3.0",
+    url: "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+  },
   "academic-noncommercial": { label: "Academic, non-commercial use" },
   // Granted to Patristica by the rights holder; DATA_LICENSE.md records each grant (#262).
   "used-with-permission": {

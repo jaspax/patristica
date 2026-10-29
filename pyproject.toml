@@ -20,6 +20,7 @@ dependencies = [
     # per-ingestor. No stable PyPI package exists; add a vendored converter
     # or a suitable package (e.g. "betacode") when that source is implemented.
     "playwright>=1.59.0",
+    "pdfplumber==0.11.10",  # PDF text with fonts and positions (demetrius_psalter, #337)
 ]
 
 [project.optional-dependencies]
