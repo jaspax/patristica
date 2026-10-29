@@ -113,6 +113,18 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `cantus` | CANTUS Latin Chant Database | Latin (`lat`) | cantusdatabase.org (API) | JSON (API) | Free |
 | `cursus` | CURSUS Medieval Liturgical Texts | Latin (`lat`) | zenodo.org/records/5090613 | TEI P4 XML | Academic |
 
+#### 3.4 Church Slavonic (planned, #29)
+
+The canonical Old Church Slavonic texts and their contemporaries, from the survey on #29 (2026-10-29). Language `chu`, tradition `slavonic`, stored in Cyrillic: Glagolitic witnesses are stored in Cyrillic transliteration (owner's decision on #29). The language plumbing is #330; the decision record is in `docs/adding-a-language.md`. Source ids are provisional until each ingest PR.
+
+| Source | Works | Format | License | Issue |
+|--------|-------|--------|---------|-------|
+| CCMH (Corpus Cyrillo-Methodianum Helsingiense, now at Kielipankki: kielipankki.fi/download/ccmh-src/www/) | Codex Marianus, Zographensis (+ Zogr-B), Assemanianus, Savvina kniga (Gospels and aprakos, translated 860s, MSS 10th–11th c.); Codex Suprasliensis (48 lives and homilies, Greek originals, translated late 9th–10th c.); Vita Constantini, Vita Methodii (late 9th c., later copies) | 7-bit ASCII transliteration `.txt` (some `.xml`); lines numbered by Gospel/chapter/verse or folio/line | CC-BY 4.0 | #332, #333 |
+| TOROT (Syntacticus release 20230428, github.com/syntacticus/syntacticus-treebank-data) | Psalterium Sinaiticum, Kiev Missal, Euchologium Sinaiticum (8 prayers), Chrabr *On the Letters*; Suprasliensis text divisions | PROIEL XML, Cyrillic, tokenized (text = presentation-before + form + presentation-after) | CC-BY-NC-SA 4.0 | #334, #333 |
+| `pta` (already cloned) | Severian of Gabala, *In theophaniam*, Slavonic (`pta-chu1`, 16th-c. Minei) | TEI P5 | as PTA | #335 |
+
+Out of period: the Uspenskij sbornik (Boris and Gleb, Life of Feodosij), the Primary Chronicle and the other Old East Slavic (`orv`) TOROT texts. Not usable: TITUS (copyright notices), Gorazd and the Russian National Corpus (dictionary / no redistribution). Not found yet (Clozianus, the full Euchologium, Ostromir, the Hexaemeron, the Didactic Gospel, Clement of Ohrid, Hilarion, the Izbornik of 1073): #331.
+
 ---
 
 ### Tier 2 — Downloadable but less structured; require significant parsing
@@ -319,6 +331,9 @@ All text stored as Unicode (UTF-8). Source-specific conversions required:
 | SEDRA transliteration | Syriac Unicode mapping table |
 | Ge'ez Internet Archive PDFs | OCR with Tesseract `gez` model + manual QC |
 | Armenian Internet Archive PDFs | OCR with Tesseract `hye` model + manual QC |
+| CCMH ASCII transliteration (Church Slavonic, #29) | Per-source table to Cyrillic (`a`→а, `&`→ъ, `$`→ь, `@`→ѣ, `E`/`O`→ѧ/ѫ, `!` titlo or superscript letter, `'` paerok → ꙿ, `::`→⁘, …; the tables are on each text's `.html` page). Glagolitic witnesses come out in Cyrillic, as TOROT has them |
+| Glagolitic (any Slavonic source) | `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()` (U+2C00–2C5F, combining U+1E000–1E02F; yer + i → ꙑ). TOROT's Suprasliensis has ~1,300 Glagolitic letters for Cyrillic ones (ⱕ for ѧ) |
+| TOROT PROIEL XML (Church Slavonic) | Join tokens as presentation-before + form + presentation-after. In Marianus about a fifth of the stops have no space after them (`г҃лѧ.азъ`); put one back, since derived verses only break between words |
 
 ---
 

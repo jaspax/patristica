@@ -75,7 +75,10 @@ describe("Landing", () => {
     const greek = within(strip).getByRole("link", { name: /λόγος/ });
     expect(greek.getAttribute("href")).toBe("/works?language=grc");
     expect(greek.querySelector("[lang]")?.getAttribute("lang")).toBe("grc");
-    expect(within(strip).getAllByRole("link")).toHaveLength(8);
+    const slavonic = within(strip).getByRole("link", { name: /слово/ });
+    expect(slavonic.getAttribute("href")).toBe("/works?language=chu");
+    expect(slavonic.querySelector("[lang]")?.getAttribute("lang")).toBe("cu");
+    expect(within(strip).getAllByRole("link")).toHaveLength(9);
   });
 
   it("shows the library's counts once the index loads", async () => {
