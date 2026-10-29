@@ -26,11 +26,18 @@ Usage::
     python -m scripts.translate --max-requests 20    # pilot
     python -m scripts.translate [--langs syc cop] [--work hudra/] [--max-cost 50]
     python -m scripts.translate --model opus         # retry what Sol's filter blocked
+    python -m scripts.translate --model local-opus --workers 4  # on the subscription
+    python -m scripts.translate --usage              # the subscription's usage now
 
 ``--model`` picks the translator (default ``sol``). ``opus`` (Claude Opus 5.5,
 which scored as well as Sol in the #84 quality eval) is for the few requests
-Sol's content filter blocks; it needs ``ANTHROPIC_API_KEY``. Each row's
-provenance records the model that actually answered.
+Sol's content filter blocks; it needs ``ANTHROPIC_API_KEY``. ``local-opus`` is
+the same model through a local ``claude -p`` on the Claude subscription login
+(#417): it costs nothing per request but counts against the subscription's
+5-hour and 7-day usage windows, which the run logs alongside its progress.
+The run never stops on usage; watching it is the controlling agent's job
+(``docs/translation-backends.md``). Each row's provenance records the model
+that actually answered.
 
 Needs ``OPENAI_API_KEY`` (environment or ``.env``) for Sol.
 """
@@ -60,12 +67,13 @@ from scripts.embed_eval.translate import (
     TRANSLATOR_SYSTEM,
     Clients,
     cost,
+    limits_report,
 )
 
 log = logging.getLogger(__name__)
 
 DEFAULT_MODEL = "sol"
-TRANSLATORS = ("sol", "opus")  # both judged ≈4.4–4.5/5 fidelity in #84
+TRANSLATORS = ("sol", "opus", "local-opus")  # Sol and Opus ≈4.4–4.5/5 fidelity in #84
 # Bump when BULK_SYSTEM or the grouping changes, so stored translations say
 # which prompt produced them.
 BULK_PROMPT_VERSION = "bulk-2026-10-12"
@@ -259,13 +267,30 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
             for _ in pool.map(one, requests):
                 done += 1
                 if done % 50 == 0:
-                    log.info("%d/%d requests, $%.2f so far", done, len(requests), cost(spent))
+                    log.info("%d/%d requests, $%.2f so far%s", done, len(requests),
+                             cost(spent), _limits_suffix(spent))
     finally:
         with lock:
             for job in jobs:
                 if job.dirty or not job.groups:
                     write(job)
-    log.info("%d requests, $%.2f", len(spent), cost(spent))
+    log.info("%d requests, $%.2f%s", len(spent), cost(spent), _limits_suffix(spent))
+
+
+def _limits_suffix(spent: list[dict]) -> str:
+    """The subscription's usage windows for a progress line (local-opus only)."""
+    report = limits_report(spent)
+    return f"; subscription usage {report}" if report else ""
+
+
+def probe_usage() -> str:
+    """One tiny local Claude request, for the subscription's current usage."""
+
+    class Ok(BaseModel):
+        ok: bool
+
+    _, usage = Clients().call("local-haiku", "Answer with ok: true.", "ok?", Ok)
+    return limits_report([usage]) or "the CLI reported no usage windows"
 
 
 def main() -> None:
@@ -284,6 +309,8 @@ def main() -> None:
     p.add_argument("--max-requests", type=int, help="pilot: a random sample of N requests")
     p.add_argument("--max-cost", type=float, help="stop sending requests after $N")
     p.add_argument("--dry-run", action="store_true", help="report the work and cost only")
+    p.add_argument("--usage", action="store_true",
+                   help="print the Claude subscription's usage windows (one tiny local request)")
     p.add_argument("--include-unpublishable", action="store_true",
                    help="also translate works whose licence keeps them out of the index")
     args = p.parse_args()
@@ -293,6 +320,9 @@ def main() -> None:
                 "translate it into an eval store (--store), not data/translations")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
+    if args.usage:
+        log.info("subscription usage %s", probe_usage())
+        return
     run(args.input_dir, args.store, args.langs, args.work, args.workers, args.max_requests,
         args.max_cost, args.dry_run, args.include_unpublishable, args.model)
 

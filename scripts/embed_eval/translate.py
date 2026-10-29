@@ -12,6 +12,11 @@ group (WEB, else KJV/ASV) is given to the judges as a reference. Having
 judges from two vendors means every translation also gets a verdict from a
 model other than the one that produced it.
 
+``local-opus`` runs Opus through a local ``claude -p`` on the Claude
+subscription login instead of the API (``Clients._claude_cli``): no API key
+and no bill, but it counts against the subscription's usage windows, which
+each call reports (``limits_report``).
+
 Translations and judgements are cached in ``data/eval/translation/``
 (``translations.jsonl``, ``judgements.jsonl``), so runs resume and new models
 can be added without redoing the rest. Token usage is logged for cost.
@@ -32,6 +37,8 @@ import json
 import logging
 import random
 import string
+import subprocess
+import tempfile
 import threading
 import time
 from collections import defaultdict
@@ -47,7 +54,7 @@ log = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class Model:
-    vendor: Literal["anthropic", "openai"]
+    vendor: Literal["anthropic", "openai", "claude-cli"]
     model_id: str
     price_in: float  # USD per million tokens
     price_out: float
@@ -55,11 +62,14 @@ class Model:
 
 # Prices: Claude from the claude-api model table; Sol from third-party
 # listings (Oct 2026) - check OpenAI's pricing page before budgeting on it.
+# "claude-cli" models run on the subscription: no price, usage windows instead.
 MODELS: dict[str, Model] = {
     "haiku": Model("anthropic", "claude-haiku-5-5", 0.10, 0.50),
     "sonnet": Model("anthropic", "claude-sonnet-5-5", 2.00, 10.00),
     "opus": Model("anthropic", "claude-opus-5-5", 4.00, 20.00),
     "sol": Model("openai", "gpt-6.1-sol", 2.00, 10.00),
+    "local-opus": Model("claude-cli", "claude-opus-5-5", 0.0, 0.0),
+    "local-haiku": Model("claude-cli", "claude-haiku-5-5", 0.0, 0.0),  # usage probe
 }
 TRANSLATORS = ("haiku", "sonnet", "opus", "sol")
 JUDGES = ("opus", "sol")
@@ -206,6 +216,8 @@ class Clients:
         m = MODELS[name]
         if m.vendor == "anthropic":
             return self._anthropic(name, m, system, user, schema, effort)
+        if m.vendor == "claude-cli":
+            return self._claude_cli(name, m, system, user, schema, effort)
         return self._openai(name, m, system, user, schema, effort)
 
     def _anthropic(self, name, m, system, user, schema, effort):
@@ -252,6 +264,83 @@ class Clients:
         usage = {"model": name, "input": j["usage"]["prompt_tokens"],
                  "output": j["usage"]["completion_tokens"]}
         return schema.model_validate_json(choice["message"]["content"]), usage
+
+    def _claude_cli(self, name, m, system, user, schema, effort):
+        # The request's fields as claude -p arguments: no tools, settings, MCP
+        # servers or session, and an empty working directory, so no project
+        # context (CLAUDE.md, memory) reaches the model. The user text goes on
+        # stdin. Auth is the local login; usage windows come back per call.
+        cmd = ["claude", "-p", "--model", m.model_id, "--system-prompt", system,
+               "--json-schema", json.dumps(schema.model_json_schema()),
+               "--tools", "", "--setting-sources", "", "--strict-mcp-config",
+               "--no-session-persistence", "--verbose", "--output-format", "stream-json"]
+        if effort:
+            cmd += ["--effort", effort]
+        with tempfile.TemporaryDirectory() as cwd:
+            proc = subprocess.run(cmd, input=user, capture_output=True, text=True,
+                                  cwd=cwd, timeout=900)
+        return parse_claude_stream(name, proc.stdout, proc.returncode, proc.stderr, schema)
+
+
+def parse_claude_stream(name: str, stdout: str, returncode: int, stderr: str,
+                        schema: type[BaseModel]) -> tuple[BaseModel, dict]:
+    """The output of ``claude -p --output-format stream-json`` → (parsed, usage).
+
+    ``usage["limits"]`` holds the subscription's usage windows from the last
+    ``rate_limit_event`` (``{"five_hour": {"utilization", "resets_at"}, …}``),
+    or is missing when the CLI sent none.
+    """
+    result = None
+    limits: dict = {}
+    for line in stdout.splitlines():
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if event.get("type") == "rate_limit_event":
+            info = event.get("rate_limit_info") or {}
+            for window, w in (info.get("unifiedWindows") or {}).items():
+                limits[window] = {"utilization": w.get("utilization"),
+                                  "resets_at": w.get("resetsAt"), "status": w.get("status")}
+            if info.get("isUsingOverage"):
+                limits["overage"] = True
+        elif event.get("type") == "result":
+            result = event
+    if result is None:
+        raise RuntimeError(f"{name}: claude exited {returncode} without a result: "
+                           f"{(stderr or stdout)[-300:]}")
+    if result.get("is_error") or result.get("structured_output") is None:
+        raise RuntimeError(f"{name}: claude {result.get('subtype')}: "
+                           f"{str(result.get('result'))[:300]}")
+    u = result.get("usage") or {}
+    served = [k for k in result.get("modelUsage") or {}]
+    usage = {"model": name,
+             "input": u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0)
+             + u.get("cache_read_input_tokens", 0),
+             "output": u.get("output_tokens", 0)}
+    if len(served) == 1:
+        usage["served_by"] = served[0]
+    if limits:
+        usage["limits"] = limits
+    return schema.model_validate(result["structured_output"]), usage
+
+
+def limits_report(usages: list[dict]) -> str | None:
+    """The latest subscription usage among *usages*, for the log; None if none."""
+    latest = next((u["limits"] for u in reversed(usages) if u.get("limits")), None)
+    if latest is None:
+        return None
+    parts = []
+    for window, label in (("five_hour", "5-hour"), ("seven_day", "7-day")):
+        w = latest.get(window)
+        if not w or w.get("utilization") is None:
+            continue
+        resets = (time.strftime("%a %H:%M UTC", time.gmtime(w["resets_at"]))
+                  if w.get("resets_at") else "?")
+        parts.append(f"{label} {w['utilization']:.0%} (resets {resets})")
+    if latest.get("overage"):
+        parts.append("using extra usage")
+    return ", ".join(parts) or None
 
 
 def cost(usages: list[dict]) -> float:

@@ -91,7 +91,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
   Then `scripts.translate` translates the language's units and `scripts.embed` adds a `KIND_TRANSLATION` vector for each.
 
   Costs:
-  - **Paid:** about $0.0014 per unit for Sol bulk translation (`COST_PER_CHUNK` in `scripts/translate.py`), plus the translation's embedding.
+  - **Paid:** about $0.0014 per unit for Sol bulk translation (`COST_PER_CHUNK` in `scripts/translate.py`), plus the translation's embedding. In an interactive session, translate with `--model local-opus` instead, on the Claude subscription's usage (`docs/translation-backends.md`).
   - **No corpus-wide rebuild:** `TRANSLATED_LANGUAGES` is left out of the aligner's code hash (#336). Each group's inputs hash records the vectors its members are aligned on, so only the groups whose members gain translation vectors are re-aligned, in the pipeline's align step after embed (no API calls).
   - Translate before embed: `scripts.status` lists the pending translations and their cost.
 

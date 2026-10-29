@@ -27,6 +27,7 @@ patristica/
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
 ├── docs/adding-a-language.md # checklist for adding a new language to the corpus, with per-language decision records (#293)
+├── docs/translation-backends.md # which translator where (local Claude vs Sol) and how to watch subscription usage (#417)
 ├── .github/workflows/ci.yml   # CI: Python unit tests + web app checks on every PR (manual run on master)
 ├── .github/workflows/deploy.yml           # on master: infra/deploy.sh --keep-env → web + api on the droplet
 ├── .github/PULL_REQUEST_TEMPLATE/pipeline.md  # short PR template for committing a pipeline run's data
@@ -69,7 +70,7 @@ patristica/
 │   ├── validate.py            # QC checks; outputs data/validation_report.json
 │   ├── anchor.py              # enrolled translations' derived verses cut on their original → data/anchors/ (paid Voyage, #304)
 │   ├── anchor_eval.py         # anchor evaluation on existing version groups: today vs refined, hand-check samples
-│   ├── translate.py           # rare-language chunks → English (GPT-6.1 Sol) → data/translations/
+│   ├── translate.py           # rare-language chunks → English (Sol, or Opus via local claude -p) → data/translations/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── status.py              # freshness of every pipeline step in one table (#130)
@@ -253,7 +254,7 @@ uv run --extra pipeline python -m scripts.pipeline --dry-run   # what is stale, 
 uv run --extra pipeline python -m scripts.pipeline --pay       # unattended; or `uv run --extra pipeline pipeline --pay`
 ```
 
-`scripts.pipeline` (#248) runs normalize → anchor → validate → translate → embed → align → build_index → export_library → upload_library, each as a subprocess exactly as by hand, so every step skips what its fingerprints show is current. Paid steps (anchor, translate, embed) send requests only with `--pay`: without it the run stops before the first paid step that has paid work, prints the estimate and exits 0, while a paid step whose estimate is $0 (a metadata-only change) runs without calling the API (`embed --no-requests`) and the run goes on. `--max-cost USD` caps the run's estimated spend. A preflight lists every problem up front: missing `data/raw` or vectors (or git-lfs pointer files), API keys with `--pay` (OpenAI and Anthropic keys are tried against their free model listings), the production database through `infra/db-tunnel.sh` (or `--database-url`) and the `LIBRARY_*` upload key. A failing step stops the run, and the next run resumes. It never commits: it ends with `scripts.status --check` and the changed `data/` paths, and logs to `logs/pipeline-{time}.log` (gitignored). `--skip STEP` leaves a step out, `--accept-raw-change` goes to normalize after a re-ingest. Ingestors aren't part of it.
+`scripts.pipeline` (#248) runs normalize → anchor → validate → translate → embed → align → build_index → export_library → upload_library, each as a subprocess exactly as by hand, so every step skips what its fingerprints show is current. Paid steps (anchor, translate, embed) send requests only with `--pay`: without it the run stops before the first paid step that has paid work, prints the estimate and exits 0, while a paid step whose estimate is $0 (a metadata-only change) runs without calling the API (`embed --no-requests`) and the run goes on. `--max-cost USD` caps the run's estimated spend. Its translate step uses Sol, the backend for unattended runs; an agent working in an interactive session translates first with `scripts.translate --model local-opus` (on the Claude subscription, no API cost), so the pipeline finds nothing to translate. That agent watches the subscription's usage windows, which the run logs, and stops or switches to Sol when it projects them to run out (`docs/translation-backends.md`, #417). A preflight lists every problem up front: missing `data/raw` or vectors (or git-lfs pointer files), API keys with `--pay` (OpenAI and Anthropic keys are tried against their free model listings), the production database through `infra/db-tunnel.sh` (or `--database-url`) and the `LIBRARY_*` upload key. A failing step stops the run, and the next run resumes. It never commits: it ends with `scripts.status --check` and the changed `data/` paths, and logs to `logs/pipeline-{time}.log` (gitignored). `--skip STEP` leaves a step out, `--accept-raw-change` goes to normalize after a re-ingest. Ingestors aren't part of it.
 
 The steps stay runnable on their own for targeted work:
 
@@ -263,6 +264,7 @@ uv run python -m scripts.normalize        # raw → Chunk objects (+ derived ver
 uv run --extra embed python -m scripts.anchor --dry-run  # anchored derived verses → data/anchors/ (paid Voyage; --pay only with the owner's OK)
 uv run python -m scripts.validate         # QC report (stub until M7)
 uv run python -m scripts.translate --dry-run  # rare-language chunks → data/translations/ (paid API; drop --dry-run to run)
+uv run python -m scripts.translate --model local-opus  # the same on the Claude subscription (interactive sessions; docs/translation-backends.md)
 uv run --extra embed python -m scripts.embed --dry-run  # vectors → data/embeddings/ (paid Voyage API; drop --dry-run to run)
 uv run --extra embed python -m scripts.align --dry-run --embeddings-dir data/embeddings  # passage alignments → data/alignments/ (no API calls)
 uv run --extra index python -m scripts.build_index --dry-run  # load the search DB (DATABASE_URL; droplet: infra/db-tunnel.sh …)

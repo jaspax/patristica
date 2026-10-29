@@ -211,3 +211,110 @@ def test_clients_are_lazy_and_keep_their_dispatch_methods():
     # The lazily created SDK client must not shadow the _anthropic/_openai methods.
     assert callable(clients._anthropic) and callable(clients._openai)
     assert clients._anthropic_client is None and clients._http is None
+
+
+# --- local Claude backend (#417) ------------------------------------------------
+
+def stream(*events: dict) -> str:
+    return "\n".join(json.dumps(e) for e in events) + "\n"
+
+
+RATE_EVENT = {"type": "rate_limit_event", "rate_limit_info": {
+    "status": "allowed", "isUsingOverage": False, "unifiedWindows": {
+        "five_hour": {"utilization": 0.09, "resetsAt": 1793311200, "status": "allowed"},
+        "seven_day": {"utilization": 0.52, "resetsAt": 1793433600, "status": "allowed"}}}}
+RESULT_EVENT = {"type": "result", "subtype": "success", "is_error": False,
+                "structured_output": {"items": [{"n": 1, "translation": "Peace."}]},
+                "usage": {"input_tokens": 2, "cache_creation_input_tokens": 1000,
+                          "cache_read_input_tokens": 10, "output_tokens": 72},
+                "modelUsage": {"claude-opus-5-5": {}}}
+
+
+def test_parse_claude_stream_returns_the_output_tokens_model_and_usage_windows():
+    from scripts.embed_eval.translate import cost, parse_claude_stream
+    from scripts.translate import BulkTranslation
+
+    out, usage = parse_claude_stream(
+        "local-opus", stream({"type": "system", "subtype": "init"}, RATE_EVENT, RESULT_EVENT)
+        + "not json\n", 0, "", BulkTranslation)
+    assert out.items[0].translation == "Peace."
+    assert usage["input"] == 1012 and usage["output"] == 72
+    assert usage["served_by"] == "claude-opus-5-5"
+    assert usage["limits"]["five_hour"] == {"utilization": 0.09, "resets_at": 1793311200,
+                                            "status": "allowed"}
+    assert cost([usage]) == 0   # the subscription has no price per token
+
+
+def test_parse_claude_stream_raises_on_an_error_or_a_missing_result():
+    from scripts.embed_eval.translate import parse_claude_stream
+    from scripts.translate import BulkTranslation
+
+    failed = {**RESULT_EVENT, "is_error": True, "subtype": "error_during_execution",
+              "result": "usage limit reached", "structured_output": None}
+    with pytest.raises(RuntimeError, match="usage limit reached"):
+        parse_claude_stream("local-opus", stream(RATE_EVENT, failed), 1, "", BulkTranslation)
+    with pytest.raises(RuntimeError, match="without a result"):
+        parse_claude_stream("local-opus", "", 1, "not logged in", BulkTranslation)
+
+
+def test_claude_cli_maps_the_request_onto_isolated_claude_arguments(monkeypatch):
+    import subprocess
+
+    from scripts.embed_eval import translate as et
+    from scripts.translate import BulkTranslation
+
+    seen = {}
+
+    def fake_run(cmd, input, capture_output, text, cwd, timeout):
+        seen.update(cmd=cmd, input=input, cwd=cwd)
+        return subprocess.CompletedProcess(cmd, 0, stream(RATE_EVENT, RESULT_EVENT), "")
+
+    monkeypatch.setattr(et.subprocess, "run", fake_run)
+    out, usage = et.Clients().call("local-opus", "SYSTEM", "[1]\nܫܠܡܐ", BulkTranslation,
+                                   effort="low")
+    cmd = seen["cmd"]
+    arg = {cmd[i]: cmd[i + 1] for i in range(1, len(cmd) - 1) if cmd[i].startswith("--")}
+    assert cmd[:2] == ["claude", "-p"] and seen["input"] == "[1]\nܫܠܡܐ"
+    assert arg["--model"] == "claude-opus-5-5" and arg["--system-prompt"] == "SYSTEM"
+    assert json.loads(arg["--json-schema"]) == BulkTranslation.model_json_schema()
+    assert arg["--tools"] == "" and arg["--setting-sources"] == "" and arg["--effort"] == "low"
+    assert "--strict-mcp-config" in cmd and "--no-session-persistence" in cmd
+    assert arg["--output-format"] == "stream-json"
+    assert not Path(seen["cwd"]).exists()   # an empty directory, removed afterwards
+    assert usage["model"] == "local-opus" and usage["limits"]
+
+
+def test_limits_report_uses_the_latest_usage_windows():
+    from scripts.embed_eval.translate import limits_report
+
+    older = {"limits": {"five_hour": {"utilization": 0.01, "resets_at": 0}}}
+    latest = {"limits": {"five_hour": {"utilization": 0.09, "resets_at": 1793311200},
+                         "seven_day": {"utilization": 0.52, "resets_at": 1793433600},
+                         "overage": True}}
+    assert limits_report([older, latest, {"model": "sol"}]) == (
+        "5-hour 9% (resets Thu 22:00 UTC), 7-day 52% (resets Sat 08:00 UTC), "
+        "using extra usage")
+    assert limits_report([{"model": "sol"}]) is None
+
+
+def test_run_logs_subscription_usage_and_never_stops_on_it(tmp_path: Path, monkeypatch,
+                                                           caplog):
+    from scripts import translate
+
+    class Local(FakeClients):
+        def call(self, name, system, user, schema, effort=None):
+            out, usage = super().call(name, system, user, schema, effort)
+            full = {"five_hour": {"utilization": 1.0, "resets_at": 1793311200}}
+            return out, {**usage, "model": name, "served_by": "claude-opus-5-5",
+                         "limits": full}
+
+    fake = Local()
+    monkeypatch.setattr(translate, "Clients", lambda: fake)
+    monkeypatch.setattr(translate, "BULK_MAX_ITEMS", 1)
+    norm = write_corpus(tmp_path, {"a": ("public_domain", [chunk("1", "ܐ"), chunk("2", "ܒ")])})
+    with caplog.at_level("INFO"):
+        translate.run(input_dir=norm, store_dir=tmp_path / "t", langs=["syc"],
+                      work_prefixes=[], workers=1, max_requests=None, max_cost=None,
+                      dry_run=False, include_unpublishable=False, model="local-opus")
+    assert len(fake.requests) == 2   # usage is reported, not enforced
+    assert "subscription usage 5-hour 100% (resets Thu 22:00 UTC)" in caplog.text
