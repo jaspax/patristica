@@ -167,3 +167,13 @@ def test_tables_are_distinct_objects():
                              _ccmh.SAVVINA, _ccmh.VITAE)} == {
         "Codex Marianus", "Codex Zographensis", "Codex Zographensis, Zogr-B",
         "Codex Assemanianus", "Savvina kniga", "Vitae Constantini et Methodii"}
+
+
+def test_lection_marks_are_metadata_but_the_preposition_za_is_text():
+    conv = convert("tu i !srdce vaSe . k!c ::", MARIANUS)
+    assert conv.text == f"тоу и ср{TITLO}дце ваше. кⷰ{POKRYTIE}⁘"   # ц above the line
+    (s, e, kind), = conv.editorial
+    assert (conv.text[s:e], kind) == (f"кⷰ{POKRYTIE}", "metadata")
+    assert "кⷰ" not in editorial.source_text({"text": conv.text, "editorial": conv.editorial})
+    assert convert("!za!C v& ono vr@mE", ZOGRAPHENSIS).editorial[0][2] == "metadata"
+    assert convert("za nE", MARIANUS).editorial == []       # за "for", not зачѧло

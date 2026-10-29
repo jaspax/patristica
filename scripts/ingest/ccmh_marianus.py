@@ -11,7 +11,7 @@ License: CC BY 4.0 (https://www.kielipankki.fi/lic/ccmh-eng/)
 One work per Gospel (``ccmh-marianus/matt`` …): each codex is its own
 Scripture source, so its books join the Gospel version groups. The codex
 lacks Matt 1:1–5:23 and John 21:18–25. The chapter lists (kephalaia) CCMH
-files under chapter 0 are not verses and are skipped.
+files under chapter 0 are not verses and are skipped (#369).
 """
 
 from __future__ import annotations

@@ -37,7 +37,9 @@ every point.
 - ``{…}`` (dittography, superfluous letters the editor flags): ``note``, kept
   for the reader with its braces, left out of embedding;
 - ``?`` (a letter not readable) and ``-`` (a word cut off by a lost leaf):
-  ``lacuna``.
+  ``lacuna``;
+- the scribe's lection marks кⷰ҇ "end" and заⷱ҇ "beginning" (``LECTION_MARKS``):
+  ``metadata``, shown to readers but not Gospel text (TOROT omits them).
 
 ``%`` marks a place CCMH's transcribers meant to re-check against the
 edition: data-entry markup, not text, so it is dropped (and counted).
@@ -193,15 +195,23 @@ class Table:
     ligatures: Mapping[str, str] = field(default_factory=dict)
     #: Typos in the file, fixed before conversion: {wrong: right}.
     fixes: Mapping[str, str] = field(default_factory=dict)
+    #: Whole ASCII words that are the scribe's lection marks, not Gospel text.
+    rubrics: frozenset[str] = frozenset()
 
+
+# The scribes' lection marks in the Gospel codices: к(онь)ць "end" and
+# за(чѧ)ло "beginning" under a titlo (TOROT leaves them out). Bare ``za``
+# is the preposition за, so only the abbreviated spellings count.
+LECTION_MARKS = frozenset({"k!c", "kc", "!kc", "ko!c", "!ko!c", "za!C", "!za!C", "!zaC"})
 
 _MARIANUS_MARKS = {**_COMMON_MARKS, "^": "\u0484"}   # round circumflex above the next letter
 
-MARIANUS = Table("Codex Marianus", GLAGOLITIC_LETTERS, next_marks=_MARIANUS_MARKS)
+MARIANUS = Table("Codex Marianus", GLAGOLITIC_LETTERS, next_marks=_MARIANUS_MARKS,
+                 rubrics=LECTION_MARKS)
 
 ZOGRAPHENSIS = Table("Codex Zographensis", GLAGOLITIC_LETTERS,
                      prev_marks={"^": "\u0484"},   # above the previous letter
-                     fixes={"ubojte": "uboJte"})
+                     fixes={"ubojte": "uboJte"}, rubrics=LECTION_MARKS)
 
 # Zogr-B, the later leaves (Matt 16:19–24:20), has its own table: Cyrillic f,
 # <…> for letters Jagić printed that Moszyński could no longer see, jery as
@@ -211,14 +221,14 @@ ZOGR_B = Table("Codex Zographensis, Zogr-B", {**GLAGOLITIC_LETTERS, "F": "ф"},
                prev_marks={"^": "\u0484"},
                brackets={**_BRACKETS, "<": (">", "supplement", "\u27e8", "\u27e9")},
                ligatures={"&I": "ꙑ"},
-               fixes={"<j>E": "<jE>"})
+               fixes={"<j>E": "<jE>"}, rubrics=LECTION_MARKS)
 
 # Assemanianus has no table of its own ("the same principles as Marianus;
 # differences not documented"). Its file has signs Marianus lacks, read here
 # from where they stand: ``/`` (17k, before vowels at the start of a word or
 # syllable) a stroke over the next letter, ``\`` and the backtick other
 # strokes, ``"`` a trema and ``)`` a psili as in Suprasliensis's table, ``+`` a
-# cross (#344 checks them against the edition). Jery is written ъ + і (``&I``);
+# cross (#368 checks them against the edition). Jery is written ъ + і (``&I``);
 # read as ꙑ, as glagolitic_to_cyrillic reads yer + i.
 ASSEMANIANUS = Table(
     "Codex Assemanianus", GLAGOLITIC_LETTERS,
@@ -226,6 +236,7 @@ ASSEMANIANUS = Table(
                 '"': "\u0308", ")": "\u0486"},
     ligatures={"&I": "ꙑ", "&i": "ꙑ", "&J": "ꙑ"},
     fixes={"h(l&m&": "x(l&m&"},
+    rubrics=LECTION_MARKS,
 )
 
 # Savvina kniga and the Vitae follow Suprasliensis's table.
@@ -238,7 +249,7 @@ SAVVINA = Table("Savvina kniga",
                 {**CYRILLIC_LETTERS, '"e': "ѣ", '"E': "ꙗ", 'j"e': "ꙓ", "jo": "ѭ"},
                 next_marks={**_COMMON_MARKS, ")": "\u0486"},
                 prev_marks={"^": "\u0484"},
-                fixes={" sH ": " sE ", "moZAxo": "moZaxo"})
+                fixes={" sH ": " sE ", "moZAxo": "moZaxo"}, rubrics=LECTION_MARKS)
 
 # The Vitae: ``/`` marks a letter used as a numeral (``/D`` → ѕ҃), ``?`` and
 # ``,`` are Tomšič's modern punctuation, and ``C4st$noje`` is a typo.
@@ -285,6 +296,8 @@ def convert(ascii_text: str, table: Table) -> Converted:
     dropped: Counter = Counter()
     groups: list[tuple[int, str]] = []   # open groups: (id, closer)
     later: int | None = None             # open =…= group
+    rubric: int | None = None            # open lection mark
+    rubric_end = -1
     next_id = 0
 
     pending_marks: list[str] = []
@@ -292,6 +305,8 @@ def convert(ascii_text: str, table: Table) -> Converted:
     word: list[int] = []                 # indices of the current word's base letters
 
     def group() -> int | None:
+        if rubric is not None:
+            return rubric
         if groups:
             return groups[0][0]          # nested brackets belong to the outermost
         return later
@@ -319,6 +334,13 @@ def convert(ascii_text: str, table: Table) -> Converted:
     n = len(ascii_text)
     while i < n:
         ch = ascii_text[i]
+        if rubric is not None and i >= rubric_end:
+            rubric = None
+        if (table.rubrics and rubric is None and not groups and later is None
+                and (i == 0 or ascii_text[i - 1] in " \t")
+                and ascii_text[i:].split(" ", 1)[0] in table.rubrics):
+            rubric = new_group("metadata")
+            rubric_end = i + len(ascii_text[i:].split(" ", 1)[0])
         if ch in " \t":
             end_word()
             emit_space()

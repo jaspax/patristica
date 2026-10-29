@@ -16,7 +16,7 @@ replace lost ones (Zogr-B, 11th c., Glagolitic). They are part of the codex as
 it is bound and fill its gap without overlap, so they are read into
 ``ccmh-zographensis/matt`` in verse order (their own table; the two verses
 split at the leaf edges, 16:19 and 24:20, are joined), and the edition says
-which verses they are. The chapter lists under chapter 0 are skipped.
+which verses they are. The chapter lists under chapter 0 are skipped (#369).
 """
 
 from __future__ import annotations
