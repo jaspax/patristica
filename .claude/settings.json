@@ -42,7 +42,12 @@
       "Bash(gh issue create --label data-quality:*)",
       "Bash(gh label list:*)",
       "Bash(gh issue comment 341:*)",
-      "Bash(date:*)"
+      "Bash(date:*)", 
+      "Bash(grep:*)", 
+      "Bash(awk:*)", 
+      "Bash(head:*)", 
+      "Bash(wc:*)", 
+      "Bash(ls logs/:*)"
     ],
     "deny": [
       "Bash(scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push --force:*)",

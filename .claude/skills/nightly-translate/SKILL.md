@@ -57,9 +57,11 @@ The pre-push hook runs the unit tests in that worktree, which is why it needs th
 Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: exception rows to add, blocked rows to add or remove, and the issues filed. They become the curation PR in step 5. The candidate list reads master's tables, so anything you add tonight takes effect after the owner merges it. Until then, skip a work you have just blocked.
 
 0. **Blocked works whose issue is closed.** Read `patristica/data/mt_blocked.csv` (`work_id,issue,reason`). For each row, check `gh issue view {issue} --json state --jq .state`. When it is `CLOSED`, note the row for removal, so the work is a candidate again on a later night.
-1. **Resume first.** If `logs/mt-partial/` holds an unfinished work (Glob `logs/mt-partial/**`), finish it before starting anything new.
-2. **Candidates:** `uv run python -m scripts.machine_translate candidates > logs/mt-candidates.tsv`. Columns: work id, language, characters, author, title. For the works you shortlist, `candidates --json > logs/mt-candidates.jsonl` has the details: path, requests and `versions`. Grep it by work id rather than reading it.
-   - It is long (about 2,000 works), so **don't read it whole**. Grep it for the authors and works you are looking for.
+1. **Resume first.** If `logs/mt-partial/` holds an unfinished work (`ls logs/mt-partial/`), finish it before starting anything new.
+2. **Candidates:** narrow the list with the options of `scripts.machine_translate candidates` first (#432): `--work ID…` (details of given works), `--lang`, `--genre`, `--exclude-source`, `--min-chars`/`--max-chars`, `--sort chars` (smallest first), `--limit N`, and `--json` (one object per line with path, requests and `versions`). Plain output columns: work id, language, characters, author, title. Examples:
+   - `uv run python -m scripts.machine_translate candidates --lang grc --max-chars 60000 --limit 200 > logs/mt-candidates.tsv`, then Read that file.
+   - `uv run python -m scripts.machine_translate candidates --json --work W1 W2` for the works you shortlist.
+   - The full list is about 2,000 works, so **don't read it whole**. `grep`, `awk`, `head` and `wc` on files under `logs/` are fine for searching it by author or title. The Grep and Glob tools may be unavailable in this session; use `grep` and `ls` through Bash.
    - Leave out works that already have an open PR: `gh pr list --label machine-translation --state open --limit 200`.
 3. **Keep a shortlist** across nights in `logs/mt-shortlist.md`: about 30 next candidates with a line each on why. Update it each night instead of starting over.
 4. **Judgement:**

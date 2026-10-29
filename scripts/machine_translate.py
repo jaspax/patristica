@@ -492,6 +492,37 @@ def _version_info(input_dir: Path, v: mt.Version) -> dict[str, Any]:
     return info
 
 
+def candidate_rows(input_dir: Path, *, works: list[str] | None = None,
+                   langs: list[str] | None = None, genres: list[str] | None = None,
+                   exclude_sources: list[str] | None = None, min_chars: int | None = None,
+                   max_chars: int | None = None, sort: str | None = None,
+                   limit: int | None = None) -> list[dict[str, Any]]:
+    """The candidates as listed by ``candidates``, filtered here so the nightly agent
+    never needs shell text tools (#432). Metadata filters run before the files are read."""
+    picked = []
+    for cand in mt.candidates(load_works(input_dir)):
+        if works and cand.work_id not in works:
+            continue
+        if (langs and cand.language not in langs) or (genres and cand.genre not in genres):
+            continue
+        if exclude_sources and cand.source_id in exclude_sources:
+            continue
+        units = units_of(_chunks(input_dir, cand.path))
+        chars = sum(len(u.text) for u in units)
+        if (min_chars is not None and chars < min_chars) or \
+                (max_chars is not None and chars > max_chars):
+            continue
+        picked.append((cand, units, chars))
+    if sort == "chars":
+        picked.sort(key=lambda x: (x[2], x[0].work_id))
+    rows = []
+    for cand, units, chars in picked[:limit]:
+        rows.append({**dataclasses.asdict(cand), "units": len(units), "chars": chars,
+                     "requests": len(make_requests(units)),
+                     "versions": [_version_info(input_dir, v) for v in cand.versions]})
+    return rows
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -502,7 +533,14 @@ def main() -> None:
                    help="where mt-eng/ is written (default data/raw)")
     sub = p.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("candidates", help="works to machine-translate, with their sizes")
+    c.add_argument("--work", nargs="+", help="only these work ids (their details)")
     c.add_argument("--lang", nargs="+", help="only these languages")
+    c.add_argument("--genre", nargs="+", help="only these genres")
+    c.add_argument("--exclude-source", nargs="+", metavar="SOURCE", help="leave out these sources")
+    c.add_argument("--min-chars", type=int, help="at least N source characters")
+    c.add_argument("--max-chars", type=int, help="at most N source characters")
+    c.add_argument("--sort", choices=["chars"], help="smallest first (default: corpus order)")
+    c.add_argument("--limit", type=int, help="at most N rows, after filtering and sorting")
     c.add_argument("--json", action="store_true", help="one JSON object per line")
     t = sub.add_parser("translate", help="machine-translate one work")
     t.add_argument("work_id")
@@ -524,21 +562,17 @@ def main() -> None:
     raw_dir = args.raw_dir or args.input_dir.parent / "raw"
 
     if args.cmd == "candidates":
-        for cand in mt.candidates(load_works(args.input_dir)):
-            if args.lang and cand.language not in args.lang:
-                continue
-            units = units_of(_chunks(args.input_dir, cand.path))
-            info = {**dataclasses.asdict(cand), "units": len(units),
-                    "chars": sum(len(u.text) for u in units),
-                    "requests": len(make_requests(units)),
-                    "versions": [_version_info(args.input_dir, v) for v in cand.versions]}
+        for info in candidate_rows(
+                args.input_dir, works=args.work, langs=args.lang, genres=args.genre,
+                exclude_sources=args.exclude_source, min_chars=args.min_chars,
+                max_chars=args.max_chars, sort=args.sort, limit=args.limit):
             if args.json:
                 print(json.dumps(info, ensure_ascii=False))
             else:
                 others = ", ".join(f"{v['work_id']} ({v['language']}, {v['kind']}, "
                                    f"{v['chars']:,})" for v in info["versions"])
-                print(f"{cand.work_id}\t{cand.language}\t{info['chars']:>9,}\t"
-                      f"{cand.author or '-'}\t{cand.title}"
+                print(f"{info['work_id']}\t{info['language']}\t{info['chars']:>9,}\t"
+                      f"{info['author'] or '-'}\t{info['title']}"
                       + (f"\tversions: {others}" if others else ""))
     elif args.cmd == "review-versions":
         for v in mt.versions_to_review(load_works(args.input_dir)):
