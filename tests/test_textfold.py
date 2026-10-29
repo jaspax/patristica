@@ -94,6 +94,8 @@ def test_church_slavonic_yers_paerok_titlo_and_marks():
 def test_church_slavonic_superscript_letters_are_letters():
     assert fold("хрⷭ҇тосъ") == fold("хрстосъ") == "хрстос"
     assert fold("кⷰ҇") == "кц"
+    # ꙶ becomes ї after NFKD has run, so ї must fold like the decomposed one.
+    assert fold("аꙶти") == fold("аїти") == fold("аити") == "аити"
 
 
 def test_church_slavonic_capitals():
@@ -127,7 +129,7 @@ SAMPLES = [
     "Искони бѣ слово. ꙇ слово бѣ отъ б҃а.", "оученици ѹченици", "бъіти ꙑ ъ", "ѿ Ѿца",
     "хрⷭ҇тосъ кⷰ҇ ⁘", "сꙿ нимь· пⸯцѣте", "ѯ ѱ ꙗко", "ооу оъу", "ъ ь ꙿ", "а͑гг҄ела",
     "ѣко тѣло моѣ", "Ѣѣ ꙇѣ въѣ сꙿѣ ꙓ", "оуѣ ъѣ ѣ", "дьнь кръстъ отъъ, богь.", "ьи ъи ъі",
-    "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ", "братрьѣ сⸯѣ ꙿꙿѣ ъꙿѣ",
+    "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ", "братрьѣ сⸯѣ ꙿꙿѣ ъꙿѣ", "аꙶти ꙵꙶ",
 ]
 
 
