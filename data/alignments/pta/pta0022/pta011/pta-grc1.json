@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "pta/pta0022/pta011/pta-grc1",
+ "pivot": "npnf-works/athanasius-letter-62-to-john-and-antiochus",
+ "groups": 10,
+ "inputs": "8edb9ad651d55966",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/athanasius-letter-62-to-john-and-antiochus", "units": 11, "ids": "a76ce5d83bd1712e", "inputs": "d83fdfadd09198d2", "spans": ".++++++++++", "conf": "9999999999"},
+  {"work_id": "pta/pta0022/pta011/pta-grc1", "units": 10, "ids": "e27d30a376ab35f3", "inputs": "36b0cf9e9c0d83d5", "spans": "++++++++++", "conf": "9999999999"}
+ ]
+}

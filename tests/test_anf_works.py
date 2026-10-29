@@ -75,6 +75,34 @@ def test_extract_title_check() -> None:
         aw.extract_work(bad, ids)
 
 
+def test_extract_keep_and_skip_keep_refs() -> None:
+    """``keep``/``skip`` split one div into works whose refs are the whole div's (#380)."""
+    ids = _div(
+        '<body><div2 id="a" title="Collection.">'
+        "<p>Heading</p>"
+        '<div3 id="a.i" title="One."><p>First</p><p>First again</p></div3>'
+        '<div3 id="a.ii" title="Two."><p>Second</p></div3>'
+        '<div3 id="a.iii" title="Three."><p>Third</p></div3>'
+        "</div2></body>"
+    )
+
+    def refs(**kw: tuple[str, ...]) -> list[tuple[str, str]]:
+        spec = aw.W("anf01", "t", "T", None, 1, (1, 1), "uncertain", "greek", "X",
+                    aw.P("a", "collection", **kw))
+        return [(p["ref"], p["text"]) for p in aw.extract_work(spec, ids)]
+
+    whole = refs()
+    assert whole == [("X", "Heading"), ("X.1", "First"), ("X.1.1", "First again"),
+                     ("X.2", "Second"), ("X.3", "Third")]
+    assert refs(keep=("a.ii",)) == [("X.2", "Second")]
+    assert refs(skip=("a.ii",)) == [p for p in whole if p[1] != "Second"]
+    assert sorted(refs(keep=("a.i", "a.iii")) + refs(skip=("a.i", "a.iii"))) == sorted(whole)
+    # The source tree is left as it was.
+    assert refs() == whole
+    with pytest.raises(RuntimeError):
+        refs(keep=("a.iv",))
+
+
 def test_split_commentary() -> None:
     paras = [{"ref": str(i), "text": t} for i, t in enumerate([
         "Canon I.", "Canon text one.", "Balsamon. Comment.", "More comment.",

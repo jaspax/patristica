@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "pta/pta0022/pta017/pta-grc1",
+ "pivot": "pta/pta0022/pta017/pta-grc1",
+ "groups": 35,
+ "inputs": "a2fb4a663c6499bb",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/athanasius-petitions-of-the-arians-to-jovian", "units": 39, "ids": "85f00e61f6982cca", "inputs": "d03fc32895eaa32a", "spans": "..+++++++.++.++++++++++++++++++++++++++", "conf": "49999999999999999999999999999999999"},
+  {"work_id": "pta/pta0022/pta017/pta-grc1", "units": 47, "ids": "cf26fb57813ffc4c", "inputs": "10a218015d44108c", "spans": "++=+=.+=+++=+=+++=+++++++=+=+=++++++++=+++=++++", "conf": "49999999999999999999999999999999999"}
+ ]
+}

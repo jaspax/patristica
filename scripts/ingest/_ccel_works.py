@@ -23,6 +23,7 @@ divs stay registered so they do not fall back into the generic blob).
 
 from __future__ import annotations
 
+import copy
 import json
 import logging
 import re
@@ -83,6 +84,11 @@ class _Part:
     label: str = ""      # ref segment distinguishing parts of a multi-part work
     drop_leading: int = 0   # leading paragraphs that are the editor's preface
     drop_trailing: int = 0  # trailing paragraphs that are the editor's note
+    #: Nested divs (``@id``s inside ``div_id``) to take alone, or to leave out,
+    #: when one registered div holds several works (#380).  Refs are those of
+    #: the whole div: left-out divs still advance its counters.
+    keep: tuple[str, ...] = ()
+    skip: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -111,8 +117,9 @@ class _WorkSpec:
 def P(
     div_id: str, title_check: str, label: str = "",
     drop_leading: int = 0, drop_trailing: int = 0,
+    keep: tuple[str, ...] = (), skip: tuple[str, ...] = (),
 ) -> _Part:
-    return _Part(div_id, title_check, label, drop_leading, drop_trailing)
+    return _Part(div_id, title_check, label, drop_leading, drop_trailing, keep, skip)
 
 
 def W(
@@ -188,6 +195,42 @@ def _split_commentary(paragraphs: list[dict[str, str]], keep: str) -> list[dict[
     return out
 
 
+def _is_div(el: etree._Element) -> bool:
+    return isinstance(el.tag, str) and re.fullmatch(r"div\d", etree.QName(el.tag).localname) is not None
+
+
+def _select(div: etree._Element, part: _Part, slug: str) -> tuple[etree._Element, frozenset[str]]:
+    """Apply ``part.keep`` / ``part.skip`` to *div*.
+
+    Returns the div to extract (a copy without the paragraphs outside the kept
+    divs when ``keep`` is set) and the ``@id``s of the nested divs to leave out.
+    Left-out divs are skipped by the extractor, which still counts them, so
+    every kept paragraph gets the ref it has when the whole div is extracted.
+    """
+    if not part.keep and not part.skip:
+        return div, frozenset()
+    nested = {el.get("id") for el in div.iterdescendants() if _is_div(el)}
+    missing = sorted((set(part.keep) | set(part.skip)) - nested)
+    if missing:
+        raise RuntimeError(f"div {part.div_id!r} has no nested div {missing} (for {slug})")
+    skip = set(part.skip)
+    if part.keep:
+        div = copy.deepcopy(div)
+        kept = [el for el in div.iterdescendants() if _is_div(el) and el.get("id") in part.keep]
+        path = {a for k in kept for a in k.iterancestors()}
+        for parent in path:
+            for child in list(parent):
+                if child in path or child in kept:
+                    continue
+                if not _is_div(child):
+                    parent.remove(child)
+                elif child.get("id"):
+                    skip.add(child.get("id"))
+                else:
+                    raise RuntimeError(f"div without @id next to a kept div (for {slug})")
+    return div, frozenset(skip)
+
+
 def extract_work(spec: _WorkSpec, ids: dict[str, etree._Element]) -> list[dict[str, str]]:
     """Return the ``{"ref", "text"}`` paragraphs of *spec* from an indexed volume."""
     paragraphs: list[dict[str, str]] = []
@@ -201,7 +244,9 @@ def extract_work(spec: _WorkSpec, ids: dict[str, etree._Element]) -> list[dict[s
                 f"expected it to contain {part.title_check!r} (for {spec.slug})"
             )
         prefix = f"{spec.ref_prefix}.{part.label}" if part.label else spec.ref_prefix
-        paras = _extract_paragraphs_from_div1(div, prefix, _editorial_ids(div, spec.volume))
+        div, left_out = _select(div, part, spec.slug)
+        paras = _extract_paragraphs_from_div1(
+            div, prefix, _editorial_ids(div, spec.volume) | left_out)
         paras = paras[part.drop_leading:len(paras) - part.drop_trailing]
         paras = [p for p in paras if not _SEPARATOR_RE.match(p["text"])]
         paragraphs.extend(paras)

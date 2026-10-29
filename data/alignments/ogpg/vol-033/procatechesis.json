@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-033/procatechesis",
+ "pivot": "npnf-works/cyril-of-jerusalem-procatechesis",
+ "groups": 117,
+ "inputs": "55eeff68cfa171f6",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/cyril-of-jerusalem-procatechesis", "units": 143, "ids": "331f86810df691cd", "inputs": "fc3bf084eb5dbaae", "spans": ".........+=+++++++++.++++++++=++...++++++++++++++++++++++++++=.++++++++++++++++++++..+.+=+.+++=++++++++++++++++++++.+++++++++=+++++++++++++.+++", "conf": "999999999999999999984999999999999999999999999899999999999999999998699999999999999999999999999999978999999999999999999"},
+  {"work_id": "ogpg/vol-033/procatechesis", "units": 144, "ids": "f43c5b99737b20f3", "inputs": "eca1c2e5667792af", "spans": "++=+++.++++++=+..++++++++++++++=++++++++++++++++++++=+++++=++++++++.++++++++++++++++++++..++++++++++++++=.+++++=.++++.+++++....++=++....+++..+++", "conf": "999999999999999999984999999999999999999999999899999999999999999998699999999999999999999999999999978999999999999999999"}
+ ]
+}

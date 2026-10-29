@@ -3,10 +3,11 @@
  "group": "ogpg/vol-025/ad-dracontium",
  "pivot": "ogpg/vol-025/ad-dracontium",
  "groups": 91,
- "inputs": "49dcc81ce71a45ea",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "2120db1675347478",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ogpg/vol-025/ad-dracontium", "units": 132, "ids": "c16080e8fa77455f", "inputs": "e943c6bf4482f797", "spans": "++...........................+++++++....+++++++++=+++++++++++++++++++++=++++.+=++++=++=++++++++.+=++++++++++++++.++++++++++++++++++.", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "pta/pta0022/pta013/pta-grc1", "units": 96, "ids": "c41038cb84d090a3", "inputs": "3d58ef1b1af5c707", "spans": "++++++++++++++++++++++++=++++++++=+++++++++=++=++++++++++=++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-letter-49-to-dracontius", "units": 96, "ids": "441cf27576ebb42b", "inputs": "43f025c67a358ea1", "spans": ".+++++++3++++++++++++++++=++++++++=++++++=++=++++++++++++=++++++=++++++++++++++++++++++++++++++++", "conf": "99999989999999999999999999999999999999997999999999999997999999999999998999999999999999999"},
+  {"work_id": "ogpg/vol-025/ad-dracontium", "units": 132, "ids": "c16080e8fa77455f", "inputs": "e943c6bf4482f797", "spans": "++++++.......................+++=+++....++=++++++=++++++++++++=++++=+++=++++.+=++++=++=++++++++.+=++++++++++++++.++++++++++++++++++.", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta/pta0022/pta013/pta-grc1", "units": 96, "ids": "c41038cb84d090a3", "inputs": "3d58ef1b1af5c707", "spans": "+++5++=+++++=++++++++++++=++++++=+=+++=+++++=++=++++++++++=++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

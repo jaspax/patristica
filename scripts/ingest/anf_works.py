@@ -58,6 +58,8 @@ _ORIG = "Origen of Alexandria"
 _HIPPO = "Hippolytus of Rome"
 _PS_CLEM = "Pseudo-Clement of Rome"
 _METH = "Methodius of Olympus"
+#: "Some Other Fragments" I-V of Methodius (ANF06), from the catenae on Job (#380).
+_METH_JOB = ("xi.xi.i", "xi.xi.ii", "xi.xi.iii", "xi.xi.iv", "xi.xi.v")
 
 
 # ---------------------------------------------------------------------------
@@ -217,9 +219,14 @@ _WORKS: tuple[_WorkSpec, ...] = (
       "Irenaeus of Lyon", 180, (175, 189), "approximate", "greek", "Iren.Haer",
       P("ix.ii", "Book I", "1"), P("ix.iii", "Book II", "2"), P("ix.iv", "Book III", "3"),
       P("ix.vi", "Book IV", "4"), P("ix.vii", "Book V", "5")),
+    # Fragments III-IV are First1KGreek's fragments of the letter to Victor (#380).
     W("anf01", "irenaeus-fragments", "Fragments from the Lost Writings of Irenaeus",
       "Irenaeus of Lyon", 185, (170, 202), "uncertain", "greek", "Iren.Frag",
-      P("ix.viii", "Fragments")),
+      P("ix.viii", "Fragments", skip=("ix.viii.iii", "ix.viii.iv"))),
+    W("anf01", "irenaeus-fragments-of-the-letter-to-victor",
+      "Fragments III–IV (from the Synodal Letter to Victor of Rome)", "Irenaeus of Lyon",
+      190, (189, 199), "approximate", "greek", "Iren.Frag",
+      P("ix.viii", "Fragments", keep=("ix.viii.iii", "ix.viii.iv"))),
 
     # ------------------------------------------------------------------ ANF02
     W("anf02", "shepherd-of-hermas", "The Shepherd of Hermas (Visions, Commandments, Similitudes)",
@@ -652,10 +659,25 @@ _WORKS: tuple[_WorkSpec, ...] = (
       "From the Discourse on the Resurrection", _METH,
       300, (290, 311), "approximate", "greek", "Meth.Res",
       P("xi.v", "Discourse on the Resurrection")),
+    # The fragments of four works First1KGreek edits on their own are works of
+    # their own (#380); they keep their refs.
     W("anf06", "methodius-fragments", "Fragments of Methodius", _METH,
       300, (270, 311), "uncertain", "greek", "Meth.Frag",
-      P("xi.vi", "Fragments", "1"), P("xi.x", "Cross and Passion", "2"),
-      P("xi.xi", "Other Fragments", "3"), P("xi.xii", "Two Fragments", "4")),
+      P("xi.vi", "Fragments", "1", skip=("xi.vi.ii", "xi.vi.iii", "xi.vi.iv")),
+      P("xi.x", "Cross and Passion", "2"),
+      P("xi.xi", "Other Fragments", "3", skip=_METH_JOB), P("xi.xii", "Two Fragments", "4")),
+    W("anf06", "methodius-on-things-created", "Extracts from the Work on Things Created", _METH,
+      300, (270, 311), "uncertain", "greek", "Meth.Frag",
+      P("xi.vi", "Fragments", "1", keep=("xi.vi.ii",))),
+    W("anf06", "methodius-against-porphyry", "Fragments of the Work Against Porphyry", _METH,
+      300, (270, 311), "uncertain", "greek", "Meth.Frag",
+      P("xi.vi", "Fragments", "1", keep=("xi.vi.iii",))),
+    W("anf06", "methodius-on-martyrs", "Fragment of the Discourse Concerning Martyrs", _METH,
+      300, (270, 311), "uncertain", "greek", "Meth.Frag",
+      P("xi.vi", "Fragments", "1", keep=("xi.vi.iv",))),
+    W("anf06", "methodius-fragments-on-job", "Fragments on Job (Other Fragments I–V)", _METH,
+      300, (270, 311), "uncertain", "greek", "Meth.Frag",
+      P("xi.xi", "Other Fragments", "3", keep=_METH_JOB)),
     W("anf06", "pseudo-methodius-simeon-and-anna",
       "Oration Concerning Simeon and Anna", "Pseudo-Methodius",
       500, (400, 700), "uncertain", "greek", "PsMeth.Sym",
@@ -680,8 +702,16 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf07", "lactantius-deaths-of-the-persecutors",
       "Of the Manner in Which the Persecutors Died", "Lactantius",
       315, (313, 316), "approximate", "latin", "Lact.Mort", P("iii.v", "Persecutors Died")),
+    # The two poems as works of their own (#380).
     W("anf07", "lactantius-fragments", "Fragments of Lactantius", "Lactantius",
-      310, (290, 325), "uncertain", "latin", "Lact.Frag", P("iii.vi", "Fragments")),
+      310, (290, 325), "uncertain", "latin", "Lact.Frag",
+      P("iii.vi", "Fragments", skip=("iii.vi.i", "iii.vi.ii"))),
+    W("anf07", "lactantius-phoenix", "The Phoenix (De ave Phoenice)", "Lactantius",
+      310, (290, 325), "uncertain", "latin", "Lact.Phoen",
+      P("iii.vi", "Fragments", keep=("iii.vi.i",))),
+    W("anf07", "lactantius-poem-on-the-passion", "A Poem on the Passion of the Lord "
+      "(De passione Domini)", "Lactantius", 310, (290, 325), "uncertain", "latin", "Lact.Pass",
+      P("iii.vi", "Fragments", keep=("iii.vi.ii",))),
     W("anf07", "venantius-on-easter", "On Easter (De Pascha)", "Venantius Fortunatus",
       570, (560, 600), "approximate", "latin", "VenFort.Pasch",
       P("iv.i", "On Easter", drop_trailing=1)),
@@ -726,9 +756,20 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf08", "pseudo-clementine-recognitions", "The Recognitions of Clement", _PS_CLEM,
       350, (320, 380), "approximate", "greek", "PsClem.Recog",
       P("vi.iii", "Recognitions")),
+    # The three prefatory pieces as works of their own (#380); they keep their
+    # refs.  CCEL prints the Contestatio as sections IV-V of Peter's epistle.
     W("anf08", "pseudo-clementine-homilies", "The Clementine Homilies", _PS_CLEM,
       330, (300, 380), "approximate", "greek", "PsClem.Hom",
-      P("vi.iv", "Clementine Homilies")),
+      P("vi.iv", "Clementine Homilies", skip=("vi.iv.ii", "vi.iv.iii"))),
+    W("anf08", "pseudo-clementine-epistle-of-peter-to-james", "The Epistle of Peter to James",
+      _PS_CLEM, 330, (300, 380), "approximate", "greek", "PsClem.Hom",
+      P("vi.iv", "Clementine Homilies", keep=("vi.iv.ii.i", "vi.iv.ii.ii", "vi.iv.ii.iii"))),
+    W("anf08", "pseudo-clementine-contestatio", "The Adjuration Concerning the Receivers of "
+      "the Book (Contestatio)", _PS_CLEM, 330, (300, 380), "approximate", "greek", "PsClem.Hom",
+      P("vi.iv", "Clementine Homilies", keep=("vi.iv.ii.iv", "vi.iv.ii.v"))),
+    W("anf08", "pseudo-clementine-epistle-of-clement-to-james", "The Epistle of Clement to "
+      "James", _PS_CLEM, 330, (300, 380), "approximate", "greek", "PsClem.Hom",
+      P("vi.iv", "Clementine Homilies", keep=("vi.iv.iii",))),
     # New Testament Apocrypha (ANF08 div1 vii)
     W("anf08", "protevangelium-of-james", "The Protevangelium of James", None,
       150, (140, 200), "approximate", "greek", "ProtJas",
@@ -1056,7 +1097,15 @@ _ORIGINALS: dict[str, str] = {
     # ANF08
     "clement-excerpts-of-theodotus": _F1K.format("tlg0555/tlg007"),
     "pseudo-clement-epistles-on-virginity": _F1K.format("tlg1271/tlg010"),
+    "irenaeus-fragments-of-the-letter-to-victor": _F1K.format("tlg1447/tlg009"),
+    "methodius-on-things-created": "first1k/tlg2959/tlg005/opp-grc1",
+    "methodius-against-porphyry": "first1k/tlg2959/tlg006/opp-grc1",
+    "methodius-on-martyrs": "first1k/tlg2959/tlg008/opp-grc1",
+    "methodius-fragments-on-job": "first1k/tlg2959/tlg007/opp-grc1",
     "pseudo-clementine-homilies": _F1K.format("tlg1271/tlg006"),
+    "pseudo-clementine-epistle-of-peter-to-james": _F1K.format("tlg1271/tlg003"),
+    "pseudo-clementine-contestatio": _F1K.format("tlg1271/tlg004"),
+    "pseudo-clementine-epistle-of-clement-to-james": _F1K.format("tlg1271/tlg005"),
     "acts-of-thomas": _F1K.format("tlg2038/tlg001"),
     "acts-of-philip": _F1K.format("tlg2948/tlg001"),
     "acts-of-barnabas": _F1K.format("tlg2949/tlg001"),
@@ -1144,9 +1193,10 @@ _ORIGINALS: dict[str, str] = {
     # ANF06: Bibliotheca cod. 119 (PG 103, col. 399), inside the Work for
     # codd. 1-249.
     "photius-on-pierius": "ogpg/vol-103/bibliotheca-1",
-    # ANF07: PL 7's Fragmenta holds fragments I-IV and the poem on the Passion;
-    # the ANF also prints the Phoenix, which it lacks.
+    # ANF07: PL 7's Fragmenta holds fragments I-IV and the poem on the Passion.
     "lactantius-fragments": "oglt-pl/lactantius/pl7_0_lact",
+    "lactantius-phoenix": "csel/stoa0171/stoa001/opp-lat3",
+    "lactantius-poem-on-the-passion": "csel/stoa0171/stoa004/opp-lat1",
     # ANF08: the letter of the presbyters and deacons of Achaia (PG 2, cols.
     # 1217-1248); the Work opens with short notices on Andrew (cols. 1191-1197).
     "acts-and-martyrdom-of-andrew": "ogpg/vol-002/de-martyrio-andreae",

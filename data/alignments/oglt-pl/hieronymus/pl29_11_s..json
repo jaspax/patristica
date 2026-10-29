@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "oglt-pl/hieronymus/pl29_11_s.",
+ "pivot": "oglt-pl/hieronymus/pl29_11_s.",
+ "groups": 22,
+ "inputs": "4196e4d9d70eaea1",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/jerome-preface-to-the-four-gospels", "units": 25, "ids": "3c88cfad2c0ac230", "inputs": "209936781beffd54", "spans": "+++++=+++++++++=+++++++=+", "conf": "9999999999999999999999"},
+  {"work_id": "oglt-pl/hieronymus/pl29_11_s.", "units": 96, "ids": "8fae2e76332e9687", "inputs": "ed6eadab67fa02ef", "spans": "+++++++++++=...+=++++++++=+........................................+=...........................", "conf": "9999999999999999999999"}
+ ]
+}

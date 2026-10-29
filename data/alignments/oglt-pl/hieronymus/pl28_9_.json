@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "oglt-pl/hieronymus/pl28_9_",
+ "pivot": "oglt-pl/hieronymus/pl28_9_",
+ "groups": 49,
+ "inputs": "2819fd183af64167",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/jerome-preface-to-samuel-and-kings", "units": 51, "ids": "7ed097aafb61150a", "inputs": "c24d06d27ee5bc6b", "spans": "+++==++++++++++++++++++++++++++++++++++++++++++++++", "conf": "8999999999999999999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/hieronymus/pl28_9_", "units": 300, "ids": "998b558844ad8f6a", "inputs": "bd09857d04531998", "spans": "...+.......+==+=++..............+=.........+=.......................................+......+..+++++++..................++++..................++=+++=+=+...................+==++++=..................++.....................................+........+=...............++++++=+=........+=+++=+.............+=", "conf": "8999999999999999999999999999999999999999999999999"}
+ ]
+}
