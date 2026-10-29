@@ -4,7 +4,7 @@ import unicodedata
 
 from patristica.textfold import fold
 from scripts.ingest._slavonic import glagolitic_to_cyrillic, has_glagolitic
-from scripts.validate import SCRIPT_RANGES, _script_ratio
+from scripts.validate import _SCRIPT_RES, _script_ratio
 
 
 def test_john_1_1():
@@ -27,7 +27,7 @@ def test_case_is_kept():
 
 
 def test_every_glagolitic_letter_becomes_cyrillic():
-    cyrillic = SCRIPT_RANGES["chu"]
+    cyrillic = _SCRIPT_RES["chu"]
     for cp in [*range(0x2C00, 0x2C60), *range(0x1E000, 0x1E030)]:
         ch = chr(cp)
         if unicodedata.category(ch) == "Cn":
