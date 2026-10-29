@@ -21,21 +21,26 @@ NORMALIZED = ROOT / "data" / "normalized"
 
 
 def test_enrolment_table() -> None:
-    """Only PTA's Slavonic is enrolled (#335); no source is enrolled as a whole."""
-    assert set(anchoring.load_enrolment()) == {("pta", "chu")}
+    """PTA is enrolled only for its Slavonic (#335); every other row enrols a
+    whole source."""
+    table = anchoring.load_enrolment()
+    assert {key for key in table if key[0] == "pta"} == {("pta", "chu")}
+    assert {key for key in table if key[1] is not None} == {("pta", "chu")}
 
 
-def test_no_published_work_is_enrolled() -> None:
-    """Enrolling PTA's Slavonic re-cuts no other work (#335, #200): of the
-    works in the manifest, only the Slavonic PTA one is enrolled, and every
-    other work's fingerprint has no anchor record (it is cut as before)."""
+def test_no_published_pta_work_is_enrolled() -> None:
+    """Enrolling PTA's Slavonic re-cuts no other PTA work (#335, #200): of
+    PTA's works in the manifest, only the Slavonic one is enrolled, and every
+    other PTA work's fingerprint has no anchor record (it is cut as before)."""
     manifest = NORMALIZED / "_works.jsonl"
     entries = [json.loads(line) for line in manifest.read_text(encoding="utf-8").splitlines()]
-    enrolled = sorted(e["work"]["work_id"] for e in entries if anchoring.is_enrolled(
-        e["work"]["source_id"], e["work"]["language"]))
+    enrolled = sorted(e["work"]["work_id"] for e in entries
+                      if e["work"]["source_id"] == "pta" and anchoring.is_enrolled(
+                          e["work"]["source_id"], e["work"]["language"]))
     assert enrolled == ["pta/pta0001/pta028/pta-chu1"]
     fps = nz.read_work_fingerprints(NORMALIZED)
-    anchored = sorted(path for path, fp in fps.items() if "anchor" in fp)
+    anchored = sorted(path for path, fp in fps.items()
+                      if path.startswith("pta/") and "anchor" in fp)
     assert anchored == ["pta/pta0001/pta028/pta0001.pta028.pta-chu1.json"]
 
 
@@ -59,6 +64,15 @@ def test_the_language_column_is_optional(tmp_path: Path) -> None:
     path = tmp_path / "e.csv"
     path.write_text("source_id,reason\ntorot,x\n", encoding="utf-8")
     assert anchoring.load_enrolment(path) == {("torot", None): "x"}
+
+
+def test_enrolled_sources_are_known_sources() -> None:
+    """Every enrolled source is a real source (it has a label), with a reason."""
+    from patristica.sources import SOURCE_LABELS
+
+    enrolled = anchoring.load_enrolment()
+    assert {source for source, _ in enrolled} <= set(SOURCE_LABELS)
+    assert all(reason.strip() for reason in enrolled.values())
 
 
 @pytest.mark.parametrize("body, message", [

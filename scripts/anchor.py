@@ -30,7 +30,13 @@ re-cuts nothing; bump ``anchoring.ANCHOR_VERSION`` deliberately.
 
 **Requirements.** The original's units need current text vectors (run
 ``scripts.embed --work {original}`` first, as ``scripts.align`` requires); the
-step refuses a work otherwise. normalize's code must be current, and the
+step refuses a work otherwise. An original in a language
+``scripts.translate`` translates (Syriac, Coptic, Armenian, Ge'ez, Church
+Slavonic) is anchored on its English machine translation's vectors (#392,
+:func:`original_vectors`), so translate and embed it first; a unit without
+one falls back to its text vector (logged). A translation of only part of its
+original is refined on the span it covers (#394,
+``anchor_refine.covered_span``). normalize's code must be current, and the
 work's raw file present. Works are cut originals first (an English translation
 of an enrolled Slavonic translation waits for the Slavonic cut).
 
@@ -55,12 +61,13 @@ import logging
 import sys
 import time
 from collections.abc import Callable, Collection
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from patristica import anchor_store, anchoring
+from patristica import anchor_store, anchoring, fingerprint
 from patristica import embeddings as emb
+from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES, load_works
 from patristica.editorial import source_text, spans_of
 from patristica.translations import text_sha
@@ -75,6 +82,7 @@ RAW = Path("data/raw")
 ANCHORS = anchor_store.DEFAULT_DIR
 EMBEDDINGS = emb.DEFAULT_DIR
 SCRATCH = Path("data/anchor_vectors")
+TRANSLATIONS = tr.DEFAULT_DIR
 
 MODEL = "voyage-4-large"
 DIMS = 1024
@@ -118,6 +126,9 @@ class Candidate:
     language: str
     anchor: str
     anchor_path: str
+    #: The original's language; it decides the vectors it is anchored on
+    #: (:func:`original_vectors`). Empty: read from the original's units.
+    anchor_language: str = ""
 
 
 @dataclass
@@ -173,7 +184,7 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
         if anchoring.same_language(work["language"], orig["language"]):
             continue
         out.append(Candidate(path, work["work_id"], work["language"], target,
-                             by_id[target]["path"]))
+                             by_id[target]["path"], orig["language"]))
     return out, unbuilt
 
 
@@ -207,7 +218,7 @@ def check_work(c: Candidate, norm: Path, anchors_dir: Path,
                                     "scripts.normalize")
     if cut.anchor != c.anchor:
         return State(c, ANCHOR, f"cut on {cut.anchor}, translation_of is now {c.anchor}")
-    if cut.method != anchoring.params_hash(params):
+    if cut.method != method_hash(c, params):
         return State(c, METHOD, "cut with another ANCHOR_VERSION or parameters")
     if cut.anchor_cuts != anchoring.chunks_cuts_hash(_chunks(norm, c.anchor_path)):
         return State(c, ANCHOR_CUTS, f"the cuts of {c.anchor} changed since")
@@ -243,11 +254,45 @@ def wants_vector(text: str) -> bool:
     return len(text.strip()) >= emb.MIN_CHARS
 
 
-def load_original(c: Candidate, norm: Path, store_dir: Path) -> tuple[Units, int, set[str]]:
-    """The original's units with their current text vectors, the number of
-    units that should have one but don't, and the vectors' models. A row of
-    another model, size or input type counts as missing: it can't be compared
-    with the vectors this step makes."""
+def original_vectors(anchor_language: str) -> int:
+    """The vectors an original in *anchor_language* is anchored on (#392): its
+    English machine translation's (``KIND_TRANSLATION``) for a language
+    ``scripts.translate`` translates (``translations.TRANSLATED_LANGUAGES``:
+    Syriac, Coptic, Armenian, Ge'ez, Church Slavonic), whose own vectors
+    match English badly, else its own text (``KIND_TEXT``). This
+    is what ``scripts.align`` uses for such a member too."""
+    return emb.KIND_TRANSLATION if anchor_language in tr.TRANSLATED_LANGUAGES else emb.KIND_TEXT
+
+
+def method_hash(c: Candidate, params: anchoring.RefineParams = anchoring.RefineParams()) -> str:
+    """The ``method`` a cut file of *c* records: ``anchoring.params_hash`` for an
+    original anchored on its own text vectors, so the cut files made before
+    #392 stay current; with the vector kind added for an original anchored on
+    its machine translations (a different method: cut files made on such an
+    original's text vectors are frozen until ``--recut``).
+
+    Kept here, not in ``patristica.anchoring``, which is normalize's code: a
+    change there would change normalize's code hash and rebuild the corpus."""
+    if original_vectors(c.anchor_language) == emb.KIND_TEXT:
+        return anchoring.params_hash(params)
+    return fingerprint.value_hash({"version": anchoring.ANCHOR_VERSION, "params": asdict(params),
+                                   "original_vectors": "translation"})
+
+
+def load_original(c: Candidate, norm: Path, store_dir: Path, trans_dir: Path = TRANSLATIONS,
+                  vectors: int | None = None) -> tuple[Units, int, set[str]]:
+    """The original's units with their current vectors, the number of units
+    that should have one but don't, and the vectors' models. A row of another
+    model, size or input type counts as missing: it can't be compared with the
+    vectors this step makes.
+
+    An original in a translated language (:func:`original_vectors`, #392)
+    gets its English machine translation's vector where it has a current one
+    (the translation was made from the unit's current text, and the vector
+    from that translation), else its text vector: such units are logged. Only
+    a missing *text* vector counts as missing (``scripts.embed`` makes the
+    translation vectors after ``scripts.translate``). *vectors* overrides the
+    kind (``scripts.anchor_eval`` compares them)."""
     import numpy as np
 
     from patristica.anchor_refine import Units, normalize_rows
@@ -255,19 +300,45 @@ def load_original(c: Candidate, norm: Path, store_dir: Path) -> tuple[Units, int
     chunks = _chunks(norm, c.anchor_path)
     shard = emb.load(store_dir, c.anchor_path)
     index = shard.by_key() if shard is not None else {}
+    kind = vectors if vectors is not None else original_vectors(
+        c.anchor_language or (chunks[0]["language"] if chunks else ""))
+    rows: dict[str, tr.ChunkTranslation] = {}
+    if kind == emb.KIND_TRANSLATION:
+        trans = tr.load(trans_dir, c.anchor_path)
+        rows = trans.by_chunk() if trans is not None else {}
     vecs = np.zeros((len(chunks), DIMS), dtype=np.float32)
     missing = 0
+    fallback: list[str] = []
     models: set[str] = set()
     spec = run_spec()
+
+    def current(k: int | None, sha: str) -> bool:
+        return (k is not None and shard.rows[k].sha == sha
+                and shard.runs[shard.rows[k].run].same_space(spec))
+
     for u, ch in enumerate(chunks):
         text = source_text(ch)
+        sha = text_sha(text)
         k = index.get((ch["chunk_id"], emb.KIND_TEXT))
-        if (k is not None and shard.rows[k].sha == text_sha(text)
-                and shard.runs[shard.rows[k].run].same_space(spec)):
+        if not current(k, sha):
+            k = None
+            if wants_vector(text):
+                missing += 1
+        if kind == emb.KIND_TRANSLATION and wants_vector(text):
+            t = rows.get(ch["chunk_id"])
+            kt = index.get((ch["chunk_id"], emb.KIND_TRANSLATION))
+            if t is not None and t.source_sha256 == sha and current(kt, text_sha(t.text)):
+                k = kt
+            else:
+                fallback.append(ch["canonical_ref"])
+        if k is not None:
             vecs[u] = shard.vecs[k]
             models.add(shard.runs[shard.rows[k].run].model)
-        elif wants_vector(text):
-            missing += 1
+    if fallback:
+        log.warning("%s: %d of %d units of the original %s have no current machine-translation "
+                    "vector and are anchored on their text vector (e.g. %s): run "
+                    "scripts.translate and scripts.embed for it", c.work_id, len(fallback),
+                    len(chunks), c.anchor, ", ".join(fallback[:3]))
     return (Units(c.anchor, chunks[0]["language"] if chunks else "",
                   [ch["canonical_ref"] for ch in chunks], [ch["text"] for ch in chunks],
                   normalize_rows(vecs)), missing, models)
@@ -298,12 +369,12 @@ def run_spec() -> emb.EmbeddingRun:
 
 def make_cache(c: Candidate, scratch: Path | None,
                embed: Callable[[list[str]], object] | None,
-               budget_tokens: int | None = None) -> VectorCache:
+               budget_tokens: int | None = None, offline: bool = False) -> VectorCache:
     from patristica.anchor_refine import VectorCache
     from patristica.versify import count_tokens
 
     return VectorCache(scratch, c.work_id, c.path, embed, run_spec(), count_tokens,
-                       budget_tokens)
+                       budget_tokens, offline)
 
 
 # ---------------------------------------------------------------------------
@@ -478,7 +549,8 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
         embed: Callable[[list[str]], object] | None = None,
         budget_tokens: int | None = None, recut: Collection[str] = (),
         prefixes: Collection[str] = (),
-        params: anchoring.RefineParams = anchoring.RefineParams()) -> dict[str, list[str]]:
+        params: anchoring.RefineParams = anchoring.RefineParams(),
+        trans_dir: Path = TRANSLATIONS) -> dict[str, list[str]]:
     """Cut what :func:`plan` lists; ``{"cut", "refused", "frozen", "failing"}``.
 
     *embed* sends texts to Voyage (None: a work that needs vectors raises
@@ -502,7 +574,7 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
     sent = 0
     for s in p.todo:
         c = s.candidate
-        orig, missing, models = load_original(c, norm, store_dir)
+        orig, missing, models = load_original(c, norm, store_dir, trans_dir)
         if missing:
             log.error("%s: refused: its original %s has %d units without a current text "
                       "vector: run scripts.embed --work %s first", c.work_id, c.anchor, missing,
@@ -525,7 +597,7 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
         paras = anchoring.paragraphs(_chunks(norm, c.path))
         starts = result.starts()
         cut = anchor_store.CutFile(
-            work_id=c.work_id, anchor=c.anchor, method=anchoring.params_hash(params),
+            work_id=c.work_id, anchor=c.anchor, method=method_hash(c, params),
             anchor_cuts=anchoring.chunks_cuts_hash(_chunks(norm, c.anchor_path)),
             words=paragraph_words(paras),
             model=sorted(models)[0] if len(models) == 1 else ",".join(sorted(models)),
@@ -581,6 +653,8 @@ def main() -> None:
     p.add_argument("--anchors-dir", type=Path, default=ANCHORS)
     p.add_argument("--embeddings-dir", type=Path, default=EMBEDDINGS)
     p.add_argument("--scratch-dir", type=Path, default=SCRATCH)
+    p.add_argument("--translations-dir", type=Path, default=TRANSLATIONS,
+                   help="machine translations of rare-language originals (#392)")
     p.add_argument("--work", action="append", default=[], metavar="PREFIX",
                    help="only works whose id starts with PREFIX (repeatable)")
     p.add_argument("--recut", action="append", default=[], metavar="WORK_ID",
@@ -638,7 +712,7 @@ def main() -> None:
     try:
         done = run(args.normalized_dir, args.raw_dir, args.anchors_dir, args.embeddings_dir,
                    args.scratch_dir, embed=embed, budget_tokens=budget, recut=args.recut,
-                   prefixes=args.work)
+                   prefixes=args.work, trans_dir=args.translations_dir)
     except NeedsVectors as exc:
         log.error("%s", exc)
         sys.exit(1)
