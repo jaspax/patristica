@@ -1,7 +1,7 @@
 """Tests for the English translation layer of Coptic Scriptorium (#346).
 
 Every TreeTagger export carries sentence-aligned ``<translation>`` spans; the
-ingestor writes them as an English work on the Coptic units' refs.  The
+``coptic_scriptorium_eng`` writes them as an English work on the Coptic units' refs.  The
 fixtures are small inline documents shaped like the real ones.
 """
 
@@ -12,7 +12,8 @@ from pathlib import Path
 
 import pytest
 
-from scripts.ingest.coptic_scriptorium import (
+from scripts.ingest import coptic_scriptorium
+from scripts.ingest.coptic_scriptorium_eng import (
     CopticLicenseError,
     _english_editorial,
     _english_title,
@@ -69,8 +70,8 @@ def _corpus(root: Path, corpus: str, docs: dict[str, str]) -> None:
         (tei / f"{name}.xml").write_text(headerless, encoding="utf-8")
 
 
-def _raw(root: Path, slug: str) -> dict:
-    return json.loads((root / "coptic-scriptorium" / f"{slug}.json").read_text(encoding="utf-8"))
+def _raw(root: Path, source: str, slug: str) -> dict:
+    return json.loads((root / source / f"{slug}.json").read_text(encoding="utf-8"))
 
 
 def test_english_work_is_cut_on_the_coptic_refs(tmp_path: Path) -> None:
@@ -83,10 +84,11 @@ def test_english_work_is_cut_on_the_coptic_refs(tmp_path: Path) -> None:
             [("Amen.", ["ϩⲁⲙⲏⲛ"])],
         ]),
     })
+    coptic_scriptorium.ingest(tmp_path)
     ingest(tmp_path)
 
-    coptic = _raw(tmp_path, "life_aphou")
-    english = _raw(tmp_path, "life_aphou_eng")
+    coptic = _raw(tmp_path, "coptic-scriptorium", "life_aphou")
+    english = _raw(tmp_path, "coptic-scriptorium-eng", "life_aphou")
     refs = [p["ref"] for p in coptic["paragraphs"]]
     assert len(refs) == 4
     # A sentence goes to the paragraph of its first bound group; a paragraph
@@ -97,7 +99,7 @@ def test_english_work_is_cut_on_the_coptic_refs(tmp_path: Path) -> None:
         (refs[3], "Amen."),
     ]
     work = english["work"]
-    assert work["work_id"] == "coptic-scriptorium/life_aphou_eng"
+    assert work["work_id"] == "coptic-scriptorium-eng/life_aphou"
     assert work["translation_of"] == "coptic-scriptorium/life_aphou"
     assert work["language"] == "eng"
     assert work["license"] == "cc-by-nc-sa-4.0"
@@ -112,8 +114,8 @@ def test_no_english_work_without_a_translation(tmp_path: Path) -> None:
         ]),
     })
     works = ingest(tmp_path)
-    assert [w.work_id for w in works] == ["coptic-scriptorium/life_cyrus"]
-    assert not (tmp_path / "coptic-scriptorium" / "life_cyrus_eng.json").exists()
+    assert works == []
+    assert not (tmp_path / "coptic-scriptorium-eng" / "life_cyrus.json").exists()
 
 
 def test_partial_translation_gives_a_partial_work(tmp_path: Path) -> None:
@@ -122,8 +124,9 @@ def test_partial_translation_gives_a_partial_work(tmp_path: Path) -> None:
         "life.phib.02": _doc('translation="none" ' + _NC_HEADER.split(" ", 2)[2],
                              [[("...", ["ⲁϥⲉⲓ"])]]),
     })
+    coptic_scriptorium.ingest(tmp_path)
     ingest(tmp_path)
-    english = _raw(tmp_path, "life_phib_eng")
+    english = _raw(tmp_path, "coptic-scriptorium-eng", "life_phib")
     assert [p["ref"] for p in english["paragraphs"]] == ["CopScr.life-phib.000.0000"]
     assert english["work"]["edition"] == (
         "Coptic Scriptorium, life-phib: English translation by Aurelio La Rotta")

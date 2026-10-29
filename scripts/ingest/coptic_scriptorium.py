@@ -70,40 +70,14 @@ Canonical references
   para_n       sequential paragraph counter (0-based) within that file
 
 Example: ``CopScr.shenoute_considering.000.0012``
-
-English translation layer (#346)
---------------------------------
-Every document's TreeTagger export carries a sentence-aligned English
-``<translation translation="…">`` span around the bound groups it renders.
-Many documents have only placeholders there (``...``, ``…``, ``---``); the
-rest are Budge's public-domain translations (1910–1914), lightly revised and
-re-segmented by Coptic Scriptorium, or the project's own.  Each corpus with
-any real translation also gets an English work, ``{corpus_slug}_eng``, whose
-``translation_of`` is the Coptic work and whose units carry **the Coptic
-units' refs**: a sentence goes to the Coptic paragraph that holds its first
-bound group, so the English is cut exactly where the Coptic is, and a
-paragraph without a translated sentence has no English unit (a partially
-translated corpus gives a partial English work).
-
-- The licence is the documents' own (``license`` in the TT header), the most
-  restrictive one when the translated documents differ.  Budge's text is
-  public domain, but Coptic Scriptorium's revision is published under the
-  file's licence, so that is what the work records; ``edition`` names the
-  translators and Budge's volume.
-- The translators' additions in brackets or (in Budge) parentheses are
-  editorial ``supplement`` spans, kept in the embedded text without the
-  brackets; ``(?)``, ``(sic)``, ``(i. e., …)`` and ``(pl.)`` are ``note``s;
-  brackets of dots are ``lacuna``e (#236).
 """
 
 from __future__ import annotations
 
-import html
 import json
 import logging
 import re
 from pathlib import Path
-from typing import NamedTuple
 
 from lxml import etree
 from tqdm import tqdm
@@ -589,22 +563,15 @@ def _paragraph(corpus_name: str, file_n: int, para_n: int, text: str, orig: str)
     return record
 
 
-# A paragraph record and the positions (in document order) of the bound groups
-# it holds, which place the English sentences on it (#346).
-Unit = tuple[dict, list[int]]
-
-
 def _extract_paragraphs_tei(
     root: etree._Element, file_n: int, corpus_name: str, start_n: int, norms: NormMap
-) -> list[Unit]:
+) -> list[dict]:
     """Extract paragraphs from a standard TEI P5 document.
 
     Tries candidate container element types in priority order, using the first
     type that yields results.  This prevents double-counting when both ``<p>``
-    and ``<s>`` exist in the same document.  A bound group's position is that
-    of its ``<phr>`` (= its ``norm_group`` in the TT export).
+    and ``<s>`` exist in the same document.
     """
-    position = {el: i for i, el in enumerate(norms)}
     body = root.find(f".//{_TEI}body")
     if body is None:
         body = root.find(".//body")
@@ -628,15 +595,14 @@ def _extract_paragraphs_tei(
         if not elements:
             continue
 
-        paragraphs: list[Unit] = []
+        paragraphs: list[dict] = []
         para_n = start_n
         for el in elements:
             text = _paragraph_text(_elem_words(el, norms))
             if not _COPTIC_RE.search(text):
                 continue
             orig = _paragraph_text(_elem_words(el))
-            groups = [position[p] for p in el.iter() if p in position]
-            paragraphs.append((_paragraph(corpus_name, file_n, para_n, text, orig), groups))
+            paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
             para_n += 1
 
         if paragraphs:
@@ -647,17 +613,15 @@ def _extract_paragraphs_tei(
 
 def _extract_paragraphs_custom(
     root: etree._Element, file_n: int, corpus_name: str, start_n: int
-) -> list[Unit]:
+) -> list[dict]:
     """Extract paragraphs from the TreeTagger ``<meta>`` export.
 
     This format stores bound groups in ``<orig_group orig_group="…">`` /
     ``<norm_group norm_group="…">`` elements, grouped under ``<p_n>`` or ``<p>``
-    paragraph containers.  A bound group's position is that of its
-    ``<norm_group>`` in the document.
+    paragraph containers.
     """
     para_n = start_n
-    paragraphs: list[Unit] = []
-    position = {el: i for i, el in enumerate(root.iter("norm_group"))}
+    paragraphs: list[dict] = []
 
     # Paragraph containers: <p_n> (most corpora) or <p p="p"> (some Shenoute)
     para_elems = root.findall(".//p_n")
@@ -675,8 +639,7 @@ def _extract_paragraphs_custom(
         if not _COPTIC_RE.search(text):
             continue
         orig = _paragraph_text(_groups(para_el, "orig_group"))
-        groups = [position[g] for g in para_el.iter("norm_group")]
-        paragraphs.append((_paragraph(corpus_name, file_n, para_n, text, orig), groups))
+        paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
         para_n += 1
 
     return paragraphs
@@ -688,27 +651,10 @@ def _groups(para_el: etree._Element, tag: str) -> list[str]:
 
 
 def _extract_paragraphs_from_tei(xml_path: Path, file_n: int, corpus_name: str) -> list[dict]:
-    """Parse a single Coptic Scriptorium XML file into paragraph records."""
-    return [para for para, _ in _extract_document(xml_path, file_n, corpus_name).units]
-
-
-class Document(NamedTuple):
-    """One XML document of a corpus: its Coptic units, the file that holds its
-    English sentences, numbered as the units' bound groups are (``None`` when
-    it couldn't be parsed), and the file whose ``<meta>`` header describes it."""
-
-    units: list[Unit]
-    tt_path: Path | None
-    header_path: Path | None = None
-
-
-def _extract_document(xml_path: Path, file_n: int, corpus_name: str) -> Document:
-    """Parse a single Coptic Scriptorium XML file.
+    """Parse a single Coptic Scriptorium XML file into paragraph records.
 
     Dispatches to the appropriate parser based on the root element tag:
-    - TreeTagger export (``meta`` root) → ``_extract_paragraphs_custom``; the
-      file holds its own English sentences, but the copy in ``*_TEI`` has an
-      empty ``<meta>``, so the header comes from the ``*_TT`` copy.
+    - TreeTagger export (``meta`` root) → ``_extract_paragraphs_custom``
     - Standard TEI P5 (``{...}TEI`` root, or anything else) →
       ``_extract_paragraphs_tei``, with the normalized text from the TT
       export; raises ``CopticLayerError`` when that is missing or differs.
@@ -718,263 +664,15 @@ def _extract_document(xml_path: Path, file_n: int, corpus_name: str) -> Document
         root = tree.getroot()
     except Exception as exc:
         log.error("  XML parse error %s: %s", xml_path.name, exc)
-        return Document([], None)
+        return []
 
     root_local = etree.QName(root.tag).localname if isinstance(root.tag, str) else ""
 
     if root_local == "meta":
-        units = _extract_paragraphs_custom(root, file_n, corpus_name, start_n=0)
-        return Document(units, xml_path, _tt_path(xml_path) or xml_path)
+        return _extract_paragraphs_custom(root, file_n, corpus_name, start_n=0)
     if root_local != "TEI":
         log.debug("  Unknown root element <%s> in %s; trying TEI parser", root_local, xml_path.name)
-    units = _extract_paragraphs_tei(root, file_n, corpus_name, 0, _norm_map(root, xml_path))
-    tt_path = _tt_path(xml_path)
-    return Document(units, tt_path, tt_path)
-
-
-# ---------------------------------------------------------------------------
-# English translation layer (#346)
-# ---------------------------------------------------------------------------
-
-# The tags of a TT export that matter here, in document order.  TT spans may
-# cross (a <translation> can open inside an <entity> and close outside it),
-# so the export is read as a stream of tags, not as a tree.
-_TT_TAG_RE = re.compile(r"<(/?)(translation|norm_group|meta)\b([^>]*)>")
-_TT_ATTR_RE = re.compile(r'([\w.-]+)="([^"]*)"')
-
-# A translation that is only a placeholder for an untranslated sentence.
-_PLACEHOLDER_RE = re.compile(r"[\s.…\-–—_]*")
-
-# Translators' insertions, [word] or (word), and the notes and lacunae among them.
-_INSERTION_RE = re.compile(r"\[[^\[\]]*\]|\([^()]*\)")
-_DOTS_RE = re.compile(r".[\s.…]*.")
-_NOTE_RE = re.compile(r"[(\[]\s*(?:\?|sic\.?|pl\.|i\.\s*e\..*)\s*[)\]]", re.IGNORECASE | re.DOTALL)
-
-# Translator values of a document header that name nobody.
-_NO_TRANSLATOR = frozenset({"", "none", "?", "checked", "unknown"})
-
-_BUDGE = "E. A. Wallis Budge"
-_BUDGE_RE = re.compile(r"Budge,?\s+(\d{4})")
-# Budge's volumes of Sahidic texts (London: British Museum), all public
-# domain; Coptic Scriptorium's documents cite them by year.
-_BUDGE_BOOKS: dict[int, str] = {
-    1910: "Coptic Homilies in the Dialect of Upper Egypt",
-    1913: "Coptic Apocrypha in the Dialect of Upper Egypt",
-    1914: "Coptic Martyrdoms, etc., in the Dialect of Upper Egypt",
-    1915: "Miscellaneous Coptic Texts in the Dialect of Upper Egypt",
-}
-
-# Licences of translated documents, least restrictive first.
-_LICENSE_ORDER = ("cc-by-4.0", "cc-by-sa-4.0", "cc-by-nc-4.0", "cc-by-nc-sa-4.0")
-
-
-class CopticLicenseError(ValueError):
-    """A translated document's licence is not one we can record."""
-
-
-def _license(text: str) -> str:
-    """The ``License`` value of a TT header's ``license`` attribute
-    (``<a href='…/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>``, ``CC-BY 4.0 -``)."""
-    plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text)).lower()
-    if "4.0" in plain:
-        if re.search(r"by[- ]nc[- ]sa", plain):
-            return "cc-by-nc-sa-4.0"
-        if re.search(r"by[- ]nc", plain):
-            return "cc-by-nc-4.0"
-        if re.search(r"by[- ]sa", plain):
-            return "cc-by-sa-4.0"
-        if re.search(r"cc[- ]by", plain):
-            return "cc-by-4.0"
-    raise CopticLicenseError(f"unrecognised licence {text!r}")
-
-
-class Translation(NamedTuple):
-    """The English layer of one TT export."""
-
-    header: dict[str, str]
-    # Per sentence: its text ("" for a placeholder), the positions of the
-    # bound groups it covers, and the number of bound groups before it.
-    sentences: list[tuple[str, list[int], int]]
-    groups: int
-
-
-def _read_header(path: Path) -> dict[str, str]:
-    """The attributes of a TT export's ``<meta>`` header."""
-    m = _TT_TAG_RE.search(path.read_text(encoding="utf-8"))
-    if m is None or m.group(2) != "meta":
-        return {}
-    return {k: html.unescape(v) for k, v in _TT_ATTR_RE.findall(m.group(3))}
-
-
-def _read_translation(tt_path: Path) -> Translation:
-    """The header and the English sentences of a TT export."""
-    header: dict[str, str] = {}
-    sentences: list[tuple[str, list[int], int]] = []
-    current: list[int] | None = None
-    groups = 0
-    for m in _TT_TAG_RE.finditer(tt_path.read_text(encoding="utf-8")):
-        closing, tag, attrs = m.groups()
-        if closing:
-            if tag == "translation":
-                current = None
-        elif tag == "meta":
-            if not header:
-                header = {k: html.unescape(v) for k, v in _TT_ATTR_RE.findall(attrs)}
-        elif tag == "norm_group":
-            if current is not None:
-                current.append(groups)
-            groups += 1
-        else:
-            values = dict(_TT_ATTR_RE.findall(attrs))
-            text = _WS_RE.sub(" ", html.unescape(values.get("translation", ""))).strip()
-            if _PLACEHOLDER_RE.fullmatch(text):
-                text = ""
-            current = []
-            sentences.append((text, current, groups))
-    return Translation(header, sentences, groups)
-
-
-def _english_editorial(text: str, budge: bool) -> list[list]:
-    """Editorial spans of an English unit (#236): dots in brackets are a
-    lacuna; a query, *sic*, *i.e.* or *pl.* a note; any other insertion a
-    supplement.  Parentheses are insertions only in Budge's translations, which
-    use them for words he supplied; in the project's own translations they may
-    be the author's, so only their lacunae and notes are marked."""
-    spans: list[list] = []
-    for m in _INSERTION_RE.finditer(text):
-        span = m.group(0)
-        if _DOTS_RE.fullmatch(span):
-            kind = "lacuna"
-        elif _NOTE_RE.fullmatch(span):
-            kind = "note"
-        elif span.startswith("[") or budge:
-            kind = "supplement"
-        else:
-            continue
-        spans.append([m.start(), m.end(), kind])
-    return spans
-
-
-def _english_units(units: list[Unit], tr: Translation, budge: bool) -> list[dict]:
-    """The English units of one document, on its Coptic units' refs.
-
-    A sentence goes to the unit holding the first of its bound groups that a
-    unit holds; a sentence over no unit's bound groups goes to the unit before
-    it, or the first unit.
-    """
-    owner: dict[int, int] = {}
-    for n, (_, groups) in enumerate(units):
-        for g in groups:
-            owner.setdefault(g, n)
-    texts: dict[int, list[str]] = {}
-    for text, groups, start in tr.sentences:
-        if not text or not units:
-            continue
-        n = next((owner[g] for g in groups if g in owner), None)
-        if n is None:
-            n = max((u for g, u in owner.items() if g < start), default=0)
-        texts.setdefault(n, []).append(text)
-    out: list[dict] = []
-    for n in sorted(texts):
-        text = " ".join(texts[n])
-        record: dict = {"ref": units[n][0]["ref"], "text": text}
-        spans = _english_editorial(text, budge)
-        if spans:
-            record["editorial"] = spans
-        out.append(record)
-    return out
-
-
-def _translators(header: dict[str, str]) -> list[str]:
-    """The translators a TT header names."""
-    value = header.get("translation", "").strip()
-    if value.lower() in _NO_TRANSLATOR:
-        return []
-    return [name.strip() for name in value.split(",") if name.strip()]
-
-
-def _english_title(title: str) -> str:
-    """The English work's title: the Coptic work's, without "(Coptic …)"."""
-    return re.sub(r"\s*\(Coptic[^)]*\)$", "", title)
-
-
-def _english_work(corpus_name: str, corpus_slug: str, meta: dict,
-                  headers: list[dict[str, str]]) -> Work:
-    """The English work of a corpus, from the headers of its translated documents.
-
-    Its licence is the most restrictive of theirs (they agree in every corpus
-    so far)."""
-    licenses = {_license(h.get("license", "")) for h in headers}
-    license = max(licenses, key=_LICENSE_ORDER.index)
-    if len(licenses) > 1:
-        log.warning("  %s: translated documents have licences %s; recording %s",
-                    corpus_name, sorted(licenses), license)
-    names: list[str] = []
-    for h in headers:
-        for name in _translators(h):
-            if name not in names:
-                names.append(name)
-    budge_years = sorted({
-        int(y) for h in headers if _BUDGE in h.get("translation", "")
-        for y in _BUDGE_RE.findall(re.sub(r"<[^>]+>", " ", h.get("Coptic_edition", "")))
-    })
-    edition = f"Coptic Scriptorium, {corpus_name}: English translation"
-    if names:
-        edition += " by " + ", ".join(names)
-    if budge_years:
-        books = "; ".join(f"{_BUDGE_BOOKS[y]} ({y})" for y in budge_years)
-        edition += (f", from Budge, {books} (public domain), "
-                    "slightly revised and segmented by Coptic Scriptorium")
-    return Work(
-        work_id=f"{SOURCE_ID}/{corpus_slug}_eng",
-        source_id=SOURCE_ID,
-        author=meta["author"],
-        title=_english_title(meta["title"]),
-        date_composed=meta["date_composed"],
-        date_range=meta["date_range"],
-        date_confidence=meta["date_confidence"],
-        genre=meta["genre"],
-        language="eng",
-        tradition="coptic",
-        license=license,
-        provenance_url=f"{_REPO_URL}/tree/master/{corpus_name}",
-        edition=edition,
-        translation_of=f"{SOURCE_ID}/{corpus_slug}",
-    )
-
-
-def _english(corpus_name: str, corpus_slug: str, meta: dict,
-             docs: list[Document]) -> tuple[Work, list[dict]] | None:
-    """The English work and units of a corpus, or None when it has no translation."""
-    headers: list[dict[str, str]] = []
-    units: list[dict] = []
-    for doc in docs:
-        if doc.tt_path is None:
-            continue
-        tr = _read_translation(doc.tt_path)
-        last = max((g for _, gs in doc.units for g in gs), default=-1)
-        if last >= tr.groups:
-            raise CopticLayerError(
-                f"{doc.tt_path}: {tr.groups} norm_group, but the text has bound group {last}")
-        if not any(text for text, _, _ in tr.sentences):
-            continue
-        header = tr.header
-        if doc.header_path is not None and doc.header_path != doc.tt_path:
-            header = _read_header(doc.header_path)
-        headers.append(header)
-        units.extend(_english_units(doc.units, tr, _BUDGE in header.get("translation", "")))
-    if not units:
-        return None
-    return _english_work(corpus_name, corpus_slug, meta, headers), units
-
-
-def _write_work(out_path: Path, work: Work, paragraphs: list[dict]) -> None:
-    """Write one raw work file."""
-    out_path.write_text(
-        json.dumps({"work": work.model_dump(), "paragraphs": paragraphs},
-                   ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    return _extract_paragraphs_tei(root, file_n, corpus_name, 0, _norm_map(root, xml_path))
 
 
 # ---------------------------------------------------------------------------
@@ -1007,14 +705,12 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
 
         corpus_slug = corpus_name.replace("-", "_")
         out_path = out_root / f"{corpus_slug}.json"
-        eng_path = out_root / f"{corpus_slug}_eng.json"
 
         if out_path.exists() and not force:
             log.debug("  Skipping %s (already exists)", out_path.name)
-            for path in (out_path, eng_path):
-                if path.exists():
-                    saved = json.loads(path.read_text(encoding="utf-8"))
-                    works.append(Work(**saved["work"]))
+            with open(out_path) as f:
+                saved = json.load(f)
+            works.append(Work(**saved["work"]))
             continue
 
         # Find TEI XML files
@@ -1033,20 +729,17 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             log.warning("  No TEI XML files in %s", tei_dir)
             continue
 
-        # Extract paragraphs from all TEI files in this corpus, and the English
-        # layer of their TT exports (#346).
+        # Extract paragraphs from all TEI files in this corpus
+        all_paragraphs: list[dict] = []
         try:
-            docs = [
-                _extract_document(xml_path, file_n, corpus_name)
-                for file_n, xml_path in enumerate(tei_files)
-            ]
-            english = _english(corpus_name, corpus_slug, meta, docs)
-        except (CopticLayerError, CopticLicenseError) as exc:
+            for file_n, xml_path in enumerate(tei_files):
+                paras = _extract_paragraphs_from_tei(xml_path, file_n, corpus_name)
+                all_paragraphs.extend(paras)
+        except CopticLayerError as exc:
             # Without the normalized layer the work would be spelled
             # differently from the others (#57): leave it out, loudly.
             log.error("  Skipping %s: %s", corpus_name, exc)
             continue
-        all_paragraphs = [para for doc in docs for para, _ in doc.units]
 
         if not all_paragraphs:
             log.warning("  No text extracted from %s (%d files)", corpus_name, len(tei_files))
@@ -1068,23 +761,19 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             edition=f"Coptic Scriptorium, {corpus_name}",
         )
 
-        _write_work(out_path, work, all_paragraphs)
+        out_path.write_text(
+            json.dumps(
+                {"work": work.model_dump(), "paragraphs": all_paragraphs},
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
         log.info(
             "  Wrote %s (%d paragraphs from %d files)",
             out_path.name, len(all_paragraphs), len(tei_files),
         )
         works.append(work)
-
-        if english is None:
-            eng_path.unlink(missing_ok=True)
-            continue
-        eng_work, eng_units = english
-        _write_work(eng_path, eng_work, eng_units)
-        log.info(
-            "  Wrote %s (%d of %d paragraphs translated)",
-            eng_path.name, len(eng_units), len(all_paragraphs),
-        )
-        works.append(eng_work)
 
     return works
 
