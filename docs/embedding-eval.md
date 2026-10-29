@@ -152,6 +152,81 @@ Four models translated each target. Opus 5.5 and GPT-6.1 Sol judged every transl
 
 Bulk translation groups up to 25 consecutive chunks of one work per request, which costs about $0.0014 per chunk.
 
+## Church Slavonic (`chu`, #336)
+
+Measured on 2026-10-29, Voyage `voyage-4-large` only, on the CCMH Gospel codices (Marianus, Zographensis, Assemanianus, Savvina kniga), Codex Suprasliensis and the Vitae of Constantine and Methodius. These are built from the branches of #332 and #333 before they merged. The harness is `scripts.embed_eval.spelling` and `scripts.embed_eval.langset`. The old eval set's cache and chunk ids are gone (#102), and every number above is filtered to the target's language, so `chu` gets its own one-language set, `data/eval/chu`, built the same way. It has 2,706 chunks: 100 Scripture and 100 Slavonic-only targets, their ±2 neighbours, every witness of the target verses, and 1,908 distractors.
+
+**Decision (a), owner, 2026-10-29: `chu` is embedded in its stored spelling.** `fold()` stays a keyword-search feature, and `source_text` isn't normalized for `chu`. **Decision (b), owner, 2026-10-29: `chu` gets Sol translation vectors** (`TRANSLATED_LANGUAGES`), on the second round below. The translation-quality bake-off was skipped: Sol's translations bring retrieval to about 1.00, and a spot-check of 22 of them against the Slavonic found no hallucinations or omissions.
+
+### Spelling sensitivity
+
+The minimal pairs are 50 Marianus verses, each rewritten in one spelling class at a time. The table gives the cosine of each variant to its original. "Nearest" is the share of variants whose nearest verse among all 3,614 Marianus verses is their original.
+
+| Spelling class | n | Mean cosine | Min | Nearest |
+|---|---:|---:|---:|---:|
+| final yers dropped (богъ → бог) | 47 | 0.982 | 0.906 | 1.00 |
+| ь → ъ | 39 | 0.983 | 0.895 | 1.00 |
+| every yer dropped (кръстъ → крст) | 50 | 0.967 | 0.889 | 1.00 |
+| ѣ → ꙗ by position (ѣко → ꙗко) | 19 | 0.989 | 0.980 | 1.00 |
+| ѣ → е/я by position | 50 | 0.973 | 0.943 | 1.00 |
+| і, ꙇ → и | 50 | 0.975 | 0.940 | 1.00 |
+| оу → ѹ | 50 | 0.974 | 0.827 | 1.00 |
+| оу, ѹ → у | 50 | 0.967 | 0.804 | 1.00 |
+| ꙗ → я, ѥ → е, ѩ → ѧ, ѭ → ѫ | 25 | 0.990 | 0.977 | 1.00 |
+| titla spelled out (гл҃а → глагола) | 46 | 0.957 | 0.885 | 1.00 |
+| titla, breathings and accents dropped | 50 | 0.977 | 0.914 | 1.00 |
+| all at once: modern Russian orthography | 50 | 0.862 | 0.682 | 0.96 |
+| `fold()` | 50 | 0.886 | 0.727 | 0.94 |
+| *the next verse* | 50 | 0.564 | 0.395 | 0.00 |
+| *the same verse in Zographensis* | 49 | 0.895 | 0.727 | 0.92 |
+| *the same verse in Assemanianus* | 37 | 0.879 | 0.696 | 0.95 |
+| *Greek (SBLGNT) unaccented vs accented* | 50 | 0.950 | 0.799 | – |
+| *Greek, the next verse* | 50 | 0.651 | 0.364 | – |
+
+A single spelling class costs no more than Greek accents do. All of them stacked (modern spelling, `fold()`) move a verse about as far as another witness's copy of it, and it still finds its original 94–96% of the time.
+
+**Cross-witness retrieval** finds each verse of one codex among all verses of another (12 ordered pairs, 1,440–3,430 verses each):
+- **as stored:** R@1 0.90–0.97, R@5 0.96–1.00;
+- **both sides `fold()`-ed:** R@1 0.91–0.98, R@5 0.97–1.00.
+
+Folding gains at most 0.02, and Savvina kniga is the weakest witness either way.
+
+### Native retrieval, first round (n = 20 per paraphrase/topical cell)
+
+| Query | Metric | `chu` S | `chu` U | `chu` folded S | `chu` folded U |
+|---|---|---:|---:|---:|---:|
+| English paraphrase | R@3 | 0.90 | 0.75 | 1.00 | 0.90 |
+| English topical | R@100 | 1.00 | 0.85 | 1.00 | 0.85 |
+| exact span | R@1 | 0.67 | 0.96 | 0.62 | 0.93 |
+| near-verbatim span | R@1 | 0.58 | 0.95 | 0.61 | 0.92 |
+| span in modern Russian spelling | R@1 | 0.38 | 0.93 | 0.47 | 0.88 |
+
+- **Comparison:** Greek and Latin score 1.00 on both English cells. Armenian without translations scored 0.70/0.85 paraphrase and 0.80/0.90 topical. #84's bar is about 0.95/0.9.
+- **Keyword search:** BM25 over folded text scores 0.97/0.99 on exact spans and 0.66/0.95 on modern-spelled spans.
+- **Scripture R@1 is pessimistic:** a span counts only in witnesses that contain it letter for letter, so another codex's copy of the verse at rank 1 is scored as a miss.
+- **Cost:** about $0.15 of Voyage, 1.27M tokens.
+
+### Native vs Sol translations, second round (n = 80 per cell)
+
+**The set:** `data/eval/chu2` has 2,737 Slavonic chunks.
+- **Scripture:** the Gospel codices, the Psalterium Sinaiticum (#334) and the Psalter of Demetrius (#337).
+- **Slavonic-only:** Suprasliensis, the Vitae, Chrabr, the Euchologium and the Kiev Missal.
+
+**The queries:** Claude drafted 160 targets × 2 English queries from the Slavonic. GPT-6.1 Sol reviewed them once (#87 method): 198 pass, 118 were corrected and 4 were flagged for overlap with an English Bible. Every Slavonic chunk of the set also got a Sol translation (bulk prompt, 142 requests), stored in an eval store rather than `data/translations`.
+
+| Queries | Retriever | Paraphrase R@3 S / U | Topical R@100 S / U |
+|---|---|---|---|
+| all (80/80) | native | 0.85 / 0.84 | 0.91 / 0.84 |
+| all (80/80) | + Sol translations | 1.00 / 1.00 | 1.00 / 0.96 |
+| passing (74/62, 42/20) | native | 0.85 / 0.82 | 0.88 / 0.90 |
+| passing (74/62, 42/20) | + Sol translations | 1.00 / 1.00 | 1.00 / 1.00 |
+| corrected (76/80) | native | 0.84 / 0.81 | 0.89 / 0.81 |
+| corrected (76/80) | + Sol translations | 1.00 / 1.00 | 0.99 / 0.99 |
+
+- **Native, by text** (all queries): Gospels 0.92 paraphrase / 0.94 topical, Psalters 0.71 / 0.86, Suprasliensis 0.82 / 0.83.
+- **With translations:** every group reaches 1.00, except Suprasliensis topical at 0.97.
+- **Cost:** review $1.00, Sol translation $2.25, Voyage about $0.02.
+
 ## Not evaluated
 
 - **Qwen3-Embedding and multilingual-e5-large-instruct:** too slow on this machine's CPU (#85). Local Ollama is the likely route for Qwen3.
