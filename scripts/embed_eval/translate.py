@@ -72,13 +72,12 @@ LANGUAGE_NAMES = {
     "cop": "Coptic (Sahidic)",
     "hye": "Classical Armenian (Grabar)",
     "gez": "Ge'ez (Classical Ethiopic)",
+    "chu": "Old Church Slavonic",
 }
 # Languages measured before deciding whether they get translation vectors
 # (docs/adding-a-language.md section 3). They are prompt names only: enrolling
 # a language means moving it to LANGUAGE_NAMES (and TRANSLATED_LANGUAGES).
-EVAL_LANGUAGES = {
-    "chu": "Old Church Slavonic",
-}
+EVAL_LANGUAGES: dict[str, str] = {}
 PROMPT_NAMES = {**LANGUAGE_NAMES, **EVAL_LANGUAGES}
 
 DEFAULT_DIR = Path("data/eval")

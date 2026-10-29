@@ -103,8 +103,10 @@ def _normalized(tmp_path: Path) -> Path:
     lines = []
     for wid, src, genre, path in works:
         lang = {"sblgnt": "grc", "web": "eng"}.get(src, "chu")
+        # The Slavonic witnesses version like SBLGNT (org); a registered scheme is needed.
+        scheme_src = "sblgnt" if src.startswith("ccmh-") and genre == "scripture" else src
         lines.append(json.dumps({"path": path, "work": {
-            "work_id": wid, "source_id": src, "genre": genre, "language": lang}}))
+            "work_id": wid, "source_id": scheme_src, "genre": genre, "language": lang}}))
         n = 12 if genre == "scripture" else 30
         chunks = []
         for i in range(n):
@@ -166,13 +168,15 @@ def test_eval_languages_are_not_enrolled():
 
     assert not set(EVAL_LANGUAGES) & set(LANGUAGE_NAMES)
     assert not set(EVAL_LANGUAGES) & TRANSLATED_LANGUAGES
-    assert PROMPT_NAMES["chu"] == "Old Church Slavonic"
+    assert set(PROMPT_NAMES) == set(LANGUAGE_NAMES) | set(EVAL_LANGUAGES)
+    assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
 
 
 def test_translate_refuses_an_unenrolled_language_in_the_production_store(monkeypatch):
     import scripts.translate as st
 
-    monkeypatch.setattr("sys.argv", ["translate", "--langs", "chu", "--dry-run"])
+    monkeypatch.setattr(st, "PROMPT_NAMES", {**st.PROMPT_NAMES, "xxx": "Test Language"})
+    monkeypatch.setattr("sys.argv", ["translate", "--langs", "xxx", "--dry-run"])
     with pytest.raises(SystemExit):
         st.main()
 

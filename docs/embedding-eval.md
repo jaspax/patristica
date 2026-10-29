@@ -156,7 +156,7 @@ Bulk translation groups up to 25 consecutive chunks of one work per request, whi
 
 Measured on 2026-10-29, Voyage `voyage-4-large` only, on the CCMH Gospel codices (Marianus, Zographensis, Assemanianus, Savvina kniga), Codex Suprasliensis and the Vitae of Constantine and Methodius. These are built from the branches of #332 and #333 before they merged. The harness is `scripts.embed_eval.spelling` and `scripts.embed_eval.langset`. The old eval set's cache and chunk ids are gone (#102), and every number above is filtered to the target's language, so `chu` gets its own one-language set, `data/eval/chu`, built the same way. It has 2,706 chunks: 100 Scripture and 100 Slavonic-only targets, their ±2 neighbours, every witness of the target verses, and 1,908 distractors.
 
-**Decision (a), owner, 2026-10-29: `chu` is embedded in its stored spelling.** `fold()` stays a keyword-search feature, and `source_text` isn't normalized for `chu`. Decision (b), whether `chu` gets translation vectors, waits for a larger round with the translation arm (#336).
+**Decision (a), owner, 2026-10-29: `chu` is embedded in its stored spelling.** `fold()` stays a keyword-search feature, and `source_text` isn't normalized for `chu`. **Decision (b), owner, 2026-10-29: `chu` gets Sol translation vectors** (`TRANSLATED_LANGUAGES`), on the second round below. The translation-quality bake-off was skipped: Sol's translations bring retrieval to about 1.00, and a spot-check of 22 of them against the Slavonic found no hallucinations or omissions.
 
 ### Spelling sensitivity
 
