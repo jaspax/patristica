@@ -70,14 +70,16 @@ _LANG_NAMES: dict[str, str] = {
     "cop": "Coptic", "gez": "Ge'ez", "chu": "Church Slavonic", "got": "Gothic",
 }
 
-#: Translations whose ``@corresp`` names a version not in the corpus: the
-#: edition of the original they are linked to instead (CTS version id of the
-#: same work). A translation of a translation keeps its intermediary in
-#: ``edition``.
+#: Translations whose ``@corresp`` names a version that is itself a
+#: translation, or not in the corpus: the edition of the original they are
+#: linked to instead (CTS version id of the same work). It applies even when
+#: the intermediary is in the corpus, since an ingestor's ``translation_of``
+#: goes straight to the original (``tests/test_translation_of.py``). A
+#: translation of a translation keeps its intermediary in ``edition``.
 _ORIGINAL_FALLBACK: dict[str, str] = {
     # Coșcodan's English is made from the Slavonic of the Velikie Minei Chetii
-    # (pta-chu1, not in the corpus yet: #335); the Greek it renders is the
-    # PTA text of PG 65 (pta-grc2, same sections).
+    # (pta-chu1, in the corpus since #335, itself a translation of the Greek);
+    # the Greek it renders is the PTA text of PG 65 (pta-grc2, same sections).
     "pta0001.pta028.pta-eng2": "pta-grc2",
 }
 
@@ -279,14 +281,14 @@ def _parse_translation(
     source_version = corresp.split(".")[-1] if corresp.startswith(work_cts_id + ".") else ""
     source_path = work_dir / f"{work_cts_id}.{source_version}.xml"
     original_version: str | None = None
-    if source_version and _in_corpus(source_path):
-        original_version = source_version
-    elif f"{work_cts_id}.{version}" in _ORIGINAL_FALLBACK:
+    if f"{work_cts_id}.{version}" in _ORIGINAL_FALLBACK:
         original_version = _ORIGINAL_FALLBACK[f"{work_cts_id}.{version}"]
         if not _in_corpus(work_dir / f"{work_cts_id}.{original_version}.xml"):
             log.error("Fallback original %s of %s is not in the corpus — skipping",
                       original_version, xml_path)
             return None
+    elif source_version and _in_corpus(source_path):
+        original_version = source_version
     else:
         log.info("Original %r of translation %s is not in the corpus — skipping",
                  corresp, xml_path.name)

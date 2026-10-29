@@ -112,7 +112,10 @@ def test_translation_via_an_intermediary_uses_the_fallback(
     (work_dir / "pta0030.pta016.pta-eng1.xml").write_text(
         TRANSLATION.replace('corresp="urn:cts:pta:pta0030.pta016.pta-grc2"',
                             'corresp="urn:cts:pta:pta0030.pta016.pta-chu1"'), encoding="utf-8")
-    assert _parse_pta_file(work_dir / "pta0030.pta016.pta-eng1.xml", None) is None
+    # Slavonic is mapped since #335, so without a fallback the intermediary
+    # would be linked; the fallback links the Greek original even then.
+    work, _ = _parse_pta_file(work_dir / "pta0030.pta016.pta-eng1.xml", None)
+    assert work.translation_of == "pta/pta0030/pta016/pta-chu1"
 
     monkeypatch.setitem(pta_eng._ORIGINAL_FALLBACK, "pta0030.pta016.pta-eng1", "pta-grc2")
     work, _ = _parse_pta_file(work_dir / "pta0030.pta016.pta-eng1.xml", None)
