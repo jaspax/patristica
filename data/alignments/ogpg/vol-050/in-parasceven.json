@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-050/in-parasceven",
  "pivot": "ogpg/vol-050/in-parasceven",
- "groups": 59,
- "inputs": "15a70cebcc8db922",
+ "groups": 57,
+ "inputs": "b7405d3ea3305db7",
  "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/chrysostom-in-parasceven", "units": 75, "ids": "95605a192b38fea5", "inputs": "302844ac9f5a9d51", "spans": "+.++=+++++++.++++++++++++++++++++++=++=++++...+=+=++++++=+++++++++++=+.+==.", "conf": "34999889856999999999999999889999999556899999999889999999889"},
-  {"work_id": "ogpg/vol-050/in-parasceven", "units": 85, "ids": "5d16ae513932e44d", "inputs": "3bde85bbbdf17574", "spans": "+......+......+=++++++++++++++=++++=+++++++++++==+++++...+.+=+++++++=+++++++++=+++=+=", "conf": "34999889856999999999999999889999999556899999999889999999889"}
+  {"work_id": "ccmh-supr/chrysostom-in-parasceven", "units": 75, "ids": "95605a192b38fea5", "inputs": "83faa45f161a1078", "spans": "++=..++++++=.+++++++++++++++++.+++++++=++.+.+.+=.+++++++++++=++++++++=.+==.", "conf": "399999993699999999999999899887899648599999988999999999989"},
+  {"work_id": "ogpg/vol-050/in-parasceven", "units": 85, "ids": "5d16ae513932e44d", "inputs": "3bde85bbbdf17574", "spans": "+..............+++++++=++++++++=+++=++++++.++++.++++++...+=+.++++++++++.++++++++=+=+=", "conf": "399999993699999999999999899887899648599999988999999999989"}
  ]
 }
