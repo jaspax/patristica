@@ -42,7 +42,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from scripts.embed_eval.translate import LANGUAGE_NAMES, Clients, cost
+from scripts.embed_eval.translate import PROMPT_NAMES, Clients, cost
 from scripts.migrate_layout import new_chunk_id, new_work_id
 
 log = logging.getLogger(__name__)
@@ -57,7 +57,7 @@ MIN_ACCURACY = 4
 MIN_RELEVANCE = 4
 MAX_OVERLAP = 0.6  # share of a paraphrase's content-word bigrams found in an English Bible
 
-LANGUAGES = {**LANGUAGE_NAMES, "grc": "Greek", "lat": "Latin", "hbo": "Biblical Hebrew"}
+LANGUAGES = {**PROMPT_NAMES, "grc": "Greek", "lat": "Latin", "hbo": "Biblical Hebrew"}
 
 REVIEW_SYSTEM = """\
 You review queries written for a search evaluation over early Christian and \

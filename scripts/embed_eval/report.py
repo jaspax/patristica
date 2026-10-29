@@ -21,7 +21,7 @@ from pathlib import Path
 DEFAULT_DIR = Path("data/eval/results")
 
 THRESHOLDS: dict[str, str] = {
-    "exact": "R@1", "near": "R@1", "paraphrase": "R@3", "topical": "R@100",
+    "exact": "R@1", "near": "R@1", "modern": "R@1", "paraphrase": "R@3", "topical": "R@100",
 }
 
 

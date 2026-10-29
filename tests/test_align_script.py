@@ -379,3 +379,36 @@ def test_refusal_exits_nonzero_and_keeps_old_code_hash(tmp_path: Path, monkeypat
         run_main(monkeypatch, tmp_path, norm, trans, vecs)
     assert exc.value.code == 1
     assert align.read_fingerprint(tmp_path / "alignments")["align"] == {"code": "code-1"}
+
+
+def test_translated_languages_are_not_in_the_code_hash(tmp_path: Path) -> None:
+    """Enrolling a language for translation vectors (#336) doesn't make every group stale."""
+    import shutil
+
+    from patristica import fingerprint as fp
+
+    for name in fp.module_closure("scripts.align"):
+        src = fp.module_path(name)
+        dst = tmp_path / src.relative_to(fp.REPO_ROOT)
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(src, dst)
+    before = fp.code_hash("scripts.align", exclude=align.REGISTRIES, root=tmp_path)
+    path = tmp_path / "patristica" / "translations.py"
+    text = path.read_text(encoding="utf-8")
+    edited = text.replace('frozenset({"syc", ', 'frozenset({"xxx", "syc", ')
+    assert edited != text
+    path.write_text(edited, encoding="utf-8")
+    assert fp.code_hash("scripts.align", exclude=align.REGISTRIES, root=tmp_path) == before
+
+
+def test_inputs_hash_changes_once_translation_vectors_are_used(tmp_path: Path,
+                                                                monkeypatch) -> None:
+    norm, trans, vecs = write_corpus(tmp_path)
+    entry = next(e for e in align.load_works(norm) if e["work"]["work_id"] == "gez/gen")
+    with_tr = align.load_member(entry, norm, trans, vecs, with_keys=True)
+    # Enrolled but not yet translated: the text vectors are used, as before enrolment.
+    untranslated = align.load_member(entry, norm, tmp_path / "none", vecs, with_keys=True)
+    monkeypatch.setattr(tr, "TRANSLATED_LANGUAGES", tr.TRANSLATED_LANGUAGES - {"gez"})
+    not_enrolled = align.load_member(entry, norm, trans, vecs, with_keys=True)
+    assert untranslated.inputs == not_enrolled.inputs
+    assert with_tr.inputs != not_enrolled.inputs
