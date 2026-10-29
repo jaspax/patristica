@@ -65,10 +65,10 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica import alignment_store, editorial
+from patristica import alignment_store, editorial, machine_translation
 from patristica.authors import author_index, work_author_date_range
 from patristica.models import Chunk, Work
-from patristica.sources import SOURCE_LABELS, source_label
+from patristica.sources import MACHINE_TRANSLATION_SOURCES, SOURCE_LABELS, source_label
 from patristica.versification import to_org_ref
 from patristica.versions import derive_version_groups, scripture_book
 
@@ -178,7 +178,7 @@ def index_row(
     # Approximate, for undated works only: their authors' activity (#151). The
     # same value normalize writes to _works.jsonl (a test checks it is current).
     author_dates = work_author_date_range(work.model_dump())
-    return {
+    row = {
         "id": work.work_id,
         "author": work.author,
         "author_ids": work.author_ids,
@@ -199,6 +199,10 @@ def index_row(
         "chunks": n_chunks,
         "file": file,
     }
+    # Only on machine translations (#422), so the rows of every other work are unchanged.
+    if work.source_id in MACHINE_TRANSLATION_SOURCES:
+        row["machine_translation"] = True
+    return row
 
 
 def authors_export() -> list[dict[str, Any]]:
@@ -297,6 +301,13 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
     in the export).
     """
     entries = read_works_manifest(input_dir)
+    # A machine translation whose work has since gained a published English
+    # version is left out of the library (#422).
+    superseded = machine_translation.redundant({w.work_id: w.model_dump() for _, w in entries})
+    if superseded:
+        log.info("Leaving out %d machine translations with a published English version: %s",
+                 len(superseded), ", ".join(sorted(superseded)[:5]))
+        entries = [(rel, w) for rel, w in entries if w.work_id not in superseded]
     works_dir = output_dir / WORKS_SUBDIR
     index_path = output_dir / INDEX_NAME
     prev_counts = {} if force else _previous_counts(index_path)

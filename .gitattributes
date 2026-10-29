@@ -8,3 +8,6 @@ data/normalized/_* !filter !diff !merge !text
 data/raw/**/_ingest.json !filter !diff !merge !text
 data/raw/**/.gitignore !filter !diff !merge !text
 data/raw/_repo_archives/_manifest.json !filter !diff !merge !text
+# Machine translations (#422) are written by scripts.machine_translate, not
+# downloaded: plain git, so a PR shows the translation itself.
+data/raw/mt-eng/** !filter !diff !merge !text

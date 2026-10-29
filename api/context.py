@@ -12,7 +12,9 @@ hit and of the same two neighbours:
    passage group (``passage_groups``, #179) or Scripture verse group
    (``chunks.translation_group_id``) of the hit, and of each neighbour.
    Scripture prefers the KJV; other works prefer an English work that is a
-   ``translation_of`` the hit's work; then the work id decides. Units mapped
+   ``translation_of`` the hit's work; then the work id decides. A machine
+   translation (``mt-eng``, #422) comes after every published one, and is
+   returned with ``machine: true``. Units mapped
    to the hit are the translation's text, and units mapped only to a
    neighbour are its before and after.
 2. else the **machine translation** (``chunk_translations``, #93) of the hit,
@@ -26,7 +28,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from patristica.sources import source_label
+from patristica.sources import MACHINE_TRANSLATION_SOURCES, source_label
 
 ENGLISH = "eng"
 # A neighbour longer than this is cut: from its start for the unit after, and
@@ -129,9 +131,12 @@ def english_version(result: dict[str, Any], before: str | None, after: str | Non
         preferred = len(SCRIPTURE_ENGLISH)
         if scripture and unit.source_id in SCRIPTURE_ENGLISH:
             preferred = SCRIPTURE_ENGLISH.index(unit.source_id)
-        return (preferred, unit.translation_of != result["work_id"], work_id)
+        return (unit.source_id in MACHINE_TRANSLATION_SOURCES, preferred,
+                unit.translation_of != result["work_id"], work_id)
 
     work_id = min({u.work_id for u in hit_units}, key=preference)
+    machine = next(u for u in hit_units if u.work_id == work_id).source_id \
+        in MACHINE_TRANSLATION_SOURCES
 
     def in_work(chunk_id: str | None) -> dict[int, EnglishUnit]:
         return {u.index: u for u in units.get(chunk_id or "", []) if u.work_id == work_id}
@@ -148,7 +153,7 @@ def english_version(result: dict[str, Any], before: str | None, after: str | Non
         "text": _join(shown),
         "before": _clip_context(_join(prev), -1),
         "after": _clip_context(_join(nxt), 1),
-        "machine": False,
+        "machine": machine,
         "model": None,
         "work_id": work_id,
         "canonical_ref": lead.ref,

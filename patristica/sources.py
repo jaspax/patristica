@@ -69,7 +69,15 @@ SOURCE_LABELS: dict[str, str] = {
     # Councils
     "ecumenical": "Ecumenical and Local Councils (Nicene and Post-Nicene Fathers)",
     "wikisource-canons": "Holy Canons, Greek (Wikisource)",
+    # Derived sources
+    "mt-eng": "Patristica machine translations (English)",
 }
+
+#: Sources whose works are machine translations made by Patristica
+#: (``patristica.machine_translation``, #422): labelled as such, never embedded
+#: for search, and not stamped by an ingestor (``scripts.machine_translate``
+#: writes their raw files).
+MACHINE_TRANSLATION_SOURCES: frozenset[str] = frozenset({"mt-eng"})
 
 
 def source_label(source_id: str) -> str:

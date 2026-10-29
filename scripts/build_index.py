@@ -19,7 +19,9 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   text (or its current fresh translation); stale rows are counted, and
   ``scripts.embed`` refreshes them. Vectors are cut to ``DIMS`` and
   renormalized (``patristica.embedders.shorten``, #50), and each row names
-  its model (``embedding_models``).
+  its model (``embedding_models``). Machine translations
+  (``MACHINE_TRANSLATION_SOURCES``, #422) get their works and chunks but no
+  vectors: they are read and aligned, never searched.
 - It is incremental. Each work records a hash of everything loaded for it
   (its manifest record, normalized file, translations and vectors);
   a work whose hash is unchanged is skipped, a changed one is deleted and
@@ -80,6 +82,7 @@ from patristica.editorial import source_text
 from patristica.embedders import env_key, shorten
 from patristica.keyword import FOLD_VERSION, index_text
 from patristica.models import Chunk
+from patristica.sources import MACHINE_TRANSLATION_SOURCES
 from scripts.link_translations import link_scripture_translations
 
 if TYPE_CHECKING:
@@ -385,6 +388,10 @@ def load_work(conn: psycopg.Connection, entry: dict, sha: str, chunks: list[dict
                     copy.write_row((cid, translations.target_language, t.text, p.model,
                                     p.prompt_version, p.date))
             stats.translations += len(fresh)
+        if w["source_id"] in MACHINE_TRANSLATION_SOURCES:
+            # Machine translations (#422) are read and aligned, never searched:
+            # their vectors exist for anchoring and alignment only.
+            return
         if shard is None:
             stats.no_vectors.append(w["work_id"])
             return
