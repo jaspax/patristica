@@ -97,6 +97,72 @@ _NAZ_ORATIONS = (
     ("iii.xxvii", "Second Oration on Easter", 45, "Oration 45: The Second Oration on Easter", 383),
 )
 
+
+def _roman(n: int) -> str:
+    out = ""
+    for value, numeral in ((90, "XC"), (50, "L"), (40, "XL"), (10, "X"), (9, "IX"),
+                           (5, "V"), (4, "IV"), (1, "I")):
+        while n >= value:
+            out += numeral
+            n -= value
+    return out
+
+
+# Containers split into works of their own (#380).  The pieces share the
+# container's registered div and take or leave out its nested divs
+# (``keep`` / ``skip``), so their refs are the container's.
+#: Chrysostom on Matthew: CCEL div2s ``iii.XLV``-``iii.LXXXVI`` hold Homilies
+#: XLV-XC, Migne's second volume (PG 58).
+_MATT_PG58 = tuple(f"iii.{_roman(n)}" for n in range(45, 87))
+#: Athanasius's personal letters (NPNF2 vol. 4, Letters XLVI-LXIV): div4 →
+#: (slug, title, date, date range, ref prefix).  The rest (Letters XLVI-XLVII,
+#: L-LI to Lucifer, LXIV to Diodorus, the Memorandum) stay in
+#: ``athanasius-personal-letters``: their originals are not in the corpus.
+_ATH_LETTERS = (
+    ("xxv.iii.iv.iii", "letter-48-to-amun", "Letter XLVIII: To Amun", 354, (350, 354), "EpAmun"),
+    ("xxv.iii.iv.iv", "letter-49-to-dracontius", "Letter XLIX: To Dracontius", 354,
+     (354, 355), "EpDrac"),
+    ("xxv.iii.iv.vii", "letter-52-first-to-monks", "Letter LII: First Letter to Monks", 358,
+     (358, 360), "EpMon1"),
+    ("xxv.iii.iv.viii", "letter-53-second-to-monks", "Letter LIII: Second Letter to Monks", 358,
+     (358, 360), "EpMon2"),
+    ("xxv.iii.iv.ix", "letter-54-to-serapion-on-the-death-of-arius",
+     "Letter LIV: To Serapion, Concerning the Death of Arius", 358, (357, 359), "EpSerap"),
+    ("xxv.iii.iv.x", "letter-55-to-rufinianus", "Letter LV: To Rufinianus", 362, (362, 363),
+     "EpRuf"),
+    ("xxv.iii.iv.xiv", "letter-59-to-epictetus", "Letter LIX: To Epictetus", 371, (370, 372),
+     "EpEpict"),
+    ("xxv.iii.iv.xv", "letter-60-to-adelphius", "Letter LX: To Adelphius", 371, (370, 372),
+     "EpAdelph"),
+    ("xxv.iii.iv.xvi", "letter-61-to-maximus", "Letter LXI: To Maximus the Philosopher", 371,
+     (370, 372), "EpMax"),
+    ("xxv.iii.iv.xvii", "letter-62-to-john-and-antiochus", "Letter LXII: To John and Antiochus",
+     None, (335, 373), "EpJoh"),
+    ("xxv.iii.iv.xviii", "letter-63-to-palladius", "Letter LXIII: To the Presbyter Palladius",
+     372, (371, 372), "EpPall"),
+)
+_ATH_JOVIAN = "xxv.iii.iv.xi"      # Letter LVI with Jovian's letter, then the Arians' petitions
+_ATH_ORSISIUS = ("xxv.iii.iv.xii", "xxv.iii.iv.xiii")   # Letters LVII-LVIII
+#: Gregory of Nyssa's letter to Peter and Peter's reply, printed before Book I
+#: of Against Eunomius (the first 12 paragraphs of ``viii.i``).
+_NYSS_PETER = ("viii.i.i", "viii.i.ii")
+#: The Commonitory's chapters XXIX-XXXIII: the recapitulation that is all that
+#: survives of Vincent's second Commonitory.
+_VINC_RECAP = ("iii.xxx", "iii.xxxi", "iii.xxxii", "iii.xxxiii", "iii.xxxiv")
+#: Jerome's prefaces that NPNF translates (in full or in part), as works of
+#: their own: div3 → (slug, title, date, date range).  The others are the
+#: editor's summaries and stay in ``jerome-prefaces``.
+_JER_PREFACES = (
+    ("vii.ii.viii", "preface-to-the-four-gospels", "Preface to the Four Gospels (to Pope Damasus)",
+     383, (383, 384)),
+    ("vii.iii.iv", "preface-to-samuel-and-kings",
+     "Preface to the Books of Samuel and Kings (Prologus galeatus)", 391, (390, 392)),
+    ("vii.iii.viii", "preface-to-job", "Preface to Job (from the Hebrew)", 392, (392, 393)),
+    ("vii.iii.x", "preface-to-the-books-of-solomon",
+     "Preface to the Books of Solomon (from the Hebrew)", 393, (393, 394)),
+    ("vii.iii.xiii", "preface-to-daniel", "Preface to Daniel", 392, (391, 393)),
+)
+
 _WORKS: tuple[_WorkSpec, ...] = (
     # ================================================================ NPNF1
     # ---------------------------------------------------------------- npnf101
@@ -257,8 +323,12 @@ _WORKS: tuple[_WorkSpec, ...] = (
     _chrys("npnf109", "homilies-on-the-statues", "Homilies on the Statues to the People of Antioch",
            387, (387, 387), "Stat", P("xix", "Statues"), conf="established"),
     # ---------------------------------------------------------------- npnf110-114
-    _chrys("npnf110", "homilies-on-matthew", "Homilies on the Gospel of Matthew", 390,
-           (386, 398), "HomMatt", P("iii", "Homilies of St. John Chrysostom")),
+    _chrys("npnf110", "homilies-on-matthew", "Homilies on the Gospel of Matthew (Homilies I–XLIV)",
+           390, (386, 398), "HomMatt",
+           P("iii", "Homilies of St. John Chrysostom", skip=_MATT_PG58)),
+    _chrys("npnf110", "homilies-on-matthew-45-90",
+           "Homilies on the Gospel of Matthew (Homilies XLV–XC)", 390, (386, 398), "HomMatt",
+           P("iii", "Homilies of St. John Chrysostom", keep=_MATT_PG58)),
     _chrys("npnf111", "homilies-on-acts", "Homilies on the Acts of the Apostles", 400,
            (400, 401), "HomAct", P("vi", "Acts of the Apostles")),
     _chrys("npnf111", "homilies-on-romans", "Homilies on the Epistle to the Romans", 391,
@@ -420,9 +490,16 @@ _WORKS: tuple[_WorkSpec, ...] = (
          "Fug", P("xix", "Defence of His Flight")),
     _ath("history-of-the-arians", "History of the Arians (Historia Arianorum)", 358,
          (357, 358), "HistAr", P("xx", "Arian History")),
-    _ath("discourses-against-the-arians", "Four Discourses Against the Arians "
-         "(the Fourth of doubtful authenticity)", 340, (339, 360), "OratAr",
-         P("xxi", "Against the Arians")),
+    # One work per discourse (#380); the first keeps the old slug.
+    _ath("discourses-against-the-arians", "First Discourse Against the Arians", 340,
+         (339, 360), "OratAr", P("xxi", "Against the Arians", keep=("xxi.ii.i",))),
+    _ath("second-discourse-against-the-arians", "Second Discourse Against the Arians", 340,
+         (339, 360), "OratAr", P("xxi", "Against the Arians", keep=("xxi.ii.iii",))),
+    _ath("third-discourse-against-the-arians", "Third Discourse Against the Arians", 340,
+         (339, 360), "OratAr", P("xxi", "Against the Arians", keep=("xxi.ii.iv",))),
+    _ath("fourth-discourse-against-the-arians",
+         "Fourth Discourse Against the Arians (of doubtful authenticity)", 340, (339, 360),
+         "OratAr", P("xxi", "Against the Arians", keep=("xxi.ii.vi",))),
     _ath("de-synodis", "On the Councils of Ariminum and Seleucia (De Synodis)", 359,
          (359, 361), "Syn", P("xxii", "De Synodis")),
     _ath("tome-to-the-antiochenes", "Synodal Letter to the People of Antioch "
@@ -436,12 +513,30 @@ _WORKS: tuple[_WorkSpec, ...] = (
       None, 390, (373, 420), "uncertain", "greek", "IndFest", P("xxv.iii.ii", "Index")),
     _ath("festal-letters", "Festal Letters", None, (329, 373), "EpFest",
          P("xxv.iii.iii", "Festal Letters")),
-    _ath("personal-letters", "Personal Letters", None, (335, 373), "Ep",
-         P("xxv.iii.iv", "Personal Letters")),
+    _ath("personal-letters", "Personal Letters (Letters XLVI–XLVII, L–LI, LXIV)", None,
+         (335, 373), "Ep",
+         P("xxv.iii.iv", "Personal Letters", skip=(
+             *(div for div, *_ in _ATH_LETTERS), _ATH_JOVIAN, *_ATH_ORSISIUS))),
+    *(_ath(slug, title, date, rng, prefix, P("xxv.iii.iv", "Personal Letters", keep=(div,)))
+      for div, slug, title, date, rng, prefix in _ATH_LETTERS),
+    _ath("letter-56-to-jovian", "Letter LVI: To the Emperor Jovian (with Jovian's letter)",
+         363, (363, 363), "EpJov",
+         P("xxv.iii.iv", "Personal Letters", keep=(_ATH_JOVIAN,), drop_trailing=9),
+         conf="established"),
+    # The appendix to Letter LVI keeps its refs (``Ath.EpJov.9``-``17``).
+    _ath("petitions-of-the-arians-to-jovian", "Petitions of the Arians to the Emperor Jovian "
+         "(appendix to Letter LVI)", 363, (363, 364), "EpJov",
+         P("xxv.iii.iv", "Personal Letters", keep=(_ATH_JOVIAN,), drop_leading=9)),
+    _ath("letters-57-58-to-orsisius", "Letters LVII–LVIII: To Orsisius", 364, (363, 364),
+         "EpOrs", P("xxv.iii.iv", "Personal Letters", keep=_ATH_ORSISIUS)),
     # ---------------------------------------------------------------- npnf205
+    W("npnf205", "gregory-of-nyssa-letter-to-peter",
+      "Letter to his Brother Peter, with Peter's Reply (prefatory to Against Eunomius)", _NYSS,
+      382, (380, 384), "approximate", "greek", "GregNyss.Eun",
+      P("viii.i", "Against Eunomius", keep=_NYSS_PETER)),
     W("npnf205", "gregory-of-nyssa-against-eunomius", "Against Eunomius", _NYSS, 382,
       (380, 384), "approximate", "greek", "GregNyss.Eun",
-      P("viii.i", "Against Eunomius")),
+      P("viii.i", "Against Eunomius", drop_leading=12)),
     W("npnf205", "gregory-of-nyssa-answer-to-eunomius-second-book",
       "Answer to Eunomius' Second Book", _NYSS, 383, (382, 384), "approximate", "greek",
       "GregNyss.RefEun", P("viii.ii", "Second Book")),
@@ -506,12 +601,17 @@ _WORKS: tuple[_WorkSpec, ...] = (
       (415, 415), "established", "latin", "Jer.Pelag", P("vi.ix", "Against the Pelagians")),
     W("npnf206", "jerome-prefaces", "Prefaces (to his Early Works, the Vulgate Old Testament, "
       "and the Commentaries)", _JER, None, (379, 415), "approximate", "latin", "Jer.Praef",
-      P("vii", "Prefaces")),
+      P("vii", "Prefaces", skip=tuple(div for div, *_ in _JER_PREFACES))),
+    *(W("npnf206", f"jerome-{slug}", title, _JER, date, rng, "approximate", "latin",
+        "Jer.Praef", P("vii", "Prefaces", keep=(div,)))
+      for div, slug, title, date, rng in _JER_PREFACES),
     # ---------------------------------------------------------------- npnf207
+    W("npnf207", "cyril-of-jerusalem-procatechesis", "The Procatechesis (Prologue to the "
+      "Catechetical Lectures)", "Cyril of Jerusalem", 350, (348, 351), "approximate", "greek",
+      "CyrHier.Cat", P("ii.iv", "Procatechesis", "0")),
     W("npnf207", "cyril-of-jerusalem-catechetical-lectures",
-      "The Catechetical Lectures (Procatechesis and Lectures I–XVIII)", "Cyril of Jerusalem",
+      "The Catechetical Lectures (Lectures I–XVIII)", "Cyril of Jerusalem",
       350, (348, 351), "approximate", "greek", "CyrHier.Cat",
-      P("ii.iv", "Procatechesis", "0"),
       *(P(f"ii.{r}", "", str(n)) for n, r in enumerate((
           "v", "vi", "vii", "viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi",
           "xvii", "xviii", "xix", "xx", "xxi", "xxii"), start=1))),
@@ -598,8 +698,13 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("npnf211", "sulpicius-severus-sacred-history", "The Sacred History (Chronicle)",
       "Sulpicius Severus", 403, (400, 404), "approximate", "latin", "SulpSev.Chron",
       P("ii.vi", "Sacred History")),
-    W("npnf211", "vincent-of-lerins-commonitory", "The Commonitory", "Vincent of Lérins",
-      434, (434, 434), "established", "latin", "Vinc.Comm", P("iii", "Commonitory")),
+    W("npnf211", "vincent-of-lerins-commonitory", "The Commonitory (Chapters I–XXVIII)",
+      "Vincent of Lérins", 434, (434, 434), "established", "latin", "Vinc.Comm",
+      P("iii", "Commonitory", skip=_VINC_RECAP)),
+    W("npnf211", "vincent-of-lerins-commonitory-recapitulation",
+      "The Commonitory, Chapters XXIX–XXXIII (the Recapitulation of the Second Commonitory)",
+      "Vincent of Lérins", 434, (434, 434), "established", "latin", "Vinc.Comm",
+      P("iii", "Commonitory", keep=_VINC_RECAP)),
     W("npnf211", "cassian-institutes", "The Institutes of the Coenobia", "John Cassian",
       420, (419, 426), "approximate", "latin", "CassJohn.Inst",
       P("iv.ii", "Preface", "0"), P("iv.iii", "Institutes", "1")),
@@ -737,8 +842,9 @@ _PG_ORIGINALS: dict[str, str] = {
     "chrysostom-letters-to-olympias": _PG52_LETTERS,
     "chrysostom-correspondence-with-innocent": _PG52_LETTERS,
     # NPNF1 vols. 10-14: Chrysostom's homily series.  Migne prints the
-    # Matthew homilies over PG 57-58; linked to the first half (PG 57).
+    # Matthew homilies over PG 57 (I-XLIV) and PG 58 (XLV-XC).
     "chrysostom-homilies-on-matthew": "ogpg/vol-057/in-matthaeum-1",
+    "chrysostom-homilies-on-matthew-45-90": "ogpg/vol-058/in-matthaeum-2",
     "chrysostom-homilies-on-john": "ogpg/vol-059/in-joannem",
     "chrysostom-homilies-on-acts": "ogpg/vol-060/in-acta",
     "chrysostom-homilies-on-first-corinthians": "ogpg/vol-061/in-1-corinthios",
@@ -764,13 +870,24 @@ _PG_ORIGINALS: dict[str, str] = {
     # OGPG files it as Pseudo-Athanasius; same Expositio fidei.
     "athanasius-statement-of-faith": "ogpg/vol-025/expositio-fidei",
     "athanasius-de-synodis": "ogpg/vol-026/de-synodis",
-    # One Work for all four orations (First1KGreek has them as four Works).
-    "athanasius-discourses-against-the-arians": "ogpg/vol-026/orationes-contra-arianos",
     "athanasius-life-of-antony": "ogpg/vol-026/vita-antonii",
+    # Personal letters (#380).  PG 26 prints both letters to Orsisius as one
+    # Work, and the letter to Rufinianus as ad-rufinianum (whose last lines
+    # OGPG files under ad-luciferum).
+    "athanasius-letter-48-to-amun": "ogpg/vol-026/ad-amunem",
+    "athanasius-letter-52-first-to-monks": "ogpg/vol-025/ad-monachos",
+    "athanasius-letter-53-second-to-monks": "ogpg/vol-026/ad-monachos",
+    "athanasius-letter-54-to-serapion-on-the-death-of-arius": "ogpg/vol-025/de-morte-arii",
+    "athanasius-letter-55-to-rufinianus": "ogpg/vol-026/ad-rufinianum",
+    "athanasius-letters-57-58-to-orsisius": "ogpg/vol-026/ad-orsisium",
+    "athanasius-letter-59-to-epictetus": "ogpg/vol-026/ad-epictetum",
+    "athanasius-letter-60-to-adelphius": "ogpg/vol-026/ad-adelphium",
+    "athanasius-letter-61-to-maximus": "ogpg/vol-026/ad-maximum",
     # NPNF2 vol. 5: Gregory of Nyssa.  PG 45's Contra Eunomium libri XII
     # includes the answer to Eunomius' second book.
     "gregory-of-nyssa-against-eunomius": "ogpg/vol-045/contra-eunomium",
     "gregory-of-nyssa-answer-to-eunomius-second-book": "ogpg/vol-045/contra-eunomium",
+    "gregory-of-nyssa-letter-to-peter": "ogpg/vol-045/ad-petrum",
     "gregory-of-nyssa-on-the-holy-spirit": "ogpg/vol-045/adversus-macedonianos",
     "gregory-of-nyssa-not-three-gods": "ogpg/vol-045/ad-ablabium",
     "gregory-of-nyssa-on-the-faith": "ogpg/vol-045/ad-simplicium",
@@ -784,8 +901,8 @@ _PG_ORIGINALS: dict[str, str] = {
     # On Pilgrimages is Ep. 2 of the PG 46 letters.
     "gregory-of-nyssa-letters": "ogpg/vol-046/epistulae",
     "gregory-of-nyssa-on-pilgrimages": "ogpg/vol-046/epistulae",
-    # NPNF2 vol. 7: Cyril of Jerusalem.  OGPG has the Procatechesis as a
-    # Work of its own; the NPNF work is linked to the eighteen lectures.
+    # NPNF2 vol. 7: Cyril of Jerusalem.
+    "cyril-of-jerusalem-procatechesis": "ogpg/vol-033/procatechesis",
     "cyril-of-jerusalem-catechetical-lectures": "ogpg/vol-033/catecheses",
     "cyril-of-jerusalem-mystagogical-lectures": "ogpg/vol-033/catecheses-mystagogicae",
     # NPNF2 vol. 7: Gregory Nazianzen (Orations 27-31 are linked to First1K above)
@@ -866,6 +983,18 @@ _ORIGINALS: dict[str, str] = {
     "athanasius-de-sententia-dionysii": "pta/pta0022/pta004/pta-grc1",
     "athanasius-apology-to-constantius": "pta/pta0022/pta010/pta-grc1",
     "athanasius-tome-to-the-antiochenes": "pta/pta0022/pta015/pta-grc1",
+    # The four discourses (#380).  OGPG PG 26 prints them as one Work.
+    "athanasius-discourses-against-the-arians": _F1K.format("tlg2035/tlg130"),
+    "athanasius-second-discourse-against-the-arians": _F1K.format("tlg2035/tlg131"),
+    "athanasius-third-discourse-against-the-arians": _F1K.format("tlg2035/tlg132"),
+    "athanasius-fourth-discourse-against-the-arians": _F1K.format("tlg2035/tlg117"),
+    # Personal letters with a PTA edition (#380).  PTA's Petitiones Arianorum
+    # are the appendix NPNF prints after Letter LVI.
+    "athanasius-letter-49-to-dracontius": "pta/pta0022/pta013/pta-grc1",
+    "athanasius-letter-56-to-jovian": "pta/pta0022/pta016/pta-grc1",
+    "athanasius-petitions-of-the-arians-to-jovian": "pta/pta0022/pta017/pta-grc1",
+    "athanasius-letter-62-to-john-and-antiochus": "pta/pta0022/pta011/pta-grc1",
+    "athanasius-letter-63-to-palladius": "pta/pta0022/pta012/pta-grc1",
     "athanasius-letter-to-ammus": "ogpg/vol-026/ad-amunem",
     "athanasius-letter-to-rufinianus": "ogpg/vol-026/ad-rufinianum",
     "athanasius-letter-to-the-bishops-of-africa": "pta/pta0022/pta014/pta-grc1",
@@ -882,6 +1011,12 @@ _ORIGINALS: dict[str, str] = {
     "jerome-against-vigilantius": _JER_PL.format("pl23_15_s.eusebiihieronymi"),
     "jerome-against-john-of-jerusalem": _JER_PL.format("pl23_16_unknown"),
     "jerome-against-the-pelagians": _JER_PL.format("pl23_19_s.eusebiihieronymi"),
+    # Prefaces NPNF translates (#380); some only in part.
+    "jerome-preface-to-the-four-gospels": _JER_PL.format("pl29_11_s."),
+    "jerome-preface-to-samuel-and-kings": _JER_PL.format("pl28_9_"),
+    "jerome-preface-to-job": _JER_PL.format("pl28_16_unknown"),
+    "jerome-preface-to-the-books-of-solomon": _JER_PL.format("pl28_18_unknown"),
+    "jerome-preface-to-daniel": _JER_PL.format("pl28_21_"),
     # NPNF2 vol. 7: Gregory Nazianzen's Theological Orations (First1KGreek)
     **{f"gregory-nazianzen-oration-{n}": _F1K.format(f"tlg2022/tlg0{t:02d}")
        for n, t in (("27", 7), ("28", 8), ("29", 9), ("30", 10), ("31", 11))},
@@ -902,6 +1037,7 @@ _ORIGINALS: dict[str, str] = {
     "ambrose-concerning-widows": _AMB_PL.format("pl16_2_san"),
     # NPNF2 vol. 11-13 (OGLT)
     "vincent-of-lerins-commonitory": "oglt-pl/vincentius-lirinensis/pl50_7_unk",
+    "vincent-of-lerins-commonitory-recapitulation": "oglt-pl/vincentius-lirinensis/pl50_8_sec",
     "leo-letters": "oglt-pl/leo-i-magnus/pl54_3_san",
     "leo-sermons": "oglt-pl/leo-i-magnus/pl54_0_ser",
     "gregory-the-great-pastoral-rule": "oglt-pl/gregorius-i-magnus/pl77_0_san",
@@ -928,11 +1064,13 @@ _ORIGINALS: dict[str, str] = {
 #: Plausible originals deliberately *not* linked (slug → reason).
 _UNLINKED: dict[str, str] = {
     "athanasius-canonical-epistles": "Festal 39's Greek is inside OGPG PG 26's Epistulae festales",
-    "athanasius-personal-letters": "letters spread over several OGPG PG 25-26 works",
+    "athanasius-personal-letters": (
+        "the letters left in it (Sardica, Lucifer, Diodorus) have no original in the corpus"),
     "athanasius-festal-letters": "survive in Syriac; OGPG PG 26 has only a Greek fragment",
     "eusebius-letter-to-his-church": "Opitz Urk. 22 is not among the PTA Dokumente in corpus",
     "rufinus-prefaces-to-translations": "prefaces scattered across several PL works",
-    "jerome-prefaces": "prefaces scattered across many PL 28-29 files",
+    "jerome-prefaces": (
+        "the prefaces left in it are mostly the editor's summaries, or in commentaries"),
     "gregory-of-nyssa-on-the-holy-trinity": "printed as Basil's Ep. 189, not as a work of Gregory",
     "apostolic-canons": "not inside OGPG PG 1's Constitutiones apostolicae (which ends at 8.46)",
     "amphilochius-iambics-to-seleucus": "the Iambi are not in OGPG PG 39's Amphilochius",
