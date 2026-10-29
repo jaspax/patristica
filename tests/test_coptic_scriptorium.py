@@ -421,3 +421,38 @@ def test_meta_format_drops_noise(tmp_path: Path) -> None:
     assert 'norm_group="ⲡ⁽³⁾ⲃⲓⲟⲥ ▢"' in xml
     paras = _extract(tmp_path, xml)
     assert [p["text"] for p in paras] == ["ⲡⲃⲓⲟⲥ ⲛⲁⲡⲁⲁⲫⲟⲩ ⲡⲉⲡⲓⲥⲕⲟⲡⲟⲥ"]
+
+
+_REPO = Path(__file__).resolve().parents[1] / "data" / "raw" / "_repos" / "coptic-scriptorium"
+# Header author strings that name nobody.
+_NO_AUTHOR = {"unknown", "anonymous"}
+
+
+@pytest.mark.skipif(not _REPO.is_dir(), reason="needs the Coptic Scriptorium clone (scripts.data unpack)")
+def test_authors_agree_with_the_tt_headers() -> None:
+    """Every author a corpus's TT headers name is among the work's author ids
+    (#365: Shenoute's "Abraham Our Father" was an anonymous "Life of Abraham").
+    The known exceptions: Melito for "On the Soul and Body" in the Athanasian
+    collection, which the codex ascribes to Athanasius, and the "Pachomian
+    Community" for the Instructions, which tradition gives to Pachomius."""
+    from patristica.authors import resolve_author
+    from scripts.ingest.coptic_scriptorium import _corpus_meta, _read_header, _tt_path
+
+    exceptions = {
+        ("pseudo-athanasius-discourses", "Melito"),
+        ("pachomius-instructions", "Pachomian Community"),
+    }
+    checked = 0
+    for corpus_dir in sorted(p for p in _REPO.iterdir() if p.is_dir()):
+        meta = _corpus_meta(corpus_dir.name)
+        if meta is None:
+            continue
+        ids = set(resolve_author(meta["author"]))
+        for tei in sorted(corpus_dir.glob("*_TEI/*.xml")):
+            tt = _tt_path(tei)
+            author = _read_header(tt).get("author", "").strip() if tt else ""
+            if not author or author.lower() in _NO_AUTHOR or (corpus_dir.name, author) in exceptions:
+                continue
+            assert set(resolve_author(author)) <= ids, (corpus_dir.name, tei.name, author)
+            checked += 1
+    assert checked
