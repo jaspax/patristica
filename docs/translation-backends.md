@@ -46,3 +46,7 @@ The controlling agent decides whether to go on, pause or switch, with a projecti
 Extra usage keeps the owner's interactive work going when a window runs out. It is not a budget for bulk runs: it is billed at API rates, so a bulk run in overage costs more than Sol would. Count a projection into overage as exceeding the limit, and stop at once if the log says `using extra usage`.
 
 The decision is the agent's. Always leave room for the owner's work. If the projection is close, prefer the cheaper risk: finish the current work, stop, and say what is left and when the windows reset.
+
+## Machine translations for readers
+
+`scripts.machine_translate` (#423) uses the same backends to translate whole works, by chapter, into English for readers: the `mt-eng` works of `docs/machine-translation.md`. Its default is `local-opus`, and it logs the same usage line after every few requests and per work. The method above applies per work: project the work's requests before starting it.
