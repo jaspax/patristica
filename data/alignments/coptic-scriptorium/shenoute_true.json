@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "coptic-scriptorium/shenoute_true",
+ "pivot": "coptic-scriptorium-eng/shenoute_true",
+ "groups": 36,
+ "inputs": "992f550491391bed",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "coptic-scriptorium-eng/shenoute_true", "units": 36, "ids": "c0419273c73191b5", "inputs": "bec260e8b74a5359", "spans": "++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999"},
+  {"work_id": "coptic-scriptorium/shenoute_true", "units": 36, "ids": "081c89121f2a4e9f", "inputs": "9935b0b1a23b3d97", "spans": "++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999"}
+ ]
+}
