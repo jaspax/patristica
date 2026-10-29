@@ -72,7 +72,13 @@ LANGUAGE_NAMES = {
     "cop": "Coptic (Sahidic)",
     "hye": "Classical Armenian (Grabar)",
     "gez": "Ge'ez (Classical Ethiopic)",
+    "chu": "Old Church Slavonic",
 }
+# Languages measured before deciding whether they get translation vectors
+# (docs/adding-a-language.md section 3). They are prompt names only: enrolling
+# a language means moving it to LANGUAGE_NAMES (and TRANSLATED_LANGUAGES).
+EVAL_LANGUAGES: dict[str, str] = {}
+PROMPT_NAMES = {**LANGUAGE_NAMES, **EVAL_LANGUAGES}
 
 DEFAULT_DIR = Path("data/eval")
 DEFAULT_AUTHORED = Path("data/eval_authored")
@@ -330,7 +336,7 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
         name, t = job
         if translations.get(name, t["chunk_id"]):
             return
-        system = TRANSLATOR_SYSTEM.format(language=LANGUAGE_NAMES[t["language"]])
+        system = TRANSLATOR_SYSTEM.format(language=PROMPT_NAMES[t["language"]])
         out, usage = clients.call(name, system, t["text"], Translation)
         translations.put({"model": name, "chunk_id": t["chunk_id"], **out.model_dump(),
                           "usage": usage})
@@ -343,12 +349,12 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
         rng = random.Random(f"{seed}:{judge}:{t['chunk_id']}")
         rng.shuffle(names)
         labels = dict(zip(string.ascii_uppercase, names, strict=False))
-        parts = [f"Original ({LANGUAGE_NAMES[t['language']]}):\n{t['text']}"]
+        parts = [f"Original ({PROMPT_NAMES[t['language']]}):\n{t['text']}"]
         if t["reference"]:
             parts.append(f"Published reference translation:\n{t['reference']}")
         parts += [f"Candidate {label}:\n{translations.get(n, t['chunk_id'])['translation']}"
                   for label, n in labels.items()]
-        system = JUDGE_SYSTEM.format(language=LANGUAGE_NAMES[t["language"]])
+        system = JUDGE_SYSTEM.format(language=PROMPT_NAMES[t["language"]])
         out, usage = clients.call(judge, system, "\n\n".join(parts), Judgement, effort="high")
         by_model = {}
         for v in out.verdicts:
@@ -431,7 +437,8 @@ def main() -> None:
     )
     sub = p.add_subparsers(dest="cmd", required=True)
     q = sub.add_parser("quality")
-    q.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES))
+    q.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES),
+                   choices=list(PROMPT_NAMES))
     q.add_argument("--limit", type=int, help="at most N passages per language")
     q.add_argument("--workers", type=int, default=6)
     sub.add_parser("summary")
