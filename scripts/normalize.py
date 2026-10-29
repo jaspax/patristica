@@ -485,6 +485,22 @@ def source_of(rel: str) -> str:
     return rel.split("/", 1)[0]
 
 
+def is_enrolled(rel: str, raw_bytes: bytes) -> bool:
+    """True if the work at *rel* is enrolled for anchored derived verses: its
+    source as a whole, or its source for the work's language (#335), read
+    from its raw file only for a source enrolled by language."""
+    source = source_of(rel)
+    if anchoring.is_enrolled(source):
+        return True
+    if not anchoring.enrols_by_language(source):
+        return False
+    try:
+        language = json.loads(raw_bytes)["work"]["language"]
+    except (json.JSONDecodeError, KeyError, TypeError):
+        return False  # not a work: normalize skips it below
+    return anchoring.is_enrolled(source, language)
+
+
 def anchor_record(cut: anchor_store.CutFile | None, standard: bool) -> dict | None:
     """What ``_fingerprints.jsonl`` records of an enrolled work: None when it keeps
     a standard versification (never anchored), else the hash of its cut file
@@ -663,7 +679,7 @@ def normalize_all(
         if prev and prev["raw"] != fingerprint.sha16(raw_bytes) and not accept_raw_change:
             refused.append(rel)
             continue
-        enrolled = anchoring.is_enrolled(source_of(rel))
+        enrolled = is_enrolled(rel, raw_bytes)
         cut = anchor_store.load(anchors_dir, rel) if enrolled else None
         anchor: object = NOT_ENROLLED
         if enrolled and prev and "anchor" in prev:

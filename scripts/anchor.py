@@ -167,7 +167,7 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
     unbuilt: list[str] = []
     for e in entries:
         work, path = e["work"], e["path"]
-        if not anchoring.is_enrolled(work["source_id"]):
+        if not anchoring.is_enrolled(work["source_id"], work.get("language")):
             continue
         fp = fps.get(path)
         if fp is None or "anchor" not in fp:

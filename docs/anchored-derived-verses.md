@@ -351,7 +351,7 @@ maps onto the DP like this:
 
 | what | where | tracked | size |
 |---|---|---|---|
-| enrolment | `patristica/data/anchored_sources.csv` (`source_id,reason`, #303's file and loader) | yes | a row per source |
+| enrolment | `patristica/data/anchored_sources.csv` (`source_id,language,reason`, #303's file and loader; the optional `language` enrols one language of a source, #335) | yes | a row per source, or per source and language |
 | cut files | `data/anchors/{normalized path}.json`, one per anchored work | yes (plain git, small) | ~30 bytes per unit |
 | fingerprint | `data/anchors/_fingerprint.json`: method version, params and, per work, its inputs (§6) | yes | small |
 | segment and candidate vectors | `data/anchor_vectors/{normalized path}.npz` (`sha`, `vec` float16 1024) | no (gitignored, regenerable; in #156's archive with the embeddings) | ~2 KB per segment |
