@@ -52,7 +52,8 @@ patristica/
 │   ├── embedders.py           # embedding API clients (Voyage) + shorten(); shared by pipeline, API, eval
 │   ├── embeddings.py          # vector store (data/embeddings/): per-work .npz, model recorded per row
 │   ├── corpus.py              # load_works / select / EXCLUDED_LICENSES, shared by translate, embed, align, build_index
-│   ├── machine_translation.py # which works get an English machine translation (mt-eng), which MT is redundant (#422)
+│   ├── machine_translation.py # which works get an English machine translation (mt-eng), which MT is redundant (#422);
+│                              # curated: data/mt_exceptions.csv (divergent versions), data/mt_blocked.csv (too damaged, with issue)
 │   └── fingerprint.py         # code/data hashes for pipeline staleness checks (#130): code_hash, import_chain
 ├── scripts/
 │   ├── ingest/

@@ -10,8 +10,25 @@ Patristica gives an English **machine translation (MT)** to works the library ha
 - **It is the original.** It has no `translation_of`, or its original isn't in the corpus (an Armenian version of a lost Greek work). An ancient version of an original we have isn't translated, unless it diverges from the original in ways that matter to readers and researchers. Such a version is listed in `patristica/data/mt_exceptions.csv` (`work_id,reason`), and is then translated even if its group has English, until English made from it exists.
 - **It is the best edition.** Where a group has two originals in one language, only one is translated: critical and digital editions (PTA, First1K, Perseus, CSEL, …) before Migne's OCR (`EDITION_PREFERENCE`).
 - **It is publishable and isn't Scripture.** Every Scripture book has English versions, and a Scripture source would need a versification scheme.
+- **It isn't blocked.** A work too damaged to translate (severe OCR or source problems) is listed in `patristica/data/mt_blocked.csv` (`work_id,issue,reason`), with the GitHub issue that tracks the fix.
 
 Which candidates go first is the nightly agent's judgement: well-known, influential works and works important in their tradition first, works whose English is already widely available later (#425).
+
+### What the listings show
+
+- **`candidates`**: each candidate lists `versions`, the other non-English members of its version group. Each version has `work_id`, `language`, `source_id`, `translation_of`, its source characters (`chars`) and its `kind`: `derived` (it has a `translation_of`) or `edition` (another original). `--json` gives one object per line.
+- **`review-versions`**: the derived non-English versions with no exception row, in groups with no published English. These are not translated by default, because their original is. They are the versions whose divergence an agent should weigh for an exception row.
+
+### Curating the lists
+
+The agents that translate keep the two curated files themselves, in the PR where the decision is made:
+
+- **An exception row** (`mt_exceptions.csv`, `work_id,reason`) is added when reading a version shows it diverges from its original in ways readers and researchers need: a different recension, added or missing sections, a distinct theological reading. Say what differs.
+- **A blocked row** (`mt_blocked.csv`, `work_id,issue,reason`) is added when a work's text is too damaged to translate well: OCR that garbles whole passages, columns run together, a source that is mostly apparatus. First file a GitHub issue for the fix, labelled `data-quality` plus the language's `lang:` label, then name it in the row.
+- **Other problems found while reading** (a mislabelled work, a wrong attribution, a missing section) get the same kind of issue, even when the work can still be translated.
+- **A blocked row whose issue is closed is removed again**, so the work becomes a candidate. Check the rows' issues (`gh issue view N --json state`) when choosing works.
+
+Both files are sorted by `work_id`, every column is required, and an issue is a positive number. `tests/test_machine_translation.py` checks that every row names a work in the corpus.
 
 ## What an MT is
 

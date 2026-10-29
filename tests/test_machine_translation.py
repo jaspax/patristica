@@ -90,9 +90,78 @@ def test_redundant_machine_translations():
 def test_exceptions_file_is_valid(tmp_path: Path):
     mt.load_exceptions()  # the tracked file
     bad = tmp_path / "x.csv"
-    bad.write_text("work_id,reason\ncsel/a,\n", encoding="utf-8")
-    with pytest.raises(mt.ExceptionsError):
-        mt.load_exceptions(bad)
+    for body in ("work_id,reason\ncsel/a,\n",                       # no reason
+                 "work_id,reason\ncsel/b,x\ncsel/a,y\n",            # out of order
+                 "work_id,reason\ncsel/a,x\ncsel/a,y\n",            # twice
+                 "work,reason\ncsel/a,x\n"):                        # wrong columns
+        bad.write_text(body, encoding="utf-8")
+        with pytest.raises(mt.ExceptionsError):
+            mt.load_exceptions(bad)
+
+
+def test_blocked_file_is_valid(tmp_path: Path):
+    mt.load_blocked()  # the tracked file
+    good = tmp_path / "ok.csv"
+    good.write_text('work_id,issue,reason\ncsel/a,316,OCR garbled\nogpg/b,#81,"lacunae, '
+                    'columns run together"\n', encoding="utf-8")
+    assert mt.load_blocked(good) == {
+        "csel/a": mt.Blocked(316, "OCR garbled"),
+        "ogpg/b": mt.Blocked(81, "lacunae, columns run together")}
+    bad = tmp_path / "x.csv"
+    for body in ("work_id,issue,reason\ncsel/a,0,x\n",       # not an issue
+                 "work_id,issue,reason\ncsel/a,abc,x\n",
+                 "work_id,issue,reason\ncsel/a,12,\n",       # no reason
+                 "work_id,issue,reason\ncsel/b,1,x\ncsel/a,2,y\n",  # out of order
+                 "work_id,reason\ncsel/a,x\n"):              # wrong columns
+        bad.write_text(body, encoding="utf-8")
+        with pytest.raises(mt.ExceptionsError):
+            mt.load_blocked(bad)
+
+
+def test_tracked_curation_rows_name_works_of_the_corpus():
+    """Every row of mt_exceptions.csv and mt_blocked.csv names a work in _works.jsonl."""
+    rows = [*mt.load_exceptions(), *mt.load_blocked()]
+    if not rows:
+        pytest.skip("no rows yet")
+    works = {json.loads(line)["work"]["work_id"]: True
+             for line in (REPO / "data/normalized/_works.jsonl").read_text().splitlines() if line}
+    assert mt.unknown_works(rows, works) == []
+
+
+def test_blocked_works_are_not_candidates():
+    es = entries(work("csel/a"), work("csel/b"))
+    blocked = {"csel/a": mt.Blocked(316, "OCR")}
+    assert ids(mt.candidates(es, exceptions={}, blocked=blocked)) == ["csel/b"]
+    assert mt.unknown_works(["csel/a", "csel/zzz"], {w["work"]["work_id"]: 1 for w in es}) \
+        == ["csel/zzz"]
+
+
+def test_candidates_list_their_other_versions_and_review_lists_derived_ones():
+    es = entries(work("pta/c", "grc"), work("syr/c", "syc", "pta/c"),
+                 work("arm/c", "hye", "syr/c"),                     # chained: still derived
+                 {**work("ogpg/c", "grc"), "external_ids": ["TLG:x"]},
+                 {**work("first1k/c", "grc"), "external_ids": ["TLG:x"]},
+                 work("csel/d"), work("csel/d-arm", "hye", "csel/d"),
+                 work("npnf/d", "eng", "csel/d"))                   # has English: not reviewed
+    # pta/c and the two TLG editions are not linked; pta/c's group is its versions.
+    cands = {c.work_id: c for c in mt.candidates(es, exceptions={}, blocked={})}
+    assert [(v.work_id, v.kind, v.translation_of) for v in cands["pta/c"].versions] == [
+        ("arm/c", "derived", "syr/c"), ("syr/c", "derived", "pta/c")]
+    assert [(v.work_id, v.kind) for v in cands["first1k/c"].versions] == [("ogpg/c", "edition")]
+    review = mt.versions_to_review(es, exceptions={})
+    assert [v.work_id for v in review] == ["arm/c", "syr/c"]
+    assert [v.work_id for v in mt.versions_to_review(es, exceptions={"syr/c": "x"})] == ["arm/c"]
+
+
+def test_version_info_counts_source_characters(tmp_path: Path):
+    norm = tmp_path / "n"
+    (norm / "syr").mkdir(parents=True)
+    (norm / "syr/c.json").write_text(json.dumps(
+        [chunk("A.1.s1", "abc", work_id="syr/c"), chunk("A.1.s2", "de", work_id="syr/c")]))
+    v = mt.Version("syr/c", "syr/c.json", "syc", "syr", "pta/c", "derived")
+    assert mtr._version_info(norm, v) == {"work_id": "syr/c", "language": "syc",
+                                          "source_id": "syr", "translation_of": "pta/c",
+                                          "kind": "derived", "chars": 6}
 
 
 # --- units and requests ---------------------------------------------------------

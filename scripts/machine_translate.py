@@ -33,7 +33,8 @@ only when every request is done.
 
 Usage::
 
-    python -m scripts.machine_translate candidates [--lang grc lat] [--json]
+    python -m scripts.machine_translate candidates [--lang grc lat] [--json]  # with their versions
+    python -m scripts.machine_translate review-versions [--json]  # divergent enough to translate?
     python -m scripts.machine_translate translate WORK_ID [--model local-opus] [--workers 3]
     python -m scripts.machine_translate stale            # MT whose original's text changed
     python -m scripts.machine_translate translate WORK_ID --update   # re-translate only that
@@ -46,6 +47,7 @@ logged, never enforced. ``--model opus`` / ``sol`` use the APIs and cost money.
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import logging
 import threading
@@ -479,6 +481,17 @@ def stale(input_dir: Path, output_dir: Path) -> list[tuple[str, str]]:
 # --- CLI ------------------------------------------------------------------------
 
 
+def _chunks(input_dir: Path, path: str) -> list[dict]:
+    return json.loads((input_dir / path).read_text(encoding="utf-8"))
+
+
+def _version_info(input_dir: Path, v: mt.Version) -> dict[str, Any]:
+    """A version for the listings: its fields, without the path, with its source characters."""
+    info = {k: val for k, val in dataclasses.asdict(v).items() if k != "path"}
+    info["chars"] = sum(len(u.text) for u in units_of(_chunks(input_dir, v.path)))
+    return info
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -501,27 +514,40 @@ def main() -> None:
                    help="re-translate only what changed in an existing MT")
     t.add_argument("--dry-run", action="store_true", help="report the requests only")
     sub.add_parser("stale", help="MT works whose original's text changed")
+    r = sub.add_parser("review-versions",
+                       help="derived versions with no exception row in groups with no "
+                            "published English: is one divergent enough to translate?")
+    r.add_argument("--json", action="store_true", help="one JSON object per line")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     raw_dir = args.raw_dir or args.input_dir.parent / "raw"
 
     if args.cmd == "candidates":
-        entries = load_works(args.input_dir)
-        paths = {e["work"]["work_id"]: e["path"] for e in entries}
-        for cand in mt.candidates(entries):
+        for cand in mt.candidates(load_works(args.input_dir)):
             if args.lang and cand.language not in args.lang:
                 continue
-            chunks = json.loads((args.input_dir / paths[cand.work_id]).read_text(encoding="utf-8"))
-            units = units_of(chunks)
-            info = {**cand.__dict__, "units": len(units),
+            units = units_of(_chunks(args.input_dir, cand.path))
+            info = {**dataclasses.asdict(cand), "units": len(units),
                     "chars": sum(len(u.text) for u in units),
-                    "requests": len(make_requests(units))}
+                    "requests": len(make_requests(units)),
+                    "versions": [_version_info(args.input_dir, v) for v in cand.versions]}
             if args.json:
                 print(json.dumps(info, ensure_ascii=False))
             else:
+                others = ", ".join(f"{v['work_id']} ({v['language']}, {v['kind']}, "
+                                   f"{v['chars']:,})" for v in info["versions"])
                 print(f"{cand.work_id}\t{cand.language}\t{info['chars']:>9,}\t"
-                      f"{cand.author or '-'}\t{cand.title}")
+                      f"{cand.author or '-'}\t{cand.title}"
+                      + (f"\tversions: {others}" if others else ""))
+    elif args.cmd == "review-versions":
+        for v in mt.versions_to_review(load_works(args.input_dir)):
+            info = _version_info(args.input_dir, v)
+            if args.json:
+                print(json.dumps(info, ensure_ascii=False))
+            else:
+                print(f"{v.work_id}\t{v.language}\t{info['chars']:>9,}\t"
+                      f"translation of {v.translation_of}")
     elif args.cmd == "translate":
         try:
             translate_work(args.work_id, args.input_dir, raw_dir, args.output_dir,
