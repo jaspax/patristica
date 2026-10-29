@@ -56,6 +56,7 @@ from patristica.editorial import source_text
 from scripts.embed_eval.translate import (
     LANGUAGE_NAMES,
     MODELS,
+    PROMPT_NAMES,
     TRANSLATOR_SYSTEM,
     Clients,
     cost,
@@ -223,7 +224,7 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
                 return
             lang = group[0]["language"]
             user = "\n\n".join(f"[{i}]\n{source_text(c)}" for i, c in enumerate(group, start=1))
-            out, usage = clients.call(model, BULK_SYSTEM.format(language=LANGUAGE_NAMES[lang]),
+            out, usage = clients.call(model, BULK_SYSTEM.format(language=PROMPT_NAMES[lang]),
                                       user, BulkTranslation)
             got = {it.n: it.translation for it in out.items}
             provenance = tr.Provenance(
@@ -273,7 +274,8 @@ def main() -> None:
     p.add_argument("--input-dir", type=Path, default=Path("data/normalized"))
     p.add_argument("--store", type=Path, default=tr.DEFAULT_DIR)
     p.add_argument("--langs", nargs="+", default=list(LANGUAGE_NAMES),
-                   choices=list(LANGUAGE_NAMES))
+                   choices=list(PROMPT_NAMES),
+                   help="a language not yet enrolled (EVAL_LANGUAGES) needs another --store")
     p.add_argument("--work", action="append", default=[], metavar="PREFIX",
                    help="only works whose id starts with PREFIX (repeatable)")
     p.add_argument("--model", choices=TRANSLATORS, default=DEFAULT_MODEL,
@@ -285,6 +287,10 @@ def main() -> None:
     p.add_argument("--include-unpublishable", action="store_true",
                    help="also translate works whose licence keeps them out of the index")
     args = p.parse_args()
+    if (unenrolled := set(args.langs) - set(LANGUAGE_NAMES)) and \
+            args.store.resolve() == tr.DEFAULT_DIR.resolve():
+        p.error(f"{', '.join(sorted(unenrolled))} not enrolled in TRANSLATED_LANGUAGES: "
+                "translate it into an eval store (--store), not data/translations")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     run(args.input_dir, args.store, args.langs, args.work, args.workers, args.max_requests,
