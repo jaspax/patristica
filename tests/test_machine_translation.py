@@ -460,3 +460,32 @@ def test_machine_translations_are_loaded_but_never_searched(pg_url: str, tmp_pat
         assert rows == []
         rows, _ = api_kw.phrase_search(conn, ["In the beginning"], where, params, 20)
         assert [r[0] for r in rows] == ["kjv/gen#Gen.1.1"]
+
+
+def test_candidate_rows_filter_sort_and_limit(tmp_path: Path):
+    """The nightly agent filters with the tool itself, never with shell text tools (#432)."""
+    norm = tmp_path / "normalized"
+    works = [work("csel/small"), work("csel/big"), work("pta/mid", "grc"),
+             work("cantus/hymn", genre="liturgical"), work("csel/mid")]
+    sizes = {"csel/small": 10, "csel/big": 500, "pta/mid": 100, "cantus/hymn": 50,
+             "csel/mid": 100}
+    lines = []
+    for w in works:
+        path = f"{w['work_id']}.json"
+        (norm / path).parent.mkdir(parents=True, exist_ok=True)
+        (norm / path).write_text(json.dumps([chunk("A.1", "x" * sizes[w["work_id"]])]),
+                                 encoding="utf-8")
+        lines.append(json.dumps({"path": path, "work": w}))
+    (norm / "_works.jsonl").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    def rows(**kw) -> list[str]:
+        return [r["work_id"] for r in mtr.candidate_rows(norm, **kw)]
+
+    assert rows(min_chars=50, max_chars=100, exclude_sources=["cantus"], sort="chars") == [
+        "csel/mid", "pta/mid"]
+    assert rows(langs=["grc"]) == ["pta/mid"]
+    assert rows(genres=["liturgical"]) == ["cantus/hymn"]
+    assert rows(works=["csel/big"])[0] == "csel/big"
+    assert rows(sort="chars", limit=2) == ["csel/small", "cantus/hymn"]
+    (r,) = mtr.candidate_rows(norm, works=["csel/big"])
+    assert r["chars"] == 500 and r["requests"] == 1 and r["versions"] == []
