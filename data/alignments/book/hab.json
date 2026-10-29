@@ -3,8 +3,8 @@
  "group": "book:hab",
  "pivot": "asv/hab",
  "groups": 56,
- "inputs": "d659a123e4d38668",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "cc25455c45ab2d10",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/hab", "units": 56, "ids": "095a652bd99bc133", "inputs": "315c3a594e4dc35e", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"},
   {"work_id": "asv/hab", "units": 56, "ids": "8d0de551d03ee42d", "inputs": "510ba799e8926a8a", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"},
@@ -15,6 +15,6 @@
   {"work_id": "oshb/hab", "units": 56, "ids": "c6c8ce68a131836f", "inputs": "d738c7c0ef7180aa", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"},
   {"work_id": "pta-lxx/hab", "units": 56, "ids": "36f13271a4e0c043", "inputs": "aecc7d519302ab88", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"},
   {"work_id": "pta-peshitta/hab", "units": 56, "ids": "b53d020a048c369f", "inputs": "3e74398a74abd762", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "web/hab", "units": 56, "ids": "19e2186e1b3c2e04", "inputs": "c7bbe59166917014", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "web/hab", "units": 56, "ids": "19e2186e1b3c2e04", "inputs": "348d91aebb93b5d4", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999"}
  ]
 }
