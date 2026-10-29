@@ -53,6 +53,14 @@ from tqdm import tqdm
 from patristica.models import Work
 from scripts.ingest import coptic_scriptorium as cs
 from scripts.ingest._common import ensure_repo
+from scripts.ingest.coptic_scriptorium import (
+    _TT_ATTR_RE,
+    _TT_TAG_RE,
+    CopticLicenseError,
+    _license,
+    _most_restrictive,
+    _read_header,
+)
 
 log = logging.getLogger(__name__)
 
@@ -149,12 +157,6 @@ def _document(xml_path: Path, file_n: int, corpus_name: str) -> Document:
 # The English sentences
 # ---------------------------------------------------------------------------
 
-# The tags of a TT export that matter here, in document order.  TT spans may
-# cross (a <translation> can open inside an <entity> and close outside it),
-# so the export is read as a stream of tags, not as a tree.
-_TT_TAG_RE = re.compile(r"<(/?)(translation|norm_group|meta)\b([^>]*)>")
-_TT_ATTR_RE = re.compile(r'([\w.-]+)="([^"]*)"')
-
 # A translation that is only a placeholder for an untranslated sentence.
 _PLACEHOLDER_RE = re.compile(r"[\s.…\-–—_]*")
 
@@ -177,30 +179,6 @@ _BUDGE_BOOKS: dict[int, str] = {
     1915: "Miscellaneous Coptic Texts in the Dialect of Upper Egypt",
 }
 
-# Licences of translated documents, least restrictive first.
-_LICENSE_ORDER = ("cc-by-4.0", "cc-by-sa-4.0", "cc-by-nc-4.0", "cc-by-nc-sa-4.0")
-
-
-class CopticLicenseError(ValueError):
-    """A translated document's licence is not one we can record."""
-
-
-def _license(text: str) -> str:
-    """The ``License`` value of a TT header's ``license`` attribute
-    (``<a href='…/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>``, ``CC-BY 4.0 -``)."""
-    plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text)).lower()
-    if "4.0" in plain:
-        if re.search(r"by[- ]nc[- ]sa", plain):
-            return "cc-by-nc-sa-4.0"
-        if re.search(r"by[- ]nc", plain):
-            return "cc-by-nc-4.0"
-        if re.search(r"by[- ]sa", plain):
-            return "cc-by-sa-4.0"
-        if re.search(r"cc[- ]by", plain):
-            return "cc-by-4.0"
-    raise CopticLicenseError(f"unrecognised licence {text!r}")
-
-
 class Translation(NamedTuple):
     """The English layer of one TT export."""
 
@@ -209,14 +187,6 @@ class Translation(NamedTuple):
     # bound groups it covers, and the number of bound groups before it.
     sentences: list[tuple[str, list[int], int]]
     groups: int
-
-
-def _read_header(path: Path) -> dict[str, str]:
-    """The attributes of a TT export's ``<meta>`` header."""
-    m = _TT_TAG_RE.search(path.read_text(encoding="utf-8"))
-    if m is None or m.group(2) != "meta":
-        return {}
-    return {k: html.unescape(v) for k, v in _TT_ATTR_RE.findall(m.group(3))}
 
 
 def _read_translation(tt_path: Path) -> Translation:
@@ -318,7 +288,7 @@ def _english_work(corpus_name: str, corpus_slug: str, meta: dict,
     Its licence is the most restrictive of theirs (they agree in every corpus
     so far)."""
     licenses = {_license(h.get("license", "")) for h in headers}
-    license = max(licenses, key=_LICENSE_ORDER.index)
+    license = _most_restrictive(licenses)
     if len(licenses) > 1:
         log.warning("  %s: translated documents have licences %s; recording %s",
                     corpus_name, sorted(licenses), license)

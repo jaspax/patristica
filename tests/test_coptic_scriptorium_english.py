@@ -166,12 +166,16 @@ def test_english_editorial(text: str, budge: bool, spans: list) -> None:
     ("<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>",
      "cc-by-nc-sa-4.0"),
     ("CC-BY-SA 4.0", "cc-by-sa-4.0"),
+    ("<a href='https://creativecommons.org/licenses/by-sa/3.0/'>CC BY-SA 3.0 Unported</a>",
+     "cc-by-sa-3.0"),
+    # mercurius: the link and the label disagree; the more restrictive wins (#382).
+    ("<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC-BY 4.0</a>", "cc-by-sa-4.0"),
 ])
 def test_license(value: str, license: str) -> None:
     assert _license(value) == license
 
 
-@pytest.mark.parametrize("value", ["", "CC BY-SA 3.0 Unported",
+@pytest.mark.parametrize("value", ["", "CC BY 3.0", "CC BY-SA 3.0 and CC BY-SA 4.0",
                                    "Coptic text (c)2000-2006 by J Warren Wells"])
 def test_unrecognised_license_is_an_error(value: str) -> None:
     with pytest.raises(CopticLicenseError):

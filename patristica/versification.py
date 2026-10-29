@@ -56,6 +56,7 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "lxx-rahlfs": "lxx",
     "pta-lxx": "lxx",
     "coptic-nt": "lxx",
+    "demetrius-psalter": "lxx",  # Church Slavonic Psalter; the edition numbers by Rahlfs (149/151 psalms)
     "gez": "lxx",            # weak fit overall; see overrides
 }
 

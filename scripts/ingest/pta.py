@@ -3,7 +3,8 @@ Ingestor for the Patristic Text Archive (PTA).
 
 Source: https://github.com/PatristicTextArchive/pta_data
 Format: TEI P5 XML, organised by CTS URN (pta{NNNN}/pta{NNN}/)
-License: CC-BY / CC-BY-SA per file (stated in <availability>)
+License: per file, from the URL in <availability>/<licence @target> (mostly
+         CC BY-SA 4.0 or CC BY 4.0; one CC BY-NC-SA 3.0, #366)
 
 Acquisition
 -----------
@@ -110,6 +111,50 @@ _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|
 # Kop. 2), a manuscript witness that the Suprasliensis ingest covers (#333);
 # it was skipped while ``chu`` was unmapped, and stays skipped (#335).
 _SKIP_FILES = frozenset({"pta0041.pta001.pta-Mss.xml"})
+
+
+# Creative Commons licence URL: terms, version and an optional jurisdiction
+# port (``by-nc/3.0/de/``); a ``deed.de`` suffix is only the deed's language.
+_CC_URL_RE = re.compile(r"creativecommons\.org/licenses/([a-z-]+)/(\d\.\d)/?([a-z]{2}(?=/|$))?")
+# The CC licences the corpus can record (unported/international only).
+_CC_LICENSES: dict[tuple[str, str], License] = {
+    ("by", "4.0"): "cc-by-4.0",
+    ("by-sa", "4.0"): "cc-by-sa-4.0",
+    ("by-nc", "4.0"): "cc-by-nc-4.0",
+    ("by-nc-sa", "4.0"): "cc-by-nc-sa-4.0",
+    ("by-sa", "3.0"): "cc-by-sa-3.0",
+    ("by-nc-sa", "3.0"): "cc-by-nc-sa-3.0",
+}
+
+
+def _licence_target(root: etree._Element) -> str:
+    """The ``@target`` of a PTA file's ``<availability>/<licence>``, or ""."""
+    lic = root.find(".//{%s}availability/{%s}licence" % (_TEI, _TEI))
+    return (lic.get("target") or "").strip() if lic is not None else ""
+
+
+def _license_from_target(root: etree._Element) -> License | None:
+    """Licence of a PTA file from ``<licence @target>`` (the prose varies, #366),
+    or None when the target is missing or names a licence we can't record (a
+    jurisdiction port such as ``by-nc/3.0/de``). Shared with ``pta_eng``."""
+    target = _licence_target(root)
+    if "creativecommons.org/publicdomain/" in target:
+        return "public_domain"
+    m = _CC_URL_RE.search(target)
+    if m is None or m.group(3):
+        return None
+    return _CC_LICENSES.get((m.group(1), m.group(2)))
+
+
+def _license_from_prose(avail_el: etree._Element | None) -> License:
+    """Fallback for a file without ``@target``: the licence from the prose."""
+    text = ""
+    if avail_el is not None:
+        lic_el = avail_el.find(f"{{{_TEI}}}licence")
+        text = " ".join((lic_el if lic_el is not None else avail_el).itertext()).lower()
+    if re.search(r"by-sa|sharealike|share alike", text):
+        return "cc-by-sa-4.0"
+    return "cc-by-4.0"  # PTA default
 
 
 def _ensure_repo(repo_dir: Path, force: bool) -> None:
@@ -336,22 +381,16 @@ def _parse_pta_file(
                   work_cts_id, date_range)
         return None
 
-    # --- License ---
-    avail_el = root.find(".//tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability", ns)
-    avail_text = ""
-    if avail_el is not None:
-        # Try to get text from <licence> child
-        lic_el = avail_el.find("tei:licence", ns)
-        if lic_el is not None:
-            avail_text = (lic_el.text or "").lower()
-        else:
-            avail_text = (avail_el.text or "").lower()
-    if "cc-by-sa" in avail_text or "by-sa" in avail_text:
-        license_val: License = "cc-by-sa-4.0"
-    elif "cc-by" in avail_text or "by 4.0" in avail_text:
-        license_val = "cc-by-4.0"
-    else:
-        license_val = "cc-by-4.0"  # PTA default
+    # --- License: the URL in <licence @target> first, the prose only without one (#366) ---
+    license_val = _license_from_target(root)
+    if license_val is None:
+        target = _licence_target(root)
+        if target:
+            log.error("Licence %s of %s is not one we can record — skipping", target, xml_path)
+            return None
+        avail_el = root.find(
+            ".//tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability", ns)
+        license_val = _license_from_prose(avail_el)
 
     # --- Author ---
     author_el = root.find(".//tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author/tei:persName", ns)
