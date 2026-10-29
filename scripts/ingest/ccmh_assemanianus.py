@@ -13,8 +13,9 @@ License: CC BY 4.0 (https://www.kielipankki.fi/lic/ccmh-eng/)
 One work per Gospel book (``ccmh-assemanianus/matt`` …), in verse order, so
 the lectionary joins the Gospel version groups. A lectionary has only the
 verses it reads: the rest are absent. A verse read on several days is kept
-once, its first reading (P = 0); the repeats are the same verse again, often
-cut short or opened with a lection formula (``_ccmh.gospel_books``).
+once: its first reading (P = 0), unless that one is cut short and a later
+reading has the whole verse (``_ccmh.choose_reading``, #370); the repeats are
+the same verse again, often cut short or opened with a lection formula.
 """
 
 from __future__ import annotations
@@ -31,6 +32,7 @@ CODEX = Codex(
     name="Codex Assemanianus (aprakos lectionary)",
     file="assemanianus.txt",
     table=ASSEMANIANUS,
+    lectionary=True,
     edition="after J. Vajs & J. Kurz, Evangeliarium Assemani: Codex Vaticanus "
             "3. slavicus glagoliticus (Prague 1929–1955); the lectionary's readings "
             "arranged by Gospel verse, each verse once",
