@@ -75,7 +75,14 @@ PR #303 (#292), which was not merged.
   is a few minutes.
 - **The evaluation** is `scripts/anchor_eval.py` (not `scripts.anchor --eval`):
   the prototype's pairs, metrics and hand-check samples, without #303's
-  projection, which was dropped.
+  projection, which was dropped. `--work WORK_ID` evaluates any translation
+  on its `translation_of`, `--compare` adds the method before #392/#394, and
+  `--offline` runs on cached vectors only, for free.
+- **Partial translations and rare-language originals** (#394, #392; §4.2,
+  §4.3, §8): the original is restricted to the span a partial translation
+  covers, and a Syriac/Coptic/Armenian/Ge'ez original is anchored on its
+  English machine translation's vectors. Neither changes the cut file of a
+  whole translation of a Greek or Latin original.
 
 ## 1. The problem in one paragraph
 
@@ -209,9 +216,30 @@ Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
   to its vector. It is seeded for free with the provisional cut's stored
   vectors. A provisional unit is a run of segments, so the cache can score it
   exactly.
-- The original's units already have vectors in `data/embeddings`. For a
-  Syriac/Coptic/Armenian/Ge'ez *original* the design uses its text vectors,
-  not its translation vectors: the two vector kinds aren't mixed on one side.
+- The original's units already have vectors in `data/embeddings`. A Greek,
+  Latin (or Slavonic, …) original is anchored on its text vectors.
+- **A Syriac/Coptic/Armenian/Ge'ez *original* is anchored on its English
+  machine translation's vectors** (`KIND_TRANSLATION`, #392; reversing the
+  first design, which used its text vectors so as not to mix the kinds on one
+  side). Those languages' own vectors match English badly: for John of
+  Ephesus (PTA's English of book 1 against the Syriac), the best Syriac match
+  of an English unit was in the same chapter for 16% of units on the text
+  vectors (mean cosine 0.46, baseline 0.30) and for 88% on the translation
+  vectors (0.82, baseline 0.40). `scripts.align` already uses them for such
+  members. A unit without a current translation vector (not translated yet,
+  or its text changed since) falls back to its text vector, and
+  `scripts.anchor` logs how many did. `scripts.anchor.original_vectors` decides
+  the kind from the original's language (`translations.TRANSLATED_LANGUAGES`).
+- **Versioning.** A cut on translation vectors is a different method:
+  `scripts.anchor.method_hash` adds the vector kind to the hashed version and
+  parameters for such an original only. Every cut file on a text-vector
+  original keeps `anchoring.params_hash()` as its `method` (`e26e66e4678bcee0`,
+  tested), so no existing cut file of a Greek or Latin original (`first1k-eng`,
+  the Slavonic sources) goes stale, while one made on a rare-language
+  original's text vectors before #392 is reported frozen until
+  `scripts.anchor --recut`. The hash lives in `scripts/anchor.py`, not in
+  `patristica/anchoring.py`: that module is normalize's code, and editing it
+  changes normalize's code hash, which rebuilds the corpus.
 - **Rare-language translations use their native text vectors.** Their
   translation vectors don't exist yet: they come after the cut. The
   evaluation (Armenian) shows that native vectors are good enough to place
@@ -255,6 +283,29 @@ the style of the passage aligner:
   confident monotone chain), interpolated where that is unaligned. A row is
   widened where the translation skips a block, so the band never cuts off
   the path. This is what keeps a 40k-segment work tractable.
+- **Partial translations (#394).** Before the band is built, the original is
+  restricted to the units the translation covers (`covered_span`): from the
+  first to the last bead of the provisional cut's confident monotone chain,
+  less a stray match at either end (at most a tenth of the chain, reached by
+  a jump of more than 12 units on the original side only, like a similar
+  passage in an untranslated part), widened by the band (6 units). An end
+  moves in only if it leaves out at least 20 units and 5% of the original,
+  and only when the chain is trustworthy (≥ 3 beads holding ≥ half of the
+  translation's units): weak vectors align a tenth or less, and their stray
+  matches would make a whole translation look partial. The provisional
+  alignment is the signal rather than the group's passage alignment in
+  `data/alignments`, which is made after this step from the anchored units
+  (circular for a new work); it is the same aligner on the same vectors. The
+  band, baselines, calibration and DP then see only the span, and the cut
+  file's `stats` record it (`"span": [k0, k1]`, unit indices of the
+  original) with `one_one` as a share of the span's units. Without that, the
+  band ran to the end of the original (`provisional_band`: `est[m] =
+  n_orig`), so a partial translation's tail was cut against untranslated text,
+  and `one_one` divided by every unit of the original. For a whole
+  translation the span is the whole original and the code path is the old
+  one, byte for byte; the thresholds (`COVER_*` in
+  `patristica/anchor_refine.py`) are frozen like `RefineParams` but kept out
+  of the method hash for that reason.
 
 ### 4.4 Rounds and convergence (the owner's loop)
 The loop the owner sketched:
@@ -505,6 +556,42 @@ round 4 found 0.2–0.5% new pieces.
   numbers in both refs) would recover them.
 - **Comma cuts rise** (Basil 14% → 22%), because original units end at
   commas. That is the price of following the original. Word cuts stay at 0%.
+
+### Partial translations and rare-language originals (#392, #394)
+
+Measured offline with `scripts.anchor_eval --offline --compare` (no API
+calls: pieces the scratch caches of the source PRs didn't hold are scored by
+their segments' sum, and the exact-only round uses cached pieces only):
+*before* is the old method (the original's text vectors, the whole original),
+*after* the new one. "1:1 of span" is the share of the covered span's
+original units in a 1:1 bead of the refinement; "outside" counts its beads on
+original units outside that span (the translation cut against untranslated
+text).
+
+| translation (original) | span of the original | 1:1 of span: before → after | outside: before → after | fallback paragraphs |
+|---|---|---|---|---|
+| John of Ephesus, PTA eng (syc, 4,268 units, books 1–6) | 0–601 (book 1 is 0–593) | 59.6% → **88.7%** (cut file: 9.3% → 88.7%) | 111 → **0** | 5 → 0 |
+| `life_longinus_lucius` (cop, 319) | 0–79 | 2.5% → **89.9%** | 42 → **0** | 0 → 0 |
+| `shenoute_a22` (cop, 624) | 58–189 | 4.6% → **57.3%** | 26 → **0** | 6 → 0 |
+| `life_phib` (cop, 133) | 0–67 | 10.5% → **88.1%** | 15 → **0** | 0 → 0 |
+| `shenoute_eagerness` (cop, 540; 11 English units) | 262–290 | 0% → **35.7%** | 10 → **0** | 1 → 0 |
+| `shenoute_those` (cop, 306; 4 English units) | 266–283 | 0% → **11.8%** | 4 → **0** | 1 → 0 |
+| `AP` (cop, whole) | whole | 18.4% → **98.3%** | 0 → 0 | 13 → 2 |
+| `life_cyrus` (cop, whole) | whole | 18.3% → **97.1%** | 0 → 0 | 1 → 0 |
+| `shenoute_fox` (cop, whole) | whole | 18.9% → **100%** | 0 → 0 | 2 → 0 |
+| PTA eng pta0039, pta0001/pta028 eng2 (grc, whole) | whole | unchanged (100%, 97.9%) | 0 → 0 | 0 → 0 |
+
+The machine-translation vectors do most of the work for Coptic, whose own
+vectors align a tenth or less of an English work; the span keeps a partial
+translation's beads inside the part it translates. The covered span was found
+for every partial work of PR #385 and #387, and every whole translation
+checked kept the whole original: the 31 Philo works of `first1k-eng`, PTA's
+Slavonic Severian (#388), the Suprasliensis Life of Conon (#386), PTA's
+English of four Greek works and 22 whole Coptic Scriptorium translations.
+The 31 `first1k-eng` cut files come out byte-identical from the new code and
+the old one, run offline on the same inputs (30 of them also byte-identical
+to the committed files; the 31st differs from its committed file under both,
+because the scratch cache the source PR left lacks pieces its run embedded).
 
 ## 9. Free translations and same-language editions
 
