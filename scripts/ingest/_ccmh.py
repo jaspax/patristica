@@ -601,7 +601,9 @@ def gospel_books(text: GospelText, table: Table) -> tuple[list[GospelBook], Coun
     CCMH gives each reading a parallel digit. The first (``0``, the lowest
     there is) is kept and the repeats are dropped, so the book has one unit
     per verse, as versification expects: the repeats are the same verse again,
-    often cut short (``ko!c``, "end") or opened with a lection formula.
+    often cut short (``ko!c``, "end") or opened with a lection formula. In
+    about one verse in sixteen with repeats a later reading is the fuller one
+    (#370).
     """
     books: dict[str, GospelBook] = {}
     unknown: Counter = Counter()
