@@ -35,7 +35,7 @@ The checklist for bringing a new language into the corpus (#293). Work through i
 ## 2. Script, fonts and keyword folding
 
 - [ ] **Decide the stored script** and record it. Store what the source has, in Unicode. Convert at ingest only when there is a reason:
-  - **Slavonic:** Glagolitic witnesses as Glagolitic, or TOROT's Cyrillic transliteration (better for search). Glagolitic costs about 4× the cl100k tokens of the same text in Cyrillic (John 1:1: 45 vs 11), which matters for `VERSE_TOKENS` and the embed cost.
+  - **Slavonic:** decided on #29: Cyrillic, with Glagolitic witnesses transliterated at ingest (`scripts/ingest/_slavonic.py`). Glagolitic costs about 4× the cl100k tokens of the same text in Cyrillic (John 1:1: 45 vs 11), which matters for `VERSE_TOKENS` and the embed cost.
   - **Georgian:** Asomtavruli/Nuskhuri, or Mkhedruli (what TITUS and GNC mostly use).
   - **Arabic:** Garshuni (Arabic in Syriac script): keep it, transliterate it, or both.
   - **Irish, Old English:** the editors' length marks, punctum delens, ƿ and ȝ.
@@ -50,7 +50,7 @@ The checklist for bringing a new language into the corpus (#293). Work through i
 
   | Script | Folded today | Not folded |
   |---|---|---|
-  | Cyrillic | Titlo (U+0483) dropped; ї → і | ѿ, ѡ/о, ѻ, ꙋ/ѹ/у |
+  | Cyrillic | Titlo and other marks dropped; Church Slavonic letter variants, digraphs and yers folded (#330, decision record below) | ѣ/е, ю/у, vocalized yers (дьнь/день) |
   | Glagolitic | Case only | — |
   | Georgian | Mtavruli → Mkhedruli; Asomtavruli → Nuskhuri | Nuskhuri ↛ Mkhedruli |
   | Arabic | Harakat dropped; أ/إ/آ → ا; presentation forms → base letters | Tatweel (U+0640); ى/ي; ة/ه |
@@ -261,9 +261,24 @@ One section per language, added when the language is added. Keep each short: the
 - **Issues/PRs:** #…
 ```
 
-### Church Slavonic (`chu`): not yet added
-
-#29. Gated on this checklist, #236 and #292. Embedding and translation needs to be measured.
+### Church Slavonic (`chu`), 2026-10-29: plumbing in, no source yet
+- **Code:** `chu` (ISO 639-3 Church Slavonic, which covers Old Church Slavonic; BCP 47 `cu`). Tradition `slavonic`. Survey and inventory on #29; plumbing #330.
+- **Script stored:** Cyrillic. Glagolitic witnesses (Marianus, Zographensis, Assemanianus, Psalterium Sinaiticum, Kiev Missal, Euchologium) are stored in Cyrillic transliteration: owner's decision on #29 (anyone who reads Glagolitic reads Cyrillic, not the reverse; Glagolitic also costs ~4× the tokens). Every source gives Cyrillic (TOROT) or an ASCII transliteration (CCMH) converted to Cyrillic at ingest; stray Glagolitic goes through `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()` (izhe ⰹ → і, initial izhe ⰺ → ꙇ, i ⰻ → и as in CCMH/TOROT; yer + i → ꙑ; ⱖ → ꙗ and ⱕ → ѧ as TOROT's Suprasliensis uses them). `validate` counts Glagolitic in a `chu` chunk as wrong script. Paerok: ingestors write U+A67F ꙿ (CCMH `'`, TOROT's `ʼ`).
+- **Folding** (`patristica/textfold.py`, `FOLD_VERSION` 2), chosen by comparing TOROT's Marianus, Zographensis, Psalter and Suprasliensis with CCMH's transliteration tables, which show what the witnesses and editions write differently for one sound:
+  - і, ї, ꙇ, ѵ → и; ѡ, ѻ, ѽ, ꙍ and the monocular o's → о; ѿ → от; ѹ, ꙋ and the digraph оу → у; ꙑ, ъі, ъи → ы;
+  - ѥ, є → е; ꙗ, я, ꙓ → ѣ (Glagolitic has one letter for ě and ja, so Glagolitic witnesses write ѣ where Cyrillic ones write ꙗ: ѣко/ꙗко);
+  - ꙙ, ѩ → ѧ and ѭ → ѫ (iotation of the nasals is written inconsistently); ѕ, ꙁ, ꙃ → з; ѳ → ф, ѯ → кс, ѱ → пс;
+  - yers ъ, ь, ꙏ and the paerok ꙿ / ⸯ are left out: they are written, omitted (Suprasliensis) or replaced by a paerok from one witness to the next, and modern spelling drops the final ones, so `богъ` and `бог` match;
+  - superscript letters (U+2DE0–2DFF, U+A674–A69F) are Mn but become their base letter rather than being dropped (хрⷭ҇тъ → хрст); titla, pokrytie, breathings and accents are dropped like other marks.
+  - Not folded: ѣ/е (a modern-spelling query `тело` doesn't match `тѣло`), ю/у, and vocalized yers (дьнь vs день).
+  - Effect on the existing corpus (checked over every normalized chunk): 38 chunks fold differently, all for Cyrillic letters only: Slavonic glosses inside PTA's Greek edition of pta0041 and Cyrillic OCR look-alikes in OGLT PL Greek quotations. No other script's folding changed (`tests/test_textfold.py::test_other_scripts_fold_as_before`).
+- **`VERSE_TOKENS`:** 68 (frozen), the mean cl100k tokens over the 3,614 verses of Codex Marianus in TOROT's Cyrillic (67.7, median 65; Zographensis 71 over 761 verses, Psalterium Sinaiticum 56 over 2,537), measured 2026-10-29 before the first source, Gospels-based like the other languages.
+- **Punctuation** (`patristica/versify.py`, frozen): sentence marks `. ; ! ?` (`;` is the question mark, as in Greek) and the multi-dot section marks `⁖ ⁘ ⁙ ⁛ ⁜ ⁝ ჻` (Marianus ends pericopes with ⁘, Suprasliensis headings with ⁛); clause marks `: · ·` (U+00B7 and U+0387), `⁚ ⸪ — …`. The raised dot is Suprasliensis's commonest mark (15.6k against 3.7k full stops, before speech and between clauses) and Zographensis's; `:` is CCMH's two points and the Psalter's half-verse mark. On TOROT's Suprasliensis (48 texts, 7.8k derived verses) the units average 1.11 verses (0.51–1.81) and every one ends at a stop. A stop with no space after it doesn't break (`_ATOM_RE` splits on spaces), so ingestors keep a space after punctuation.
+- **Embedding eval (#3 method):** not measured yet; #336, before the first `--pay` run that embeds Slavonic.
+- **Translation vectors:** to be decided on #336.
+- **Fonts:** Monomakh (Google Fonts), made for early Cyrillic: covers all of Cyrillic Extended-A, Extended-B U+A640–A67F (ꙇ ꙑ ꙙ ꙉ ꙁ ꙗ), the titla U+0483–0489. Ponomar lacks ꙇ, ꙑ, ꙙ, ꙉ and three superscript letters; Noto Serif covers everything but has no manuscript look. Neither Monomakh nor Noto Serif has ⁘ ⁛ or the generic combining accents U+0300–036F, which fall back.
+- **First paid run:** not yet (#336).
+- **Issues/PRs:** #29 (survey), #330 (plumbing), #332 CCMH Gospels and Vitae, #333 Suprasliensis, #334 TOROT, #335 PTA Severian, #336 retrieval measurement, #331 further sources.
 
 ### Arabic (`arb`/`ara`): not yet added
 
