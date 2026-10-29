@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-031/in-xl-martyres",
+ "pivot": "ogpg/vol-031/in-xl-martyres",
+ "groups": 125,
+ "inputs": "7e92803f82c8f5c7",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/basil-in-xl-martyres", "units": 142, "ids": "7196506e40f24db8", "inputs": "f3e76630c32c8943", "spans": "+=+++++++++.++++++++++++++++=+=+++=++++++++++=+++++++++=+++++++=+=+++++++..++++++++++++++=+++++++++++=+++++==++++++++++++++++++=++++++++++=+++", "conf": "99999778999999999999999999988999999883399999999999999999999889999999999999999999999998889889999998899999999999999889999999999"},
+  {"work_id": "ogpg/vol-031/in-xl-martyres", "units": 140, "ids": "d45767b5f0acd6ea", "inputs": "3ac59cacd7466fdb", "spans": "...++++++++++.++++++++++++++++=.++++++++++++++++=++++++++++++++=++.++++++.++++++++++++++==++++++++++++++++=++++++++++++.++++++++++++++++.+++", "conf": "99999778999999999999999999988999999883399999999999999999999889999999999999999999999998889889999998899999999999999889999999999"}
+ ]
+}
