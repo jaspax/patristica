@@ -14,6 +14,7 @@ SOURCE_LABELS: dict[str, str] = {
     "asv": "American Standard Version",
     "clementine": "Clementine Vulgate",
     "coptic-nt": "Sahidic Coptic Bible",
+    "demetrius-psalter": "Psalter of Demetrius (Sinai, Glagolitic)",
     "gez": "Ge'ez Bible (Ethiopian canon)",
     "kjv": "King James Version",
     "lxx-rahlfs": "Septuagint (Rahlfs)",
