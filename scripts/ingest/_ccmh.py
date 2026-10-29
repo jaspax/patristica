@@ -1,0 +1,697 @@
+"""
+Corpus Cyrillo-Methodianum Helsingiense (CCMH): download, the ASCII → Cyrillic
+converter, and the Gospel-codex ingest shared by its ingestors (#332).
+
+CCMH (University of Helsinki, 1986–2017, now at Kielipankki, CC BY 4.0,
+urn:nbn:fi:lb-20140730106) gives each Old Church Slavonic text as a 7-bit
+ASCII transliteration, one numbered line per line of text. Each text has its
+own table on its ``.html`` page (https://www.kielipankki.fi/download/ccmh-src/www/):
+the Glagolitic codices (Marianus, Zographensis and its later leaves Zogr-B,
+Assemanianus) and the Cyrillic ones (Savvina kniga, Suprasliensis, the Vitae)
+use the same letters for most sounds but differ in the rest (``u`` is the
+digraph оу in one and the ligature ѹ in the other; ``^`` sits on the next
+letter in Marianus and on the previous one in Zographensis; ``/`` is a
+numeral sign in the Vitae and a stroke over a vowel in Assemanianus). So the
+converter is driven by a :class:`Table` per text, and a new CCMH text (the
+Suprasliensis, #333) only needs a table.
+
+**Output.** Unicode Cyrillic, NFC per letter, as TOROT's Cyrillic of the same
+CCMH files writes it: Glagolitic witnesses in Cyrillic (owner's decision on
+#29; izhe ``I`` → і, ``J`` → ꙇ, ``i`` → и), ``*`` an upper-case letter, a word
+under a titlo (``!word``) with U+0483 over its second letter (its only letter
+for a numeral), a letter written above the line (``!`` inside a word) as the
+combining Cyrillic letter plus pokrytie (бꙑⷭ҇), diacritics as combining marks,
+the paerok ``'`` as ꙿ (U+A67F), ``::`` → ⁘, ``:.`` → ⁖, ``:-`` → ⁛, ``--`` → ⁓.
+Punctuation is attached to the word before it, since CCMH puts spaces around
+every point.
+
+**Editorial material (#236).** The edition's signs become spans
+``[start, end, kind]`` on the converted text, the raw-unit format
+``scripts.normalize`` reads:
+
+- ``[…]`` (letters the editor supplied, Jagić) and Zogr-B's ``<…>`` (read by
+  Jagić, no longer visible per Moszyński; written ⟨…⟩): ``supplement``, kept in
+  the source text without the brackets;
+- ``=…=`` (a later hand's addition in the manuscript): ``supplement`` without
+  brackets, so the reader marks it and search still finds it;
+- ``{…}`` (dittography, superfluous letters the editor flags): ``note``, kept
+  for the reader with its braces, left out of embedding;
+- ``?`` (a letter not readable) and ``-`` (a word cut off by a lost leaf):
+  ``lacuna``.
+
+``%`` marks a place CCMH's transcribers meant to re-check against the
+edition: data-entry markup, not text, so it is dropped (and counted).
+
+Part of each CCMH ingestor's code hash (ingest stamps, #130): a change here
+re-stamps every CCMH source on its next forced ingest.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import re
+import unicodedata
+from collections import Counter, defaultdict
+from collections.abc import Mapping
+from dataclasses import dataclass, field
+from pathlib import Path
+
+from patristica.models import Work
+from scripts.ingest._common import download_file
+from scripts.ingest._scripture_meta import BOOK_TITLE, book_work_id
+from scripts.ingest._slavonic import glagolitic_to_cyrillic
+
+log = logging.getLogger(__name__)
+
+BASE_URL = "https://www.kielipankki.fi/download/ccmh-src/www/"
+LICENSE_URL = "https://www.kielipankki.fi/lic/ccmh-eng/"
+CACHE_DIR = Path("_cache") / "ccmh"
+CORPUS = "Corpus Cyrillo-Methodianum Helsingiense (CCMH, Kielipankki, CC BY 4.0)"
+
+TITLO = "\u0483"
+POKRYTIE = "\u0487"
+PAEROK = "ꙿ"
+
+# Combining forms of letters written above the line (U+2DE0–2DFF, U+A674–A69F).
+SUPERSCRIPT: dict[str, str] = {
+    "б": "\u2de0", "в": "\u2de1", "г": "\u2de2", "д": "\u2de3", "ж": "\u2de4",
+    "з": "\u2de5", "к": "\u2de6", "л": "\u2de7", "м": "\u2de8", "н": "\u2de9",
+    "о": "\u2dea", "п": "\u2deb", "р": "\u2dec", "с": "\u2ded", "т": "\u2dee",
+    "х": "\u2def", "ц": "\u2df0", "ч": "\u2df1", "ш": "\u2df2", "щ": "\u2df3",
+    "ѳ": "\u2df4", "а": "\u2df6", "е": "\u2df7", "ꙉ": "\u2df8", "оу": "\u2df9",
+    "ѹ": "\u2df9", "ꙋ": "\u2df9", "ѣ": "\u2dfa", "ю": "\u2dfb", "ꙗ": "\u2dfc",
+    "ѧ": "\u2dfd", "ѫ": "\u2dfe", "ѭ": "\u2dff", "и": "\ua675", "і": "\ua675",
+    "ꙇ": "\ua675", "ї": "\ua676", "у": "\ua677", "ъ": "\ua678", "ꙑ": "\ua679",
+    "ь": "\ua67a", "ѡ": "\ua67b", "ф": "\ua69e", "ѥ": "\ua69f",
+}
+
+# Letters shared by every CCMH table (the tables' own names in comments).
+_COMMON_LETTERS: dict[str, str] = {
+    "a": "а",   # az
+    "b": "б",   # buky
+    "v": "в",   # vede
+    "g": "г",   # glagol
+    "d": "д",   # dobro
+    "e": "е",   # jest
+    "Z": "ж",   # zhivete
+    "D": "ѕ",   # dzelo
+    "z": "з",   # zemlja
+    "i": "и",   # izhe, value 20: the "octal" и of Cyrillic
+    "I": "і",   # i, value 10: the "decimal" і
+    "k": "к", "l": "л", "m": "м", "n": "н", "o": "о", "p": "п", "r": "р",
+    "s": "с", "t": "т",
+    "f": "ф",   # fert
+    "T": "ѳ",   # fita
+    "x": "х",   # xer
+    "w": "ѡ",   # ot (omega)
+    "q": "щ",   # shta
+    "c": "ц",   # ci
+    "C": "ч",   # cherv
+    "S": "ш",   # sha
+    "&": "ъ",   # big jer
+    "$": "ь",   # small jer
+    "y": "ꙑ",   # jery
+    "@": "ѣ",   # jat (Glagolitic: also ja)
+    "ju": "ю",
+    "E": "ѧ",   # small jus
+    "jE": "ѩ",  # iotated small jus
+    "O": "ѫ",   # big jus
+    "jO": "ѭ",  # iotated big jus
+}
+
+#: Letters of the Glagolitic codices (Marianus, Zographensis, Assemanianus).
+GLAGOLITIC_LETTERS: dict[str, str] = {
+    **_COMMON_LETTERS,
+    "J": "ꙇ",   # the broad i (initial izhe)
+    "G": "ꙉ",   # gerv
+    "u": "оу",  # uk: Glagolitic writes the digraph ⱁⱆ
+    "U": "ѵ",   # izhica
+    "Y": "ѵ",   # izhica as the second half of uk: o[Y]
+    "A": "ꙙ",   # the "nasal jer"
+    "jw": "ѡ\u0308",  # Marianus Matt 15:28, 16:17 (TOROT ѡ̈)
+}
+
+#: Letters of the Cyrillic texts (Savvina kniga, the Vitae; Suprasliensis's
+#: table, whose principles the others follow).
+CYRILLIC_LETTERS: dict[str, str] = {
+    **_COMMON_LETTERS,
+    "u": "ѹ",   # u as a digraph (the оу ligature)
+    "U": "ꙋ",   # uk as one letter
+    "ja": "ꙗ",  # ja (ligature, or az with a stroke)
+    "je": "ѥ",
+    "X": "ѯ",   # ksi
+    "P": "ѱ",   # psi
+    "Y": "ѵ",   # izhica
+    "J": "ї",   # the Vitae's i with trema (TOROT ї); not in Suprasliensis
+    "G": "ꙉ",
+}
+
+_COMMON_MARKS: dict[str, str] = {
+    "~": "\u0306",  # breve above the next letter
+    "(": "\u0485",  # spiritus asper (dasia)
+}
+
+#: Punctuation, longest first. ``:-`` is "two points and a dash" (TOROT ⁛).
+PUNCTUATION: dict[str, str] = {
+    ": .": "⁖", ": -": "⁛", "::": "⁘", ":.": "⁖", ":-": "⁛", "--": "⁓",
+    ".": ".", ":": ":", ",": ",", ";": ";",
+}
+
+#: The Vitae's hyphen (``iz-d-raja``) is the edition's, kept as written.
+_VITAE_PUNCTUATION = {**PUNCTUATION, "?": "?", "-": "-"}
+
+_BRACKETS: dict[str, tuple[str, str, str, str]] = {
+    # opener: (closer, kind, opener written, closer written)
+    "[": ("]", "supplement", "[", "]"),
+    "{": ("}", "note", "{", "}"),
+}
+
+
+@dataclass(frozen=True)
+class Table:
+    """How one CCMH text spells Slavonic in ASCII."""
+
+    name: str
+    letters: Mapping[str, str]
+    #: Diacritics written before the letter they sit on.
+    next_marks: Mapping[str, str] = field(default_factory=lambda: dict(_COMMON_MARKS))
+    #: Diacritics written after the letter they sit on (Zographensis ``^``).
+    prev_marks: Mapping[str, str] = field(default_factory=dict)
+    punctuation: Mapping[str, str] = field(default_factory=lambda: dict(PUNCTUATION))
+    brackets: Mapping[str, tuple[str, str, str, str]] = field(
+        default_factory=lambda: dict(_BRACKETS))
+    #: Sign before a letter used as a numeral (the Vitae's ``/``): a titlo over it.
+    numeral_sign: str | None = None
+    #: ``?`` is an unreadable letter (the codices), not a question mark (the Vitae).
+    question_is_lacuna: bool = True
+    #: ``=…=`` encloses a later hand's addition.
+    later_addition: bool = True
+    #: ``-`` marks a word cut off by a lost leaf (the codices), not a hyphen.
+    hyphen_is_lacuna: bool = True
+    #: Sequences read as ꙑ (Assemanianus spells jery as ъ + і).
+    ligatures: Mapping[str, str] = field(default_factory=dict)
+    #: Typos in the file, fixed before conversion: {wrong: right}.
+    fixes: Mapping[str, str] = field(default_factory=dict)
+
+
+_MARIANUS_MARKS = {**_COMMON_MARKS, "^": "\u0484"}   # round circumflex above the next letter
+
+MARIANUS = Table("Codex Marianus", GLAGOLITIC_LETTERS, next_marks=_MARIANUS_MARKS)
+
+ZOGRAPHENSIS = Table("Codex Zographensis", GLAGOLITIC_LETTERS,
+                     prev_marks={"^": "\u0484"},   # above the previous letter
+                     fixes={"ubojte": "uboJte"})
+
+# Zogr-B, the later leaves (Matt 16:19–24:20), has its own table: Cyrillic f,
+# <…> for letters Jagić printed that Moszyński could no longer see, jery as
+# &I where one half is bracketed, and a trema.
+ZOGR_B = Table("Codex Zographensis, Zogr-B", {**GLAGOLITIC_LETTERS, "F": "ф"},
+               next_marks={**_COMMON_MARKS, '"': "\u0308"},
+               prev_marks={"^": "\u0484"},
+               brackets={**_BRACKETS, "<": (">", "supplement", "\u27e8", "\u27e9")},
+               ligatures={"&I": "ꙑ"},
+               fixes={"<j>E": "<jE>"})
+
+# Assemanianus has no table of its own ("the same principles as Marianus;
+# differences not documented"). Its file has signs Marianus lacks, read here
+# from where they stand: ``/`` (17k, before vowels at the start of a word or
+# syllable) a stroke over the next letter, ``\`` and the backtick other
+# strokes, ``"`` a trema and ``)`` a psili as in Suprasliensis's table, ``+`` a
+# cross (#344 checks them against the edition). Jery is written ъ + і (``&I``);
+# read as ꙑ, as glagolitic_to_cyrillic reads yer + i.
+ASSEMANIANUS = Table(
+    "Codex Assemanianus", GLAGOLITIC_LETTERS,
+    next_marks={**_MARIANUS_MARKS, "/": "\u0301", "\\": "\u0300", "`": "\u0300",
+                '"': "\u0308", ")": "\u0486"},
+    ligatures={"&I": "ꙑ", "&i": "ꙑ", "&J": "ꙑ"},
+    fixes={"h(l&m&": "x(l&m&"},
+)
+
+# Savvina kniga and the Vitae follow Suprasliensis's table.
+_CYRILLIC_MARKS = {**_COMMON_MARKS, ")": "\u0486", '"': "\u0308"}
+
+# Savvina kniga writes no ``@``: jat is ``"e`` (2,956 times: pr"e-, v$l"eze,
+# n"est&), ꙗ is ``"E`` (pri("Eti, mari("E) and iotated jat ``j"e`` (j"eko), so
+# ``"`` is part of those letters here, not a trema.
+SAVVINA = Table("Savvina kniga",
+                {**CYRILLIC_LETTERS, '"e': "ѣ", '"E': "ꙗ", 'j"e': "ꙓ", "jo": "ѭ"},
+                next_marks={**_COMMON_MARKS, ")": "\u0486"},
+                prev_marks={"^": "\u0484"},
+                fixes={" sH ": " sE ", "moZAxo": "moZaxo"})
+
+# The Vitae: ``/`` marks a letter used as a numeral (``/D`` → ѕ҃), ``?`` and
+# ``,`` are Tomšič's modern punctuation, and ``C4st$noje`` is a typo.
+VITAE = Table("Vitae Constantini et Methodii", CYRILLIC_LETTERS,
+              next_marks=_CYRILLIC_MARKS, numeral_sign="/", question_is_lacuna=False,
+              punctuation=_VITAE_PUNCTUATION,
+              later_addition=False, hyphen_is_lacuna=False, fixes={"C4st$noje": "Cst$noje"})
+
+
+class ConversionError(ValueError):
+    """CCMH text the table cannot read."""
+
+
+@dataclass
+class _Cluster:
+    text: str
+    group: int | None = None   # editorial group id, or None for plain text
+    letter: bool = False       # a base letter (titlo placement)
+    punct: bool = False        # a punctuation mark
+
+
+@dataclass
+class Converted:
+    """A converted unit: Cyrillic text, its editorial spans and what was dropped."""
+
+    text: str
+    editorial: list[list]
+    unknown: Counter = field(default_factory=Counter)
+    dropped: Counter = field(default_factory=Counter)
+
+
+def convert(ascii_text: str, table: Table) -> Converted:
+    """Convert one unit of CCMH ASCII into Cyrillic with its editorial spans."""
+    for wrong, right in table.fixes.items():
+        ascii_text = ascii_text.replace(wrong, right)
+    letter_keys = sorted({**table.letters, **table.ligatures}, key=len, reverse=True)
+    letters = {**table.letters, **table.ligatures}
+    punct_keys = sorted(table.punctuation, key=len, reverse=True)
+    closers = {v[0]: k for k, v in table.brackets.items()}
+
+    out: list[_Cluster] = []
+    kinds: dict[int, str] = {}
+    unknown: Counter = Counter()
+    dropped: Counter = Counter()
+    groups: list[tuple[int, str]] = []   # open groups: (id, closer)
+    later: int | None = None             # open =…= group
+    next_id = 0
+
+    pending_marks: list[str] = []
+    upper = superscript = numeral = word_titlo = False
+    word: list[int] = []                 # indices of the current word's base letters
+
+    def group() -> int | None:
+        if groups:
+            return groups[0][0]          # nested brackets belong to the outermost
+        return later
+
+    def new_group(kind: str) -> int:
+        nonlocal next_id
+        next_id += 1
+        kinds[next_id] = kind
+        return next_id
+
+    def end_word() -> None:
+        nonlocal word_titlo, upper, superscript, numeral
+        if word_titlo and word:
+            target = word[1] if len(word) > 1 else word[0]
+            out[target].text += TITLO
+        word.clear()
+        word_titlo = upper = superscript = numeral = False
+        pending_marks.clear()
+
+    def emit_space() -> None:
+        if out and out[-1].text != " ":
+            out.append(_Cluster(" ", group()))
+
+    i = 0
+    n = len(ascii_text)
+    while i < n:
+        ch = ascii_text[i]
+        if ch in " \t":
+            end_word()
+            emit_space()
+            i += 1
+            continue
+        if ch == "%":
+            dropped["%"] += 1
+            i += 1
+            continue
+        if ch == "*":
+            upper = True
+            i += 1
+            continue
+        if ch == "!":
+            while i + 1 < n and ascii_text[i + 1] == "!":
+                i += 1
+            if not word and not superscript:
+                word_titlo = True
+            else:
+                superscript = True
+            i += 1
+            continue
+        if table.numeral_sign and ch == table.numeral_sign:
+            numeral = True
+            i += 1
+            continue
+        if ch in table.next_marks:
+            pending_marks.append(table.next_marks[ch])
+            i += 1
+            continue
+        if ch in table.prev_marks:
+            if word:
+                out[word[-1]].text += table.prev_marks[ch]
+            else:
+                pending_marks.append(table.prev_marks[ch])
+            i += 1
+            continue
+        if ch == "'":
+            out.append(_Cluster(PAEROK, group()))
+            i += 1
+            continue
+        if ch in table.brackets:
+            closer, kind, opener_out, _ = table.brackets[ch]
+            if not groups and later is None:
+                groups.append((new_group(kind), closer))
+            else:
+                groups.append((group() or 0, closer))
+            out.append(_Cluster(opener_out, group()))
+            i += 1
+            continue
+        if ch in closers:
+            if not groups or groups[-1][1] != ch:
+                dropped[f"unbalanced {ch}"] += 1   # a stray closer: not text
+                i += 1
+                continue
+            out.append(_Cluster(table.brackets[closers[ch]][3], group()))
+            groups.pop()
+            i += 1
+            continue
+        if ch == "=" and table.later_addition:
+            if later is None and not groups:
+                later = new_group("supplement")
+            elif later is not None and not groups:
+                later = None
+            i += 1
+            continue
+        if ch == "?" and table.question_is_lacuna:
+            g = group()
+            out.append(_Cluster("?", g if g is not None else new_group("lacuna")))
+            i += 1
+            continue
+        if ch == "-" and table.hyphen_is_lacuna and not ascii_text.startswith("--", i):
+            g = group()
+            out.append(_Cluster("-", g if g is not None else new_group("lacuna")))
+            i += 1
+            continue
+        key = next((k for k in letter_keys if ascii_text.startswith(k, i)), None)
+        if key is not None:
+            base = letters[key]
+            if superscript and base in SUPERSCRIPT:
+                text = SUPERSCRIPT[base] + "".join(pending_marks) + POKRYTIE
+                out.append(_Cluster(text, group()))
+            else:
+                if upper:
+                    base = base[0].upper() + base[1:]
+                text = base + "".join(pending_marks) + (TITLO if numeral else "")
+                out.append(_Cluster(unicodedata.normalize("NFC", text), group(), letter=True))
+                word.append(len(out) - 1)
+            pending_marks.clear()
+            upper = superscript = numeral = False
+            i += len(key)
+            continue
+        pkey = next((k for k in punct_keys if ascii_text.startswith(k, i)), None)
+        if pkey is not None:
+            end_word()
+            # Attach a mark to the word before it ("словомъ ." → "словомъ."),
+            # but keep a space between two marks ("⁘ ⁘").
+            if (len(out) > 1 and out[-1].text == " " and out[-1].group == group()
+                    and not out[-2].punct):
+                out.pop()
+            out.append(_Cluster(table.punctuation[pkey], group(), punct=True))
+            i += len(pkey)
+            continue
+        if ch == "+":
+            end_word()
+            out.append(_Cluster("✝", group()))
+            i += 1
+            continue
+        unknown[ch] += 1
+        i += 1
+    end_word()
+    if groups or later is not None:   # the span runs to the end of the unit
+        dropped["unclosed " + (groups[-1][1] if groups else "=")] += 1
+
+    # Trim spaces at either end, then build the text and its spans.
+    while out and out[0].text == " ":
+        out.pop(0)
+    while out and out[-1].text == " ":
+        out.pop()
+    text = ""
+    spans: list[list] = []
+    for c in out:
+        start = len(text)
+        text += c.text
+        if c.group is None:
+            continue
+        if c.text == " " and (not spans or spans[-1][3] != c.group):
+            continue
+        if spans and spans[-1][3] == c.group and spans[-1][1] == start:
+            spans[-1][1] = len(text)
+        else:
+            spans.append([start, len(text), kinds[c.group], c.group])
+    editorial = []
+    for s, e, kind, _ in spans:
+        while e > s and text[e - 1] == " ":
+            e -= 1
+        if e > s:
+            editorial.append([s, e, kind])
+    text = glagolitic_to_cyrillic(text)
+    return Converted(text, editorial, unknown, dropped)
+
+
+# ---------------------------------------------------------------------------
+# Files and line numbers
+# ---------------------------------------------------------------------------
+
+_LINE_RE = re.compile(r"^(\d{7})(\S?(?: .*)?)$")   # Savvina: "4190501% *v& ..."
+
+
+def fetch(name: str, raw_root: Path, force: bool = False) -> Path:
+    """Download one CCMH text file (``marianus.txt``) into the raw cache."""
+    dest = raw_root / CACHE_DIR / name
+    download_file(BASE_URL + name, dest, force=force)
+    return dest
+
+
+def read_lines(path: Path) -> list[tuple[str, str]]:
+    """The numbered lines of a CCMH file: ``[(seven digits, text), …]``."""
+    out: list[tuple[str, str]] = []
+    for lineno, line in enumerate(path.read_text(encoding="ascii").splitlines(), 1):
+        if not line.strip():
+            continue
+        m = _LINE_RE.match(line.rstrip())
+        if not m:
+            raise ConversionError(f"{path.name}:{lineno}: not a numbered CCMH line: {line!r}")
+        out.append((m.group(1), (m.group(2) or "").strip()))
+    return out
+
+
+def join_lines(parts: list[str]) -> str:
+    """Join a unit's lines with spaces; a word broken over two lines
+    (``razli-`` / ``-C$n&``, or ``sjO-`` / ``botO``) is joined without one."""
+    text = ""
+    for part in parts:
+        if not text:
+            text = part
+        elif re.search(r"[^\s:.-]-$", text) and part.startswith("-") and not part.startswith("--"):
+            text = text[:-1] + part[1:]
+        elif re.search(r"[^\s:.-]-$", text):
+            text = text[:-1] + part
+        elif re.match(r"[<\[]-[^-]", part):   # Zogr-B: "<-n&>" ends the main text's word
+            text = text + part[0] + part[2:]
+        else:
+            text = f"{text} {part}"
+    return text
+
+
+# ---------------------------------------------------------------------------
+# Gospel codices
+# ---------------------------------------------------------------------------
+
+GOSPEL_BOOKS = {"1": "Matt", "2": "Mark", "3": "Luke", "4": "John"}
+
+
+@dataclass
+class GospelText:
+    """One codex's Gospel lines, grouped by verse."""
+
+    #: (book digit, chapter, verse) → parallel digit → lines, in file order.
+    verses: dict[tuple[str, int, int], dict[str, list[str]]]
+    #: Lines in chapter 0 (the codex's lists of chapters, kephalaia), skipped.
+    skipped_lists: int = 0
+    #: Verses read with another table than the codex's (the Zogr-B leaves).
+    tables: dict[tuple[str, int, int], Table] = field(default_factory=dict)
+
+
+def parse_gospels(lines: list[tuple[str, str]],
+                  renumber: Mapping[str, str] | None = None) -> GospelText:
+    """Group ``GCCVVLP`` lines (Gospel, chapter, verse, line, parallel) by verse.
+
+    *renumber* corrects line numbers mistyped in the file (``{wrong: right}``).
+    """
+    verses: dict[tuple[str, int, int], dict[str, list[str]]] = {}
+    skipped = 0
+    for num, text in lines:
+        num = (renumber or {}).get(num, num)
+        book, chap, verse, par = num[0], int(num[1:3]), int(num[3:5]), num[6]
+        if book not in GOSPEL_BOOKS:
+            raise ConversionError(f"line {num}: Gospel digit {book} is not 1–4")
+        if chap == 0:
+            skipped += 1
+            continue
+        verses.setdefault((book, chap, verse), {}).setdefault(par, []).append(text)
+    return GospelText(verses, skipped)
+
+
+def merge_leaves(main: GospelText, leaves: GospelText, table: Table) -> GospelText:
+    """Add a codex's replacement leaves (Zogr-B) to its main text.
+
+    A verse that the leaves share with the main text is split at a leaf edge:
+    the leaves' part comes first if the verse is the leaves' last one
+    (they end inside it), else after the main text's part. Every verse with
+    lines from the leaves is read with their *table*, a superset of the main
+    one for the few lines of a shared verse.
+    """
+    merged = {k: {p: list(v) for p, v in d.items()} for k, d in main.verses.items()}
+    last = max(leaves.verses)
+    for key, pars in leaves.verses.items():
+        for par, lines in pars.items():
+            have = merged.setdefault(key, {}).setdefault(par, [])
+            merged[key][par] = lines + have if key == last else have + lines
+    return GospelText(dict(sorted(merged.items(), key=lambda kv: kv[0])),
+                      main.skipped_lists + leaves.skipped_lists,
+                      {**main.tables, **{key: table for key in leaves.verses}})
+
+
+@dataclass
+class GospelBook:
+    osis: str
+    verses: list[dict]          # raw units: {"ref", "text"[, "editorial"]}
+    repeats_dropped: int = 0
+
+
+def gospel_books(text: GospelText, table: Table) -> tuple[list[GospelBook], Counter, Counter]:
+    """Convert a codex into one raw book per Gospel, in verse order.
+
+    A lectionary (Assemanianus, Savvina) reads some verses on several days;
+    CCMH gives each reading a parallel digit. The first (``0``, the lowest
+    there is) is kept and the repeats are dropped, so the book has one unit
+    per verse, as versification expects: the repeats are the same verse again,
+    often cut short (``ko!c``, "end") or opened with a lection formula.
+    """
+    books: dict[str, GospelBook] = {}
+    unknown: Counter = Counter()
+    dropped: Counter = Counter()
+    for (book, chap, verse), pars in sorted(text.verses.items()):
+        osis = GOSPEL_BOOKS[book]
+        gb = books.setdefault(osis, GospelBook(osis, []))
+        first = min(pars)
+        gb.repeats_dropped += len(pars) - 1
+        conv = convert(join_lines(pars[first]), text.tables.get((book, chap, verse), table))
+        unknown.update(conv.unknown)
+        dropped.update(conv.dropped)
+        if not conv.text:
+            continue
+        unit: dict = {"ref": f"{osis}.{chap}.{verse}", "text": conv.text}
+        if verse == 0:
+            # A lection title the codex writes before a verse (Marianus Luke
+            # 2:0 "on the eve of the Nativity"): the manuscript's, kept for
+            # readers, but no Gospel text, so marked as a title (#236).
+            unit["editorial"] = [[0, len(conv.text), "title"]]
+        elif conv.editorial:
+            unit["editorial"] = conv.editorial
+        gb.verses.append(unit)
+    return [books[b] for b in GOSPEL_BOOKS.values() if b in books], unknown, dropped
+
+
+def group_units(lines: list[tuple[str, str]],
+                width: tuple[int, int]) -> dict[tuple[int, int], list[str]]:
+    """Group lines by a (chapter, verse) number read from digit slices *width*
+    (``(2, 5)``: chapter = digits 0–1, verse = digits 2–4)."""
+    out: dict[tuple[int, int], list[str]] = defaultdict(list)
+    a, b = width
+    for num, text in lines:
+        out[(int(num[:a]), int(num[a:b]))].append(text)
+    return dict(out)
+
+
+# ---------------------------------------------------------------------------
+# Ingest
+# ---------------------------------------------------------------------------
+
+#: The Slavonic Gospel translation: Constantine-Cyril and Methodius, from 863
+#: (the aprakos first), complete by Methodius's death in 885. The codices are
+#: 10th–11th-century copies; works are dated by the translation.
+GOSPEL_DATE: dict = {"date_composed": 863, "date_range": (863, 885),
+                     "date_confidence": "approximate"}
+
+
+@dataclass(frozen=True)
+class Codex:
+    """A CCMH Gospel codex: its file, table and description."""
+
+    source_id: str
+    name: str                     # "Codex Marianus"
+    file: str                     # "marianus.txt"
+    table: Table
+    edition: str                  # the printed edition CCMH's text follows
+    leaves: tuple[str, Table] | None = None   # Zogr-B: (file, table)
+    renumber: Mapping[str, str] = field(default_factory=dict)
+
+
+def log_conversion(name: str, unknown: Counter, dropped: Counter) -> None:
+    """Log what a conversion could not read (ERROR: text was lost, so a forced
+    run is not stamped) and the markup it dropped on purpose (INFO)."""
+    if unknown:
+        log.error("%s: characters the table does not know, dropped: %s", name, dict(unknown))
+    if dropped:
+        log.info("%s: dropped markup %s", name, dict(dropped))
+
+
+def ingest_codex(codex: Codex, output_dir: Path, force: bool = False) -> list[Work]:
+    """Write one raw work per Gospel book of *codex* to ``output_dir/{source_id}/``."""
+    source_dir = output_dir / codex.source_id
+    source_dir.mkdir(parents=True, exist_ok=True)
+    existing = sorted(source_dir.glob("*.json"))
+    if existing and not force:
+        log.info("%s: %d books already ingested (--force rebuilds them)", codex.name, len(existing))
+        return [Work(**json.loads(p.read_text(encoding="utf-8"))["work"]) for p in existing]
+
+    text = parse_gospels(read_lines(fetch(codex.file, output_dir, force)), codex.renumber)
+    if codex.leaves:
+        leaves_file, leaves_table = codex.leaves
+        text = merge_leaves(text, parse_gospels(read_lines(fetch(leaves_file, output_dir, force))),
+                            leaves_table)
+    books, unknown, dropped = gospel_books(text, codex.table)
+    log_conversion(codex.name, unknown, dropped)
+    if text.skipped_lists:
+        log.info("%s: skipped %d lines of chapter lists (kephalaia, chapter 0)",
+                 codex.name, text.skipped_lists)
+
+    works: list[Work] = []
+    for book in books:
+        if book.repeats_dropped:
+            log.info("%s %s: dropped %d repeated readings of a verse (lectionary)",
+                     codex.name, book.osis, book.repeats_dropped)
+        work = Work(
+            work_id=book_work_id(codex.source_id, book.osis),
+            source_id=codex.source_id,
+            title=BOOK_TITLE.get(book.osis, book.osis),
+            author=None,
+            **GOSPEL_DATE,
+            genre="scripture",
+            language="chu",
+            tradition="slavonic",
+            license="cc-by-4.0",
+            provenance_url=BASE_URL + codex.file,
+            edition=f"{codex.name}, {codex.edition}; {CORPUS}, ASCII transliteration "
+                    f"converted to Cyrillic",
+        )
+        out = source_dir / f"{book.osis}.json"
+        out.write_text(json.dumps({"work": work.model_dump(), "verses": book.verses},
+                                  ensure_ascii=False, indent=2), encoding="utf-8")
+        log.info("%s %s: %d verses → %s", codex.name, book.osis, len(book.verses), out)
+        works.append(work)
+    return works
