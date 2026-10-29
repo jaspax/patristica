@@ -53,7 +53,9 @@ _CYRILLIC_COMBINING_LETTERS = {
 # the nasals inconsistently (ꙓ is iotated, so it is я); ѕ/ꙁ/з vary by
 # manuscript; ѵ, ѳ, ѯ, ѱ spell Greek loans. ѣ is folded by position below.
 _CYRILLIC_LETTERS = str.maketrans({
-    "і": "и", "ꙇ": "и", "ѵ": "и",
+    # ї is NFKD-decomposed (і + diaeresis) in the text, but the superscript
+    # ꙶ (U+A676) becomes ї only after NFKD, so ї is folded here as well.
+    "і": "и", "ї": "и", "ꙇ": "и", "ѵ": "и",
     "ѡ": "о", "ѻ": "о", "ѽ": "о", "ꙍ": "о", "ꙩ": "о", "ꙫ": "о", "ꙭ": "о", "ꙮ": "о",
     "ꚙ": "о", "ѿ": "от",
     "ѹ": "у", "ꙋ": "у",
