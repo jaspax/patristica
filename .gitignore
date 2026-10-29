@@ -9,8 +9,11 @@ data/raw/_repo_archives/**/*.tmp
 data/chunks/*
 !data/chunks/.gitkeep
 
-# Claude
-.claude
+# Claude: local settings, worktrees and the rest stay private; the project
+# skills and the nightly agent's permission allowlist are tracked (#425).
+.claude/*
+!.claude/skills/
+!.claude/settings.json
 
 # Python
 __pycache__/

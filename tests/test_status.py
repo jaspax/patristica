@@ -112,6 +112,10 @@ def test_validate_runs_only_when_its_inputs_change() -> None:
     assert validate.inputs_changed(["scripts/validate.py"]) == ["scripts/validate.py"]
     assert validate.inputs_changed(["data/normalized/_fingerprint.json",
                                     "data/normalized/_fingerprints.jsonl"]) == []
+    # the nightly MT curation tables (#425): validate doesn't read them
+    assert validate.inputs_changed(["patristica/data/mt_exceptions.csv",
+                                    "patristica/data/mt_blocked.csv"]) == []
+    assert not any("machine_translation" in p for p in validate.input_files())
 
 
 def test_validate_summary_lists_failures_first(tmp_path: Path) -> None:

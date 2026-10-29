@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Monitor",
+      "Write(logs/**)",
+      "Edit(logs/**)",
+      "Edit(.claude/worktrees/nightly-mt/patristica/data/mt_exceptions.csv)",
+      "Edit(.claude/worktrees/nightly-mt/patristica/data/mt_blocked.csv)",
+      "Bash(uv run python -m scripts.nightly_budget:*)",
+      "Bash(uv run python -m scripts.machine_translate:*)",
+      "Bash(scripts/nightly/run.sh --check)",
+      "Bash(scripts/nightly/with-https.sh git fetch https://github.com/jaspax/patristica.git:*)",
+      "Bash(scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/mt/*)",
+      "Bash(scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/mt-curation/*)",
+      "Bash(scripts/nightly/with-https.sh uv --directory .claude/worktrees/nightly-mt run python -m scripts.data pull --job tests)",
+      "Bash(uv --directory .claude/worktrees/nightly-mt sync:*)",
+      "Bash(git worktree add .claude/worktrees/nightly-mt:*)",
+      "Bash(git worktree remove .claude/worktrees/nightly-mt:*)",
+      "Bash(git worktree prune)",
+      "Bash(git worktree list)",
+      "Bash(git status:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt switch:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt branch --unset-upstream)",
+      "Bash(git -C .claude/worktrees/nightly-mt add data/raw/mt-eng/:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv)",
+      "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv)",
+      "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_blocked.csv)",
+      "Bash(git -C .claude/worktrees/nightly-mt commit:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt status:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt diff:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt log:*)",
+      "Bash(gh auth status)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh issue comment 429:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue create --label data-quality:*)",
+      "Bash(gh label list:*)",
+      "Bash(gh issue comment 341:*)",
+      "Bash(date:*)"
+    ],
+    "deny": [
+      "Bash(scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push --force:*)",
+      "Bash(scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push -f:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt commit --amend:*)"
+    ]
+  }
+}
