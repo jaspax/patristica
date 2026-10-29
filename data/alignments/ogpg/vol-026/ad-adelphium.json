@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-026/ad-adelphium",
+ "pivot": "npnf-works/athanasius-letter-60-to-adelphius",
+ "groups": 99,
+ "inputs": "dbd37f7fab381c19",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "npnf-works/athanasius-letter-60-to-adelphius", "units": 105, "ids": "d1898c078c2730b4", "inputs": "38c7eb76cf5fcc7f", "spans": "++++=+++++++++++++++++++++++++++=+++++=+++++++.+++++++++++++++++++++++++++++++++++++=++.+++++++++++++++++", "conf": "999999999999999999999999999999999999999999999998899999999999999999999999999999999999999989799999999"},
+  {"work_id": "ogpg/vol-026/ad-adelphium", "units": 112, "ids": "71b01dc7e0d0fa45", "inputs": "232ce3540570ce2c", "spans": ".++++=++++++++++++++++++++.++++++++++++++++.++++++++++++++=+++=++++++++=++++++++++++++++++++.++++.++..+=++++++=+", "conf": "999999999999999999999999999999999999999999999998899999999999999999999999999999999999999989799999999"}
+ ]
+}
