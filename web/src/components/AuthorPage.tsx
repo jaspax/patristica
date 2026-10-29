@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 
 import { authorFacets, authorWorks, pseudonymsOf, worksByLanguage } from "@/lib/authors";
 import {
@@ -23,12 +23,13 @@ import filterStyles from "./Filters.module.css";
 import LoadError from "./LoadError";
 import styles from "./AuthorPage.module.css";
 
-export default function AuthorPage() {
+/** `placeholder`: what the server renders while the library loads (components/Prerendered.tsx, #406). */
+export default function AuthorPage({ placeholder }: { placeholder?: ReactNode }) {
   const params = useParams<{ id: string }>();
   const id = decodeURIComponent(params.id ?? "");
   const library = useLoaded(loadLibrary);
 
-  if (library.status === "loading") return <p>Loading…</p>;
+  if (library.status === "loading") return placeholder ?? <p>Loading…</p>;
   if (library.status === "error") return <LoadError error={library.error} />;
 
   const author = library.data.authors.get(id);
