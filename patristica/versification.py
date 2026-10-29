@@ -51,6 +51,7 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "pta-lxx": "lxx",
     "coptic-nt": "lxx",
     "gez": "lxx",            # weak fit overall; see overrides
+    "torot": "lxx",          # Psalterium Sinaiticum: lxx 138/150 psalms (vul 129); the rest are lacunae
 }
 
 #: Books that follow a different scheme from their source's default.  Chosen

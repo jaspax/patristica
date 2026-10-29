@@ -40,7 +40,7 @@ The corpus breaks down as follows (October 2026, by chunks):
 | CC BY-SA 4.0 | 38% | Patristic Text Archive, First Thousand Years of Greek, Perseus, Patrologia Latina (OGL), Ge'ez Bible, PTA Septuagint |
 | CC BY 4.0 | 7% | Open Scriptures Hebrew Bible, Coptic Scriptorium, parts of PTA |
 | CC BY-NC 4.0 | 6% | PTA Peshitta, CURSUS |
-| CC BY-NC-SA 4.0 | 2% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration) |
+| CC BY-NC-SA 4.0 | 2% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr) |
 | Academic, non-commercial | 1% | SBL Greek New Testament, Wulfila Gothic Bible |
 | Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
 

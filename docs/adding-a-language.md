@@ -278,6 +278,7 @@ One section per language, added when the language is added. Keep each short: the
 - **Translation vectors:** to be decided on #336.
 - **Fonts:** Monomakh (Google Fonts), made for early Cyrillic: covers all of Cyrillic Extended-A, Extended-B U+A640–A67F (ꙇ ꙑ ꙙ ꙉ ꙁ ꙗ), the titla U+0483–0489. Ponomar lacks ꙇ, ꙑ, ꙙ, ꙉ and three superscript letters; Noto Serif covers everything but has no manuscript look. Neither Monomakh nor Noto Serif has ⁘ ⁛ or the generic combining accents U+0300–036F, which fall back.
 - **First paid run:** not yet (#336).
+- **TOROT (`torot`, #334):** Psalterium Sinaiticum, Kiev Missal, Euchologium Sinaiticum (8 prayers), Chrabr; CC BY-NC-SA 4.0. Psalter versification `lxx` (138 of 150 psalms match its verse counts, `vul` 129; the rest are lacunae), `translation_of` `pta-lxx`. The Kiev Missal is not linked: its Latin sacramentary isn't in the corpus (PL 78's Gregorianum has other prayers for these feasts), so nothing is enrolled for anchoring. Editorial spans: dots for lost letters (`lacuna`; two dots after a word are the Psalter's punctuation, so only three or more count there), brackets for restored letters (`supplement`), Mareš's bracketed dittographies and Porfirij Uspenskij's 1850 note in the Psalter (`note`). The Ostromir colophon is out of period (1056–57, `orv`).
 - **Issues/PRs:** #29 (survey), #330 (plumbing), #332 CCMH Gospels and Vitae, #333 Suprasliensis, #334 TOROT, #335 PTA Severian, #336 retrieval measurement, #331 further sources.
 
 ### Arabic (`arb`/`ara`): not yet added

@@ -111,7 +111,8 @@ SOURCE_IDS: dict[str, str] = {
 }
 
 # Sources added after #102: they were never in the old layout, so nothing maps to them.
-NEW_SOURCES: frozenset[str] = frozenset({"csel", "dsc", "ocp", "wikisource-apocrypha", "wikisource-canons"})
+NEW_SOURCES: frozenset[str] = frozenset({"csel", "dsc", "ocp", "torot", "wikisource-apocrypha",
+                                         "wikisource-canons"})
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
