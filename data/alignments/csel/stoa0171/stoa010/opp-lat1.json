@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "group": "csel/stoa0171/stoa010/opp-lat1",
+ "pivot": "csel/stoa0171/stoa010/opp-lat1",
+ "groups": 62,
+ "inputs": "5fa4e6cb0dc33d10",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "anf-works/lactantius-fragments", "units": 115, "ids": "6d0045fa6cb3a304", "inputs": "bd0e2deebe1db627", "spans": "+2+2..+=+5+++++=........+3.....+..+3+..++=+..++...+..+...+............+.....+.++.......++=.+.+..+=+2++2=+=...+3.++2+2++...+2+2=", "conf": "338999999785588645583672669659499943875445"},
+  {"work_id": "csel/stoa0171/stoa010/opp-lat1", "units": 166, "ids": "22b262bb3b028077", "inputs": "851b0254ffa48d48", "spans": "+++++++++.++=+....+++..+=+==.++=++....++.+=+=+..+..+++=+.++=+....+++=++.+=..+.+........+........+.....+==....+==+...++.+==.+==+=.++......+.++==..+==+=+==.+...+==.....", "conf": "78739999999999989999955886455836726696599498999949989754998938"},
+  {"work_id": "oglt-pl/lactantius/pl7_0_lact", "units": 58, "ids": "6fa4925a389346d7", "inputs": "528a3d14e34c57fa", "spans": "+18+=++-20=+=...++2+++++6+++24+3++=+++2+=+2+4=+=...........+=+==....++", "conf": "999978799999989989999999998938"}
+ ]
+}

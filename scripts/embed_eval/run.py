@@ -44,13 +44,15 @@ def load_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in f if line.strip()]
 
 
-def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Retriever:
+def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None,
+                   translations_dir: Path | None = None) -> Retriever:
     if spec.startswith("hybrid:"):
         parts = spec.removeprefix("hybrid:").split("+")
         if len(parts) < 2:
             raise ValueError(f"hybrid needs at least two retrievers: {spec!r}")
         specs = [p.rpartition("@") if "@" in p else (p, "", "1") for p in parts]
-        return RRF([make_retriever(spec, corpus, cache_dir) for spec, _, _ in specs],
+        return RRF([make_retriever(spec, corpus, cache_dir, translations_dir)
+                    for spec, _, _ in specs],
                    [float(w) for _, _, w in specs])
     texts = [c["text"] for c in corpus]
     if spec == "bm25":
@@ -65,7 +67,8 @@ def make_retriever(spec: str, corpus: list[dict], cache_dir: Path | None) -> Ret
         if dims:
             embedder = Truncated(embedder, int(dims))
         if tr:
-            translations = fresh_translations(corpus, model=tr)
+            store = {} if translations_dir is None else {"store_dir": translations_dir}
+            translations = fresh_translations(corpus, model=tr, **store)
             alt = [translations.get(c["chunk_id"]) for c in corpus]
             return Dense(embedder, texts, alt, alt_name=f"tr:{tr}")
         return Dense(embedder, texts)
@@ -106,6 +109,8 @@ def main() -> None:
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED,
                    help="directory of authored query files (*.jsonl)")
     p.add_argument("--no-cache", action="store_true", help="don't cache embeddings")
+    p.add_argument("--translations-dir", type=Path,
+                   help="translation store for +tr: retrievers (default: data/translations)")
     p.add_argument("--results-dir", type=Path,
                    help="where to write results (default: EVAL_DIR/results)")
     args = p.parse_args()
@@ -123,7 +128,7 @@ def main() -> None:
     failed = []
     for spec in args.retriever:
         try:
-            retriever = make_retriever(spec, corpus, cache_dir)
+            retriever = make_retriever(spec, corpus, cache_dir, args.translations_dir)
             result = evaluate(retriever, corpus, queries)
         except Exception:
             # One model's quota or outage must not stop an overnight batch.
