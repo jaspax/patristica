@@ -169,7 +169,7 @@ _CORPUS_META: dict[str, dict] = {
     # Three discourses of Budge's Coptic Homilies (BL Or. 5001), ascribed to
     # Athanasius in the codex.  Coptic Scriptorium credits "On the Soul and
     # Body" to Melito (the Syriac gives it to Alexander of Alexandria, CPG
-    # 2004); the attribution and a split are open (#365).
+    # 2004); the attribution and a split are open (#398).
     "pseudo-athanasius-discourses": {
         "genre": "patristic",
         "author": "Pseudo-Athanasius",
@@ -336,8 +336,8 @@ _CORPUS_META: dict[str, dict] = {
         "date_range": (100, 400),
         "date_confidence": "uncertain",
     },
-    # Two works (#365): Stephen of Hnes's Encomium and the anonymous Martyrdom
-    # (Sobhy's edition of Hamuli MS 2703).
+    # Two works (#365, split: #398): Stephen of Hnes's Encomium and the
+    # anonymous Martyrdom (Sobhy's edition of Hamuli MS 2703).
     "helias": {
         "genre": "patristic",
         "author": "Stephen of Hnes; Anonymous",
@@ -346,7 +346,7 @@ _CORPUS_META: dict[str, dict] = {
         "date_range": (300, 600),
         "date_confidence": "uncertain",
     },
-    # Three anonymous works (#365), from Budge, Miscellaneous Coptic Texts.
+    # Three anonymous works (#365, split: #398), from Budge, Miscellaneous Coptic Texts.
     "mercurius": {
         "genre": "patristic",
         "author": None,
