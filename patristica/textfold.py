@@ -4,8 +4,10 @@ Orthographic folding for near-verbatim text matching.
 ``fold()`` maps a string to a canonical form so that the same words written
 with different orthography compare equal: Greek with or without accents and
 breathings, Hebrew with or without points, vocalized or unvocalized Syriac,
-Coptic with or without supralinear strokes, and the common Latin spelling
-variants (u/v, i/j, ae/oe/e, medieval *michi*/*nichil*).
+Coptic with or without supralinear strokes, the common Latin spelling
+variants (u/v, i/j, ae/oe/e, medieval *michi*/*nichil*), and the letters
+Church Slavonic witnesses and editions write differently (і/ꙇ/и, оу/ѹ/ꙋ/у,
+ѡ/о, ꙑ/ъі/ы, ѥ/є/е, ꙗ/я/ѣ, ѕ/ꙁ/з, the yers; see ``_CYRILLIC_LETTERS``).
 
 It is deliberately lossy and language-independent: the same function is
 applied to indexed text and to queries, so neither side needs language
@@ -30,6 +32,45 @@ _LATIN_DIGRAPHS = re.compile(r"ae|oe")
 # Latin word-level variants (medieval spellings → classical).
 _LATIN_WORDS = {"michi": "mihi", "nichil": "nihil"}
 
+# Church Slavonic (#330). Superscript letters (Cyrillic Extended-A/B
+# combining letters) are letters of the word written above the line, so they
+# become their base letter instead of being dropped as marks: хрⷭ҇тъ → хрстъ.
+_CYRILLIC_COMBINING_LETTERS = {
+    0x2DE0: "б", 0x2DE1: "в", 0x2DE2: "г", 0x2DE3: "д", 0x2DE4: "ж", 0x2DE5: "з",
+    0x2DE6: "к", 0x2DE7: "л", 0x2DE8: "м", 0x2DE9: "н", 0x2DEA: "о", 0x2DEB: "п",
+    0x2DEC: "р", 0x2DED: "с", 0x2DEE: "т", 0x2DEF: "х", 0x2DF0: "ц", 0x2DF1: "ч",
+    0x2DF2: "ш", 0x2DF3: "щ", 0x2DF4: "ѳ", 0x2DF5: "ст", 0x2DF6: "а", 0x2DF7: "е",
+    0x2DF8: "ꙉ", 0x2DF9: "ꙋ", 0x2DFA: "ѣ", 0x2DFB: "ю", 0x2DFC: "ꙗ", 0x2DFD: "ѧ",
+    0x2DFE: "ѫ", 0x2DFF: "ѭ",
+    0xA674: "є", 0xA675: "і", 0xA676: "ї", 0xA677: "у", 0xA678: "ъ", 0xA679: "ы",
+    0xA67A: "ь", 0xA67B: "ѡ", 0xA69E: "ф", 0xA69F: "ѥ",
+}
+
+# Cyrillic letter variants, applied after lowercasing: what the OCS witnesses
+# and their editions (TOROT, CCMH, Glagolitic transliterations) write
+# differently for one sound. Glagolitic has one letter for ě and ja, so ꙗ/я
+# fold to ѣ; Cyrillic manuscripts write iotation of е and the nasals
+# inconsistently; ѕ/ꙁ/з vary by manuscript; ѵ, ѳ, ѯ, ѱ spell Greek loans.
+_CYRILLIC_LETTERS = str.maketrans({
+    "і": "и", "ꙇ": "и", "ѵ": "и",
+    "ѡ": "о", "ѻ": "о", "ѽ": "о", "ꙍ": "о", "ꙩ": "о", "ꙫ": "о", "ꙭ": "о", "ꙮ": "о",
+    "ꚙ": "о", "ѿ": "от",
+    "ѹ": "у", "ꙋ": "у",
+    "ѥ": "е", "є": "е",
+    "ꙗ": "ѣ", "я": "ѣ", "ꙓ": "ѣ",
+    "ꙑ": "ы",
+    "ѕ": "з", "ꙁ": "з", "ꙃ": "з", "ꙅ": "з",
+    "ꙙ": "ѧ", "ѩ": "ѧ", "ꙝ": "ѧ", "ѭ": "ѫ",
+    "ѳ": "ф", "ѯ": "кс", "ѱ": "пс",
+})
+# Digraphs, after the letters: оу is one letter (u), ъі/ъи spell ꙑ.
+_CYRILLIC_DIGRAPHS = {"оу": "у", "ъи": "ы"}
+_CYRILLIC_DIGRAPH_RE = re.compile("|".join(_CYRILLIC_DIGRAPHS))
+# Yers, after the digraphs: written, omitted (with or without a paerok ꙿ / ⸯ)
+# or vocalized differently from one witness to the next, and absent from
+# modern spelling, so they are left out.
+_CYRILLIC_YERS = dict.fromkeys(map(ord, "ъьꙏꙿⸯ"), None)
+
 
 def _is_dropped_mark(ch: str) -> bool:
     # Mn/Me: combining accents, breathings, points, vowel marks, overlines.
@@ -45,10 +86,14 @@ def _is_separator(ch: str) -> bool:
 def fold(text: str) -> str:
     """Return the folded form of *text*: lowercase, unmarked, single-spaced words."""
     t = unicodedata.normalize("NFKD", text).translate(_IN_WORD_MARKS)
+    t = t.translate(_CYRILLIC_COMBINING_LETTERS)
     t = "".join(ch for ch in t if not _is_dropped_mark(ch))
     t = t.casefold()  # also maps final sigma (ς) and long s (ſ) to σ / s
     t = "".join(" " if _is_separator(ch) else ch for ch in t)
     t = _LATIN_DIGRAPHS.sub("e", t.translate(_LATIN_LETTERS))
+    t = _CYRILLIC_DIGRAPH_RE.sub(
+        lambda m: _CYRILLIC_DIGRAPHS[m.group()], t.translate(_CYRILLIC_LETTERS)
+    ).translate(_CYRILLIC_YERS)
     return " ".join(_LATIN_WORDS.get(w, w) for w in t.split())
 
 
@@ -63,23 +108,34 @@ def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
     """
     chars: list[tuple[str, int, int]] = []
     for i, ch in enumerate(text):
-        for d in unicodedata.normalize("NFKD", ch).translate(_IN_WORD_MARKS):
+        nfkd = unicodedata.normalize("NFKD", ch).translate(_IN_WORD_MARKS)
+        for d in nfkd.translate(_CYRILLIC_COMBINING_LETTERS):
             if _is_dropped_mark(d):
                 continue
             for c in d.casefold():
-                c = " " if _is_separator(c) else c.translate(_LATIN_LETTERS)
-                chars.append((c, i, i + 1))
-    # The digraphs ae/oe, left to right and not overlapping, as the regex does.
+                if _is_separator(c):
+                    chars.append((" ", i, i + 1))
+                    continue
+                # A Cyrillic letter may become two (ѿ → от).
+                for e in c.translate(_LATIN_LETTERS).translate(_CYRILLIC_LETTERS):
+                    chars.append((e, i, i + 1))
+    # The digraphs ae/oe and оу/ъи, left to right and not overlapping, as the
+    # regexes do (they can't overlap each other: different letters).
     merged: list[tuple[str, int, int]] = []
     k = 0
     while k < len(chars):
         c, start, end = chars[k]
-        if c in "ao" and k + 1 < len(chars) and chars[k + 1][0] == "e":
+        pair = c + chars[k + 1][0] if k + 1 < len(chars) else ""
+        if pair in ("ae", "oe"):
             merged.append(("e", start, chars[k + 1][2]))
+            k += 2
+        elif pair in _CYRILLIC_DIGRAPHS:
+            merged.append((_CYRILLIC_DIGRAPHS[pair], start, chars[k + 1][2]))
             k += 2
         else:
             merged.append((c, start, end))
             k += 1
+    merged = [item for item in merged if ord(item[0]) not in _CYRILLIC_YERS]
     words: list[list[tuple[str, int, int]]] = []
     current: list[tuple[str, int, int]] = []
     for item in merged:

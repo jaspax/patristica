@@ -37,6 +37,58 @@ def test_latin_spelling_variants():
     assert fold("cœlum") == fold("caelum")
 
 
+def test_church_slavonic_witnesses_fold_alike():
+    # John 1:1 in Marianus (TOROT's Glagolitic transliteration) and as a
+    # Cyrillic manuscript or a modern reader would write it.
+    marianus = "Искони бѣ слово. ꙇ слово бѣ отъ б҃а. ꙇ б҃ъ бѣ слово."
+    assert fold(marianus) == fold("искони бѣ слово и слово бѣ от ба и бъ бѣ слово")
+    assert fold("ꙇже") == fold("іже") == fold("иже") == fold("їже") == "иже"
+    assert fold("оученици") == fold("ѹченици") == fold("ꙋченици") == fold("ученици") == "ученици"
+    assert fold("ѡтъ") == fold("отъ") == fold("от") == "от"
+    assert fold("ѿ") == "от"
+    assert fold("бꙑти") == fold("бъіти") == fold("быти") == "быти"
+    assert fold("ѥсть") == fold("єсть") == fold("есть") == "ест"
+    assert fold("ꙗко") == fold("ѣко") == fold("яко") == "ѣко"
+    assert fold("ѕвѣзда") == fold("ꙁвѣзда") == fold("звѣзда")
+    assert fold("ꙙзыкъ") == fold("ѩзыкъ") == fold("ѧзыкъ")
+    assert fold("ѭже") == fold("ѫже")
+    assert fold("ѳома") == fold("фома")
+    assert fold("ѵпокрити") == fold("ипокрити")
+
+
+def test_church_slavonic_yers_paerok_titlo_and_marks():
+    assert fold("дьнь") == fold("днь") == "дн"
+    assert fold("сꙿ нимь") == fold("съ нимь") == "с ним"
+    assert fold("пⸯцѣте") == fold("пьцѣте")
+    assert fold("г҃лѭ") == fold("глѭ")  # titlo
+    assert fold("а͑гг҄ела") == "аггела"  # dasia, palatalization
+    assert fold("ъ") == ""  # a lone yer is no word
+
+
+def test_church_slavonic_superscript_letters_are_letters():
+    assert fold("хрⷭ҇тосъ") == fold("хрстосъ") == "хрстос"
+    assert fold("кⷰ҇") == "кц"
+
+
+def test_church_slavonic_capitals():
+    assert fold("Ꙇсправите ѼТ") == fold("исправите от")
+
+
+def test_other_scripts_fold_as_before():
+    """The Cyrillic rules (#330) leave every other script's folding alone."""
+    assert fold("Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν") == (
+        "εν αρχη ην ο λογοσ και ο λογοσ ην προσ τον θεον")
+    assert fold("In principio erat Verbum, et Verbum erat apud Deum") == (
+        "in principio erat uerbum et uerbum erat apud deum")
+    assert fold("ϩⲛ̄ ⲧⲉⲩⲁⲣⲭⲏ ⲛⲉϥϣⲟⲟⲡ ⲛ̄ϭⲓ ⲡϣⲁϫⲉ") == "ϩⲛ ⲧⲉⲩⲁⲣⲭⲏ ⲛⲉϥϣⲟⲟⲡ ⲛϭⲓ ⲡϣⲁϫⲉ"
+    assert fold("Իսկզբանէ էր Բանն") == "իսկզբանէ էր բանն"
+    assert fold("ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ ܡܠܬܐ") == "ܒܪܫܝܬ ܐܝܬܘܗܝ ܗܘܐ ܡܠܬܐ"
+    assert fold("בְּרֵאשִׁית בָּרָא") == "בראשית ברא"
+    assert fold("ቀዳሚሁ ፡ ቃል ፡ ውእቱ") == "ቀዳሚሁ ቃል ውእቱ"
+    assert fold("𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽 𐍅𐌰𐍃 𐍅𐌰𐌿𐍂𐌳") == "𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽 𐍅𐌰𐍃 𐍅𐌰𐌿𐍂𐌳"
+    assert fold("In the beginning was the Word") == "in the beginning was the word"
+
+
 def test_squash_ignores_word_division():
     assert squash("ⲛ ⲧⲉ ⲕⲕⲗⲏⲥⲓⲁ") == squash("ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ")
 
@@ -46,6 +98,8 @@ SAMPLES = [
     "Ἐν ἀρχῇ ἦν ὁ λόγος,", "λόγος· καὶ", "כָּל־הָאָ֖רֶץ", "ܒܪܺܫܺܝܬ݂", "ϩ︤ⲛ︥ ⲧ ⲃⲁϣⲟⲣ⳿", "ⲙ̄ⲡⲛⲟⲩⲧⲉ",
     "Ո՞վ է", "Iustus vnus, caelum", "michi nichil", "cœlum", "Straße", "aee oee",
     "ወርእዮ ፡ እግዚአብሔር ፡ ለብርሃን", "𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽", "", "  ", " a  b ", "x\u200dy",
+    "Искони бѣ слово. ꙇ слово бѣ отъ б҃а.", "оученици ѹченици", "бъіти ꙑ ъ", "ѿ Ѿца",
+    "хрⷭ҇тосъ кⷰ҇ ⁘", "сꙿ нимь· пⸯцѣте", "ѯ ѱ ꙗко", "ооу оъу", "ъ ь ꙿ", "а͑гг҄ела",
 ]
 
 
@@ -66,6 +120,16 @@ def test_fold_spans_maps_back_to_the_source() -> None:
     assert set(pieces[8:12]) == {"michi"}  # a replaced word spans the whole word
     assert pieces[12] == "; "  # a word break spans the gap
     assert pieces[14] == "œ"
+
+
+def test_fold_spans_maps_church_slavonic_back_to_the_source() -> None:
+    text = "оучи ѿ хрⷭ҇тъ"
+    folded, starts, ends = fold_spans(text)
+    assert folded == "учи от хрст"
+    pieces = [text[a:b] for a, b in zip(starts, ends)]
+    assert pieces[0] == "оу"  # a digraph spans both letters
+    assert pieces[4:6] == ["ѿ", "ѿ"]  # ѿ folds to two letters
+    assert pieces[9] == "ⷭ"  # a superscript letter is a letter
 
 
 def test_fold_spans_agrees_with_fold_on_the_corpus() -> None:
