@@ -16,7 +16,9 @@ replace lost ones (Zogr-B, 11th c., Glagolitic). They are part of the codex as
 it is bound and fill its gap without overlap, so they are read into
 ``ccmh-zographensis/matt`` in verse order (their own table; the two verses
 split at the leaf edges, 16:19 and 24:20, are joined), and the edition says
-which verses they are. The chapter lists under chapter 0 are skipped (#369).
+which verses they are. The chapter list before Luke and the title before
+John, under chapter 0, are units ``{book}.0.{n}`` marked as titles
+(``_ccmh.chapter_list``, #369).
 """
 
 from __future__ import annotations
