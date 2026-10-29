@@ -29,6 +29,7 @@ Output: ``data/raw/anf-works/{volume}/{slug}.json``; work_id
 from __future__ import annotations
 
 import logging
+from collections.abc import Callable
 from pathlib import Path
 
 from patristica.models import Work
@@ -57,6 +58,80 @@ _ORIG = "Origen of Alexandria"
 _HIPPO = "Hippolytus of Rome"
 _PS_CLEM = "Pseudo-Clement of Rome"
 _METH = "Methodius of Olympus"
+
+
+# ---------------------------------------------------------------------------
+# Works nested inside another work's div (#381).  ANF prints a few texts as a
+# sub-div of a larger one: Ad Donatum as Cyprian's "Epistle I", the Epitome as
+# an eighth "book" of the Divine Institutes, Clement's fragments after the
+# Stromata.  Both rows read the outer div; the outer row drops the nested
+# text's paragraphs (``_without``) and the nested row keeps only them under
+# a ref prefix of its own (``_only``), so the outer work keeps its refs.
+# ---------------------------------------------------------------------------
+
+_Paras = list[dict]
+
+
+def _under(ref: str, prefix: str) -> bool:
+    return ref == prefix or ref.startswith(prefix + ".")
+
+
+def _without(prefix: str, keep_root: bool = False) -> Callable[[_Paras], _Paras]:
+    """Drop the paragraphs under *prefix* (all but the one at *prefix* itself
+    when *keep_root*: the outer work's own heading printed in the nested div)."""
+    def drop(paras: _Paras) -> _Paras:
+        out = [p for p in paras
+               if not _under(p["ref"], prefix) or (keep_root and p["ref"] == prefix)]
+        if len(out) == len(paras):
+            raise RuntimeError(f"No paragraphs under {prefix!r} to drop")
+        return out
+    return drop
+
+
+def _only(
+    prefix: str, renamed: str, drop_root: bool = False,
+    editorial: Callable[[str], str | None] = lambda ref: None,
+) -> Callable[[_Paras], _Paras]:
+    """Keep the paragraphs under *prefix* (in this row's own refs: its
+    ``ref_prefix`` plus the nested div's number), with *prefix* renamed to *renamed*.
+
+    *editorial* maps a renamed ref to the editorial kind of that whole unit
+    (``patristica.editorial``, #236), or ``None``.
+    """
+    def keep(paras: _Paras) -> _Paras:
+        out: _Paras = []
+        for p in paras:
+            if not _under(p["ref"], prefix) or (drop_root and p["ref"] == prefix):
+                continue
+            ref = renamed + p["ref"][len(prefix):]
+            unit: dict = {"ref": ref, "text": p["text"]}
+            kind = editorial(ref)
+            if kind:
+                unit["editorial"] = [[0, len(p["text"]), kind]]
+            out.append(unit)
+        if not out:
+            raise RuntimeError(f"No paragraphs under {prefix!r}")
+        return out
+    return keep
+
+
+def _marks(kinds: dict[str, str]) -> Callable[[str], str | None]:
+    return kinds.get
+
+
+#: ANF's apparatus inside the nested texts: headings and the translator's notes.
+_DONATUS_EDITORIAL = _marks({
+    "Cypr.Don.2": "heading",   # "Epistle I." (the Oxford numbering)
+    "Cypr.Don.3": "title",     # "To Donatus."
+    "Cypr.Don.4": "note",      # the translator's "Argument.—…"
+})
+_EPITOME_EDITORIAL = _marks({"Lact.Epit": "title"})  # "Addressed to His Brother Pentadius."
+_CLEMENT_FRAGMENTS_EDITORIAL = _marks({
+    "Clem.Frag": "note",  # "[Translated by Rev. William Wilson, M.A.]"
+    # Wilson's note on the Instructor passage in Cramer's catena, its list of
+    # readings, and Coxe's closing note on the Adumbrations.
+    **{f"Clem.Frag.{n}": "note" for n in range(174, 198)},
+})
 
 _WORKS: tuple[_WorkSpec, ...] = (
     # ------------------------------------------------------------------ ANF01
@@ -173,7 +248,7 @@ _WORKS: tuple[_WorkSpec, ...] = (
       P("vi.iii", "Instructor")),
     W("anf02", "clement-stromata", "The Stromata, or Miscellanies",
       "Clement of Alexandria", 202, (198, 215), "approximate", "greek", "Clem.Strom",
-      P("vi.iv", "Stromata")),
+      P("vi.iv", "Stromata"), rechunk=_without("Clem.Strom.9")),  # clement-fragments
     W("anf02", "clement-who-is-the-rich-man", "Who is the Rich Man that Shall be Saved?",
       "Clement of Alexandria", 200, (190, 210), "approximate", "greek", "Clem.QDS",
       P("vi.v", "Rich Man")),
@@ -361,7 +436,8 @@ _WORKS: tuple[_WorkSpec, ...] = (
       P("iv.iii", "Life and Passion of Cyprian")),
     W("anf05", "cyprian-epistles", "The Epistles of Cyprian (with letters to him)", _CYPR,
       253, (249, 258), "approximate", "latin", "Cypr.Ep",
-      P("iv.iv", "Epistles of Cyprian")),
+      P("iv.iv", "Epistles of Cyprian"),
+      rechunk=_without("Cypr.Ep.I", keep_root=True)),  # cyprian-to-donatus
     W("anf05", "cyprian-unity-of-the-church", "On the Unity of the Church", _CYPR,
       251, (249, 253), "established", "latin", "Cypr.Unit",
       P("iv.v.i", "Unity of the Church")),
@@ -594,7 +670,8 @@ _WORKS: tuple[_WorkSpec, ...] = (
 
     # ------------------------------------------------------------------ ANF07
     W("anf07", "lactantius-divine-institutes", "The Divine Institutes", "Lactantius",
-      311, (303, 313), "approximate", "latin", "Lact.Inst", P("iii.ii", "Divine Institutes")),
+      311, (303, 313), "approximate", "latin", "Lact.Inst", P("iii.ii", "Divine Institutes"),
+      rechunk=_without("Lact.Inst.8")),  # lactantius-epitome
     W("anf07", "lactantius-anger-of-god", "A Treatise on the Anger of God", "Lactantius",
       314, (313, 316), "approximate", "latin", "Lact.Ira", P("iii.iii", "Anger of God")),
     W("anf07", "lactantius-workmanship-of-god", "On the Workmanship of God, or the Formation of Man",
@@ -876,6 +953,23 @@ _WORKS: tuple[_WorkSpec, ...] = (
     W("anf09", "origen-commentary-on-matthew", "Commentary on the Gospel of Matthew", _ORIG,
       246, (244, 249), "approximate", "greek", "Orig.CommMt",
       P("xvi.ii", "Commentary on Matthew")),
+
+    # -------------------------------------------- nested in another row's div
+    # (#381; see ``_only`` above)
+    W("anf02", "clement-fragments",
+      "Fragments (Adumbrations on the Catholic Epistles; from the Catenae, the "
+      "Hypotyposes and the Florilegia)", "Clement of Alexandria",
+      200, (190, 215), "uncertain", "greek", "Clem.Frag",
+      P("vi.iv", "Stromata"),
+      rechunk=_only("Clem.Frag.9", "Clem.Frag", editorial=_CLEMENT_FRAGMENTS_EDITORIAL)),
+    W("anf05", "cyprian-to-donatus", "To Donatus (Ad Donatum; ANF Epistle I)", _CYPR,
+      246, (245, 248), "approximate", "latin", "Cypr.Don",
+      P("iv.iv", "Epistles of Cyprian"),
+      rechunk=_only("Cypr.Don.I", "Cypr.Don", drop_root=True, editorial=_DONATUS_EDITORIAL)),
+    W("anf07", "lactantius-epitome", "The Epitome of the Divine Institutes", "Lactantius",
+      314, (313, 317), "approximate", "latin", "Lact.Epit",
+      P("iii.ii", "Divine Institutes"),
+      rechunk=_only("Lact.Epit.8", "Lact.Epit", editorial=_EPITOME_EDITORIAL)),
 )
 
 
@@ -1065,6 +1159,18 @@ _ORIGINALS: dict[str, str] = {
     # ANF08: the Latin Liber de nativitate Mariae, with its pseudo-Jerome
     # preface, inside PL 30's mantissa of works ascribed to Jerome.
     "gospel-of-the-nativity-of-mary": "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas",
+    # -- Nested works (#381), each checked against the original's text.
+    # ANF Epistle I is Ad Donatum (16 sections in both); CSEL 3.1 prints it as a
+    # treatise, so it is not part of the Epistulae that cyprian-epistles translates.
+    "cyprian-to-donatus": "csel/stoa0104a/stoa001/opp-lat1",
+    # The whole Epitome (preface and 68 chapters; ANF keeps the old chapter
+    # numbers, I-LXXIII with a gap).
+    "lactantius-epitome": "csel/stoa0171/stoa008/opp-lat1",
+    # The same collection as Migne's PG 9 Fragmenta (cols. 729-774), in its
+    # order: the Latin Adumbrations (which the OGPG OCR lacks), the catena and
+    # Hypotyposes fragments, the florilegia, and the Instructor passage from
+    # Cramer's catena that ANF describes instead of translating.
+    "clement-fragments": "ogpg/vol-009/fragmenta",
 }
 
 #: Plausible originals deliberately *not* linked (slug → reason).

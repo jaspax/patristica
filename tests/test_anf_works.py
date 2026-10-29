@@ -84,3 +84,32 @@ def test_split_commentary() -> None:
     comm = [p["text"] for p in aw._split_commentary(paras, "commentary")]
     assert canons == ["Canon I.", "Canon text one.", "Canon II.", "Canon text two."]
     assert comm == ["Balsamon. Comment.", "More comment.", "Zonaras. Other."]
+
+
+def test_nested_work_split() -> None:
+    """A nested work (#381) takes its div's paragraphs out of the outer work
+    under a ref prefix of its own; the outer work keeps its other refs."""
+    paras = [{"ref": r, "text": r} for r in (
+        "Ep.I", "Ep.I.2", "Ep.I.3", "Ep.II", "Ep.II.1", "Ep.IX")]
+    outer = aw._without("Ep.I", keep_root=True)(paras)
+    assert [p["ref"] for p in outer] == ["Ep.I", "Ep.II", "Ep.II.1", "Ep.IX"]
+    inner = aw._only("Ep.I", "Don", drop_root=True,
+                     editorial=aw._marks({"Don.2": "heading"}))(paras)
+    assert inner == [
+        {"ref": "Don.2", "text": "Ep.I.2", "editorial": [[0, 6, "heading"]]},
+        {"ref": "Don.3", "text": "Ep.I.3"},
+    ]
+    with pytest.raises(RuntimeError):
+        aw._without("Ep.X")(paras)
+    with pytest.raises(RuntimeError):
+        aw._only("Ep.X", "Y")(paras)
+
+
+def test_nested_works_share_their_outer_div() -> None:
+    """Each nested row reads the same div as the row it is carved out of."""
+    by_slug = {s.slug: s for s in aw._WORKS}
+    for inner, outer in (("clement-fragments", "clement-stromata"),
+                         ("cyprian-to-donatus", "cyprian-epistles"),
+                         ("lactantius-epitome", "lactantius-divine-institutes")):
+        assert by_slug[inner].parts == by_slug[outer].parts
+        assert by_slug[inner].rechunk and by_slug[outer].rechunk
