@@ -18,6 +18,8 @@ np = pytest.importorskip("numpy")
 
 from patristica import anchor_refine, anchor_store, anchoring  # noqa: E402
 from patristica import embeddings as emb  # noqa: E402
+from patristica import translations as tr  # noqa: E402
+from patristica.alignment import Bead  # noqa: E402
 from scripts import anchor  # noqa: E402
 from scripts import normalize as nz  # noqa: E402
 
@@ -368,3 +370,191 @@ def test_cut_files_hold_no_timings(corpus) -> None:
     run(corpus, FakeEmbedder())
     cut = anchor_store.load(corpus["anchors"], "tr/w.json")
     assert "seconds" not in cut.stats
+
+
+# --------------------------------------------- partial translations (#394)
+
+
+def bead(i: int, j: int, conf: float = 0.9) -> Bead:
+    return Bead(i, i + 1, j, j + 1, 0.8, 0.3, conf)
+
+
+def test_a_whole_translation_covers_the_whole_original() -> None:
+    beads = [bead(i, i + 2) for i in range(95)]  # units 2–96 of 100
+    assert anchor_refine.covered_span(beads, 100, 100, 6) == (0, 100)
+    assert anchor_refine.covered_span([], 100, 100, 6) == (0, 100)
+
+
+def test_a_partial_translation_covers_a_span() -> None:
+    # Units 300–379 of 1000 render the translation's 80 units.
+    beads = [bead(i, 300 + i) for i in range(80)]
+    assert anchor_refine.covered_span(beads, 1000, 80, 6) == (294, 386)
+    # A stray match at the end (a similar passage far on) is set aside.
+    stray = [*beads, bead(80, 700), bead(81, 900)]
+    assert anchor_refine.covered_span(stray, 1000, 82, 6) == (294, 386)
+    # Only an uncovered end is cut off: a translation of the beginning.
+    head = [bead(i, i) for i in range(80)]
+    assert anchor_refine.covered_span(head, 1000, 80, 6) == (0, 86)
+
+
+def test_a_thin_alignment_leaves_the_whole_original() -> None:
+    # Weak vectors: a tenth of the translation's units in the confident chain.
+    beads = [bead(i * 10, 300 + i) for i in range(8)]
+    assert anchor_refine.covered_span(beads, 1000, 80, 6) == (0, 1000)
+    # Too few beads, even if they are the whole translation.
+    assert anchor_refine.covered_span([bead(0, 500), bead(1, 501)], 1000, 2, 6) == (0, 1000)
+    # Unconfident beads don't count.
+    weak = [bead(i, 300 + i, conf=0.3) for i in range(80)]
+    assert anchor_refine.covered_span(weak, 1000, 80, 6) == (0, 1000)
+
+
+def partial_pair(untranslated: int) -> tuple:
+    """An original of 8 units the translation renders, then *untranslated*
+    units it doesn't; the translation's provisional cut is every 30 words."""
+    fake = FakeEmbedder()
+    lat = [latin(SENTENCES[i:i + 2]) for i in range(0, 16, 2)]
+    lat += [latin([list(range(500 + 7 * k, 507 + 7 * k))]) for k in range(untranslated)]
+    orig = anchor_refine.Units("o", "lat", [f"P.1.s{i}" for i in range(1, len(lat) + 1)], lat,
+                               fake(lat))
+    eng_par = english(SENTENCES)
+    today_texts = anchoring.cut_at(eng_par, list(range(0, len(anchoring.words(eng_par)), 30)))
+    today = anchor_refine.Units("t", "eng", [f"P.1.s{i}" for i in range(1, len(today_texts) + 1)],
+                                today_texts, np.zeros((len(today_texts), DIMS), np.float32))
+    cache = anchor_refine.VectorCache(None, "t", "t.json", fake, anchor.run_spec(),
+                                      lambda t: len(t.split()))
+    return orig, today, cache, lat
+
+
+def test_refine_restricts_a_partial_translation_to_its_span() -> None:
+    orig, today, cache, lat = partial_pair(40)
+    result = anchor_refine.refine(orig, today, cache)
+    band = anchoring.RefineParams().band
+    assert result.span == (0, 8 + band)
+    assert all(k1 <= 8 for k0, k1, _, _ in result.beads)
+    assert [concepts(t) for t in result.texts()] == [concepts(t) for t in lat[:8]]
+    stats = result.stats(len(lat))
+    assert stats["span"] == [0, 8 + band]
+    assert stats["one_one"] == round(8 / (8 + band), 4)  # of the span, not of all 48 units
+
+
+def test_refine_of_a_whole_translation_is_unchanged() -> None:
+    """No span, and the stats keep their keys: cut files of whole translations
+    are made exactly as before #394."""
+    orig, today, cache, lat = partial_pair(0)
+    result = anchor_refine.refine(orig, today, cache)
+    assert result.span is None
+    assert "span" not in result.stats(len(lat))
+    orig, today, cache, lat = partial_pair(0)
+    plain = anchor_refine.refine(orig, today, cache, restrict=False)
+    assert plain.beads == result.beads and plain.starts() == result.starts()
+    assert plain.stats(len(lat)) == result.stats(len(lat))
+
+
+def test_an_offline_cache_sends_nothing_and_raises_nothing() -> None:
+    orig, today, _, lat = partial_pair(0)
+    cache = anchor_refine.VectorCache(None, "t", "t.json", None, anchor.run_spec(),
+                                      lambda t: len(t.split()), offline=True)
+    cache.seed(anchor.text_sha(today.texts[0]), FakeEmbedder()([today.texts[0]])[0],
+               anchor.run_spec())
+    assert cache.ensure(today.texts) == 0 and cache.sent_tokens == 0
+    with pytest.raises(anchor_refine.NeedsVectors):
+        anchor_refine.VectorCache(None, "t", "t.json", None, anchor.run_spec(),
+                                  lambda t: 1).ensure(today.texts)
+
+
+# ------------------------------- machine-translation vectors of originals (#392)
+
+
+def coptic(sents: list[list[int]]) -> str:
+    """A Coptic original the fake embedder can't read: its own vectors are noise."""
+    return " ".join(" ".join(f"ⲕ{c}ⲁ" for c in s) + "." for s in sents)
+
+
+@pytest.fixture
+def coptic_corpus(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> dict[str, Path]:
+    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {"tr": "test"})
+    d = {k: tmp_path / k for k in ("raw", "normalized", "anchors", "embeddings", "scratch",
+                                   "translations")}
+    write_work(d["raw"], "orig/c.json", "cop", [coptic(SENTENCES[:8]), coptic(SENTENCES[8:])])
+    write_work(d["raw"], "tr/w.json", "eng",
+               [english(SENTENCES[:8]), english(SENTENCES[8:])], translation_of="orig/c")
+    nz.normalize_all(d["raw"], d["normalized"], anchors_dir=d["anchors"])
+    chunks = units(d, "orig/c.json")
+    prov = tr.Provenance(model="m", prompt_version="1", date="2026-10-29", script="test")
+    work = tr.WorkTranslations(work_id="orig/c", source_path="orig/c.json",
+                               source_language="cop", provenance={prov.key: prov})
+    # Every unit but the last has its English machine translation.
+    for c in chunks[:-1]:
+        eng = " ".join(f"eng{n}" for n in re.findall(r"ⲕ(\d+)ⲁ", c["text"])) + "."
+        work.translations.append(tr.ChunkTranslation(
+            chunk_id=c["chunk_id"], source_sha256=anchor.text_sha(c["text"]),
+            provenance=prov.key, group_size=1, text=eng))
+    tr.save(d["translations"], work, chunks)
+    fake = FakeEmbedder()
+    embed_work(d["normalized"], d["embeddings"], "orig/c.json", fake)
+    shard = emb.load(d["embeddings"], "orig/c.json")
+    run_key = next(iter(shard.runs))
+    rows, vecs = list(shard.rows), list(shard.vecs)
+    for t in work.translations:
+        rows.append(emb.Row(t.chunk_id, emb.KIND_TRANSLATION, anchor.text_sha(t.text), run_key))
+        vecs.append(fake([t.text])[0].astype(np.float16))
+    emb.save(d["embeddings"], emb.WorkEmbeddings(shard.work_id, shard.source_path, shard.runs,
+                                                 rows, np.stack(vecs)))
+    return d
+
+
+def coptic_concepts(text: str) -> tuple[int, ...]:
+    return tuple(int(n) for n in re.findall(r"ⲕ(\d+)ⲁ", text))
+
+
+def test_a_rare_language_original_is_anchored_on_its_machine_translation(
+        coptic_corpus, caplog) -> None:
+    d = coptic_corpus
+    [c] = anchor.candidates(d["normalized"])[0]
+    assert c.anchor_language == "cop"
+    assert anchor.original_vectors("cop") == emb.KIND_TRANSLATION
+    assert anchor.original_vectors("grc") == emb.KIND_TEXT
+    orig, missing, _ = anchor.load_original(c, d["normalized"], d["embeddings"],
+                                            d["translations"])
+    text, _, _ = anchor.load_original(c, d["normalized"], d["embeddings"], d["translations"],
+                                      vectors=emb.KIND_TEXT)
+    assert missing == 0
+    # The machine translation's vectors, but the last unit's text vector (it has none).
+    assert not np.allclose(orig.vecs[0], text.vecs[0])
+    assert np.allclose(orig.vecs[-1], text.vecs[-1])
+    assert "no current machine-translation vector" in caplog.text
+    assert run(d, FakeEmbedder(), trans_dir=d["translations"])["cut"] == ["tr/w"]
+    cut = anchor_store.load(d["anchors"], "tr/w.json")
+    assert cut.method == anchor.method_hash(c) != anchoring.params_hash()
+    # Cut on those vectors, the English units render the Coptic units.
+    want = {coptic_concepts(ch["text"]) for ch in units(d, "orig/c.json")}
+    got = [concepts(ch["text"]) for ch in units(d, "tr/w.json")]
+    assert sum(g in want for g in got) >= len(want) - 2
+    assert [s.status for s in anchor.check_works(d["normalized"], d["anchors"])] == [
+        anchor.CURRENT]
+
+
+def test_a_cut_made_on_text_vectors_of_a_rare_original_is_frozen(coptic_corpus) -> None:
+    """A cut file made before #392 on a Coptic original's own vectors is
+    reported (frozen) and re-cut only with --recut."""
+    d = coptic_corpus
+    run(d, FakeEmbedder(), trans_dir=d["translations"])
+    cut = anchor_store.load(d["anchors"], "tr/w.json")
+    cut.method = anchoring.params_hash()
+    anchor_store.save(d["anchors"], "tr/w.json", cut)
+    [state] = anchor.check_works(d["normalized"], d["anchors"])
+    assert state.status == anchor.METHOD
+    assert run(d, FakeEmbedder(), trans_dir=d["translations"])["cut"] == []
+    assert run(d, FakeEmbedder(), trans_dir=d["translations"],
+               recut=["tr/w"])["cut"] == ["tr/w"]
+
+
+def test_text_vector_originals_keep_the_method_of_existing_cut_files() -> None:
+    """Greek and Latin originals: the method hash is the one every cut file
+    before #392/#394 records, so none of them goes stale. (A Slavonic
+    *translation* is anchored on its Greek original: the original's language
+    decides.)"""
+    assert anchor.original_vectors("chu") == emb.KIND_TRANSLATION  # #336
+    for language in ("grc", "lat", ""):
+        c = anchor.Candidate("tr/w.json", "tr/w", "eng", "orig/w", "orig/w.json", language)
+        assert anchor.method_hash(c) == anchoring.params_hash() == "e26e66e4678bcee0"
