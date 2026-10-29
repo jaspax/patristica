@@ -14,6 +14,9 @@ The filters are those of vector search (``api.search.Filters``), over the
 same columns, here taken from the chunk and its work. After filtering, the
 matches fold by passage group (``api.passages``, #180): each group is one
 result, led by its first match in this order.
+
+Machine translations (``patristica.sources.MACHINE_TRANSLATION_SOURCES``, #422)
+never match: search covers the originals and the published translations.
 """
 
 from __future__ import annotations
@@ -24,6 +27,7 @@ import psycopg
 
 from api.passages import passage_group
 from patristica.keyword import phrase_pattern
+from patristica.sources import MACHINE_TRANSLATION_SOURCES
 
 #: A phrase of very common words can match a large part of the corpus.
 TIMEOUT_MS = 5000
@@ -46,7 +50,7 @@ _MATCHES = """
                coalesce(c.date_range, w.date_range) AS date_range,
                {group} AS grp
         FROM chunks c JOIN works w ON w.work_id = c.work_id
-        WHERE {phrases}
+        WHERE {phrases} AND w.source_id <> ALL(%(machine_sources)s::text[])
     ) k
     WHERE {where}
 """
@@ -117,7 +121,8 @@ def phrase_search(conn: psycopg.Connection, phrases: list[str], where: str,
                      "set_config('jit', 'off', true)", (str(timeout_ms),))
         try:
             # Unprepared, so the planner sees the pattern and uses the trigram index.
-            rows = conn.execute(sql, {**params, **patterns, "limit": limit, "offset": offset},
+            rows = conn.execute(sql, {**params, **patterns, "limit": limit, "offset": offset,
+                                      "machine_sources": sorted(MACHINE_TRANSLATION_SOURCES)},
                                 prepare=False).fetchall()
         except psycopg.errors.QueryCanceled as exc:
             raise PhraseTooBroad("This phrase is too common to search: add more words.") from exc
