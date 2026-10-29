@@ -58,6 +58,7 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "coptic-nt": "lxx",
     "demetrius-psalter": "lxx",  # Church Slavonic Psalter; the edition numbers by Rahlfs (149/151 psalms)
     "gez": "lxx",            # weak fit overall; see overrides
+    "torot": "lxx",          # Psalterium Sinaiticum: lxx 138/150 psalms (vul 129); the rest are lacunae
 }
 
 #: Books that follow a different scheme from their source's default.  Chosen

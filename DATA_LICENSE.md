@@ -43,7 +43,7 @@ The corpus breaks down as follows (late October 2026, by chunks):
 | Public domain | 42% | OGPG (Migne), NPNF/ANF (CCEL), CANTUS, KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, older liturgical editions |
 | CC BY 4.0 | 5% | Digital Syriac Corpus, Open Scriptures Hebrew Bible, most of Coptic Scriptorium, parts of PTA, CCMH |
 | CC BY-NC 4.0 | 1.5% | CURSUS, PTA Peshitta |
-| CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib) |
+| CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr) |
 | Academic, non-commercial | 0.3% | SBL Greek New Testament, Wulfila Gothic Bible |
 | CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`) |
 | Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |

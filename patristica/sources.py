@@ -48,6 +48,7 @@ SOURCE_LABELS: dict[str, str] = {
     "perseus-eng": "Perseus Digital Library (English translations)",
     "pta": "Patristic Text Archive",
     "pta-eng": "Patristic Text Archive (English translations)",
+    "torot": "TOROT (Old Church Slavonic Treebank)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     # Liturgical
