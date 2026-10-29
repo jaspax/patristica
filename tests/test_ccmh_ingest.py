@@ -177,3 +177,12 @@ def test_lection_marks_are_metadata_but_the_preposition_za_is_text():
     assert "кⷰ" not in editorial.source_text({"text": conv.text, "editorial": conv.editorial})
     assert convert("!za!C v& ono vr@mE", ZOGRAPHENSIS).editorial[0][2] == "metadata"
     assert convert("za nE", MARIANUS).editorial == []       # за "for", not зачѧло
+
+
+def test_a_dot_opening_a_numeral_keeps_its_space():
+    assert text("s&t& i ./i/i. ot$c$", VITAE) == f"сътъ и .и{TITLO}и{TITLO}. отьць"
+    assert text("s&t& i . ot$c$", VITAE) == "сътъ и. отьць"
+    assert text("Clvkom& .pride") == "члвкомъ. приде"   # a stop against the next word
+    assert text("iz-d-raja", VITAE) == "из-д-раꙗ"         # the Vitae's hyphen
+    assert text("v@k[om& .] amin$") == "вѣк[омъ.] аминь"
+    assert text("esm& ..") == "есмъ.."

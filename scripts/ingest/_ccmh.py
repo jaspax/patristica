@@ -437,11 +437,21 @@ def convert(ascii_text: str, table: Table) -> Converted:
         if pkey is not None:
             end_word()
             # Attach a mark to the word before it ("словомъ ." → "словомъ."),
-            # but keep a space between two marks ("⁘ ⁘").
+            # but keep a space between two marks ("⁘ ⁘") and before the dot
+            # that opens a numeral framed by dots ("и .и҃і."). A mark written
+            # against the next word ("чл҃вкомъ .приде") gets a space after it,
+            # since derived verses break only between words.
+            after = i + len(pkey)
+            nxt = ascii_text[after:].split(" ", 1)[0]
+            framed = (len(nxt) > 1 and nxt[-1] == "." and "." not in nxt[:-1]
+                      and any(c.isalpha() for c in nxt))
             if (len(out) > 1 and out[-1].text == " " and out[-1].group == group()
-                    and not out[-2].punct):
+                    and not out[-2].punct and not framed):
                 out.pop()
             out.append(_Cluster(table.punctuation[pkey], group(), punct=True))
+            if (nxt and not framed and pkey != "-"
+                    and (nxt[0].isalpha() or nxt[0] in "*!(~^/\"&$@")):
+                out.append(_Cluster(" ", group()))
             i += len(pkey)
             continue
         if ch == "+":
