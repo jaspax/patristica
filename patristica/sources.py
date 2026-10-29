@@ -31,6 +31,7 @@ SOURCE_LABELS: dict[str, str] = {
     "didache": "Didache (Ante-Nicene Fathers)",
     "dsc": "Digital Syriac Corpus",
     "first1k": "First Thousand Years of Greek",
+    "first1k-eng": "First Thousand Years of Greek (English translations)",
     "npnf-works": "Nicene and Post-Nicene Fathers",
     "ocp": "Online Critical Pseudepigrapha",
     "oglt-pl": "Patrologia Latina (Open Greek and Latin)",
