@@ -550,8 +550,11 @@ def test_a_cut_made_on_text_vectors_of_a_rare_original_is_frozen(coptic_corpus) 
 
 
 def test_text_vector_originals_keep_the_method_of_existing_cut_files() -> None:
-    """Greek, Latin (and Slavonic) originals: the method hash is the one every
-    cut file before #392/#394 records, so none of them goes stale."""
-    for language in ("grc", "lat", "chu", ""):
+    """Greek and Latin originals: the method hash is the one every cut file
+    before #392/#394 records, so none of them goes stale. (A Slavonic
+    *translation* is anchored on its Greek original: the original's language
+    decides.)"""
+    assert anchor.original_vectors("chu") == emb.KIND_TRANSLATION  # #336
+    for language in ("grc", "lat", ""):
         c = anchor.Candidate("tr/w.json", "tr/w", "eng", "orig/w", "orig/w.json", language)
         assert anchor.method_hash(c) == anchoring.params_hash() == "e26e66e4678bcee0"

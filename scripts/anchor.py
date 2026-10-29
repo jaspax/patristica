@@ -30,8 +30,9 @@ re-cuts nothing; bump ``anchoring.ANCHOR_VERSION`` deliberately.
 
 **Requirements.** The original's units need current text vectors (run
 ``scripts.embed --work {original}`` first, as ``scripts.align`` requires); the
-step refuses a work otherwise. A Syriac, Coptic, Armenian or Ge'ez original is
-anchored on its English machine translation's vectors (#392,
+step refuses a work otherwise. An original in a language
+``scripts.translate`` translates (Syriac, Coptic, Armenian, Ge'ez, Church
+Slavonic) is anchored on its English machine translation's vectors (#392,
 :func:`original_vectors`), so translate and embed it first; a unit without
 one falls back to its text vector (logged). A translation of only part of its
 original is refined on the span it covers (#394,
@@ -256,8 +257,9 @@ def wants_vector(text: str) -> bool:
 def original_vectors(anchor_language: str) -> int:
     """The vectors an original in *anchor_language* is anchored on (#392): its
     English machine translation's (``KIND_TRANSLATION``) for a language
-    ``scripts.translate`` translates (Syriac, Coptic, Armenian, Ge'ez), whose
-    own vectors match English badly, else its own text (``KIND_TEXT``). This
+    ``scripts.translate`` translates (``translations.TRANSLATED_LANGUAGES``:
+    Syriac, Coptic, Armenian, Ge'ez, Church Slavonic), whose own vectors
+    match English badly, else its own text (``KIND_TEXT``). This
     is what ``scripts.align`` uses for such a member too."""
     return emb.KIND_TRANSLATION if anchor_language in tr.TRANSLATED_LANGUAGES else emb.KIND_TEXT
 

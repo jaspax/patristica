@@ -80,7 +80,8 @@ PR #303 (#292), which was not merged.
   `--offline` runs on cached vectors only, for free.
 - **Partial translations and rare-language originals** (#394, #392; §4.2,
   §4.3, §8): the original is restricted to the span a partial translation
-  covers, and a Syriac/Coptic/Armenian/Ge'ez original is anchored on its
+  covers, and an original in a machine-translated language (Syriac, Coptic,
+  Armenian, Ge'ez, Church Slavonic) is anchored on its
   English machine translation's vectors. Neither changes the cut file of a
   whole translation of a Greek or Latin original.
 
@@ -216,9 +217,11 @@ Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
   to its vector. It is seeded for free with the provisional cut's stored
   vectors. A provisional unit is a run of segments, so the cache can score it
   exactly.
-- The original's units already have vectors in `data/embeddings`. A Greek,
-  Latin (or Slavonic, …) original is anchored on its text vectors.
-- **A Syriac/Coptic/Armenian/Ge'ez *original* is anchored on its English
+- The original's units already have vectors in `data/embeddings`. A Greek or
+  Latin original is anchored on its text vectors.
+- **An original in a machine-translated language
+  (`translations.TRANSLATED_LANGUAGES`: Syriac, Coptic, Armenian, Ge'ez and,
+  since #336, Church Slavonic) is anchored on its English
   machine translation's vectors** (`KIND_TRANSLATION`, #392; reversing the
   first design, which used its text vectors so as not to mix the kinds on one
   side). Those languages' own vectors match English badly: for John of
