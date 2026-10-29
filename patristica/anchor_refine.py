@@ -26,7 +26,9 @@ writes nothing but the scratch vector store.
    the sum of its segments' vectors, mapped onto the exact scale by a linear
    :class:`Calibration` and charged a hysteresis. Skipping an original unit
    is free, skipping a segment costs a little. The program runs in a band
-   around the provisional cut's alignment (:func:`provisional_band`).
+   around the provisional cut's alignment (:func:`provisional_band`), on the
+   part of the original the translation covers (:func:`covered_span`, #394:
+   the whole original unless the translation is partial).
 4. **Rounds** (:func:`refine`). The chosen pieces that aren't in the cache are
    embedded and the program runs again, until a round chooses only cached
    pieces or after ``max_rounds``; then one exact-only round scores the final
@@ -102,6 +104,11 @@ class Units:
     def version(self) -> Version:
         return Version(self.work_id, self.vecs)
 
+    def slice(self, k0: int, k1: int) -> Units:
+        """Units ``[k0, k1)`` (the part of an original a translation covers, #394)."""
+        return Units(self.work_id, self.language, self.refs[k0:k1], self.texts[k0:k1],
+                     self.vecs[k0:k1], None if self.spans is None else self.spans[k0:k1])
+
     def source_texts(self) -> list[str]:
         """The units' texts without editorial material: what is embedded."""
         if self.spans is None:
@@ -118,20 +125,24 @@ class VectorCache:
     *path* is the scratch shard (``data/anchor_vectors/{path}.npz``, an
     ``embeddings.WorkEmbeddings`` whose rows are keyed by the text hash);
     *embed* sends texts to the API (None: nothing may be sent, and
-    :meth:`ensure` raises ``NeedsVectors``). ``budget_tokens`` caps what one
+    :meth:`ensure` raises ``NeedsVectors``, unless *offline*: then texts
+    without a vector simply stay without one, which lets an evaluation run on
+    the vectors already known, for free). ``budget_tokens`` caps what one
     process sends. Every vector keeps the run (model, date) it came from, so a
     final unit's vector can be written into ``data/embeddings`` as is.
     """
 
     def __init__(self, path: Path | None, work_id: str, source_path: str,
                  embed: Callable[[list[str]], np.ndarray] | None, run: emb.EmbeddingRun,
-                 count: Callable[[str], int], budget_tokens: int | None = None) -> None:
+                 count: Callable[[str], int], budget_tokens: int | None = None,
+                 offline: bool = False) -> None:
         self.path = path  # scratch store directory, or None (in memory)
         self.work_id, self.source_path = work_id, source_path
         self._embed = embed
         self.run = run
         self._count = count
         self.budget_tokens = budget_tokens
+        self.offline = offline and embed is None
         self.raw: dict[str, np.ndarray] = {}  # sha → float16 vector as stored
         self.runs: dict[str, emb.EmbeddingRun] = {}  # sha → its run
         self._unit: dict[str, np.ndarray] = {}  # sha → normalized float32
@@ -196,6 +207,8 @@ class VectorCache:
         if not todo:
             return 0
         tokens = sum(self._count(t) for t in todo)
+        if self.offline:
+            return 0
         if self._embed is None:
             raise NeedsVectors(f"{self.work_id}: {len(todo):,} texts (~{tokens:,} tokens) "
                                "need vectors: run scripts.anchor with --pay", tokens)
@@ -413,6 +426,71 @@ def calibrate(paras: Sequence[Paragraph], segs: Sequence[Segment], seg_vecs: np.
 
 
 # --------------------------------------------------------------------- the DP
+
+
+#: Partial translations (#394). The original is restricted to the span the
+#: translation covers only when the part left out at either end is at least
+#: this many units and this share of the original: a translation of the whole
+#: work is refined on the whole original, exactly as before. Frozen like
+#: ``RefineParams`` (changing them can re-cut partial translations), but kept
+#: out of it and out of the method hash, since they leave every whole
+#: translation's cut unchanged; a restricted cut records its span in its stats.
+COVER_MIN_GAP = 20
+COVER_MIN_SHARE = 0.05
+#: The provisional cut's alignment is trusted only when its confident
+#: monotone chain has this many beads and holds this share of the
+#: translation's units; else the whole original is used. Weak vectors (a rare
+#: language's own text against English) align a tenth or less of the units,
+#: and their stray matches would make a whole translation look partial.
+COVER_MIN_BEADS = 3
+COVER_MIN_ALIGNED = 0.5
+#: An end of the chain is set aside as a stray match when it is reached by a
+#: jump on the original side this much longer than on the translation side…
+COVER_JUMP = 12
+#: …and the beads beyond the jump are at most this share of the chain.
+COVER_MAX_STRAY = 0.1
+
+
+def covered_span(today_beads: Sequence[Bead], n_orig: int, n_trans: int,
+                 pad: int) -> tuple[int, int]:
+    """The original units ``[k0, k1)`` the translation covers (#394).
+
+    Read from the provisional cut's alignment with the whole original
+    (*today_beads*, ``align_pair``: the passage aligner on the stored vectors,
+    so no extra vectors and no dependence on ``data/alignments``, which is
+    made after this step): the original units from the first to the last bead
+    of its confident monotone chain, less a stray match at either end (a few
+    end beads reached by a long jump on the original side only, such as a
+    similar passage in an untranslated part), widened by *pad* units. An end
+    is moved in only when it leaves out at least ``COVER_MIN_GAP`` units and
+    ``COVER_MIN_SHARE`` of the original; otherwise it stays at 0 or
+    *n_orig*, so a whole translation gets ``(0, n_orig)``, and so does one
+    whose alignment is too thin to trust (``COVER_MIN_BEADS``,
+    ``COVER_MIN_ALIGNED``).
+    """
+    confident = [bd for bd in today_beads if bd.conf >= 0.5]
+    chain = set(anchor_chain([(bd.i0, bd.j0) for bd in confident]))
+    beads = sorted((bd for bd in confident if (bd.i0, bd.j0) in chain), key=lambda b: b.i0)
+    if (len(beads) < COVER_MIN_BEADS
+            or sum(bd.i1 - bd.i0 for bd in beads) < COVER_MIN_ALIGNED * n_trans):
+        return 0, n_orig
+    stray = max(1, int(COVER_MAX_STRAY * len(beads)))
+
+    def jump(a: Bead, b: Bead) -> bool:
+        return (b.j0 - a.j1) - (b.i0 - a.i1) > COVER_JUMP
+
+    first, last = 0, len(beads)
+    for t in range(1, stray + 1):  # the innermost jump among the last *stray* beads
+        if jump(beads[-t - 1], beads[-t]):
+            last = len(beads) - t
+    for t in range(stray):
+        if jump(beads[t], beads[t + 1]):
+            first = t + 1
+    k0, k1 = beads[first].j0, beads[last - 1].j1
+    gap = max(COVER_MIN_GAP, COVER_MIN_SHARE * n_orig)
+    lo = max(k0 - pad, 0) if k0 >= gap else 0
+    hi = min(k1 + pad, n_orig) if n_orig - k1 >= gap else n_orig
+    return lo, hi
 
 
 def provisional_band(n_orig: int, segs: Sequence[Segment], paras: Sequence[Paragraph],
@@ -726,6 +804,10 @@ class Result:
     calibration: Calibration
     fallback_paragraphs: set[int] = field(default_factory=set)
     history: list[dict] = field(default_factory=list)
+    #: The original units ``[k0, k1)`` the cut was refined on, when the
+    #: translation covers only part of its original (#394; ``covered_span``),
+    #: else None (the whole original). ``beads`` count units of the whole.
+    span: tuple[int, int] | None = None
 
     def texts(self) -> list[str]:
         return [piece_text(self.paras, p, a0, a1)
@@ -741,13 +823,21 @@ class Result:
         return [[a0 for a0, _ in ps] for ps in self.pieces]
 
     def stats(self, n_orig: int) -> dict:
+        """What a cut file records of the run. ``one_one`` is the share of the
+        original's units in a 1:1 bead: of the covered span's units when the
+        original was restricted (#394), which is then recorded as ``span``."""
+        if self.span is not None:
+            n_orig = self.span[1] - self.span[0]
         one = sum(1 for k0, k1, j0, j1 in self.beads if k1 - k0 == 1)
-        return {"rounds": self.rounds, "converged": self.converged,
-                "beads": len(self.beads),
-                "one_one": round(one / n_orig, 4) if n_orig else 0.0,
-                "units": sum(len(ps) for ps in self.pieces),
-                "fallback_paragraphs": len(self.fallback_paragraphs),
-                "calibration": [round(self.calibration.a, 4), round(self.calibration.b, 4)]}
+        out = {"rounds": self.rounds, "converged": self.converged,
+               "beads": len(self.beads),
+               "one_one": round(one / n_orig, 4) if n_orig else 0.0,
+               "units": sum(len(ps) for ps in self.pieces),
+               "fallback_paragraphs": len(self.fallback_paragraphs),
+               "calibration": [round(self.calibration.a, 4), round(self.calibration.b, 4)]}
+        if self.span is not None:
+            out["span"] = list(self.span)
+        return out
 
 
 def wants_vector(text: str) -> bool:
@@ -763,12 +853,19 @@ def first_texts(today: Units, language: str) -> list[str]:
 
 
 def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = RefineParams(),
-           params: Params | None = None) -> Result:
+           params: Params | None = None, restrict: bool = True) -> Result:
     """Refine *today*'s (provisional) cut of the translation on *orig*.
 
     *cache* holds whatever vectors are known (seeded with the stored vectors of
     the provisional units); the segments and any provisional unit without a
     vector are embedded first (raising ``NeedsVectors`` without an embedder).
+
+    When the translation covers only part of *orig* (:func:`covered_span` on
+    the provisional cut's alignment, #394), the refinement runs on that part:
+    the band, baselines, calibration and statistics see only the covered
+    units, and ``Result.span`` records them. For a whole translation nothing
+    changes. ``restrict=False`` always uses the whole original (as before
+    #394; for ``scripts.anchor_eval``).
     """
     paras = paragraphs_of(today)
     segs = segments_of(paras, today.language)
@@ -791,6 +888,21 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
             tvecs[u] = v
     today = Units(today.work_id, today.language, today.refs, today.texts, tvecs, today.spans)
     today_beads = align_pair(today.version(), orig.version(), params)
+    # A partial translation (#394): refine on the part of the original it
+    # covers, so its tail isn't cut against untranslated text. A whole
+    # translation keeps the whole original (and this exact code path).
+    n_all = len(orig.texts)
+    span: tuple[int, int] | None = (covered_span(today_beads, n_all, len(today.texts), p.band)
+                                    if restrict else (0, n_all))
+    if span == (0, n_all):
+        span = None
+    else:
+        log.info("%s covers original units %d–%d of %d (%s … %s): refining on those",
+                 today.work_id, span[0], span[1], n_all, orig.refs[span[0]],
+                 orig.refs[span[1] - 1])
+        orig = orig.slice(*span)
+        today_beads = align_pair(today.version(), orig.version(), params)
+    shift = span[0] if span is not None else 0
     lo, hi = provisional_band(len(orig.texts), segs, paras, today_beads, p.band)
     calib = calibrate(paras, segs, seg_vecs, today, orig, today_beads, p.min_calibration)
     log.info("calibration: exact ≈ %.3f · summed + %.3f", calib.a, calib.b)
@@ -805,7 +917,9 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
                                            seg_vecs, paras, lo, hi, cache, calib,
                                            today.language, p, exact_only=final, runs=runs)
         pieces, fallback = pieces_from(beads, skipped, segs, paras)
-        result = Result(paras, pieces, beads, r, False, calib, fallback, history)
+        if shift:
+            beads = [(k0 + shift, k1 + shift, j0, j1) for k0, k1, j0, j1 in beads]
+        result = Result(paras, pieces, beads, r, False, calib, fallback, history, span)
         texts = [t for t in result.embed_texts() if wants_vector(t)]
         todo = cache.missing(texts)
         history.append({"round": r, "exact_only": final, "units": len(result.texts()),

@@ -12,6 +12,10 @@ SOURCE_LABELS: dict[str, str] = {
     # Scripture
     "armenian": "Classical Armenian Bible (Zohrab)",
     "asv": "American Standard Version",
+    "ccmh-assemanianus": "Codex Assemanianus (Old Church Slavonic, CCMH)",
+    "ccmh-marianus": "Codex Marianus (Old Church Slavonic, CCMH)",
+    "ccmh-savvina": "Savvina kniga (Old Church Slavonic, CCMH)",
+    "ccmh-zographensis": "Codex Zographensis (Old Church Slavonic, CCMH)",
     "clementine": "Clementine Vulgate",
     "coptic-nt": "Sahidic Coptic Bible",
     "demetrius-psalter": "Psalter of Demetrius (Sinai, Glagolitic)",
@@ -27,6 +31,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Patristic
     "anf-works": "Ante-Nicene Fathers",
     "apostolic-constitutions": "Apostolic Constitutions (Ante-Nicene Fathers)",
+    "ccmh": "Corpus Cyrillo-Methodianum Helsingiense",
     "coptic-scriptorium": "Coptic Scriptorium",
     "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",
     "didache": "Didache (Ante-Nicene Fathers)",
@@ -40,6 +45,7 @@ SOURCE_LABELS: dict[str, str] = {
     "perseus": "Perseus Digital Library",
     "perseus-eng": "Perseus Digital Library (English translations)",
     "pta": "Patristic Text Archive",
+    "pta-eng": "Patristic Text Archive (English translations)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     # Liturgical

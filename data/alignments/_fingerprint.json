@@ -713,10 +713,14 @@
    ]
   },
   "book:john": {
-   "keys": "c8f9257411abb569",
+   "keys": "666d37920569d61f",
    "members": [
     "armenian/john",
     "asv/john",
+    "ccmh-assemanianus/john",
+    "ccmh-marianus/john",
+    "ccmh-savvina/john",
+    "ccmh-zographensis/john",
     "clementine/john",
     "coptic-nt/john",
     "kjv/john",
@@ -820,10 +824,14 @@
    ]
   },
   "book:luke": {
-   "keys": "afc7f25d956fc0c4",
+   "keys": "47baee57ef6f77ae",
    "members": [
     "armenian/luke",
     "asv/luke",
+    "ccmh-assemanianus/luke",
+    "ccmh-marianus/luke",
+    "ccmh-savvina/luke",
+    "ccmh-zographensis/luke",
     "clementine/luke",
     "coptic-nt/luke",
     "kjv/luke",
@@ -849,10 +857,14 @@
    ]
   },
   "book:mark": {
-   "keys": "6c8aefcc985d5dc2",
+   "keys": "143e193b5a574c2e",
    "members": [
     "armenian/mark",
     "asv/mark",
+    "ccmh-assemanianus/mark",
+    "ccmh-marianus/mark",
+    "ccmh-savvina/mark",
+    "ccmh-zographensis/mark",
     "clementine/mark",
     "coptic-nt/mark",
     "kjv/mark",
@@ -864,10 +876,14 @@
    ]
   },
   "book:matt": {
-   "keys": "7e3e083b1ad22e11",
+   "keys": "3a126b2ef5f240ce",
    "members": [
     "armenian/matt",
     "asv/matt",
+    "ccmh-assemanianus/matt",
+    "ccmh-marianus/matt",
+    "ccmh-savvina/matt",
+    "ccmh-zographensis/matt",
     "clementine/matt",
     "coptic-nt/matt",
     "kjv/matt",
@@ -1005,13 +1021,12 @@
    ]
   },
   "book:ps": {
-   "keys": "1710e44f8a815561",
+   "keys": "abc387ecfa4a967e",
    "members": [
     "armenian/ps",
     "asv/ps",
     "clementine/ps",
     "coptic-nt/ps",
-    "demetrius-psalter/ps",
     "kjv/ps",
     "lxx-rahlfs/ps",
     "oshb/ps",
@@ -4239,6 +4254,7 @@
   "ogpg/vol-065/severianus-sermones": {
    "members": [
     "ogpg/vol-065/severianus-sermones",
+    "pta-eng/pta0001/pta028/pta-eng2",
     "pta/pta0001/pta028/pta-grc1",
     "pta/pta0001/pta028/pta-grc2",
     "pta/pta0001/pta028/pta-lat1"
@@ -4463,6 +4479,7 @@
   },
   "pta/pta0030/pta016/pta-grc2": {
    "members": [
+    "pta-eng/pta0030/pta016/pta-eng1",
     "pta/pta0030/pta016/pta-grc2",
     "pta/pta0030/pta016/pta-grc3",
     "pta/pta0030/pta016/pta-grc4",
@@ -4471,14 +4488,27 @@
   },
   "pta/pta0039/pta001/pta-grc1": {
    "members": [
+    "pta-eng/pta0039/pta001/pta-eng1",
     "pta/pta0039/pta001/pta-grc1",
     "pta/pta0039/pta001/pta-grc2"
+   ]
+  },
+  "pta/pta0040/pta001/pta-grc1": {
+   "members": [
+    "pta-eng/pta0040/pta001/pta-eng1",
+    "pta/pta0040/pta001/pta-grc1"
    ]
   },
   "pta/pta0100/pta002/pta-grc1": {
    "members": [
     "npnf-works/alexander-deposition-of-arius",
     "pta/pta0100/pta002/pta-grc1"
+   ]
+  },
+  "pta/pta0200/pta001/pta-syc1": {
+   "members": [
+    "pta-eng/pta0200/pta001/pta-eng1",
+    "pta/pta0200/pta001/pta-syc1"
    ]
   },
   "wikisource-apocrypha/apocalypsis-esdrae": {
