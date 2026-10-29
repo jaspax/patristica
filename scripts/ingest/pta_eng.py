@@ -13,8 +13,8 @@ verses (#304) without re-cutting the PTA editions that translate one another
 
 The English ones become English works with ``translation_of`` set to the work id
 of the PTA edition they render, named by the div's ``@corresp``. When that
-edition is not in the corpus (a Church Slavonic intermediary, a witness outside
-the collection period), the translation is linked to the original named in
+edition is not in the corpus (a witness outside the collection period), the
+translation is linked to the original named in
 :data:`_ORIGINAL_FALLBACK`, and its ``edition`` says which version it was made
 from; without a fallback it is skipped. Translations into other languages are
 skipped (#367). A work is dated as its original.
@@ -71,18 +71,16 @@ _LANG_NAMES: dict[str, str] = {
     "cop": "Coptic", "gez": "Ge'ez", "chu": "Church Slavonic", "got": "Gothic",
 }
 
-#: Translations whose ``@corresp`` names a version that is itself a
-#: translation, or not in the corpus: the edition of the original they are
-#: linked to instead (CTS version id of the same work). It applies even when
-#: the intermediary is in the corpus, since an ingestor's ``translation_of``
-#: goes straight to the original (``tests/test_translation_of.py``). A
-#: translation of a translation keeps its intermediary in ``edition``.
-_ORIGINAL_FALLBACK: dict[str, str] = {
-    # Coșcodan's English is made from the Slavonic of the Velikie Minei Chetii
-    # (pta-chu1, in the corpus since #335, itself a translation of the Greek);
-    # the Greek it renders is the PTA text of PG 65 (pta-grc2, same sections).
-    "pta0001.pta028.pta-eng2": "pta-grc2",
-}
+#: Translations whose ``@corresp`` names a version that is not in the corpus:
+#: the edition of the original they are linked to instead (CTS version id of
+#: the same work). A translation of a translation keeps its intermediary in
+#: ``edition``. A translation whose ``@corresp`` names an intermediary that is
+#: in the corpus is linked to it, and needs a curated ``translation_of`` row in
+#: ``patristica/data/version_links.csv`` naming the same work, since only
+#: curated links may chain (``tests/test_translation_of.py``): Coșcodan's
+#: English In theophaniam (pta0001.pta028.pta-eng2) is linked so to the
+#: Slavonic pta-chu1 it was made from (#414).
+_ORIGINAL_FALLBACK: dict[str, str] = {}
 
 # Editorial span kinds of a translation (patristica.editorial.KINDS; ingestors
 # don't import it, #130).
