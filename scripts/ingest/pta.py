@@ -16,7 +16,7 @@ latest changes.
 File filtering
 --------------
 We process only "edition" files (``pta-grcN``, ``pta-sycN``, ``pta-latN``,
-``pta-xcl1``, ``pta-eng1``, etc.) and skip:
+``pta-xcl1``, ``pta-chu1``, ``pta-eng1``, etc.) and skip:
 
 - ``__cts__.xml``  — CTS catalog metadata (not text)
 - ``pta9999/``     — Bible textgroup (already have dedicated scripture ingestors)
@@ -50,6 +50,7 @@ from patristica.models import DateConfidence, Language, License, Tradition, Work
 from patristica.period import work_in_period
 from scripts.ingest._clone import ensure_clone
 from scripts.ingest._common import dedupe_refs, slugify_ref
+from scripts.ingest._slavonic import glagolitic_to_cyrillic
 
 log = logging.getLogger(__name__)
 
@@ -71,6 +72,8 @@ _LANG_MAP: dict[str, Language] = {
     "gez": "gez",
     "eng": "eng",
     "got": "got",
+    "chu": "chu",   # Church Slavonic (#335); PTA's one text is pta0001.pta028.pta-chu1
+    "cu": "chu",    # ISO 639-1 form, should PTA ever use it
 }
 
 # Language → Tradition
@@ -83,12 +86,31 @@ _LANG_TRADITION: dict[Language, Tradition | None] = {
     "gez": "ethiopic",
     "eng": None,
     "got": "gothic",
+    "chu": "slavonic",
     "hbo": None,
+}
+
+# Editions named in ``Work.edition`` instead of the bare version id, keyed by
+# the CTS version (#335). PTA's Slavonic text is a 16th-century translation
+# printed in 1910; its version id alone would not say so.
+_EDITIONS: dict[str, str] = {
+    "pta0001.pta028.pta-chu1": (
+        "Slavonic translation (attributed there to John Chrysostom) in the Velikie "
+        "Minei Chetii of Metropolitan Makarii, January, fasc. 15, part 1, days 1–6 "
+        "(Moscow: Imperial Archaeographic Commission, 1910), cols. 298–310; "
+        "digitised by Daria Coșcodan, PTA pta-chu1"
+    ),
 }
 
 
 # File name patterns to skip
 _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|MsL|MsM|MsN|MsO|MsP|MsQ|MsR|MsS|MsT|MsU|MsV|MsW|MsX|MsY|MsZ|Ms[A-Z]|deu")
+
+# Files skipped by name. ``pta-Mss`` (lower-case ``s``, so not caught above) is
+# a Slavonic transcription of the Ljubljana leaves of Codex Suprasliensis (Cod.
+# Kop. 2), a manuscript witness that the Suprasliensis ingest covers (#333);
+# it was skipped while ``chu`` was unmapped, and stays skipped (#335).
+_SKIP_FILES = frozenset({"pta0041.pta001.pta-Mss.xml"})
 
 
 # Creative Commons licence URL: terms, version and an optional jurisdiction
@@ -378,7 +400,7 @@ def _parse_pta_file(
     author = author_name or author_from_file
 
     # --- Edition note ---
-    edition_note = version or None
+    edition_note = _EDITIONS.get(f"{work_cts_id}.{version}") or version or None
 
     work = Work(
         work_id=work_id,
@@ -399,6 +421,9 @@ def _parse_pta_file(
     )
 
     paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns)
+    if language == "chu":
+        for p in paragraphs:
+            p["text"] = glagolitic_to_cyrillic(p["text"])
     return work, paragraphs
 
 
@@ -427,6 +452,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if p.name != "__cts__.xml"
         and "pta9999" not in p.parts  # skip Bible group
         and not _SKIP_PATTERNS.search(p.name)
+        and p.name not in _SKIP_FILES
     ]
 
     log.info("Found %d PTA text files to process", len(xml_files))

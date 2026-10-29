@@ -16,8 +16,11 @@ without a current record (no cut file yet, or its words changed) is cut as
 today (``versify.split_text``, the *provisional* cut).
 
 **Enrolment** is per source (``patristica/data/anchored_sources.csv``,
-``source_id,reason``): a source is enrolled before its first normalize, never
-after (that would re-cut published refs: #200's migration). Only prose works
+``source_id,language,reason``): a source is enrolled before its first
+normalize, never after (that would re-cut published refs: #200's migration).
+A row with a ``language`` enrols only that source's works in that language
+(#335: PTA's one Slavonic text, while PTA's published Greek, Latin, Armenian
+and Syriac works keep their derived verses); a row without one enrols the whole source. Only prose works
 are anchored: Scripture and works ingested as verses keep their verses.
 
 **The anchor** of an enrolled work is its ``translation_of``. A work without
@@ -36,9 +39,10 @@ from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
 from functools import cache
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, get_args
 
 from patristica import fingerprint
+from patristica.models import Language
 from patristica.versify import _atoms, is_derived_ref
 
 if TYPE_CHECKING:
@@ -61,32 +65,57 @@ class AnchoringError(ValueError):
 # ---------------------------------------------------------------- enrolment
 
 
-def load_enrolment(path: Path = ENROLMENT_PATH) -> dict[str, str]:
-    """``{source_id: reason}`` from the enrolment table."""
-    sources: dict[str, str] = {}
+def load_enrolment(path: Path = ENROLMENT_PATH) -> dict[tuple[str, str | None], str]:
+    """``{(source_id, language): reason}`` from the enrolment table; the
+    language is None for a row that enrols the whole source. The ``language``
+    column is optional."""
+    rows: dict[tuple[str, str | None], str] = {}
+    languages = set(get_args(Language))
     with path.open(encoding="utf-8", newline="") as f:
         for line, row in enumerate(csv.DictReader(f), start=2):
             source = (row.get("source_id") or "").strip()
+            language = (row.get("language") or "").strip() or None
             reason = (row.get("reason") or "").strip()
             where = f"{path}:{line}"
             if not source or "/" in source:
                 raise AnchoringError(f"{where}: bad source_id {source!r}")
+            if language is not None and language not in languages:
+                raise AnchoringError(f"{where}: {source}: unknown language {language!r}")
             if not reason:
                 raise AnchoringError(f"{where}: {source}: no reason given")
-            if source in sources:
-                raise AnchoringError(f"{where}: {source} is listed twice")
-            sources[source] = reason
-    return sources
+            if (source, language) in rows:
+                raise AnchoringError(f"{where}: {source} {language or ''} is listed twice")
+            if (source, None) in rows or (language is None
+                                          and any(s == source for s, _ in rows)):
+                raise AnchoringError(
+                    f"{where}: {source} is enrolled both as a whole and by language")
+            rows[(source, language)] = reason
+    return rows
 
 
 @cache
 def enrolled_sources() -> dict[str, str]:
-    return load_enrolment()
+    """``{source_id: reason}`` of the sources enrolled as a whole."""
+    return {s: r for (s, lang), r in load_enrolment().items() if lang is None}
 
 
-def is_enrolled(source_id: str) -> bool:
-    """True if the works of *source_id* get anchored derived verses."""
-    return source_id in enrolled_sources()
+@cache
+def enrolled_languages() -> dict[tuple[str, str], str]:
+    """``{(source_id, language): reason}`` of the sources enrolled by language."""
+    return {(s, lang): r for (s, lang), r in load_enrolment().items() if lang is not None}
+
+
+def enrols_by_language(source_id: str) -> bool:
+    """True if some of *source_id*'s works are enrolled by their language, so
+    :func:`is_enrolled` needs the work's language to decide."""
+    return any(s == source_id for s, _ in enrolled_languages())
+
+
+def is_enrolled(source_id: str, language: str | None = None) -> bool:
+    """True if the works of *source_id* (in *language*) get anchored derived
+    verses: the source is enrolled as a whole, or for *language*."""
+    return source_id in enrolled_sources() or (
+        language is not None and (source_id, language) in enrolled_languages())
 
 
 def anchor_id(work: Mapping[str, object]) -> str | None:
