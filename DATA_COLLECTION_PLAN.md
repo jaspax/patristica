@@ -125,6 +125,8 @@ The canonical Old Church Slavonic texts and their contemporaries, from the surve
 | TOROT (Syntacticus release 20230428, github.com/syntacticus/syntacticus-treebank-data) | Psalterium Sinaiticum, Kiev Missal, Euchologium Sinaiticum (8 prayers), Chrabr *On the Letters*; Suprasliensis text divisions | PROIEL XML, Cyrillic, tokenized (text = presentation-before + form + presentation-after) | CC-BY-NC-SA 4.0 | #334, #333 |
 | `pta` (already cloned) | Severian of Gabala, *In theophaniam*, Slavonic (`pta-chu1`, 16th-c. Minei) | TEI P5 | as PTA | #335 |
 
+**Codex Suprasliensis** (`ccmh-supr`, #333): 48 works, one per text, in CCMH's text (CC BY 4.0). CCMH has no text boundaries; the ingestor takes them from the first token of each TOROT division (its `foreign-ids` give part, folio and line; Syntacticus commit `525cee4`), matched against CCMH's words, so only positions come from the NC-SA source. Every work's words are checked against its TOROT division (overlap 0.94–0.997). TOROT has no line ids for fols. 28–50 (found by text) and lacks the heading of Paul the Simple (85v28–30, set in `scripts/ingest/data/supr_texts.csv`); its two Pionius divisions are one text. Lost leaves (Birnbaum's foliation map) are `lacuna` marks, CCMH's marginalia (after tab runs: Retko's note on 104r, two marginal corrections, two marginal titles) are `note` marks. Greek originals: most are inside Migne containers (Chrysostom spuria, Basil's homilies, the *Scala* with Daniel's Life of Climacus, the *Historia Lausiaca*), so only Conon (PTA, BHG 2077) is linked; PTA's Severian homilies on the sinful woman, the betrayal and Thomas (CPG 4199, 4205, 4198) were checked and are other texts. BHG/CPG ids are recorded only where a text is a whole Greek work.
+
 Out of period: the Uspenskij sbornik (Boris and Gleb, Life of Feodosij), the Primary Chronicle and the other Old East Slavic (`orv`) TOROT texts. Not usable: TITUS (copyright notices), Gorazd and the Russian National Corpus (dictionary / no redistribution). Not found yet (Clozianus, the full Euchologium, Ostromir, the Hexaemeron, the Didactic Gospel, Clement of Ohrid, Hilarion, the Izbornik of 1073): #331.
 
 ---
@@ -253,6 +255,7 @@ All chunks carry a `canonical_ref` in dot-separated form:
 - Patristic: `{author_abbrev}.{work_abbrev}.{book}.{section}.{paragraph}` — e.g. `Aug.Conf.1.1.1`
 - Liturgical: `{rite}.{service}.{element}` — e.g. `ByzLit.Chrysostom.Anaphora.3`
 - Councils: `Nicaea1.Canon.7`
+- Manuscripts cited by folio: `{siglum}.{folio}{r|v}`, one unit per page — e.g. `Supr.119r` (Codex Suprasliensis in the codex's continuous foliation, 1r–285v, as the obdurodon edition cites it; CCMH numbers the three parts 1–3 separately). A page shared by two texts is a unit in each ([#333](https://github.com/jaspax/patristica/issues/333)).
 
 ### Duplicated section numbers
 
