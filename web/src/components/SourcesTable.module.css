@@ -48,3 +48,11 @@
   color: var(--accent);
   white-space: nowrap;
 }
+
+/* Under a collection of our machine translations (#422). */
+.note {
+  margin-top: 0.25rem;
+  font-size: 0.85em;
+  color: var(--muted);
+  max-width: 28rem;
+}

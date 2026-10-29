@@ -47,6 +47,15 @@
   color: var(--muted);
 }
 
+/* "Machine translation" (#422), styled like the version badges (VersionSwitcher). */
+.badge {
+  padding: 0 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
 /* Everything else about the work, folded away; summary styled like "Other versions" (VersionSwitcher). */
 .details {
   margin-top: 0.75rem;

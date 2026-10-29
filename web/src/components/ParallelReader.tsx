@@ -287,6 +287,7 @@ function VersionCard({ work, column, index, original, title, shared, open, remov
         {shared && <span className={styles.cardSource}> · {label}</span>}
         {column === 0 && <span className={styles.badge}>leading</span>}
         {original && <span className={styles.badge}>Original</span>}
+        {work.machine_translation && <span className={styles.badge}>Machine translation</span>}
       </p>
       {title && (
         <p lang={info.lang} dir="auto">
@@ -352,6 +353,7 @@ function AddVersion({ index, lead, members, originals, shown, positionFor }: Add
                     </span>
                   )}
                   {d.edition && <span className={styles.muted}> · {d.edition}</span>}
+                  {w.machine_translation && <span className={styles.badge}>Machine translation</span>}
                 </li>
               );
             })}

@@ -26,6 +26,8 @@ export interface SourceSummary {
   /** Provenance links: the distinct URLs, or their common prefix when there are many. */
   links: string[];
   nonCommercial: boolean;
+  /** The collection holds our machine translations (#422). */
+  machineTranslation: boolean;
 }
 
 const MAX_LISTED = 3;
@@ -72,6 +74,7 @@ export function summarizeSources(index: LibraryIndex): SourceSummary[] {
       moreEditions: Math.max(0, editions.length - MAX_LISTED),
       links: urls.length <= MAX_LISTED ? urls.sort() : prefix ? [prefix] : urls.sort().slice(0, MAX_LISTED),
       nonCommercial: licenses.some(([l]) => NON_COMMERCIAL.has(l)),
+      machineTranslation: works.some((w) => w.machine_translation === true),
     };
   }).sort((a, b) => a.label.localeCompare(b.label));
 }

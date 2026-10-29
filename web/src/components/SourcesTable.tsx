@@ -42,6 +42,12 @@ function Table({ index }: { index: LibraryIndex }) {
               <td>
                 <Link href={`/works?source=${encodeURIComponent(s.sourceId)}`}>{s.label}</Link>
                 {s.nonCommercial && <span className={styles.nc}>non-commercial</span>}
+                {s.machineTranslation && (
+                  <p className={styles.note}>
+                    Machine-translated into English by an AI model from the originals in the library, unreviewed.
+                    Each work keeps its original&apos;s licence.
+                  </p>
+                )}
               </td>
               <td className={styles.numeric}>{s.works.toLocaleString()}</td>
               <td>

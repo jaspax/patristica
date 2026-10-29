@@ -174,3 +174,20 @@ describe("LibraryBrowser", () => {
     expect(screen.getByText(/export_library/)).toBeDefined();
   });
 });
+
+describe("LibraryBrowser machine translations (#422)", () => {
+  it("tags a machine-translated work", async () => {
+    const works: LibraryIndex = {
+      ...index,
+      works: [
+        row({ id: "a", title: "Oratio", language: "grc", version_group: "a" }),
+        row({ id: "b", title: "Oration", language: "eng", version_group: "a", translation_of: "a", machine_translation: true }),
+      ],
+    };
+    vi.stubGlobal("fetch", serve(works));
+    render(<LibraryBrowser />);
+    const link = await screen.findByRole("link", { name: "Oration" });
+    expect(link.closest("td")?.textContent).toBe("Oration2 versionsmachine translation");
+    expect(screen.getByRole("link", { name: "Oratio" }).closest("td")?.textContent).toBe("Oratio2 versions");
+  });
+});

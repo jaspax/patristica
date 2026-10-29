@@ -253,6 +253,32 @@ describe("SearchPage", () => {
     expect(within(item).getByText(/^English:/).textContent).toBe("English: King James Version Gen.1.2");
   });
 
+  it("labels a machine-translated work of the library as machine translation, linked (#422)", async () => {
+    search = "q=oratio";
+    serve(() =>
+      json(
+        page([
+          result({
+            translation: {
+              language: "eng",
+              text: "Our faith is true.",
+              machine: true,
+              model: "claude-opus-5-5",
+              work_id: "mt-eng/pta/or",
+              canonical_ref: "Or.1",
+              source_label: "Patristica machine translations",
+            },
+          }),
+        ]),
+      ),
+    );
+    await renderPage();
+    const item = (await screen.findAllByRole("listitem"))[0];
+    expect(within(item).getByText(/^Machine translation \(English\):/)).toBeTruthy();
+    const link = within(item).getByRole("link", { name: "Patristica machine translations" });
+    expect(link.getAttribute("href")).toBe("/works/mt-eng/pta/or#Or.1");
+  });
+
   it("names the collection once when the edition includes it", async () => {
     search = "q=light";
     serve(() =>

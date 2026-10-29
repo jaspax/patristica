@@ -22,6 +22,7 @@ const index: LibraryIndex = {
     clementine: "Clementine Vulgate",
     first1k: "First Thousand Years of Greek",
     "npnf-works": "Nicene and Post-Nicene Fathers",
+    "mt-eng": "Patristica machine translations",
   },
   works: [
     workRow({ id: "oshb/ps", title: "Psalms", language: "hbo", source_id: "oshb", genre: "scripture", version_group: "book:ps" }),
@@ -46,6 +47,17 @@ const index: LibraryIndex = {
       file: "works/pl/both.json",
     }),
     workRow({ id: "pl/acta", author: "Acta Thomae", title: "Acta Thomae", source_id: "pl", file: "works/pl/acta.json" }),
+    workRow({ id: "pta/or", title: "Oratio", language: "grc", source_id: "pta", version_group: "pta/or", file: "works/pta/or.json" }),
+    workRow({
+      id: "mt-eng/pta/or",
+      title: "Oration",
+      language: "eng",
+      source_id: "mt-eng",
+      translation_of: "pta/or",
+      version_group: "pta/or",
+      machine_translation: true,
+      file: "works/mt-eng/pta/or.json",
+    }),
   ],
   alignments: ["first1k/hom"],
 };
@@ -308,5 +320,29 @@ describe("WorkReader version switch", () => {
     layout({ "Hom.3": [100, 130], text: [-50, 900] });
     act(() => screen.getByRole("link", { name: "First Thousand Years of Greek" }).click());
     await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/works/first1k/hom?nohl#2"));
+  });
+});
+
+describe("WorkReader machine translation (#422)", () => {
+  it("marks a machine translation and links the original it was made from", async () => {
+    params = { id: ["mt-eng", "pta", "or"] };
+    render(<WorkReader />);
+    await screen.findByRole("heading", { level: 1, name: "Oration" });
+    expect(screen.getAllByText("Machine translation").length).toBeGreaterThan(0);
+    const notice = screen.getByRole("note", { name: "Machine translation" });
+    expect(notice.textContent).toBe(
+      "This English text was machine-translated from the Greek original by an AI model and has not been " +
+        "reviewed. It may contain errors; consult the original for close study.",
+    );
+    expect(within(notice).getByRole("link", { name: "Greek original" }).getAttribute("href")).toBe("/works/pta/or");
+  });
+
+  it("shows no notice on other works", async () => {
+    params = { id: ["pta", "or"] };
+    render(<WorkReader />);
+    await screen.findByRole("heading", { level: 1, name: "Oratio" });
+    expect(screen.queryByRole("note")).toBeNull();
+    // The other version is still badged in the version list.
+    expect(screen.getByText("Machine translation")).toBeDefined();
   });
 });

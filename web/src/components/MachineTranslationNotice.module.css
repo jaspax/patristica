@@ -1,0 +1,9 @@
+/* The disclaimer of a machine-translated work (#422): quiet, but on the first screen. */
+.notice {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-inline-start: 3px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 42rem;
+}
