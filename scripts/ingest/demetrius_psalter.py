@@ -49,10 +49,15 @@ to read), ``<…>`` (the editors' additions) and ``{…}`` (physical damage) are
 edition prints them, and a hyphen inside a line is the edition's haplography
 mark (``же-с`` = же ес), kept too.
 
+A handful of verses completed in the margin or between the lines can't be put
+in order from the positions; they are corrected by hand (``_FIXES``, each
+checked against the page image).
+
 **Left out:** the additions of Demetrius, the priest who owned the manuscript
 (his subscriptions and prayers, printed in italics): they were written after
-the Psalter, prompted by the Synod of Split of 1059/60 (edition pp. 28, 163),
-so they fall after the collection period. Their lines are dropped (a line
+the Psalter, prompted by the Synod of Split of 1059/60 (edition pp. 28, 163).
+Composed after 1050 by an author whose birth year is unknown, they are out of
+period (``patristica/period.py``); they are also fragmentary. Their lines are dropped (a line
 whose Cyrillic is mostly italic), as are the Latin abecedarium (a line with
 no Cyrillic) and the title of the first canticle after Psalm 151. The
 *Folia medicinalia* (pp. 481–486, medical recipes) are not ingested.
@@ -115,11 +120,12 @@ _PUA: dict[str, str] = {
 _TEXT_MAP: dict[str, str] = {
     "f": "ѳ",   # the new fita, from Greek (edition p. 42)
     "ı": "|",   # the scribe's vertical stroke
+    "o": "о",   # a Latin o typed for the Cyrillic (67.19)
 }
 
-_LABEL_RE = re.compile(r"^(?:(\d{1,3})\.)?(\d{1,3})([a-f]?)$")
+_LABEL_RE = re.compile(r"^(?:(\d{1,3})\.)?(\d{1,3})([a-fа]?)$")  # "1а" with a Cyrillic а (108.1)
 _FOLIO_RE = re.compile(r"f\.\s?\d+[rv]\w*")
-_LINE_NO_RE = re.compile(r"^\d{1,2}$")
+_LINE_NO_RE = re.compile(r"^(\d{1,2})[ab]?$")   # "20a", "20b" around a line added later
 _NOTE_RE = re.compile(r"^[a-z]{2,}\.$")
 _BRACKET_RE = re.compile(r"\[[^\[\]]*\]|<[^<>]*>|\{[^{}]*\}")
 _LACUNA_FILL = re.compile(r"^[\s.…?]*$")
@@ -289,7 +295,7 @@ def _page_pieces(page, pno: int) -> list[_Piece]:
             raise ExtractionError(f"p. {pno}: the title {_CANTICLE_TITLE!r} is missing")
         lines = lines[:titles[0]]
     pieces: list[_Piece] = []
-    for ln in lines:
+    for lno, ln in enumerate(lines, start=1):
         ln.chars = [c for c in ln.chars if c.x1 > left]   # marginal psalm numerals
         if not ln.chars:
             continue
@@ -307,9 +313,12 @@ def _page_pieces(page, pno: int) -> list[_Piece]:
                     _FOLIO_RE.fullmatch(f"{tokens[i][1].strip()} {tokens[i + 1][1].strip()}"):
                 del tokens[i:i + 2]
                 break
-        # The line number, after a wide gap at the end of the line.
-        if len(tokens) > 1 and tokens[-1][0] and _LINE_NO_RE.match(tokens[-1][1].strip()) \
-                and tokens[-1][2] - tokens[-2][3] > 12:
+        # The line number at the end of the line: after a wide gap, or a
+        # multiple of five near this line's position on the page (the PDF
+        # sometimes places it right after the text, p. 439).
+        m = _LINE_NO_RE.match(tokens[-1][1].strip()) if len(tokens) > 1 and tokens[-1][0] else None
+        if m and (tokens[-1][2] - tokens[-2][3] > 12
+                  or (int(m.group(1)) % 5 == 0 and abs(int(m.group(1)) - lno) <= 2)):
             tokens.pop()
         out: list[_Piece] = []
         for i, (times, text, x0, x1) in enumerate(tokens):
@@ -317,12 +326,12 @@ def _page_pieces(page, pno: int) -> list[_Piece]:
             if times and (stripped == "/" or _NOTE_RE.match(stripped)):
                 continue  # a line end in a marginal addition; the note "marg."
             m = _LABEL_RE.match(stripped) if times else None
-            if m and i + 1 < len(tokens):
+            if m:
                 out.append(_Piece(label=(int(m.group(1)) if m.group(1) else None,
-                                         int(m.group(2)), m.group(3)), page=pno))
+                                         int(m.group(2)), m.group(3).replace("а", "a")),
+                                  page=pno))
                 continue
-            if times:
-                text = "".join(_TEXT_MAP.get(ch, ch) for ch in text)
+            text = "".join(_TEXT_MAP.get(ch, ch) for ch in text)
             if out and out[-1].label is None:
                 out[-1].text += text
             else:
@@ -334,6 +343,30 @@ def _page_pieces(page, pno: int) -> list[_Piece]:
 
 
 _LINE_END_HYPHEN = re.compile(r"-([\])}>]*)$")
+#: A word broken at a line end with an erasure after the hyphen
+#: (8.8 "полъск- [...]" / "ъиѩ").
+_HYPHEN_GAP = re.compile(r"(\S)- (\[[.…]*\]) (?=\S)")
+
+#: Hand corrections, checked against the page images, where a verse was
+#: completed in the margin or between the lines and the extraction can't put
+#: the words in order: ``ref -> (extracted, corrected)``. The extracted text
+#: must occur once in the verse, so a change to the extraction shows here.
+_FIXES: dict[str, tuple[str, str]] = {
+    # p. 257: "скръбе/и его" is a later correction over an erasure, its last
+    # words on the next line, beside the title of Psalm 25.
+    "Ps.24.22": ("ото въсѣхъ скръбе- Д҃АВЪ:", "ото въсѣхъ скръбеи его –"),
+    "Ps.25.0": ("ПЪСАЛОМЪ:– и его –", "Д҃АВЪ: ПЪСАЛОМЪ:–"),
+    # p. 389: "дѣла его:" is written above the end of the line.
+    "Ps.95.6": ("с҃тъі- дѣла его: ні і", "с҃тъіні дѣла его: і"),
+    # p. 406: 17b–18b are written between the lines; "сѧ огнъ … їхъ" is the
+    # rest of 18a, marked by "≈".
+    "Ps.105.18": ("Ї раждеже≈ Пласѧ огнъ въ соньмѣ їхъ:– менъ",
+                  "Ї раждеже≈ сѧ огнъ въ соньмѣ їхъ:– Пламенъ"),
+    # p. 418: 10c is written between the lines and ends after "СЛАВА≈" on
+    # the line of the title of Psalm 112.
+    "Ps.111.10": ("грѣшъникъ по-", "грѣшъникъ погъібнетъ⁓–"),
+    "Ps.112.0": ("СЛАВА≈ гъібнетъ⁓–", "СЛАВА≈"),
+}
 _TITLO = "\u0483"
 
 
@@ -351,6 +384,9 @@ def _join(parts: list[str]) -> str:
             text += " " + part
         else:
             text = part
+    text = _HYPHEN_GAP.sub(r"\1\2", text)
+    # "/" (or "⁄") marks a line end inside a marginal addition (85.7: "[во]/ꙁ[вахъ]").
+    text = re.sub(r"\s*[/⁄]\s*", lambda m: " " if m.group(0).strip() != m.group(0) else "", text)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -435,8 +471,14 @@ def extract_verses(pdf_path: Path) -> list[tuple[str, str]]:
     for key in sorted(verses):
         text = _one_titlo(_join("".join(verses[key]).split("\n")))
         text = glagolitic_to_cyrillic(unicodedata.normalize("NFC", text))
+        ref = f"Ps.{key[0]}.{key[1]}"
+        if ref in _FIXES:
+            old, new = _FIXES[ref]
+            if text.count(old) != 1:
+                raise ExtractionError(f"{ref}: the hand correction doesn't apply to {text!r}")
+            text = text.replace(old, new)
         if text:
-            out.append((f"Ps.{key[0]}.{key[1]}", text))
+            out.append((ref, text))
     if psalm != PSALMS:
         raise ExtractionError(f"the Psalter ends at psalm {psalm}, expected {PSALMS}")
     return out
