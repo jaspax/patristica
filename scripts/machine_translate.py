@@ -84,7 +84,7 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     "got": (0.6, 3.0),
 }
 DEFAULT_BAND = (0.5, 5.0)
-# A single paragraph this long in the source whose English is under MIN_ITEM_RATIO of it is an omission.
+# A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
 ITEM_CHECK_CHARS = 300
 MIN_ITEM_RATIO = 0.25
 
@@ -175,12 +175,14 @@ class Request:
 
     @property
     def key(self) -> str:
-        """Identifies a request by what it sends: its partial result is reused only while it matches."""
+        """What the request sends: a partial result is reused only while it matches."""
         return text_sha(PROMPT_VERSION + "\n" + "\n".join(f"{u.ref}\t{u.sha}" for u in self.units))
 
 
-def make_requests(units: list[Unit], max_chars: int = DOC_MAX_CHARS) -> list[Request]:
-    """Consecutive units in requests of at most *max_chars*, cut at section ends where possible."""
+def make_requests(units: list[Unit], max_chars: int | None = None) -> list[Request]:
+    """Consecutive units in requests of at most *max_chars* (``DOC_MAX_CHARS``),
+    cut at section ends where possible."""
+    max_chars = DOC_MAX_CHARS if max_chars is None else max_chars
     sections: list[list[Unit]] = []
     for u in units:
         if sections and section_of(sections[-1][-1].ref) == section_of(u.ref):

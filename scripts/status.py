@@ -142,10 +142,9 @@ def raw_changes(norm: Path = NORMALIZED, raw: Path = RAW) -> tuple[list[str], li
 def ingest_drift(norm: Path = NORMALIZED) -> tuple[list[str], list[str]]:
     """(sources whose ingestor changed since their data was normalized, sources
     with no ingest stamp recorded)."""
+    from patristica.sources import MACHINE_TRANSLATION_SOURCES
     from scripts import normalize as nz
     from scripts.ingest import _stamp
-
-    from patristica.sources import MACHINE_TRANSLATION_SOURCES
 
     recorded = nz.read_step_fingerprints(norm).get("ingest", {})
     # Machine translations (#422) have no ingestor: scripts.machine_translate writes them.
