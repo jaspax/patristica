@@ -22,7 +22,10 @@ period flags. In particular:
   restrictions.
 - **CC BY-SA 4.0**: stays CC BY-SA 4.0. Modified versions must keep the same
   licence (ShareAlike).
-- **CC BY-NC 4.0 and CC BY-NC-SA 4.0**: non-commercial use only.
+- **CC BY-SA 3.0** (Unported): stays CC BY-SA 3.0. One Coptic Scriptorium
+  work, the Canons of Apa Johannes (#382).
+- **CC BY-NC 4.0, CC BY-NC-SA 4.0 and CC BY-NC-SA 3.0**: non-commercial use
+  only. CC BY-NC-SA 3.0 (Unported) is one PTA edition (#366).
 - **Custom terms** (`academic-noncommercial`): the source's own terms apply.
 - **`used-with-permission`**: the rights holder gave Patristica permission to
   include the text, on the terms recorded under "Used with permission" below
@@ -32,17 +35,24 @@ period flags. In particular:
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
   and must be excluded from public distribution until then.
 
-The corpus breaks down as follows (October 2026, by chunks):
+The corpus breaks down as follows (late October 2026, by chunks):
 
 | Licence | Share | Sources |
 |---|---:|---|
-| Public domain | 46% | NPNF/ANF (CCEL), KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, OGPG (Migne), CANTUS, older liturgical editions |
-| CC BY-SA 4.0 | 38% | Patristic Text Archive, First Thousand Years of Greek, Perseus, Patrologia Latina (OGL), Ge'ez Bible, PTA Septuagint |
-| CC BY 4.0 | 7% | Open Scriptures Hebrew Bible, Coptic Scriptorium, parts of PTA |
-| CC BY-NC 4.0 | 6% | PTA Peshitta, CURSUS |
-| CC BY-NC-SA 4.0 | 2% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration) |
-| Academic, non-commercial | 1% | SBL Greek New Testament, Wulfila Gothic Bible |
+| CC BY-SA 4.0 | 51% | Patrologia Latina (OGL), CSEL, First Thousand Years of Greek, most of the Patristic Text Archive, Perseus, PTA Septuagint, Ge'ez Bible, Coptic Scriptorium's Mercurius |
+| Public domain | 42% | OGPG (Migne), NPNF/ANF (CCEL), CANTUS, KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, older liturgical editions |
+| CC BY 4.0 | 5% | Digital Syriac Corpus, Open Scriptures Hebrew Bible, most of Coptic Scriptorium, parts of PTA, CCMH |
+| CC BY-NC 4.0 | 1.5% | CURSUS, PTA Peshitta |
+| CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib) |
+| Academic, non-commercial | 0.3% | SBL Greek New Testament, Wulfila Gothic Bible |
+| CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`) |
 | Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
+| CC BY-SA 3.0 | <0.1% | Coptic Scriptorium's Canons of Apa Johannes |
+
+Each work's licence is read from the source's own per-file statement where
+it has one: PTA's `<licence @target>` URL (#366) and the `license` in each
+Coptic Scriptorium document's metadata header, the most restrictive over a
+work's documents (#382).
 
 The web app's **Sources & licences** page (`/sources`) lists every collection
 with its licences, edition and source link. It is generated from the library

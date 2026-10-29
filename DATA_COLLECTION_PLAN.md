@@ -92,7 +92,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 | ID | Collection | Language | Source | Format | License |
 |----|-----------|----------|--------|--------|---------|
-| `pta` | Patristic Text Archive | Greek (`grc`) | github.com/PatristicTextArchive | TEI P5 XML | CC-BY / CC-BY-SA |
+| `pta` | Patristic Text Archive | Greek (`grc`) | github.com/PatristicTextArchive | TEI P5 XML | per file from `<licence @target>` (#366): mostly CC-BY-SA 4.0, some CC-BY 4.0, one CC-BY-NC-SA 3.0 |
 | `pta-eng` | Patristic Text Archive's own English translations (`<div type="translation">` files of the PTA clone, #345), linked to the PTA edition they render; enrolled for anchored derived verses. Other translations (Latin, German, Romanian) are skipped (#367) | English (`eng`) | github.com/PatristicTextArchive | TEI P5 XML | CC-BY / CC-BY-SA |
 | `oglt-pl` | Open Patrologia Latina (OGLT) | Latin (`lat`) | github.com/OpenGreekAndLatin | TEI XML | Open Educational |
 | `csel` | Corpus Scriptorum Ecclesiasticorum Latinorum (OGL csel-dev, #77): 270 works from the pre-1930 CSEL volumes (Augustine, Cyprian, Lactantius, Arnobius, Sulpicius Severus, Cassian, Ambrose, Hilary, …), one file per work. Kept beside OGLT PL as a separate witness; the stoa ids are Perseus's, so the two group by CTS id. Peter the Deacon's *De locis sanctis* (1137) is left out | Latin (`lat`) | github.com/OpenGreekAndLatin/csel-dev (`data/` only) | TEI EpiDoc (CTS) | CC-BY-SA 4.0 |
@@ -105,7 +105,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 | `ccel-anf` | Ante-Nicene Fathers (10 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `ccel-npnf1` | Nicene & Post-Nicene Fathers Series 1 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
 | `ccel-npnf2` | Nicene & Post-Nicene Fathers Series 2 (14 vols) | English (`eng`) | ccel.org / Project Gutenberg | ThML/HTML | Public domain |
-| `coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (ingested as genre `patristic`; the apocrypha become `apocrypha` and the Lament of the Virgin `liturgical` via `patristica/data/genre_overrides.csv`, #103; `liturgical/coptic-scriptorium` until #52 and `patristic/coptic-scriptorium` until #102; old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | CC-BY |
+| `coptic-scriptorium` | Coptic Scriptorium: Shenoute, Besa, homilies, saints' lives, monastic texts, apocrypha (ingested as genre `patristic`; the apocrypha become `apocrypha` and the Lament of the Virgin `liturgical` via `patristica/data/genre_overrides.csv`, #103; `liturgical/coptic-scriptorium` until #52 and `patristic/coptic-scriptorium` until #102; old reader URLs redirect) | Coptic (`cop`) | github.com/CopticScriptorium/corpora | CoNLL-U / TEI | per work from its documents' TT `license` headers, the most restrictive (#382): mostly CC-BY 4.0; CC-BY-NC-SA 4.0 for the Lives of Aphou, Longinus and Lucius, Paul of Tamma and Phib; CC-BY-SA 3.0 for the Canons of Apa Johannes; CC-BY-SA 4.0 for Mercurius (its header links BY-SA but reads "CC-BY") |
 
 #### 3.3 Liturgical Texts
 
