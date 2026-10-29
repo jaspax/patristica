@@ -38,8 +38,12 @@ STUB_LFS = """#!/usr/bin/env bash
 
 
 def clean_env(**extra: str) -> dict[str, str]:
-    """``os.environ`` without git's per-repository variables, plus *extra*."""
-    return {**{k: v for k, v in os.environ.items() if not k.startswith("GIT_")}, **extra}
+    """``os.environ`` without git's per-repository variables, plus *extra*.
+
+    ``PATRISTICA_SKIP_VALIDATE`` is dropped too: a push made with it set runs
+    this suite, and the tests choose it themselves."""
+    return {**{k: v for k, v in os.environ.items()
+               if not k.startswith("GIT_") and k != "PATRISTICA_SKIP_VALIDATE"}, **extra}
 
 
 def git(repo: Path, *args: str) -> str:
