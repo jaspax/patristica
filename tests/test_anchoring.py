@@ -71,6 +71,7 @@ def test_enrolled_sources_are_known_sources() -> None:
     from patristica.sources import SOURCE_LABELS
 
     enrolled = anchoring.load_enrolment()
+    assert ("ccmh-supr", None) in enrolled  # the first Slavonic source enrolled (#333)
     assert {source for source, _ in enrolled} <= set(SOURCE_LABELS)
     assert all(reason.strip() for reason in enrolled.values())
 

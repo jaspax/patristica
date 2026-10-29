@@ -116,7 +116,8 @@ NEW_SOURCES: frozenset[str] = frozenset({
     "wikisource-apocrypha", "wikisource-canons",
 })
 # Church Slavonic (#29), all source-first from the start.
-NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "ccmh-zographensis"}
+NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "ccmh-zographensis",
+                "ccmh-supr"}
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
