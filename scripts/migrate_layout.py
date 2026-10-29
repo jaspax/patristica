@@ -114,6 +114,8 @@ SOURCE_IDS: dict[str, str] = {
 NEW_SOURCES: frozenset[str] = frozenset({
     "csel", "dsc", "first1k-eng", "ocp", "perseus-eng", "wikisource-apocrypha", "wikisource-canons",
 })
+# Church Slavonic (#29), all source-first from the start.
+NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "ccmh-zographensis"}
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
