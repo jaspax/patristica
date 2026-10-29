@@ -19,8 +19,8 @@ today (``versify.split_text``, the *provisional* cut).
 ``source_id,language,reason``): a source is enrolled before its first
 normalize, never after (that would re-cut published refs: #200's migration).
 A row with a ``language`` enrols only that source's works in that language
-(#335: PTA's one Slavonic text, while PTA's English translations keep their
-derived verses); a row without one enrols the whole source. Only prose works
+(#335: PTA's one Slavonic text, while PTA's published Greek, Latin, Armenian
+and Syriac works keep their derived verses); a row without one enrols the whole source. Only prose works
 are anchored: Scripture and works ingested as verses keep their verses.
 
 **The anchor** of an enrolled work is its ``translation_of``. A work without
