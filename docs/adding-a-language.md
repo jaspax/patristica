@@ -92,7 +92,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
 
   Costs:
   - **Paid:** about $0.0014 per unit for Sol bulk translation (`COST_PER_CHUNK` in `scripts/translate.py`), plus the translation's embedding.
-  - **Rebuild:** `patristica.translations` is in the aligner's code hash, so `tests/test_align_fingerprint.py` fails until `scripts.align` is re-run over the whole corpus on the machine with the vectors (no API calls).
+  - **No corpus-wide rebuild:** `TRANSLATED_LANGUAGES` is left out of the aligner's code hash (#336). Each group's inputs hash records the vectors its members are aligned on, so only the groups whose members gain translation vectors are re-aligned, in the pipeline's align step after embed (no API calls).
   - Translate before embed: `scripts.status` lists the pending translations and their cost.
 
   Enrolling later re-translates nothing, but it adds a vector per unit. Decide before the paid run if you can.
