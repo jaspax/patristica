@@ -197,6 +197,10 @@ class Table:
     fixes: Mapping[str, str] = field(default_factory=dict)
     #: Whole ASCII words that are the scribe's lection marks, not Gospel text.
     rubrics: frozenset[str] = frozenset()
+    #: A mark written twice over one letter (Assemanianus ``//``): {mark: double mark}.
+    doubled: Mapping[str, str] = field(default_factory=dict)
+    #: Punctuation that keeps the space before it (Assemanianus's dash ``-``).
+    free_marks: frozenset[str] = frozenset()
 
 
 # The scribes' lection marks in the Gospel codices: к(онь)ць "end" and
@@ -224,16 +228,38 @@ ZOGR_B = Table("Codex Zographensis, Zogr-B", {**GLAGOLITIC_LETTERS, "F": "ф"},
                fixes={"<j>E": "<jE>"}, rubrics=LECTION_MARKS)
 
 # Assemanianus has no table of its own ("the same principles as Marianus;
-# differences not documented"). Its file has signs Marianus lacks, read here
-# from where they stand: ``/`` (17k, before vowels at the start of a word or
-# syllable) a stroke over the next letter, ``\`` and the backtick other
-# strokes, ``"`` a trema and ``)`` a psili as in Suprasliensis's table, ``+`` a
-# cross (#368 checks them against the edition). Jery is written ъ + і (``&I``);
-# read as ꙑ, as glagolitic_to_cyrillic reads yer + i.
+# possible differences have not been documented but should be self-explanatory
+# with the help of the edition", assemanianus.html). Its signs, checked against
+# the CCMH tables of the same family and their distribution in the file (#368):
+#
+# - ``/`` (17.5k) is the stroke the codex writes over letters: 82% stand before
+#   a vowel at the start of a word or after another vowel (``/isa/aka``,
+#   ``bratI/jO``, ``/ego``), where Glagolitic and early Cyrillic scribes mark
+#   an initial or hiatus vowel; the rest at syllable edges in names
+#   (``/es/roma``) and between consonants (``m/nog&I``). A stroke over the next
+#   letter, U+0301 as the ASCII sign draws it; ``//`` (122, mostly before a
+#   word-initial vowel: ``//wt&``) is two strokes, the double acute U+030B.
+# - ``\`` (26) and the backtick (58) lean the other way: the grave U+0300; a
+#   doubled backtick (4) the double grave U+030F.
+# - ``"`` a trema and ``)`` a psili over the next letter: what both mean in
+#   Suprasliensis's table, the only CCMH table that defines them.
+# - ``+`` (9, between words at a line end) a cross ✝, as elsewhere in CCMH.
+# - ``-`` is not Marianus's "missing part of a word": none of its 243 uses
+#   touches a word (no word is broken over two lines in this file); all but
+#   about 15 follow a stop at the end of a lection or verse (``:: -``,
+#   ``:: . -``), the rest stand between words. It is the scribe's dash:
+#   punctuation (–), not a lacuna.
+#
+# Jery is written ъ + і (``&I``); read as ꙑ, as glagolitic_to_cyrillic reads
+# yer + i.
 ASSEMANIANUS = Table(
     "Codex Assemanianus", GLAGOLITIC_LETTERS,
-    next_marks={**_MARIANUS_MARKS, "/": "\u0301", "\\": "\u0300", "`": "\u0300",
-                '"': "\u0308", ")": "\u0486"},
+    next_marks={**_MARIANUS_MARKS, "/": "́", "\\": "̀", "`": "̀",
+                '"': "̈", ")": "҆"},
+    doubled={"́": "̋", "̀": "̏"},
+    punctuation={**PUNCTUATION, "-": "–"},
+    hyphen_is_lacuna=False,
+    free_marks=frozenset({"-"}),
     ligatures={"&I": "ꙑ", "&i": "ꙑ", "&J": "ꙑ"},
     fixes={"h(l&m&": "x(l&m&"},
     rubrics=LECTION_MARKS,
@@ -368,7 +394,11 @@ def convert(ascii_text: str, table: Table) -> Converted:
             i += 1
             continue
         if ch in table.next_marks:
-            pending_marks.append(table.next_marks[ch])
+            mark = table.next_marks[ch]
+            if pending_marks and pending_marks[-1] == mark and mark in table.doubled:
+                pending_marks[-1] = table.doubled[mark]
+            else:
+                pending_marks.append(mark)
             i += 1
             continue
         if ch in table.prev_marks:
@@ -446,7 +476,8 @@ def convert(ascii_text: str, table: Table) -> Converted:
             framed = (len(nxt) > 1 and nxt[-1] == "." and "." not in nxt[:-1]
                       and any(c.isalpha() for c in nxt))
             if (len(out) > 1 and out[-1].text == " " and out[-1].group == group()
-                    and not out[-2].punct and not framed):
+                    and not out[-2].punct and not framed
+                    and pkey not in table.free_marks):
                 out.pop()
             out.append(_Cluster(table.punctuation[pkey], group(), punct=True))
             if (nxt and not framed and pkey != "-"
@@ -551,8 +582,9 @@ class GospelText:
 
     #: (book digit, chapter, verse) → parallel digit → lines, in file order.
     verses: dict[tuple[str, int, int], dict[str, list[str]]]
-    #: Lines in chapter 0 (the codex's lists of chapters, kephalaia), skipped.
-    skipped_lists: int = 0
+    #: Book digit → the lines CCMH files under chapter 0, the codex's list of
+    #: chapters (kephalaia) before that Gospel: [(line number, text), …].
+    lists: dict[str, list[tuple[int, str]]] = field(default_factory=dict)
     #: Verses read with another table than the codex's (the Zogr-B leaves).
     tables: dict[tuple[str, int, int], Table] = field(default_factory=dict)
 
@@ -561,20 +593,22 @@ def parse_gospels(lines: list[tuple[str, str]],
                   renumber: Mapping[str, str] | None = None) -> GospelText:
     """Group ``GCCVVLP`` lines (Gospel, chapter, verse, line, parallel) by verse.
 
-    *renumber* corrects line numbers mistyped in the file (``{wrong: right}``).
+    Chapter 0 is the codex's chapter list, numbered by line (``GCC`` then a
+    three-digit line number and ``P``). *renumber* corrects line numbers
+    mistyped in the file (``{wrong: right}``).
     """
     verses: dict[tuple[str, int, int], dict[str, list[str]]] = {}
-    skipped = 0
+    lists: dict[str, list[tuple[int, str]]] = {}
     for num, text in lines:
         num = (renumber or {}).get(num, num)
         book, chap, verse, par = num[0], int(num[1:3]), int(num[3:5]), num[6]
         if book not in GOSPEL_BOOKS:
             raise ConversionError(f"line {num}: Gospel digit {book} is not 1–4")
         if chap == 0:
-            skipped += 1
+            lists.setdefault(book, []).append((int(num[3:6]), text))
             continue
         verses.setdefault((book, chap, verse), {}).setdefault(par, []).append(text)
-    return GospelText(verses, skipped)
+    return GospelText(verses, lists)
 
 
 def merge_leaves(main: GospelText, leaves: GospelText, table: Table) -> GospelText:
@@ -586,14 +620,15 @@ def merge_leaves(main: GospelText, leaves: GospelText, table: Table) -> GospelTe
     lines from the leaves is read with their *table*, a superset of the main
     one for the few lines of a shared verse.
     """
+    if leaves.lists:
+        raise ConversionError("replacement leaves with a chapter list are not supported")
     merged = {k: {p: list(v) for p, v in d.items()} for k, d in main.verses.items()}
     last = max(leaves.verses)
     for key, pars in leaves.verses.items():
         for par, lines in pars.items():
             have = merged.setdefault(key, {}).setdefault(par, [])
             merged[key][par] = lines + have if key == last else have + lines
-    return GospelText(dict(sorted(merged.items(), key=lambda kv: kv[0])),
-                      main.skipped_lists + leaves.skipped_lists,
+    return GospelText(dict(sorted(merged.items(), key=lambda kv: kv[0])), main.lists,
                       {**main.tables, **{key: table for key in leaves.verses}})
 
 
@@ -602,28 +637,148 @@ class GospelBook:
     osis: str
     verses: list[dict]          # raw units: {"ref", "text"[, "editorial"]}
     repeats_dropped: int = 0
+    list_units: int = 0         # units of the chapter list (kephalaia)
+    #: Verses whose kept reading is a later one (#370): [(ref, parallel digit)].
+    later_readings: list[tuple[str, str]] = field(default_factory=list)
 
 
-def gospel_books(text: GospelText, table: Table) -> tuple[list[GospelBook], Counter, Counter]:
+_BROKEN_WORD = re.compile(r"[^\s:.-]-$")
+
+
+def chapter_list(osis: str, lines: list[tuple[int, str]],
+                 table: Table) -> list[tuple[str, Converted]]:
+    """The units of a codex's chapter list (kephalaia, #369): ``{osis}.0.{n}``.
+
+    CCMH files the list under chapter 0 with the codex's own line division,
+    and so does the ingest: one unit per line, numbered from 0, so the list's
+    title (its first line, "глави евангелиѣ…") is ``{osis}.0.0``, which the
+    reader shows as the heading of chapter 0, and the line after it
+    ``{osis}.0.1``. A word broken over two lines (Zographensis ``razli-`` /
+    ``-C$n&``) is joined onto the line it starts on, so a unit never holds
+    half a word and the next number is skipped. The list is manuscript text,
+    but no Gospel verse: each unit is marked as a ``title`` (#236), so readers
+    see it and it gets no translation and no vector, and versification has
+    nothing to map (``Mark.0.n`` is in no scheme, so it is its own group).
+    """
+    groups: list[tuple[int, list[str]]] = []
+    for line, text in lines:
+        if groups and _BROKEN_WORD.search(groups[-1][1][-1]):
+            groups[-1][1].append(text)
+        else:
+            groups.append((line, [text]))
+    out = []
+    for line, parts in groups:
+        conv = convert(join_lines(parts), table)
+        conv.editorial = [[0, len(conv.text), "title"]] if conv.text else []
+        out.append((f"{osis}.0.{line - 1}", conv))
+    return out
+
+
+# Lectionary readings (#370). Letters compared on their base form, without
+# diacritics, yers and the spelling differences between the codices.
+_COMPARE = str.maketrans({"і": "и", "ꙇ": "и", "ї": "и", "ѡ": "о", "ѹ": "у", "ꙋ": "у",
+                          "ꙑ": "ы", "ѣ": "е", "ꙗ": "я", "ѥ": "е", "ѕ": "з", "ь": "", "ъ": ""})
+#: A later reading replaces the first only when the first is cut short: the
+#: first is under this share of the later one's length …
+CUT_SHORT_LENGTH = 0.8
+#: … and covers at least this much less of the verse in the continuous text.
+CUT_SHORT_RECALL = 0.2
+
+
+def comparable(conv: Converted) -> str:
+    """A unit's letters for comparing readings: no editorial notes, lection
+    marks or lacunae, no diacritics, one spelling per letter, single spaces."""
+    text = conv.text
+    for s, e, kind in sorted(conv.editorial, reverse=True):
+        if kind in ("metadata", "lacuna", "note"):
+            text = f"{text[:s]} {text[e:]}"
+    text = unicodedata.normalize("NFD", text.lower())
+    text = "".join(c for c in text if not unicodedata.category(c).startswith("M"))
+    text = text.replace("оу", "у").translate(_COMPARE)
+    return " ".join(re.sub(r"\W+", " ", text).split())
+
+
+def _trigrams(text: str) -> Counter:
+    text = f" {text} "
+    return Counter(text[i:i + 3] for i in range(len(text) - 2))
+
+
+def recall(text: str, reference: str) -> float:
+    """Share of *reference*'s letter trigrams that *text* has."""
+    ref = _trigrams(reference)
+    total = sum(ref.values())
+    return sum((_trigrams(text) & ref).values()) / total if total else 0.0
+
+
+def choose_reading(readings: Mapping[str, Converted], reference: str | None) -> str:
+    """The parallel digit of the reading of a lectionary verse to keep (#370).
+
+    The first reading (the lowest digit) is kept, unless it is cut short: a
+    lection that ends or starts inside the verse (Assemanianus Matt 10:37 has
+    only its first half, Savvina Matt 10:40 lacks its second clause). It is
+    then replaced by the reading that covers the most of the verse as the
+    continuous-text codices have it (*reference*, Marianus or Zographensis),
+    if that reading is clearly longer (the first is under
+    ``CUT_SHORT_LENGTH`` of it) and covers clearly more (``CUT_SHORT_RECALL``
+    more of the reference's letter trigrams). Both tests together keep the
+    first reading where the readings only differ in wording or a later one
+    only adds a lection formula ("рече господь своимъ ученикомъ"); a later
+    reading kept for its completeness keeps the formula it opens with, since
+    that is the codex's text. A verse no continuous codex has keeps its first.
+    """
+    first = min(readings)
+    if reference is None or len(readings) < 2:
+        return first
+    text = {p: comparable(c) for p, c in readings.items()}
+    score = {p: recall(text[p], reference) for p in readings}
+    best = max(readings, key=lambda p: (score[p], -int(p)))
+    if (best != first and score[best] > score[first] + CUT_SHORT_RECALL
+            and len(text[first]) < CUT_SHORT_LENGTH * len(text[best])):
+        return best
+    return first
+
+
+def gospel_books(text: GospelText, table: Table,
+                 reference: Mapping[tuple[str, int, int], str] | None = None,
+                 ) -> tuple[list[GospelBook], Counter, Counter]:
     """Convert a codex into one raw book per Gospel, in verse order.
 
     A lectionary (Assemanianus, Savvina) reads some verses on several days;
-    CCMH gives each reading a parallel digit. The first (``0``, the lowest
-    there is) is kept and the repeats are dropped, so the book has one unit
-    per verse, as versification expects: the repeats are the same verse again,
-    often cut short (``ko!c``, "end") or opened with a lection formula. In
-    about one verse in sixteen with repeats a later reading is the fuller one
-    (#370).
+    CCMH gives each reading a parallel digit. One reading is kept, so the book
+    has one unit per verse, as versification expects: the first, unless it is
+    cut short and *reference* (the verse in the continuous-text codices,
+    ``comparable`` form) shows a later one is the full verse
+    (``choose_reading``, #370). The codex's chapter list, if it has one, comes
+    first (``chapter_list``, #369).
     """
     books: dict[str, GospelBook] = {}
     unknown: Counter = Counter()
     dropped: Counter = Counter()
+
+    def book_for(digit: str) -> GospelBook:
+        osis = GOSPEL_BOOKS[digit]
+        if osis not in books:
+            books[osis] = gb = GospelBook(osis, [])
+            for ref, conv in chapter_list(osis, text.lists.get(digit, []), table):
+                unknown.update(conv.unknown)
+                dropped.update(conv.dropped)
+                if conv.text:
+                    gb.verses.append({"ref": ref, "text": conv.text, "editorial": conv.editorial})
+                    gb.list_units += 1
+        return books[osis]
+
+    for digit in sorted(text.lists):
+        book_for(digit)
     for (book, chap, verse), pars in sorted(text.verses.items()):
         osis = GOSPEL_BOOKS[book]
-        gb = books.setdefault(osis, GospelBook(osis, []))
-        first = min(pars)
+        gb = book_for(book)
+        verse_table = text.tables.get((book, chap, verse), table)
+        readings = {p: convert(join_lines(lines), verse_table) for p, lines in pars.items()}
+        kept = choose_reading(readings, (reference or {}).get((book, chap, verse)))
         gb.repeats_dropped += len(pars) - 1
-        conv = convert(join_lines(pars[first]), text.tables.get((book, chap, verse), table))
+        if kept != min(pars):
+            gb.later_readings.append((f"{osis}.{chap}.{verse}", kept))
+        conv = readings[kept]
         unknown.update(conv.unknown)
         dropped.update(conv.dropped)
         if not conv.text:
@@ -673,6 +828,44 @@ class Codex:
     edition: str                  # the printed edition CCMH's text follows
     leaves: tuple[str, Table] | None = None   # Zogr-B: (file, table)
     renumber: Mapping[str, str] = field(default_factory=dict)
+    #: A lectionary: a repeated verse keeps its full reading (#370).
+    lectionary: bool = False
+
+
+#: Two lines of marianus.txt carry mistyped numbers: Luke 1:55 and the second
+#: line of John 5:9.
+MARIANUS_RENUMBER = {"3105500": "3015500", "4059100": "4050910"}
+
+#: The continuous-text codices a lectionary's readings are measured against
+#: (#370), in order of preference: (file, table, renumber, leaves).
+CONTINUOUS_TEXTS: tuple[tuple[str, Table, Mapping[str, str], tuple[str, Table] | None], ...] = (
+    ("marianus.txt", MARIANUS, MARIANUS_RENUMBER, None),
+    ("zographensis.txt", ZOGRAPHENSIS, {}, ("zogr-b.txt", ZOGR_B)),
+)
+
+
+def read_codex(file: str, renumber: Mapping[str, str], leaves: tuple[str, Table] | None,
+               raw_root: Path, force: bool = False) -> GospelText:
+    """A codex's lines by verse, with its replacement leaves merged in."""
+    text = parse_gospels(read_lines(fetch(file, raw_root, force)), renumber)
+    if leaves:
+        leaves_file, leaves_table = leaves
+        text = merge_leaves(text, parse_gospels(read_lines(fetch(leaves_file, raw_root, force))),
+                            leaves_table)
+    return text
+
+
+def continuous_reference(raw_root: Path, force: bool = False) -> dict[tuple[str, int, int], str]:
+    """Every verse of the continuous-text codices, ``comparable`` (Marianus
+    where it has the verse, else Zographensis)."""
+    out: dict[tuple[str, int, int], str] = {}
+    for file, table, renumber, leaves in CONTINUOUS_TEXTS:
+        text = read_codex(file, renumber, leaves, raw_root, force)
+        for key, pars in text.verses.items():
+            if key not in out:
+                out[key] = comparable(convert(join_lines(pars[min(pars)]),
+                                              text.tables.get(key, table)))
+    return out
 
 
 def log_conversion(name: str, unknown: Counter, dropped: Counter) -> None:
@@ -693,22 +886,23 @@ def ingest_codex(codex: Codex, output_dir: Path, force: bool = False) -> list[Wo
         log.info("%s: %d books already ingested (--force rebuilds them)", codex.name, len(existing))
         return [Work(**json.loads(p.read_text(encoding="utf-8"))["work"]) for p in existing]
 
-    text = parse_gospels(read_lines(fetch(codex.file, output_dir, force)), codex.renumber)
-    if codex.leaves:
-        leaves_file, leaves_table = codex.leaves
-        text = merge_leaves(text, parse_gospels(read_lines(fetch(leaves_file, output_dir, force))),
-                            leaves_table)
-    books, unknown, dropped = gospel_books(text, codex.table)
+    text = read_codex(codex.file, codex.renumber, codex.leaves, output_dir, force)
+    reference = continuous_reference(output_dir, force) if codex.lectionary else None
+    books, unknown, dropped = gospel_books(text, codex.table, reference)
     log_conversion(codex.name, unknown, dropped)
-    if text.skipped_lists:
-        log.info("%s: skipped %d lines of chapter lists (kephalaia, chapter 0)",
-                 codex.name, text.skipped_lists)
 
     works: list[Work] = []
     for book in books:
         if book.repeats_dropped:
             log.info("%s %s: dropped %d repeated readings of a verse (lectionary)",
                      codex.name, book.osis, book.repeats_dropped)
+        if book.later_readings:
+            log.info("%s %s: kept a later reading of %d verses whose first is cut short: %s",
+                     codex.name, book.osis, len(book.later_readings),
+                     ", ".join(f"{ref} (P={p})" for ref, p in book.later_readings))
+        if book.list_units:
+            log.info("%s %s: chapter list (kephalaia) as %d units %s.0.*",
+                     codex.name, book.osis, book.list_units, book.osis)
         work = Work(
             work_id=book_work_id(codex.source_id, book.osis),
             source_id=codex.source_id,

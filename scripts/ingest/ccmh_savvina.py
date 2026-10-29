@@ -13,7 +13,8 @@ License: CC BY 4.0 (https://www.kielipankki.fi/lic/ccmh-eng/)
 
 One work per Gospel book (``ccmh-savvina/matt`` …), in verse order; verses
 the lectionary doesn't read are absent, and a verse read on several days is
-kept once, its first reading (``_ccmh.gospel_books``).
+kept once: its first reading, unless that one is cut short and a later
+reading has the whole verse (``_ccmh.choose_reading``, #370).
 """
 
 from __future__ import annotations
@@ -30,6 +31,7 @@ CODEX = Codex(
     name="Savvina kniga (aprakos lectionary)",
     file="savvina.txt",
     table=SAVVINA,
+    lectionary=True,
     edition="after V. N. Shchepkin, Savvina kniga (St Petersburg 1903); the "
             "lectionary's readings arranged by Gospel verse, each verse once",
 )
