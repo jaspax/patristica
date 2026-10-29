@@ -32,6 +32,7 @@ SOURCE_LABELS: dict[str, str] = {
     "anf-works": "Ante-Nicene Fathers",
     "apostolic-constitutions": "Apostolic Constitutions (Ante-Nicene Fathers)",
     "ccmh": "Corpus Cyrillo-Methodianum Helsingiense",
+    "ccmh-supr": "Codex Suprasliensis (CCMH)",
     "coptic-scriptorium": "Coptic Scriptorium",
     "coptic-scriptorium-eng": "Coptic Scriptorium (English translations)",
     "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",

@@ -117,7 +117,7 @@ NEW_SOURCES: frozenset[str] = frozenset({
 })
 # Church Slavonic (#29), all source-first from the start.
 NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "ccmh-zographensis",
-                "demetrius-psalter"}
+                "ccmh-supr", "demetrius-psalter"}
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
