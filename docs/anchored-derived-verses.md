@@ -1,8 +1,8 @@
 # Anchored derived verses through vectors (design, #304)
 
 **Status: implemented** (#304, #292), with the owner's decisions of
-2026-10-28 (§13) and the deviations listed below. No source is enrolled yet:
-Slavonic (#29) enrols `torot` in its own data PR. The code is
+2026-10-28 (§13) and the deviations listed below. The first enrolled source is
+`coptic-scriptorium-eng` (#346); Slavonic (#29) enrols `torot` in its own data PR. The code is
 `patristica/anchoring.py` (enrolment, applying cut files, `RefineParams`),
 `patristica/anchor_store.py` (cut files), `patristica/anchor_refine.py` (the
 refinement of §4), `scripts/anchor.py` (the step) and `scripts/anchor_eval.py`
