@@ -55,6 +55,28 @@ _FOOTNOTE_RE = re.compile(r"\\[fxe]\s.*?\\[fxe]\*", re.DOTALL)
 _WORD_ATTR_RE = re.compile(r"\|[^\\|\n]*")
 # Regex to strip \\w* end-markers (\\w opening is handled by general marker strip)
 _W_END_RE = re.compile(r"\\w\*")
+# Any other character-style end marker (``\\+w*``, ``\\wj*``, ``\\qs*``, ``\\bk*``,
+# ``\\it*``, …). ``parse_usfm`` strips leftover markers together with the
+# whitespace after them, which is right for an opening marker (``\\wj word``)
+# but ran the words together after an end marker (``\\+w I\\+w* \\+w have``
+# → "Ihave", #393), so end markers are removed here. Group 1 is the
+# whitespace before a run of end markers; newlines are never matched, so the
+# line structure (``\\v``, ``\\c``) is unchanged.
+_END_MARKER_RE = re.compile(
+    r"([^\S\n]+)(?:\\[a-z+\d]+\*[^\S\n]*)+"  # after whitespace
+    r"|\\[a-z+\d]+\*"                          # directly after a word
+)
+
+
+def _strip_end_markers(text: str) -> str:
+    """Remove end markers, keeping the word break they stood in.
+
+    End markers after whitespace keep that whitespace and drop the whitespace
+    after them (``a \\wj* b`` → ``a b``, as ``parse_usfm`` always did); one
+    directly after a word keeps the whitespace that follows it
+    (``I\\+w* have`` → ``I have``).
+    """
+    return _END_MARKER_RE.sub(lambda m: m.group(1) or "", text)
 
 
 def _preprocess_usfm(raw: str) -> str:
@@ -64,7 +86,7 @@ def _preprocess_usfm(raw: str) -> str:
     # Strip Strong's / lemma attributes from \\w...\\w* spans
     text = _WORD_ATTR_RE.sub("", text)
     text = _W_END_RE.sub("", text)
-    return text
+    return _strip_end_markers(text)
 
 
 def _book_code_from_entry(entry_name: str) -> str | None:
