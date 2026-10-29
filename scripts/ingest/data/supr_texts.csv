@@ -3,14 +3,14 @@
 # slug: the work id's local part (a reader URL: never rename). title: ours, with the feast day the manuscript gives.
 # author: resolved through the author index; blank for anonymous texts. The manuscript gives most homilies to Chrysostom: only
 # 7146, 7150 and 7153 are his (Hom. in Matth. 78 and 89, De proditione Iudae 1); the rest are Pseudo-Chrysostom, as is "Epiphanius".
-# external_ids: BHG/CPG of the Greek text, for the version-group crosswalk. start_line: a CCMH line, where TOROT lacks the start.
+# external_ids: BHG/CPG of the Greek text, for the version-group crosswalk, only where the Slavonic text is that whole Greek work (no id of a series it is one homily of, as Hom. in Matth. 4424 or Hist. Laus. 6036). start_line: a CCMH line, where TOROT lacks the start.
 divs,slug,title,author,genre,external_ids,start_line
 7115,passio-pauli-et-julianae,"Passion of Paul and Juliana (4 March)",,patristic,,
 7116,passio-basilisci,"Passion of Basiliscus (5 March)",,patristic,,
 7117,vita-cononis,"Life and miracles of Conon of Isauria (6 March)",,patristic,BHG:2077,
 7118,passio-xlii-martyrum-amoriensium,"Passion of the Forty-Two Martyrs of Amorium (7 March)",,patristic,,
-7119,passio-xl-martyrum-sebastenorum,"Passion of the Forty Martyrs of Sebaste (9 March)",,patristic,,
-7120,basil-in-xl-martyres,"Homily on the Forty Martyrs of Sebaste",Basil of Caesarea,patristic,,
+7119,passio-xl-martyrum-sebastenorum,"Passion of the Forty Martyrs of Sebaste (9 March)",,patristic,BHG:1201,
+7120,basil-in-xl-martyres,"Homily on the Forty Martyrs of Sebaste",Basil of Caesarea,patristic,CPG:2863 BHG:1205,
 7121,passio-codrati,"Passion of Quadratus and his companions (10 March)",,patristic,,
 7122,vita-gregorii-papae,"Life of Pope Gregory the Great (11 March)",,patristic,,
 7123 7163,passio-pionii,"Passion of Pionius of Smyrna (12 March)",,patristic,BHG:1546,
@@ -28,8 +28,8 @@ divs,slug,title,author,genre,external_ids,start_line
 7135,chrysostom-in-annuntiationem-2,"Homily on the Annunciation II (25 March)",Pseudo-John Chrysostom,patristic,,
 7136,passio-irenaei,"Passion of Irenaeus of Sirmium (26 March)",,patristic,,
 7137,passio-ionae-et-barachisii,"Passion of Jonah and Barachisius (29 March)",,patristic,,
-7138,vita-ioannis-climaci,"Life of John Climacus (30 March)",Daniel of Raithu,patristic,,
-7139,vita-ioannis-hesychastae,"Life of John the Hesychast (31 March)",Cyril of Scythopolis,patristic,,
+7138,vita-ioannis-climaci,"Life of John Climacus (30 March)",Daniel of Raithu,patristic,BHG:882,
+7139,vita-ioannis-hesychastae,"Life of John the Hesychast (31 March)",Cyril of Scythopolis,patristic,BHG:897,
 7140,chrysostom-in-lazarum-1,"Homily on Lazarus raised after four days I",Pseudo-John Chrysostom,patristic,,
 7141,chrysostom-in-lazarum-2,"Homily on Lazarus raised after four days II",Pseudo-John Chrysostom,patristic,,
 7142,chrysostom-in-ramos-palmarum,"Homily on Palm Sunday",Pseudo-John Chrysostom,patristic,,
@@ -44,7 +44,7 @@ divs,slug,title,author,genre,external_ids,start_line
 7151,chrysostom-in-feriam-quintam,"Homily for Holy Thursday",Pseudo-John Chrysostom,patristic,,
 7152,chrysostom-in-parasceven,"Homily for Good Friday",Pseudo-John Chrysostom,patristic,,
 7153,chrysostom-in-matthaeum-89,"Homily on Matthew 27:62–64",John Chrysostom,patristic,,
-7154,epiphanius-in-sepulturam,"Homily on the burial of the Lord (Holy Saturday)",Pseudo-Epiphanius,patristic,,
+7154,epiphanius-in-sepulturam,"Homily on the burial of the Lord (Holy Saturday)",Pseudo-Epiphanius,patristic,CPG:3768,
 7155,chrysostom-in-resurrectionem,"Homily on the resurrection of Christ",Pseudo-John Chrysostom,patristic,,
 7156,chrysostom-in-pascha,"Homily on Holy Pascha",Pseudo-John Chrysostom,patristic,,
 7157,chrysostom-in-resurrectionem-tertia-die,"Homily on the resurrection on the third day",Pseudo-John Chrysostom,patristic,,
