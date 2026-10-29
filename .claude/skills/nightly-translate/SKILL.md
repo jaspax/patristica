@@ -58,7 +58,7 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
 
 0. **Blocked works whose issue is closed.** Read `patristica/data/mt_blocked.csv` (`work_id,issue,reason`). For each row, check `gh issue view {issue} --json state --jq .state`. When it is `CLOSED`, note the row for removal, so the work is a candidate again on a later night.
 1. **Resume first.** If `logs/mt-partial/` holds an unfinished work (Glob `logs/mt-partial/**`), finish it before starting anything new.
-2. **Candidates:** `uv run python -m scripts.machine_translate candidates > logs/mt-candidates.tsv`. Columns: work id, language, characters, author, title.
+2. **Candidates:** `uv run python -m scripts.machine_translate candidates > logs/mt-candidates.tsv`. Columns: work id, language, characters, author, title. For the works you shortlist, `candidates --json > logs/mt-candidates.jsonl` has the details: path, requests and `versions`. Grep it by work id rather than reading it.
    - It is long (about 2,000 works), so **don't read it whole**. Grep it for the authors and works you are looking for.
    - Leave out works that already have an open PR: `gh pr list --label machine-translation --state open --limit 200`.
 3. **Keep a shortlist** across nights in `logs/mt-shortlist.md`: about 30 next candidates with a line each on why. Update it each night instead of starting over.
@@ -69,7 +69,7 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
    - **If a public-domain English translation exists** that the library could ingest (ANF/NPNF, CCEL, Loeb out of copyright and the like), don't translate it. Comment on #341 instead (`gh issue comment 341 --body "…"`) with the work id and where that English is.
    - **Prefer clean editions.** If a work's source text is badly garbled OCR (look at a few paragraphs of its normalized file with Read), skip it and note it in the report.
    - **Prefer works that fit tonight** (`plan --chars N`), unless it is a resumed one. A very long work can span nights: the partial store keeps finished requests. Start one only when it is clearly worth it.
-5. **Derived versions: exceptions.** We translate the original, not later versions of it, unless a version diverges from it in ways that matter to readers and researchers. A candidate's `versions` (in `candidates --json`) lists the other non-English members of its group. `scripts.machine_translate` also lists derived versions to review (see its `--help`).
+5. **Derived versions: exceptions.** We translate the original, not later versions of it, unless a version diverges from it in ways that matter to readers and researchers. A candidate's `versions` (in `candidates --json`) lists the other non-English members of its group: language, source, `translation_of`, characters, and whether each is derived or another edition. `uv run python -m scripts.machine_translate review-versions --json > logs/mt-review-versions.jsonl` lists the derived versions with no exception row, in groups with no published English. Those are the ones to weigh, a few per night.
    - When a work you consider has other ancient versions, or you take a derived version from that list, **sample both**: a few sections at the start, middle and end (Read of `data/normalized/{path}`), not the whole work.
    - For Syriac, Coptic, Armenian, Ge'ez and Church Slavonic, the stored search translations in `data/translations/{path}` help you read the version.
    - Reading costs usage too: budget it like a work, and keep it to what decides the question.
