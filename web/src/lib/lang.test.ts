@@ -8,6 +8,7 @@ describe("languageInfo", () => {
     expect(languageInfo("eng").lang).toBe("en");
     expect(languageInfo("hye").lang).toBe("hy");
     expect(languageInfo("grc").lang).toBe("grc");
+    expect(languageInfo("chu")).toEqual({ lang: "cu", name: "Church Slavonic", dir: "ltr" });
   });
 
   it("marks Hebrew and Syriac as right-to-left", () => {

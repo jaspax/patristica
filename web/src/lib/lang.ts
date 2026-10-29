@@ -1,7 +1,7 @@
 // Corpus languages: ISO 639-3 codes as stored in Work.language / Chunk.language
 // (patristica/models.py), mapped to what the browser needs.
 
-export type LanguageCode = "grc" | "lat" | "hbo" | "syc" | "cop" | "gez" | "hye" | "got" | "eng";
+export type LanguageCode = "grc" | "lat" | "hbo" | "syc" | "cop" | "gez" | "hye" | "got" | "chu" | "eng";
 
 export interface LanguageInfo {
   /** BCP 47 tag for the `lang` attribute; globals.css selects fonts with :lang(). */
@@ -20,6 +20,7 @@ export const LANGUAGES: Record<LanguageCode, LanguageInfo> = {
   gez: { lang: "gez", name: "Ge'ez", dir: "ltr" },
   hye: { lang: "hy", name: "Armenian", dir: "ltr" },
   got: { lang: "got", name: "Gothic", dir: "ltr" },
+  chu: { lang: "cu", name: "Church Slavonic", dir: "ltr" },
   eng: { lang: "en", name: "English", dir: "ltr" },
 };
 
