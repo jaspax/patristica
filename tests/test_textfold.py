@@ -48,7 +48,7 @@ def test_church_slavonic_witnesses_fold_alike():
     assert fold("ѿ") == "от"
     assert fold("бꙑти") == fold("бъіти") == fold("быти") == "быти"
     assert fold("ѥсть") == fold("єсть") == fold("есть") == "ест"
-    assert fold("ꙗко") == fold("ѣко") == fold("яко") == "ѣко"
+    assert fold("ꙗко") == fold("ѣко") == fold("яко") == "яко"
     assert fold("ѕвѣзда") == fold("ꙁвѣзда") == fold("звѣзда")
     assert fold("ꙙзыкъ") == fold("ѩзыкъ") == fold("ѧзыкъ")
     assert fold("ѭже") == fold("ѫже")
@@ -56,10 +56,32 @@ def test_church_slavonic_witnesses_fold_alike():
     assert fold("ѵпокрити") == fold("ипокрити")
 
 
+def test_church_slavonic_yat_by_position():
+    # Glagolitic Ⱑ is ja at a word start and after a vowel, ě after a consonant.
+    assert fold("ѣко") == fold("ꙗко") == fold("яко") == "яко"
+    assert fold("моѣ") == fold("моꙗ") == fold("моя") == "моя"
+    assert fold("тѣло") == fold("тело") == "тело"
+    assert fold("ѣсти") == "ясти"  # word start
+    assert fold("оуѣзвити") == "уязвити"  # after оу → у
+    assert fold("бꙑѣ") == "быя"  # after ꙑ → ы
+    assert fold("ꙇѣ") == fold("іѣ") == "ия"  # after і/ꙇ → и
+    assert fold("ѣѣ") == "яя"  # after a yat that became я
+    assert fold("въѣ") == "въе"  # a yer is no vowel
+    assert fold("сꙿѣ") == "се"  # the paerok is left out first
+    assert fold("ꙓ") == "я"  # iotated yat
+    assert fold("Ѣко") == "яко"
+
+
 def test_church_slavonic_yers_paerok_titlo_and_marks():
-    assert fold("дьнь") == fold("днь") == "дн"
+    assert fold("дьнь") == fold("дънъ") == "дън"  # ь merges into ъ
+    assert fold("богъ") == fold("бог") == "бог"  # word-final yers go
+    assert fold("кръстъ") == "кръст"  # word-internal yers stay
+    assert fold("кръстъ") != fold("крстъ")
     assert fold("сꙿ нимь") == fold("съ нимь") == "с ним"
-    assert fold("пⸯцѣте") == fold("пьцѣте")
+    assert fold("пⸯцѣте") == fold("пцѣте") == "пцете"  # the paerok goes
+    assert fold("пьцѣте") == "пъцете"
+    assert fold("отъъ, богь") == "от бог"  # a run of final yers before a separator
+    assert fold("ꙏ") == ""
     assert fold("г҃лѭ") == fold("глѭ")  # titlo
     assert fold("а͑гг҄ела") == "аггела"  # dasia, palatalization
     assert fold("ъ") == ""  # a lone yer is no word
@@ -100,6 +122,8 @@ SAMPLES = [
     "ወርእዮ ፡ እግዚአብሔር ፡ ለብርሃን", "𐌹𐌽 𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽", "", "  ", " a  b ", "x\u200dy",
     "Искони бѣ слово. ꙇ слово бѣ отъ б҃а.", "оученици ѹченици", "бъіти ꙑ ъ", "ѿ Ѿца",
     "хрⷭ҇тосъ кⷰ҇ ⁘", "сꙿ нимь· пⸯцѣте", "ѯ ѱ ꙗко", "ооу оъу", "ъ ь ꙿ", "а͑гг҄ела",
+    "ѣко тѣло моѣ", "Ѣѣ ꙇѣ въѣ сꙿѣ ꙓ", "оуѣ ъѣ ѣ", "дьнь кръстъ отъъ, богь.", "ьи ъи ъі",
+    "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ",
 ]
 
 
@@ -130,6 +154,18 @@ def test_fold_spans_maps_church_slavonic_back_to_the_source() -> None:
     assert pieces[0] == "оу"  # a digraph spans both letters
     assert pieces[4:6] == ["ѿ", "ѿ"]  # ѿ folds to two letters
     assert pieces[9] == "ⷭ"  # a superscript letter is a letter
+
+
+def test_fold_spans_maps_yat_and_yers_back_to_the_source() -> None:
+    text = "ѣко тѣло дьнь сꙿѣ"
+    folded, starts, ends = fold_spans(text)
+    assert folded == "яко тело дън се"
+    pieces = [text[a:b] for a, b in zip(starts, ends)]
+    assert pieces[0] == "ѣ"  # ѣ → я keeps its source letter
+    assert pieces[5] == "ѣ"  # ѣ → е too
+    assert pieces[9:12] == ["д", "ь", "н"]  # ь → ъ inside the word; the final ь is gone
+    assert pieces[12] == "ь "  # the word break spans the dropped final yer
+    assert pieces[13:15] == ["с", "ѣ"]  # the paerok is gone
 
 
 def test_fold_spans_agrees_with_fold_on_the_corpus() -> None:
