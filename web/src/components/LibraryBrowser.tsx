@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 
 import {
   DEFAULT_VIEW,
@@ -35,9 +35,10 @@ const COLUMNS: { key: SortKey; label: string; numeric?: boolean }[] = [
   { key: "chunks", label: "Chunks", numeric: true },
 ];
 
-export default function LibraryBrowser() {
+/** `placeholder`: what the server renders while the library loads (components/Prerendered.tsx, #406). */
+export default function LibraryBrowser({ placeholder }: { placeholder?: ReactNode }) {
   const library = useLoaded(loadLibrary);
-  if (library.status === "loading") return <p>Loading the library…</p>;
+  if (library.status === "loading") return placeholder ?? <p>Loading the library…</p>;
   if (library.status === "error") return <LoadError error={library.error} />;
   return <Browser library={library.data} />;
 }

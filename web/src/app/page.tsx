@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { Hero } from "@/components/Landing";
 import SearchPage from "@/components/SearchPage";
+
+// Search results (`/?q=…`) are the same page: robots.txt keeps crawlers off them.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (

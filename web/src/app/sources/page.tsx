@@ -5,7 +5,7 @@ import SourcesTable from "@/components/SourcesTable";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = { title: "Sources & licences" };
+export const metadata: Metadata = { title: "Sources & licences", alternates: { canonical: "/sources" } };
 
 const REPO = "https://github.com/jaspax/patristica/blob/master";
 

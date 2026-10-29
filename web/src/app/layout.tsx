@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_URL } from "@/lib/seo";
 
 import { fontVariables } from "./fonts";
 import "./globals.css";
@@ -12,7 +13,7 @@ const description =
 
 export const metadata: Metadata = {
   // Resolves the Open Graph image to an absolute URL.
-  metadataBase: new URL("https://patristica.app"),
+  metadataBase: new URL(SITE_URL),
   title: { default: "Patristica", template: "%s · Patristica" },
   description,
   openGraph: {

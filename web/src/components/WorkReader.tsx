@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef, type ReactNode } from "react";
 
 import { formatDateLong, GENRES, LICENSES } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
@@ -16,6 +16,7 @@ import {
   type WorkRow,
 } from "@/lib/library";
 import { canReadInParallel, parallelHref, parallelIds } from "@/lib/parallel";
+import { workTitle } from "@/lib/seo";
 import { useLoaded } from "@/lib/useLoaded";
 import { useOffscreen } from "@/lib/useOffscreen";
 import { currentPosition, originalIds, positionIn, versionMembers } from "@/lib/versions";
@@ -27,7 +28,8 @@ import VersionSwitcher, { FloatingVersions, VersionLink, type PositionFor } from
 import WorkText from "./WorkText";
 import styles from "./WorkReader.module.css";
 
-export default function WorkReader() {
+/** `placeholder`: what the server renders while the library loads (components/Prerendered.tsx, #406). */
+export default function WorkReader({ placeholder }: { placeholder?: ReactNode }) {
   const params = useParams<{ id: string[] }>();
   const id = workIdFromSegments(params.id ?? []);
   // `?with=` opens parallel reading (#181). The page wraps the reader in Suspense for this.
@@ -35,7 +37,7 @@ export default function WorkReader() {
   const withIds = parallelIds(search, id);
   const library = useLoaded(loadLibrary);
 
-  if (library.status === "loading") return <p>Loading…</p>;
+  if (library.status === "loading") return placeholder ?? <p>Loading…</p>;
   if (library.status === "error") return <LoadError error={library.error} />;
 
   const row = library.data.index.works.find((w) => w.id === id);
@@ -104,14 +106,13 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
 
   const byline = workAuthors(row, authors);
   const names = byline.map((a) => a.name).join(", ");
-  const citation = names ? `${names}, ${row.title}` : row.title;
   // The source's own attribution, kept for provenance when it differs from the index's names.
   const attribution = row.author && row.author !== names ? row.author : null;
   const originalNames = original ? workAuthors(original, authors).map((a) => a.name).join(", ") : "";
 
   return (
     <article className={hasVersions ? styles.withVersions : undefined}>
-      <title>{`${citation} · Patristica`}</title>
+      <title>{`${workTitle(row, authors, index)} · Patristica`}</title>
       <nav className={styles.crumbs} aria-label="Breadcrumb">
         <Link href="/works">Library</Link>
         <span aria-hidden="true"> / </span>
