@@ -4,6 +4,7 @@
 // language with :lang() rules (see lib/lang.ts for the lang values).
 import {
   Cinzel,
+  Monomakh,
   Noto_Sans_Coptic,
   Noto_Sans_Gothic,
   Noto_Sans_Syriac,
@@ -63,7 +64,28 @@ const gothic = Noto_Sans_Gothic({
   preload: false,
 });
 
+// Church Slavonic (#330): Monomakh is made for early Cyrillic manuscripts and
+// covers every Old Church Slavonic letter the sources use (Cyrillic Extended-A
+// superscript letters, Extended-B ꙇ ꙑ ꙙ ꙉ ꙁ ꙗ, the titla). Ponomar lacks
+// ꙇ, ꙑ and ꙙ; Noto Serif (the fallback) has them all but not the look.
+const slavonic = Monomakh({
+  subsets: ["cyrillic", "cyrillic-ext"],
+  weight: "400",
+  variable: "--font-slavonic",
+  preload: false,
+});
+
 /** Class names that define all font CSS variables; put on <html>. */
-export const fontVariables = [serif, display, hebrew, syriac, coptic, ethiopic, armenian, gothic]
+export const fontVariables = [
+  serif,
+  display,
+  hebrew,
+  syriac,
+  coptic,
+  ethiopic,
+  armenian,
+  gothic,
+  slavonic,
+]
   .map((f) => f.variable)
   .join(" ");

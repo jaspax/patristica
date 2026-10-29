@@ -55,7 +55,7 @@ log = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "eng"}
+VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "eng"}
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts
 SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
@@ -67,6 +67,17 @@ SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
     # Coptic may use Coptic block or Greek-script; accept either
     "cop": [(0x2C80, 0x2CFF), (0x0370, 0x03FF)],
     "got": [(0x10330, 0x1034F)],
+    # Church Slavonic is stored in Cyrillic (Glagolitic is converted at ingest,
+    # #330), so Glagolitic text counts as the wrong script here. Cyrillic,
+    # Cyrillic Supplement and Extended-A/B/C, plus combining marks (titla are
+    # U+0483–0487 in the Cyrillic block; generic accents U+0300–036F).
+    "chu": [
+        (0x0400, 0x052F),
+        (0x1C80, 0x1C8F),
+        (0x2DE0, 0x2DFF),
+        (0xA640, 0xA69F),
+        (0x0300, 0x036F),
+    ],
 }
 
 _COLLECTION_TITLE_RE = re.compile(

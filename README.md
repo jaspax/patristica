@@ -22,6 +22,8 @@ The corpus covers:
 - **Church Fathers**: Ante-Nicene, Nicene, and Post-Nicene Fathers (ANF/NPNF), with Greek and Latin originals where available
 - **Councils & Creeds**: Acts of the seven Ecumenical Councils, the Apostolic Canons, and major credal documents
 
+Original-language texts are in Greek, Latin, Hebrew, Syriac, Coptic, Ge'ez, Armenian and Gothic, and Old Church Slavonic is being added (#29: the Gospel codices, the Psalterium Sinaiticum, Codex Suprasliensis and other canonical OCS texts, stored in Cyrillic).
+
 All sources are public domain unless otherwise noted.
 
 Adding a new language (Slavonic, Arabic, Georgian, …) follows the checklist in [docs/adding-a-language.md](docs/adding-a-language.md).
