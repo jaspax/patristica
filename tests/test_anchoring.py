@@ -16,9 +16,13 @@ from scripts import normalize as nz
 # ---------------------------------------------------------------- enrolment
 
 
-def test_enrolment_table_is_empty_for_now() -> None:
-    """Nothing is enrolled yet: the first source enrols in its own data PR."""
-    assert anchoring.load_enrolment() == {}
+def test_enrolled_sources_are_known_sources() -> None:
+    """Every enrolled source is a real source (it has a label), with a reason."""
+    from patristica.sources import SOURCE_LABELS
+
+    enrolled = anchoring.load_enrolment()
+    assert set(enrolled) <= set(SOURCE_LABELS)
+    assert all(reason.strip() for reason in enrolled.values())
 
 
 @pytest.mark.parametrize("body, message", [
