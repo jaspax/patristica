@@ -49,4 +49,4 @@ The decision is the agent's. Always leave room for the owner's work. If the proj
 
 ## Machine translations for readers
 
-`scripts.machine_translate` (#423) uses the same backends to translate whole works, by chapter, into English for readers: the `mt-eng` works of `docs/machine-translation.md`. Its default is `local-opus`, and it logs the same usage line after every few requests and per work. The method above applies per work: project the work's requests before starting it.
+`scripts.machine_translate` (#423) uses the same backends to translate whole works, by chapter, into English for readers: the `mt-eng` works of `docs/machine-translation.md`. Its default is `local-opus`, and it logs the same usage line after every few requests and per work. The method above applies per work: project the work's requests before starting it. The nightly agent (#425) does that with `scripts.nightly_budget`, which keeps the usage samples and computes the projection, including the weekly reserve measured from the owner's daytime use (`docs/machine-translation.md` → "Nightly runs").

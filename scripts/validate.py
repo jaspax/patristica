@@ -986,6 +986,9 @@ def _print_summary(report: dict) -> None:
 
 #: Data validate reads besides its code: the corpus and the curated tables.
 INPUT_PREFIXES = ("data/normalized/", "patristica/data/")
+#: Curated tables under patristica/data that validate never reads: the nightly
+#: machine-translation curation (#425), pushed from a worktree without the corpus.
+NOT_INPUTS = {"patristica/data/mt_exceptions.csv", "patristica/data/mt_blocked.csv"}
 
 
 def input_files() -> set[str]:
@@ -1001,12 +1004,13 @@ def inputs_changed(changed: list[str]) -> list[str]:
     """The paths in *changed* (repo-relative) that validate reads.
 
     normalize's fingerprint files (``_fingerprint.json``, ``_fingerprints.jsonl``)
-    are bookkeeping, not data validate checks.
+    are bookkeeping, not data validate checks, and ``NOT_INPUTS`` aren't read.
     """
     code = input_files()
     return [p for p in changed
             if p in code
-            or (p.startswith(INPUT_PREFIXES) and not Path(p).name.startswith("_fingerprint"))]
+            or (p.startswith(INPUT_PREFIXES) and p not in NOT_INPUTS
+                and not Path(p).name.startswith("_fingerprint"))]
 
 
 def changed_since(ref: str, rev: str = "HEAD") -> list[str]:

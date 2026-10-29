@@ -1,0 +1,11 @@
+# 22:15 US Central every night (the owner is away about 22:00-07:00).
+[Unit]
+Description=Patristica nightly machine translation at 22:15 America/Chicago
+
+[Timer]
+OnCalendar=*-*-* 22:15:00 America/Chicago
+Persistent=false
+Unit=patristica-nightly-mt.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,12 @@
+# Nightly machine translation (#425): starts the background agent and exits.
+# Install: docs/machine-translation.md -> "Nightly runs".
+[Unit]
+Description=Patristica nightly machine translation (starts a background Claude session)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/vibe-coding/patristica
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/vibe-coding/patristica/scripts/nightly/run.sh

@@ -80,3 +80,57 @@ An MT PR adds only the raw file, so it needs no issue (CLAUDE.md, "Branches and 
 ## Disclaimer
 
 The reader shows every MT with a short notice: the English was machine-translated from the original by an AI model, has not been reviewed, and may contain errors, so readers should consult the original for close study (#424).
+
+## Nightly runs
+
+MTs are made by a nightly agent on the Claude subscription, while the owner is away (about 22:00–07:00 US Central, #425).
+
+**How a night goes:**
+1. A systemd user timer starts `scripts/nightly/run.sh` at 22:15 America/Chicago.
+2. The script checks the main checkout (data present, no uncommitted changes, `gh` logged in).
+3. It starts a background Claude Code session (`claude --bg`, Sonnet as the coordinator) running the project skill `/nightly-translate` (`.claude/skills/nightly-translate/SKILL.md`), with `--permission-mode dontAsk`. Only what `.claude/settings.json` allows runs, and anything else is denied, never left waiting on a prompt.
+
+**What the agent does:**
+- **Budgets**, using `scripts.nightly_budget`. `sample` records the usage windows in `logs/usage.jsonl`, and `plan [--chars N]` projects the night:
+  - the 06:30 deadline;
+  - the 5-hour window to its reset;
+  - a weekly allowance that leaves the owner's measured daytime use until the weekly reset, plus a margin;
+  - usage and time per 1k characters, measured from earlier works.
+  The decision is the agent's (`docs/translation-backends.md`).
+- **Chooses works** by judgement: important works first, widely translated ones later, clean editions, public-domain English reported on #341 instead of translated.
+- **Translates each work** with `scripts.machine_translate` (`local-opus`) in the worktree `.claude/worktrees/nightly-mt`, spot-checks it, and opens **one PR per work** (label `machine-translation`, template `machine_translation.md`).
+- **Curates as it reads:**
+  - It samples derived ancient versions against their original, and adds exceptions for those that diverge in ways that matter (`mt_exceptions.csv`).
+  - It files `data-quality` issues for problems in a source, searching first.
+  - It blocks works those problems make impractical to translate (`patristica/data/mt_blocked.csv`, `work_id,issue,reason`), and unblocks them when their issue is closed.
+  - All table edits of a night go in **one curation PR** (`mt-curation/{date}`).
+- **Reports** with one comment per night on the pinned issue **#429**: what was translated, what was curated, issues filed, what was skipped and why, the usage, and why it stopped.
+
+**In the morning:**
+1. Read #429.
+2. Review and merge the PRs.
+3. Run `scripts.pipeline`.
+
+The pipeline's anchor and embed steps cost a few cents per MT work in Voyage requests.
+
+**Install** (once, on the machine with the data and the subscription login; linger must be on, `loginctl enable-linger`):
+
+```bash
+mkdir -p ~/.config/systemd/user
+ln -sf ~/vibe-coding/patristica/scripts/nightly/patristica-nightly-mt.service ~/.config/systemd/user/
+ln -sf ~/vibe-coding/patristica/scripts/nightly/patristica-nightly-mt.timer ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now patristica-nightly-mt.timer
+systemctl --user list-timers patristica-nightly-mt.timer     # next run
+```
+
+**Operate:**
+- Run a night by hand: `scripts/nightly/run.sh` (`--check` runs only the checks).
+- Pause: `systemctl --user disable --now patristica-nightly-mt.timer`.
+- See the runs:
+  - issue #429;
+  - `claude agents` (sessions named `nightly-mt-{date}`; `claude logs` / `claude attach` for one);
+  - `logs/nightly-mt-runs.log` (start lines and start failures);
+  - `logs/nightly-mt-{date}.md` (each night's report);
+  - `logs/usage.jsonl`.
+- Unfinished works wait in `logs/mt-partial/` and are resumed first the next night.
