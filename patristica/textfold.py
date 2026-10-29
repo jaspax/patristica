@@ -71,16 +71,20 @@ _CYRILLIC_DIGRAPH_RE = re.compile("|".join(_CYRILLIC_DIGRAPHS))
 # since witnesses confuse the two; the paerok (ꙿ, ⸯ), which marks an omitted
 # yer, is left out. Word-final yers are then left out too (written in OCS,
 # not in modern spelling: богъ = бог); word-internal ones are kept.
-_CYRILLIC_YERS = {ord("ь"): "ъ", ord("ꙏ"): "ъ", ord("ꙿ"): None, ord("ⸯ"): None}
+_CYRILLIC_YERS = {ord("ь"): "ъ", ord("ꙏ"): "ъ"}
 _CYRILLIC_FINAL_YERS_RE = re.compile("ъ+(?= |$)")
 # Glagolitic has one letter, Ⱑ, for ja (at the start of a word and after a
 # vowel) and ě (after a consonant), and its Cyrillic transliterations write ѣ
 # for both. So ѣ at a word start or after a vowel folds to я (ѣко = ꙗко =
 # яко), and after anything else to е (тѣло = тело). The vowels are those left
 # after the other Cyrillic folds (ѹ/оу → у, ꙑ → ы, і → и, ѥ → е, …); ѣ itself
-# counts, since it has just become я or е; a yer does not.
-_CYRILLIC_VOWELS = "аеиоуыюяѣѧѫ"
+# counts, since it has just become я or е. A yer is a vowel too, and so is
+# the paerok that stands for one: the Glagolitic witnesses write братрьѣ,
+# марьѣ where Cyrillic ones write братрьꙗ, марьꙗ. So ѣ is folded before the
+# paerok is left out.
+_CYRILLIC_VOWELS = "аеиоуыюяѣѧѫъꙿⸯ"
 _CYRILLIC_YAT_JA_RE = re.compile(f"(?:^|(?<=[ {_CYRILLIC_VOWELS}]))ѣ")
+_CYRILLIC_PAEROK = dict.fromkeys(map(ord, "ꙿⸯ"), None)
 
 
 def _is_dropped_mark(ch: str) -> bool:
@@ -105,7 +109,7 @@ def fold(text: str) -> str:
     t = _CYRILLIC_DIGRAPH_RE.sub(
         lambda m: _CYRILLIC_DIGRAPHS[m.group()], t.translate(_CYRILLIC_LETTERS)
     ).translate(_CYRILLIC_YERS)
-    t = _CYRILLIC_YAT_JA_RE.sub("я", t).replace("ѣ", "е")
+    t = _CYRILLIC_YAT_JA_RE.sub("я", t).replace("ѣ", "е").translate(_CYRILLIC_PAEROK)
     t = _CYRILLIC_FINAL_YERS_RE.sub("", t)
     return " ".join(_LATIN_WORDS.get(w, w) for w in t.split())
 
@@ -148,16 +152,17 @@ def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
         else:
             merged.append((c, start, end))
             k += 1
-    # ь → ъ, paerok left out; then ѣ by the folded character before it.
+    # ь → ъ; ѣ by the folded character before it (a paerok counts); then
+    # the paerok is left out.
     cyrillic: list[tuple[str, int, int]] = []
+    before = " "
     for c, start, end in merged:
         c = c.translate(_CYRILLIC_YERS)
-        if not c:
-            continue
         if c == "ѣ":
-            before = cyrillic[-1][0] if cyrillic else " "
             c = "я" if before in " " + _CYRILLIC_VOWELS else "е"
-        cyrillic.append((c, start, end))
+        before = c
+        if c.translate(_CYRILLIC_PAEROK):
+            cyrillic.append((c, start, end))
     # Word-final yers: a ъ followed only by ъ up to a space or the end.
     merged = []
     at_end = True
