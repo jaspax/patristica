@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "coptic-scriptorium/shenoute_place",
+ "pivot": "coptic-scriptorium-eng/shenoute_place",
+ "groups": 19,
+ "inputs": "cf2404dde788c486",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "coptic-scriptorium-eng/shenoute_place", "units": 20, "ids": "6c1ba08ee6ecbade", "inputs": "8747fb2fb66f3176", "spans": ".+++++++++++++++++++", "conf": "9999999999999999999"},
+  {"work_id": "coptic-scriptorium/shenoute_place", "units": 19, "ids": "dd0582041d9f4f55", "inputs": "7d67c6d725ba0105", "spans": "+++++++++++++++++++", "conf": "9999999999999999999"}
+ ]
+}

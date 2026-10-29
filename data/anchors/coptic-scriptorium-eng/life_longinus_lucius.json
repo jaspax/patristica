@@ -1,0 +1,22 @@
+{
+ "work_id": "coptic-scriptorium-eng/life_longinus_lucius",
+ "anchor": "coptic-scriptorium/life_longinus_lucius",
+ "method": "e26e66e4678bcee0",
+ "anchor_cuts": "3d3bf27241e0d1bc",
+ "words": "27bc4b0b8f84b278",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 45, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 0, "one_one": 0.1223, "rounds": 4, "units": 51},
+ "paragraphs": {
+  "CopScr.life-longinus-lucius.000.0000": {"words": "a4a51fa07d3fd141", "starts": [0, 34]},
+  "CopScr.life-longinus-lucius.000.0001": {"words": "05e5105fb72cd9e7", "starts": [0, 56, 119, 122, 132, 134]},
+  "CopScr.life-longinus-lucius.000.0002": {"words": "0d4ffd042eda19f8", "starts": [0, 37, 75, 109, 140, 141]},
+  "CopScr.life-longinus-lucius.000.0003": {"words": "826afca50167b919", "starts": [0, 28, 51, 101, 119]},
+  "CopScr.life-longinus-lucius.000.0004": {"words": "f2141493dae347e1", "starts": [0, 10, 21, 30, 97, 109, 145, 153, 157, 171]},
+  "CopScr.life-longinus-lucius.000.0005": {"words": "519bf9de729f42ac", "starts": [0, 69]},
+  "CopScr.life-longinus-lucius.000.0006": {"words": "5bf979ce4e217542", "starts": [0, 76, 109]},
+  "CopScr.life-longinus-lucius.000.0007": {"words": "211d797cf8c01f95", "starts": [0, 88, 126, 135, 136]},
+  "CopScr.life-longinus-lucius.000.0008": {"words": "179b675731a90262", "starts": [0, 37, 81]},
+  "CopScr.life-longinus-lucius.000.0009": {"words": "be107091e8a1b7f7", "starts": [0, 15, 81, 161, 209]},
+  "CopScr.life-longinus-lucius.001.0000": {"words": "e62e2111f3be650c", "starts": [0, 31, 37, 175]}
+ }
+}
