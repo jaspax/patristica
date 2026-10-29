@@ -10,8 +10,9 @@ License: CC BY 4.0 (https://www.kielipankki.fi/lic/ccmh-eng/)
 
 One work per Gospel (``ccmh-marianus/matt`` …): each codex is its own
 Scripture source, so its books join the Gospel version groups. The codex
-lacks Matt 1:1–5:23 and John 21:18–25. The chapter lists (kephalaia) CCMH
-files under chapter 0 are not verses and are skipped (#369).
+lacks Matt 1:1–5:23 and John 21:18–25. The chapter lists (kephalaia) before
+Mark, Luke and John, which CCMH files under chapter 0, are units
+``{book}.0.{n}`` marked as titles (``_ccmh.chapter_list``, #369).
 """
 
 from __future__ import annotations
@@ -19,7 +20,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from patristica.models import Work
-from scripts.ingest._ccmh import MARIANUS, Codex, ingest_codex
+from scripts.ingest._ccmh import MARIANUS, MARIANUS_RENUMBER, Codex, ingest_codex
 
 SOURCE_ID = "ccmh-marianus"
 
@@ -30,8 +31,7 @@ CODEX = Codex(
     table=MARIANUS,
     edition="after V. Jagić, Quattuor evangeliorum versionis palaeoslovenicae codex "
             "Marianus glagoliticus (Berlin 1883)",
-    # Two lines carry mistyped numbers: Luke 1:55 and the second line of John 5:9.
-    renumber={"3105500": "3015500", "4059100": "4050910"},
+    renumber=MARIANUS_RENUMBER,
 )
 
 

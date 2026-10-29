@@ -71,6 +71,17 @@ def test_diacritics_sit_on_the_right_letter():
 def test_assemanianus_reads_jery_and_its_strokes():
     assert text("*k$nIg&I", ASSEMANIANUS) == "Кьнігꙑ"
     assert text("/isa/aka", ASSEMANIANUS) == "и\u0301саа\u0301ка"
+    # Two strokes over one letter are one double mark (#368).
+    assert text("//wt& d``&va", ASSEMANIANUS) == "ѡ\u030bтъ дъ\u030fва"
+    assert text("/i/ak/ova", MARIANUS) != text("/i/ak/ova", ASSEMANIANUS)
+
+
+def test_assemanianus_dash_is_punctuation_not_a_lacuna():
+    # Its "-" never touches a word: the scribe's dash after a stop (#368).
+    conv = convert("sv/i grad& :: . -", ASSEMANIANUS)
+    assert conv.text == "сви\u0301 градъ⁘ . –" and conv.editorial == []
+    assert text("d@latelem& - /JZe", ASSEMANIANUS) == "дѣлателемъ – ꙇ\u0301же"
+    assert convert("-to", MARIANUS).editorial == [[0, 1, "lacuna"]]   # Marianus's "-" still is
 
 
 def test_punctuation():
@@ -110,12 +121,76 @@ def test_join_lines():
 
 def test_lectionary_keeps_the_first_reading():
     lines = [("1010100", "*a"), ("1010110", "b"), ("1010101", "*v& (ono!v . a"),
-             ("1010200", "c"), ("1000010", "!a *o kephalaion")]
+             ("1010200", "c")]
     gt = parse_gospels(lines)
-    assert gt.skipped_lists == 1
     books, unknown, _ = gospel_books(gt, MARIANUS)
     assert [u["text"] for u in books[0].verses] == ["А б", "ц"]
-    assert books[0].repeats_dropped == 1 and not unknown
+    assert books[0].repeats_dropped == 1 and not unknown and not books[0].later_readings
+
+
+def _reading(ascii_text: str) -> _ccmh.Converted:
+    return convert(ascii_text, MARIANUS)
+
+
+def test_a_cut_short_first_reading_gives_way_to_the_full_verse():
+    # Savvina Matt 10:40: the first reading lacks the verse's second clause (#370).
+    full = "prijemlEi vas& mene prijemlet& . a prijemlEi mene prijemlet& pos&lav&Sago mE ."
+    reference = _ccmh.comparable(_reading(full))
+    readings = {"0": _reading("prijemlEi vas& mene prijemlet& ."), "1": _reading(full)}
+    assert _ccmh.choose_reading(readings, reference) == "1"
+    # Without a continuous text to compare with, the first is kept.
+    assert _ccmh.choose_reading(readings, None) == "0"
+
+
+def test_a_lection_formula_or_other_wording_keeps_the_first_reading():
+    verse = "jegda pridet& !sn& !Clsky v& slav@ svojeI . i vsi !stiI !aggli s& nim$ ."
+    reference = _ccmh.comparable(_reading(verse))
+    # A later reading that only adds a lection formula is not "fuller".
+    formula = {"0": _reading(verse), "1": _reading("*reCe !g$ . uCenikom& svoim& . " + verse)}
+    assert _ccmh.choose_reading(formula, reference) == "0"
+    # Nor is one that is only worded differently, though it is closer to the reference.
+    wording = {"0": _reading("jegda pride !sn& v& slav@ svoei . i vsi angeli s& nim$ ."),
+               "1": _reading(verse)}
+    assert _ccmh.choose_reading(wording, reference) == "0"
+
+
+def test_lectionary_book_records_the_later_reading():
+    gt = parse_gospels([("1104000", "prijemlEi vas& mene prijemlet& ."),
+                        ("1104001", "prijemlEi vas& mene prijemlet& . a prijemlEi mene "
+                                    "prijemlet& pos&lav&Sago mE .")])
+    full = _ccmh.comparable(_reading("prijemlEi vas& mene prijemlet& . a prijemlEi mene "
+                                     "prijemlet& pos&lav&Sago mE ."))
+    books, _, _ = gospel_books(gt, MARIANUS, {("1", 10, 40): full})
+    assert books[0].later_readings == [("Matt.10.40", "1")]
+    assert books[0].verses[0]["text"].endswith("посълавъшаго мѧ.")
+
+
+def test_chapter_lists_are_title_units_in_chapter_0():
+    # Marianus Mark's list (#369): the title line is 0, each later line its own
+    # unit; a word broken over two lines (Zographensis) joins its first line.
+    lines = [("2000010", "*g*l*a!v *e*v*n*&!G*l*i*@ *e*Z*e *o*t*& *m*a*r*&*k*a :: ::"),
+             ("2000020", "!a *o b@s&nujOStiim& . ::"),
+             ("2000030", "*w (Jc@l@v&SIx& ot& razli-"), ("2000040", "-C$n& nedOg& : +"),
+             ("2000050", "*w t$Sti petrov@ : +"),
+             ("2010100", "*zaCElo !evan$Gli@ !isxva !sna !bZi@ .")]
+    gt = parse_gospels(lines)
+    assert gt.lists == {"2": [(1, lines[0][1]), (2, lines[1][1]), (3, lines[2][1]),
+                              (4, lines[3][1]), (5, lines[4][1])]}
+    books, unknown, _ = gospel_books(gt, ZOGRAPHENSIS)
+    assert not unknown
+    units = books[0].verses
+    assert [u["ref"] for u in units] == ["Mark.0.0", "Mark.0.1", "Mark.0.2", "Mark.0.4", "Mark.1.1"]
+    assert units[2]["text"] == "Ѡ ꙇ\u0485цѣлѣвъшіхъ отъ различьнъ недѫгъ: ✝"
+    for u in units[:4]:
+        assert u["editorial"] == [[0, len(u["text"]), "title"]]
+        assert editorial.source_text(u) == ""
+    assert books[0].list_units == 4
+    assert "editorial" not in units[4]
+
+
+def test_chapter_list_refs_are_their_own_versification_group():
+    from patristica.versification import to_org_ref
+    assert to_org_ref("ccmh-marianus", "Mark.0.3") == "Mark.0.3"
 
 
 def test_renumbered_lines_and_lection_titles():
