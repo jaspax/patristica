@@ -67,6 +67,27 @@ def test_parse_joins_hyphens_stops_and_notes(tmp_path):
     assert words[3].note and words[3].line == "1090102"
 
 
+def test_parse_fixes_side_digits_from_the_order(tmp_path):
+    """CCMH labels a recto's first line as the verso's (part 2 fol. 10) and
+    a verso's later lines as the recto's (fol. 42v): fixed from their order."""
+    src = tmp_path / "s.txt"
+    src.write_text(
+        "2009230 a\n2010201 b\n2010102 c\n2010130 d\n2010201 e\n2010202 f\n"
+        "2010103 g\n2010104 h\n2011101 i\n",
+        encoding="utf-8",
+    )
+    lines = [w.line for w in parse_ccmh(src)]
+    assert lines == ["2009230", "2010101", "2010102", "2010130", "2010201", "2010202",
+                     "2010203", "2010204", "2011101"]
+
+
+def test_parse_refuses_a_repeated_line(tmp_path):
+    src = tmp_path / "s.txt"
+    src.write_text("1090101 a\n1090102 b\n1090102 c\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="out of order"):
+        parse_ccmh(src)
+
+
 def test_units_mark_lacunae_and_notes():
     words = [Word("1078229", "a", "а"), Word("1078230", "b", "бо."),
              Word("1078230", "n", "note", note=True)]

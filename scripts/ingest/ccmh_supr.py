@@ -289,18 +289,39 @@ _LINE_FIXES = {
 }
 
 
+def _fix_side(key: str, prev: str | None, seen: set[str]) -> str:
+    """Correct CCMH line numbers whose side digit is wrong, from their order
+    (#333): a recto line after a verso line of the same folio is the verso's
+    (fols. 42v, part 3 37v), and a verso's line 01 before any line of its
+    recto, straight after another folio, is the recto's first line (part 2
+    fols. 10–16, part 3 fol. 1)."""
+    if prev is None:
+        return key
+    if key[:4] == prev[:4] and key[4] == "1" and prev[4] == "2":
+        return key[:4] + "2" + key[5:]
+    if key[4:] == "201" and prev[:4] != key[:4] and key[:4] + "101" not in seen:
+        return key[:4] + "101"
+    return key
+
+
 def parse_ccmh(path: Path) -> list[Word]:
     """CCMH's file → its words in text order, each marginal note as one word
     after the last word of the line it starts beside."""
     words: list[Word] = []
     carry: Word | None = None  # a word hyphenated at the end of the last line
+    prev: str | None = None
+    seen: set[str] = set()
     for raw in path.read_text(encoding="utf-8").splitlines():
         if not raw.strip():
             continue
         key, _, body = raw.partition(" ")
-        key = _LINE_FIXES.get(key, key)
+        key = _fix_side(_LINE_FIXES.get(key, key), prev, seen)
         if not re.fullmatch(r"[123]\d{3}[12]\d{2}", key):
             raise ValueError(f"unexpected CCMH line number {key!r}")
+        if key in seen or (prev is not None and key[:4] == prev[:4] and key < prev):
+            raise ValueError(f"CCMH line {key} out of order (after {prev})")
+        prev = key
+        seen.add(key)
         if key in _NOTE_LINES:
             body = re.split(r"\t+", body)[0]
         body = body.replace("\t", " ").rstrip()
@@ -577,6 +598,9 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         after = run[-1].line[:5] in _LOST_AFTER and (
             k == last or runs[k + 1][1][0].line[:5] != run[-1].line[:5])
         paragraphs = build_units(run, before, after)
+        refs = [u["ref"] for u in paragraphs]
+        if len(set(refs)) != len(refs):
+            raise ValueError(f"{text.slug}: a page comes twice ({refs})")
         work = Work(
             work_id=f"{SOURCE_ID}/{text.slug}",
             source_id=SOURCE_ID,
