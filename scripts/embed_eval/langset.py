@@ -1,0 +1,236 @@
+"""
+A one-language eval set for a new language, built straight from ``data/normalized``.
+
+``scripts.embed_eval.build`` samples the 2026-10 eval corpus from
+``data/chunks`` across every language, and its embedding cache is per text, so
+extending it means embedding a corpus whose chunk ids predate the source-first
+layout (#102). Every number in ``docs/embedding-eval.md`` is filtered to the
+target's language, so a new language needs only its own chunks: this builds
+the same kind of set for one language with ``select.select`` (about 100
+Scripture targets with every same-language witness of their verse, about 100
+language-unique targets with ±2 neighbours, 2,000 random distractors) and
+``queries.make_queries`` (exact and near-verbatim spans), from the text
+``scripts.embed`` embeds (``editorial.source_text``). Scripture verses are
+grouped by their org-versification ref, as ``scripts.link_translations`` does.
+
+For Church Slavonic it adds a ``modern`` query per exact span: the span in
+modern Russian orthography (``spelling.modern``), scored at R@1 like near.
+
+The Scripture targets' verse groups also get their English verses (WEB, KJV,
+ASV; role ``reference``), so the translation-quality eval and the query review
+have a published reference, as in #84 and #87. They are outside the
+language-filtered scores.
+
+``--subset-dir`` writes the set's chunks in the language as a normalized tree
+(``_works.jsonl`` plus one file per work), so ``scripts.translate --input-dir``
+translates exactly the eval chunks into an eval store.
+
+``--fold`` also writes ``{out}-fold``: the same set with every corpus text and
+every query in the language passed through ``fold()``, to measure embedding an
+orthographically normalized form (#336). Authored English queries are the
+same in both.
+
+Usage::
+
+    python -m scripts.embed_eval.langset chu [--out-dir data/eval/chu] [--fold]
+        [--subset-dir data/eval/chu/normalized]
+    python -m scripts.embed_eval.run --eval-dir data/eval/chu --retriever bm25 \\
+        --retriever dense:voyage/voyage-4-large
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+from collections import Counter
+from pathlib import Path
+
+from patristica import editorial
+from patristica.textfold import fold
+from patristica.versification import to_org_ref
+from scripts.embed_eval.queries import DEFAULT_AUTHORED, Query, make_queries
+from scripts.embed_eval.select import ChunkMeta, select
+
+log = logging.getLogger(__name__)
+
+DEFAULT_NORMALIZED = Path("data/normalized")
+REFERENCE_SOURCES: tuple[str, ...] = ("web", "kjv", "asv")
+CORPUS_KEYS = ("chunk_id", "work_id", "language", "text", "translation_group_id")
+
+
+def _manifest(normalized_dir: Path) -> list[dict]:
+    """The ``_works.jsonl`` records (``{"path", "work"}``)."""
+    with (normalized_dir / "_works.jsonl").open(encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
+
+
+def _chunks(normalized_dir: Path, rec: dict) -> list[dict]:
+    w = rec["work"]
+    scripture = w["genre"] == "scripture"
+    return [{
+        "chunk_id": c["chunk_id"], "work_id": c["work_id"], "language": c["language"],
+        "text": editorial.source_text(c), "chunk_index": c["chunk_index"],
+        "out_of_period": c.get("out_of_period", False),
+        "translation_group_id": (to_org_ref(w["source_id"], c["canonical_ref"])
+                                 if scripture else None),
+        "raw": c,
+    } for c in json.loads((normalized_dir / rec["path"]).read_text(encoding="utf-8"))]
+
+
+def load_language(normalized_dir: Path, lang: str) -> tuple[list[dict], list[dict]]:
+    """``(manifest records, chunks)``: every work, and the chunks of the works in *lang*.
+
+    Chunks carry the embedded text and, for Scripture, their verse's org ref as
+    ``translation_group_id``; ``raw`` is the normalized chunk.
+    """
+    recs = _manifest(normalized_dir)
+    chunks = [c for r in recs if r["work"]["language"] == lang
+              for c in _chunks(normalized_dir, r)]
+    return recs, chunks
+
+
+def english_references(normalized_dir: Path, groups: set[str]) -> list[dict]:
+    """The verses of the English Bibles (``REFERENCE_SOURCES``) in the verse *groups*."""
+    books = {g.split(".")[0] for g in groups}
+    out = []
+    for r in _manifest(normalized_dir):
+        w = r["work"]
+        if w["source_id"] not in REFERENCE_SOURCES or w["genre"] != "scripture":
+            continue
+        if Path(r["path"]).stem not in books:
+            continue
+        out += [c for c in _chunks(normalized_dir, r)
+                if c["translation_group_id"] in groups and c["text"].strip()]
+    return out
+
+
+def authored_targets(authored_dir: Path) -> frozenset[str]:
+    return frozenset(
+        json.loads(line)["target_chunk_id"]
+        for path in sorted(authored_dir.glob("*.jsonl"))
+        for line in path.read_text(encoding="utf-8").splitlines() if line.strip()
+    )
+
+
+def modern_queries(queries: list[Query]) -> list[Query]:
+    """A ``modern`` query per exact Church Slavonic query: the span in modern spelling."""
+    from scripts.embed_eval.spelling import modern
+
+    out = []
+    for q in queries:
+        if q.mode == "exact" and q.target_lang == "chu":
+            out.append(Query(f"modern:{q.target_chunk_id}", "modern", modern(q.text),
+                             q.query_lang, q.target_lang, q.origin, q.target_chunk_id,
+                             q.relevant_ids))
+    return out
+
+
+def write_subset(out_dir: Path, recs: list[dict], chunks: list[dict], ids: set[str]) -> int:
+    """Write the chunks in *ids* as a normalized tree under *out_dir*; returns the count."""
+    by_work: dict[str, list[dict]] = {}
+    for c in chunks:
+        if c["chunk_id"] in ids:
+            by_work.setdefault(c["work_id"], []).append(c["raw"])
+    lines = []
+    for r in recs:
+        kept = by_work.get(r["work"]["work_id"])
+        if not kept:
+            continue
+        path = out_dir / r["path"]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(kept, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        lines.append(json.dumps(r, ensure_ascii=False))
+    (out_dir / "_works.jsonl").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return sum(len(v) for v in by_work.values())
+
+
+def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
+          scripture_per_lang: int = 100, unique_per_lang: int = 100,
+          distractors_per_lang: int = 2000, authored_dir: Path = DEFAULT_AUTHORED,
+          folded: bool = False, subset_dir: Path | None = None) -> dict:
+    recs, chunks = load_language(normalized_dir, lang)
+    works = [r["work"] for r in recs]
+    genre = {w["work_id"]: w["genre"] for w in works}
+    metas = [ChunkMeta(c["chunk_id"], c["work_id"], c["language"], genre[c["work_id"]],
+                       c["chunk_index"], len(c["text"]), c["translation_group_id"],
+                       c["out_of_period"]) for c in chunks]
+    sel = select(metas, works, seed=seed, target_langs=(lang,),
+                 scripture_per_lang=scripture_per_lang, unique_per_lang=unique_per_lang,
+                 distractors_per_lang=distractors_per_lang,
+                 required=authored_targets(authored_dir))
+    corpus = [{k: c[k] for k in CORPUS_KEYS} | {"role": sel.roles[c["chunk_id"]]}
+              for c in chunks if c["chunk_id"] in sel.corpus_ids]
+    wanted = {t.chunk_id for t in sel.targets} | authored_targets(authored_dir)
+    groups = {c["translation_group_id"] for c in corpus
+              if c["translation_group_id"] and c["chunk_id"] in wanted}
+    refs = [{k: c[k] for k in CORPUS_KEYS} | {"role": "reference"}
+            for c in english_references(normalized_dir, groups)]
+    corpus = sorted(corpus + refs, key=lambda c: c["chunk_id"])
+    text_of = {c["chunk_id"]: c["text"] for c in corpus}
+    targets = [(t.chunk_id, t.language, t.origin, text_of[t.chunk_id]) for t in sel.targets]
+    queries = make_queries(targets, corpus, seed=seed)
+    if lang == "chu":
+        queries += modern_queries(queries)
+
+    stats = {
+        "lang": lang, "seed": seed, "source": str(normalized_dir),
+        "corpus_by_role": dict(sorted(Counter(c["role"] for c in corpus).items())),
+        "corpus_by_source": dict(sorted(Counter(c["work_id"].split("/")[0]
+                                                for c in corpus).items())),
+        "targets": dict(sorted(Counter(f"{t.language}/{t.origin}"
+                                       for t in sel.targets).items())),
+        "queries": dict(sorted(Counter(f"{q.mode}/{q.origin}" for q in queries).items())),
+        "targets_list": [{"chunk_id": t.chunk_id, "origin": t.origin} for t in sel.targets],
+    }
+    _write(out_dir, corpus, queries, stats)
+    if subset_dir is not None:
+        stats["subset_chunks"] = write_subset(subset_dir, recs, chunks, sel.corpus_ids)
+    if folded:
+        fc = [{**c, "text": fold(c["text"])} if c["language"] == lang else c for c in corpus]
+        fq = [Query(q.query_id, q.mode, fold(q.text) if q.query_lang == lang else q.text,
+                    q.query_lang, q.target_lang, q.origin, q.target_chunk_id, q.relevant_ids)
+              for q in queries]
+        _write(out_dir.with_name(out_dir.name + "-fold"), fc, fq, {**stats, "folded": True})
+    return stats
+
+
+def _write(out_dir: Path, corpus: list[dict], queries: list[Query], stats: dict) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with (out_dir / "corpus.jsonl").open("w", encoding="utf-8") as f:
+        for row in corpus:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    with (out_dir / "queries.jsonl").open("w", encoding="utf-8") as f:
+        for q in queries:
+            f.write(json.dumps(q.to_json(), ensure_ascii=False) + "\n")
+    (out_dir / "build.json").write_text(json.dumps(stats, indent=1, ensure_ascii=False) + "\n",
+                                        encoding="utf-8")
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(description=__doc__,
+                                formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("lang")
+    p.add_argument("--normalized-dir", type=Path, default=DEFAULT_NORMALIZED)
+    p.add_argument("--out-dir", type=Path, help="default: data/eval/{lang}")
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--scripture-per-lang", type=int, default=100)
+    p.add_argument("--unique-per-lang", type=int, default=100)
+    p.add_argument("--distractors-per-lang", type=int, default=2000)
+    p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
+    p.add_argument("--fold", action="store_true", help="also write the fold()-ed set")
+    p.add_argument("--subset-dir", type=Path,
+                   help="also write the set's chunks in LANG as a normalized tree")
+    args = p.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    stats = build(args.normalized_dir, args.lang, args.out_dir or Path("data/eval") / args.lang,
+                  seed=args.seed, scripture_per_lang=args.scripture_per_lang,
+                  unique_per_lang=args.unique_per_lang,
+                  distractors_per_lang=args.distractors_per_lang,
+                  authored_dir=args.authored, folded=args.fold, subset_dir=args.subset_dir)
+    log.info("%s", json.dumps({k: v for k, v in stats.items() if k != "targets_list"},
+                              indent=1, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

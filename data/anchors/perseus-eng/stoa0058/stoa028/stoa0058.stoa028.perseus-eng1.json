@@ -1,0 +1,18 @@
+{
+ "work_id": "perseus-eng/stoa0058/stoa028/perseus-eng1",
+ "anchor": "perseus/stoa0058/stoa028/perseus-lat1",
+ "method": "e26e66e4678bcee0",
+ "anchor_cuts": "e0f81f2486f67886",
+ "words": "554c6035f8a61e7e",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 26, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 27},
+ "paragraphs": {
+  "stoa0058.stoa028.title": {"words": "567c53908c2dfbd3", "starts": [0]},
+  "stoa0058.stoa028.1": {"words": "1747f1e088edcbeb", "starts": [0, 20, 50, 99, 124, 152, 185, 206, 234]},
+  "stoa0058.stoa028.2": {"words": "d09f10f1707d13bf", "starts": [0, 27, 44, 67, 99, 117]},
+  "stoa0058.stoa028.3": {"words": "c2774ea7dce7d591", "starts": [0]},
+  "stoa0058.stoa028.4": {"words": "a9afcc6964c8995c", "starts": [0, 33, 53, 81, 110]},
+  "stoa0058.stoa028.5": {"words": "f1a62e150fa96676", "starts": [0, 28, 44, 67]},
+  "stoa0058.stoa028.6": {"words": "147e0c0b1a289bea", "starts": [0]}
+ }
+}

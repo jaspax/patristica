@@ -17,12 +17,13 @@ from scripts import normalize as nz
 
 
 def test_enrolled_sources_are_known_sources() -> None:
-    """Every enrolled source is a labelled source (the first, Suprasliensis, #333)."""
+    """Every enrolled source is a real source (it has a label), with a reason."""
     from patristica.sources import SOURCE_LABELS
 
     enrolled = anchoring.load_enrolment()
-    assert "ccmh-supr" in enrolled
+    assert "ccmh-supr" in enrolled  # the first Slavonic source enrolled (#333)
     assert set(enrolled) <= set(SOURCE_LABELS)
+    assert all(reason.strip() for reason in enrolled.values())
 
 
 @pytest.mark.parametrize("body, message", [

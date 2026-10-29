@@ -32,3 +32,26 @@ Bible. Each query now carries:
 
 Rerunning the eval with all, passing-only and corrected queries left every
 conclusion unchanged: no language cell moved by 0.20 or more.
+
+**Church Slavonic (#336).** `chu.jsonl`: drafted by Claude on 2026-10-29
+from the Slavonic text (CCMH transliterations), **not yet reviewed**: 40
+targets, 20 Gospel verses (Marianus, Zographensis, Assemanianus, Savvina) and
+20 Slavonic-only passages (18 Codex Suprasliensis texts, the Vitae of
+Constantine and Methodius), each with one English paraphrase and one English
+topical query. The targets are the first of each origin in the one-language
+eval set `scripts.embed_eval.langset chu` (seed 0), skipping none.
+
+Extended the same day for the second round (#336): 120 more targets, so
+`chu.jsonl` now has 160 targets and 320 queries:
+- **Scripture (80):** the four Gospel codices, plus the Psalterium Sinaiticum (TOROT) and the Psalter of Demetrius;
+- **Slavonic-only (80):** Suprasliensis, the Vitae, Chrabr, the Euchologium and the Kiev Missal.
+
+The new targets are the first of each origin in `langset chu` built with
+those sources (#334, #337). Formulaic doxologies and two obscure fragments
+were skipped. 39 targets are `medium` confidence, mostly fragmentary
+Suprasliensis sentences.
+
+**Review of `chu.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-10-29).**
+- 198 pass, 118 corrected (the draft kept in `drafted_text`), 4 flagged for overlap with an English Bible.
+- Scripture paraphrases scored 4.91 accuracy on average, Slavonic-only 4.50.
+- Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.06.

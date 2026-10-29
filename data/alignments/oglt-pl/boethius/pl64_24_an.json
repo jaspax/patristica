@@ -3,10 +3,11 @@
  "group": "oglt-pl/boethius/pl64_24_an",
  "pivot": "oglt-pl/boethius/pl64_24_an",
  "groups": 25,
- "inputs": "8d7ab5d6b9ccfd7a",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "b37076154a95af05",
+ "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "oglt-pl/boethius/pl64_24_an", "units": 44, "ids": "471ba2fa9134f4de", "inputs": "d89d2570cf9f95b8", "spans": "++....+++++++++++++++=++=++++++.............", "conf": "9999999999999999999999999"},
+  {"work_id": "oglt-pl/boethius/pl64_24_an", "units": 44, "ids": "471ba2fa9134f4de", "inputs": "d89d2570cf9f95b8", "spans": "++....+++++++++++++++=++=++++++=............", "conf": "9999999999999999999999999"},
+  {"work_id": "perseus-eng/stoa0058/stoa028/perseus-eng1", "units": 27, "ids": "5230a5d0859f0e4c", "inputs": "377b873294599da8", "spans": ".+++++++++++++++++++=++++++", "conf": "9999999999999999988999999"},
   {"work_id": "perseus/stoa0058/stoa028/perseus-lat1", "units": 26, "ids": "9d711b658ce72eee", "inputs": "5437c0928d636304", "spans": "++++++++++++++++++=+++++++", "conf": "9999999999999999999999999"}
  ]
 }
