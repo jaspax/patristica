@@ -146,7 +146,9 @@ Titles and headings an editor added, supplements, lacuna markers, metadata in th
 - **Rule:** keep ingest-side stripping only for noise (OCR damage, layout placeholders, footnote markers whose notes the source doesn't carry). Anything a reader should see but search shouldn't (an added title or heading, a lacuna, catalogue metadata, a note or variant) is marked, never deleted, and never inserted into `text` without a mark. An editor's supplement is marked too (`supplement`, the span including its brackets) but stays embedded. A conversion is a data PR: re-ingest (`--force --offline`) or change normalize, then the paid steps for the changed units. Scripture superscriptions are text, not editorial material: they keep the verse-0 scheme (`Ps.N.0`, #239, #300). Converted so far: Coptic Scriptorium lacunae; the rest are tracked on #236.
 
 ### Language codes (ISO 639-3)
-`grc` Greek · `lat` Latin · `hbo` Hebrew · `syc` Syriac · `cop` Coptic · `gez` Ge'ez · `hye` Armenian · `got` Gothic · `eng` English
+`grc` Greek · `lat` Latin · `hbo` Hebrew · `syc` Syriac · `cop` Coptic · `gez` Ge'ez · `hye` Armenian · `got` Gothic · `chu` Church Slavonic · `eng` English
+
+Church Slavonic (`chu`, BCP 47 `cu`, tradition `slavonic`) is stored in Cyrillic: Slavonic ingestors pass their text through `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()`, and validate counts Glagolitic as the wrong script (#330).
 
 To add a language, follow `docs/adding-a-language.md`: every touchpoint, what it costs, and the language's decision record.
 
@@ -232,6 +234,7 @@ Use the appropriate helper rather than duplicating logic:
 | `_scripture_meta` | Book OSIS abbreviations, dates, title maps, `FULL_NAME_TO_ABBREV` |
 | `_scrollmapper.ingest_scrollmapper` | Translations available in scrollmapper/bible_databases CSV format |
 | `_ebible_usfm.ingest_ebible_usfm` | Translations available as eBible.org USFM zips (strips Strong's / footnotes) |
+| `_slavonic.glagolitic_to_cyrillic` | Church Slavonic text: Glagolitic letters → Cyrillic (every `chu` ingestor, #330) |
 
 ### Source ID → module name mapping
 

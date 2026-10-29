@@ -77,6 +77,40 @@ def test_geez_wordspace_separates_words():
     assert all(u.endswith("።") for u in units)
 
 
+# Codex Suprasliensis 1 (TOROT, from obdurodon.org), the start of the
+# Martyrdom of Basiliscus: "." ends sentences, "·" introduces speech, ⁛ ends
+# the heading.
+SUPRASLIENSIS = (
+    "Мѣсѧца марта въ е͆ день͗. мѫчениѥ ст͆ааго василиска⁛ Въ то врѣмѧ цѣсарь͗ствовавъшоу "
+    "маѯимия͑ноу. приде прѣмѣнь͗никъ въ а͑сꙿклипиѡ̑да мѣсто. и͑нъ воѥ͑вода и͑менемь а͑грипа. "
+    "и͑ пои͑де на въсточь͗нѫѭ̑ странѫ привести крьстия͑ны жрь͗ти и͑мъ велѧ богомъ. "
+    "блаженыи͑ же василискъ бѣа͑ше вь͗ темници. плачѧ сѧ и͑ молѧ сѧ и глагол̑ѧ· г͆и помѧни "
+    "мѧ и͑ о͑бличи моѥ͑ призꙿваниѥ͗. да не о͑тълѫченъ бѫдѫ о͑тъ с͆тыи͗хъ мѫжь. и͑ я͑ви сѧ "
+    "ѥ͑моу г͞ь и͑ рече· помѧнѫхъ тѧ и вь͗писахъ твоѥ и͑мѧ съ сѫштиїми съ тобоѭ̑ прь͗воѥ "
+    "мѫченикы. ты же си пожали и͑мꙿже послѣжде възъванъ ѥ͑си."
+)
+
+
+def test_church_slavonic_punctuation():
+    from patristica.versify import CLAUSE, SENTENCE, _strength
+
+    assert _strength(" ѥ͑си.", " ты", "chu") == SENTENCE
+    assert _strength(" вьꙿси;", " ꙇ", "chu") == SENTENCE  # ";" asks a question
+    assert _strength(" твои ⁘", " Въ", "chu") == SENTENCE
+    assert _strength(" василиска⁛", " Въ", "chu") == SENTENCE
+    assert _strength(" рече·", " помѧнѫхъ", "chu") == CLAUSE
+    assert _strength(" ѥзыци:", " ꙇ", "chu") == CLAUSE
+
+
+def test_church_slavonic_paragraph_splits_at_its_stops():
+    units = split_text(SUPRASLIENSIS, "chu")
+    assert len(units) > 3
+    assert _squash(" ".join(units)) == _squash(SUPRASLIENSIS)
+    assert all(u[-1] in ".·⁛" for u in units)
+    sizes = [count_tokens(u) / VERSE_TOKENS["chu"] for u in units]
+    assert 0.7 < sum(sizes) / len(sizes) < 1.5
+
+
 def test_deterministic():
     text = " ".join([LATIN] * 10)
     assert split_text(text, "lat") == split_text(text, "lat")
