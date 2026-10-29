@@ -3,7 +3,8 @@ Ingestor for the Coptic Scriptorium corpus.
 
 Source: https://github.com/CopticScriptorium/corpora
 Format: TEI P5 XML ({corpus}/{corpus}_TEI/*.xml), with linguistic annotation
-License: CC-BY 4.0 (some corpora CC-BY-SA 4.0 or CC-BY 3.0)
+License: per corpus, the most restrictive in its documents' TT headers (#382):
+         mostly CC BY 4.0; some CC BY-NC-SA 4.0, CC BY-SA 4.0 or CC BY-SA 3.0
 
 Scope
 -----
@@ -74,6 +75,7 @@ Example: ``CopScr.shenoute_considering.000.0012``
 
 from __future__ import annotations
 
+import html
 import json
 import logging
 import re
@@ -82,7 +84,7 @@ from pathlib import Path
 from lxml import etree
 from tqdm import tqdm
 
-from patristica.models import Work
+from patristica.models import License, Work
 from scripts.ingest._common import ensure_repo, slugify_ref
 
 log = logging.getLogger(__name__)
@@ -552,6 +554,87 @@ def _norm_map(root: etree._Element, tei_path: Path) -> NormMap:
     return dict(zip(phrs, norms))
 
 
+# ---------------------------------------------------------------------------
+# Licences (#382): from each document's TT header, shared with coptic_scriptorium_eng
+# ---------------------------------------------------------------------------
+
+# The tags of a TT export that matter to its readers, in document order.  TT
+# spans may cross (a <translation> can open inside an <entity> and close
+# outside it), so the export is read as a stream of tags, not as a tree.
+_TT_TAG_RE = re.compile(r"<(/?)(translation|norm_group|meta)\b([^>]*)>")
+_TT_ATTR_RE = re.compile(r'([\w.-]+)="([^"]*)"')
+
+# The CC licences the corpus can record, by terms and version.
+_CC_LICENSES: dict[tuple[str, str], License] = {
+    ("by", "4.0"): "cc-by-4.0",
+    ("by-sa", "4.0"): "cc-by-sa-4.0",
+    ("by-nc", "4.0"): "cc-by-nc-4.0",
+    ("by-nc-sa", "4.0"): "cc-by-nc-sa-4.0",
+    ("by-sa", "3.0"): "cc-by-sa-3.0",
+    ("by-nc-sa", "3.0"): "cc-by-nc-sa-3.0",
+}
+# Terms, least restrictive first.
+_CC_TERMS = ("by", "by-sa", "by-nc", "by-nc-sa")
+_CC_URL_RE = re.compile(r"creativecommons\.org/licenses/([a-z-]+)/(\d\.\d)")
+_CC_LABEL_RE = re.compile(r"\bcc[- ](by(?:[- ]nc)?(?:[- ]sa)?)\b\D*(\d\.\d)")
+
+
+class CopticLicenseError(ValueError):
+    """A document's licence is not one we can record."""
+
+
+def _read_header(path: Path) -> dict[str, str]:
+    """The attributes of a TT export's ``<meta>`` header."""
+    m = _TT_TAG_RE.search(path.read_text(encoding="utf-8"))
+    if m is None or m.group(2) != "meta":
+        return {}
+    return {k: html.unescape(v) for k, v in _TT_ATTR_RE.findall(m.group(3))}
+
+
+def _license(text: str) -> License:
+    """The ``License`` value of a TT header's ``license`` attribute
+    (``<a href='…/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>``, ``CC-BY 4.0 -``).
+
+    The link and the label are read separately; where they disagree
+    (``mercurius`` links BY-SA 4.0 but reads "CC-BY 4.0") the more restrictive
+    wins.  ``CopticLicenseError`` if neither names a licence we can record."""
+    found: set[tuple[str, str]] = {(t, v) for t, v in _CC_URL_RE.findall(text)}
+    plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text)).lower()
+    found |= {(re.sub(r"[- ]", "-", t), v) for t, v in _CC_LABEL_RE.findall(plain)}
+    values = set()
+    for terms, version in found:
+        if (terms, version) not in _CC_LICENSES:
+            raise CopticLicenseError(f"unrecognised licence {text!r}")
+        values.add(_CC_LICENSES[terms, version])
+    if not values:
+        raise CopticLicenseError(f"unrecognised licence {text!r}")
+    return _most_restrictive(values)
+
+
+def _most_restrictive(licenses: set[License]) -> License:
+    """The most restrictive of *licenses* (BY < BY-SA < BY-NC < BY-NC-SA);
+    ``CopticLicenseError`` for two versions of the same terms."""
+    def terms(value: str) -> str:
+        return value.removeprefix("cc-").rsplit("-", 1)[0]
+    by_terms = {terms(v) for v in licenses}
+    if len(by_terms) != len(licenses):
+        raise CopticLicenseError(f"licences {sorted(licenses)} differ only in version")
+    return max(licenses, key=lambda v: _CC_TERMS.index(terms(v)))
+
+
+def _corpus_license(tei_files: list[Path]) -> License:
+    """A corpus's licence: the most restrictive in its documents' TT headers
+    (the TEI's ``<licence>`` is boilerplate CC BY everywhere, #382)."""
+    licenses: set[License] = set()
+    for tei_path in tei_files:
+        tt_path = _tt_path(tei_path)
+        header = _read_header(tt_path) if tt_path is not None else {}
+        if "license" not in header:
+            raise CopticLicenseError(f"{tei_path}: no licence in its TT header")
+        licenses.add(_license(header["license"]))
+    return _most_restrictive(licenses)
+
+
 def _paragraph(corpus_name: str, file_n: int, para_n: int, text: str, orig: str) -> dict:
     """A raw paragraph record: normalized ``text`` and diplomatic ``orig``, and its
     lacunae as ``editorial`` spans (``[start, end, "lacuna"]``) when it has any."""
@@ -740,6 +823,11 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             # differently from the others (#57): leave it out, loudly.
             log.error("  Skipping %s: %s", corpus_name, exc)
             continue
+        try:
+            license_val = _corpus_license(tei_files)
+        except CopticLicenseError as exc:
+            log.error("  Skipping %s: %s", corpus_name, exc)
+            continue
 
         if not all_paragraphs:
             log.warning("  No text extracted from %s (%d files)", corpus_name, len(tei_files))
@@ -756,7 +844,7 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             genre=meta["genre"],
             language="cop",
             tradition="coptic",
-            license="cc-by-4.0",
+            license=license_val,
             provenance_url=f"{_REPO_URL}/tree/master/{corpus_name}",
             edition=f"Coptic Scriptorium, {corpus_name}",
         )

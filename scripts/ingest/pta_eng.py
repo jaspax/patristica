@@ -43,7 +43,7 @@ from pathlib import Path
 from lxml import etree
 from tqdm import tqdm
 
-from patristica.models import Language, License, Work
+from patristica.models import Language, Work
 from scripts.ingest._common import dedupe_refs, slugify_ref
 from scripts.ingest.pta import (
     _CTS_NS,
@@ -51,6 +51,7 @@ from scripts.ingest.pta import (
     _SKIP_PATTERNS,
     _TEI,
     _extract_dates,
+    _license_from_target,
     _parse_pta_file,
     _read_author_name,
     read_work_ids,
@@ -202,18 +203,6 @@ def _translation_units(div: etree._Element, work_cts_id: str) -> list[dict]:
     for child in div:
         _walk(child, [])
     return dedupe_refs(records)
-
-
-def _license_from_target(root: etree._Element) -> License | None:
-    """Licence of a PTA file from ``<licence @target>`` (the prose varies, #366)."""
-    lic = root.find(".//{%s}availability/{%s}licence" % (_TEI, _TEI))
-    target = (lic.get("target") or "") if lic is not None else ""
-    for pattern, value in (("/by-nc-sa/4.0", "cc-by-nc-sa-4.0"), ("/by-sa/4.0", "cc-by-sa-4.0"),
-                           ("/by-nc/4.0", "cc-by-nc-4.0"), ("/by/4.0", "cc-by-4.0"),
-                           ("/publicdomain/", "public_domain")):
-        if pattern in target:
-            return value  # type: ignore[return-value]
-    return None
 
 
 def _cts_translation_year(cts_path: Path, urn: str) -> str | None:
