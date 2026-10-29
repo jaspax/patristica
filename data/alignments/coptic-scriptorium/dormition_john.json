@@ -2,11 +2,11 @@
  "format": 1,
  "group": "coptic-scriptorium/dormition_john",
  "pivot": "coptic-scriptorium-eng/dormition_john",
- "groups": 121,
- "inputs": "9ef3d3e8a817f6eb",
+ "groups": 129,
+ "inputs": "0aeff212828e54d6",
  "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "coptic-scriptorium-eng/dormition_john", "units": 126, "ids": "f2d2a9c894aaf338", "inputs": "ac4f64c315d1567e", "spans": "++++++++++++++++=++++++++++++++++++++++++++++++++++++++++.++++++++++++++++=+++++++++++++++.++++++++++++++++++++++++++++++++++.", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "coptic-scriptorium/dormition_john", "units": 130, "ids": "6151c52a7fbd15aa", "inputs": "9ead0813015f1645", "spans": "++++=++++=++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++.+++=+++++++++++++++++++==+++++++++++=+=", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "coptic-scriptorium-eng/dormition_john", "units": 131, "ids": "7a5153488b54b522", "inputs": "c9ee1f163ff77eb4", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++.+++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "coptic-scriptorium/dormition_john", "units": 130, "ids": "6151c52a7fbd15aa", "inputs": "9ead0813015f1645", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }
