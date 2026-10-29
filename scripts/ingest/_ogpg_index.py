@@ -30,6 +30,11 @@ module cuts that stream into works using the curated table
     crosswalk (``patristica/versions.py``) joins the work to its other
     editions; they come from the PTA catalogue and the TLG ids of First1K and
     Perseus works checked against the text (#192).
+``bhg``
+    *Bibliotheca Hagiographica Graeca* number (``882``, ``1205``) of a row that
+    is one whole hagiographic text or homily, written to ``Work.external_ids``
+    as ``BHG:…`` (#375).  It is the last column and may be left off the rows
+    that have none.
 ``date_composed``, ``date_start``, ``date_end``, ``date_confidence``
     As in ``Work``.  Empty dates fall back to the volume's (``_ogpg_volumes``).
     A work whose range starts after the collection period
@@ -80,9 +85,10 @@ _CONFIDENCES = frozenset({"established", "approximate", "uncertain"})
 REMAINDER_SLUG = "other"
 _CPG = re.compile(r"^\d{4}[a-z]?(\.\d+)?$")
 _TLG = re.compile(r"^tlg\d{4}\.tlg\d{3}$")
+_BHG = re.compile(r"^\d{1,4}[a-z]{0,2}$")
 # Columns that must agree between the rows of a work with several ranges.
-_WORK_FIELDS = ("author", "title", "cpg", "tlg", "date_composed", "date_start", "date_end",
-                "date_confidence", "basis", "duplicate_of")
+_WORK_FIELDS = ("author", "title", "cpg", "tlg", "bhg", "date_composed", "date_start",
+                "date_end", "date_confidence", "basis", "duplicate_of")
 
 
 class OgpgIndexError(ValueError):
@@ -105,6 +111,7 @@ class IndexRow:
     basis: str
     duplicate_of: str | None
     note: str | None
+    bhg: str | None = None
 
     @property
     def in_period(self) -> bool:
@@ -139,7 +146,7 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
             raise OgpgIndexError(f"{where}: bad slug {slug!r}")
         # A slug may repeat: the work then consists of several column ranges
         # (e.g. a paraphrase printed after every chapter), with the same metadata.
-        meta = tuple(rec[k].strip() for k in _WORK_FIELDS)
+        meta = tuple((rec.get(k) or "").strip() for k in _WORK_FIELDS)
         if (vol, slug) in seen and seen[(vol, slug)] != meta:
             raise OgpgIndexError(f"{where}: {vol}/{slug} repeats with different metadata")
         seen[(vol, slug)] = meta
@@ -160,6 +167,9 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
             raise OgpgIndexError(f"{where}: bad cpg {cpg!r}")
         if tlg is not None and not _TLG.match(tlg):
             raise OgpgIndexError(f"{where}: bad tlg {tlg!r}")
+        bhg = (rec.get("bhg") or "").strip() or None  # the optional last column
+        if bhg is not None and not _BHG.match(bhg):
+            raise OgpgIndexError(f"{where}: bad bhg {bhg!r}")
         composed = _int(rec["date_composed"], where)
         if composed is not None and lo is not None and hi is not None \
                 and not lo <= composed <= hi:
@@ -179,6 +189,7 @@ def parse_index(lines: list[str]) -> dict[str, list[IndexRow]]:
             basis=basis,
             duplicate_of=rec["duplicate_of"].strip() or None,
             note=rec["note"].strip() or None,
+            bhg=bhg,
         ))
     for vol, rows in by_vol.items():
         rows.sort(key=lambda r: r.col_start)

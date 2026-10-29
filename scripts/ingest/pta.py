@@ -112,6 +112,18 @@ _SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|
 # it was skipped while ``chu`` was unmapped, and stays skipped (#335).
 _SKIP_FILES = frozenset({"pta0041.pta001.pta-Mss.xml"})
 
+# Editions whose apparatus is marked as editorial material (#236) instead of run
+# into the text. ``_element_inner_text`` keeps the text of every child, so a
+# paragraph with an ``<app>`` carries its ``<rdg>`` readings, ``<witDetail>``s,
+# inline ``<note>``s and the editors' XML comments (``<!--TODO …-->``) next to
+# the lemma. In the Greek Vita Cononis that is the Slavonic witness's readings
+# (``<rdg wit="#s">паулъ</rdg>``) and TODO notes (#376). Here they are kept
+# and marked ``note``, so readers see them and translation and embedding get
+# the lemma text. Every other PTA edition with an apparatus has the same problem
+# and keeps the old text until #415 drops this list.
+_MARK_APPARATUS = frozenset({"pta0041.pta001.pta-grc1"})
+_APPARATUS_TAGS = frozenset({"rdg", "witDetail", "note"})
+
 
 # Creative Commons licence URL: terms, version and an optional jurisdiction
 # port (``by-nc/3.0/de/``); a ``deed.de`` suffix is only the deed's language.
@@ -262,10 +274,71 @@ def _element_inner_text(el: etree._Element) -> str:
     return "".join(parts)
 
 
+def _marked_text(el: etree._Element) -> tuple[str, list[list[int | str]]]:
+    """An element's text with its apparatus marked (``_MARK_APPARATUS``, #376).
+
+    Like ``_element_inner_text`` followed by collapsing whitespace, but the
+    text of ``<rdg>``, ``<witDetail>`` and ``<note>`` elements and of comments
+    becomes ``note`` spans ``[start, end, "note"]`` (#236), set off from the
+    text around them by a space. A space between two pieces of apparatus
+    belongs to the span, so adjacent readings make one span.
+    """
+    chars: list[tuple[str, bool]] = []
+
+    def add(text: str | None, editorial: bool) -> None:
+        if not text:
+            return
+        if chars and chars[-1][1] != editorial:
+            chars.append((" ", False))
+        chars.extend((c, editorial) for c in text)
+
+    def separate() -> None:
+        # Two readings in a row (``<rdg>…</rdg><witDetail>…</witDetail>``) stay apart.
+        if chars and not chars[-1][0].isspace():
+            chars.append((" ", chars[-1][1]))
+
+    def walk(node: etree._Element, editorial: bool) -> None:
+        add(node.text, editorial)
+        for child in node:
+            if child.tag is etree.Comment:
+                separate()
+                add(child.text, True)
+            elif isinstance(child.tag, str):
+                apparatus = etree.QName(child).localname in _APPARATUS_TAGS
+                if apparatus:
+                    separate()
+                walk(child, editorial or apparatus)
+            add(child.tail, editorial)
+
+    walk(el, False)
+    # Collapse whitespace as _extract_paragraphs does; a kept space is editorial
+    # only between two editorial characters.
+    kept: list[tuple[str, bool]] = []
+    for i, (c, ed) in enumerate(chars):
+        if not c.isspace():
+            kept.append((c, ed))
+            continue
+        if not kept or kept[-1][0] == " ":
+            continue
+        nxt = next((e for ch, e in chars[i + 1:] if not ch.isspace()), None)
+        kept.append((" ", kept[-1][1] and bool(nxt)))
+    while kept and kept[-1][0] == " ":
+        kept.pop()
+    text = "".join(c for c, _ in kept)
+    spans: list[list[int | str]] = []
+    for i, (_, ed) in enumerate(kept):
+        if ed and spans and spans[-1][1] == i:
+            spans[-1][1] = i + 1
+        elif ed:
+            spans.append([i, i + 1, "note"])
+    return text, spans
+
+
 def _extract_paragraphs(
     body_div: etree._Element,
     work_cts_id: str,
     ns: dict[str, str],
+    mark_apparatus: bool = False,
 ) -> list[dict[str, str]]:
     """Recursively extract paragraphs from a TEI body div.
 
@@ -289,12 +362,19 @@ def _extract_paragraphs(
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
         if tag in ("p", "ab"):
-            text = _element_inner_text(element).strip()
-            # Collapse whitespace
-            text = re.sub(r"\s+", " ", text)
+            spans: list[list[int | str]] = []
+            if mark_apparatus:
+                text, spans = _marked_text(element)
+            else:
+                text = _element_inner_text(element).strip()
+                # Collapse whitespace
+                text = re.sub(r"\s+", " ", text)
             if text:
                 ref = slugify_ref(".".join([work_cts_id] + path_parts))
-                records.append({"ref": ref, "text": text})
+                record: dict = {"ref": ref, "text": text}
+                if spans:
+                    record["editorial"] = spans
+                records.append(record)
             return
 
         if tag == "div" and element.get("type") == "textpart":
@@ -420,7 +500,13 @@ def _parse_pta_file(
         external_ids=external_ids or [],
     )
 
-    paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns)
+    mark = f"{work_cts_id}.{version}" in _MARK_APPARATUS
+    paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns, mark_apparatus=mark)
+    if mark:
+        n_spans = sum(len(p.get("editorial", ())) for p in paragraphs)
+        log.info("%s: apparatus, notes and comments marked as editorial notes "
+                 "(%d spans in %d paragraphs; #376)", work_id, n_spans,
+                 sum(1 for p in paragraphs if p.get("editorial")))
     if language == "chu":
         for p in paragraphs:
             p["text"] = glagolitic_to_cyrillic(p["text"])

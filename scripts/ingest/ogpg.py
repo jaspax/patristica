@@ -730,8 +730,9 @@ def _cols_label(parts: list[pgi.IndexRow], last_col: int | None) -> str:
 
 
 def index_external_ids(row: pgi.IndexRow) -> list[str]:
-    """Catalogue ids of an index row, as ``Work.external_ids`` (#192)."""
-    return ([f"CPG:{row.cpg}"] if row.cpg else []) + ([f"TLG:{row.tlg}"] if row.tlg else [])
+    """Catalogue ids of an index row, as ``Work.external_ids`` (#192, BHG #375)."""
+    return (([f"CPG:{row.cpg}"] if row.cpg else []) + ([f"TLG:{row.tlg}"] if row.tlg else [])
+            + ([f"BHG:{row.bhg}"] if row.bhg else []))
 
 
 def _make_index_work(repo_name: str, vol_nums: list[int], part: int | None,
