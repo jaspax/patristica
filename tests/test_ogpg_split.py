@@ -153,6 +153,18 @@ class TestParseIndex:
         with pytest.raises(pgi.OgpgIndexError, match=msg):
             _index(row)
 
+    def test_bhg_is_an_optional_last_column(self):
+        # #375: rows without a BHG id may leave the column off.
+        rows = pgi.parse_index(["# comment\n", HEADER.rstrip("\n") + ",bhg\n",
+                                "vol-045,a,9,10,X,T,2863,,,,,,curated,,a note,1205\n",
+                                "vol-045,b,11,,X,U,,,,,,,elenchus,,\n"])["vol-045"]
+        assert [r.bhg for r in rows] == ["1205", None]
+        assert ogpg.index_external_ids(rows[0]) == ["CPG:2863", "BHG:1205"]
+        assert ogpg.index_external_ids(rows[1]) == []
+        with pytest.raises(pgi.OgpgIndexError, match="bad bhg"):
+            pgi.parse_index([HEADER.rstrip("\n") + ",bhg\n",
+                             "vol-045,a,9,,X,T,,,,,,,elenchus,,,BHG 882\n"])
+
     def test_rejects_overlap_and_duplicates(self):
         with pytest.raises(pgi.OgpgIndexError, match="overlaps"):
             _index("vol-045,a,9,120,X,T,,,,,,,elenchus,,", "vol-045,b,115,,X,T,,,,,,,elenchus,,")

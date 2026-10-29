@@ -1,5 +1,5 @@
 # Open Patrologia Graeca: works per Migne column range. One row per work, or per column range of a work printed in several pieces; see scripts/ingest/_ogpg_index.py for the columns and basis values.
-volume,slug,col_start,col_end,author,title,cpg,tlg,date_composed,date_start,date_end,date_confidence,basis,duplicate_of,note
+volume,slug,col_start,col_end,author,title,cpg,tlg,date_composed,date_start,date_end,date_confidence,basis,duplicate_of,note,bhg
 vol-001,1-clementis,199,328,Clement of Rome,Epistula I ad Corinthios,,tlg1271.tlg001,96,95,97,established,elenchus,first1k/tlg1271/tlg001/1st1K-grc1,
 vol-001,2-clementis,329,348,Pseudo-Clement of Rome,Epistula II ad Corinthios (homilia),,tlg1271.tlg002,150,120,170,approximate,heads,first1k/tlg1271/tlg002/1st1K-grc1,
 vol-001,constitutiones-apostolicae,509,1156,Pseudo-Clement of Rome,Constitutiones apostolicae,,,380,375,400,approximate,elenchus,,"The Recognitiones (col. 1157–) survive only in Rufinus's Latin, which the OGPG ingest does not extract."
@@ -376,7 +376,9 @@ vol-030,in-isaiam,117,668,Pseudo-Basil,Commentarius in Isaiam prophetam,,,,,,unc
 vol-030,de-virginitate,669,810,Basil of Ancyra,De vera virginitatis integritate,,,358,350,364,approximate,elenchus,,Printed among Basil of Caesarea's works; now attributed to Basil of Ancyra.
 vol-030,sermo-de-contubernalibus,811,834,Pseudo-Basil,Sermo de contubernalibus,,,,,,uncertain,elenchus,,Includes the short Argumenta contra Arianos and Expositio fidei (cols. 827–834) printed after it.
 vol-030,eunomii-apologia,835,868,Eunomius of Cyzicus,Liber apologeticus,,,360,359,361,approximate,elenchus,,Printed after Basil's works because Basil's Adversus Eunomium answers it.
-vol-031,homiliae-et-sermones,163,,Basil of Caesarea,Homiliae et sermones,,,,,,,elenchus,,"Migne's collection of Basil's homilies (De jejunio, In illud Attende tibi ipsi, Ad adolescentes, …). Ad adolescentes is also in Perseus (perseus/tlg2040/tlg002/perseus-grc2)."
+vol-031,homiliae-et-sermones,163,506,Basil of Caesarea,Homiliae et sermones,,,,,,,elenchus,,"Migne's collection of Basil's homilies (De jejunio, In illud Attende tibi ipsi, Ad adolescentes, …). Ad adolescentes is also in Perseus (perseus/tlg2040/tlg002/perseus-grc2). Continues at col. 525, after the homily on the Forty Martyrs (#375)."
+vol-031,in-xl-martyres,507,524,Basil of Caesarea,Homilia in sanctos quadraginta martyres,2863,,,,,,curated,,"Homily 19, split from homiliae-et-sermones (#375): from Μαρτύρων μνήμης τίς ἂν γένοιτο κόρος to the doxology; page 507 also carries the last lines of the homily on Gordius.",1205
+vol-031,homiliae-et-sermones,525,,Basil of Caesarea,Homiliae et sermones,,,,,,,elenchus,,"Continued from col. 506: from the homily De humilitate (Hom. 20, heading ΟΜΙΛΙΑ Κ’) on."
 vol-031,ascetica,619,,Basil of Caesarea,"Ascetica (praevia institutio, sermones ascetici, de judicio Dei, de fide)",,,,,,,elenchus,,
 vol-031,moralia,699,,Basil of Caesarea,Moralia,,,,,,,elenchus,,
 vol-031,regulae-fusius,889,,Basil of Caesarea,Regulae fusius tractatae,,,,,,,elenchus,,
@@ -493,7 +495,9 @@ vol-043,ancoratus,11,236,Epiphanius of Salamis,Ancoratus,,tlg2021.tlg001,374,374
 vol-043,de-mensuris-et-ponderibus,237,292,Epiphanius of Salamis,De mensuris et ponderibus,,,392,392,392,approximate,elenchus,,
 vol-043,de-gemmis,293,372,Epiphanius of Salamis,De XII gemmis,,,394,394,394,approximate,elenchus,,Mostly the old Latin version; Greek fragments.
 vol-043,epistulae-et-de-lxx,373,392,Epiphanius of Salamis,De LXX interpretibus; epistulae ad Joannem Hierosolymitanum et ad Hieronymum,,,394,392,400,approximate,elenchus,,
-vol-043,de-vitis-prophetarum,393,506,Pseudo-Epiphanius,De vitis prophetarum,,,,400,600,uncertain,elenchus,,
+vol-043,de-vitis-prophetarum,393,438,Pseudo-Epiphanius,De vitis prophetarum,,,,400,600,uncertain,elenchus,,"The Elenchus's range also holds Pseudo-Epiphanius's homilies: In ramos palmarum (cols. 427–438) and, after the homily on the burial (in-sepulturam), In resurrectionem and the homilies on Mary (cols. 465–506), not yet split."
+vol-043,in-sepulturam,439,464,Pseudo-Epiphanius,Homilia in divini corporis sepulturam (in sabbato magno),3768,,,400,900,uncertain,curated,,"Split from de-vitis-prophetarum (#375). The title and the opening lines (Τί τοῦτο; σήμερον σιγὴ πολλή) are missing from the OCR: col. 439 starts at Ποῦ ποτε νῦν εἰσιν αἱ πρὸ βραχέος ταραχαί; the text runs to the resurrection of Adam, before the doxology."
+vol-043,de-vitis-prophetarum,465,506,Pseudo-Epiphanius,De vitis prophetarum,,,,400,600,uncertain,elenchus,,"Continued from col. 438: the homilies In resurrectionem (Ὁ τῆς δικαιοσύνης τριήμερος ἥλιος) and on Mary."
 vol-043,opuscula-spuria,507,748,Pseudo-Epiphanius,Opuscula spuria (De numerorum mysteriis; homiliae),,,,400,900,uncertain,elenchus,,
 vol-043,nonnus-paraphrasis,749,940,Nonnus of Panopolis,Paraphrasis in Evangelium secundum Joannem,,,450,440,470,approximate,elenchus,,
 vol-043,heinsii-exercitationes,941,1226,Daniel Heinsius,Exercitationes ad Nonni paraphrasin,,,1627,1620,1630,approximate,elenchus,,"17th-century commentary: after the collection period, so dropped."
@@ -583,9 +587,14 @@ vol-049,de-statuis,15,,John Chrysostom,Homiliae XXI de statuis ad populum Antioc
 vol-049,catecheses-ad-illuminandos,223,,John Chrysostom,Catecheses II ad illuminandos,,,388,387,390,approximate,elenchus,,
 vol-049,de-diabolo-tentatore,243,,John Chrysostom,Homiliae III de diabolo tentatore,,,,,,,elenchus,,
 vol-049,de-paenitentia,277,,John Chrysostom,Homiliae IX de paenitentia,,,,,,,elenchus,,
-vol-049,sermones-panegyrici,351,,John Chrysostom,Sermones panegyrici in solemnitates (I),,,,,,,elenchus,,Continued in PG 50 (ogpg/vol-050/sermones-panegyrici).
+vol-049,sermones-panegyrici,351,372,John Chrysostom,Sermones panegyrici in solemnitates (I),,,,,,,elenchus,,Continued in PG 50 (ogpg/vol-050/sermones-panegyrici). Continues at col. 382 after De proditione Judae I (#375).
+vol-049,de-proditione-judae-1,373,381,John Chrysostom,De proditione Judae homilia I,,,,,,,curated,,"Split from sermones-panegyrici (#375): from the heading ΕΙΣ ΤΗΝ ΠΡΟΔΟΣΙΑΝ ΤΟΥ ΙΟΥΔΑ (Ὀλίγα ἀνάγκη σήμερον). CPG 4336 is both homilies, so no CPG id here. Col. 381 also carries the opening of homily II, whose title has no heading in the OCR, and the end of homily I is lost in the OCR."
+vol-049,sermones-panegyrici,382,,John Chrysostom,Sermones panegyrici in solemnitates (I),,,,,,,elenchus,,Continued from col. 372: from De proditione Judae homilia II on.
 vol-050,sermones-panegyrici,417,,John Chrysostom,Sermones panegyrici in solemnitates (II),,,,,,,elenchus,,Continued from PG 49.
-vol-050,spuria,719,824,Pseudo-John Chrysostom,Dubia et spuria (PG 50),,,,400,1000,uncertain,elenchus,,
+vol-050,spuria,719,810,Pseudo-John Chrysostom,Dubia et spuria (PG 50),,,,400,1000,uncertain,elenchus,,Continues at col. 817 (#375).
+vol-050,in-parasceven,811,816,Pseudo-John Chrysostom,In Parasceven,,,,400,1000,uncertain,curated,,"Split from spuria (#375): Πεπλήρωται ἡμῖν λοιπὸν ὁ τῆς νηστείας ἀγών. The OCR has no heading (title from the subject); page 811 also carries the end of the previous piece, and the ending (the guard at the tomb) is lost in the OCR."
+vol-050,spuria,817,820,Pseudo-John Chrysostom,Dubia et spuria (PG 50),,,,400,1000,uncertain,elenchus,,Continued from col. 810.
+vol-050,in-triduanam-resurrectionem,821,824,Pseudo-John Chrysostom,In triduanam resurrectionem Domini,,,,400,1000,uncertain,curated,,"Split from spuria (#375): heading ΕΙΣ ΤΗΝ ΤΡΙΗΜΕΡΟΝ ΑΝΑΣΤΑΣΙΝ, Χαίρετε ἐν Κυρίῳ πάντοτε. The OCR ends at col. 824, before the end of the homily."
 vol-051,in-loca-novi-testamenti,17,388,John Chrysostom,Homiliae XXV in quaedam loca Novi Testamenti,,,,,,,elenchus,,
 vol-052,de-motibus-constantinopolitanis,389,,John Chrysostom,Opuscula XV de motibus Constantinopolitanis,,,401,398,404,approximate,elenchus,,
 vol-052,epistulae,529,,John Chrysostom,Epistulae (ad Olympiadem et ceteros),,,405,404,407,approximate,elenchus,,
@@ -792,7 +801,8 @@ vol-087-pt3,commentarius-liturgicus,3981,4014,Pseudo-Sophronius,Commentarius lit
 vol-087-pt3,alexander-monachus,4015,,Alexander the Monk,De inventione crucis; Laudatio S. Barnabae,,,550,527,565,approximate,heads,,
 vol-088,cosmas-topographia,1,476,Cosmas Indicopleustes,Topographia christiana,,,548,545,550,approximate,heads,,
 vol-088,paulus-persa-disputationes,529,594,Paul the Persian,Disputatio cum Photino Manichaeo; Propositiones christianae adversus Manichaeos,,,527,527,530,approximate,heads,,
-vol-088,climacus-scala,595,1164,John Climacus,"Scala paradisi (with the Vita by Daniel of Raithu, the letters of John of Raithu, and scholia)",,,640,600,650,uncertain,curated,,Matthäus Rader's preface (Latin with Greek quotations) is printed with the Vita and is not separated.
+vol-088,climacus-vita,595,606,Daniel of Raithu,Vita Joannis Climaci,,,650,600,700,uncertain,curated,,"Split from climacus-scala (#375): Τὸ μέν, τίς ἡ ἐνεγκαμένη τοῦτον to ὑπέδειξεν ἡμῖν καὶ αὐτὸς τὰς θεογράφους αὐτοῦ πλάκας.",882
+vol-088,climacus-scala,607,1164,John Climacus,"Scala paradisi (with the letters of John of Raithu, and scholia)",,,640,600,650,uncertain,curated,,"Matthäus Rader's preface (Latin with Greek quotations) and the notices on John are printed before the letters and are not separated. Daniel's Vita (cols. 595–606) is its own work, climacus-vita (#375)."
 vol-088,climacus-ad-pastorem,1165,1240,John Climacus,Liber ad pastorem,,,640,600,650,uncertain,heads,,
 vol-088,agathias-historiae,1241,1610,Agathias Scholasticus,Historiae (De imperio et rebus gestis Justiniani),,,580,570,582,approximate,heads,,
 vol-088,dorotheus-doctrinae,1611,1846,Dorotheus of Gaza,Doctrinae diversae; epistulae,,,560,540,580,uncertain,heads,,

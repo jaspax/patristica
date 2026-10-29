@@ -7,7 +7,12 @@ from pathlib import Path
 import pytest
 from lxml import etree
 
-from scripts.ingest.pta import _license_from_prose, _license_from_target, read_work_ids
+from scripts.ingest.pta import (
+    _extract_paragraphs,
+    _license_from_prose,
+    _license_from_target,
+    read_work_ids,
+)
 
 CTS = """<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
          xmlns:cpt="http://purl.org/capitains/ns/1.0#"
@@ -67,3 +72,36 @@ def test_license_from_prose_without_a_target() -> None:
     assert _license_from_prose(root.find(".//{*}availability")) == "cc-by-sa-4.0"
     root = _availability("<licence>Creative Commons Attribution 4.0</licence>")
     assert _license_from_prose(root.find(".//{*}availability")) == "cc-by-4.0"
+
+
+APPARATUS = """<div xmlns="http://www.tei-c.org/ns/1.0" type="edition">
+  <div type="textpart" n="1"><p>ὁ <persName>ἀπόστολος
+     <app><lem wit="#V"/><rdg wit="#s" type="addition">паулъ</rdg></app></persName>
+     διερχόμενος<!--TODO: Eus. d.e.--> κατήντησεν
+     <app><lem>μέσῃ Βιδάνῃ</lem><rdg wit="#V">μέσῳ Διαβανῇ</rdg>
+       <rdg wit="#M">Μεσοβηδάνῃ</rdg><witDetail wit="#M">M 203,7</witDetail></app> τῇ κώμῃ.</p></div>
+</div>"""
+
+
+def test_apparatus_runs_into_the_text_by_default() -> None:
+    # The old flattening, kept for every edition but those in _MARK_APPARATUS (#415).
+    [p] = _extract_paragraphs(etree.fromstring(APPARATUS), "pta0041.pta001", {})
+    assert p == {"ref": "pta0041.pta001.1",
+                 "text": "ὁ ἀπόστολος паулъ διερχόμενοςTODO: Eus. d.e. κατήντησεν μέσῃ Βιδάνῃ"
+                         "μέσῳ Διαβανῇ ΜεσοβηδάνῃM 203,7 τῇ κώμῃ."}
+
+
+def test_apparatus_marked_as_editorial_notes() -> None:
+    # #376: readings, witness details and comments become note spans (#236).
+    from patristica import editorial
+
+    [p] = _extract_paragraphs(etree.fromstring(APPARATUS), "pta0041.pta001", {},
+                              mark_apparatus=True)
+    text, spans = p["text"], [tuple(s) for s in p["editorial"]]
+    assert text == ("ὁ ἀπόστολος паулъ διερχόμενος TODO: Eus. d.e. κατήντησεν μέσῃ Βιδάνῃ "
+                    "μέσῳ Διαβανῇ Μεσοβηδάνῃ M 203,7 τῇ κώμῃ.")
+    assert [text[s:e] for s, e, _ in spans] == [
+        "паулъ", "TODO: Eus. d.e.", "μέσῳ Διαβανῇ Μεσοβηδάνῃ M 203,7"]
+    assert {k for _, _, k in spans} == {"note"}
+    editorial.check(text, spans)
+    assert editorial.strip(text, spans) == "ὁ ἀπόστολος διερχόμενος κατήντησεν μέσῃ Βιδάνῃ τῇ κώμῃ."
