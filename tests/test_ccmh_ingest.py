@@ -22,7 +22,7 @@ from scripts.ingest._ccmh import (
     merge_leaves,
     parse_gospels,
 )
-from scripts.validate import SCRIPT_RANGES, _script_ratio
+from scripts.validate import _SCRIPT_RES, _script_ratio
 
 TITLO, POKRYTIE = "\u0483", "\u0487"
 
@@ -140,7 +140,7 @@ def test_zogr_b_leaves_fill_the_gap():
 def test_output_is_cyrillic_and_folds():
     out = text("!glE . az& tr@bujO ot& tebe kr$stiti sE", ZOGRAPHENSIS)
     letters = [c for c in out if c.isalpha() or unicodedata.category(c) == "Mn"]
-    assert _script_ratio("".join(letters), SCRIPT_RANGES["chu"]) == 1.0
+    assert _script_ratio("".join(letters), _SCRIPT_RES["chu"]) == 1.0
     assert fold(out) == fold("глѧ. азъ трѣбоуѭ от тебе крьстити сѧ")
 
 
