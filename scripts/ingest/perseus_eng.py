@@ -12,6 +12,9 @@ source takes a curated list of the English editions next to them (``EDITIONS``):
   TEI P5 with book and section divs keyed to Niese's sections.
 - Boethius, *Consolation* and theological tractates (``stoa0058.stoa…
   .perseus-eng1``), the Loeb of Stewart and Rand (1918), TEI P4.
+- Augustine, *Select Letters* (``stoa0040.stoa011.perseus-eng1``), the Loeb of
+  J. H. Baxter (1930), TEI P4: 62 letters, one ``div1`` each, sections
+  (``div2``) numbered as in the Maurist and CSEL editions (#391).
 
 The English is its own source rather than more editions of ``perseus``: the
 ``perseus`` ingest stamp, work ids and pruning of non-Greek/Latin files stay as
@@ -19,7 +22,7 @@ they were.
 
 Licence
 -------
-The translations are public domain (Whiston 1737, Loeb 1918); Perseus' TEI
+The translations are public domain (Whiston 1737, Loeb 1918 and 1930); Perseus' TEI
 markup is CC BY-SA 4.0 (the file's ``<licence>``, else the repository's), so
 the works are ``cc-by-sa-4.0``.
 
@@ -29,6 +32,13 @@ Whiston's notes (``<note resp="editor">``) stay at their place in the text,
 in brackets, marked ``note``. Headings (Whiston's chapter summaries, a book's
 heading, a tractate's chapter number) are marked ``heading``, a tractate's
 title ``title``. Page breaks are dropped.
+
+Baxter's footnotes aren't in the file, but their reference letters are
+(``ZENOBIUS a``, ``Alypius a to``, ``</q>c and``): they are noise and are
+removed (``_strip_note_markers``), as is the OCR reading ``m v`` for "my". A
+letter's number and date (``(Ep. II) (A.D. 386)``) are marked ``heading``; its
+address (``AUGUSTINE TO ZENOBIUS``) is text, as in the CSEL Latin, but a
+title Baxter supplied in brackets is marked ``heading`` too.
 
 Canonical references
 --------------------
@@ -43,6 +53,11 @@ Canonical references
 - Tractates: ``stoa0058.stoa023.{chapter}.{paragraph}`` (``pr`` before the
   first chapter), the chapter number ``stoa0058.stoa023.{chapter}`` a heading;
   a tractate without chapters numbers its paragraphs.
+- Letters: ``stoa0040.stoa011.{letter}.{section}``, the letter's number in the
+  Maurist edition (from its heading, not the file's running ``n``) and its
+  section, as in ``csel/stoa0040/stoa011/opp-lat2``; the letter's heading and
+  address are ``stoa0040.stoa011.{letter}``. A section's paragraphs (split at
+  page breaks and verse quotations) are one unit.
 """
 
 from __future__ import annotations
@@ -79,6 +94,11 @@ _WHISTON = (
     "Translated by William Whiston (1737), from The Works of Flavius Josephus "
     "(Auburn and Rochester, NY: Alden and Beardsley, 1856); Perseus perseus-eng2"
 )
+_BAXTER = (
+    "Translated by James Houston Baxter, in St. Augustine, Select Letters, Loeb "
+    "Classical Library (London: Heinemann; Cambridge, MA: Harvard, 1930); "
+    "Perseus perseus-eng1"
+)
 _LOEB = (
     "Boethius, The Theological Tractates and The Consolation of Philosophy, "
     "Loeb Classical Library (London: Heinemann; Cambridge, MA: Harvard, 1918)"
@@ -94,6 +114,7 @@ class Edition:
     translation_of: str    # the original's work id
     tradition: Tradition   # the original's
     edition: str
+    layout: str = ""       # "letters"; else read from the file's structure
 
 
 EDITIONS: tuple[Edition, ...] = (
@@ -124,6 +145,11 @@ EDITIONS: tuple[Edition, ...] = (
     Edition("perseus-latinlit", "stoa0058/stoa028/stoa0058.stoa028.perseus-eng1.xml",
             "perseus/stoa0058/stoa028/perseus-lat1", "latin",
             "Translated by H. F. Stewart and E. K. Rand, in " + _LOEB + "; Perseus perseus-eng1"),
+    # A selection of 62 letters. The CSEL Latin is the whole collection as one
+    # work, the original of NPNF's selection too (version_links.csv). Baxter
+    # doesn't have Ep. 185, the one letter the corpus has as a work of its own.
+    Edition("perseus-latinlit", "stoa0040/stoa011/stoa0040.stoa011.perseus-eng1.xml",
+            "csel/stoa0040/stoa011/opp-lat2", "latin", _BAXTER, layout="letters"),
 )
 
 # Elements whose content is not text.
@@ -136,6 +162,63 @@ _RUNNING_HEAD = re.compile(r"^\s*DE TRINITATE\s*\n")
 
 # A tractate's chapter number, alone in its paragraph ("IV.").
 _CHAPTER_NUMBER = re.compile(r"^\s*([IVXL]+)\.\s*$")
+
+# A letter's number and date at the start of its heading: "(Ep. XV) (A.D. 390)".
+_LETTER_NUMBER = re.compile(r"^\s*\(Ep[.,]\s*([IVXLCDM]+)\)\s*(?:\(A\.D\.[^)]*\))?")
+
+
+# ---------------------------------------------------------------------------
+# Footnote reference letters (Baxter)
+# ---------------------------------------------------------------------------
+
+# A note letter stands alone after a word, punctuation or a closing tag
+# ("Senior b Valerius", "LEONTIUS,b", "</q>c and"). b–z, but for i and o, are
+# never English words.
+_MARKER = re.compile(r"\s*(?<=[\s>,.;:?!)])[b-hj-np-z](?=[\s<,.;:?!)\]])")
+# "a" is the article too: it is a note letter only where an article can't
+# be: before punctuation, a closing tag, a parenthesis or a word an article
+# never precedes; before a capital after a sentence's end; between capitals.
+_A_MARKER = re.compile(r"\s*(?<=[\s>,.;:?!)])a(?=[\s<,.;:?!)\]])")
+_NOT_AFTER_ARTICLE = frozenset("""
+    a about against among an and are as at be been but by can could did do
+    even for from had has have he her him his i if in into is it its may me
+    might my nor not of on or our
+    shall should so than that the their them then there they this to us was we
+    were what when where which who whom whose will with would yet you your
+""".split())
+_SENTENCE_END = re.compile(r"[.?!][”’]?(?:</q>)?$")
+_CAPITALS = re.compile(r"[A-Z]{2,},?$")
+
+
+def _is_a_marker(before: str, after: str) -> bool:
+    """Is a lone "a" between *before* and *after* a note letter, not the article?"""
+    after = after.lstrip()
+    if not after or after[0] in ",.;:?!)(]" or after.startswith("</"):
+        return True
+    word = re.match(r"[A-Za-z]+", after)
+    if not word:
+        return False
+    if word.group().lower() in _NOT_AFTER_ARTICLE:
+        return True
+    before = before.rstrip()
+    if word.group()[0].isupper() and _SENTENCE_END.search(before):
+        return True
+    return bool(_CAPITALS.search(before) and re.match(r"[A-Z]{2,}", after))
+
+
+def _strip_note_markers(xml: str) -> str:
+    """*xml* without the footnote reference letters in its body, and ``m v`` read "my"."""
+    start = xml.index("<body>")
+    body = re.sub(r"\bm v\b", "my", xml[start:])
+    body = _MARKER.sub("", body)
+
+    def a_marker(m: re.Match[str]) -> str:
+        letter = m.end() - 1
+        if _is_a_marker(body[max(0, letter - 40):letter], body[m.end():m.end() + 40]):
+            return ""
+        return m.group(0)
+
+    return xml[:start] + _A_MARKER.sub(a_marker, body)
 
 
 # ---------------------------------------------------------------------------
@@ -342,8 +425,34 @@ def _tractate_units(body: etree._Element, cts: str) -> list[dict]:
     return units
 
 
+def _letters_units(body: etree._Element, cts: str) -> list[dict]:
+    """Units of a letter collection: per letter its heading, then its sections."""
+    units: list[dict] = []
+    for letter in body.iter("div1"):
+        heading = " ".join("".join(h.itertext()) for h in letter.findall("head"))
+        m = _LETTER_NUMBER.match(heading)
+        if not m:
+            raise ValueError(f"{cts}: letter {letter.get('n')} has no number: {heading!r}")
+        number = str(_roman(m.group(1)))
+        address = heading[m.end():]
+        # A title in brackets is Baxter's, where the letter has no address.
+        supplied = address.strip().startswith("[") and address.strip().endswith("]")
+        unit = _unit(f"{cts}.{number}", [(m.group(0), "heading"), (" ", None),
+                                         (address, "heading" if supplied else None)])
+        if unit:
+            units.append(unit)
+        for section in letter.iter("div2"):
+            segments: list[Segment] = []
+            for p in section.iter("p"):
+                segments += _segments(p) + [(" ", None)]
+            unit = _unit(f"{cts}.{number}.{section.get('n', '')}", segments)
+            if unit:
+                units.append(unit)
+    return units
+
+
 def _roman(s: str) -> int:
-    values = {"I": 1, "V": 5, "X": 10, "L": 50}
+    values = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     total = 0
     for i, c in enumerate(s):
         v = values[c]
@@ -376,7 +485,10 @@ def _header_text(root: etree._Element, path: str) -> str | None:
 
 def parse_edition(xml_path: Path, spec: Edition) -> tuple[Work, list[dict]]:
     """Parse one English file into its Work and units."""
-    root = etree.parse(str(xml_path), _XML_PARSER).getroot()
+    xml = xml_path.read_text(encoding="utf-8")
+    if spec.layout == "letters":
+        xml = _strip_note_markers(xml)
+    root = etree.fromstring(xml.encode("utf-8"), _XML_PARSER)
     stem = xml_path.stem                       # tlg0526.tlg001.perseus-eng2
     textgroup, work, version = stem.split(".")
     cts = f"{textgroup}.{work}"
@@ -388,7 +500,9 @@ def parse_edition(xml_path: Path, spec: Edition) -> tuple[Work, list[dict]]:
         body = root.find(".//body")
         if body is None:
             raise ValueError(f"{xml_path}: no body")
-        if body.find(".//div1") is not None:
+        if spec.layout == "letters":
+            units = _letters_units(body, cts)
+        elif body.find(".//div1") is not None:
             units = _consolation_units(body, cts)
         else:
             units = _tractate_units(body, cts)

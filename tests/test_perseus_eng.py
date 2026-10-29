@@ -121,11 +121,58 @@ def test_consolation_metres_and_proses(tmp_path: Path) -> None:
     ]
 
 
+_LETTERS = """<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "x.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+]>
+<TEI.2><teiHeader><fileDesc><titleStmt>
+<title>Select Letters</title><author>Augustine, Saint</author></titleStmt></fileDesc></teiHeader>
+<text><body>
+<pb id="p.3"/>
+<div1 type="section" n="1"><head>(Ep. II) (A.D. 386)</head>
+<head>AUGUSTINE TO ZENOBIUS a</head>
+<div2 type="section" n="1"><p>I would not allow Alypius a to help, which he doesn't.
+I miss him, the Senior b Valerius, a man of LEONTIUS,b and a friend.</p></div2></div1>
+<div1 type="section" n="2"><head>(Ep. CCXI) a (A.D. 423)</head>
+<div2 type="section" n="3"><p>Are we to <q>eat bread</q>c? So it was. a We
+<pb id="p.5"/></p><p>prayed in m v house a; then left.</p></div2></div1>
+<div1 type="section" n="3"><head>(Ep. LXVI) (A.D. 402)</head>
+<head>[AGAINST CRISPINUS a]</head>
+<div2 type="section" n="1"><p>God is to be feared.</p></div2></div1>
+</body></text></TEI.2>
+"""
+
+
+def test_letters_numbers_sections_and_note_letters(tmp_path: Path) -> None:
+    path = tmp_path / "stoa0040.stoa011.perseus-eng1.xml"
+    path.write_text(_LETTERS, encoding="utf-8")
+    spec = Edition("perseus-latinlit", path.name, "csel/stoa0040/stoa011/opp-lat2", "latin",
+                   "ed.", layout="letters")
+    work, units = parse_edition(path, spec)
+    assert work.translation_of == "csel/stoa0040/stoa011/opp-lat2"
+    assert [(u["ref"], u["text"]) for u in units] == [
+        ("stoa0040.stoa011.2", "(Ep. II) (A.D. 386) AUGUSTINE TO ZENOBIUS"),
+        ("stoa0040.stoa011.2.1", "I would not allow Alypius to help, which he doesn't. "
+         "I miss him, the Senior Valerius, a man of LEONTIUS, and a friend."),
+        ("stoa0040.stoa011.211", "(Ep. CCXI) (A.D. 423)"),
+        ("stoa0040.stoa011.211.3", "Are we to “eat bread”? So it was. We "
+         "prayed in my house; then left."),
+        ("stoa0040.stoa011.66", "(Ep. LXVI) (A.D. 402) [AGAINST CRISPINUS]"),
+        ("stoa0040.stoa011.66.1", "God is to be feared."),
+    ]
+    assert units[0]["editorial"] == [[0, len("(Ep. II) (A.D. 386)"), "heading"]]
+    assert units[2]["editorial"] == [[0, len(units[2]["text"]), "heading"]]
+    # A title Baxter supplied in brackets is his, not the letter's address.
+    assert units[4]["editorial"] == [[0, len(units[4]["text"]), "heading"]]
+    assert "editorial" not in units[1]
+
+
 def test_editions_point_at_their_originals() -> None:
     for spec in EDITIONS:
         textgroup, work, _ = Path(spec.path).name.split(".", 2)
         assert spec.path.startswith(f"{textgroup}/{work}/")
-        # The original is the same CTS work in the original-language Perseus edition.
-        assert spec.translation_of.startswith(f"perseus/{textgroup}/{work}/perseus-")
+        # The original is the same CTS work in an original-language edition:
+        # Perseus', or CSEL's where Perseus has none in the corpus (Augustine's letters).
+        assert spec.translation_of.startswith((f"perseus/{textgroup}/{work}/perseus-",
+                                               f"csel/{textgroup}/{work}/opp-"))
         assert not spec.translation_of.endswith(("eng1", "eng2"))
     assert perseus_eng.SOURCE_ID == "perseus-eng"
