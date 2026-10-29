@@ -166,6 +166,10 @@ _CORPUS_META: dict[str, dict] = {
         "date_range": (390, 446),
         "date_confidence": "established",
     },
+    # Three discourses of Budge's Coptic Homilies (BL Or. 5001), ascribed to
+    # Athanasius in the codex.  Coptic Scriptorium credits "On the Soul and
+    # Body" to Melito (the Syriac gives it to Alexander of Alexandria, CPG
+    # 2004); the attribution and a split are open (#398).
     "pseudo-athanasius-discourses": {
         "genre": "patristic",
         "author": "Pseudo-Athanasius",
@@ -201,7 +205,7 @@ _CORPUS_META: dict[str, dict] = {
     "pseudo-flavianus": {
         "genre": "patristic",
         "author": "Pseudo-Flavianus",
-        "title": "Works Attributed to Flavianus (Coptic)",
+        "title": "Encomium on Demetrius of Alexandria (Coptic)",
         "date_composed": None,
         "date_range": (400, 500),
         "date_confidence": "uncertain",
@@ -209,7 +213,7 @@ _CORPUS_META: dict[str, dict] = {
     "pseudo-timothy": {
         "genre": "patristic",
         "author": "Pseudo-Timothy",
-        "title": "Works Attributed to Timothy (Coptic)",
+        "title": "Discourse on Abbaton (Coptic)",
         "date_composed": None,
         "date_range": (400, 550),
         "date_confidence": "uncertain",
@@ -217,7 +221,7 @@ _CORPUS_META: dict[str, dict] = {
     "pseudo-celestinus": {
         "genre": "patristic",
         "author": "Pseudo-Celestinus",
-        "title": "Works Attributed to Celestinus (Coptic)",
+        "title": "Encomium on Victor (Coptic)",
         "date_composed": None,
         "date_range": (400, 432),
         "date_confidence": "uncertain",
@@ -332,50 +336,56 @@ _CORPUS_META: dict[str, dict] = {
         "date_range": (100, 400),
         "date_confidence": "uncertain",
     },
+    # Two works (#365, split: #398): Stephen of Hnes's Encomium and the
+    # anonymous Martyrdom (Sobhy's edition of Hamuli MS 2703).
     "helias": {
         "genre": "patristic",
-        "author": None,
-        "title": "Life of Helias (Coptic)",
+        "author": "Stephen of Hnes; Anonymous",
+        "title": "Encomium and Martyrdom of Helias (Coptic)",
         "date_composed": None,
         "date_range": (300, 600),
         "date_confidence": "uncertain",
     },
+    # Three anonymous works (#365, split: #398), from Budge, Miscellaneous Coptic Texts.
     "mercurius": {
         "genre": "patristic",
         "author": None,
-        "title": "Martyrdom of Mercurius (Coptic)",
+        "title": "Encomium, Martyrdom and Miracles of Mercurius (Coptic)",
         "date_composed": None,
         "date_range": (300, 600),
         "date_confidence": "uncertain",
     },
+    # By Theodosius, not about him (#365); two manuscripts (MERC.AL, MERC.AI).
     "theodosius-alexandria": {
         "genre": "patristic",
-        "author": None,
-        "title": "Life of Theodosius of Alexandria (Coptic)",
+        "author": "Theodosius of Alexandria",
+        "title": "Encomium on Michael the Archangel (Coptic)",
         "date_composed": None,
         "date_range": (400, 600),
         "date_confidence": "uncertain",
     },
+    # Shenoute's Abraham Our Father (YA 518-554, XL 93-94, ZH), not a Life (#365).
     "abraham": {
         "genre": "patristic",
-        "author": None,
-        "title": "Life of Abraham (Coptic)",
+        "author": "Shenoute of Atripe",
+        "title": "Abraham Our Father (Coptic)",
         "date_composed": None,
         "date_range": (300, 600),
         "date_confidence": "uncertain",
     },
     "johannes-canons": {
         "genre": "patristic",
-        "author": None,
-        "title": "Canons of Johannes (Coptic)",
+        "author": "Johannes the Archimandrite",
+        "title": "Canons of Apa Johannes (Coptic)",
         "date_composed": None,
         "date_range": (300, 600),
         "date_confidence": "uncertain",
     },
+    # By John IV the Faster, not a Life of him (#365).
     "john-constantinople": {
         "genre": "patristic",
-        "author": None,
-        "title": "Life of John of Constantinople (Coptic)",
+        "author": "John IV of Constantinople",
+        "title": "On Penitence and Abstinence (Coptic)",
         "date_composed": None,
         "date_range": (300, 600),
         "date_confidence": "uncertain",
