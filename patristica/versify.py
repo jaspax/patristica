@@ -39,10 +39,14 @@ from patristica.models import Chunk
 #: Mean ``cl100k_base`` tokens per Scripture verse, per language (measured
 #: 2026-10-14 over every scripture source in the corpus; Hebrew: OSHB,
 #: Greek: SBLGNT + LXX, Latin: Clementine, English: KJV/ASV/WEB, …).
+#: Church Slavonic was measured before its first source (#330): the mean over
+#: the 3,614 verses of Codex Marianus in TOROT's Cyrillic (67.7; Zographensis
+#: 71, Psalterium Sinaiticum 56), in the Cyrillic the corpus stores.
 VERSE_TOKENS: dict[str, int] = {
     "eng": 31,
     "lat": 37,
     "got": 44,
+    "chu": 68,
     "grc": 130,
     "syc": 155,
     "hbo": 177,
@@ -81,6 +85,10 @@ _SENTENCE_MARKS: dict[str, str] = {
     "cop": ".!?⳾",
     "gez": "።፧፨",  # ። ፧ ፨
     "hbo": ".!?׃",  # sof pasuq
+    # Church Slavonic (#330): "." is the manuscripts' main stop (Marianus ~3 a
+    # verse), ";" the question mark as in Greek, and the multi-dot marks
+    # ⁖ ⁘ ⁙ ⁛ ⁜ ⁝ end a reading or section; ჻ is used the same way in TOROT.
+    "chu": ".;!?⁖⁘⁙⁛⁜⁝჻",
 }
 _DEFAULT_SENTENCE_MARKS = ".!?"
 
@@ -89,6 +97,10 @@ _CLAUSE_MARKS: dict[str, str] = {
     "hye": ".․;",  # mijaket, typed as "."
     "syc": ":;܃܄܅܆܇·",
     "gez": "፤፥፦:;",  # ፤ ፥ ፦
+    # Church Slavonic: the raised dot (Suprasliensis' commonest mark, before
+    # speech and between clauses; Zographensis), two points (CCMH ":"; the
+    # Psalter's half-verse mark), two-dot marks ⁚ ⸪, and dashes.
+    "chu": ":\u00b7\u0387⁚⸪—…",  # · (middle dot) and · (ano teleia)
 }
 _DEFAULT_CLAUSE_MARKS = ";:··—…"
 

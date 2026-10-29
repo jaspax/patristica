@@ -25,7 +25,7 @@ export function Hero() {
         <p className={styles.lead}>
           Patristica is a free library of Scripture and the early Church: the Fathers, the councils and the
           liturgies, from the apostles to the eleventh century, in the original Greek, Latin, Hebrew, Syriac,
-          Coptic, Ge&lsquo;ez, Armenian and Gothic, with English translations alongside.
+          Coptic, Ge&lsquo;ez, Armenian, Gothic and Church Slavonic, with English translations alongside.
         </p>
         <p className={styles.lead}>
           Search it by idea or by exact phrase, read each text whole, and follow a passage across its
@@ -55,6 +55,7 @@ const WORDS: { language: string; word: string }[] = [
   { language: "gez", word: "ቃል" },
   { language: "hye", word: "բան" },
   { language: "got", word: "𐍅𐌰𐌿𐍂𐌳" },
+  { language: "chu", word: "слово" },
 ];
 
 /** The search page's link for a query. */
