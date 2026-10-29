@@ -82,11 +82,16 @@ SCRIPTURE_PRIOR = 0.1
 STEP = "align"
 #: {"align": {"code": hash}, "groups": {group: {"members": [...], "keys": hash, "skipped": why}}}
 FINGERPRINT_FILE = "_fingerprint.json"
-#: Per-source registries left out of the code hash: their effect is checked per
-#: group through the Scripture keys (``group_record``), so adding a source or
-#: correcting an override makes only the groups it touches stale.
+#: Registries left out of the code hash, since their effect is covered per group:
+#: - the versification registries through the Scripture keys (``group_record``), so
+#:   adding a source or correcting an override makes only the groups it touches stale;
+#: - ``TRANSLATED_LANGUAGES`` through each member's inputs hash (``Loaded.inputs``),
+#:   which records the vector row every unit is aligned on: enrolling a language
+#:   (#336) re-aligns only the groups whose members then have translation vectors,
+#:   in the next align run, and nothing before its units are translated.
 REGISTRIES = {"patristica.versification": ("SOURCE_SCHEMES", "BOOK_SCHEME_OVERRIDES",
-                                           "CHAPTER_SCHEME_OVERRIDES")}
+                                           "CHAPTER_SCHEME_OVERRIDES"),
+              "patristica.translations": ("TRANSLATED_LANGUAGES",)}
 NO_VECTORS = "fewer than two members with vectors"
 
 
