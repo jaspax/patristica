@@ -42,6 +42,12 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "sblgnt": "org",
     "pta-peshitta": "org",   # Hebrew verse numbering, incl. Psalm titles
     "wulfila": "org",
+    # Old Church Slavonic Gospels (CCMH, #332): every chapter whose last verse
+    # survives ends where NA's does (eng = org in the Gospels).
+    "ccmh-marianus": "org",
+    "ccmh-zographensis": "org",
+    "ccmh-assemanianus": "org",
+    "ccmh-savvina": "org",
     "kjv": "eng",
     "asv": "eng",
     "web": "eng",
