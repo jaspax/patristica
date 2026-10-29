@@ -170,3 +170,20 @@ describe("ROBOTS", () => {
     expect(ROBOTS.sitemap).toBe("https://patristica.app/sitemap.xml");
   });
 });
+
+describe("workDescription of a machine translation (#422)", () => {
+  it("says it was machine-translated", () => {
+    const mt = workRow({
+      id: "mt-eng/conf",
+      title: "Confessions",
+      author_ids: ["augustine-of-hippo"],
+      language: "eng",
+      source_id: "mt-eng",
+      translation_of: conf.id,
+      version_group: "g1",
+      machine_translation: true,
+    });
+    const withMt: LibraryIndex = { ...index, sources: { ...index.sources, "mt-eng": "MT" }, works: [...index.works, mt] };
+    expect(workDescription(mt, authors, withMt)).toContain("(machine-translated from the Latin)");
+  });
+});

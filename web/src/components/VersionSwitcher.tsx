@@ -278,6 +278,7 @@ function VersionEntry({ work, details, original, label, showLanguage, positionFo
         {label}
       </VersionLink>
       {original && <span className={styles.badge}>Original</span>}
+      {work.machine_translation && <span className={styles.badge}>Machine translation</span>}
       {parallel && (
         <PositionLink href={parallel} position={here} className={styles.parallel} aria-label={`Read side by side with ${label}`}>
           side by side

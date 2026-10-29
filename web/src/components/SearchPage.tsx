@@ -416,7 +416,8 @@ function Context({ text, side }: { text: string | null | undefined; side: "befor
 
 /**
  * A result's English, with the English of its context: a linked version in
- * the library, named and linked to its passage, or our machine translation.
+ * the library, named and linked to its passage, or our machine translation
+ * (linked too when it is a machine-translated work of the library, #422).
  */
 function Translation({ translation }: { translation: ResultTranslation }) {
   const href = translationHref(translation);
@@ -425,7 +426,8 @@ function Translation({ translation }: { translation: ResultTranslation }) {
       <p className={styles.label}>
         {href ? (
           <>
-            English: <Link href={href}>{translation.source_label}</Link>
+            {translation.machine ? "Machine translation (English)" : "English"}:{" "}
+            <Link href={href}>{translation.source_label}</Link>
             {translation.canonical_ref && <span className={styles.ref}> {translation.canonical_ref}</span>}
           </>
         ) : (

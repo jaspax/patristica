@@ -85,3 +85,15 @@ describe("commonUrlPrefix", () => {
     expect(commonUrlPrefix(["https://a.org/x", "https://b.org/y"])).toBe("");
   });
 });
+
+describe("summarizeSources machine translations (#422)", () => {
+  it("flags a collection of machine translations from its rows", () => {
+    const [pta] = summarizeSources(index);
+    expect(pta.machineTranslation).toBe(false);
+    const [mt] = summarizeSources({
+      ...index,
+      works: [row({ id: "m", source_id: "mt-eng", machine_translation: true })],
+    });
+    expect(mt.machineTranslation).toBe(true);
+  });
+});

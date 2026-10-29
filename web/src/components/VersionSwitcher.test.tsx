@@ -246,3 +246,21 @@ describe("FloatingVersions", () => {
     await waitFor(() => expect(push).toHaveBeenCalledWith("/works/clementine/ps#Ps.22.1"));
   });
 });
+
+describe("VersionSwitcher machine translations (#422)", () => {
+  it("badges a machine-translated version", () => {
+    const grc = workRow({ id: "pta/or", language: "grc", source_id: "pta", version_group: "g" });
+    const mt = workRow({
+      id: "mt-eng/pta/or",
+      language: "eng",
+      source_id: "mt-eng",
+      translation_of: "pta/or",
+      version_group: "g",
+      machine_translation: true,
+    });
+    render(<VersionSwitcher current={grc} members={[grc, mt]} originals={originalIds([grc, mt])} sources={{ "mt-eng": "MT" }} />);
+    const entry = screen.getByRole("link", { name: "MT" }).closest("li")!;
+    expect(within(entry).getByText("Machine translation")).toBeDefined();
+    expect(within(entry).queryByText("Original")).toBeNull();
+  });
+});

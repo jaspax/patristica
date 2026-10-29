@@ -23,6 +23,7 @@ import { currentPosition, originalIds, positionIn, versionMembers } from "@/lib/
 
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
+import MachineTranslationNotice from "./MachineTranslationNotice";
 import ParallelReader from "./ParallelReader";
 import VersionSwitcher, { FloatingVersions, VersionLink, type PositionFor } from "./VersionSwitcher";
 import WorkText from "./WorkText";
@@ -146,7 +147,21 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
             <dt>Genre</dt>
             <dd>{GENRES[row.genre] ?? row.genre}</dd>
           </div>
+          {row.machine_translation && (
+            <div>
+              <dt className="visually-hidden">Translation</dt>
+              <dd>
+                <span className={styles.badge}>Machine translation</span>
+              </dd>
+            </div>
+          )}
         </dl>
+        {row.machine_translation && (
+          <MachineTranslationNotice
+            original={original ?? members.find((w) => originals.has(w.id))}
+            positionFor={positionFor}
+          />
+        )}
         <details className={styles.details}>
           <summary>Details</summary>
           <dl className={styles.meta}>

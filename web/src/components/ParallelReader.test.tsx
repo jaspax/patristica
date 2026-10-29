@@ -293,3 +293,28 @@ describe("ParallelReader: aligned works", () => {
     expect(await screen.findByText(/have no passage alignment yet/)).toBeDefined();
   });
 });
+
+describe("ParallelReader: machine translations (#422)", () => {
+  const mt = workRow({
+    ...book("mt-eng/ps", "eng", "mt-eng"),
+    translation_of: "oshb/ps",
+    machine_translation: true,
+  });
+  const withMt: LibraryIndex = { ...index, sources: { ...index.sources, "mt-eng": "MT" }, works: [...index.works, mt] };
+
+  it("badges a machine translation's card", async () => {
+    render(<ParallelReader lead={oshb} withIds={["mt-eng/ps"]} library={library(withMt)} />);
+    const cards = within(await screen.findByRole("list", { name: "Versions" })).getAllByRole("listitem");
+    expect(cards.map((c) => c.querySelector("p")?.textContent)).toEqual([
+      "HebrewleadingOriginal",
+      "EnglishMachine translation",
+    ]);
+  });
+
+  it("badges a machine translation in the add-version list", async () => {
+    render(<ParallelReader lead={kjv} withIds={["oshb/ps"]} library={library(withMt)} />);
+    const add = await screen.findByText(/^Add a version/);
+    const item = within(add.closest("details")!).getByRole("link", { name: "MT" }).closest("li")!;
+    expect(within(item).getByText("Machine translation")).toBeDefined();
+  });
+});

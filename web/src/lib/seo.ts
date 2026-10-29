@@ -73,8 +73,10 @@ export function workDescription(row: WorkRow, authors: AuthorMap, index: Library
   const notes = [
     formatDate(row),
     original && original.language !== row.language
-      ? `translated from the ${languageInfo(original.language).name}`
-      : "",
+      ? `${row.machine_translation ? "machine-translated" : "translated"} from the ${languageInfo(original.language).name}`
+      : row.machine_translation
+        ? "machine translation"
+        : "",
   ].filter(Boolean);
   const also = otherLanguages(row, index);
   return (

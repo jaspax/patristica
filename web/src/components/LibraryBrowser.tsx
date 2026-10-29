@@ -152,6 +152,11 @@ function Browser({ library }: { library: Library }) {
                         {nVersions} versions
                       </span>
                     )}
+                    {w.machine_translation && (
+                      <span className={styles.versions} lang="en" dir="ltr">
+                        machine translation
+                      </span>
+                    )}
                   </td>
                   <td>{lang.name}</td>
                   <td className={styles.numeric}>{formatDate(w)}</td>

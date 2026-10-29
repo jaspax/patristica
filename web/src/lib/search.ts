@@ -85,7 +85,9 @@ export interface ContextUnit {
 
 /**
  * A result's English: a linked English version in the library when there is
- * one (`machine: false`; for Scripture the KJV), else our machine translation.
+ * one (`machine: false`; for Scripture the KJV), else our machine translation:
+ * a machine-translated work of the library (`machine: true` with a `work_id`,
+ * #422) or the unit's search translation (`machine: true`, no `work_id`).
  */
 export interface ResultTranslation {
   language: string;
@@ -96,7 +98,7 @@ export interface ResultTranslation {
   machine: boolean;
   /** The translation model; null for a linked version. */
   model: string | null;
-  /** A linked version's work and the ref of its passage; null for a machine translation. */
+  /** A linked version's work and the ref of its passage; null for a search translation. */
   work_id?: string | null;
   canonical_ref?: string | null;
   source_label?: string | null;
@@ -289,7 +291,7 @@ export function resultHref(result: Pick<SearchResult, "work_id" | "canonical_ref
 
 /** The reader link of a linked English version's passage, or null for a machine translation. */
 export function translationHref(translation: ResultTranslation): string | null {
-  if (translation.machine || !translation.work_id || !translation.canonical_ref) return null;
+  if (!translation.work_id || !translation.canonical_ref) return null;
   return resultHref({ work_id: translation.work_id, canonical_ref: translation.canonical_ref });
 }
 

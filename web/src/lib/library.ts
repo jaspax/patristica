@@ -33,6 +33,12 @@ export interface WorkRow {
    * no other version. The id can change when links change; don't put it in URLs.
    */
   version_group: string | null;
+  /**
+   * True for our machine translations (#422): English made by an AI model from
+   * the original, unreviewed. Absent on every other work, and in libraries
+   * exported before it.
+   */
+  machine_translation?: boolean;
   chunks: number;
   file: string;
 }
