@@ -1,0 +1,15 @@
+{
+ "work_id": "coptic-scriptorium-eng/shenoute_those",
+ "anchor": "coptic-scriptorium/shenoute_those",
+ "method": "351020005494c156",
+ "anchor_cuts": "9143ad478226e8c8",
+ "words": "7868fbff34ef2fca",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 5, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.1176, "rounds": 1, "span": [266, 283], "units": 5},
+ "paragraphs": {
+  "CopScr.shenoute-those.011.0000": {"words": "5826f73f09efd7cc", "starts": [0, 1]},
+  "CopScr.shenoute-those.011.0001": {"words": "d6823cde497137dd", "starts": [0]},
+  "CopScr.shenoute-those.011.0002": {"words": "935e464401d9c4b6", "starts": [0]},
+  "CopScr.shenoute-those.011.0003": {"words": "efa44873fad2192a", "starts": [0]}
+ }
+}
