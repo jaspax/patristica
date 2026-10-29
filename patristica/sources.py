@@ -37,6 +37,7 @@ SOURCE_LABELS: dict[str, str] = {
     "ogpg": "Patrologia Graeca (Open Greek and Latin)",
     "perseus": "Perseus Digital Library",
     "pta": "Patristic Text Archive",
+    "pta-eng": "Patristic Text Archive (English translations)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     # Liturgical
