@@ -289,3 +289,49 @@ def test_editorial_spans_that_do_not_fit_are_errors() -> None:
     result = validate._check_text_quality([good, bad, _chunk("a/w", "3")])
     assert result["editorial_spans_invalid"]["violation_count"] == 1
     assert "a/w#2" in result["editorial_spans_invalid"]["examples"][0]
+
+
+class TestStreaming:
+    """main reads one work file at a time (#374) but reports as if it had
+    read the whole corpus as one list."""
+
+    def test_work_split_across_files_matches_one_pass(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ):
+        # src/w is in a.json and c.json, with b.json between them: a duplicate
+        # ref, a duplicate chunk id and a gap in chunk_index span the files.
+        files = {
+            "src/a.json": [_chunk("src/w", "W.1", 0), _chunk("src/w", "W.2", 1)],
+            "src/b.json": [_chunk("src/v", "V.1", 0), _chunk("src/v", "V.1", 1),
+                           _chunk("src/w", "W.9", 5)],
+            "src/c.json": [_chunk("src/w", "W.2", 2), _chunk("src/w", "W.3", 3)],
+        }
+        _write_manifest(tmp_path, [
+            ("src/a.json", _work("src/w", "src", "patristic")),
+            ("src/b.json", _work("src/v", "src", "patristic")),
+        ])
+        for rel, chunks in files.items():
+            TestMain()._write_work(tmp_path, rel, chunks)
+        code, report = TestMain()._run(tmp_path, monkeypatch)
+        assert code == 1
+
+        records = _load_work_records(tmp_path)
+        everything = [c for chunks in files.values() for c in chunks]
+        assert report["checks"]["canonical_refs"] == _check_canonical_refs(everything, records)
+        assert report["checks"]["id_uniqueness"] == _check_id_uniqueness(
+            _load_works(tmp_path), everything)
+        refs = report["checks"]["canonical_refs"]
+        assert refs["duplicate_canonical_ref_within_work"]["examples"] == [
+            "src/w: 'W.2' ×2", "src/v: 'V.1' ×2"]
+        assert refs["non_sequential_chunk_index"]["examples"] == ["src/w (got [0, 1, 2, 3, 5]…)"]
+        assert report["checks"]["id_uniqueness"]["duplicate_chunk_ids"]["examples"] == [
+            "src/w#W.2 ×2", "src/v#V.1 ×2"]
+        assert report["summary"]["total_chunks"] == 7
+
+    def test_script_ratio_counts_code_points_in_range(self):
+        greek = validate._SCRIPT_RES["grc"]
+        assert validate._script_ratio("", greek) == 0.0
+        assert validate._script_ratio("λόγος", greek) == 1.0
+        assert validate._script_ratio("λόγος ab", greek) == 5 / 8
+        assert validate._script_ratio("ἐν ἀρχῇ", greek) == 6 / 7  # Greek Extended
+        assert validate._script_ratio("𐌰𐌱 x", validate._SCRIPT_RES["got"]) == 2 / 4
