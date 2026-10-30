@@ -155,7 +155,7 @@ Titles and headings an editor added, supplements, lacuna markers, metadata in th
 
 Church Slavonic (`chu`, BCP 47 `cu`, tradition `slavonic`) is stored in Cyrillic: Slavonic ingestors pass their text through `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()`, and validate counts Glagolitic as the wrong script (#330).
 
-Arabic (`arb`, BCP 47 `ar`, tradition `arabic` whatever the writer's confession, which goes in the author index's note; #83, #478) is stored unvocalized where the source is, as the source gives it. `fold()` drops harakat and tatweel and folds أ/إ/آ/ٱ → ا, ى → ي and OCR's Persian ی/ک → ي/ك; ة and ه stay distinct. The reader shows it right-to-left in Noto Naskh Arabic.
+Arabic (`arb`, BCP 47 `ar`, no tradition of its own: a work takes its community's tradition, `greek` for Melkites, `syriac` for Syriac Orthodox and East Syriac writers, `coptic` for Copto-Arabic ones; #83, #478) is stored unvocalized where the source is, as the source gives it. `fold()` drops harakat and tatweel and folds أ/إ/آ/ٱ → ا, ى → ي and OCR's Persian ی/ک → ي/ك; ة and ه stay distinct. The reader shows it right-to-left in Noto Naskh Arabic.
 
 To add a language, follow `docs/adding-a-language.md`: every touchpoint and what it costs. Keep that file language-neutral: a language's choices, measurements and decision record go on its umbrella issue (the "Add … texts" issue with its `lang:` label), never into the checklist (#475).
 

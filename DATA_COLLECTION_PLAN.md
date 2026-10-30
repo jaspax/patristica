@@ -132,7 +132,7 @@ Out of period: the Uspenskij sbornik (Boris and Gleb, Life of Feodosij), the Pri
 
 #### 3.5 Christian Arabic (planned, #83)
 
-From the survey on #83 (2026-10-30). Language `arb` (BCP 47 `ar`), tradition `arabic` for every confession (Melkite, Syriac Orthodox, East Syriac, Coptic; the confession is in the author index's note). The language plumbing is #478; the decision record is on #83. There is no Arabic in any source already cloned, and little in-period Christian Arabic exists as digital text with a usable licence; most of it is in public-domain printed editions that need OCR. Source ids are provisional until each ingest PR.
+From the survey on #83 (2026-10-30). Language `arb` (BCP 47 `ar`), no `arabic` tradition: Arabic is a language several communities wrote in, so each work takes its community's tradition (Melkite `greek`, Syriac Orthodox and East Syriac `syriac`, Copto-Arabic `coptic`). The language plumbing is #478; the decision record is on #83. There is no Arabic in any source already cloned, and little in-period Christian Arabic exists as digital text with a usable licence; most of it is in public-domain printed editions that need OCR. Source ids are provisional until each ingest PR.
 
 | Source | Works | Format | License | Issue |
 |--------|-------|--------|---------|-------|

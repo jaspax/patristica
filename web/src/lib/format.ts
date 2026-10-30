@@ -79,7 +79,6 @@ export const TRADITIONS: Record<string, string> = {
   armenian: "Armenian",
   gothic: "Gothic",
   slavonic: "Slavonic",
-  arabic: "Arabic",
   jewish: "Jewish",
 };
 
