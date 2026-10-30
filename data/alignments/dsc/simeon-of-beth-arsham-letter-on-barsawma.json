@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "dsc/simeon-of-beth-arsham-letter-on-barsawma",
+ "pivot": "mt-eng/dsc/simeon-of-beth-arsham-letter-on-barsawma",
+ "groups": 93,
+ "inputs": "bff1b4e3ec7a71f2",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "dsc/simeon-of-beth-arsham-letter-on-barsawma", "units": 93, "ids": "4151a38af0680024", "inputs": "2b8a09ebbce0a040", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/dsc/simeon-of-beth-arsham-letter-on-barsawma", "units": 93, "ids": "2c95dd5c02848f60", "inputs": "bc0deb6cf6747522", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

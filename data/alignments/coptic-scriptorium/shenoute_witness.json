@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "coptic-scriptorium/shenoute_witness",
+ "pivot": "mt-eng/coptic-scriptorium/shenoute_witness",
+ "groups": 14,
+ "inputs": "c5be2789dd29dff5",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "coptic-scriptorium/shenoute_witness", "units": 14, "ids": "7d8489a644675bf8", "inputs": "524bd426c449635f", "spans": "++++++++++++++", "conf": "99999999999999"},
+  {"work_id": "mt-eng/coptic-scriptorium/shenoute_witness", "units": 14, "ids": "b5ffca9c1c7e618f", "inputs": "4d9ba6a31063dd32", "spans": "++++++++++++++", "conf": "99999999999999"}
+ ]
+}

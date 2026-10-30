@@ -1,0 +1,18 @@
+{
+ "work_id": "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1",
+ "anchor": "ccmh-supr/chrysostom-in-annuntiationem-1",
+ "method": "351020005494c156",
+ "anchor_cuts": "36f6bef4f197548b",
+ "words": "64989882c2d4e7fb",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 88, "calibration": [0.8044, 0.1494], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9775, "rounds": 3, "units": 88},
+ "paragraphs": {
+  "Supr.119r": {"words": "05fa9035b2454cf6", "starts": [0, 27, 51, 67, 110, 120, 145, 163, 182, 198, 225, 244]},
+  "Supr.119v": {"words": "0314988b9de3401e", "starts": [0, 26, 46, 57, 80, 88, 103, 116, 136, 149, 162, 174, 191, 205, 215]},
+  "Supr.120r": {"words": "abfe630a6445f2ad", "starts": [0, 23, 49, 61, 80, 102, 118, 138, 154, 183, 201, 221, 248]},
+  "Supr.120v": {"words": "f8a4b7ff6867e724", "starts": [0, 15, 32, 61, 79, 104, 124, 143, 167, 195, 215, 225, 251]},
+  "Supr.121r": {"words": "e9768180dc1eddc4", "starts": [0, 16, 40, 60, 81, 106, 125, 147, 165, 182, 200, 220]},
+  "Supr.121v": {"words": "7e454c4858ce9dee", "starts": [0, 19, 36, 52, 75, 80, 112, 133, 162, 185, 196, 216, 241]},
+  "Supr.122r": {"words": "07dfadfda231169c", "starts": [0, 10, 34, 52, 64, 82, 108, 131, 142, 160]}
+ }
+}

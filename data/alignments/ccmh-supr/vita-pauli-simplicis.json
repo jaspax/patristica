@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/vita-pauli-simplicis",
+ "pivot": "mt-eng/ccmh-supr/vita-pauli-simplicis",
+ "groups": 57,
+ "inputs": "7b4c007cc4a6bbf1",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/vita-pauli-simplicis", "units": 61, "ids": "d2d2e014dfcb3ef8", "inputs": "2a9db982ba22396a", "spans": "++=++++=++++++++=++++++=+++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/vita-pauli-simplicis", "units": 57, "ids": "b501a6bee2235f07", "inputs": "0fe55c2a3e23d8d5", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

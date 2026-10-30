@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/chrysostom-in-lazarum-1",
+ "pivot": "mt-eng/ccmh-supr/chrysostom-in-lazarum-1",
+ "groups": 122,
+ "inputs": "a608e317e12686ac",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/chrysostom-in-lazarum-1", "units": 123, "ids": "3af487d0cbc17800", "inputs": "4cb852b16d30b3c5", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-lazarum-1", "units": 122, "ids": "c34e7b94d9d9b959", "inputs": "8c703d6f58d97fef", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

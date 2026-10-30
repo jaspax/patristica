@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/chrysostom-de-thoma-1",
+ "pivot": "mt-eng/ccmh-supr/chrysostom-de-thoma-1",
+ "groups": 157,
+ "inputs": "fceb9707592f0d7e",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/chrysostom-de-thoma-1", "units": 160, "ids": "6a31dc42f7171363", "inputs": "e0cac6387bce4b62", "spans": "+++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-de-thoma-1", "units": 158, "ids": "10d07b6421b65971", "inputs": "1a6000633be367d0", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "work_id": "mt-eng/pta/pta0001/pta069/pta-xcl1",
+ "anchor": "pta/pta0001/pta069/pta-xcl1",
+ "method": "351020005494c156",
+ "anchor_cuts": "fdf8f9f48faa93eb",
+ "words": "bca4e82c130fc77b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 44, "calibration": [0.6202, 0.2339], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 44},
+ "paragraphs": {
+  "pta0001.pta069.1": {"words": "b59aa16239844eaa", "starts": [0, 17, 47, 75, 98, 123]},
+  "pta0001.pta069.2": {"words": "431a159a14688eae", "starts": [0, 18, 45, 70]},
+  "pta0001.pta069.3": {"words": "4864a91f7de9dbce", "starts": [0, 13, 43, 56, 79, 112, 137, 153, 189]},
+  "pta0001.pta069.4": {"words": "47f420f327d880f3", "starts": [0, 22, 55, 75, 100, 140, 150, 162, 195, 218, 253]},
+  "pta0001.pta069.5": {"words": "060e2dc8ba7b05e0", "starts": [0, 32, 55, 75, 109, 131, 146, 165]},
+  "pta0001.pta069.6": {"words": "693c8301125e076a", "starts": [0, 30, 51, 71, 89, 119]}
+ }
+}

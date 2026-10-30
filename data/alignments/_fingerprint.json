@@ -390,6 +390,13 @@
     "pta-peshitta/beldr"
    ]
   },
+  "book:chrabr": {
+   "keys": "74669f266df221f0",
+   "members": [
+    "mt-eng/torot/chrabr",
+    "torot/chrabr"
+   ]
+  },
   "book:col": {
    "keys": "3af0b78015b72806",
    "members": [
@@ -487,6 +494,13 @@
     "pta-lxx/esth",
     "pta-peshitta/esth",
     "web/esth"
+   ]
+  },
+  "book:euch": {
+   "keys": "427f711656cc4fc4",
+   "members": [
+    "mt-eng/torot/euch",
+    "torot/euch"
    ]
   },
   "book:exod": {
@@ -791,6 +805,13 @@
     "web/judg"
    ]
   },
+  "book:kievmis": {
+   "keys": "70a75acc65a182e3",
+   "members": [
+    "mt-eng/torot/kievmis",
+    "torot/kievmis"
+   ]
+  },
   "book:lam": {
    "keys": "7366d622151e9463",
    "members": [
@@ -805,6 +826,13 @@
     "pta-lxx/lam",
     "pta-peshitta/lam",
     "web/lam"
+   ]
+  },
+  "book:lef": {
+   "keys": "9e9a43be90bbf651",
+   "members": [
+    "gez/lef",
+    "mt-eng/gez/lef"
    ]
   },
   "book:lev": {
@@ -909,6 +937,13 @@
     "web/mic"
    ]
   },
+  "book:myshe": {
+   "keys": "3708b4208773d1f3",
+   "members": [
+    "gez/myshe",
+    "mt-eng/gez/myshe"
+   ]
+  },
   "book:nah": {
    "keys": "e7c2b6c00842b6d9",
    "members": [
@@ -968,8 +1003,9 @@
    ]
   },
   "book:odes": {
-   "keys": "4ec0b86d15f5e23e",
+   "keys": "9115364b18df264d",
    "members": [
+    "mt-eng/pta-peshitta/odes",
     "pta-lxx/odes",
     "pta-peshitta/odes"
    ]
@@ -1090,6 +1126,13 @@
     "web/ruth"
    ]
   },
+  "book:sinod": {
+   "keys": "be7f427d369bbb16",
+   "members": [
+    "gez/sinod",
+    "mt-eng/gez/sinod"
+   ]
+  },
   "book:sir": {
    "keys": "5aaa2a1b22f36858",
    "members": [
@@ -1123,6 +1166,13 @@
     "pta-lxx/sus",
     "pta-lxx/susthdt",
     "pta-peshitta/sus"
+   ]
+  },
+  "book:synax": {
+   "keys": "1c7c1c93af9be11d",
+   "members": [
+    "gez/synax",
+    "mt-eng/gez/synax"
    ]
   },
   "book:titus": {
@@ -1193,6 +1243,264 @@
     "web/zeph"
    ]
   },
+  "ccmh-supr/chrysostom-de-invidia": {
+   "members": [
+    "ccmh-supr/chrysostom-de-invidia",
+    "mt-eng/ccmh-supr/chrysostom-de-invidia"
+   ]
+  },
+  "ccmh-supr/chrysostom-de-jejunio": {
+   "members": [
+    "ccmh-supr/chrysostom-de-jejunio",
+    "mt-eng/ccmh-supr/chrysostom-de-jejunio"
+   ]
+  },
+  "ccmh-supr/chrysostom-de-thoma-1": {
+   "members": [
+    "ccmh-supr/chrysostom-de-thoma-1",
+    "mt-eng/ccmh-supr/chrysostom-de-thoma-1"
+   ]
+  },
+  "ccmh-supr/chrysostom-de-thoma-2": {
+   "members": [
+    "ccmh-supr/chrysostom-de-thoma-2",
+    "mt-eng/ccmh-supr/chrysostom-de-thoma-2"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-annuntiationem-1": {
+   "members": [
+    "ccmh-supr/chrysostom-in-annuntiationem-1",
+    "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-annuntiationem-2": {
+   "members": [
+    "ccmh-supr/chrysostom-in-annuntiationem-2",
+    "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-2"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-decem-virgines": {
+   "members": [
+    "ccmh-supr/chrysostom-in-decem-virgines",
+    "mt-eng/ccmh-supr/chrysostom-in-decem-virgines"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-feriam-quintam": {
+   "members": [
+    "ccmh-supr/chrysostom-in-feriam-quintam",
+    "mt-eng/ccmh-supr/chrysostom-in-feriam-quintam"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-feriam-tertiam": {
+   "members": [
+    "ccmh-supr/chrysostom-in-feriam-tertiam",
+    "mt-eng/ccmh-supr/chrysostom-in-feriam-tertiam"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-ficum": {
+   "members": [
+    "ccmh-supr/chrysostom-in-ficum",
+    "mt-eng/ccmh-supr/chrysostom-in-ficum"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-lazarum-1": {
+   "members": [
+    "ccmh-supr/chrysostom-in-lazarum-1",
+    "mt-eng/ccmh-supr/chrysostom-in-lazarum-1"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-lazarum-2": {
+   "members": [
+    "ccmh-supr/chrysostom-in-lazarum-2",
+    "mt-eng/ccmh-supr/chrysostom-in-lazarum-2"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-matthaeum-89": {
+   "members": [
+    "ccmh-supr/chrysostom-in-matthaeum-89",
+    "mt-eng/ccmh-supr/chrysostom-in-matthaeum-89"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-meretricem": {
+   "members": [
+    "ccmh-supr/chrysostom-in-meretricem",
+    "mt-eng/ccmh-supr/chrysostom-in-meretricem"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-ramos-palmarum": {
+   "members": [
+    "ccmh-supr/chrysostom-in-ramos-palmarum",
+    "mt-eng/ccmh-supr/chrysostom-in-ramos-palmarum"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-resurrectionem": {
+   "members": [
+    "ccmh-supr/chrysostom-in-resurrectionem",
+    "mt-eng/ccmh-supr/chrysostom-in-resurrectionem"
+   ]
+  },
+  "ccmh-supr/chrysostom-in-resurrectionem-tertia-die": {
+   "members": [
+    "ccmh-supr/chrysostom-in-resurrectionem-tertia-die",
+    "mt-eng/ccmh-supr/chrysostom-in-resurrectionem-tertia-die"
+   ]
+  },
+  "ccmh-supr/narratio-de-milite": {
+   "members": [
+    "ccmh-supr/narratio-de-milite",
+    "mt-eng/ccmh-supr/narratio-de-milite"
+   ]
+  },
+  "ccmh-supr/oratio-pionii": {
+   "members": [
+    "ccmh-supr/oratio-pionii",
+    "mt-eng/ccmh-supr/oratio-pionii"
+   ]
+  },
+  "ccmh-supr/passio-artemonis": {
+   "members": [
+    "ccmh-supr/passio-artemonis",
+    "mt-eng/ccmh-supr/passio-artemonis"
+   ]
+  },
+  "ccmh-supr/passio-basilii-et-capitonis": {
+   "members": [
+    "ccmh-supr/passio-basilii-et-capitonis",
+    "mt-eng/ccmh-supr/passio-basilii-et-capitonis"
+   ]
+  },
+  "ccmh-supr/passio-basilisci": {
+   "members": [
+    "ccmh-supr/passio-basilisci",
+    "mt-eng/ccmh-supr/passio-basilisci"
+   ]
+  },
+  "ccmh-supr/passio-codrati": {
+   "members": [
+    "ccmh-supr/passio-codrati",
+    "mt-eng/ccmh-supr/passio-codrati"
+   ]
+  },
+  "ccmh-supr/passio-dometii": {
+   "members": [
+    "ccmh-supr/passio-dometii",
+    "mt-eng/ccmh-supr/passio-dometii"
+   ]
+  },
+  "ccmh-supr/passio-ionae-et-barachisii": {
+   "members": [
+    "ccmh-supr/passio-ionae-et-barachisii",
+    "mt-eng/ccmh-supr/passio-ionae-et-barachisii"
+   ]
+  },
+  "ccmh-supr/passio-irenaei": {
+   "members": [
+    "ccmh-supr/passio-irenaei",
+    "mt-eng/ccmh-supr/passio-irenaei"
+   ]
+  },
+  "ccmh-supr/passio-pauli-et-julianae": {
+   "members": [
+    "ccmh-supr/passio-pauli-et-julianae",
+    "mt-eng/ccmh-supr/passio-pauli-et-julianae"
+   ]
+  },
+  "ccmh-supr/passio-pionii": {
+   "members": [
+    "ccmh-supr/passio-pionii",
+    "mt-eng/ccmh-supr/passio-pionii"
+   ]
+  },
+  "ccmh-supr/passio-sabini": {
+   "members": [
+    "ccmh-supr/passio-sabini",
+    "mt-eng/ccmh-supr/passio-sabini"
+   ]
+  },
+  "ccmh-supr/passio-terentii": {
+   "members": [
+    "ccmh-supr/passio-terentii",
+    "mt-eng/ccmh-supr/passio-terentii"
+   ]
+  },
+  "ccmh-supr/passio-trophimi-et-eucarpionis": {
+   "members": [
+    "ccmh-supr/passio-trophimi-et-eucarpionis",
+    "mt-eng/ccmh-supr/passio-trophimi-et-eucarpionis"
+   ]
+  },
+  "ccmh-supr/passio-xl-martyrum-sebastenorum": {
+   "members": [
+    "ccmh-supr/passio-xl-martyrum-sebastenorum",
+    "mt-eng/ccmh-supr/passio-xl-martyrum-sebastenorum"
+   ]
+  },
+  "ccmh-supr/passio-xlii-martyrum-amoriensium": {
+   "members": [
+    "ccmh-supr/passio-xlii-martyrum-amoriensium",
+    "mt-eng/ccmh-supr/passio-xlii-martyrum-amoriensium"
+   ]
+  },
+  "ccmh-supr/photius-in-ramos-palmarum": {
+   "members": [
+    "ccmh-supr/photius-in-ramos-palmarum",
+    "mt-eng/ccmh-supr/photius-in-ramos-palmarum"
+   ]
+  },
+  "ccmh-supr/vita-alexandri-sidensis": {
+   "members": [
+    "ccmh-supr/vita-alexandri-sidensis",
+    "mt-eng/ccmh-supr/vita-alexandri-sidensis"
+   ]
+  },
+  "ccmh-supr/vita-aninae": {
+   "members": [
+    "ccmh-supr/vita-aninae",
+    "mt-eng/ccmh-supr/vita-aninae"
+   ]
+  },
+  "ccmh-supr/vita-gregorii-papae": {
+   "members": [
+    "ccmh-supr/vita-gregorii-papae",
+    "mt-eng/ccmh-supr/vita-gregorii-papae"
+   ]
+  },
+  "ccmh-supr/vita-iacobi-monachi": {
+   "members": [
+    "ccmh-supr/vita-iacobi-monachi",
+    "mt-eng/ccmh-supr/vita-iacobi-monachi"
+   ]
+  },
+  "ccmh-supr/vita-ioannis-hesychastae": {
+   "members": [
+    "ccmh-supr/vita-ioannis-hesychastae",
+    "mt-eng/ccmh-supr/vita-ioannis-hesychastae"
+   ]
+  },
+  "ccmh-supr/vita-isaacii": {
+   "members": [
+    "ccmh-supr/vita-isaacii",
+    "mt-eng/ccmh-supr/vita-isaacii"
+   ]
+  },
+  "ccmh-supr/vita-pauli-simplicis": {
+   "members": [
+    "ccmh-supr/vita-pauli-simplicis",
+    "mt-eng/ccmh-supr/vita-pauli-simplicis"
+   ]
+  },
+  "ccmh/vita-constantini": {
+   "members": [
+    "ccmh/vita-constantini",
+    "mt-eng/ccmh/vita-constantini"
+   ]
+  },
+  "ccmh/vita-methodii": {
+   "members": [
+    "ccmh/vita-methodii",
+    "mt-eng/ccmh/vita-methodii"
+   ]
+  },
   "coptic-scriptorium/AP": {
    "members": [
     "coptic-scriptorium-eng/AP",
@@ -1235,6 +1543,12 @@
     "coptic-scriptorium/john_constantinople"
    ]
   },
+  "coptic-scriptorium/lament_mary": {
+   "members": [
+    "coptic-scriptorium/lament_mary",
+    "mt-eng/coptic-scriptorium/lament_mary"
+   ]
+  },
   "coptic-scriptorium/life_aphou": {
    "members": [
     "coptic-scriptorium-eng/life_aphou",
@@ -1271,6 +1585,12 @@
     "coptic-scriptorium/life_onnophrius"
    ]
   },
+  "coptic-scriptorium/life_paul_tamma": {
+   "members": [
+    "coptic-scriptorium/life_paul_tamma",
+    "mt-eng/coptic-scriptorium/life_paul_tamma"
+   ]
+  },
   "coptic-scriptorium/life_phib": {
    "members": [
     "coptic-scriptorium-eng/life_phib",
@@ -1281,6 +1601,12 @@
    "members": [
     "coptic-scriptorium-eng/life_pisentius",
     "coptic-scriptorium/life_pisentius"
+   ]
+  },
+  "coptic-scriptorium/mercurius": {
+   "members": [
+    "coptic-scriptorium/mercurius",
+    "mt-eng/coptic-scriptorium/mercurius"
    ]
   },
   "coptic-scriptorium/mysteries_john": {
@@ -1349,16 +1675,52 @@
     "coptic-scriptorium/shenoute_a22"
    ]
   },
+  "coptic-scriptorium/shenoute_considering": {
+   "members": [
+    "coptic-scriptorium/shenoute_considering",
+    "mt-eng/coptic-scriptorium/shenoute_considering"
+   ]
+  },
+  "coptic-scriptorium/shenoute_crushed": {
+   "members": [
+    "coptic-scriptorium/shenoute_crushed",
+    "mt-eng/coptic-scriptorium/shenoute_crushed"
+   ]
+  },
+  "coptic-scriptorium/shenoute_dirt": {
+   "members": [
+    "coptic-scriptorium/shenoute_dirt",
+    "mt-eng/coptic-scriptorium/shenoute_dirt"
+   ]
+  },
   "coptic-scriptorium/shenoute_eagerness": {
    "members": [
     "coptic-scriptorium-eng/shenoute_eagerness",
     "coptic-scriptorium/shenoute_eagerness"
    ]
   },
+  "coptic-scriptorium/shenoute_errs": {
+   "members": [
+    "coptic-scriptorium/shenoute_errs",
+    "mt-eng/coptic-scriptorium/shenoute_errs"
+   ]
+  },
   "coptic-scriptorium/shenoute_fox": {
    "members": [
     "coptic-scriptorium-eng/shenoute_fox",
     "coptic-scriptorium/shenoute_fox"
+   ]
+  },
+  "coptic-scriptorium/shenoute_house": {
+   "members": [
+    "coptic-scriptorium/shenoute_house",
+    "mt-eng/coptic-scriptorium/shenoute_house"
+   ]
+  },
+  "coptic-scriptorium/shenoute_listen": {
+   "members": [
+    "coptic-scriptorium/shenoute_listen",
+    "mt-eng/coptic-scriptorium/shenoute_listen"
    ]
   },
   "coptic-scriptorium/shenoute_night": {
@@ -1373,16 +1735,58 @@
     "coptic-scriptorium/shenoute_place"
    ]
   },
+  "coptic-scriptorium/shenoute_prince": {
+   "members": [
+    "coptic-scriptorium/shenoute_prince",
+    "mt-eng/coptic-scriptorium/shenoute_prince"
+   ]
+  },
+  "coptic-scriptorium/shenoute_seeks": {
+   "members": [
+    "coptic-scriptorium/shenoute_seeks",
+    "mt-eng/coptic-scriptorium/shenoute_seeks"
+   ]
+  },
   "coptic-scriptorium/shenoute_those": {
    "members": [
     "coptic-scriptorium-eng/shenoute_those",
     "coptic-scriptorium/shenoute_those"
    ]
   },
+  "coptic-scriptorium/shenoute_thundered": {
+   "members": [
+    "coptic-scriptorium/shenoute_thundered",
+    "mt-eng/coptic-scriptorium/shenoute_thundered"
+   ]
+  },
   "coptic-scriptorium/shenoute_true": {
    "members": [
     "coptic-scriptorium-eng/shenoute_true",
     "coptic-scriptorium/shenoute_true"
+   ]
+  },
+  "coptic-scriptorium/shenoute_uncertain_xr": {
+   "members": [
+    "coptic-scriptorium/shenoute_uncertain_xr",
+    "mt-eng/coptic-scriptorium/shenoute_uncertain_xr"
+   ]
+  },
+  "coptic-scriptorium/shenoute_unknown5_1": {
+   "members": [
+    "coptic-scriptorium/shenoute_unknown5_1",
+    "mt-eng/coptic-scriptorium/shenoute_unknown5_1"
+   ]
+  },
+  "coptic-scriptorium/shenoute_witness": {
+   "members": [
+    "coptic-scriptorium/shenoute_witness",
+    "mt-eng/coptic-scriptorium/shenoute_witness"
+   ]
+  },
+  "coptic-scriptorium/theodosius_alexandria": {
+   "members": [
+    "coptic-scriptorium/theodosius_alexandria",
+    "mt-eng/coptic-scriptorium/theodosius_alexandria"
    ]
   },
   "csel/stoa0022/stoa014/opp-lat1": {
@@ -2175,11 +2579,23 @@
     "perseus/tlg0526/tlg003/perseus-grc2"
    ]
   },
+  "dsc/abraham-of-nathpar-on-the-solitaries": {
+   "members": [
+    "dsc/abraham-of-nathpar-on-the-solitaries",
+    "mt-eng/dsc/abraham-of-nathpar-on-the-solitaries"
+   ]
+  },
   "dsc/acts-of-thomas": {
    "members": [
     "anf-works/acts-of-thomas",
     "dsc/acts-of-thomas",
     "first1k/tlg2038/tlg001/1st1K-grc1"
+   ]
+  },
+  "dsc/anton-of-tagrit-on-providence": {
+   "members": [
+    "dsc/anton-of-tagrit-on-providence",
+    "mt-eng/dsc/anton-of-tagrit-on-providence"
    ]
   },
   "dsc/aphrahat-demonstrations": {
@@ -2188,10 +2604,64 @@
     "npnf-works/aphrahat-select-demonstrations"
    ]
   },
+  "dsc/balai-on-acacius": {
+   "members": [
+    "dsc/balai-on-acacius",
+    "mt-eng/dsc/balai-on-acacius"
+   ]
+  },
+  "dsc/balai-on-the-church-of-qenneshrin": {
+   "members": [
+    "dsc/balai-on-the-church-of-qenneshrin",
+    "mt-eng/dsc/balai-on-the-church-of-qenneshrin"
+   ]
+  },
   "dsc/bardaisan-laws-of-countries": {
    "members": [
     "dsc/bardaisan-laws-of-countries",
     "syriac-documents/bardaisan-laws-of-countries"
+   ]
+  },
+  "dsc/barlaha-letter-to-simeon": {
+   "members": [
+    "dsc/barlaha-letter-to-simeon",
+    "mt-eng/dsc/barlaha-letter-to-simeon"
+   ]
+  },
+  "dsc/cause-of-all-causes": {
+   "members": [
+    "dsc/cause-of-all-causes",
+    "mt-eng/dsc/cause-of-all-causes"
+   ]
+  },
+  "dsc/chronicle-of-edessa": {
+   "members": [
+    "dsc/chronicle-of-edessa",
+    "mt-eng/dsc/chronicle-of-edessa"
+   ]
+  },
+  "dsc/chronicle-of-pseudo-joshua": {
+   "members": [
+    "dsc/chronicle-of-pseudo-joshua",
+    "mt-eng/dsc/chronicle-of-pseudo-joshua"
+   ]
+  },
+  "dsc/chronicle-of-zuqnin": {
+   "members": [
+    "dsc/chronicle-of-zuqnin",
+    "mt-eng/dsc/chronicle-of-zuqnin"
+   ]
+  },
+  "dsc/decease-of-john": {
+   "members": [
+    "dsc/decease-of-john",
+    "mt-eng/dsc/decease-of-john"
+   ]
+  },
+  "dsc/disputation-of-peter-and-nero": {
+   "members": [
+    "dsc/disputation-of-peter-and-nero",
+    "mt-eng/dsc/disputation-of-peter-and-nero"
    ]
   },
   "dsc/doctrina-addai": {
@@ -2212,16 +2682,76 @@
     "npnf-works/ephrem-hymns-on-the-nativity"
    ]
   },
+  "dsc/ephrem-prose-refutations": {
+   "members": [
+    "dsc/ephrem-prose-refutations",
+    "mt-eng/dsc/ephrem-prose-refutations"
+   ]
+  },
+  "dsc/exhortation-of-the-apostle-peter": {
+   "members": [
+    "dsc/exhortation-of-the-apostle-peter",
+    "mt-eng/dsc/exhortation-of-the-apostle-peter"
+   ]
+  },
+  "dsc/history-of-john": {
+   "members": [
+    "dsc/history-of-john",
+    "mt-eng/dsc/history-of-john"
+   ]
+  },
+  "dsc/history-of-karka-d-beth-slok": {
+   "members": [
+    "dsc/history-of-karka-d-beth-slok",
+    "mt-eng/dsc/history-of-karka-d-beth-slok"
+   ]
+  },
+  "dsc/history-of-philip": {
+   "members": [
+    "dsc/history-of-philip",
+    "mt-eng/dsc/history-of-philip"
+   ]
+  },
   "dsc/history-of-qardagh": {
    "members": [
     "dsc/history-of-qardagh",
     "mt-eng/dsc/history-of-qardagh"
    ]
   },
+  "dsc/hymn-of-the-soul": {
+   "members": [
+    "dsc/hymn-of-the-soul",
+    "mt-eng/dsc/hymn-of-the-soul"
+   ]
+  },
   "dsc/hypomnemata": {
    "members": [
     "dsc/hypomnemata",
     "syriac-documents/ambrose-memorial"
+   ]
+  },
+  "dsc/isaac-of-antioch-on-the-end-times": {
+   "members": [
+    "dsc/isaac-of-antioch-on-the-end-times",
+    "mt-eng/dsc/isaac-of-antioch-on-the-end-times"
+   ]
+  },
+  "dsc/isaac-of-nineveh-ascetic-discourses": {
+   "members": [
+    "dsc/isaac-of-nineveh-ascetic-discourses",
+    "mt-eng/dsc/isaac-of-nineveh-ascetic-discourses"
+   ]
+  },
+  "dsc/ishoyahb-iii-letters": {
+   "members": [
+    "dsc/ishoyahb-iii-letters",
+    "mt-eng/dsc/ishoyahb-iii-letters"
+   ]
+  },
+  "dsc/jacob-of-serugh-memre": {
+   "members": [
+    "dsc/jacob-of-serugh-memre",
+    "mt-eng/dsc/jacob-of-serugh-memre"
    ]
   },
   "dsc/john-rufus-life-of-peter-the-iberian": {
@@ -2242,6 +2772,30 @@
     "mt-eng/dsc/john-the-solitary-dialogue-on-the-soul"
    ]
   },
+  "dsc/joseph-hazzaya-on-prayer": {
+   "members": [
+    "dsc/joseph-hazzaya-on-prayer",
+    "mt-eng/dsc/joseph-hazzaya-on-prayer"
+   ]
+  },
+  "dsc/julian-romance": {
+   "members": [
+    "dsc/julian-romance",
+    "mt-eng/dsc/julian-romance"
+   ]
+  },
+  "dsc/liber-graduum": {
+   "members": [
+    "dsc/liber-graduum",
+    "mt-eng/dsc/liber-graduum"
+   ]
+  },
+  "dsc/life-of-jacob-of-serugh": {
+   "members": [
+    "dsc/life-of-jacob-of-serugh",
+    "mt-eng/dsc/life-of-jacob-of-serugh"
+   ]
+  },
   "dsc/life-of-rabbula": {
    "members": [
     "dsc/life-of-rabbula",
@@ -2254,10 +2808,100 @@
     "syriac-documents/mara-bar-serapion-letter"
    ]
   },
+  "dsc/martyrdom-of-jacob-and-mary": {
+   "members": [
+    "dsc/martyrdom-of-jacob-and-mary",
+    "mt-eng/dsc/martyrdom-of-jacob-and-mary"
+   ]
+  },
+  "dsc/martyrdom-of-miles": {
+   "members": [
+    "dsc/martyrdom-of-miles",
+    "mt-eng/dsc/martyrdom-of-miles"
+   ]
+  },
+  "dsc/memre-on-joseph": {
+   "members": [
+    "dsc/memre-on-joseph",
+    "mt-eng/dsc/memre-on-joseph"
+   ]
+  },
+  "dsc/moses-bar-kepha-on-the-soul": {
+   "members": [
+    "dsc/moses-bar-kepha-on-the-soul",
+    "mt-eng/dsc/moses-bar-kepha-on-the-soul"
+   ]
+  },
+  "dsc/narsai-homilies": {
+   "members": [
+    "dsc/narsai-homilies",
+    "mt-eng/dsc/narsai-homilies"
+   ]
+  },
+  "dsc/nestorius-book-of-heraclides": {
+   "members": [
+    "dsc/nestorius-book-of-heraclides",
+    "mt-eng/dsc/nestorius-book-of-heraclides"
+   ]
+  },
+  "dsc/odes-of-solomon": {
+   "members": [
+    "dsc/odes-of-solomon",
+    "mt-eng/dsc/odes-of-solomon"
+   ]
+  },
+  "dsc/papa-bar-aggai-letters": {
+   "members": [
+    "dsc/papa-bar-aggai-letters",
+    "mt-eng/dsc/papa-bar-aggai-letters"
+   ]
+  },
+  "dsc/philoxenus-discourses": {
+   "members": [
+    "dsc/philoxenus-discourses",
+    "mt-eng/dsc/philoxenus-discourses"
+   ]
+  },
+  "dsc/rabbula-corpus": {
+   "members": [
+    "dsc/rabbula-corpus",
+    "mt-eng/dsc/rabbula-corpus"
+   ]
+  },
+  "dsc/simeon-of-beth-arsham-letter-on-barsawma": {
+   "members": [
+    "dsc/simeon-of-beth-arsham-letter-on-barsawma",
+    "mt-eng/dsc/simeon-of-beth-arsham-letter-on-barsawma"
+   ]
+  },
+  "dsc/simeon-of-mart-maryam-reply-to-barlaha": {
+   "members": [
+    "dsc/simeon-of-mart-maryam-reply-to-barlaha",
+    "mt-eng/dsc/simeon-of-mart-maryam-reply-to-barlaha"
+   ]
+  },
+  "dsc/testament-of-adam": {
+   "members": [
+    "dsc/testament-of-adam",
+    "mt-eng/dsc/testament-of-adam"
+   ]
+  },
   "dsc/thomas-of-edessa-on-the-nativity": {
    "members": [
     "dsc/thomas-of-edessa-on-the-nativity",
     "mt-eng/dsc/thomas-of-edessa-on-the-nativity"
+   ]
+  },
+  "dsc/titus-of-bostra-against-the-manichaeans": {
+   "members": [
+    "dsc/titus-of-bostra-against-the-manichaeans",
+    "mt-eng/dsc/titus-of-bostra-against-the-manichaeans"
+   ]
+  },
+  "dsc/travels-of-peter": {
+   "members": [
+    "dsc/travels-of-peter",
+    "mt-eng/dsc/travels-of-peter"
    ]
   },
   "first1k/stoa0146d/stoa001/1st1K-grc1": {
@@ -3148,6 +3792,12 @@
    "members": [
     "first1k/tlg4102/tlgX03/1st1K-grc1",
     "ogpg/vol-106/andreas-caesariensis"
+   ]
+  },
+  "hudra/hudra-ace-1960": {
+   "members": [
+    "hudra/hudra-ace-1960",
+    "mt-eng/hudra/hudra-ace-1960"
    ]
   },
   "ocp/apocalypsis-mosis": {
@@ -5051,6 +5701,48 @@
    "members": [
     "pta/pta0001/pta056/pta-grc1",
     "pta/pta0001/pta056/pta-grc2"
+   ]
+  },
+  "pta/pta0001/pta063/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta063/pta-xcl1",
+    "pta/pta0001/pta063/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta064/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta064/pta-xcl1",
+    "pta/pta0001/pta064/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta065/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta065/pta-xcl1",
+    "pta/pta0001/pta065/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta066/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta066/pta-xcl1",
+    "pta/pta0001/pta066/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta067/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta067/pta-xcl1",
+    "pta/pta0001/pta067/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta068/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta068/pta-xcl1",
+    "pta/pta0001/pta068/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta069/pta-xcl1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta069/pta-xcl1",
+    "pta/pta0001/pta069/pta-xcl1"
    ]
   },
   "pta/pta0022/pta011/pta-grc1": {

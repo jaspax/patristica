@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/vita-gregorii-papae",
+ "pivot": "mt-eng/ccmh-supr/vita-gregorii-papae",
+ "groups": 61,
+ "inputs": "56d3d30624fa3fcd",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/vita-gregorii-papae", "units": 65, "ids": "ef0d2aa45b624bb1", "inputs": "ee52d2cc1a5ef568", "spans": "++++=+++++=+++++++++=+++++++++++++++++=++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/vita-gregorii-papae", "units": 61, "ids": "c5d2b9139924dc92", "inputs": "f79a42f95572493e", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
