@@ -9,7 +9,8 @@ writes nothing but the scratch vector store.
    (rebuilt from its units) are cut into *segments* at every sentence and
    clause end (``versify``'s break strengths), at commas inside runs longer
    than the language's verse size, between words inside runs longer than
-   twice that, and at the provisional cut. A derived verse of the result is
+   twice that, and at the provisional cut (which doesn't shorten a run, so
+   the commas next to a cut inside a clause stay candidates). A derived verse of the result is
    always a run of whole segments inside one source paragraph.
 2. **Vectors** (:class:`VectorCache`). Every segment is embedded once (text
    only). The cache maps the hash of an exact text (``translations.text_sha``)
@@ -303,9 +304,11 @@ def segments_of(paras: Sequence[Paragraph], language: str) -> list[Segment]:
         st = [_strength(atoms[i], atoms[i + 1] if i + 1 < n else None, language)
               for i in range(n)]
         today = set(para.today[1:])
-        stops = sorted({i + 1 for i in range(n - 1) if st[i] <= CLAUSE} | today | {n})
-        # Commas (then words) inside long runs.
-        fine: list[int] = []
+        stops = sorted({i + 1 for i in range(n - 1) if st[i] <= CLAUSE} | {n})
+        # Commas (then words) inside long runs. The provisional cut is added
+        # after: a run is long or short by its clause breaks alone, or a
+        # provisional cut inside a clause would hide the commas around it.
+        fine: list[int] = sorted(today)
         prev = 0
         for stop in stops:
             if sum(tok[prev:stop]) > target:

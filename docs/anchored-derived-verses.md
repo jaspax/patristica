@@ -59,8 +59,10 @@ PR #303 (#292), which was not merged.
   of another model, size or input type count as missing, for the original
   (the work is refused) and for rows of the translation (replaced).
 - **Cost estimate and cap** (`--dry-run`, `scripts.pipeline`): per work, the
-  first embed exactly, plus 2× the translation's text tokens for the rounds
-  and final units. `scripts.anchor` enforces each work's sum as its budget, so
+  first embed exactly, plus (`max_rounds` + 1)× the translation's text tokens
+  for the rounds and final units (each round embeds only uncached pieces that
+  don't overlap, so it sends the text at most once; a measured 2× stopped a
+  re-cut, #472). `scripts.anchor` enforces each work's sum as its budget, so
   the estimate is a real upper bound (in cl100k tokens, like `scripts.embed`'s)
   and the pipeline can debit it. A work whose original is cut earlier in the
   same run is estimated too.
@@ -203,7 +205,11 @@ Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
   punctuation tables), and at today's (provisional) cuts.
 - Inside a run longer than the language's verse size, the paragraph is also
   cut at commas. Inside a run longer than twice that size, it is cut between
-  words, as `split_text` does.
+  words, as `split_text` does. Runs are measured between sentence and clause
+  ends only: a provisional cut inside a clause doesn't shorten its run, or
+  the commas next to it would never be candidates and the refinement could
+  only keep that cut (a provisional cut after `"Seek,` kept the word on the
+  wrong side of its original's boundary).
 - A derived verse of the result is always a run of whole segments inside one
   source paragraph. Boundaries therefore stay at sentence and clause breaks:
   in the evaluation, 0% of refined cuts fell between words, and 10–22% fell

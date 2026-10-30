@@ -98,12 +98,13 @@ MTs are made by a nightly agent on the Claude subscription, while the owner is a
   - usage and time per 1k characters, measured from earlier works.
   The decision is the agent's (`docs/translation-backends.md`).
 - **Chooses works** by judgement: important works first, widely translated ones later, clean editions, public-domain English reported on #341 instead of translated.
-- **Translates each work** with `scripts.machine_translate` (`local-opus`) in the worktree `.claude/worktrees/nightly-mt`, spot-checks it, and opens **one PR per work** (label `machine-translation`, template `machine_translation.md`).
+- **Translates each work** with `scripts.machine_translate` (`local-opus`) in the worktree `.claude/worktrees/nightly-mt`, spot-checks it, and commits it as **one commit on tonight's branch** `mt/{date}-{HHMM}`, pushed after every work. At the end it opens **one PR for the night** (label `machine-translation`, template `machine_translation.md`), with a section per work; the commits tab reviews them one at a time.
 - **Curates as it reads:**
   - It samples derived ancient versions against their original, and adds exceptions for those that diverge in ways that matter (`mt_exceptions.csv`).
   - It files `data-quality` issues for problems in a source, searching first.
   - It blocks works those problems make impractical to translate (`patristica/data/mt_blocked.csv`, `work_id,issue,reason`), and unblocks them when their issue is closed.
-  - All table edits of a night go in **one curation PR** (`mt-curation/{date}`).
+  - All table edits of a night are one more commit in the same PR.
+- **Leaves nothing locally:** the worktree is detached at `origin/master` (no local branches), and it is removed once every commit is pushed. If a push fails, the worktree stays and the next night pushes it first.
 - **Reports** with one comment per night on the pinned issue **#429**: what was translated, what was curated, issues filed, what was skipped and why, the usage, and why it stopped.
 
 **In the morning:**
