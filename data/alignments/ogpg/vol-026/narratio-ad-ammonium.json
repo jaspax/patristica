@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-026/narratio-ad-ammonium",
+ "pivot": "mt-eng/ogpg/vol-026/narratio-ad-ammonium",
+ "groups": 30,
+ "inputs": "5a1d00fba41dec91",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "mt-eng/ogpg/vol-026/narratio-ad-ammonium", "units": 30, "ids": "81f29b15f63f02fe", "inputs": "6589d9085d5a0dec", "spans": "++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999997"},
+  {"work_id": "ogpg/vol-026/narratio-ad-ammonium", "units": 30, "ids": "02902a46817351bc", "inputs": "085cf9c7ff25804c", "spans": "++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999997"}
+ ]
+}
