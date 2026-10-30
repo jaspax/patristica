@@ -1,6 +1,6 @@
 ---
 name: nightly-translate
-description: The nightly machine-translation run (#425). Started unattended by scripts/nightly/run.sh at 22:15 America/Chicago; picks untranslated works, machine-translates them on the Claude subscription with scripts.machine_translate, opens one PR per work and reports on issue #429. Use only when started for the nightly run, or when the owner asks for a supervised run.
+description: The nightly machine-translation run (#425). Started unattended by scripts/nightly/run.sh at 22:15 America/Chicago; picks untranslated works, machine-translates them on the Claude subscription with scripts.machine_translate, opens one PR for the night (a commit per work) and reports on issue #429. Use only when started for the nightly run, or when the owner asks for a supervised run.
 ---
 
 # Nightly machine translation
@@ -12,17 +12,19 @@ You are the nightly agent of Patristica's machine translations (umbrella #422, r
 - **A denied check is not a stop.** If an optional or diagnostic command is denied, note it verbatim for the report and carry on without it. **Stop only when a required step is denied**: the budget sample, translating, committing, pushing, opening the PR, or posting the report. Then say so in the report (step 5 below), which `gh issue comment 429` can still post.
 
 Your job tonight:
-- translate a few well-chosen works, with **one PR per work**;
-- curate as you go: exceptions for divergent ancient versions, data-quality issues, blocked works. All curation edits go in **one curation PR** for the night;
+- translate a few well-chosen works, **one commit per work**, all on tonight's branch;
+- curate as you go: exceptions for divergent ancient versions, data-quality issues, blocked works. The table edits go in one more commit on the same branch;
+- open **one PR for the night** at the end (the owner reviews a night at a time; 15 PRs a night was too much clicking);
+- leave **nothing behind locally**: the worktree is detached (no local branches), and you remove it once everything is pushed;
 - post **one report comment on issue #429**. Then stop. You are a coordinator, so keep your own token use small: `scripts.machine_translate` does the translating (Opus through `local-opus`), and `scripts.nightly_budget` does the arithmetic. Don't read whole works into your context.
 
 **Never:**
 - translate with `--model sol` or `--model opus`: they cost money;
 - run `scripts.pipeline`, `normalize`, `anchor`, `embed` or `build_index`;
 - push to `master`, force-push, or amend;
-- edit files other than `logs/**`, and, on the curation branch only, the worktree's `patristica/data/mt_exceptions.csv` and `patristica/data/mt_blocked.csv`. The translator writes the raw MT file itself.
+- edit files other than `logs/**`, and, in the night's worktree only, the worktree's `patristica/data/mt_exceptions.csv` and `patristica/data/mt_blocked.csv`. The translator writes the raw MT file itself.
 
-Paths: you run in the **main checkout** (the working directory, which has all the data). The night's worktree is always `.claude/worktrees/nightly-mt`. `{date}` is tonight's local date (`date +%F`).
+Paths: you run in the **main checkout** (the working directory, which has all the data). The night's worktree is always `.claude/worktrees/nightly-mt`, checked out **detached** at `origin/master`: never create a local branch in it. `{date}` is tonight's local date (`date +%F`) and `{HHMM}` the UTC time the run started (as in the report's file name). Tonight's branch exists only on GitHub: `B` = `mt/{date}-{HHMM}`, and every push goes to `HEAD:refs/heads/B`.
 
 ## 1. Start and budget
 
@@ -46,8 +48,7 @@ The decision to go on is yours, but make it from the projection, not from a fixe
 
 ```bash
 scripts/nightly/with-https.sh git fetch https://github.com/jaspax/patristica.git master:refs/remotes/origin/master
-git worktree list            # if .claude/worktrees/nightly-mt is left from a failed night:
-git worktree remove .claude/worktrees/nightly-mt --force
+git worktree list            # if .claude/worktrees/nightly-mt is left from a failed night, see below first
 git worktree prune
 git worktree add .claude/worktrees/nightly-mt origin/master
 uv --directory .claude/worktrees/nightly-mt sync --locked --extra dev --extra eval --extra api --extra deploy --extra index
@@ -56,9 +57,13 @@ scripts/nightly/with-https.sh uv --directory .claude/worktrees/nightly-mt run py
 
 The pre-push hook runs the unit tests in that worktree, which is why it needs the extras and the LFS files the tests read.
 
+**A worktree left from a failed night** may hold commits that never reached GitHub. Look before removing it: `git -C .claude/worktrees/nightly-mt log --oneline origin/master..HEAD`. If it lists commits, find that night's branch name in its report or `logs/mt-pr-*.md` and push them there (`HEAD:refs/heads/mt/{that date}-{that HHMM}`, as in step 4.9), then open that night's PR from its `logs/mt-pr-…md` draft (step 5.3) if `gh pr list --head mt/{…} --state all` shows none. Only then `git worktree remove .claude/worktrees/nightly-mt --force`.
+
+Likewise, if a `logs/mt-pr-*.md` draft from an earlier night has a pushed branch but no PR (`gh pr list --head {branch} --state all` is empty), open it now (step 5.3) and say so in tonight's report.
+
 ## 3. Choose works
 
-Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: exception rows to add, blocked rows to add or remove, and the issues filed. They become the curation PR in step 5. The candidate list reads master's tables, so anything you add tonight takes effect after the owner merges it. Until then, skip a work you have just blocked.
+Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: exception rows to add, blocked rows to add or remove, and the issues filed. They become the curation commit in step 5.2, in tonight's PR. The candidate list reads master's tables, so anything you add tonight takes effect after the owner merges it. Until then, skip a work you have just blocked.
 
 0. **Blocked works whose issue is closed.** Read `patristica/data/mt_blocked.csv` (`work_id,issue,reason`). For each row, check `gh issue view {issue} --json state --jq .state`. When it is `CLOSED`, note the row for removal, so the work is a candidate again on a later night.
 1. **Resume first.** If `logs/mt-partial/` holds an unfinished work (`ls logs/mt-partial/`), finish it before starting anything new.
@@ -66,7 +71,7 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
    - `uv run python -m scripts.machine_translate candidates --lang grc --max-chars 60000 --limit 200 > logs/mt-candidates.tsv`, then Read that file.
    - `uv run python -m scripts.machine_translate candidates --json --work W1 W2` for the works you shortlist.
    - The full list is about 2,000 works, so **don't read it whole**. `grep`, `awk`, `head` and `wc` on files under `logs/` are fine for searching it by author or title. The Grep and Glob tools may be unavailable in this session; use `grep` and `ls` through Bash.
-   - Leave out works that already have an open PR: `gh pr list --label machine-translation --state open --limit 200`.
+   - Leave out works in an open PR. A night's PR holds many works, so list their files: `gh pr list --label machine-translation --state open --limit 50 --json number,files --jq '.[] | .number as $n | .files[].path | "\($n) \(.)"'`. A path `data/raw/mt-eng/P` means the work at normalized path `P` is taken. (Merged ones `candidates` already skips.)
 3. **Keep a shortlist** across nights in `logs/mt-shortlist.md`: about 30 next candidates with a line each on why. Update it each night instead of starting over.
 4. **Judgement:**
    - First: well-known, influential works, or works important within their tradition. Examples: major works of the great Fathers, conciliar acts, core liturgical texts, foundational Syriac, Coptic and Armenian authors.
@@ -92,14 +97,14 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
 
 ## 4. Each work
 
-Let `W` be the work id, `N` its characters, `P` its normalized path (from the candidates JSON or `data/normalized/_works.jsonl`), and `S` a branch slug: `W` lower-cased with `/` and `.` replaced by `-`.
+Let `W` be the work id, `N` its characters and `P` its normalized path (from the candidates JSON or `data/normalized/_works.jsonl`).
 
 0. **Before translating, two required checks.** Write both results down; they go into the PR.
    - **English elsewhere.** Say whether a public-domain English translation exists (ANF/NPNF, CCEL, the older Loeb volumes, nineteenth-century translations and the like) and where, or that you know of none. If one exists, comment on #341 instead and skip the work (section 3.4). Also note any widely available modern English, since that lowers a work's priority.
    - **The source.** Read a few paragraphs of `data/normalized/P` (Read, with a limit). Garbled OCR, apparatus or notes running into the text, running heads, or missing text is a data-quality issue: file it now (section 3.6) and decide whether it blocks the work.
 1. `uv run python -m scripts.nightly_budget plan --chars N`, and go on only if it fits (or for the pilot).
 2. `uv run python -m scripts.nightly_budget sample --tag before --work W --chars N`
-3. `git -C .claude/worktrees/nightly-mt switch -c mt/S origin/master`
+3. (No branch to make: the worktree stays detached, and each work is one more commit on it.)
 4. Translate, **in the background** (Bash `run_in_background`), and wait for its exit notification instead of polling:
    ```bash
    uv run python -m scripts.machine_translate --output-dir .claude/worktrees/nightly-mt/data/raw translate W --partial-dir logs/mt-partial --workers 3
@@ -114,51 +119,48 @@ Let `W` be the work id, `N` its characters, `P` its normalized path (from the ca
    - wrong language;
    - text drifting from the source.
 
-   If it is bad, don't open a PR: say so in the report and keep the file out of git.
+   If it is bad, don't commit it: say so in the report and leave the file untracked (removing the worktree discards it).
 
-   **Problems in the source** that you notice here (the translation's `[?]` and `…` usually point at them) are data-quality issues too. File each one before opening the PR (section 3.6), and link it in the PR. A mention in the report alone is not enough: an issue is what gets the source fixed.
+   **Problems in the source** that you notice here (the translation's `[?]` and `…` usually point at them) are data-quality issues too. File each one before committing the work (section 3.6), and link it in the PR. A mention in the report alone is not enough: an issue is what gets the source fixed.
 8. Commit only that file:
    ```bash
    git -C .claude/worktrees/nightly-mt add data/raw/mt-eng/P
    git -C .claude/worktrees/nightly-mt commit -m "Machine translation: {title} ({W})" -m "Part of #422." -m "Co-Authored-By: Claude {model} <noreply@anthropic.com>"
    ```
    `{model}` is the model this session runs as (`Opus 5.5`, or `Sonnet 5.5` if `NIGHTLY_MODEL` says so): the coordinator is the co-author, whatever translated the text.
-9. Push **with the explicit refspec**, never a bare branch name. `switch -c` from `origin/master` makes the branch track master, and a bare `push <url> mt/S` would target master. The hook refuses that, but don't rely on it:
+9. Push **after every work**, so a night that dies later loses nothing. Always the explicit refspec; the first push creates `B` on GitHub, later ones add to it:
    ```bash
-   scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/mt/S
+   scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/B
    ```
-   - The pre-push hook runs the unit tests (about a minute). If they fail, say so in the report and leave the branch unpushed. Never use `--no-verify`.
-10. Open the PR:
-    - Fill `.github/PULL_REQUEST_TEMPLATE/machine_translation.md` into `logs/mt-pr-S.md`: why this work, English elsewhere (step 0), the usage before and after from the samples, the time taken, the spot-check notes, and the data-quality issues filed for it.
-    - Then run:
-    ```bash
-    gh pr create --base master --head mt/S --label machine-translation --title "Machine translation: {title} ({author})" --body-file logs/mt-pr-S.md
-    ```
+   - The pre-push hook runs the unit tests (about a minute). If they fail, say so in the report, stop translating, and keep the worktree (step 5.4). Never use `--no-verify`.
+10. Add the work to tonight's PR draft, `logs/mt-pr-{date}-{HHMM}.md`, filled from `.github/PULL_REQUEST_TEMPLATE/machine_translation.md`: a row in the table, and its section (why this work, English elsewhere from step 0, spot-check notes, source problems with issue links). Create the draft with the first work; Edit it after that.
 11. Re-plan (step 1.2) and continue with the next work, or stop.
 
 ## 5. Finish and report
 
 1. `uv run python -m scripts.nightly_budget sample --tag end`
-2. **The curation PR**, if tonight's notes have any table edits. One per night; per-work PRs never touch these tables, so they never conflict:
-   ```bash
-   git -C .claude/worktrees/nightly-mt switch -c mt-curation/{date} origin/master
-   ```
+2. **Curation**, if tonight's notes have any table edits: one more commit on the same worktree, after the works.
    - Apply the notes to `.claude/worktrees/nightly-mt/patristica/data/mt_exceptions.csv` and `mt_blocked.csv` with Edit. Keep each file's header and row order (by work id).
-   - Commit both with `git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv` and a commit like the one in step 4.8 ("Machine-translation curation, {date}").
-   - Push to `HEAD:refs/heads/mt-curation/{date}` with `scripts/nightly/with-https.sh` (as in 4.9). Validate doesn't read these tables, so the hook only runs the unit tests.
-   - Open the PR from `logs/mt-pr-curation-{date}.md`, filled from the template's curation section: each row added or removed, with its reason or the closed issue.
-     ```bash
-     gh pr create --base master --head mt-curation/{date} --label machine-translation --title "Machine-translation curation, {date}" --body-file logs/mt-pr-curation-{date}.md
-     ```
-3. Clean up the worktree: `git worktree remove .claude/worktrees/nightly-mt --force`. The branches are on GitHub, and the worktree's checkout is the only thing removed.
-4. Write the report to a new file, `logs/nightly-mt-{date}-{HHMM}.md` (`HHMM` is when tonight's run started, in UTC; a second run on the same date must not overwrite the first's report), and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}-{HHMM}.md`. The report has:
-   - **Translated:** each work with its PR link, characters and time.
-   - **Curation:** the curation PR link; exceptions added (or versions judged close); works blocked and unblocked.
+   - Commit both with `git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv` and a commit like the one in step 4.8 ("Machine-translation curation, {date}"), push it to `B` (as in 4.9), and fill the draft's "Curation" section: each row added or removed, with its reason or the closed issue.
+   - If the night translated nothing, the curation commit alone still makes tonight's PR.
+3. **Open tonight's one PR**, if `B` has any commits (a night with nothing to commit has no PR). Fill in the draft's header (date, count, usage) first:
+   ```bash
+   gh pr create --base master --head B --label machine-translation --title "Machine translations, {date}: {N} works" --body-file logs/mt-pr-{date}-{HHMM}.md
+   ```
+4. **Clean up, leaving nothing locally.** Only when every commit is on GitHub (`git -C .claude/worktrees/nightly-mt log --oneline origin/master..HEAD` lists only commits you pushed to `B`, and the last push succeeded):
+   ```bash
+   git worktree remove .claude/worktrees/nightly-mt --force
+   git worktree prune
+   ```
+   There are no local branches to delete, since the worktree was detached all night. If a push failed, **keep the worktree** and say in the report which commits are unpushed; the next night pushes them first (section 2).
+5. Write the report to a new file, `logs/nightly-mt-{date}-{HHMM}.md` (`HHMM` is when tonight's run started, in UTC; a second run on the same date must not overwrite the first's report), and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}-{HHMM}.md`. The report has:
+   - **Tonight's PR** (link) and **Translated:** each work with its characters and time.
+   - **Curation:** exceptions added (or versions judged close); works blocked and unblocked (in the same PR).
    - **Data-quality issues** filed tonight (links), and existing ones you found.
-   - **Considered and skipped:** with why (open PR, public-domain English noted on #341, blocked, garbled OCR, too long tonight, failed run).
+   - **Considered and skipped:** with why (in an open PR, public-domain English noted on #341, blocked, garbled OCR, too long tonight, failed run).
    - **Usage:** 5-hour and 7-day at the start and end, and tonight's weekly allowance.
    - **Why the run stopped:** deadline, 5-hour window, weekly allowance, extra usage, or an error (quote it).
-   - **Unfinished work** in `logs/mt-partial/`, if any.
-5. **A night that fails early** (a denied command, `gh` or the CLI not working, no usage figures) still posts a short comment on #429 saying what failed. If even that fails, the report file in `logs/` and your final message are the record (`claude agents`, `claude logs`).
+   - **Unfinished work** in `logs/mt-partial/`, if any, and whether the worktree was removed (if not, why).
+6. **A night that fails early** (a denied command, `gh` or the CLI not working, no usage figures) still posts a short comment on #429 saying what failed. If even that fails, the report file in `logs/` and your final message are the record (`claude agents`, `claude logs`).
 
 End with the report as your final message.
