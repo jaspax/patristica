@@ -52,6 +52,28 @@ The ``*_TEI`` directories hold two formats:
 
 Both join bound groups with spaces within each paragraph container, skipping
 scholarly apparatus (``<note>``, ``<gap>``, ``<unclear>``, ``<supplied>``).
+
+Malformed documents (#491)
+--------------------------
+Some documents are not well-formed XML, and a parser's recovery mangles them
+(``helias``, ``mercurius``, ``shenoute-eagerness``, …): it nests paragraphs in
+one another, so their text came out twice, and left the rest of a word that a
+paragraph break splits as a paragraph of its own.  So nothing is read from a
+recovered tree:
+
+- The TreeTagger format is spans that cross by design (an ``<entity>`` or a
+  ``<translation>`` across a ``norm_group``), so it is always read as a stream
+  of tags (``_units_tt``): a bound group belongs to the paragraph open where
+  it starts.  The old reading also lost the bound groups of ``<p>`` spans
+  whose ``p`` value isn't exactly ``"p"``.
+- A TEI document whose structure is broken is repaired as a stream of tags
+  first (``_repair_tei``): only the paragraph container's tags and the tags
+  inside it are kept, and a paragraph break inside a word (``ⲙ̄ </p><p n="3">
+  Ⲡⲉ``, the second half written as the manuscript's enlarged initial) waits
+  for the word to close, so the word stays whole in the paragraph where it
+  starts.  The repaired document must parse with no structural error, or the
+  work is skipped and logged at ERROR.  An ``xml:id`` that is no name or is
+  used twice leaves the structure intact and is ignored (``_HARMLESS_ERRORS``).
 Layout placeholders (``▢``) and the printed editions' footnote markers
 (``⁽²⁾``, ``¹``) are dropped (``_paragraph_text``).
 
@@ -452,6 +474,109 @@ NormMap = dict[etree._Element, str]
 
 _PARSER_KW = {"recover": True, "no_network": True, "load_dtd": False}
 
+# Parser errors that leave a document's structure intact: an xml:id that is no
+# XML name ("53", "MERC.AG[1]") or one used twice.  Any other error means the
+# recovered tree can't be trusted (#491).
+_HARMLESS_ERRORS = frozenset({"DTD_XMLID_VALUE", "DTD_ID_REDEFINED"})
+
+# Every tag of a document, for reading it as a stream (#491): close mark, name,
+# attributes, self-closing mark.  The XML declaration and comments don't match.
+_TAG_RE = re.compile(r"<(/?)([A-Za-z_][\w.:-]*)([^>]*?)(/?)>")
+
+# The paragraph containers of a TEI document, in the order they are tried.
+_CONTAINERS = ("ab", "p", "s", "l")
+
+
+class CopticStructureError(ValueError):
+    """A malformed document that ``_repair_tei`` can't make well-formed."""
+
+
+def _parse(xml: bytes) -> tuple[etree._Element, list[str]]:
+    """Parse *xml* with recovery; the root and the structural errors, if any."""
+    parser = etree.XMLParser(**_PARSER_KW)
+    root = etree.fromstring(xml, parser)
+    errors = [
+        f"line {e.line}: {e.message}" for e in parser.error_log
+        if e.type_name not in _HARMLESS_ERRORS
+    ]
+    return root, errors
+
+
+def _local(name: str) -> str:
+    """A tag name without its prefix (``tei:p`` → ``p``)."""
+    return name.rsplit(":", 1)[-1]
+
+
+def _repair_tei(text: str) -> str:
+    """A malformed TEI document made well-formed, as a stream of tags (#491).
+
+    The body keeps the tags of its paragraph container (the first of
+    ``_CONTAINERS`` it has) and the tags inside a paragraph; the other
+    containers and the divisions (which cross paragraphs and words) are
+    dropped, as nothing is read from them.  A paragraph break inside an open
+    element (a word) is moved to where that element closes.  Raises
+    ``CopticStructureError`` for any other crossing.
+    """
+    start = re.search(r"<body\b[^>]*>", text)
+    end = text.rfind("</body>")
+    if start is None or end < start.end():
+        raise CopticStructureError("no <body>")
+    body = text[start.end():end]
+    present = {_local(m.group(2)) for m in _TAG_RE.finditer(body) if not m.group(1)}
+    container = next((c for c in _CONTAINERS if c in present), None)
+    if container is None:
+        raise CopticStructureError("no paragraph container in <body>")
+    dropped = {c for c in _CONTAINERS if c != container}
+
+    out: list[str] = []
+    stack: list[str] = []
+    deferred: list[str] = []   # a paragraph break waiting for a word to close
+    pos = 0
+    for m in _TAG_RE.finditer(body):
+        out.append(body[pos:m.start()])
+        pos = m.end()
+        closing, name, self_closing = m.group(1), _local(m.group(2)), m.group(4)
+        tag = m.group(0)
+        if name in dropped or name.startswith("div"):
+            continue
+        if self_closing:
+            out.append(tag)
+        elif name == container and not closing:
+            if deferred:
+                deferred.append(tag)
+            else:
+                stack.append(name)
+                out.append(tag)
+        elif name == container:
+            if stack and stack[-1] == container:
+                stack.pop()
+                out.append(tag)
+            elif container in stack:
+                deferred.append(tag)
+            # else: a close with no open paragraph; drop it
+        elif not closing:
+            stack.append(name)
+            out.append(tag)
+        elif stack and stack[-1] == name:
+            stack.pop()
+            out.append(tag)
+            if deferred and stack and stack[-1] == container:
+                for d in deferred:
+                    if d.startswith("</"):
+                        stack.pop()
+                    else:
+                        stack.append(container)
+                    out.append(d)
+                deferred = []
+        else:
+            raise CopticStructureError(
+                f"</{name}> closes <{stack[-1] if stack else '(nothing)'}>"
+            )
+    out.append(body[pos:])
+    if stack or deferred:
+        raise CopticStructureError(f"unclosed at the end of <body>: {stack}")
+    return text[:start.end()] + "".join(out) + text[end:]
+
 
 def _elem_words(el: etree._Element, norms: NormMap | None = None) -> list[str]:
     """Collect word-level text from an element, skipping apparatus tags.
@@ -545,13 +670,17 @@ def _norm_map(root: etree._Element, tei_path: Path) -> NormMap:
     """Map every ``<phr>`` of a TEI document to its normalized form.
 
     The TT export of the same document has one ``norm_group`` per ``<phr>``, in
-    the same order; anything else raises ``CopticLayerError``.
+    the same order; anything else raises ``CopticLayerError``.  The export's
+    spans cross, so it is read as a stream of tags (#491).
     """
     tt_path = _tt_path(tei_path)
     if tt_path is None:
         raise CopticLayerError(f"{tei_path}: no TreeTagger export (*_TT/{tei_path.stem}.tt)")
-    tt_root = etree.parse(str(tt_path), etree.XMLParser(**_PARSER_KW)).getroot()
-    norms = [ng.get("norm_group", "") for ng in tt_root.iter("norm_group")]
+    norms = [
+        _attr(m, "norm_group")
+        for m in _TAG_RE.finditer(tt_path.read_text(encoding="utf-8"))
+        if m.group(2) == "norm_group" and not m.group(1)
+    ]
     phrs = [
         el for el in root.iter()
         if isinstance(el.tag, str) and etree.QName(el.tag).localname == "phr"
@@ -656,15 +785,23 @@ def _paragraph(corpus_name: str, file_n: int, para_n: int, text: str, orig: str)
     return record
 
 
-def _extract_paragraphs_tei(
-    root: etree._Element, file_n: int, corpus_name: str, start_n: int, norms: NormMap
-) -> list[dict]:
+# A paragraph record and the positions (in document order) of the bound groups
+# it holds: the ``<phr>``s of a TEI document, the ``norm_group``s of a TT
+# export.  ``coptic_scriptorium_eng`` puts the English sentences on the units
+# by these positions.
+Unit = tuple[dict, list[int]]
+
+
+def _units_tei(
+    root: etree._Element, file_n: int, corpus_name: str, norms: NormMap
+) -> list[Unit]:
     """Extract paragraphs from a standard TEI P5 document.
 
     Tries candidate container element types in priority order, using the first
     type that yields results.  This prevents double-counting when both ``<p>``
     and ``<s>`` exist in the same document.
     """
+    position = {el: i for i, el in enumerate(norms)}
     body = root.find(f".//{_TEI}body")
     if body is None:
         body = root.find(".//body")
@@ -672,100 +809,136 @@ def _extract_paragraphs_tei(
         return []
 
     # Try container types in priority order; stop at first type that yields text
-    candidates = [
-        [f"{_TEI}ab", "ab"],
-        [f"{_TEI}p", "p"],
-        [f"{_TEI}s", "s"],
-        [f"{_TEI}l", "l"],
-    ]
-
-    for tag_variants in candidates:
+    for container in _CONTAINERS:
         elements = [
             el for el in body.iter()
-            if isinstance(el.tag, str)
-            and etree.QName(el.tag).localname in tag_variants
+            if isinstance(el.tag, str) and etree.QName(el.tag).localname == container
         ]
-        if not elements:
-            continue
-
-        paragraphs: list[dict] = []
-        para_n = start_n
+        units: list[Unit] = []
         for el in elements:
             text = _paragraph_text(_elem_words(el, norms))
             if not _COPTIC_RE.search(text):
                 continue
             orig = _paragraph_text(_elem_words(el))
-            paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
-            para_n += 1
-
-        if paragraphs:
-            return paragraphs
-
+            groups = [position[p] for p in el.iter() if p in position]
+            units.append((_paragraph(corpus_name, file_n, len(units), text, orig), groups))
+        if units:
+            return units
     return []
 
 
-def _extract_paragraphs_custom(
-    root: etree._Element, file_n: int, corpus_name: str, start_n: int
-) -> list[dict]:
-    """Extract paragraphs from the TreeTagger ``<meta>`` export.
+def _units_tt(text: str, file_n: int, corpus_name: str) -> list[Unit]:
+    """Extract paragraphs from the TreeTagger ``<meta>`` export, read as a
+    stream of tags (its spans cross, #491).
 
     This format stores bound groups in ``<orig_group orig_group="…">`` /
-    ``<norm_group norm_group="…">`` elements, grouped under ``<p_n>`` or ``<p>``
-    paragraph containers.
+    ``<norm_group norm_group="…">`` elements, inside ``<p_n>`` or ``<p>``
+    paragraph spans; a group belongs to the paragraph open where it starts.
+    Every ``<p>`` is a paragraph, whatever its ``p`` value (``p="s"`` and
+    ``p="p   "`` hold text too, in ``shenoute-eagerness``).  A group that
+    starts outside every paragraph (the end of a word begun on the previous
+    leaf, whose ``<p>`` opens inside it) belongs to the next one, or the last.
     """
-    para_n = start_n
-    paragraphs: list[dict] = []
+    tags = list(_TAG_RE.finditer(text))
+    if any(m.group(2) == "p_n" for m in tags):
+        def is_para(m: re.Match) -> bool:
+            return m.group(2) == "p_n"
+    elif any(m.group(2) == "p" for m in tags):
+        def is_para(m: re.Match) -> bool:
+            return m.group(2) == "p"
+    else:
+        # No paragraph spans: the whole document is one paragraph
+        def is_para(m: re.Match) -> bool:
+            return m.group(2) == "meta"
 
-    # Paragraph containers: <p_n> (most corpora) or <p p="p"> (some Shenoute)
-    para_elems = root.findall(".//p_n")
-    if not para_elems:
-        para_elems = [el for el in root.iter("p") if el.get("p") == "p"]
-    if not para_elems:
-        # Last resort: treat the whole document as one paragraph
-        para_elems = [root]
+    def new_para() -> dict[str, list]:
+        return {"norm_group": [], "orig_group": [], "groups": []}
 
-    for para_el in para_elems:
-        words = _groups(para_el, "norm_group")
-        if not words:
+    paras: list[dict[str, list]] = []
+    open_para: dict[str, list] | None = None
+    stray = new_para()   # groups outside every paragraph, for the next one
+    n_groups = 0
+    for m in tags:
+        if is_para(m):
+            if m.group(1):
+                open_para = None
+            elif not m.group(4):
+                open_para = new_para()
+                for key, values in stray.items():
+                    open_para[key].extend(values)
+                stray = new_para()
+                paras.append(open_para)
             continue
-        text = _paragraph_text(words)
-        if not _COPTIC_RE.search(text):
+        group = m.group(2)
+        if group not in ("norm_group", "orig_group") or m.group(1):
             continue
-        orig = _paragraph_text(_groups(para_el, "orig_group"))
-        paragraphs.append(_paragraph(corpus_name, file_n, para_n, text, orig))
-        para_n += 1
+        target = open_para if open_para is not None else stray
+        if group == "norm_group":
+            target["groups"].append(n_groups)
+            n_groups += 1
+        word = _attr(m, group).strip()
+        if word:
+            target[group].append(word)
+    if stray["groups"]:
+        if not paras:
+            raise CopticStructureError("bound groups but no paragraph")
+        for key, values in stray.items():
+            paras[-1][key].extend(values)
 
-    return paragraphs
+    units: list[Unit] = []
+    for para in paras:
+        if not para["norm_group"]:
+            continue
+        para_text = _paragraph_text(para["norm_group"])
+        if not _COPTIC_RE.search(para_text):
+            continue
+        orig = _paragraph_text(para["orig_group"])
+        record = _paragraph(corpus_name, file_n, len(units), para_text, orig)
+        units.append((record, para["groups"]))
+    return units
 
 
-def _groups(para_el: etree._Element, tag: str) -> list[str]:
-    """The non-empty *tag* attributes of the *tag* elements under *para_el*."""
-    return [g.get(tag, "").strip() for g in para_el.iter(tag) if g.get(tag, "").strip()]
+def _attr(m: re.Match, name: str) -> str:
+    """Attribute *name* of the tag matched by *m* (``""`` when absent)."""
+    for key, value in _TT_ATTR_RE.findall(m.group(3)):
+        if key == name:
+            return html.unescape(value)
+    return ""
+
+
+def _is_tt(xml_path: Path) -> bool:
+    """Whether *xml_path* is a TreeTagger export (``<meta>`` root)."""
+    with open(xml_path, "rb") as f:
+        return re.match(rb"\s*(<\?xml[^>]*>\s*)?<meta\b", f.read(512)) is not None
+
+
+def _units(xml_path: Path, file_n: int, corpus_name: str) -> list[Unit]:
+    """Parse a single Coptic Scriptorium XML file into units.
+
+    Dispatches on the root element:
+    - TreeTagger export (``<meta>`` root) → ``_units_tt``
+    - Standard TEI P5 → ``_units_tei``, with the normalized text from the TT
+      export; raises ``CopticLayerError`` when that is missing or differs.  A
+      document whose structure is broken is repaired first (``_repair_tei``);
+      raises ``CopticStructureError`` when it can't be.
+    """
+    if _is_tt(xml_path):
+        return _units_tt(xml_path.read_text(encoding="utf-8"), file_n, corpus_name)
+    xml = xml_path.read_bytes()
+    root, errors = _parse(xml)
+    if errors:
+        log.info("  %s is malformed (%s); repairing it", xml_path.name, errors[0])
+        root, errors = _parse(_repair_tei(xml.decode("utf-8")).encode("utf-8"))
+        if errors:
+            raise CopticStructureError(f"{xml_path}: still malformed after repair: {errors[0]}")
+    if etree.QName(root.tag).localname != "TEI":
+        log.debug("  Unknown root element <%s> in %s; trying TEI parser", root.tag, xml_path.name)
+    return _units_tei(root, file_n, corpus_name, _norm_map(root, xml_path))
 
 
 def _extract_paragraphs_from_tei(xml_path: Path, file_n: int, corpus_name: str) -> list[dict]:
-    """Parse a single Coptic Scriptorium XML file into paragraph records.
-
-    Dispatches to the appropriate parser based on the root element tag:
-    - TreeTagger export (``meta`` root) → ``_extract_paragraphs_custom``
-    - Standard TEI P5 (``{...}TEI`` root, or anything else) →
-      ``_extract_paragraphs_tei``, with the normalized text from the TT
-      export; raises ``CopticLayerError`` when that is missing or differs.
-    """
-    try:
-        tree = etree.parse(str(xml_path), etree.XMLParser(**_PARSER_KW))
-        root = tree.getroot()
-    except Exception as exc:
-        log.error("  XML parse error %s: %s", xml_path.name, exc)
-        return []
-
-    root_local = etree.QName(root.tag).localname if isinstance(root.tag, str) else ""
-
-    if root_local == "meta":
-        return _extract_paragraphs_custom(root, file_n, corpus_name, start_n=0)
-    if root_local != "TEI":
-        log.debug("  Unknown root element <%s> in %s; trying TEI parser", root_local, xml_path.name)
-    return _extract_paragraphs_tei(root, file_n, corpus_name, 0, _norm_map(root, xml_path))
+    """The paragraph records of one XML file (``_units`` without positions)."""
+    return [record for record, _ in _units(xml_path, file_n, corpus_name)]
 
 
 # ---------------------------------------------------------------------------
@@ -828,9 +1001,10 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             for file_n, xml_path in enumerate(tei_files):
                 paras = _extract_paragraphs_from_tei(xml_path, file_n, corpus_name)
                 all_paragraphs.extend(paras)
-        except CopticLayerError as exc:
+        except (CopticLayerError, CopticStructureError) as exc:
             # Without the normalized layer the work would be spelled
-            # differently from the others (#57): leave it out, loudly.
+            # differently from the others (#57), and a document we can't
+            # read whole would lose or repeat text (#491): leave it out, loudly.
             log.error("  Skipping %s: %s", corpus_name, exc)
             continue
         try:

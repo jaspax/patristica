@@ -18,7 +18,10 @@ import pytest
 
 from scripts.ingest.coptic_scriptorium import (
     CopticLayerError,
+    CopticStructureError,
     _extract_paragraphs_from_tei,
+    _repair_tei,
+    _units_tt,
     ingest,
 )
 
@@ -456,3 +459,119 @@ def test_authors_agree_with_the_tt_headers() -> None:
             assert set(resolve_author(author)) <= ids, (corpus_dir.name, tei.name, author)
             checked += 1
     assert checked
+
+
+# Malformed TEI (#491), after helias_encomium.xml: the manuscript's paragraph
+# break falls inside a word (ⲙ̄ | Ⲡⲉ…, "ⲙⲡⲉⲛⲃⲱⲕ"), and <s> crosses <p>.  A
+# parser's recovery nested the paragraphs, so text came out twice, and left
+# "Ⲡⲉ" as a paragraph of its own.
+_TEI_SPLIT_WORD = """\
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader><fileDesc><titleStmt><title>t</title></titleStmt></fileDesc></teiHeader>
+<text><body>
+<div1 n="1">
+<p n="2">
+<s style="...">
+<phr><w>ϩⲉⲛⲉⲧⲉⲓⲙⲓⲛⲉ</w></phr>
+<phr><w>ⲕⲁⲛ</w></phr>
+<phr>
+<w>ⲙ̄
+</p>
+<p n="3">
+<lb n="15"/>
+Ⲡⲉ
+</w>
+<w>ⲛ̄</w>
+<w>ⲃⲱⲕ</w>
+</phr>
+<phr><w>ⲛ̄ⲙⲙⲁⲩ</w></phr>
+</s>
+<s style="...">
+<phr><w>ⲁⲗⲗⲁ</w></phr>
+</p>
+<p n="4">
+<phr><w>ⲟⲩⲉⲧⲉⲓⲙⲓⲛⲉ</w></phr>
+</s>
+</p>
+</div1>
+</body></text>
+</TEI>
+"""
+
+_TEI_SPLIT_WORD_TT = _tt("ϩⲉⲛⲉⲧⲉⲓⲙⲓⲛⲉ", "ⲕⲁⲛ", "ⲙⲡⲉⲛⲃⲱⲕ", "ⲛⲙⲙⲁⲩ", "ⲁⲗⲗⲁ", "ⲟⲩⲉⲧⲉⲓⲙⲓⲛⲉ")
+
+
+def test_malformed_tei_is_repaired_not_recovered(tmp_path: Path) -> None:
+    paras = _extract(tmp_path, _TEI_SPLIT_WORD, _TEI_SPLIT_WORD_TT)
+    # Every bound group once, the split word whole in the paragraph where it
+    # starts, and no paragraph made of the rest of a word.
+    assert [p["text"] for p in paras] == [
+        "ϩⲉⲛⲉⲧⲉⲓⲙⲓⲛⲉ ⲕⲁⲛ ⲙⲡⲉⲛⲃⲱⲕ",
+        "ⲛⲙⲙⲁⲩ ⲁⲗⲗⲁ",
+        "ⲟⲩⲉⲧⲉⲓⲙⲓⲛⲉ",
+    ]
+    assert paras[0]["orig"] == "ϩⲉⲛⲉⲧⲉⲓⲙⲓⲛⲉ ⲕⲁⲛ ⲙ̄Ⲡⲉⲛ̄ⲃⲱⲕ"
+
+
+def test_repair_tei_keeps_only_the_container() -> None:
+    repaired = _repair_tei(_TEI_SPLIT_WORD)
+    body = repaired[repaired.index("<body>"):]
+    assert "<s " not in body and "<div1" not in body
+    # The break waits for the word: </p><p n="3"> after its </phr>
+    assert body.index('<p n="3">') > body.index("ⲃⲱⲕ</w>")
+
+
+def test_unrepairable_tei_is_an_error(tmp_path: Path) -> None:
+    # <hi> and <phr> cross: not a paragraph break, so nothing is guessed.
+    broken = _TEI_SPLIT_WORD.replace("<phr><w>ⲁⲗⲗⲁ</w></phr>", "<hi><phr><w>ⲁⲗⲗⲁ</w></hi></phr>")
+    with pytest.raises(CopticStructureError):
+        _extract(tmp_path, broken, _TEI_SPLIT_WORD_TT)
+
+
+def test_tei_with_a_bad_xml_id_is_not_repaired(tmp_path: Path) -> None:
+    # An xml:id that is no name ("53", lament-mary) leaves the structure intact.
+    tei = _TEI.replace('<p n="1">', '<p n="1" xml:id="53">', 1)
+    assert _extract(tmp_path, tei, _TEI_TT) == _extract(tmp_path, _TEI, _TEI_TT)
+
+
+def _group(norm: str) -> str:
+    return (f'<orig_group orig_group="{norm}">\n<norm_group norm_group="{norm}">\n'
+            f'{norm}\n</norm_group>\n</orig_group>')
+
+
+def test_tt_spans_cross_and_every_p_is_a_paragraph() -> None:
+    # After shenoute-eagerness: the first group is the end of a word begun on
+    # the previous leaf, its <p> opening inside it; <translation> and
+    # <entity> cross the groups and paragraphs; p="s" and a padded p="p   "
+    # hold text too.
+    tt = f"""<meta>
+<orig_group orig_group="ⲭⲣⲓⲥⲧⲟⲥ">
+<norm_group norm_group="ⲭⲣⲓⲥⲧⲟⲥ">
+<p p="p">
+ⲭⲣⲓⲥⲧⲟⲥ
+</p>
+</norm_group>
+</orig_group>
+<p p="p">
+<translation translation="If he says">
+{_group("ⲉϣϫⲉ")}
+<entity entity="person">
+{_group("ϥⲛⲁϫⲟⲟⲥ")}
+</p>
+<p p="s">
+{_group("ⲛⲛⲁⲓ")}
+</entity>
+</translation>
+</p>
+<p p="p       ">
+{_group("ⲁⲩⲱ")}
+</p>
+</meta>
+"""
+    units = _units_tt(tt, 0, "test-corpus")
+    assert [(u["text"], groups) for u, groups in units] == [
+        ("ⲭⲣⲓⲥⲧⲟⲥ", [0]),
+        ("ⲉϣϫⲉ ϥⲛⲁϫⲟⲟⲥ", [1, 2]),
+        ("ⲛⲛⲁⲓ", [3]),
+        ("ⲁⲩⲱ", [4]),
+    ]
