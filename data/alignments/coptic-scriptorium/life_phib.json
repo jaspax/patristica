@@ -2,11 +2,11 @@
  "format": 1,
  "group": "coptic-scriptorium/life_phib",
  "pivot": "coptic-scriptorium/life_phib",
- "groups": 63,
- "inputs": "183dd85390b24123",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 64,
+ "inputs": "30b59d87961530c8",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "coptic-scriptorium-eng/life_phib", "units": 63, "ids": "566b7a713a2463c4", "inputs": "24dce24730126c27", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "coptic-scriptorium/life_phib", "units": 133, "ids": "3e3eea5c794b7898", "inputs": "b60c9eb2b5194880", "spans": "++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++............................................................+=........", "conf": "999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "coptic-scriptorium-eng/life_phib", "units": 64, "ids": "c79a99bc71989d0a", "inputs": "d19658abb1337d97", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "coptic-scriptorium/life_phib", "units": 133, "ids": "3e3eea5c794b7898", "inputs": "b60c9eb2b5194880", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++............................................................+=........", "conf": "9999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

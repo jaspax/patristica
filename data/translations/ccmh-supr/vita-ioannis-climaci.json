@@ -4,6 +4,12 @@
   "source_language": "chu",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-29": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -70,17 +76,17 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s2",
-      "source_sha256": "4776cf4c244e7d79",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "He brought his body to Mount Sinai, but his soul to the heavenly mountain, as I believe, from that very place."
+      "source_sha256": "5f1a99eab97cb9f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "He brought his body to Mount Sinai and his soul, I think, to the heavenly mountain, so that from that very place [?] toward the great but invisible [?]."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s3",
-      "source_sha256": "c1c6c24a129ba5c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "Having resolved to attain great but unseen progress and advancement, he lived there and embraced great humility. He cut off all his own desires and bowed his neck in submission. Thus he swiftly put himself to death by his own free choice,"
+      "source_sha256": "869814c39413bc59",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "Having resolved to gain guidance and progress, and living there, he took on great humility. He cut off all his own will from himself and bowed his neck in humility, and so of his own free will he put to death his impulse [?]."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s4",
@@ -140,17 +146,17 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s3",
-      "source_sha256": "900b0d4afde268a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "his mighty deeds and the labors he performed while living there? Nevertheless, I will relate at least a little of the beginnings of this blessed man's good resolve. He ate a little of everything, but very little, for the sake of the commandment, so that he would not pride himself on this but would always remain humble. He resolutely kept himself from every kind of rich food. At every hour, by thinking about death, he stirred his soul to greater labors."
+      "source_sha256": "19553ea0f0772973",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "Of his virtues and the labours he performed while living there, I will at least tell a little, from the beginnings of this blessed man's good resolve. He ate of everything, but very sparingly, for the sake of the commandment, not so that he might take pride in it but so that he might always keep his humility. He carefully kept himself from every kind of ointment [?]. At all hours"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s4",
-      "source_sha256": "762f40f9f804c454",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "Through obedience he cut off the tyrant's hostility as with a sword. Through seclusion and silence he put to death glory, which is more worthless than a spider's web. How can I tell of the crowns he wove for himself in our time through the flowing of his tears? Their secret work remains even to this day in the cave a short distance from his cell."
+      "source_sha256": "281756748d582dd5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "he meditated on death and so roused his soul to greater labours. Through obedience he cut off the tormentor's enmity as if with a sword. Through seclusion and silence he put to death vainglory, which is flimsier than a spider's web. How can I tell of the crowns he wove for himself in our presence with his streaming tears? Their secret work still remains [?] to this day in the cave, which stood a short distance from his cell."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s5",
@@ -294,17 +300,24 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s1",
-      "source_sha256": "a58ada9601ddfe32",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "Sinai this new seer of God descended to us in spirit, and he too showed us his tablets written by God."
+      "source_sha256": "99f1564ceaeb50f0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "This new seer of God came down to us from the Sinai of contemplation. He also showed us his tablets written by God, active on the outside and contemplative on the inside,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s2",
-      "source_sha256": "e3b65384459bd3f8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "having assurance outwardly through action and inwardly through contemplation, saying: “To our God be glory, now and always and forever and ever. Amen.”"
+      "source_sha256": "96aab0ecce7bc937",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "which carry confirmation, and say this:"
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s3",
+      "source_sha256": "b9bc0ca0579aceb5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 7,
+      "text": "Glory be to our God, now and always and to the ages of ages. Amen."
     }
   ]
 }
