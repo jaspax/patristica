@@ -116,7 +116,7 @@ These should be ingested first. Data is available as GitHub repos or structured 
 
 #### 3.4 Church Slavonic (planned, #29)
 
-The canonical Old Church Slavonic texts and their contemporaries, from the survey on #29 (2026-10-29). Language `chu`, tradition `slavonic`, stored in Cyrillic: Glagolitic witnesses are stored in Cyrillic transliteration (owner's decision on #29). The language plumbing is #330; the decision record is in `docs/adding-a-language.md`. Source ids are provisional until each ingest PR.
+The canonical Old Church Slavonic texts and their contemporaries, from the survey on #29 (2026-10-29). Language `chu`, tradition `slavonic`, stored in Cyrillic: Glagolitic witnesses are stored in Cyrillic transliteration (owner's decision on #29). The language plumbing is #330; the decision record is on #29. Source ids are provisional until each ingest PR.
 
 | Source | Works | Format | License | Issue |
 |--------|-------|--------|---------|-------|
