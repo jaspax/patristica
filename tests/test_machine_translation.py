@@ -505,3 +505,97 @@ def test_candidates_skip_works_with_an_mt_raw_file(tmp_path: Path):
     (raw / "mt-eng/csel/a.json").write_text("{}", encoding="utf-8")
     assert [r["work_id"] for r in mtr.candidate_rows(norm, output_dir=raw)] == ["csel/b"]
     assert len(mtr.candidate_rows(norm)) == 2
+
+
+# --- MTs from the search translations (#426) ---------------------------------
+
+
+def search_corpus(tmp_path: Path) -> tuple[Path, Path, Path, list[dict]]:
+    """A Syriac work: a title, a paragraph split into two derived verses, one more."""
+    from patristica import translations as tr
+
+    norm, raw, store = tmp_path / "normalized", tmp_path / "raw", tmp_path / "translations"
+    chunks = [chunk("A", "ܡܐܡܪܐ", [[0, 5, "title"]], "dsc/a"),
+              chunk("A.1.s1", "ܫܠܡܐ ܠܟ.", work_id="dsc/a"),
+              chunk("A.1.s2", "ܐܠܗܐ ܥܡܟ.", work_id="dsc/a"),
+              chunk("A.2", "ܛܘܒܐ.", work_id="dsc/a")]
+    for c in chunks:
+        c["language"] = "syc"
+    w = work("dsc/a", "syc")
+    (norm / "dsc").mkdir(parents=True)
+    (norm / "_works.jsonl").write_text(json.dumps({"path": "dsc/a.json", "work": w}) + "\n",
+                                       encoding="utf-8")
+    (norm / "dsc/a.json").write_text(json.dumps(chunks), encoding="utf-8")
+    (raw / "dsc").mkdir(parents=True)
+    (raw / "dsc/a.json").write_text(json.dumps({"work": w, "paragraphs": [
+        {"ref": c["canonical_ref"], "text": c["text"]} for c in chunks]}), encoding="utf-8")
+    old = tr.Provenance(model="gpt-6.1-sol", prompt_version="bulk", date="2026-10-12", script="t")
+    new = tr.Provenance(model="gpt-6.1-sol", prompt_version="bulk", date="2026-10-26", script="t")
+    wt = tr.WorkTranslations(work_id="dsc/a", source_path="dsc/a.json", source_language="syc")
+    for c, text, prov in ((chunks[1], "Peace to you.", old), (chunks[2], "God be with you.", new),
+                          (chunks[3], "Blessed.", old)):
+        wt.put(tr.ChunkTranslation(chunk_id=c["chunk_id"], source_sha256=text_sha(c["text"]),
+                                   provenance=prov.key, group_size=1, text=text), prov)
+    tr.save(store, wt, chunks)
+    return norm, raw, store, chunks
+
+
+def test_an_mt_from_search_translations_joins_them_per_paragraph(tmp_path: Path):
+    norm, raw, store, _ = search_corpus(tmp_path)
+    out = mtr.from_search_translations("dsc/a", norm, raw, raw, store)
+    record = json.loads(out.read_text(encoding="utf-8"))
+    units = record["paragraphs"]
+    # The title has no search translation and is left out; derived verses are joined.
+    assert [(u["ref"], u["text"]) for u in units] == [
+        ("A.1", "Peace to you. God be with you."), ("A.2", "Blessed.")]
+    assert record["machine_translation"]["prompt_version"] == mtr.SEARCH_PROMPT_VERSION
+    assert record["machine_translation"]["date"] == "2026-10-26"  # the newest used
+    assert record["work"]["edition"].startswith("Machine translation (gpt-6.1-sol, ")
+    assert record["work"]["translation_of"] == "dsc/a"
+    assert mtr.is_search_mt(out)
+    assert mtr.stale(norm, raw) == []  # the missing title is not staleness
+    assert mtr.from_search_translations("dsc/a", norm, raw, raw, store).read_bytes() == \
+        out.read_bytes()  # deterministic
+
+
+def test_an_mt_from_search_translations_is_all_or_nothing(tmp_path: Path):
+    from patristica import translations as tr
+
+    norm, raw, store, chunks = search_corpus(tmp_path)
+    wt = tr.load(store, "dsc/a.json")
+    wt.translations = [t for t in wt.translations if not t.chunk_id.endswith("A.1.s2")]
+    tr.save(store, wt, chunks)
+    with pytest.raises(mtr.MachineTranslateError, match="1 chunks without"):
+        mtr.from_search_translations("dsc/a", norm, raw, raw, store)
+    assert not (raw / "mt-eng/dsc/a.json").exists()
+
+
+def test_a_chapter_level_mt_is_never_replaced_by_search_translations(tmp_path: Path):
+    norm, raw, store, _ = search_corpus(tmp_path)
+    (raw / "mt-eng/dsc").mkdir(parents=True)
+    (raw / "mt-eng/dsc/a.json").write_text(json.dumps(
+        {"machine_translation": {"prompt_version": mtr.PROMPT_VERSION}}), encoding="utf-8")
+    with pytest.raises(mtr.MachineTranslateError, match="chapter-level"):
+        mtr.from_search_translations("dsc/a", norm, raw, raw, store)
+
+
+def test_a_search_mt_leaves_its_work_a_candidate_for_an_upgrade(tmp_path: Path):
+    norm, raw, store, _ = search_corpus(tmp_path)
+    assert [r["upgrade"] for r in mtr.candidate_rows(norm, output_dir=raw)] == [False]
+    mtr.from_search_translations("dsc/a", norm, raw, raw, store)
+    (row,) = mtr.candidate_rows(norm, output_dir=raw)   # merged, not yet normalized
+    assert row["work_id"] == "dsc/a" and row["upgrade"] is True
+    with (norm / "_works.jsonl").open("a", encoding="utf-8") as f:   # after normalize
+        f.write(json.dumps({"path": "mt-eng/dsc/a.json",
+                            "work": work("mt-eng/dsc/a", "eng", "dsc/a", "mt-eng")}) + "\n")
+    (row,) = mtr.candidate_rows(norm, output_dir=raw)
+    assert row["work_id"] == "dsc/a" and row["upgrade"] is True
+    # translate may replace it without --update (a dry run stops before any request)…
+    assert mtr.translate_work("dsc/a", norm, raw, raw, tmp_path / "partial",
+                              dry_run=True) is None
+    # …but a chapter-level MT needs --update.
+    (raw / "mt-eng/dsc/a.json").write_text(json.dumps(
+        {"machine_translation": {"prompt_version": mtr.PROMPT_VERSION}}), encoding="utf-8")
+    assert mtr.candidate_rows(norm, output_dir=raw) == []
+    with pytest.raises(mtr.MachineTranslateError, match="--update"):
+        mtr.translate_work("dsc/a", norm, raw, raw, tmp_path / "partial", dry_run=True)
