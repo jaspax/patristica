@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-049/de-proditione-judae-1",
  "pivot": "ogpg/vol-049/de-proditione-judae-1",
- "groups": 106,
- "inputs": "24613e189d4d4709",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 102,
+ "inputs": "f48cd0b08254f02c",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/chrysostom-de-proditione-judae", "units": 123, "ids": "a2e244c92d1b156e", "inputs": "4b832b464d722c7b", "spans": "+++++++++++++++.+++++++++++++++++++++++...+.+++++++++++++++++++++++++=..+++++++++++++++++++++++++.+..++++.++++++++++..+=+..", "conf": "9999999999999999999999999999999999999939999999999999999999999668799999999999999999999999557999999999999993"},
-  {"work_id": "ogpg/vol-049/de-proditione-judae-1", "units": 115, "ids": "f5ed51509a944287", "inputs": "7f1acedd1f277030", "spans": "++++++++++++=+++=++++++++++++++++++++++++.+++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++=..+..", "conf": "9999999999999999999999999999999999999939999999999999999999999668799999999999999999999999557999999999999993"}
+  {"work_id": "ccmh-supr/chrysostom-de-proditione-judae", "units": 122, "ids": "917cf0d985a00812", "inputs": "cf38be372fea2422", "spans": "+++++++++++++++.+++++++++++++++++++++++...+.+++++++++++++++++++++++=.....++++++++++++++++++++++++.+..++++.++++++++++..+==.", "conf": "999999999999999999999999999999999999993999999999999999999999999999999999999999999999955799999999999999"},
+  {"work_id": "ogpg/vol-049/de-proditione-judae-1", "units": 115, "ids": "f5ed51509a944287", "inputs": "7f1acedd1f277030", "spans": "++++++++++++=+++=++++++++++++++++++++++++.++++++++++++++++++++++..++=++++++++++++++++++++++++.+++++++++++++++=.....", "conf": "999999999999999999999999999999999999993999999999999999999999999999999999999999999999955799999999999999"}
  ]
 }

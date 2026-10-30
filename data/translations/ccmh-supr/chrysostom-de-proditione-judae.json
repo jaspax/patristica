@@ -4,6 +4,12 @@
   "source_language": "chu",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-29": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -224,17 +230,17 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.205r.s2",
-      "source_sha256": "8967c990a0bf2ea5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "For Jesus had other disciples as well, seventy in number."
+      "source_sha256": "f0209758890759d6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "For Jesus also had other disciples, seventy in number. But they were of the second rank."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.205r.s3",
-      "source_sha256": "a160b70229dfd442",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 21,
-      "text": "But those others were of the second rank. They did not have so much honor or so much freedom of access, nor did they share in so many mysteries. These twelve were chosen above them, and these were"
+      "source_sha256": "89305bf8dffe6819",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "They did not have so much honor, nor so much freedom of speech, nor did they share in so many mysteries. These twelve were chosen above the rest, and that is what these were."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.205r.s4",
@@ -350,17 +356,17 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.206v.s6",
-      "source_sha256": "8b7ce1eef67e1054",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 20,
-      "text": "Likewise, he neither exposed him openly before everyone, lest he make him more shameless, nor remained silent, lest Judas think he could escape unnoticed"
+      "source_sha256": "0fb192ded103e93a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "So he did not openly expose him before everyone, so that he would not make him more shameless."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.206v.s7",
-      "source_sha256": "ebf66dcafe42866c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 20,
-      "text": "and begin to betray him without fear. He often said, “One of you will betray me,” but he did not openly identify him."
+      "source_sha256": "90457217320a5dde",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "Nor did he keep silent, so that Judas would not think he was escaping notice and begin to betray him without fear. He often said, \"One of you will betray me,\" but he did not openly point him out."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.206v.s8",
@@ -469,125 +475,125 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.207v.s4",
-      "source_sha256": "cd878c8b067fd947",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 20,
-      "text": "He made him superior to demons. He gave him the power to perform many miracles. He frightened him with the fire to come. He urged him on with the promise of the kingdom."
+      "source_sha256": "9f632e33bbd4c189",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "He made him higher than the demons. He gave him power to work many miracles. He frightened him with the fire to come. He won him over with the promise of the kingdom. He often exposed his thoughts."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.207v.s5",
-      "source_sha256": "20b2eb2a95136b9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "He often rebuked him for his thoughts, yet even when rebuking him, he did not expose him openly. He washed his feet along with the others and gave him a share at the table. He lacked nothing, small or great. Yet he willingly persisted in the path to destruction. And so that you may learn that, although he could have changed, he would not, everything that happened to him came from his own negligence. For when he had betrayed him, he threw down the thirty denarii. And what did he say? “I have sinned by betraying innocent blood.” What happened when he saw him performing miracles? He did not say, “I have sinned by betraying innocent blood,” but, “What will you give me, and I will betray him to you?” For when evil had taken hold, the betrayal had reached its end, and the sin was accomplished, then he recognized his sin. What, then, do I learn from this?"
-    },
-    {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.207v.s6",
-      "source_sha256": "e7353096bef56559",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "That when we are [?], no"
+      "source_sha256": "091c2e45f78b0d88",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "But even while exposing him, he again did not reveal him. He washed his feet together with the others. He made him a sharer of his table. Judas lacked nothing, neither small nor great. But he remained in perdition by his own will. And this is so you may learn that he could have changed but did not wish to, and that everything happened to him through his own sloth. For when he had betrayed him, he threw down the thirty denarii, and what did he say? \"I have sinned in betraying innocent blood.\" What was the matter when he saw him working miracles? Then he did not say, \"I have sinned in betraying innocent blood,\" but \"What will you give me, and I will hand him over to you?\" For when the evil had been carried out, and the betrayal was at its end, and the sin had been completed, then he recognized the sin. What, then, do we learn from this? That when we are lazy, no"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208r.s1",
-      "source_sha256": "7207c7912c731eb3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "instruction will help us, but only when we make an effort and stir ourselves to do good. For this man, too, did not listen when the Teacher instructed him. But when no one was instructing him, then he became aware of his own conscience, and with no one teaching him, he changed. Repenting of his outrageous deeds, he threw down the thirty pieces of silver. “What will you give me, and I will betray him to you?” And they set thirty pieces of silver for him. They set a price on blood beyond price. Why do you take thirty pieces of silver, Judas? Christ came freely to pour out his blood for the whole world, and you bargain over it and make a trade, shameless man! For what could be more shameless than this trade? “Then the disciples came.” Then—when? When this had happened, when the betrayal had taken hold, when Judas had destroyed himself, his disciples came to him, saying, “Where do you want us to prepare for you to eat the Passover?” Look at the disciples; look at the disciple. He betrays the Master,"
+      "source_sha256": "66866e20e1459011",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "teaching does us any good; it helps only when we are diligent and stir ourselves to do good of our own accord. For this man too did not listen when the teacher was instructing him,"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208r.s2",
-      "source_sha256": "e71f3839f3210b8c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "while these concern themselves with serving him. He devises a plot, while these prepare to serve. Both he and they had shared in the same things: the same miracles, the same teachings, the same instruction. Where, then, does the difference come from? From their will. This is always the cause of everything, for both the good and the wicked. “Where do you want us to prepare for you to eat the Passover?”"
+      "source_sha256": "75e6c092adf6a452",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "but when there was no one instructing him,"
+    },
+    {
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208r.s3",
+      "source_sha256": "24f4f17be9add771",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "then he recognized his own conscience. With no teacher present, he changed his mind, repented of his daring deeds, and threw down the thirty pieces of silver. \"What will you give me, and I will hand him over to you?\" And they set thirty pieces of silver as his price. They put a price on blood that is priceless. Why are you taking thirty pieces of silver, O Judas? Christ came here to pour out his blood for the whole world, and you are bargaining over it and making an exchange, shameless one. For what is more shameless than this exchange? \"Then the disciples came.\" Then: when? When this had happened, when the betrayal had been carried out, when Judas had destroyed himself. His disciples came to him, saying to him, \"Where do you want us to prepare for you to eat the Passover?\" Do you see the disciples? Do you see the disciple? He betrays the Master, while these are concerned about the service. He makes a plot, while these get ready for the service. These and he belonged to the same company: the same miracles, the same teachings,"
+    },
+    {
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208r.s4",
+      "source_sha256": "5b31ab8ccaea21ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 10,
+      "text": "the same instruction. So where does the change come from? From the will: that is the whole cause. Everything was the same for the good and for the wicked. \"Where do you want us to prepare for you to eat the Passover?\""
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208v.s1",
-      "source_sha256": "f37a6eed4359ecee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "[?]: It was evening then. Since the Master had no home, they therefore said, “Where do you want us to prepare for you to eat the Passover?” “I have no fixed lodging; I have no dwelling or house.” Let those who build splendid houses, spacious porticoes, and long courtyards learn that Christ had nowhere to lay his head. That is why they ask, “Where do you want us to prepare for you to eat the Passover?” Which Passover? Not this Passover, but the Jewish one. The disciples prepared that one, but he himself established this one of ours. Indeed, he himself became the Passover. “Where do you want us to prepare for you to eat the Passover?”"
+      "source_sha256": "b707c81d1f4756c5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "[?] of Christ. It was evening then. Since the Master had no house, for this reason they say: \"Where do you want us to prepare for you to eat the Passover?\" I have no appointed dwelling; I have no house nor home. Let those who build splendid houses, spacious porticoes and long courtyards learn that Christ had nowhere to lay his head. So these ask: \"Where do you want us to prepare for you to eat the Passover?\" Which Passover? Not this Passover, but the Jewish one. The disciples prepared that one, but this one of ours he arranged himself; indeed, he himself became the Passover. \"Where do you want us to prepare for you to eat the Passover?\" That was the Jewish Passover; it had its beginning in Egypt. Why, then, does Christ eat that Passover? Because he fulfilled everything in the law."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.208v.s2",
-      "source_sha256": "892726ccaaf2a3be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "That was the Jewish Passover. It had its beginning in Egypt. Why, then, did Christ eat that Passover? Because he fulfilled everything prescribed by the law. For when he was baptized, he said, “For this is how we ought to fulfill all righteousness.” “I came,” he said, “to redeem humankind from the curse of lawlessness.” For God sent his own Son, born of a woman, born under the law, to redeem those under the law and bring the law itself to an end. But let no one say that he abolished the law and put an end to it because he could not fulfill it, since it was burdensome. He first fulfilled everything in it, and only then abolished it. This is why he also celebrated the Passover. For the law’s"
+      "source_sha256": "a71db4b58aa24b52",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "For when he was being baptized he said: \"For thus it is fitting for us to fulfill all righteousness.\" I have come, he says, to redeem man from the curse of lawlessness. For God sent his own Son, born of a woman, born under the law, to redeem those under the law and to give rest from the law itself. But let no one say that he abolished the law for this reason. It was for this reason that he also brought it to an end: since it could not be fulfilled, being heavy, he first fulfilled all of it and then released it. For this reason he also kept the Passover. For of the law"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s1",
-      "source_sha256": "7cc75db894b0484b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "command was the Passover. And why did the law command them to eat the Passover? The Jews were unmindful of their benefactor and would immediately forget the blessings of God, their protector. For was it not when they came out of Egypt..."
+      "source_sha256": "9b618d4102dd5bce",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "a commandment was the Passover. And why did the law command that the Passover be eaten? The Jews were unmindful of their benefactor and at once forgot the benefactions of God their protector. For indeed, when they had come out of Egypt and had seen the sea part and close again, and many other wonders, they said: \"Make us gods who will go before us.\""
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s2",
-      "source_sha256": "88d783e915f980b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "having seen the sea part and close again, and many other miracles, they said, “Make gods for us.”"
+      "source_sha256": "7b4ced6b0a138730",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "What are you saying? While you are still holding the wonders in your hand, have you so forgotten God your benefactor?"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s3",
-      "source_sha256": "4b26bbe7e333b8b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "who will go before us. What are you saying, while holding miracles in your hand? And yet have you so soon forgotten God, your benefactor?"
-    },
-    {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s4",
       "source_sha256": "46bcfe9199158072",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
       "text": "Since they were so unfeeling and ignorant, God tied the remembrance of his gifts to the festivals."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s5",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s4",
       "source_sha256": "13687f7ea8b09742",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
       "text": "For this reason he commanded them to sacrifice the Passover lamb. “If your son asks you,” he said, “what this Passover means,”"
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s6",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s5",
       "source_sha256": "7e813fef54a2f694",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
       "text": "you shall say this: “The children smeared the doors with sheep’s blood in Egypt."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s7",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s6",
       "source_sha256": "93262e55199c9977",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "Then the destroyer came, and when he saw it, he did not dare rush in and bring the plague. And the feast was a perpetual remembrance of their deliverance."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s8",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s7",
       "source_sha256": "b56d165cae6f3a31",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "But this was not its only benefit for them—that it reminded them of former blessings. There was another, greater benefit: it showed them beforehand what was to come."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s9",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s8",
       "source_sha256": "ce5af74f41f6077d",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "For was not that lamb a symbol of another lamb, a spiritual one? One was a sheep, and the other was a sheep. But one was a shadow, and the other was the reality. Once the true sun appeared, the shadow began to disappear."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s10",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s9",
       "source_sha256": "a1b498d6f9013867",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "When the sun rises, the shadow disappears."
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s11",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.209r.s10",
       "source_sha256": "f64ad50ab66700c6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
@@ -777,24 +783,24 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.211v.s5",
-      "source_sha256": "949e017d30b73568",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "“But,” someone says, “he did me great harm and utterly wore me down.” What of it? Even if the loss of possessions is severe [?]."
+      "source_sha256": "7e5fb060909aff1c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "\"For he did me great harm,\" he says, \"and wore me out badly.\" So what? Even if you suffered a great loss of property, he never crucified you."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.211v.s6",
-      "source_sha256": "0cd1c9e2f56896a8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 12,
-      "text": "He has certainly never crucified you as the Jews crucified Christ. Yet Christ gives that very blood which they shed for the salvation of those who shed it. What can you say that compares with this?"
+      "source_sha256": "732eeb355756bc7e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "as the Jews crucified Christ. Yet he himself gave the very blood that they shed for the salvation of those who shed it."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.211v.s7",
-      "source_sha256": "3e11a0fa14092679",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 12,
-      "text": "If you do not give up your hostility toward your enemy, it is not he whom you harm,"
+      "source_sha256": "0fc7fd2693ec11e4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "What can you say to this in reply? If you do not give up your enmity toward your enemy, it is not him you have harmed."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.211v.s8",
@@ -847,27 +853,20 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.212v.s1",
-      "source_sha256": "a698d2160233818c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "but joining our souls together in the bond of love. In this way we can feast abundantly at the table set before us. For even if we have countless righteous deeds, yet bear grudges, all this is senseless and in vain, and none of these things can produce the fruit of the word for salvation."
+      "source_sha256": "2049dcd2bfc23bae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 8,
+      "text": "[?] daring, but binding our souls together with the bond of love. In this way we can be fully satisfied from the table set before us. For even if we have tens of thousands of righteous deeds, if we bear a grudge, all of it is foolish and empty, and none of it can bear the fruit of the word for salvation. Knowing this, let us lay aside all anger, cleansing our consciences, and with meekness and all quietness"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.212v.s2",
-      "source_sha256": "a69e80386f1c28b5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 5,
-      "text": "Knowing this, let us put away all anger, cleansing our consciences, and with gentleness and complete calm"
-    },
-    {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.212v.s3",
       "source_sha256": "fae1758321079671",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 5,
       "text": "let us approach the table of Christ, with whom glory belongs to the Father, together with the Holy Spirit,"
     },
     {
-      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.212v.s4",
+      "chunk_id": "ccmh-supr/chrysostom-de-proditione-judae#Supr.212v.s3",
       "source_sha256": "14c9a35fca2abc53",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 5,

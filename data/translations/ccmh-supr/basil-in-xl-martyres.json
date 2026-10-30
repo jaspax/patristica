@@ -4,6 +4,12 @@
   "source_language": "chu",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-29": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -56,20 +62,13 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.42v.s6",
-      "source_sha256": "433b1a933ab31e8c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "a421e65e723a8f49",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 21,
-      "text": "All were alike, equal to one another, equal in will and in suffering. Therefore they were also counted worthy of an equally honored crown of glory."
+      "text": "All were equal to one another: equal in will and equal in sufferings. Therefore they were also deemed worthy of an equally honoured crown of glory. What words, then, could ever praise them as they deserve? Not even forty tongues would be enough to sing the virtue of such men."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.42v.s7",
-      "source_sha256": "2b45297e8fd5a077",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 21,
-      "text": "What speech, then, could adequately praise them? Not even forty tongues would suffice to celebrate such great virtue in these men."
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.42v.s8",
       "source_sha256": "f9ebebebdaea00e4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
@@ -105,17 +104,17 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43r.s5",
-      "source_sha256": "0bc703a05162d899",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "c2e63649722ed5ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 21,
-      "text": "For what speech makes known through narration and hearing, books also silently display through representation. So let us too remind those present of these men's virtue, so that, bringing their deeds before our eyes, as it were,"
+      "text": "For what speech shows through narration and hearing, writings show silently through imitation."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43r.s6",
-      "source_sha256": "ff4a647365311695",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "ebd72024992becc5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 21,
-      "text": "we may be stirred to imitate the most valiant"
+      "text": "In the same way let us remind those present of the virtue of these men, so that, having set their deeds before their eyes, we may be moved to imitate the most valiant."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43r.s7",
@@ -168,24 +167,24 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43v.s5",
-      "source_sha256": "0479df99efa888fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "8b24d217d3317e22",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 21,
-      "text": "In human birth they differ from one another, but their spiritual birth is one and the same for all, for they have God as their common Father."
+      "text": "By human birth, one came from one place and another from another; but their spiritual birth is one for all."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43v.s6",
-      "source_sha256": "c81960166c660b3b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "and they are all brothers, not born of one father and one mother, but through spiritual adoption,"
+      "source_sha256": "07d261ec4690a78e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "For God is their common father, and they are all brothers: not from one and the same birth, but from spiritual adoption, joined in a union that they themselves formed through love."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43v.s7",
-      "source_sha256": "6f82993c19cc32da",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "a4c5af6459401d9c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 21,
-      "text": "Having joined themselves together in a union of love, they became a complete company, a great addition to those who have glorified the Lord from ages past. They were not gathered one by one, but were transferred all at once. What was the manner of their transfer?"
+      "text": "A choir ready-made, a great addition to those who glorify the Lord from of old. They were not gathered one by one but changed over suddenly. What was the manner of that change?"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.43v.s8",
@@ -203,129 +202,108 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s2",
-      "source_sha256": "b501ec3e8ed94e88",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "Being renowned among all for their virtue. But when it had already been proclaimed—when that godless and impious decree had already been proclaimed—not to confess Christ,"
+      "source_sha256": "ed2dd356a8b7c94e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "They were renowned among all for their valour. When there had already been proclaimed, when there had already been proclaimed, that godless and impious decree that Christ must not be named, or else one must suffer dangers, every kind of torture was threatened, and much bestial fury was stirred up by the unrighteous against the faithful."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s3",
-      "source_sha256": "016b830656f6a38c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "or else to undergo suffering, every kind of torture was threatened, and great, beastly fury was stirred up by the unrighteous against the faithful. Plots and evil schemes were woven against them."
+      "source_sha256": "2c9c57f7dcc83000",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "Plots and evil schemes were woven against them, and various kinds of torture were devised, and the torturers were unrelenting. The fire was ready, the sword sharpened, the cross set up; the pit, the wheel, the scourges."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s4",
-      "source_sha256": "4c947e03f357e4e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "Various kinds of torture were devised, but those being tortured remained unyielding. The fire was ready, the sword sharpened, the cross erected; there were the pit, the wheel, and clubs. Some fled, while others obeyed."
+      "source_sha256": "16786a0ccc48ac07",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "And some fled, while others gave in; some wavered, and others, threatened only with the trial, were terrified."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s5",
-      "source_sha256": "58b9afc125167ca8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "Some wavered; others were frightened by the mere threat of trial; still others, coming close to the horrors, gave way."
+      "source_sha256": "355ab13247688358",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "Others came close to the cruel torments and gave way."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s6",
-      "source_sha256": "180a39eb4e54cca9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "Others, however, entered the contest, but could not endure the suffering to the end."
+      "source_sha256": "8bb67c86365982ff",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "Still others entered the contest but could not endure the pain to the end, and renounced the faith in the middle of their suffering. Like those labouring in the deep sea, they lost the cargo of endurance they had."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s7",
-      "source_sha256": "2f10c8c1dbf92cf5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "In the midst of suffering they renounced their faith, like people struggling in the deep, and lost the cargo of endurance they had carried. Then these unconquered men—"
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44r.s8",
-      "source_sha256": "66fce45b57d8b030",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "and valiant soldiers of Christ stepped forward while the governor was displaying the emperor’s decrees"
+      "source_sha256": "52307fd4e74ef62b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "Then these invincible and valiant soldiers of Christ came forward into the midst, as the governor was displaying the emperor's letters"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s1",
-      "source_sha256": "d53ed5bd53ee51cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "and demanding obedience from everyone. With an unrestrained voice, boldly and courageously,"
+      "source_sha256": "3e4a663f57cb74d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "and demanding obedience from everyone. With a free voice, boldly and manfully, and not at all frightened by the threats, they came forward into the midst and declared themselves Christians."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s2",
-      "source_sha256": "c1ca524112817200",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "not at all frightened by the threats, they stepped into the midst and declared themselves Christians."
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s3",
       "source_sha256": "ec849853033373c2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 23,
       "text": "Oh, blessed tongues, all those that uttered that holy cry! The air received it and was sanctified; the angels heard it and clapped their hands; the devil and his demons were wounded; and the Lord wrote their names in heaven."
     },
     {
+      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s3",
+      "source_sha256": "b18f3a0d2b975932",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "Each of them came forward into the midst and said: \"I am a Christian.\""
+    },
+    {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s4",
-      "source_sha256": "db932702f15044e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "Each of them, coming forward into the midst, said, “I am a Christian.” And just as those entering battle declare their names together,"
+      "source_sha256": "5567d1c4fcbc84c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "And just as those going into battle call out their names together and step into the place of battle, so these men too then cast off the names given them at birth, [and called themselves] after the common Savior [?]."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s5",
-      "source_sha256": "8bb92b171b0dd8e0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "for they are stepping onto the battlefield, so too these men then set aside the names given to them at birth, and after the Savior of all"
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s6",
       "source_sha256": "3a699b93197b46d9",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 23,
       "text": "each named himself."
     },
     {
+      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s6",
+      "source_sha256": "a9db6b97e469ad91",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "And they all did this one after another, joining themselves together."
+    },
+    {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s7",
-      "source_sha256": "6e27ce1686c68556",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "They all did this, joining themselves together one after another, so that they all had one name."
+      "source_sha256": "50b838e7d831dc49",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "So all of them had one name. No longer was it this one or that one; all were called Christians."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s8",
-      "source_sha256": "20971076c83544e2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "For they were no longer called by this or that name, but were all called Christians."
+      "source_sha256": "30ae3b0e3e092eed",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "What then did that ruler do? For he was cruel and changeable. At one moment he soothed them with flattery; at another he wanted to turn them by threats."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s9",
-      "source_sha256": "6844596e508bc2a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "Oh, what that ruler did then! For he was cruel and [?]."
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s10",
-      "source_sha256": "020351a85ddd6a22",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "At one moment he soothed them with flattery; at another he sought to turn them aside with threats. At first, then, he tried to entice them with flattery."
-    },
-    {
-      "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.44v.s11",
-      "source_sha256": "00dcf14ade8a3477",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "trying to weaken their steadfastness in the good faith. “Do not throw away your youth,” he said, “nor be willing to exchange for an untimely"
+      "source_sha256": "849b78afbcecd552",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "First he tried to win them over with flattery, attempting to loosen them from their firm stand in the good faith. He said: \"Do not throw away your youth, and do not exchange [?] for an untimely [?]"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45r.s1",
@@ -385,17 +363,17 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45r.s9",
-      "source_sha256": "8ec5883c544e861d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "Do you see this heaven, how beautiful it is to behold and how vast, and the earth, how great it is,"
+      "source_sha256": "90d33b6b9cd88b7d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "\"Do you see this sky, how good and how great it is to look at? And the earth, how great it is, and all the wonderful things on it?\""
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45r.s10",
-      "source_sha256": "33bd24af206859fd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "and all the wonderful things upon it? None of all these things is equal to the blessedness"
+      "source_sha256": "4c4258f03174e41f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 21,
+      "text": "\"Nothing of all that is equal to the blessedness [?]"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s1",
@@ -413,17 +391,17 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s3",
-      "source_sha256": "9287e1339305c2bb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "I dearly love the honor on high. I fear the torments of Gehenna; I dread that fire."
+      "source_sha256": "99d2e472fc9e93d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "I love the heavenly honor greatly. I fear the torments of Gehenna. I am terrified of that fire. But I do not fear the fire you threaten me with, for it is my fellow-servant; it knows how to revere"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s4",
-      "source_sha256": "ba20340badbcf295",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "But I do not fear the fire with which you threaten me, for it is my fellow servant and knows how to respect those who disregard idols. I consider your blows children’s arrows."
+      "source_sha256": "2d345eb5677c2da7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "those who disregard idols. Your blows are no more to me than children's arrows."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s5",
@@ -448,17 +426,17 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s8",
-      "source_sha256": "62bdff663429d1ed",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 23,
-      "text": "piety. But those you threaten are neither timid, nor terrified, nor cowardly. Through love of God we are ready to be tied to the wheel, to be bound and burned.”"
+      "source_sha256": "65ffb4a4cf217fcb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "…piety. But the things you threaten are not fearful, not terrible, not frightening."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s9",
-      "source_sha256": "9f370ff6fbb38265",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "6e82e627cdf48856",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "and to undergo every kind of torture. When that arrogant and savage man heard these things,"
+      "text": "For the love of God, see, we are ready to be bound to the wheel, to be bound and burned, and to accept every form of torment. When that haughty and fierce man heard this,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.45v.s10",
@@ -588,17 +566,17 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47r.s4",
-      "source_sha256": "4b34211085f272da",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "5c016ac0a7a8b4e8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let the foot be burned, so that it may dance forever with the angels. Let the hand be cut off,"
+      "text": "\"Let the foot be burned, so that it may dance forever with the angels. Let the hand be cut off, so that it may have the boldness"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47r.s5",
-      "source_sha256": "ff136a288c38794e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 18,
-      "text": "Let [?] have the boldness to be lifted up toward the Master. How many of our [?] have fallen in battle, preserving their loyalty to a mortal king!"
+      "source_sha256": "fd66b97c0aa317b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "to be lifted up to the Master. How many of our soldiers have fallen in battle, keeping faith in friendship with a corruptible king!\""
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47r.s6",
@@ -679,31 +657,31 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47v.s7",
-      "source_sha256": "db0ffeace63a2217",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "d021af2e710832c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "For the man appointed to guard the martyrs was warming himself nearby in a bathhouse, watching what would happen,"
+      "text": "For a certain man had been posted to guard the martyrs. He was warming himself in a bath somewhere nearby, watching for what would happen, ready to receive any of the soldiers who fled to him."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47v.s8",
-      "source_sha256": "7b3bdd2b386f13be",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "Ready to receive those fleeing to him from [?]. For this too had been devised: a bathhouse nearby, offering swift help to those who fled to it."
+      "source_sha256": "dabefc71d747cd79",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "But this too had been devised: a bath nearby, offering quick help to anyone who fled."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47v.s9",
-      "source_sha256": "88d401fee2ba4749",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "This too had been cunningly devised by the evildoers: to find such a place."
+      "source_sha256": "5079c136d8d02d5a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "This too the evildoers cunningly devised: to find a place where the comfort ready at hand would weaken them."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47v.s10",
-      "source_sha256": "9211f3fbbeb53d7b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "There, the comfort that lay ready weakened the endurance of those engaged in the struggle. Yet this made the martyrs’ endurance appear all the more glorious."
+      "source_sha256": "5d2e8d029ae8cb74",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "It made the endurance of those who were contending appear all the more glorious, the endurance of the martyrs."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.47v.s11",
@@ -714,31 +692,31 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s1",
-      "source_sha256": "d35a05cb37f2f2c6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "fc9edd1bf816f0ce",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "they struggled and he kept watch, he saw a wondrous vision unfolding:"
+      "text": "They contended, and he watched."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s2",
-      "source_sha256": "d0fa775716e63feb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "b524fc55ee00a3c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "heavenly powers descending from heaven and distributing great gifts to them [?], as though from the King."
+      "text": "He saw a marvelous vision of what was happening: certain powers coming down from heaven, as if from an emperor,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s3",
-      "source_sha256": "36a72060092cda90",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "they were giving gifts to everyone, they left just one without honor, saying that he was unworthy of heavenly honors—the one who had immediately failed to endure the pain."
+      "source_sha256": "37b516cb48c6d61c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "handing out great gifts to the soldiers. They gave gifts to all of them, but left just one without honor, saying he was unworthy of the heavenly honors. He at once could not bear the pain and fled over to the enemy."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s4",
-      "source_sha256": "3b50c1c938d3242b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "He fled to the enemy. A grievous sight for the righteous: a brave soldier departing as a captive, a sheep of Christ becoming prey for wild beasts. And what was more pitiable,"
+      "source_sha256": "c86aee509c60f3fe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "It was a grievous sight for the righteous: the soldier a deserter, the brave man a captive, the sheep of Christ prey for wild beasts. And what was more wretched,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s5",
@@ -756,59 +734,59 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s7",
-      "source_sha256": "cd37879f85cfaa6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "Stripping off his clothes, he joined the naked men, crying out the same declaration as the saints: “I am a Christian.”"
+      "source_sha256": "977c418548fe4620",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "[the guard] threw off his clothes and joined the naked men. He cried out the same call as the saints: \"I am a Christian.\" By the suddenness of his change he worked a wonder for those watching. He filled up the number, and by adding himself he consoled them in the sorrow they felt over the one who had fled. In this he imitated the fighters in the front line,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48r.s8",
-      "source_sha256": "80d5255610a29bd7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "By the suddenness of his change, he became a wonder to those watching. He completed their number and, by joining them, relieved the grief caused by the deserter. He imitated the fighters in the front ranks, who immediately fill the gap left by someone fallen in the foremost shield line [?], so that their front will not be thrown into confusion by the fallen man. Such"
+      "source_sha256": "6f7920d36cc96bd7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "who, when a man in the first rank of shields falls, at once fill up the troop, so that their front is not thrown into confusion by those who have fallen. In the same way"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s1",
-      "source_sha256": "101020e6288a016b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "23fceeb8ad559179",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "he too did. He saw heavenly wonders, recognized the truth, ran to the Lord, and was numbered among the martyrs."
+      "text": "he too acted. He saw the heavenly wonders,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s2",
-      "source_sha256": "410a3c38c3afbc6b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "3fe96ce692d2bee4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He renewed what had happened among the disciples: Judas departed, and Matthias entered in his place. He became an imitator of Paul:"
+      "text": "recognized the truth, ran to the Master, and was numbered with the martyrs."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s3",
-      "source_sha256": "4c706d6baa51a3f7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "3b03995696e10ef8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "yesterday a persecutor, today a preacher of the gospel. He too received his calling from above,"
+      "text": "He renewed what happened among the disciples: Judas departed, and Matthias came in to take his place. He became an imitator of Paul: yesterday a persecutor, today an evangelist. He too received his calling from above, not from men; nor did he come to faith through a man."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s4",
-      "source_sha256": "4453323c097ece04",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "d8f329056ae50a51",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "not from men or through a man. He believed in the name of the Lord Jesus Christ and was baptized into him,"
+      "text": "He was baptized in the name of the Lord Jesus Christ, into him, not by Paul but by his own faith,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s5",
-      "source_sha256": "8a3c680f633cf1a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "not by Paul, but by his own faith; not in water, but in his own blood. And so, as day began, while they were still breathing, they were handed over to the fire. Their remains from the fire were scattered into the river, so that the suffering of the blessed might pass through all creation."
+      "source_sha256": "8c3e997fa58707ff",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "not in water but in his own blood. And so, as day was beginning, they were handed over to the fire while still breathing, and what the fire left of them was scattered into the river, so that the passion of the blessed ones might pass through all creation. They struggled on the earth; they endured the cold."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s6",
-      "source_sha256": "68885839ec3f141b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "They struggled on earth, endured the cold, were handed over to fire, and the water received them."
+      "source_sha256": "55623039cc91032e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "They were handed over to fire; water received them."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s7",
@@ -826,31 +804,31 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s9",
-      "source_sha256": "4aec3ecd72596615",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "e99074a9de44ac39",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "they have not been divided up one by one among those who receive them, but, mingled together, they rejoice as one."
+      "text": "They were not divided one by one among those who receive them; rather, mingled together, they dance as one choir. O wonder!"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.48v.s10",
-      "source_sha256": "945591773fc063b0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "6f47b9fbda4e24a1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "What a wonder! They are neither fewer in number nor do they become more numerous. Even if you divide them into a hundred portions, their own"
+      "text": "They are not fewer in number, nor do they become more. Even if you divide them among a hundred, they do not go beyond their own"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s1",
-      "source_sha256": "ecded61d9fe6f26a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
+      "source_sha256": "5341999ff7255ef4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "number does not change. If you gather them into one place, they remain forty even so, in keeping with the nature of fire."
+      "text": "number; if you gather them into one, they are forty. And so they remain, after the nature of fire: for fire passes over to the one who kindles from it as well."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s2",
-      "source_sha256": "90065df6809ec9dd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 22,
-      "text": "For fire also passes to the one who lights it, and remains whole with the one who possesses it. And the forty are all together, and all are with each person."
+      "source_sha256": "db0c567a15733978",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "and he is wholly present with the one who possesses him. And the forty, too: all are together, and all are with each one."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s3",
@@ -875,31 +853,31 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s6",
-      "source_sha256": "f51e698f63e37bda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 10,
-      "text": "Let whoever is grieving take refuge with the Forty. Let whoever is rejoicing run to them."
+      "source_sha256": "9974f6a2659a0dc8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "Whoever is in sorrow, let him flee to the Forty; whoever rejoices, let him run to them: the one so that he may be delivered from his sorrow, and the other so that his joy may be preserved."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s7",
-      "source_sha256": "84817e289f1faf6c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 10,
-      "text": "Let the one be freed from sorrow, and let the other's joy be preserved. Here a faithful wife comes, praying for her children; when her husband is departing, she prays for his return; when he is sick, for his recovery. Let your petitions be offered with the martyrs."
+      "source_sha256": "8826893f8164b68c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "Here a faithful woman comes praying for her children; for her husband who is away, praying for his return; for the salvation of one who is sick."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s8",
-      "source_sha256": "1ed70262665821f4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "Let young people imitate those of their own age, and let fathers pray to be fathers of such children."
+      "source_sha256": "83bc9cd576c1a97f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "Let your petitions be made together with the martyrs. Let young men imitate those of their own age. Let fathers pray to be fathers of such children, and let mothers learn the story of the good mother."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49r.s9",
-      "source_sha256": "6e6ce06c8ba6204c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "And let mothers learn the story of the good mother. The mother of one of those blessed men, seeing"
+      "source_sha256": "41b101f118c411ec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "The mother of one of the blessed ones, seeing them"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49v.s1",
@@ -917,24 +895,24 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49v.s3",
-      "source_sha256": "45111a88fa3d14e5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 10,
-      "text": "For she shed no tear of weakness, nor did she utter anything"
+      "source_sha256": "9e7b10b2d4310454",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "did not shed a weak tear, nor did she utter anything abject or unworthy of the occasion."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49v.s4",
-      "source_sha256": "2f9044be5a8d640f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 10,
-      "text": "abject or unworthy of the occasion. Instead she said, “Go, my son, on your good journey with your peers and your companions. Do not be separated from their company. Do not appear before the Master after the others.” Truly, from a good root comes a good shoot."
+      "source_sha256": "f6bd19f02da6bf65",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "Instead she said: \"Go, O son, on the good road with your companions of your own age and with your friends. Do not be separated from the company. Do not appear before the Master after the others, truly.\""
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49v.s5",
-      "source_sha256": "1771f977681af1ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "The brave mother showed that she had nourished him with the teachings of the true faith even more than with milk."
+      "source_sha256": "ef91d96bc1e01805",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "From a good root comes a good shoot as well. The noble mother showed that she had nourished him with the teachings of the good faith even more than with milk."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.49v.s6",
@@ -966,24 +944,24 @@
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.50r.s2",
-      "source_sha256": "4db05868f8485d90",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 10,
-      "text": "Neither did the earth cover you, nor did heaven receive you. The gates of paradise opened—a sight worthy of the angelic hosts."
+      "source_sha256": "c6c2cffa2ec023c1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "The earth did not cover you, nor [?] did heaven receive you; the gates of paradise were opened."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.50r.s3",
-      "source_sha256": "708b6776665b4213",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 8,
-      "text": "worthy of the patriarchs, prophets, and righteous men. Men in the very flower of youth,"
+      "source_sha256": "7ac498601a7028c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "It was a sight worthy of the angelic hosts, worthy of the patriarchs, the prophets, and the righteous: men in the very flower of youth who disregarded life,"
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.50r.s4",
-      "source_sha256": "b0ca9d53f8ea6c25",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 8,
-      "text": "disregarding their lives, loving the Lord more than their parents, more than their children, bearing the [?] of life itself,"
+      "source_sha256": "113d92d35f6501e7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 11,
+      "text": "who loved the Lord more than parents and more than children, while bearing the very bloom of life."
     },
     {
       "chunk_id": "ccmh-supr/basil-in-xl-martyres#Supr.50r.s5",
