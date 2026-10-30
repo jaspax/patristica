@@ -5,12 +5,12 @@
  "anchor_cuts": "0662f71a35bb68af",
  "words": "c22a70361513b2d7",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 82, "calibration": [0.8035, 0.1371], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 83},
+ "stats": {"beads": 82, "calibration": [0.6787, 0.1743], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 83},
  "paragraphs": {
   "pta0030.pta016": {"words": "8063e07e73a4d607", "starts": [0]},
   "pta0030.pta016.1": {"words": "594f29197888a687", "starts": [0, 25, 58, 89, 115, 130, 171, 196, 223, 252, 282]},
   "pta0030.pta016.2": {"words": "6a5cb9b137cacc2a", "starts": [0, 21, 50, 75, 91, 127, 147, 163, 184, 211, 236]},
-  "pta0030.pta016.3": {"words": "3ad829f3e462f2a5", "starts": [0, 19, 35, 57, 85, 112, 135, 170, 188, 200, 236, 262, 272, 289, 316, 334, 358, 380, 403, 432]},
+  "pta0030.pta016.3": {"words": "3ad829f3e462f2a5", "starts": [0, 19, 35, 57, 85, 112, 135, 170, 188, 200, 236, 256, 272, 289, 316, 334, 358, 380, 403, 432]},
   "pta0030.pta016.4": {"words": "3c59785ead431c19", "starts": [0, 23, 48, 70, 104, 131, 151, 170, 203, 222, 242, 282, 308, 339, 370, 385]},
   "pta0030.pta016.5": {"words": "e0243ba2e51a62b7", "starts": [0, 17, 35, 56, 83, 120, 150, 182, 207, 233, 260, 301, 320, 346, 380, 395, 421]},
   "pta0030.pta016.6": {"words": "3957917f32b72b66", "starts": [0, 39, 65, 86, 112, 130, 147]}
