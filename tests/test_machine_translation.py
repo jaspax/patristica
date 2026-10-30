@@ -489,3 +489,19 @@ def test_candidate_rows_filter_sort_and_limit(tmp_path: Path):
     assert rows(sort="chars", limit=2) == ["csel/small", "cantus/hymn"]
     (r,) = mtr.candidate_rows(norm, works=["csel/big"])
     assert r["chars"] == 500 and r["requests"] == 1 and r["versions"] == []
+
+
+def test_candidates_skip_works_with_an_mt_raw_file(tmp_path: Path):
+    """A merged MT is in data/raw/mt-eng before the pipeline normalizes it (#444)."""
+    norm, raw = tmp_path / "normalized", tmp_path / "raw"
+    for w in ("csel/a", "csel/b"):
+        (norm / w).parent.mkdir(parents=True, exist_ok=True)
+        (norm / f"{w}.json").write_text(json.dumps([chunk("A.1", "Lorem ipsum.")]),
+                                        encoding="utf-8")
+    (norm / "_works.jsonl").write_text("".join(
+        json.dumps({"path": f"{w}.json", "work": work(w)}) + "\n"
+        for w in ("csel/a", "csel/b")), encoding="utf-8")
+    (raw / "mt-eng/csel").mkdir(parents=True)
+    (raw / "mt-eng/csel/a.json").write_text("{}", encoding="utf-8")
+    assert [r["work_id"] for r in mtr.candidate_rows(norm, output_dir=raw)] == ["csel/b"]
+    assert len(mtr.candidate_rows(norm)) == 2
