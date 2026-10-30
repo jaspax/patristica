@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-14": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -40,46 +46,25 @@
       "text": "There are trees in distant lands which, although we have not seen them face to face, we come to know for their beauty and sweetness by enjoying their fruit."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0002.s1",
-      "source_sha256": "6bc003298672c8ce",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0002",
+      "source_sha256": "c51b7e44a0a61cc3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Such are the victorious martyrs who have appeared in every city and region."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0002.s2",
-      "source_sha256": "b0bf1455745de455",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Although we did not accompany them to the tribunal or witness the struggle they endured for Christ, through the abundance of spiritual gifts found in their shrines we come to know their greatness and their honor before"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0002.s3",
-      "source_sha256": "735e5e664092d41c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "the Lord. Such indeed is our chosen crown-bearer, the honored victor, Saint Elias, who is the reason for your gathering today, you devout people. O victor,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0002.s4",
-      "source_sha256": "c265791712fd1d39",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Elias, radiant in both name and virtues! I see the holy declaration of our Savior fulfilled in you: “Then the righteous will shine like the sun in the kingdom of their Father.”"
+      "text": "For prize-bearing martyrs such as these, who arose in city after city and in region after region, even if we did not go"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0003",
-      "source_sha256": "de72f2d6da66e398",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "8a7e8697522f5086",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "It is."
+      "text": "with them to the tribunal, nor witness the contest that they endured for Christ,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0004",
-      "source_sha256": "457b1717a0c8fee0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7aaa6e64d9c18d6a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "But."
+      "text": "yet through the great number of gifts present in their shrines we know their greatness and their honor before the Lord."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0005",
@@ -139,10 +124,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0013",
-      "source_sha256": "ac2d8b0e73567ef2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "2218c7a4c9c2bb62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "As is the name of this saint, so too is his praise [?], as it is written in the Psalms. But the visible sun has a limit to its light."
+      "text": "According to the name, then, of this saint, honor [?] of this kind belongs to him, and his blessing also, as it is written in the Psalms."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0014",
@@ -195,17 +180,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0021",
-      "source_sha256": "232c81757f827999",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a2b340ba8aed231a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He was not one of the laborers who work the soil, nor did he eat his bread by the sweat of his face."
+      "text": "Now this man was not a laborer among those who work the land, nor"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0022",
-      "source_sha256": "4bd6753d155b7a3b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b1e496d29bf429da",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Nor."
+      "text": "did he eat his bread in the sweat of his face."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0023",
@@ -279,10 +264,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0033",
-      "source_sha256": "4fd6dbbcabe99346",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "c7ad57242f87f263",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He was [?]"
+      "text": "He was also at first a physician in a single city."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0034",
@@ -369,18 +354,11 @@
       "text": "why did he flee before the threat of a prostitute?"
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0046.s1",
-      "source_sha256": "37d7800b820ef9f4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0046",
+      "source_sha256": "3f3b645d58d8ca10",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "You too, O bearer of victory, bearer of the prize, bearer of God, and bearer of the Spirit,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0046.s2",
-      "source_sha256": "429f6789e28fb978",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "and bearer of the crown of the new covenant, the honored martyr, the trustworthy hero,"
+      "text": "You too, O victory-bearer, prize-bearer, God-bearer, Spirit-bearer and crown-bearer of the New Covenant,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0047",
@@ -412,10 +390,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0051",
-      "source_sha256": "a4672344e0a3d2c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a8e257b255153adb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Saint Elijah, you stood firm against the threats of kings."
+      "text": "[like] the holy Elijah, you stood firm against the threats of the kings, and you were not ashamed before the face of the potentates."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0052",
@@ -433,10 +411,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0054",
-      "source_sha256": "60155a22d55268b4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "1e0798b3ec81776f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "I will compare you to the wise Daniel."
+      "text": "I will compare you to the wise Daniel, for you are truly like him in warfare and in virtue [?] together."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0055",
@@ -447,10 +425,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0056",
-      "source_sha256": "762835ff651da11e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "c11aa05cde05e21b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And you, in your turn, honored athlete!"
+      "text": "And you also, O honored athlete, you did not stand firm for a single inheritance [?] with them,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0057",
@@ -482,17 +460,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0061",
-      "source_sha256": "0f0789470fe5fe9f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "f52bc614d828be36",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Rather, you proved strong in many contests. I will compare you to the beloved, learned physician Luke the Evangelist."
+      "text": "but you proved strong in many contests."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0062",
-      "source_sha256": "f1c8b1a67e96c559",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "95a25afad8eecb4b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "I will"
+      "text": "We compare [him] to the wise physician, the beloved Luke the Evangelist."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0063",
@@ -545,10 +523,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0070",
-      "source_sha256": "e639b3fac504f71d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "801b68e28fe5e927",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He shone among those who were in the darkness of idolatrous error. Those people lived in luxury, but the noble man, for his part, was kept in check through [?] God."
+      "text": "He was a giver of light in the midst of those who were in the darkness of the error of idols, and those people were living in luxury."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0071",
@@ -706,24 +684,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0093",
-      "source_sha256": "f2103450055ba30d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "28c5df94023ce42a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "The rain came upon them, and the winds blew."
+      "text": "The rain came upon them, [the winds] blew [?]"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0094",
-      "source_sha256": "2a3bb484bdc3594e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2e7029bf8641511b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "They blew."
+      "text": "the winds."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0095",
-      "source_sha256": "9ca8e626720d21bf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a310adfbf05782e5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "They battered this saint’s resolve, but they could not shake him, because he was built upon the immovable rock, Christ. Then, when the first trial had ended,"
+      "text": "They beat against the mind of this saint, but could not move him, for he was built upon the immovable rock, Christ."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0096",
@@ -804,10 +782,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0107",
-      "source_sha256": "e02a0b85c63e9165",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "9df350e45e969afa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "For the wise say:"
+      "text": "For the wise say about the nature of gold that what is tested in the furnace the first time, the second and the third is the approved gold."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0108",
@@ -818,10 +796,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0109",
-      "source_sha256": "8fc25503ef1a74ef",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "0c51385cadf31406",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "For this reason his crowns became radiant in heaven and on earth. He passed through fire and water, but the resting places spoken of by the psalmist are reserved for him."
+      "text": "Therefore his crown has become splendid in the heavens and on earth."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0110",
@@ -895,10 +873,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0120",
-      "source_sha256": "d30c4691b7cb1790",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "7f614b8526573cf8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "You are blessed now, O victorious champion!"
+      "text": "You are blessed now, O prize-bearer, and your crown is splendid."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0121",
@@ -972,10 +950,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0131",
-      "source_sha256": "6b195ead9296a654",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "db5d8a53ecbd8c5c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "In short, this holy man heals everyone, receiving grace from God, who grants him what he asks, and fulfilling the request of each person who comes to his holy martyr's shrine."
+      "text": "In short, this holy one heals everyone, having received grace before God, giving each person what he asks of him."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0132",
@@ -1035,10 +1013,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0140",
-      "source_sha256": "b3efd4ca65d92dd2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "2cc7c52398787a10",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "For this reason, fittingly,"
+      "text": "Therefore grace has fittingly arranged that the day of this wise physician should fall on the [?] of the month [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0141",
@@ -1063,10 +1041,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0144",
-      "source_sha256": "3d01f4572d1fde58",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "57fd581c20250293",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "That it is a good thing."
+      "text": "For what is good, or what is pleasant, but for brothers to be in one place, according to the word of the hymnist David,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0145",
@@ -1112,24 +1090,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0150.s2",
-      "source_sha256": "7f542965b628c0fc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "5e229e81a21b207c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "They pleaded with God night and day. Oh, what a great disgrace! We sleep with our bellies stretched out, paying no attention to the sufferings the saints endured until they became worthy of life—especially"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0150.s3",
-      "source_sha256": "1188daf17103b00b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Jesus, the Lord of the saints, who spent the night keeping watch in prayer, not for his own sake—certainly not!—but for our sake, wretched as we are, so that he might teach us the way to escape the snares"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0150.s4",
-      "source_sha256": "b40c4d30743a968c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "of the evil one. See how empty everything in this world is! What do we gain by celebrating the feasts of the martyrs who struggled against sin to the point of death because of their faith in the Son of God?"
+      "text": "praising God by night and by day."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0151",
@@ -1168,10 +1132,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0156",
-      "source_sha256": "deea29df5508dcf1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "909395f72b62f690",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "In just a little while the true farmer will come with the sieve and test his [?] to see what kind it is. He may find that it has no kernel inside—that is, deeds full of every virtue—but is merely in the form of husks. This is hypocrisy."
+      "text": "A little more time [?] ... [?] and the face [?], and test his mercy, of what kind it is [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0157",
@@ -1203,17 +1167,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0161",
-      "source_sha256": "dc93258033932940",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "ed9174fb5b41ba5f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And if he dies before repenting, he will be in the place of eternal [?]. [?] he did not seek [?]. Look at what the Lord said to his disciples when he was about to send them out to preach."
+      "text": "And if he dies before he repents, he will remain in that place forever; he will not find [?] ... he did not seek [?] ..."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0162",
-      "source_sha256": "d4aa6f2dd642d291",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2a2e64060866c8de",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Look."
+      "text": "For [he?] said [?] that there were some among his disciples who would say it in order to preach."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0163",
@@ -1230,18 +1194,11 @@
       "text": "Whoever casts the unclean spirits out of himself—that is, impure thoughts—heals his soul and his body."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0165.s1",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0165",
       "source_sha256": "a0204a214014a4ef",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "O human being, cast these passions out of your soul—that is, greed—and you will be saved from the sleepless worm in Hades."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0165.s2",
-      "source_sha256": "97995167df1be77a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Drive away from yourself the desire of the flesh that fights against the spirit, and you will not be thrown out of the heavenly dwellings."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0166",
@@ -1259,52 +1216,45 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0168",
-      "source_sha256": "1acc1f7cf455c9cf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a2f9297770fde3c6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Instead, let us imitate their courage. Let us hold firmly to their endurance."
+      "text": "But let us imitate their courage; let us hold fast"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0169",
-      "source_sha256": "bf1883826a72c471",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "faa441f823ec44e2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let"
+      "text": "to their endurance."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0170.s1",
-      "source_sha256": "0845c1f4baee36af",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0170",
+      "source_sha256": "d9b2ca98724d3911",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let us strive to match their love for God. They overcame the world and its desires"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0170.s2",
-      "source_sha256": "2a6476391ad90abe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "of every kind. As for us, let us not allow the world and its desires to overcome us. They despised the threat of torture."
+      "text": "Let us be zealous for their love toward God. Those men"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0171",
-      "source_sha256": "68c1d7bde5dca9e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "80773c181743ff13",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "[?]"
+      "text": "conquered the world and its desires of every kind. As for us,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0172",
-      "source_sha256": "ada9afc08a10e67a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "9e172ec49cbceda5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "We"
+      "text": "let us not let the world and its will conquer us. Those men"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0173",
-      "source_sha256": "68c1d7bde5dca9e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "32585e095b37c54d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "[?]"
+      "text": "despised the threat of the tortures. As for us, let us not be conquered through the deceit [?] of the devil."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0174",
@@ -1322,87 +1272,59 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0176",
-      "source_sha256": "91861121e5d529dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a9f0ee5a376d4cf6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "For this is how we will become companions."
+      "text": "For this is the way we will become companions and brothers of the saints."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0177",
-      "source_sha256": "23055b8a22f0fbf6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "64b79cfbe8e5e85d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And if we do not attain martyrdom like Saint Elijah, let us at least live in righteousness like the brothers who are with him."
+      "text": "And if we are not in a martyrdom like Saint Elias, then"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0178",
-      "source_sha256": "457b1717a0c8fee0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "259f93c132e7c14b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "But"
+      "text": "let us live in righteousness like the brothers who are beside him."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179.s1",
-      "source_sha256": "bac6391ff4303a6a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179",
+      "source_sha256": "974b821914e7df45",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "This too belongs to God's wisdom: he arranged for the bones of these ascetics to lie beside those of the martyr, so that their example would serve"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179.s2",
-      "source_sha256": "55c82c2526db6675",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "as an encouragement to everyone toward repentance. Then again, if you are living in a time of persecution, look at the one who triumphed in the persecutions,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179.s3",
-      "source_sha256": "9b165b8105ccc4e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Saint Elijah. But if, on the other hand, you are living without persecution, look at those who proved themselves through their way of life and ascetic discipline. For the ascetic life"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179.s4",
-      "source_sha256": "0359602ae20e87b8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "is a [?], no less than that of the martyrs. And to establish that this is so, I will bring you the wise apostle"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0179.s5",
-      "source_sha256": "0ef6876098370b7a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "as an advocate for this matter, when he recounted to us the faith of each of the saints."
+      "text": "This other thing too belongs to the wisdom of God: he arranged that the bones of these ascetics should lie beside those of the martyr, so that their example might become an encouragement for everyone toward repentance [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0180",
-      "source_sha256": "23172ff480c37fb0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "877e932eaaaf2504",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Then again, if you are living in a time of persecution, look at the one who triumphed in the persecutions, Saint Elijah. But if, on the other hand, you are living without persecution,"
+      "text": "Then again, if you are in a time of persecutions, here is the one who conquered in the persecutions: Saint Elias. And again,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0181",
-      "source_sha256": "2391549e61de697a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "2bf9255ce644ee41",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Again"
+      "text": "if you are without persecution, here are those who proved themselves approved in conduct and asceticism. For"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0182",
-      "source_sha256": "31179d3c65367079",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b7c7e2736a7d09b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And"
+      "text": "the life of asceticism is of equal worth, not falling short of martyrdom. And"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0183",
-      "source_sha256": "38f88ca6258b5fbf",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "1a0601e41f06542b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Therefore"
+      "text": "to show that this is so, I will bring you the wise apostle as advocate for this argument."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0184",
@@ -1413,17 +1335,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0185.s1",
-      "source_sha256": "0791b093865721a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "805cccae4f73db86",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And when he brought forward Gideon, Barak, Samson, David, and Samuel, having set out those who triumphed in the arena of martyrdom, he linked the monastic life with them,"
+      "text": "And when he had come to the midst of Gideon, Barak, Samson, David,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0185.s2",
-      "source_sha256": "87e8f36d8770ec49",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "ccd861db8ca2e91c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "saying this: “They wandered in deserts and mountains, in caves and holes in the ground, needy, oppressed, and suffering—people of whom the world was not worthy.”"
+      "text": "and Samuel, having listed those who conquered in the stadium of martyrdom, he joined to them the life of monasticism, saying thus:"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0186",
@@ -1461,60 +1383,53 @@
       "text": "For he defeated the devil when he withdrew into the wilderness."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0191.s1",
-      "source_sha256": "07329d3be130410f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0191",
+      "source_sha256": "cfef9c6ed7864a9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "And again, he established the salvation of the whole world through the victory of the cross. To those in the wilderness he gave victory"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0191.s2",
-      "source_sha256": "aec8712456698bcd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "by becoming their leader in this. And again, for those who entered the arena of martyrdom, he became a crown."
+      "text": "Again, he also established the salvation of the whole inhabited world through the victory of the cross. To those in the deserts"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0192",
-      "source_sha256": "b8c09e1add8b0fa5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b986be933b7bbd4c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "[?]"
+      "text": "he gave the crown by becoming their leader in this. Again,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0193",
-      "source_sha256": "c3070d3a860982bb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "ff76d3be339317c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Again."
+      "text": "to those who gave themselves to the stadium of martyrdom he became a crown."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0194",
-      "source_sha256": "5a6454d1e8566c40",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "7e83a7c3539b55ac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "But let us too, my brothers, follow the Lord and what belongs to the Lord. Let us confess the Lord together with the holy martyrs."
+      "text": "As for us, my brothers, let us follow the Lord and the things of the Lord. Let us confess"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0195",
-      "source_sha256": "bf1883826a72c471",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "b2649e0de04bd0ef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let [?]"
+      "text": "the Lord and the holy martyrs."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0196",
-      "source_sha256": "5a017b2df7627cf4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "a4b93cdd15b3b8ef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let us be holy for him, together with those who purified themselves for him through ascetic discipline. Let us guard our faith like the holy martyrs."
+      "text": "Let us be holy for him, like those who purified themselves for him through asceticism. Let us keep watch"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0197",
-      "source_sha256": "bf1883826a72c471",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "7151b9ebf188b18a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let [?]"
+      "text": "over our faith like the holy martyrs."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0198",
@@ -1532,24 +1447,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0200",
-      "source_sha256": "601c578cdc25c4d4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "22bbaf20ee6c4d78",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "This is what I mean: even if we cannot reach the greatness of the martyrs' struggles, let us at least be found among the company of believers. Even if we will not love God as he loved us, let us at least love one another in our own way."
+      "text": "This is what I say: even if we cannot attain to the greatness of the contests of the martyrs, yet"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0201",
-      "source_sha256": "457b1717a0c8fee0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "903d7036e7e6eb61",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "But."
+      "text": "let us at least be found in the [?] (rank?) of the faithful. Even"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0202",
-      "source_sha256": "e5dc8f258532ec8b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f4a2005d9054100d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Even if."
+      "text": "if we cannot love God as he loved us, yet let us love one another in our own way"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0203",
@@ -1601,53 +1516,32 @@
       "text": "May the Lord bless you all, from the least to the greatest, and rouse you from this negligence."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0210.s1",
-      "source_sha256": "1357eb6efc408d09",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0210",
+      "source_sha256": "e2963912854ff993",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Be sober and keep watch, because the adversary, the devil, walks about in darkness, night and day."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0210.s2",
-      "source_sha256": "a5a3c443a87071a2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "We do not see him as he seeks to swallow our souls. I beg you all: let each person examine his life, asking what he has done or what he lacks. If he has indeed sinned,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0210.s3",
-      "source_sha256": "64f3d197f1da14e9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "let him repent of what he has done. And I trust in God and in the prayers of the holy martyr, Saint Elijah, that he will forgive him."
+      "text": "and be sober and watchful, for your adversary the devil walks in the darkness of night and day, and we do not see him, as he seeks to devour our souls. I exhort"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0211",
-      "source_sha256": "779e3b04836fb46e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "f962513dd75d2989",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "I beg."
+      "text": "all of you, each one, to examine his life, to see what he has done or what he still lacks. If"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0212",
-      "source_sha256": "f57d61112c4972e1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "If"
+      "source_sha256": "4d141a86bfb5badd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "indeed he has sinned, let him repent of what he has done; and I trust in God and in the prayers of the holy martyr Saint Elias that he will forgive him."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0213.s1",
-      "source_sha256": "e51824a37aebeec7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0213",
+      "source_sha256": "2f3815c2bd8fdfae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Let us not keep putting things off day after day, lest the messenger of death overtake us and find us unprepared, and we regret it and curse the day"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0213.s2",
-      "source_sha256": "831335859ec8f270",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "on which we were born in the first place. For time has slipped from our hands, and the boat has been pulled ashore. Whatever is found inside it, whether good or bad, is what he has brought."
+      "text": "Let us not put things off from day to day, so that the messenger of death overtakes us and finds us unprepared, without having repented, and we curse the day on which we were born, in vain."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.000.0214",
@@ -1720,25 +1614,18 @@
       "text": "The glory of the church was revealed, and the idols came to an end, until two hundred and forty-six years had elapsed since the ascension of our Savior Jesus Christ the Lord."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0004.s1",
-      "source_sha256": "e7d569dacc4748a5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0004",
+      "source_sha256": "f8c274a58b10cffc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "The whole world shared one faith, worshiping one God, Jesus Christ, together with his good Father and the Holy Spirit,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0004.s2",
-      "source_sha256": "d1ac2263a33c79e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "forever and ever. Amen. Now it happened—now it happened after this long [?], this long period during which the world did not sin through idol worship."
+      "text": "while the whole world was of one faith, worshipping one God, Jesus Christ, with his good Father and the Holy Spirit, for ever and ever. Amen. Now it happened"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0005",
-      "source_sha256": "aaafe4341b82ab6f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "Now it happened"
+      "source_sha256": "7ff1cbc91449ac2f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "after this, for a long [?] a long time, in which the world did not sin by worshipping idols,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0006",
@@ -1749,17 +1636,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0007",
-      "source_sha256": "6663f1c6a6fbd397",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "cfcaf095b2dce9bb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "he conferred with those who belonged to him, saying, “What shall we do [?] so that I may draw the world to me again? For they do not listen to me.” He devised a scheme of this kind so that he might make the world turn aside as it had at first. Likewise, it is necessary for the martyrs to receive crowns."
+      "text": "he spoke with those who were his, saying: \"What shall we do? A little more and [?] the world will not turn back to me again, and they will not listen to me.\" He thought"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0008",
-      "source_sha256": "14cff6b70776c094",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 20,
-      "text": "[?]"
+      "source_sha256": "0cec1dd8f5035314",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 25,
+      "text": "of a turning of this kind, so that he might make the world turn aside as at first. Likewise it is necessary for the martyrs to receive crowns."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0009.s1",
@@ -1847,31 +1734,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0017.s1",
-      "source_sha256": "7701f7c21cd60402",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "68cc9853a53e8727",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "When he arrived, the king said to him, “Soterichus, what is this audacity you have displayed in my kingdom? You have defied my command concerning those who do not worship the gods [?],"
+      "text": "And when he came, the king said to him: \"Soterichos, what is this audacity that you have committed in my kingdom?"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0017.s2",
-      "source_sha256": "04112ed2a72fe322",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "efa92585e7f9b733",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "even though you are next after me in my kingdom!” Soterichus answered, “May I never again submit to a king of this world!"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0017.s3",
-      "source_sha256": "47a37526ae85b3d9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Instead, I will serve the true king, Christ Jesus, whose kingdom neither passes away nor comes to an end. So now, O king,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0017.s4",
-      "source_sha256": "65ebea1c4d68922b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "do not trouble me. I will not worship your abominable gods, nor will I abandon my king, Jesus.”"
+      "text": "You have opposed my command [?] concerning those who worship the gods, although after me you are the first in my kingdom.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0018",
@@ -1882,10 +1755,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0019",
-      "source_sha256": "d2ac937f359b4f76",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "34abf694b45daf30",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "So now, O king—”"
+      "text": "\"Now then, O king, do not trouble me. I will not worship your abominable gods, nor will I forsake my King Jesus.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0020",
@@ -1917,10 +1790,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0024",
-      "source_sha256": "d0cdaf8b262530b1",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "6b6ebccb2bb2bead",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "This is what I too ask of you.”"
+      "text": "\"As for me, what I ask of you is this: that you all give me your whole heart and die for the name of our Lord Jesus Christ, so that you may be enlisted [?] in the army of the angels.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0025",
@@ -1966,10 +1839,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0031",
-      "source_sha256": "2f1b23121f99225a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "5b7b6e6ad6ce3d99",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He too stretched out his head, and they cut it off."
+      "text": "And he for his part stretched out his neck, and they took off his head. And this is the way the holy Soterichos completed his martyrdom, together with his whole household and the soldiers who were with him."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0032",
@@ -1987,17 +1860,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0034",
-      "source_sha256": "e1294bfd1cecb731",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "c1ee12204965a6e3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "When Saint Soterichus was martyred, there was a soldier in the palace, thirty-three years old, whose name was Elijah. He was handsome in appearance, powerful in strength, and accomplished in every good work."
+      "text": "Now it happened, when the holy Soterichos had become a martyr, there was"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0035",
-      "source_sha256": "270cc5d4d6f417e4",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "484c03243fc24756",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "There was [?]."
+      "text": "a soldier in the palace, thirty-three years old, whose name was Elias. He was handsome in his face, mighty in his strength, and perfect in every good work."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0036",
@@ -2057,17 +1930,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0044",
-      "source_sha256": "57f05b15c7347458",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "8cb7cae009c0f012",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "The voice came to him a second time: “My chosen one, Elijah, I am not a king of the kind you imagine, who needs a physician to treat him. Open your eyes and recognize who I am. I am Jesus, the sweet fragrance of the Father’s garden."
+      "text": "The voice came to him a second time: \"My chosen one, Elias, I am not a king as you suppose, who needs a physician to heal him. Rather, open your eyes and know who I am. I"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0045",
-      "source_sha256": "0eab73d0c8db697f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "53db16b3c6779393",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "I"
+      "text": "am Jesus, the sweet fragrance of the incense of the Father. I am Jesus, the true physician, who heals every disease and cures those who are afflicted,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0046",
@@ -2127,10 +2000,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0052.s2",
-      "source_sha256": "ffc795cdac826d48",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "2dfdda957b49c70e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "of the sinner, if he turns back and repents. So I beg you, my Lord Jesus Christ, you who forgive all sinners: forgive me too for all the sins I committed when I did not know you."
+      "text": "the sinner, when he turns back and repents."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0053",
@@ -2148,10 +2021,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0055",
-      "source_sha256": "2a5789975bb8b6fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "46a4b35bcb3f104e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "am Jesus, who helps you. Truly I tell you, I will grant you my kingdom."
+      "text": "I am Jesus, who helps you. Truly I say to you, I will grant you my kingdom; for behold, I have already written your name in the book of life."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0056.s1",
@@ -2168,32 +2041,25 @@
       "text": "They will not be able to overcome you, because I am with you wherever they take you, strengthening you until you finish your struggle."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0057.s1",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0057",
       "source_sha256": "3448e636f7a6b187",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "But when the king sends for you tomorrow, do not go to him according to your [?]. He will send for you a second time, and they will compel you until they bring you to him."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0057.s2",
-      "source_sha256": "80edb9a6747f1107",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "He will rebuke you, saying, ‘Why, when I sent for you, did you not come to me quickly?’ Answer—answer him yourself without any fear, with the holy words that I will put in your mouth."
-    },
-    {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0058",
-      "source_sha256": "b00b04a7b7185864",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "73fdd30208bafd3b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "He will rebuke you, saying, ‘Why did I send for you"
+      "text": "He will ask you, 'Why did I send for you, and you did not come to me in haste?' Answer"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0059",
-      "source_sha256": "ed75bf193b7ec4ba",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
+      "source_sha256": "fbdda0cb5ca57db9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "Answer"
+      "text": "him yourself, without any fear, with the holy words that I will put into your mouth.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0060",
@@ -2211,10 +2077,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0062",
-      "source_sha256": "d704d078231169f9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
+      "source_sha256": "1337c3ea96b7d740",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 25,
-      "text": "When the Savior had said these things to him, he gave him peace and went up to heaven in glory."
+      "text": "When the Saviour had said this to him, he gave him peace and went up to heaven in glory, while the holy Elias gazed after him."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0063",
@@ -2225,10 +2091,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0064",
-      "source_sha256": "898695ba3fcfe604",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "When morning came, Saint Elijah did not go to the king’s palace."
+      "source_sha256": "38d899b7f95fbc62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "Now when it happened that the holy Elias went to the king's palace, as was his custom,"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.001.0065",
@@ -2274,24 +2140,31 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0003",
-      "source_sha256": "9c31a0379862094d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "And when they brought him to him,"
+      "source_sha256": "ebb9f3b458226973",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "and when they brought him to him, he saw that his face was very full of glory."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0004",
-      "source_sha256": "41a620dfffe6aa03",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "the king said to him, “Elijah, I love you very much. Why have you become so utterly insolent and treated me with contempt?”"
+      "source_sha256": "7871cb7698242497",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "The king said to him, \"Elias, I love you very much. Why have you become so very proud like this? You have despised me. You did not come to me, so that I had to send for you; instead you have compared me to a dead man.\""
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0005",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0005.s1",
       "source_sha256": "4031c325bf365bcb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "Saint Elijah said to him, “All the gods of the nations are silver and gold."
+    },
+    {
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0005.s2",
+      "source_sha256": "5a5a7ba7b21cf83c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "They are works of human hands. Their eyes do not see; their ears do not hear; their hands do not feel; their feet do not walk. Those who made them will become like them, and so will everyone who worships them."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0006",
@@ -2301,18 +2174,11 @@
       "text": "So look, king, you have realized that you are a murderer, insofar as you worship dead gods."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0007.s1",
-      "source_sha256": "3e680bb075d0ab0a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "My God, Jesus Christ, is a living God, and everyone who lives and believes in him will live in him. It is written this way: ‘Just as my Father is alive, and I too live because of my Father, you too will live because of me.’”"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0007.s2",
-      "source_sha256": "f4d81d0efd66e5a7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "When the king heard these things, he said, “Elijah, listen to me and worship my gods, so that you may escape great and terrible tortures.”"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0007",
+      "source_sha256": "b1f4a8988c0baa73",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "As for me, my God is Jesus Christ. He is a living God, and everyone who lives and believes in him will live in him. It is written:"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0008",
@@ -2323,10 +2189,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0009",
-      "source_sha256": "93048c1e5176d9f7",
+      "source_sha256": "f4d81d0efd66e5a7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
-      "text": "When the king heard these things,"
+      "text": "When the king heard these things, he said, “Elijah, listen to me and worship my gods, so that you may escape great and terrible tortures.”"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0010",
@@ -2400,10 +2266,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0019.s2",
-      "source_sha256": "a847d1e8f5bdaf50",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "He threw them down from their pedestals [?] with the axe in his hand. He cut their heads off their bodies, and the angel of the Lord suspended their bodies in the air in the middle of the temple."
+      "source_sha256": "dd539e1a2e9aced7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "He threw them down from their bases, and they fell; and with the axe that was in his hand he cut their heads off their bodies."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0020",
@@ -2484,10 +2350,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0030",
-      "source_sha256": "29bd1906713d9a8b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "When the king heard these things, he was deeply ashamed—or rather, he became extremely angry. He said to the priests, “You who deserve to perish by the sword! Do gods go to war without heads on them?”"
+      "source_sha256": "c282740dfa191f36",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "And when the king heard these things, he was very ashamed, but even more he became very angry. Now there was a priest [?]"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0031",
@@ -2505,10 +2371,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0032.s2",
-      "source_sha256": "c610dfe0adfcab2e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "who deceive you by saying, ‘We went to war to save you.’ We are not gods capable of waging war."
+      "source_sha256": "cc2f29ba971dfd62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "... who deceived you [?], saying, \"We went to war so that we might save you.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0033",
@@ -2518,25 +2384,18 @@
       "text": "We are not gods capable of waging war."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0034.s1",
-      "source_sha256": "52436e8cac131812",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Look, we are suspended in the middle of this [?] by the God of Saint Elijah, and we have been unable to save you. How can we save you yourself? We beg you, O king,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0034.s2",
-      "source_sha256": "d84f7f5c67409dd2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "to ask Saint Elijah to let us down so that we may be as we were.”"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0034",
+      "source_sha256": "980321e7666dec29",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "For behold, we were going up into the midst of [?] by the God of the holy Elias, and we were not able to save you [?], so how could we save you as well?"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0035",
-      "source_sha256": "ea373119268f4386",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "“We beg you, O king.”"
+      "source_sha256": "16a897aabe336d48",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "We beg you, O king, to ask the holy Elias not to throw us down, so that we do not become [?] fallen."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0036",
@@ -2568,10 +2427,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0040",
-      "source_sha256": "a3167601e53c0b3c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Saint Elijah said, “Truly, you have judged correctly."
+      "source_sha256": "6c832eddbbea9999",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "The holy Elias said, \"Truly you have judged rightly, O king.\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0041",
@@ -2602,11 +2461,18 @@
       "text": "Saint Elijah raised his eyes to heaven and prayed,"
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0045",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0045.s1",
       "source_sha256": "c93a1a5cf90f9294",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "saying, “Hear me, Jesus, the ear that hears, the eye that sees.”"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0045.s2",
+      "source_sha256": "4a4b6bf636e273b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "I beg you to make the idols fall to the ground, and [?], and let the memory of them perish from the earth."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0046",
@@ -2638,10 +2504,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0050",
-      "source_sha256": "809e4bc0aaf786ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "And you too, O king, if you continue to be ungodly—”"
+      "source_sha256": "23274e772d5d1e5c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "And you too, O king, if you remain impious, you will go to destruction like them."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0051",
@@ -2672,18 +2538,11 @@
       "text": "While the king was still sleeping that night, the devil came in to him in the shape of a great black dragon, with [?] on him, looking utterly terrifying."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0055.s1",
-      "source_sha256": "965cca77b969cdf6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "When the king saw him, he was alarmed and cried out, “Who are you, whom I see like this, in this shape"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0055.s2",
-      "source_sha256": "8c850d1ce005346c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "and this terrifying form?” The dragon answered, “I am the devil, the enemy of the Christians.”"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0055",
+      "source_sha256": "424846ac93dfb2c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "When the king saw him, he was troubled and cried out, \"Who are you, in this form, O you whom I see in this shape and this fearful appearance?\""
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0056",
@@ -2700,32 +2559,25 @@
       "text": "“Why did you let Elijah, this Christian magician, destroy your gods? Do you want to become a Christian yourself and become my enemy? If so, I will punish you severely. For look—you can see how terrifying I am!”"
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0058.s1",
-      "source_sha256": "53584fc1e77bf541",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "The king was utterly terrified. The dragon’s eyes were shooting out fire. The king said to him, “My lord, whatever you tell me, I will do. Just do not destroy me!” The devil said"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0058",
+      "source_sha256": "aaa23380d6f8f617",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "The king was greatly troubled, for the eyes of the dragon were flames of fire."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0058.s2",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0059",
+      "source_sha256": "baec17eebe36c6d6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "The king said to him, \"My lord, whatever you tell me, I will do; only do not destroy me.\" The devil said:"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0060",
       "source_sha256": "d9179aacf6b8153b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "to him, “If you will obey me, when you get up early tomorrow, have gods made for you out of gold in place of these stone ones that Elijah destroyed.”"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0059",
-      "source_sha256": "7da9d379b1abbb53",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "The king said to him, “My lord, whatever you tell me, I will do. Just do not destroy me!” The devil said to him, “If you will obey me, when you get up early tomorrow, have gods made for you out of gold.”"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0060",
-      "source_sha256": "f2b3971adad4a834",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "He said:"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0061",
@@ -2736,10 +2588,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0062",
-      "source_sha256": "7bf2cbba911f667b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "When the dragon had said these things, he had led the king’s heart astray. Then he became a flame of fire and vanished. When the king got up early, he ordered gods to be made for him out of gold in place of the stone ones, just as the devil had said."
+      "source_sha256": "beef4e9a7516ecc5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "When the dragon had said these things, he led the king's heart astray, and he became a flame of fire and flew away."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0063",
@@ -2820,10 +2672,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0074",
-      "source_sha256": "561a3371fc50c2de",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "For it is written like this: ‘Death, where is your sting?’ And the sting of death is sin.”"
+      "source_sha256": "48e5be0bec2267d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "For it is written thus: \"O death, where is your sting? The sting of death is sin.\" Therefore this is the sting of death, which you have plucked out of [the] heart [?]."
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0075",
@@ -2855,31 +2707,24 @@
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0079",
-      "source_sha256": "0ea0558c56f83c8e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Saint Elias said to him, “It is written: ‘Do not fear those who will kill your body but have no power to destroy your soul.’” When the king heard this, he ordered them to put him on an iron bed."
+      "source_sha256": "981c4a8ecc04605e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "The holy Elias said to him, \"It is written: 'Do not fear those who will kill your body; but your soul they have no power to destroy.'\" These"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0080",
-      "source_sha256": "59220714b2278fe2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "These things"
+      "source_sha256": "49ee7c7c8b09571d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "words, when the king heard them, he ordered that he be laid on a bed of bronze and that fire be burned under him for three hours, with the fire blazing beneath him."
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0081.s1",
-      "source_sha256": "04a9b019885f7577",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "They poured molten lead over his body, but he felt nothing from this other severe torture. Instead, he recited this psalm, saying:"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0081.s2",
-      "source_sha256": "d17233de5e7b6337",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "“The holy ones will boast in the glory of their honor; they will rejoice on their beds. The praises of God are in their throats, and double-edged swords are in their hands.”"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0081",
+      "source_sha256": "1a9446b5ad5b713d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "And they were pouring [?] over his body, but he did not feel these harsh tortures. But"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.002.0082",
@@ -3694,25 +3539,18 @@
       "text": "For I have heard in the Holy Scripture, ‘If God is the one fighting for us, who can oppose us?’ And again Elisha says, ‘Those fighting for us are more numerous than those opposing us.’"
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0023.s1",
-      "source_sha256": "6bfb293b56a04f8a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Now, therefore, my Lord Jesus Christ, you who rescued Elisha from the hand of the king of Syria, rescue me too from the power of these demons. May it be so.” And it happened"
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0023",
+      "source_sha256": "34019b4f4af065b6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 22,
+      "text": "\"Now therefore, my Lord Jesus Christ, who saved Elisha from the hand of the king of Syria, save me too from the hand of these demons.\" It happened"
     },
     {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0023.s2",
+      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0024",
       "source_sha256": "67af47699f959356",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
       "group_size": 25,
       "text": "that, when the blessed Elijah had finished pleading, Michael the archangel came to him, scourged all the demons, and drove them out of the mountain."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0024",
-      "source_sha256": "3a2cb6d72cf7130f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 25,
-      "text": "[?]"
     },
     {
       "chunk_id": "coptic-scriptorium/helias#CopScr.helias.004.0025",

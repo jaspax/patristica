@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-27": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -209,74 +215,11 @@
       "text": "They cried out."
     },
     {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s1",
-      "source_sha256": "3f4f5f3234dc48e6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "[?] And—and all the people stood watching him. The chief priests and the rulers sneered at him, saying,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s2",
-      "source_sha256": "2c41b68c7d3ab228",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "“He saved others. Can he not save himself, if he is God's chosen Son?” And the soldiers mocked him,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s3",
-      "source_sha256": "ac48912044bb8c94",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "having approached him with vinegar, saying, “If you are the Son of God, save yourself.” Pilate gave orders,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s4",
-      "source_sha256": "e205449753de9324",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "after the sentence, to write the charge against him on a notice, written in Hebrew, Latin, and Greek,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s5",
-      "source_sha256": "f74ea81ba75f9678",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "as the Jews had said. Now one of the robbers who had been crucified with him, whose name was Gestas,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s6",
-      "source_sha256": "cfb55c0c7b8e1459",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "said to him, “If you are the Son of God, save yourself and us too.” The other, whose name was Dismas, answered and rebuked him, saying,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s7",
-      "source_sha256": "ee7fb277191ca355",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "“Do you not fear God, since we are under the same sentence as he is? We are justly receiving what we deserve"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s8",
-      "source_sha256": "b0914015761fa466",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "for what we have done. But this man has done nothing wrong, and he deserves death."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s9",
-      "source_sha256": "7ae262c163f8e9fe",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "They brought him to this place.” Then Dismas turned again and said to Jesus, “My Lord, remember me when you come in your holy"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000.s10",
-      "source_sha256": "62a78c2c3222eace",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "and glorious kingdom.” Jesus said to him, “Truly I tell you, today you will be with me in my paradise.”"
+      "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0000",
+      "source_sha256": "56df5e928d705850",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 1,
+      "text": "[?] ...ei... [?] and the soldiers divided his garments among themselves."
     },
     {
       "chunk_id": "coptic-scriptorium/acts_pilate#CopScr.acts-pilate.001.0001",

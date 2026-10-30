@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -33,31 +39,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s2",
-      "source_sha256": "2afbeccc6ff6750b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "being hateful and hating one another, being disobedient and going astray, living in the futility of our hearts,"
+      "source_sha256": "a23de8aae394d8c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 6,
+      "text": "We were hateful, hating one another; we were disobedient, going astray, walking in the emptiness of our heart, darkened in our thoughts;"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s3",
-      "source_sha256": "ef7c5409a5d9d58b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "being darkened in our thoughts and alienated from the life of God because of the ignorance within us, because of the hardness of our hearts,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s4",
-      "source_sha256": "713146190b3c94bb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "having given ourselves over to defilement and to practicing every kind of impurity. But now, that is not how we were taught."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0000.s5",
-      "source_sha256": "b85d6d62ee34ba73",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "Instead, we were taught: “Work out your salvation with fear and trembling, for God is the one who works in you both the desire and the fulfillment of that desire.”"
+      "source_sha256": "2299a0aa9e97e60a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 6,
+      "text": "we were alienated from the life of God because of the ignorance that is in us, because of the hardness of our heart, having given ourselves over to defilement and to the practice of every uncleanness."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.000.0001",
@@ -137,69 +129,6 @@
       "text": "That is to say, we have come out of the sins of the world and left them behind. Why do we turn back again and wallow in them?"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s3",
-      "source_sha256": "e72ee2535223864b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "As he also said in this passage: “For you were once darkness, but now you are light in the Lord. Live as children of light,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s4",
-      "source_sha256": "9526336c08a2224c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "for the fruit of the light consists in all goodness, righteousness, and truth, as you discern what pleases the Lord."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s5",
-      "source_sha256": "958983a2255f6353",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "And do not take part in the fruitless works of darkness, but rather expose them. For the things they do in secret are shameful even to mention."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s6",
-      "source_sha256": "98823fae8331e493",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "But everything that is exposed by the light becomes visible, for everything that becomes visible is light.”"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s7",
-      "source_sha256": "80b81b7a89fe5a1e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "Therefore, let us also rebuke the foolishness within us and all the thoughts the devil casts into us,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s8",
-      "source_sha256": "4d10b074a3e3a323",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "along with unbelief and hatred, through which they make us think evil of one another even when we are not with one another at all,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s9",
-      "source_sha256": "39a99df67635078f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "and find fault with one another rather than with ourselves, as though our struggle were against one another and not against the rulers and authorities,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s10",
-      "source_sha256": "7c4f0dc8ec11f9e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "against the world rulers of darkness, against the spiritual forces of evil under the heavens, and not against flesh and blood."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0000.s11",
-      "source_sha256": "3e6a74f44a1c582d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
-    },
-    {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0001.s1",
       "source_sha256": "e72ee2535223864b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
@@ -240,27 +169,6 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
       "text": "and unbelief and hatred, as they make us think evil of one another, even though we are not with one another at all."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s3",
-      "source_sha256": "39a99df67635078f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "And we find fault with one another, and not with ourselves, as though our struggle were against one another and not against the rulers and authorities,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s4",
-      "source_sha256": "7c4f0dc8ec11f9e8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "against the world rulers of darkness, against the spiritual forces of evil in the heavens, and not against blood and flesh."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0003.s5",
-      "source_sha256": "3e6a74f44a1c582d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 11,
-      "text": "As the apostle said, “Take up the full armor of God, so that you may be able to stand against the devil’s schemes, for our struggle is not against flesh and blood.”"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0004.s1",
@@ -403,13 +311,6 @@
       "text": "and they are deceitful, doing every evil deed. People like these toil in vain, and no benefit will come to them. Their endurance, too, is in vain.”"
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0011.s4",
-      "source_sha256": "6b1444be34774692",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
-      "group_size": 6,
-      "text": "According to what was said: “A sieve does not fill up to produce flour.” And again, in this saying: “Sow wheat, and you will reap thorns.” Their allotted portions will not benefit them."
-    },
-    {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0012",
       "source_sha256": "6b1444be34774692",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-12",
@@ -445,27 +346,6 @@
       "text": "But the places where they know people are not keeping watch and are careless—those are the places they break into, stealing whatever they find."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s3",
-      "source_sha256": "3b8b46cdf98b767f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "Likewise, the devil does not rob someone who keeps watch and safeguards the fruits of his labor, but someone whom he finds off guard,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s4",
-      "source_sha256": "a209ed4a47f688bc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "who neither fears God nor considers how he will fall into God's hands,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0014.s5",
-      "source_sha256": "662c3e34e852e859",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "but drifts with every wind. That is the person from whom he mercilessly snatches away the good he does."
-    },
-    {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0015.s1",
       "source_sha256": "3b8b46cdf98b767f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
@@ -495,24 +375,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s2",
-      "source_sha256": "270886c6a2c079a0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "among us and among you, take courage and keep watch. Do not give sleep to our eyes or slumber to our eyelids until the Lord delivers us from every temptation of the enemy."
+      "source_sha256": "8f8b5d7941dc3ead",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 6,
+      "text": "With us, and with you also: be humble of heart and keep watch; do not give sleep to our eyes, nor let our eyelids [?] droop [?]"
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s3",
-      "source_sha256": "5b0768f2ccc07042",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "For many envy us. And do not look at brothers who are often agitated by fighting and strife and abandon their endurance, and let them cause you to stumble."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0016.s4",
-      "source_sha256": "3f8093e3590f1d45",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "But God will never allow them to cause those who love God to stumble, those whose faith in Christ is complete and who hold fast to the Spirit of God."
+      "source_sha256": "e7933fc3adec6108",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 6,
+      "text": "until the Lord rescues us from every temptation of the enemy; for those who envy us are many."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.002.0017.s1",
@@ -578,41 +451,6 @@
       "text": "Or honor, in your words and deeds, the place where you were brought up, both in the things of God and in the things of the world."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s3",
-      "source_sha256": "a2f22f0500438aa7",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "If your heart had not become corrupt, you would not have dishonored the place where you are or disgraced the brothers and sisters who are there with you. They call you by the name Aphthonia,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s4",
-      "source_sha256": "85ad59a5c7d9d8bd",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "but you envy your own self and bear malice toward yourself, wanting to destroy your soul, which the whole world is not worth,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s5",
-      "source_sha256": "76389f8013ea5fee",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "and to waste your labors in vain, because you have given Satan room within you to change your heart"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s6",
-      "source_sha256": "339a83b9e766cfbc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "and lead people astray like mad sheep. You foolish, ignorant woman, without any learning!"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0000.s7",
-      "source_sha256": "87c2dc038390a788",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "For if you had understanding, even if they really did fight with you, you ought to remain silent, recognizing what you are like within your community."
-    },
-    {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0001",
       "source_sha256": "bdd1871cd7fd4c0e",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
@@ -639,13 +477,6 @@
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
       "text": "For you have given Satan room to enter you, to change your heart and lead people astray like wandering sheep."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0002.s4",
-      "source_sha256": "fea59f882ba7df2a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 10,
-      "text": "You foolish, ignorant woman, who has no instruction! For if you had understanding, even if they really had fought with you, you ought to let people know what you are like inside your community."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0003",
@@ -774,46 +605,11 @@
       "text": "I will make your heart suffer, and I will have them deal with you according to what came out of your mouth."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s1",
+      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012",
       "source_sha256": "f6e4ca7000eb5c89",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
       "group_size": 25,
       "text": "Truly I am distressed about you—or about all of you. I fear that, just as the serpent deceived Eve by his cunning, your hearts may be corrupted and led away from the sincerity and purity that lead to Christ."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s2",
-      "source_sha256": "a0d3406a80195f9b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "If he did not leave her alone in paradise, will he spare you—or all of you—when you give him room within you and accept his deceitful schemes and evil deeds?"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s3",
-      "source_sha256": "1041a3b0b5287f1b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "For he will not be able to overcome those who fear God, those for whom Christ is a helper and protector."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s4",
-      "source_sha256": "3759dd640fd2eeeb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "As it is written, “The one who fights for you is your helper, and the sword in which you boast, and the glory of the firmament.”"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s5",
-      "source_sha256": "c44ce4bde1443088",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "Whoever loves evil is the one who will perish, and he is the one whom the devil will overcome through his soul-murdering deeds."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0012.s6",
-      "source_sha256": "c164e3872727787a",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "But the wise person who loves instruction will accept the commandment, and the discerning person who fears the Lord will acquire a guide."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.003.0013.s1",
@@ -935,20 +731,6 @@
       "text": "to do everything I have in mind to those undisciplined people and those foolish virgins who have no oil in their vessels."
     },
     {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s3",
-      "source_sha256": "ebdc8f0a1ab523bc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "For once again you turn back to those ways of provoking God and fall into the power of the sword of the evil one, who has ruined the whole world through his sins and his lawless deeds,"
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0003.s4",
-      "source_sha256": "60636484799a278b",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 25,
-      "text": "because you have loved defilement more than purity, and you have chosen death for yourselves rather than life."
-    },
-    {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0004.s1",
       "source_sha256": "ebdc8f0a1ab523bc",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
@@ -1020,24 +802,17 @@
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s1",
-      "source_sha256": "5d0bb6ab83521773",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "22489384c25e38b5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 6,
-      "text": "For you have abandoned the spring of living water and dug cracked cisterns for yourselves, as your foolish heart grew dark, while you said, “We are wise.”"
+      "text": "For you have forsaken the fountain of living water and have dug for yourselves broken cisterns, in that your senseless heart has been darkened."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s2",
-      "source_sha256": "c9905e1a473f5260",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
+      "source_sha256": "abb145d0720ffb98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 6,
-      "text": "You have become foolish, exchanging the glory of God for improper deeds. For this reason God handed you over to shameful passions, namely theft, defilement, and every kind of evil."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0009.s3",
-      "source_sha256": "66436281fa39ad72",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-15",
-      "group_size": 6,
-      "text": "For these things, every kind of punishment awaits those who do them, not only in this age but also in the other."
+      "text": "Saying, “We are wise,” you have become fools, having exchanged the glory of God for unseemly works."
     },
     {
       "chunk_id": "coptic-scriptorium/besa_letters#CopScr.besa-letters.004.0010.s1",
