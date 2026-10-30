@@ -1,0 +1,42 @@
+{
+  "work": {
+    "work_id": "mt-eng/ccmh-supr/narratio-de-milite",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Tale of the soldier",
+    "date_composed": null,
+    "date_range": [
+      885,
+      1000
+    ],
+    "date_confidence": "approximate",
+    "genre": "patristic",
+    "language": "eng",
+    "tradition": "slavonic",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://www.kielipankki.fi/download/ccmh-src/www/suprasliensis.html",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-29) of: Codex Suprasliensis, ed. S. Severjanov (1904), CCMH transliteration (Corpus Cyrillo-Methodianum Helsingiense, Kielipankki), converted to Cyrillic; text boundaries from the TOROT/obdurodon text divisions (Syntacticus treebank data, commit 525cee4); 85r–85v",
+    "translation_of": "ccmh-supr/narratio-de-milite"
+  },
+  "paragraphs": [
+    {
+      "ref": "Supr.85r",
+      "text": "[?] to beg them to deliver me from that distress, so that I might repent before God. But the two answered, saying, “You are pleading in vain, for none of those who have come here goes out or is released until the resurrection.” As I continued pleading and earnestly promising to repent, one of them said to the other, “Will you stand surety for him, that he will repent before God with all his heart?” The other angel answered, “I will stand surety.” And I seemed to see the one standing surety give him his right hand. Then, having seen this, the two brought me up to the earth, into my grave and to my body. They said to me, “Enter that from which you were separated.” And I saw my own nature like a shining pearl, but the appearance of my dead body was like muddy filth, foul-smelling and black, and I recoiled from entering it. But they said to me, “You cannot repent except in the body in which you sinned.” And as I pleaded again not to enter the body, they again said to me, “Enter your body. If so, we will take you to the place from which we brought you up. So enter, so that you may also be of benefit to others",
+      "source_sha": "223d1a42b9f0eeed"
+    },
+    {
+      "ref": "Supr.85v",
+      "text": "against whom you have sinned.” And [?] received. Then I saw myself enter through my mouth. Immediately I began to cry out and say, “Have mercy on me! Have mercy on me!” Then you brought me out. Then the great Thalassius said to him, “Eat some food.” But he would not. Instead, going from place to place to place in the church and falling on his face, he confessed to God with groaning and tears, saying, “Woe to those who sin, and to those awaiting torment! Woe to those who do not repent while they still have time! Woe to those who defile their own bodies!” After forty days, he departed pure to the Lord, having known of his death three days beforehand. Trustworthy fathers who had gone there and seen him told us these things for our benefit. To God belong glory, power, and worship, with the Father who has no beginning, and with the Son and the life-giving Spirit, now and always and forever and ever. Amen.",
+      "source_sha": "a23b18b601f9d038"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-29",
+    "original": "ccmh-supr/narratio-de-milite",
+    "original_path": "ccmh-supr/narratio-de-milite.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

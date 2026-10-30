@@ -77,6 +77,7 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
    - First: well-known, influential works, or works important within their tradition. Examples: major works of the great Fathers, conciliar acts, core liturgical texts, foundational Syriac, Coptic and Armenian authors.
    - Later: works whose English is already widely available elsewhere (in print, on the web, in standard series).
    - These two pull in opposite directions, so weigh them, and say how in the PR.
+   - **Upgrades.** A candidate with `upgrade: true` already has a readable MT, assembled from its search translations (#426), so it ranks below an important work with no English at all. Upgrade an important one when tonight has room, and say in the PR that it replaces a `search-bulk` MT. `translate` replaces it without `--update`. After merging, the pipeline needs `--accept-raw-change`; note that under "After merging" in the PR.
    - **If a public-domain English translation exists** that the library could ingest (ANF/NPNF, CCEL, Loeb out of copyright and the like), don't translate it. Comment on #341 instead (`gh issue comment 341 --body "…"`) with the work id and where that English is.
    - **Prefer clean editions.** If a work's source text is badly garbled OCR (look at a few paragraphs of its normalized file with Read), skip it and note it in the report.
    - **Prefer works that fit tonight** (`plan --chars N`), unless it is a resumed one. A very long work can span nights: the partial store keeps finished requests. Start one only when it is clearly worth it.
