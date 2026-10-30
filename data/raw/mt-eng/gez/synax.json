@@ -1,0 +1,37 @@
+{
+  "work": {
+    "work_id": "mt-eng/gez/synax",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Synaxarion",
+    "date_composed": 1400,
+    "date_range": [
+      1200,
+      1500
+    ],
+    "date_confidence": "uncertain",
+    "genre": "liturgical",
+    "language": "eng",
+    "tradition": "ethiopic",
+    "license": "cc-by-sa-4.0",
+    "provenance_url": "https://github.com/LPettay/ethiopian-bible",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-25) of: Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible",
+    "translation_of": "gez/synax"
+  },
+  "paragraphs": [
+    {
+      "ref": "Synax.1.1",
+      "text": "Commemorative notices for the month of Maskaram\n\nIntroduction for Maskaram\n\nIn the name of the Father and the Son and the Holy Spirit, one God. With the help of the Lord and his gracious gift, we begin writing the book of the Synaxarion, which means “assembly,” which our holy fathers, the teachers of the Church, copied. The honored father Abba Michael, bishop of the cities of Athribis and Melig, and the honored father Abba John, bishop of the city of Burullus. And other holy and honored fathers, who compiled this book from all the accounts of the acts of angels, apostles, prophets, martyrs, archbishops, righteous people, hermits, and monks. So that their commemorations might be celebrated and the accounts of their struggles read every day, from the first of Maskaram to the end of the year. It was compiled in the year 963 of the pure martyrs. May their prayers and blessings be with us. Amen. Beginning of the year’s washing in the river. Death of [?]. Death of [?]. Beheading of [?]. Commemoration of [?]. Commemoration of the council of Alexandria under [?]. Commemoration of [?]. Commemoration of [?], with a different version in the second recension. Commemoration of [?]. Commemoration of Abuna Liqanos (non-standard). Commemoration of [?]. Includes commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of Agatho, Peter, John, Amon, Amona, and Rafiqa. Commemoration of six companions of Basilides. Commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of the 14,730 men and seven women with [?]. Commemoration of the miracle of Michael in Phrygia. Commemoration of the birth of Mary. Commemoration of Matrona. Commemoration of Athanasia and her three daughters. Commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of [?] (non-standard). Commemoration of the council of Ephesus. Commemoration of [?] and his companions. Commemoration of a miracle of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of the transfer of [?]. Commemoration of [?]. Commemoration of the consecration of the temple in Jerusalem. Feast of the Cross. Commemoration of [?]. Commemoration of [?]. Commemoration of Mercurius. Feast of the Cross. Commemoration of Helena (non-standard). Commemoration of Anorewos (non-standard). Commemoration of Eustathius (non-standard). Commemoration of Abuna Matthew of Debre Wifat (non-standard). Commemoration of [?]. Feast of the Cross. Commemoration of [?]. Commemoration of [?]. Commemoration of [?] and [?]. Monthly commemoration of [?] (non-standard). Commemoration of [?] (non-standard). Commemoration of Abuna John of Debre Istifanos (non-standard). Commemoration of [?] and [?]. Commemoration of [?]. Commemoration of [?] and [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of Mercurius of Debre Tula (non-standard). Commemoration of Basalota Mikael (non-standard). Commemoration of [?]. Birth of [?]. Commemoration of [?]. Commemoration of [?]. Commemoration of [?] and [?]. Transfer of [?]. Commemoration of [?] and [?]. Commemoration of the miracle of the salvation of [?]. Commemoration of [?]. Closing note for Meskerem.",
+      "source_sha": "fa58fa52e7a0b615"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-25",
+    "original": "gez/synax",
+    "original_path": "gez/synax.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}
