@@ -22,7 +22,6 @@ Tradition = Literal[
     "armenian",
     "gothic",
     "slavonic",
-    "arabic",
 ]
 
 DateConfidence = Literal["established", "approximate", "uncertain"]
