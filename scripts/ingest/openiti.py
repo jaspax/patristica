@@ -5,7 +5,9 @@ Source: the Open Islamicate Texts Initiative corpus, https://github.com/OpenITI,
 one repository per 25-year AH bucket, each file pinned to a commit.
 License: CC BY-NC-SA 4.0, OpenITI's release licence
 (https://zenodo.org/records/17767721), for every text here.
-Language: arb  Tradition: arabic  Genre: patristic
+Language: arb  Genre: patristic
+Tradition: the community, not the language (owner, #83): the History is
+``coptic``; the Apology ``syriac`` (its Christian milieu is East Syriac).
 
 Works:
 
@@ -164,7 +166,8 @@ def kindi_work() -> Work:
         date_confidence="approximate",
         genre="patristic",
         language="arb",
-        tradition="arabic",
+        # the author writes from an East Syriac (Church of the East) milieu
+        tradition="syriac",
         license=LICENSE,
         provenance_url=KINDI.source_url,
         edition=(
@@ -172,7 +175,8 @@ def kindi_work() -> Work:
             "(text of syriacstudies.com, 2007), which follows A. Tien's edition "
             "(London: Turkish Mission Aid Society, 1880; reprinted 1885) with modernised "
             "spelling, abbreviated eulogies, the correspondents named in the frame story, "
-            "and the website's section headings and scripture references (marked editorial)"
+            "and the website's section headings and scripture references (marked editorial); "
+            "tradition: East Syriac milieu"
         ),
     )
 
@@ -308,7 +312,7 @@ def hop_work(part: int) -> Work:
         date_confidence="approximate",
         genre="patristic",
         language="arb",
-        tradition="arabic",
+        tradition="coptic",
         license=LICENSE,
         provenance_url=HOP.source_url,
         edition=(

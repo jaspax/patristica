@@ -58,10 +58,11 @@ from pathlib import Path
 from typing import Any
 
 from patristica import machine_translation as mt
+from patristica import translations as tr
 from patristica.corpus import load_works
 from patristica.editorial import source_text, spans_of
 from patristica.sources import source_label
-from patristica.translations import text_sha
+from patristica.translations import TRANSLATED_LANGUAGES, text_sha
 from patristica.versify import is_derived_ref
 from scripts.embed_eval.translate import MODELS, Clients, cost, limits_report
 from scripts.translate import BulkTranslation
@@ -73,6 +74,9 @@ DEFAULT_MODEL = "local-opus"
 TRANSLATORS = ("local-opus", "opus", "sol")
 # Bump when DOCUMENT_SYSTEM or the request layout changes: it is recorded with each work.
 PROMPT_VERSION = "document-2026-10-29"
+# An MT assembled from the per-chunk search translations (#426): placeholder
+# quality, so candidates still offer its work for a chapter-level translation.
+SEARCH_PROMPT_VERSION = "search-bulk"
 # Source characters per request: about a chapter. A work under it goes in one request.
 DOC_MAX_CHARS = 20000
 # Paragraphs before a request (of the same section) shown as context.
@@ -315,7 +319,8 @@ def mt_work_record(original: dict, served: str, date: str) -> dict:
 
 
 def raw_record(entry: dict, units: list[Unit], english: dict[str, str], standard: bool,
-               served: str, date: str, requests: int) -> dict:
+               served: str, date: str, requests: int,
+               prompt_version: str = PROMPT_VERSION) -> dict:
     out_units = []
     for u in units:
         text = english[u.ref].strip()
@@ -328,7 +333,7 @@ def raw_record(entry: dict, units: list[Unit], english: dict[str, str], standard
         "verses" if standard else "paragraphs": out_units,
         "machine_translation": {
             "model": served,
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": prompt_version,
             "date": date,
             "original": entry["work"]["work_id"],
             "original_path": entry["path"],
@@ -368,8 +373,10 @@ def translate_work(work_id: str, input_dir: Path, raw_dir: Path, output_dir: Pat
     if mt.is_machine_translation(work) or language == mt.ENGLISH:
         raise MachineTranslateError(f"{work_id}: already English")
     out = mt_path(output_dir, entry)
-    if out.exists() and not update:
+    if out.exists() and not update and not is_search_mt(out):
         raise MachineTranslateError(f"{out} exists: use --update to re-translate what changed")
+    if out.exists() and not update:
+        log.info("%s: replacing its MT made from search translations (#426)", work_id)
     chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
     units = units_of(chunks)
     if not units:
@@ -453,6 +460,79 @@ def translate_work(work_id: str, input_dir: Path, raw_dir: Path, output_dir: Pat
     return out
 
 
+# --- from the search translations (#426) ----------------------------------------
+
+
+def is_search_mt(path: Path) -> bool:
+    """Whether the MT raw file at *path* was assembled from search translations."""
+    try:
+        meta = json.loads(path.read_text(encoding="utf-8")).get("machine_translation") or {}
+    except (OSError, json.JSONDecodeError):
+        return False
+    return meta.get("prompt_version") == SEARCH_PROMPT_VERSION
+
+
+def from_search_translations(work_id: str, input_dir: Path, raw_dir: Path, output_dir: Path,
+                             store_dir: Path = tr.DEFAULT_DIR) -> Path:
+    """Write *work_id*'s MT from its stored search translations (``data/translations``).
+
+    The per-chunk English (``scripts.translate``) is joined back into the original's
+    paragraphs. Every paragraph with source text needs a fresh translation of all its
+    chunks, or the work is refused: an MT is all or nothing. A wholly editorial unit
+    (an added title) has no search translation and is left out. Model and date come
+    from the translations' provenance, so a re-run writes the same file.
+    """
+    entry = find_entry(input_dir, work_id)
+    work = entry["work"]
+    if work["language"] not in TRANSLATED_LANGUAGES:
+        raise MachineTranslateError(f"{work_id}: {work['language']} has no search translations")
+    out = mt_path(output_dir, entry)
+    if out.exists() and not is_search_mt(out):
+        raise MachineTranslateError(f"{out} exists and is a chapter-level MT: keep it")
+    chunks = _chunks(input_dir, entry["path"])
+    store = tr.load(store_dir, entry["path"])
+    if store is None:
+        raise MachineTranslateError(f"{work_id}: no search translations")
+    fresh = tr.fresh_translations(chunks, store_dir)
+    rows = {t.chunk_id: t for t in store.translations}
+    by_ref: dict[str, list[dict]] = {}
+    for c in chunks:
+        by_ref.setdefault(_parent_ref(c["canonical_ref"]), []).append(c)
+    units, english, missing, used = [], {}, [], set()
+    for u in units_of(chunks):
+        if u.editorial:
+            continue
+        parts = [c for c in by_ref[u.ref] if source_text(c).strip()]
+        lacking = [c["chunk_id"] for c in parts if c["chunk_id"] not in fresh]
+        if lacking:
+            missing.extend(lacking)
+            continue
+        units.append(u)
+        english[u.ref] = " ".join(fresh[c["chunk_id"]].strip() for c in parts)
+        used.update(rows[c["chunk_id"]].provenance for c in parts)
+    if missing:
+        raise MachineTranslateError(f"{work_id}: {len(missing)} chunks without a fresh search "
+                                    f"translation (e.g. {missing[0]}): run scripts.translate")
+    if not units:
+        raise MachineTranslateError(f"{work_id}: nothing translated")
+    provs = [store.provenance[k] for k in sorted(used)]
+    served = " + ".join(sorted({prov.model for prov in provs}))
+    date = max(prov.date for prov in provs)
+    standard = original_is_standard(entry, raw_dir)
+    _write_json(out, raw_record(entry, units, english, standard, served, date, 0,
+                                SEARCH_PROMPT_VERSION))
+    log.info("%s → %s (%d units from search translations by %s)", work_id, out, len(units),
+             served)
+    return out
+
+
+def search_mt_candidates(input_dir: Path) -> list[str]:
+    """Works a search-translation MT can be made for: candidates in a language with
+    search translations, in corpus order."""
+    return [c.work_id for c in mt.candidates(load_works(input_dir))
+            if c.language in TRANSLATED_LANGUAGES]
+
+
 # --- staleness ------------------------------------------------------------------
 
 
@@ -469,7 +549,11 @@ def stale(input_dir: Path, output_dir: Path) -> list[tuple[str, str]]:
             out.append((work_id, f"original {meta.get('original')!r} not in the corpus"))
             continue
         chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
-        now = {u.ref: u.sha for u in units_of(chunks)}
+        units = units_of(chunks)
+        if meta.get("prompt_version") == SEARCH_PROMPT_VERSION:
+            # Wholly editorial units have no search translation, so they aren't missing.
+            units = [u for u in units if not u.editorial]
+        now = {u.ref: u.sha for u in units}
         had = {u["ref"]: u["source_sha"] for u in record.get("verses") or record.get("paragraphs")}
         changed = [r for r in now if had.get(r) != now[r]]
         gone = [r for r in had if r not in now]
@@ -505,12 +589,21 @@ def candidate_rows(input_dir: Path, *, works: list[str] | None = None,
     A work whose MT raw file already exists under *output_dir* (``data/raw``) is left
     out: a merged MT isn't in ``data/normalized`` until the next pipeline run, and
     without this the night agent would translate it again (#444).
+
+    A work whose only MT was assembled from search translations (#426) is still a
+    candidate, with ``upgrade: true``: a chapter-level translation replaces it.
     """
+    entries = load_works(input_dir)
+    raw_root = output_dir if output_dir is not None else input_dir.parent / "raw"
+    search_mts = _search_mt_ids(entries, raw_root)
     picked = []
-    for cand in mt.candidates(load_works(input_dir)):
+    for cand in mt.candidates([e for e in entries if e["work"]["work_id"] not in search_mts]):
         if works and cand.work_id not in works:
             continue
-        if output_dir is not None and (output_dir / MT_SOURCE / cand.path).exists():
+        mt_file = raw_root / MT_SOURCE / cand.path
+        upgrade = f"{MT_SOURCE}/{cand.work_id}" in search_mts or (
+            mt_file.exists() and is_search_mt(mt_file))
+        if output_dir is not None and mt_file.exists() and not upgrade:
             continue
         if (langs and cand.language not in langs) or (genres and cand.genre not in genres):
             continue
@@ -521,15 +614,22 @@ def candidate_rows(input_dir: Path, *, works: list[str] | None = None,
         if (min_chars is not None and chars < min_chars) or \
                 (max_chars is not None and chars > max_chars):
             continue
-        picked.append((cand, units, chars))
+        picked.append((cand, units, chars, upgrade))
     if sort == "chars":
         picked.sort(key=lambda x: (x[2], x[0].work_id))
     rows = []
-    for cand, units, chars in picked[:limit]:
+    for cand, units, chars, upgrade in picked[:limit]:
         rows.append({**dataclasses.asdict(cand), "units": len(units), "chars": chars,
-                     "requests": len(make_requests(units)),
+                     "requests": len(make_requests(units)), "upgrade": upgrade,
                      "versions": [_version_info(input_dir, v) for v in cand.versions]})
     return rows
+
+
+def _search_mt_ids(entries: list[dict], raw_root: Path) -> set[str]:
+    """The MT works (in *entries*) whose raw file was assembled from search translations."""
+    return {e["work"]["work_id"] for e in entries
+            if mt.is_machine_translation(e["work"])
+            and is_search_mt(raw_root / e["path"])}
 
 
 def main() -> None:
@@ -561,6 +661,13 @@ def main() -> None:
                    help="re-translate only what changed in an existing MT")
     t.add_argument("--dry-run", action="store_true", help="report the requests only")
     sub.add_parser("stale", help="MT works whose original's text changed")
+    f = sub.add_parser("from-search", help="MT files assembled from the search translations "
+                       "(data/translations) of Syriac, Coptic, Armenian, Ge'ez and Slavonic works")
+    f.add_argument("work_id", nargs="*", help="these works (default with --all: every candidate "
+                   "in those languages)")
+    f.add_argument("--all", action="store_true", help="every candidate with search translations")
+    f.add_argument("--store", type=Path, default=tr.DEFAULT_DIR,
+                   help="the search translations (default %(default)s)")
     r = sub.add_parser("review-versions",
                        help="derived versions with no exception row in groups with no "
                             "published English: is one divergent enough to translate?")
@@ -592,6 +699,23 @@ def main() -> None:
             else:
                 print(f"{v.work_id}\t{v.language}\t{info['chars']:>9,}\t"
                       f"translation of {v.translation_of}")
+    elif args.cmd == "from-search":
+        if not args.work_id and not args.all:
+            p.error("from-search: name works, or pass --all")
+        todo = args.work_id or search_mt_candidates(args.input_dir)
+        made, refused = 0, []
+        for work_id in todo:
+            try:
+                from_search_translations(work_id, args.input_dir, raw_dir, args.output_dir,
+                                         args.store)
+                made += 1
+            except MachineTranslateError as e:
+                refused.append(str(e))
+                log.warning("%s", e)
+        log.info("%d MT files written from search translations, %d works refused", made,
+                 len(refused))
+        if refused and args.work_id:
+            raise SystemExit(1)
     elif args.cmd == "translate":
         try:
             translate_work(args.work_id, args.input_dir, raw_dir, args.output_dir,

@@ -165,10 +165,12 @@ def test_works_metadata() -> None:
     work = openiti.hop_work(3)
     assert work.work_id == "openiti/history-of-the-patriarchs-3"
     assert work.license == "cc-by-nc-sa-4.0" and work.language == "arb"
+    assert work.tradition == "coptic"  # the community, not the language
     assert openiti.HOP.commit in (work.provenance_url or "")
     assert "Patrologia Orientalis 5.1" in (work.edition or "")
     kindi = openiti.kindi_work()
     assert kindi.date_range is not None and kindi.date_range[1] <= 1050
+    assert kindi.tradition == "syriac"
 
 
 def test_cached_source_parses() -> None:

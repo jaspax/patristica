@@ -1,0 +1,47 @@
+{
+  "work": {
+    "work_id": "mt-eng/dsc/travels-of-peter",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Travels of Peter",
+    "date_composed": 550,
+    "date_range": [
+      400,
+      700
+    ],
+    "date_confidence": "uncertain",
+    "genre": "apocrypha",
+    "language": "eng",
+    "tradition": "syriac",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://syriaccorpus.org/389",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-28) of: ; TEI by J. E. Walters, Digital Syriac Corpus (syriaccorpus.org 389)",
+    "translation_of": "dsc/travels-of-peter"
+  },
+  "paragraphs": [
+    {
+      "ref": "DSC389.1",
+      "text": "In the name of the Lord, the Almighty. At that time Simon Peter entered one of the cities and found a woman there who was suffering great pain. Women were gathered around her because she was in the pains of childbirth. He saw a demon standing there, waiting for the child to be born so that he could kill him. Simon Peter said to the demon, “Accursed one, what are you doing, waiting for the child to be born so that you can kill him?” Now Simon Peter was teaching and proclaiming the seal of holy baptism and the true faith. He approached the women and said to them, “If this child lives, this household will become Christian.” When the woman who was in labor heard this, she answered Simon, “Not only will this household become Christian, but the whole city. If this child lives, we will embrace this true faith that you proclaim, and we will acknowledge your God [?].” Immediately Simon Peter prayed, and the child, who had died, came to life. The women who had gathered there cried out, saying, “We acknowledge your God, Simon, for we have been rescued from the hands of the enemy who hates humanity, and brought to the knowledge of the truth through Simon Peter.”",
+      "source_sha": "4b846fea795d3e90"
+    },
+    {
+      "ref": "DSC389.2",
+      "text": "Then Simon approached that accursed demon and said, “How long will you spread your darkness over boys and girls to destroy them?” He answered Simon, “From the day when a child is formed in his mother’s womb until [?], seven years and 140 days, for the purification of children we strike with white threads and black ones and red ones and many colors. We use tricks and schemes, and we come in the form of a man and have intercourse with the woman, and we kill the infant in her womb. If we cannot do that, we come in the form of her mother, [?] her female neighbor, or her female friend. We enter the house, approach her, and kill the infant in the womb. If we cannot succeed in this form, we come in the form of a lion, a leopard, a dog, a wolf, a spider, a scorpion, or a snake. We approach her clothing and prevent her from giving birth. If we cannot succeed in this form, we come in the form of a strand of hair in water. When she drinks without making the sign of the cross over it, we enter her womb and kill the infant inside her.",
+      "source_sha": "7fb69b15a5aba63f"
+    },
+    {
+      "ref": "DSC389.3",
+      "text": "Simon answered him, “Your darkness has no authority to approach God’s servants, who hold fast to God and take refuge in the Father, the Son, and the Holy Spirit. Instead, I will drive you as far away as east is from west and north from south, by the annunciation to Mary, by the birth of our Lord, and by the consecration of the Church, the holy one. You accursed and condemned demons have no authority to approach the servants of our Lord Jesus Christ or their children. By the amen of those above and the amen of those below, and by steadfastness: yes and amen, amen and amen.”",
+      "source_sha": "369060b680207aa9"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-28",
+    "original": "dsc/travels-of-peter",
+    "original_path": "dsc/travels-of-peter.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}
