@@ -15,7 +15,7 @@
     "tradition": "coptic",
     "license": "cc-by-sa-4.0",
     "provenance_url": "https://github.com/CopticScriptorium/corpora/tree/master/mercurius",
-    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-28) of: Coptic Scriptorium, mercurius",
+    "edition": "Machine translation (claude-opus-5-5 + gpt-6.1-sol, Patristica, 2026-10-30) of: Coptic Scriptorium, mercurius",
     "translation_of": "coptic-scriptorium/mercurius"
   },
   "paragraphs": [
@@ -1261,13 +1261,13 @@
     },
     {
       "ref": "CopScr.mercurius.001.0077",
-      "text": "Decius ordered them to untie him so that he would not die quickly, and to put him in a dark place and lock him in without delay. The soldiers, the soldiers, lifted him up, half dead, with only a little breath left in him, thinking that he would die.",
-      "source_sha": "8cb76ebcbcfc490e"
+      "text": "Decius ordered that he be taken out, so that he would not die quickly, and that they shut him up in a dark place and seal it on him at once. The soldiers",
+      "source_sha": "89864ec7fed1ed0e"
     },
     {
       "ref": "CopScr.mercurius.001.0078",
-      "text": "The soldiers lifted him up, half dead, with only a little breath left in him, thinking that he would die.",
-      "source_sha": "e37480c9d590029d"
+      "text": "then lifted him up. He was half dead, with a little breath left in him, and they thought that he would die.",
+      "source_sha": "54569bd38c8d23b3"
     },
     {
       "ref": "CopScr.mercurius.001.0079",
@@ -3161,9 +3161,9 @@
     }
   ],
   "machine_translation": {
-    "model": "gpt-6.1-sol",
+    "model": "claude-opus-5-5 + gpt-6.1-sol",
     "prompt_version": "search-bulk",
-    "date": "2026-10-28",
+    "date": "2026-10-30",
     "original": "coptic-scriptorium/mercurius",
     "original_path": "coptic-scriptorium/mercurius.json",
     "requests": 0,

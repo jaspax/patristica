@@ -15,7 +15,7 @@
     "tradition": "coptic",
     "license": "cc-by-4.0",
     "provenance_url": "https://github.com/CopticScriptorium/corpora/tree/master/shenoute-prince",
-    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-27) of: Coptic Scriptorium, shenoute-prince",
+    "edition": "Machine translation (claude-opus-5-5 + gpt-6.1-sol, Patristica, 2026-10-30) of: Coptic Scriptorium, shenoute-prince",
     "translation_of": "coptic-scriptorium/shenoute_prince"
   },
   "paragraphs": [
@@ -686,8 +686,8 @@
     },
     {
       "ref": "CopScr.shenoute-prince.001.0057",
-      "text": "For if you had power, and if it were not for Christ's help, you would not have waited. It is no victory for you that you have filled the body of that wicked corpse, if this is your power. Whom have you conquered except those whom you have struck down into every kind of unnatural act, knowingly and not in ignorance?",
-      "source_sha": "4e482544450d7465"
+      "text": "For if the power had been your own, and if it had not been the help of Christ, you would not have endured. It is not a victory of yours that you have filled your body with the pain [?] of the evil one.",
+      "source_sha": "213c128e6672929d"
     },
     {
       "ref": "CopScr.shenoute-prince.001.0058",
@@ -776,9 +776,9 @@
     }
   ],
   "machine_translation": {
-    "model": "gpt-6.1-sol",
+    "model": "claude-opus-5-5 + gpt-6.1-sol",
     "prompt_version": "search-bulk",
-    "date": "2026-10-27",
+    "date": "2026-10-30",
     "original": "coptic-scriptorium/shenoute_prince",
     "original_path": "coptic-scriptorium/shenoute_prince.json",
     "requests": 0,
