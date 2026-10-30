@@ -89,9 +89,12 @@ DIMS = 1024
 INPUT_TYPE = "document"
 PRICE_PER_MTOK = 0.12  # as scripts.embed (list price, cl100k estimate)
 #: Upper bound of what the refinement rounds send, × the translation's text
-#: tokens (measured 0.7× for NPNF's Tractates and 1.7× for a free Armenian
-#: version over two runs; design §7).
-ROUNDS_FACTOR = 2.0
+#: tokens. A round embeds only the pieces it chose that aren't cached, and a
+#: round's pieces don't overlap, so each exploring round sends at most the
+#: text once, and the final units at most once more. (Measured: 0.7× for
+#: NPNF's Tractates, 1.7× for a free Armenian version, 2.1× for a re-cut of
+#: a CCMH homily; a measured factor of 2.0 stopped that re-cut, #472.)
+ROUNDS_FACTOR = anchoring.RefineParams().max_rounds + 1
 
 #: States of an anchorable work (``check_works``).
 CURRENT = "current"

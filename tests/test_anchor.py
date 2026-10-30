@@ -571,3 +571,9 @@ def test_a_provisional_cut_inside_a_clause_keeps_the_commas_around_it() -> None:
     para = anchor_refine.Paragraph("p.1", atoms, [0, seek + 1])
     ends = [s.a1 for s in anchor_refine.segments_of([para], "eng")]
     assert seek in ends and seek + 1 in ends
+
+
+def test_the_rounds_cap_is_a_bound_not_a_measurement() -> None:
+    # Each exploring round, and the final units, send the text at most once
+    # (#472: a measured 2× stopped a re-cut).
+    assert anchor.ROUNDS_FACTOR >= anchoring.RefineParams().max_rounds + 1

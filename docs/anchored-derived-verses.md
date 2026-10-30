@@ -59,8 +59,10 @@ PR #303 (#292), which was not merged.
   of another model, size or input type count as missing, for the original
   (the work is refused) and for rows of the translation (replaced).
 - **Cost estimate and cap** (`--dry-run`, `scripts.pipeline`): per work, the
-  first embed exactly, plus 2× the translation's text tokens for the rounds
-  and final units. `scripts.anchor` enforces each work's sum as its budget, so
+  first embed exactly, plus (`max_rounds` + 1)× the translation's text tokens
+  for the rounds and final units (each round embeds only uncached pieces that
+  don't overlap, so it sends the text at most once; a measured 2× stopped a
+  re-cut, #472). `scripts.anchor` enforces each work's sum as its budget, so
   the estimate is a real upper bound (in cl100k tokens, like `scripts.embed`'s)
   and the pipeline can debit it. A work whose original is cut earlier in the
   same run is estimated too.
