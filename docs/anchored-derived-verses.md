@@ -203,7 +203,11 @@ Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
   punctuation tables), and at today's (provisional) cuts.
 - Inside a run longer than the language's verse size, the paragraph is also
   cut at commas. Inside a run longer than twice that size, it is cut between
-  words, as `split_text` does.
+  words, as `split_text` does. Runs are measured between sentence and clause
+  ends only: a provisional cut inside a clause doesn't shorten its run, or
+  the commas next to it would never be candidates and the refinement could
+  only keep that cut (a provisional cut after `"Seek,` kept the word on the
+  wrong side of its original's boundary).
 - A derived verse of the result is always a run of whole segments inside one
   source paragraph. Boundaries therefore stay at sentence and clause breaks:
   in the evaluation, 0% of refined cuts fell between words, and 10–22% fell

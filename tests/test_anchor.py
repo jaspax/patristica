@@ -558,3 +558,16 @@ def test_text_vector_originals_keep_the_method_of_existing_cut_files() -> None:
     for language in ("grc", "lat", ""):
         c = anchor.Candidate("tr/w.json", "tr/w", "eng", "orig/w", "orig/w.json", language)
         assert anchor.method_hash(c) == anchoring.params_hash() == "e26e66e4678bcee0"
+
+
+def test_a_provisional_cut_inside_a_clause_keeps_the_commas_around_it() -> None:
+    # De pythonissa: the provisional cut fell after '"Seek,'; the comma before
+    # it must stay a candidate, or the word can't move to the next verse.
+    text = ('He who said to his disciples, "Seek, and you will find," will surely '
+            'also give the power to find to those who, out of love of learning, '
+            'search as the Lord commanded and seek out the hidden mysteries.')
+    atoms = anchor_refine._atoms(text)
+    seek = next(i for i, a in enumerate(atoms) if "Seek" in a)
+    para = anchor_refine.Paragraph("p.1", atoms, [0, seek + 1])
+    ends = [s.a1 for s in anchor_refine.segments_of([para], "eng")]
+    assert seek in ends and seek + 1 in ends
