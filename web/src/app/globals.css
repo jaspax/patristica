@@ -24,7 +24,7 @@
   /* Roman capitals for the wordmark and display headings (Latin only). */
   --font-heading: var(--font-display), var(--font-serif), Georgia, serif;
   --font-body: var(--font-serif), var(--font-hebrew), var(--font-syriac), var(--font-coptic),
-    var(--font-ethiopic), var(--font-armenian), var(--font-gothic), var(--font-slavonic), Georgia,
+    var(--font-ethiopic), var(--font-armenian), var(--font-gothic), var(--font-slavonic), var(--font-arabic), Georgia,
     serif;
   color-scheme: light;
 }
@@ -142,6 +142,9 @@ main {
 }
 :lang(cu) {
   font-family: var(--font-slavonic), var(--font-slavonic-fallback), var(--font-body);
+}
+:lang(ar) {
+  font-family: var(--font-arabic), var(--font-body);
 }
 
 .visually-hidden {

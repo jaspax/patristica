@@ -44,3 +44,12 @@ describe("Church Slavonic fonts (#371)", () => {
     expect(existsSync(join(dir, "fonts/NotoSerif-OFL.txt"))).toBe(true);
   });
 });
+
+describe("Arabic font (#478)", () => {
+  it("uses Noto Naskh Arabic, then the body font", () => {
+    expect(langStack("ar")).toEqual(["var(--font-arabic)", "var(--font-body)"]);
+    const googleImports = /import \{([^}]*)\} from "next\/font\/google"/.exec(fontsTs)?.[1] ?? "";
+    expect(googleImports).toContain("Noto_Naskh_Arabic");
+    expect(fontsTs).toContain('variable: "--font-arabic"');
+  });
+});

@@ -78,7 +78,11 @@ describe("Landing", () => {
     const slavonic = within(strip).getByRole("link", { name: /слово/ });
     expect(slavonic.getAttribute("href")).toBe("/works?language=chu");
     expect(slavonic.querySelector("[lang]")?.getAttribute("lang")).toBe("cu");
-    expect(within(strip).getAllByRole("link")).toHaveLength(9);
+    const arabic = within(strip).getByRole("link", { name: /الكلمة/ });
+    expect(arabic.getAttribute("href")).toBe("/works?language=arb");
+    expect(arabic.querySelector("[lang]")?.getAttribute("lang")).toBe("ar");
+    expect(arabic.querySelector("[lang]")?.getAttribute("dir")).toBe("rtl");
+    expect(within(strip).getAllByRole("link")).toHaveLength(10);
   });
 
   it("shows the library's counts once the index loads", async () => {

@@ -6,6 +6,7 @@
 import localFont from "next/font/local";
 import {
   Cinzel,
+  Noto_Naskh_Arabic,
   Noto_Sans_Coptic,
   Noto_Sans_Gothic,
   Noto_Sans_Syriac,
@@ -65,6 +66,16 @@ const gothic = Noto_Sans_Gothic({
   preload: false,
 });
 
+// Arabic (#83, #478). Google serves Noto Naskh Arabic sliced, but its
+// "arabic" slice holds all of U+0600–06FF (letters, harakat, superscript alef
+// U+0670, alef wasla U+0671, tatweel, Arabic punctuation) and the Presentation
+// Forms, so a letter and its vowel marks always come from one file (cf. #371).
+const arabic = Noto_Naskh_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  preload: false,
+});
+
 // Church Slavonic (#330, #371): Monomakh is made for early Cyrillic
 // manuscripts and covers every Old Church Slavonic letter the sources use
 // (Cyrillic Extended-A superscript letters, Extended-B ꙇ ꙑ ꙙ ꙉ ꙁ ꙗ, the titla,
@@ -106,6 +117,7 @@ export const fontVariables = [
   ethiopic,
   armenian,
   gothic,
+  arabic,
   slavonic,
   slavonicFallback,
 ]
