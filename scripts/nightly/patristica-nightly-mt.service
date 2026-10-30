@@ -9,4 +9,7 @@ Wants=network-online.target
 Type=oneshot
 WorkingDirectory=%h/vibe-coding/patristica
 Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+# The coordinating agent's model (run.sh defaults to opus; sonnet is cheaper
+# but missed judgement steps in the pilots, #429).
+Environment=NIGHTLY_MODEL=opus
 ExecStart=%h/vibe-coding/patristica/scripts/nightly/run.sh

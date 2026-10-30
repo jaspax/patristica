@@ -38,9 +38,15 @@ if [[ "${1:-}" == "--check" ]]; then
     exit 0
 fi
 
+# The coordinating model: Opus by default, since the night's judgement calls
+# (divergent versions, data-quality issues, blocking) need it; the translating
+# itself is always Opus through local-opus. The service file can override it.
+model="${NIGHTLY_MODEL:-opus}"
+[[ "$model" =~ ^[a-z0-9.-]+$ ]] || fail "NIGHTLY_MODEL '$model' is not a model name"
+
 name="nightly-mt-$(date +%F)"
-echo "$(stamp) starting $name" >>"$log"
+echo "$(stamp) starting $name ($model)" >>"$log"
 # dontAsk: what .claude/settings.json allows runs, and everything else is
 # denied instead of waiting for a prompt nobody will answer.
-claude --bg --name "$name" --model sonnet --permission-mode dontAsk "/nightly-translate" \
+claude --bg --name "$name" --model "$model" --permission-mode dontAsk "/nightly-translate" \
     >>"$log" 2>&1 || fail "claude --bg failed (see above)"

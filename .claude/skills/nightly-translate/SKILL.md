@@ -94,6 +94,9 @@ Keep the night's curation notes in `logs/mt-curation-{date}.md` as you go: excep
 
 Let `W` be the work id, `N` its characters, `P` its normalized path (from the candidates JSON or `data/normalized/_works.jsonl`), and `S` a branch slug: `W` lower-cased with `/` and `.` replaced by `-`.
 
+0. **Before translating, two required checks.** Write both results down; they go into the PR.
+   - **English elsewhere.** Say whether a public-domain English translation exists (ANF/NPNF, CCEL, the older Loeb volumes, nineteenth-century translations and the like) and where, or that you know of none. If one exists, comment on #341 instead and skip the work (section 3.4). Also note any widely available modern English, since that lowers a work's priority.
+   - **The source.** Read a few paragraphs of `data/normalized/P` (Read, with a limit). Garbled OCR, apparatus or notes running into the text, running heads, or missing text is a data-quality issue: file it now (section 3.6) and decide whether it blocks the work.
 1. `uv run python -m scripts.nightly_budget plan --chars N`, and go on only if it fits (or for the pilot).
 2. `uv run python -m scripts.nightly_budget sample --tag before --work W --chars N`
 3. `git -C .claude/worktrees/nightly-mt switch -c mt/S origin/master`
@@ -112,18 +115,21 @@ Let `W` be the work id, `N` its characters, `P` its normalized path (from the ca
    - text drifting from the source.
 
    If it is bad, don't open a PR: say so in the report and keep the file out of git.
+
+   **Problems in the source** that you notice here (the translation's `[?]` and `…` usually point at them) are data-quality issues too. File each one before opening the PR (section 3.6), and link it in the PR. A mention in the report alone is not enough: an issue is what gets the source fixed.
 8. Commit only that file:
    ```bash
    git -C .claude/worktrees/nightly-mt add data/raw/mt-eng/P
-   git -C .claude/worktrees/nightly-mt commit -m "Machine translation: {title} ({W})" -m "Part of #422." -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+   git -C .claude/worktrees/nightly-mt commit -m "Machine translation: {title} ({W})" -m "Part of #422." -m "Co-Authored-By: Claude {model} <noreply@anthropic.com>"
    ```
+   `{model}` is the model this session runs as (`Opus 5.5`, or `Sonnet 5.5` if `NIGHTLY_MODEL` says so): the coordinator is the co-author, whatever translated the text.
 9. Push **with the explicit refspec**, never a bare branch name. `switch -c` from `origin/master` makes the branch track master, and a bare `push <url> mt/S` would target master. The hook refuses that, but don't rely on it:
    ```bash
    scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/mt/S
    ```
    - The pre-push hook runs the unit tests (about a minute). If they fail, say so in the report and leave the branch unpushed. Never use `--no-verify`.
 10. Open the PR:
-    - Fill `.github/PULL_REQUEST_TEMPLATE/machine_translation.md` into `logs/mt-pr-S.md`: why this work, the usage before and after from the samples, the time taken, and the spot-check notes.
+    - Fill `.github/PULL_REQUEST_TEMPLATE/machine_translation.md` into `logs/mt-pr-S.md`: why this work, English elsewhere (step 0), the usage before and after from the samples, the time taken, the spot-check notes, and the data-quality issues filed for it.
     - Then run:
     ```bash
     gh pr create --base master --head mt/S --label machine-translation --title "Machine translation: {title} ({author})" --body-file logs/mt-pr-S.md
@@ -145,7 +151,7 @@ Let `W` be the work id, `N` its characters, `P` its normalized path (from the ca
      gh pr create --base master --head mt-curation/{date} --label machine-translation --title "Machine-translation curation, {date}" --body-file logs/mt-pr-curation-{date}.md
      ```
 3. Clean up the worktree: `git worktree remove .claude/worktrees/nightly-mt --force`. The branches are on GitHub, and the worktree's checkout is the only thing removed.
-4. Write the report to `logs/nightly-mt-{date}.md` and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}.md`. The report has:
+4. Write the report to a new file, `logs/nightly-mt-{date}-{HHMM}.md` (`HHMM` is when tonight's run started, in UTC; a second run on the same date must not overwrite the first's report), and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}-{HHMM}.md`. The report has:
    - **Translated:** each work with its PR link, characters and time.
    - **Curation:** the curation PR link; exceptions added (or versions judged close); works blocked and unblocked.
    - **Data-quality issues** filed tonight (links), and existing ones you found.
