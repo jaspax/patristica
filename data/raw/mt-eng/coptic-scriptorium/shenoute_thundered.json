@@ -15,7 +15,7 @@
     "tradition": "coptic",
     "license": "cc-by-4.0",
     "provenance_url": "https://github.com/CopticScriptorium/corpora/tree/master/shenoute-thundered",
-    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-27) of: Coptic Scriptorium, shenoute-thundered",
+    "edition": "Machine translation (claude-opus-5-5 + gpt-6.1-sol, Patristica, 2026-10-30) of: Coptic Scriptorium, shenoute-thundered",
     "translation_of": "coptic-scriptorium/shenoute_thundered"
   },
   "paragraphs": [
@@ -61,8 +61,8 @@
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0008",
-      "text": "Faithful kings, righteous kings, have come from the offspring of the Christians from the beginning down to the present.",
-      "source_sha": "e7146ac483d8da37"
+      "text": "Some were faithful kings, some righteous kings, who came from the seed of the Christians, from the beginning until now, such as David, Solomon and Hezekiah, and all the ancient and righteous kings, and the governors who destroyed your temples and overthrew your idols. They are from among the Christians.",
+      "source_sha": "45eae7d16df5e2cb"
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0009",
@@ -116,8 +116,8 @@
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0019",
-      "text": "Because God has abandoned them.",
-      "source_sha": "3ca137ac6b0ee96c"
+      "text": "For God has set them to follow him, the true light, Jesus, who gives light to his Christian children. They have the light, believing in the light and walking in the light at all times, and the darkness has not overtaken them, as it is written.",
+      "source_sha": "4467ebc54eda5fc7"
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0020",
@@ -151,8 +151,8 @@
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0026",
-      "text": "The Lord will tear you down and will not build you up.",
-      "source_sha": "a81e564e47572461"
+      "text": "The Lord will destroy you and will not build you up [?], for [?]",
+      "source_sha": "e086454e1398ab3d"
     },
     {
       "ref": "CopScr.shenoute-thundered.000.0027",
@@ -286,9 +286,9 @@
     }
   ],
   "machine_translation": {
-    "model": "gpt-6.1-sol",
+    "model": "claude-opus-5-5 + gpt-6.1-sol",
     "prompt_version": "search-bulk",
-    "date": "2026-10-27",
+    "date": "2026-10-30",
     "original": "coptic-scriptorium/shenoute_thundered",
     "original_path": "coptic-scriptorium/shenoute_thundered.json",
     "requests": 0,
