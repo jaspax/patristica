@@ -496,12 +496,20 @@ def candidate_rows(input_dir: Path, *, works: list[str] | None = None,
                    langs: list[str] | None = None, genres: list[str] | None = None,
                    exclude_sources: list[str] | None = None, min_chars: int | None = None,
                    max_chars: int | None = None, sort: str | None = None,
-                   limit: int | None = None) -> list[dict[str, Any]]:
+                   limit: int | None = None,
+                   output_dir: Path | None = None) -> list[dict[str, Any]]:
     """The candidates as listed by ``candidates``, filtered here so the nightly agent
-    never needs shell text tools (#432). Metadata filters run before the files are read."""
+    never needs shell text tools (#432). Metadata filters run before the files are read.
+
+    A work whose MT raw file already exists under *output_dir* (``data/raw``) is left
+    out: a merged MT isn't in ``data/normalized`` until the next pipeline run, and
+    without this the night agent would translate it again (#444).
+    """
     picked = []
     for cand in mt.candidates(load_works(input_dir)):
         if works and cand.work_id not in works:
+            continue
+        if output_dir is not None and (output_dir / MT_SOURCE / cand.path).exists():
             continue
         if (langs and cand.language not in langs) or (genres and cand.genre not in genres):
             continue
@@ -565,7 +573,8 @@ def main() -> None:
         for info in candidate_rows(
                 args.input_dir, works=args.work, langs=args.lang, genres=args.genre,
                 exclude_sources=args.exclude_source, min_chars=args.min_chars,
-                max_chars=args.max_chars, sort=args.sort, limit=args.limit):
+                max_chars=args.max_chars, sort=args.sort, limit=args.limit,
+                output_dir=args.output_dir):
             if args.json:
                 print(json.dumps(info, ensure_ascii=False))
             else:
