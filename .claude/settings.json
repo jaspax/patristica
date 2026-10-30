@@ -25,7 +25,7 @@
       "Bash(git status:*)",
       "Bash(git -C .claude/worktrees/nightly-mt switch:*)",
       "Bash(git -C .claude/worktrees/nightly-mt branch --unset-upstream)",
-      "Bash(git -C .claude/worktrees/nightly-mt add data/raw/mt-eng/:*)",
+      "Bash(git -C .claude/worktrees/nightly-mt add data/raw/mt-eng/*)",
       "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv)",
       "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv)",
       "Bash(git -C .claude/worktrees/nightly-mt add patristica/data/mt_blocked.csv)",
