@@ -111,6 +111,36 @@ def test_church_slavonic_paragraph_splits_at_its_stops():
     assert 0.7 < sum(sizes) / len(sizes) < 1.5
 
 
+# The opening of the Apology of al-Kindī (OpenITI SyriacStudies00001), #83.
+KINDI = (
+    "ذكر أنه كان في زمن عبد الله المأمون رجل من نبلاء الهاشميين وأظنه من ولد العباس، "
+    "قريب القرابة من الخليفة، معروف بالنسك والورع والتمسك بدين الإسلام وشدة الإغراق فيه "
+    "والقيام بفرائضه وسننه، مشهور بذلك عند الخاصة والعامة. وكان له صديق من الفضلاء ذو أدب "
+    "وعلم، كندي الأصل مشهور بالتمسك بدين النصرانية، وكان في خدمة الخليفة وقريبا منه مكانا. "
+    "فكانا يتوادان ويتحابان ويثق كل منهما بصاحبه وبالإخلاص له. وكان أمير المؤمنين \"المأمون\" "
+    "وجماعة أصحابه والمتصلون به قد عرفوهما بذلك، وهما عبد الله بن إسماعيل الهاشمي، وعبد "
+    "المسيح بن اسحق الكندي، فكتب الهاشمي إلى الكندي هذه نسخته:"
+)
+
+
+def test_arabic_punctuation():
+    from patristica.versify import CLAUSE, COMMA, SENTENCE, _strength
+
+    assert _strength(" نسخته.", " وكان", "arb") == SENTENCE
+    assert _strength(" هذا؟", " قال", "arb") == SENTENCE
+    assert _strength(" قال؛", " لأن", "arb") == CLAUSE
+    assert _strength(" العباس،", " قريب", "arb") == COMMA
+
+
+def test_arabic_paragraph_splits_at_its_stops():
+    units = split_text(KINDI, "arb")
+    assert len(units) > 3
+    assert _squash(" ".join(units)) == _squash(KINDI)
+    assert all(u[-1] in ".،:" for u in units)
+    sizes = [count_tokens(u) / VERSE_TOKENS["arb"] for u in units]
+    assert 0.7 < sum(sizes) / len(sizes) < 1.5
+
+
 def test_deterministic():
     text = " ".join([LATIN] * 10)
     assert split_text(text, "lat") == split_text(text, "lat")

@@ -42,11 +42,16 @@ from patristica.models import Chunk
 #: Church Slavonic was measured before its first source (#330): the mean over
 #: the 3,614 verses of Codex Marianus in TOROT's Cyrillic (67.7; Zographensis
 #: 71, Psalterium Sinaiticum 56), in the Cyrillic the corpus stores.
+#: Arabic too (#83): no in-period Arabic Scripture is in the corpus, so the
+#: mean over the 3,779 Gospel verses of the Van Dyck Bible (eBible arb-vd)
+#: with its harakat removed (59.5, median 57; 108 vocalized), since the
+#: Christian Arabic sources are unvocalized.
 VERSE_TOKENS: dict[str, int] = {
     "eng": 31,
     "lat": 37,
     "got": 44,
     "chu": 68,
+    "arb": 60,
     "grc": 130,
     "syc": 155,
     "hbo": 177,
@@ -89,6 +94,8 @@ _SENTENCE_MARKS: dict[str, str] = {
     # verse), ";" the question mark as in Greek, and the multi-dot marks
     # ⁖ ⁘ ⁙ ⁛ ⁜ ⁝ end a reading or section; ჻ is used the same way in TOROT.
     "chu": ".;!?⁖⁘⁙⁛⁜⁝჻",
+    # Arabic (#83): the Arabic question mark ؟ besides the Latin stops.
+    "arb": ".!?؟",
 }
 _DEFAULT_SENTENCE_MARKS = ".!?"
 
@@ -101,6 +108,8 @@ _CLAUSE_MARKS: dict[str, str] = {
     # speech and between clauses; Zographensis), two points (CCMH ":"; the
     # Psalter's half-verse mark), two-dot marks ⁚ ⸪, and dashes.
     "chu": ":\u00b7\u0387⁚⸪—…",  # · (middle dot) and · (ano teleia)
+    # Arabic: the Arabic semicolon ؛ besides the default marks.
+    "arb": "؛;:—…",
 }
 _DEFAULT_CLAUSE_MARKS = ";:··—…"
 

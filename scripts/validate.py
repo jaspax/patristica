@@ -55,7 +55,7 @@ log = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "eng"}
+VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "eng"}
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts
 SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
@@ -78,6 +78,9 @@ SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
         (0xA640, 0xA69F),
         (0x0300, 0x036F),
     ],
+    # Arabic (#83): the Arabic block, Supplement, Extended-A and the
+    # presentation forms (folded to base letters, but some sources keep them).
+    "arb": [(0x0600, 0x06FF), (0x0750, 0x077F), (0x08A0, 0x08FF), (0xFB50, 0xFDFF), (0xFE70, 0xFEFF)],
 }
 
 _COLLECTION_TITLE_RE = re.compile(

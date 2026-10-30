@@ -11,12 +11,16 @@ describe("languageInfo", () => {
     expect(languageInfo("chu")).toEqual({ lang: "cu", name: "Church Slavonic", dir: "ltr" });
   });
 
-  it("marks Hebrew and Syriac as right-to-left", () => {
+  it("maps Arabic to ar, right-to-left", () => {
+    expect(languageInfo("arb")).toEqual({ lang: "ar", name: "Arabic", dir: "rtl" });
+  });
+
+  it("marks Hebrew, Syriac and Arabic as right-to-left", () => {
     const rtl = Object.entries(LANGUAGES)
       .filter(([, info]) => info.dir === "rtl")
       .map(([code]) => code)
       .sort();
-    expect(rtl).toEqual(["hbo", "syc"]);
+    expect(rtl).toEqual(["arb", "hbo", "syc"]);
   });
 
   it("passes unknown codes through", () => {
