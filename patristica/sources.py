@@ -38,6 +38,7 @@ SOURCE_LABELS: dict[str, str] = {
     "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",
     "didache": "Didache (Ante-Nicene Fathers)",
     "dsc": "Digital Syriac Corpus",
+    "evetts-hop-eng": "History of the Patriarchs of Alexandria (Evetts, Patrologia Orientalis)",
     "first1k": "First Thousand Years of Greek",
     "first1k-eng": "First Thousand Years of Greek (English translations)",
     "npnf-works": "Nicene and Post-Nicene Fathers",
