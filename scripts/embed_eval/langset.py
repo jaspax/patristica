@@ -47,6 +47,7 @@ from collections import Counter
 from pathlib import Path
 
 from patristica import editorial
+from patristica.embeddings import MIN_CHARS
 from patristica.textfold import fold
 from patristica.versification import to_org_ref
 from scripts.embed_eval.queries import DEFAULT_AUTHORED, Query, make_queries
@@ -159,8 +160,11 @@ def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
                  scripture_per_lang=scripture_per_lang, unique_per_lang=unique_per_lang,
                  distractors_per_lang=distractors_per_lang,
                  required=authored_targets(authored_dir))
+    # Neighbours aren't size-filtered: drop the units scripts.embed doesn't embed
+    # (wholly editorial headings are empty in source_text, and the API refuses "").
     corpus = [{k: c[k] for k in CORPUS_KEYS} | {"role": sel.roles[c["chunk_id"]]}
-              for c in chunks if c["chunk_id"] in sel.corpus_ids]
+              for c in chunks if c["chunk_id"] in sel.corpus_ids
+              and len(c["text"].strip()) >= MIN_CHARS]
     wanted = {t.chunk_id for t in sel.targets} | authored_targets(authored_dir)
     groups = {c["translation_group_id"] for c in corpus
               if c["translation_group_id"] and c["chunk_id"] in wanted}
@@ -185,7 +189,8 @@ def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
     }
     _write(out_dir, corpus, queries, stats)
     if subset_dir is not None:
-        stats["subset_chunks"] = write_subset(subset_dir, recs, chunks, sel.corpus_ids)
+        stats["subset_chunks"] = write_subset(
+            subset_dir, recs, chunks, {c["chunk_id"] for c in corpus if c["role"] != "reference"})
     if folded:
         fc = [{**c, "text": fold(c["text"])} if c["language"] == lang else c for c in corpus]
         fq = [Query(q.query_id, q.mode, fold(q.text) if q.query_lang == lang else q.text,

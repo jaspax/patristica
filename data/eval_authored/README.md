@@ -55,3 +55,21 @@ Suprasliensis sentences.
 - 198 pass, 118 corrected (the draft kept in `drafted_text`), 4 flagged for overlap with an English Bible.
 - Scripture paraphrases scored 4.91 accuracy on average, Slavonic-only 4.50.
 - Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.06.
+
+**Arabic (#483).** `arb.jsonl`: drafted by Claude on 2026-10-30 from the
+Arabic text, never from the English versions in the corpus: 100 targets,
+each with one English paraphrase and one English topical query. The targets
+are every target of the one-language set `scripts.embed_eval.langset arb`
+(seed 0), skipping none. There is no Arabic Scripture, so all of them are
+`unique`:
+- 54 from the six tertullian.org texts (`pearse-arabic`);
+- 37 from the History of the Patriarchs (`openiti`, uncorrected OCR);
+- 9 from al-Kindi's *Apology* (`openiti`).
+
+31 targets are `medium` confidence, mostly OCR-damaged History of the
+Patriarchs fragments.
+
+**Review of `arb.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-10-30).**
+- 166 pass and 34 corrected (11 paraphrases, 23 topical queries; the draft kept in `drafted_text`).
+- Paraphrase accuracy averaged 4.66 and topical relevance 4.62. Sol read 86 originals well and 14 partly.
+- Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.05.

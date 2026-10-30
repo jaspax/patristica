@@ -181,6 +181,25 @@ def test_translate_refuses_an_unenrolled_language_in_the_production_store(monkey
         st.main()
 
 
+def test_langset_drops_units_embed_skips(tmp_path):
+    """A wholly editorial neighbour is empty in source_text: not in the set (#483)."""
+    from patristica.embeddings import MIN_CHARS
+
+    root = _normalized(tmp_path)
+    path = root / "ccmh-supr/vita.json"
+    chunks = json.loads(path.read_text(encoding="utf-8"))
+    for c in chunks[1::2]:
+        c["text"], c["editorial"] = "[глава]", [[0, 7, "heading"]]
+    path.write_text(json.dumps(chunks, ensure_ascii=False), encoding="utf-8")
+    out = tmp_path / "eval" / "chu"
+    stats = langset.build(root, "chu", out, scripture_per_lang=3, unique_per_lang=4,
+                          distractors_per_lang=5, authored_dir=tmp_path,
+                          subset_dir=tmp_path / "subset")
+    rows = [json.loads(line) for line in (out / "corpus.jsonl").open()]
+    assert rows and all(len(c["text"].strip()) >= MIN_CHARS for c in rows)
+    assert stats["subset_chunks"] == sum(c["role"] != "reference" for c in rows)
+
+
 def test_langset_is_deterministic(tmp_path):
     root = _normalized(tmp_path)
     a = langset.build(root, "chu", tmp_path / "a", scripture_per_lang=3, unique_per_lang=4,
