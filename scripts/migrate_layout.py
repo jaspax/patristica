@@ -122,6 +122,7 @@ NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "c
 NEW_SOURCES |= {"mt-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
+NEW_SOURCES |= {"evetts-hop-eng"}   # #481
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
