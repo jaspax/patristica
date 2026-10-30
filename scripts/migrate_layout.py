@@ -120,6 +120,8 @@ NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "c
                 "ccmh-supr", "demetrius-psalter", "torot"}
 # Machine translations (#422).
 NEW_SOURCES |= {"mt-eng"}
+# Christian Arabic (#83): Roger Pearse's tertullian.org texts (#479).
+NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
