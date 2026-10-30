@@ -1,0 +1,32 @@
+name: CI · Web image
+
+# One of the per-area CI workflows (#435; the list is in ci-python.yml): it runs
+# only on PRs that touch the paths below. workflow_dispatch checks master.
+on:
+  pull_request:
+    paths:
+      - "web/Dockerfile"
+      - "web/.dockerignore"
+      - "web/package.json"
+      - "web/package-lock.json"
+      - "web/next.config.ts"
+      - "infra/compose/**"
+      - ".github/workflows/ci-web-image.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # The image the droplet runs (#132). Built only when its inputs change: a code
+  # change in web/ is checked by npm run build in ci-web.yml (#435).
+  web-image:
+    name: Web image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: docker compose build web
+        working-directory: infra/compose
+        run: cp .env.local.example .env && docker compose build web

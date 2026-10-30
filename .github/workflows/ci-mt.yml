@@ -1,0 +1,35 @@
+name: CI · Machine translations
+
+# One of the per-area CI workflows (#435; the list is in ci-python.yml): it runs
+# only on PRs that touch the paths below. workflow_dispatch checks master.
+on:
+  pull_request:
+    paths:
+      - "data/raw/mt-eng/**"
+      - ".github/workflows/ci-mt.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # PRs of the nightly runner (#425) add one data/raw/mt-eng file each, a plain
+  # git file; only tests/test_machine_translation.py reads them. No Postgres and
+  # no LFS pull, so a run fits in one billed minute (#435). ci-python.yml leaves
+  # these paths out, and runs as well when a PR changes anything else.
+  mt:
+    name: Machine translations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked --extra dev
+
+      - name: Test the machine translations
+        run: uv run pytest tests/test_machine_translation.py

@@ -61,7 +61,7 @@ The Next.js app (`web/`, #132) runs as the `web` service, built from `web/Docker
 - `NEXT_PUBLIC_LIBRARY_URL` is inlined into the client bundle at build time, so it is a build argument (`LIBRARY_URL` in the host `.env`, from `infra/tofu.sh output -raw library_url`), not a runtime setting. Changing it means rebuilding the image, which `infra/deploy.sh` does.
 - The hostnames are `WEB_DOMAIN` (default `patristica.app`) and `WWW_DOMAIN` (`www.` + it) in the host `.env`, written by `infra/deploy.sh`. Locally they are `http://localhost` and `http://www.localhost` (`.env.local.example`).
 - The image is built on the droplet during `docker compose up --build`, like the API's. Docker's layer cache keeps a deploy without dependency changes to the `next build` step.
-- There are no preview deploys: PRs are checked by CI only (lint, typecheck, tests, build, and a build of the image).
+- There are no preview deploys: PRs are checked by CI only (lint, typecheck, tests, build, and a build of the image when its inputs change).
 
 ## Deploy workflow
 
