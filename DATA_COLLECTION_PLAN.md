@@ -130,6 +130,19 @@ The canonical Old Church Slavonic texts and their contemporaries, from the surve
 
 Out of period: the Uspenskij sbornik (Boris and Gleb, Life of Feodosij), the Primary Chronicle and the other Old East Slavic (`orv`) TOROT texts. Not usable: TITUS (copyright notices), Gorazd and the Russian National Corpus (dictionary / no redistribution). Not found yet (Clozianus, the full Euchologium, Ostromir, the Hexaemeron, the Didactic Gospel, Clement of Ohrid, Hilarion, the Izbornik of 1073): #331.
 
+#### 3.5 Christian Arabic (planned, #83)
+
+From the survey on #83 (2026-10-30). Language `arb` (BCP 47 `ar`), tradition `arabic` for every confession (Melkite, Syriac Orthodox, East Syriac, Coptic; the confession is in the author index's note). The language plumbing is #478; the decision record is on #83. There is no Arabic in any source already cloned, and little in-period Christian Arabic exists as digital text with a usable licence; most of it is in public-domain printed editions that need OCR. Source ids are provisional until each ingest PR.
+
+| Source | Works | Format | License | Issue |
+|--------|-------|--------|---------|-------|
+| tertullian.org (Roger Pearse; Arabic transcriptions with Sam Noble's English) | Yaḥyā ibn ʿAdī, three treatises (Sbath 15–17); Abū al-Faraj ibn al-Ṭayyib, *On knowledge and miracles* (Sbath 19); Severus ibn al-Muqaffaʿ, *Book of the Councils* (Cairo fragment); Abū al-Majdalus, *Commentary on the Nicene Creed* (if not positively after 1050) | HTML, unvocalized Arabic beside English | Public domain (Arabic and English) | #479 |
+| OpenITI (corpus release) | *Apology of al-Kindī* (Hāshimī letter and Kindī's reply; clean transcription); Yaḥyā of Antioch, *Tārīkh* (PO 18.5, uncorrected Kraken OCR); *History of the Patriarchs of Alexandria* parts 1–4 to Joseph I (Evetts, PO 1, 5, 10; Kraken OCR, hybrid, dated per life). The OCR files interleave the PO translation pages; only the Arabic pages are kept | OpenITI mARkdown text | CC BY-NC-SA 4.0 | #480 |
+| Evetts's English *History of the Patriarchs* (PO 1, 5, 10; archive.org OCR text) | English translation of the HoP parts above, `translation_of` the Arabic | OCR text | Public domain | #481 |
+| Public-domain printed editions (OCR, waits for the owner) | Eutychius, *Annales* (Cheikho 1906–09); Agapius, *Kitāb al-ʿUnwān* (Vasiliev, PO 5/7/8); Theodore Abū Qurrah (Bacha 1904–05; Arendzen 1897); Sinai Ar. 154 and 151 (Gibson, *Studia Sinaitica*); Cheikho, *Seize traités*; the Arabic Diatessaron (Ciasca 1888); the Arabic apocrypha of #80; the Copto-Arabic Synaxarium (#7) | Page images | Public domain | #482 |
+
+Excluded: modern critical editions (CSCO after 1950, later PO volumes, Samir's editions, Badawi's Orosius, Tadmuri's Yaḥyā of Antioch: in copyright); OpenITI's Greek medicine and logic in translation (Ḥunayn, Qusṭā ibn Lūqā, …: not Christian writings); PAVONe and the Arabic Diatessaron Project (no licence or no public data). Retrieval quality and the translation-vector decision: #483.
+
 ---
 
 ### Tier 2 — Downloadable but less structured; require significant parsing
@@ -340,6 +353,7 @@ All text stored as Unicode (UTF-8). Source-specific conversions required:
 | CCMH ASCII transliteration (Church Slavonic, #29) | `scripts/ingest/_ccmh.py`: one `Table` per text, from its `.html` page (`a`→а, `&`→ъ, `$`→ь, `@`→ѣ, `E`/`O`→ѧ/ѫ, Glagolitic `u`→оу but Cyrillic `u`→ѹ, `*` capital, `!word` titlo over the second letter, `!` inside a word a superscript letter + pokrytie, `'` paerok → ꙿ, `::`→⁘, `:.`→⁖, `:-`→⁛; Savvina writes jat as `"e`). Edition signs become editorial spans (#236): `[…]` and Zogr-B `<…>` supplements, `=…=` (later hand) supplement, `{…}` (dittography) note, `?` and `-` lacuna, the scribes' lection marks (кⷰ҇ "end", заⷱ҇ "beginning") metadata; CCMH's `%` check marks are dropped. Checked against TOROT's Cyrillic of the same files: base letters agree on 94.4% of 3,613 Marianus verses and 93.0% of 761 Zographensis verses (the rest are TOROT's corrections and expansions); marks agree except titlo placement (TOROT: first letter) and the Zographensis dasia and breves TOROT drops |
 | Glagolitic (any Slavonic source) | `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()` (U+2C00–2C5F, combining U+1E000–1E02F; yer + i → ꙑ). TOROT's Suprasliensis has ~1,300 Glagolitic letters for Cyrillic ones (ⱕ for ѧ) |
 | TOROT PROIEL XML (Church Slavonic) | Join tokens as presentation-before + form + presentation-after. In Marianus about a fifth of the stops have no space after them (`г҃лѧ.азъ`); put one back, since derived verses only break between words |
+| Arabic (any source, #83) | Stored as the source gives it, unvocalized where it is (every selected source is), in the base Arabic block; presentation forms are not converted at ingest (`fold()` maps them for search). Keyword folding (`patristica/textfold.py`, #478): harakat and tatweel dropped, أ/إ/آ/ٱ → ا, ى → ي (Christian and Egyptian printing writes الذى), OCR's Persian ی/ک → ي/ك; ة and ه kept apart (كتابة ≠ كتابه). Garshuni (Arabic in Syriac script) is decided when a source has it |
 | Born-digital PDF edition (Psalter of Demetrius, #337) | pdfplumber characters with positions: lines from baselines; margins, folio and line numbers and the apparatus dropped by position; the font's Private Use Area letters (и, ч, ѥ, ѧ, the titlo, …) mapped; line-end hyphens joined; half-verses (`13a`, `13b`) joined into verses; a few verses completed in the margin corrected by hand |
 
 ---
