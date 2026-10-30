@@ -1,0 +1,58 @@
+# History of the Patriarchs of Alexandria (OpenITI Kraken OCR of Evetts, PO 1, 5, 10): where each patriarch's life starts (#480).
+# number: the patriarch's place in the Coptic succession, the section number of his life (refs {number}.{unit}).
+# part: Evetts's part (= the work, openiti/history-of-the-patriarchs-{part}); name: his English name, as in Evetts where they agree.
+# marker: text of the cleaned OCR line that carries the life's heading (the Arabic "he is the N-th of the number"); it must occur in exactly one line of the part.
+# back: lines before the marker line that belong to the heading (the name line, a "السيرة …" chapter line); extra: lines after it.
+number,part,name,marker,back,extra
+1,1,Mark,السيرة الاولى من سير البيعة المقدسة سيرة مارى مرقس,1,1
+2,1,Anianus,انيانوس البطرك وهو الثانى من العدد,1,0
+3,1,Avilius,مليانوس البطرك وهو الثالث من العدد,0,0
+4,1,Cerdo,كردنوس البطرك وهو الرابع من العدد,0,0
+5,1,Primus,ابريموس البطرك وهو الخامس من العدد,0,0
+6,1,Justus,يسطس البطرك وهو السادس فى العدد,0,0
+7,1,Eumenes,اومانيوس البطرك وهو السابع من عدد الاباء,0,0
+8,1,Marcianus,مرقيانوس البطرك وهو التامن من عدد الاباء,0,0
+9,1,Celadion,كلاديانوس البطرك وهو التاسع من عدد الآباء,0,0
+10,1,Agrippinus,البطرك وهو العاشر من العدد,0,0
+11,1,Julian,يوليانوس البطرك وهو الحادى عشر من العدد,0,0
+12,1,Demetrius I,ديمتريوس البطرك وهو من العدد الثانى عشر,0,0
+13,1,Heraclas,البطرك وهو من العدد الثالث عشر,1,0
+14,1,Dionysius,ديونوسيوس البطرك الحكيم وهو الرابع عشر من العدد,1,0
+15,1,Maximus,مكيموس البطرك وهو من العدد الخامس عشر,0,0
+16,1,Theonas,ثاونا البطرك وهو من العدد السادس عشر,0,0
+17,2,Peter I,وهو السابع عشر من العدد,1,0
+18,2,Achillas,وهو من العدد الثامن عشر,1,0
+19,2,Alexander I,وهو التاسع عشر من العدد,2,0
+20,2,Athanasius I,وهو من عدد الاباء العشرون,2,0
+21,2,Peter II,وهو من العدد الحادى والعشرون,2,0
+22,2,Timothy I,وهو من عدد الاباء الثانى والعشرون,2,0
+23,2,Theophilus,وهو من عدد الاباء الثالث والعشرون,2,0
+24,2,Cyril I,وهو من العدد الرابع والعشرون,2,0
+25,2,Dioscorus I,وهو من العدد الخامس والعشرون,2,0
+26,2,Timothy II,وهو من العدد السادس والعشرون,1,0
+27,2,Peter III,وهو من العدد السابع والعشرون,1,0
+28,2,Athanasius II,وهو من العدد الثامن والعشرون,1,0
+29,2,John I,وهو من العدد التاسع والعشرون,0,0
+30,2,John II,وهو من العدد الثلثون,1,0
+31,2,Dioscorus II,وهو الحادى والثلثون من العدد,1,0
+32,2,Timothy III,وهو من العدد الثانى والثلثون,1,0
+33,2,Theodosius I,وهو من العدد الثالث والثلثون,1,0
+34,2,Peter IV,وهو من العدد الرابع والثلثون,2,0
+35,2,Damian,وهو فى العدد الخامس والثلثون,1,0
+36,2,Anastasius,وهو من عدد الاباء السادس والثلثون,1,0
+37,2,Andronicus,وهو السابع والثلثون من العدد,1,0
+38,2,Benjamin I,وهو الثامن والثلثون من العدد,1,0
+39,3,Agathon,وهو من العدد التاسع والثلثون,3,0
+40,3,John III,وهو الاربعون من عدد الاباء,1,0
+41,3,Isaac,اسحق البطرك وهو فى العدد الحادى والاربعون,1,0
+42,3,Simon I,وهو من العدد الثانى والاربعون,1,0
+43,3,Alexander II,الاكسندروس البطرك وهو من العدد الثالث,0,0
+44,3,Cosmas I,وهو من عدد الاباء الرابع والاربعون,1,0
+45,3,Theodore I,وهو من العدد الخامس والاربعون,1,0
+46,3,Michael I,وهو من العدد السادس ولاربعون,2,0
+47,4,Mennas I,وهو السابع والارعون من العدد,1,0
+48,4,John IV,وهو من العدد الثامن والارعون,0,0
+49,4,Mark II,وهو من عدد الاباء التاسع والاربعون,0,0
+50,4,James,وهو من العدد الخس,1,0
+51,4,Simon II,وهو من العدد الحادى والخمسون,1,0
+52,4,Joseph I,وهو من العدد الثانى والخمسون,1,0

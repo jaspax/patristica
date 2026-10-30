@@ -44,6 +44,7 @@ SOURCE_LABELS: dict[str, str] = {
     "ocp": "Online Critical Pseudepigrapha",
     "oglt-pl": "Patrologia Latina (Open Greek and Latin)",
     "ogpg": "Patrologia Graeca (Open Greek and Latin)",
+    "openiti": "OpenITI (Open Islamicate Texts Initiative)",
     "perseus": "Perseus Digital Library",
     "perseus-eng": "Perseus Digital Library (English translations)",
     "pta": "Patristic Text Archive",
