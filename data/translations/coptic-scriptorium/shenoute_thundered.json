@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -94,11 +100,18 @@
       "text": "Unbelieving and ungodly kings have come from your offspring from the beginning, like Gog and Og and those like them, and King Herod, whom the Lord regarded as a fox, just like you yourselves."
     },
     {
-      "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0008",
-      "source_sha256": "e7146ac483d8da37",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 24,
-      "text": "Faithful kings, righteous kings, have come from the offspring of the Christians from the beginning down to the present."
+      "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0008.s1",
+      "source_sha256": "45c72430f2874a5d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 4,
+      "text": "Some were faithful kings, some righteous kings, who came from the seed of the Christians, from the beginning until now, such as David, Solomon and Hezekiah,"
+    },
+    {
+      "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0008.s2",
+      "source_sha256": "58f25dd1c27dcb7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 4,
+      "text": "and all the ancient and righteous kings, and the governors who destroyed your temples and overthrew your idols. They are from among the Christians."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0009.s1",
@@ -207,10 +220,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0019",
-      "source_sha256": "3ca137ac6b0ee96c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 21,
-      "text": "Because God has abandoned them."
+      "source_sha256": "4467ebc54eda5fc7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 4,
+      "text": "For God has set them to follow him, the true light, Jesus, who gives light to his Christian children. They have the light, believing in the light and walking in the light at all times, and the darkness has not overtaken them, as it is written."
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0020",
@@ -256,10 +269,10 @@
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0026",
-      "source_sha256": "a81e564e47572461",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-14",
-      "group_size": 21,
-      "text": "The Lord will tear you down and will not build you up."
+      "source_sha256": "e086454e1398ab3d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 4,
+      "text": "The Lord will destroy you and will not build you up [?], for [?]"
     },
     {
       "chunk_id": "coptic-scriptorium/shenoute_thundered#CopScr.shenoute-thundered.000.0027",
