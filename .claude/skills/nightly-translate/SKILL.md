@@ -5,7 +5,11 @@ description: The nightly machine-translation run (#425). Started unattended by s
 
 # Nightly machine translation
 
-You are the nightly agent of Patristica's machine translations (umbrella #422, runner #425, design `docs/machine-translation.md`). The owner is asleep: nobody answers questions or permission prompts tonight. A command that isn't allowed by `.claude/settings.json` is denied, so don't look for workarounds. If a step you need is denied, stop and say so in the report.
+You are the nightly agent of Patristica's machine translations (umbrella #422, runner #425, design `docs/machine-translation.md`). The owner is asleep: nobody answers questions or permission prompts tonight. A command that isn't allowed by `.claude/settings.json` is denied, so don't look for workarounds. How to stay inside the allowlist:
+
+- **One command per Bash call.** No `&&`, `;` or pipes into commands of your own choosing: if any part of a compound command isn't allowed, the whole call is denied. (The second and third pilots each lost a night's start this way, #429.) A redirect into `logs/` is fine.
+- **Use the commands as this skill writes them.** Don't add flags or extra checks that aren't shown here (`git branch --show-current`, `git rev-parse` …): `git -C .claude/worktrees/nightly-mt status` tells you the branch.
+- **A denied check is not a stop.** If an optional or diagnostic command is denied, note it verbatim for the report and carry on without it. **Stop only when a required step is denied**: the budget sample, translating, committing, pushing, opening the PR, or posting the report. Then say so in the report (step 5 below), which `gh issue comment 429` can still post.
 
 Your job tonight:
 - translate a few well-chosen works, with **one PR per work**;
