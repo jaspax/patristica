@@ -1,0 +1,67 @@
+{
+  "work": {
+    "work_id": "mt-eng/gez/lef",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Lefafa Sedq",
+    "date_composed": 500,
+    "date_range": [
+      400,
+      800
+    ],
+    "date_confidence": "uncertain",
+    "genre": "liturgical",
+    "language": "eng",
+    "tradition": "ethiopic",
+    "license": "cc-by-sa-4.0",
+    "provenance_url": "https://github.com/LPettay/ethiopian-bible",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-14) of: Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible",
+    "translation_of": "gez/lef"
+  },
+  "verses": [
+    {
+      "ref": "Lef.1.1",
+      "text": "First Prayer",
+      "source_sha": "16822341e2c9f942"
+    },
+    {
+      "ref": "Lef.2.1",
+      "text": "Second Prayer",
+      "source_sha": "beda03b510a87b2c"
+    },
+    {
+      "ref": "Lef.3.1",
+      "text": "Third Prayer",
+      "source_sha": "00ba99bcd81e5a63"
+    },
+    {
+      "ref": "Lef.4.1",
+      "text": "Fourth Prayer",
+      "source_sha": "dd4c4b16442102e9"
+    },
+    {
+      "ref": "Lef.5.1",
+      "text": "Fifth Prayer",
+      "source_sha": "00407f9cae7f7463"
+    },
+    {
+      "ref": "Lef.6.1",
+      "text": "Sixth Prayer",
+      "source_sha": "66cf27dae6bdfcba"
+    },
+    {
+      "ref": "Lef.7.1",
+      "text": "Seventh Prayer",
+      "source_sha": "c3667985666ca50f"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-14",
+    "original": "gez/lef",
+    "original_path": "gez/lef.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

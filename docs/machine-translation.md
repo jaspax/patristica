@@ -64,6 +64,14 @@ The default translator is `local-opus`, Claude Opus through `claude -p` on the s
 
 **Staleness.** When an original's text changes, `scripts.machine_translate stale` lists the MT works whose paragraphs no longer match, and `translate WORK_ID --update` re-translates only the requests with a changed paragraph. A change that only moves derived verses doesn't make an MT stale, since its units are paragraphs.
 
+**From the search translations (#426).** Syriac, Coptic, Armenian, Ge'ez and Church Slavonic units already have English search translations (`data/translations`, `scripts.translate`). `scripts.machine_translate from-search --all` (or `from-search WORK…`) turns them into MT works right away, at no cost:
+- The per-chunk English is joined back into the original's paragraphs, and the result is an ordinary `mt-eng` raw file with prompt version `search-bulk`. Model and date come from the translations' provenance, so a re-run writes the same file.
+- A work is all or nothing: every paragraph needs a fresh translation of all its chunks. Wholly editorial units (added titles) have no search translation and are left out, which `stale` allows for these files.
+- It never replaces a chapter-level MT.
+- They read less fluently than a chapter-level MT, since each unit was translated for search with little context. So `candidates` still lists their works, marked `upgrade: true`, and `translate` replaces such a file without `--update`. The night agent upgrades them by judgement (see the skill).
+
+**After merging an MT that replaced an existing raw file** (an upgrade, or `--update`), normalize refuses the changed raw file until it is accepted: run the pipeline with `--accept-raw-change`.
+
 ## Through the pipeline
 
 An MT PR adds only the raw file, so it needs no issue (CLAUDE.md, "Branches and pull requests"). The next `scripts.pipeline` run takes it like any new work:
