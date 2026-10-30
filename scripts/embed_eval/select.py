@@ -42,10 +42,26 @@ EXCLUDED_UNIQUE_WORKS: dict[str, str] = {
 # unique; 1 Enoch is left out (Greek and Coptic fragments exist), as are the
 # works with open cleanup issues (#23, #24, #39), the mislabelled 2 Kings (#66),
 # and "Apocalypse of Ezra" (really 1 Esdras) and Testament of Our Lord (#76).
+#
+# Arabic (#483): every Arabic work is an original and most have an English
+# version (tertullian.org, Evetts's History of the Patriarchs), so the metadata
+# rule would leave only al-Kindi. The one-language set (``langset arb``) holds
+# no English, so within it each of them is unique. There is no Arabic Scripture.
 UNIQUE_WORKS: dict[str, tuple[str, ...]] = {
     "gez": (
         "gez/jub", "gez/1meq", "gez/3meq",
         "gez/clem",
+    ),
+    "arb": (
+        "openiti/apology-of-al-kindi",
+        "openiti/history-of-the-patriarchs-1", "openiti/history-of-the-patriarchs-2",
+        "openiti/history-of-the-patriarchs-3", "openiti/history-of-the-patriarchs-4",
+        "pearse-arabic/al-majdalus-commentary-on-the-creed",
+        "pearse-arabic/ibn-al-tayyib-knowledge-and-miracles",
+        "pearse-arabic/severus-book-of-the-councils-cairo-fragment",
+        "pearse-arabic/yahya-ibn-adi-differences-in-the-gospels",
+        "pearse-arabic/yahya-ibn-adi-incarnate-of-the-holy-spirit",
+        "pearse-arabic/yahya-ibn-adi-truth-of-the-gospel",
     ),
 }
 
