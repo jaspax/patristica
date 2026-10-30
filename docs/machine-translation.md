@@ -87,7 +87,7 @@ MTs are made by a nightly agent on the Claude subscription, while the owner is a
 
 **How a night goes:**
 1. A systemd user timer starts `scripts/nightly/run.sh` at 22:15 America/Chicago.
-2. The script checks the main checkout (data present, no uncommitted changes, `gh` logged in).
+2. The script runs `scripts.data pull --all` over HTTPS, since a merged data PR leaves the files it changed as git-lfs pointers. A failed pull is logged and the night goes on. It then checks the main checkout (data present, no uncommitted changes, `gh` logged in).
 3. It starts a background Claude Code session (`claude --bg`; the coordinator's model is `NIGHTLY_MODEL` in the service file, Opus by default, since Sonnet missed judgement steps in the pilots, #429) running the project skill `/nightly-translate` (`.claude/skills/nightly-translate/SKILL.md`), with `--permission-mode dontAsk`. Only what `.claude/settings.json` allows runs, and anything else is denied, never left waiting on a prompt.
 
 **What the agent does:**

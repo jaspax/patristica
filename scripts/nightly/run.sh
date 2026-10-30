@@ -28,6 +28,16 @@ fail() {
 [[ -f .claude/skills/nightly-translate/SKILL.md ]] || fail "the /nightly-translate skill is missing"
 gh auth status >/dev/null 2>&1 || fail "gh is not logged in"
 command -v claude >/dev/null || fail "claude is not on PATH"
+command -v uv >/dev/null || fail "uv is not on PATH"
+# The main checkout is meant to be fully materialized, but files a merged data
+# PR changed come back as git-lfs pointers after a pull (.lfsconfig fetches no
+# data/ objects by default), and the agent would then read pointers (#444).
+# Fetching them is harmless and changes no tracked file; a failure is logged
+# and the night goes on rather than not starting at all.
+if ! scripts/nightly/with-https.sh uv run python -m scripts.data pull --all >>"$log" 2>&1; then
+    echo "$(stamp) warning: scripts.data pull --all failed (see above); continuing" >>"$log"
+    echo "nightly-mt: warning: scripts.data pull --all failed; continuing" >&2
+fi
 # The agent works in its own worktree but reads data/normalized here: local
 # changes to tracked files would mean it reads something master doesn't have.
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] ||
