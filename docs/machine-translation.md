@@ -88,7 +88,7 @@ MTs are made by a nightly agent on the Claude subscription, while the owner is a
 **How a night goes:**
 1. A systemd user timer starts `scripts/nightly/run.sh` at 22:15 America/Chicago.
 2. The script checks the main checkout (data present, no uncommitted changes, `gh` logged in).
-3. It starts a background Claude Code session (`claude --bg`, Sonnet as the coordinator) running the project skill `/nightly-translate` (`.claude/skills/nightly-translate/SKILL.md`), with `--permission-mode dontAsk`. Only what `.claude/settings.json` allows runs, and anything else is denied, never left waiting on a prompt.
+3. It starts a background Claude Code session (`claude --bg`; the coordinator's model is `NIGHTLY_MODEL` in the service file, Opus by default, since Sonnet missed judgement steps in the pilots, #429) running the project skill `/nightly-translate` (`.claude/skills/nightly-translate/SKILL.md`), with `--permission-mode dontAsk`. Only what `.claude/settings.json` allows runs, and anything else is denied, never left waiting on a prompt.
 
 **What the agent does:**
 - **Budgets**, using `scripts.nightly_budget`. `sample` records the usage windows in `logs/usage.jsonl`, and `plan [--chars N]` projects the night:
@@ -131,6 +131,6 @@ systemctl --user list-timers patristica-nightly-mt.timer     # next run
   - issue #429;
   - `claude agents` (sessions named `nightly-mt-{date}`; `claude logs` / `claude attach` for one);
   - `logs/nightly-mt-runs.log` (start lines and start failures);
-  - `logs/nightly-mt-{date}.md` (each night's report);
+  - `logs/nightly-mt-{date}-{HHMM}.md` (each run's report);
   - `logs/usage.jsonl`.
 - Unfinished works wait in `logs/mt-partial/` and are resumed first the next night.
