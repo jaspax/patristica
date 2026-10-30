@@ -1,0 +1,133 @@
+name: CI · Python
+
+# CI is split into one workflow per area, each run only on PRs that touch its
+# paths (#435): on.pull_request.paths costs nothing, while a gate job would cost a
+# billed minute per run, and every job is billed in whole minutes.
+#   ci-python.yml     unit tests + pipeline status (this file)
+#   ci-web.yml        web/ lint, typecheck, Vitest, build
+#   ci-infra.yml      infra/ offline checks
+#   ci-web-image.yml  the web Docker image, when its inputs change
+#   ci-mt.yml         PRs that only add machine translations (data/raw/mt-eng)
+# A PR whose files all fall outside these paths (docs only) runs no CI.
+#
+# Runs on PRs only: everything reaches master through a PR (the pre-push hook
+# blocks direct pushes). Before merging, re-run a PR's checks if master has
+# moved since its last run; use workflow_dispatch to check master itself.
+on:
+  pull_request:
+    # Everything but the other workflows' areas and docs. Order matters: a later
+    # pattern overrides an earlier one. The tests read three web/ files.
+    paths:
+      - "**"
+      - "!web/**"
+      - "web/src/lib/format.ts"
+      - "web/src/lib/sources.ts"
+      - "web/src/lib/redirects.ts"
+      - "!infra/**"
+      - "!docs/**"
+      - "!**.md"
+      - "!.claude/**"
+      - "!.github/**"
+      - ".github/workflows/ci-python.yml"
+      # Covered by ci-mt.yml; a PR that also changes anything else runs this one too.
+      - "!data/raw/mt-eng/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: write   # the large-PR step below starts the other workflows
+
+jobs:
+  # Fast, self-contained tests (the same suite the pre-push hook runs).
+  # Tests that need downloaded source data under data/raw/ skip themselves.
+  # Then pipeline freshness (#130): the hard checks (stale normalized data or
+  # alignments) are pytest tests; scripts.status reports what CI can't run
+  # (pending translations and their cost) in the job summary. It needs no raw
+  # data or API keys. scripts.validate reads every normalized work, which are LFS
+  # files (#244): the pre-push hook and scripts.pipeline run it where the data
+  # is, so CI doesn't download the corpus. One job, not two: the status shares
+  # this job's setup and LFS pull, and each job is billed in whole minutes (#435).
+  unit-tests:
+    name: Unit tests and pipeline status
+    runs-on: ubuntu-latest
+    # The same image as production; tests that need a database (search index,
+    # #137) use it through PATRISTICA_TEST_DATABASE_URL and skip without it.
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg16
+        env:
+          POSTGRES_USER: patristica
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: patristica
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U patristica" --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      PATRISTICA_TEST_DATABASE_URL: postgresql://patristica:ci@localhost:5432/patristica
+    steps:
+      # GitHub's path filters see only the first 300 changed files of a PR, so a
+      # large data PR (data/ sorts first) that also changes web/ or infra/ would
+      # skip those workflows. Start them on the branch instead; their runs show
+      # on the PR's head commit. Ordinary PRs skip this step from the payload.
+      - name: Large PR, start the other areas' workflows
+        if: github.event_name == 'pull_request' && github.event.pull_request.changed_files > 300
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR/files?per_page=100" \
+            --jq '.[].filename' > "$RUNNER_TEMP/pr-files"
+          start() {
+            if grep -qE "$2" "$RUNNER_TEMP/pr-files"; then
+              gh workflow run "$1" --repo "$GITHUB_REPOSITORY" --ref "$BRANCH"
+              echo "::notice::$(wc -l < "$RUNNER_TEMP/pr-files") changed files: started $1 on $BRANCH"
+            fi
+          }
+          start ci-web.yml '^web/'
+          start ci-infra.yml '^infra/'
+          start ci-web-image.yml '^(web/(Dockerfile|\.dockerignore|package(-lock)?\.json|next\.config\.ts)|infra/compose/)'
+
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy --extra index
+
+      # data/ is in git-lfs and the checkout has pointer files (.lfsconfig, #244):
+      # pull only the files this job reads, through a cache keyed on their pointers.
+      - name: Which LFS files this job reads
+        id: lfs
+        run: |
+          { uv run python -m scripts.data needs --job tests
+            uv run python -m scripts.data needs --job status; } | sort -u > "$RUNNER_TEMP/lfs-needs"
+          echo "key=lfs-tests-$(xargs cat < "$RUNNER_TEMP/lfs-needs" | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          key: ${{ steps.lfs.outputs.key }}
+          restore-keys: lfs-tests-
+
+      - name: Pull them
+        run: |
+          uv run python -m scripts.data pull --job tests
+          uv run python -m scripts.data pull --job status
+
+      - name: Run unit tests
+        run: uv run pytest
+
+      # Reported even when a test failed, as when it was a job of its own.
+      - name: Pipeline status
+        if: success() || failure()
+        run: uv run python -m scripts.status --summary "$GITHUB_STEP_SUMMARY"
