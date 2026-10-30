@@ -1,0 +1,52 @@
+{
+  "work": {
+    "work_id": "mt-eng/gez/myshe",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Mysteries of Heaven and Earth",
+    "date_composed": 500,
+    "date_range": [
+      400,
+      800
+    ],
+    "date_confidence": "uncertain",
+    "genre": "apocrypha",
+    "language": "eng",
+    "tradition": "ethiopic",
+    "license": "cc-by-sa-4.0",
+    "provenance_url": "https://github.com/LPettay/ethiopian-bible",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-14) of: Beta maṣāḥǝft Ge'ez text (Universität Hamburg), via LPettay/ethiopian-bible",
+    "translation_of": "gez/myshe"
+  },
+  "verses": [
+    {
+      "ref": "MysHE.1.1",
+      "text": "An account of creation and a summary of scriptural history down to the reign of Jehoram",
+      "source_sha": "d4a5f02e79a66fca"
+    },
+    {
+      "ref": "MysHE.2.1",
+      "text": "Mysteries revealed by Saint Peter to Clement\n\nIn the name of the Father. The first of the mysteries that Saint Peter revealed to his disciple Clement. Saint Peter said: When forty days had passed after the resurrection of our Lord Jesus Christ from the dead, he wished to ascend into heaven and return to his glory and his awe-inspiring dwelling.",
+      "source_sha": "ef99e98a7434fd3e"
+    },
+    {
+      "ref": "MysHE.3.1",
+      "text": "The power and wonders that God showed to Saint Peter\n\nIn the name of the Father, let us begin to write of the power and wonders that God showed to blessed Peter, chief of the apostles, herald of the kingdom of heaven, the steward to whom his Master entrusted the keys of righteousness, so that he might unlock and open, and refuse whatever he wished to anyone unworthy, in righteousness and uprightness. And again, for anyone unworthy, he was to shut the gate of the kingdom of the heaven of heavens in his face.",
+      "source_sha": "384ac80b667b5d5b"
+    },
+    {
+      "ref": "MysHE.4.1",
+      "text": "Discourse of Saint Peter to Clement concerning what will take place in heaven and on earth for mercy to humankind\n\nIn the name of the Father. Let us write this discourse that Peter, the chief of the apostles, spoke to Clement, his disciple. This means “disciple” in translation. It contains what will take place both in heaven and on earth concerning the mercies shown to humankind, and concerning the love for humankind of the Savior of the world, the sweet-smelling fruit of divinity, while he was in his Father’s bosom. For love of us, by his Father’s will, the fruit of glory that had sprouted in his Father’s bosom came down. With his fragrance he made the whole world fragrant.",
+      "source_sha": "67738eca1079ef62"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-14",
+    "original": "gez/myshe",
+    "original_path": "gez/myshe.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

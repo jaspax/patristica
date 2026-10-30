@@ -1,0 +1,47 @@
+{
+  "work": {
+    "work_id": "mt-eng/ccmh-supr/passio-irenaei",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Passion of Irenaeus of Sirmium (26 March)",
+    "date_composed": null,
+    "date_range": [
+      885,
+      1000
+    ],
+    "date_confidence": "approximate",
+    "genre": "patristic",
+    "language": "eng",
+    "tradition": "slavonic",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://www.kielipankki.fi/download/ccmh-src/www/suprasliensis.html",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-29) of: Codex Suprasliensis, ed. S. Severjanov (1904), CCMH transliteration (Corpus Cyrillo-Methodianum Helsingiense, Kielipankki), converted to Cyrillic; text boundaries from the TOROT/obdurodon text divisions (Syntacticus treebank data, commit 525cee4); 126v–127v",
+    "translation_of": "ccmh-supr/passio-irenaei"
+  },
+  "paragraphs": [
+    {
+      "ref": "Supr.126v",
+      "text": "March 26. The martyrdom of Saint Irenaeus... When a good character grows together with piety, it desires greater things and receives the fear of God. Then, despising everything in this life, it strives to receive the promised blessings, so that, seeing with firm faith the things heard of as though they were already present, it may long for them. Then, having received these things through God's glory, it glorifies the Lord. This also happened in the case of blessed Irenaeus, bishop of the city of Sirmium. Through his great gentleness and his reverence for God, he confirmed by his deeds what has been said. For when the persecution came that took place under the emperors Diocletian and Maximian, Saint Irenaeus was brought before the governor Probus and was asked whether he wished to sacrifice to the gods. Blessed Irenaeus answered, saying, “I do not even wish to live with you.” Then the governor ordered him to be shut up in prison. After many days had passed while he was in prison, the governor came at midnight. Blessed Irenaeus was brought out again, and after enduring various tortures, he was asked, “Why do you not sacrifice?” He answered, saying, “Because I have a God whom I have learned to honor from my youth, and the so-called",
+      "source_sha": "e979f189cfeb92c2"
+    },
+    {
+      "ref": "Supr.127r",
+      "text": "gods of yours I will not worship.” Probus said, “Secure your life for yourself. The abuse you have suffered is enough for you.” Saint Irenaeus said, “I will not gain death when life lies before me, but rather receive life from God.” Probus said, “Do you have a wife?” He answered, “I do not.” Blessed Irenaeus said this in fulfillment of the Lord's commandment, which says: “Whoever loves father or mother, or brothers, or wife, or children more than me is not worthy of me.” Keeping this commandment in view, the blessed man had his mind fixed on heaven, desiring to see the glory of the Lord. And having left behind all human life, he declared that he knew and possessed nothing more precious than the Lord. Then the governor said to him again, “I know that you have sons. Sacrifice at least for their sake.” But he answered, “My sons have God, just as I do, and he can care for them. But you, do what you have been ordered to do.” Probus said, “I advise you, young man, to sacrifice, so that I do not hand you over to various tortures.” The holy martyr Irenaeus said, “I will not sacrifice. Do whatever you wish. For you will learn that through the power of Christ I will bravely endure everything.” Probus said, “Since you refuse to obey the emperor, you will be thrown into the river.” Irenaeus said, “You, with various tortures",
+      "source_sha": "3d661c9b8683f432"
+    },
+    {
+      "ref": "Supr.127v",
+      "text": "You threatened to kill me, and I hoped that you would cut off my head with a sword. Therefore I beg you, command that this be done, so that you may know how we Christians have learned to despise death for the love of Christ. But the governor, angered by the boldness of the holy martyr Irenaeus, ordered him to be beheaded with a sword. But the holy martyr, as though he had received a second crown, said, “I give thanks to my God, who has granted me the crown for enduring various tortures.” And when they had crossed the bridge called Artemis, he took off his clothes and, looking up to heaven, prayed, saying, “Lord, let the heavens be opened and let them receive the soul of your servant, just as they do for your people of the universal Church and its entire congregation. Believing in you, Lord Jesus Christ, I suffer all this.” And after beheading him, they threw him into the river. This happened in Sirmium, when Probus was governor, while Jesus Christ our Lord reigns forever. To him be glory, now and always and forever and ever. Amen.",
+      "source_sha": "8d6f5a1eb5641c72"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-29",
+    "original": "ccmh-supr/passio-irenaei",
+    "original_path": "ccmh-supr/passio-irenaei.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

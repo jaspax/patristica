@@ -1,0 +1,47 @@
+{
+  "work": {
+    "work_id": "mt-eng/ccmh-supr/oratio-pionii",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Prayer of Pionius",
+    "date_composed": null,
+    "date_range": [
+      885,
+      1000
+    ],
+    "date_confidence": "approximate",
+    "genre": "patristic",
+    "language": "eng",
+    "tradition": "slavonic",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://www.kielipankki.fi/download/ccmh-src/www/suprasliensis.html",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-29) of: Codex Suprasliensis, ed. S. Severjanov (1904), CCMH transliteration (Corpus Cyrillo-Methodianum Helsingiense, Kielipankki), converted to Cyrillic; text boundaries from the TOROT/obdurodon text divisions (Syntacticus treebank data, commit 525cee4); 72v–73v",
+    "translation_of": "ccmh-supr/oratio-pionii"
+  },
+  "paragraphs": [
+    {
+      "ref": "Supr.72v",
+      "text": "The prayer of Saint Pionius, which was found in another writing. In these books it is read in the Roman language. Pionius himself confessed that he was a Christian, and it was decided that he should be burned alive. When the blessed man went to the place where the fire had been kindled and saw the burning flame, he begged the soldiers leading him to grant him a little time to offer a prayer. He bent his knees and raised his hands, with others supporting him, for he himself,",
+      "source_sha": "a6db21d2bda38eca"
+    },
+    {
+      "ref": "Supr.73r",
+      "text": "because he had been suspended for so long, could not raise his arms on his own. He began to pray to the Lord and say: Glory to you, Jesus Christ, the only-begotten Son of God, who are forever with him, the Word of God, the living power who gives life to all things, the treasury of the Father's knowledge, the good root of the new [?] garden, which is an unfailing hope for our bearing fruit for God, for us who have come to know the Father and the Holy Spirit through you; a crown for the Father's glory, [?] of different lights for our confession, woven as a sweet fragrance for the Father; the mystery hidden for ages and now revealed for our sake, to those who confess your dominion; the steward of all creation, who holds the heavenly rudder, which is the Holy Spirit, and delivers every soul tossed about in the devil's bitterness; the good worker who separates the chaff from the wheat through the Holy Spirit; the heavenly bread, strengthening the hearts of those who know your good deeds; the good wine of the new vineyard, gladdening and brightening the faces of those who await your coming; the source of the life-giving Spirit, the Father's inseparable right hand, the living image of the Father's likeness; a peaceful haven for those who sail, hope for the hopeless, the holiness of God's grace, the righteous",
+      "source_sha": "285d9e523c3f1260"
+    },
+    {
+      "ref": "Supr.73v",
+      "text": "judge, the giver of rewards to those who confess you before others, the way leading to the Father; the door through which to enter the Father's presence, the good shepherd who laid down his life for the sheep and delivered me, a sinner, from the wolf; present everywhere that anyone calls upon you; the true kingdom, rest for the burdened; the healer of those whose souls are sick, who forgives sins by divine authority; the crown of martyrs; the true God, who is God over all, with the Son and the holy and life-giving [?], and inseparable from the glory of God and of your Holy Spirit, living in you. and filling everything in heaven and on earth and in the sea with your coming. and governing and giving food to all flesh. To you belong praise, glory, majesty, and holiness, to the Father and the Holy Spirit forever. Amen. And having said this in the hearing of everyone, he made the sign of Christ, entered the fire, opened his mouth, and surrendered his soul. And the holy martyr of God died in Smyrna. Now I, Blaise, was in Ephesus at that time, and having been released from the emperor’s service, I copied this, translating it from the Roman language into Greek.",
+      "source_sha": "dc417c4e64d0f080"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-29",
+    "original": "ccmh-supr/oratio-pionii",
+    "original_path": "ccmh-supr/oratio-pionii.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

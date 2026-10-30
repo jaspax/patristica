@@ -1,0 +1,97 @@
+{
+  "work": {
+    "work_id": "mt-eng/coptic-scriptorium/shenoute_witness",
+    "source_id": "mt-eng",
+    "author": "Shenoute of Atripe",
+    "title": "Shenoute: Witness",
+    "date_composed": 420,
+    "date_range": [
+      385,
+      465
+    ],
+    "date_confidence": "established",
+    "genre": "patristic",
+    "language": "eng",
+    "tradition": "coptic",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://github.com/CopticScriptorium/corpora/tree/master/shenoute-witness",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-27) of: Coptic Scriptorium, shenoute-witness",
+    "translation_of": "coptic-scriptorium/shenoute_witness"
+  },
+  "paragraphs": [
+    {
+      "ref": "CopScr.shenoute-witness.000.0000",
+      "text": "so that he may kill him, or hide him inside himself so that he does not appear.",
+      "source_sha": "2173e1db238f4671"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0001",
+      "text": "Trample with your feet if your hands or your fingers do not dip into that blood,",
+      "source_sha": "825f81934420bd7d"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0002",
+      "text": "Or have your hands not been dipped in them from the beginning? You are the ones whose fingers are full of blood and whose uncleanness is also beneath their feet, as it is written.",
+      "source_sha": "d7fe5df2d9e35e94"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0003",
+      "text": "The measure you used will be used to measure out to you.",
+      "source_sha": "c9a372bc2bb1b711"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0004",
+      "text": "Those you have grieved are the ones who will grieve you.",
+      "source_sha": "283565fc62340fe0"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0005",
+      "text": "Do not think that the one speaking with you is one of them.",
+      "source_sha": "4aa39b9a0b2ace16"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0006",
+      "text": "Neither he nor anyone else you can think of will wipe away your tears again when you groan like a bear. You are the ones from whom judgment has not withdrawn since the beginning, and whose blood has not been wiped away, because it was not poured out on the ground for earth to be spread over it, but was poured out on a smooth rock.",
+      "source_sha": "5c16c64257252433"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0007",
+      "text": "This saying is true, because what he said against us from the beginning, and again now, is true: “You have done improper deeds in these synagogues.”",
+      "source_sha": "69b384f110dddf43"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0008",
+      "text": "You did them in secret, in hidden places in the corners of these synagogues and inside the houses.",
+      "source_sha": "c21a1236fd43a0ed"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0009",
+      "text": "You have defiled the temple of God. You have grieved his Spirit within you.",
+      "source_sha": "549ea2ad9d827048"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0010",
+      "text": "You have acted deceitfully among your people; you have committed defiling acts.",
+      "source_sha": "a9ce286a0c52538a"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0011",
+      "text": "You have ruined yourselves through those around you and through your own actions, by deeds of uncleanness.",
+      "source_sha": "cbf5d3c50091c645"
+    },
+    {
+      "ref": "CopScr.shenoute-witness.000.0012",
+      "text": "You have entered the house of God.",
+      "source_sha": "57fdc16162084aa6"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-27",
+    "original": "coptic-scriptorium/shenoute_witness",
+    "original_path": "coptic-scriptorium/shenoute_witness.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}

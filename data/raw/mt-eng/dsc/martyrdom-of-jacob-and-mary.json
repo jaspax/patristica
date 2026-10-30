@@ -1,0 +1,42 @@
+{
+  "work": {
+    "work_id": "mt-eng/dsc/martyrdom-of-jacob-and-mary",
+    "source_id": "mt-eng",
+    "author": null,
+    "title": "Martyrdom of Jacob and His Sister Mary, a Covenanter",
+    "date_composed": 400,
+    "date_range": [
+      340,
+      450
+    ],
+    "date_confidence": "approximate",
+    "genre": "patristic",
+    "language": "eng",
+    "tradition": "syriac",
+    "license": "cc-by-4.0",
+    "provenance_url": "https://syriaccorpus.org/387",
+    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-28) of: Paul Bedjan Acta martyrum et sanctorum 2; TEI by J. E. Walters, Digital Syriac Corpus (syriaccorpus.org 387)",
+    "translation_of": "dsc/martyrdom-of-jacob-and-mary"
+  },
+  "paragraphs": [
+    {
+      "ref": "DSC387.rubric.1",
+      "text": "The martyrdom of Jacob the priest and of Mary his sister, a woman of the covenant.",
+      "source_sha": "4e662e51912e0a4a"
+    },
+    {
+      "ref": "DSC387.0",
+      "text": "In the seventh year of our persecution, Jacob, the priest of the village of Tel Shlila, was arrested, along with Mary his sister, a woman of the covenant, by order of Narses Tamsapor. He tortured them with severe blows and merciless floggings, wanting to make them eat blood. But they strengthened their hands in their God and looked to him with a pure and upright heart. They called on him as a helper in their [?], and asked him for strength and help. When that rebel saw that they would not abandon their truth in any way, he ordered a certain freeborn layman named Mahdad, who was called a Christian in name but not in deeds, to go out and behead them. To win his favor, this man brought death upon his own life and cut off his hope for the sake of this present time. He went out and cut off both their heads with a sword in the village of Tel Dara, on the Great Zab. The saints were crowned on the seventeenth of the lunar month of Adar.",
+      "source_sha": "12d28c6f5cafdbde"
+    }
+  ],
+  "machine_translation": {
+    "model": "gpt-6.1-sol",
+    "prompt_version": "search-bulk",
+    "date": "2026-10-28",
+    "original": "dsc/martyrdom-of-jacob-and-mary",
+    "original_path": "dsc/martyrdom-of-jacob-and-mary.json",
+    "requests": 0,
+    "script": "scripts.machine_translate"
+  }
+}
