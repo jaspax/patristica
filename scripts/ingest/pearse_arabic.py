@@ -5,7 +5,7 @@ Fathers – Additional Texts* (tertullian.org, #479): the Arabic.
 Source: https://www.tertullian.org/fathers/index.htm (one page per work, the
 English translation and the Arabic; parsed by ``_pearse_arabic``).
 Output: ``data/raw/pearse-arabic/{slug}.json``
-Language: arb  Tradition: arabic  Genre: patristic  License: public_domain
+Language: arb  Tradition: the author's (syriac, coptic; none for al-Majdalus)  Genre: patristic  License: public_domain
 
 - Yaḥyā ibn ʿAdī (893–974), three treatises from Paul Sbath, *Vingt traités*
   (Cairo 1929), nos. 15–17;

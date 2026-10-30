@@ -4,7 +4,7 @@ Pearse's *Early Church Fathers – Additional Texts* (tertullian.org, #479).
 
 Source: the same pages as ``pearse_arabic`` (``_pearse_arabic``).
 Output: ``data/raw/pearse-arabic-eng/{slug}.json``
-Language: eng  Tradition: arabic  Genre: patristic  License: public_domain
+Language: eng  Tradition: the original's  Genre: patristic  License: public_domain
 
 Sam Noble's translations (Sbath 15–17 and 19, al-Majdalus) and Youhanna
 Youssef's (Severus), made for Roger Pearse and placed in the public domain on

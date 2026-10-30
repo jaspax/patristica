@@ -39,7 +39,7 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, Comment, Tag
 
-from patristica.models import Work
+from patristica.models import Tradition, Work
 from scripts.ingest._common import download_file
 
 log = logging.getLogger(__name__)
@@ -65,6 +65,9 @@ class Page:
     translator: str
     sbath_title: bool    # the first Arabic paragraph is the treatise's title
     split_lines: bool    # the Arabic is one manuscript line per paragraph
+    # The author's community (Arabic is a language, not a tradition, #484);
+    # the English translations carry it too.
+    tradition: Tradition | None
     date_range: tuple[int, int] | None = None
 
 
@@ -77,7 +80,7 @@ PAGES: tuple[Page, ...] = (
         "On the Truth of the Gospel by Way of Reasoning from Proofs",
         "Maqāla fī ithbāt ṣidq al-Injīl",
         f"{_SBATH}, no. 15; transcribed for Roger Pearse (tertullian.org, 2009)",
-        "Sam Noble", True, False,
+        "Sam Noble", True, False, "syriac",
     ),
     Page(
         "sbath_16_yahya_ibn_adi_02.htm", "yahya-ibn-adi-differences-in-the-gospels", "Sbath16",
@@ -85,7 +88,7 @@ PAGES: tuple[Page, ...] = (
         "On the Differences in the Expressions in the Gospels and their Meanings",
         "Fī ikhtilāf lafẓ al-anājīl wa-maʿānīhā",
         f"{_SBATH}, no. 16, pp. 171f.; transcribed for Roger Pearse (tertullian.org, 2009)",
-        "Sam Noble", True, False,
+        "Sam Noble", True, False, "syriac",
     ),
     Page(
         "sbath_17_yahya_ibn_adi_03.htm", "yahya-ibn-adi-incarnate-of-the-holy-spirit", "Sbath17",
@@ -93,7 +96,7 @@ PAGES: tuple[Page, ...] = (
         'On our saying "and became incarnate of the Holy Spirit and the Virgin Mary"',
         "Fī qawlinā wa-tajassada min al-rūḥ al-qudus wa-min Maryam al-ʿadhrāʾ",
         f"{_SBATH}, no. 17; transcribed for Roger Pearse (tertullian.org, 2009)",
-        "Sam Noble", True, False,
+        "Sam Noble", True, False, "syriac",
     ),
     Page(
         "sbath_19_Abu_al-Faraj_Abdallah_ibn_al-Tayyib.htm", "ibn-al-tayyib-knowledge-and-miracles",
@@ -102,7 +105,7 @@ PAGES: tuple[Page, ...] = (
         "On Knowledge and Miracles",
         "Fī al-ʿilm wa-al-muʿjiz",
         f"{_SBATH}, no. 19; transcribed for Roger Pearse (tertullian.org, 2009)",
-        "Sam Noble", True, False,
+        "Sam Noble", True, False, "syriac",
     ),
     Page(
         "severus_hermopolis_book_of_councils_cairo.htm", "severus-book-of-the-councils-cairo-fragment",
@@ -113,7 +116,7 @@ PAGES: tuple[Page, ...] = (
         "Unpublished portion (not in Patrologia Orientalis 3.2), Cairo, Coptic Museum "
         "Theol. 196 (Graf: Cairo 111, 1544 AD), ff. 268v–270v; Youhanna Youssef's "
         "transcription, published by Roger Pearse (tertullian.org, 2008)",
-        "Youhanna Youssef", False, True,
+        "Youhanna Youssef", False, True, "coptic",
     ),
     Page(
         "al-majdalus_01_translation.htm", "al-majdalus-commentary-on-the-creed", "MajdCreed",
@@ -123,7 +126,7 @@ PAGES: tuple[Page, ...] = (
         "Unpublished; Beirut, Université Saint-Joseph, Bibliothèque orientale MSS 569a (1425, "
         "'A') and 569b (1897, 'B'), with their variants; transcribed for Roger Pearse "
         "(tertullian.org, 2009)",
-        "Samuel Noble", False, False,
+        "Samuel Noble", False, False, None,
     ),
 )
 
@@ -348,7 +351,7 @@ def _work(page: Page, english: bool) -> Work:
         date_confidence="uncertain",
         genre="patristic",
         language="eng" if english else "arb",
-        tradition="arabic",
+        tradition=page.tradition,
         license="public_domain",
         provenance_url=page_url(page),
         edition=edition,
