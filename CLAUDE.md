@@ -26,7 +26,7 @@ patristica/
 ├── DATA_LICENSE.md            # texts keep their source licences; our own metadata is CC0
 ├── IMPLEMENTATION_PLAN.md     # high-level 3-phase plan
 ├── DATA_COLLECTION_PLAN.md    # detailed Phase 1 plan (design reference; work items live in GH issues)
-├── docs/adding-a-language.md # checklist for adding a new language to the corpus, with per-language decision records (#293)
+├── docs/adding-a-language.md # language-neutral checklist for adding a new language (#293); per-language decisions live on the language's issue (#475)
 ├── docs/translation-backends.md # which translator where (local Claude vs Sol) and how to watch subscription usage (#417)
 ├── docs/machine-translation.md # English machine translations of works with no English version: eligibility, mt-eng, pipeline (#422)
 ├── .github/workflows/ci-*.yml # CI per area, run on the PRs that touch it (manual run on master; #435)
@@ -155,7 +155,7 @@ Titles and headings an editor added, supplements, lacuna markers, metadata in th
 
 Church Slavonic (`chu`, BCP 47 `cu`, tradition `slavonic`) is stored in Cyrillic: Slavonic ingestors pass their text through `scripts/ingest/_slavonic.py` `glagolitic_to_cyrillic()`, and validate counts Glagolitic as the wrong script (#330).
 
-To add a language, follow `docs/adding-a-language.md`: every touchpoint, what it costs, and the language's decision record.
+To add a language, follow `docs/adding-a-language.md`: every touchpoint and what it costs. Keep that file language-neutral: a language's choices, measurements and decision record go on its umbrella issue (the "Add … texts" issue with its `lang:` label), never into the checklist (#475).
 
 ### Genre values
 `scripture` · `patristic` · `liturgical` · `council` · `apocrypha`

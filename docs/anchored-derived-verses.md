@@ -452,7 +452,7 @@ Notes:
   split and so never anchored.
 - The anchored part is the Suprasliensis homilies and lives, the Clozianus
   and similar: of the order of 60–100k words, about 0.4–0.8M cl100k tokens in
-  Cyrillic (4× that if stored as Glagolitic, `docs/adding-a-language.md` §2).
+  Cyrillic (4× that if stored as Glagolitic; the Slavonic decision record on #29).
 - At 1.5–2.5× that, the anchor step costs **about $0.07–0.25**, and it
   replaces the text part of the ordinary embed.
 - If Slavonic needs translation vectors (`TRANSLATED_LANGUAGES`), the real
