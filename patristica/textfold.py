@@ -8,7 +8,8 @@ Coptic with or without supralinear strokes, the common Latin spelling
 variants (u/v, i/j, ae/oe/e, medieval *michi*/*nichil*), and the letters
 Church Slavonic witnesses and editions write differently (і/ꙇ/и, оу/ѹ/ꙋ/у,
 ѡ/о, ꙑ/ъі/ы, ѥ/є/е, ꙗ/я/ѣ and ѣ/е by position, ѕ/ꙁ/з, ь/ъ and final
-yers; see ``_CYRILLIC_LETTERS``).
+yers; see ``_CYRILLIC_LETTERS``), and Arabic with or without harakat, hamza
+seats and tatweel, and with dotless or dotted final yāʾ (``_ARABIC_LETTERS``).
 
 It is deliberately lossy and language-independent: the same function is
 applied to indexed text and to queries, so neither side needs language
@@ -32,6 +33,17 @@ _LATIN_DIGRAPHS = re.compile(r"ae|oe")
 
 # Latin word-level variants (medieval spellings → classical).
 _LATIN_WORDS = {"michi": "mihi", "nichil": "nihil"}
+
+# Arabic letter variants (#83), applied after NFKD (which already turns the
+# presentation forms into base letters and أ/إ/آ into ا plus a dropped mark).
+# Tatweel only stretches a word; alif waṣla is an alif; Egyptian printing
+# and many Christian Arabic editions write final yāʾ undotted (الذى = الذي);
+# OCR gives the Persian yeh and keheh for yāʾ and kāf. ة/ه is not folded:
+# كتابة (writing) and كتابه (his book) are different words.
+_ARABIC_LETTERS = str.maketrans({
+    "\u0640": None,  # tatweel
+    "ٱ": "ا", "ى": "ي", "ی": "ي", "ک": "ك",
+})
 
 # Church Slavonic (#330). Superscript letters (Cyrillic Extended-A/B
 # combining letters) are letters of the word written above the line, so they
@@ -107,7 +119,7 @@ def fold(text: str) -> str:
     t = "".join(ch for ch in t if not _is_dropped_mark(ch))
     t = t.casefold()  # also maps final sigma (ς) and long s (ſ) to σ / s
     t = "".join(" " if _is_separator(ch) else ch for ch in t)
-    t = _LATIN_DIGRAPHS.sub("e", t.translate(_LATIN_LETTERS))
+    t = _LATIN_DIGRAPHS.sub("e", t.translate(_LATIN_LETTERS).translate(_ARABIC_LETTERS))
     t = _CYRILLIC_DIGRAPH_RE.sub(
         lambda m: _CYRILLIC_DIGRAPHS[m.group()], t.translate(_CYRILLIC_LETTERS)
     ).translate(_CYRILLIC_YERS)
@@ -136,7 +148,8 @@ def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
                     chars.append((" ", i, i + 1))
                     continue
                 # A Cyrillic letter may become two (ѿ → от).
-                for e in c.translate(_LATIN_LETTERS).translate(_CYRILLIC_LETTERS):
+                c = c.translate(_LATIN_LETTERS).translate(_ARABIC_LETTERS)
+                for e in c.translate(_CYRILLIC_LETTERS):
                     chars.append((e, i, i + 1))
     # The digraphs ae/oe and оу/ъи, left to right and not overlapping, as the
     # regexes do (they can't overlap each other: different letters).

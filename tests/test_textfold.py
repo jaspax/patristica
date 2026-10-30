@@ -117,6 +117,20 @@ def test_other_scripts_fold_as_before():
     assert fold("In the beginning was the Word") == "in the beginning was the word"
 
 
+def test_arabic_letters():
+    """Arabic spelling variants of editions and OCR (#83) fold together."""
+    assert fold("فِي ٱلْبَدْءِ كَانَ ٱلْكَلِمَةُ") == fold("في البدء كان الكلمة") == "في البدء كان الكلمة"
+    assert fold("الذى معى على") == fold("الذي معي علي")  # undotted final yāʾ
+    assert fold("المسـيـح") == "المسيح"  # tatweel
+    assert fold("أنا إله آدم") == "انا اله ادم"
+    assert fold("ﺍﻟﻤﺴﻴﺢ") == "المسيح"  # presentation forms
+    assert fold("کتاب الذی") == "كتاب الذي"  # Persian keheh and yeh from OCR
+    assert fold("كتابة كتابه") == "كتابة كتابه"  # ة/ه kept apart
+    assert fold("ما هذا؟ نعم؛ لا، بل") == "ما هذا نعم لا بل"
+    # Syriac uses the same tatweel for elongation (1,052 DSC and Hudra chunks).
+    assert fold("ܡܠـܬܐ") == "ܡܠܬܐ"
+
+
 def test_squash_ignores_word_division():
     assert squash("ⲛ ⲧⲉ ⲕⲕⲗⲏⲥⲓⲁ") == squash("ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ")
 
@@ -130,6 +144,7 @@ SAMPLES = [
     "хрⷭ҇тосъ кⷰ҇ ⁘", "сꙿ нимь· пⸯцѣте", "ѯ ѱ ꙗко", "ооу оъу", "ъ ь ꙿ", "а͑гг҄ела",
     "ѣко тѣло моѣ", "Ѣѣ ꙇѣ въѣ сꙿѣ ꙓ", "оуѣ ъѣ ѣ", "дьнь кръстъ отъъ, богь.", "ьи ъи ъі",
     "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ", "братрьѣ сⸯѣ ꙿꙿѣ ъꙿѣ", "аꙶти ꙵꙶ",
+    "فِي ٱلْبَدْءِ كَانَ ٱلْكَلِمَةُ،", "المسـيـح الذى", "ﺍﻟﻤﺴﻴﺢ کتاب", "ـ ـا ـ", "أنا؟",
 ]
 
 
