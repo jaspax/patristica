@@ -59,6 +59,24 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "demetrius-psalter": "lxx",  # Church Slavonic Psalter; the edition numbers by Rahlfs (149/151 psalms)
     "gez": "lxx",            # weak fit overall; see overrides
     "torot": "lxx",          # Psalterium Sinaiticum: lxx 138/150 psalms (vul 129); the rest are lacunae
+    # Old Georgian from TITUS (#515). New Testament: last verses match NA's
+    # (org) chapter by chapter (3 John has 15 verses, as NA); the Apocalypse
+    # follows the English chapter division (12.18 is 13.1), 22/22 chapters.
+    "titus-khanmeti-gospels": "org",
+    "titus-adishi": "org",
+    "titus-preathonite-gospels": "org",
+    "titus-athonite-gospels": "org",
+    "titus-acts-sinai": "org",      # 27/28 chapters (eng 26)
+    "titus-acts-ab": "org",
+    "titus-paul-ab": "org",
+    "titus-paul-cd": "org",
+    "titus-catholic-a1": "org",
+    "titus-catholic-b": "org",
+    "titus-catholic-g": "org",
+    "titus-catholic-d": "org",
+    "titus-apocalypse": "eng",
+    "titus-oshki": "lxx",
+    "titus-psalter-a": "lxx",       # Psalms: lxx 149/151 (vul 142, org 17)
 }
 
 #: Books that follow a different scheme from their source's default.  Chosen

@@ -125,6 +125,14 @@ NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
 NEW_SOURCES |= {"evetts-hop-eng"}   # #481
+# Old Georgian Bible and lectionaries from TITUS (#515), one source per witness.
+NEW_SOURCES |= {
+    "titus-khanmeti-gospels", "titus-adishi", "titus-preathonite-gospels",
+    "titus-athonite-gospels", "titus-acts-sinai", "titus-acts-ab", "titus-paul-ab",
+    "titus-paul-cd", "titus-catholic-a1", "titus-catholic-b", "titus-catholic-g",
+    "titus-catholic-d", "titus-apocalypse", "titus-oshki", "titus-psalter-a",
+    "titus-paris-lectionary", "titus-khanmeti-lectionary",
+}
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
