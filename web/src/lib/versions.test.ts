@@ -92,6 +92,18 @@ describe("originalIds", () => {
     expect(originalIds([arm, rahlfs, pta])).toEqual(new Set(["pta-lxx/wis", "lxx-rahlfs/wis"]));
   });
 
+  it("ranks Old Georgian after Greek, Syriac and Armenian (#512)", () => {
+    const oge = workRow({ id: "oge", language: "oge" });
+    const hye = workRow({ id: "hye", language: "hye" });
+    const syc = workRow({ id: "syc", language: "syc" });
+    const grc = workRow({ id: "grc", language: "grc" });
+    expect(originalIds([oge, hye])).toEqual(new Set(["hye"]));
+    expect(originalIds([oge, syc])).toEqual(new Set(["syc"]));
+    expect(originalIds([oge, grc])).toEqual(new Set(["grc"]));
+    const eng = workRow({ id: "eng", language: "eng" });
+    expect(originalIds([eng, oge])).toEqual(new Set(["oge"]));
+  });
+
   it("marks every edition of the original, but not its translations", () => {
     const first1k = workRow({ id: "first1k", language: "grc" });
     const migne = workRow({ id: "pg", language: "grc" });

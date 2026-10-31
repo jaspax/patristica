@@ -11,6 +11,10 @@ describe("languageInfo", () => {
     expect(languageInfo("chu")).toEqual({ lang: "cu", name: "Church Slavonic", dir: "ltr" });
   });
 
+  it("maps Old Georgian to oge (not modern Georgian ka), left-to-right", () => {
+    expect(languageInfo("oge")).toEqual({ lang: "oge", name: "Old Georgian", dir: "ltr" });
+  });
+
   it("maps Arabic to ar, right-to-left", () => {
     expect(languageInfo("arb")).toEqual({ lang: "ar", name: "Arabic", dir: "rtl" });
   });

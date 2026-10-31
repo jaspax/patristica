@@ -13,6 +13,7 @@ import {
   Noto_Serif,
   Noto_Serif_Armenian,
   Noto_Serif_Ethiopic,
+  Noto_Serif_Georgian,
   Noto_Serif_Hebrew,
 } from "next/font/google";
 
@@ -76,6 +77,17 @@ const arabic = Noto_Naskh_Arabic({
   preload: false,
 });
 
+// Old Georgian (#222, #512). Google serves Noto Serif Georgian's Georgian in
+// one "georgian" slice (U+10A0–10FF, U+1C90–1CBF, U+2D00–2D2F): Mkhedruli with
+// the archaic letters ჱ ჲ ჳ ჴ ჵ ჶ ჷ and ჻, Asomtavruli, Nuskhuri and Mtavruli
+// are all in one file. Georgian has no combining marks, so no cluster can
+// split across slices (cf. #371).
+const georgian = Noto_Serif_Georgian({
+  subsets: ["georgian"],
+  variable: "--font-georgian",
+  preload: false,
+});
+
 // Church Slavonic (#330, #371): Monomakh is made for early Cyrillic
 // manuscripts and covers every Old Church Slavonic letter the sources use
 // (Cyrillic Extended-A superscript letters, Extended-B ꙇ ꙑ ꙙ ꙉ ꙁ ꙗ, the titla,
@@ -118,6 +130,7 @@ export const fontVariables = [
   armenian,
   gothic,
   arabic,
+  georgian,
   slavonic,
   slavonicFallback,
 ]

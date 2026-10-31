@@ -124,6 +124,8 @@ NEW_SOURCES |= {"mt-eng"}
 NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
+# Old Georgian (#222): Georgian Wikisource (#513).
+NEW_SOURCES |= {"wikisource-oge"}
 NEW_SOURCES |= {"evetts-hop-eng"}   # #481
 # Old Georgian Bible and lectionaries from TITUS (#515), one source per witness.
 NEW_SOURCES |= {
