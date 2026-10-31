@@ -125,6 +125,7 @@ NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
 NEW_SOURCES |= {"evetts-hop-eng"}   # #481
+NEW_SOURCES |= {"titus-hagiography"}   # Old Georgian (#222): TITUS hagiography, #516
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
