@@ -204,6 +204,7 @@ def paragraph_key(value: str) -> str:
 
 _DROPPED = {ord(c): None for c in T.DROPPED_CHARS}
 _NO_SPACE_BEFORE = frozenset(",.;:!?")
+_NO_SPACE_AFTER = frozenset("[(<{")
 # Segment flags of names: persons (p), places (o), peoples (q).
 _NAME_FLAGS = frozenset("poq")
 
@@ -234,8 +235,10 @@ def build_unit(pieces: list[tuple[str, str | None]]) -> tuple[str, list[list[int
     while chars and chars[-1] == " ":
         chars.pop()
         kinds.pop()
-    # No space before a comma or stop (one is left where a marker split the line).
-    keep = [not (c == " " and i + 1 < len(chars) and chars[i + 1] in _NO_SPACE_BEFORE)
+    # No space before a comma or stop, or after an opening bracket (one is left
+    # where a marker or a span boundary split the line).
+    keep = [not (c == " " and ((i + 1 < len(chars) and chars[i + 1] in _NO_SPACE_BEFORE)
+                               or (i > 0 and chars[i - 1] in _NO_SPACE_AFTER)))
             for i, c in enumerate(chars)]
     chars = [c for c, k in zip(chars, keep) if k]
     kinds = [c for c, k in zip(kinds, keep) if k]
