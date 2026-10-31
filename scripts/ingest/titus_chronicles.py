@@ -1,5 +1,5 @@
 """
-Ingestor for the Georgian Chronicle (Kartlis Tskhovreba), vol. I, on TITUS, one work per text (#517).
+Ingestor for the Georgian Chronicle (Kartlis Tskhovreba), vol. I, on TITUS (#517).
 
 The first volume of the Georgian Chronicle (*Kartlis Tskhovreba*) on TITUS
 (``etcs/cauc/ageo/kcx1/kcx1.htm``, J. Gippert, after S. Qaukhchishvili's

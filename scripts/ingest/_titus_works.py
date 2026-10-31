@@ -13,8 +13,9 @@ TITUS sets (see ``_titus.py``) that hold one text or many. Each source module
 ``select``
     Which part of the set is the text: ``Label=value`` on TITUS's location
     levels (``Text=Greg.Nyss._Hom.Op.``), several joined with ``&``, and
-    alternatives with ``;``; empty for a set that is one text. Every text of a set must have a row: a
-    segment no row selects is logged at ERROR (a dropped text, #130).
+    alternatives with ``;``; empty for a set that is one text. Every text of a
+    set must have a row: a segment no row selects is logged at ERROR (a
+    dropped text, #130).
 ``slug``
     The local work id (``{source}/{slug}``); it is in reader URLs, so never
     rename one. A row with ``skip`` set has none.
@@ -108,7 +109,8 @@ class TextRow:
 
     @property
     def select_text(self) -> str:
-        return ";".join("&".join(f"{a}={b}" for a, b in alt) for alt in self.select) or "(whole set)"
+        alts = ("&".join(f"{a}={b}" for a, b in alt) for alt in self.select)
+        return ";".join(alts) or "(whole set)"
 
 
 def _int(s: str) -> int | None:
