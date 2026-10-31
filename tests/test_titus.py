@@ -106,7 +106,7 @@ def test_locate_clears_deeper_levels() -> None:
     ("ვ(იდრ)ემდის", "ვ(იდრ)ემდის", [[1, 6, "supplement"]]),
     ("<...> იოტა", "<...> იოტა", [[0, 5, "lacuna"]]),
     ("მამისა [!] ჩუენისა", "მამისა [!] ჩუენისა", [[7, 10, "note"]]),
-    ("ლოც{ვ}აჲ", "ლოც{ვ}აჲ", [[3, 6, "note"]]),
+    ("ლოც{ვ}აჲ", "ლოც{ვ}აჲ", [[3, 6, "supplement"]]),
     ("მრ...", "მრ...", [[2, 5, "lacuna"]]),
     ("სასწა/ოჳლი  მც\\ველნი*", "სასწაოჳლი მცველნი", []),
     ("[ნე<ლ>ბ]ა", "[ნე<ლ>ბ]ა", [[0, 8, "supplement"]]),
@@ -166,3 +166,32 @@ def test_fetch_uses_gzip_cache_offline(tmp_path: Path) -> None:
         assert [u.rsplit("/", 1)[1] for u, _ in pages] == ["adisn001.htm", "adisn001x.htm"]
         with pytest.raises(_common.OfflineError):
             T.fetch(base + "adisn003.htm", tmp_path)
+
+
+LECT = """<BODY>
+<BR><span id=h1><!Level 1>Book: Lect.Par.<A NAME="a">&nbsp;</A></sPAN>
+<BR></span><span id=h3><!Level 3>Entry: 3<A NAME="b">&nbsp;</A></sPAN>
+<BR><span id=h9><!XLevel 9>Line of edition: 4<A NAME="c">&nbsp;</A></sPAN>&nbsp;&nbsp;&nbsp;</span><span id=mxaglb16><a id=mxaglb16 href="x"></span><span id=mxaglbx16>ვ</span></a><span id=mxaglb16> <a id=mxaglb16 href="x">ჟამითგან</a> <a id=mxaglb16 href="x">ჴმაჲ</a>: </span><span id=nc16><a id=nc16 href="x">[Lk</a>_2_14 ] </span><span id=mxagl16><a id=mxagl16 href="x">მაღალთა</a> <a id=mxagl16 href="x">ზ{ე}და</a></span><span id=n16>
+<BR><span id=h9><!XLevel 9>Line of edition: 5<A NAME="d">&nbsp;</A></sPAN>&nbsp;&nbsp;&nbsp;</span><span id=mxagl16>დიდებაჲ.</span><span id=n16>
+<BR><span id=h4><!XLevel 4>Book: Mt.<A NAME="e">&nbsp;</A></sPAN>
+<BR><span id=h3><!Level 3>Entry: 4<A NAME="f">&nbsp;</A></sPAN>  &nbsp;</span><span id=asxgxb16>ႪႤ </span><span id=asxgx16>Ⴋ</span><span id=asxgxb16>Ⴈ</span><span id=asxgx16>ႱႨ</span><span id=n16>
+</BODY>"""
+
+
+def test_segments_split_inside_a_word_join_without_space() -> None:
+    located = list(T.locate(T.parse_page(LECT)))
+    units = T.collect_units(located, ("Entry",), include=lambda s: s.is_old_georgian)
+    assert units[1].text == "ႪႤ ႫႨႱႨ"
+
+
+def test_span_kind_marks_rubrics_and_xlevel_keys() -> None:
+    located = list(T.locate(T.parse_page(LECT)))
+    (unit, _) = T.collect_units(
+        located, ("Entry",), include=lambda s: s.is_old_georgian,
+        span_kind=lambda s: "rubric" if "b" in s.flags else None,
+    )
+    assert unit.text == "ვ ჟამითგან ჴმაჲ: მაღალთა ზ{ე}და დიდებაჲ."
+    assert unit.editorial == [[0, 16, "rubric"], [26, 29, "supplement"]]
+    # a key label found only among the manuscript levels (XLevel)
+    by_book = T.collect_units(located, ("Book",), include=lambda s: s.is_old_georgian)
+    assert [u.key for u in by_book] == [("Lect.Par.",)]
