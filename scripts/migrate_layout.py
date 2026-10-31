@@ -137,6 +137,7 @@ NEW_SOURCES |= {
     "titus-catholic-d", "titus-apocalypse", "titus-oshki", "titus-psalter-a",
     "titus-paris-lectionary", "titus-khanmeti-lectionary",
 }
+NEW_SOURCES |= {"titus-hagiography"}   # Old Georgian (#222): TITUS hagiography, #516
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
