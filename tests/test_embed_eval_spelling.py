@@ -170,6 +170,19 @@ def test_eval_languages_are_not_enrolled():
     assert not set(EVAL_LANGUAGES) & TRANSLATED_LANGUAGES
     assert set(PROMPT_NAMES) == set(LANGUAGE_NAMES) | set(EVAL_LANGUAGES)
     assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
+    assert PROMPT_NAMES["oge"] == "Old Georgian"  # measured on #529, not enrolled
+
+
+def test_lectionaries_are_not_georgian_only():
+    from scripts.embed_eval.select import unique_works
+
+    def work(work_id: str, genre: str) -> dict:
+        return {"work_id": work_id, "language": "oge", "genre": genre}
+
+    works = [work("titus-paris-lectionary/lectionarium-hierosolymitanum", "liturgical"),
+             work("titus-khanmeti-lectionary/lectionarium-gracense", "liturgical"),
+             work("titus-liturgy/liturgy-of-st-james", "liturgical")]
+    assert unique_works(works)["oge"] == {"titus-liturgy/liturgy-of-st-james"}
 
 
 def test_translate_refuses_an_unenrolled_language_in_the_production_store(monkeypatch):
