@@ -61,6 +61,8 @@ KINDS: frozenset[str] = frozenset({
     "lacuna",      # a marker for text lost or left out ([…], <gap/>)
     "metadata",    # catalogue data in the text (CANTUS feast, mode and id)
     "note",        # an editor's or transcriber's note, a variant reading
+    "rubric",      # a liturgical book's rubric: speaker label, stage direction
+                   # ("(χαμηλοφώνως)", "(3)"), a red label such as "Ἦχος βʹ."
 })
 
 #: Kinds whose text stays in the source text (translated and embedded): an

@@ -192,6 +192,12 @@
   color: var(--accent);
 }
 
+/* A rubric line already has the rubric size; its marked span (#500) keeps it. */
+.rubric [data-editorial="rubric"] {
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
 .oop {
   opacity: 0.55;
 }

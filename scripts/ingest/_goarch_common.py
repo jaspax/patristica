@@ -22,7 +22,7 @@ import time
 from pathlib import Path
 
 import httpx
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 from scripts.ingest._common import offline, require_network, slugify_ref
 
@@ -120,6 +120,137 @@ def _clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+# Rubrics (#500): the DCS marks the book's rubrics with classes, and the ingestor
+# records them as editorial spans of kind "rubric" (shown red in the reader, not
+# embedded). Paragraphs that are a speaker label, with any stage direction:
+_DCS_ACTOR_P_CLASSES = frozenset({"actor", "actorinaudible"})
+# ... except the words spoken after the label ("ΧΟΡΟΣ· Σοί, Κύριε."):
+_DCS_SPOKEN_SPAN_CLASSES = frozenset({"dialogafteractor"})
+# A <p class="mixed"> whose first span has one of these is a red label line
+# ("Ἀντίφωνον Αʹ", "Ἦχος βʹ.", "ΕΥΧΗ Αʹ ΑΝΤΙΦΩΝΟΥ", "Προκείμενον."):
+_DCS_LABEL_SPAN_CLASSES = frozenset({"designation", "mode", "red", "smallred"})
+# Paragraphs that are a red label as a whole ("Η ΕΙΣΟΔΟΣ"):
+_DCS_LABEL_P_CLASSES = frozenset({"designation"})
+# Red runs inside the text that are rubrics as a whole ("ΙΕΡΕΥΣ (χαμηλοφώνως)",
+# "Ἤ, ἐν συλλειτούργῳ, τὸ ἑξῆς·"):
+_DCS_RUBRIC_SPAN_CLASSES = frozenset({"boldred", "smallred", "italicsred"})
+# Plain red inside the text marks the variable parts: only a parenthesised
+# instruction or placeholder is a rubric ("(3)", "(δεῖνος)"); the rest is spoken
+# ("τοῦ Ἀρχιεπισκόπου ἡμῶν").
+_DCS_RED_SPAN_CLASS = "red"
+_PARENTHESISED_RE = re.compile(r"\([^()]*\)")
+RUBRIC = "rubric"
+
+
+def _span_classes(node: NavigableString, p: Tag) -> list[set[str]]:
+    """The classes of every element between ``node`` and ``p``, innermost first."""
+    out: list[set[str]] = []
+    parent = node.parent
+    while parent is not None and parent is not p:
+        out.append(set(parent.get("class", [])))
+        parent = parent.parent
+    return out
+
+
+def _rubric_flags(node: NavigableString, p: Tag, whole: bool) -> list[bool]:
+    """Per character of ``node``: is it part of a rubric?"""
+    text = str(node)
+    chain = _span_classes(node, p)
+    if whole:
+        spoken = any(c & _DCS_SPOKEN_SPAN_CLASSES for c in chain)
+        return [not spoken] * len(text)
+    if any(c & _DCS_RUBRIC_SPAN_CLASSES for c in chain):
+        return [True] * len(text)
+    flags = [False] * len(text)
+    if any(_DCS_RED_SPAN_CLASS in c for c in chain):
+        for m in _PARENTHESISED_RE.finditer(text):
+            flags[m.start():m.end()] = [True] * (m.end() - m.start())
+    return flags
+
+
+def _text_and_rubrics(p: Tag) -> tuple[str, list[list]]:
+    """
+    ``_clean_text(p.get_text())`` and the rubric spans in it, ``[[start, end,
+    "rubric"], …]`` (offsets into the cleaned text).
+
+    Which parts are rubrics comes from the DCS classes (the ``_DCS_*`` sets
+    above). A whitespace run between two rubric pieces belongs to the rubric,
+    so "ΙΕΡΕΥΣ (χαμηλοφώνως)" is one span.
+    """
+    cls = set(p.get("class", []))
+    whole = bool(cls & (_DCS_ACTOR_P_CLASSES | _DCS_LABEL_P_CLASSES))
+    if "mixed" in cls:
+        first = p.find("span", class_=True, recursive=False)
+        first_cls = set(first.get("class", [])) if first is not None else set()
+        if first_cls & _DCS_SECTION_SPAN_CLASSES:
+            # A section heading: the reader shows it as one, not as a rubric.
+            text = _clean_text(p.get_text())
+            return text, []
+        if first_cls & _DCS_LABEL_SPAN_CLASSES:
+            whole = True
+    chars: list[str] = []
+    flags: list[bool] = []
+    # The strings get_text() joins: text nodes, not comments.
+    for node in p.descendants:
+        if type(node) is NavigableString:
+            chars.extend(node)
+            flags.extend(_rubric_flags(node, p, whole))
+    raw = "".join(chars)
+    if raw != p.get_text():
+        raise ValueError(f"DCS paragraph text walk disagrees with get_text(): {raw!r}")
+
+    # Collapse whitespace as _clean_text does, keeping one flag per character.
+    text_chars: list[str] = []
+    text_flags: list[bool | None] = []  # None: a collapsed space, decided below
+    for m in re.finditer(r"\s+|\S", raw):
+        if m.group().isspace():
+            if text_chars and text_chars[-1] != " ":
+                text_chars.append(" ")
+                text_flags.append(None)
+        else:
+            text_chars.append(m.group())
+            text_flags.append(flags[m.start()])
+    while text_chars and text_chars[-1] == " ":
+        text_chars.pop()
+        text_flags.pop()
+    text = "".join(text_chars)
+    if text != _clean_text(raw):
+        raise ValueError(f"DCS whitespace collapse disagrees with _clean_text: {text!r}")
+
+    # A space is a rubric's only between two rubric characters.
+    for i, f in enumerate(text_flags):
+        if f is None:
+            before = text_flags[i - 1] if i > 0 else False
+            after = text_flags[i + 1] if i + 1 < len(text_flags) else False
+            text_flags[i] = bool(before and after)
+    spans: list[list] = []
+    i = 0
+    while i < len(text):
+        if not text_flags[i]:
+            i += 1
+            continue
+        j = i
+        while j < len(text) and text_flags[j]:
+            j += 1
+        start, end = i, j
+        while start < end and text[start].isspace():
+            start += 1
+        while end > start and text[end - 1].isspace():
+            end -= 1
+        if start < end:
+            spans.append([start, end, RUBRIC])
+        i = j
+    return text, spans
+
+
+def _record(ref: str, text: str, spans: list[list]) -> dict:
+    """A raw paragraph record, with its rubric spans when it has any."""
+    out: dict = {"ref": ref, "text": text}
+    if spans:
+        out["editorial"] = spans
+    return out
+
+
 def parse_dcs_liturgy(
     html: str,
     service_abbrev: str,
@@ -152,10 +283,16 @@ def parse_dcs_liturgy(
     html:            Raw HTML of the DCS gr-en liturgy page.
     service_abbrev:  Short abbreviation used in canonical refs (e.g. 'Chrysostom').
 
+    Rubrics:
+      speaker labels and their stage directions, red label lines and red
+      instructions inside the text are marked as editorial spans of kind
+      ``rubric`` (``_text_and_rubrics``); the text itself is unchanged.
+
     Returns
     -------
-    List of ``{"ref": ..., "text": ...}`` dicts, one per liturgical passage.
-    Only paragraphs containing Greek text are included.
+    List of ``{"ref": ..., "text": ...}`` dicts, one per liturgical passage,
+    with ``"editorial": [[start, end, "rubric"], …]`` on a paragraph that has
+    rubrics. Only paragraphs containing Greek text are included.
     """
     soup = BeautifulSoup(html, "lxml")
     table = soup.find("table", id="biTable")
@@ -187,7 +324,7 @@ def parse_dcs_liturgy(
                 span_cls = set(first_span.get("class", []))
                 if "rubric" in span_cls:
                     continue  # "(Δείτε τά μεταβλητά.)" — variable-parts notice
-                text = _clean_text(p.get_text())
+                text, rubrics = _text_and_rubrics(p)
                 if not text or not _is_greek(text):
                     continue
                 if span_cls & _DCS_SECTION_SPAN_CLASSES:
@@ -197,12 +334,12 @@ def parse_dcs_liturgy(
                 ref = slugify_ref(
                     f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
                 )
-                paragraphs.append({"ref": ref, "text": text})
+                paragraphs.append(_record(ref, text, rubrics))
                 para_n += 1
                 continue
 
             if cls & _DCS_SECTION_P_CLASSES:
-                text = _clean_text(p.get_text())
+                text, rubrics = _text_and_rubrics(p)
                 if not text or not _is_greek(text):
                     continue
                 section_n += 1
@@ -210,19 +347,19 @@ def parse_dcs_liturgy(
                 ref = slugify_ref(
                     f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
                 )
-                paragraphs.append({"ref": ref, "text": text})
+                paragraphs.append(_record(ref, text, rubrics))
                 para_n += 1
                 continue
 
             # All remaining paragraph classes: dialog, inaudible, reading, hymn,
             # actor, actorinaudible, designation, etc.
-            text = _clean_text(p.get_text())
+            text, rubrics = _text_and_rubrics(p)
             if not text or not _is_greek(text):
                 continue
             ref = slugify_ref(
                 f"ByzLit.{service_abbrev}.{section_n:04d}.{para_n:04d}"
             )
-            paragraphs.append({"ref": ref, "text": text})
+            paragraphs.append(_record(ref, text, rubrics))
             para_n += 1
 
     log.info(

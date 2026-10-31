@@ -2,3 +2,10 @@
 .editorial {
   color: var(--muted);
 }
+
+/* A liturgical rubric (#500): set like WorkText's .rubric line, relative to the text. */
+.rubric {
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}

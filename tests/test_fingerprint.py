@@ -165,3 +165,44 @@ def test_real_models_vocabularies_are_excluded():
     for name in fp.VOCABULARIES["patristica.models"]:
         assert all(isinstance(v, str) for v in get_args(getattr(models, name)))
     assert len(fp.module_hash("patristica.models")) == 16
+
+
+EDITORIAL = '''\
+KINDS: frozenset[str] = frozenset({
+    "title",
+    "note",
+})
+KEPT_KINDS: frozenset[str] = frozenset({"title"})
+'''
+
+
+@pytest.fixture
+def editorial_repo(repo: Path) -> Path:
+    write(repo, "patristica/editorial.py", EDITORIAL)
+    write(repo, "scripts/editorial_step.py", "from patristica.editorial import KINDS\n")
+    return repo
+
+
+def test_new_editorial_kind_does_not_change_hash(editorial_repo: Path):
+    """#500: a new editorial kind leaves every code hash current."""
+    before = fp.code_hash("scripts.editorial_step", root=editorial_repo)
+    write(editorial_repo, "patristica/editorial.py",
+          EDITORIAL.replace('"note",\n', '"note",\n    "rubric",\n'))
+    assert fp.code_hash("scripts.editorial_step", root=editorial_repo) == before
+    write(editorial_repo, "patristica/editorial.py",
+          EDITORIAL.replace('frozenset({"title"})', 'frozenset({"note"})'))
+    assert fp.code_hash("scripts.editorial_step", root=editorial_repo) != before
+
+
+def test_editorial_kinds_must_be_a_frozenset_of_strings(editorial_repo: Path):
+    write(editorial_repo, "patristica/editorial.py",
+          EDITORIAL.replace('frozenset({\n    "title",', 'frozenset({\n    "title".lower(),'))
+    with pytest.raises(fp.FingerprintError, match="KINDS"):
+        fp.code_hash("scripts.editorial_step", root=editorial_repo)
+
+
+def test_real_editorial_kinds_are_excluded():
+    from patristica import editorial
+    assert fp.VOCABULARIES["patristica.editorial"] == ("KINDS",)
+    assert all(isinstance(k, str) for k in editorial.KINDS)
+    assert len(fp.module_hash("patristica.editorial")) == 16
