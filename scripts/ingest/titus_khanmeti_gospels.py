@@ -4,7 +4,7 @@ Ingestor for the Khanmeti Gospels from the palimpsest A-89 / A-844 (TITUS) (#515
 The oldest layer of the Georgian Gospels (khanmeti, 5th-7th c.), as
 Kajaia read the palimpsest (Tbilisi 1984). TITUS prints each manuscript
 line in Asomtavruli and in a Mkhedruli transcription; the transcription
-(``mx`` classes) is the text kept. Verses are numbered as ``Paragraph``.
+(``mx`` classes) is the text kept. Books are ``Text`` and verses ``Paragraph`` there.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/xanmeti/saxareba/saxar.htm
 Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
@@ -35,6 +35,7 @@ SPEC = BibleSet(
     date_range=(450, 700),
     date_confidence="approximate",
     author=None,
+    book_label="Text",
     verse_label="Paragraph",
     include=_mkhedruli_main,
 )

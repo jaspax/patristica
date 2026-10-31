@@ -74,3 +74,17 @@ def test_ingest_bible_from_cache(tmp_path: Path) -> None:
     ]
     odes = json.loads((tmp_path / "titus-test" / "odes.json").read_text())
     assert [v["ref"] for v in odes["verses"]] == ["Odes.9.46", "Odes.9.68"]
+
+
+@pytest.mark.parametrize("label", ["1V", "30-31V", "10VV", "8.V", "16Ⴅ", "22X", "h1", "h2-1N", "col", "7-1Q", "3a-1N"])
+def test_lines_beside_the_verse_are_skipped(label: str) -> None:
+    assert B._VARIANT_RE.match(label)
+    assert not B._VARIANT_RE.match("16")
+
+
+def test_half_verse_joins_its_verse() -> None:
+    assert B.chapter_verse("12", "16a") == (12, 16)
+    rec: dict[str, object] = {"ref": "Rom.12.16", "text": "ა [ბ]", "editorial": [[2, 5, "supplement"]]}
+    B.join_unit(rec, _titus.Unit(key=(), loc={}, text="გ [დ]", editorial=[[2, 5, "supplement"]]))
+    assert rec == {"ref": "Rom.12.16", "text": "ა [ბ] გ [დ]",
+                   "editorial": [[2, 5, "supplement"], [8, 11, "supplement"]]}

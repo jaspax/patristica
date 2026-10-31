@@ -61,7 +61,7 @@ def _prepare(located: list[_titus.Located]) -> Iterator[_titus.Located]:
     for item in located:
         cite = _citation(item.segment.text) if not item.segment.script else None
         if cite:
-            seg = dataclasses.replace(item.segment, cls="citation", text=cite)
+            seg = dataclasses.replace(item.segment, cls="citation", text=f" {cite} ")
             yield dataclasses.replace(item, segment=seg)
         else:
             yield item
@@ -119,9 +119,10 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if date is None or entry is None:
             continue  # the edition's preface, before the first day
         section = re.sub(r"[^0-9A-Za-z]+", "_", date).strip("_")
-        if not entry.isdigit():
+        m = re.fullmatch(r"(\d+)([a-z]?)", entry)
+        if not m:
             raise _titus.TitusError(f"{SOURCE_ID}: unexpected entry {entry!r} on {date}")
-        ref = f"{section}.{int(entry)}"
+        ref = f"{section}.{int(m.group(1))}{m.group(2)}"  # "282a": an entry the edition inserted
         if ref in seen:
             raise _titus.TitusError(f"{SOURCE_ID}: {ref} twice")
         seen.add(ref)

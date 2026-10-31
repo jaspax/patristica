@@ -47,8 +47,9 @@ log = logging.getLogger(__name__)
 TITUS_BOOKS: dict[str, str] = {
     # New Testament
     "mt": "Matt", "mk": "Mark", "lk": "Luke", "jo": "John", "act": "Acts",
-    "rom": "Rom", "1cor": "1Cor", "2cor": "2Cor", "gal": "Gal", "eph": "Eph",
-    "phil": "Phil", "col": "Col", "1thess": "1Thess", "2thess": "2Thess",
+    "rom": "Rom", "1cor": "1Cor", "2cor": "2Cor", "1kor": "1Cor", "2kor": "2Cor",
+    "gal": "Gal", "eph": "Eph", "phil": "Phil", "col": "Col", "kol": "Col", "phile": "Phlm",
+    "1thess": "1Thess", "2thess": "2Thess",
     "1tim": "1Tim", "2tim": "2Tim", "tit": "Titus", "philem": "Phlm", "hebr": "Heb",
     "heb": "Heb", "jac": "Jas", "iac": "Jas", "1petr": "1Pet", "2petr": "2Pet",
     "1jo": "1John", "2jo": "2John", "3jo": "3John", "jud": "Jude", "iud": "Jude",
@@ -76,6 +77,7 @@ class BibleSet:
     date_confidence: str = "approximate"
     author: str | None = None
     printed_edition: str | None = None   # when the set's header names none
+    book_label: str = "Book"   # the khanmeti palimpsest names books "Text"
     verse_label: str = "Verse"
     books: dict[str, str] = field(default_factory=lambda: dict(TITUS_BOOKS))
     include: Callable[[_titus.Segment], bool] = _titus.is_main_text
@@ -86,17 +88,23 @@ class BibleSet:
         return _titus.BASE_URL + self.set_path
 
 
-# A line beside a verse, not the verse: variant readings ("14V", "10VV", "8.V",
-# once "16Ⴅ" with a Georgian letter for V) and, in the Adishi set, the
-# khanmeti codex's text of the verse ("22X", ingested as its own source).
-_VARIANT_RE = re.compile(r"^\d+\.?(?:V+|Ⴅ|X)\d*$")
-_NUMBER_RE = re.compile(r"^(\d+)(?:[,.]|[ab]?_\(.*\))?$")
+# A line beside a verse, not the verse: variant readings ("14V", "30-31V",
+# "8.V", once "16Ⴅ" with a Georgian letter for V), in the Adishi set the
+# khanmeti codex's text of the verse ("22X", ingested as its own source), and
+# in the Pauline sets the manuscripts' headings and chapter titles ("h1",
+# "h2"), colophons ("col"), the editors' notes ("h2-1N", "3a-1N") and
+# quotation notes ("7-1Q"), each with their variants.
+_VARIANT_RE = re.compile(r"^(?:h.*|col.*|[\d.,a-z-]+(?:V+|Ⴅ|X|N|Q)\d*)$")
+_NUMBER_RE = re.compile(r"^(\d+)(?:[,.*]|[ab]?_\(.*\))?$")
+# A verse TITUS splits ("12:16a" after 16, as NA's second half of 16): joined
+# to the verse.
+_HALF_VERSE_RE = re.compile(r"^(\d+)[a-z]$")
 
 
 def _number(value: str, *, chapter: bool = False) -> int | None:
     """A chapter or verse marker's number.
 
-    ``"7,"`` (a stray comma) is 7; an Ode's chapter ``"1_(Ex._15)"`` (with the
+    ``"7,"`` (a stray comma) and ``"9*"`` are 7 and 9; an Ode's chapter ``"1_(Ex._15)"`` (with the
     canticle's source) is 1, and the two halves of the ninth Ode, ``"9a_(Lk._1)"``
     (Magnificat) and ``"9b_(Lk._1)"`` (Benedictus), are both 9: their verses keep
     Luke's numbers (46-55, 68-79), so they don't collide; the chapter ``"_"``
@@ -104,7 +112,8 @@ def _number(value: str, *, chapter: bool = False) -> int | None:
     """
     if chapter and value == "_":
         return 1
-    m = _NUMBER_RE.match(value.strip())
+    value = value.strip()
+    m = _NUMBER_RE.match(value) or (None if chapter else _HALF_VERSE_RE.match(value))
     return int(m.group(1)) if m else None
 
 
@@ -166,7 +175,7 @@ def ingest_bible(spec: BibleSet, output_dir: Path, force: bool = False) -> list[
     for _, page in pages:
         events.extend(_titus.parse_page(page))
     units = _titus.collect_units(
-        _titus.locate(events), ("Book", "Chapter", spec.verse_label), include=spec.include,
+        _titus.locate(events), (spec.book_label, "Chapter", spec.verse_label), include=spec.include,
     )
 
     books: dict[str, list[dict[str, object]]] = {}
