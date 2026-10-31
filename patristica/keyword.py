@@ -21,8 +21,9 @@ import unicodedata
 from patristica.textfold import fold, fold_spans
 
 #: Bump when ``fold`` changes, so ``scripts.build_index`` refolds every chunk.
-#: 2: Church Slavonic letters (#330); 3: Arabic letters (#83); 4: Old Georgian (#222).
-FOLD_VERSION = 4
+#: 2: Church Slavonic letters (#330); 3: Arabic letters (#83); 4: Old Georgian (#222);
+#: 5: Old Georgian old/modern spellings (#511).
+FOLD_VERSION = 5
 
 #: Shorter phrases (letters, not counting spaces) have too few trigrams to use the index.
 MIN_PHRASE_CHARS = 3
