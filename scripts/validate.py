@@ -81,6 +81,12 @@ SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
     # Arabic (#83): the Arabic block, Supplement, Extended-A and the
     # presentation forms (folded to base letters, but some sources keep them).
     "arb": [(0x0600, 0x06FF), (0x0750, 0x077F), (0x08A0, 0x08FF), (0xFB50, 0xFDFF), (0xFE70, 0xFEFF)],
+    # Old Georgian (#222): stored in Mkhedruli as the sources have it, with its
+    # archaic letters (U+10F1–10F6, in the Georgian block). Asomtavruli
+    # (U+10A0–10C5) and Nuskhuri (Georgian Supplement) are the same alphabet
+    # in the older scripts, and Mtavruli its capitals; fold() maps them all
+    # onto Mkhedruli, so they count as Georgian too.
+    "oge": [(0x10A0, 0x10FF), (0x2D00, 0x2D2F), (0x1C90, 0x1CBF)],
 }
 
 _COLLECTION_TITLE_RE = re.compile(

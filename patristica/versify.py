@@ -46,12 +46,18 @@ from patristica.models import Chunk
 #: mean over the 3,779 Gospel verses of the Van Dyck Bible (eBible arb-vd)
 #: with its harakat removed (59.5, median 57; 108 vocalized), since the
 #: Christian Arabic sources are unvocalized.
+#: Old Georgian too (#222): the mean over the 3,667 extant verses of the
+#: Adishi/Khanmeti Gospels (TITUS ARMAZI, Sarjveladze and Tvaltvadze 2001-02),
+#: in the Mkhedruli with archaic letters (ჱ ჲ ჳ ჴ) the sources store, with the
+#: editors' brackets and lacuna marks removed (185.9, median 179; every
+#: Gospel 184-187).
 VERSE_TOKENS: dict[str, int] = {
     "eng": 31,
     "lat": 37,
     "got": 44,
     "chu": 68,
     "arb": 60,
+    "oge": 186,
     "grc": 130,
     "syc": 155,
     "hbo": 177,
@@ -96,6 +102,11 @@ _SENTENCE_MARKS: dict[str, str] = {
     "chu": ".;!?⁖⁘⁙⁛⁜⁝჻",
     # Arabic (#83): the Arabic question mark ؟ besides the Latin stops.
     "arb": ".!?؟",
+    # Old Georgian (#222): the editions (TITUS, Wikisource) punctuate in the
+    # modern way (. ! ? for stops, ":" before speech, ";" between clauses,
+    # as the defaults have it); manuscripts and diplomatic texts end a
+    # sentence or section with the three-dot ჻ (U+10FB).
+    "oge": ".!?჻",
 }
 _DEFAULT_SENTENCE_MARKS = ".!?"
 
