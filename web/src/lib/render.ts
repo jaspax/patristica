@@ -19,6 +19,7 @@
 // the source added, #236) stays in the text: `editorial` on a unit or a
 // derived verse says which parts of its text it is (`EditorialText` shows them).
 
+import { RUBRIC_KIND } from "./editorial";
 import type { EditorialSpan, WorkFile } from "./library";
 
 /** A derived verse: a piece of a source unit cut by the pipeline. */
@@ -41,7 +42,11 @@ export interface Unit {
   /** Editorial material in `text` (a unit with `parts` has it on each part instead). */
   editorial?: EditorialSpan[];
   outOfPeriod: boolean;
-  /** Short all-caps line in a liturgical text: a speaker or rubric label. */
+  /**
+   * A rubric as a whole: marked so in the data (every word in a `rubric`
+   * editorial span, #500), or, in a liturgical text with no marks, a short
+   * all-caps line (a speaker or rubric label).
+   */
   rubric: boolean;
 }
 
@@ -80,6 +85,28 @@ export function isRubric(text: string): boolean {
     t === t.toUpperCase() &&
     t !== t.toLowerCase()
   );
+}
+
+/** Every non-space character of `text` is in a `rubric` span. */
+export function isMarkedRubric(text: string, spans?: readonly EditorialSpan[]): boolean {
+  if (!spans || spans.length === 0 || text.trim() === "") return false;
+  let pos = 0;
+  for (const [start, end, kind] of spans) {
+    if (kind !== RUBRIC_KIND) continue;
+    if (text.slice(pos, start).trim() !== "") return false;
+    pos = Math.max(pos, end);
+  }
+  return text.slice(pos).trim() === "";
+}
+
+/**
+ * Is this unit a rubric as a whole? Marks in the data decide when the work
+ * has any (the source said what its rubrics are); otherwise, in a liturgical
+ * text, the all-caps heuristic.
+ */
+function unitIsRubric(text: string, spans: readonly EditorialSpan[] | undefined, workMarksRubrics: boolean, liturgical: boolean): boolean {
+  if (workMarksRubrics) return isMarkedRubric(text, spans);
+  return liturgical && isRubric(text);
 }
 
 /** "0012" → "12"; non-numeric segments are unchanged. */
@@ -136,6 +163,7 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   const sections: Section[] = [];
   const ids = new Map<string, number>();
   const liturgical = genre === "liturgical";
+  const marksRubrics = Object.values(work.editorial ?? {}).some((spans) => spans.some((s) => s[2] === RUBRIC_KIND));
   const zeroIsTitle = (liturgical || genre === "scripture") && !ZERO_BASED_SOURCES.has(sourceId);
   let current: Section | null = null;
 
@@ -216,7 +244,7 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       ref: joinRef(work.ref_prefix, suffix),
       text,
       outOfPeriod: oop === 1,
-      rubric: liturgical && isRubric(text),
+      rubric: unitIsRubric(text, work.editorial?.[suffix], marksRubrics, liturgical),
     };
     const marks = work.editorial?.[suffix];
     if (marks) unit.editorial = marks;

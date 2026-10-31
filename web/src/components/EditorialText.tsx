@@ -1,13 +1,14 @@
 import { Fragment } from "react";
 
-import { editorialSegments } from "@/lib/editorial";
+import { editorialSegments, RUBRIC_KIND } from "@/lib/editorial";
 import type { EditorialSpan } from "@/lib/library";
 
 import styles from "./EditorialText.module.css";
 
 /**
  * A chunk's text with its editorial material (#236) marked. The marker is
- * deliberately neutral; the dedicated style per kind is #291.
+ * deliberately neutral; the dedicated style per kind is #291. A liturgical
+ * rubric (`rubric`, #500) is the exception: it takes the reader's rubric colour.
  */
 export default function EditorialText({ text, spans }: { text: string; spans?: readonly EditorialSpan[] }) {
   if (!spans || spans.length === 0) return <>{text}</>;
@@ -17,7 +18,12 @@ export default function EditorialText({ text, spans }: { text: string; spans?: r
         s.kind === null ? (
           <Fragment key={i}>{s.text}</Fragment>
         ) : (
-          <span key={i} className={styles.editorial} data-editorial={s.kind} title={`Editorial (${s.kind})`}>
+          <span
+            key={i}
+            className={s.kind === RUBRIC_KIND ? styles.rubric : styles.editorial}
+            data-editorial={s.kind}
+            title={s.kind === RUBRIC_KIND ? "Rubric" : `Editorial (${s.kind})`}
+          >
             {s.text}
           </span>
         ),

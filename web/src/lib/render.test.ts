@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { ChunkRow, WorkFile } from "./library";
-import { chunkRoles, displaySegment, isDerivedRef, isRubric, parseWork, trimmedTitle } from "./render";
+import { chunkRoles, displaySegment, isDerivedRef, isMarkedRubric, isRubric, parseWork, trimmedTitle } from "./render";
 
 describe("chunkRoles", () => {
   it("names each chunk's role: a section heading, a unit, or a derived verse of a unit", () => {
@@ -193,6 +193,26 @@ describe("parseWork", () => {
     ]);
   });
 
+  it("takes rubrics from the work's rubric marks when it has any (#500)", () => {
+    const basil = {
+      ...work("ByzLit.Basil", [
+        ["0002.0001", "ΙΕΡΕΥΣ (χαμηλοφώνως)"],
+        ["0002.0002", "ΧΟΡΟΣ· Ἀμήν."],
+        ["0002.0003", "ΑΜΗΝ"],
+        ["0002.0004", "Ἀντίφωνον Αʹ"],
+      ]),
+      editorial: {
+        "0002.0001": [[0, 20, "rubric"]] as [number, number, string][],
+        "0002.0002": [[0, 6, "rubric"]] as [number, number, string][],
+        "0002.0004": [[0, 12, "rubric"]] as [number, number, string][],
+      },
+    };
+    const [section] = parseWork(basil, "liturgical");
+    // Marked in full: a rubric, though not all caps; partly marked: not; an
+    // unmarked all-caps line in a marked work: not, the marks decide.
+    expect(section.units.map((u) => u.rubric)).toEqual([true, false, false, true]);
+  });
+
   it("only marks rubrics in liturgical texts", () => {
     const [section] = parseWork(work("X", [["1", "CAPUT PRIMUM"]]), "patristic");
     expect(section.units[0].rubric).toBe(false);
@@ -209,6 +229,15 @@ describe("parseWork", () => {
     );
     expect(sections.map((s) => s.id)).toEqual(["s-1", "s-2", "s-1-2"]);
     expect(sections.map((s) => s.anchor)).toEqual(["X.1", "X.2", null]);
+  });
+});
+
+describe("isMarkedRubric", () => {
+  it("needs every non-space character in a rubric span", () => {
+    expect(isMarkedRubric("ΙΕΡΕΥΣ (ἐκφώνως)", [[0, 6, "rubric"], [7, 16, "rubric"]])).toBe(true);
+    expect(isMarkedRubric("ΧΟΡΟΣ· Ἀμήν.", [[0, 6, "rubric"]])).toBe(false);
+    expect(isMarkedRubric("ΧΟΡΟΣ", [[0, 5, "heading"]])).toBe(false);
+    expect(isMarkedRubric("ΧΟΡΟΣ", undefined)).toBe(false);
   });
 });
 

@@ -2,3 +2,8 @@
 .editorial {
   color: var(--muted);
 }
+
+/* A liturgical rubric (#500): the reader's rubric colour, as in WorkText's .rubric. */
+.rubric {
+  color: var(--accent);
+}

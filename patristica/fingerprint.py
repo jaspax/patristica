@@ -27,8 +27,11 @@ left out of every module hash.  Every ingestor imports the models, so a new
 licence or language would otherwise invalidate every ingest stamp and the
 normalize and align code hashes (#262), although allowing one more value can't
 change what existing code produces.  Removing a value makes data that uses it
-fail validation, loudly.  Only a ``Literal`` of string constants may be listed;
-anything else raises ``FingerprintError``, so no logic hides there.
+fail validation, loudly.  The editorial kinds (``patristica.editorial.KINDS``,
+a ``frozenset`` of strings) are such a vocabulary too (#500): ``check`` rejects
+an unknown kind, so a new one changes nothing for existing data.  Only a
+``Literal`` or ``frozenset({...})`` of string constants may be listed; anything
+else raises ``FingerprintError``, so no logic hides there.
 
 Imports are found statically (``import`` statements anywhere in a module,
 including inside functions); ``importlib`` calls are not followed.
@@ -55,6 +58,7 @@ IGNORED_MODULES = frozenset({"patristica.fingerprint"})
 #: module hash, per module: see the module docstring.
 VOCABULARIES: Mapping[str, tuple[str, ...]] = {
     "patristica.models": ("Language", "Genre", "Tradition", "DateConfidence", "License"),
+    "patristica.editorial": ("KINDS",),
 }
 
 
@@ -223,20 +227,29 @@ def _strip_assignments(tree: ast.Module, names: Collection[str], module: str) ->
 
 
 def _check_vocabularies(tree: ast.Module, names: Collection[str], module: str) -> None:
-    """Each of *names* must be a top-level ``X = Literal["a", "b", …]``."""
+    """Each of *names* must be a top-level ``X = Literal["a", "b", …]`` or
+    ``X = frozenset({"a", "b", …})`` (annotated or not)."""
     for stmt in tree.body:
-        if not (isinstance(stmt, ast.Assign) and len(stmt.targets) == 1
-                and isinstance(stmt.targets[0], ast.Name) and stmt.targets[0].id in names):
+        if isinstance(stmt, ast.Assign) and len(stmt.targets) == 1:
+            target, value = stmt.targets[0], stmt.value
+        elif isinstance(stmt, ast.AnnAssign) and stmt.value is not None:
+            target, value = stmt.target, stmt.value
+        else:
             continue
-        value = stmt.value
-        elts = []
+        if not (isinstance(target, ast.Name) and target.id in names):
+            continue
+        elts: list[ast.expr] = []
         if isinstance(value, ast.Subscript) and isinstance(value.value, ast.Name) \
                 and value.value.id == "Literal":
             elts = value.slice.elts if isinstance(value.slice, ast.Tuple) else [value.slice]
+        elif isinstance(value, ast.Call) and isinstance(value.func, ast.Name) \
+                and value.func.id == "frozenset" and len(value.args) == 1 \
+                and not value.keywords and isinstance(value.args[0], ast.Set):
+            elts = value.args[0].elts
         if not elts or not all(isinstance(e, ast.Constant) and isinstance(e.value, str)
                                for e in elts):
             raise FingerprintError(
-                f"{module}: vocabulary {stmt.targets[0].id} must be a Literal of strings")
+                f"{module}: vocabulary {target.id} must be a Literal or frozenset of strings")
 
 
 def _canonical_ast(node: object) -> object:

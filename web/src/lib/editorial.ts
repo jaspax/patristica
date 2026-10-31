@@ -5,6 +5,9 @@
 
 import type { EditorialSpan } from "./library";
 
+/** The kind of editorial span that marks a liturgical rubric (#500). */
+export const RUBRIC_KIND = "rubric";
+
 /** A run of a chunk's text: plain, or editorial material of `kind`. */
 export interface TextSegment {
   text: string;
