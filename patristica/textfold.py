@@ -10,8 +10,8 @@ Church Slavonic witnesses and editions write differently (і/ꙇ/и, оу/ѹ/ꙋ
 ѡ/о, ꙑ/ъі/ы, ѥ/є/е, ꙗ/я/ѣ and ѣ/е by position, ѕ/ꙁ/з, ь/ъ and final
 yers; see ``_CYRILLIC_LETTERS``), and Arabic with or without harakat, hamza
 seats and tatweel, and with dotless or dotted final yāʾ (``_ARABIC_LETTERS``),
-and Old Georgian in any of its three scripts, with ჱ/ე and ჳ/უ as its
-witnesses alternate (``_GEORGIAN_LETTERS``).
+and Old Georgian in any of its three scripts and in old or modern spelling
+(``_GEORGIAN_LETTERS``, ``_fold_georgian``).
 
 It is deliberately lossy and language-independent: the same function is
 applied to indexed text and to queries, so neither side needs language
@@ -47,27 +47,91 @@ _ARABIC_LETTERS = str.maketrans({
     "ٱ": "ا", "ى": "ي", "ی": "ي", "ک": "ك",
 })
 
-# Old Georgian (#222). Asomtavruli and Nuskhuri (the Khutsuri scripts) are
-# the same alphabet as Mkhedruli, letter for letter, so any text in them
-# matches the Mkhedruli the sources store: casefold turns Asomtavruli into
-# Nuskhuri and Mtavruli into Mkhedruli, and Nuskhuri becomes Mkhedruli here
-# (the letters' Unicode names differ only by "SMALL"). Khutsuri writes u as
-# the digraph ႭჃ/ⴍⴣ, so after this ოჳ is u. Of the archaic letters, the
-# Gospel witnesses alternate ჱ with ე (ძჱ/ძე, ქრისტჱ/ქრისტე, even within
-# one manuscript) and ჳ with უ (გეტყჳ/გეტყუ, ტყუეობა/ტყჳეობა: the
-# commonest variant in the Adishi apparatus); those fold. ჲ, ჴ and ჵ are kept:
-# a dropped ჲ is a different case ending (დედაჲ/დედა), and ჴ (q) is a sound
-# of its own beside ხ in Old Georgian.
-_GEORGIAN_HE = {ord("ჱ"): "ე"}
+# Old Georgian (#222, #511). The stored text keeps its spelling; these rules
+# only let old and modern spellings match each other.
+#
+# Scripts: Asomtavruli and Nuskhuri (the Khutsuri scripts) are the same
+# alphabet as Mkhedruli, letter for letter, so any text in them matches the
+# Mkhedruli the sources store: casefold turns Asomtavruli into Nuskhuri and
+# Mtavruli into Mkhedruli, and Nuskhuri becomes Mkhedruli here (the letters'
+# Unicode names differ only by "SMALL"). Khutsuri writes u as the digraph
+# ႭჃ/ⴍⴣ, so ოჳ is უ (before the ჳ rule below, so the digraph isn't read as
+# ო + ვი; ოუ itself is common and kept: მოუწოდა).
+#
+# Archaic letters, as modern spelling writes them (measured on the TITUS
+# Adishi and pre-Athonite Gospels and Wikisource's Shushanik and Conversion
+# of Kartli):
+# - ჱ → ე (ძჱ/ძე, ქრისტჱ/ქრისტე, alternating even within one manuscript);
+# - ჴ → ხ (ჴელი → ხელი; the witnesses write გულისჴმა/გულისხმა);
+# - ჳ → ვ before a vowel (ტყჳე → ტყვე, ჰრქჳან → ჰრქვან), else ვი (თჳსი →
+#   თვისი, ღჳნო → ღვინო, სიტყჳსა → სიტყვისა); a witness's უ for ჳ before a
+#   vowel (ტყუე) meets it through the უ rule, before a consonant (თუსი)
+#   it doesn't;
+# - ჲ → ი before a vowel (ესაჲა → ესაია), else dropped (სიტყუაჲ → სიტყუა,
+#   რაჲთა → რათა, გალილეაჲსა → გალილეასა). This merges case forms
+#   (დედაჲ/დედა, -ისაჲ/-ისა) and a few words (დაჲ "sister"/და "and"), as
+#   modern spelling does.
+# - უ → ვ between a consonant and ა, ე or ო: Old Georgian writes the
+#   consonant v there as უ (ქუეყანა → ქვეყანა, სიტყუა → სიტყვა, თქუენ →
+#   თქვენ, დავარღუო → დავარღვო). Not before ი, where უ is mostly the vowel
+#   (სიცრუისა), not word-initially (უყო "he did to him" ≠ ვყო "I did"), and
+#   not after a vowel (მოუწოდა, დაუდვა). Known merge: შუა "middle" with შვა
+#   "begat".
+# ჵ (rare) is kept.
+_GEORGIAN_ARCHAIC = {ord("ჱ"): "ე", ord("ჴ"): "ხ"}
 _GEORGIAN_LETTERS = {
-    cp: unicodedata.lookup(unicodedata.name(chr(cp)).replace("SMALL ", "")).translate(_GEORGIAN_HE)
+    cp: unicodedata.lookup(unicodedata.name(chr(cp)).replace("SMALL ", "")).translate(
+        _GEORGIAN_ARCHAIC
+    )
     for cp in range(0x2D00, 0x2D2E)
     if unicodedata.name(chr(cp), "").startswith("GEORGIAN SMALL LETTER")
-} | _GEORGIAN_HE
-# ჳ → უ comes after the digraph ოჳ → უ, so the digraph isn't read as ოუ
-# (a common sequence of its own: მოუწოდა).
+} | _GEORGIAN_ARCHAIC
 _GEORGIAN_DIGRAPH = "ოჳ"
-_GEORGIAN_WE = {ord("ჳ"): "უ"}
+_GEORGIAN_VOWELS = "აეიოუ"
+_GEORGIAN_CONSONANTS = "ბგდვზთკლმნპჟრსტფქღყშჩცძწჭხჯჰჶ"
+_GEORGIAN_U_VOWELS = "აეო"  # the vowels after which a consonant's უ is v
+_GEORGIAN_WE_RE = re.compile(f"ჳ(?=[{_GEORGIAN_VOWELS}])")
+_GEORGIAN_HIE_RE = re.compile(f"ჲ(?=[{_GEORGIAN_VOWELS}])")
+_GEORGIAN_U_RE = re.compile(f"(?<=[{_GEORGIAN_CONSONANTS}])უ(?=[{_GEORGIAN_U_VOWELS}])")
+
+
+def _fold_georgian(t: str) -> str:
+    """The Old Georgian rules above, on text already folded letter by letter."""
+    t = t.replace(_GEORGIAN_DIGRAPH, "უ")
+    t = _GEORGIAN_WE_RE.sub("ვ", t).replace("ჳ", "ვი")
+    t = _GEORGIAN_HIE_RE.sub("ი", t).replace("ჲ", "")
+    return _GEORGIAN_U_RE.sub("ვ", t)
+
+
+def _fold_georgian_spans(items: list[tuple[str, int, int]]) -> list[tuple[str, int, int]]:
+    """``_fold_georgian`` on characters with their source spans (after the digraph)."""
+    def following(k: int) -> str:
+        return items[k + 1][0] if k + 1 < len(items) else ""
+
+    out: list[tuple[str, int, int]] = []
+    for k, (c, start, end) in enumerate(items):  # ჳ
+        if c == "ჳ":
+            if following(k) and following(k) in _GEORGIAN_VOWELS:
+                out.append(("ვ", start, end))
+            else:
+                out += [("ვ", start, end), ("ი", start, end)]
+        else:
+            out.append((c, start, end))
+    items, out = out, []
+    for k, (c, start, end) in enumerate(items):  # ჲ
+        if c == "ჲ":
+            if following(k) and following(k) in _GEORGIAN_VOWELS:
+                out.append(("ი", start, end))
+        else:
+            out.append((c, start, end))
+    items, out = out, []
+    for k, (c, start, end) in enumerate(items):  # უ between a consonant and a vowel
+        if (c == "უ" and k and items[k - 1][0] in _GEORGIAN_CONSONANTS
+                and following(k) and following(k) in _GEORGIAN_U_VOWELS):
+            c = "ვ"
+        out.append((c, start, end))
+    return out
+
 
 # Church Slavonic (#330). Superscript letters (Cyrillic Extended-A/B
 # combining letters) are letters of the word written above the line, so they
@@ -144,7 +208,7 @@ def fold(text: str) -> str:
     t = t.casefold()  # also maps final sigma (ς) and long s (ſ) to σ / s
     t = "".join(" " if _is_separator(ch) else ch for ch in t)
     t = _LATIN_DIGRAPHS.sub("e", t.translate(_LATIN_LETTERS).translate(_ARABIC_LETTERS))
-    t = t.translate(_GEORGIAN_LETTERS).replace(_GEORGIAN_DIGRAPH, "უ").translate(_GEORGIAN_WE)
+    t = _fold_georgian(t.translate(_GEORGIAN_LETTERS))
     t = _CYRILLIC_DIGRAPH_RE.sub(
         lambda m: _CYRILLIC_DIGRAPHS[m.group()], t.translate(_CYRILLIC_LETTERS)
     ).translate(_CYRILLIC_YERS)
@@ -196,12 +260,13 @@ def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
         else:
             merged.append((c, start, end))
             k += 1
-    # ь → ъ (and Georgian ჳ → უ, after its digraph); ѣ by the folded
-    # character before it (a paerok counts); then the paerok is left out.
+    merged = _fold_georgian_spans(merged)
+    # ь → ъ; ѣ by the folded character before it (a paerok counts); then the
+    # paerok is left out.
     cyrillic: list[tuple[str, int, int]] = []
     before = " "
     for c, start, end in merged:
-        c = c.translate(_CYRILLIC_YERS).translate(_GEORGIAN_WE)
+        c = c.translate(_CYRILLIC_YERS)
         if c == "ѣ":
             c = "я" if before in " " + _CYRILLIC_VOWELS else "е"
         before = c

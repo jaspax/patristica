@@ -157,7 +157,7 @@ Church Slavonic (`chu`, BCP 47 `cu`, tradition `slavonic`) is stored in Cyrillic
 
 Arabic (`arb`, BCP 47 `ar`, no tradition of its own: a work takes its community's tradition, `greek` for Melkites, `syriac` for Syriac Orthodox and East Syriac writers, `coptic` for Copto-Arabic ones; #83, #478) is stored unvocalized where the source is, as the source gives it. `fold()` drops harakat and tatweel and folds أ/إ/آ/ٱ → ا, ى → ي and OCR's Persian ی/ک → ي/ك; ة and ه stay distinct. The reader shows it right-to-left in Noto Naskh Arabic.
 
-Old Georgian (`oge`, BCP 47 `oge`, tradition `georgian`; `kat` is modern Georgian; #222, #511) is stored in Mkhedruli with its archaic letters (ჱ ჲ ჳ ჴ ჵ), as the sources (TITUS, Wikisource) give it. `fold()` maps Asomtavruli, Nuskhuri and Mtavruli onto Mkhedruli letter for letter (Khutsuri ოჳ → უ) and folds ჱ → ე and ჳ → უ, which the witnesses alternate; ჲ, ჴ and ჵ are kept.
+Old Georgian (`oge`, BCP 47 `oge`, tradition `georgian`; `kat` is modern Georgian; #222, #511) is stored in Mkhedruli with its archaic letters (ჱ ჲ ჳ ჴ ჵ), as the sources (TITUS, Wikisource) give it. `fold()` maps Asomtavruli, Nuskhuri and Mtavruli onto Mkhedruli letter for letter (Khutsuri ოჳ → უ) and lets old and modern spellings match: ჱ → ე, ჴ → ხ, ჳ → ვ before a vowel and ვი elsewhere, ჲ → ი before a vowel and dropped elsewhere, უ → ვ between a consonant and ა/ე/ო (სიტყუაჲ → სიტყვა). The stored text keeps its spelling.
 
 To add a language, follow `docs/adding-a-language.md`: every touchpoint and what it costs. Keep that file language-neutral: a language's choices, measurements and decision record go on its umbrella issue (the "Add … texts" issue with its `lang:` label), never into the checklist (#475).
 
