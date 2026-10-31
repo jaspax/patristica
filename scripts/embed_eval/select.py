@@ -37,8 +37,8 @@ EXCLUDED_UNIQUE_WORKS: dict[str, str] = {
     "pta/pta0200/pta001/pta-syc1": "Syriac translation of Eusebius, Hist. eccl.; Greek in corpus",
     # Old Georgian (#529): the lectionaries are Gospel and Epistle pericopes,
     # the same text as the TITUS Bible witnesses, so not Georgian-only.
-    "titus-paris-lectionary/lectionarium-hierosolymitanum": "Scripture pericopes (Paris Lectionary)",
-    "titus-khanmeti-lectionary/lectionarium-gracense": "Scripture pericopes (Khanmeti Lectionary)",
+    "titus-paris-lectionary/lectionarium-hierosolymitanum": "Scripture pericopes (Paris)",
+    "titus-khanmeti-lectionary/lectionarium-gracense": "Scripture pericopes (Khanmeti)",
 }
 
 # Explicit language-unique works, overriding the metadata rule in
