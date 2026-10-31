@@ -445,8 +445,13 @@ def collect_units(
         kind = (located_kind(item) if located_kind else None) or (
             span_kind(seg) if span_kind else None)
         if kind:
+            # whitespace outside the sentinels, so none is left doubled
+            text = seg.text
+            if text[:1].isspace() and parts:
+                lead = " "
+            trail = " " if text[-1:].isspace() else ""
             kinds.append(kind)
-            parts.append(f"{lead}{_SEG_OPEN}{seg.text}{_SEG_CLOSE}")
+            parts.append(f"{lead}{_SEG_OPEN}{text.strip()}{_SEG_CLOSE}{trail}")
         else:
             parts.append(lead + seg.text)
     flush()
@@ -491,7 +496,6 @@ def _apply_segment_spans(
             out.append(ch)
     old_to_new.append(len(out))
     new_text = "".join(out)
-    # collapse the double spaces a removed sentinel can leave
     shifted = [[old_to_new[int(s)], old_to_new[int(e)], k] for s, e, k in spans]
     kept = [s for s in shifted
             if not any(int(m[0]) < int(s[1]) and int(s[0]) < int(m[1]) for m in marked)]
