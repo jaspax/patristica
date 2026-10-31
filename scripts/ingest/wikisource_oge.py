@@ -128,9 +128,10 @@ CONVERSION = Page(
     date_range=(800, 976),
     date_confidence="approximate",
     edition=("Georgian Wikisource, «\"მოქცევაჲ ქართლისაჲ\" (შატბერდისეული ვერსია)», revision "
-             "69216 (2025-02-12); text of the Shatberdi codex (973/976) as on amsi.ge, a modern "
-             "edition (not Takaishvili's of 1890), probably ძველი ქართული აგიოგრაფიული "
-             "ლიტერატურის ძეგლები I (Tbilisi 1963)"),
+             "69216 (2025-02-12); text of the Shatberdi codex (973/976) after a modern critical "
+             "edition (not Takaishvili's of 1890; identical to the text on amsi.ge), probably "
+             "ძველი ქართული აგიოგრაფიული ლიტერატურის ძეგლები I (Tbilisi 1963) or "
+             "შატბერდის კრებული X საუკუნისა (Tbilisi 1979)"),
 )
 
 PAGES: tuple[Page, ...] = (SHUSHANIK, CONVERSION)
