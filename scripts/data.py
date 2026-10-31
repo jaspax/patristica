@@ -154,16 +154,41 @@ def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> l
     return sorted(f"{prefix}/{p}" for p in paths)
 
 
-def lfs_pull(include: list[str] | None, run: Callable[..., object] = subprocess.run) -> None:
+# Bytes of one ``--include=`` argument: Linux caps a single argument at
+# MAX_ARG_STRLEN (128 KiB), and the tests' list alone is past that (#494).
+INCLUDE_ARG_MAX = 100_000
+
+
+def include_batches(include: list[str], limit: int = INCLUDE_ARG_MAX) -> list[str]:
+    """*include* as comma-joined pattern lists, each at most *limit* bytes."""
+    batches: list[str] = []
+    current: list[str] = []
+    size = 0
+    for path in include:
+        n = len(path.encode())
+        if n > limit:
+            raise ValueError(f"LFS include pattern longer than {limit} bytes: {path[:80]}…")
+        if current and size + 1 + n > limit:
+            batches.append(",".join(current))
+            current, size = [], 0
+        size += n + (1 if current else 0)
+        current.append(path)
+    if current:
+        batches.append(",".join(current))
+    return batches
+
+
+def lfs_pull(include: list[str] | None, run: Callable[..., object] = subprocess.run,
+             limit: int = INCLUDE_ARG_MAX) -> None:
     """``git lfs pull`` of *include* (every data/ tier when None), past ``.lfsconfig``'s
-    fetchexclude."""
+    fetchexclude. A long list is pulled in several runs, each with an ``--include``
+    under the kernel's per-argument limit."""
     if include is not None and any("," in p for p in include):
         raise ValueError("git lfs --include is comma-separated: a path contains a comma")
-    patterns = ",".join(include) if include is not None else "data/**"
-    if include == []:
-        return
-    run(["git", "-c", "lfs.fetchexclude=", "lfs", "pull", f"--include={patterns}"],
-        cwd=REPO, check=True)
+    batches = include_batches(include, limit) if include is not None else ["data/**"]
+    for patterns in batches:
+        run(["git", "-c", "lfs.fetchexclude=", "lfs", "pull", f"--include={patterns}"],
+            cwd=REPO, check=True)
 
 
 # ---------------------------------------------------------------------------
