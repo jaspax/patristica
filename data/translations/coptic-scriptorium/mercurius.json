@@ -4,6 +4,12 @@
   "source_language": "cop",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-10-30": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-10-30",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -2515,25 +2521,18 @@
       "text": "But the saint endured this terrible torture with great fortitude."
     },
     {
-      "chunk_id": "coptic-scriptorium/mercurius#CopScr.mercurius.001.0077.s1",
-      "source_sha256": "79c74ece4f8874dc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "Decius ordered them to untie him so that he would not die quickly, and to put him in a dark place and lock him in without delay."
-    },
-    {
-      "chunk_id": "coptic-scriptorium/mercurius#CopScr.mercurius.001.0077.s2",
-      "source_sha256": "6792e4d9867e7711",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "The soldiers, the soldiers, lifted him up, half dead, with only a little breath left in him, thinking that he would die."
+      "chunk_id": "coptic-scriptorium/mercurius#CopScr.mercurius.001.0077",
+      "source_sha256": "89864ec7fed1ed0e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 2,
+      "text": "Decius ordered that he be taken out, so that he would not die quickly, and that they shut him up in a dark place and seal it on him at once. The soldiers"
     },
     {
       "chunk_id": "coptic-scriptorium/mercurius#CopScr.mercurius.001.0078",
-      "source_sha256": "e37480c9d590029d",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-27",
-      "group_size": 25,
-      "text": "The soldiers lifted him up, half dead, with only a little breath left in him, thinking that he would die."
+      "source_sha256": "54569bd38c8d23b3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
+      "group_size": 2,
+      "text": "then lifted him up. He was half dead, with a little breath left in him, and they thought that he would die."
     },
     {
       "chunk_id": "coptic-scriptorium/mercurius#CopScr.mercurius.001.0079",

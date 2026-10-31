@@ -15,7 +15,7 @@
     "tradition": "coptic",
     "license": "cc-by-4.0",
     "provenance_url": "https://github.com/CopticScriptorium/corpora/tree/master/theodosius-alexandria",
-    "edition": "Machine translation (gpt-6.1-sol, Patristica, 2026-10-27) of: Coptic Scriptorium, theodosius-alexandria",
+    "edition": "Machine translation (claude-opus-5-5 + gpt-6.1-sol, Patristica, 2026-10-30) of: Coptic Scriptorium, theodosius-alexandria",
     "translation_of": "coptic-scriptorium/theodosius_alexandria"
   },
   "paragraphs": [
@@ -6076,8 +6076,8 @@
     },
     {
       "ref": "CopScr.theodosius-alexandria.005.0044",
-      "text": "But",
-      "source_sha": "ec2b78dbd7c89ebd"
+      "text": "Adam said: \"Listen to me, O my son(s),",
+      "source_sha": "6c8623da6fdf3665"
     },
     {
       "ref": "CopScr.theodosius-alexandria.005.0045",
@@ -7381,8 +7381,8 @@
     },
     {
       "ref": "CopScr.theodosius-alexandria.006.0047",
-      "text": "[?] martyrs.",
-      "source_sha": "f1020e2390e17e1d"
+      "text": "all of you, together with the righteous: so then, you are rejoicing in the feast of Michael today.",
+      "source_sha": "87ba07e22988746c"
     },
     {
       "ref": "CopScr.theodosius-alexandria.006.0048",
@@ -11331,9 +11331,9 @@
     }
   ],
   "machine_translation": {
-    "model": "gpt-6.1-sol",
+    "model": "claude-opus-5-5 + gpt-6.1-sol",
     "prompt_version": "search-bulk",
-    "date": "2026-10-27",
+    "date": "2026-10-30",
     "original": "coptic-scriptorium/theodosius_alexandria",
     "original_path": "coptic-scriptorium/theodosius_alexandria.json",
     "requests": 0,

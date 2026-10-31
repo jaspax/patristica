@@ -68,62 +68,7 @@ SOURCE_ID = "coptic-scriptorium-eng"
 
 # A Coptic paragraph record and the positions (in document order) of the bound
 # groups it holds.
-Unit = tuple[dict, list[int]]
-
-
-# ---------------------------------------------------------------------------
-# The Coptic units, with bound-group positions
-# ---------------------------------------------------------------------------
-
-def _units_tei(root: etree._Element, file_n: int, corpus_name: str,
-               norms: cs.NormMap) -> list[Unit]:
-    """``cs._extract_paragraphs_tei`` with each paragraph's ``<phr>`` positions."""
-    position = {el: i for i, el in enumerate(norms)}
-    body = root.find(f".//{cs._TEI}body")
-    if body is None:
-        body = root.find(".//body")
-    if body is None:
-        return []
-    for tag_variants in ([f"{cs._TEI}ab", "ab"], [f"{cs._TEI}p", "p"],
-                         [f"{cs._TEI}s", "s"], [f"{cs._TEI}l", "l"]):
-        elements = [
-            el for el in body.iter()
-            if isinstance(el.tag, str) and etree.QName(el.tag).localname in tag_variants
-        ]
-        units: list[Unit] = []
-        for el in elements:
-            text = cs._paragraph_text(cs._elem_words(el, norms))
-            if not cs._COPTIC_RE.search(text):
-                continue
-            orig = cs._paragraph_text(cs._elem_words(el))
-            groups = [position[p] for p in el.iter() if p in position]
-            units.append((cs._paragraph(corpus_name, file_n, len(units), text, orig), groups))
-        if units:
-            return units
-    return []
-
-
-def _units_meta(root: etree._Element, file_n: int, corpus_name: str) -> list[Unit]:
-    """``cs._extract_paragraphs_custom`` with each paragraph's ``<norm_group>``
-    positions."""
-    position = {el: i for i, el in enumerate(root.iter("norm_group"))}
-    para_elems = root.findall(".//p_n")
-    if not para_elems:
-        para_elems = [el for el in root.iter("p") if el.get("p") == "p"]
-    if not para_elems:
-        para_elems = [root]
-    units: list[Unit] = []
-    for para_el in para_elems:
-        words = cs._groups(para_el, "norm_group")
-        if not words:
-            continue
-        text = cs._paragraph_text(words)
-        if not cs._COPTIC_RE.search(text):
-            continue
-        orig = cs._paragraph_text(cs._groups(para_el, "orig_group"))
-        groups = [position[g] for g in para_el.iter("norm_group")]
-        units.append((cs._paragraph(corpus_name, file_n, len(units), text, orig), groups))
-    return units
+Unit = cs.Unit
 
 
 class Document(NamedTuple):
@@ -137,18 +82,16 @@ class Document(NamedTuple):
 
 
 def _document(xml_path: Path, file_n: int, corpus_name: str) -> Document:
-    """Parse one document as ``cs._extract_paragraphs_from_tei`` does.
+    """Parse one document as ``coptic_scriptorium`` does (``cs._units``).
 
     A TT-format document (``<meta>`` root) holds its own English sentences,
     but the copy in ``*_TEI`` has an empty ``<meta>``, so its header comes
     from the ``*_TT`` copy.  A TEI document's sentences and header are in its
     TT export, whose ``norm_group``s are its ``<phr>``s in order.
     """
-    root = etree.parse(str(xml_path), etree.XMLParser(**cs._PARSER_KW)).getroot()
-    if isinstance(root.tag, str) and etree.QName(root.tag).localname == "meta":
-        return Document(_units_meta(root, file_n, corpus_name), xml_path,
-                        cs._tt_path(xml_path) or xml_path)
-    units = _units_tei(root, file_n, corpus_name, cs._norm_map(root, xml_path))
+    units = cs._units(xml_path, file_n, corpus_name)
+    if cs._is_tt(xml_path):
+        return Document(units, xml_path, cs._tt_path(xml_path) or xml_path)
     tt_path = cs._tt_path(xml_path)
     return Document(units, tt_path, tt_path)
 
@@ -353,19 +296,14 @@ def _english(corpus_name: str, corpus_slug: str, meta: dict,
 
 def _corpus_documents(corpus_dir: Path) -> list[Document]:
     """The documents of a corpus, with the same paragraphs (refs and text) as
-    ``coptic_scriptorium`` writes for it; ``CopticLayerError`` if they differ."""
+    ``coptic_scriptorium`` writes for it (both read them with ``cs._units``)."""
     tei_dir = corpus_dir / f"{corpus_dir.name}_TEI"
     if not tei_dir.exists():
         candidates = list(corpus_dir.glob("*_TEI"))
         tei_dir = candidates[0] if candidates else tei_dir
     docs: list[Document] = []
     for file_n, xml_path in enumerate(sorted(tei_dir.glob("*.xml"))):
-        doc = _document(xml_path, file_n, corpus_dir.name)
-        coptic = cs._extract_paragraphs_from_tei(xml_path, file_n, corpus_dir.name)
-        if [p for p, _ in doc.units] != coptic:
-            raise cs.CopticLayerError(
-                f"{xml_path}: paragraphs differ from coptic_scriptorium's")
-        docs.append(doc)
+        docs.append(_document(xml_path, file_n, corpus_dir.name))
     return docs
 
 
@@ -397,7 +335,8 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             continue
         try:
             english = _english(corpus_name, corpus_slug, meta, _corpus_documents(corpus_dir))
-        except (cs.CopticLayerError, CopticLicenseError, etree.XMLSyntaxError) as exc:
+        except (cs.CopticLayerError, cs.CopticStructureError, CopticLicenseError,
+                etree.XMLSyntaxError) as exc:
             log.error("  Skipping %s: %s", corpus_name, exc)
             continue
         if english is None:
