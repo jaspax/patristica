@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex, WorkRow } from "@/lib/library";
@@ -111,11 +111,17 @@ describe("LibraryBrowser", () => {
 
   it("writes searches and sorting to the URL", async () => {
     render(<LibraryBrowser />);
-    fireEvent.change(await screen.findByRole("searchbox"), { target: { value: "basil" } });
-    expect(replace).toHaveBeenLastCalledWith("/works?q=basil", { scroll: false });
+    const box = await screen.findByRole("searchbox");
+    fireEvent.change(box, { target: { value: "basil" } });
+    // The field shows the text at once; the URL follows once typing pauses (#497).
+    expect((box as HTMLInputElement).value).toBe("basil");
+    expect(replace).not.toHaveBeenCalled();
+    await waitFor(() => expect(replace).toHaveBeenLastCalledWith("/works?q=basil", { scroll: false }));
+    expect(replace).toHaveBeenCalledTimes(1);
 
+    // Sorting keeps the query typed so far.
     fireEvent.click(screen.getByRole("button", { name: /Date/ }));
-    expect(replace).toHaveBeenLastCalledWith("/works?sort=date", { scroll: false });
+    expect(replace).toHaveBeenLastCalledWith("/works?q=basil&sort=date", { scroll: false });
   });
 
   it("offers each genre present, apocrypha included, in the genre facet", async () => {

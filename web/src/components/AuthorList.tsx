@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, type ReactNode } from "react";
+import { useDeferredValue, useMemo, type ReactNode } from "react";
 
 import { filterAuthors } from "@/lib/authors";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@/lib/filter";
 import { formatLifespan, TRADITIONS } from "@/lib/format";
 import { authorHref, loadLibrary, type Library } from "@/lib/library";
+import { useDebouncedText } from "@/lib/useDebouncedText";
 import { useLoaded } from "@/lib/useLoaded";
 
 import FilterFields from "./FilterFields";
@@ -46,9 +47,17 @@ function List({ library }: { library: Library }) {
     () => ({ ...parseViewState(new URLSearchParams(params.toString())), author: [] }),
     [params],
   );
+  const writeUrl = (next: ViewState) => {
+    const params = viewStateToParams({ ...next, author: [] }).toString();
+    router.replace(params ? `${pathname}?${params}` : pathname, { scroll: false });
+  };
+  // The input shows each keystroke at once; the URL and the list follow (#497).
+  const query = useDebouncedText(view.q, (q) => writeUrl({ ...view, q }));
+  const q = useDeferredValue(query.text);
   const update = (changes: Partial<ViewState>) => {
-    const query = viewStateToParams({ ...view, ...changes, author: [] }).toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    const next = { ...view, q: query.text, ...changes };
+    query.setNow(next.q);
+    writeUrl(next);
   };
 
   const facets = useMemo(() => libraryFacets(index, authors), [index, authors]);
@@ -60,8 +69,8 @@ function List({ library }: { library: Library }) {
     () => (facetQuery ? workCounts(filterWorks(index.works, workFilters(view), index.sources, authors)) : allCounts),
     [index, authors, allCounts, facetQuery, view],
   );
-  const shown = useMemo(() => filterAuthors(authors, counts, view.q), [authors, counts, view.q]);
-  const isFiltered = viewStateToParams({ ...view, sort: DEFAULT_VIEW.sort, dir: DEFAULT_VIEW.dir }).toString() !== "";
+  const shown = useMemo(() => filterAuthors(authors, counts, q), [authors, counts, q]);
+  const isFiltered = viewStateToParams({ ...view, q: query.text, sort: DEFAULT_VIEW.sort, dir: DEFAULT_VIEW.dir }).toString() !== "";
 
   return (
     <div>
@@ -70,9 +79,9 @@ function List({ library }: { library: Library }) {
           <span>Find an author (names in any language)</span>
           <input
             type="search"
-            value={view.q}
+            value={query.text}
             placeholder="e.g. Chrysostom, Hieronymus"
-            onChange={(e) => update({ q: e.target.value })}
+            onChange={(e) => query.setText(e.target.value)}
           />
         </label>
         <FilterFields value={view} facets={facets} onChange={update} withAuthor={false} />
