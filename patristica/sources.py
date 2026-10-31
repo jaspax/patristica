@@ -53,6 +53,9 @@ SOURCE_LABELS: dict[str, str] = {
     "pta-eng": "Patristic Text Archive (English translations)",
     "pearse-arabic": "Christian Arabic texts (Roger Pearse, tertullian.org)",
     "pearse-arabic-eng": "Christian Arabic texts (Roger Pearse, tertullian.org; English translations)",
+    "titus-chronicles": "Georgian Chronicle, vol. I (Old Georgian, TITUS)",
+    "titus-shatberdi": "Shatberdi Codex (Old Georgian, TITUS)",
+    "titus-translations": "Old Georgian translations of the Fathers (TITUS)",
     "torot": "TOROT (Old Church Slavonic Treebank)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "wikisource-oge": "Old Georgian texts (Georgian Wikisource)",
@@ -71,6 +74,7 @@ SOURCE_LABELS: dict[str, str] = {
     "mozarabic": "Mozarabic Liturgy (Férotin)",
     "serapion": "Prayer-Book of Sarapion",
     "syriac-james": "Syriac Liturgy of St James (Ante-Nicene Fathers)",
+    "titus-liturgy": "Old Georgian Liturgies (TITUS)",
     "typikon": "Typikon (Violakis)",
     # Councils
     "ecumenical": "Ecumenical and Local Councils (Nicene and Post-Nicene Fathers)",
