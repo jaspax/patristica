@@ -34,9 +34,9 @@ This module gives an ingestor:
   segment; :func:`collect_units` joins the segments of each location into
   :class:`Unit` s with their editorial spans;
 * :func:`clean_text`: TITUS's editorial signs to ``(text, spans)``:
-  ``[…]`` restorations, ``(…)`` abbreviation expansions and ``<…>``
-  additions as ``supplement``, ``...`` / ``[...]`` as ``lacuna``, ``[!]`` and
-  ``{…}`` as ``note``; spans are ``[start, end, kind]`` in Python ``str``
+  ``[…]`` restorations, ``(…)``/``{…}`` expansions and ``<…>``
+  additions as ``supplement``, ``...`` / ``[...]`` as ``lacuna``, ``[!]`` as
+  ``note``; spans are ``[start, end, kind]`` in Python ``str``
   offsets, for the raw unit's ``editorial`` key (#236). Ingestors must not
   import ``patristica.editorial``, and nor does this module;
 * :func:`parse_header`, :data:`TITUS_LICENSE`, :func:`edition_line`.
@@ -154,8 +154,11 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
     resp.raise_for_status()
     text = resp.content.decode("utf-8")
     dest.parent.mkdir(parents=True, exist_ok=True)
-    # mtime 0: the same page gives the same bytes (git-lfs objects stay stable).
-    dest.write_bytes(gzip.compress(resp.content, mtime=0))
+    # mtime 0: the same page gives the same bytes (git-lfs objects stay stable);
+    # written then renamed, so an interrupted run leaves no truncated page.
+    tmp = dest.with_name(dest.name + ".part")
+    tmp.write_bytes(gzip.compress(resp.content, mtime=0))
+    tmp.replace(dest)
     return text
 
 
@@ -229,10 +232,11 @@ class Segment:
 
     cls: str
     text: str  # tags stripped, entities decoded, <BR> as "\n"; whitespace as in the page
-    # A <BR> or a whitespace-only span came between the previous segment and
-    # this one (both dropped), so a word ends before it even when neither text
-    # has a space there (#516). Not compared.
-    space_before: bool = field(default=False, compare=False)
+    # Whether the page has whitespace (or a line break) between the previous
+    # segment and this one: TITUS splits words across spans ("Ⴋ" + "Ⴈ…" for a
+    # coloured initial), so collect_units joins segments without a space
+    # unless this says there was one.
+    space_before: bool = True
 
     @property
     def _parts(self) -> re.Match[str] | None:
@@ -274,6 +278,7 @@ Event = Marker | Segment
 HEADER_CLASSES = frozenset({"titus", "title", "subtitle", "textdescr", "bibliogr"})
 
 _LEVEL_RE = re.compile(r"<!(X?)Level\s+(\d+)>\s*([^<:]+?):\s*([^<]*?)\s*<A NAME", re.I)
+_SPACE_RE = re.compile(r"\s|<BR|&nbsp;", re.I)
 _SPAN_OPEN_RE = re.compile(r"<span id=([A-Za-z0-9_]+)>", re.I)
 _FOOTER_RE = re.compile(
     r"<DIV ALIGN=RIGHT><A HREF=[^>]*><img src=\"/arribar|<HR><BR>This text is part of", re.I)
@@ -286,7 +291,6 @@ def _strip_tags(fragment: str) -> str:
     return html_lib.unescape(fragment).replace("\xa0", " ")
 
 
-_BR_RE = re.compile(r"<BR\b", re.I)
 _INDENT_RE = re.compile(r"(?:&nbsp;|\s)*", re.I)
 
 
@@ -313,15 +317,13 @@ def parse_page(page_html: str) -> list[Event]:
         body = body[body_start.end():]
     events: list[Event] = []
     opens = list(_SPAN_OPEN_RE.finditer(body))
-    line_break = False  # a <BR> or a blank span since the last segment's text
+    pending_space = True
     for i, m in enumerate(opens):
         cls = m.group(1).lower()
         stop = opens[i + 1].start() if i + 1 < len(opens) else len(body)
         chunk = body[m.end():stop]
-        if i == 0 and _BR_RE.search(body[:m.start()]):
-            line_break = True
         if re.fullmatch(r"h\d+", cls):
-            line_break = line_break or bool(_BR_RE.search(chunk))
+            pending_space = True
             lm = _LEVEL_RE.search(chunk)
             if lm:
                 events.append(Marker(
@@ -332,19 +334,14 @@ def parse_page(page_html: str) -> list[Event]:
                     indent=_indent_after(chunk[lm.end():]),
                 ))
             continue
-        if cls in HEADER_CLASSES:
-            line_break = line_break or bool(_BR_RE.search(chunk))
-            continue
         close = re.search(r"</span>", chunk, re.I)
         text = _strip_tags(chunk[: close.start()] if close else chunk)
-        if text.strip():
-            events.append(Segment(cls=cls, text=text, space_before=line_break))
-            line_break = False
-            tail = chunk[close.end():] if close else ""
-        else:
-            tail = chunk
-            line_break = line_break or bool(text)
-        line_break = line_break or bool(_BR_RE.search(tail))
+        tail = chunk[close.end():] if close else ""
+        if cls in HEADER_CLASSES or not text.strip():
+            pending_space = pending_space or bool(_SPACE_RE.search(chunk))
+            continue
+        events.append(Segment(cls=cls, text=text, space_before=pending_space))
+        pending_space = bool(_SPACE_RE.search(tail))
     return events
 
 
@@ -409,42 +406,118 @@ def collect_units(
     *,
     include: Callable[[Segment], bool] = is_main_text,
     clean: Callable[[str], tuple[str, list[list[int | str]]]] | None = None,
+    span_kind: Callable[[Segment], str | None] | None = None,
+    located_kind: Callable[[Located], str | None] | None = None,
 ) -> list[Unit]:
     """Join the included segments of each location into units.
 
     *key* names the location labels that make a unit (``("Book", "Chapter",
-    "Verse")``); consecutive segments with the same values join with a space,
-    and a unit starts afresh whenever the key changes (a key seen again later
-    is a new unit: callers check for duplicates). Segments with none of the
-    key's labels set are skipped. Each unit's text goes through *clean*
-    (default :func:`clean_text`); units left empty are dropped.
+    "Verse")``), looked up in the regular levels and then in the manuscript
+    levels (a lectionary gives its Bible refs as XLevels); consecutive
+    segments with the same values join (with a space where the page has
+    whitespace between them, :attr:`Segment.space_before`), and a unit starts afresh
+    whenever the key changes (a key seen again later is a new unit: callers
+    check for duplicates). Segments with none of the key's labels set are
+    skipped. Each unit's text goes through *clean* (default
+    :func:`clean_text`); units left empty are dropped.
+
+    *span_kind* marks whole segments as editorial: a segment for which it
+    returns a kind (``"rubric"`` for a ``b`` segment, ``"heading"``, ``"note"``)
+    gets a span of that kind over its text; adjacent segments of one kind
+    share a span, and bracket spans inside it are dropped. *located_kind* does
+    the same with the segment's location at hand (a lectionary's incipit is a
+    note outside a pericope, text inside one); where both give a kind,
+    *located_kind* wins.
     """
     clean = clean or clean_text
     units: list[Unit] = []
     cur_key: tuple[str | None, ...] | None = None
     parts: list[str] = []
+    kinds: list[str] = []
     cur_loc: Mapping[str, str] = {}
     cur_xloc: Mapping[str, str] = {}
 
     def flush() -> None:
         if cur_key is None or not parts:
             return
-        text, spans = clean(" ".join(parts))
+        text, spans = clean("".join(parts))
+        if kinds:
+            text, spans = _apply_segment_spans(text, spans, kinds)
         if text:
             units.append(Unit(key=cur_key, loc=cur_loc, text=text, editorial=spans, xloc=cur_xloc))
 
     for item in located:
         if not include(item.segment):
             continue
-        k = tuple(item.loc.get(lab) for lab in key)
+        merged = {**item.xloc, **item.loc}
+        k = tuple(merged.get(lab) for lab in key)
         if all(v is None for v in k):
             continue
         if k != cur_key:
             flush()
-            cur_key, parts, cur_loc, cur_xloc = k, [], item.loc, item.xloc
-        parts.append(item.segment.text)
+            cur_key, parts, kinds, cur_loc, cur_xloc = k, [], [], item.loc, item.xloc
+        seg = item.segment
+        lead = " " if seg.space_before and parts else ""
+        kind = (located_kind(item) if located_kind else None) or (
+            span_kind(seg) if span_kind else None)
+        if kind:
+            kinds.append(kind)
+            parts.append(f"{lead}{_SEG_OPEN}{seg.text}{_SEG_CLOSE}")
+        else:
+            parts.append(lead + seg.text)
     flush()
     return units
+
+
+# Private-use sentinels around segments marked by span_kind while the unit is
+# cleaned; removed again by _apply_segment_spans.
+_SEG_OPEN, _SEG_CLOSE = "\ue000", "\ue001"
+
+
+def _apply_segment_spans(
+    text: str, spans: list[list[int | str]], kinds: list[str],
+) -> tuple[str, list[list[int | str]]]:
+    """Remove the sentinels from *text*, shifting *spans*, and add the segments' spans."""
+    out: list[str] = []
+    old_to_new: list[int] = []
+    marked: list[list[int | str]] = []
+    queue = iter(kinds)
+    start: int | None = None
+    for ch in text:
+        old_to_new.append(len(out))
+        if ch == _SEG_OPEN:
+            start = len(out)
+        elif ch == _SEG_CLOSE:
+            kind = next(queue)
+            end = len(out)
+            if start is not None:
+                # trim spaces at the segment's edges
+                while start < end and out[start] == " ":
+                    start += 1
+                while end > start and out[end - 1] == " ":
+                    end -= 1
+                if end > start:
+                    prev = marked[-1] if marked else None
+                    if prev and prev[2] == kind and "".join(out[int(prev[1]):start]).strip() == "":
+                        prev[1] = end
+                    else:
+                        marked.append([start, end, kind])
+            start = None
+        else:
+            out.append(ch)
+    old_to_new.append(len(out))
+    new_text = "".join(out)
+    # collapse the double spaces a removed sentinel can leave
+    shifted = [[old_to_new[int(s)], old_to_new[int(e)], k] for s, e, k in spans]
+    kept = [s for s in shifted
+            if not any(int(m[0]) < int(s[1]) and int(s[0]) < int(m[1]) for m in marked)]
+    result = sorted(kept + marked, key=lambda s: (int(s[0]), int(s[1])))
+    stripped = new_text.strip()
+    if stripped != new_text:
+        lead = len(new_text) - len(new_text.lstrip())
+        result = [[int(s) - lead, int(e) - lead, k] for s, e, k in result]
+        new_text = stripped
+    return new_text, [s for s in result if int(s[1]) > int(s[0])]
 
 
 # ---------------------------------------------------------------------------
@@ -452,16 +525,15 @@ def collect_units(
 # ---------------------------------------------------------------------------
 
 # Bracket pairs and the editorial kind of their content (#236). In TITUS's
-# Old Georgian sets, [..] restores damaged or lost letters, (..) expands an
-# abbreviation, <..> is an editor's addition: all supplements, kept in the
-# source text without the brackets. {..} encloses letters the editor deletes
-# (a scribal slip, "ლოც{ვ}აჲ"): a note, so they stay visible but are neither
-# translated nor embedded.
+# Old Georgian sets, [..] restores damaged or lost letters, (..) and {..}
+# expand an abbreviation or supply omitted letters ("ვ{ითარც}ა", "ქუ{ე}ყ{ა}ნისათა"),
+# <..> is an editor's addition: all supplements, kept in the source text
+# without the brackets. "[!]" (sic) is a note.
 BRACKET_KINDS: dict[str, tuple[str, str]] = {
     "[": ("]", "supplement"),
     "(": (")", "supplement"),
     "<": (">", "supplement"),
-    "{": ("}", "note"),
+    "{": ("}", "supplement"),
 }
 # Formatting signs dropped from the text: "/" a manuscript line break inside a
 # word, "\" a letter written above the line, "^" a superscript letter, "*" a
