@@ -9,7 +9,7 @@ import "./globals.css";
 
 const description =
   "Scripture and the writings of the Church Fathers from the first thousand years of Christianity, " +
-  "searchable by meaning or exact phrase in Greek, Latin, Hebrew, Syriac, Coptic, Ge‘ez, Armenian, Gothic, Church Slavonic and Arabic.";
+  "searchable by meaning or exact phrase in Greek, Latin, Hebrew, Syriac, Coptic, Ge‘ez, Armenian, Gothic, Church Slavonic, Arabic and Old Georgian.";
 
 export const metadata: Metadata = {
   // Resolves the Open Graph image to an absolute URL.
