@@ -154,8 +154,11 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
     resp.raise_for_status()
     text = resp.content.decode("utf-8")
     dest.parent.mkdir(parents=True, exist_ok=True)
-    # mtime 0: the same page gives the same bytes (git-lfs objects stay stable).
-    dest.write_bytes(gzip.compress(resp.content, mtime=0))
+    # mtime 0: the same page gives the same bytes (git-lfs objects stay stable);
+    # written then renamed, so an interrupted run leaves no truncated page.
+    tmp = dest.with_name(dest.name + ".part")
+    tmp.write_bytes(gzip.compress(resp.content, mtime=0))
+    tmp.replace(dest)
     return text
 
 
