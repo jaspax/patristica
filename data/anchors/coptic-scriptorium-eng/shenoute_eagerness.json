@@ -2,18 +2,21 @@
  "work_id": "coptic-scriptorium-eng/shenoute_eagerness",
  "anchor": "coptic-scriptorium/shenoute_eagerness",
  "method": "351020005494c156",
- "anchor_cuts": "c60d0a2e5bfc2647",
- "words": "4ba727821c109562",
+ "anchor_cuts": "e69152f7c408e6d7",
+ "words": "8632dd22ca75b8ca",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 13, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.0412, "rounds": 1, "span": [47, 290], "units": 13},
+ "stats": {"beads": 11, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.4348, "rounds": 1, "span": [38, 61], "units": 12},
  "paragraphs": {
-  "CopScr.shenoute-eagerness.003.0000": {"words": "bf0a22f11ad7d377", "starts": [0]},
-  "CopScr.shenoute-eagerness.003.0001": {"words": "0b4062dde3e5c7ea", "starts": [0]},
-  "CopScr.shenoute-eagerness.003.0002": {"words": "6e73303c42314b2f", "starts": [0, 14, 20]},
-  "CopScr.shenoute-eagerness.003.0003": {"words": "fc68ff87dcf3b7a5", "starts": [0, 21]},
-  "CopScr.shenoute-eagerness.003.0005": {"words": "6bcf974e8de051be", "starts": [0]},
-  "CopScr.shenoute-eagerness.003.0006": {"words": "eb8c16e1937fae29", "starts": [0, 23]},
-  "CopScr.shenoute-eagerness.003.0007": {"words": "485dd58a31c0af8a", "starts": [0]},
-  "CopScr.shenoute-eagerness.003.0008": {"words": "5f082ee6b59066a2", "starts": [0, 36]}
+  "CopScr.shenoute-eagerness.003.0000": {"words": "33785e581b1aa240", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0001": {"words": "bf1c1eb54e2e624e", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0002": {"words": "0b4062dde3e5c7ea", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0004": {"words": "6e73303c42314b2f", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0005": {"words": "062b30479206cce1", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0006": {"words": "e1f06fa91d2ca370", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0007": {"words": "6bcf974e8de051be", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0008": {"words": "eb8c16e1937fae29", "starts": [0, 23]},
+  "CopScr.shenoute-eagerness.003.0009": {"words": "485dd58a31c0af8a", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0010": {"words": "73672f7cff6fee23", "starts": [0]},
+  "CopScr.shenoute-eagerness.003.0011": {"words": "9b80c223e9386d12", "starts": [0]}
  }
 }
