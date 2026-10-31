@@ -53,3 +53,12 @@ describe("Arabic font (#478)", () => {
     expect(fontsTs).toContain('variable: "--font-arabic"');
   });
 });
+
+describe("Old Georgian font (#512)", () => {
+  it("uses Noto Serif Georgian, then the body font", () => {
+    expect(langStack("oge")).toEqual(["var(--font-georgian)", "var(--font-body)"]);
+    const googleImports = /import \{([^}]*)\} from "next\/font\/google"/.exec(fontsTs)?.[1] ?? "";
+    expect(googleImports).toContain("Noto_Serif_Georgian");
+    expect(fontsTs).toContain('variable: "--font-georgian"');
+  });
+});

@@ -33,7 +33,7 @@ export function versionCounts(works: readonly WorkRow[]): Map<string, number> {
  * original. Hebrew first for the Old Testament, then Greek (New Testament,
  * deuterocanon and most Fathers). English is never the original.
  */
-export const ORIGINAL_LANGUAGE_ORDER: readonly string[] = ["hbo", "grc", "syc", "lat", "chu", "cop", "arb", "hye", "gez", "got"];
+export const ORIGINAL_LANGUAGE_ORDER: readonly string[] = ["hbo", "grc", "syc", "lat", "chu", "cop", "arb", "hye", "oge", "gez", "got"];
 
 /**
  * The ids of the group's originals: the versions the others translate.

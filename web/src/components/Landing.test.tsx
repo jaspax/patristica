@@ -82,7 +82,11 @@ describe("Landing", () => {
     expect(arabic.getAttribute("href")).toBe("/works?language=arb");
     expect(arabic.querySelector("[lang]")?.getAttribute("lang")).toBe("ar");
     expect(arabic.querySelector("[lang]")?.getAttribute("dir")).toBe("rtl");
-    expect(within(strip).getAllByRole("link")).toHaveLength(10);
+    const georgian = within(strip).getByRole("link", { name: /სიტყუაჲ/ });
+    expect(georgian.getAttribute("href")).toBe("/works?language=oge");
+    expect(georgian.querySelector("[lang]")?.getAttribute("lang")).toBe("oge");
+    expect(georgian.querySelector("[lang]")?.getAttribute("dir")).toBe("ltr");
+    expect(within(strip).getAllByRole("link")).toHaveLength(11);
   });
 
   it("shows the library's counts once the index loads", async () => {
