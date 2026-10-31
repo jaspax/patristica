@@ -398,6 +398,7 @@ def collect_units(
     include: Callable[[Segment], bool] = is_main_text,
     clean: Callable[[str], tuple[str, list[list[int | str]]]] | None = None,
     span_kind: Callable[[Segment], str | None] | None = None,
+    located_kind: Callable[[Located], str | None] | None = None,
 ) -> list[Unit]:
     """Join the included segments of each location into units.
 
@@ -414,7 +415,10 @@ def collect_units(
     *span_kind* marks whole segments as editorial: a segment for which it
     returns a kind (``"rubric"`` for a ``b`` segment, ``"heading"``, ``"note"``)
     gets a span of that kind over its text; adjacent segments of one kind
-    share a span, and bracket spans inside it are dropped.
+    share a span, and bracket spans inside it are dropped. *located_kind* does
+    the same with the segment's location at hand (a lectionary's incipit is a
+    note outside a pericope, text inside one); where both give a kind,
+    *located_kind* wins.
     """
     clean = clean or clean_text
     units: list[Unit] = []
@@ -445,10 +449,16 @@ def collect_units(
             cur_key, parts, kinds, cur_loc, cur_xloc = k, [], [], item.loc, item.xloc
         seg = item.segment
         lead = " " if seg.space_before and parts else ""
-        kind = span_kind(seg) if span_kind else None
+        kind = (located_kind(item) if located_kind else None) or (
+            span_kind(seg) if span_kind else None)
         if kind:
+            # whitespace outside the sentinels, so none is left doubled
+            text = seg.text
+            if text[:1].isspace() and parts:
+                lead = " "
+            trail = " " if text[-1:].isspace() else ""
             kinds.append(kind)
-            parts.append(f"{lead}{_SEG_OPEN}{seg.text}{_SEG_CLOSE}")
+            parts.append(f"{lead}{_SEG_OPEN}{text.strip()}{_SEG_CLOSE}{trail}")
         else:
             parts.append(lead + seg.text)
     flush()
@@ -493,7 +503,6 @@ def _apply_segment_spans(
             out.append(ch)
     old_to_new.append(len(out))
     new_text = "".join(out)
-    # collapse the double spaces a removed sentinel can leave
     shifted = [[old_to_new[int(s)], old_to_new[int(e)], k] for s, e, k in spans]
     kept = [s for s in shifted
             if not any(int(m[0]) < int(s[1]) and int(s[0]) < int(m[1]) for m in marked)]
@@ -526,6 +535,8 @@ BRACKET_KINDS: dict[str, tuple[str, str]] = {
 # pointer to the edition's apparatus.
 DROPPED_CHARS = "/\\^*"
 
+# The edition's footnote markers, "(1)": its notes aren't on TITUS.
+_FOOTNOTE_RE = re.compile(r"\(\d+\)")
 _LACUNA_CONTENT_RE = re.compile(r"^[\s.…\-–]*$")
 _ELLIPSIS_RE = re.compile(r"\.{2,}|…+")
 _SIC_RE = re.compile(r"^\s*[!?]+\s*$")
@@ -539,7 +550,8 @@ def clean_text(
 ) -> tuple[str, list[list[int | str]]]:
     """TITUS text to ``(text, editorial spans)``.
 
-    Whitespace is collapsed and *dropped* characters removed; brackets stay
+    Whitespace is collapsed, *dropped* characters and footnote markers
+    (``(1)``, whose notes TITUS doesn't carry) removed; brackets stay
     in the text and each outermost bracketed group becomes a span covering it
     with its brackets: a group of only dots (``[...]``, ``<...>``) is a
     ``lacuna``, ``[!]`` a ``note``, any other the kind in *brackets*. A run of
@@ -548,6 +560,7 @@ def clean_text(
     one runs to the end (a restoration across a page or unit break).
     """
     text = raw.translate({ord(c): None for c in dropped})
+    text = _FOOTNOTE_RE.sub("", text)
     text = re.sub(r"\s+", " ", text).strip()
     closers = {close: op for op, (close, _) in brackets.items()}
     spans: list[list[int | str]] = []

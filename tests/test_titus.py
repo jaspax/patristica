@@ -204,3 +204,16 @@ def test_fetch_reads_a_cached_page_with_a_stray_latin1_byte(tmp_path: Path) -> N
     dest.write_bytes(gzip.compress(b'<a href="locate.asp?lx3=\xd6orin">x</a> \xe1\x83\x90'))
     text = T.fetch(url, tmp_path)
     assert text.endswith("ა") and "�" in text
+
+
+def test_located_kind_sees_the_location() -> None:
+    located = list(T.locate(T.parse_page(LECT)))
+    (unit, _) = T.collect_units(
+        located, ("Entry",), include=lambda s: s.is_old_georgian,
+        located_kind=lambda item: "note" if item.xloc.get("Line of edition") == "5" else None,
+    )
+    assert unit.editorial[-1] == [len(unit.text) - len("დიდებაჲ."), len(unit.text), "note"]
+
+
+def test_footnote_markers_are_dropped() -> None:
+    assert T.clean_text("თჳსით.(1) და (იდრ)") == ("თჳსით. და (იდრ)", [[10, 15, "supplement"]])
