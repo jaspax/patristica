@@ -204,3 +204,7 @@ def test_located_kind_sees_the_location() -> None:
         located_kind=lambda item: "note" if item.xloc.get("Line of edition") == "5" else None,
     )
     assert unit.editorial[-1] == [len(unit.text) - len("დიდებაჲ."), len(unit.text), "note"]
+
+
+def test_footnote_markers_are_dropped() -> None:
+    assert T.clean_text("თჳსით.(1) და (იდრ)") == ("თჳსით. და (იდრ)", [[10, 15, "supplement"]])
