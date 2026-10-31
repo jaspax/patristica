@@ -220,3 +220,34 @@ def test_is_derived_ref():
     assert is_derived_ref("Aug.Conf.1.1.s3")
     assert not is_derived_ref("Aug.Conf.1.1.3")
     assert not is_derived_ref("c12.p4")
+
+
+# From the Martyrdom of Shushanik (ka.wikisource, §3), #222.
+SHUSHANIK = (
+    "ხოლო ეპისკოპოსი იგი სახლისა მის პიტიახშისაჲ, რომელსა სახელი ერქუა აფოც, არა მუნ იყო, "
+    "არამედ კაცისა ვისამე წმიდისა ვანად მისრულ იყო კითხვად რაჲსამე სიტყჳსა. და მეცა, ხუცესი "
+    "დედოფლისა შუშანიკისი, თანავჰყვანდი ეპისკოპოსსა მას. და მყის მოიწია ჩუენდა დიაკონი "
+    "შინაჲთ და გჳთხრა ჩუენ ესე ყოველი - მოსლვაჲ პიტიახშისაჲ და საქმენი დედოფლისანი. ხოლო "
+    "ჩუენ აღვივსენით მწუხარებითა და დიდითაი ტირილითა ვტიროდეთ განმწარებულნი ცოდვათ ჩუენთა "
+    "წარმოჩინებისათჳს."
+)
+
+
+def test_old_georgian_punctuation():
+    from patristica.versify import CLAUSE, COMMA, SENTENCE, _strength
+
+    assert _strength(" სიტყჳსა.", " და", "oge") == SENTENCE
+    assert _strength(" მისსა?", " ზოგნი", "oge") == SENTENCE
+    assert _strength(" ქართლისაჲ჻", " ხოლო", "oge") == SENTENCE  # ჻ (U+10FB)
+    assert _strength(" მას:", " შენ", "oge") == CLAUSE  # before speech
+    assert _strength(" ისაკი;", " ისაკმან", "oge") == CLAUSE
+    assert _strength(" აფოც,", " არა", "oge") == COMMA
+
+
+def test_old_georgian_paragraph_splits_at_its_stops():
+    units = split_text(SHUSHANIK, "oge")
+    assert len(units) > 2
+    assert _squash(" ".join(units)) == _squash(SHUSHANIK)
+    assert all(u[-1] == "." for u in units)
+    sizes = [count_tokens(u) / VERSE_TOKENS["oge"] for u in units]
+    assert 0.7 < sum(sizes) / len(sizes) < 1.5
