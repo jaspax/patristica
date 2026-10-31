@@ -528,6 +528,8 @@ BRACKET_KINDS: dict[str, tuple[str, str]] = {
 # pointer to the edition's apparatus.
 DROPPED_CHARS = "/\\^*"
 
+# The edition's footnote markers, "(1)": its notes aren't on TITUS.
+_FOOTNOTE_RE = re.compile(r"\(\d+\)")
 _LACUNA_CONTENT_RE = re.compile(r"^[\s.…\-–]*$")
 _ELLIPSIS_RE = re.compile(r"\.{2,}|…+")
 _SIC_RE = re.compile(r"^\s*[!?]+\s*$")
@@ -541,7 +543,8 @@ def clean_text(
 ) -> tuple[str, list[list[int | str]]]:
     """TITUS text to ``(text, editorial spans)``.
 
-    Whitespace is collapsed and *dropped* characters removed; brackets stay
+    Whitespace is collapsed, *dropped* characters and footnote markers
+    (``(1)``, whose notes TITUS doesn't carry) removed; brackets stay
     in the text and each outermost bracketed group becomes a span covering it
     with its brackets: a group of only dots (``[...]``, ``<...>``) is a
     ``lacuna``, ``[!]`` a ``note``, any other the kind in *brackets*. A run of
@@ -550,6 +553,7 @@ def clean_text(
     one runs to the end (a restoration across a page or unit break).
     """
     text = raw.translate({ord(c): None for c in dropped})
+    text = _FOOTNOTE_RE.sub("", text)
     text = re.sub(r"\s+", " ", text).strip()
     closers = {close: op for op, (close, _) in brackets.items()}
     spans: list[list[int | str]] = []
