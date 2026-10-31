@@ -391,6 +391,7 @@ def collect_units(
     include: Callable[[Segment], bool] = is_main_text,
     clean: Callable[[str], tuple[str, list[list[int | str]]]] | None = None,
     span_kind: Callable[[Segment], str | None] | None = None,
+    located_kind: Callable[[Located], str | None] | None = None,
 ) -> list[Unit]:
     """Join the included segments of each location into units.
 
@@ -407,7 +408,10 @@ def collect_units(
     *span_kind* marks whole segments as editorial: a segment for which it
     returns a kind (``"rubric"`` for a ``b`` segment, ``"heading"``, ``"note"``)
     gets a span of that kind over its text; adjacent segments of one kind
-    share a span, and bracket spans inside it are dropped.
+    share a span, and bracket spans inside it are dropped. *located_kind* does
+    the same with the segment's location at hand (a lectionary's incipit is a
+    note outside a pericope, text inside one); where both give a kind,
+    *located_kind* wins.
     """
     clean = clean or clean_text
     units: list[Unit] = []
@@ -438,7 +442,8 @@ def collect_units(
             cur_key, parts, kinds, cur_loc, cur_xloc = k, [], [], item.loc, item.xloc
         seg = item.segment
         lead = " " if seg.space_before and parts else ""
-        kind = span_kind(seg) if span_kind else None
+        kind = (located_kind(item) if located_kind else None) or (
+            span_kind(seg) if span_kind else None)
         if kind:
             kinds.append(kind)
             parts.append(f"{lead}{_SEG_OPEN}{seg.text}{_SEG_CLOSE}")

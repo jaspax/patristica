@@ -195,3 +195,12 @@ def test_span_kind_marks_rubrics_and_xlevel_keys() -> None:
     # a key label found only among the manuscript levels (XLevel)
     by_book = T.collect_units(located, ("Book",), include=lambda s: s.is_old_georgian)
     assert [u.key for u in by_book] == [("Lect.Par.",)]
+
+
+def test_located_kind_sees_the_location() -> None:
+    located = list(T.locate(T.parse_page(LECT)))
+    (unit, _) = T.collect_units(
+        located, ("Entry",), include=lambda s: s.is_old_georgian,
+        located_kind=lambda item: "note" if item.xloc.get("Line of edition") == "5" else None,
+    )
+    assert unit.editorial[-1] == [len(unit.text) - len("დიდებაჲ."), len(unit.text), "note"]
