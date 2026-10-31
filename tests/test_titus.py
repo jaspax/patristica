@@ -208,3 +208,11 @@ def test_located_kind_sees_the_location() -> None:
 
 def test_footnote_markers_are_dropped() -> None:
     assert T.clean_text("თჳსით.(1) და (იდრ)") == ("თჳსით. და (იდრ)", [[10, 15, "supplement"]])
+
+def test_fetch_reads_a_cached_page_with_a_stray_latin1_byte(tmp_path: Path) -> None:
+    url = T.BASE_URL + "etca/cauc/ageo/x/x001.htm"
+    dest = T.cache_path(url, tmp_path)
+    dest.parent.mkdir(parents=True)
+    dest.write_bytes(gzip.compress(b'<a href="locate.asp?lx3=\xd6orin">x</a> \xe1\x83\x90'))
+    text = T.fetch(url, tmp_path)
+    assert text.endswith("ა") and "�" in text
