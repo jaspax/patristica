@@ -14,7 +14,7 @@ SOURCES = ["titus-shatberdi", "titus-liturgy", "titus-translations", "titus-chro
 
 
 def _row(**kw: object) -> W.TextRow:
-    base = dict(set="x/y.htm", select=(("Text", "A"),), slug="a", ref="Satb.A",
+    base = dict(set="x/y.htm", select=((("Text", "A"),),), slug="a", ref="Satb.A",
                 units=("Chapter",), title="A", author="", genre="patristic",
                 date_from=None, date_to=None, date_composed=None,
                 date_confidence="uncertain", external_ids=(), edition_note="",
@@ -33,7 +33,7 @@ def test_ref_part() -> None:
     assert W.ref_part("255_(45)") == "255"
     assert W.ref_part("A_3") == "A_3"
     assert W.ref_part(None) == "0"
-    assert W.ref_part("(Zand.)") == "0"
+    assert W.ref_part("(Io.Rait._Epist.)") == "Io_Rait_Epist"
 
 
 def test_units_by_chapter_with_title_before_the_first() -> None:
@@ -119,3 +119,13 @@ def test_every_source_module_has_a_label() -> None:
         module = Path(__file__).parents[1] / "scripts" / "ingest" / name
         if module.exists():
             assert source_id in SOURCE_LABELS
+
+
+def test_select_alternatives() -> None:
+    located = _located(
+        ({"Text": "A"}, "mxag16", "ა"),
+        ({"Text": "B"}, "mxag16", "ბ"),
+        ({"Text": "C"}, "mxag16", "გ"),
+    )
+    row = _row(select=((("Text", "A"),), (("Text", "C"),)), units=("Text",))
+    assert [u.ref for u in W.build_units(located, row)] == ["Satb.A.A", "Satb.A.C"]

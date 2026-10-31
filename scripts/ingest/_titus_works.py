@@ -12,8 +12,8 @@ TITUS sets (see ``_titus.py``) that hold one text or many. Each source module
     (``etcs/cauc/ageo/satberd/satbe.htm``).
 ``select``
     Which part of the set is the text: ``Label=value`` on TITUS's location
-    levels (``Text=Greg.Nyss._Hom.Op.``), several joined with ``&``; empty
-    for a set that is one text. Every text of a set must have a row: a
+    levels (``Text=Greg.Nyss._Hom.Op.``), several joined with ``&``, and
+    alternatives with ``;``; empty for a set that is one text. Every text of a set must have a row: a
     segment no row selects is logged at ERROR (a dropped text, #130).
 ``slug``
     The local work id (``{source}/{slug}``); it is in reader URLs, so never
@@ -79,7 +79,7 @@ class TextRow:
     """One row of a source's table."""
 
     set: str
-    select: tuple[tuple[str, str], ...]
+    select: tuple[tuple[tuple[str, str], ...], ...]  # alternatives of conditions
     slug: str
     ref: str
     units: tuple[str, ...]
@@ -100,8 +100,15 @@ class TextRow:
 
     def matches(self, loc: Mapping[str, str]) -> bool:
         """Whether a location is in this text (selected and not excluded)."""
-        return (all(loc.get(lab) == val for lab, val in self.select)
-                and not any(loc.get(lab) == val for lab, val in self.exclude))
+        return self.selects(loc) and not any(loc.get(lab) == val for lab, val in self.exclude)
+
+    def selects(self, loc: Mapping[str, str]) -> bool:
+        """Whether one of the row's alternatives selects the location (exclusions aside)."""
+        return any(all(loc.get(lab) == val for lab, val in alt) for alt in self.select)
+
+    @property
+    def select_text(self) -> str:
+        return ";".join("&".join(f"{a}={b}" for a, b in alt) for alt in self.select) or "(whole set)"
 
 
 def _int(s: str) -> int | None:
@@ -125,7 +132,7 @@ def read_table(source_id: str) -> list[TextRow]:
         for r in csv.DictReader(f):
             rows.append(TextRow(
                 set=r["set"].strip(),
-                select=_select(r["select"]),
+                select=tuple(_select(alt) for alt in r["select"].split(";")),
                 slug=r["slug"].strip(),
                 ref=r["ref"].strip(),
                 units=tuple(u.strip() for u in r["units"].split("|") if u.strip()),
@@ -159,7 +166,9 @@ def ref_part(value: str | None) -> str:
     """A location value as one ref segment: ``Intr.`` → ``Intr``, ``255_(45)`` → ``255``."""
     if value is None:
         return "0"
-    v = re.sub(r"_?\(.*?\)", "", value)  # a second numbering in parentheses
+    # a second numbering in parentheses ("255_(45)"); a value that is all in
+    # parentheses ("(Io.Rait._Epist.)") keeps its content
+    v = re.sub(r"_?\(.*?\)", "", value) if re.search(r"[^()]\s*_?\(", value) else value
     v = re.sub(r"[^0-9A-Za-z]+", "_", v).strip("_")
     return v or "0"
 
@@ -297,7 +306,7 @@ def _unselected(located: list[T.Located], rows: list[TextRow]) -> Iterator[str]:
         seg = item.segment
         if not (seg.is_old_georgian and not seg.is_variant):
             continue
-        if any(all(item.loc.get(lab) == val for lab, val in r.select) for r in rows):
+        if any(r.selects(item.loc) for r in rows):
             continue  # selected (or deliberately excluded) by a row
         desc = ", ".join(f"{k}={v}" for k, v in list(item.loc.items())[:3])
         if desc not in seen:
@@ -319,7 +328,7 @@ def ingest_titus_source(source_id: str, output_dir: Path, force: bool = False) -
         for r in set_rows:
             if r.skip:
                 log.warning("%s: skipping %s %s: %s", source_id, set_path,
-                            "&".join(f"{a}={b}" for a, b in r.select) or "(whole set)", r.skip)
+                            r.select_text, r.skip)
         if not todo:
             continue
         if not force and all((out_root / f"{r.slug}.json").exists() for r in todo):
