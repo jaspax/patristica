@@ -164,6 +164,24 @@ def test_lfs_pull_overrides_the_default_exclude():
         data.lfs_pull(["data/a,b.json"], run=lambda cmd, **kw: None)
 
 
+def test_lfs_pull_batches_a_long_include_list():
+    paths = [f"data/normalized/src/w{i:03}.json" for i in range(100)]  # 28 bytes each
+    calls = []
+    data.lfs_pull(paths, run=lambda cmd, **kw: calls.append(cmd), limit=300)
+    includes = [c[-1].removeprefix("--include=") for c in calls]
+    assert len(calls) > 1
+    assert all(len(i.encode()) <= 300 for i in includes)
+    assert [p for i in includes for p in i.split(",")] == paths
+
+
+def test_include_batches_edges():
+    assert data.include_batches([], limit=10) == []
+    assert data.include_batches(["abcd", "efgh"], limit=9) == ["abcd,efgh"]
+    assert data.include_batches(["abcd", "efgh"], limit=8) == ["abcd", "efgh"]
+    with pytest.raises(ValueError, match="longer"):
+        data.include_batches(["x" * 11], limit=10)
+
+
 # ---------------------------------------------------------------------------
 # Ingest trees with their git dir outside (scripts.ingest._clone)
 # ---------------------------------------------------------------------------
