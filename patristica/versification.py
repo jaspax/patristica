@@ -75,7 +75,9 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "titus-catholic-g": "org",
     "titus-catholic-d": "org",
     "titus-apocalypse": "eng",
-    "titus-oshki": "lxx",
+    # Oshki: chapter ends match English (eng) best: Gen 38/39, Exod 27/33,
+    # Jer 51/52 (lxx 23: Hebrew order), Joel 3/3, Mal 4/4, Zech 14/14 chapters.
+    "titus-oshki": "eng",
     "titus-psalter-a": "lxx",       # Psalms: lxx 149/151 (vul 142, org 17)
 }
 
@@ -100,6 +102,21 @@ BOOK_SCHEME_OVERRIDES: dict[tuple[str, str], Scheme] = {
     # values are misaligned verses default → override):
     ("gez", "2Kgs"): "eng",         # vs KJV 31 → 9; 11.21 / 12.1–21 English-style (#188)
     ("gez", "1Esd"): "vul",         # vs Armenian 152 → 44; chapter verse counts match vul exactly (#76)
+    # TITUS Oshki (#515), by chapter verse counts: Daniel and Ezekiel end their
+    # chapters as the Vulgate does (12/12, 48/48); the books English Bibles
+    # don't have, and Esther with its lettered Greek additions, as the LXX.
+    ("titus-oshki", "Dan"): "vul",
+    ("titus-oshki", "Ezek"): "vul",
+    ("titus-oshki", "Esth"): "lxx",
+    ("titus-oshki", "1Esd"): "lxx",
+    ("titus-oshki", "Jdt"): "lxx",     # 12/14 (vul 3)
+    ("titus-oshki", "Sir"): "lxx",     # 50/51 (vul 4)
+    ("titus-oshki", "Wis"): "lxx",     # 18/19 (vul 13)
+    ("titus-oshki", "Tob"): "lxx",
+    ("titus-oshki", "Bar"): "lxx",
+    ("titus-oshki", "EpJer"): "lxx",
+    ("titus-oshki", "Sus"): "lxx",
+    ("titus-oshki", "BelDr"): "lxx",
 }
 
 #: Chapters that follow a different scheme from their book (#186).  Some

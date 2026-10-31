@@ -43,10 +43,12 @@ def test_book_labels(label: str, osis: str) -> None:
 
 
 @pytest.mark.parametrize(("chapter", "verse", "expected"), [
-    ("1", "1", (1, 1)), ("13", "7,", (13, 7)), ("_", "3", (1, 3)),
-    ("1_(Ex._15)", "1", (1, 1)), ("9b_(Lk._1)", "68", (9, 68)), ("1", "1V", None),
+    ("1", "1", (1, "1")), ("13", "7,", (13, "7")), ("_", "3", (1, "3")),
+    ("1_(Ex._15)", "1", (1, "1")), ("9b_(Lk._1)", "68", (9, "68")), ("1", "1V", None),
+    ("2", "35a", (2, "35a")), ("5", "35-01", (5, "35")), ("6", "10rb)atimd", (6, "10")),
+    ("3", "9*", (3, "9")), ("1", "3_(4)", (1, "3")),
 ])
-def test_chapter_verse(chapter: str, verse: str, expected: tuple[int, int] | None) -> None:
+def test_chapter_verse(chapter: str, verse: str, expected: tuple[int, str] | None) -> None:
     assert B.chapter_verse(chapter, verse) == expected
 
 
@@ -82,8 +84,7 @@ def test_lines_beside_the_verse_are_skipped(label: str) -> None:
     assert not B._VARIANT_RE.match("16")
 
 
-def test_half_verse_joins_its_verse() -> None:
-    assert B.chapter_verse("12", "16a") == (12, 16)
+def test_join_unit_shifts_spans() -> None:
     rec: dict[str, object] = {"ref": "Rom.12.16", "text": "ა [ბ]", "editorial": [[2, 5, "supplement"]]}
     B.join_unit(rec, _titus.Unit(key=(), loc={}, text="გ [დ]", editorial=[[2, 5, "supplement"]]))
     assert rec == {"ref": "Rom.12.16", "text": "ა [ბ] გ [დ]",

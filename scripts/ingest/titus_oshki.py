@@ -2,7 +2,9 @@
 Ingestor for the Old Testament of the Oshki and Jerusalem manuscripts (TITUS) (#515).
 
 The Old Testament of the Oshki Bible (Athos, 978) and the Jerusalem
-manuscripts: the old Georgian version of the books it has.
+manuscripts: the old Georgian version of the books it has. Lamentations
+keeps TITUS's numbering, which runs on across chapters (2.23 follows 1.22);
+the "Prayer of Jeremiah" printed after it is Lamentations 5.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/at/oskijer/oskij.htm
 Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
@@ -26,7 +28,8 @@ SPEC = BibleSet(
     date_range=(450, 978),
     date_confidence="approximate",
     author=None,
-    books={**TITUS_BOOKS, "jud": "Jdt"},  # Judith, not Jude
+    books={**TITUS_BOOKS, "jud": "Jdt", "orjer": "Lam"},  # Judith, not Jude
+    chapter_of={"orjer": 5},  # the Prayer of Jeremiah is Lamentations 5
 )
 
 
