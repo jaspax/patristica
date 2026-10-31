@@ -195,3 +195,12 @@ def test_span_kind_marks_rubrics_and_xlevel_keys() -> None:
     # a key label found only among the manuscript levels (XLevel)
     by_book = T.collect_units(located, ("Book",), include=lambda s: s.is_old_georgian)
     assert [u.key for u in by_book] == [("Lect.Par.",)]
+
+
+def test_fetch_reads_a_cached_page_with_a_stray_latin1_byte(tmp_path: Path) -> None:
+    url = T.BASE_URL + "etca/cauc/ageo/x/x001.htm"
+    dest = T.cache_path(url, tmp_path)
+    dest.parent.mkdir(parents=True)
+    dest.write_bytes(gzip.compress(b'<a href="locate.asp?lx3=\xd6orin">x</a> \xe1\x83\x90'))
+    text = T.fetch(url, tmp_path)
+    assert text.endswith("ა") and "�" in text
