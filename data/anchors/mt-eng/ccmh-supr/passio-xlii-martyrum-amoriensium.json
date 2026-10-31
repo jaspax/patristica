@@ -1,0 +1,26 @@
+{
+ "work_id": "mt-eng/ccmh-supr/passio-xlii-martyrum-amoriensium",
+ "anchor": "ccmh-supr/passio-xlii-martyrum-amoriensium",
+ "method": "351020005494c156",
+ "anchor_cuts": "375dd7ae7b9cb617",
+ "words": "8569123b3dd60f95",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 181, "calibration": [0.3997, 0.3319], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9255, "rounds": 4, "units": 181},
+ "paragraphs": {
+  "Supr.27v": {"words": "ba7665f24b0b0b84", "starts": [0, 12, 20, 40, 62, 72, 95, 114, 125, 147, 163]},
+  "Supr.28r": {"words": "d1450e4296ada0cc", "starts": [0, 25, 37, 53, 77, 86, 100, 112, 132, 151, 170, 182]},
+  "Supr.28v": {"words": "8ba9638a393afd9a", "starts": [0, 18, 36, 45, 62, 77, 94, 109, 134, 151, 161, 179, 202]},
+  "Supr.29r": {"words": "51c0b138194695e2", "starts": [0, 19, 35, 43, 51, 65, 81, 99, 120, 129, 148, 164, 183, 199]},
+  "Supr.29v": {"words": "ad8e29703be29f9c", "starts": [0, 14, 30, 51, 75, 87, 101, 120, 130, 150, 164, 179, 192, 206]},
+  "Supr.30r": {"words": "7561e8939b422789", "starts": [0, 19, 28, 48, 62, 83, 92, 107, 131, 142, 155, 165, 190]},
+  "Supr.30v": {"words": "57abc50df4c3ddb6", "starts": [0, 20, 38, 46, 56, 80, 109, 131, 139, 165, 194, 210]},
+  "Supr.31r": {"words": "7e568ac6a33c712b", "starts": [0, 14, 32, 45, 55, 78, 99, 111, 130, 148, 165, 189, 211]},
+  "Supr.31v": {"words": "c99160f82dc937e8", "starts": [0, 25, 51, 59, 79, 98, 116, 125, 148, 176, 199]},
+  "Supr.32r": {"words": "e089926ff119caf0", "starts": [0, 21, 43, 65, 75, 102, 125, 136, 155, 181, 197]},
+  "Supr.32v": {"words": "5613d4adaf0c373b", "starts": [0, 9, 31, 40, 50, 74, 94, 106, 130, 141, 156, 172, 189]},
+  "Supr.33r": {"words": "ed4e87117419c5cf", "starts": [0, 10, 24, 54, 74, 95, 117, 133, 155, 173, 197]},
+  "Supr.33v": {"words": "79ec508184e0003b", "starts": [0, 21, 39, 54, 75, 90, 100, 122, 141, 162, 188, 211, 222]},
+  "Supr.34r": {"words": "67ec19f96eeadb07", "starts": [0, 8, 30, 55, 82, 95, 112, 127, 143, 161, 183, 200]},
+  "Supr.34v": {"words": "ddcbdd3b7720b219", "starts": [0, 14, 27, 40, 54, 66, 87, 107]}
+ }
+}

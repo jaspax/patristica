@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "dsc/balai-on-the-church-of-qenneshrin",
+ "pivot": "mt-eng/dsc/balai-on-the-church-of-qenneshrin",
+ "groups": 69,
+ "inputs": "a20563dd3f08e155",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "dsc/balai-on-the-church-of-qenneshrin", "units": 69, "ids": "ec07a8f23e6f7561", "inputs": "f2ff5b459b445c75", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/dsc/balai-on-the-church-of-qenneshrin", "units": 69, "ids": "193f242774e1e35d", "inputs": "b973023efca884c5", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

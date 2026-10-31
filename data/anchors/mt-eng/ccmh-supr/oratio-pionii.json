@@ -1,0 +1,14 @@
+{
+ "work_id": "mt-eng/ccmh-supr/oratio-pionii",
+ "anchor": "ccmh-supr/oratio-pionii",
+ "method": "351020005494c156",
+ "anchor_cuts": "956344950df5172f",
+ "words": "e4100723e7384bcb",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 28, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8065, "rounds": 2, "units": 28},
+ "paragraphs": {
+  "Supr.72v": {"words": "df88f95576dcc484", "starts": [0, 21, 39, 58, 74]},
+  "Supr.73r": {"words": "9e4e787bfb7395c3", "starts": [0, 25, 66, 93, 100, 114, 131, 156, 170, 183, 201, 219]},
+  "Supr.73v": {"words": "76fb291705ca8fc1", "starts": [0, 18, 46, 60, 78, 95, 110, 125, 133, 150, 184]}
+ }
+}

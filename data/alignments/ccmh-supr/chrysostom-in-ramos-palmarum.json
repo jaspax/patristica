@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/chrysostom-in-ramos-palmarum",
+ "pivot": "mt-eng/ccmh-supr/chrysostom-in-ramos-palmarum",
+ "groups": 192,
+ "inputs": "1a9abae85180bbe0",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/chrysostom-in-ramos-palmarum", "units": 198, "ids": "a39f5d53e9cfb2e0", "inputs": "0565cdad6e3ef16d", "spans": "+++++=+++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++=++++++++++++++++++++++++++++++++++++++=++.+++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-ramos-palmarum", "units": 192, "ids": "ad9941521cb65817", "inputs": "2aedb5cc058f35ed", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

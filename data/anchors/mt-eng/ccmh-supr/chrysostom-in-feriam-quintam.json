@@ -1,0 +1,15 @@
+{
+ "work_id": "mt-eng/ccmh-supr/chrysostom-in-feriam-quintam",
+ "anchor": "ccmh-supr/chrysostom-in-feriam-quintam",
+ "method": "351020005494c156",
+ "anchor_cuts": "037cdad97be92af9",
+ "words": "1761e5194b68013c",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 49, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 49},
+ "paragraphs": {
+  "Supr.212v": {"words": "81589369334d1ebf", "starts": [0, 23, 32, 45, 66, 81, 95, 101, 117]},
+  "Supr.213r": {"words": "ad172b7fbf70306b", "starts": [0, 22, 39, 63, 72, 99, 110, 130, 151, 168, 183, 200, 216, 236, 252]},
+  "Supr.213v": {"words": "0870b77d113ac089", "starts": [0, 24, 46, 60, 76, 86, 108, 127, 144, 173, 190, 204, 226, 238]},
+  "Supr.214r": {"words": "eefbc714d9350ff6", "starts": [0, 23, 34, 53, 66, 86, 106, 126, 145, 163, 184]}
+ }
+}

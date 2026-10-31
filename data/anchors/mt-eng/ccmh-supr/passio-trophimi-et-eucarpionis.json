@@ -1,0 +1,16 @@
+{
+ "work_id": "mt-eng/ccmh-supr/passio-trophimi-et-eucarpionis",
+ "anchor": "ccmh-supr/passio-trophimi-et-eucarpionis",
+ "method": "351020005494c156",
+ "anchor_cuts": "c65e6fb65e04e0e1",
+ "words": "3dc6069a193438fa",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 48, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8462, "rounds": 3, "units": 48},
+ "paragraphs": {
+  "Supr.105r": {"words": "094c973bfbcdff7e", "starts": [0, 9, 25]},
+  "Supr.105v": {"words": "8f58d261c700f531", "starts": [0, 20, 36, 55, 69, 87, 121, 127, 147, 163, 170, 184]},
+  "Supr.106r": {"words": "4d2718d311c31b18", "starts": [0, 20, 40, 49, 80, 108, 128, 137, 161, 182]},
+  "Supr.106v": {"words": "6e376065bdba481e", "starts": [0, 18, 39, 53, 68, 78, 92, 103, 114, 130, 149, 170]},
+  "Supr.107r": {"words": "0d2cc042c2224649", "starts": [0, 19, 43, 49, 70, 98, 114, 123, 145, 163, 181]}
+ }
+}

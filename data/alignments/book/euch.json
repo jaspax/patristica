@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "book:euch",
+ "pivot": "mt-eng/torot/euch",
+ "groups": 46,
+ "inputs": "1e592fbc9e30c2b3",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "mt-eng/torot/euch", "units": 46, "ids": "ada9d313de51152b", "inputs": "10251a10fc270c27", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "torot/euch", "units": 49, "ids": "4fae4210ff920b28", "inputs": "efce8e386082c728", "spans": "++++++++++++=++++=+++++++++++++++++++++++=+++++++", "conf": "9999999999999999999999999999999999999999999999"}
+ ]
+}

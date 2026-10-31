@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ccmh-supr/chrysostom-in-meretricem",
+ "pivot": "mt-eng/ccmh-supr/chrysostom-in-meretricem",
+ "groups": 75,
+ "inputs": "331f40d94df10853",
+ "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ccmh-supr/chrysostom-in-meretricem", "units": 78, "ids": "90e425a6e7d95341", "inputs": "73ed55ec88c1b5a3", "spans": "++++=++=+++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-meretricem", "units": 75, "ids": "332c10ac1846512f", "inputs": "2604874483c227d4", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
