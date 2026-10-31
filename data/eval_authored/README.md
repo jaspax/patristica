@@ -73,3 +73,20 @@ Patriarchs fragments.
 - 166 pass and 34 corrected (11 paraphrases, 23 topical queries; the draft kept in `drafted_text`).
 - Paraphrase accuracy averaged 4.66 and topical relevance 4.62. Sol read 86 originals well and 14 partly.
 - Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.05.
+
+**Old Georgian (#529).** `oge.jsonl`: drafted by Claude on 2026-10-31 from
+the Georgian text, never from an English version: 100 targets, each with one
+English paraphrase and one English topical query. The targets are every
+target of the one-language set `scripts.embed_eval.langset oge --scripture-per-lang 50
+--unique-per-lang 50` (seed 0), skipping none, built on master plus the
+unmerged TITUS hagiography (#521) and codices (#526):
+- **Scripture (50):** 33 Oshki/Jerusalem OT verses, 9 Gospel verses (Khanmeti, Adishi, pre-Athonite, Athonite), 5 from Acts and the Epistles, 3 Psalms;
+- **Georgian-only (50):** 18 from the TITUS translations (Basil's homilies, Climacus and their scholia), 17 hagiography, 6 Shatberdi codex, 5 chronicles (Kartlis Tskhovreba), 3 liturgy of St James, 1 Wikisource (*Conversion of Kartli*).
+
+The lectionaries are left out of the unique pool (`EXCLUDED_UNIQUE_WORKS`):
+they are Scripture pericopes. 20 targets are `medium` confidence, mostly
+abbreviated or allusive prose.
+
+**Review of `oge.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-10-31).**
+- 149 pass, 49 corrected (12 paraphrases, 37 topical queries, mostly as too narrow; the draft kept in `drafted_text`) and 2 flagged for overlap with an English Bible.
+- Paraphrase accuracy averaged 4.66 and topical relevance 4.76. Sol read 90 originals well and 10 partly.
