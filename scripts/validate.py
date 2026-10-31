@@ -55,7 +55,7 @@ log = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "eng"}
+VALID_LANGUAGES = {"grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "eng"}
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts
 SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
