@@ -180,3 +180,17 @@ def test_marker_indent_marks_paragraph_starts() -> None:
     markers = [e for e in T.parse_page(page) if isinstance(e, T.Marker)]
     assert [(m.value, m.indent) for m in markers] == [("14", 3), ("15", 6), ("12", 0), ("1", 0)]
     assert markers[0] == T.Marker(5, "Line of ed.", "14")  # indent is not compared
+
+
+def test_segment_space_before_after_a_line_break_or_blank_span() -> None:
+    page = (
+        '<BODY><span id=mxagb16>იოვანე</span><span id=n16>\n<BR></span>'
+        '<span id=mxagb16>ზედაძნელისა</span><span id=mxagp16> და</span><span id=mxagb16> </span>'
+        '<span id=mxagq16>მისთაჲ</span><span id=n16>\n<BR>'
+        '<span id=h5><!Level 5>Line of ed.: 2<A NAME="a">&nbsp;</A></sPAN>&nbsp;</span>'
+        '<span id=mxag16>მოწაფეთა</span></BODY>'
+    )
+    segs = [e for e in T.parse_page(page) if isinstance(e, T.Segment)]
+    assert [(s.text, s.space_before) for s in segs] == [
+        ("იოვანე", False), ("ზედაძნელისა", True), (" და", False), ("მისთაჲ", True),
+        ("მოწაფეთა", True)]

@@ -229,6 +229,10 @@ class Segment:
 
     cls: str
     text: str  # tags stripped, entities decoded, <BR> as "\n"; whitespace as in the page
+    # A <BR> or a whitespace-only span came between the previous segment and
+    # this one (both dropped), so a word ends before it even when neither text
+    # has a space there (#516). Not compared.
+    space_before: bool = field(default=False, compare=False)
 
     @property
     def _parts(self) -> re.Match[str] | None:
@@ -282,6 +286,7 @@ def _strip_tags(fragment: str) -> str:
     return html_lib.unescape(fragment).replace("\xa0", " ")
 
 
+_BR_RE = re.compile(r"<BR\b", re.I)
 _INDENT_RE = re.compile(r"(?:&nbsp;|\s)*", re.I)
 
 
@@ -308,11 +313,15 @@ def parse_page(page_html: str) -> list[Event]:
         body = body[body_start.end():]
     events: list[Event] = []
     opens = list(_SPAN_OPEN_RE.finditer(body))
+    line_break = False  # a <BR> or a blank span since the last segment's text
     for i, m in enumerate(opens):
         cls = m.group(1).lower()
         stop = opens[i + 1].start() if i + 1 < len(opens) else len(body)
         chunk = body[m.end():stop]
+        if i == 0 and _BR_RE.search(body[:m.start()]):
+            line_break = True
         if re.fullmatch(r"h\d+", cls):
+            line_break = line_break or bool(_BR_RE.search(chunk))
             lm = _LEVEL_RE.search(chunk)
             if lm:
                 events.append(Marker(
@@ -324,11 +333,18 @@ def parse_page(page_html: str) -> list[Event]:
                 ))
             continue
         if cls in HEADER_CLASSES:
+            line_break = line_break or bool(_BR_RE.search(chunk))
             continue
         close = re.search(r"</span>", chunk, re.I)
         text = _strip_tags(chunk[: close.start()] if close else chunk)
         if text.strip():
-            events.append(Segment(cls=cls, text=text))
+            events.append(Segment(cls=cls, text=text, space_before=line_break))
+            line_break = False
+            tail = chunk[close.end():] if close else ""
+        else:
+            tail = chunk
+            line_break = line_break or bool(text)
+        line_break = line_break or bool(_BR_RE.search(tail))
     return events
 
 
