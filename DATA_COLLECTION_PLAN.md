@@ -286,6 +286,7 @@ All chunks carry a `canonical_ref` in dot-separated form:
 - Liturgical: `{rite}.{service}.{element}` — e.g. `ByzLit.Chrysostom.Anaphora.3`
 - Councils: `Nicaea1.Canon.7`
 - Manuscripts cited by folio: `{siglum}.{folio}{r|v}`, one unit per page — e.g. `Supr.119r` (Codex Suprasliensis in the codex's continuous foliation, 1r–285v, as the obdurodon edition cites it; CCMH numbers the three parts 1–3 separately). A page shared by two texts is a unit in each ([#333](https://github.com/jaspax/patristica/issues/333)).
+- TITUS prose by printed page and line (Old Georgian hagiography, [#516](https://github.com/jaspax/patristica/issues/516)): `{text}.{chapter}.{paragraph}`, the editors' chapter (Roman numerals as Arabic, `0` before the first) and the paragraph within it, a paragraph being a run of lines from one indented line to the next: e.g. `Shush.3.2`. A set that numbers its own paragraphs uses them: `AsIoZedA.39-a`.
 
 ### Duplicated section numbers
 
