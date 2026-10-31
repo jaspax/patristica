@@ -88,6 +88,7 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     "grc": (0.6, 3.0), "lat": (0.6, 2.8), "hbo": (0.8, 5.0), "syc": (0.7, 5.0),
     "cop": (0.5, 3.5), "hye": (0.6, 4.0), "gez": (0.6, 4.5), "chu": (0.6, 3.5),
     "got": (0.6, 3.0), "arb": (0.6, 4.0),
+    "oge": (0.6, 3.0),  # KJV/Adishi Gospels: 1.12 English characters per Georgian one
 }
 DEFAULT_BAND = (0.5, 5.0)
 # A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
@@ -107,6 +108,7 @@ DOCUMENT_LANGUAGES: dict[str, str] = {
     "chu": "Old Church Slavonic",
     "got": "Gothic",
     "arb": "Classical (Christian) Arabic",
+    "oge": "Old Georgian",
 }
 
 DOCUMENT_SYSTEM = """\
