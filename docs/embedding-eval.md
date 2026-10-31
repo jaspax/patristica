@@ -330,7 +330,7 @@ Every Georgian chunk of the set also got a Sol translation (bulk prompt, 225 req
 - **Modern spelling costs little.** Each archaic letter class costs less than another redaction of the same verse does, and an exact span typed in modern spelling (`fold()`) still finds its target at R@1 0.78 / 0.88 (as stored: 0.80 / 0.92). Keyword search folds both sides anyway.
 - **Script matters.** Voyage doesn't know Nuskhuri as Georgian: the same text in Nuskhuri is farther from its Mkhedruli original than a neighbouring unit is. Every source stores Mkhedruli, so this matters only for a future source in Khutsuri (convert it at ingest).
 
-**Recommendation (pending the owner's decision): Sol translation vectors for `oge`.** Native retrieval misses #84's bar (paraphrase R@3 0.82 / 0.80 against ≈ 0.95, topical R@100 0.80 / 0.86 against ≈ 0.9), about where Church Slavonic was (0.85 / 0.84, 0.91 / 0.84), and Sol translations bring every cell to 1.00. Georgian is embedded in its stored spelling.
+**Decision, owner, 2026-10-31: `oge` gets translation vectors** (`TRANSLATED_LANGUAGES`): Sol in the pipeline, the first batch (the publishable Wikisource units) translated on local-opus. The recommendation: Native retrieval misses #84's bar (paraphrase R@3 0.82 / 0.80 against ≈ 0.95, topical R@100 0.80 / 0.86 against ≈ 0.9), about where Church Slavonic was (0.85 / 0.84, 0.91 / 0.84), and Sol translations bring every cell to 1.00. Georgian is embedded in its stored spelling.
 
 - **Cost:** review $0.70, Sol translation $2.47, Voyage about $0.08 (0.64M cl100k tokens at list price).
 

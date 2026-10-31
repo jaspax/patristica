@@ -170,7 +170,7 @@ def test_eval_languages_are_not_enrolled():
     assert not set(EVAL_LANGUAGES) & TRANSLATED_LANGUAGES
     assert set(PROMPT_NAMES) == set(LANGUAGE_NAMES) | set(EVAL_LANGUAGES)
     assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
-    assert PROMPT_NAMES["oge"] == "Old Georgian"  # measured on #529, not enrolled
+    assert PROMPT_NAMES["oge"] == "Old Georgian"  # enrolled on #529
 
 
 def test_lectionaries_are_not_georgian_only():
