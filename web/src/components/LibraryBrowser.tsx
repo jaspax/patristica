@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, type ReactNode } from "react";
+import { memo, useDeferredValue, useMemo, type ReactNode } from "react";
 
 import {
   DEFAULT_VIEW,
@@ -16,7 +16,8 @@ import {
 } from "@/lib/filter";
 import { formatDate } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
-import { loadLibrary, workAuthors, workHref, type Library } from "@/lib/library";
+import { loadLibrary, workAuthors, workHref, type Library, type WorkRow } from "@/lib/library";
+import { useDebouncedText } from "@/lib/useDebouncedText";
 import { useLoaded } from "@/lib/useLoaded";
 import { versionCounts } from "@/lib/versions";
 
@@ -50,21 +51,29 @@ function Browser({ library }: { library: Library }) {
   const params = useSearchParams();
   const view = useMemo(() => parseViewState(new URLSearchParams(params.toString())), [params]);
 
+  const writeUrl = (next: ViewState) => {
+    const params = viewStateToParams({ ...next }).toString();
+    router.replace(params ? `${pathname}?${params}` : pathname, { scroll: false });
+  };
+  // The input shows each keystroke at once; the URL and the table follow (#497).
+  const query = useDebouncedText(view.q, (q) => writeUrl({ ...view, q }));
+  const q = useDeferredValue(query.text);
   const update = (changes: Partial<ViewState>) => {
-    const query = viewStateToParams({ ...view, ...changes }).toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    const next = { ...view, q: query.text, ...changes };
+    query.setNow(next.q);
+    writeUrl(next);
   };
 
   const rows = useMemo(
     () =>
       sortWorks(
-        filterWorks(index.works, view, index.sources, authors),
+        filterWorks(index.works, { ...view, q }, index.sources, authors),
         view.sort,
         view.dir,
         index.sources,
         authors,
       ),
-    [index, authors, view],
+    [index, authors, view, q],
   );
 
   const facets = useMemo(() => libraryFacets(index, authors), [index, authors]);
@@ -73,7 +82,7 @@ function Browser({ library }: { library: Library }) {
   const sortBy = (key: SortKey) =>
     update({ sort: key, dir: view.sort === key && view.dir === "asc" ? "desc" : "asc" });
 
-  const isFiltered = viewStateToParams({ ...view, sort: DEFAULT_VIEW.sort, dir: DEFAULT_VIEW.dir })
+  const isFiltered = viewStateToParams({ ...view, q: query.text, sort: DEFAULT_VIEW.sort, dir: DEFAULT_VIEW.dir })
     .toString() !== "";
 
   return (
@@ -83,9 +92,9 @@ function Browser({ library }: { library: Library }) {
           <span>Search authors and titles</span>
           <input
             type="search"
-            value={view.q}
+            value={query.text}
             placeholder="e.g. Augustine, Hieronymus, homily, Ἰωάννης"
-            onChange={(e) => update({ q: e.target.value })}
+            onChange={(e) => query.setText(e.target.value)}
           />
         </label>
         <FilterFields value={view} facets={facets} onChange={update} />
@@ -127,47 +136,66 @@ function Browser({ library }: { library: Library }) {
               ))}
             </tr>
           </thead>
-          <tbody>
-            {rows.map((w) => {
-              const lang = languageInfo(w.language);
-              const byline = workAuthors(w, authors);
-              // Names from the author index are English; a fallback is the source's own string.
-              const sourceString = byline.some((a) => a.id === null);
-              const nVersions = w.version_group ? (versions.get(w.version_group) ?? 0) : 0;
-              return (
-                <tr key={w.id}>
-                  <td lang={sourceString ? lang.lang : undefined} dir="auto">
-                    {byline.length > 0 ? (
-                      <AuthorLinks authors={byline} />
-                    ) : (
-                      <span className={styles.muted}>Anonymous</span>
-                    )}
-                  </td>
-                  <td lang={lang.lang} dir="auto">
-                    <Link href={workHref(w.id)}>
-                      {w.title}
-                    </Link>
-                    {nVersions > 1 && (
-                      <span className={styles.versions} lang="en" dir="ltr">
-                        {nVersions} versions
-                      </span>
-                    )}
-                    {w.machine_translation && (
-                      <span className={styles.versions} lang="en" dir="ltr">
-                        machine translation
-                      </span>
-                    )}
-                  </td>
-                  <td>{lang.name}</td>
-                  <td className={styles.numeric}>{formatDate(w)}</td>
-                  <td>{index.sources[w.source_id] ?? w.source_id}</td>
-                  <td className={styles.numeric}>{w.chunks.toLocaleString()}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <WorkRows rows={rows} library={library} versions={versions} />
         </table>
       </div>
     </div>
   );
 }
+
+/**
+ * The table body, memoized: a keystroke re-renders the search field, and the rows only once
+ * the deferred query has filtered them (a few thousand rows, #497).
+ */
+const WorkRows = memo(function WorkRows({
+  rows,
+  library,
+  versions,
+}: {
+  rows: WorkRow[];
+  library: Library;
+  versions: Map<string, number>;
+}) {
+  const { index, authors } = library;
+  return (
+    <tbody>
+      {rows.map((w) => {
+        const lang = languageInfo(w.language);
+        const byline = workAuthors(w, authors);
+        // Names from the author index are English; a fallback is the source's own string.
+        const sourceString = byline.some((a) => a.id === null);
+        const nVersions = w.version_group ? (versions.get(w.version_group) ?? 0) : 0;
+        return (
+          <tr key={w.id}>
+            <td lang={sourceString ? lang.lang : undefined} dir="auto">
+              {byline.length > 0 ? (
+                <AuthorLinks authors={byline} />
+              ) : (
+                <span className={styles.muted}>Anonymous</span>
+              )}
+            </td>
+            <td lang={lang.lang} dir="auto">
+              <Link href={workHref(w.id)}>
+                {w.title}
+              </Link>
+              {nVersions > 1 && (
+                <span className={styles.versions} lang="en" dir="ltr">
+                  {nVersions} versions
+                </span>
+              )}
+              {w.machine_translation && (
+                <span className={styles.versions} lang="en" dir="ltr">
+                  machine translation
+                </span>
+              )}
+            </td>
+            <td>{lang.name}</td>
+            <td className={styles.numeric}>{formatDate(w)}</td>
+            <td>{index.sources[w.source_id] ?? w.source_id}</td>
+            <td className={styles.numeric}>{w.chunks.toLocaleString()}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  );
+});

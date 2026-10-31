@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex } from "@/lib/library";
@@ -96,6 +96,6 @@ describe("AuthorList", () => {
     expect(rows()).toEqual([["Jerome", "1"]]);
     expect(screen.getByRole("link", { name: "Jerome" }).getAttribute("href")).toBe("/authors/jerome");
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "john" } });
-    expect(replace).toHaveBeenCalledWith("/authors?q=john", { scroll: false });
+    await waitFor(() => expect(replace).toHaveBeenCalledWith("/authors?q=john", { scroll: false }));
   });
 });

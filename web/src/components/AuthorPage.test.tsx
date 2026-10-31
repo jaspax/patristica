@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorsFile, LibraryIndex } from "@/lib/library";
@@ -98,7 +98,7 @@ describe("AuthorPage", () => {
     const collections = within(form).getByRole("combobox", { name: "Collection" });
     expect([...collections.querySelectorAll("option")].map((o) => o.textContent)).toEqual(["All", "First1KGreek", "NPNF I"]);
     fireEvent.change(within(form).getByRole("searchbox"), { target: { value: "matthew" } });
-    expect(replace).toHaveBeenCalledWith("/authors/john-chrysostom?q=matthew", { scroll: false });
+    await waitFor(() => expect(replace).toHaveBeenCalledWith("/authors/john-chrysostom?q=matthew", { scroll: false }));
   });
 
   it("reads the filters from the URL and counts what they leave", async () => {
