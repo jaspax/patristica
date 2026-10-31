@@ -131,6 +131,28 @@ def test_arabic_letters():
     assert fold("ܡܠـܬܐ") == "ܡܠܬܐ"
 
 
+def test_old_georgian_letters():
+    """Old Georgian in any script, and the archaic letters its witnesses alternate (#222)."""
+    mkhedruli = "წიგნი შობისა იესუ ქრისტესი"
+    # Asomtavruli (capitals), Nuskhuri and Mtavruli are Mkhedruli letter for
+    # letter; Khutsuri writes u as ႭჃ / ⴍⴣ.
+    assert fold("ႼႨႢႬႨ ႸႭႡႨႱႠ ႨႤႱႭჃ ႵႰႨႱႲႤႱႨ") == mkhedruli
+    assert fold("ⴜⴈⴂⴌⴈ ⴘⴍⴁⴈⴑⴀ ⴈⴄⴑⴍⴣ ⴕⴐⴈⴑⴒⴄⴑⴈ") == mkhedruli
+    assert fold("ᲬᲘᲒᲜᲘ ᲨᲝᲑᲘᲡᲐ ᲘᲔᲡᲣ ᲥᲠᲘᲡᲢᲔᲡᲘ") == mkhedruli
+    # ჱ/ე and ჳ/უ alternate in the Gospel witnesses (Adishi: ძჱ 47×, ძე 39×).
+    assert fold("ძჱ ქრისტჱსი") == fold("ძე ქრისტესი") == "ძე ქრისტესი"
+    assert fold("გეტყჳ ტყჳეობასა") == fold("გეტყუ ტყუეობასა")
+    assert fold("ⴕⴐⴈⴑⴒⴡ ⴂⴄⴒⴗⴣ") == "ქრისტე გეტყუ"
+    # ოუ is not the digraph: მო + უ.
+    assert fold("მოუწოდა") == "მოუწოდა"
+    # ჲ, ჴ and ჵ are kept: დედაჲ/დედა are different cases, ჴ is not ხ.
+    assert fold("დედაჲ დედა ჴელი ხელი") == "დედაჲ დედა ჴელი ხელი"
+    # Punctuation, including ჻ and the editions' modern marks, separates words.
+    assert fold("ჰრქუა მას: შენ ხარ?჻ არა") == "ჰრქუა მას შენ ხარ არა"
+    # A titlo (abbreviation stroke) is a dropped mark.
+    assert fold("ქ̃ჱ") == "ქე"
+
+
 def test_squash_ignores_word_division():
     assert squash("ⲛ ⲧⲉ ⲕⲕⲗⲏⲥⲓⲁ") == squash("ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ")
 
@@ -145,6 +167,7 @@ SAMPLES = [
     "ѣко тѣло моѣ", "Ѣѣ ꙇѣ въѣ сꙿѣ ꙓ", "оуѣ ъѣ ѣ", "дьнь кръстъ отъъ, богь.", "ьи ъи ъі",
     "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ", "братрьѣ сⸯѣ ꙿꙿѣ ъꙿѣ", "аꙶти ꙵꙶ",
     "فِي ٱلْبَدْءِ كَانَ ٱلْكَلِمَةُ،", "المسـيـح الذى", "ﺍﻟﻤﺴﻴﺢ کتاب", "ـ ـا ـ", "أنا؟",
+    "ႼႨႢႬႨ ႨႤႱႭჃ", "ⴕⴐⴈⴑⴒⴡ ⴂⴄⴒⴗⴣ ⴍⴣ", "ᲬᲘᲒᲜᲘ ძჱ გეტყჳ", "მოუწოდა ოჳ ოოჳ ოჳჳ", "ჴელი დედაჲ჻ ქ̃ჱ",
 ]
 
 
