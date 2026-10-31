@@ -27,7 +27,7 @@ from pathlib import Path
 
 from patristica.models import Work
 from scripts.ingest import _titus
-from scripts.ingest._titus_bible import TITUS_BOOKS, book_key, chapter_verse, join_unit
+from scripts.ingest._titus_bible import TITUS_BOOKS, book_key, chapter_verse, join_unit, osis_book
 
 log = logging.getLogger(__name__)
 
@@ -55,13 +55,14 @@ def _ref(label: str, chapter: str, verse: str) -> str:
     key = book_key(label)
     if key == "udzviadg":
         return "Iadgari." + re.sub(r"[^0-9A-Za-z]+", "_", verse).strip("_")
-    if key not in TITUS_BOOKS:
+    osis = osis_book(label, TITUS_BOOKS)
+    if osis is None:
         raise _titus.TitusError(f"{SOURCE_ID}: unknown TITUS book label {label!r}")
     m = _LECTION_VERSE_RE.match(verse)
     cv = chapter_verse(chapter, m.group(1)) if m else None
     if cv is None:
         raise _titus.TitusError(f"{SOURCE_ID}: unexpected location {label} {chapter}:{verse}")
-    return f"{TITUS_BOOKS[key]}.{cv[0]}.{cv[1]}"
+    return f"{osis}.{cv[0]}.{cv[1]}"
 
 
 def ingest(output_dir: Path, force: bool = False) -> list[Work]:

@@ -15,7 +15,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from patristica.models import Work
-from scripts.ingest._titus_bible import BibleSet, ingest_bible
+from scripts.ingest._titus_bible import TITUS_BOOKS, BibleSet, ingest_bible
 
 SOURCE_ID = "titus-oshki"
 
@@ -26,6 +26,7 @@ SPEC = BibleSet(
     date_range=(450, 978),
     date_confidence="approximate",
     author=None,
+    books={**TITUS_BOOKS, "jud": "Jdt"},  # Judith, not Jude
 )
 
 

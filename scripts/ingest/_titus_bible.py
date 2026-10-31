@@ -56,13 +56,30 @@ TITUS_BOOKS: dict[str, str] = {
     "apjo": "Rev",
     # Old Testament
     "gen": "Gen", "ex": "Exod", "lev": "Lev", "num": "Num", "deut": "Deut",
-    "ps": "Ps", "od": "Odes",
+    "ju": "Judg", "ru": "Ruth", "regi": "1Sam", "regii": "2Sam", "regiii": "1Kgs",
+    "regiv": "2Kgs", "esri": "1Esd", "esriiesr": "Ezra", "esriineh": "Neh", "esriv": "4Esr",
+    "esth": "Esth", "tob": "Tob", "hiob": "Job", "ps": "Ps", "od": "Odes", "prov": "Prov",
+    "eccl": "Eccl", "cant": "Song", "sapsal": "Wis", "sir": "Sir", "hos": "Hos", "joel": "Joel",
+    "am": "Amos", "jon": "Jonah", "abd": "Obad", "mich": "Mic", "nah": "Nah", "hab": "Hab",
+    "soph": "Zeph", "agg": "Hag", "zach": "Zech", "mal": "Mal", "is": "Isa",
 }
 
 
-def book_key(label: str) -> str:
-    """A TITUS book label as a :data:`TITUS_BOOKS` key: ``"1.Petr."`` → ``"1petr"``."""
-    return re.sub(r"[.\s_]", "", label).lower()
+def book_key(label: str, *, keep_alternative: bool = False) -> str:
+    """A TITUS book label as a :data:`TITUS_BOOKS` key: ``"1.Petr."`` → ``"1petr"``.
+
+    A parenthesized alternative name goes (``"Reg.III_(Reg.I)"`` → ``"regiii"``)
+    unless *keep_alternative*: TITUS's Esdras II is two books,
+    ``"Esr.II_(Esr.)"`` and ``"Esr.II_(Neh.)"`` (``"esriiesr"``, ``"esriineh"``).
+    """
+    if not keep_alternative:
+        label = re.sub(r"\(.*?\)", "", label)
+    return re.sub(r"[.\s_()]", "", label).lower()
+
+
+def osis_book(label: str, books: dict[str, str]) -> str | None:
+    """The OSIS book of a TITUS label in *books*, or None."""
+    return books.get(book_key(label, keep_alternative=True)) or books.get(book_key(label))
 
 
 @dataclass(frozen=True)
@@ -79,6 +96,8 @@ class BibleSet:
     printed_edition: str | None = None   # when the set's header names none
     book_label: str = "Book"   # the khanmeti palimpsest names books "Text"
     verse_label: str = "Verse"
+    # TITUS_BOOKS plus the set's own readings of a label ("Jud." is Judith in
+    # the Old Testament, Jude in the New)
     books: dict[str, str] = field(default_factory=lambda: dict(TITUS_BOOKS))
     include: Callable[[_titus.Segment], bool] = _titus.is_main_text
     genre: str = "scripture"
@@ -184,7 +203,8 @@ def ingest_bible(spec: BibleSet, output_dir: Path, force: bool = False) -> list[
         label, chapter, verse = unit.key
         if chapter is None or verse is None or label is None:
             continue  # a manuscript's book title, before chapter 1
-        if book_key(label) not in spec.books:
+        osis = osis_book(label, spec.books)
+        if osis is None:
             raise _titus.TitusError(f"{spec.source_id}: unknown TITUS book label {label!r}")
         if _VARIANT_RE.match(verse):
             continue  # a variant or parallel-witness line: the apparatus
@@ -192,7 +212,6 @@ def ingest_bible(spec: BibleSet, output_dir: Path, force: bool = False) -> list[
         if cv is None:
             raise _titus.TitusError(
                 f"{spec.source_id}: unexpected location {label} {chapter}:{verse}")
-        osis = spec.books[book_key(label)]
         ref = f"{osis}.{cv[0]}.{cv[1]}"
         if ref in seen:
             log.warning("%s: %s printed twice; the texts are joined", spec.source_id, ref)

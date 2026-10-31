@@ -10,8 +10,9 @@ Danelia, Chkhenkeli and Shavishvili's edition of the Paris manuscript (Tbilisi
 
 One ``liturgical`` work. A unit is one of the edition's numbered entries (a
 service, a chant, a lection), under its day: ``M12_24.3`` is entry 3, on 24
-December (TITUS's date reference; movable feasts have their own). Within an
-entry:
+December (TITUS's date reference; movable feasts have their own,
+``WQuadr_1_1``); the appendix the edition adds (``Lect.App.I``) is under
+``App_I.``. Within an entry:
 
 * the manuscripts' rubrics (``b`` classes) are ``rubric`` spans;
 * the incipit and desinit the manuscripts give of a lection (``x`` classes
@@ -36,6 +37,7 @@ from pathlib import Path
 
 from patristica.models import Work
 from scripts.ingest import _titus
+from scripts.ingest._titus_bible import join_unit
 
 log = logging.getLogger(__name__)
 
@@ -50,6 +52,14 @@ _CITATION_RE = re.compile(r"^\[?\s*([1-4]?[A-Z][A-Za-z.]*)_(\d+)_([\d,\-a-z]+)\s
 def _citation(text: str) -> str | None:
     m = _CITATION_RE.match(text.strip())
     return f"[{m.group(1)} {m.group(2)}:{m.group(3)}]" if m else None
+
+
+def _slug(value: str) -> str:
+    """A date reference or entry as a ref segment: "WQuadr.1_1" → "WQuadr_1_1".
+
+    Letters outside ASCII (one entry is typed "1426Ⴀქ") are dropped.
+    """
+    return re.sub(r"[^0-9A-Za-z]+", "_", value).strip("_")
 
 
 def _in_pericope(item: _titus.Located) -> bool:
@@ -110,23 +120,30 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         return None
 
     units = _titus.collect_units(
-        located, ("Date reference", "Entry"), include=_include, located_kind=kind,
+        located, ("Book", "Date reference", "Entry"), include=_include, located_kind=kind,
     )
     paragraphs: list[dict[str, object]] = []
-    seen: set[str] = set()
+    by_ref: dict[str, dict[str, object]] = {}
     for unit in units:
-        date, entry = unit.key
-        if date is None or entry is None:
+        book, date, entry = unit.key
+        if date is None:
             continue  # the edition's preface, before the first day
-        section = re.sub(r"[^0-9A-Za-z]+", "_", date).strip("_")
-        m = re.fullmatch(r"(\d+)([a-z]?)", entry)
-        if not m:
-            raise _titus.TitusError(f"{SOURCE_ID}: unexpected entry {entry!r} on {date}")
-        ref = f"{section}.{int(m.group(1))}{m.group(2)}"  # "282a": an entry the edition inserted
-        if ref in seen:
-            raise _titus.TitusError(f"{SOURCE_ID}: {ref} twice")
-        seen.add(ref)
-        paragraphs.append(unit.raw(ref))
+        section = _slug(date)
+        if book and book != "Lect.Par.":
+            section = f"{_slug(book.removeprefix('Lect.'))}.{section}"  # "App_I.M12_23"
+        entry_slug = _slug(entry or "")
+        if not entry_slug:
+            # an entry without a number: part of the one before
+            if paragraphs:
+                join_unit(paragraphs[-1], unit)
+            continue
+        ref = f"{section}.{entry_slug}"  # "282a": an entry the edition inserted
+        if ref in by_ref:
+            log.warning("%s: %s twice; the texts are joined", SOURCE_ID, ref)
+            join_unit(by_ref[ref], unit)
+            continue
+        by_ref[ref] = unit.raw(ref)
+        paragraphs.append(by_ref[ref])
 
     work = Work(
         work_id=f"{SOURCE_ID}/{WORK_SLUG}",
