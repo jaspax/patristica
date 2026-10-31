@@ -55,6 +55,7 @@ SOURCE_LABELS: dict[str, str] = {
     "pearse-arabic-eng": "Christian Arabic texts (Roger Pearse, tertullian.org; English translations)",
     "torot": "TOROT (Old Church Slavonic Treebank)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
+    "wikisource-oge": "Old Georgian texts (Georgian Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
@@ -76,6 +77,24 @@ SOURCE_LABELS: dict[str, str] = {
     "wikisource-canons": "Holy Canons, Greek (Wikisource)",
     # Derived sources
     "mt-eng": "Patristica machine translations (English)",
+    # Old Georgian Bible and lectionaries from TITUS (#515)
+    "titus-khanmeti-gospels": "Khanmeti Gospels, palimpsest A-89/A-844 (Old Georgian, TITUS)",
+    "titus-adishi": "Adishi Gospels (Old Georgian, TITUS)",
+    "titus-preathonite-gospels": "Pre-Athonite Gospels (Old Georgian, TITUS)",
+    "titus-athonite-gospels": "Athonite Gospels of George the Athonite (Old Georgian, TITUS)",
+    "titus-acts-sinai": "Acts, oldest redaction (Old Georgian, TITUS)",
+    "titus-acts-ab": "Acts, redactions A and B (Old Georgian, TITUS)",
+    "titus-paul-ab": "Pauline Epistles, redaction AB (Old Georgian, TITUS)",
+    "titus-paul-cd": "Pauline Epistles, redaction CD (Old Georgian, TITUS)",
+    "titus-catholic-a1": "Catholic Epistles, redaction A1 (Old Georgian, TITUS)",
+    "titus-catholic-b": "Catholic Epistles, redaction B (Old Georgian, TITUS)",
+    "titus-catholic-g": "Catholic Epistles, redaction G (Old Georgian, TITUS)",
+    "titus-catholic-d": "Catholic Epistles, redaction D (Old Georgian, TITUS)",
+    "titus-apocalypse": "Apocalypse of Euthymius the Athonite (Old Georgian, TITUS)",
+    "titus-oshki": "Oshki and Jerusalem Old Testament (Old Georgian, TITUS)",
+    "titus-psalter-a": "Psalms and Odes, redaction A (Old Georgian, TITUS)",
+    "titus-paris-lectionary": "Paris Lectionary (Old Georgian, TITUS)",
+    "titus-khanmeti-lectionary": "Khanmeti Lectionary (Old Georgian, TITUS)",
 }
 
 #: Sources whose works are machine translations made by Patristica

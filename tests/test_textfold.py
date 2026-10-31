@@ -131,26 +131,43 @@ def test_arabic_letters():
     assert fold("ܡܠـܬܐ") == "ܡܠܬܐ"
 
 
-def test_old_georgian_letters():
-    """Old Georgian in any script, and the archaic letters its witnesses alternate (#222)."""
+def test_old_georgian_scripts():
+    """Old Georgian in any of its three scripts folds to Mkhedruli (#222)."""
     mkhedruli = "წიგნი შობისა იესუ ქრისტესი"
     # Asomtavruli (capitals), Nuskhuri and Mtavruli are Mkhedruli letter for
     # letter; Khutsuri writes u as ႭჃ / ⴍⴣ.
     assert fold("ႼႨႢႬႨ ႸႭႡႨႱႠ ႨႤႱႭჃ ႵႰႨႱႲႤႱႨ") == mkhedruli
     assert fold("ⴜⴈⴂⴌⴈ ⴘⴍⴁⴈⴑⴀ ⴈⴄⴑⴍⴣ ⴕⴐⴈⴑⴒⴄⴑⴈ") == mkhedruli
     assert fold("ᲬᲘᲒᲜᲘ ᲨᲝᲑᲘᲡᲐ ᲘᲔᲡᲣ ᲥᲠᲘᲡᲢᲔᲡᲘ") == mkhedruli
-    # ჱ/ე and ჳ/უ alternate in the Gospel witnesses (Adishi: ძჱ 47×, ძე 39×).
-    assert fold("ძჱ ქრისტჱსი") == fold("ძე ქრისტესი") == "ძე ქრისტესი"
-    assert fold("გეტყჳ ტყჳეობასა") == fold("გეტყუ ტყუეობასა")
-    assert fold("ⴕⴐⴈⴑⴒⴡ ⴂⴄⴒⴗⴣ") == "ქრისტე გეტყუ"
-    # ოუ is not the digraph: მო + უ.
-    assert fold("მოუწოდა") == "მოუწოდა"
-    # ჲ, ჴ and ჵ are kept: დედაჲ/დედა are different cases, ჴ is not ხ.
-    assert fold("დედაჲ დედა ჴელი ხელი") == "დედაჲ დედა ჴელი ხელი"
+    assert fold("ⴕⴍⴣⴄⴗⴀⴌⴀ ⴤⴄⴊⴈ") == fold("ქვეყანა ხელი")
     # Punctuation, including ჻ and the editions' modern marks, separates words.
-    assert fold("ჰრქუა მას: შენ ხარ?჻ არა") == "ჰრქუა მას შენ ხარ არა"
+    assert fold("ჰრქუა მას: შენ ხარ?჻ არა") == "ჰრქვა მას შენ ხარ არა"
     # A titlo (abbreviation stroke) is a dropped mark.
     assert fold("ქ̃ჱ") == "ქე"
+
+
+def test_old_georgian_spelling_meets_modern_spelling():
+    """Old spellings and modern ones fold together (#222, #511)."""
+    # ჱ → ე, ჴ → ხ (also as the witnesses alternate them: ძჱ/ძე, გულისჴმა/გულისხმა).
+    assert fold("ძჱ ქრისტჱსი") == fold("ძე ქრისტესი") == "ძე ქრისტესი"
+    assert fold("ჴელი გულისჴმა") == fold("ხელი გულისხმა") == "ხელი გულისხმა"
+    # ჳ is v before a vowel, vi elsewhere.
+    assert fold("ტყჳე ჰრქჳან") == fold("ტყვე ჰრქვან") == "ტყვე ჰრქვან"
+    assert fold("თჳსი ღჳნო სიტყჳსა") == fold("თვისი ღვინო სიტყვისა")
+    # ჲ: i before a vowel, else dropped (merging case forms, as modern spelling does).
+    assert fold("სიტყუაჲ ღმრთისაჲ რაჲთა") == fold("სიტყვა ღმრთისა რათა") == "სიტყვა ღმრთისა რათა"
+    assert fold("ესაჲა") == fold("ესაია") == "ესაია"
+    assert fold("დედაჲ დედა") == "დედა დედა"
+    # უ is v between a consonant and ა, ე or ო; a witness's უ for ჳ goes the same way.
+    assert fold("ქუეყანასა თქუენ ჩუენ დავარღუო") == fold("ქვეყანასა თქვენ ჩვენ დავარღვო")
+    assert fold("ტყუე ჰრქუან") == fold("ტყჳე ჰრქჳან")
+    # Not word-initially (უყო "he did to him" ≠ ვყო "I did"), not after a vowel,
+    # not before ი, and not the vowel უ before a consonant.
+    assert fold("უყო ვყო") == "უყო ვყო"
+    assert fold("მოუწოდა დაუდვა") == "მოუწოდა დაუდვა"
+    assert fold("სიცრუისა ღრუბელი იესუ") == "სიცრუისა ღრუბელი იესუ"
+    # ოუ is not the Khutsuri digraph: მო + უ.
+    assert fold("მოუწოდა") != fold("მუწოდა")
 
 
 def test_squash_ignores_word_division():
@@ -168,6 +185,7 @@ SAMPLES = [
     "aѣ 1ѣ ѣ̈", "ꙿѣ ъꙿ ꙿъ", "братрьѣ сⸯѣ ꙿꙿѣ ъꙿѣ", "аꙶти ꙵꙶ",
     "فِي ٱلْبَدْءِ كَانَ ٱلْكَلِمَةُ،", "المسـيـح الذى", "ﺍﻟﻤﺴﻴﺢ کتاب", "ـ ـا ـ", "أنا؟",
     "ႼႨႢႬႨ ႨႤႱႭჃ", "ⴕⴐⴈⴑⴒⴡ ⴂⴄⴒⴗⴣ ⴍⴣ", "ᲬᲘᲒᲜᲘ ძჱ გეტყჳ", "მოუწოდა ოჳ ოოჳ ოჳჳ", "ჴელი დედაჲ჻ ქ̃ჱ",
+    "სიტყუაჲ ქუეყანასა ტყჳე თჳსი ესაჲა", "ჲ ა ჲ ჲჲა ჳჲ ჳ ქჳა ქუჲა ქჲუა", "უა ბუა ბუ-ა ბ უა ⴁⴍⴣⴀ",
 ]
 
 

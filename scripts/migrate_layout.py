@@ -124,7 +124,17 @@ NEW_SOURCES |= {"mt-eng"}
 NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
+# Old Georgian (#222): Georgian Wikisource (#513).
+NEW_SOURCES |= {"wikisource-oge"}
 NEW_SOURCES |= {"evetts-hop-eng"}   # #481
+# Old Georgian Bible and lectionaries from TITUS (#515), one source per witness.
+NEW_SOURCES |= {
+    "titus-khanmeti-gospels", "titus-adishi", "titus-preathonite-gospels",
+    "titus-athonite-gospels", "titus-acts-sinai", "titus-acts-ab", "titus-paul-ab",
+    "titus-paul-cd", "titus-catholic-a1", "titus-catholic-b", "titus-catholic-g",
+    "titus-catholic-d", "titus-apocalypse", "titus-oshki", "titus-psalter-a",
+    "titus-paris-lectionary", "titus-khanmeti-lectionary",
+}
 NEW_SOURCES |= {"titus-hagiography"}   # Old Georgian (#222): TITUS hagiography, #516
 
 # Old directory (relative to data/raw or data/normalized) → new directory.

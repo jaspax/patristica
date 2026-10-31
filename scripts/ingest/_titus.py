@@ -120,6 +120,13 @@ def cache_path(url: str, raw_dir: Path) -> Path:
     return raw_dir / CACHE_SUBDIR / (rel + ".gz")
 
 
+def _decode(data: bytes) -> str:
+    """A page's UTF-8 text. A few pages carry a stray Latin-1 byte in a link's
+    query string (``lx3=\xd6orin`` in Basil's Hexaemeron), never in the text:
+    it is replaced rather than failing the whole set."""
+    return data.decode("utf-8", errors="replace")
+
+
 def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None = None) -> str:
     """The HTML of the TITUS page *url*, from the cache or the network.
 
@@ -134,7 +141,7 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
         raise TitusRestricted(f"TITUS set is members-only / private use: {url}")
     dest = cache_path(url, raw_dir)
     if dest.exists() and (not force or offline()):
-        return gzip.decompress(dest.read_bytes()).decode("utf-8")
+        return _decode(gzip.decompress(dest.read_bytes()))
     require_network(f"fetching {url}")
 
     wait = THROTTLE_SECONDS - (time.monotonic() - _last_request)
@@ -152,7 +159,7 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
     if resp.status_code == 404:
         raise TitusError(f"TITUS page not found: {url}")
     resp.raise_for_status()
-    text = resp.content.decode("utf-8")
+    text = _decode(resp.content)
     dest.parent.mkdir(parents=True, exist_ok=True)
     # mtime 0: the same page gives the same bytes (git-lfs objects stay stable);
     # written then renamed, so an interrupted run leaves no truncated page.
@@ -461,8 +468,13 @@ def collect_units(
         kind = (located_kind(item) if located_kind else None) or (
             span_kind(seg) if span_kind else None)
         if kind:
+            # whitespace outside the sentinels, so none is left doubled
+            text = seg.text
+            if text[:1].isspace() and parts:
+                lead = " "
+            trail = " " if text[-1:].isspace() else ""
             kinds.append(kind)
-            parts.append(f"{lead}{_SEG_OPEN}{seg.text}{_SEG_CLOSE}")
+            parts.append(f"{lead}{_SEG_OPEN}{text.strip()}{_SEG_CLOSE}{trail}")
         else:
             parts.append(lead + seg.text)
     flush()
@@ -507,7 +519,6 @@ def _apply_segment_spans(
             out.append(ch)
     old_to_new.append(len(out))
     new_text = "".join(out)
-    # collapse the double spaces a removed sentinel can leave
     shifted = [[old_to_new[int(s)], old_to_new[int(e)], k] for s, e, k in spans]
     kept = [s for s in shifted
             if not any(int(m[0]) < int(s[1]) and int(s[0]) < int(m[1]) for m in marked)]
@@ -540,6 +551,8 @@ BRACKET_KINDS: dict[str, tuple[str, str]] = {
 # pointer to the edition's apparatus.
 DROPPED_CHARS = "/\\^*"
 
+# The edition's footnote markers, "(1)": its notes aren't on TITUS.
+_FOOTNOTE_RE = re.compile(r"\(\d+\)")
 _LACUNA_CONTENT_RE = re.compile(r"^[\s.…\-–]*$")
 _ELLIPSIS_RE = re.compile(r"\.{2,}|…+")
 _SIC_RE = re.compile(r"^\s*[!?]+\s*$")
@@ -553,7 +566,8 @@ def clean_text(
 ) -> tuple[str, list[list[int | str]]]:
     """TITUS text to ``(text, editorial spans)``.
 
-    Whitespace is collapsed and *dropped* characters removed; brackets stay
+    Whitespace is collapsed, *dropped* characters and footnote markers
+    (``(1)``, whose notes TITUS doesn't carry) removed; brackets stay
     in the text and each outermost bracketed group becomes a span covering it
     with its brackets: a group of only dots (``[...]``, ``<...>``) is a
     ``lacuna``, ``[!]`` a ``note``, any other the kind in *brackets*. A run of
@@ -562,6 +576,7 @@ def clean_text(
     one runs to the end (a restoration across a page or unit break).
     """
     text = raw.translate({ord(c): None for c in dropped})
+    text = _FOOTNOTE_RE.sub("", text)
     text = re.sub(r"\s+", " ", text).strip()
     closers = {close: op for op, (close, _) in brackets.items()}
     spans: list[list[int | str]] = []
