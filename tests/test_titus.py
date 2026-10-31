@@ -166,3 +166,17 @@ def test_fetch_uses_gzip_cache_offline(tmp_path: Path) -> None:
         assert [u.rsplit("/", 1)[1] for u, _ in pages] == ["adisn001.htm", "adisn001x.htm"]
         with pytest.raises(_common.OfflineError):
             T.fetch(base + "adisn003.htm", tmp_path)
+
+
+def test_marker_indent_marks_paragraph_starts() -> None:
+    page = (
+        '<BODY><span id=h5><!Level 5>Line of ed.: 14<A NAME="a">&nbsp;</A></sPAN>&nbsp;&nbsp;&nbsp;</span>'
+        '<span id=mxag16>ქრისტჱსსა.</span><span id=n16>\n<BR>'
+        '<span id=h5><!Level 5>Line of ed.: 15<A NAME="b">&nbsp;</A><A NAME="c">&nbsp;</A></sPAN>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id=mxag16>ხოლო</span><span id=n16>\n<BR>'
+        '<span id=h4><!Level 4>Page of ed.: 12<A NAME="d">&nbsp;</A></sPAN>  '
+        '<span id=h5><!Level 5>Line of ed.: 1<A NAME="e">&nbsp;</A></sPAN></span><span id=mxag16>მის</span></BODY>'
+    )
+    markers = [e for e in T.parse_page(page) if isinstance(e, T.Marker)]
+    assert [(m.value, m.indent) for m in markers] == [("14", 3), ("15", 6), ("12", 0), ("1", 0)]
+    assert markers[0] == T.Marker(5, "Line of ed.", "14")  # indent is not compared

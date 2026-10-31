@@ -209,6 +209,10 @@ class Marker:
     label: str
     value: str
     extra: bool = False  # an <!XLevel>: manuscript page/line, parallel to the levels
+    # The &nbsp;s after the marker, before the text it locates. Prose sets mark a
+    # paragraph's first line by indenting it (Coll. hag.: 6 against 3, #516).
+    # Not compared, so a Marker built by hand equals the parsed one.
+    indent: int = field(default=0, compare=False)
 
 
 # Old Georgian language codes in a segment class; ``ng`` (modern Georgian) is
@@ -278,6 +282,17 @@ def _strip_tags(fragment: str) -> str:
     return html_lib.unescape(fragment).replace("\xa0", " ")
 
 
+_INDENT_RE = re.compile(r"(?:&nbsp;|\s)*", re.I)
+
+
+def _indent_after(rest: str) -> int:
+    """The &nbsp;s right after a marker span's ``</sPAN>`` in *rest* (0 if none)."""
+    close = re.search(r"</span>", rest, re.I)
+    if not close:
+        return 0
+    return _INDENT_RE.match(rest, close.end()).group().lower().count("&nbsp;")
+
+
 def parse_page(page_html: str) -> list[Event]:
     """A part page as its markers and segments, in page order.
 
@@ -305,6 +320,7 @@ def parse_page(page_html: str) -> list[Event]:
                     label=_strip_tags(lm.group(3)).strip(),
                     value=_strip_tags(lm.group(4)).strip(),
                     extra=bool(lm.group(1)),
+                    indent=_indent_after(chunk[lm.end():]),
                 ))
             continue
         if cls in HEADER_CLASSES:
