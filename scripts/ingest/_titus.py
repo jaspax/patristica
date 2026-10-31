@@ -120,6 +120,13 @@ def cache_path(url: str, raw_dir: Path) -> Path:
     return raw_dir / CACHE_SUBDIR / (rel + ".gz")
 
 
+def _decode(data: bytes) -> str:
+    """A page's UTF-8 text. A few pages carry a stray Latin-1 byte in a link's
+    query string (``lx3=\xd6orin`` in Basil's Hexaemeron), never in the text:
+    it is replaced rather than failing the whole set."""
+    return data.decode("utf-8", errors="replace")
+
+
 def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None = None) -> str:
     """The HTML of the TITUS page *url*, from the cache or the network.
 
@@ -134,7 +141,7 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
         raise TitusRestricted(f"TITUS set is members-only / private use: {url}")
     dest = cache_path(url, raw_dir)
     if dest.exists() and (not force or offline()):
-        return gzip.decompress(dest.read_bytes()).decode("utf-8")
+        return _decode(gzip.decompress(dest.read_bytes()))
     require_network(f"fetching {url}")
 
     wait = THROTTLE_SECONDS - (time.monotonic() - _last_request)
@@ -152,7 +159,7 @@ def fetch(url: str, raw_dir: Path, *, force: bool = False, referer: str | None =
     if resp.status_code == 404:
         raise TitusError(f"TITUS page not found: {url}")
     resp.raise_for_status()
-    text = resp.content.decode("utf-8")
+    text = _decode(resp.content)
     dest.parent.mkdir(parents=True, exist_ok=True)
     # mtime 0: the same page gives the same bytes (git-lfs objects stay stable);
     # written then renamed, so an interrupted run leaves no truncated page.
