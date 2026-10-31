@@ -50,7 +50,7 @@ from patristica.models import Chunk
 #: Adishi/Khanmeti Gospels (TITUS ARMAZI, Sarjveladze and Tvaltvadze 2001-02),
 #: in the Mkhedruli with archaic letters (ჱ ჲ ჳ ჴ) the sources store, with the
 #: editors' brackets and lacuna marks removed (185.9, median 179; every
-#: Gospel 184-187).
+#: Gospel 184-187; the pre-Athonite redaction's 3,774 verses: 189.0).
 VERSE_TOKENS: dict[str, int] = {
     "eng": 31,
     "lat": 37,
