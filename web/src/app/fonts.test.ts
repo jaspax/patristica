@@ -36,6 +36,7 @@ describe("Church Slavonic fonts (#371)", () => {
       "fonts/Monomakh-Regular.woff2",
       "fonts/NotoSerif-Slavonic.woff2",
       "fonts/NotoSerif-Irish.woff2",
+      "fonts/Segotia-Regular.woff2",
     ]);
     for (const file of files) {
       const bytes = readFileSync(join(dir, file));
@@ -73,5 +74,19 @@ describe("Old Irish fonts (#544)", () => {
     expect(fontsTs).toContain('variable: "--font-irish-fallback"');
     const bytes = readFileSync(join(dir, "fonts/NotoSerif-Irish.woff2"));
     expect(bytes.subarray(0, 4).toString("latin1")).toBe("wOF2");
+  });
+});
+
+describe("Insular font for the Old Irish word tile (#544)", () => {
+  const landingCss = readFileSync(join(dir, "../components/Landing.module.css"), "utf8");
+
+  it("self-hosts Segotia with its licence, not preloaded", () => {
+    expect(fontsTs).toMatch(/src: "\.\/fonts\/Segotia-Regular\.woff2",\s*weight: "400",\s*variable: "--font-insular",\s*preload: false/);
+    expect(existsSync(join(dir, "fonts/Segotia-OFL.txt"))).toBe(true);
+  });
+
+  it("is used by the landing tile's class only, never by a :lang() rule", () => {
+    expect(landingCss).toMatch(/\.insular \{\s*font-family: var\(--font-insular\), var\(--font-body\);/);
+    expect(css).not.toContain("--font-insular");
   });
 });

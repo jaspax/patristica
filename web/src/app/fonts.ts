@@ -132,6 +132,18 @@ const irishFallback = localFont({
   adjustFontFallback: false,
 });
 
+// The landing page's Old Irish tile only (#544): Segotia, a Gaelic type by
+// Dominic Stanley (OFL 1.1, Reserved Font Name "Segotia"), served as the
+// upstream WOFF2, unmodified, from insert-smiley/Irishfontclub-segotia at
+// 9462ce85bb143b5c14ac9dc9d707922fe3f017d1. Corpus text never uses it.
+const insular = localFont({
+  src: "./fonts/Segotia-Regular.woff2",
+  weight: "400",
+  variable: "--font-insular",
+  preload: false,
+  adjustFontFallback: false,
+});
+
 /** Class names that define all font CSS variables; put on <html>. */
 export const fontVariables = [
   serif,
@@ -147,6 +159,7 @@ export const fontVariables = [
   slavonic,
   slavonicFallback,
   irishFallback,
+  insular,
 ]
   .map((f) => f.variable)
   .join(" ");
