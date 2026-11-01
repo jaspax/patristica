@@ -119,6 +119,19 @@ const slavonicFallback = localFont({
   adjustFontFallback: false,
 });
 
+// Old Irish (#225, #544) is Latin script in the body font; this backs it with
+// what Google's Noto Serif slices lack (the Tironian et ⁊, the reversed c ↄ, a
+// letter + combining dot above U+0307): Noto Serif cut to Latin with its marks
+// and signs in one file (web/scripts/irish-font.py), so such a cluster falls
+// back whole, in the same design.
+const irishFallback = localFont({
+  src: "./fonts/NotoSerif-Irish.woff2",
+  weight: "400",
+  variable: "--font-irish-fallback",
+  preload: false,
+  adjustFontFallback: false,
+});
+
 /** Class names that define all font CSS variables; put on <html>. */
 export const fontVariables = [
   serif,
@@ -133,6 +146,7 @@ export const fontVariables = [
   georgian,
   slavonic,
   slavonicFallback,
+  irishFallback,
 ]
   .map((f) => f.variable)
   .join(" ");

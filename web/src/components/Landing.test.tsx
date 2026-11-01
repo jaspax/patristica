@@ -86,7 +86,11 @@ describe("Landing", () => {
     expect(georgian.getAttribute("href")).toBe("/works?language=oge");
     expect(georgian.querySelector("[lang]")?.getAttribute("lang")).toBe("oge");
     expect(georgian.querySelector("[lang]")?.getAttribute("dir")).toBe("ltr");
-    expect(within(strip).getAllByRole("link")).toHaveLength(11);
+    const irish = within(strip).getByRole("link", { name: /bríathar/ });
+    expect(irish.getAttribute("href")).toBe("/works?language=sga");
+    expect(irish.querySelector("[lang]")?.getAttribute("lang")).toBe("sga");
+    expect(irish.querySelector("[lang]")?.getAttribute("dir")).toBe("ltr");
+    expect(within(strip).getAllByRole("link")).toHaveLength(12);
   });
 
   it("shows the library's counts once the index loads", async () => {
