@@ -209,6 +209,20 @@ TEXTS: tuple[Text, ...] = (
     ),
     # --- Rules and teaching -----------------------------------------------
     _t(
+        celt_id="G203000",
+        slug="regula-mucuta-raithni",
+        prefix="RegMoch",
+        title="Regula Mucuta Raithni (The Rule of Mo Chutu of Rahan)",
+        author=ANON,
+        date_range=(800, 1000),
+        date_confidence="uncertain",
+        genre="patristic",
+        mode="stanzas",
+        sections=True,
+        # The Rule, not the late Life of Mo Chutu: in period (owner, 2026-11-01).
+        dating="usually taken as a late Old Irish rule (9th c.); CELT: 900–1200",
+    ),
+    _t(
         celt_id="G203001",
         slug="regula-choluimb-chille",
         prefix="RegCol",
@@ -585,8 +599,6 @@ LYRICS: tuple[Text, ...] = (
 # dates, but probably composed after the period's end. Kept here so a later
 # survey doesn't add them back.
 OWNER_EXCLUDED: dict[str, str] = {
-    "G203000": "Regula Mucuta Raithni (Rule of Mo Chutu): composition probably after 1050 "
-    "(owner, 2026-11-01); Mo Chutu himself (d. 637) is in range",
     "G400018": "Rop tú mo baile: composition probably after 1050 (owner, 2026-11-01)",
     "G400019": "Tórramat do nóebaingil: composition probably after 1050 (owner, 2026-11-01)",
     "G400020": "A Maire mín maithingen: composition probably after 1050 (owner, 2026-11-01)",
