@@ -34,7 +34,7 @@ TARGET_LANGUAGE = "eng"
 # Languages no embedder reaches from English (#3), indexed through these
 # translations (#84): scripts.translate translates them, scripts.embed embeds
 # the translation as a second vector.
-TRANSLATED_LANGUAGES: frozenset[str] = frozenset({"syc", "cop", "hye", "gez", "chu", "oge"})
+TRANSLATED_LANGUAGES: frozenset[str] = frozenset({"syc", "cop", "hye", "gez", "chu", "oge", "sga"})
 
 
 def text_sha(text: str) -> str:
