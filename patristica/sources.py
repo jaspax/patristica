@@ -60,6 +60,8 @@ SOURCE_LABELS: dict[str, str] = {
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "wikisource-oge": "Old Georgian texts (Georgian Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
+    "wb-glosses": "Würzburg Glosses on Paul (Old Irish; Doyle, Thesaurus Palaeohibernicus)",
+    "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",

@@ -166,7 +166,7 @@ From the survey on #225 (2026-11-01). Language `sga` (BCP 47 `sga`) for every Ir
 
 | Source | Works | Format | License | Issue |
 |--------|-------|--------|---------|-------|
-| Würzburg glosses (A. Doyle's digital text of *Thesaurus Palaeohibernicus* I 499–712, Zenodo 5508250) | 3,648 glosses on the 14 Pauline epistles, with folio, gloss number, hand, biblical ref and Latin lemma; Stokes and Strachan's English translation of each | JSON | CC BY 4.0 (the 1901 translations are public domain) | #539 |
+| `wb-glosses` + `wb-glosses-eng`: Würzburg glosses (A. Doyle's digital text of *Thesaurus Palaeohibernicus* I 499–712, Zenodo 5508250) | 3,648 glosses on the 14 Pauline epistles, with folio, gloss number, hand, biblical ref and Latin lemma; Stokes and Strachan's English translation of each. Ingested as one Irish and one English work per epistle (`wb-glosses/rom`, `wb-glosses-eng/rom`, …), 3,511 glosses each; the 137 glosses with no Irish (wholly Latin) are left out | JSON | CC BY 4.0 (the 1901 translations are public domain) | #539 |
 | Gloss Corpus (P. Moran, Galway), `felire/basetext.xml` | Félire Óengusso: the 365 calendar quatrains in Rawlinson B 505 (diplomatic, abbreviations expanded) | TEI | CC BY-NC-SA 4.0 | #540 |
 | CELT (celt.ucc.ie, UCC) | Stokes's Félire, Saltair na Rann, Bethu Brigte, lives, apocrypha, visions, Irish Bede | HTML/TEI | Restricted ("available with prior consent of the CELT programme"): ingested with `unknown`, unpublished, until permission (#542) | #541 |
 | *Thesaurus Palaeohibernicus* I–II (Stokes and Strachan 1901–03, archive.org OCR; deferred) | Milan glosses on the Psalm commentary, Turin glosses on Mark, the Cambrai Homily, the hymns and poems, the Stowe Missal tract, the minor glosses | Page images, damaged OCR | Public domain | #543 |
@@ -299,6 +299,7 @@ All chunks carry a `canonical_ref` in dot-separated form:
 - Liturgical: `{rite}.{service}.{element}` — e.g. `ByzLit.Chrysostom.Anaphora.3`
 - Councils: `Nicaea1.Canon.7`
 - Manuscripts cited by folio: `{siglum}.{folio}{r|v}`, one unit per page — e.g. `Supr.119r` (Codex Suprasliensis in the codex's continuous foliation, 1r–285v, as the obdurodon edition cites it; CCMH numbers the three parts 1–3 separately). A page shared by two texts is a unit in each ([#333](https://github.com/jaspax/patristica/issues/333)).
+- Glosses by folio and gloss number, as the *Thesaurus Palaeohibernicus* cites them (Würzburg glosses, [#539](https://github.com/jaspax/patristica/issues/539)): `Wb.{folio}.{gloss}` — e.g. `Wb.1a.8` for Wb. 1a 8, `Wb.2a.8a` for an inserted gloss, `Wb.1b.10-11` for two numbers printed as one gloss. The Irish work and its English translation share the refs.
 - TITUS prose by printed page and line (Old Georgian hagiography, [#516](https://github.com/jaspax/patristica/issues/516)): `{text}.{chapter}.{paragraph}`, the editors' chapter (Roman numerals as Arabic, `0` before the first) and the paragraph within it, a paragraph being a run of lines from one indented line to the next: e.g. `Shush.3.2`. A set that numbers its own paragraphs uses them: `AsIoZedA.39-a`.
 
 ### Duplicated section numbers
@@ -317,6 +318,7 @@ Material that an editor or the source added to a text (titles, headings, supplem
 | `gez` | the edition's `[…]` / `(…)` brackets | to mark (`supplement` where the brackets enclose an editor's addition: brackets marked, content embedded): [#297](https://github.com/jaspax/patristica/issues/297) |
 | `coptic-nt` | CopSahBible2 `<…>` supplements | to mark `supplement` (content embedded, brackets not): [#298](https://github.com/jaspax/patristica/issues/298) |
 | `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
+| `wb-glosses`, `wb-glosses-eng` | each gloss's lemma, prefixed as `Rom. 1:8 meo]`; the editors' comments `[in marg.]`; restored `(…)` and supplied `[…]` letters | marked at ingest: lemma and comments `note`, restored and supplied letters `supplement` ([#539](https://github.com/jaspax/patristica/issues/539)) |
 | `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
 
 ### Patrologia Graeca: columns, refs and works
