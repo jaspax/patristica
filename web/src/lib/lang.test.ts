@@ -15,6 +15,10 @@ describe("languageInfo", () => {
     expect(languageInfo("oge")).toEqual({ lang: "oge", name: "Old Georgian", dir: "ltr" });
   });
 
+  it("maps Old Irish to sga (not modern Irish ga), left-to-right", () => {
+    expect(languageInfo("sga")).toEqual({ lang: "sga", name: "Old Irish", dir: "ltr" });
+  });
+
   it("maps Arabic to ar, right-to-left", () => {
     expect(languageInfo("arb")).toEqual({ lang: "ar", name: "Arabic", dir: "rtl" });
   });

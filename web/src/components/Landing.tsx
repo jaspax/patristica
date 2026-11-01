@@ -24,9 +24,8 @@ export function Hero() {
         </h1>
         <p className={styles.lead}>
           Patristica is a free library of Scripture and the early Church: the Fathers, the councils and the
-          liturgies, from the apostles to the eleventh century, in the original Greek, Latin, Hebrew, Syriac,
-          Coptic, Ge&lsquo;ez, Armenian, Gothic, Church Slavonic, Arabic and Old Georgian, with English translations
-          alongside.
+          liturgies, from the apostles to the eleventh century, in the languages they were first written and
+          read in, with English translations alongside.
         </p>
         <p className={styles.lead}>
           Search it by idea or by exact phrase, read each text whole, and follow a passage across its
@@ -46,8 +45,11 @@ const EXAMPLES = [
   '"in principio erat verbum"',
 ];
 
-/** "The Word" of John 1:1 in each language of the collection; each links to that language's works. */
-const WORDS: { language: string; word: string }[] = [
+/**
+ * "The Word" of John 1:1 in each language of the collection; each links to that language's works.
+ * `className` gives a tile its own face where the corpus text's font would be plain (Old Irish).
+ */
+const WORDS: { language: string; word: string; className?: string }[] = [
   { language: "grc", word: "λόγος" },
   { language: "lat", word: "verbum" },
   { language: "hbo", word: "דָּבָר" },
@@ -59,6 +61,7 @@ const WORDS: { language: string; word: string }[] = [
   { language: "chu", word: "слово" },
   { language: "arb", word: "الكلمة" },
   { language: "oge", word: "სიტყუაჲ" },
+  { language: "sga", word: "bríathar", className: styles.insular },
 ];
 
 /** The search page's link for a query. */
@@ -114,12 +117,16 @@ export default function Landing() {
           <span className={styles.wordsSub}>…in each language of the collection. Choose one to browse its works.</span>
         </h2>
         <ul>
-          {WORDS.map(({ language, word }) => {
+          {WORDS.map(({ language, word, className }) => {
             const lang = languageInfo(language);
             return (
               <li key={language}>
                 <Link href={languageFilterHref(language)} className={styles.word}>
-                  <span lang={lang.lang} dir={lang.dir} className={styles.wordText}>
+                  <span
+                    lang={lang.lang}
+                    dir={lang.dir}
+                    className={className ? `${styles.wordText} ${className}` : styles.wordText}
+                  >
                     {word}
                   </span>
                   <span className={styles.wordLang}>{lang.name}</span>
