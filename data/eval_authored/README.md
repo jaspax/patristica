@@ -90,3 +90,24 @@ abbreviated or allusive prose.
 **Review of `oge.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-10-31).**
 - 149 pass, 49 corrected (12 paraphrases, 37 topical queries, mostly as too narrow; the draft kept in `drafted_text`) and 2 flagged for overlap with an English Bible.
 - Paraphrase accuracy averaged 4.66 and topical relevance 4.76. Sol read 90 originals well and 10 partly.
+
+**Old Irish (#552).** `sga.jsonl`: drafted by Claude on 2026-11-01 from
+the Irish text, never from an English version (the Würzburg glosses' Stokes
+& Strachan English, CELT's Bethu Brigte and Laisrén translations): 80
+targets, each with one English paraphrase and one English topical query.
+There is no Old Irish Scripture, so every target is Irish-only. The targets
+are every target of the one-language set `scripts.embed_eval.langset sga
+--scripture-per-lang 0 --unique-per-lang 80 --min-target-chars 80` (seed 0),
+skipping none, 20 from each pool of `UNIQUE_POOLS["sga"]`:
+- **Würzburg glosses (20):** one or two per Pauline epistle. Most glosses are a few words, so targets need 80 characters (the shorter ones stay in the set as neighbours and distractors);
+- **Félire Óengusso (20):** 10 from CELT's (Stokes) text and 10 from Gloss Corpus's diplomatic text, never the same day twice. The two editions are grouped by ref (`langset.WITNESS_GROUPS`), so either answers a query on the other;
+- **CELT prose (20):** Apgitir Chrábaid, Baile Bricín, the Lives of Adamnán and Brigit, the sayings of Flann Fína, Cáin Eimíne Báin, Fursa's prayer, the tracts on sins, the Irish Bede, Molaisse, the Rule of Colum Cille, the Vision of Laisrén, the prophecy of Adamnán;
+- **CELT verse (20):** one quatrain from each of 20 poems (Saltair na Rann among them).
+
+The CELT texts are unpublished (`license: unknown`); only these English
+queries are committed. 42 targets are `medium` confidence: verse and
+glosses whose reading is uncertain.
+
+**Review of `sga.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-11-01).**
+- 115 pass and 45 corrected (29 paraphrases, mostly a misread clause; 16 topical queries, 9 of them as too narrow; the draft kept in `drafted_text`).
+- Paraphrase accuracy averaged 4.20 and topical relevance 4.61. Sol read 34 originals well and 46 partly: Old Irish verse and the diplomatic Félire are hard for it too.

@@ -25,6 +25,13 @@ language-filtered scores.
 (``_works.jsonl`` plus one file per work), so ``scripts.translate --input-dir``
 translates exactly the eval chunks into an eval store.
 
+Works in ``WITNESS_GROUPS`` are two editions of one non-Scripture text: their
+units are grouped by canonical ref like Scripture witnesses, so a query on one
+is answered by the other, both are in the corpus, and only one is a target.
+
+``--min-target-chars`` keeps short units (Old Irish glosses) out of the unique
+targets; they stay in the corpus as neighbours and distractors.
+
 ``--fold`` also writes ``{out}-fold``: the same set with every corpus text and
 every query in the language passed through ``fold()``, to measure embedding an
 orthographically normalized form (#336). Authored English queries are the
@@ -51,6 +58,7 @@ from patristica.embeddings import MIN_CHARS
 from patristica.textfold import fold
 from patristica.versification import to_org_ref
 from scripts.embed_eval.queries import DEFAULT_AUTHORED, Query, make_queries
+from scripts.embed_eval.select import MIN_CHARS as MIN_TARGET_CHARS
 from scripts.embed_eval.select import ChunkMeta, select
 
 log = logging.getLogger(__name__)
@@ -58,6 +66,23 @@ log = logging.getLogger(__name__)
 DEFAULT_NORMALIZED = Path("data/normalized")
 REFERENCE_SOURCES: tuple[str, ...] = ("web", "kjv", "asv")
 CORPUS_KEYS = ("chunk_id", "work_id", "language", "text", "translation_group_id")
+
+# Editions of one non-Scripture text with the same canonical refs (work id →
+# group name): the Félire Óengusso from CELT (Stokes's normalized text) and
+# from Gloss Corpus (a diplomatic text), one quatrain per day (#552).
+WITNESS_GROUPS: dict[str, str] = {
+    "celt/felire-oengusso": "felire",
+    "glosscorpus/felire": "felire",
+}
+
+
+def group_id(work: dict, ref: str) -> str | None:
+    """A unit's ``translation_group_id``: Scripture by org verse, witnesses by ref."""
+    if work["genre"] == "scripture":
+        return to_org_ref(work["source_id"], ref)
+    if name := WITNESS_GROUPS.get(work["work_id"]):
+        return f"{name}:{ref}"
+    return None
 
 
 def _manifest(normalized_dir: Path) -> list[dict]:
@@ -68,13 +93,11 @@ def _manifest(normalized_dir: Path) -> list[dict]:
 
 def _chunks(normalized_dir: Path, rec: dict) -> list[dict]:
     w = rec["work"]
-    scripture = w["genre"] == "scripture"
     return [{
         "chunk_id": c["chunk_id"], "work_id": c["work_id"], "language": c["language"],
         "text": editorial.source_text(c), "chunk_index": c["chunk_index"],
         "out_of_period": c.get("out_of_period", False),
-        "translation_group_id": (to_org_ref(w["source_id"], c["canonical_ref"])
-                                 if scripture else None),
+        "translation_group_id": group_id(w, c["canonical_ref"]),
         "raw": c,
     } for c in json.loads((normalized_dir / rec["path"]).read_text(encoding="utf-8"))]
 
@@ -149,7 +172,8 @@ def write_subset(out_dir: Path, recs: list[dict], chunks: list[dict], ids: set[s
 def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
           scripture_per_lang: int = 100, unique_per_lang: int = 100,
           distractors_per_lang: int = 2000, authored_dir: Path = DEFAULT_AUTHORED,
-          folded: bool = False, subset_dir: Path | None = None) -> dict:
+          folded: bool = False, subset_dir: Path | None = None,
+          min_target_chars: int = MIN_TARGET_CHARS) -> dict:
     recs, chunks = load_language(normalized_dir, lang)
     works = [r["work"] for r in recs]
     genre = {w["work_id"]: w["genre"] for w in works}
@@ -159,7 +183,16 @@ def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
     sel = select(metas, works, seed=seed, target_langs=(lang,),
                  scripture_per_lang=scripture_per_lang, unique_per_lang=unique_per_lang,
                  distractors_per_lang=distractors_per_lang,
-                 required=authored_targets(authored_dir))
+                 required=authored_targets(authored_dir), min_target_chars=min_target_chars)
+    # A unique target's other witnesses answer its queries too.
+    by_group: dict[str, list[str]] = {}
+    for c in chunks:
+        if c["translation_group_id"] and c["work_id"] in WITNESS_GROUPS:
+            by_group.setdefault(c["translation_group_id"], []).append(c["chunk_id"])
+    group_of = {c["chunk_id"]: c["translation_group_id"] for c in chunks}
+    for t in sel.targets:
+        for cid in by_group.get(group_of[t.chunk_id] or "", []):
+            sel.add(cid, "parallel")
     # Neighbours aren't size-filtered: drop the units scripts.embed doesn't embed
     # (wholly editorial headings are empty in source_text, and the API refuses "").
     corpus = [{k: c[k] for k in CORPUS_KEYS} | {"role": sel.roles[c["chunk_id"]]}
@@ -222,6 +255,8 @@ def main() -> None:
     p.add_argument("--scripture-per-lang", type=int, default=100)
     p.add_argument("--unique-per-lang", type=int, default=100)
     p.add_argument("--distractors-per-lang", type=int, default=2000)
+    p.add_argument("--min-target-chars", type=int, default=MIN_TARGET_CHARS,
+                   help="shortest unique target (default %(default)s)")
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     p.add_argument("--fold", action="store_true", help="also write the fold()-ed set")
     p.add_argument("--subset-dir", type=Path,
@@ -232,7 +267,8 @@ def main() -> None:
                   seed=args.seed, scripture_per_lang=args.scripture_per_lang,
                   unique_per_lang=args.unique_per_lang,
                   distractors_per_lang=args.distractors_per_lang,
-                  authored_dir=args.authored, folded=args.fold, subset_dir=args.subset_dir)
+                  authored_dir=args.authored, folded=args.fold, subset_dir=args.subset_dir,
+                  min_target_chars=args.min_target_chars)
     log.info("%s", json.dumps({k: v for k, v in stats.items() if k != "targets_list"},
                               indent=1, ensure_ascii=False))
 

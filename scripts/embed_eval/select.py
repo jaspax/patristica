@@ -69,6 +69,32 @@ UNIQUE_WORKS: dict[str, tuple[str, ...]] = {
     ),
 }
 
+# Target strata of a one-language set (``scripts.embed_eval.langset``):
+# language → pool → work ids, where an entry ending in "/" is a whole source
+# and the first matching pool wins. Every work of the language in a pool
+# counts as unique (as with ``UNIQUE_WORKS``), and unique targets are drawn
+# round-robin over the pools, then over each pool's works, instead of over
+# works alone, so many small works don't crowd out a few big ones.
+#
+# Old Irish (#552): there is no Old Irish Scripture, and the Würzburg glosses,
+# Bethu Brigte and the Vision of Laisrén have English versions in the corpus,
+# so the metadata rule would leave them out. Four pools, one per text group
+# measured: the glosses, the Félire (both editions), CELT prose, CELT verse.
+UNIQUE_POOLS: dict[str, dict[str, tuple[str, ...]]] = {
+    "sga": {
+        "glosses": ("wb-glosses/",),
+        "felire": ("celt/felire-oengusso", "glosscorpus/felire"),
+        "celt-prose": (
+            "celt/apgitir-chrabaid", "celt/baile-bricin", "celt/betha-adamnain",
+            "celt/bethu-brigte", "celt/briathra-flainn-fina", "celt/cain-eimine-bain",
+            "celt/gebet-fursas", "celt/heimliche-sunden", "celt/irish-bede",
+            "celt/molaisse-and-his-sister", "celt/regula-choluimb-chille", "celt/todsunden",
+            "celt/vision-of-laisren", "celt/weissagung-colum-cilles",
+        ),
+        "celt-verse": ("celt/",),
+    },
+}
+
 MIN_CHARS = 30
 MAX_CHARS = 2000
 
@@ -110,6 +136,14 @@ class Selection:
         self.roles.setdefault(chunk_id, role)
 
 
+def pool_of(lang: str, work_id: str) -> str | None:
+    """The ``UNIQUE_POOLS`` pool of *work_id* in *lang*, or None."""
+    for pool, entries in UNIQUE_POOLS.get(lang, {}).items():
+        if any(work_id.startswith(e) if e.endswith("/") else work_id == e for e in entries):
+            return pool
+    return None
+
+
 def unique_works(works: list[dict], excluded: dict[str, str] | None = None) -> dict[str, set[str]]:
     """Return language → work_ids that exist only in that language in the corpus."""
     excluded = EXCLUDED_UNIQUE_WORKS if excluded is None else excluded
@@ -127,7 +161,43 @@ def unique_works(works: list[dict], excluded: dict[str, str] | None = None) -> d
     for lang, ids in UNIQUE_WORKS.items():
         if listed := known.intersection(ids):
             out[lang] = listed
+    for lang in UNIQUE_POOLS:
+        if pooled := {w["work_id"] for w in works
+                      if w["language"] == lang and pool_of(lang, w["work_id"])}:
+            out[lang] = pooled
     return out
+
+
+def _interleave(pools: list[list[ChunkMeta]]) -> list[ChunkMeta]:
+    """One pool whose ``pop()`` takes from each of *pools* in turn, each from its end."""
+    order: list[ChunkMeta] = []
+    pools = [list(p) for p in pools]
+    while any(pools):
+        order += [p.pop() for p in pools if p]
+    return order[::-1]
+
+
+def _unique_pools(lang: str, by_work: dict[str, list[ChunkMeta]], work_ids: set[str],
+                  rng: random.Random, min_target_chars: int) -> list[list[ChunkMeta]]:
+    """Shuffled candidate pools of unique targets: one per work, or per ``UNIQUE_POOLS`` pool."""
+    per_work: list[tuple[str, list[ChunkMeta]]] = []
+    for work_id in sorted(work_ids):
+        pool = [c for c in by_work.get(work_id, [])
+                if c.eligible and c.n_chars >= min_target_chars]
+        if pool:
+            rng.shuffle(pool)
+            per_work.append((work_id, pool))
+    if lang not in UNIQUE_POOLS:
+        pools = [pool for _, pool in per_work]
+    else:
+        pools = []
+        for name in UNIQUE_POOLS[lang]:
+            members = [pool for work_id, pool in per_work if pool_of(lang, work_id) == name]
+            rng.shuffle(members)
+            if members:
+                pools.append(_interleave(members))
+    rng.shuffle(pools)
+    return pools
 
 
 def select(
@@ -141,11 +211,14 @@ def select(
     neighbours: int = 2,
     distractors_per_lang: int = 2000,
     required: frozenset[str] = frozenset(),
+    min_target_chars: int = MIN_CHARS,
 ) -> Selection:
     """Pick targets and corpus members. Deterministic for a given *seed* and input.
 
     *required* chunk ids (targets of authored queries) are always in the
-    corpus, with the rest of their translation group.
+    corpus, with the rest of their translation group. Unique targets have at
+    least *min_target_chars* characters, and no two share a translation group
+    (two witnesses of one text).
     """
     rng = random.Random(seed)
     sel = Selection()
@@ -175,19 +248,20 @@ def select(
     # Unique: per language, round-robin over shuffled works for variety.
     uniq = unique_works(works)
     for lang in target_langs:
-        pools = []
-        for work_id in sorted(uniq.get(lang, ())):
-            pool = [c for c in by_work.get(work_id, []) if c.eligible]
-            if pool:
-                rng.shuffle(pool)
-                pools.append(pool)
-        rng.shuffle(pools)
+        pools = _unique_pools(lang, by_work, uniq.get(lang, set()), rng, min_target_chars)
         picked: list[ChunkMeta] = []
+        groups: set[str] = set()
         while pools and len(picked) < unique_per_lang:
             pools = [p for p in pools if p]
             for pool in pools:
-                if len(picked) < unique_per_lang and pool:
-                    picked.append(pool.pop())
+                while len(picked) < unique_per_lang and pool:
+                    c = pool.pop()
+                    if c.translation_group_id in groups:
+                        continue  # another witness of a picked target
+                    if c.translation_group_id:
+                        groups.add(c.translation_group_id)
+                    picked.append(c)
+                    break
         for c in picked:
             sel.targets.append(Target(c.chunk_id, lang, "unique"))
             sel.add(c.chunk_id, "target")
