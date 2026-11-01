@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 # Controlled vocabulary types
 # ---------------------------------------------------------------------------
 
-Language = Literal["grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "eng"]
+Language = Literal["grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "eng"]
 
 Genre = Literal["scripture", "patristic", "liturgical", "council", "apocrypha"]
 
