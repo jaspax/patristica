@@ -56,7 +56,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 VALID_LANGUAGES = {
-    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "eng",
+    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "eng",
 }
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts
@@ -83,6 +83,18 @@ SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
     # Arabic (#83): the Arabic block, Supplement, Extended-A and the
     # presentation forms (folded to base letters, but some sources keep them).
     "arb": [(0x0600, 0x06FF), (0x0750, 0x077F), (0x08A0, 0x08FF), (0xFB50, 0xFDFF), (0xFE70, 0xFEFF)],
+    # Old Irish (#225): Latin letters with length marks (Latin-1, Extended-A/B),
+    # the dotted letters of the editions (ḟ ṡ ṁ ṅ, Latin Extended Additional),
+    # combining marks and the scribal abbreviations ⁊ (ocus) and ↄ (con).
+    "sga": [
+        (0x0041, 0x005A),
+        (0x0061, 0x007A),
+        (0x00C0, 0x024F),
+        (0x1E00, 0x1EFF),
+        (0x0300, 0x036F),
+        (0x204A, 0x204A),
+        (0x2184, 0x2184),
+    ],
     # Old Georgian (#222): stored in Mkhedruli as the sources have it, with its
     # archaic letters (U+10F1–10F6, in the Georgian block). Asomtavruli
     # (U+10A0–10C5) and Nuskhuri (Georgian Supplement) are the same alphabet

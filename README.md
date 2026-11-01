@@ -22,7 +22,7 @@ The corpus covers:
 - **Church Fathers**: Ante-Nicene, Nicene, and Post-Nicene Fathers (ANF/NPNF), with Greek and Latin originals where available
 - **Councils & Creeds**: Acts of the seven Ecumenical Councils, the Apostolic Canons, and major credal documents
 
-Original-language texts are in Greek, Latin, Hebrew, Syriac, Coptic, Ge'ez, Armenian, Gothic and Old Church Slavonic (#29: the Gospel codices, the Psalterium Sinaiticum, Codex Suprasliensis and other canonical OCS texts, stored in Cyrillic), and Christian Arabic (#83: Melkite, Syriac Orthodox, East Syriac and Coptic writers to the early eleventh century) and Old Georgian (#222: hagiography, chronicles and the Georgian Bible to the early eleventh century, stored in Mkhedruli) are being added.
+Original-language texts are in Greek, Latin, Hebrew, Syriac, Coptic, Ge'ez, Armenian, Gothic and Old Church Slavonic (#29: the Gospel codices, the Psalterium Sinaiticum, Codex Suprasliensis and other canonical OCS texts, stored in Cyrillic), and Christian Arabic (#83: Melkite, Syriac Orthodox, East Syriac and Coptic writers to the early eleventh century) Old Georgian (#222: hagiography, chronicles and the Georgian Bible to the early eleventh century, stored in Mkhedruli) and Old Irish (#225: the Würzburg glosses on Paul, the Félire Óengusso and other early Irish religious texts) are being added.
 
 All sources are public domain unless otherwise noted.
 
