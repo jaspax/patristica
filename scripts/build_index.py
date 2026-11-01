@@ -74,6 +74,7 @@ from typing import TYPE_CHECKING, Any
 from tqdm import tqdm
 
 from patristica import alignment_store as al
+from patristica import console
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.authors import author_index
@@ -150,18 +151,21 @@ class Stats:
     no_vectors: list[str] = field(default_factory=list)  # works without a shard
 
     def summary(self) -> str:
-        return (f"{self.works} works: {self.loaded} loaded, "
-                f"{self.updated} updated in place ({self.updated_chunks} chunks), "
-                f"{self.unchanged} unchanged, "
-                f"{self.deleted} deleted ({self.excluded} for their licence); "
-                f"{self.chunks} chunks, {self.translations} translations, "
-                f"{self.vectors} vectors loaded, {self.stale_vectors} stale vectors skipped, "
-                f"{len(self.no_vectors)} works without vectors, "
-                f"{self.folded} chunks folded in place, "
-                f"{self.regrouped} chunks regrouped in place, "
-                f"{self.passages} passage-group rows synced, "
-                f"{self.rehashed} format-1 hashes rewritten, "
-                f"{self.backfilled} body hashes filled in")
+        """One line: the works, then only the counts that aren't zero."""
+        works = (f"{self.works:,} works: {self.loaded:,} loaded, {self.updated:,} updated in "
+                 f"place, {self.unchanged:,} unchanged, {self.deleted:,} deleted")
+        rest = [f"{n:,} {what}" for n, what in (
+            (self.excluded, "deleted for their licence"),
+            (self.updated_chunks, "chunks updated in place"),
+            (self.chunks, "chunks"), (self.translations, "translations"),
+            (self.vectors, "vectors loaded"), (self.stale_vectors, "stale vectors skipped"),
+            (len(self.no_vectors), "works without vectors"),
+            (self.folded, "chunks folded in place"),
+            (self.regrouped, "chunks regrouped in place"),
+            (self.passages, "passage-group rows synced"),
+            (self.rehashed, "format-1 hashes rewritten"),
+            (self.backfilled, "body hashes filled in")) if n]
+        return works + ("; " + ", ".join(rest) if rest else "")
 
 
 def pg_range(r: list[int] | tuple[int, int] | None) -> str | None:
@@ -556,7 +560,7 @@ def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
     conn.execute("CREATE TEMP TABLE IF NOT EXISTS fold_stage (chunk_id text, text_folded text) "
                  "ON COMMIT DELETE ROWS")
     folded = 0
-    for work_id in tqdm(todo, desc="fold", unit="work"):
+    for work_id in tqdm(todo, desc="fold", unit="work", disable=not todo):
         with paths[work_id].open(encoding="utf-8") as f:
             chunks = json.load(f)
         with conn.transaction(), conn.cursor() as cur:
@@ -602,7 +606,7 @@ def sync_groups(conn: psycopg.Connection, changes: dict[str, dict[str, str | Non
     conn.execute("CREATE TEMP TABLE IF NOT EXISTS group_stage (chunk_id text, "
                  "translation_group_id text) ON COMMIT DELETE ROWS")
     updated = 0
-    for work_id in tqdm(sorted(changes), desc="regroup", unit="work"):
+    for work_id in tqdm(sorted(changes), desc="regroup", unit="work", disable=not changes):
         with conn.transaction(), conn.cursor() as cur:
             with cur.copy("COPY group_stage (chunk_id, translation_group_id) FROM STDIN") as copy:
                 for row in changes[work_id].items():
@@ -685,7 +689,8 @@ def sync_passages(conn: psycopg.Connection,
     conn.execute("CREATE TEMP TABLE IF NOT EXISTS passage_stage (chunk_id text, "
                  "group_id text, confidence smallint) ON COMMIT DELETE ROWS")
     n = 0
-    for work_id in tqdm(sorted(changes), desc="passage groups", unit="work"):
+    for work_id in tqdm(sorted(changes), desc="passage groups", unit="work",
+                        disable=not changes):
         diff = changes[work_id]
         gone = sorted(cid for cid, row in diff.items() if row is None)
         with conn.transaction(), conn.cursor() as cur:
@@ -795,7 +800,7 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         apply_schema(conn)
         # Before loading, so works loaded below aren't cleared again.
         check_fold_version(conn)
-        log.info("authors: %d", load_authors(conn))
+        log.debug("authors: %d", load_authors(conn))
         stored = dict(conn.execute("SELECT work_id, content_sha FROM works"))
         if not stored:
             set_hash_format(conn)  # every hash will be new
@@ -932,7 +937,7 @@ def main() -> None:
     parser.add_argument("--maintenance-work-mem", default="4GB",
                         help="memory for building the HNSW index (default 4GB, for 8 GB hosts)")
     args = parser.parse_args()
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    console.setup_logging()
 
     import psycopg
 

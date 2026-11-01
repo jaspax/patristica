@@ -26,20 +26,26 @@ the API keys (with ``--pay``), the search database through the SSH tunnel
 With ``--pay`` nothing waits on a human after that. A failing step stops the
 run; every step is idempotent, so the next run resumes. The run never commits:
 it ends with ``scripts.status --check`` and the changed ``data/`` paths, for
-you to commit. Output also goes to ``logs/pipeline-{time}.log``.
+you to commit. Each step is headed by a rule and closed by a line of its
+result; the run ends with a table of every step (#535). Output also goes to
+``logs/pipeline-{time}.log``, with each progress bar in its final state only.
+``-v`` / ``-vv`` show the steps' DEBUG / TRACE detail (``patristica.console``).
 
 Usage::
 
     uv run --extra pipeline python -m scripts.pipeline --dry-run
     uv run --extra pipeline python -m scripts.pipeline [--pay [--max-cost 20]]
-        [--accept-raw-change] [--skip upload_library] [--database-url URL]
+        [--accept-raw-change] [--skip upload_library] [--database-url URL] [-v]
 """
 
 from __future__ import annotations
 
 import argparse
+import codecs
 import logging
 import os
+import re
+import shutil
 import subprocess
 import sys
 import time
@@ -48,7 +54,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import BinaryIO
 
-from patristica import alignment_store, fingerprint
+from patristica import alignment_store, console, fingerprint
 from patristica import embeddings as emb
 from patristica import translations as tr
 
@@ -105,34 +111,134 @@ def python(module: str, *args: str) -> list[str]:
 # ---------------------------------------------------------------------------
 
 
+#: A tqdm progress line: its ``[elapsed<remaining, rate]`` or ``[elapsed, rate]``.
+PROGRESS = re.compile(r"\[(?:\d+:)?\d+:\d\d[<,\]]")
+
+STYLES = {"bold": "1", "dim": "2", "ok": "32", "warn": "33", "fail": "1;31"}
+MARKS = {"done": ("✓", "ok"), "skipped": ("–", "dim"), "stopped": ("■", "warn"),
+         "failed": ("✗", "fail")}
+
+
+def duration(seconds: float) -> str:
+    """``42s``, ``3m 07s``, ``1h 05m``."""
+    s = round(seconds)
+    if s < 60:
+        return f"{s}s"
+    if s < 3600:
+        return f"{s // 60}m {s % 60:02d}s"
+    return f"{s // 3600}h {s % 3600 // 60:02d}m"
+
+
+class Console:
+    """The run's output: to the terminal as it comes (progress bars, colour when
+    it is a terminal), and to the run log as plain lines, each progress bar
+    only in its final state.
+
+    It also keeps the last line a step printed that isn't a progress bar: the
+    step's own summary, for the run's summary table."""
+
+    def __init__(self, log_file: BinaryIO | None = None, stream: BinaryIO | None = None,
+                 width: int | None = None, color: bool | None = None) -> None:
+        self.log_file = log_file
+        self.stream = stream if stream is not None else sys.stdout.buffer
+        self.width = width or shutil.get_terminal_size((100, 24)).columns
+        self.color = sys.stdout.isatty() if color is None else color
+        self.last_line = ""
+        self._decoder = codecs.getincrementaldecoder("utf-8")("replace")
+        self._pending = ""
+
+    def _write(self, data: bytes) -> None:
+        self.stream.write(data)
+        self.stream.flush()
+
+    def _log(self, line: str) -> None:
+        if self.log_file is not None:
+            self.log_file.write((line + "\n").encode("utf-8"))
+            self.log_file.flush()
+
+    def output(self, data: bytes) -> None:
+        """A step's output, as it comes."""
+        self._write(data)
+        text = self._pending + self._decoder.decode(data)
+        *lines, self._pending = text.split("\n")
+        for raw in lines:
+            self._step_line(raw)
+
+    def _step_line(self, raw: str) -> None:
+        # A bar redraws its line after a carriage return: keep the last state.
+        line = raw.rstrip("\r").rsplit("\r", 1)[-1].rstrip()
+        if not line.strip() and "\r" in raw:
+            return  # a bar that cleared itself
+        self._log(line)
+        if line.strip() and not PROGRESS.search(line):
+            self.last_line = line.strip()
+
+    def end_output(self) -> None:
+        """A step ended: its last line, if it had no newline."""
+        if self._pending:
+            self._write(b"\n")
+            self._step_line(self._pending)
+            self._pending = ""
+
+    def style(self, text: str, style: str) -> str:
+        return f"\033[{STYLES[style]}m{text}\033[0m" if self.color and style else text
+
+    def line(self, text: str = "", style: str = "") -> None:
+        """One line of the pipeline's own."""
+        self._write((self.style(text, style) + "\n").encode("utf-8"))
+        self._log(text)
+
+    def rule(self, title: str) -> None:
+        """A full-width heading: ``── [3/9] validate ─────…``."""
+        text = f"── {title} "
+        self.line()
+        self.line(text + "─" * max(3, self.width - len(text)), "bold")
+
+    def fit(self, text: str, used: int) -> str:
+        """*text* cut to the width left after *used* columns."""
+        room = max(20, self.width - used)
+        return text if len(text) <= room else text[:room - 1] + "…"
+
+
 class Runner:
     """Runs a command in the repo root, streaming its output to the console and
-    the run log. Returns the exit code."""
+    the run log. Returns the exit code.
 
-    def __init__(self, log_file: BinaryIO | None = None) -> None:
-        self.log_file = log_file
+    A step runs through ``patristica.console`` (``python -m patristica.console
+    scripts.normalize …``), so every step logs alike, including those that
+    configure logging themselves; with the terminal's width, so progress bars
+    span it; and with ``PATRISTICA_LOG_LEVEL`` for ``--verbose``."""
 
-    def note(self, text: str) -> None:
-        line = (text + "\n").encode("utf-8")
-        sys.stdout.buffer.write(line)
-        sys.stdout.flush()
-        if self.log_file is not None:
-            self.log_file.write(line)
-            self.log_file.flush()
+    def __init__(self, console: Console | None = None, verbosity: int = 0) -> None:
+        self.console = console if console is not None else Console()
+        self.verbosity = verbosity
+
+    def note(self, text: str, style: str = "") -> None:
+        self.console.line(text, style)
+
+    def env(self) -> dict[str, str]:
+        size = shutil.get_terminal_size((self.console.width, 24))
+        env = {"PYTHONUNBUFFERED": "1", "COLUMNS": str(self.console.width),
+               "LINES": str(size.lines)}
+        if self.verbosity:
+            env[console.LEVEL_ENV] = "DEBUG" if self.verbosity == 1 else "TRACE"
+        return env
 
     def __call__(self, argv: list[str], *, tunnel: bool = False,
                  env: dict[str, str] | None = None) -> int:
+        shown = ([TUNNEL.name] if tunnel else []) + [
+            Path(c).name if c == sys.executable else c for c in argv]
+        self.note("$ " + " ".join(shown), "dim")
+        if argv[:2] == [sys.executable, "-m"] and argv[2] != "patristica.console":
+            argv = [*argv[:2], "patristica.console", *argv[2:]]
         cmd = ([str(TUNNEL)] if tunnel else []) + argv
-        self.note("$ " + " ".join(Path(c).name if c == sys.executable else c for c in cmd))
-        full_env = {**os.environ, "PYTHONUNBUFFERED": "1", **(env or {})}
+        full_env = {**os.environ, **self.env(), **(env or {})}
         with subprocess.Popen(cmd, cwd=REPO, env=full_env, stdout=subprocess.PIPE,
                               stderr=subprocess.STDOUT) as proc:
             assert proc.stdout is not None
             for chunk in iter(lambda: proc.stdout.read1(65536), b""):
-                sys.stdout.buffer.write(chunk)
-                sys.stdout.flush()
-                if self.log_file is not None:
-                    self.log_file.write(chunk)
+                self.console.output(chunk)
+        self.console.end_output()
         return proc.returncode
 
 
@@ -307,18 +413,28 @@ class Pipeline:
     run_cmd: Callable[..., int]
     estimates: Estimates = field(default_factory=Estimates)
     validate_changes: Callable[[], list[str]] = validate_inputs
+    console: Console = field(default_factory=Console)
     results: list[Result] = field(default_factory=list)
     spent: float = 0.0
 
     def run(self) -> int:
-        """Every step in order; the exit code (0 also when stopped for --pay)."""
-        for step in STEPS:
+        """Every step in order; the exit code (0 also when stopped for --pay).
+
+        Each step is headed by a rule (``── [3/9] validate``) and ends with a
+        line of its result, time and cost. A step's own summary is the last
+        line it prints, which the run's table repeats where the step has no
+        detail of its own."""
+        for n, step in enumerate(STEPS, start=1):
+            label = f"[{n}/{len(STEPS)}] {step}"
+            if step in self.opts.skip:
+                self.results.append(Result(step, "skipped", "--skip"))
+                self.console.line()
+                self.console.line(f"{MARKS['skipped'][0]} {label}: skipped (--skip)", "dim")
+                continue
+            self.console.rule(label)
+            self.console.last_line = ""
             started = time.monotonic()
             result = Result(step, "done")
-            if step in self.opts.skip:
-                result.status, result.detail = "skipped", "--skip"
-                self.results.append(result)
-                continue
             try:
                 result.detail, result.cost = getattr(self, step)()
                 if result.detail.startswith("skipped"):
@@ -329,12 +445,25 @@ class Pipeline:
                 result.status, result.detail = "failed", str(exc)
             result.seconds = time.monotonic() - started
             self.spent += result.cost
+            self.end_step(step, result)
             self.results.append(result)
             if result.status in ("stopped", "failed"):
                 for later in STEPS[STEPS.index(step) + 1:]:
                     self.results.append(Result(later, "skipped", "not reached"))
                 return 0 if result.status == "stopped" else 1
         return 0
+
+    def end_step(self, step: str, result: Result) -> None:
+        """The step's closing line; its own summary becomes the table's detail."""
+        mark, style = MARKS[result.status]
+        parts = [f"{mark} {step} {result.status} in {duration(result.seconds)}"]
+        if result.cost:
+            parts.append(f"~${result.cost:,.2f}")
+        if result.detail:
+            parts.append(result.detail)
+        self.console.line(" · ".join(parts), style)
+        if not result.detail:
+            result.detail = self.console.last_line
 
     def _run(self, argv: list[str], **kw: object) -> None:
         code = self.run_cmd(argv, **kw)
@@ -377,8 +506,8 @@ class Pipeline:
         changed = self.validate_changes()
         if not changed:
             return "skipped: nothing validate reads changed", 0.0
-        self._run(python("scripts.validate"))
-        return f"{len(changed)} changed inputs, e.g. {changed[0]}", 0.0
+        self._run(python("scripts.validate", "--brief"))
+        return "", 0.0
 
     def translate(self) -> tuple[str, float]:
         units, cost = self.estimates.translate()
@@ -429,16 +558,24 @@ class Pipeline:
         return "", 0.0
 
 
-def render(results: list[Result]) -> str:
-    lines = [f"{'step':<15} {'result':<8} {'time':>7} {'cost':>9}  detail"]
+def render(results: list[Result], width: int | None = None) -> str:
+    """The run's summary table, with a total line; details cut to *width*."""
+    head = f"  {'step':<15} {'result':<8} {'time':>7} {'cost':>8}  "
+    lines = [head + "detail"]
+    room = max(20, (width or 10_000) - len(head))
     for r in results:
+        mark = MARKS[r.status][0]
         cost = f"~${r.cost:,.2f}" if r.cost else ""
-        secs = f"{r.seconds:.0f}s" if r.seconds else ""
-        lines.append(f"{r.step:<15} {r.status:<8} {secs:>7} {cost:>9}  {r.detail}")
+        secs = duration(r.seconds) if r.seconds else ""
+        detail = r.detail if len(r.detail) <= room else r.detail[:room - 1] + "…"
+        lines.append(f"{mark} {r.step:<15} {r.status:<8} {secs:>7} {cost:>8}  {detail}")
     total = sum(r.cost for r in results)
-    if total:
-        lines.append(f"estimated spend: ~${total:,.2f} (each paid step logs what it spent)")
-    return "\n".join(lines)
+    secs = sum(r.seconds for r in results)
+    note = "estimated; each paid step logs what it billed" if total else ""
+    lines.append(f"  {'total':<15} {'':<8} {duration(secs):>7} "
+                 f"{f'~${total:,.2f}' if total else '':>8}  "
+                 + (note if len(note) <= room else note[:room - 1] + "…"))
+    return "\n".join(line.rstrip() for line in lines)
 
 
 def changed_data() -> list[str]:
@@ -449,11 +586,13 @@ def changed_data() -> list[str]:
 
 def dry_run(opts: Options, run_cmd: Runner) -> int:
     """Report what a run would do; send and write nothing."""
+    out = run_cmd.console
     checks = preflight(opts)
     db_ok = all(c.ok for c in checks if c.name == "search database")
     status_args = ["--raw", "--vectors"]
     if "build_index" not in opts.skip and db_ok:
         status_args.append("--db")
+    out.rule("status")
     run_cmd(python("scripts.status", *status_args),
             tunnel="--db" in status_args and not opts.database_url,
             env={"DATABASE_URL": opts.database_url} if opts.database_url else None)
@@ -462,19 +601,49 @@ def dry_run(opts: Options, run_cmd: Runner) -> int:
     units, cost = est.translate()
     vectors, vcost = est.embed()
     changed = validate_inputs()
-    print("\nBefore normalize runs (its rebuilt works can add to these):")
-    print(f"  anchor: {works:,} works to cut (≤ ~${acost:,.2f})")
-    print(f"  translate: {units:,} units (~${cost:,.2f})")
-    print(f"  embed: {vectors:,} vectors (~${vcost:,.2f}), more once translate has run")
-    print(f"  validate: {'runs' if changed else 'skipped'} "
-          f"({len(changed)} of its inputs changed)")
-    print("\nPreflight:")
+    out.rule("paid work (before normalize, whose rebuilt works can add to it)")
+    out.line(f"  anchor     {works:>10,} works to cut   ≤ ~${acost:,.2f}")
+    out.line(f"  translate  {units:>10,} units          ~${cost:,.2f}")
+    out.line(f"  embed      {vectors:>10,} vectors        ~${vcost:,.2f}"
+             "  (more once translate has run)")
+    out.line(f"  validate   {'runs' if changed else 'skipped':>10}"
+             f"   ({len(changed)} of its inputs changed)")
+    out.rule("preflight")
     for c in checks:
-        print(f"  {'ok  ' if c.ok else 'FAIL'} {c.name}" + (f": {c.detail}" if c.detail else ""))
+        out.line(f"  {'ok  ' if c.ok else 'FAIL'} {c.name}" + (f": {c.detail}" if c.detail else ""),
+                 "" if c.ok else "fail")
     if not opts.pay:
-        print("\nWithout --pay the run stops before anchor, translate or embed if one "
-              "has work.")
+        out.line("\nWithout --pay the run stops before anchor, translate or embed if one "
+                 "has work.")
     return 0 if all(c.ok for c in checks) else 1
+
+
+def finish(pipeline: Pipeline, runner: Runner, code: int, log_path: Path) -> int:
+    """After the steps: the status check, the summary and what changed; the exit code."""
+    out = pipeline.console
+    if code == 0 and not any(r.status == "stopped" for r in pipeline.results):
+        out.rule("check: scripts.status")
+        out.last_line = ""
+        started = time.monotonic()
+        failed = runner(python("scripts.status", "--check", "--brief")) != 0
+        check = Result("status", "failed" if failed else "done",
+                       "a check failed: see above" if failed else out.last_line,
+                       time.monotonic() - started)
+        pipeline.end_step("status", check)
+        pipeline.results.append(check)
+        code = 1 if failed else code
+    out.rule("summary")
+    out.line(render(pipeline.results, out.width))
+    changed = changed_data()
+    out.line(f"\n{len(changed)} changed paths under data/" + (":" if changed else "."))
+    for line in changed[:30]:
+        out.line("  " + line)
+    if len(changed) > 30:
+        out.line(f"  … and {len(changed) - 30} more")
+    if changed:
+        out.line("Review them (git diff), then commit.")
+    out.line(f"log: {log_path.relative_to(REPO)}", "dim")
+    return code
 
 
 def main() -> None:
@@ -492,13 +661,15 @@ def main() -> None:
                    help=f"leave out a step (repeatable): {', '.join(STEPS)}")
     p.add_argument("--database-url",
                    help="load this database instead of production through infra/db-tunnel.sh")
+    p.add_argument("-v", "--verbose", action="count", default=0,
+                   help="the steps' detail: -v for DEBUG, -vv for TRACE (per round, request)")
     args = p.parse_args()
-    logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
+    console.setup_logging(logging.WARNING)
     opts = Options(pay=args.pay, max_cost=args.max_cost, accept_raw_change=args.accept_raw_change,
                    skip=frozenset(args.skip), database_url=args.database_url)
 
     if args.dry_run:
-        sys.exit(dry_run(opts, Runner()))
+        sys.exit(dry_run(opts, Runner(verbosity=args.verbose)))
 
     checks = preflight(opts)
     failed = [c for c in checks if not c.ok]
@@ -509,23 +680,16 @@ def main() -> None:
     LOG_DIR.mkdir(exist_ok=True)
     log_path = LOG_DIR / f"pipeline-{time.strftime('%Y%m%d-%H%M%S')}.log"
     with log_path.open("wb") as log_file:
-        runner = Runner(log_file)
-        pipeline = Pipeline(opts, runner)
+        out = Console(log_file)
+        runner = Runner(out, verbosity=args.verbose)
+        pipeline = Pipeline(opts, runner, console=out)
         try:
             code = pipeline.run()
         except KeyboardInterrupt:
-            runner.note("interrupted: every step is idempotent, so the next run resumes")
+            out.end_output()
+            out.line("interrupted: every step is idempotent, so the next run resumes", "warn")
             code = 130
-        if code == 0 and not any(r.status == "stopped" for r in pipeline.results):
-            if runner(python("scripts.status", "--check")) != 0:
-                runner.note("scripts.status --check failed: see the table above")
-                code = 1
-        runner.note("\n" + render(pipeline.results))
-        changed = changed_data()
-        runner.note(f"\n{len(changed)} changed paths under data/" + (
-            ":\n" + "\n".join(changed[:30]) + ("\n…" if len(changed) > 30 else "")
-            + "\nReview them (git diff), then commit." if changed else "."))
-        runner.note(f"log: {log_path.relative_to(REPO)}")
+        code = finish(pipeline, runner, code, log_path)
     sys.exit(code)
 
 

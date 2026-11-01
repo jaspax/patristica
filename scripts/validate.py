@@ -43,7 +43,7 @@ from typing import Any, Callable
 
 from tqdm import tqdm
 
-from patristica import editorial, fingerprint
+from patristica import console, editorial, fingerprint
 from patristica.authors import UnknownAuthorError, resolve_author, work_author_birth_year
 from patristica.mojibake import mojibake_runs
 from patristica.period import AUTHOR_BORN_BEFORE, COMPOSED_BY
@@ -325,7 +325,7 @@ class _PerKey:
         if split:
             if self._reload is None:
                 raise ValueError("a key spans several adds but there is no reload")
-            log.info("%d keys span several files; re-checking them", len(split))
+            log.debug("%d keys span several files; re-checking them", len(split))
             items: defaultdict[str, list[tuple[int, dict]]] = defaultdict(list)
             for file_no in sorted({n for k in split for n in self._files[k]}):
                 chunks = self._reload(file_no)
@@ -943,6 +943,25 @@ def _tally(checks_map: dict[str, dict[str, CheckResult]]) -> tuple[int, int]:
     return errors, warnings
 
 
+def _print_brief(report: dict, output_path: Path) -> None:
+    """The result in a line or two (``--brief``, for scripts.pipeline): every
+    error with its examples, the warnings as a count only."""
+    s = report["summary"]
+    results: dict[str, CheckResult] = {}
+    for section in report["checks"].values():
+        results.update(section)
+    fails = [(n, r) for n, r in results.items() if r.get("status") == "fail"]
+    warns = [n for n, r in results.items() if r.get("status") == "warn"]
+    for name, r in fails:
+        print(f"FAIL {name}: {r['violation_count']:,} violations")
+        for ex in r.get("examples", [])[:3]:
+            print(f"     {ex}")
+    print(f"{'FAIL' if fails else 'PASS'}: {s['total_works']:,} works, "
+          f"{s['total_chunks']:,} chunks; {s['errors']:,} errors in {len(fails)} checks, "
+          f"{s['warnings']:,} warnings in {len(warns)} of {len(results)} checks "
+          f"(report: {output_path})")
+
+
 def _print_summary(report: dict) -> None:
     summary = report["summary"]
     counts = report["chunk_counts"]
@@ -1056,7 +1075,7 @@ def write_summary(report: dict, path: Path) -> None:
 
 
 def main() -> None:
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    console.setup_logging()
     parser = argparse.ArgumentParser(description="Validate normalized and chunk data.")
     parser.add_argument("--data-dir", default="data")
     parser.add_argument("--output", default="data/validation_report.json")
@@ -1067,6 +1086,8 @@ def main() -> None:
                              "commits (one per line), without validating; for the pre-push hook")
     parser.add_argument("--summary", type=Path, metavar="FILE",
                         help="append the result as Markdown (e.g. $GITHUB_STEP_SUMMARY)")
+    parser.add_argument("--brief", action="store_true",
+                        help="print the result in a line (errors in full), not the whole report")
     args = parser.parse_args()
 
     if args.inputs_changed:
@@ -1089,7 +1110,7 @@ def main() -> None:
         log.error("%s", exc)
         sys.exit(2)
     work_records = _records_by_id(works)
-    log.info("Loaded %d work records from %s", len(works), WORKS_MANIFEST)
+    log.debug("Loaded %d work records from %s", len(works), WORKS_MANIFEST)
 
     paths = _chunk_files(data_dir)
     read: list[Path] = []  # the files fed to the checks, by file number
@@ -1127,7 +1148,7 @@ def main() -> None:
         total_chunks += len(chunks)
         for check in streamed:
             check.add(chunks)
-    log.info("Checked %d chunks (%d parse errors)", total_chunks, len(parse_errors))
+    log.debug("Checked %d chunks (%d parse errors)", total_chunks, len(parse_errors))
 
     try:
         checks: dict[str, dict[str, CheckResult]] = {
@@ -1174,9 +1195,12 @@ def main() -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w") as f:
         json.dump(report, f, indent=2, default=str)
-    log.info("Report written to %s", output_path)
+    log.debug("Report written to %s", output_path)
 
-    _print_summary(report)
+    if args.brief:
+        _print_brief(report, output_path)
+    else:
+        _print_summary(report)
     if args.summary:
         write_summary(report, args.summary)
     sys.exit(0 if total_errors == 0 else 1)

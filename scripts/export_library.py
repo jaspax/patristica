@@ -65,7 +65,7 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica import alignment_store, editorial, machine_translation
+from patristica import alignment_store, console, editorial, machine_translation
 from patristica.authors import author_index, work_author_date_range
 from patristica.models import Chunk, Work
 from patristica.sources import MACHINE_TRANSLATION_SOURCES, SOURCE_LABELS, source_label
@@ -305,8 +305,9 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
     # version is left out of the library (#422).
     superseded = machine_translation.redundant({w.work_id: w.model_dump() for _, w in entries})
     if superseded:
-        log.info("Leaving out %d machine translations with a published English version: %s",
-                 len(superseded), ", ".join(sorted(superseded)[:5]))
+        log.info("Leaving out %d machine translations with a published English version",
+                 len(superseded))
+        log.debug("superseded machine translations: %s", ", ".join(sorted(superseded)))
         entries = [(rel, w) for rel, w in entries if w.work_id not in superseded]
     works_dir = output_dir / WORKS_SUBDIR
     index_path = output_dir / INDEX_NAME
@@ -384,16 +385,14 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
     index_path.write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
-    log.info(
-        "Library export complete: %d works in index, %d work files written, %d removed",
-        len(rows), written, removed,
-    )
+    log.info("%s works in the index, %s alignment files; %s work files written, %s removed",
+             f"{len(rows):,}", f"{len(alignments):,}", f"{written:,}", f"{removed:,}")
     return {"works": len(rows), "written": written, "removed": removed,
             "alignments": len(alignments)}
 
 
 def main() -> None:
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    console.setup_logging()
     parser = argparse.ArgumentParser(description="Export the normalized corpus for the library browser.")
     parser.add_argument("--input-dir", default="data/normalized")
     parser.add_argument("--output-dir", default="data/library")

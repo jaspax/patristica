@@ -154,3 +154,13 @@ def test_a_check_that_raises_becomes_a_failing_row(corpus, monkeypatch) -> None:
     row = next(r for r in rows if r.step == "translate")
     assert row.level == "fail" and "RuntimeError: store unreadable" in row.detail
     assert levels(rows)[("normalize", "code")] == "ok"  # the other checks still ran
+
+
+def test_brief_lists_only_what_needs_attention() -> None:
+    rows = [status.Row("normalize", "code", "ok", "current"),
+            status.Row("ingest", "code", "warn", "1 source changed"),
+            status.Row("align", "groups", "fail", "2 stale")]
+    assert status.render_brief(rows).splitlines() == [
+        "warning: ingest code: 1 source changed", "FAIL: align groups: 2 stale",
+        "1 of 3 checks current"]
+    assert status.render_brief(rows[:1]) == "all 1 checks current"

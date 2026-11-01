@@ -56,16 +56,17 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import logging
 import sys
 import time
-from collections.abc import Callable, Collection
+from collections.abc import Callable, Collection, Iterator
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from patristica import anchor_store, anchoring, fingerprint
+from patristica import anchor_store, anchoring, console, fingerprint
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES, load_works
@@ -437,7 +438,29 @@ def renormalize(c: Candidate, norm: Path, raw: Path, anchors_dir: Path) -> None:
     if not (raw / c.path).exists():
         raise AnchorError(f"{c.work_id}: no raw file {raw / c.path}: scripts.anchor re-normalizes "
                           "the works it cuts, so it needs their data/raw")
-    nz.normalize_all(raw / source, norm, anchors_dir=anchors_dir, only={c.path})
+    with _quiet_normalize(nz):
+        nz.normalize_all(raw / source, norm, anchors_dir=anchors_dir, only={c.path})
+
+
+@contextlib.contextmanager
+def _quiet_normalize(nz: object) -> Iterator[None]:
+    """normalize's INFO lines and progress bar, for the one work just cut, are
+    detail here: show them only at DEBUG. (normalize's own code is hashed, so
+    its output is quieted from outside, #535.)"""
+    from functools import partial
+
+    from tqdm import tqdm
+
+    logger = logging.getLogger(nz.__name__)
+    level, bar = logger.level, nz.tqdm
+    if logging.getLogger().getEffectiveLevel() > logging.DEBUG:
+        logger.setLevel(logging.WARNING)
+        nz.tqdm = partial(tqdm, disable=True)
+    try:
+        yield
+    finally:
+        logger.setLevel(level)
+        nz.tqdm = bar
 
 
 # ---------------------------------------------------------------------------
@@ -531,7 +554,7 @@ def estimate(p: Plan, norm: Path = NORMALIZED, store_dir: Path = EMBEDDINGS,
         est.first_tokens += first
         est.rounds_tokens += rounds
         if verbose:
-            log.info("%s (%s): first embed ~%s tokens, rounds and final units ≤ ~%s",
+            log.debug("%s (%s): first embed ~%s tokens, rounds and final units ≤ ~%s",
                      c.work_id, s.status, f"{first:,}", f"{rounds:,}")
     return est
 
@@ -564,6 +587,8 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
     previous cut file and output and re-raises, so a plain re-run resumes it.
     Raises ``AnchorError`` when normalize isn't current.
     """
+    from tqdm import tqdm
+
     from patristica.anchor_refine import refine
     from scripts import normalize as nz
 
@@ -575,8 +600,10 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
                                   "frozen": [describe(s) for s in p.frozen],
                                   "failing": [describe(s) for s in p.failing]}
     sent = 0
-    for s in p.todo:
+    bar = tqdm(p.todo, desc="anchor", unit="work", disable=not p.todo)
+    for s in bar:
         c = s.candidate
+        bar.set_postfix_str(f"{sent:,} tokens sent")
         orig, missing, models = load_original(c, norm, store_dir, trans_dir)
         if missing:
             log.error("%s: refused: its original %s has %d units without a current text "
@@ -626,8 +653,8 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
             restore(c, previous, norm, raw, anchors_dir)
             raise
         sent += cache.sent_tokens - before
-        log.info("%s: cut on %s in %.0f s (%s); ~%s tokens sent; %d units left for "
-                 "scripts.embed", c.work_id, c.anchor, seconds, json.dumps(stats),
+        log.debug("%s: cut on %s in %.0f s (%s); ~%s tokens sent; %d units left for "
+                  "scripts.embed", c.work_id, c.anchor, seconds, json.dumps(stats),
                  f"{cache.sent_tokens:,}", left_units)
         done["cut"].append(c.work_id)
     return done
@@ -669,8 +696,7 @@ def main() -> None:
     p.add_argument("--check", action="store_true",
                    help="list stale or missing cut files; exit 1 if any fails (no vectors)")
     args = p.parse_args()
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    logging.getLogger("httpx").setLevel(logging.WARNING)
+    console.setup_logging()
 
     if args.check:
         bad = 0
@@ -724,9 +750,10 @@ def main() -> None:
         sys.exit(1)
     finally:
         if embedder is not None:
-            log.info("Voyage tokens billed: %s (~$%.2f)", f"{embedder.tokens_used:,}",
-                     embedder.tokens_used / 1e6 * PRICE_PER_MTOK)
-    log.info("cut %d works; refused %d", len(done["cut"]), len(done["refused"]))
+            log.debug("Voyage tokens billed: %s", f"{embedder.tokens_used:,}")
+    billed = embedder.tokens_used if embedder is not None else 0
+    log.info("cut %d works, refused %d; Voyage tokens billed: %s (~$%.2f)", len(done["cut"]),
+             len(done["refused"]), f"{billed:,}", billed / 1e6 * PRICE_PER_MTOK)
     if done["refused"] or done["failing"]:
         sys.exit(1)
 

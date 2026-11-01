@@ -59,6 +59,7 @@ from typing import TYPE_CHECKING
 
 from tqdm import tqdm
 
+from patristica import console
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import load_works, select  # noqa: F401  (re-exported)
@@ -207,7 +208,7 @@ def prune(store_dir: Path, keep: Iterable[str], stats: Stats) -> None:
     wanted = {emb.shard_path(store_dir, p) for p in keep}
     for path in sorted(store_dir.rglob("*.npz")) if store_dir.exists() else []:
         if path not in wanted:
-            log.info("deleting %s (work no longer in scope)", path)
+            log.debug("deleting %s (work no longer in scope)", path)
             path.unlink()
             stats.deleted += 1
 
@@ -311,19 +312,26 @@ def run(input_dir: Path, store_dir: Path, trans_dir: Path, *, sources: list[str]
 
 
 def report(stats: Stats, embedder: ApiEmbedder | None, dry_run: bool) -> None:
-    log.info("%d works, %d units: %d vectors wanted, %d reused, %d to embed "
-             "(%d distinct texts, ~%.1fM cl100k tokens, ~$%.2f at list price)",
-             stats.works, stats.units, stats.vectors, stats.reused, stats.to_embed,
-             stats.unique_texts, stats.est_tokens / 1e6,
-             stats.est_tokens / 1e6 * PRICE_PER_MTOK)
-    log.info("skipped: %d units under %d characters; %d rare-language units with no "
-             "fresh translation", stats.short, MIN_CHARS, stats.untranslated)
+    """One summary line (two when vectors were embedded); the rest at DEBUG."""
+    log.debug("skipped: %d units under %d characters; %d rare-language units with no "
+              "fresh translation", stats.short, MIN_CHARS, stats.untranslated)
     for work_id, n in sorted(stats.untranslated_works.items(), key=lambda kv: -kv[1])[:10]:
-        log.info("  untranslated: %s (%d)", work_id, n)
+        log.debug("  untranslated: %s (%d)", work_id, n)
+    if stats.untranslated:
+        log.info("%s rare-language units have no fresh translation yet: no translation "
+                 "vector for them (run scripts.translate)", f"{stats.untranslated:,}")
+    wanted = (f"{stats.works:,} works, {stats.units:,} units: {stats.vectors:,} vectors, "
+              f"{stats.reused:,} reused")
+    if stats.to_embed or dry_run:
+        log.info("%s; %s %s to embed (%s distinct texts, ~%.1fM cl100k tokens, ~$%.2f)",
+                 wanted, "would send" if dry_run else "sent", f"{stats.to_embed:,}",
+                 f"{stats.unique_texts:,}", stats.est_tokens / 1e6,
+                 stats.est_tokens / 1e6 * PRICE_PER_MTOK)
     if not dry_run:
-        log.info("shards written: %d, deleted: %d; Voyage tokens used: %d (~$%.2f)",
-                 stats.written, stats.deleted, embedder.tokens_used if embedder else 0,
-                 (embedder.tokens_used if embedder else 0) / 1e6 * PRICE_PER_MTOK)
+        used = embedder.tokens_used if embedder else 0
+        log.info("%s; shards written %d, deleted %d; Voyage tokens billed: %s (~$%.2f)",
+                 "done" if stats.to_embed else wanted + ", nothing to embed",
+                 stats.written, stats.deleted, f"{used:,}", used / 1e6 * PRICE_PER_MTOK)
 
 
 def main() -> None:
@@ -346,8 +354,7 @@ def main() -> None:
                    help="never call the API (no key needed): rewrite and prune shards, "
                         "and fail if any text is still to embed")
     args = p.parse_args()
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    logging.getLogger("httpx").setLevel(logging.WARNING)
+    console.setup_logging()
     run(args.input_dir, args.store, args.translations, sources=args.source,
         prefixes=args.work, limit_works=args.limit_works, workers=args.workers,
         dry_run=args.dry_run, include_unpublishable=args.include_unpublishable,

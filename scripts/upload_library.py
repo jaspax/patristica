@@ -47,6 +47,7 @@ from typing import Any
 
 from tqdm import tqdm
 
+from patristica import console
 from patristica.corpus import EXCLUDED_LICENSES  # noqa: F401  (re-exported)
 
 log = logging.getLogger(__name__)
@@ -197,7 +198,7 @@ def upload_library(
     pub = public_index(index)
     excluded = len(index["works"]) - len(pub["works"])
     if excluded:
-        log.info("Leaving out %d works with licences not cleared for publication", excluded)
+        log.debug("Leaving out %d works with licences not cleared for publication", excluded)
 
     alignments = alignment_keys(index, {w["id"] for w in pub["works"]}, library_dir)
     if "alignments" in pub:
@@ -224,12 +225,13 @@ def upload_library(
     to_upload, to_delete = plan_sync(local, manifest, remote_keys(client, bucket))
     if not delete:
         to_delete = []
-    log.info(
+    log.debug(
         "%d objects to upload, %d to delete, %d unchanged",
         len(to_upload), len(to_delete), len(local) - len(to_upload),
     )
     if dry_run:
-        return {"uploaded": 0, "deleted": 0, "unchanged": len(local) - len(to_upload)}
+        return {"uploaded": 0, "deleted": 0, "unchanged": len(local) - len(to_upload),
+                "would_upload": len(to_upload), "would_delete": len(to_delete)}
 
     def put(
         key: str, data: bytes | None = None, cache: str = CACHE_WORK, acl: str = "public-read"
@@ -250,7 +252,8 @@ def upload_library(
     # missing file or author.
     works_first = [k for k in to_upload if k not in (INDEX_KEY, AUTHORS_KEY)]
     with ThreadPoolExecutor(max_workers=UPLOAD_THREADS) as pool:
-        list(tqdm(pool.map(put, works_first), total=len(works_first), desc="upload"))
+        list(tqdm(pool.map(put, works_first), total=len(works_first), desc="upload",
+                  disable=not works_first))
     if AUTHORS_KEY in to_upload:
         put(AUTHORS_KEY, None, CACHE_INDEX)
     if INDEX_KEY in to_upload:
@@ -260,7 +263,7 @@ def upload_library(
         batch = to_delete[start:start + 1000]
         client.delete_objects(Bucket=bucket, Delete={"Objects": [{"Key": k} for k in batch]})
     if to_delete:
-        log.info("Deleted %d stale objects", len(to_delete))
+        log.debug("Deleted %d stale objects", len(to_delete))
 
     # Last: record what the bucket now holds.
     if local != manifest:
@@ -274,8 +277,7 @@ def upload_library(
 
 
 def main() -> None:
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    logging.getLogger("botocore").setLevel(logging.WARNING)
+    console.setup_logging()
     parser = argparse.ArgumentParser(
         description="Upload the static library export to DigitalOcean Spaces."
     )
@@ -294,7 +296,13 @@ def main() -> None:
         dry_run=args.dry_run,
         delete=not args.no_delete,
     )
-    log.info("Done: %s", counts)
+    if args.dry_run:
+        log.info("dry run: would upload %s objects and delete %s; %s unchanged",
+                 f"{counts['would_upload']:,}", f"{counts['would_delete']:,}",
+                 f"{counts['unchanged']:,}")
+    else:
+        log.info("uploaded %s objects, deleted %s; %s unchanged", f"{counts['uploaded']:,}",
+                 f"{counts['deleted']:,}", f"{counts['unchanged']:,}")
 
 
 if __name__ == "__main__":
