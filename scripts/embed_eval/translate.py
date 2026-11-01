@@ -84,6 +84,7 @@ LANGUAGE_NAMES = {
     "gez": "Ge'ez (Classical Ethiopic)",
     "chu": "Old Church Slavonic",
     "oge": "Old Georgian",
+    "sga": "Old Irish",
 }
 # Languages measured before deciding whether they get translation vectors
 # (docs/adding-a-language.md section 3). They are prompt names only: enrolling

@@ -171,6 +171,7 @@ def test_eval_languages_are_not_enrolled():
     assert set(PROMPT_NAMES) == set(LANGUAGE_NAMES) | set(EVAL_LANGUAGES)
     assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
     assert PROMPT_NAMES["oge"] == "Old Georgian"  # enrolled on #529
+    assert PROMPT_NAMES["sga"] == "Old Irish"  # enrolled on #552
 
 
 def test_lectionaries_are_not_georgian_only():
@@ -222,3 +223,43 @@ def test_langset_is_deterministic(tmp_path):
     assert a["targets_list"] == b["targets_list"]
     qa, qb = (tmp_path / d / "queries.jsonl" for d in "ab")
     assert qa.read_text() == qb.read_text()
+
+
+def test_langset_groups_felire_witnesses_and_needs_no_scripture(tmp_path):
+    """Old Irish (#552): no Scripture, and the two Félire editions are one text."""
+    from scripts.embed_eval.queries import load_authored
+
+    root = tmp_path / "normalized"
+    works = [("celt/felire-oengusso", "liturgical"), ("glosscorpus/felire", "liturgical"),
+             ("wb-glosses/rom", "patristic"), ("celt/clocan-binn", "patristic")]
+    lines = []
+    for wid, genre in works:
+        path = f"{wid}.json"
+        lines.append(json.dumps({"path": path, "work": {
+            "work_id": wid, "source_id": wid.split("/")[0], "genre": genre, "language": "sga"}}))
+        chunks = [{"chunk_id": f"{wid}#Fel.Jan.{i}", "work_id": wid,
+                   "canonical_ref": f"Fel.Jan.{i}", "language": "sga", "chunk_index": i,
+                   "text": f"rann {i} " * (12 if i % 2 else 3) + wid} for i in range(1, 9)]
+        (root / path).parent.mkdir(parents=True, exist_ok=True)
+        (root / path).write_text(json.dumps(chunks), encoding="utf-8")
+    (root / "_works.jsonl").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    out = tmp_path / "eval"
+    stats = langset.build(root, "sga", out, scripture_per_lang=0, unique_per_lang=8,
+                          distractors_per_lang=0, authored_dir=tmp_path, min_target_chars=80)
+    assert stats["targets"] == {"sga/unique": 8}
+    rows = {c["chunk_id"]: c for c in map(json.loads, (out / "corpus.jsonl").open())}
+    targets = [t["chunk_id"] for t in stats["targets_list"]]
+    assert all(len(rows[t]["text"]) >= 80 for t in targets)
+    felire = [t for t in targets if "felire" in t]
+    groups = [rows[t]["translation_group_id"] for t in felire]
+    assert felire and len(groups) == len(set(groups))
+    assert all(g.startswith("felire:Fel.Jan.") for g in groups)
+    assert rows["wb-glosses/rom#Fel.Jan.1"]["translation_group_id"] is None
+    # the other edition's quatrain is in the corpus and answers the target's queries
+    t = felire[0]
+    other = next(c for c in rows if c != t and rows[c]["translation_group_id"] == groups[0])
+    (tmp_path / "q.jsonl").write_text(json.dumps({
+        "query_id": f"paraphrase:{t}", "mode": "paraphrase", "text": "x", "query_lang": "eng",
+        "target_lang": "sga", "origin": "unique", "target_chunk_id": t}) + "\n")
+    [q] = load_authored([tmp_path / "q.jsonl"], list(rows.values()))
+    assert set(q.relevant_ids) == {t, other}

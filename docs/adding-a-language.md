@@ -213,7 +213,7 @@ Copy into the PR description and tick:
 
 One per language, posted as a comment on the language's umbrella issue when the language is added (and edited as later PRs change it), never added to this file. Keep it short: the code and why, the script stored, folding rules, `VERSE_TOKENS` and how it was measured, eval numbers (paraphrase R@3, topical R@100, native vs translated), the translation decision and model, cost of the first paid run, and links to issues and PRs. Per-source details (conversion tables, versification, editorial spans) go in the source's own ingest issue and PR.
 
-Records so far: Church Slavonic, #29; Arabic, #83; Old Georgian, #222.
+Records so far: Church Slavonic, #29; Arabic, #83; Old Georgian, #222; Old Irish, #225.
 
 ### Template
 

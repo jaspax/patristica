@@ -481,3 +481,77 @@ def test_truncated_embedder_shortens_and_renormalizes():
     np.testing.assert_allclose(np.linalg.norm(v, axis=1), 1.0, rtol=1e-6)
     with pytest.raises(ValueError):
         Truncated(CharEmbedder(), 999).embed_queries(["x"])
+
+
+# --- Old Irish target pools (#552) --------------------------------------------
+
+def _irish():
+    works = [
+        {"work_id": f"wb-glosses/{b}", "language": "sga", "genre": "patristic"}
+        for b in ("rom", "gal", "phlm")
+    ] + [
+        {"work_id": "wb-glosses-eng/rom", "language": "eng", "genre": "patristic",
+         "translation_of": "wb-glosses/rom"},
+        {"work_id": "celt/felire-oengusso", "language": "sga", "genre": "liturgical"},
+        {"work_id": "glosscorpus/felire", "language": "sga", "genre": "liturgical"},
+        {"work_id": "celt/bethu-brigte", "language": "sga", "genre": "patristic"},
+        {"work_id": "celt/bethu-brigte-eng", "language": "eng", "genre": "patristic",
+         "translation_of": "celt/bethu-brigte"},
+        {"work_id": "celt/saltair-na-rann", "language": "sga", "genre": "patristic"},
+        {"work_id": "celt/clocan-binn", "language": "sga", "genre": "patristic"},
+    ]
+    metas = []
+    for w in works:
+        if w["language"] != "sga":
+            continue
+        n = 200 if w["work_id"] == "celt/saltair-na-rann" else 30
+        for i in range(n):
+            group = f"felire:Fel.Jan.{i + 1}" if "felire" in w["work_id"] else None
+            short = w["work_id"].startswith("wb-glosses/") and i % 2
+            metas.append(_meta(f"{w['work_id']}#{i}", w["work_id"], "sga", i, group=group,
+                               n_chars=40 if short else 100))
+    return works, metas
+
+
+def test_pools_make_every_irish_work_unique_and_classify_it():
+    works, _ = _irish()
+    assert select.unique_works(works)["sga"] == {
+        w["work_id"] for w in works if w["language"] == "sga"}
+    assert select.pool_of("sga", "wb-glosses/rom") == "glosses"
+    assert select.pool_of("sga", "glosscorpus/felire") == "felire"
+    assert select.pool_of("sga", "celt/felire-oengusso") == "felire"
+    assert select.pool_of("sga", "celt/bethu-brigte") == "celt-prose"
+    assert select.pool_of("sga", "celt/saltair-na-rann") == "celt-verse"
+    assert select.pool_of("sga", "wb-glosses-eng/rom") is None
+    assert select.pool_of("grc", "wb-glosses/rom") is None
+
+
+def test_pools_spread_targets_evenly_skip_short_units_and_one_witness_per_group():
+    works, metas = _irish()
+    sel = select.select(metas, works, target_langs=("sga",), scripture_per_lang=0,
+                        unique_per_lang=40, distractors_per_lang=5, min_target_chars=80)
+    pools = [select.pool_of("sga", t.chunk_id.split("#")[0]) for t in sel.targets]
+    assert {p: pools.count(p) for p in set(pools)} == {
+        "glosses": 10, "felire": 10, "celt-prose": 10, "celt-verse": 10}
+    by_id = {m.chunk_id: m for m in metas}
+    assert all(by_id[t.chunk_id].n_chars >= 80 for t in sel.targets)
+    groups = [by_id[t.chunk_id].translation_group_id for t in sel.targets]
+    felire = [g for g in groups if g]
+    assert len(felire) == len(set(felire)) == 10
+    # round-robin over a pool's works: Saltair na Rann doesn't take every verse target
+    verse = {t.chunk_id.split("#")[0] for t in sel.targets
+             if select.pool_of("sga", t.chunk_id.split("#")[0]) == "celt-verse"}
+    assert verse == {"celt/saltair-na-rann", "celt/clocan-binn"}
+
+
+def test_languages_without_pools_select_as_before():
+    """The pools and the length floor leave every other language's draw unchanged."""
+    a = select.select(_fixture_metas(), FIXTURE_WORKS, seed=3, distractors_per_lang=5)
+    b = select.select(_fixture_metas(), FIXTURE_WORKS, seed=3, distractors_per_lang=5,
+                      min_target_chars=select.MIN_CHARS)
+    assert a.targets == b.targets and a.corpus_ids == b.corpus_ids
+    # the draw before #552
+    assert [t.chunk_id for t in a.targets if t.origin == "unique"] == [
+        "shen#6", "shen#8", "shen#13", "shen#9", "shen#17", "shen#18", "shen#15", "shen#19",
+        "shen#16", "shen#5", "shen#14", "shen#12", "shen#3", "shen#2", "shen#10", "shen#0",
+        "shen#11", "shen#7", "shen#4", "shen#1"]
