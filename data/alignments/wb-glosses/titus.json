@@ -2,11 +2,11 @@
  "format": 1,
  "group": "wb-glosses/titus",
  "pivot": "wb-glosses-eng/titus",
- "groups": 35,
- "inputs": "2e9525d0b0313a3a",
+ "groups": 81,
+ "inputs": "5d193b78ffe67d61",
  "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "wb-glosses-eng/titus", "units": 86, "ids": "004e4a63d1b3848c", "inputs": "811f92f1d9fa9877", "spans": "++=.+=+=+==+=++=....+.......+==++++=.++=.+++=++=+=+=....+..+=++=.+==+=+=+==+++...+....", "conf": "69898959997898982995999889999999952"},
-  {"work_id": "wb-glosses/titus", "units": 86, "ids": "5cf94891a0f579b3", "inputs": "0b1b47bf0c128545", "spans": "++=.+=+=+.+=.+....+=+.+=.......+++.+=++..+++=+.+=+=++=+=.....+.+=.+=+=+=+=.++...+....+", "conf": "69898959997898982995999889999999952"}
+  {"work_id": "wb-glosses-eng/titus", "units": 86, "ids": "004e4a63d1b3848c", "inputs": "811f92f1d9fa9877", "spans": "++++++++++++++.+++++++++++++++++++.++++++++++++=++++++++++++++.+++++++++++.+++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "wb-glosses/titus", "units": 86, "ids": "5cf94891a0f579b3", "inputs": "78569784f9585ffd", "spans": "++++++++++++++.+++++++++++++++++++.+++++++++++.+++++++++++++++.+++++++++++.+++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }
