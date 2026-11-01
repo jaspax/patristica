@@ -31,7 +31,7 @@ Sol and Opus translate the rare languages equally well (#84: fidelity 4.44 and 4
 The harness never stops on usage. With `local-opus` the run logs the subscription's windows next to its cost, after every 50 requests and at the end:
 
 ```
-INFO 50/1200 requests, $0.00 so far; subscription usage 5-hour 34% (resets Thu 22:00 UTC), 7-day 61% (resets Sat 08:00 UTC)
+50/1200 requests, $0.00 so far; subscription usage 5-hour 34% (resets Thu 22:00 UTC), 7-day 61% (resets Sat 08:00 UTC)
 ```
 
 `--usage` prints the same line from one tiny Haiku request. The figures come from the CLI's `rate_limit_event` (`limits` in each usage dict). That event isn't a documented interface: if the line goes missing, treat usage as unknown and pace conservatively instead of assuming headroom.

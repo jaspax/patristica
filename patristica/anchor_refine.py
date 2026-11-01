@@ -57,6 +57,7 @@ from patristica import editorial
 from patristica import embeddings as emb
 from patristica.alignment import Bead, Params, Version, align_pair, anchor_chain
 from patristica.anchoring import RefineParams
+from patristica.console import TRACE
 from patristica.translations import text_sha
 from patristica.versify import (
     CLAUSE,
@@ -875,7 +876,7 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
     seg_texts = [s.key for s in segs]
     sources = today.source_texts()
     unit_texts = [t for t in sources if wants_vector(t)]
-    log.info("%s: %d paragraphs, %d segments; first embed ~%d tokens",
+    log.debug("%s: %d paragraphs, %d segments; first embed ~%d tokens",
              today.work_id, len(paras), len(segs), cache.estimate(seg_texts + unit_texts))
     cache.ensure(seg_texts + unit_texts)
     dims = orig.vecs.shape[1]
@@ -900,7 +901,7 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
     if span == (0, n_all):
         span = None
     else:
-        log.info("%s covers original units %d–%d of %d (%s … %s): refining on those",
+        log.debug("%s covers original units %d–%d of %d (%s … %s): refining on those",
                  today.work_id, span[0], span[1], n_all, orig.refs[span[0]],
                  orig.refs[span[1] - 1])
         orig = orig.slice(*span)
@@ -908,7 +909,7 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
     shift = span[0] if span is not None else 0
     lo, hi = provisional_band(len(orig.texts), segs, paras, today_beads, p.band)
     calib = calibrate(paras, segs, seg_vecs, today, orig, today_beads, p.min_calibration)
-    log.info("calibration: exact ≈ %.3f · summed + %.3f", calib.a, calib.b)
+    log.debug("calibration: exact ≈ %.3f · summed + %.3f", calib.a, calib.b)
     have = tvecs[np.abs(tvecs).sum(axis=1) > 0]
     orig_base = orig.vecs @ (have.mean(axis=0) if len(have) else np.zeros(orig.vecs.shape[1]))
     runs = all_runs(segs, paras, today.language, p)
@@ -928,7 +929,7 @@ def refine(orig: Units, today: Units, cache: VectorCache, p: RefineParams = Refi
         history.append({"round": r, "exact_only": final, "units": len(result.texts()),
                         "beads": len(beads), "exact_beads": int(sum(exact)),
                         "new_units": len(todo), "new_tokens": cache.estimate(texts)})
-        log.info("round %d: %s", r, history[-1])
+        log.log(TRACE, "round %d: %s", r, history[-1])
         if not todo:
             result.converged = not final
             break

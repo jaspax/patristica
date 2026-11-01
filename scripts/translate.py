@@ -57,6 +57,7 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
+from patristica import console
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES
 from patristica.editorial import source_text
@@ -155,7 +156,7 @@ def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list
         if work_prefixes and not any(work["work_id"].startswith(p) for p in work_prefixes):
             continue
         if work["license"] in EXCLUDED_LICENSES and not include_unpublishable:
-            log.info("skipping %s (licence %s)", work["work_id"], work["license"])
+            log.debug("skipping %s (licence %s)", work["work_id"], work["license"])
             continue
         chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
         store = tr.load(store_dir, entry["path"]) or tr.WorkTranslations(
@@ -205,11 +206,15 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
     for job, g in requests:
         by_lang[job.language] += len(g)
     n_chunks = sum(by_lang.values())
-    log.info("%d chunks to translate in %d requests (%s); %d reused from identical text; "
-             "estimated $%.2f", n_chunks, len(requests),
-             ", ".join(f"{k} {v}" for k, v in sorted(by_lang.items())) or "none",
-             reused, n_chunks * COST_PER_CHUNK * MODELS[model].price_out
-             / MODELS[DEFAULT_MODEL].price_out)
+    if not requests:
+        log.info("nothing to translate%s", f" ({reused:,} reused from identical text)"
+                 if reused else "")
+    else:
+        log.info("%s chunks to translate in %s requests (%s); %s reused from identical text; "
+                 "estimated $%.2f", f"{n_chunks:,}", f"{len(requests):,}",
+                 ", ".join(f"{k} {v:,}" for k, v in sorted(by_lang.items())),
+                 f"{reused:,}", n_chunks * COST_PER_CHUNK * MODELS[model].price_out
+                 / MODELS[DEFAULT_MODEL].price_out)
     if dry_run:
         return
 
@@ -261,20 +266,33 @@ def run(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[
                 if job.pending == 0 and job.dirty:
                     write(job)
 
+    from tqdm import tqdm
+
     done = 0
     try:
-        with ThreadPoolExecutor(workers) as pool:
+        with ThreadPoolExecutor(workers) as pool, \
+                tqdm(total=len(requests), desc="translate", unit="req",
+                     disable=not requests) as bar:
             for _ in pool.map(one, requests):
                 done += 1
+                bar.update()
+                if done % 10 == 0:
+                    bar.set_postfix_str(f"${cost(spent):.2f}")
                 if done % 50 == 0:
-                    log.info("%d/%d requests, $%.2f so far%s", done, len(requests),
-                             cost(spent), _limits_suffix(spent))
+                    # On the subscription the usage windows are what to watch
+                    # (docs/translation-backends.md): log them. Otherwise the
+                    # bar shows the progress, and the log gets it at DEBUG.
+                    suffix = _limits_suffix(spent)
+                    log.log(logging.INFO if suffix else logging.DEBUG,
+                            "%d/%d requests, $%.2f so far%s", done, len(requests),
+                            cost(spent), suffix)
     finally:
         with lock:
             for job in jobs:
                 if job.dirty or not job.groups:
                     write(job)
-    log.info("%d requests, $%.2f%s", len(spent), cost(spent), _limits_suffix(spent))
+    if requests:
+        log.info("%s requests, $%.2f%s", f"{len(spent):,}", cost(spent), _limits_suffix(spent))
 
 
 def _limits_suffix(spent: list[dict]) -> str:
@@ -318,8 +336,7 @@ def main() -> None:
             args.store.resolve() == tr.DEFAULT_DIR.resolve():
         p.error(f"{', '.join(sorted(unenrolled))} not enrolled in TRANSLATED_LANGUAGES: "
                 "translate it into an eval store (--store), not data/translations")
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    logging.getLogger("httpx").setLevel(logging.WARNING)
+    console.setup_logging()
     if args.usage:
         log.info("subscription usage %s", probe_usage())
         return

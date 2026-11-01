@@ -45,7 +45,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from patristica import alignment_store as store
-from patristica import fingerprint
+from patristica import console, fingerprint
 from patristica import translations as tr
 from patristica.corpus import load_works
 
@@ -433,6 +433,16 @@ def render(rows: list[Row]) -> str:
     return "\n".join(lines)
 
 
+def render_brief(rows: list[Row]) -> str:
+    """Only the rows that need attention, as plain lines (``--brief``)."""
+    mark = {"warn": "warning", "fail": "FAIL"}
+    bad = [r for r in rows if r.level != "ok"]
+    if not bad:
+        return f"all {len(rows)} checks current"
+    return "\n".join(f"{mark[r.level]}: {r.step} {r.check}: {r.detail}" for r in bad) + (
+        f"\n{len(rows) - len(bad)} of {len(rows)} checks current")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Freshness of every pipeline step (#130).")
     parser.add_argument("--normalized-dir", type=Path, default=NORMALIZED)
@@ -448,8 +458,10 @@ def main() -> None:
                         help="exit 1 if any check fails (what CI enforces)")
     parser.add_argument("--summary", type=Path, metavar="FILE",
                         help="append the table as Markdown (e.g. $GITHUB_STEP_SUMMARY)")
+    parser.add_argument("--brief", action="store_true",
+                        help="print only the checks that need attention, not the table")
     args = parser.parse_args()
-    logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
+    console.setup_logging(logging.WARNING)
 
     db = args.db
     if db == "":
@@ -459,7 +471,7 @@ def main() -> None:
     rows = collect(args.normalized_dir, raw=args.raw, vecs=args.vectors,
                    trans=args.translations_dir, align_dir=args.alignments_dir, db=db)
     table = render(rows)
-    print(table)
+    print(render_brief(rows) if args.brief else table)
     if args.summary:
         with args.summary.open("a", encoding="utf-8") as f:
             f.write("## Pipeline status (#130)\n\n" + table + "\n\n")

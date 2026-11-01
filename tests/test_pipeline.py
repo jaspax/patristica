@@ -3,6 +3,8 @@ fail-fast and the preflight. Steps are stubbed: nothing runs or is sent."""
 
 from __future__ import annotations
 
+import io
+import sys
 from pathlib import Path
 
 import pytest
@@ -58,7 +60,7 @@ def test_runs_every_step_in_order_and_sends_nothing_at_zero_cost():
     p, runner = make()
     assert p.run() == 0
     assert runner.commands == [
-        ["scripts.normalize"], ["scripts.anchor", "--check"], ["scripts.validate"],
+        ["scripts.normalize"], ["scripts.anchor", "--check"], ["scripts.validate", "--brief"],
         ["scripts.translate"],
         ["scripts.embed", "--no-requests"], ["scripts.align"], ["scripts.build_index"],
         ["scripts.export_library"], ["scripts.upload_library"]]
@@ -71,7 +73,7 @@ def test_without_pay_stops_before_the_first_paid_step_with_work():
     p, runner = make(translate=[(100, 0.14)])
     assert p.run() == 0
     assert runner.commands == [["scripts.normalize"], ["scripts.anchor", "--check"],
-                               ["scripts.validate"]]
+                               ["scripts.validate", "--brief"]]
     assert statuses(p)["translate"] == "stopped"
     assert "100 units" in p.results[3].detail and "--pay" in p.results[3].detail
     assert all(r.status == "skipped" for r in p.results[4:])
@@ -152,7 +154,7 @@ def test_anchor_needs_pay_and_counts_against_max_cost():
 def test_validate_runs_only_when_its_inputs_changed():
     p, runner = make(changes=())
     p.run()
-    assert ["scripts.validate"] not in runner.commands
+    assert ["scripts.validate", "--brief"] not in runner.commands
     assert statuses(p)["validate"] == "skipped"
 
 
@@ -227,3 +229,76 @@ def test_preflight_refuses_missing_vectors_and_lfs_pointers(data):
     (data["embeddings"] / "kjv" / "gen.npz").unlink()
     checks, _ = run_preflight(data, pl.Options(), keys=pl.LIBRARY_KEYS)
     assert "re-embed the whole corpus" in checks["data/embeddings"].detail
+
+
+# ---------------------------------------------------------------------------
+# Console output (#535)
+# ---------------------------------------------------------------------------
+
+
+def console(width: int = 60) -> tuple[pl.Console, io.BytesIO, io.BytesIO]:
+    screen, log = io.BytesIO(), io.BytesIO()
+    return pl.Console(log, stream=screen, width=width, color=False), screen, log
+
+
+def test_the_log_keeps_each_progress_bar_once_and_the_last_line_is_the_summary():
+    out, screen, log = console()
+    out.output(b"works:  10%|#  | 1/10 [00:01<00:09, 1.0work/s]\rworks: 100%|###| 10/10 "
+               b"[00:10<00:00, 1.0work/s]\nregroup: 0work [00:00, ?work/s]\n")
+    out.output(b"\rfold:  50%|#  | 1/2 [00:01<00:01]\r       \r")  # a bar that cleared itself
+    out.output(b"10 works, 3 to embed")
+    out.end_output()
+    assert log.getvalue().decode().splitlines() == [
+        "works: 100%|###| 10/10 [00:10<00:00, 1.0work/s]", "regroup: 0work [00:00, ?work/s]",
+        "10 works, 3 to embed"]
+    assert out.last_line == "10 works, 3 to embed"
+    assert b"1/10" in screen.getvalue()  # the console gets every redraw
+
+
+def test_each_step_is_headed_and_closed_and_the_table_takes_its_summary():
+    out, screen, _ = console()
+    p = pl.Pipeline(pl.Options(skip=frozenset({"upload_library"})), FakeRunner(),
+                    FakeEstimates(), validate_changes=lambda: [], console=out)
+
+    def normalize() -> tuple[str, float]:
+        out.output(b"276 total chunks written\n")
+        return "", 0.0
+
+    p.normalize = normalize
+    assert p.run() == 0
+    text = screen.getvalue().decode()
+    assert "── [1/9] normalize ──" in text and "── [9/9]" not in text
+    assert "✓ normalize done in 0s" in text
+    assert "– [9/9] upload_library: skipped (--skip)" in text
+    assert "– validate skipped in 0s · skipped: nothing validate reads changed" in text
+    assert p.results[0].detail == "276 total chunks written"
+    assert all(len(line) <= 60 for line in text.splitlines() if line.startswith("──"))
+
+
+def test_summary_table_totals_and_fits_the_width():
+    results = [pl.Result("translate", "done", "x" * 200, 65, 0.5),
+               pl.Result("embed", "failed", "exit 1", 3725, 1.25)]
+    table = pl.render(results, width=80).splitlines()
+    assert all(len(line) <= 80 for line in table)
+    assert table[1].startswith("✓ translate") and table[1].endswith("…")
+    assert "1h 02m" in table[2] and table[2].startswith("✗ embed")
+    assert table[-1].split()[:3] == ["total", "1h", "03m"] and "~$1.75" in table[-1]
+
+
+def test_duration():
+    assert [pl.duration(s) for s in (4.4, 98, 3600 + 125)] == ["4s", "1m 38s", "1h 02m"]
+
+
+def test_runner_passes_the_width_and_level_and_runs_modules_through_the_launcher(monkeypatch):
+    out, screen, log = console(width=123)
+    runner = pl.Runner(out, verbosity=2)
+    code = runner([sys.executable, "-c",
+                   "import os; print(os.environ['COLUMNS'], os.environ['PATRISTICA_LOG_LEVEL'])"])
+    assert code == 0 and out.last_line == "123 TRACE"
+    calls = []
+    monkeypatch.setattr(pl.subprocess, "Popen", lambda cmd, **kw: calls.append(cmd) or 1 / 0)
+    with pytest.raises(ZeroDivisionError):
+        runner(pl.python("scripts.validate", "--brief"))
+    assert calls[0][1:] == ["-m", "patristica.console", "scripts.validate", "--brief"]
+    assert "$ python" in screen.getvalue().decode().splitlines()[-1]
+    assert "patristica.console" not in screen.getvalue().decode()
