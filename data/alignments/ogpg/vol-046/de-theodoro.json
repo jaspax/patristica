@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-046/de-theodoro",
+ "pivot": "mt-eng/ogpg/vol-046/de-theodoro",
+ "groups": 98,
+ "inputs": "9ca8c35adeabf119",
+ "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "mt-eng/ogpg/vol-046/de-theodoro", "units": 99, "ids": "18e64c0944bec7a1", "inputs": "b9b74e05d0f87b7b", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-046/de-theodoro", "units": 99, "ids": "f839f0f8e1cded40", "inputs": "e8773f6c2b6e8ef9", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
