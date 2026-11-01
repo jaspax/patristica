@@ -340,6 +340,17 @@ def test_document_languages_are_not_enrolled_for_search_translation():
     assert "grc" not in LANGUAGE_NAMES and "lat" not in LANGUAGE_NAMES
 
 
+def test_every_language_can_be_machine_translated():
+    """A new language needs a prompt name and a length band, or its works fail (#225)."""
+    from typing import get_args
+
+    from patristica.models import Language
+
+    others = set(get_args(Language)) - {"eng"}
+    assert others <= set(mtr.DOCUMENT_LANGUAGES)
+    assert others <= set(mtr.RATIO_BAND)
+
+
 # --- the tracked machine translations --------------------------------------------
 
 

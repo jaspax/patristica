@@ -49,6 +49,13 @@ describe("Hero", () => {
     expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/first thousand years/);
     expect(screen.getByText(/Patristica is a free library/)).toBeTruthy();
   });
+
+  it("names no language list in the lead, so a new language needs no edit there", () => {
+    render(<Hero />);
+    const lead = screen.getByText(/Patristica is a free library/).textContent ?? "";
+    expect(lead).toMatch(/languages they were first written and read in, with English translations alongside/);
+    for (const name of ["Syriac", "Gothic", "Arabic", "Old Irish"]) expect(lead).not.toContain(name);
+  });
 });
 
 describe("libraryStats", () => {
@@ -86,7 +93,15 @@ describe("Landing", () => {
     expect(georgian.getAttribute("href")).toBe("/works?language=oge");
     expect(georgian.querySelector("[lang]")?.getAttribute("lang")).toBe("oge");
     expect(georgian.querySelector("[lang]")?.getAttribute("dir")).toBe("ltr");
-    expect(within(strip).getAllByRole("link")).toHaveLength(11);
+    const irish = within(strip).getByRole("link", { name: /bríathar/ });
+    expect(irish.getAttribute("href")).toBe("/works?language=sga");
+    expect(irish.querySelector("[lang]")?.getAttribute("lang")).toBe("sga");
+    expect(irish.querySelector("[lang]")?.getAttribute("dir")).toBe("ltr");
+    // Only the Old Irish tile gets the Insular face.
+    const greekWord = within(strip).getByRole("link", { name: /λόγος/ }).querySelector("[lang]");
+    expect(irish.querySelector("[lang]")?.className).toMatch(/insular/);
+    expect(greekWord?.className).not.toMatch(/insular/);
+    expect(within(strip).getAllByRole("link")).toHaveLength(12);
   });
 
   it("shows the library's counts once the index loads", async () => {

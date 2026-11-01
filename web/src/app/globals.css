@@ -149,6 +149,11 @@ main {
 :lang(oge) {
   font-family: var(--font-georgian), var(--font-body);
 }
+/* Old Irish: the body's Noto Serif first, then the Irish fallback for what its
+   slices can't draw (⁊, ↄ, letter + U+0307), before the other script fonts. */
+:lang(sga) {
+  font-family: var(--font-serif), var(--font-irish-fallback), var(--font-body);
+}
 
 .visually-hidden {
   position: absolute;

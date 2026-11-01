@@ -110,6 +110,8 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
 - [ ] **`ORIGINAL_LANGUAGE_ORDER` in `web/src/lib/versions.ts`.** Insert the code after the languages its works were translated from. The reader uses this order only when no `translation_of` in a group names the original.
 - [ ] **Version groups and alignment.** Check them with `uv run python -m scripts.version_groups`, which prints counts per language pair. `scripts.align` aligns new members once they have vectors. Check a sample in the parallel reader, and measure with `scripts.align_eval` if the language behaves differently.
 
+- [ ] **Machine translation (#422).** Add the language's prompt name to `DOCUMENT_LANGUAGES` and a length band (English characters per source character, measured on a translated text) to `RATIO_BAND` in `scripts/machine_translate.py`. Without them, translating one of its works raises `KeyError`, and its works with no English version are candidates for the nightly run. **Free**: no data changes. `tests/test_machine_translation.py` checks that every language has both.
+
 ## 7. Web app and docs
 
 - [ ] **Landing page.** Add the language's "Word" of John 1:1 to `WORDS` in `web/src/components/Landing.tsx`.
