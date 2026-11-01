@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "wb-glosses/heb",
+ "pivot": "wb-glosses-eng/heb",
+ "groups": 60,
+ "inputs": "4dbd1f38ae17f22a",
+ "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "wb-glosses-eng/heb", "units": 122, "ids": "9c83534f1464a791", "inputs": "185df59e42298bae", "spans": "++++.++++==..++.+=.+.+=+..++==.++++.+++..+=.+.++=..++=+==..+=+.+=+..+=++=.+.+=.+.+++=..+...+=.+=++==+=+==+=..+=..+++.+++++", "conf": "889955593998859968664969939589899992998899999999999938899999"},
+  {"work_id": "wb-glosses/heb", "units": 122, "ids": "4e0d560cdd954edf", "inputs": "e1c12efff0a9db0b", "spans": "++++.+++.+=..++.+=.++=+..+=+=..++++.+++.+==.+.++=.+...+=+=.+=+.+=+...++.+.+.+=.+.++.+=+=+==+=..+=+=..+==.+=+=.+=.+++.+++++", "conf": "889955593998859968664969939589899992998899999999999938899999"}
+ ]
+}
