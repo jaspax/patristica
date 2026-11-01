@@ -36,6 +36,7 @@ SOURCE_LABELS: dict[str, str] = {
     "titus-hagiography": "Old Georgian Hagiography (TITUS)",
     "coptic-scriptorium": "Coptic Scriptorium",
     "coptic-scriptorium-eng": "Coptic Scriptorium (English translations)",
+    "celt": "CELT, Corpus of Electronic Texts (Old Irish)",
     "csel": "Corpus Scriptorum Ecclesiasticorum Latinorum (Open Greek and Latin)",
     "didache": "Didache (Ante-Nicene Fathers)",
     "dsc": "Digital Syriac Corpus",

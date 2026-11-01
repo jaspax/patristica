@@ -33,7 +33,11 @@ period flags. In particular:
   only and is not a licence for others: anyone else who wants to reuse the text,
   including from Patristica's data, needs the rights holder's own permission.
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
-  and must be excluded from public distribution until then.
+  and must be excluded from public distribution until then. Two sources are
+  ingested this way while their permission is asked for: TITUS's Old Georgian
+  texts (#514) and CELT's Old Irish texts, whose pages are "available with
+  prior consent of the CELT programme for purposes of academic research and
+  teaching only" (#542).
 
 The corpus breaks down as follows (late October 2026, by chunks):
 
