@@ -218,6 +218,9 @@ class TestSelection:
             assert work_in_period(t.date_range), t.celt_id
         assert C.CELT_LICENSE == "unknown"
 
+    def test_owner_exclusions_stay_out(self) -> None:
+        assert not set(celt.OWNER_EXCLUDED) & {t.celt_id for t in celt.ALL_TEXTS}
+
     def test_unique_ids_and_translations(self) -> None:
         slugs = [t.slug for t in celt.ALL_TEXTS]
         assert len(set(slugs)) == len(slugs)

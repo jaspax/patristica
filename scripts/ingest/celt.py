@@ -209,19 +209,6 @@ TEXTS: tuple[Text, ...] = (
     ),
     # --- Rules and teaching -----------------------------------------------
     _t(
-        celt_id="G203000",
-        slug="regula-mucuta-raithni",
-        prefix="RegMoch",
-        title="Regula Mucuta Raithni (The Rule of Mo Chutu of Rahan)",
-        author=ANON,
-        date_range=(800, 1000),
-        date_confidence="uncertain",
-        genre="patristic",
-        mode="stanzas",
-        sections=True,
-        dating="CELT: 900–1200; generally taken as a late Old Irish rule (9th c.); borderline",
-    ),
-    _t(
         celt_id="G203001",
         slug="regula-choluimb-chille",
         prefix="RegCol",
@@ -404,7 +391,6 @@ def _lyric(
 
 
 # Religious poems from Murphy's Early Irish Lyrics and Meyer's small editions.
-# A range of c. 1000–1100 is borderline (#541): kept, marked uncertain.
 LYRICS: tuple[Text, ...] = (
     _lyric("G400003", "clocan-binn", "Clocan", "Clocán binn (The Bell)", (800, 900)),
     _lyric(
@@ -487,41 +473,6 @@ LYRICS: tuple[Text, ...] = (
         "Mebul",
         "Is mebul dom imrádud (On the Flightiness of Thought)",
         (900, 1000),
-    ),
-    _lyric(
-        "G400018",
-        "rop-tu-mo-baile",
-        "RopTu",
-        "Rop tú mo baile (Be Thou my Vision)",
-        (900, 1100),
-        "uncertain",
-    ),
-    _lyric(
-        "G400019",
-        "torramat-do-noebaingil",
-        "Torramat",
-        "Tórramat do nóebaingil (Evening Hymn)",
-        (900, 1100),
-        "uncertain",
-    ),
-    _lyric(
-        "G400020",
-        "a-maire-min-maithingen",
-        "AMaire",
-        "A Maire mín maithingen (Invocation of the Blessed Virgin Mary)",
-        (1000, 1100),
-        "uncertain",
-    ),
-    _lyric(
-        "G400021", "me-eba", "MeEba", "Mé Éba ben Ádaim uill (I am Eve)", (1000, 1100), "uncertain"
-    ),
-    _lyric(
-        "G400026",
-        "ropo-mian-dom-menmain",
-        "Ropo",
-        "Ropo mían dom menmain-se (My Mind's Desire)",
-        (1000, 1100),
-        "uncertain",
     ),
     _lyric(
         "G400043",
@@ -628,6 +579,20 @@ LYRICS: tuple[Text, ...] = (
         dating=MEYER,
     ),  # after Meyer's German note
 )
+
+
+# Borderline texts the owner left out (2026-11-01, #541): in range by CELT's
+# dates, but probably composed after the period's end. Kept here so a later
+# survey doesn't add them back.
+OWNER_EXCLUDED: dict[str, str] = {
+    "G203000": "Regula Mucuta Raithni (Rule of Mo Chutu): composition probably after 1050 "
+    "(owner, 2026-11-01); Mo Chutu himself (d. 637) is in range",
+    "G400018": "Rop tú mo baile: composition probably after 1050 (owner, 2026-11-01)",
+    "G400019": "Tórramat do nóebaingil: composition probably after 1050 (owner, 2026-11-01)",
+    "G400020": "A Maire mín maithingen: composition probably after 1050 (owner, 2026-11-01)",
+    "G400021": "Mé Éba: composition probably after 1050 (owner, 2026-11-01)",
+    "G400026": "Ropo mían dom menmain: composition probably after 1050 (owner, 2026-11-01)",
+}
 
 ALL_TEXTS: tuple[Text, ...] = TEXTS + LYRICS
 
