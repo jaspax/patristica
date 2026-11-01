@@ -89,6 +89,7 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     "cop": (0.5, 3.5), "hye": (0.6, 4.0), "gez": (0.6, 4.5), "chu": (0.6, 3.5),
     "got": (0.6, 3.0), "arb": (0.6, 4.0),
     "oge": (0.6, 3.0),  # KJV/Adishi Gospels: 1.12 English characters per Georgian one
+    "sga": (0.6, 3.5),  # Würzburg glosses / Thesaurus Palaeohibernicus: 1.47 per Irish one
 }
 DEFAULT_BAND = (0.5, 5.0)
 # A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
@@ -109,6 +110,7 @@ DOCUMENT_LANGUAGES: dict[str, str] = {
     "got": "Gothic",
     "arb": "Classical (Christian) Arabic",
     "oge": "Old Georgian",
+    "sga": "Old Irish (including early Middle Irish)",
 }
 
 DOCUMENT_SYSTEM = """\
