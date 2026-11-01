@@ -1,0 +1,17 @@
+{
+ "work_id": "mt-eng/ogpg/vol-046/de-theodoro",
+ "anchor": "ogpg/vol-046/de-theodoro",
+ "method": "e26e66e4678bcee0",
+ "anchor_cuts": "7a94b4d9872f62ca",
+ "words": "ff1e26841e58245f",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 99, "calibration": [0.8692, 0.0937], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 99},
+ "paragraphs": {
+  "ogpg.vol-046.c0735.2": {"words": "47b758d873adb3b2", "starts": [0, 13, 49, 66, 103]},
+  "ogpg.vol-046.c0737.1": {"words": "0bf8d75752f796b2", "starts": [0, 27, 49, 80, 101, 148, 180, 192, 226, 245, 265, 288, 317, 347, 378, 393, 432, 478, 507, 547]},
+  "ogpg.vol-046.c0739.1": {"words": "d4da7e7a3bd073ce", "starts": [0, 14, 46, 77, 121, 148, 195, 217, 248, 270, 298, 332, 352, 376, 396, 422, 434, 456, 495]},
+  "ogpg.vol-046.c0743.1": {"words": "baf7cea077f321d0", "starts": [0, 14, 36, 56, 68, 105, 155, 189, 220, 263, 272, 307, 345, 379, 416, 449, 472, 515, 549, 567]},
+  "ogpg.vol-046.c0745.1": {"words": "c282576575cf09cb", "starts": [0, 19, 36, 66, 103, 120, 134, 160, 194, 227, 251, 297, 317, 334, 359, 382, 404]},
+  "ogpg.vol-046.c0747.1": {"words": "0feb68de64cb8d42", "starts": [0, 18, 67, 81, 107, 133, 160, 174, 203, 223, 245, 278, 311, 321, 370, 414, 426, 450]}
+ }
+}

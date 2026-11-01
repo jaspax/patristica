@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-046/in-pulcheriam",
+ "pivot": "mt-eng/ogpg/vol-046/in-pulcheriam",
+ "groups": 136,
+ "inputs": "a32a36e790cd831f",
+ "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "mt-eng/ogpg/vol-046/in-pulcheriam", "units": 136, "ids": "898cbb10a5044c43", "inputs": "90dc5b726fb76ee8", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "8999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-046/in-pulcheriam", "units": 136, "ids": "edcc303cbd874b0d", "inputs": "174c1ab349fc88ac", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "8999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
