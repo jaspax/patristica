@@ -58,6 +58,11 @@ VERSE_TOKENS: dict[str, int] = {
     "chu": 68,
     "arb": 60,
     "oge": 186,
+    # Old Irish (#225): there is no Old Irish Scripture, so this is the English
+    # verse (31) times the sga/eng token ratio of the Würzburg glosses and
+    # their Thesaurus Palaeohibernicus translations (1.02 over the 2,204
+    # glosses with no Latin); a Félire Óengusso quatrain averages 30.
+    "sga": 32,
     "grc": 130,
     "syc": 155,
     "hbo": 177,

@@ -170,6 +170,16 @@ def test_old_georgian_spelling_meets_modern_spelling():
     assert fold("მოუწოდა") != fold("მუწოდა")
 
 
+def test_old_irish_marks():
+    """Old Irish length marks and dotted letters drop; æ/ǽ is e as in Latin (#225)."""
+    assert fold("Ísu Críst isinchétne") == "isu crist isinchetne"
+    # The punctum delens (lenition) and the dot of ṁ/ṅ go with the other marks.
+    assert fold("ḟoiditer ṡúil ṁ ṅ") == "foiditer suil m n"
+    assert fold("mæda dǽ") == "meda de"
+    # Lenition written with h is not folded onto the dot (no source mixes them yet).
+    assert fold("fhoiditer") != fold("ḟoiditer")
+
+
 def test_squash_ignores_word_division():
     assert squash("ⲛ ⲧⲉ ⲕⲕⲗⲏⲥⲓⲁ") == squash("ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ")
 
