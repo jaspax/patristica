@@ -127,6 +127,8 @@ NEW_SOURCES |= {"openiti"}
 # Old Georgian (#222): Georgian Wikisource (#513).
 NEW_SOURCES |= {"wikisource-oge"}
 NEW_SOURCES |= {"evetts-hop-eng"}   # #481
+# Old Irish (#225): the Würzburg glosses and their English (#539).
+NEW_SOURCES |= {"wb-glosses", "wb-glosses-eng"}
 # Old Georgian (#222): TITUS codices, liturgy, translations, chronicles (#517).
 NEW_SOURCES |= {"titus-chronicles", "titus-liturgy", "titus-shatberdi", "titus-translations"}
 # Old Georgian Bible and lectionaries from TITUS (#515), one source per witness.

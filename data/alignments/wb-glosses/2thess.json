@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "wb-glosses/2thess",
+ "pivot": "wb-glosses-eng/2thess",
+ "groups": 44,
+ "inputs": "62345e87cb9e3bd8",
+ "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "wb-glosses-eng/2thess", "units": 92, "ids": "3df5f2ff9108c446", "inputs": "ba297b21f8c08a32", "spans": "+==++.+.+.+..+=+=+....++=+.+=++..+++..+.++=....++..++++.++.+==+=+....+++.+=+=.+=.++=+=..+=++", "conf": "95982988738985976566939588959965857989889769"},
+  {"work_id": "wb-glosses/2thess", "units": 92, "ids": "ea549b146f79ccf6", "inputs": "14d8f6578c037b00", "spans": "+=.++.+.+.++=+=..+....++=++=.++..+++.+=.+.+....++..++++.++.+=.+++.....+++==+=.+=+=+=+.+=..++", "conf": "95982988738985976566939588959965857989889769"}
+ ]
+}
