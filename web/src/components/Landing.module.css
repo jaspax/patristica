@@ -296,6 +296,11 @@
   transition: color 0.2s;
 }
 
+/* The Old Irish tile in a Gaelic type (Segotia, fonts.ts); the reader keeps Noto Serif. */
+.insular {
+  font-family: var(--font-insular), var(--font-body);
+}
+
 .word:hover .wordText {
   color: var(--accent);
 }

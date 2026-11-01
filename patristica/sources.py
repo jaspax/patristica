@@ -69,6 +69,7 @@ SOURCE_LABELS: dict[str, str] = {
     "cursus": "CURSUS Project",
     "gallican": "Gallican Liturgy",
     "gez-anaphoras": "Anaphoras of the Ethiopic Liturgy",
+    "glosscorpus": "Gloss Corpus (Moran, Galway)",
     "goarch-basil": "Liturgy of St Basil (GOA Digital Chant Stand)",
     "goarch-chrysostom": "Liturgy of St John Chrysostom (GOA Digital Chant Stand)",
     "hudra": "Hudra (East Syriac)",

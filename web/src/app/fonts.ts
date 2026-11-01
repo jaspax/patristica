@@ -119,6 +119,31 @@ const slavonicFallback = localFont({
   adjustFontFallback: false,
 });
 
+// Old Irish (#225, #544) is Latin script in the body font; this backs it with
+// what Google's Noto Serif slices lack (the Tironian et ⁊, the reversed c ↄ, a
+// letter + combining dot above U+0307): Noto Serif cut to Latin with its marks
+// and signs in one file (web/scripts/irish-font.py), so such a cluster falls
+// back whole, in the same design.
+const irishFallback = localFont({
+  src: "./fonts/NotoSerif-Irish.woff2",
+  weight: "400",
+  variable: "--font-irish-fallback",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+// The landing page's Old Irish tile only (#544): Segotia, a Gaelic type by
+// Dominic Stanley (OFL 1.1, Reserved Font Name "Segotia"), served as the
+// upstream WOFF2, unmodified, from insert-smiley/Irishfontclub-segotia at
+// 9462ce85bb143b5c14ac9dc9d707922fe3f017d1. Corpus text never uses it.
+const insular = localFont({
+  src: "./fonts/Segotia-Regular.woff2",
+  weight: "400",
+  variable: "--font-insular",
+  preload: false,
+  adjustFontFallback: false,
+});
+
 /** Class names that define all font CSS variables; put on <html>. */
 export const fontVariables = [
   serif,
@@ -133,6 +158,8 @@ export const fontVariables = [
   georgian,
   slavonic,
   slavonicFallback,
+  irishFallback,
+  insular,
 ]
   .map((f) => f.variable)
   .join(" ");
