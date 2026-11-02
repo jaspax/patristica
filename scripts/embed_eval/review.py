@@ -2,7 +2,8 @@
 Review the drafted paraphrase/topical queries (#87) without a human pass.
 
 1. ``review``: an independent model (GPT-6.1 Sol; the queries were drafted by
-   Claude) checks every target's queries against the original passage, plus
+   Claude; ``--reviewer local-opus`` uses Opus on the Claude subscription
+   instead, #585) checks every target's queries against the original passage, plus
    a published English translation for Scripture. A paraphrase gets an
    accuracy score (misreadings and additions; partial coverage is fine); a
    topical query gets a relevance score and a specificity label. Each gets a
@@ -42,13 +43,16 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from scripts.embed_eval.translate import PROMPT_NAMES, Clients, cost
+from scripts.embed_eval.translate import MODELS, PROMPT_NAMES, Clients, cost
 from scripts.migrate_layout import new_chunk_id, new_work_id
 
 log = logging.getLogger(__name__)
 
 REVIEWER = "sol"
 MODELS_REVIEWER = "gpt-6.1-sol"
+# ``--reviewer``: Sol by default; ``local-opus`` reviews on the Claude
+# subscription (#585), at no API cost but by the drafter's own model family.
+REVIEWERS = ("sol", "local-opus")
 DEFAULT_DIR = Path("data/eval")
 DEFAULT_AUTHORED = Path("data/eval_authored")
 VARIANTS = ("all", "passing", "corrected")
@@ -161,14 +165,15 @@ def targets(authored_dir: Path, corpus: dict[str, dict]) -> list[dict]:
 
 # --- review -------------------------------------------------------------------
 
-def run_review(eval_dir: Path, authored_dir: Path, workers: int) -> None:
+def run_review(eval_dir: Path, authored_dir: Path, workers: int,
+               reviewer: str = REVIEWER) -> None:
     out_dir = eval_dir / "review"
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / "reviews.jsonl"
     done = {json.loads(line)["target_chunk_id"] for line in path.open()} if path.exists() else set()
     todo = [t for t in targets(authored_dir, load_corpus(eval_dir))
             if t["target_chunk_id"] not in done]
-    log.info("reviewing %d targets (%d already done) with %s", len(todo), len(done), REVIEWER)
+    log.info("reviewing %d targets (%d already done) with %s", len(todo), len(done), reviewer)
     clients, lock = Clients(), threading.Lock()
 
     def one(t: dict) -> None:
@@ -180,19 +185,26 @@ def run_review(eval_dir: Path, authored_dir: Path, workers: int) -> None:
         parts += [f"Paraphrase query:\n{t['paraphrase']}", f"Topical query:\n{t['topical']}"]
         try:
             out, usage = clients.call(
-                REVIEWER, REVIEW_SYSTEM.format(language=LANGUAGES[t["language"]]),
+                reviewer, REVIEW_SYSTEM.format(language=LANGUAGES[t["language"]]),
                 "\n\n".join(parts), Review, effort="high")
         except Exception as e:
             log.error("%s failed: %s", t["target_chunk_id"], e)
             return
         row = {"target_chunk_id": t["target_chunk_id"], "language": t["language"],
-               "origin": t["origin"], **out.model_dump(), "usage": usage}
+               "origin": t["origin"], **out.model_dump(), "reviewer": reviewer,
+               "usage": usage}
         with lock, path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     with ThreadPoolExecutor(workers) as pool:
         list(pool.map(one, todo))
     summarize(path)
+
+
+def reviewed_by(review: dict) -> str:
+    """The ``reviewed_by`` of a review row: its reviewer's model id (Sol before #585)."""
+    name = review.get("reviewer", REVIEWER)
+    return MODELS_REVIEWER if name == REVIEWER else f"{MODELS[name].model_id} ({name})"
 
 
 def load_reviews(eval_dir: Path) -> dict[str, dict]:
@@ -283,7 +295,7 @@ def write_variants(eval_dir: Path, authored_dir: Path) -> None:
             out["corrected"].append(q)
         elif review and review[q["mode"]].get("corrected"):
             out["corrected"].append({**q, "text": review[q["mode"]]["corrected"],
-                                     "corrected_by": REVIEWER})
+                                     "corrected_by": review.get("reviewer", REVIEWER)})
             replaced += 1
     for variant, rows in out.items():
         d = eval_dir / "review" / "variants" / variant
@@ -321,7 +333,7 @@ def apply_reviews(eval_dir: Path, authored_dir: Path) -> None:
                 q["review"] = "corrected"
             else:
                 q["review"] = "flagged"
-            q["reviewed_by"] = MODELS_REVIEWER
+            q["reviewed_by"] = reviewed_by(review)
             counts[q["review"]] += 1
         with path.open("w", encoding="utf-8") as f:
             for q in rows:
@@ -367,11 +379,13 @@ def main() -> None:
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     p.add_argument("--workers", type=int, default=6)
+    p.add_argument("--reviewer", choices=REVIEWERS, default=REVIEWER,
+                   help="model that reviews (default %(default)s)")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     if args.cmd == "review":
-        run_review(args.eval_dir, args.authored, args.workers)
+        run_review(args.eval_dir, args.authored, args.workers, args.reviewer)
     elif args.cmd == "summary":
         summarize(args.eval_dir / "review" / "reviews.jsonl")
     elif args.cmd == "overlap":

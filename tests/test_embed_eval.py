@@ -555,3 +555,35 @@ def test_languages_without_pools_select_as_before():
         "shen#6", "shen#8", "shen#13", "shen#9", "shen#17", "shen#18", "shen#15", "shen#19",
         "shen#16", "shen#5", "shen#14", "shen#12", "shen#3", "shen#2", "shen#10", "shen#0",
         "shen#11", "shen#7", "shen#4", "shen#1"]
+
+
+def test_old_saxon_pools():
+    """Old Saxon (#585): the Heliand and the Genesis are pools of their own, the rest one."""
+    assert select.pool_of("osx", "rea/heliand") == "heliand"
+    assert select.pool_of("osx", "rea/genesis") == "genesis"
+    assert select.pool_of("osx", "rea/old-saxon-confession") == "minor"
+    assert select.pool_of("goh", "rea/tatian") is None
+
+
+def test_reviewed_by_names_the_reviewer():
+    from scripts.embed_eval import review
+
+    assert review.reviewed_by({}) == "gpt-6.1-sol"  # reviews before #585 have no reviewer
+    assert review.reviewed_by({"reviewer": "sol"}) == "gpt-6.1-sol"
+    assert review.reviewed_by({"reviewer": "local-opus"}) == "claude-opus-5-5 (local-opus)"
+
+
+def test_quality_summary_with_one_local_translator_and_judge(tmp_path: Path, capsys):
+    from scripts.embed_eval import translate
+
+    usage = {"model": "local-opus", "input": 10, "output": 10}
+    (tmp_path / "translations.jsonl").write_text(json.dumps(
+        {"model": "local-opus", "chunk_id": "c#1", "translation": "x", "usage": usage}) + "\n")
+    (tmp_path / "judgements.jsonl").write_text(json.dumps(
+        {"model": "local-opus", "chunk_id": "c#1", "language": "osx", "origin": "unique",
+         "verdicts": {"local-opus": {"fidelity": 4, "errors": []}}, "usage": usage}) + "\n")
+    translate.summarize(tmp_path)
+    out = capsys.readouterr().out
+    assert "cost so far $0.00" in out
+    assert "(self)" in out and "4.00" in out
+    assert "judge agreement" not in out

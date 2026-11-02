@@ -1,8 +1,9 @@
 """
 Translate the rare-language chunks of the corpus into English (#93).
 
-Syriac, Coptic, Armenian, Ge'ez (#84), Church Slavonic (#336), Old Georgian (#529) and
-Old Irish (#552) are indexed for search through English translations by GPT-6.1 Sol
+Syriac, Coptic, Armenian, Ge'ez (#84), Church Slavonic (#336), Old Georgian (#529),
+Old Irish (#552) and Old Saxon (#585) are indexed for search through English translations
+by GPT-6.1 Sol
 (see ``docs/embedding-eval.md``).
 This step reads ``data/normalized/`` and writes ``data/translations/``, one
 file per work at the work's normalized path (format: ``patristica.translations``).

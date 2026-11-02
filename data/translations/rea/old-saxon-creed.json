@@ -1,0 +1,23 @@
+{
+  "work_id": "rea/old-saxon-creed",
+  "source_path": "rea/old-saxon-creed.json",
+  "source_language": "osx",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/old-saxon-creed#GB.1",
+      "source_sha256": "3f26ff6172005331",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 1,
+      "text": "The resurrection of the flesh: that you, in the flesh in which you now are, shall stand at Judgment Day. —And do you believe in life after death?"
+    }
+  ]
+}
