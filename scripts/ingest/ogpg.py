@@ -397,6 +397,7 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     current: list[str] = []
     headings: list[str] = []
     where = (0, "")                 # (page index, stem) of the current paragraph
+    last_title = False              # whether the last line in ``current`` is a heading
 
     def _flush() -> None:
         text = " ".join(current).strip()
@@ -414,9 +415,14 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
             continue
         for line in _fix_hyphenation(raw).splitlines():
             line = _clean_line(line)
-            if _is_title_line(line):
-                if len(line) < 12 and current:
-                    _flush()            # the heading belongs to the next paragraph
+            title = _is_title_line(line)
+            if title:
+                # The heading belongs to the next paragraph: a heading after
+                # body text starts one (#577: a long title line was run into
+                # the end of the work before it); a heading of several lines
+                # stays together.
+                if current and (len(line) < 12 or not last_title):
+                    _flush()
                 headings.append(line)
             if len(line) < 12:          # blank / short line ends a paragraph
                 if current:
@@ -426,6 +432,7 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
                 if not current:
                     where = (page_idx, stem)
                 current.append(line)
+                last_title = title
             elif current:
                 _flush()
     if current:
@@ -733,7 +740,7 @@ class _Layout:
 
 
 def _layout(name: str, paras: list[dict], heads: list[tuple[str, list[int]]]) -> _Layout:
-    repeats = rep.find_repeats(paras, [stem for stem, _ in heads])
+    repeats = _page_repeats(paras, heads)
     cmap = cols.map_columns(heads, skip=set(repeats.pages) | set(repeats.moved))
     pages: dict[str, tuple[int, int]] = {}
     grams: dict[str, set[str]] = {}
@@ -1186,10 +1193,50 @@ def _write_if_changed(path: Path, payload: dict) -> None:
         path.write_text(content, encoding="utf-8")
 
 
+def _fits(span: tuple[int, int], numbers: list[int]) -> bool:
+    return any(span[0] - 1 <= n <= span[1] + 1 for n in numbers)
+
+
+def keep_placed_copies(repeats: rep.Repeats, heads: list[tuple[str, list[int]]]
+                       ) -> rep.Repeats:
+    """``repeats`` with a misplaced first copy dropped instead of the second.
+
+    ``find_repeats`` keeps the first copy of a leaf scanned twice.  When that
+    copy is bound out of place (PG 99: a leaf printing cols. 485–486 among
+    461–484, #578), its head numbers don't fit the columns the map gives it,
+    and the second copy, in its right place, is the one to keep.
+    """
+    head_of = dict(heads)
+    pages = dict(repeats.pages)
+    cmap: cols.ColumnMap | None = None
+    for second, first in sorted(repeats.pages.items()):
+        numbers = head_of.get(first, [])
+        if not numbers or first in pages:
+            continue
+        if cmap is None:
+            cmap = cols.map_columns(heads, skip=set(pages) | set(repeats.moved))
+        span = cmap.columns.get(first)
+        if span is None or _fits(span, numbers):
+            continue
+        swapped = (set(pages) - {second}) | {first}
+        alt = cols.map_columns(heads, skip=swapped | set(repeats.moved)).columns.get(second)
+        if alt is not None and _fits(alt, numbers + head_of.get(second, [])):
+            del pages[second]
+            pages[first] = second
+            cmap = None
+    return rep.Repeats(dict(sorted(pages.items(), key=lambda kv: _page_order((kv[0], "")))),
+                       repeats.moved)
+
+
+def _page_repeats(paras: list[dict], heads: list[tuple[str, list[int]]]) -> rep.Repeats:
+    """Repeated pages of a scan: by text, with misplaced first copies swapped."""
+    return keep_placed_copies(rep.find_repeats(paras, [stem for stem, _ in heads]), heads)
+
+
 def volume_repeats(extract: dict) -> rep.Repeats:
-    """Pages the volume's primary scan repeats (``_ogpg_repeats``, #96)."""
-    return rep.find_repeats(extract["paragraphs"],
-                            [stem for stem, _ in extract["page_heads"]])
+    """Pages the volume's primary scan repeats (``_ogpg_repeats``, #96, #578)."""
+    return _page_repeats(extract["paragraphs"],
+                         [(stem, nums) for stem, nums in extract["page_heads"]])
 
 
 def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
@@ -1235,6 +1282,8 @@ def split_volume(
              if p["stem"] not in repeats.pages]
     paras = _merge_fills(paras, [{**f, "cols": tuple(f["cols"])}
                                  for f in extract.get("fills", [])])
+    if rows:
+        paras = pgi.split_inline_headings(paras, rows)
     refs = pgi.assign_refs(paras, vol_slug)
     if not rows:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
