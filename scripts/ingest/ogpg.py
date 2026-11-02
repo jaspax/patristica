@@ -384,6 +384,14 @@ def _is_title_line(line: str) -> bool:
     return sum(1 for c in greek if c.islower()) <= 0.1 * len(greek)
 
 
+def _is_body_line(line: str) -> bool:
+    """Running Greek text: most of its Greek letters are small (not a heading in
+    capitals, nor one whose capitals the OCR read partly as small letters or
+    mixed with Latin, ``nam ΔΓΑΙΙΗΣ ιω εΓκΡΑτειΑΣ, im nu``)."""
+    greek = [c for c in line if c.isalpha() and _is_greek(c)]
+    return len(greek) >= 4 and sum(1 for c in greek if c.islower()) > 0.5 * len(greek)
+
+
 def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     """OCR pages ``[(stem, text)]`` (sorted) → Greek paragraph candidates.
 
@@ -398,20 +406,25 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     current: list[str] = []
     headings: list[str] = []
     where = (0, "")                 # (page index, stem) of the current paragraph
-    last_title = False              # whether the last line in ``current`` is a heading
+    last_body = False               # whether the last line in ``current`` is running text
+    carry: list[str] = []           # heading lines too short for a paragraph of their own
 
     def _flush() -> None:
         text = " ".join(current).strip()
+        lines = list(current)
         current.clear()
         if _passes_basic_filters(text):
             out.append(Candidate(where[0], text, stem=where[1],
                                  title=" ".join(headings) if headings else None))
             headings.clear()
+        elif lines and all(_is_title_line(ln) for ln in lines):
+            carry.extend(lines)     # a title: it opens the next paragraph on the page
 
     for page_idx, (stem, raw) in enumerate(pages):
         if current:
             _flush()      # never join paragraphs across a page boundary
         headings.clear()
+        carry.clear()
         if stem.isdigit() and int(stem) < 9:
             continue
         for line in _fix_hyphenation(raw).splitlines():
@@ -419,10 +432,10 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
             title = _is_title_line(line)
             if title:
                 # The heading belongs to the next paragraph: a heading after
-                # body text starts one (#577: a long title line was run into
-                # the end of the work before it); a heading of several lines
-                # stays together.
-                if current and (len(line) < 12 or not last_title):
+                # running text starts one (#577: a long title line was run
+                # into the end of the work before it); a heading of several
+                # lines stays together, even with a line the OCR garbled.
+                if current and (len(line) < 12 or last_body):
                     _flush()
                 headings.append(line)
             if len(line) < 12:          # blank / short line ends a paragraph
@@ -432,8 +445,10 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
             if _greek_ratio(line) >= 0.35:
                 if not current:
                     where = (page_idx, stem)
+                    current.extend(carry)
+                    carry.clear()
                 current.append(line)
-                last_title = title
+                last_body = _is_body_line(line)
             elif current:
                 _flush()
     if current:

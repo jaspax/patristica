@@ -300,6 +300,20 @@ class TestTitleLines:
             (f"{CLEAN} Ἀμήν.", None),
             (f"ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ {CLEAN}", "ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ")]
 
+    def test_heading_with_garbled_line_stays_together(self):
+        # PG 91: one line of the title OCR'd partly in small letters or Latin.
+        for garbled in ("ΚΑΙ ΤΗΣ ΚΑΤΑ ΝΟΥΝ ΠοΑΙΤὲιΑΣ,", "nam ΔΓΑΙΙΗΣ ιω εΓκΡΑτειΑΣ, im nu: ΚΑΤΑ"):
+            page = f"{CLEAN}\n\nΘΑΛΑΣΣΙΟΥ ΑΒΒΑ ΠΕΡΙ ΑΓΑΠΗΣ\n{garbled}\nΠΡΟΣ ΠΑΥΛΟΝ ΠΡΕΣΒΥΤΕΡΟΝ\n{CLEAN}"
+            cands = ogpg._extract_candidates([("010", page)])
+            assert cands[-1].text.startswith("ΘΑΛΑΣΣΙΟΥ ΑΒΒΑ ΠΕΡΙ ΑΓΑΠΗΣ"), garbled
+
+    def test_heading_alone_opens_the_next_paragraph(self):
+        # A title on lines of its own is too short to be a paragraph: it is
+        # kept, at the start of the paragraph after it on the page.
+        page = f"{CLEAN} Ἀμήν.\nΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ\n\n{CLEAN}"
+        cands = ogpg._extract_candidates([("010", page)])
+        assert [c.text for c in cands] == [f"{CLEAN} Ἀμήν.", f"ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ {CLEAN}"]
+
     def test_heading_of_several_lines_stays_together(self):
         page = f"{CLEAN}\n\nΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΠΑΡΑΙΝΕΤΙΚΟΣ\nΠΡΟΣ ΣΤΑΓΕΙΡΙΟΝ ΑΣΚΗΤΗΝ\n{CLEAN}"
         cands = ogpg._extract_candidates([("010", page)])
