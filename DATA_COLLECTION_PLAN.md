@@ -318,6 +318,7 @@ All chunks carry a `canonical_ref` in dot-separated form:
 - Councils: `Nicaea1.Canon.7`
 - Manuscripts cited by folio: `{siglum}.{folio}{r|v}`, one unit per page — e.g. `Supr.119r` (Codex Suprasliensis in the codex's continuous foliation, 1r–285v, as the obdurodon edition cites it; CCMH numbers the three parts 1–3 separately). A page shared by two texts is a unit in each ([#333](https://github.com/jaspax/patristica/issues/333)).
 - Glosses by folio and gloss number, as the *Thesaurus Palaeohibernicus* cites them (Würzburg glosses, [#539](https://github.com/jaspax/patristica/issues/539)): `Wb.{folio}.{gloss}` — e.g. `Wb.1a.8` for Wb. 1a 8, `Wb.2a.8a` for an inserted gloss, `Wb.1b.10-11` for two numbers printed as one gloss. The Irish work and its English translation share the refs.
+- Ælfric's *Catholic Homilies* I by homily and paragraph of Thorpe's edition ([#566](https://github.com/jaspax/patristica/issues/566)): `AECHomI.{homily}.{paragraph}` (the Dictionary of Old English short title ÆCHom I), the paragraph being the k-th element (heading, pericope or paragraph) of the homily's facing-page text, e.g. `AECHomI.8.3`; `AECHomI.Praef.{k}` for the Old English preface and `AECHomI.PraefLat.{k}` for the Latin one. The Old English work and Thorpe's English share the refs.
 - TITUS prose by printed page and line (Old Georgian hagiography, [#516](https://github.com/jaspax/patristica/issues/516)): `{text}.{chapter}.{paragraph}`, the editors' chapter (Roman numerals as Arabic, `0` before the first) and the paragraph within it, a paragraph being a run of lines from one indented line to the next: e.g. `Shush.3.2`. A set that numbers its own paragraphs uses them: `AsIoZedA.39-a`.
 
 ### Duplicated section numbers
@@ -337,6 +338,7 @@ Material that an editor or the source added to a text (titles, headings, supplem
 | `coptic-nt` | CopSahBible2 `<…>` supplements | to mark `supplement` (content embedded, brackets not): [#298](https://github.com/jaspax/patristica/issues/298) |
 | `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
 | `wb-glosses`, `wb-glosses-eng` | each gloss's lemma, prefixed as `Rom. 1:8 meo]`; the editors' comments `[in marg.]`; restored `(…)` and supplied `[…]` letters | marked at ingest: lemma and comments `note`, restored and supplied letters `supplement` ([#539](https://github.com/jaspax/patristica/issues/539)) |
+| `aelfric-ch`, `aelfric-ch-eng` | the rubrics and Thorpe's headings (`h3`), the inner headings (`EUANGELIUM.`), Thorpe's supplied words `[on]` | marked at ingest: `title`, `heading`, `supplement`; page numbers dropped, Thorpe's endnotes not carried ([#566](https://github.com/jaspax/patristica/issues/566)) |
 | `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
 
 ### Patrologia Graeca: columns, refs and works
