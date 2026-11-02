@@ -2296,7 +2296,8 @@
    "members": [
     "csel/stoa0058/stoa001/opp-lat3",
     "perseus-eng/stoa0058/stoa001/perseus-eng1",
-    "perseus/stoa0058/stoa001/perseus-lat2"
+    "perseus/stoa0058/stoa001/perseus-lat2",
+    "rea/notker-boethius"
    ]
   },
   "csel/stoa0058/stoa007/opp-lat2": {
@@ -4471,6 +4472,13 @@
     "oglt-pl/hilarius-pictaviensis/pl10_2_457"
    ]
   },
+  "oglt-pl/isidorus-hispalensis/pl83_10_sa": {
+   "members": [
+    "oglt-pl/isidorus-hispalensis/pl83_10_sa",
+    "rea/isidor",
+    "rea/monsee-isidor"
+   ]
+  },
   "oglt-pl/leo-i-magnus/pl54_0_ser": {
    "members": [
     "npnf-works/leo-sermons",
@@ -6441,6 +6449,26 @@
     "pta-eng/pta0200/pta001/pta-eng1",
     "pta/pta0200/pta001/pta-syc1"
    ]
+  },
+  "rea/benedictine-rule-lat": {
+   "members": [
+    "rea/benedictine-rule",
+    "rea/benedictine-rule-lat"
+   ]
+  },
+  "rea/murbach-hymns-lat": {
+   "members": [
+    "rea/murbach-hymns",
+    "rea/murbach-hymns-lat"
+   ],
+   "skipped": "fewer than two members with vectors"
+  },
+  "rea/tatian-lat": {
+   "members": [
+    "rea/tatian",
+    "rea/tatian-lat"
+   ],
+   "skipped": "fewer than two members with vectors"
   },
   "wb-glosses/1cor": {
    "members": [
