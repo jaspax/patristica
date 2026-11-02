@@ -3,11 +3,11 @@
  "group": "first1k/tlg1484/tlg001/1st1K-grc1",
  "pivot": "anf-works/martyrdom-of-polycarp",
  "groups": 114,
- "inputs": "987fb98fbe41218e",
- "run": {"aligner": 2, "date": "2026-10-25", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "2a29929906474b6f",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/martyrdom-of-polycarp", "units": 128, "ids": "a8851583b3738120", "inputs": "7e2d5b9ebb1efd00", "spans": "+++++++++++++++++=+=+++=+++++++=+=+++++++++++++++++=++++++=+++=++++++++++=+++++=++++++=++++++++++=+++++.++++++++.+++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "first1k/tlg1484/tlg001/1st1K-grc1", "units": 136, "ids": "bdf50981634bcb1a", "inputs": "0eee45d8a96bad6f", "spans": ".+++++++++++++++++=++++=+++++++++++++++++++++++++=++++++=+++++++++++++++++++++++++++++++++++=++++++++++++++=+++++++=++++++=.............", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "first1k/tlg1484/tlg001/1st1K-grc1", "units": 136, "ids": "bdf50981634bcb1a", "inputs": "d37e88b3cdb660a5", "spans": ".+++++++++++++++++=++++=+++++++++++++++++++++++++=++++++=+++++++++++++++++++++++++++++++++++=++++++++++++++=+++++++=++++++=.............", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "ogpg/vol-005/martyrium-polycarpi", "units": 56, "ids": "f0356a4e1fc06055", "inputs": "2549a2820450d5aa", "spans": "++++++++++++++++++=++++2+++++=+=++++++++++++++++++++=++++", "conf": "9999999999999999999979999999999999999999999999999999"}
  ]
 }

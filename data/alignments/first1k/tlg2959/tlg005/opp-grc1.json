@@ -2,12 +2,12 @@
  "format": 1,
  "group": "first1k/tlg2959/tlg005/opp-grc1",
  "pivot": "first1k/tlg2959/tlg005/opp-grc1",
- "groups": 90,
- "inputs": "edfa4537a11d398f",
+ "groups": 89,
+ "inputs": "397ec4ed3be98634",
  "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/methodius-on-things-created", "units": 98, "ids": "627357fef055a476", "inputs": "f5e2e76ac98e1a2e", "spans": "+.++++++++++++++++++++++++++++++++++++++++++=++++++=++++++++=+++++++++++=++=++=+++++++++=+++++++++", "conf": "999999999999999999999999999999999999999999999899999999999999999999999999999999999999999999"},
-  {"work_id": "first1k/tlg2959/tlg005/opp-grc1", "units": 127, "ids": "5cdef39b4d5ec03c", "inputs": "bf26aa04ad98c60d", "spans": "++++++=++=++=+++++++++++=++.+==+==.+...+...+.+.++.++=.+.++.++++===.+.+.+=+++.++=.+=++++++++=+++++++++++++++=+++++++++++=+++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-018/methodius-de-creatis", "units": 88, "ids": "2f7014e26c2a6ea1", "inputs": "a8bec7af0c8bb433", "spans": "+=++++++4=+++++++++++=++++=++7+++++++++++++++++++++++..+++++++++++++++++++++++++++=+++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/methodius-on-things-created", "units": 98, "ids": "627357fef055a476", "inputs": "f5e2e76ac98e1a2e", "spans": "..++++++++++++++++++++++++++++++++++++++++++=++++++=++++++++=+++++++++++=++=++=+++++++++=+++++++++", "conf": "99999999999999999999999999999999989999999999899999999999999999999999999999999999999999999"},
+  {"work_id": "first1k/tlg2959/tlg005/opp-grc1", "units": 127, "ids": "5cdef39b4d5ec03c", "inputs": "bc704e193fac00cd", "spans": ".+++++=++=++=+++++++++++=++.+==+==.+...+...+.+.++.++=.+.++.++++===.+.+.+=+++.++=.+=++++++++=+++++++++++++++=+++++++++++=+++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-018/methodius-de-creatis", "units": 88, "ids": "2f7014e26c2a6ea1", "inputs": "a8bec7af0c8bb433", "spans": "..++++++4=+++++++++++=++++=++7+++++++++++++++++++++++..+++++++++++++++++++++++++++=+++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }
