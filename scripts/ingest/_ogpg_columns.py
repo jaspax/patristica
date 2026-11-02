@@ -42,8 +42,9 @@ The mapping is deterministic in the OCR text of the scan.
 
 from __future__ import annotations
 
+import bisect
 import re
-from collections import Counter
+from collections import Counter, deque
 from dataclasses import dataclass
 
 _MAX_HEAD_TOKENS = 6
@@ -116,13 +117,17 @@ class ColumnMap:
 State = tuple[int, int]
 
 
-def _nearest_switch(cost: list[float], states: list[State]) -> tuple[list[float], list[int]]:
+def _nearest_switch(cost: list[float], states: list[State],
+                    blank: int = 0) -> tuple[list[float], list[int]]:
     """For each state, the cheapest way to switch into it from another state.
 
     Switching costs ``SWITCH_COST`` plus ``JUMP_COST`` per column the offset
     moves (an L1 distance transform over the sorted offsets of each layout),
-    or ``SWITCH_COST + LAYOUT_COST`` from the other layout.  Returns the cost
-    and the state switched from.
+    or ``SWITCH_COST + LAYOUT_COST`` from the other layout.  After ``blank``
+    pages without head numbers, the offset may fall by up to ``k * blank``
+    columns at no extra cost: those pages may print fewer columns than there
+    are pages (blank or repeated leaves whose OCR has no text), but never
+    more.  Returns the cost and the state switched from.
     """
     n = len(states)
     best = [float("inf")] * n
@@ -130,15 +135,16 @@ def _nearest_switch(cost: list[float], states: list[State]) -> tuple[list[float]
     groups: dict[int, list[int]] = {}
     for i, (k, _) in enumerate(states):
         groups.setdefault(k, []).append(i)
-    for idx in groups.values():                    # states are sorted by offset
+    for k, idx in groups.items():                  # states are sorted by offset
+        src_cost, src = _window_min(cost, states, idx, k * blank)
         for order in (idx, idx[::-1]):
             run_c, run_a, prev_o = float("inf"), -1, 0
             for i in order:
                 o = states[i][1]
                 if run_a >= 0:
                     run_c += JUMP_COST * abs(o - prev_o)
-                if cost[i] < run_c:
-                    run_c, run_a = cost[i], i
+                if src_cost[i] < run_c:
+                    run_c, run_a = src_cost[i], src[i]
                 prev_o = o
                 if run_c < best[i]:
                     best[i], arg[i] = run_c, run_a
@@ -150,6 +156,29 @@ def _nearest_switch(cost: list[float], states: list[State]) -> tuple[list[float]
     return [c + SWITCH_COST for c in best], arg
 
 
+def _window_min(cost: list[float], states: list[State], idx: list[int],
+                slack: int) -> tuple[dict[int, float], dict[int, int]]:
+    """For each state of ``idx`` (one layout, sorted by offset), the cheapest
+    state whose offset is at most ``slack`` columns above its own."""
+    if slack <= 0:
+        return {i: cost[i] for i in idx}, {i: i for i in idx}
+    out_c: dict[int, float] = {}
+    out_a: dict[int, int] = {}
+    window: deque[int] = deque()        # positions in idx, increasing cost
+    hi = 0
+    for pos, i in enumerate(idx):
+        o = states[i][1]
+        while hi < len(idx) and states[idx[hi]][1] <= o + slack:
+            while window and cost[idx[window[-1]]] >= cost[idx[hi]]:
+                window.pop()
+            window.append(hi)
+            hi += 1
+        while window[0] < pos:
+            window.popleft()
+        out_c[i], out_a[i] = cost[idx[window[0]]], idx[window[0]]
+    return out_c, out_a
+
+
 def _viterbi(votes: list[set[State]]) -> tuple[list[State], list[int]]:
     """Best piecewise-constant state path → (states, path of state indices)."""
     support: Counter[State] = Counter(o for v in votes for o in v)
@@ -159,8 +188,10 @@ def _viterbi(votes: list[set[State]]) -> tuple[list[State], list[int]]:
     n = len(states)
     cost = [0.0 if states[s] in votes[0] else 1.0 for s in range(n)]
     back: list[list[int]] = []
+    blank = 0 if votes[0] else 1          # pages without head numbers just before
     for v in votes[1:]:
-        switch, frm = _nearest_switch(cost, states)
+        switch, frm = _nearest_switch(cost, states, blank)
+        blank = 0 if v else blank + 1
         new_cost: list[float] = []
         ptr: list[int] = []
         for s in range(n):
@@ -200,15 +231,21 @@ def _increasing_segments(segs: list[tuple[int, int, int]]) -> set[int]:
     return keep
 
 
-def map_columns(heads: list[tuple[str, list[int]]]) -> ColumnMap:
+def map_columns(heads: list[tuple[str, list[int]]],
+                skip: frozenset[str] | set[str] = frozenset()) -> ColumnMap:
     """Infer the Migne columns printed on every page of a scan.
 
     ``heads`` is ``[(stem, head numbers)]`` for every page of the scan in
     order (``head_numbers`` of the page text); stems are the page numbers of
-    the scan's ``NNN.txt`` files.  Non-numeric stems get no column.
+    the scan's ``NNN.txt`` files.  Non-numeric stems get no column.  Pages in
+    ``skip`` (leaves the scan repeats, ``_ogpg_repeats``) get no column
+    either, and the other pages are numbered as if they were not in the scan,
+    so a repeated run doesn't move the offset of the pages after it.
     """
-    numeric = sorted(((stem, int(stem), nums) for stem, nums in heads if stem.isdigit()),
-                     key=lambda x: x[1])
+    pages = sorted(((stem, int(stem), nums) for stem, nums in heads
+                    if stem.isdigit() and stem not in skip), key=lambda x: x[1])
+    skipped = sorted(int(s) for s in skip if s.isdigit())
+    numeric = [(stem, n - bisect.bisect_left(skipped, n), nums) for stem, n, nums in pages]
     votes = [page_votes(set(nums), p) for _, p, nums in numeric]
     states, path = _viterbi(votes)
     columns: dict[str, tuple[int, int] | None] = {stem: None for stem, _ in heads}
@@ -241,9 +278,16 @@ def map_columns(heads: list[tuple[str, list[int]]]) -> ColumnMap:
     positions: dict[int, int] = {}            # page index → position
     supported = 0
     last = 0
-    for k, run in enumerate(runs):
-        if k not in keep:
-            continue
+    kept = [k for k in range(len(runs)) if k in keep]
+    for n_, k in enumerate(kept):
+        run = runs[k]
+        if n_ + 1 < len(kept):
+            here, after = states[path[run[0]]], states[path[runs[kept[n_ + 1]][0]]]
+            if after[0] == here[0] and after[1] < here[1]:
+                # The scan has more pages than columns before the next run:
+                # pages after this run's last supported one may be any of them.
+                last_ok = max((i for i in run if here in votes[i]), default=run[0])
+                run = [i for i in run if i <= last_ok]
         for i in run:
             p_ = pos(i)
             if p_ < 1 or p_ <= last:   # front matter, or a leaf at an offset change

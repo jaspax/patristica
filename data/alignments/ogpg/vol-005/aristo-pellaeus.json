@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-005/aristo-pellaeus",
  "pivot": "ogpg/vol-005/aristo-pellaeus",
- "groups": 11,
- "inputs": "55b9e9751623bc2c",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 12,
+ "inputs": "c36686837ad8d184",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/aristo-of-pella-fragments", "units": 24, "ids": "9f03ac86c71e25a5", "inputs": "77f06b317cf070eb", "spans": "...+=++=+=...+=+++.+=.++", "conf": "99999499999"},
-  {"work_id": "ogpg/vol-005/aristo-pellaeus", "units": 36, "ids": "a183884f8ba7cce0", "inputs": "e0ce773006614e46", "spans": "..+++=+=.+=.+.+=+=....+++...........", "conf": "99999499999"}
+  {"work_id": "anf-works/aristo-of-pella-fragments", "units": 24, "ids": "9f03ac86c71e25a5", "inputs": "77f06b317cf070eb", "spans": "...+=+=+=++=.+=+++.+=.++", "conf": "989889499999"},
+  {"work_id": "ogpg/vol-005/aristo-pellaeus", "units": 38, "ids": "e24391f1b3d08f34", "inputs": "9b6c0090d4fd620c", "spans": "..++.+==.+++=.+.+=+=....+++...........", "conf": "989889499999"}
  ]
 }

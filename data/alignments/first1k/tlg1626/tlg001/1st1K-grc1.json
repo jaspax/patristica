@@ -3,11 +3,11 @@
  "group": "first1k/tlg1626/tlg001/1st1K-grc1",
  "pivot": "anf-works/polycrates-of-ephesus-epistle",
  "groups": 15,
- "inputs": "8879ee39bcac0a08",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "d35022f82b2ed4ee",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/polycrates-of-ephesus-epistle", "units": 30, "ids": "e71d912ac7c5d1ee", "inputs": "62d3e3a5d7725911", "spans": "+=..............++++++++++++++", "conf": "999999999999999"},
   {"work_id": "first1k/tlg1626/tlg001/1st1K-grc1", "units": 16, "ids": "87ce1a655c1b1d3c", "inputs": "aad283ec8a16de5c", "spans": "+2+++++++=+++=+++", "conf": "99999999999999"},
-  {"work_id": "ogpg/vol-005/polycrates", "units": 14, "ids": "b45197825b90ab04", "inputs": "732e4653cbfb2dd1", "spans": "++2++.+=+++++=+2", "conf": "99999999995"}
+  {"work_id": "ogpg/vol-005/polycrates", "units": 21, "ids": "eaa359bd2a58600e", "inputs": "da17208425bc3d11", "spans": "++2++.+=+++++===++=++.", "conf": "99999999999999"}
  ]
 }

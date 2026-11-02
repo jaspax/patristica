@@ -401,3 +401,14 @@ def test_map_columns_orders_pages_numerically():
     heads = _two_column_heads(40, 990, 9)
     shuffled = sorted(heads, key=lambda h: h[0])           # "1000" before "991"
     assert oc.map_columns(shuffled).columns == oc.map_columns(heads).columns
+
+
+def test_heading_run_into_its_paragraph_splits_the_page():
+    rows = _index(
+        "vol-099,platonis,803,848,Theodore the Studite,Laudatio Platonis,,,,,,,heads,,",
+        "vol-099,arsenii,849,882,Theodore the Studite,Laudatio Arsenii,,,,,,,heads,,",
+    )["vol-099"]
+    paras = [{"cols": (849, 850), "title": None, "text": "γάρ σου ποίμνια πάντα"},
+             {"cols": (849, 850), "title": None, "text": "ΠΡΟΟΙΜΙΟΝ. α’. Ἀστὴρ ἀειφανὴς"},
+             {"cols": (851, 852), "title": None, "text": "ΚΥΡ. Γένος μὲν Ἀρσενίου"}]
+    assert pgi.assign_works(paras, rows) == [0, 1, 1]
