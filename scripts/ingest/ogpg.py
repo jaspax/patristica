@@ -680,7 +680,7 @@ _NEAR_COLS = 6
 # only runs of at least ``_MISBOUND_MIN_PAGES`` such pages count.
 _MISBOUND_SHARE = 0.1
 _MISBOUND_FAR_COLS = 60
-_MISBOUND_MIN_PAGES = 2
+_MISBOUND_MIN_PAGES = 4
 # A page of another scan already present in the primary nearby (this share of
 # its trigrams) is not filled in.
 _FILL_DUP_SHARE = 0.3
@@ -702,6 +702,10 @@ class _Layout:
     pages: dict[str, tuple[int, int]]       # page stem with text → its columns
     grams: dict[str, set[str]]              # page stem → word trigrams of its text
     supported: set[int]                     # page numbers whose heads confirm the map
+
+    def best_page(self, grams: set[str]) -> float:
+        """The largest share of ``grams`` found on any one page of the scan."""
+        return max((_share(grams, g) for g in self.grams.values()), default=0.0)
 
     def near(self, a: int, b: int) -> set[str]:
         """Trigrams of the pages whose columns fall within [a, b]."""
@@ -741,17 +745,23 @@ def _misbound_pages(primary: _Layout, others: list[_Layout]) -> set[str]:
 
     Another scan may share the misbinding (two copies bound alike), so a page
     is misbound when at least half of the other scans with text near its
-    columns don't have its text, and their text for its columns is not in the
-    primary nearby.
+    columns don't have its text anywhere, and their text for its columns is
+    not in the primary nearby.
     """
     flagged: list[str] = []
     for stem, (a, b) in sorted(primary.pages.items(), key=lambda kv: kv[1]):
         theirs = [o for o in others if o.near(a - _NEAR_COLS, b + _NEAR_COLS)]
         if not theirs:
             continue
+        # A misbound leaf is from another volume: the scans that lack it lack
+        # it everywhere, not just at these columns (a page the primary maps to
+        # the wrong columns is elsewhere in the other scans).
         lacking = [o for o in theirs
                    if _share(primary.grams[stem], o.near(a - _NEAR_COLS, b + _NEAR_COLS))
                    < _MISBOUND_SHARE]
+        if 2 * len(lacking) < len(theirs):
+            continue
+        lacking = [o for o in lacking if o.best_page(primary.grams[stem]) < _MISBOUND_SHARE]
         if 2 * len(lacking) < len(theirs):
             continue
         ours = primary.near(a - _MISBOUND_FAR_COLS, b + _MISBOUND_FAR_COLS)

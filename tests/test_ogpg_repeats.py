@@ -188,3 +188,14 @@ class TestCrossScan:
         assert misbound == {"020", "021", "022", "023"}
         assert {f["scan"] for f in fills} == {"hvd.0_ocr"}
         assert all(_page_text(500 + int(f["stem"])) != f["text"] for f in fills)
+
+    def test_page_mapped_to_wrong_columns_is_not_misbound(self):
+        # The primary's pages 20–23 carry text the other scans have at other
+        # columns (its map runs ahead there): not leaves of another volume.
+        full = {p: _page_text(p) for p in range(10, 60)}
+        shifted = {p: (full[p + 20] if 20 <= p <= 23 else t) for p, t in full.items()}
+        primary = _scan("pst.x_ocr", shifted)
+        others = [_scan(f"hvd.{i}_ocr", {p: _noisy(t) for p, t in full.items()}) for i in range(2)]
+        kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
+        misbound, _ = ogpg._cross_scan(primary, kept, others)
+        assert misbound == set()
