@@ -1,0 +1,30 @@
+{
+  "work_id": "rea/priests-oath",
+  "source_path": "rea/priests-oath.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/priests-oath#PE.1.s1",
+      "source_sha256": "3b27e233a86bf7a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "That I am loyal to you, N., the bishop, as far as my strength and my knowledge go, willingly furthering your benefit and turning away harm,"
+    },
+    {
+      "chunk_id": "rea/priests-oath#PE.1.s2",
+      "source_sha256": "5b400cb0cf927dc4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "obedient and compliant and steadfast in his bishopric, as I rightly must according to the canon."
+    }
+  ]
+}

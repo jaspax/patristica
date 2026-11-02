@@ -1,0 +1,44 @@
+{
+  "work_id": "rea/old-bavarian-confession",
+  "source_path": "rea/old-bavarian-confession.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/old-bavarian-confession#AB.1.s1",
+      "source_sha256": "1b6483ab25f81aef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "Lord, to you I will confess all my sins and misdeeds: all that I ever spoke wrongly, did wrongly, or thought wrongly,"
+    },
+    {
+      "chunk_id": "rea/old-bavarian-confession#AB.1.s2",
+      "source_sha256": "6c2dd26084cea634",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "in words and deeds and thoughts, whether I remember it or do not remember it, whether I did it knowingly or unknowingly, under compulsion or without compulsion, sleeping or waking:"
+    },
+    {
+      "chunk_id": "rea/old-bavarian-confession#AB.1.s3",
+      "source_sha256": "914b91de1686bf51",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "false oaths and lies, covetous desires and unrighteous deceit, fornications in whatever way I committed them, and unrighteous sinful lusts in food, in drink, and in improper sleep:"
+    },
+    {
+      "chunk_id": "rea/old-bavarian-confession#AB.1.s4",
+      "source_sha256": "da3167cafb39b112",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "that you, Lord, may deign to grant me salvation and grace, that I may stand unashamed before your eyes, and that in this world I may have repentance and penance for my misdeeds, in such measure as your mercies are, almighty Lord."
+    }
+  ]
+}

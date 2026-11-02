@@ -1,0 +1,30 @@
+{
+  "work_id": "rea/frankish-prayer",
+  "source_path": "rea/frankish-prayer.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/frankish-prayer#FG.1.s1",
+      "source_sha256": "c05228e3774e9b77",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Lord God, help me and grant me wisdom and good faith, your love and a right will, health and well-being, and your good grace."
+    },
+    {
+      "chunk_id": "rea/frankish-prayer#FG.1.s2",
+      "source_sha256": "f1c01e2225ad0de3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "That is: Lord God, help me and grant me wisdom and good faith, your love and good will, health and prosperity, and your good grace."
+    }
+  ]
+}

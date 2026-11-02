@@ -562,7 +562,7 @@ def test_old_saxon_pools():
     assert select.pool_of("osx", "rea/heliand") == "heliand"
     assert select.pool_of("osx", "rea/genesis") == "genesis"
     assert select.pool_of("osx", "rea/old-saxon-confession") == "minor"
-    assert select.pool_of("goh", "rea/heliand") is None
+    assert select.pool_of("grc", "rea/heliand") is None
 
 
 def test_reviewed_by_names_the_reviewer():

@@ -1,0 +1,37 @@
+{
+  "work_id": "rea/st-gall-paternoster",
+  "source_path": "rea/st-gall-paternoster.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/st-gall-paternoster#GP.1.s1",
+      "source_sha256": "e2c6c724ba711364",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "Pater noster [Our Father]. Our Father, you are in heaven. Hallow your name. May your kingdom come."
+    },
+    {
+      "chunk_id": "rea/st-gall-paternoster#GP.1.s2",
+      "source_sha256": "3009cfcf4cdcff5f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "May your will be done, as in heaven so also on earth. Give us today our daily bread."
+    },
+    {
+      "chunk_id": "rea/st-gall-paternoster#GP.1.s3",
+      "source_sha256": "a9e9c7186563be4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "Forgive us our debts, as we forgive our debtors. And do not lead us into temptation. But free us from evil."
+    }
+  ]
+}
