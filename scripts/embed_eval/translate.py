@@ -15,7 +15,9 @@ model other than the one that produced it.
 ``local-opus`` runs Opus through a local ``claude -p`` on the Claude
 subscription login instead of the API (``Clients._claude_cli``): no API key
 and no bill, but it counts against the subscription's usage windows, which
-each call reports (``limits_report``).
+each call reports (``limits_report``). ``--translators`` and ``--judges``
+replace the default models: ``--translators local-opus --judges local-opus``
+costs nothing, but every verdict is then the translator judging itself (#585).
 
 Translations and judgements are cached in ``data/eval/translation/``
 (``translations.jsonl``, ``judgements.jsonl``), so runs resume and new models
@@ -89,7 +91,7 @@ LANGUAGE_NAMES = {
 # Languages measured before deciding whether they get translation vectors
 # (docs/adding-a-language.md section 3). They are prompt names only: enrolling
 # a language means moving it to LANGUAGE_NAMES (and TRANSLATED_LANGUAGES).
-EVAL_LANGUAGES: dict[str, str] = {"arb": "Classical Arabic"}
+EVAL_LANGUAGES: dict[str, str] = {"arb": "Classical Arabic", "osx": "Old Saxon"}
 PROMPT_NAMES = {**LANGUAGE_NAMES, **EVAL_LANGUAGES}
 
 DEFAULT_DIR = Path("data/eval")
@@ -408,7 +410,8 @@ class Store:
 
 
 def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int | None,
-                workers: int, seed: int = 0) -> None:
+                workers: int, seed: int = 0, translators: tuple[str, ...] = TRANSLATORS,
+                judges: tuple[str, ...] = JUDGES) -> None:
     out_dir = eval_dir / "translation"
     out_dir.mkdir(parents=True, exist_ok=True)
     translations = Store(out_dir / "translations.jsonl")
@@ -419,8 +422,8 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
         for t in targets:
             per_lang[t["language"]].append(t)
         targets = [t for lang in langs for t in per_lang[lang][:limit]]
-    log.info("%d passages, %d translators, %d judges", len(targets), len(TRANSLATORS),
-             len(JUDGES))
+    log.info("%d passages, translators %s, judges %s", len(targets), ", ".join(translators),
+             ", ".join(judges))
     clients = Clients()
 
     def translate_one(job: tuple[str, dict]) -> None:
@@ -436,7 +439,7 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
         judge, t = job
         if judgements.get(judge, t["chunk_id"]):
             return
-        names = [n for n in TRANSLATORS if translations.get(n, t["chunk_id"])]
+        names = [n for n in translators if translations.get(n, t["chunk_id"])]
         rng = random.Random(f"{seed}:{judge}:{t['chunk_id']}")
         rng.shuffle(names)
         labels = dict(zip(string.ascii_uppercase, names, strict=False))
@@ -461,8 +464,8 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
                         "usage": usage})
 
     with ThreadPoolExecutor(workers) as pool:
-        list(pool.map(_safe(translate_one), [(n, t) for t in targets for n in TRANSLATORS]))
-        list(pool.map(_safe(judge_one), [(j, t) for t in targets for j in JUDGES]))
+        list(pool.map(_safe(translate_one), [(n, t) for t in targets for n in translators]))
+        list(pool.map(_safe(judge_one), [(j, t) for t in targets for j in judges]))
     summarize(out_dir)
 
 
@@ -478,11 +481,16 @@ def _safe(fn):
 def summarize(out_dir: Path) -> None:
     translations = Store(out_dir / "translations.jsonl")
     judgements = Store(out_dir / "judgements.jsonl")
+    # The models present, in the default order first (a run may use others, #585).
+    seen_t = {m for m, _ in translations.rows}
+    seen_j = {m for m, _ in judgements.rows}
+    translators = [n for n in MODELS if n in seen_t]
+    judges = [n for n in JUDGES if n in seen_j] + sorted(seen_j - set(JUDGES))
     usages = [r["usage"] for r in translations.rows.values()]
     usages += [r["usage"] for r in judgements.rows.values()]
     print(f"cost so far ${cost(usages):.2f} "
           f"({len(translations.rows)} translations, {len(judgements.rows)} judgements)")
-    for name in TRANSLATORS:
+    for name in translators:
         tr = [r["usage"] for (m, _), r in translations.rows.items() if m == name]
         if tr:
             print(f"  {name:6s} translation: ${cost(tr):.3f} for {len(tr)} passages "
@@ -500,8 +508,8 @@ def summarize(out_dir: Path) -> None:
     print("\nmean fidelity (1-5), translator × judge; (self) = judge scored its own work")
     print(f"{'translator':10s} {'judge':5s} "
           + " ".join(f"{g[0] + '/' + g[1][:4]:>9s}" for g in groups) + "  hallucinated")
-    for name in TRANSLATORS:
-        for judge in JUDGES:
+    for name in translators:
+        for judge in judges:
             vals = [cells.get((name, judge, *g)) for g in groups]
             if not any(vals):
                 continue
@@ -511,14 +519,15 @@ def summarize(out_dir: Path) -> None:
 
     pairs = []
     for (judge, cid), r in judgements.rows.items():
-        other = judgements.get(JUDGES[1], cid) if judge == JUDGES[0] else None
+        other = (judgements.get(judges[1], cid)
+                 if len(judges) > 1 and judge == judges[0] else None)
         if other:
             pairs += [(v["fidelity"], other["verdicts"][n]["fidelity"])
                       for n, v in r["verdicts"].items() if n in other["verdicts"]]
     if pairs:
         exact = sum(a == b for a, b in pairs) / len(pairs)
         within1 = sum(abs(a - b) <= 1 for a, b in pairs) / len(pairs)
-        print(f"\njudge agreement ({JUDGES[0]} vs {JUDGES[1]}, {len(pairs)} translations): "
+        print(f"\njudge agreement ({judges[0]} vs {judges[1]}, {len(pairs)} translations): "
               f"exact {exact:.2f}, within one point {within1:.2f}")
 
 
@@ -532,6 +541,10 @@ def main() -> None:
                    choices=list(PROMPT_NAMES))
     q.add_argument("--limit", type=int, help="at most N passages per language")
     q.add_argument("--workers", type=int, default=6)
+    q.add_argument("--translators", nargs="+", choices=list(MODELS), default=list(TRANSLATORS),
+                   help="translator models (default: %(default)s)")
+    q.add_argument("--judges", nargs="+", choices=list(MODELS), default=list(JUDGES),
+                   help="judge models (default: %(default)s); local-opus for no API cost")
     sub.add_parser("summary")
     p.add_argument("--eval-dir", type=Path, default=DEFAULT_DIR)
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
@@ -539,7 +552,8 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     if args.cmd == "quality":
-        run_quality(args.eval_dir, args.authored, args.langs, args.limit, args.workers)
+        run_quality(args.eval_dir, args.authored, args.langs, args.limit, args.workers,
+                    translators=tuple(args.translators), judges=tuple(args.judges))
     else:
         summarize(args.eval_dir / "translation")
 

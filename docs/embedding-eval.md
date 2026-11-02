@@ -50,75 +50,75 @@ Columns are language plus **S** (Scripture) or **U** (unique). Small cells (n = 
 
 ## Matrix: {language × embedder}
 
-The `arb U` column comes from Arabic's own one-language set (#483, "Arabic" below), the `oge S` / `oge U` columns from Old Georgian's (#529, "Old Georgian" below) and the `sga U` column from Old Irish's (#552, "Old Irish" below). They were measured later with BM25 and Voyage only, and are not in the mean. `–` means not measured.
+The `arb U` column comes from Arabic's own one-language set (#483, "Arabic" below), the `oge S` / `oge U` columns from Old Georgian's (#529, "Old Georgian" below) the `sga U` column from Old Irish's (#552, "Old Irish" below) and the `osx U` column from Old Saxon's (#585, "Old Saxon" below; ¹ with local-opus translations, not Sol's). They were measured later with BM25 and Voyage only, and are not in the mean. `–` means not measured.
 
 ### exact (R@1)
 
-| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | mean |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 (keyword) | 1.00 | 0.83 | 1.00 | 0.89 | 1.00 | 1.00 | 0.71 | 1.00 | 0.99 | 1.00 | 0.98 | 1.00 | 0.78 | 1.00 | 1.00 | 1.00 | 1.00 | **0.94** |
-| OpenAI text-embedding-3-large | 0.72 | 0.25 | 0.83 | 0.56 | 0.90 | 0.56 | 0.00 | 0.68 | 0.49 | 0.39 | 0.45 | 0.61 | 0.01 | – | – | – | – | **0.50** |
-| OpenAI text-embedding-3-large + Sol translations | 0.72 | 0.25 | 0.83 | 0.56 | 0.90 | 0.56 | 0.00 | 0.68 | 0.49 | 0.39 | 0.45 | 0.61 | 0.01 | – | – | – | – | **0.50** |
-| Voyage voyage-4-large | 0.74 | 0.46 | 0.91 | 0.61 | 0.95 | 0.86 | 0.25 | 0.85 | 0.75 | 0.93 | 0.86 | 0.95 | 0.22 | 0.79 | 0.80 | 0.92 | 0.93 | **0.72** |
-| Voyage voyage-4-large + Sol translations | 0.74 | 0.46 | 0.91 | 0.61 | 0.95 | 0.86 | 0.25 | 0.85 | 0.75 | 0.93 | 0.86 | 0.95 | 0.22 | 0.77 | 0.80 | 0.92 | 0.93 | **0.72** |
-| Cohere embed-v4.0 | 0.85 | 0.43 | 0.93 | 0.64 | 0.94 | 0.89 | 0.07 | 0.50 | 0.49 | 0.27 | 0.32 | 0.67 | 0.00 | – | – | – | – | **0.54** |
-| Cohere embed-v4.0 + Sol translations | 0.85 | 0.43 | 0.93 | 0.64 | 0.94 | 0.89 | 0.07 | 0.50 | 0.49 | 0.27 | 0.32 | 0.67 | 0.00 | – | – | – | – | **0.54** |
-| Gemini gemini-embedding-2 | 0.70 | 0.24 | 0.89 | 0.56 | 0.93 | 0.35 | 0.01 | 0.43 | 0.39 | 0.55 | 0.55 | 0.80 | 0.00 | – | – | – | – | **0.49** |
-| Gemini gemini-embedding-2 + Sol translations | 0.70 | 0.24 | 0.89 | 0.56 | 0.93 | 0.35 | 0.01 | 0.43 | 0.39 | 0.55 | 0.55 | 0.80 | 0.00 | – | – | – | – | **0.49** |
-| BGE-M3 (local) | 0.72 | 0.26 | 0.83 | 0.50 | 0.69 | 0.74 | 0.08 | 0.67 | 0.59 | 0.00 | 0.06 | 0.24 | 0.00 | – | – | – | – | **0.41** |
-| BGE-M3 (local) + Sol translations | 0.72 | 0.26 | 0.83 | 0.50 | 0.69 | 0.74 | 0.08 | 0.67 | 0.59 | 0.00 | 0.06 | 0.24 | 0.00 | – | – | – | – | **0.41** |
-| *n* | 100 | 100 | 99 | 98 | 96 | 100 | 100 | 100 | 100 | 98 | 99 | 100 | 69 | 100 | 50 | 50 | 80 | |
+| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | osx U | mean |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| BM25 (keyword) | 1.00 | 0.83 | 1.00 | 0.89 | 1.00 | 1.00 | 0.71 | 1.00 | 0.99 | 1.00 | 0.98 | 1.00 | 0.78 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | **0.94** |
+| OpenAI text-embedding-3-large | 0.72 | 0.25 | 0.83 | 0.56 | 0.90 | 0.56 | 0.00 | 0.68 | 0.49 | 0.39 | 0.45 | 0.61 | 0.01 | – | – | – | – | – | **0.50** |
+| OpenAI text-embedding-3-large + Sol translations | 0.72 | 0.25 | 0.83 | 0.56 | 0.90 | 0.56 | 0.00 | 0.68 | 0.49 | 0.39 | 0.45 | 0.61 | 0.01 | – | – | – | – | – | **0.50** |
+| Voyage voyage-4-large | 0.74 | 0.46 | 0.91 | 0.61 | 0.95 | 0.86 | 0.25 | 0.85 | 0.75 | 0.93 | 0.86 | 0.95 | 0.22 | 0.79 | 0.80 | 0.92 | 0.93 | 0.93 | **0.72** |
+| Voyage voyage-4-large + Sol translations | 0.74 | 0.46 | 0.91 | 0.61 | 0.95 | 0.86 | 0.25 | 0.85 | 0.75 | 0.93 | 0.86 | 0.95 | 0.22 | 0.77 | 0.80 | 0.92 | 0.93 | 0.93¹ | **0.72** |
+| Cohere embed-v4.0 | 0.85 | 0.43 | 0.93 | 0.64 | 0.94 | 0.89 | 0.07 | 0.50 | 0.49 | 0.27 | 0.32 | 0.67 | 0.00 | – | – | – | – | – | **0.54** |
+| Cohere embed-v4.0 + Sol translations | 0.85 | 0.43 | 0.93 | 0.64 | 0.94 | 0.89 | 0.07 | 0.50 | 0.49 | 0.27 | 0.32 | 0.67 | 0.00 | – | – | – | – | – | **0.54** |
+| Gemini gemini-embedding-2 | 0.70 | 0.24 | 0.89 | 0.56 | 0.93 | 0.35 | 0.01 | 0.43 | 0.39 | 0.55 | 0.55 | 0.80 | 0.00 | – | – | – | – | – | **0.49** |
+| Gemini gemini-embedding-2 + Sol translations | 0.70 | 0.24 | 0.89 | 0.56 | 0.93 | 0.35 | 0.01 | 0.43 | 0.39 | 0.55 | 0.55 | 0.80 | 0.00 | – | – | – | – | – | **0.49** |
+| BGE-M3 (local) | 0.72 | 0.26 | 0.83 | 0.50 | 0.69 | 0.74 | 0.08 | 0.67 | 0.59 | 0.00 | 0.06 | 0.24 | 0.00 | – | – | – | – | – | **0.41** |
+| BGE-M3 (local) + Sol translations | 0.72 | 0.26 | 0.83 | 0.50 | 0.69 | 0.74 | 0.08 | 0.67 | 0.59 | 0.00 | 0.06 | 0.24 | 0.00 | – | – | – | – | – | **0.41** |
+| *n* | 100 | 100 | 99 | 98 | 96 | 100 | 100 | 100 | 100 | 98 | 99 | 100 | 69 | 100 | 50 | 50 | 80 | 58 | |
 
 ### near (R@1)
 
-| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | mean |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 (keyword) | 1.00 | 0.83 | 1.00 | 0.89 | 1.00 | 1.00 | 0.71 | 1.00 | 0.99 | 1.00 | 0.98 | 1.00 | 0.78 | 1.00 | 1.00 | 1.00 | 1.00 | **0.94** |
-| OpenAI text-embedding-3-large | 0.60 | 0.13 | 0.81 | 0.52 | 0.81 | 0.50 | 0.00 | 0.64 | 0.46 | 0.38 | 0.24 | 0.52 | 0.00 | – | – | – | – | **0.43** |
-| OpenAI text-embedding-3-large + Sol translations | 0.60 | 0.13 | 0.81 | 0.52 | 0.81 | 0.50 | 0.00 | 0.64 | 0.46 | 0.38 | 0.24 | 0.52 | 0.00 | – | – | – | – | **0.43** |
-| Voyage voyage-4-large | 0.67 | 0.39 | 0.92 | 0.61 | 0.94 | 0.85 | 0.28 | 0.82 | 0.75 | 0.93 | 0.85 | 0.93 | 0.09 | 0.79 | 0.78 | 0.92 | 0.88 | **0.69** |
-| Voyage voyage-4-large + Sol translations | 0.67 | 0.39 | 0.92 | 0.61 | 0.94 | 0.85 | 0.28 | 0.82 | 0.75 | 0.93 | 0.85 | 0.93 | 0.09 | 0.77 | 0.78 | 0.92 | 0.88 | **0.69** |
-| Cohere embed-v4.0 | 0.73 | 0.36 | 0.93 | 0.64 | 0.69 | 0.87 | 0.05 | 0.48 | 0.45 | 0.24 | 0.18 | 0.60 | 0.00 | – | – | – | – | **0.48** |
-| Cohere embed-v4.0 + Sol translations | 0.73 | 0.36 | 0.93 | 0.64 | 0.69 | 0.87 | 0.05 | 0.48 | 0.45 | 0.24 | 0.18 | 0.60 | 0.00 | – | – | – | – | **0.48** |
-| Gemini gemini-embedding-2 | 0.39 | 0.02 | 0.88 | 0.48 | 0.79 | 0.13 | 0.00 | 0.14 | 0.19 | 0.53 | 0.44 | 0.66 | 0.00 | – | – | – | – | **0.36** |
-| Gemini gemini-embedding-2 + Sol translations | 0.39 | 0.02 | 0.88 | 0.48 | 0.79 | 0.13 | 0.00 | 0.14 | 0.19 | 0.53 | 0.44 | 0.66 | 0.00 | – | – | – | – | **0.36** |
-| BGE-M3 (local) | 0.52 | 0.15 | 0.79 | 0.50 | 0.44 | 0.71 | 0.05 | 0.70 | 0.61 | 0.00 | 0.00 | 0.16 | 0.00 | – | – | – | – | **0.36** |
-| BGE-M3 (local) + Sol translations | 0.52 | 0.15 | 0.79 | 0.50 | 0.44 | 0.71 | 0.05 | 0.69 | 0.61 | 0.00 | 0.00 | 0.16 | 0.00 | – | – | – | – | **0.36** |
-| *n* | 100 | 100 | 99 | 98 | 96 | 100 | 100 | 100 | 100 | 98 | 99 | 100 | 69 | 100 | 50 | 50 | 80 | |
+| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | osx U | mean |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| BM25 (keyword) | 1.00 | 0.83 | 1.00 | 0.89 | 1.00 | 1.00 | 0.71 | 1.00 | 0.99 | 1.00 | 0.98 | 1.00 | 0.78 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | **0.94** |
+| OpenAI text-embedding-3-large | 0.60 | 0.13 | 0.81 | 0.52 | 0.81 | 0.50 | 0.00 | 0.64 | 0.46 | 0.38 | 0.24 | 0.52 | 0.00 | – | – | – | – | – | **0.43** |
+| OpenAI text-embedding-3-large + Sol translations | 0.60 | 0.13 | 0.81 | 0.52 | 0.81 | 0.50 | 0.00 | 0.64 | 0.46 | 0.38 | 0.24 | 0.52 | 0.00 | – | – | – | – | – | **0.43** |
+| Voyage voyage-4-large | 0.67 | 0.39 | 0.92 | 0.61 | 0.94 | 0.85 | 0.28 | 0.82 | 0.75 | 0.93 | 0.85 | 0.93 | 0.09 | 0.79 | 0.78 | 0.92 | 0.88 | 0.93 | **0.69** |
+| Voyage voyage-4-large + Sol translations | 0.67 | 0.39 | 0.92 | 0.61 | 0.94 | 0.85 | 0.28 | 0.82 | 0.75 | 0.93 | 0.85 | 0.93 | 0.09 | 0.77 | 0.78 | 0.92 | 0.88 | 0.93¹ | **0.69** |
+| Cohere embed-v4.0 | 0.73 | 0.36 | 0.93 | 0.64 | 0.69 | 0.87 | 0.05 | 0.48 | 0.45 | 0.24 | 0.18 | 0.60 | 0.00 | – | – | – | – | – | **0.48** |
+| Cohere embed-v4.0 + Sol translations | 0.73 | 0.36 | 0.93 | 0.64 | 0.69 | 0.87 | 0.05 | 0.48 | 0.45 | 0.24 | 0.18 | 0.60 | 0.00 | – | – | – | – | – | **0.48** |
+| Gemini gemini-embedding-2 | 0.39 | 0.02 | 0.88 | 0.48 | 0.79 | 0.13 | 0.00 | 0.14 | 0.19 | 0.53 | 0.44 | 0.66 | 0.00 | – | – | – | – | – | **0.36** |
+| Gemini gemini-embedding-2 + Sol translations | 0.39 | 0.02 | 0.88 | 0.48 | 0.79 | 0.13 | 0.00 | 0.14 | 0.19 | 0.53 | 0.44 | 0.66 | 0.00 | – | – | – | – | – | **0.36** |
+| BGE-M3 (local) | 0.52 | 0.15 | 0.79 | 0.50 | 0.44 | 0.71 | 0.05 | 0.70 | 0.61 | 0.00 | 0.00 | 0.16 | 0.00 | – | – | – | – | – | **0.36** |
+| BGE-M3 (local) + Sol translations | 0.52 | 0.15 | 0.79 | 0.50 | 0.44 | 0.71 | 0.05 | 0.69 | 0.61 | 0.00 | 0.00 | 0.16 | 0.00 | – | – | – | – | – | **0.36** |
+| *n* | 100 | 100 | 99 | 98 | 96 | 100 | 100 | 100 | 100 | 98 | 99 | 100 | 69 | 100 | 50 | 50 | 80 | 58 | |
 
 ### paraphrase (R@3)
 
-| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | mean |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 (keyword) | 0.00 | 0.00 | 0.10 | 0.17 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.11 | **0.02** |
-| OpenAI text-embedding-3-large | 1.00 | 0.89 | 1.00 | 1.00 | 1.00 | 0.05 | 0.05 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | – | – | – | – | **0.38** |
-| OpenAI text-embedding-3-large + Sol translations | 1.00 | 0.89 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | – | – | – | – | **0.98** |
-| Voyage voyage-4-large | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | 0.70 | 0.85 | 0.15 | 0.07 | 0.00 | 0.00 | 0.45 | 0.00 | 0.97 | 0.82 | 0.80 | 0.47 | **0.55** |
-| Voyage voyage-4-large + Sol translations | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | **0.99** |
-| Cohere embed-v4.0 | 1.00 | 0.74 | 1.00 | 1.00 | 0.50 | 0.20 | 0.25 | 0.05 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | – | – | – | – | **0.36** |
-| Cohere embed-v4.0 + Sol translations | 1.00 | 0.74 | 1.00 | 1.00 | 0.50 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | – | – | – | – | **0.94** |
-| Gemini gemini-embedding-2 | 1.00 | 0.84 | 1.00 | 1.00 | 1.00 | 0.90 | 0.95 | 1.00 | 0.93 | 0.50 | 0.50 | 1.00 | 0.35 | – | – | – | – | **0.84** |
-| Gemini gemini-embedding-2 + Sol translations | 1.00 | 0.84 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.55 | – | – | – | – | **0.95** |
-| BGE-M3 (local) | 0.85 | 0.89 | 1.00 | 0.94 | 0.55 | 0.80 | 0.90 | 0.40 | 0.53 | 0.00 | 0.06 | 0.00 | 0.00 | – | – | – | – | **0.53** |
-| BGE-M3 (local) + Sol translations | 0.85 | 0.89 | 1.00 | 0.94 | 0.55 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | – | – | – | – | **0.94** |
-| *n* | 20 | 19 | 20 | 18 | 20 | 20 | 20 | 20 | 15 | 20 | 16 | 20 | 20 | 100 | 50 | 50 | 80 | |
+| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | osx U | mean |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| BM25 (keyword) | 0.00 | 0.00 | 0.10 | 0.17 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.11 | 0.07 | **0.02** |
+| OpenAI text-embedding-3-large | 1.00 | 0.89 | 1.00 | 1.00 | 1.00 | 0.05 | 0.05 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | – | – | – | – | – | **0.38** |
+| OpenAI text-embedding-3-large + Sol translations | 1.00 | 0.89 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | – | – | – | – | – | **0.98** |
+| Voyage voyage-4-large | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | 0.70 | 0.85 | 0.15 | 0.07 | 0.00 | 0.00 | 0.45 | 0.00 | 0.97 | 0.82 | 0.80 | 0.47 | 0.33 | **0.55** |
+| Voyage voyage-4-large + Sol translations | 1.00 | 1.00 | 1.00 | 1.00 | 0.90 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.98¹ | **0.99** |
+| Cohere embed-v4.0 | 1.00 | 0.74 | 1.00 | 1.00 | 0.50 | 0.20 | 0.25 | 0.05 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | – | – | – | – | – | **0.36** |
+| Cohere embed-v4.0 + Sol translations | 1.00 | 0.74 | 1.00 | 1.00 | 0.50 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | – | – | – | – | – | **0.94** |
+| Gemini gemini-embedding-2 | 1.00 | 0.84 | 1.00 | 1.00 | 1.00 | 0.90 | 0.95 | 1.00 | 0.93 | 0.50 | 0.50 | 1.00 | 0.35 | – | – | – | – | – | **0.84** |
+| Gemini gemini-embedding-2 + Sol translations | 1.00 | 0.84 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.55 | – | – | – | – | – | **0.95** |
+| BGE-M3 (local) | 0.85 | 0.89 | 1.00 | 0.94 | 0.55 | 0.80 | 0.90 | 0.40 | 0.53 | 0.00 | 0.06 | 0.00 | 0.00 | – | – | – | – | – | **0.53** |
+| BGE-M3 (local) + Sol translations | 0.85 | 0.89 | 1.00 | 0.94 | 0.55 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | – | – | – | – | – | **0.94** |
+| *n* | 20 | 19 | 20 | 18 | 20 | 20 | 20 | 20 | 15 | 20 | 16 | 20 | 20 | 100 | 50 | 50 | 80 | 57 | |
 
 ### topical (R@100)
 
-| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | mean |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 (keyword) | 0.00 | 0.00 | 0.20 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.09 | **0.02** |
-| OpenAI text-embedding-3-large | 0.90 | 0.89 | 0.90 | 0.94 | 0.85 | 0.15 | 0.05 | 0.10 | 0.00 | 0.00 | 0.00 | 0.10 | 0.10 | – | – | – | – | **0.38** |
-| OpenAI text-embedding-3-large + Sol translations | 0.90 | 0.89 | 0.90 | 0.94 | 0.85 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.94 | 0.90 | 1.00 | – | – | – | – | **0.94** |
-| Voyage voyage-4-large | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.80 | 0.90 | 0.30 | 0.40 | 0.05 | 0.19 | 0.50 | 0.45 | 0.97 | 0.80 | 0.86 | 0.38 | **0.66** |
-| Voyage voyage-4-large + Sol translations | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.94 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | **0.99** |
-| Cohere embed-v4.0 | 0.30 | 0.74 | 0.70 | 1.00 | 0.40 | 0.25 | 0.40 | 0.10 | 0.00 | 0.00 | 0.06 | 0.05 | 0.15 | – | – | – | – | **0.32** |
-| Cohere embed-v4.0 + Sol translations | 0.30 | 0.74 | 0.70 | 1.00 | 0.40 | 1.00 | 1.00 | 0.85 | 1.00 | 0.90 | 1.00 | 0.90 | 1.00 | – | – | – | – | **0.83** |
-| Gemini gemini-embedding-2 | 1.00 | 0.89 | 1.00 | 0.94 | 0.95 | 0.95 | 0.85 | 0.95 | 1.00 | 0.70 | 0.44 | 0.90 | 0.65 | – | – | – | – | **0.86** |
-| Gemini gemini-embedding-2 + Sol translations | 1.00 | 0.89 | 1.00 | 0.94 | 0.95 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.94 | 0.95 | 0.85 | – | – | – | – | **0.96** |
-| BGE-M3 (local) | 0.45 | 0.74 | 0.80 | 0.89 | 0.50 | 0.40 | 0.55 | 0.40 | 0.47 | 0.00 | 0.12 | 0.00 | 0.00 | – | – | – | – | **0.41** |
-| BGE-M3 (local) + Sol translations | 0.45 | 0.74 | 0.80 | 0.89 | 0.50 | 0.55 | 1.00 | 0.90 | 1.00 | 0.75 | 0.81 | 0.65 | 0.95 | – | – | – | – | **0.77** |
-| *n* | 20 | 19 | 20 | 18 | 20 | 20 | 20 | 20 | 15 | 20 | 16 | 20 | 20 | 100 | 50 | 50 | 80 | |
+| retriever | grc S | grc U | lat S | lat U | hbo S | hye S | hye U | gez S | gez U | cop S | cop U | syc S | syc U | arb U | oge S | oge U | sga U | osx U | mean |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| BM25 (keyword) | 0.00 | 0.00 | 0.20 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.09 | 0.11 | **0.02** |
+| OpenAI text-embedding-3-large | 0.90 | 0.89 | 0.90 | 0.94 | 0.85 | 0.15 | 0.05 | 0.10 | 0.00 | 0.00 | 0.00 | 0.10 | 0.10 | – | – | – | – | – | **0.38** |
+| OpenAI text-embedding-3-large + Sol translations | 0.90 | 0.89 | 0.90 | 0.94 | 0.85 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.94 | 0.90 | 1.00 | – | – | – | – | – | **0.94** |
+| Voyage voyage-4-large | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.80 | 0.90 | 0.30 | 0.40 | 0.05 | 0.19 | 0.50 | 0.45 | 0.97 | 0.80 | 0.86 | 0.38 | 0.39 | **0.66** |
+| Voyage voyage-4-large + Sol translations | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.94 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.95 | 0.93¹ | **0.99** |
+| Cohere embed-v4.0 | 0.30 | 0.74 | 0.70 | 1.00 | 0.40 | 0.25 | 0.40 | 0.10 | 0.00 | 0.00 | 0.06 | 0.05 | 0.15 | – | – | – | – | – | **0.32** |
+| Cohere embed-v4.0 + Sol translations | 0.30 | 0.74 | 0.70 | 1.00 | 0.40 | 1.00 | 1.00 | 0.85 | 1.00 | 0.90 | 1.00 | 0.90 | 1.00 | – | – | – | – | – | **0.83** |
+| Gemini gemini-embedding-2 | 1.00 | 0.89 | 1.00 | 0.94 | 0.95 | 0.95 | 0.85 | 0.95 | 1.00 | 0.70 | 0.44 | 0.90 | 0.65 | – | – | – | – | – | **0.86** |
+| Gemini gemini-embedding-2 + Sol translations | 1.00 | 0.89 | 1.00 | 0.94 | 0.95 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0.94 | 0.95 | 0.85 | – | – | – | – | – | **0.96** |
+| BGE-M3 (local) | 0.45 | 0.74 | 0.80 | 0.89 | 0.50 | 0.40 | 0.55 | 0.40 | 0.47 | 0.00 | 0.12 | 0.00 | 0.00 | – | – | – | – | – | **0.41** |
+| BGE-M3 (local) + Sol translations | 0.45 | 0.74 | 0.80 | 0.89 | 0.50 | 0.55 | 1.00 | 0.90 | 1.00 | 0.75 | 0.81 | 0.65 | 0.95 | – | – | – | – | – | **0.77** |
+| *n* | 20 | 19 | 20 | 18 | 20 | 20 | 20 | 20 | 15 | 20 | 16 | 20 | 20 | 100 | 50 | 50 | 80 | 57 | |
 
 ## Cost and vector size: OpenAI vs Voyage
 
@@ -394,6 +394,52 @@ By text (all queries, n = 20 each, paraphrase R@3 / topical R@100):
 **Decision, owner, 2026-11-01: `sga` gets translation vectors** (`TRANSLATED_LANGUAGES`): Sol in the pipeline, the first batch (the publishable Würzburg glosses and Gloss Corpus Félire) translated on local-opus. The recommendation: native retrieval is far below #84's bar (paraphrase R@3 0.47 against ≈ 0.95, topical R@100 0.38 against ≈ 0.9), well below Old Georgian (0.80 / 0.86) and Church Slavonic, and Sol translations bring it to 1.00 / 0.95. Since Opus translates Old Irish better than Sol (4.35 against 3.98, cross-judged), the first batch was made on local-opus, as the Georgian one was. Old Irish is embedded in its stored spelling.
 
 - **Cost:** review $1.14, translation-quality eval $3.21, Sol translation $3.95, Voyage about $0.06 (≤ 0.34M cl100k tokens at list price).
+
+## Old Saxon (`osx`, #585)
+
+Measured on 2026-11-02, BM25 and Voyage `voyage-4-large` only, with the Old Irish method (`scripts.embed_eval.langset`), on master with ReA 1.2 (#567): 8 works and 6,397 units, 94% of them the *Heliand*. The owner allowed no paid API but Voyage for this eval, so everything Claude did ran on `local-opus` (the Claude subscription), and the Sol steps were adapted or skipped (below).
+
+**The set:** `data/eval/osx` has 2,162 Old Saxon chunks: 60 targets (`--scripture-per-lang 0 --unique-per-lang 60`, seed 0), their ±2 neighbours and 1,925 distractors. There is no Old Saxon Scripture, so every target is `unique`, drawn from three pools of 20 (`select.UNIQUE_POOLS["osx"]`): the *Heliand*, the *Genesis*, and the minor texts (the Bede homily, the confession, the two baptismal vows, the Gernrode Psalm commentary and the creed). Three targets were left without queries: a *Genesis* line next to another target, the creed (the same text as a Cologne baptismal vow target) and a Latin rubric. That leaves n = 20 / 19 / 18.
+- **A *Heliand* or *Genesis* unit is one verse line**, 44 characters on average (#586): *Sîmon Petrus: sprak sân angegin*. A line is often a fragment of a sentence, and its ±2 neighbours, which are in the set as hard negatives, belong to the same sentence.
+
+**The queries** (`data/eval_authored/osx.jsonl`): Claude drafted 57 targets × 2 English queries from the Old Saxon. Opus reviewed them once (`review --reviewer local-opus`; the drafter's own model family, not an independent vendor). It corrected 71 of the 114, mostly by cutting a *Heliand* or *Genesis* query down to its one line. The committed file holds the corrected queries, and the matrices above use them.
+
+| Queries | Retriever | Paraphrase R@3 | Topical R@100 | Topical R@1 |
+|---|---|---:|---:|---:|
+| drafts (57/57) | BM25 | 0.05 | 0.11 | 0.02 |
+| drafts (57/57) | native | 0.19 | 0.26 | 0.09 |
+| drafts (57/57) | + local-opus translations | 0.72 | 0.81 | 0.30 |
+| passing (20/23) | native | 0.40 | 0.35 | 0.17 |
+| passing (20/23) | + local-opus translations | 1.00 | 0.91 | 0.52 |
+| corrected (57/57) | BM25 | 0.07 | 0.11 | 0.04 |
+| corrected (57/57) | native | 0.33 | 0.39 | 0.11 |
+| corrected (57/57) | + local-opus translations | 0.98 | 0.93 | 0.54 |
+
+Native paraphrase R@3 moves by 0.21 between the variants (`review compare`), so the drafts and the corrections disagree. The two variants still lead to the same decision: every native cell is far below the bar.
+
+By pool (corrected queries, paraphrase R@3 / topical R@100):
+
+| Pool | n | Native | + local-opus translations |
+|---|---:|---|---|
+| *Heliand* | 20 | 0.25 / 0.35 | 0.95 / 0.85 |
+| *Genesis* | 19 | 0.32 / 0.37 | 1.00 / 0.95 |
+| Minor texts | 18 | 0.44 / 0.44 | 1.00 / 1.00 |
+
+- **Native Voyage barely reads Old Saxon.** That holds even when any line within ±2 of the target counts as a hit (paraphrase R@3 0.37, topical R@100 0.53).
+- **The drafts score lower with translations (0.72 / 0.81)** because they describe the sentence or the scene, so a neighbouring line often wins. With a hit within ±2 lines counted, the corrected queries reach 1.00 / 1.00.
+- **Quotes:** BM25 is 1.00 on exact and near-verbatim spans. Voyage gets 0.93 / 0.93 at R@1, with or without translations.
+- **Gospel competition:** the *Heliand* and *Genesis* retell Scripture, so a second set (`osx-gospels`, scratch) added 31,207 verses: Genesis, the Psalms and the four Gospels in WEB, KJV, the Clementine Vulgate, SBLGNT and the LXX. A Scripture hit counts as a miss: it is not in the target's relevance set. Unfiltered, native retrieval falls further, from 0.33 / 0.39 to 0.16 / 0.16, as the English and Latin verses take the top ranks. With translations it holds at 0.93 / 0.86. Filtered to Old Saxon, as a reader who picks the language would search, the scores are those above. The queries keep to the poem's own framing (lines and wording), not the Gospel verse, so that a paraphrase of the line, not of the Gospel, is what is measured.
+
+**Translation quality** (`translate quality --langs osx --translators local-opus --judges local-opus`, all 57 targets). Two-vendor blind judging needs Sol, so it was skipped, and Sonnet and Haiku (paid API) weren't run. Opus judged its own translations, so this is a self-judgement and reads high (compare Old Irish: Opus 4.55 self-judged, 4.35 by Sol):
+- fidelity **4.58** (*Heliand* 4.75, *Genesis* 4.63, minor texts 4.33);
+- 0 hallucinations; 18 mistranslations, 9 additions and 7 omissions flagged across the 57;
+- the judge read 45 originals well, 10 partly and 2 poorly (the Gernrode fragments).
+
+**Spot check:** Claude compared 15 translations with the Old Saxon. They were faithful, with no hallucinations, apart from slips caused by one-line units: *Lâte man sia forð hinan* rendered "let them be sent forth from here" (the verb *uuahsan*, "grow", is on the next line), and *giungarduom* ("service") rendered "discipleship" with a `[?]`. Opus marks gaps with `[?]` and bracketed glosses ([Phocas?] for the Bede homily's emperor).
+
+**Recommendation (not yet decided):** enrol `osx` in `TRANSLATED_LANGUAGES`. Native retrieval is far below #84's bar (paraphrase R@3 0.33 against ≈ 0.95, topical R@100 0.39 against ≈ 0.9): at Old Irish's level when it was enrolled (0.47 / 0.38) and far below Old Georgian (0.82 / 0.80). With local-opus translations the scores are 0.98 / 0.93. Enrolling means translating all **6,397** units (`scripts.translate --dry-run`: 262 requests, $8.96 with Sol, or free on local-opus) and embedding a second vector for each.
+
+- **Cost:** Voyage about $0.30 (about 1.65M cl100k tokens, most of it the Scripture of `osx-gospels`). Review, translation-quality eval and the translation of the set's 2,162 chunks ran on local-opus at no API cost: 262 requests, which took the 5-hour window from 30% to 69%, together with the sibling evals.
 
 ## Not evaluated
 

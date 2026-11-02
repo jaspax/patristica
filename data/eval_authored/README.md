@@ -111,3 +111,26 @@ glosses whose reading is uncertain.
 **Review of `sga.jsonl` (#87 method, GPT-6.1 Sol, one pass, 2026-11-01).**
 - 115 pass and 45 corrected (29 paraphrases, mostly a misread clause; 16 topical queries, 9 of them as too narrow; the draft kept in `drafted_text`).
 - Paraphrase accuracy averaged 4.20 and topical relevance 4.61. Sol read 34 originals well and 46 partly: Old Irish verse and the diplomatic Félire are hard for it too.
+
+**Old Saxon (#585).** `osx.jsonl`: drafted by Claude on 2026-11-02 from the
+Old Saxon text (ReA 1.2, #567), never from an English version: 57 targets,
+each with one English paraphrase and one English topical query. There is no
+Old Saxon Scripture, so every target is `unique`. The targets are the
+one-language set `scripts.embed_eval.langset osx --scripture-per-lang 0
+--unique-per-lang 60` (seed 0), 20 from each pool of `UNIQUE_POOLS["osx"]`,
+with three skipped:
+- **Heliand (20):** one long line each, from 17 fitts (the census, the shepherds, the Magi, the baptism, the temptation, the Sermon on the Mount, Cana, the sower, the tares, Peter's confession, the rich man and Lazarus, Martha, the Last Judgement, the Last Supper, the arrest);
+- **Genesis (19):** Cain and Abel, Enoch and the Antichrist, Abraham and Sodom. `AsGen.2.642` was skipped: it is the line after the target `AsGen.2.641`, in the same sentence;
+- **Minor texts (18):** the Bede homily, the confession, the two baptismal vows and the Gernrode Psalm commentary. Skipped: the creed (`GB.1`), which is the same text as the target `KT.1.s4`, and `KT.1.s5`, which is mostly a Latin rubric.
+
+A *Heliand* or *Genesis* unit is one verse line (44 characters on average,
+#586), so the drafts described the sentence around the line. 5 targets are
+`medium` confidence, 4 of them OCR-damaged Gernrode fragments.
+
+**Review of `osx.jsonl` (#87 method, Claude Opus 5.5 via `--reviewer
+local-opus`, one pass, 2026-11-02).** The owner allowed no paid API for this
+eval, so the reviewer is the drafter's own model family, not an independent
+vendor.
+- 43 pass and 71 corrected (37 paraphrases, 34 topical queries; the draft kept in `drafted_text`). Almost every correction cuts a *Heliand* or *Genesis* query down to its one line: the reviewer counts words taken from the neighbouring lines as additions. 23 topical queries were rated too narrow, mostly because they named the Gospel scene.
+- Paraphrase accuracy averaged 3.28 (Heliand 2.50, Genesis 2.68, minor texts 4.78), and topical relevance 3.86. Opus read 44 originals well and 13 partly.
+- Rerunning retrieval moved native Voyage's paraphrase R@3 from 0.19 (drafts) to 0.33 (corrected) and 0.40 (the 20 passing). The decision is the same with every variant.

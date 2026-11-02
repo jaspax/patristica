@@ -93,6 +93,14 @@ UNIQUE_POOLS: dict[str, dict[str, tuple[str, ...]]] = {
         ),
         "celt-verse": ("celt/",),
     },
+    # Old Saxon (#585): no Scripture; the Heliand is 94 % of the units, so it
+    # gets one pool, the Genesis another, and the short prose texts (Bede
+    # homily, Psalm commentary, confession, creed, baptismal vows) the third.
+    "osx": {
+        "heliand": ("rea/heliand",),
+        "genesis": ("rea/genesis",),
+        "minor": ("rea/",),
+    },
 }
 
 MIN_CHARS = 30
