@@ -59,6 +59,7 @@ SOURCE_LABELS: dict[str, str] = {
     "titus-shatberdi": "Shatberdi Codex (Old Georgian, TITUS)",
     "titus-translations": "Old Georgian translations of the Fathers (TITUS)",
     "torot": "TOROT (Old Church Slavonic Treebank)",
+    "rea": "Referenzkorpus Altdeutsch (ReA 1.2: Old High German and Old Saxon)",
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "wikisource-oge": "Old Georgian texts (Georgian Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",

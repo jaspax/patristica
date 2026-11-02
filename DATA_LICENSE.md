@@ -25,7 +25,10 @@ period flags. In particular:
 - **CC BY-SA 3.0** (Unported): stays CC BY-SA 3.0. One Coptic Scriptorium
   work, the Canons of Apa Johannes (#382).
 - **CC BY-NC 4.0, CC BY-NC-SA 4.0 and CC BY-NC-SA 3.0**: non-commercial use
-  only. CC BY-NC-SA 3.0 (Unported) is one PTA edition (#366).
+  only. CC BY-NC-SA 3.0 (Unported) is one PTA edition (#366) and the Referenzkorpus
+  Altdeutsch (#567), whose corpus header reads "Open Source Projekt, CC-BY-NC-SA 3.0.";
+  each `rea` work's `edition` credits ReA 1.2 (Humboldt-Universität zu Berlin et al.)
+  and the printed edition it follows.
 - **Custom terms** (`academic-noncommercial`): the source's own terms apply.
 - **`used-with-permission`**: the rights holder gave Patristica permission to
   include the text, on the terms recorded under "Used with permission" below
@@ -49,7 +52,7 @@ The corpus breaks down as follows (late October 2026, by chunks):
 | CC BY-NC 4.0 | 1.5% | CURSUS, PTA Peshitta |
 | CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr), the Old Irish *Félire Óengusso* (Gloss Corpus, P. Moran) |
 | Academic, non-commercial | 0.3% | SBL Greek New Testament, Wulfila Gothic Bible |
-| CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`) |
+| CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`), the Referenzkorpus Altdeutsch (Old High German and Old Saxon, #567) |
 | Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
 | CC BY-SA 3.0 | <0.1% | Coptic Scriptorium's Canons of Apa Johannes |
 
