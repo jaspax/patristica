@@ -193,8 +193,8 @@ def _raw(slug: str) -> dict | None:
 
 @pytest.mark.parametrize("slug,key,first,count", [
     ("tatian", "verses", "Tat.0", 1598),
-    ("heliand", "verses", "Hel.1.1", 6001),
-    ("otfrid", "verses", "Otfr.L", 7703),
+    ("heliand", "paragraphs", "Hel.1.1", 306),
+    ("otfrid", "paragraphs", "Otfr.L", 3995),
     ("notker-psalter", "paragraphs", "NPs.1.8", 677),
 ])
 def test_raw_files(slug: str, key: str, first: str, count: int) -> None:
@@ -220,3 +220,109 @@ def test_benedictine_rule_chapters_and_gaps() -> None:
     latin = read_subcorpus(_tables({"B_61_J": {"edition": ["Si", "quis", "."]}}, {"language": "lat."}))
     assert build_units(next(t for t in TEXTS if t.slug == "benedictine-rule-lat"), latin) == [
         {"ref": "RB.61", "text": "Si quis."}]
+
+
+# --- Verse units (#586) -----------------------------------------------------------------
+
+def _lines(*texts: str, first: int = 1) -> list[rea.Unit]:
+    """Line units ``X.{n}`` from whitespace-separated tokens."""
+    return [rea.Unit(f"X.{n}", t.split(), str(n)) for n, t in enumerate(texts, start=first)]
+
+
+def _texts(units: list[rea.Unit]) -> list[tuple[str, str]]:
+    return [(u.ref, rea.assemble_unit(u)[0]) for u in units]
+
+
+def test_sentence_units_run_to_a_line_that_ends_a_sentence() -> None:
+    # Heliand 3-7 as ReA has them: sentences end at the caesura, mid-line.
+    lines = _lines("reckean that girûni , that thie rîceo Crist",
+                   "undar mancunnea mâriða gifrumida",
+                   "mid uuordun endi mid uuercun . That uuolda thô uuîsara filo",
+                   "liudo barno loƀon , lêra Cristes .",
+                   "frummian , firiho barn . Than uuârun thoh sia fiori te thiu", first=3)
+    assert _texts(rea.sentence_units(lines)) == [
+        ("X.3", "reckean that girûni, that thie rîceo Crist undar mancunnea mâriða gifrumida "
+                "mid uuordun endi mid uuercun. That uuolda thô uuîsara filo liudo barno loƀon, "
+                "lêra Cristes."),
+        ("X.7", "frummian, firiho barn. Than uuârun thoh sia fiori te thiu"),
+    ]
+
+
+def test_sentence_end_ignores_closing_quotes_and_keeps_headings_apart() -> None:
+    heading = rea.Unit("X", ["I"])
+    lines = _lines('quað he : " uuela', 'uuesan . "', "Thô geng he")
+    assert [u.ref for u in rea.sentence_units([heading, *lines])] == ["X", "X.1", "X.3"]
+
+
+def test_lacuna_across_a_line_join_keeps_its_offsets() -> None:
+    lines = _lines("Manega uuâron * *", "* * that sia bigunnun .", "* *", "uuord godes .")
+    units = rea.sentence_units(lines)
+    body, spans = rea.assemble_unit(units[0])
+    assert body == f"Manega uuâron {LACUNA} {LACUNA} that sia bigunnun."
+    assert spans == [[14, 17, "lacuna"], [18, 21, "lacuna"]]
+    assert all(body[s:e] == LACUNA for s, e, _ in spans)
+    # A line that is only a lacuna stays in its unit.
+    body, spans = rea.assemble_unit(units[1])
+    assert (units[1].ref, body, spans) == ("X.3", f"{LACUNA} uuord godes.", [[0, 3, "lacuna"]])
+    assert editorial.source_text({"text": body, "editorial": spans}) == "uuord godes."
+
+
+def test_grouped_text_is_the_lines_joined() -> None:
+    # Each line is assembled as it was when every line was a unit, joined with a space.
+    lines = _lines('sprac he " ja', 'Ni uuis thu " , quað he .')
+    grouped = rea.sentence_units(lines)
+    assert _texts(grouped) == [("X.1", " ".join(assemble(line.tokens)[0] for line in lines))]
+    assert _texts(grouped)[0][1] == 'sprac he "ja Ni uuis thu ", quað he.'
+
+
+def test_otfrid_couplets() -> None:
+    title = rea.Unit("Otfr.1.1", ["I", ".", "CUR", "SCRIPTOR"])
+    lines = _lines("Was líuto filu in flíze , in managemo ágaleize ,",
+                   "sie thaz in scríp gicleiptin , thaz sie iro námon breittin ;",
+                   "Sie thés in io gilícho flizzun gúallicho ,",
+                   "in búachon man giméinti thio iro chúanheiti .")
+    units = rea.couplet_units([title, *lines], "O_Otfr.Ev.1.1")
+    assert [u.ref for u in units] == ["Otfr.1.1", "X.1", "X.3"]
+    assert _texts(units)[1][1] == ("Was líuto filu in flíze, in managemo ágaleize, sie thaz in scríp "
+                                   "gicleiptin, thaz sie iro námon breittin;")
+    with pytest.raises(ReAError, match="couplets"):
+        rea.couplet_units(lines[:3], "odd")
+
+
+def test_rhymed_strophes_keep_triplets_and_refrains() -> None:
+    # Ludwigslied 1-2 and 33-35: a couplet, and a three-line strophe kept whole.
+    lud = _lines("Einan kuning uueiz ih , Heizsit her Hluduig ,",
+                 "Ther gerno gode thionot : Ih uueiz her imos lonot .",
+                 "Hera santa mih god Ioh mir selbo gibod ,",
+                 "Ob hiu rat thuhti , Thaz ih hier geuuhti ,",
+                 "Mih selbon nisparoti , Uncih hiu gineriti .")
+    assert [u.ref for u in rea.strophe_units()(lud)] == ["X.1", "X.3"]
+    # Petruslied: two lines and the Kyrie refrain.
+    petr = _lines("Unsar trohtin hat farsalt sancte Petre giuualt ,",
+                  "daz er mac ginerian ze imo dingenten man .",
+                  "Kyrie eleyson , Christe eleyson .",
+                  "Er hapet ouh mit uuortun himilriches portun :",
+                  "dar in mach er skerian den er uuili nerian .",
+                  "Kirie eleison , Christe eleyson .")
+    units = rea.strophe_units(rea._PETR_REFRAIN)(petr)
+    assert [u.ref for u in units] == ["X.1", "X.4"]
+    assert _texts(units)[0][1].endswith("dingenten man. Kyrie eleyson, Christe eleyson.")
+
+
+def test_printed_strophe_number_starts_a_unit_and_is_dropped() -> None:
+    lines = _lines("1 . Gorio vuor zi mahalo ,", "vona dero marko .", "vuor er zi demo ringe ,",
+                   "2 . Dô spuonun inan alla kuninga :", "woltôn si inan irkêren .")
+    assert _texts(rea.strophe_units()(lines)) == [
+        ("X.1", "Gorio vuor zi mahalo, vona dero marko."), ("X.3", "vuor er zi demo ringe,"),
+        ("X.4", "Dô spuonun inan alla kuninga: woltôn si inan irkêren.")]
+
+
+def test_verse_works_are_grouped_and_prose_is_not() -> None:
+    by_slug = {t.slug: t for t in TEXTS}
+    for slug in ("heliand", "genesis", "otfrid", "muspilli", "ludwigslied", "georgslied", "petruslied"):
+        assert not by_slug[slug].as_verses, slug  # paragraphs: normalize cuts long units
+    for slug in ("tatian", "murbach-hymns", "murbach-hymns-lat"):
+        assert by_slug[slug].as_verses, slug
+    # Prose builds no grouped units.
+    docs = _docs({"B_1": {"edition": ["fona", "chunnum", "."], "spans": [("chapter", 0, 2, "1")]}})
+    assert all(u.lines is None for u in by_slug["benedictine-rule"].build(docs))

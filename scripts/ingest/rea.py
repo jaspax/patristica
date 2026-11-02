@@ -50,12 +50,32 @@ Units and references
 --------------------
 Refs follow the editions' numbering, each work with its own prefix:
 
-- verse and verse-numbered texts are ingested as ``verses`` (no derived verses):
-  Tatian by Sievers's chapter and verse (``Tat.12.3``; the prologue is chapter 0),
-  the *Heliand* by fitt and line (``Hel.1.1``), the *Genesis* by fragment and line,
-  Otfrid by book, chapter and line (``Otfr.1.1.1``; the dedications ``Otfr.L.n``,
-  ``Otfr.S.n``, ``Otfr.H.n``, each book's Latin capitula ``Otfr.{book}.0.n``), the
-  Murbach Hymns by hymn and strophe, the minor poems by line;
+- verse-numbered texts are ingested as ``verses`` (no derived verses): Tatian by
+  Sievers's chapter and verse (``Tat.12.3``; the prologue is chapter 0) and the
+  Murbach Hymns by hymn and strophe (both sides of a bilingual pair, kept as units);
+- the poems are ingested as ``paragraphs``, their lines grouped (#586) into units at the
+  edition's number of the unit's first line, which normalize cuts into derived verses
+  where they are long. ReA's lines are the editions' long lines, so a scholar's line
+  number falls in the unit whose first line is the last one at or before it:
+
+  - alliterative and unrhymed verse by the ASPR rule (``scripts/ingest/aspr.py``, #572;
+    :func:`sentence_units`): a unit runs from a line to the next line that *ends* a
+    sentence, since sentences often end at the caesura. The *Heliand* by fitt and first
+    line (``Hel.{fitt}.{line}``; Behaghel's lines run on through the poem, 1–5983, and a
+    fitt may start mid-line, so such a line ends one fitt and opens the next one's first
+    unit), the *Genesis* by fragment and line (``AsGen.{fragment}.{line}``), *Muspilli*,
+    the *Wessobrunn Prayer*, the *Augsburg Prayer* (its Latin collect, then the rhymed
+    German) and the *Carmen ad Deum* (an interlinear gloss);
+  - Otfrid by couplet (:func:`couplet_units`): one unit per strophe of two long lines,
+    ``Otfr.{book}.{chapter}.{odd line}``, and so the dedications (``Otfr.L``/``S``/``H.{line}``,
+    whose acrostic and telestich run by these strophes); each book's Latin capitula stay
+    one unit each (``Otfr.{book}.0.{n}``), and the chapter titles units of their own;
+  - the other rhymed poems by strophe (:func:`strophe_units`): a unit is at least a
+    couplet and runs on to the next line that ends a sentence, so that their three-line
+    strophes stay whole, and a refrain closes its strophe (the *Petruslied*'s Kyrie, the
+    *Georgslied*'s "Daz giteta selbo … Gorio"); a strophe number the edition prints
+    (Tschirch's *Georgslied*) always starts a unit. The *Ludwigslied*, *Georgslied*,
+    *Petruslied*, *Christus und die Samariterin* and *Psalm 138*;
 - prose is ingested as ``paragraphs`` (split into derived verses by normalize): the
   Isidor by chapter and section, Notker's Psalter by psalm and page of Tax's edition
   (``NPs.1.9``), the *Cantica* by canticle and page, the Boethius by book and ReA's
@@ -320,6 +340,11 @@ def assemble(tokens: Iterable[str], *, join_hyphens: bool = False,
 class Unit:
     ref: str
     tokens: list[str] = field(default_factory=list)
+    #: The edition's line (or verse) number of a numbered unit (``"4517b"``); None for a
+    #: heading or a unit whose label is not a number.
+    line: str | None = None
+    #: The tokens of each line of a unit grouped from lines (#586), else None.
+    lines: list[list[str]] | None = None
 
 
 class _SpanIndex:
@@ -336,8 +361,13 @@ class _SpanIndex:
         return None
 
 
+#: Labels of spans that carry no number: ``n/a``, and ``NA`` on the titles of Otfrid
+#: I,17 and III,25 (which are their chapters' titles, like every other chapter's).
+_UNNUMBERED = frozenset({"n/a", "NA"})
+
+
 def _numbered(spans: list[tuple[int, int, str]]) -> list[tuple[int, int, str]]:
-    return [s for s in spans if s[2] != "n/a"]
+    return [s for s in spans if s[2] not in _UNNUMBERED]
 
 
 def rhyme_lines(doc: Document) -> list[tuple[int, int, str]]:
@@ -408,7 +438,8 @@ def numbered_units(doc: Document, prefix: str, layer: str, *,
             continue
         unit = by_value.get(value)
         if unit is None:
-            unit = Unit(f"{prefix}.{_ref_part(value)}")
+            unit = Unit(f"{prefix}.{_ref_part(value)}",
+                        line=value if _LINE_NUMBER.fullmatch(value) else None)
             by_value[value] = unit
             units.append(unit)
         elif unit is not current:
@@ -462,6 +493,127 @@ def _ref_part(value: str) -> str:
     if re.fullmatch(r"\d+,\d+", value):
         return value.replace(",", ".")
     return re.sub(r"[^\w]+", "", value)
+
+
+# ---------------------------------------------------------------------------
+# Verse units: lines grouped into sentences, couplets or strophes (#586)
+# ---------------------------------------------------------------------------
+
+_LINE_NUMBER = re.compile(r"\d+[a-z]?")
+#: A line that ends a sentence: ``.``, ``!`` or ``?``, closing quotes and brackets aside
+#: (the ASPR rule, ``scripts/ingest/aspr.py``; ReA's text may space a closing quote).
+_SENTENCE_END = re.compile(r"[.!?][\s\"'”’)\]»«]*$")
+
+
+def _ends_sentence(line: Unit) -> bool:
+    return bool(_SENTENCE_END.search(assemble(line.tokens)[0]))
+
+
+def _numbered_strophe(line: Unit) -> bool:
+    """The line starts with a strophe number the edition prints (``1 .`` in Tschirch's
+    *Georgslied*), which ``assemble`` drops at the start of a unit."""
+    return assemble(line.tokens)[0] != assemble(line.tokens, drop_leading_number=False)[0]
+
+
+def _joined(lines: list[Unit]) -> Unit:
+    """One unit of consecutive lines, at the first line's ref."""
+    parts = [part for line in lines for part in (line.lines or [line.tokens])]
+    return Unit(lines[0].ref, [t for part in parts for t in part], lines[0].line, parts)
+
+
+def assemble_unit(unit: Unit, *, join_hyphens: bool = False) -> tuple[str, list[list[Any]]]:
+    """A unit's text and editorial spans. A unit grouped from lines is each line's text
+    (assembled on its own, exactly as when every line was a unit) joined with a space,
+    and its spans moved with it; a line that is only a lacuna stays, as ``[…]``. A stray
+    quote mark (ReA's editions don't always close one) then can't upset the spacing of
+    the lines after it."""
+    if unit.lines is None:
+        return assemble(unit.tokens, join_hyphens=join_hyphens)
+    text = ""
+    spans: list[list[Any]] = []
+    for tokens in unit.lines:
+        body, body_spans = assemble(tokens, join_hyphens=join_hyphens)
+        if not body:
+            continue
+        if text:
+            text += " "
+        spans += [[s + len(text), e + len(text), k] for s, e, k in body_spans]
+        text += body
+    return text, spans
+
+
+def _grouped(units: list[Unit], close: Callable[[list[Unit], Unit], bool],
+             attach: Callable[[Unit], bool] = lambda _u: False) -> list[Unit]:
+    """Numbered lines gathered into groups, each closed after a line for which
+    ``close(group, line)`` holds; a unit that is not a numbered line (a heading) stands
+    alone, and unclosed lines at the end of the section are a group of their own. A line
+    that starts with a printed strophe number always starts a group, so the number is
+    dropped as before and no group crosses the edition's strophes. A line for which
+    ``attach(line)`` holds (a refrain) closes the open group, or joins the group just
+    closed when none is open."""
+    out: list[Unit] = []
+    cur: list[Unit] = []
+    closed = False  # out[-1] is a group of lines that a refrain may join
+
+    def flush() -> None:
+        nonlocal cur, closed
+        if cur:
+            out.append(_joined(cur))
+            cur = []
+            closed = True
+
+    for unit in units:
+        if unit.line is None:
+            flush()
+            out.append(unit)
+            closed = False
+            continue
+        if _numbered_strophe(unit):
+            flush()
+            closed = False
+        if attach(unit):
+            if cur or not closed:
+                cur.append(unit)
+                flush()
+            else:
+                out[-1] = _joined([out[-1], unit])
+            continue
+        cur.append(unit)
+        if close(cur, unit):
+            flush()
+    flush()
+    return out
+
+
+def sentence_units(units: list[Unit]) -> list[Unit]:
+    """The ASPR rule (``scripts/ingest/aspr.py``, #572): a unit runs from a line to the
+    next line that ends a sentence. For alliterative verse, whose sentences often end at
+    the caesura; normalize cuts long units into derived verses."""
+    return _grouped(units, lambda _group, line: _ends_sentence(line))
+
+
+def couplet_units(units: list[Unit], where: str) -> list[Unit]:
+    """One unit per couplet of long lines, (1, 2), (3, 4), …: Otfrid's strophes, which
+    the acrostics of his dedications confirm. Every chapter has an even number of
+    lines, numbered from 1 without gaps; anything else is an error."""
+    lines = [u for u in units if u.line is not None]
+    numbers = [u.line for u in lines]
+    if numbers != [str(n) for n in range(1, len(lines) + 1)] or len(lines) % 2:
+        raise ReAError(f"{where}: lines {numbers[:3]}…{numbers[-3:]} ({len(lines)}) are not "
+                       "couplets numbered from 1")
+    return _grouped(units, lambda group, _line: len(group) == 2)
+
+
+def strophe_units(refrain: str | None = None) -> Callable[[list[Unit]], list[Unit]]:
+    """Rhymed couplet verse whose strophes are of two or three long lines: a unit is at
+    least a couplet and runs on to the next line that ends a sentence (so a three-line
+    strophe stays whole), and a refrain line matching *refrain* closes its strophe."""
+    rx = re.compile(refrain) if refrain else None
+
+    def build(units: list[Unit]) -> list[Unit]:
+        return _grouped(units, lambda group, line: len(group) >= 2 and _ends_sentence(line),
+                        (lambda u: bool(rx.search(assemble(u.tokens)[0]))) if rx else (lambda _u: False))
+    return build
 
 
 def roman_to_int(s: str) -> int:
@@ -558,10 +710,10 @@ def _otfrid_order(docs: dict[str, Document]) -> list[tuple[Document, str]]:
 def _otfrid(docs: dict[str, Document]) -> list[Unit]:
     units: list[Unit] = []
     for doc, prefix in _otfrid_order(docs):
-        if doc.name in _OTFRID_RHYME_LINES:
-            units += numbered_units(doc, prefix, "verse", spans=rhyme_lines(doc))
-            continue
-        units += numbered_units(doc, prefix, "verse")
+        spans = rhyme_lines(doc) if doc.name in _OTFRID_RHYME_LINES else None
+        lines = numbered_units(doc, prefix, "verse", spans=spans)
+        # The Latin capitula stay one unit each; every chapter and dedication is couplets.
+        units += lines if prefix.endswith(".0") else couplet_units(lines, doc.name)
     return _merge_same_ref(units)
 
 
@@ -587,14 +739,14 @@ def _heliand(docs: dict[str, Document]) -> list[Unit]:
         fitt = roman_to_int(label)
         if fitt != _num(doc.name):
             raise ReAError(f"{doc.name}: fitt {label}")
-        units += numbered_units(doc, f"Hel.{fitt}", "verse")
+        units += sentence_units(numbered_units(doc, f"Hel.{fitt}", "verse"))
     return units
 
 
 def _genesis(docs: dict[str, Document]) -> list[Unit]:
     units: list[Unit] = []
     for doc in _sorted_docs(docs, r"Gen_\d+"):
-        units += numbered_units(doc, f"AsGen.{_num(doc.name)}", "verse")
+        units += sentence_units(numbered_units(doc, f"AsGen.{_num(doc.name)}", "verse"))
     return units
 
 
@@ -679,11 +831,13 @@ def _notker_boethius(docs: dict[str, Document]) -> list[Unit]:
     return units
 
 
-def _minor_verse(doc_name: str, prefix: str) -> Callable[[dict[str, Document]], list[Unit]]:
-    """A short poem by Steinmeyer's (or Tschirch's) lines: ``{prefix}.{line}``, a title
-    before line 1 at ``{prefix}.0``."""
+def _minor_verse(doc_name: str, prefix: str,
+                 group: Callable[[list[Unit]], list[Unit]] | None) -> Callable[[dict[str, Document]], list[Unit]]:
+    """A short poem by Steinmeyer's (or Tschirch's) lines, grouped by *group* (or one
+    unit per line): ``{prefix}.{first line}``, a title before line 1 at ``{prefix}.0``."""
     def build(docs: dict[str, Document]) -> list[Unit]:
-        return numbered_units(docs[doc_name], prefix, "line", heading_ref=f"{prefix}.0")
+        lines = numbered_units(docs[doc_name], prefix, "line", heading_ref=f"{prefix}.0")
+        return group(lines) if group else lines
     return build
 
 
@@ -704,16 +858,21 @@ _KAS = "DDD-AD-Kleinere_Altsächsische_Denkmäler"
 
 
 def _minor(slug: str, doc: str, prefix: str, title: str, *, verse: bool = False,
-           genre: str = "liturgical", language: str = "goh", author: str | None = None,
+           group: Callable[[list[Unit]], list[Unit]] | None = None, genre: str = "liturgical", language: str = "goh", author: str | None = None,
            date_range: tuple[int, int] | None = None, date_composed: int | None = None,
            confidence: str = "approximate", edition: str = _STEINMEYER,
            subcorpus: str = _KAD) -> Text:
     return Text(slug=slug, title=title, subcorpus=subcorpus, language=language, genre=genre,
                 author=author, date_range=date_range, date_composed=date_composed,
                 date_confidence=confidence, edition=edition,
-                build=_minor_verse(doc, prefix) if verse else _minor_prose(doc, prefix),
-                as_verses=verse, docs=(doc,))
+                build=_minor_verse(doc, prefix, group) if verse else _minor_prose(doc, prefix),
+                as_verses=verse and group is None, docs=(doc,))
 
+
+#: Refrains that close a strophe: the *Georgslied*'s "Daz giteta selbo … Gorio" lines and
+#: "die heidenon man giskanta Gorio … fram", the *Petruslied*'s Kyrie.
+_GEORG_REFRAIN = r"^(Daz (giteta|zeichan|kunta|irdigita) |die heidenon man giskanta)"
+_PETR_REFRAIN = r"^K[iy]r[iy]e"
 
 TEXTS: tuple[Text, ...] = (
     # --- The major Old High German texts -----------------------------------------------
@@ -732,7 +891,7 @@ TEXTS: tuple[Text, ...] = (
          "Otfrid von Weißenburg", (863, 871), 868, "approximate",
          "Oskar Erdmann, Otfrids Evangelienbuch, 6th ed. by Ludwig Wolff (Tübingen 1973): "
          "Vienna, Österreichische Nationalbibliothek, Cod. 2687",
-         _otfrid, as_verses=True),
+         _otfrid, as_verses=False),
     Text("otfrid-ad-liutbertum", "Ad Liutbertum (Otfrid's Latin letter to Archbishop Liutbert)",
          "DDD-AD-Otfrid", "lat", "patristic", "Otfrid von Weißenburg", (863, 871), None,
          "approximate",
@@ -810,12 +969,12 @@ TEXTS: tuple[Text, ...] = (
          "approximate",
          "Otto Behaghel, Heliand und Genesis, 10th ed. by Burkhard Taeger (Tübingen 1996, "
          "after 1984): Munich, Cgm 25 (M) and London, BL Cotton Caligula A. VII (C)",
-         _heliand, as_verses=True),
+         _heliand, as_verses=False),
     Text("genesis", "Old Saxon Genesis", "DDD-AD-Genesis", "osx", "patristic", None, (830, 860),
          None, "approximate",
          "Otto Behaghel, Heliand und Genesis, ed. Burkhard Taeger (Tübingen 1984): Rome, "
          "Biblioteca Apostolica Vaticana, Cod. Pal. lat. 1447",
-         _genesis, as_verses=True),
+         _genesis, as_verses=False),
     _minor("gernrode-psalm-commentary", "GPr_Gernroder_Predigt", "GPr",
            "Gernrode Psalm Commentary (Altsächsische Psalmenauslegung, Psalms 4–5)",
            genre="patristic", language="osx", date_range=(950, 1000), edition=_WADSTEIN, subcorpus=_KAS),
@@ -834,26 +993,35 @@ TEXTS: tuple[Text, ...] = (
            "Saxon Baptismal Vow (Sächsisches Taufgelöbnis)", language="osx", date_range=(772, 800),
            edition=_WADSTEIN, subcorpus=_KAS),
     # --- Old High German minor texts (Steinmeyer) ---------------------------------------
-    _minor("muspilli", "M_Muspilli", "Musp", "Muspilli", verse=True, genre="patristic",
+    # Verse units (#586): sentence groups for alliterative and unrhymed verse, strophes
+    # (couplets run on to the sentence end) for rhymed couplet verse.
+    _minor("muspilli", "M_Muspilli", "Musp", "Muspilli", verse=True, group=sentence_units, genre="patristic",
            date_range=(810, 870), confidence="uncertain"),
     _minor("wessobrunn-prayer", "W_Wess", "Wess", "Wessobrunn Prayer (Wessobrunner Gebet)", verse=True,
+           group=sentence_units,
            date_range=(770, 814)),
-    _minor("ludwigslied", "L_Ludwigslied", "Ludw", "Ludwigslied", verse=True, genre="patristic",
+    _minor("ludwigslied", "L_Ludwigslied", "Ludw", "Ludwigslied", verse=True, group=strophe_units(),
+           genre="patristic",
            date_range=(881, 882), confidence="established"),
     _minor("georgslied", "G_Georgslied_Tschirch", "Georg", "Georgslied (Song of St George)", verse=True,
+           group=strophe_units(_GEORG_REFRAIN),
            genre="patristic", date_range=(880, 900), confidence="uncertain",
            edition="Fritz Tschirch, Frühmittelalterliches Deutsch (Halle 1955): Heidelberg, cpl 52"),
     _minor("petruslied", "P_Petruslied", "Petr", "Petruslied (Song of St Peter)", verse=True,
+           group=strophe_units(_PETR_REFRAIN),
            date_range=(850, 900)),
     _minor("christus-und-die-samariterin", "CH_ChristusundSamariterin", "ChrSam",
-           "Christus und die Samariterin (Christ and the Samaritan Woman)", verse=True, genre="patristic",
+           "Christus und die Samariterin (Christ and the Samaritan Woman)", verse=True, group=strophe_units(),
+           genre="patristic",
            date_range=(900, 950), confidence="uncertain"),
     _minor("psalm-138", "Ps138_Psalm138", "Ps138", "Psalm 138 (Old High German verse paraphrase)", verse=True,
+           group=strophe_units(),
            genre="patristic", date_range=(880, 930), confidence="uncertain"),
     _minor("augsburg-prayer", "AG_AugsburgerGebet", "AG", "Augsburg Prayer (Augsburger Gebet)", verse=True,
+           group=sentence_units,
            date_range=(850, 900)),
     _minor("carmen-ad-deum", "C_CarmenAdDeum", "CarmD", "Carmen ad Deum (Old High German interlinear version)",
-           verse=True, date_range=(850, 900)),
+           verse=True, group=sentence_units, date_range=(850, 900)),
     _minor("exhortatio-ad-plebem-christianam", "E_Exhortatio", "Exh", "Exhortatio ad plebem christianam",
            genre="patristic", date_range=(800, 817)),
     _minor("weissenburg-catechism", "WK_Weissenburger_Katechismus", "WK", "Weissenburg Catechism (Weißenburger Katechismus)",
@@ -969,8 +1137,8 @@ def build_units(text: Text, docs: dict[str, Document]) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     seen: set[str] = set()
     for unit in units:
-        body, spans = assemble(unit.tokens, join_hyphens=text.join_hyphens)
-        if not body or body == LACUNA:
+        body, spans = assemble_unit(unit, join_hyphens=text.join_hyphens)
+        if not body or set(body.split()) == {LACUNA}:
             if body:
                 log.debug("%s %s: only a lacuna, dropped", text.slug, unit.ref)
             continue
