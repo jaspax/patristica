@@ -61,8 +61,10 @@ Boundaries inside a page
 ------------------------
 Column numbers are known per scan page, so a page on which a work starts may
 also hold the end of the previous one.  On such a page the paragraphs are
-split at the first Greek capitals heading (the new work's title); without a
-heading the whole page goes to the new work if it starts in the page's first
+split at the first Greek capitals heading (the new work's title), or, when
+the extraction found none, at the first paragraph that opens with a run of
+Greek capitals (a heading run into its paragraph, ``ΠΡΟΟΙΜΙΟΝ. α’. …``); without
+either, the whole page goes to the new work if it starts in the page's first
 column, and to the previous work otherwise.  Paragraphs on pages with no
 column (plates, duplicated leaves, failed OCR heads) belong with the last
 numbered page before them.
@@ -279,6 +281,18 @@ def assign_works(paragraphs: list[dict], rows: list[IndexRow]) -> list[int | Non
     return out
 
 
+_HEADING_START = re.compile(r"^[^\w]{0,3}((?:[Α-ΩΆ-Ώ]+[\s.,’']*){1,8})")
+# Greek capitals a paragraph must open with to count as headed; shorter runs
+# are speaker labels (``ΚΥΡ.``) or numerals.
+_HEADING_MIN_LETTERS = 8
+
+
+def _opens_with_heading(text: str) -> bool:
+    """Whether a paragraph opens with a heading in Greek capitals."""
+    m = _HEADING_START.match(text)
+    return bool(m) and sum(c.isalpha() for c in m.group(1)) >= _HEADING_MIN_LETTERS
+
+
 def _assign_page(idx: range, span: tuple[int, int], paragraphs: list[dict],
                  rows: list[IndexRow], out: list[int | None]) -> None:
     a, b = span
@@ -292,6 +306,9 @@ def _assign_page(idx: range, span: tuple[int, int], paragraphs: list[dict],
             out[k] = incoming
         return
     marks = [k for k in idx if paragraphs[k].get("title")]
+    if not marks:
+        # A heading the extraction ran into its paragraph (``ΠΡΟΟΙΜΙΟΝ. α’. …``).
+        marks = [k for k in idx if _opens_with_heading(paragraphs[k].get("text", ""))]
     owner = incoming
     if not marks:
         if rows[starting[0]].col_start == a:
