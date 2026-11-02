@@ -323,16 +323,166 @@ def _lookup_author_dates(
     return None, None, "uncertain"
 
 
-def _element_inner_text(el: etree._Element) -> str:
-    """Collect all text inside an element, stripping child element tags."""
-    parts: list[str] = []
-    if el.text:
-        parts.append(el.text)
-    for child in el:
-        parts.append(_element_inner_text(child))
-        if child.tail:
-            parts.append(child.tail)
-    return "".join(parts)
+# How a ``<p>``/``<ab>``/``<l>`` is flattened to text (``_flatten``, #449).
+# Migne's footnotes (``<note type="footnote">``: the editors' notes, signed
+# MARTIAN., AREV., …, and their variant readings) and the few margin and chapter
+# notes run into the column text where the page ends. They are editorial
+# material (#236): kept and marked ``note``, so readers see them and translation
+# and embedding get the text without them. So are the note markers in the text
+# (a superscript ``1``, ``a``, ``(2)``) and the variant readings Migne prints in
+# brackets inside the text (``qualem factam [Baluz. factum] esse``).
+_NOTE_TAGS = frozenset({"note"})
+# A superscript outside a note that is a footnote marker.
+_MARKER = re.compile(r"\(?(?:\d{1,3}|[a-zA-Z]|\*{1,3}|\?+)\)?")
+# Bracketed variants and alternative numberings in the running text: another
+# reading (``[Al. …]``, ``[Baluz. …]``, ``[Ms. …]``, ``[Vulg. …]``, ``[Forte …]``,
+# ``[Leg. …]``), or the old editions' chapter numbers (``[Alias cap. IV.]``,
+# ``[Vet. XXX.]``, ``[Rec. V.]``). Only a closed bracket, short and unnested:
+# an unclosed one (OCR lost the ``]``) is left as it is. Bracketed Scripture
+# references (``[Ib. XII, 20]``, ``[Matth. V, 3]``) are not variants and stay.
+_VARIANT = re.compile(
+    r"\[(?:Al\.?|Alias|At\.|Vet\.|Rec\.|Baluz\.|Forte|Text\.|Mss?\.|Gr\.|Leg\.|Vel\."
+    r"|Vulg\.|Edit\.|Codd?\.)\s[^\[\]]{1,80}\]")
+# A word broken at the end of a line: letter, hyphen (or soft hyphen),
+# whitespace, then the rest of the word in lower case. The OCR often ran the two
+# lines into one (``misera- tionis``), so the whitespace needn't hold a newline;
+# a hyphen with no whitespace after it (``Graeco-latinus``) is kept.
+_HYPHEN, _SOFT_HYPHEN = "-", "­"
+
+
+def _join_hyphens(chars: list[tuple[str, bool]]) -> list[tuple[str, bool]]:
+    """Join the words broken across lines in *chars* (``(char, editorial)`` pairs).
+
+    A footnote that the page put between the two halves of a word (the word
+    breaks at the foot of a column, its notes follow, then the next column)
+    moves to after the joined word, so the source text keeps the word whole.
+    """
+    out: list[tuple[str, bool]] = []
+    i = 0
+    n = len(chars)
+    while i < n:
+        c, ed = chars[i]
+        if c not in (_HYPHEN, _SOFT_HYPHEN) or not out or not out[-1][0].isalpha() \
+                or out[-1][1] != ed:
+            out.append(chars[i])
+            i += 1
+            continue
+        # Whitespace after the hyphen, then (text only) any notes between.
+        j = i + 1
+        gap = False
+        moved: list[tuple[str, bool]] = []
+        while j < n:
+            cj, ej = chars[j]
+            if cj.isspace():
+                gap = True
+                if moved:
+                    moved.append(chars[j])
+            elif ej and not ed:
+                moved.append(chars[j])
+            else:
+                break
+            j += 1
+        ok = j < n and chars[j][1] == ed and chars[j][0].isalpha() and chars[j][0].islower() \
+            and (c == _SOFT_HYPHEN or gap)
+        if not ok:
+            out.append(chars[i])
+            i += 1
+            continue
+        # The rest of the word, then the notes that were inside it.
+        k = j
+        while k < n and not chars[k][0].isspace() and chars[k][1] == ed:
+            k += 1
+        out.extend(chars[j:k])
+        if moved:
+            while moved and moved[-1][0].isspace():
+                moved.pop()
+            out.append((" ", False))
+            out.extend(moved)
+            if k < n and not chars[k][0].isspace():
+                out.append((" ", False))
+        i = k
+    return out
+
+
+def _flatten(el: etree._Element) -> tuple[str, list[list[int | str]]]:
+    """An element's text, whitespace collapsed, with its notes marked.
+
+    The text of every descendant is kept, in order. ``<note>``s, footnote
+    markers (``_MARKER`` superscripts) and bracketed variants (``_VARIANT``)
+    become ``note`` spans ``[start, end, "note"]`` (#236, #449), set off from
+    the text by a space; a space between two of them belongs to the span.
+    Words broken across lines are joined (``_join_hyphens``).
+    """
+    chars: list[tuple[str, bool]] = []
+
+    def add(text: str | None, editorial: bool) -> None:
+        if text:
+            chars.extend((c, editorial) for c in text)
+
+    def boundary() -> None:
+        if chars and not chars[-1][0].isspace():
+            chars.append((" ", False))
+
+    def apparatus(node: etree._Element) -> None:
+        mark = len(chars)
+        boundary()
+        walk(node, True)
+        if all(c.isspace() for c, _ in chars[mark:]):
+            del chars[mark:]  # an empty note leaves no trace
+        else:
+            boundary()
+
+    def walk(node: etree._Element, editorial: bool) -> None:
+        add(node.text, editorial)
+        for child in node:
+            if isinstance(child.tag, str):
+                name = etree.QName(child).localname
+                if name in _NOTE_TAGS and not editorial:
+                    apparatus(child)
+                elif (name == "hi" and child.get("rend") == "superscript" and not editorial
+                      and len(child) == 0 and _MARKER.fullmatch((child.text or "").strip())):
+                    apparatus(child)
+                elif name == "lb":
+                    if chars and chars[-1][0] in (_HYPHEN, _SOFT_HYPHEN):
+                        chars.append(("\n", editorial))
+                else:
+                    walk(child, editorial)
+            add(child.tail, editorial)
+
+    walk(el, False)
+    chars = _join_hyphens(chars)
+    # Collapse whitespace; a kept space is editorial only between two
+    # editorial characters.
+    kept: list[tuple[str, bool]] = []
+    for i, (c, ed) in enumerate(chars):
+        if not c.isspace():
+            kept.append((c, ed))
+            continue
+        if not kept or kept[-1][0] == " ":
+            continue
+        nxt = next((e for ch, e in chars[i + 1:] if not ch.isspace()), None)
+        kept.append((" ", kept[-1][1] and bool(nxt)))
+    while kept and kept[-1][0] == " ":
+        kept.pop()
+    text = "".join(c for c, _ in kept)
+    flags = [ed for _, ed in kept]
+    for m in _VARIANT.finditer(text):
+        if not any(flags[m.start():m.end()]):
+            flags[m.start():m.end()] = [True] * (m.end() - m.start())
+    spans: list[list[int | str]] = []
+    for i, ed in enumerate(flags):
+        if ed and spans and spans[-1][1] == i:
+            spans[-1][1] = i + 1
+        elif ed:
+            spans.append([i, i + 1, "note"])
+    # Two spans with only a space between are one.
+    merged: list[list[int | str]] = []
+    for s in spans:
+        if merged and int(s[0]) == int(merged[-1][1]) + 1 and text[int(merged[-1][1])] == " ":
+            merged[-1][1] = s[1]
+        else:
+            merged.append(s)
+    return text, merged
 
 
 def _extract_paragraphs(
@@ -346,22 +496,15 @@ def _extract_paragraphs(
     def _walk(element: etree._Element, path_parts: list[str]) -> None:
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
-        if tag in ("p", "ab"):
-            text = _element_inner_text(element).strip()
-            text = re.sub(r"\s+", " ", text)
+        if tag in ("p", "ab", "l"):
+            # A paragraph, or a verse line (one record per line).
+            text, spans = _flatten(element)
             if text:
                 ref = slugify_ref(".".join([work_prefix] + path_parts))
-                records.append({"ref": ref, "text": text})
-            return
-
-        if tag == "l":
-            # Verse line — collect a group of lines into one paragraph record
-            # (handled by parent <lg> below)
-            text = _element_inner_text(element).strip()
-            text = re.sub(r"\s+", " ", text)
-            if text:
-                ref = slugify_ref(".".join([work_prefix] + path_parts))
-                records.append({"ref": ref, "text": text})
+                record: dict = {"ref": ref, "text": text}
+                if spans:
+                    record["editorial"] = spans
+                records.append(record)
             return
 
         if tag == "div":

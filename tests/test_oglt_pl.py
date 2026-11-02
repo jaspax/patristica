@@ -160,3 +160,65 @@ def test_part_rows_are_checked(tmp_path: Path, stem: str, keep_refs: str, error:
 def test_part_path_sits_beside_the_file(tmp_path: Path) -> None:
     out = tmp_path / "split" / "PL67" / "PL67_11_CO.json"
     assert oglt_pl._part_path(out, "africa") == out.with_name("PL67_11_CO-africa.json")
+
+
+# --- Flattening a paragraph: notes, markers, variants, broken words (#449) ---
+
+_TEI_NS = "http://www.tei-c.org/ns/1.0"
+
+
+def _flat(inner: str) -> tuple[str, list[list[int | str]], str]:
+    from lxml import etree
+
+    from patristica import editorial
+
+    el = etree.fromstring(f'<p xmlns="{_TEI_NS}">{inner}</p>')
+    text, spans = oglt_pl._flatten(el)
+    editorial.check(text, spans, "test")
+    return text, spans, editorial.strip(text, [tuple(s) for s in spans])
+
+
+def test_footnotes_and_markers_are_marked_not_dropped() -> None:
+    text, spans, source = _flat(
+        'hunc eumbem <hi rend="superscript">3</hi>\n'
+        '<note type="footnote"><hi rend="superscript">3</hi> <hi rend="italic">Ut sunt</hi>. '
+        'M<hi rend="smallcap">ARTIAN</hi>.</note>\nvertere : cujus')
+    assert text == "hunc eumbem 3 3 Ut sunt. MARTIAN. vertere : cujus"
+    assert spans == [[12, 33, "note"]]
+    assert source == "hunc eumbem vertere : cujus"
+
+
+def test_other_superscripts_stay_text() -> None:
+    _, spans, source = _flat('M<hi rend="superscript">gr</hi> et <hi rend="superscript">bis</hi>')
+    assert spans == []
+    assert source == "Mgr et bis"
+
+
+def test_bracketed_variants_are_marked() -> None:
+    text, spans, source = _flat(
+        "qualem factam [Baluz. factum] esse [Al. dicimus] [Ib. XII, 20] [Baluz. open")
+    assert [text[s:e] for s, e, _ in spans] == ["[Baluz. factum]", "[Al. dicimus]"]
+    assert source == "qualem factam esse [Ib. XII, 20] [Baluz. open"
+
+
+def test_words_broken_across_lines_are_joined() -> None:
+    _, _, source = _flat("oleo namque un-\n   gebantur et Ro­ <lb/> mano et "
+                         "Joannes-\nBaptista et a - b")
+    # A capital after the break, or a hyphen without a letter before it, stays.
+    assert source == "oleo namque ungebantur et Romano et Joannes- Baptista et a - b"
+
+
+def test_words_run_onto_one_line_are_joined_but_compounds_stay() -> None:
+    assert _flat("misera- tionis et Graeco-latinus")[2] == "miserationis et Graeco-latinus"
+
+
+def test_note_inside_a_broken_word_moves_after_it() -> None:
+    text, spans, source = _flat(
+        'inopina tre-\n<note type="footnote">1 Nota.</note>\n<pb n="905"/>pidatio in')
+    assert text == "inopina trepidatio 1 Nota. in"
+    assert [text[s:e] for s, e, _ in spans] == ["1 Nota."]
+    assert source == "inopina trepidatio in"
+
+
+def test_a_paragraph_without_notes_has_no_spans() -> None:
+    assert _flat("Christi   nomen\n nec") == ("Christi nomen nec", [], "Christi nomen nec")
