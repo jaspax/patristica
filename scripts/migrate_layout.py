@@ -143,6 +143,7 @@ NEW_SOURCES |= {"titus-hagiography"}   # Old Georgian (#222): TITUS hagiography,
 # Old Irish (#225): Gloss Corpus base texts, the Félire Óengusso (#540).
 NEW_SOURCES |= {"glosscorpus"}
 NEW_SOURCES |= {"celt"}   # Old Irish (#225): CELT, #541
+NEW_SOURCES |= {"aspr"}   # Old English (#223): Anglo-Saxon Poetic Records, #565
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
