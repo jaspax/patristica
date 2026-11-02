@@ -7,8 +7,12 @@ from pathlib import Path
 import pytest
 from lxml import etree
 
+from patristica import editorial
+from scripts.ingest._slavonic import glagolitic_to_cyrillic
 from scripts.ingest.pta import (
+    _convert,
     _extract_paragraphs,
+    _flatten,
     _license_from_prose,
     _license_from_target,
     read_work_ids,
@@ -83,20 +87,10 @@ APPARATUS = """<div xmlns="http://www.tei-c.org/ns/1.0" type="edition">
 </div>"""
 
 
-def test_apparatus_runs_into_the_text_by_default() -> None:
-    # The old flattening, kept for every edition but those in _MARK_APPARATUS (#415).
-    [p] = _extract_paragraphs(etree.fromstring(APPARATUS), "pta0041.pta001", {})
-    assert p == {"ref": "pta0041.pta001.1",
-                 "text": "ὁ ἀπόστολος паулъ διερχόμενοςTODO: Eus. d.e. κατήντησεν μέσῃ Βιδάνῃ"
-                         "μέσῳ Διαβανῇ ΜεσοβηδάνῃM 203,7 τῇ κώμῃ."}
-
-
 def test_apparatus_marked_as_editorial_notes() -> None:
-    # #376: readings, witness details and comments become note spans (#236).
-    from patristica import editorial
+    # #376, #415: readings, witness details and comments become note spans (#236).
 
-    [p] = _extract_paragraphs(etree.fromstring(APPARATUS), "pta0041.pta001", {},
-                              mark_apparatus=True)
+    [p] = _extract_paragraphs(etree.fromstring(APPARATUS), "pta0041.pta001", {})
     text, spans = p["text"], [tuple(s) for s in p["editorial"]]
     assert text == ("ὁ ἀπόστολος паулъ διερχόμενος TODO: Eus. d.e. κατήντησεν μέσῃ Βιδάνῃ "
                     "μέσῳ Διαβανῇ Μεσοβηδάνῃ M 203,7 τῇ κώμῃ.")
@@ -105,3 +99,74 @@ def test_apparatus_marked_as_editorial_notes() -> None:
     assert {k for _, _, k in spans} == {"note"}
     editorial.check(text, spans)
     assert editorial.strip(text, spans) == "ὁ ἀπόστολος διερχόμενος κατήντησεν μέσῃ Βιδάνῃ τῇ κώμῃ."
+
+
+def _tei(xml: str) -> etree._Element:
+    return etree.fromstring(f'<p xmlns="http://www.tei-c.org/ns/1.0">{xml}</p>')
+
+
+def test_paragraph_without_apparatus_has_no_spans() -> None:
+    text, spans = _flatten(
+        _tei("ὁ <persName>Παῦλος</persName>\n   λέγει.<pb n='3'/> καὶ"))
+    assert (text, spans) == ("ὁ Παῦλος λέγει. καὶ", [])
+
+
+def test_inline_note_and_comment() -> None:
+    # Severian, pta0001.pta005 and pta004 (#415): Montfaucon's notes and a "sic?".
+    text, spans = _flatten(_tei(
+        "ὁ δὲ Σωτὴρ<note type='commentary'>Reg. ὁ δὲ Χριστός.</note>\n  διὰ\n"
+        " μίαν χάριν ἡ <!-- sic?--> δευτέραν."))
+    assert text == "ὁ δὲ Σωτὴρ Reg. ὁ δὲ Χριστός. διὰ μίαν χάριν ἡ sic? δευτέραν."
+    assert [text[s:e] for s, e, _ in spans] == ["Reg. ὁ δὲ Χριστός.", "sic?"]
+    assert editorial.strip(text, [tuple(s) for s in spans]) == (
+        "ὁ δὲ Σωτὴρ διὰ μίαν χάριν ἡ δευτέραν.")
+
+
+def test_paragraph_that_is_only_a_note_is_wholly_editorial() -> None:
+    # pta0001.pta041 §15.1: a scribe's note on where the preacher stopped.
+    text, spans = _flatten(
+        _tei("\n  <note type='gloss'>Ἀρχὴν γὰρ λαβόντος\n κατέπαυσεν.</note>\n"))
+    assert spans == [[0, len(text), "note"]]
+
+
+def test_choice_keeps_the_expansion() -> None:
+    # The manuscript transcriptions write nomina sacra as <choice> (#415).
+    text, spans = _flatten(_tei(
+        "τοῦ <choice>\n <expan>θεοῦ</expan>\n"
+        " <abbr type='nomSac'><hi rend='overline'>θυ</hi></abbr>\n"
+        "</choice> λόγος, <choice><sic>ἐστιν</sic><corr>ἐστὶν</corr></choice>"))
+    assert (text, spans) == ("τοῦ θεοῦ λόγος, ἐστὶν", [])
+
+
+def test_deletion_inside_a_word_dropped() -> None:
+    text, spans = _flatten(_tei(
+        "ἐγκω<lb break='no'/>\n      μιάσαι τ<subst>\n <del rend='strikethrough'>ἀ</del>"
+        "<add place='above'>ε</add></subst>λος ἡμέρᾳ<lb/> καὶ"))
+    assert (text, spans) == ("ἐγκωμιάσαι τελος ἡμέρᾳ καὶ", [])
+
+
+def test_deletion_of_words_marked() -> None:
+    # pta0001.pta014: the editor's athetesis of whole words; a letter at a word's end.
+    text, spans = _flatten(_tei(
+        "ἀλλ’ ἀληθινὴ\n  <del>ἡ</del>\n μαρτυρία. λέγει·\n <del>Πνεῦμα θεοῦ,</del>\n"
+        " πνεῦμα Πάσῃ<del>ν</del> ἡμέρᾳ"))
+    assert text == "ἀλλ’ ἀληθινὴ ἡ μαρτυρία. λέγει· Πνεῦμα θεοῦ, πνεῦμα Πάσῃν ἡμέρᾳ"
+    assert [text[s:e] for s, e, _ in spans] == ["ἡ", "Πνεῦμα θεοῦ,", "ν"]
+    assert editorial.strip(text, [tuple(s) for s in spans]) == (
+        "ἀλλ’ ἀληθινὴ μαρτυρία. λέγει· πνεῦμα Πάσῃ ἡμέρᾳ")
+
+
+def test_convert_keeps_spans_on_their_text() -> None:
+    # Yer + i becomes one letter, ꙑ: the span after it moves left.
+    text = "\u2c4f\u2c3b x NOTE y"
+    spans: list[list[int | str]] = [[5, 9, "note"]]
+    new, new_spans = _convert(text, spans, glagolitic_to_cyrillic)
+    assert new == "ꙑ x NOTE y"
+    assert [new[s:e] for s, e, _ in new_spans] == ["NOTE"]
+
+
+def test_empty_reading_leaves_no_space() -> None:
+    # pta0003.pta017: <witStart/>/<witEnd/> readings mark a witness's extent.
+    text, spans = _flatten(_tei(
+        "ἀδόκιμον<app type='witnesses'><rdg wit='#C'><witEnd/></rdg></app>, δηλαδὴ<!---->."))
+    assert (text, spans) == ("ἀδόκιμον, δηλαδὴ.", [])
