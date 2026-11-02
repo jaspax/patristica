@@ -37,7 +37,8 @@ writes ``data/library/`` (gitignored):
   (``patristica.versification.to_org_ref``, BHS / Nestle-Aland: the
   ``translation_group_id`` key) differs from its native ref, so the reader can
   keep its place when it switches to another version of the book (#144).
-  It is ``{}`` when every ref is already in org numbering. A work with
+  It is ``{}`` when every ref is already in org numbering. A work of a source
+  in ``HEADING_MARKING_SOURCES`` carries ``marks_headings: true`` (#128). A work with
   editorial material (``patristica.editorial``, #236) also carries
   ``editorial``, ``{ref_suffix: [[start, end, kind], …]}`` for its marked
   chunks, with offsets into the chunk text in UTF-16 code units (JavaScript
@@ -167,8 +168,18 @@ def slim_work(work: Work, chunks: list[Chunk],
         record["org_refs"] = org_refs(work, chunks, prefix)
     if spans:
         record["editorial"] = spans
+    if work.source_id in HEADING_MARKING_SOURCES:
+        record["marks_headings"] = True
     record["chunks"] = rows
     return record
+
+
+#: Sources whose ingestor marks every heading as editorial material (a chunk
+#: that is a ``title`` or ``heading`` span as a whole, #128). Their work files
+#: carry ``marks_headings: true``, and the reader takes their headings from the
+#: marks: a chunk at a division level that isn't marked is body text. Other
+#: sources mark some headings or none, so the reader keeps its ref rule there.
+HEADING_MARKING_SOURCES: frozenset[str] = frozenset({"first1k"})
 
 
 def index_row(

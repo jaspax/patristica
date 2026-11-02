@@ -109,6 +109,11 @@ export interface WorkFile {
   org_refs?: Record<string, string>;
   /** Ref suffix → editorial spans of that chunk; absent when the work has none. */
   editorial?: Record<string, EditorialSpan[]>;
+  /**
+   * The source marks every heading (#128): a heading is a chunk that is a
+   * `title` or `heading` editorial span as a whole (`render.ts`).
+   */
+  marks_headings?: boolean;
   chunks: ChunkRow[];
 }
 

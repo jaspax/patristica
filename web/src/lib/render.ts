@@ -5,6 +5,11 @@
 // the unit number and the segments before it are the section path. A chunk
 // whose ref is the parent of the next chunk's ref (`Canon.1` followed by
 // `Canon.1.1`) is a heading: it opens a section and its text is the title.
+// When the source marks every heading (`marks_headings`: a heading is a chunk
+// that is a `title` or `heading` editorial span as a whole, #128), the marks
+// decide instead: such a chunk is
+// a heading, and an unmarked chunk at a division level is the division's lead
+// paragraph (body text before its subdivisions), not a heading.
 // In liturgical texts and scripture, so is a unit numbered zero at the start
 // of a section (`0002.0000` in the liturgies, psalm superscriptions). Sources
 // such as Coptic Scriptorium number ordinary sentences from zero, even in
@@ -87,16 +92,30 @@ export function isRubric(text: string): boolean {
   );
 }
 
-/** Every non-space character of `text` is in a `rubric` span. */
-export function isMarkedRubric(text: string, spans?: readonly EditorialSpan[]): boolean {
+/** Every non-space character of `text` is in a span of one of `kinds`. */
+function isMarkedAs(text: string, spans: readonly EditorialSpan[] | undefined, kinds: ReadonlySet<string>): boolean {
   if (!spans || spans.length === 0 || text.trim() === "") return false;
   let pos = 0;
   for (const [start, end, kind] of spans) {
-    if (kind !== RUBRIC_KIND) continue;
+    if (!kinds.has(kind)) continue;
     if (text.slice(pos, start).trim() !== "") return false;
     pos = Math.max(pos, end);
   }
   return text.slice(pos).trim() === "";
+}
+
+/** Every non-space character of `text` is in a `rubric` span. */
+export function isMarkedRubric(text: string, spans?: readonly EditorialSpan[]): boolean {
+  return isMarkedAs(text, spans, RUBRIC_KINDS);
+}
+
+const RUBRIC_KINDS: ReadonlySet<string> = new Set([RUBRIC_KIND]);
+/** Editorial kinds of a heading: a chunk in these as a whole is one (#128). */
+export const HEADING_KINDS: ReadonlySet<string> = new Set(["title", "heading"]);
+
+/** A chunk that is a title or heading as a whole, as the source marked it (#128). */
+export function isMarkedHeading(text: string, spans?: readonly EditorialSpan[]): boolean {
+  return isMarkedAs(text, spans, HEADING_KINDS);
 }
 
 /**
@@ -164,6 +183,9 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
   const ids = new Map<string, number>();
   const liturgical = genre === "liturgical";
   const marksRubrics = Object.values(work.editorial ?? {}).some((spans) => spans.some((s) => s[2] === RUBRIC_KIND));
+  // A work whose source marks every heading (#128): the marks say which chunks
+  // are headings, and a chunk at a division level that isn't one is body text.
+  const marksHeadings = work.marks_headings === true;
   const zeroIsTitle = (liturgical || genre === "scripture") && !ZERO_BASED_SOURCES.has(sourceId);
   let current: Section | null = null;
 
@@ -183,6 +205,19 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
     };
     sections.push(section);
     return section;
+  };
+
+  const makeUnit = (n: string, suffix: string, text: string, oop: number | undefined): Unit => {
+    const unit: Unit = {
+      n,
+      ref: joinRef(work.ref_prefix, suffix),
+      text,
+      outOfPeriod: oop === 1,
+      rubric: unitIsRubric(text, work.editorial?.[suffix], marksRubrics, liturgical),
+    };
+    const marks = work.editorial?.[suffix];
+    if (marks) unit.editorial = marks;
+    return unit;
   };
 
   const prefixLast = work.ref_prefix.split(".").pop() ?? "";
@@ -226,7 +261,22 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       if (editorial) section.titleEditorial = editorial;
       return section;
     };
-    if (next !== undefined && next.startsWith(`${suffix}.`)) {
+    const parent = next !== undefined && next.startsWith(`${suffix}.`);
+    if (marksHeadings) {
+      if (isMarkedHeading(text, work.editorial?.[suffix])) {
+        // A heading of its division, or (when nothing follows inside it) of
+        // the text that follows at its own level.
+        current = heading(parent ? segments : segments.slice(0, -1));
+        continue;
+      }
+      if (parent) {
+        // Body text that sits in a division before its subdivisions: the
+        // division's lead paragraph, under the division's label.
+        if (current === null || !samePath(current.path, segments)) current = open(segments, null);
+        current.units.push(makeUnit("", suffix, text, oop));
+        continue;
+      }
+    } else if (parent) {
       current = heading(segments);
       continue;
     }
@@ -239,16 +289,7 @@ export function parseWork(work: WorkFile, genre: string, sourceId = ""): Section
       }
       current = open(path, null);
     }
-    const unit: Unit = {
-      n: displaySegment(last),
-      ref: joinRef(work.ref_prefix, suffix),
-      text,
-      outOfPeriod: oop === 1,
-      rubric: unitIsRubric(text, work.editorial?.[suffix], marksRubrics, liturgical),
-    };
-    const marks = work.editorial?.[suffix];
-    if (marks) unit.editorial = marks;
-    current.units.push(unit);
+    current.units.push(makeUnit(displaySegment(last), suffix, text, oop));
   }
 
   // Heading depth relative to the shallowest section path.
