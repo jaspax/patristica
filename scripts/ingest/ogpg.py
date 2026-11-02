@@ -88,7 +88,7 @@ LEXICON_THRESHOLD = 0.65
 # Fetch every scan of a volume and vote across them.  Off → primary scan only.
 CROSS_SCAN = True
 
-_PIPELINE_VERSION = 5
+_PIPELINE_VERSION = 6
 
 # ---------------------------------------------------------------------------
 # Repo name parsing helpers
@@ -573,6 +573,8 @@ class VoteStats:
     replaced: int = 0         # low-scoring primary paragraphs replaced from another scan
     dropped: int = 0          # low-scoring primary paragraphs dropped
     scans: int = 0
+    misbound_pages: int = 0   # primary pages from another volume, dropped (#90)
+    filled: int = 0           # paragraphs of other scans for columns the primary lacks (#90)
 
 
 def _vote(scans: list[_Scan], lexicon: frozenset[str]
@@ -661,6 +663,186 @@ def _best_replacement(
         if rank > best_key:
             best, best_key = key, rank
     return best
+
+
+# ---------------------------------------------------------------------------
+# Cross-scan fill (#90)
+# ---------------------------------------------------------------------------
+
+# Columns either side of a page within which the same text is looked for in
+# another scan (column mappings of two scans differ by a page or two).
+_NEAR_COLS = 6
+# A primary page is misbound (a leaf of another volume) when most other scans
+# don't have its text near its columns (shared trigrams below
+# ``_MISBOUND_SHARE``; unrelated pages share ~0.02, the same page in another
+# scan 0.4–0.9) and their text for those columns is nowhere in the primary
+# within ``_MISBOUND_FAR_COLS`` columns (so it isn't just a column offset);
+# only runs of at least ``_MISBOUND_MIN_PAGES`` such pages count.
+_MISBOUND_SHARE = 0.1
+_MISBOUND_FAR_COLS = 60
+_MISBOUND_MIN_PAGES = 2
+# A page of another scan already present in the primary nearby (this share of
+# its trigrams) is not filled in.
+_FILL_DUP_SHARE = 0.3
+# A filled page must be within this many pages of one whose head numbers
+# confirm its scan's column mapping.
+_FILL_SUPPORT_PAGES = 2
+
+
+def _word_trigrams(text: str) -> set[str]:
+    return rep._trigrams(rep._fold(text))
+
+
+@dataclass
+class _Layout:
+    """A scan's Greek paragraphs placed on Migne columns."""
+
+    name: str
+    paras: list[dict]                       # {"stem", "title", "text"}
+    pages: dict[str, tuple[int, int]]       # page stem with text → its columns
+    grams: dict[str, set[str]]              # page stem → word trigrams of its text
+    supported: set[int]                     # page numbers whose heads confirm the map
+
+    def near(self, a: int, b: int) -> set[str]:
+        """Trigrams of the pages whose columns fall within [a, b]."""
+        out: set[str] = set()
+        for stem, (c, _) in self.pages.items():
+            if a <= c <= b:
+                out |= self.grams[stem]
+        return out
+
+
+def _layout(name: str, paras: list[dict], heads: list[tuple[str, list[int]]]) -> _Layout:
+    repeats = rep.find_repeats(paras, [stem for stem, _ in heads])
+    cmap = cols.map_columns(heads, skip=set(repeats.pages) | set(repeats.moved))
+    pages: dict[str, tuple[int, int]] = {}
+    grams: dict[str, set[str]] = {}
+    for p in paras:
+        if p["stem"] in repeats.pages:
+            continue
+        span = cmap.columns.get(repeats.moved.get(p["stem"], p["stem"]))
+        if span is None:
+            continue
+        pages[p["stem"]] = span
+        grams.setdefault(p["stem"], set()).update(_word_trigrams(p["text"]))
+    supported = {int(stem) for stem, nums in heads if stem.isdigit()
+                 and (span := cmap.columns.get(stem))
+                 and any(span[0] - 1 <= n <= span[1] + 1 for n in nums)}
+    return _Layout(name, [p for p in paras if p["stem"] not in repeats.pages],
+                   pages, grams, supported)
+
+
+def _share(grams: set[str], other: set[str]) -> float:
+    return len(grams & other) / len(grams) if grams else 0.0
+
+
+def _misbound_pages(primary: _Layout, others: list[_Layout]) -> set[str]:
+    """Primary pages that are leaves of another volume (see ``_MISBOUND_SHARE``).
+
+    Another scan may share the misbinding (two copies bound alike), so a page
+    is misbound when at least half of the other scans with text near its
+    columns don't have its text, and their text for its columns is not in the
+    primary nearby.
+    """
+    flagged: list[str] = []
+    for stem, (a, b) in sorted(primary.pages.items(), key=lambda kv: kv[1]):
+        theirs = [o for o in others if o.near(a - _NEAR_COLS, b + _NEAR_COLS)]
+        if not theirs:
+            continue
+        lacking = [o for o in theirs
+                   if _share(primary.grams[stem], o.near(a - _NEAR_COLS, b + _NEAR_COLS))
+                   < _MISBOUND_SHARE]
+        if 2 * len(lacking) < len(theirs):
+            continue
+        ours = primary.near(a - _MISBOUND_FAR_COLS, b + _MISBOUND_FAR_COLS)
+        same_cols = [g for o in lacking if (g := o.near(a, a))]
+        if same_cols and all(_share(g, ours) < _MISBOUND_SHARE for g in same_cols):
+            flagged.append(stem)
+    # Keep runs of consecutive pages only.
+    nums = sorted(int(s) for s in flagged)
+    keep: set[int] = set()
+    run: list[int] = []
+    for n in nums + [None]:          # type: ignore[list-item]
+        if run and (n is None or n != run[-1] + 1):
+            if len(run) >= _MISBOUND_MIN_PAGES:
+                keep.update(run)
+            run = []
+        if n is not None:
+            run.append(n)
+    return {s for s in flagged if int(s) in keep}
+
+
+def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
+                ) -> tuple[set[str], list[dict]]:
+    """Misbound primary pages, and paragraphs of other scans for columns the
+    primary lacks (#90) → ``(misbound page stems, fills)``.
+
+    The primary is the scan with the most dictionary-valid Greek, but it may
+    stop early or carry another volume's leaves while another scan has the
+    text.  Each fill is ``{"cols", "scan", "stem", "title", "text"}``: a page
+    of another scan whose columns no kept primary page covers, whose text the
+    primary doesn't already have nearby, and whose scan's column mapping is
+    confirmed by head numbers within ``_FILL_SUPPORT_PAGES`` pages.  Scans are
+    tried in order of dictionary-valid Greek.
+    """
+    ours = _layout(primary.name, kept, primary.heads)
+    theirs = [_layout(s.name, [{"stem": c.stem, "title": c.title, "text": c.text}
+                               for c in s.candidates if c.ok], s.heads)
+              for s in sorted(others, key=lambda s: (-s.known_words, _scan_rank(s.name)))]
+    misbound = _misbound_pages(ours, theirs)
+    wrong: set[str] = set()                 # text of the misbound leaves
+    for stem in misbound:
+        wrong |= ours.grams[stem]
+    covered: set[int] = set()
+    for stem, (a, b) in ours.pages.items():
+        if stem not in misbound:
+            covered |= {a, b}
+    fills: list[dict] = []
+    for other in theirs:
+        taken: set[int] = set()
+        by_page: dict[str, list[dict]] = {}
+        for p in other.paras:
+            if p["stem"] in other.pages:
+                by_page.setdefault(p["stem"], []).append(p)
+        for stem, paras in by_page.items():
+            a, b = other.pages[stem]
+            if a in covered or b in covered:
+                continue
+            if not any(abs(int(stem) - n) <= _FILL_SUPPORT_PAGES for n in other.supported):
+                continue
+            nearby = ours.near(a - _NEAR_COLS, b + _NEAR_COLS)
+            for f in fills:
+                if a - _NEAR_COLS <= f["cols"][0] <= b + _NEAR_COLS:
+                    nearby |= _word_trigrams(f["text"])
+            if (_share(other.grams[stem], nearby) >= _FILL_DUP_SHARE
+                    or _share(other.grams[stem], wrong) >= _MISBOUND_SHARE):
+                continue
+            for p in paras:
+                fills.append({"cols": [a, b], "scan": other.name, "stem": p["stem"],
+                              "title": p["title"], "text": p["text"]})
+            taken |= {a, b}
+        covered |= taken
+    fills.sort(key=lambda f: (f["cols"][0], f["scan"],
+                              int(f["stem"]) if f["stem"].isdigit() else 0))
+    return misbound, fills
+
+
+def _merge_fills(paras: list[dict], fills: list[dict]) -> list[dict]:
+    """Primary paragraphs (with ``cols``) and fills, in column order: each
+    fill goes before the first primary paragraph of a later column."""
+    if not fills:
+        return paras
+    out: list[dict] = []
+    pending = sorted(fills, key=lambda f: f["cols"][0])
+    i = 0
+    for p in paras:
+        if p.get("cols"):
+            while i < len(pending) and pending[i]["cols"][0] < p["cols"][0]:
+                out.append(pending[i])
+                i += 1
+        out.append(p)
+    out.extend(pending[i:])
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -879,6 +1061,13 @@ def _extract_volume(
         {"stem": primary.candidates[i].stem, "title": primary.candidates[i].title, "text": text}
         for i, text in kept
     ]
+    misbound, fills = _cross_scan(primary, paragraphs, [s for s in scans if s is not primary])
+    if misbound:
+        log.info("OPG %s: %d primary pages are misbound (another volume's leaves): dropped",
+                 vol_slug, len(misbound))
+        paragraphs = [p for p in paragraphs if p["stem"] not in misbound]
+    stats.misbound_pages = len(misbound)
+    stats.filled = len(fills)
     payload = {
         "repo": repo_name,
         "pipeline": {
@@ -891,6 +1080,8 @@ def _extract_volume(
         # for the page → column mapping (``_ogpg_columns``).
         "page_heads": primary.heads,
         "paragraphs": paragraphs,
+        # Paragraphs of other scans for columns the primary lacks (#90).
+        "fills": fills,
     }
     _write_if_changed(out_path, payload)
     log.info("OPG %s: %d paragraphs (kept %d, replaced %d, dropped %d; primary %s of %d scans)",
@@ -953,6 +1144,8 @@ def split_volume(
     paras = [{**p, "cols": cmap.columns.get(repeats.moved.get(p["stem"], p["stem"]))}
              for p in _in_place(extract["paragraphs"], repeats.moved)
              if p["stem"] not in repeats.pages]
+    paras = _merge_fills(paras, [{**f, "cols": tuple(f["cols"])}
+                                 for f in extract.get("fills", [])])
     refs = pgi.assign_refs(paras, vol_slug)
     if not rows:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
