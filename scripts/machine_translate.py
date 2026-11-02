@@ -90,9 +90,13 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     "got": (0.6, 3.0), "arb": (0.6, 4.0),
     "oge": (0.6, 3.0),  # KJV/Adishi Gospels: 1.12 English characters per Georgian one
     "sga": (0.6, 3.5),  # Würzburg glosses / Thesaurus Palaeohibernicus: 1.47 per Irish one
-    "ang": (0.5, 5.0),  # provisional (#223): to be measured on a translated text
-    "goh": (0.5, 5.0),  # provisional (#224): to be measured on a translated text
-    "osx": (0.5, 5.0),  # provisional (#224): to be measured on a translated text
+    "ang": (0.6, 3.0),  # Thorpe, Catholic Homilies I: 1.03 English characters per Old English one
+    # OHG: no English parallel; the OHG Tatian has 1.06 characters per character
+    # of its Latin (ReA), and the KJV 1.50 per character of the Vulgate Gospels: ~1.41.
+    "goh": (0.6, 3.5),
+    # Old Saxon: no parallel at all; the Heliand's words are as long as Old
+    # English ones (2.47 vs 2.51 tokens a word), so ~1.0–1.4 like its neighbours.
+    "osx": (0.6, 3.5),
 }
 DEFAULT_BAND = (0.5, 5.0)
 # A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
