@@ -68,6 +68,7 @@ from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_columns as cols
 from scripts.ingest import _ogpg_index as pgi
+from scripts.ingest import _ogpg_repeats as rep
 from scripts.ingest import _ogpg_volumes as pgv
 from scripts.ingest._common import offline, require_network
 
@@ -905,10 +906,33 @@ def _write_if_changed(path: Path, payload: dict) -> None:
         path.write_text(content, encoding="utf-8")
 
 
+def volume_repeats(extract: dict) -> rep.Repeats:
+    """Pages the volume's primary scan repeats (``_ogpg_repeats``, #96)."""
+    return rep.find_repeats(extract["paragraphs"],
+                            [stem for stem, _ in extract["page_heads"]])
+
+
+def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
+    """``paragraphs`` with those of each moved page at the place of the page it
+    stands for (``_ogpg_repeats.Repeats.moved``), in page order otherwise."""
+    if not moved:
+        return paragraphs
+    keyed: list[tuple[int, int, dict]] = []
+    page = 0
+    for i, p in enumerate(paragraphs):
+        stem = moved.get(p["stem"], p["stem"])
+        if stem.isdigit():
+            page = int(stem)
+        keyed.append((page, i, p))
+    keyed.sort(key=lambda k: (k[0], k[1]))
+    return [p for _, _, p in keyed]
+
+
 def split_volume(
     repo_name: str,
     extract: dict,
     rows: list[pgi.IndexRow],
+    repeats: rep.Repeats | None = None,
 ) -> list[tuple[str, Work, list[dict]]]:
     """Cut an extracted volume into works → ``[(relative path, work, paragraphs)]``.
 
@@ -916,13 +940,19 @@ def split_volume(
     each in-period row becomes ``{vol}/{slug}.json`` and uncovered text goes
     to ``{vol}/other.json``; rows dated after the collection period are
     dropped (their text is not written).  Paragraphs are ``{"ref", "text"}``
-    with the positional refs of ``_ogpg_index.assign_refs``.
+    with the positional refs of ``_ogpg_index.assign_refs``.  Pages the scan
+    repeats (``repeats``, found here when not given) are left out.
     """
     vol_nums, vol_slug = _parse_repo(repo_name)
     part = _parse_repo_part(repo_name)
     scan = extract["pipeline"].get("primary_scan")
-    cmap = cols.map_columns([(stem, nums) for stem, nums in extract["page_heads"]])
-    paras = [{**p, "cols": cmap.columns.get(p["stem"])} for p in extract["paragraphs"]]
+    if repeats is None:
+        repeats = volume_repeats(extract)
+    cmap = cols.map_columns([(stem, nums) for stem, nums in extract["page_heads"]],
+                            skip=set(repeats.pages) | set(repeats.moved))
+    paras = [{**p, "cols": cmap.columns.get(repeats.moved.get(p["stem"], p["stem"]))}
+             for p in _in_place(extract["paragraphs"], repeats.moved)
+             if p["stem"] not in repeats.pages]
     refs = pgi.assign_refs(paras, vol_slug)
     if not rows:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
@@ -981,12 +1011,15 @@ def _ingest_volume(
     if extract is None:
         return [], set()
     pipeline = {k: v for k, v in extract["pipeline"].items() if k != "id"}
+    repeats = volume_repeats(extract)
     pipeline["column_pages"] = cols.map_columns(
-        [(stem, nums) for stem, nums in extract["page_heads"]]).numbered
+        [(stem, nums) for stem, nums in extract["page_heads"]],
+        skip=set(repeats.pages) | set(repeats.moved)).numbered
+    pipeline["repeated_pages"] = len(repeats.pages)
     works: list[Work] = []
     written: set[str] = set()
     for rel, work, paragraphs in split_volume(repo_name, extract,
-                                              pgi.load_index().get(vol_slug, [])):
+                                              pgi.load_index().get(vol_slug, []), repeats):
         _write_if_changed(output_dir / rel, {
             "work": work.model_dump(),
             "pipeline": pipeline,
