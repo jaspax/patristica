@@ -42,7 +42,7 @@ class Work(BaseModel):
     title: str
     date_composed: int | None     # best single estimate (CE), negative = BCE
     date_range: tuple[int, int] | None
-    genre: str                    # "scripture", "patristic", "liturgical", "council", "apocrypha" (#103)
+    genre: str                    # "scripture", "patristic", "liturgical", "council", "apocrypha" (#103), "hagiography" (#558)
     language: str                 # ISO 639-3 code: "grc", "lat", "hbo", "syc", "cop", "gez", ...
     tradition: str | None         # "greek", "latin", "syriac", "ethiopic", "coptic", "armenian"
     license: str                  # "public_domain", "cc-by-4.0", "cc-by-nc-sa-4.0", etc.

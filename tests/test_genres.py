@@ -37,6 +37,10 @@ def test_apocrypha_is_a_genre() -> None:
     assert "apocrypha" in GENRES
 
 
+def test_hagiography_is_a_genre() -> None:
+    assert "hagiography" in GENRES
+
+
 def test_overrides_file_is_valid() -> None:
     overrides = load_genre_overrides()
     assert overrides
@@ -137,6 +141,21 @@ def test_normalize_handles_apocrypha(tmp_path: Path, overrides: dict[str, str]) 
     chunks = _chunks(norm / "src" / "acts.json")
     assert [c["text"] for c in chunks] == ["Text", "More"]  # prose: section number stripped
     assert all(c["out_of_period"] for c in chunks)  # dated like patristic prose
+
+
+def test_normalize_handles_hagiography(tmp_path: Path, overrides: dict[str, str]) -> None:
+    raw, norm = tmp_path / "raw", tmp_path / "normalized"
+    overrides["src/vita"] = "hagiography"  # ingested as patristic, curated (#558)
+    work = _work("src/vita", "patristic", date_composed=400, date_range=[380, 420])
+    units = [("Vita.1", "1. Text"), ("Vita.2", "More")]
+    path = _write_raw(raw, "src/vita.json", work, "paragraphs", units)
+    assert normalize_file(path, norm) == 2
+    chunks = _chunks(norm / "src" / "vita.json")
+    assert [c["text"] for c in chunks] == ["Text", "More"]  # prose like patristic
+    assert not any(c["out_of_period"] for c in chunks)
+    write_works_manifest(norm)
+    line = (norm / "_works.jsonl").read_text(encoding="utf-8").strip()
+    assert json.loads(line)["work"]["genre"] == "hagiography"
 
 
 def test_normalize_applies_override_across_unit_keys(

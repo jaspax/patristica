@@ -112,4 +112,5 @@ export const GENRES: Record<string, string> = {
   liturgical: "Liturgical",
   council: "Council",
   apocrypha: "Apocrypha",
+  hagiography: "Hagiography",
 };

@@ -57,7 +57,7 @@ class TestWork:
             Work(work_id="x", source_id="y", title="T", genre="patristic", language="lat", date_confidence="maybe")
 
     def test_all_genres(self):
-        for genre in ("scripture", "patristic", "liturgical", "council", "apocrypha"):
+        for genre in ("scripture", "patristic", "liturgical", "council", "apocrypha", "hagiography"):
             w = Work(work_id="x", source_id="y", title="T", genre=genre, language="lat")
             assert w.genre == genre
 
