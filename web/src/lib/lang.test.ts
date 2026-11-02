@@ -19,6 +19,12 @@ describe("languageInfo", () => {
     expect(languageInfo("sga")).toEqual({ lang: "sga", name: "Old Irish", dir: "ltr" });
   });
 
+  it("maps the Old Germanic languages to their own tags (not en or de), left-to-right", () => {
+    expect(languageInfo("ang")).toEqual({ lang: "ang", name: "Old English", dir: "ltr" });
+    expect(languageInfo("goh")).toEqual({ lang: "goh", name: "Old High German", dir: "ltr" });
+    expect(languageInfo("osx")).toEqual({ lang: "osx", name: "Old Saxon", dir: "ltr" });
+  });
+
   it("maps Arabic to ar, right-to-left", () => {
     expect(languageInfo("arb")).toEqual({ lang: "ar", name: "Arabic", dir: "rtl" });
   });

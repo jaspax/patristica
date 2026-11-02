@@ -11,7 +11,7 @@ const css = readFileSync(join(dir, "globals.css"), "utf8");
 const fontsTs = readFileSync(join(dir, "fonts.ts"), "utf8");
 
 function langStack(lang: string): string[] {
-  const rule = new RegExp(`:lang\\(${lang}\\)\\s*\\{\\s*font-family:\\s*([^;]+);`).exec(css);
+  const rule = new RegExp(`:lang\\(${lang}\\)[^{]*\\{\\s*font-family:\\s*([^;]+);`).exec(css);
   if (!rule) throw new Error(`no :lang(${lang}) font-family rule in globals.css`);
   return rule[1].split(",").map((s) => s.trim());
 }
@@ -35,8 +35,9 @@ describe("Church Slavonic fonts (#371)", () => {
     expect(files).toEqual([
       "fonts/Monomakh-Regular.woff2",
       "fonts/NotoSerif-Slavonic.woff2",
-      "fonts/NotoSerif-Irish.woff2",
+      "fonts/NotoSerif-Medieval.woff2",
       "fonts/Segotia-Regular.woff2",
+      "fonts/BabelStoneEnglisc.woff2",
     ]);
     for (const file of files) {
       const bytes = readFileSync(join(dir, file));
@@ -68,25 +69,35 @@ describe("Old Georgian font (#512)", () => {
   });
 });
 
-describe("Old Irish fonts (#544)", () => {
-  it("keeps Noto Serif first, backed by the Irish fallback before the other script fonts", () => {
-    expect(langStack("sga")).toEqual(["var(--font-serif)", "var(--font-irish-fallback)", "var(--font-body)"]);
-    expect(fontsTs).toContain('variable: "--font-irish-fallback"');
-    const bytes = readFileSync(join(dir, "fonts/NotoSerif-Irish.woff2"));
+describe("Medieval Latin-script fonts (#544, #564)", () => {
+  it.each(["sga", "ang", "goh", "osx"])(
+    "keeps Noto Serif first for :lang(%s), backed by the medieval fallback before the other script fonts",
+    (lang) => {
+      expect(langStack(lang)).toEqual(["var(--font-serif)", "var(--font-medieval-fallback)", "var(--font-body)"]);
+    },
+  );
+
+  it("self-hosts the fallback", () => {
+    expect(fontsTs).toContain('variable: "--font-medieval-fallback"');
+    const bytes = readFileSync(join(dir, "fonts/NotoSerif-Medieval.woff2"));
     expect(bytes.subarray(0, 4).toString("latin1")).toBe("wOF2");
   });
 });
 
-describe("Insular font for the Old Irish word tile (#544)", () => {
+describe("Faces for the Old Irish and Old English word tiles (#544, #564)", () => {
   const landingCss = readFileSync(join(dir, "../components/Landing.module.css"), "utf8");
 
-  it("self-hosts Segotia with its licence, not preloaded", () => {
+  it("self-hosts Segotia and BabelStone Englisc with their licences, not preloaded", () => {
     expect(fontsTs).toMatch(/src: "\.\/fonts\/Segotia-Regular\.woff2",\s*weight: "400",\s*variable: "--font-insular",\s*preload: false/);
     expect(existsSync(join(dir, "fonts/Segotia-OFL.txt"))).toBe(true);
+    expect(fontsTs).toMatch(/src: "\.\/fonts\/BabelStoneEnglisc\.woff2",\s*weight: "400",\s*variable: "--font-englisc",\s*preload: false/);
+    expect(existsSync(join(dir, "fonts/BabelStoneEnglisc-OFL.txt"))).toBe(true);
   });
 
-  it("is used by the landing tile's class only, never by a :lang() rule", () => {
+  it("are used by the landing tiles' classes only, never by a :lang() rule", () => {
     expect(landingCss).toMatch(/\.insular \{\s*font-family: var\(--font-insular\), var\(--font-body\);/);
+    expect(landingCss).toMatch(/\.englisc \{\s*font-family: var\(--font-englisc\), var\(--font-body\);/);
     expect(css).not.toContain("--font-insular");
+    expect(css).not.toContain("--font-englisc");
   });
 });

@@ -47,7 +47,8 @@ const EXAMPLES = [
 
 /**
  * "The Word" of John 1:1 in each language of the collection; each links to that language's works.
- * `className` gives a tile its own face where the corpus text's font would be plain (Old Irish).
+ * `className` gives a tile its own face where the corpus text's font would be plain (Old Irish, Old English).
+ * The strip's grid (Landing.module.css) lays out 15 tiles as 3 rows of 5, or 5 rows of 3 on narrow screens.
  */
 const WORDS: { language: string; word: string; className?: string }[] = [
   { language: "grc", word: "λόγος" },
@@ -62,6 +63,11 @@ const WORDS: { language: string; word: string; className?: string }[] = [
   { language: "arb", word: "الكلمة" },
   { language: "oge", word: "სიტყუაჲ" },
   { language: "sga", word: "bríathar", className: styles.insular },
+  // Spelled as the manuscripts write them: wynn in Old English, uu for w in the
+  // Heliand (Old Saxon) and the Tatian (Old High German, Jn 1:1 "uuas uuort").
+  { language: "ang", word: "ƿord", className: styles.englisc },
+  { language: "osx", word: "uuord" },
+  { language: "goh", word: "uuort" },
 ];
 
 /** The search page's link for a query. */

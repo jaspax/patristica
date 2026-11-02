@@ -116,6 +116,20 @@ describe("originalIds", () => {
     expect(originalIds([eng, sga])).toEqual(new Set(["sga"]));
   });
 
+  it("ranks Old English, Old High German and Old Saxon after Latin (#564)", () => {
+    const lat = workRow({ id: "lat", language: "lat" });
+    const grc = workRow({ id: "grc", language: "grc" });
+    const chu = workRow({ id: "chu", language: "chu" });
+    const eng = workRow({ id: "eng", language: "eng" });
+    for (const code of ["ang", "goh", "osx"]) {
+      const w = workRow({ id: code, language: code });
+      expect(originalIds([w, lat])).toEqual(new Set(["lat"]));
+      expect(originalIds([w, grc])).toEqual(new Set(["grc"]));
+      expect(originalIds([chu, w])).toEqual(new Set([code]));
+      expect(originalIds([eng, w])).toEqual(new Set([code]));
+    }
+  });
+
   it("marks every edition of the original, but not its translations", () => {
     const first1k = workRow({ id: "first1k", language: "grc" });
     const migne = workRow({ id: "pg", language: "grc" });
