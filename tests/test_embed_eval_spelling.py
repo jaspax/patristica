@@ -263,3 +263,55 @@ def test_langset_groups_felire_witnesses_and_needs_no_scripture(tmp_path):
         "target_lang": "sga", "origin": "unique", "target_chunk_id": t}) + "\n")
     [q] = load_authored([tmp_path / "q.jsonl"], list(rows.values()))
     assert set(q.relevant_ids) == {t, other}
+
+
+def test_old_english_pools():
+    """#582: the ASPR poems by kind and Ælfric are pools; Thorpe's English is in none."""
+    from scripts.embed_eval.select import pool_of
+
+    assert pool_of("ang", "aspr/andreas") == "narrative"
+    assert pool_of("ang", "aspr/phoenix") == "exeter"
+    assert pool_of("ang", "aspr/wanderer") == "wisdom"
+    assert pool_of("ang", "aelfric-ch/ch1-05") == "aelfric"
+    assert pool_of("ang", "aspr/creed") is None  # a minor poem: distractor only
+    assert pool_of("ang", "aelfric-ch-eng/ch1-05") is None
+
+
+def test_quality_summary_with_local_models_only(tmp_path, capsys):
+    """#582: --translators/--judges local-opus: the summary reads the models from the stores."""
+    from scripts.embed_eval import translate as te
+
+    usage = {"model": "local-opus", "input": 10, "output": 5}
+    (tmp_path / "translations.jsonl").write_text(json.dumps(
+        {"model": "local-opus", "chunk_id": "a#1", "translation": "x", "usage": usage}) + "\n")
+    (tmp_path / "judgements.jsonl").write_text(json.dumps(
+        {"model": "local-opus", "chunk_id": "a#1", "language": "ang", "origin": "unique",
+         "verdicts": {"local-opus": {"fidelity": 4, "errors": []}},
+         "judge_can_read_original": "well", "usage": usage}) + "\n")
+    te.summarize(tmp_path)
+    out = capsys.readouterr().out
+    assert "local-opus local-opus" in out and "4.00" in out and "(self)" in out
+    assert "judge agreement" not in out  # one judge: nothing to agree with
+
+
+def test_review_records_its_reviewer(tmp_path):
+    """#582: a local-opus review is recorded as such in the query file, not as Sol."""
+    from scripts.embed_eval import review as rv
+
+    authored = tmp_path / "authored"
+    authored.mkdir()
+    q = {"query_id": "paraphrase:a#1", "mode": "paraphrase", "text": "p", "query_lang": "eng",
+         "target_lang": "ang", "origin": "unique", "target_chunk_id": "a#1"}
+    (authored / "ang.jsonl").write_text(json.dumps(q) + "\n")
+    (tmp_path / "corpus.jsonl").write_text(json.dumps(
+        {"chunk_id": "a#1", "work_id": "a", "language": "ang", "text": "t"}) + "\n")
+    (tmp_path / "review").mkdir()
+    (tmp_path / "review" / "reviews.jsonl").write_text(json.dumps(
+        {"target_chunk_id": "a#1", "language": "ang", "origin": "unique",
+         "paraphrase": {"accuracy": 5, "coverage": "most", "problems": [], "corrected": None},
+         "topical": {"relevance": 5, "specificity": "medium", "problems": [],
+                     "corrected": None},
+         "can_read_original": "well", "reviewer": "local-opus"}) + "\n")
+    rv.apply_reviews(tmp_path, authored)
+    row = json.loads((authored / "ang.jsonl").read_text())
+    assert row["review"] == "pass" and row["reviewed_by"] == "claude-opus-5-5"

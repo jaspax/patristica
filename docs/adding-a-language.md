@@ -55,6 +55,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
   - Run the translation quality eval with `scripts.embed_eval.translate quality --langs {code}` (#84's method: blind judging by two vendors, fidelity on a 1–5 scale, hallucination count, $/passage). Spot-check some translations yourself.
   - Rerun retrieval with `dense:voyage/voyage-4-large+tr:gpt-6.1-sol` to confirm the gain.
   - Enrolling the language for the quality eval needs an entry in `LANGUAGE_NAMES`, which a test ties to production (#295).
+  - **Without paid APIs** (#582): `review --reviewer local-opus`, `translate quality --translators local-opus --judges local-opus` and `scripts.translate --model local-opus` run on the Claude subscription. The review is then by the drafter's own model, and fidelity is self-judged only; say so in the record.
 - [ ] **Record it.** Add the language's columns to the matrices in `docs/embedding-eval.md`, and the numbers and the decision to the decision record.
 - [ ] **If translation vectors are needed**, enroll the language:
   - add it to `TRANSLATED_LANGUAGES` in `patristica/translations.py`;
