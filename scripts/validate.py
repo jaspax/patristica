@@ -56,7 +56,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 VALID_LANGUAGES = {
-    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "eng",
+    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "ang", "goh", "osx", "eng",
 }
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts

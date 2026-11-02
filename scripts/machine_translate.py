@@ -90,6 +90,9 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     "got": (0.6, 3.0), "arb": (0.6, 4.0),
     "oge": (0.6, 3.0),  # KJV/Adishi Gospels: 1.12 English characters per Georgian one
     "sga": (0.6, 3.5),  # Würzburg glosses / Thesaurus Palaeohibernicus: 1.47 per Irish one
+    "ang": (0.5, 5.0),  # provisional (#223): to be measured on a translated text
+    "goh": (0.5, 5.0),  # provisional (#224): to be measured on a translated text
+    "osx": (0.5, 5.0),  # provisional (#224): to be measured on a translated text
 }
 DEFAULT_BAND = (0.5, 5.0)
 # A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
@@ -111,6 +114,9 @@ DOCUMENT_LANGUAGES: dict[str, str] = {
     "arb": "Classical (Christian) Arabic",
     "oge": "Old Georgian",
     "sga": "Old Irish (including early Middle Irish)",
+    "ang": "Old English (Anglo-Saxon)",
+    "goh": "Old High German",
+    "osx": "Old Saxon",
 }
 
 DOCUMENT_SYSTEM = """\
