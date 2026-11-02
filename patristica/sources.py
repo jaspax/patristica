@@ -64,6 +64,8 @@ SOURCE_LABELS: dict[str, str] = {
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     "wb-glosses": "Würzburg Glosses on Paul (Old Irish; Doyle, Thesaurus Palaeohibernicus)",
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
+    "aelfric-ch": "Ælfric, Catholic Homilies I (Old English; Thorpe 1844, Project Gutenberg)",
+    "aelfric-ch-eng": "Ælfric, Catholic Homilies I (Thorpe's English, 1844, Project Gutenberg)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",

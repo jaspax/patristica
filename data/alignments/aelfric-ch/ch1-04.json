@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "aelfric-ch/ch1-04",
+ "pivot": "aelfric-ch-eng/ch1-04",
+ "groups": 129,
+ "inputs": "229cd30045e0dc32",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "aelfric-ch-eng/ch1-04", "units": 131, "ids": "415f0a8cf1a32bf1", "inputs": "4b708df02995f85e", "spans": "..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999988999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch/ch1-04", "units": 131, "ids": "59f14b6f2d1c0814", "inputs": "1753c2f214d8bb6e", "spans": "..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999988999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}
