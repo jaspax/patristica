@@ -71,6 +71,13 @@ def test_manifest_carries_the_curated_genres() -> None:
         ("coptic-scriptorium/lament_mary", "liturgical"),
         ("anf-works/shepherd-of-hermas", "patristic"),
         ("gez/1en", "scripture"),
+        # #558: post-apostolic saints are hagiography, apostles apocrypha.
+        ("anf-works/martyrdom-of-polycarp", "hagiography"),
+        ("npnf-works/athanasius-life-of-antony", "hagiography"),
+        ("mt-eng/dsc/life-of-rabbula", "hagiography"),
+        ("dsc/doctrina-addai", "apocrypha"),
+        ("anf-works/acts-of-paul-and-thecla", "apocrypha"),
+        ("npnf-works/chrysostom-homilies-on-ignatius-and-babylas", "patristic"),
     ],
 )
 def test_examples(work_id: str, genre: str) -> None:
