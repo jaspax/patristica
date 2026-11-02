@@ -180,6 +180,24 @@ def test_old_irish_marks():
     assert fold("fhoiditer") != fold("ḟoiditer")
 
 
+def test_old_english_old_saxon_old_high_german_letters():
+    """ð/đ/þ, ƀ/b, ƿ/w and ȝ/g fold together; length marks drop; uu stays (#563)."""
+    # Thorpe writes þ and ð for one sound in the same words; length marks drop.
+    assert fold("Þurh ðone Hálgan Gást") == fold("ðurh þone halgan gast") == "þurh þone halgan gast"
+    assert fold("ǽr ǣr ær") == "er er er"  # æ is e, as in Latin
+    # The Heliand (ReA): quað/quađ, haƀda/habda, with circumflexes.
+    assert fold("quađ uuirđid") == fold("quað uuirðid") == "quaþ uuirþid"
+    assert fold("haƀda selƀo") == fold("habda selbo")
+    assert fold("thô uuarð") == "tho uuarþ"
+    # Wynn and the insular g / yogh letters, capitals too.
+    assert fold("Ƿuldor ƿord") == fold("wuldor word")
+    assert fold("Ȝod ᵹod Ᵹod ʒod") == "god god god god"
+    # Not folded: th onto þ (English the/this would match Old English þe/þis),
+    # and uu onto w (Latin uua, OHG uuas would match English wa, was).
+    assert fold("þe þis") != fold("the this")
+    assert fold("uuort uuas") == "uuort uuas"
+
+
 def test_squash_ignores_word_division():
     assert squash("ⲛ ⲧⲉ ⲕⲕⲗⲏⲥⲓⲁ") == squash("ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ")
 
@@ -196,6 +214,7 @@ SAMPLES = [
     "فِي ٱلْبَدْءِ كَانَ ٱلْكَلِمَةُ،", "المسـيـح الذى", "ﺍﻟﻤﺴﻴﺢ کتاب", "ـ ـا ـ", "أنا؟",
     "ႼႨႢႬႨ ႨႤႱႭჃ", "ⴕⴐⴈⴑⴒⴡ ⴂⴄⴒⴗⴣ ⴍⴣ", "ᲬᲘᲒᲜᲘ ძჱ გეტყჳ", "მოუწოდა ოჳ ოოჳ ოჳჳ", "ჴელი დედაჲ჻ ქ̃ჱ",
     "სიტყუაჲ ქუეყანასა ტყჳე თჳსი ესაჲა", "ჲ ა ჲ ჲჲა ჳჲ ჳ ქჳა ქუჲა ქჲუა", "უა ბუა ბუ-ა ბ უა ⴁⴍⴣⴀ",
+    "Þurh ðone Hálgan Gást, ǽr ǣr", "quađ haƀda Ƀ Đ thô uuarð", "Ƿord ȝod Ȝ ᵹod Ᵹ ʒ Ʒ",
 ]
 
 
