@@ -436,7 +436,9 @@ def test_map_columns_orders_pages_numerically():
     ("ΠΡΟΟΙΜΙΟΝ. α’. Ἀστὴρ ἀειφανὴς", True),
     ("UMIAIA ΕΙΣ ΤΟ, Πρόσεχε σεαυτῷ (6). Ι. Τοῦ λόγου", True),     # Latin capitals
     ("οΜιΛιΑ ΠΡΟΣ ΤΟΥΣ ΠΛΟΥἹῸΥΝΤΑΣ (6.4). Ι. Εἴρηται", True),      # small letters
+    ("[3”] ΕΙΣ ΤΗΝ ΥΠΑΠΑΝΤΗΝ Τοῦ Κυρίου", True),                # earlier edition's column
     ("ΚΥΡ. Ὁμολογοῦμεν τοίνυν", False),                          # speaker label
+    ("0 ΒΑΣΙΛΕΥΣ. Οὐδαμῶς.", False),                             # speaker label (Ὁ)
     ("HOMILIA PRIMA DE JEJUNIO", False),                         # Latin heading
     ("ὁ δὲ λόγος ΘΕΟΥ ΕΣΤΙΝ", False),
 ])

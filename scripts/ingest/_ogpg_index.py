@@ -337,9 +337,14 @@ def _heading_run(text: str, start: int = 0) -> tuple[int, int, int] | None:
     return None
 
 
+# What may precede a paragraph's heading: punctuation, and Migne's column of an
+# earlier edition in brackets (``[790] Ὁμιλία``, ``[3”] ΕΙΣ ΤΗΝ``, ``[800i ΟΜΙΛΙΑ``).
+_HEADING_PREFIX = re.compile(r"\[\d{1,4}[^\s\w]{0,2}[a-z]?\s+|[^\w]{0,3}")
+
+
 def _opens_with_heading(text: str) -> bool:
     """Whether a paragraph opens with a heading in Greek capitals."""
-    m = re.match(r"[^\w]{0,3}", text)
+    m = _HEADING_PREFIX.match(text)
     return _heading_run(text, m.end() if m else 0) is not None
 
 
