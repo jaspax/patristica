@@ -125,6 +125,16 @@ UNIQUE_POOLS: dict[str, dict[str, tuple[str, ...]]] = {
         ),
         "aelfric": ("aelfric-ch/",),
     },
+    # Old High German (#584): no OHG Scripture; Tatian, Isidor, the Benedictine
+    # Rule, Murbach and Notker's Boethius translate Latin works in the corpus,
+    # but the one-language set holds no Latin, so within it every work counts.
+    # Three big texts, then everything else (minor poems, prose, confessions).
+    "goh": {
+        "otfrid": ("rea/otfrid",),
+        "notker-psalter": ("rea/notker-psalter",),
+        "tatian": ("rea/tatian",),
+        "minor": ("rea/",),
+    },
 }
 
 MIN_CHARS = 30

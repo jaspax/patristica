@@ -89,6 +89,7 @@ LANGUAGE_NAMES = {
     "sga": "Old Irish",
     "osx": "Old Saxon",
     "ang": "Old English",
+    "goh": "Old High German",
 }
 # Languages measured before deciding whether they get translation vectors
 # (docs/adding-a-language.md section 3). They are prompt names only: enrolling
