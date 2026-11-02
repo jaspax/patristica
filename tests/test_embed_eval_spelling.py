@@ -172,6 +172,7 @@ def test_eval_languages_are_not_enrolled():
     assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
     assert PROMPT_NAMES["oge"] == "Old Georgian"  # enrolled on #529
     assert PROMPT_NAMES["sga"] == "Old Irish"  # enrolled on #552
+    assert PROMPT_NAMES["ang"] == "Old English"  # enrolled on #582
 
 
 def test_lectionaries_are_not_georgian_only():
