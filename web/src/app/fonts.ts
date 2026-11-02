@@ -15,6 +15,7 @@ import {
   Noto_Serif_Ethiopic,
   Noto_Serif_Georgian,
   Noto_Serif_Hebrew,
+  UnifrakturMaguntia,
 } from "next/font/google";
 
 const serif = Noto_Serif({
@@ -119,15 +120,17 @@ const slavonicFallback = localFont({
   adjustFontFallback: false,
 });
 
-// Old Irish (#225, #544) is Latin script in the body font; this backs it with
-// what Google's Noto Serif slices lack (the Tironian et ⁊, the reversed c ↄ, a
-// letter + combining dot above U+0307): Noto Serif cut to Latin with its marks
-// and signs in one file (web/scripts/irish-font.py), so such a cluster falls
-// back whole, in the same design.
-const irishFallback = localFont({
-  src: "./fonts/NotoSerif-Irish.woff2",
+// Old Irish (#225, #544), Old English, Old High German and Old Saxon (#564)
+// are Latin script in the body font; this backs them with what Google's Noto
+// Serif slices lack (the Tironian et ⁊, the reversed c ↄ, a letter + a
+// combining mark the latin slices don't carry: dot above U+0307, circumflex
+// U+0302, acute U+0301, breve, caron): Noto Serif cut to Latin with its marks
+// and signs in one file (web/scripts/medieval-font.py), so such a cluster
+// falls back whole, in the same design.
+const medievalFallback = localFont({
+  src: "./fonts/NotoSerif-Medieval.woff2",
   weight: "400",
-  variable: "--font-irish-fallback",
+  variable: "--font-medieval-fallback",
   preload: false,
   adjustFontFallback: false,
 });
@@ -140,6 +143,45 @@ const insular = localFont({
   src: "./fonts/Segotia-Regular.woff2",
   weight: "400",
   variable: "--font-insular",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+// Runes inside Old English text (#564): ASPR prints Cynewulf's signatures, the
+// Rune Poem and Solomon and Saturn's runes as Unicode futhorc (U+16A0–16FF),
+// which neither Noto Serif nor the medieval fallback has. Noto Sans Runic cut
+// to the Runic block (7 KB, web/scripts/runic-font.py), after the medieval
+// fallback in the :lang() stack. Self-hosted because next/font/google adds a
+// local(Arial) fallback face to the variable even with adjustFontFallback
+// off, and that Arial would sit ahead of the body font's script fonts.
+const runic = localFont({
+  src: "./fonts/NotoSansRunic-Runes.woff2",
+  weight: "400",
+  variable: "--font-runic",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+// The landing page's Old Saxon and Old High German tiles only (#564):
+// UnifrakturMaguntia, a blackletter by j. 'mach' wust after Peter Wiegel
+// (OFL 1.1, Reserved Font Name "UnifrakturMaguntia"), served as Google Fonts
+// serves it. Corpus text never uses it.
+const fraktur = UnifrakturMaguntia({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fraktur",
+  preload: false,
+});
+
+// The landing page's Old English tile only (#564): BabelStone Englisc by
+// Andrew West, after the Anglo-Saxon type cut for Franciscus Junius (c. 1655),
+// with insular letter shapes and wynn ƿ (Segotia has none). OFL 1.1, Reserved
+// Font Name "BabelStone"; the upstream WOFF2 (version 1.000, 2023-06-24, from
+// babelstone.co.uk/Fonts/WOFF/) is served unmodified. Corpus text never uses it.
+const englisc = localFont({
+  src: "./fonts/BabelStoneEnglisc.woff2",
+  weight: "400",
+  variable: "--font-englisc",
   preload: false,
   adjustFontFallback: false,
 });
@@ -158,8 +200,11 @@ export const fontVariables = [
   georgian,
   slavonic,
   slavonicFallback,
-  irishFallback,
+  medievalFallback,
+  runic,
   insular,
+  englisc,
+  fraktur,
 ]
   .map((f) => f.variable)
   .join(" ");

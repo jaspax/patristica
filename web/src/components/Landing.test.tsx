@@ -100,8 +100,29 @@ describe("Landing", () => {
     // Only the Old Irish tile gets the Insular face.
     const greekWord = within(strip).getByRole("link", { name: /λόγος/ }).querySelector("[lang]");
     expect(irish.querySelector("[lang]")?.className).toMatch(/insular/);
-    expect(greekWord?.className).not.toMatch(/insular/);
-    expect(within(strip).getAllByRole("link")).toHaveLength(12);
+    expect(greekWord?.className).not.toMatch(/insular|englisc|fraktur/);
+    // Old English in the Anglo-Saxon face, then Old Saxon and Old High German in blackletter (#564).
+    const tiles = within(strip).getAllByRole("link");
+    expect(tiles.slice(-4).map((a) => a.getAttribute("href"))).toEqual([
+      "/works?language=sga",
+      "/works?language=ang",
+      "/works?language=osx",
+      "/works?language=goh",
+    ]);
+    const english = within(strip).getByRole("link", { name: /ƿord/ });
+    expect(english.querySelector("[lang]")?.getAttribute("lang")).toBe("ang");
+    expect(english.querySelector("[lang]")?.className).toMatch(/englisc/);
+    for (const [word, lang] of [
+      ["uuord", "osx"],
+      ["uuort", "goh"],
+    ]) {
+      const el = within(strip).getByRole("link", { name: new RegExp(word) }).querySelector("[lang]");
+      expect(el?.getAttribute("lang")).toBe(lang);
+      expect(el?.className).toMatch(/fraktur/);
+      expect(el?.className).not.toMatch(/insular|englisc/);
+    }
+    // The grid's rows of 5 (or 3) are full only for a multiple of 15.
+    expect(tiles).toHaveLength(15);
   });
 
   it("shows the library's counts once the index loads", async () => {
