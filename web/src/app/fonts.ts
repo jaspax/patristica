@@ -15,6 +15,7 @@ import {
   Noto_Serif_Ethiopic,
   Noto_Serif_Georgian,
   Noto_Serif_Hebrew,
+  UnifrakturMaguntia,
 } from "next/font/google";
 
 const serif = Noto_Serif({
@@ -146,6 +147,32 @@ const insular = localFont({
   adjustFontFallback: false,
 });
 
+// Runes inside Old English text (#564): ASPR prints Cynewulf's signatures, the
+// Rune Poem and Solomon and Saturn's runes as Unicode futhorc (U+16A0–16FF),
+// which neither Noto Serif nor the medieval fallback has. Noto Sans Runic cut
+// to the Runic block (7 KB, web/scripts/runic-font.py), after the medieval
+// fallback in the :lang() stack. Self-hosted because next/font/google adds a
+// local(Arial) fallback face to the variable even with adjustFontFallback
+// off, and that Arial would sit ahead of the body font's script fonts.
+const runic = localFont({
+  src: "./fonts/NotoSansRunic-Runes.woff2",
+  weight: "400",
+  variable: "--font-runic",
+  preload: false,
+  adjustFontFallback: false,
+});
+
+// The landing page's Old Saxon and Old High German tiles only (#564):
+// UnifrakturMaguntia, a blackletter by j. 'mach' wust after Peter Wiegel
+// (OFL 1.1, Reserved Font Name "UnifrakturMaguntia"), served as Google Fonts
+// serves it. Corpus text never uses it.
+const fraktur = UnifrakturMaguntia({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fraktur",
+  preload: false,
+});
+
 // The landing page's Old English tile only (#564): BabelStone Englisc by
 // Andrew West, after the Anglo-Saxon type cut for Franciscus Junius (c. 1655),
 // with insular letter shapes and wynn ƿ (Segotia has none). OFL 1.1, Reserved
@@ -174,8 +201,10 @@ export const fontVariables = [
   slavonic,
   slavonicFallback,
   medievalFallback,
+  runic,
   insular,
   englisc,
+  fraktur,
 ]
   .map((f) => f.variable)
   .join(" ");

@@ -151,12 +151,13 @@ main {
 }
 /* Old Irish, Old English, Old High German, Old Saxon: the body's Noto Serif
    first, then the medieval fallback for what its slices can't draw (⁊, ↄ, a
-   letter + U+0307, U+0302 or U+0301), before the other script fonts. */
+   letter + U+0307, U+0302 or U+0301), then Noto Sans Runic for the futhorc
+   runes in Old English poetry, before the other script fonts. */
 :lang(sga),
 :lang(ang),
 :lang(goh),
 :lang(osx) {
-  font-family: var(--font-serif), var(--font-medieval-fallback), var(--font-body);
+  font-family: var(--font-serif), var(--font-medieval-fallback), var(--font-runic), var(--font-body);
 }
 
 .visually-hidden {

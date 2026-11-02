@@ -324,6 +324,15 @@
   line-height: 1.245;
 }
 
+/* The Old Saxon and Old High German tiles in blackletter (UnifrakturMaguntia, fonts.ts). */
+.fraktur {
+  font-family: var(--font-fraktur), var(--font-body);
+  /* Its small x-height and tight uu matched to the other words, in the same line height. */
+  font-size: clamp(1.3rem, 5.6vw, 1.8rem);
+  line-height: 1.245;
+  letter-spacing: 0.03em;
+}
+
 .word:hover .wordText {
   color: var(--accent);
 }

@@ -37,6 +37,7 @@ describe("Church Slavonic fonts (#371)", () => {
       "fonts/NotoSerif-Slavonic.woff2",
       "fonts/NotoSerif-Medieval.woff2",
       "fonts/Segotia-Regular.woff2",
+      "fonts/NotoSansRunic-Runes.woff2",
       "fonts/BabelStoneEnglisc.woff2",
     ]);
     for (const file of files) {
@@ -71,11 +72,23 @@ describe("Old Georgian font (#512)", () => {
 
 describe("Medieval Latin-script fonts (#544, #564)", () => {
   it.each(["sga", "ang", "goh", "osx"])(
-    "keeps Noto Serif first for :lang(%s), backed by the medieval fallback before the other script fonts",
+    "keeps Noto Serif first for :lang(%s), backed by the medieval fallback and the runes before the other script fonts",
     (lang) => {
-      expect(langStack(lang)).toEqual(["var(--font-serif)", "var(--font-medieval-fallback)", "var(--font-body)"]);
+      expect(langStack(lang)).toEqual([
+        "var(--font-serif)",
+        "var(--font-medieval-fallback)",
+        "var(--font-runic)",
+        "var(--font-body)",
+      ]);
     },
   );
+
+  it("self-hosts the runes, loaded on demand, with no Arial fallback in the variable", () => {
+    expect(fontsTs).toMatch(
+      /src: "\.\/fonts\/NotoSansRunic-Runes\.woff2",\s*weight: "400",\s*variable: "--font-runic",\s*preload: false,\s*adjustFontFallback: false/,
+    );
+    expect(existsSync(join(dir, "fonts/NotoSansRunic-OFL.txt"))).toBe(true);
+  });
 
   it("self-hosts the fallback", () => {
     expect(fontsTs).toContain('variable: "--font-medieval-fallback"');
@@ -99,5 +112,11 @@ describe("Faces for the Old Irish and Old English word tiles (#544, #564)", () =
     expect(landingCss).toMatch(/\.englisc \{\s*font-family: var\(--font-englisc\), var\(--font-body\);/);
     expect(css).not.toContain("--font-insular");
     expect(css).not.toContain("--font-englisc");
+  });
+
+  it("set Old Saxon and Old High German in UnifrakturMaguntia, by class only, not preloaded", () => {
+    expect(fontsTs).toMatch(/UnifrakturMaguntia\(\{\s*subsets: \["latin"\],\s*weight: "400",\s*variable: "--font-fraktur",\s*preload: false/);
+    expect(landingCss).toMatch(/\.fraktur \{\s*font-family: var\(--font-fraktur\), var\(--font-body\);/);
+    expect(css).not.toContain("--font-fraktur");
   });
 });
