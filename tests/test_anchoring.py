@@ -21,11 +21,12 @@ NORMALIZED = ROOT / "data" / "normalized"
 
 
 def test_enrolment_table() -> None:
-    """PTA is enrolled only for its Slavonic (#335); every other row enrols a
-    whole source."""
+    """PTA is enrolled only for its Slavonic (#335) and ReA only for its Old High
+    German (#567, its Latin sides have no original in the corpus); every other row
+    enrols a whole source."""
     table = anchoring.load_enrolment()
     assert {key for key in table if key[0] == "pta"} == {("pta", "chu")}
-    assert {key for key in table if key[1] is not None} == {("pta", "chu")}
+    assert {key for key in table if key[1] is not None} == {("pta", "chu"), ("rea", "goh")}
 
 
 def test_no_published_pta_work_is_enrolled() -> None:
