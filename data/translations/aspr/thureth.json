@@ -1,0 +1,23 @@
+{
+  "work_id": "aspr/thureth",
+  "source_path": "aspr/thureth.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/thureth#Thureth.5.s2",
+      "source_sha256": "d25f1df4040ae295",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 1,
+      "text": "and he shall find eternal reward for all that he does rightly on earth."
+    }
+  ]
+}

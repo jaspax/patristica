@@ -1,0 +1,37 @@
+{
+  "work_id": "aspr/lords-prayer-iii",
+  "source_path": "aspr/lords-prayer-iii.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/lords-prayer-iii#LordsPrayerIII.14",
+      "source_sha256": "8cc28f5d11ed6215",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "Give us now today, Lord of men, high King of the heavens, our bread, which you sent into the middle-earth of mankind for the salvation of souls; that is the pure Christ, the Lord God."
+    },
+    {
+      "chunk_id": "aspr/lords-prayer-iii#LordsPrayerIII.31.s1",
+      "source_sha256": "9a7f3bcbf12a6681",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "And deliver us also now from evil, from every one of the fiends;"
+    },
+    {
+      "chunk_id": "aspr/lords-prayer-iii#LordsPrayerIII.31.s2",
+      "source_sha256": "b5ead13e2a0a3248",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "in the enclosure of our hearts, Prince of angels, true Lord of victory, we eagerly offer thanks and glory, because you graciously, by your powers, set us free from captivity in the torment of hell."
+    }
+  ]
+}

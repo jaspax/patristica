@@ -1,0 +1,51 @@
+{
+  "work_id": "aspr/prayer",
+  "source_path": "aspr/prayer.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/prayer#Prayer.8",
+      "source_sha256": "f4af89d8ee6c75c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "O bright Lord, Creator of the people!"
+    },
+    {
+      "chunk_id": "aspr/prayer#Prayer.11",
+      "source_sha256": "34b78fe3a4ab1cb9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Wretched is he who here on earth, by day and by night, fights for the devil and does his will; woe to him for that pleasure when he receives and beholds the reward for it, unless he first turns away from that evil."
+    },
+    {
+      "chunk_id": "aspr/prayer#Prayer.16",
+      "source_sha256": "ce615995b342f2c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Blessed is he who here on earth, by day and by night, obeys the Lord and always does his will; it will go well for him for that work when he receives and beholds the reward for it, if he comes to a wholly good end."
+    },
+    {
+      "chunk_id": "aspr/prayer#Prayer.21",
+      "source_sha256": "6d9356f6e8c88d8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "O Light of light! O joy of life!"
+    },
+    {
+      "chunk_id": "aspr/prayer#Prayer.22.s1",
+      "source_sha256": "8d1c2e1c5fdd3cc6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Grant me, glorious King, when I pray for my soul, heaven's eternal grace. You are gracious, God; you alone hold and rule over all the earth and the heavens of the wide creation."
+    }
+  ]
+}

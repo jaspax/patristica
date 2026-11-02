@@ -1,0 +1,37 @@
+{
+  "work_id": "aspr/gloria-i",
+  "source_path": "aspr/gloria-i.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/gloria-i#GloriaI.8.s1",
+      "source_sha256": "b5b592761230184d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "You are the father of comforts and guardian of life, the leader of life, the ruler of light, set apart from sins,"
+    },
+    {
+      "chunk_id": "aspr/gloria-i#GloriaI.8.s2",
+      "source_sha256": "4688c781f6a191cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "as is your glorious Son, by his pure nature, king over all, bold and blessed, teacher of books, and the high comforter of the mind, the Holy Spirit."
+    },
+    {
+      "chunk_id": "aspr/gloria-i#GloriaI.24",
+      "source_sha256": "3e6a56f14b832723",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 3,
+      "text": "Then your fair work was completed, and you yourself hallowed Sunday and glorified it as a help to many."
+    }
+  ]
+}

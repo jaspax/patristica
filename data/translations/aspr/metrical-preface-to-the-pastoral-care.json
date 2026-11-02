@@ -1,0 +1,23 @@
+{
+  "work_id": "aspr/metrical-preface-to-the-pastoral-care",
+  "source_path": "aspr/metrical-preface-to-the-pastoral-care.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/metrical-preface-to-the-pastoral-care#PastoralPreface.11.s1",
+      "source_sha256": "c7299beb0d6b247f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 1,
+      "text": "After King Alfred had translated every word of me into English, and sent me south and north to his scribes, he ordered more such copies to be brought to him, made from that exemplar,"
+    }
+  ]
+}

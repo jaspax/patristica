@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/metrical-preface-to-waerferths-dialogues",
+  "source_path": "aspr/metrical-preface-to-waerferths-dialogues.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/metrical-preface-to-waerferths-dialogues#DialoguesPreface.1.s1",
+      "source_sha256": "d907879cef9d44fa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "[?]He who intends to read me may find in me, if he greatly desires it, a good example of spiritual life,"
+    },
+    {
+      "chunk_id": "aspr/metrical-preface-to-waerferths-dialogues#DialoguesPreface.12",
+      "source_sha256": "7aefffd925515dbf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Bishop Wulfstan ordered me to be written, servant and needy one of him who [?] all majesty, and who is also ruler of every creature, the one eternal God of all creation."
+    }
+  ]
+}
