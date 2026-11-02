@@ -60,6 +60,12 @@ describe("renamed work ids", () => {
     }
   });
 
+  it("sends a dropped PTA manuscript transcription to the edition (#415)", () => {
+    expect(currentWorkId("pta/pta0022/pta001/pta-Msb2")).toBe("pta/pta0022/pta001/pta-grc1");
+    expect(currentWorkId("pta/pta0022/pta002/pta-Ms47")).toBe("pta/pta0022/pta002/pta-grc1");
+    expect(RENAMED_WORK_IDS.filter(([from]) => from.startsWith("pta/pta0022/"))).toHaveLength(37);
+  });
+
   it("redirects a re-attributed Patrologia Latina work to its new id (#184)", () => {
     expect(legacyWorkRedirects()).toContainEqual({
       source: "/works/oglt-pl/augustinus/pl47_0_unk",

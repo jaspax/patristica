@@ -26,6 +26,16 @@ export const RENAMED_ID_PREFIXES: ReadonlyArray<readonly [from: string, to: stri
  * work id carries its author (`oglt-pl/{author}/{stem}`), so a re-attribution
  * in `oglt_pl_index.csv` does too.
  */
+/** #415: the dropped transcriptions, `[work, manuscript]`. */
+const PTA_ATHANASIUS_TRANSCRIPTIONS: ReadonlyArray<readonly [string, string]> = [
+  ...[
+    "Ms104", "Ms160", "Ms160a", "Ms44", "Ms45", "Ms46", "Ms47", "Ms48", "Ms50", "Ms51", "Ms52",
+    "Ms53", "Ms54", "Ms55", "Ms56", "Ms57", "Ms58", "Ms69", "Ms70", "Ms74", "Ms75", "Ms76",
+    "Ms77", "Ms78", "Msb1", "Msb2", "Msb3", "Mse", "Msfn", "Msg1", "Msm", "Msti", "Msy", "Mszi",
+  ].map((ms) => ["pta001", ms] as const),
+  ...["Ms47", "Ms57", "Ms74"].map((ms) => ["pta002", ms] as const),
+];
+
 export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]> = [
   // #188: the Ge'ez "Kings" is 2 Kings only.
   ["gez/kings", "gez/2kgs"],
@@ -42,6 +52,10 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   ["anf-works/hippolytus-dogmatical-and-historical", "anf-works/hippolytus-christ-and-antichrist"],
   // PG 33's two-author work: Peter II's encyclical first, then Timothy's Responsa.
   ["ogpg/vol-033/alexandrina-varia", "ogpg/vol-033/petrus-ii-epistula-encyclica"],
+  // #415: PTA's transcriptions of single manuscripts of Athanasius were dropped; each opens the edition.
+  ...PTA_ATHANASIUS_TRANSCRIPTIONS.map(
+    ([work, ms]) => [`pta/pta0022/${work}/pta-${ms}`, `pta/pta0022/${work}/pta-grc1`] as const,
+  ),
 ];
 
 /** Genre prefixes that source ids carried before #102 (`scripture/kjv` → `kjv`). */

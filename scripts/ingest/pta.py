@@ -21,8 +21,16 @@ We process only "edition" files (``pta-grcN``, ``pta-sycN``, ``pta-latN``,
 - ``__cts__.xml``  — CTS catalog metadata (not text)
 - ``pta9999/``     — Bible textgroup (already have dedicated scripture ingestors)
 - ``*Bibex*``      — biblical-excerpt versions (thin wrappers around scripture)
-- ``*Ms*``         — individual manuscript witnesses (not critical text)
+- ``*.pta-Ms*``    — transcriptions of individual manuscript witnesses (not
+                     critical text)
 - ``*deu*``        — German translations (not in our language set)
+
+Text
+----
+Each ``<p>``/``<ab>`` is one unit (``_flatten``): the apparatus readings,
+witness details, inline notes and XML comments are kept as ``note`` editorial
+spans (#236, #415), a ``<choice>`` keeps one alternative, ``<del>`` is dropped
+and ``<lb break="no"/>`` joins a word.
 
 Canonical references
 --------------------
@@ -41,6 +49,7 @@ from __future__ import annotations
 
 import logging
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 from lxml import etree
@@ -103,26 +112,39 @@ _EDITIONS: dict[str, str] = {
 }
 
 
-# File name patterns to skip
-_SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|MsL|MsM|MsN|MsO|MsP|MsQ|MsR|MsS|MsT|MsU|MsV|MsW|MsX|MsY|MsZ|Ms[A-Z]|deu")
+# File name patterns to skip. ``.pta-Ms…`` are diplomatic transcriptions of
+# single manuscript witnesses (``pta-MsA``, ``pta-Ms44``, ``pta-Msb2``): the
+# critical edition is the work. The old pattern caught only ``Ms[A-Z]``, so
+# 38 transcriptions of Athanasius's Contra gentes and De incarnatione were
+# ingested until #415 dropped them (their ids redirect to the editions).
+# ``pta-Mss`` is a Slavonic transcription of the Ljubljana leaves of Codex
+# Suprasliensis, which the Suprasliensis ingest covers (#333, #335).
+_SKIP_PATTERNS = re.compile(r"Bibex|\.pta-Ms|deu")
 
-# Files skipped by name. ``pta-Mss`` (lower-case ``s``, so not caught above) is
-# a Slavonic transcription of the Ljubljana leaves of Codex Suprasliensis (Cod.
-# Kop. 2), a manuscript witness that the Suprasliensis ingest covers (#333);
-# it was skipped while ``chu`` was unmapped, and stays skipped (#335).
-_SKIP_FILES = frozenset({"pta0041.pta001.pta-Mss.xml"})
 
-# Editions whose apparatus is marked as editorial material (#236) instead of run
-# into the text. ``_element_inner_text`` keeps the text of every child, so a
-# paragraph with an ``<app>`` carries its ``<rdg>`` readings, ``<witDetail>``s,
-# inline ``<note>``s and the editors' XML comments (``<!--TODO …-->``) next to
-# the lemma. In the Greek Vita Cononis that is the Slavonic witness's readings
-# (``<rdg wit="#s">паулъ</rdg>``) and TODO notes (#376). Here they are kept
-# and marked ``note``, so readers see them and translation and embedding get
-# the lemma text. Every other PTA edition with an apparatus has the same problem
-# and keeps the old text until #415 drops this list.
-_MARK_APPARATUS = frozenset({"pta0041.pta001.pta-grc1"})
+# How a ``<p>``/``<ab>`` is flattened to text (``_flatten``, #376, #415).
+# The apparatus (``<rdg>`` readings next to their ``<lem>``, ``<witDetail>``),
+# inline ``<note>``s and the editors' XML comments (``<!--TODO …-->``, Migne
+# column references, "sic?") are editorial material (#236): kept and marked
+# ``note``, so readers see them and translation and embedding get the lemma
+# text. In the Greek Vita Cononis the readings are the Slavonic witness's
+# (``<rdg wit="#s">паулъ</rdg>``, #376).
 _APPARATUS_TAGS = frozenset({"rdg", "witDetail", "note"})
+# ``<choice>`` holds alternative encodings of one point of the text (an
+# abbreviation and its expansion, an error and its correction): one is kept, in
+# this order of preference, else its first child. The diplomatic manuscript
+# transcriptions (``pta-Ms*``) write every nomen sacrum as one.
+_CHOICE_PREFERENCE = ("expan", "corr", "reg")
+# Deleted text (``<del>``: words an editor athetizes, or letters a scribe struck
+# out, usually in a ``<subst>`` with the ``<add>`` that replaced them) is not
+# the text of the edition or witness. It is marked ``note`` like the apparatus,
+# but without spaces around it, and a deletion inside a word (letters on both
+# sides) is dropped instead: removing a span leaves a space in the source
+# text (``editorial.strip``), which would split the word.
+_DELETION_TAGS = frozenset({"del"})
+# Containers whose whitespace-only text between children is layout (the
+# transcriptions are pretty-printed: ``<subst>⏎  <del>ἀ</del>⏎  <add>ε</add>``).
+_LAYOUT_TAGS = frozenset({"subst", "app", "choice"})
 
 
 # Creative Commons licence URL: terms, version and an optional jurisdiction
@@ -262,58 +284,101 @@ def _extract_dates(root: etree._Element) -> tuple[int | None, tuple[int, int] | 
     return date_composed, date_range, "approximate"
 
 
-def _element_inner_text(el: etree._Element) -> str:
-    """Collect all text inside an element, stripping child element tags but keeping their text."""
-    parts: list[str] = []
-    if el.text:
-        parts.append(el.text)
-    for child in el:
-        parts.append(_element_inner_text(child))
-        if child.tail:
-            parts.append(child.tail)
-    return "".join(parts)
+def _flatten(el: etree._Element) -> tuple[str, list[list[int | str]]]:
+    """An element's text, whitespace collapsed, with its apparatus marked.
 
-
-def _marked_text(el: etree._Element) -> tuple[str, list[list[int | str]]]:
-    """An element's text with its apparatus marked (``_MARK_APPARATUS``, #376).
-
-    Like ``_element_inner_text`` followed by collapsing whitespace, but the
-    text of ``<rdg>``, ``<witDetail>`` and ``<note>`` elements and of comments
-    becomes ``note`` spans ``[start, end, "note"]`` (#236), set off from the
-    text around them by a space. A space between two pieces of apparatus
-    belongs to the span, so adjacent readings make one span.
+    The text of every descendant is kept, except that ``<rdg>``,
+    ``<witDetail>`` and ``<note>`` elements and comments become ``note``
+    spans ``[start, end, "note"]`` (#236, #415), set off from the text around
+    them by a space (a space between two pieces of apparatus belongs to the
+    span, so adjacent readings make one span); ``<del>`` is marked the same
+    way without the spaces, or dropped inside a word (``_DELETION_TAGS``); a
+    ``<choice>`` keeps one of its alternatives (``_CHOICE_PREFERENCE``); and
+    ``<lb break="no"/>`` joins the two halves of a word across the whitespace
+    around it.
     """
-    chars: list[tuple[str, bool]] = []
+    # Per character: False (text), True (apparatus) or "del" (deleted text).
+    chars: list[tuple[str, bool | str]] = []
+    join = False  # after <lb break="no"/>: drop leading whitespace
 
-    def add(text: str | None, editorial: bool) -> None:
+    def add(text: str | None, editorial: bool | str) -> None:
+        nonlocal join
         if not text:
             return
-        if chars and chars[-1][1] != editorial:
-            chars.append((" ", False))
+        if join:
+            text = text.lstrip()
+            if not text:
+                return
+            join = False
         chars.extend((c, editorial) for c in text)
 
-    def separate() -> None:
-        # Two readings in a row (``<rdg>…</rdg><witDetail>…</witDetail>``) stay apart.
+    def boundary() -> None:
+        # Apparatus stays apart from the text and from other apparatus.
         if chars and not chars[-1][0].isspace():
-            chars.append((" ", chars[-1][1]))
+            chars.append((" ", False))
 
-    def walk(node: etree._Element, editorial: bool) -> None:
-        add(node.text, editorial)
+    def apparatus(emit: Callable[[], None]) -> None:
+        # Set off by spaces only if it has text: an empty reading that marks
+        # where a witness starts (``<rdg><witStart/></rdg>``) leaves no trace.
+        mark = len(chars)
+        boundary()
+        emit()
+        if all(c.isspace() for c, _ in chars[mark:]):
+            del chars[mark:]
+        else:
+            boundary()
+
+    def walk(node: etree._Element, editorial: bool | str) -> None:
+        nonlocal join
+        layout = etree.QName(node).localname in _LAYOUT_TAGS
+
+        def text_of(t: str | None) -> str | None:
+            return None if layout and t is not None and not t.strip() else t
+
+        add(text_of(node.text), editorial)
         for child in node:
             if child.tag is etree.Comment:
-                separate()
-                add(child.text, True)
+                apparatus(lambda: add(child.text, True))
             elif isinstance(child.tag, str):
-                apparatus = etree.QName(child).localname in _APPARATUS_TAGS
-                if apparatus:
-                    separate()
-                walk(child, editorial or apparatus)
-            add(child.tail, editorial)
+                name = etree.QName(child).localname
+                if name in _APPARATUS_TAGS:
+                    apparatus(lambda: walk(child, True))
+                elif name == "choice":
+                    options = [c for c in child if isinstance(c.tag, str)]
+                    kept = next((c for n in _CHOICE_PREFERENCE for c in options
+                                 if etree.QName(c).localname == n),
+                                options[0] if options else None)
+                    if kept is not None:
+                        walk(kept, editorial)
+                elif name == "lb" and child.get("break") == "no":
+                    while chars and chars[-1][0].isspace():
+                        chars.pop()
+                    join = True
+                elif name in _DELETION_TAGS:
+                    walk(child, editorial or "del")
+                else:
+                    walk(child, editorial)
+            add(text_of(child.tail), editorial)
 
     walk(el, False)
-    # Collapse whitespace as _extract_paragraphs does; a kept space is editorial
-    # only between two editorial characters.
-    kept: list[tuple[str, bool]] = []
+    # A deletion inside a word goes; every other one is marked.
+    i = 0
+    while i < len(chars):
+        if chars[i][1] != "del":
+            i += 1
+            continue
+        j = i
+        while j < len(chars) and chars[j][1] == "del":
+            j += 1
+        if 0 < i and j < len(chars) and not chars[i - 1][0].isspace() \
+                and not chars[j][0].isspace():
+            del chars[i:j]
+        else:
+            chars[i:j] = [(c, True) for c, _ in chars[i:j]]
+            i = j
+    # Collapse whitespace; a kept space is editorial only between two
+    # editorial characters.
+    kept: list[tuple[str, bool | str]] = []
     for i, (c, ed) in enumerate(chars):
         if not c.isspace():
             kept.append((c, ed))
@@ -334,12 +399,30 @@ def _marked_text(el: etree._Element) -> tuple[str, list[list[int | str]]]:
     return text, spans
 
 
+def _convert(text: str, spans: list[list[int | str]],
+             fn: Callable[[str], str]) -> tuple[str, list[list[int | str]]]:
+    """Apply *fn* to *text* piece by piece, moving *spans* with it.
+
+    For a conversion that may change the length (``glagolitic_to_cyrillic``
+    turns yer + i into ꙑ): each stretch between span boundaries is converted
+    on its own.
+    """
+    if not spans:
+        return fn(text), spans
+    cuts = sorted({0, len(text), *(int(b) for s in spans for b in s[:2])})
+    new_pos: dict[int, int] = {0: 0}
+    out = ""
+    for a, b in zip(cuts, cuts[1:]):
+        out += fn(text[a:b])
+        new_pos[b] = len(out)
+    return out, [[new_pos[int(s)], new_pos[int(e)], k] for s, e, k in spans]
+
+
 def _extract_paragraphs(
     body_div: etree._Element,
     work_cts_id: str,
     ns: dict[str, str],
-    mark_apparatus: bool = False,
-) -> list[dict[str, str]]:
+) -> list[dict]:
     """Recursively extract paragraphs from a TEI body div.
 
     Traverses ``<div type="textpart">`` elements, building a dotted path from
@@ -354,7 +437,8 @@ def _extract_paragraphs(
 
     Returns
     -------
-    List of ``{"ref": "...", "text": "..."}`` dicts.
+    List of ``{"ref": "...", "text": "..."}`` dicts, with ``"editorial"``
+    spans on a paragraph with apparatus (``_flatten``).
     """
     records: list[dict[str, str]] = []
 
@@ -362,13 +446,7 @@ def _extract_paragraphs(
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
         if tag in ("p", "ab"):
-            spans: list[list[int | str]] = []
-            if mark_apparatus:
-                text, spans = _marked_text(element)
-            else:
-                text = _element_inner_text(element).strip()
-                # Collapse whitespace
-                text = re.sub(r"\s+", " ", text)
+            text, spans = _flatten(element)
             if text:
                 ref = slugify_ref(".".join([work_cts_id] + path_parts))
                 record: dict = {"ref": ref, "text": text}
@@ -500,16 +578,18 @@ def _parse_pta_file(
         external_ids=external_ids or [],
     )
 
-    mark = f"{work_cts_id}.{version}" in _MARK_APPARATUS
-    paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns, mark_apparatus=mark)
-    if mark:
-        n_spans = sum(len(p.get("editorial", ())) for p in paragraphs)
-        log.info("%s: apparatus, notes and comments marked as editorial notes "
-                 "(%d spans in %d paragraphs; #376)", work_id, n_spans,
-                 sum(1 for p in paragraphs if p.get("editorial")))
+    paragraphs = _extract_paragraphs(edition_div, work_cts_id, ns)
     if language == "chu":
         for p in paragraphs:
-            p["text"] = glagolitic_to_cyrillic(p["text"])
+            p["text"], spans = _convert(p["text"], p.get("editorial", []),
+                                        glagolitic_to_cyrillic)
+            if spans:
+                p["editorial"] = spans
+    n_spans = sum(len(p.get("editorial", ())) for p in paragraphs)
+    if n_spans:
+        log.debug("%s: apparatus, notes and comments marked as editorial notes "
+                  "(%d spans in %d paragraphs; #415)", work_id, n_spans,
+                  sum(1 for p in paragraphs if p.get("editorial")))
     return work, paragraphs
 
 
@@ -538,7 +618,6 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if p.name != "__cts__.xml"
         and "pta9999" not in p.parts  # skip Bible group
         and not _SKIP_PATTERNS.search(p.name)
-        and p.name not in _SKIP_FILES
     ]
 
     log.info("Found %d PTA text files to process", len(xml_files))
