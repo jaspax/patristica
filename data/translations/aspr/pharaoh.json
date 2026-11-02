@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/pharaoh",
+  "source_path": "aspr/pharaoh.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/pharaoh#Pharaoh.1",
+      "source_sha256": "5e9e58584b47263a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "\"Tell me how great a host there was in all of Pharaoh's army, when in enmity they began [?] to pursue God's people.\""
+    },
+    {
+      "chunk_id": "aspr/pharaoh#Pharaoh.4",
+      "source_sha256": "74b103cb7235d5f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "\"I do not know it in any way, except that I think this: that there were chariots there, counted out by number, six hundred [?] of armed men; the wave took all of that away, by a cruel fate, in the kingdom of the world.\""
+    }
+  ]
+}

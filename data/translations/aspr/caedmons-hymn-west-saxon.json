@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/caedmons-hymn-west-saxon",
+  "source_path": "aspr/caedmons-hymn-west-saxon.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/caedmons-hymn-west-saxon#CaedmonWS.1",
+      "source_sha256": "e904197a88805ac5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Now we must praise the Guardian of the heavenly kingdom, the might of the Creator and his purpose, the work of the Father of glory, as he, the eternal Lord, established the beginning of every wonder."
+    },
+    {
+      "chunk_id": "aspr/caedmons-hymn-west-saxon#CaedmonWS.5",
+      "source_sha256": "c605c8afe66c93f4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "He first created heaven as a roof for the children of earth, the holy Creator; then the Guardian of mankind, the eternal Lord, the Lord Almighty, afterwards made the middle-earth, the world, for men."
+    }
+  ]
+}

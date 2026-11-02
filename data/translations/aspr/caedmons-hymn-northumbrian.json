@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/caedmons-hymn-northumbrian",
+  "source_path": "aspr/caedmons-hymn-northumbrian.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/caedmons-hymn-northumbrian#CaedmonN.1",
+      "source_sha256": "fe90299c77bb4ae0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Now we must praise the Guardian of the heavenly kingdom, the might of the Creator and his purpose, the work of the Father of glory, how he, the eternal Lord, established the beginning of every wonder."
+    },
+    {
+      "chunk_id": "aspr/caedmons-hymn-northumbrian#CaedmonN.5",
+      "source_sha256": "83d123692c7e8801",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "He, the holy Creator, first made heaven as a roof for the children of men; then the Guardian of mankind, the eternal Lord, the Lord almighty, afterwards made the middle-earth, the land for men."
+    }
+  ]
+}
