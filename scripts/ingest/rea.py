@@ -639,6 +639,19 @@ def _murbach(pattern: str) -> Callable[[dict[str, Document]], list[Unit]]:
     return build
 
 
+def _benedict(docs: dict[str, Document]) -> list[Unit]:
+    """The Rule by chapter (``RB.{chapter}``, the prologue ``RB.0``), in both columns of
+    St. Gall 916 (``B_{n}``; the Latin ``B_{n}_lat``, two ``B_{n}_J``). ReA has chapters
+    0-49 and 53-67."""
+    rx = re.compile(r"B_(\d+)(?:_lat|_J)?")
+    names = sorted((n for n in docs if rx.fullmatch(n)), key=lambda n: int(rx.fullmatch(n).group(1)))
+    units: list[Unit] = []
+    for name in names:
+        n = int(rx.fullmatch(name).group(1))
+        units += block_units(docs[name], lambda _v, n=n: f"RB.{n}", None)
+    return units
+
+
 def _notker_psalter(docs: dict[str, Document]) -> list[Unit]:
     units: list[Unit] = []
     for doc in _sorted_docs(docs, r"N_Ps_\d+"):
@@ -762,6 +775,18 @@ TEXTS: tuple[Text, ...] = (
          "Eduard Sievers, Die Murbacher Hymnen (Halle 1874): the Latin text of Oxford, "
          "Bodleian Library, MS Junius 25",
          _murbach(r"MH_Murb\.H\.([IVXL]+)GK"), as_verses=True),
+    Text("benedictine-rule", "Benedictine Rule (Old High German interlinear version of St. Gall 916)",
+         "DDD-AD-Benediktiner_Regel", "goh", "patristic", "Benedictus Nursinus", (790, 830), None,
+         "approximate",
+         f"{_STEINMEYER}, no. 35 (Benediktinerregel): St. Gallen, Stiftsbibliothek, Cod. 916; the "
+         "German glosses only part of the Latin, and the edition's dots for the unglossed words are "
+         "marked as lacunae",
+         _benedict, as_verses=False),
+    Text("benedictine-rule-lat", "Regula Benedicti (the Latin text of St. Gall 916)",
+         "DDD-AD-Benediktiner_Regel_Latein", "lat", "patristic", "Benedictus Nursinus", (530, 560), None,
+         "approximate",
+         "the Latin column of St. Gallen, Stiftsbibliothek, Cod. 916, as in ReA (chapters 0–49 and 53–67)",
+         _benedict, as_verses=False),
     # --- Notker -----------------------------------------------------------------------
     Text("notker-psalter", "Der Psalter (Notker's Psalter with commentary)", "DDD-AD-Z-Notker-Psalmen",
          "goh", "patristic", "Notker Labeo", (1000, 1022), None, "approximate",
@@ -863,12 +888,6 @@ TEXTS: tuple[Text, ...] = (
     _minor("younger-bavarian-confession", "JB_JuengereBairischeBeichte", "JB",
            "Younger Bavarian Confession (Jüngere Bairische Beichte)", date_range=(950, 1050),
            confidence="uncertain"),
-    _minor("st-gall-creed-and-confession-1", "GGB1_SangallerBeichte_I", "GGB1",
-           "St. Gall Creed and Confession I (St. Galler Glaube und Beichte I)", date_range=(1000, 1100),
-           confidence="uncertain"),
-    _minor("st-gall-creed-and-confession-3", "GGB3_SangallerGlaubenBeichteIII", "GGB3",
-           "St. Gall Creed and Confession III (St. Galler Glaube und Beichte III)", date_range=(1000, 1100),
-           confidence="uncertain"),
     _minor("st-emmeram-prayer-a", "BGa_St.Emmeraner_Gebet_A", "BGA",
            "St. Emmeram Prayer A (Altbairisches Gebet A)", date_range=(800, 850)),
     _minor("st-emmeram-prayer-b", "BGb_St.Emmerander_Gebet_B", "BGB",
@@ -879,13 +898,10 @@ TEXTS: tuple[Text, ...] = (
            date_range=(900, 1000)),
     _minor("sigiharts-prayers", "SG_Sigharts_Gebet", "SG", "Sigihart's Prayers (Sigiharts Gebete)",
            date_range=(902, 906)),
-    _minor("klosterneuburg-prayer", "KB_KlosterneuburgerGebet", "KB", "Klosterneuburg Prayer (Klosterneuburger Gebet)",
-           date_range=(950, 1100), confidence="uncertain"),
     _minor("othlohs-prayer", "OG_Otlohs_Gebet", "OG", "Othloh's Prayer (Othlohs Gebet), Latin and German",
            author="Othlonus", date_range=(1050, 1070), confidence="uncertain"),
-    _minor("spiritual-counsels", "GR_GeistlicheRatschlaege", "GR", "Spiritual Counsels (Geistliche Ratschläge)",
-           genre="patristic", date_range=(1000, 1100), confidence="uncertain"),
-    _minor("priests-oath", "PE_Priestereid", "PE", "Priests' Oath (Priestereid)", genre="patristic",
+    # A priest's oath of obedience to his bishop: canon law, so filed with the councils.
+    _minor("priests-oath", "PE_Priestereid", "PE", "Priests' Oath (Priestereid)", genre="council",
            date_range=(950, 1000)),
     _minor("alemannic-psalms", "APs_Altalemannische_Psalmen", "APs",
            "Old Alemannic Psalms (Altalemannische Psalmenübersetzung, interlinear fragments)",
@@ -896,9 +912,6 @@ TEXTS: tuple[Text, ...] = (
 
 #: What ReA has and Patristica leaves out (the survey's scope rule, #224), for the record.
 DROPPED: dict[str, str] = {
-    "DDD-AD-Benediktiner_Regel": "OHG Benedictine Rule: a gloss-like interlinear version, one gap "
-                                 "every six words (not continuous)",
-    "DDD-AD-Benediktiner_Regel_Latein": "the Latin Rule of St. Gall 916, left with its glosses",
     "DDD-AD-Isidor_Latein": "the Paris Isidor's Latin column; De fide catholica is in the corpus (PL 83)",
     "DDD-AD-Physiologus": "Älterer Physiologus, composed c. 1070 (after the period)",
     "DDD-AD-Z-Notker-Martianus_Capella": "Notker's school text",
@@ -922,6 +935,10 @@ DROPPED: dict[str, str] = {
                          "Bamberger, Wessobrunner, Benediktbeurer and Alemannischer Glaube und "
                          "Beichte, St. Galler Glaube und Beichte II, Predigtsammlung B "
                          "(12th-century manuscripts and language)",
+    "minor: undated, 11th-century manuscripts": "St. Galler Glaube und Beichte I and III, the "
+                                                "Klosterneuburger Gebet and the Geistliche Ratschläge: "
+                                                "no date but their manuscripts', which may be after 1050 "
+                                                "(owner, #576)",
     "minor: other language": "Altniederfränkische Psalmen (Old Low Franconian, not goh/osx)",
 }
 

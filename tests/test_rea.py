@@ -206,3 +206,17 @@ def test_raw_files(slug: str, key: str, first: str, count: int) -> None:
     assert len(units) == count
     for unit in units:
         editorial.check(unit["text"], unit.get("editorial", []), unit["ref"])
+
+
+def test_benedictine_rule_chapters_and_gaps() -> None:
+    gap = [".", ".", "."]
+    docs = _docs({"B_0": {"edition": ["keuuisso", *gap, "herzun", "."]},
+                  "B_1": {"edition": ["fona", "chunnum", "municho", "."], "spans": [("chapter", 0, 3, "1")]},
+                  "B_53": {"edition": ["gesti", *gap], "spans": [("chapter", 0, 3, "53")]}})
+    text = next(t for t in TEXTS if t.slug == "benedictine-rule")
+    units = build_units(text, docs)
+    assert [u["ref"] for u in units] == ["RB.0", "RB.1", "RB.53"]
+    assert units[0] == {"ref": "RB.0", "text": f"keuuisso {LACUNA} herzun.", "editorial": [[9, 12, "lacuna"]]}
+    latin = read_subcorpus(_tables({"B_61_J": {"edition": ["Si", "quis", "."]}}, {"language": "lat."}))
+    assert build_units(next(t for t in TEXTS if t.slug == "benedictine-rule-lat"), latin) == [
+        {"ref": "RB.61", "text": "Si quis."}]
