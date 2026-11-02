@@ -53,19 +53,46 @@ def test_nested_heads_and_joined_title_and_subtitle() -> None:
     ]
 
 
-def test_head_of_a_div_holding_its_paragraphs_is_left_out() -> None:
-    # The paragraphs share the div's ref, so the head can't be a heading
-    # without renumbering them; their refs (reader URLs) must not move.
+def test_head_of_a_div_holding_its_paragraphs_opens_its_first_paragraph() -> None:
+    # The paragraphs share the div's ref, so the head goes at the start of the
+    # first one, marked (#259); their refs (reader URLs) don't move.
     body = (
         '<div type="textpart" subtype="chapter" n="1"><head>Κεφάλαιον α</head>'
         "<p>ἕν</p><p>δύο</p></div>"
     )
-    assert _extract(body) == [("tlg9999.tlg001.1", "ἕν"), ("tlg9999.tlg001.1.1", "δύο")]
+    recs = _extract_paragraphs(_edition(body), "tlg9999.tlg001", _NS)
+    assert [(r["ref"], r["text"]) for r in recs] == [
+        ("tlg9999.tlg001.1", "Κεφάλαιον α ἕν"), ("tlg9999.tlg001.1.1", "δύο")]
+    assert recs[0]["editorial"] == [[0, 11, "heading"]]
+    assert "editorial" not in recs[1]
 
 
 def test_flat_work_keeps_its_refs() -> None:
     body = "<head>Τίτλος</head><p>ἕν</p><p>δύο</p>"
-    assert _extract(body) == [("tlg9999.tlg001", "ἕν"), ("tlg9999.tlg001.1", "δύο")]
+    recs = _extract_paragraphs(_edition(body), "tlg9999.tlg001", _NS)
+    assert [(r["ref"], r["text"]) for r in recs] == [
+        ("tlg9999.tlg001", "Τίτλος ἕν"), ("tlg9999.tlg001.1", "δύο")]
+    assert recs[0]["editorial"] == [[0, 6, "title"]]
+
+
+def test_heading_records_are_marked_whole() -> None:
+    body = (
+        "<head>Πράξεις</head>"
+        '<div type="textpart" n="2"><head>Περὶ</head>'
+        '<div type="textpart" n="1"><p>ἕν</p></div></div>'
+    )
+    recs = _extract_paragraphs(_edition(body), "tlg9999.tlg001", _NS)
+    assert [r.get("editorial") for r in recs] == [
+        [[0, 7, "title"]], [[0, 4, "heading"]], None]
+
+
+def test_gap_becomes_a_marked_lacuna() -> None:
+    body = '<p>ἕν <gap reason="omitted"/> δύο<gap/></p><p><gap/></p><p>τρία</p>'
+    recs = _extract_paragraphs(_edition(body), "tlg9999.tlg001", _NS)
+    assert [(r["text"], r.get("editorial")) for r in recs] == [
+        ("ἕν […] δύο […]", [[3, 6, "lacuna"], [11, 14, "lacuna"]]),
+        ("τρία", None),
+    ]
 
 
 def test_bare_number_head_is_dropped() -> None:

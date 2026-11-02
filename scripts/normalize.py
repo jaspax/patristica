@@ -55,7 +55,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from patristica import anchor_store, anchoring, editorial, fingerprint
+from patristica import anchor_store, anchoring, editorial, fingerprint, source_marks
 from patristica.authors import (
     apply_author_date_range,
     apply_author_ids,
@@ -68,7 +68,7 @@ from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
 from patristica.translation_links import apply_translation_of, curated_translation_of
-from patristica.versify import is_derived_ref, versify_chunks
+from patristica.versify import is_derived_ref, split_text, versify_chunks
 
 log = logging.getLogger(__name__)
 
@@ -348,10 +348,14 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path,
     # Works with a standard versification keep it: Scripture, and anything an
     # ingestor delivered as verses whatever its curated genre (#103).
     standard = work.genre == "scripture" or bool(raw_record.get("verses"))
-    marks = _editorial_marks(_units(raw_record), chunks)
+    marks = _editorial_marks(source_marks.mark_units(work.source_id, _units(raw_record)), chunks)
     units = chunks
     units_of = anchoring.units_of(chunks, cut) if cut is not None and not standard else None
-    chunks = versify_chunks(chunks, standard=standard, units_of=units_of)
+    whole: set[str] = set()
+    if cut is None and not standard:
+        whole, headed = _heading_units(chunks, marks)
+        units_of = headed or None
+    chunks = versify_chunks(chunks, standard=standard, units_of=units_of, keep=whole)
     marks = _split_marks(marks, units, chunks)
 
     out_path = output_dir / _output_rel(raw_path)
@@ -363,6 +367,34 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path,
     out_path.write_text(content, encoding="utf-8")
     log.debug("Normalized %d chunks → %s", len(chunks), out_path)
     return len(chunks)
+
+
+#: Editorial kinds that make a unit marked with them as a whole a heading.
+HEADING_KINDS = frozenset({"title", "heading"})
+
+
+def _heading_units(chunks: list[Chunk], marks: dict[str, list[editorial.Span]]
+                   ) -> tuple[set[str], dict[str, list[str]]]:
+    """Headings for :func:`versify_chunks` (#259): the ids of units that are a
+    title or heading as a whole, which stay one unit, and the derived verses of
+    units that open with one, cut on their text after it (the heading joins
+    the first), so a heading never moves where its paragraph is cut."""
+    whole: set[str] = set()
+    headed: dict[str, list[str]] = {}
+    for c in chunks:
+        spans = marks.get(c.chunk_id)
+        if not spans or spans[0][0] != 0 or spans[0][2] not in HEADING_KINDS:
+            continue
+        if all(kind in HEADING_KINDS for _, _, kind in spans) \
+                and not editorial.strip(c.text, spans).strip():
+            whole.add(c.chunk_id)
+            continue
+        start = spans[0][1]
+        while start < len(c.text) and c.text[start].isspace():
+            start += 1
+        body = split_text(c.text[start:], c.language)
+        headed[c.chunk_id] = [c.text[:start + len(body[0])], *body[1:]]
+    return whole, headed
 
 
 def _editorial_marks(raw_units: list[dict], chunks: list[Chunk]) -> dict[str, list[editorial.Span]]:

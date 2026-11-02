@@ -29,7 +29,7 @@ renumbers derived verses across the corpus; treat them as frozen.
 from __future__ import annotations
 
 import re
-from collections.abc import Mapping, Sequence
+from collections.abc import Collection, Mapping, Sequence
 from functools import lru_cache
 
 import tiktoken
@@ -309,6 +309,7 @@ def versify_chunks(
     chunks: Sequence[Chunk],
     standard: bool = False,
     units_of: Mapping[str, list[str]] | None = None,
+    keep: Collection[str] = (),
 ) -> list[Chunk]:
     """Replace each long chunk of a work with its derived verses.
 
@@ -322,7 +323,8 @@ def versify_chunks(
     *units_of* gives the units of some chunks by chunk id, cut elsewhere
     (anchored derived verses, ``patristica.anchoring``, #304): contiguous
     stripped slices of the chunk's text. Every other chunk is cut by
-    :func:`split_text`.
+    :func:`split_text`, except those whose ids are in *keep* (a heading that
+    is editorial material as a whole, #259), which stay whole.
     """
     if standard and not any(
         c.work_id in UNVERSIFIED_UNITS or c.chunk_id in UNVERSIFIED_UNITS for c in chunks
@@ -331,7 +333,7 @@ def versify_chunks(
     out: list[Chunk] = []
     split = False
     for chunk in chunks:
-        if is_derived_ref(chunk.canonical_ref) or (
+        if is_derived_ref(chunk.canonical_ref) or chunk.chunk_id in keep or (
             standard
             and chunk.work_id not in UNVERSIFIED_UNITS
             and chunk.chunk_id not in UNVERSIFIED_UNITS
