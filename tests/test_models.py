@@ -62,7 +62,7 @@ class TestWork:
             assert w.genre == genre
 
     def test_all_languages(self):
-        for lang in ("grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "eng"):
+        for lang in ("grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "ang", "goh", "osx", "eng"):
             w = Work(work_id="x", source_id="y", title="T", genre="patristic", language=lang)
             assert w.language == lang
 

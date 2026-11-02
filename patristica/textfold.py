@@ -11,7 +11,9 @@ Church Slavonic witnesses and editions write differently (і/ꙇ/и, оу/ѹ/ꙋ
 yers; see ``_CYRILLIC_LETTERS``), and Arabic with or without harakat, hamza
 seats and tatweel, and with dotless or dotted final yāʾ (``_ARABIC_LETTERS``),
 and Old Georgian in any of its three scripts and in old or modern spelling
-(``_GEORGIAN_LETTERS``, ``_fold_georgian``).
+(``_GEORGIAN_LETTERS``, ``_fold_georgian``), and the letters Old English,
+Old Saxon and Old High German witnesses write differently (ð/đ/þ, ƀ/b,
+ƿ/w, ȝ/g; ``_LATIN_LETTERS``).
 
 It is deliberately lossy and language-independent: the same function is
 applied to indexed text and to queries, so neither side needs language
@@ -30,7 +32,26 @@ import unicodedata
 _IN_WORD_MARKS = dict.fromkeys(map(ord, "՛՜՞⳿`"), None)
 
 # Latin letter-level variants, applied after lowercasing.
-_LATIN_LETTERS = str.maketrans({"j": "i", "v": "u", "æ": "e", "œ": "e"})
+#
+# Old English, Old Saxon and Old High German (#563) are written in Latin
+# letters, and their witnesses and editions write some sounds with different
+# letters (measured on Thorpe's Catholic Homilies I and ReA 1.2's Heliand and
+# Tatian):
+# - ð, þ and đ (crossed d) are one sound: Thorpe writes þæt/ðæt, þurh/ðurh
+#   in one edition, the Heliand quað/quađ, uuirðid/uuirđid, dôðe/dôđe. They
+#   fold to þ. Not to "th", the older spelling of the same sound: that would
+#   make Old English þe/þis and transliterated Gothic þan/þus match English
+#   the/this/than/thus.
+# - ƀ (barred b) is b: the Heliand writes haƀda/habda, gilôƀon/gilobon.
+# - ƿ (wynn) is w and ȝ/ᵹ/ʒ (yogh, insular g, ezh) are g, as the editions
+#   print what manuscripts and diplomatic texts write.
+# uu is not folded onto w: every OHG and Old Saxon source writes uu
+# (uuort, uuas), and folding it would make Latin uua/uus and the OHG uuas
+# match English wa/ws/was.
+_LATIN_LETTERS = str.maketrans({
+    "j": "i", "v": "u", "æ": "e", "œ": "e",
+    "ð": "þ", "đ": "þ", "ƀ": "b", "ƿ": "w", "ȝ": "g", "ᵹ": "g", "ʒ": "g",
+})
 _LATIN_DIGRAPHS = re.compile(r"ae|oe")
 
 # Latin word-level variants (medieval spellings → classical).

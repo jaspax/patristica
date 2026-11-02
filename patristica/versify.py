@@ -63,6 +63,29 @@ VERSE_TOKENS: dict[str, int] = {
     # their Thesaurus Palaeohibernicus translations (1.02 over the 2,204
     # glosses with no Latin); a Félire Óengusso quatrain averages 30.
     "sga": 32,
+    # Old High German (#224): the OHG Tatian (ReA 1.2, Sievers' edition, as it
+    # will be stored) against ReA's Latin Tatian, chapter by chapter: 1.21
+    # OHG tokens per Latin one over 236 chapters, times the Latin verse (37).
+    # (Sievers' subchapters average 65 tokens, but they run ~1.4 verses: the
+    # Latin of a subchapter is ~50 tokens.)
+    "goh": 45,
+    # Old Saxon (#224): there is no Old Saxon Scripture or parallel text, so
+    # this is the words of a verse in the two neighbouring languages (OHG
+    # 45/2.25 tokens per word = 20.0, Old English 55/2.51 = 21.9; mean 21.0)
+    # times the Heliand's 2.47 tokens per word (ReA 1.2, with its ð ƀ and
+    # circumflexes).
+    "osx": 52,
+    # Old English (#223): there is no openly licensed Old English Scripture in
+    # the corpus, so this is the mean English verse (KJV/ASV/WEB: 130 chars)
+    # carried over by characters on Thorpe's Catholic Homilies I (PG #38334,
+    # with þ ð æ and accents): its 724 facing paragraphs have 1.027 English
+    # characters per Old English one, and the Old English has 2.31 characters
+    # per token: 130 / 1.027 / 2.31 = 55. The token ratio against Thorpe's own
+    # English (1.84 × 31 = 57) runs high, since his Victorian English packs more
+    # characters per token than the Bible versions; the West Saxon Gospels
+    # (Royal MS 1 A XIV, 284 verses of Mt 1, 5, 13, 26 and Jn 1, 3, 17) have
+    # 45.3 tokens a verse where the KJV has 27.9: × 31/27.9 = 50.
+    "ang": 55,
     "grc": 130,
     "syc": 155,
     "hbo": 177,
