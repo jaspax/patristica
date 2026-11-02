@@ -112,7 +112,7 @@ def test_real_normalize_closure():
         "patristica", "patristica.anchor_store", "patristica.anchoring", "patristica.authors",
         "patristica.editorial", "patristica.genres",
         "patristica.models",
-        "patristica.period", "patristica.section_numbers", "patristica.textfold",
+        "patristica.period", "patristica.section_numbers", "patristica.source_marks", "patristica.textfold",
         "patristica.translation_links", "patristica.versify", "scripts", "scripts.normalize",
     ]
     assert len(fp.code_hash("scripts.normalize")) == 16

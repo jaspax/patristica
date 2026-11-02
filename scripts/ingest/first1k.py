@@ -223,7 +223,7 @@ def _record(ref: str, text: str) -> dict:
 
 def _place_headings(
     paragraphs: list[dict],
-    headings: list[tuple[int, str, str, str]],
+    headings: list[tuple[int, str, str, str]] | list[tuple[int, str, str]],
 ) -> list[dict]:
     """Insert the ``<head>`` texts as heading records (#71), marked (#128).
 
@@ -236,14 +236,18 @@ def _place_headings(
     at the start of the div's first paragraph and is marked there (#259), so
     paragraph refs never change: they are reader URLs.  Several heads of one
     div (title and subtitle) are joined into one.
+
+    Headings given without a kind (``(position, ref, text)``, CSEL's) are
+    neither marked nor put into paragraphs.
     """
     taken = {p["ref"] for p in paragraphs}
-    kept: dict[str, tuple[int, list[str], str]] = {}  # ref → (position, texts, kind)
-    for pos, ref, text, kind in headings:
+    kept: dict[str, tuple[int, list[str], str | None]] = {}  # ref → (position, texts, kind)
+    for pos, ref, text, *rest in headings:
+        kind = rest[0] if rest else None
         if pos >= len(paragraphs):
             continue
         own = ref not in taken and paragraphs[pos]["ref"].startswith(f"{ref}.")
-        inline = ref in taken and paragraphs[pos]["ref"] == ref
+        inline = kind is not None and ref in taken and paragraphs[pos]["ref"] == ref
         if not (own or inline):
             continue
         if ref in kept:
@@ -262,8 +266,10 @@ def _place_headings(
                 [a + shift, b + shift, k] for a, b, k in para.get("editorial", [])]
             result_paras[pos] = {**para, "text": f"{head} {para['text']}", "editorial": spans}
         else:
-            before.setdefault(pos, []).append(
-                {"ref": ref, "text": head, "editorial": [[0, len(head), kind]]})
+            rec: dict = {"ref": ref, "text": head}
+            if kind is not None:
+                rec["editorial"] = [[0, len(head), kind]]
+            before.setdefault(pos, []).append(rec)
     result: list[dict] = []
     for i, para in enumerate(result_paras):
         result.extend(before.get(i, ()))
