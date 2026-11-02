@@ -149,8 +149,8 @@ class TestCrossScan:
         kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
         # Primary pages 30–39 exist but have no text.
         primary.heads += [(f"{p:03d}", [2 * (p - 10) + 1]) for p in range(30, 40)]
-        misbound, fills = ogpg._cross_scan(primary, kept, [other])
-        assert misbound == set()
+        misbound, fills, replaced = ogpg._cross_scan(primary, kept, [other])
+        assert misbound == set() and replaced == set()
         assert [f["stem"] for f in fills] == [f"{p:03d}" for p in range(30, 40)]
         assert fills[0]["cols"] == [41, 42] and fills[0]["scan"] == "hvd.y_ocr"
 
@@ -159,7 +159,7 @@ class TestCrossScan:
         primary = _scan("pst.x_ocr", full)
         other = _scan("hvd.y_ocr", {p: _noisy(t) for p, t in full.items()})
         kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
-        assert ogpg._cross_scan(primary, kept, [other]) == (set(), [])
+        assert ogpg._cross_scan(primary, kept, [other]) == (set(), [], set())
 
     def test_misbound_leaves_are_replaced(self):
         full = {p: _page_text(p) for p in range(10, 40)}
@@ -167,9 +167,49 @@ class TestCrossScan:
         primary = _scan("pst.x_ocr", bound_wrong)
         other = _scan("hvd.y_ocr", {p: _noisy(t) for p, t in full.items()})
         kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
-        misbound, fills = ogpg._cross_scan(primary, kept, [other])
+        misbound, fills, _ = ogpg._cross_scan(primary, kept, [other])
         assert misbound == {"020", "021", "022", "023"}
         assert [f["stem"] for f in fills] == ["020", "021", "022", "023"]
+
+    def test_truncated_page_is_replaced(self):
+        # The primary's page 25 lost the second half of its Greek (the OCR ran
+        # into the Latin column); another scan has all of it on the same columns.
+        full = {p: _page_text(p, words=300) for p in range(10, 40)}
+        cut = dict(full)
+        cut[25] = " ".join(full[25].split()[:80])
+        primary = _scan("pst.x_ocr", cut)
+        other = _scan("hvd.y_ocr", {p: _noisy(t) for p, t in full.items()})
+        kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
+        misbound, fills, replaced = ogpg._cross_scan(primary, kept, [other])
+        assert misbound == set() and replaced == {"025"}
+        assert [(f["stem"], f["cols"]) for f in fills] == [("025", [31, 32])]
+        assert fills[0]["text"] == _noisy(full[25])
+
+    def test_longer_page_with_other_text_does_not_replace(self):
+        # Same columns, longer, but not the primary's text: nothing is replaced.
+        full = {p: _page_text(p, words=300) for p in range(10, 40)}
+        cut = dict(full)
+        cut[25] = " ".join(full[25].split()[:80])
+        other_pages = {p: _noisy(t) for p, t in full.items()}
+        other_pages[25] = _page_text(900, words=300)
+        primary = _scan("pst.x_ocr", cut)
+        other = _scan("hvd.y_ocr", other_pages)
+        kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
+        assert ogpg._cross_scan(primary, kept, [other])[2] == set()
+
+    def test_fill_supported_by_matching_text(self):
+        # The other scan's heads failed around the gap (no head numbers on pages
+        # 25–35), but its pages next to the gap carry the primary's text on the
+        # same columns: the page the primary lacks is filled.
+        full = {p: _page_text(p) for p in range(10, 40)}
+        primary = _scan("pst.x_ocr", {p: t for p, t in full.items() if p != 30})
+        primary.heads.append(("030", [41]))
+        primary.heads.sort()
+        other = _scan("hvd.y_ocr", {p: _noisy(t) for p, t in full.items()})
+        other.heads = [(s, n if not 25 <= int(s) <= 35 else []) for s, n in other.heads]
+        kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
+        _, fills, _ = ogpg._cross_scan(primary, kept, [other])
+        assert [(f["stem"], f["cols"]) for f in fills] == [("030", [41, 42])]
 
     def test_merge_fills_in_column_order(self):
         paras = [{"text": "a", "cols": (1, 2)}, {"text": "b", "cols": None},
@@ -184,7 +224,7 @@ class TestCrossScan:
         twin = _scan("njp.z_ocr", {p: _noisy(t) for p, t in bound_wrong.items()})
         good = [_scan(f"hvd.{i}_ocr", {p: _noisy(t) for p, t in full.items()}) for i in range(2)]
         kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
-        misbound, fills = ogpg._cross_scan(primary, kept, [twin, *good])
+        misbound, fills, _ = ogpg._cross_scan(primary, kept, [twin, *good])
         assert misbound == {"020", "021", "022", "023"}
         assert {f["scan"] for f in fills} == {"hvd.0_ocr"}
         assert all(_page_text(500 + int(f["stem"])) != f["text"] for f in fills)
@@ -197,5 +237,5 @@ class TestCrossScan:
         primary = _scan("pst.x_ocr", shifted)
         others = [_scan(f"hvd.{i}_ocr", {p: _noisy(t) for p, t in full.items()}) for i in range(2)]
         kept = [{"stem": c.stem, "title": None, "text": c.text} for c in primary.candidates]
-        misbound, _ = ogpg._cross_scan(primary, kept, others)
+        misbound, _, _ = ogpg._cross_scan(primary, kept, others)
         assert misbound == set()
