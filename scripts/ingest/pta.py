@@ -21,9 +21,8 @@ We process only "edition" files (``pta-grcN``, ``pta-sycN``, ``pta-latN``,
 - ``__cts__.xml``  — CTS catalog metadata (not text)
 - ``pta9999/``     — Bible textgroup (already have dedicated scripture ingestors)
 - ``*Bibex*``      — biblical-excerpt versions (thin wrappers around scripture)
-- ``*Ms[A-Z]*``    — individual manuscript witnesses (not critical text); the
-                     transcriptions named ``pta-Ms44``, ``pta-Msb2`` … are not
-                     caught and are ingested
+- ``*.pta-Ms*``    — transcriptions of individual manuscript witnesses (not
+                     critical text)
 - ``*deu*``        — German translations (not in our language set)
 
 Text
@@ -113,14 +112,15 @@ _EDITIONS: dict[str, str] = {
 }
 
 
-# File name patterns to skip
-_SKIP_PATTERNS = re.compile(r"Bibex|MsA|MsB|MsC|MsD|MsE|MsF|MsG|MsH|MsI|MsJ|MsK|MsL|MsM|MsN|MsO|MsP|MsQ|MsR|MsS|MsT|MsU|MsV|MsW|MsX|MsY|MsZ|Ms[A-Z]|deu")
+# File name patterns to skip. ``.pta-Ms…`` are diplomatic transcriptions of
+# single manuscript witnesses (``pta-MsA``, ``pta-Ms44``, ``pta-Msb2``): the
+# critical edition is the work. The old pattern caught only ``Ms[A-Z]``, so
+# 38 transcriptions of Athanasius's Contra gentes and De incarnatione were
+# ingested until #415 dropped them (their ids redirect to the editions).
+# ``pta-Mss`` is a Slavonic transcription of the Ljubljana leaves of Codex
+# Suprasliensis, which the Suprasliensis ingest covers (#333, #335).
+_SKIP_PATTERNS = re.compile(r"Bibex|\.pta-Ms|deu")
 
-# Files skipped by name. ``pta-Mss`` (lower-case ``s``, so not caught above) is
-# a Slavonic transcription of the Ljubljana leaves of Codex Suprasliensis (Cod.
-# Kop. 2), a manuscript witness that the Suprasliensis ingest covers (#333);
-# it was skipped while ``chu`` was unmapped, and stays skipped (#335).
-_SKIP_FILES = frozenset({"pta0041.pta001.pta-Mss.xml"})
 
 # How a ``<p>``/``<ab>`` is flattened to text (``_flatten``, #376, #415).
 # The apparatus (``<rdg>`` readings next to their ``<lem>``, ``<witDetail>``),
@@ -618,7 +618,6 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
         if p.name != "__cts__.xml"
         and "pta9999" not in p.parts  # skip Bible group
         and not _SKIP_PATTERNS.search(p.name)
-        and p.name not in _SKIP_FILES
     ]
 
     log.info("Found %d PTA text files to process", len(xml_files))
