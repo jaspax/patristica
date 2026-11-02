@@ -3381,6 +3381,7 @@
   "first1k/tlg2018/tlg007/1st1K-grc1": {
    "members": [
     "first1k/tlg2018/tlg007/1st1K-grc1",
+    "mt-eng/pta/pta0003/pta007/pta-grc1",
     "ogpg/vol-024/contra-marcellum",
     "pta/pta0003/pta007/pta-grc1"
    ]
@@ -3486,9 +3487,6 @@
     "first1k/tlg2035/tlg002/1st1K-grc1",
     "npnf-works/athanasius-on-the-incarnation",
     "ogpg/vol-025/de-incarnatione",
-    "pta/pta0022/pta002/pta-Ms47",
-    "pta/pta0022/pta002/pta-Ms57",
-    "pta/pta0022/pta002/pta-Ms74",
     "pta/pta0022/pta002/pta-grc1"
    ]
   },
@@ -4733,40 +4731,6 @@
    "members": [
     "npnf-works/athanasius-against-the-heathen",
     "ogpg/vol-025/contra-gentes",
-    "pta/pta0022/pta001/pta-Ms104",
-    "pta/pta0022/pta001/pta-Ms160",
-    "pta/pta0022/pta001/pta-Ms160a",
-    "pta/pta0022/pta001/pta-Ms44",
-    "pta/pta0022/pta001/pta-Ms45",
-    "pta/pta0022/pta001/pta-Ms46",
-    "pta/pta0022/pta001/pta-Ms47",
-    "pta/pta0022/pta001/pta-Ms48",
-    "pta/pta0022/pta001/pta-Ms50",
-    "pta/pta0022/pta001/pta-Ms51",
-    "pta/pta0022/pta001/pta-Ms52",
-    "pta/pta0022/pta001/pta-Ms53",
-    "pta/pta0022/pta001/pta-Ms54",
-    "pta/pta0022/pta001/pta-Ms55",
-    "pta/pta0022/pta001/pta-Ms56",
-    "pta/pta0022/pta001/pta-Ms57",
-    "pta/pta0022/pta001/pta-Ms58",
-    "pta/pta0022/pta001/pta-Ms69",
-    "pta/pta0022/pta001/pta-Ms70",
-    "pta/pta0022/pta001/pta-Ms74",
-    "pta/pta0022/pta001/pta-Ms75",
-    "pta/pta0022/pta001/pta-Ms76",
-    "pta/pta0022/pta001/pta-Ms77",
-    "pta/pta0022/pta001/pta-Ms78",
-    "pta/pta0022/pta001/pta-Msb1",
-    "pta/pta0022/pta001/pta-Msb2",
-    "pta/pta0022/pta001/pta-Msb3",
-    "pta/pta0022/pta001/pta-Mse",
-    "pta/pta0022/pta001/pta-Msfn",
-    "pta/pta0022/pta001/pta-Msg1",
-    "pta/pta0022/pta001/pta-Msm",
-    "pta/pta0022/pta001/pta-Msti",
-    "pta/pta0022/pta001/pta-Msy",
-    "pta/pta0022/pta001/pta-Mszi",
     "pta/pta0022/pta001/pta-grc1"
    ]
   },
@@ -5459,18 +5423,21 @@
   },
   "ogpg/vol-056/de-legislatore": {
    "members": [
+    "mt-eng/pta/pta0001/pta008/pta-grc1",
     "ogpg/vol-056/de-legislatore",
     "pta/pta0001/pta008/pta-grc1"
    ]
   },
   "ogpg/vol-056/de-serpente": {
    "members": [
+    "mt-eng/pta/pta0001/pta011/pta-grc1",
     "ogpg/vol-056/de-serpente",
     "pta/pta0001/pta011/pta-grc1"
    ]
   },
   "ogpg/vol-056/in-qua-potestate": {
    "members": [
+    "mt-eng/pta/pta0001/pta009/pta-grc1",
     "ogpg/vol-056/in-qua-potestate",
     "pta/pta0001/pta009/pta-grc1"
    ]
@@ -5556,12 +5523,14 @@
   },
   "ogpg/vol-063/in-principio-erat-verbum": {
    "members": [
+    "mt-eng/pta/pta0001/pta026/pta-grc1",
     "ogpg/vol-063/in-principio-erat-verbum",
     "pta/pta0001/pta026/pta-grc1"
    ]
   },
   "ogpg/vol-063/severianus-de-sigillis": {
    "members": [
+    "mt-eng/pta/pta0001/pta025/pta-grc1",
     "ogpg/vol-063/severianus-de-sigillis",
     "pta/pta0001/pta025/pta-grc1"
    ]
@@ -5829,16 +5798,131 @@
     "perseus/tlg0526/tlg004/perseus-grc2"
    ]
   },
+  "pta/pta0001/pta001/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta001/pta-grc1",
+    "pta/pta0001/pta001/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta002/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta002/pta-grc1",
+    "pta/pta0001/pta002/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta003/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta003/pta-grc1",
+    "pta/pta0001/pta003/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta004/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta004/pta-grc1",
+    "pta/pta0001/pta004/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta007/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta007/pta-grc1",
+    "pta/pta0001/pta007/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta010/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta010/pta-grc1",
+    "pta/pta0001/pta010/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta012/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta012/pta-grc1",
+    "pta/pta0001/pta012/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta013/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta013/pta-grc1",
+    "pta/pta0001/pta013/pta-grc1"
+   ]
+  },
   "pta/pta0001/pta014/pta-grc1": {
    "members": [
+    "mt-eng/pta/pta0001/pta014/pta-grc1",
     "pta/pta0001/pta014/pta-grc1",
     "pta/pta0001/pta014/pta-xcl1"
+   ]
+  },
+  "pta/pta0001/pta015/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta015/pta-grc1",
+    "pta/pta0001/pta015/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta016/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta016/pta-grc1",
+    "pta/pta0001/pta016/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta017/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta017/pta-grc1",
+    "pta/pta0001/pta017/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta018/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta018/pta-grc1",
+    "pta/pta0001/pta018/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta019/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta019/pta-grc1",
+    "pta/pta0001/pta019/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta020/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta020/pta-grc1",
+    "pta/pta0001/pta020/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta021/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta021/pta-grc1",
+    "pta/pta0001/pta021/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta022/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta022/pta-grc1",
+    "pta/pta0001/pta022/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta023/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta023/pta-grc1",
+    "pta/pta0001/pta023/pta-grc1"
    ]
   },
   "pta/pta0001/pta024/pta-grc1": {
    "members": [
     "pta/pta0001/pta024/pta-grc1",
     "pta/pta0001/pta024/pta-grc2"
+   ]
+  },
+  "pta/pta0001/pta027/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta027/pta-grc1",
+    "pta/pta0001/pta027/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta029/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta029/pta-grc1",
+    "pta/pta0001/pta029/pta-grc1"
    ]
   },
   "pta/pta0001/pta030/pta-grc1": {
@@ -5849,20 +5933,167 @@
   },
   "pta/pta0001/pta031/pta-grc1": {
    "members": [
+    "mt-eng/pta/pta0001/pta031/pta-grc1",
     "pta/pta0001/pta031/pta-grc1",
     "pta/pta0001/pta031/pta-xcl1"
    ]
   },
+  "pta/pta0001/pta032/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta032/pta-grc1",
+    "pta/pta0001/pta032/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta034/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta034/pta-grc1",
+    "pta/pta0001/pta034/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta037/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta037/pta-grc1",
+    "pta/pta0001/pta037/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta038/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta038/pta-grc1",
+    "pta/pta0001/pta038/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta040/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta040/pta-grc1",
+    "pta/pta0001/pta040/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta041/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta041/pta-grc1",
+    "pta/pta0001/pta041/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta042/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta042/pta-grc1",
+    "pta/pta0001/pta042/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta043/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta043/pta-grc1",
+    "pta/pta0001/pta043/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta044/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta044/pta-grc1",
+    "pta/pta0001/pta044/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta045/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta045/pta-grc1",
+    "pta/pta0001/pta045/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta046/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta046/pta-grc1",
+    "pta/pta0001/pta046/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta047/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta047/pta-grc1",
+    "pta/pta0001/pta047/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta048/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta048/pta-grc1",
+    "pta/pta0001/pta048/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta049/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta049/pta-grc1",
+    "pta/pta0001/pta049/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta050/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta050/pta-grc1",
+    "pta/pta0001/pta050/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta051/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta051/pta-grc1",
+    "pta/pta0001/pta051/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta052/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta052/pta-grc1",
+    "pta/pta0001/pta052/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta053/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta053/pta-grc1",
+    "pta/pta0001/pta053/pta-grc1"
+   ]
+  },
   "pta/pta0001/pta054/pta-grc1": {
    "members": [
+    "mt-eng/pta/pta0001/pta054/pta-grc1",
     "pta/pta0001/pta054/pta-grc1",
     "pta/pta0001/pta054/pta-lat1"
    ]
   },
   "pta/pta0001/pta056/pta-grc1": {
    "members": [
+    "mt-eng/pta/pta0001/pta056/pta-grc1",
     "pta/pta0001/pta056/pta-grc1",
     "pta/pta0001/pta056/pta-grc2"
+   ]
+  },
+  "pta/pta0001/pta057/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta057/pta-grc1",
+    "pta/pta0001/pta057/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta058/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta058/pta-grc1",
+    "pta/pta0001/pta058/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta059/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta059/pta-grc1",
+    "pta/pta0001/pta059/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta060/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta060/pta-grc1",
+    "pta/pta0001/pta060/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta061/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta061/pta-grc1",
+    "pta/pta0001/pta061/pta-grc1"
+   ]
+  },
+  "pta/pta0001/pta062/pta-grc1": {
+   "members": [
+    "mt-eng/pta/pta0001/pta062/pta-grc1",
+    "pta/pta0001/pta062/pta-grc1"
    ]
   },
   "pta/pta0001/pta063/pta-xcl1": {
