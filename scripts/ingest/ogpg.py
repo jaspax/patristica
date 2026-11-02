@@ -68,6 +68,7 @@ from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_columns as cols
 from scripts.ingest import _ogpg_index as pgi
+from scripts.ingest import _ogpg_notes as notes
 from scripts.ingest import _ogpg_repeats as rep
 from scripts.ingest import _ogpg_volumes as pgv
 from scripts.ingest._common import offline, require_network
@@ -1255,6 +1256,12 @@ def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
     return [p for _, _, p in keyed]
 
 
+def _unit(ref: str, text: str) -> dict:
+    """A raw unit, with Migne's notes at its end marked editorial (#450)."""
+    spans = notes.note_spans(text)
+    return {"ref": ref, "text": text, "editorial": spans} if spans else {"ref": ref, "text": text}
+
+
 def split_volume(
     repo_name: str,
     extract: dict,
@@ -1267,7 +1274,9 @@ def split_volume(
     each in-period row becomes ``{vol}/{slug}.json`` and uncovered text goes
     to ``{vol}/other.json``; rows dated after the collection period are
     dropped (their text is not written).  Paragraphs are ``{"ref", "text"}``
-    with the positional refs of ``_ogpg_index.assign_refs``.  Pages the scan
+    with the positional refs of ``_ogpg_index.assign_refs``, and
+    ``"editorial"`` note spans where a paragraph ends in Migne's notes
+    (``_ogpg_notes``).  Pages the scan
     repeats (``repeats``, found here when not given) are left out.
     """
     vol_nums, vol_slug = _parse_repo(repo_name)
@@ -1288,14 +1297,14 @@ def split_volume(
     if not rows:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
         return [(f"{vol_slug}.json", work,
-                 [{"ref": r, "text": p["text"]} for r, p in zip(refs, paras)])]
+                 [_unit(r, p["text"]) for r, p in zip(refs, paras)])]
 
     owners = pgi.assign_works(paras, rows)
     last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
     buckets: dict[str | None, list[dict]] = {}
     for ref, para, owner in zip(refs, paras, owners):
         key = None if owner is None else rows[owner].slug
-        buckets.setdefault(key, []).append({"ref": ref, "text": para["text"]})
+        buckets.setdefault(key, []).append(_unit(ref, para["text"]))
     by_slug: dict[str, list[pgi.IndexRow]] = {}
     for row in rows:
         by_slug.setdefault(row.slug, []).append(row)
