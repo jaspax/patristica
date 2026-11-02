@@ -232,6 +232,56 @@ describe("parseWork", () => {
   });
 });
 
+describe("marked headings (#128)", () => {
+  const work = {
+    work_id: "w",
+    ref_prefix: "tlg",
+    marks_headings: true,
+    editorial: { "": [[0, 6, "title"]], "2": [[0, 6, "heading"]] } as Record<string, [number, number, string][]>,
+    chunks: [
+      ["", "Τίτλος"],
+      ["1", "Οὗτος Ὠσηὲ τῶν ιβʹ προφητῶν ὁ πρῶτος, ἀξιωθεὶς εἰπεῖν."],
+      ["1.1", "Οὗτος Ὠσηὲ ἦν ἐκ Βελεμὼθ."],
+      ["2", "Περὶ Β"],
+      ["2.1", "δεύτερον"],
+    ] as [string, string][],
+  };
+
+  it("takes headings from the marks and renders unmarked division text as a lead paragraph", () => {
+    const sections = parseWork(work, "patristic");
+    expect(sections.map((s) => [s.path.join("."), s.title])).toEqual([
+      ["", "Τίτλος"],
+      ["1", null],
+      ["2", "Περὶ Β"],
+    ]);
+    expect(sections[1].units.map((u) => [u.n, u.ref])).toEqual([["", "tlg.1"], ["1", "tlg.1.1"]]);
+    const roles = chunkRoles(work, sections);
+    expect(roles.map((r) => r.kind)).toEqual(["heading", "unit", "unit", "heading", "unit"]);
+  });
+
+  it("keeps the ref rule for works whose source doesn't mark every heading", () => {
+    const sections = parseWork({ ...work, marks_headings: undefined }, "patristic");
+    // The ref rule: the division text `1` is taken for chapter 1's heading.
+    expect(sections.find((s) => s.ref === "tlg.1")?.title).toBe("Οὗτος Ὠσηὲ τῶν ιβʹ προφητῶν ὁ πρῶτος, ἀξιωθεὶς εἰπεῖν.");
+  });
+
+  it("makes a marked title that heads no subdivision the heading of what follows it", () => {
+    const sections = parseWork(
+      {
+        work_id: "w",
+        ref_prefix: "x",
+        marks_headings: true,
+        editorial: { "1": [[0, 5, "title"]] },
+        chunks: [["1", "Title"], ["2", "text"], ["3", "more"]],
+      },
+      "patristic",
+    );
+    expect(sections).toHaveLength(1);
+    expect(sections[0].title).toBe("Title");
+    expect(sections[0].units.map((u) => u.n)).toEqual(["2", "3"]);
+  });
+});
+
 describe("isMarkedRubric", () => {
   it("needs every non-space character in a rubric span", () => {
     expect(isMarkedRubric("ΙΕΡΕΥΣ (ἐκφώνως)", [[0, 6, "rubric"], [7, 16, "rubric"]])).toBe(true);

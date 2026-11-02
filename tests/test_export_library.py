@@ -333,3 +333,21 @@ class TestSourceLabels:
             sources = {json.loads(line)["work"]["source_id"] for line in f if line.strip()}
         missing = sorted(sources - SOURCE_LABELS.keys())
         assert not missing, f"Add these to patristica.sources.SOURCE_LABELS: {missing}"
+
+
+def test_works_of_heading_marking_sources_say_so() -> None:
+    # #128: the reader takes these works' headings from their marks.
+    from patristica.models import Chunk, Work
+    from scripts.export_library import HEADING_MARKING_SOURCES, slim_work
+
+    def build(source: str) -> dict:
+        work = Work(work_id=f"{source}/w", source_id=source, title="W", language="grc",
+                    genre="patristic", license="cc-by-sa-4.0", source_url="https://example.org")
+        chunk = Chunk(chunk_id=f"{source}/w#x.1", work_id=f"{source}/w", source_id=source,
+                      canonical_ref="x.1", chunk_index=0, language="grc", text="τι",
+                      genre="patristic", date_confidence="uncertain")
+        return slim_work(work, [chunk])
+
+    assert "first1k" in HEADING_MARKING_SOURCES
+    assert build("first1k")["marks_headings"] is True
+    assert "marks_headings" not in build("pta")

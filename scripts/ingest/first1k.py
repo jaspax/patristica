@@ -32,8 +32,13 @@ e.g. ``tlg0559.tlg002.1.3`` (Justin Martyr, Second Apology, book 1, paragraph 3)
 
 A div's ``<head>`` (the work's title on the edition div, a book's or
 chapter's title) is kept as a heading record at the div's ref wherever that
-ref is the parent of the text that follows (#71). ``<gap>`` and ``<note>``
-are still dropped.
+ref is the parent of the text that follows (#71), marked as editorial
+material as a whole (``title`` for the work's title, ``heading`` otherwise,
+#236). Where the div's paragraphs share its ref, the head is put at the start
+of its first paragraph and marked there (#259), so no ref moves. Every record
+the ingestor writes is then marked: the reader takes a work's headings from
+the marks (#128). A ``<gap>`` becomes ``[…]``, marked ``lacuna`` (#71).
+``<note>`` is still dropped.
 """
 
 from __future__ import annotations
@@ -162,6 +167,11 @@ def _element_inner_text(el: etree._Element) -> str:
                 parts.append(child.tail)
             continue
         local = etree.QName(child.tag).localname
+        if local == "gap":
+            parts.append(f" {_GAP} ")
+            if child.tail:
+                parts.append(child.tail)
+            continue
         if local in _SKIP_ELEMENTS:
             if child.tail:
                 parts.append(child.tail)
@@ -172,44 +182,96 @@ def _element_inner_text(el: etree._Element) -> str:
     return "".join(parts)
 
 
+# Stands for a ``<gap>`` until the text is cleaned (a private-use character).
+_GAP = "\ue000"
+#: What a ``<gap>`` becomes in the text, marked ``lacuna`` (as Coptic
+#: Scriptorium's lacunae, #236).
+LACUNA = "[…]"
+
+
 def _clean_text(el: etree._Element) -> str:
-    """An element's text with notes etc. dropped and whitespace collapsed."""
-    return re.sub(r"\s+", " ", _element_inner_text(el).strip())
+    """An element's text with notes etc. dropped and whitespace collapsed
+    (a ``<gap>`` stays as :data:`_GAP`; see :func:`_with_lacunae`)."""
+    text = re.sub(r"\s+", " ", _element_inner_text(el).strip())
+    # A gap at the start or end of an element, or next to another, adds no text.
+    return re.sub(rf"{_GAP}( {_GAP})+", _GAP, text)
+
+
+def _with_lacunae(text: str) -> tuple[str, list[list[object]]]:
+    """``text`` with each :data:`_GAP` written as :data:`LACUNA`, and the
+    ``[start, end, "lacuna"]`` spans of the markers."""
+    out: list[str] = []
+    spans: list[list[object]] = []
+    pos = 0
+    for piece in re.split(f"({_GAP})", text):
+        if piece == _GAP:
+            spans.append([pos, pos + len(LACUNA), "lacuna"])
+            piece = LACUNA
+        out.append(piece)
+        pos += len(piece)
+    return "".join(out), spans
+
+
+def _record(ref: str, text: str) -> dict:
+    """A raw record, with its lacuna marks when it has any."""
+    text, spans = _with_lacunae(text)
+    rec: dict = {"ref": ref, "text": text}
+    if spans:
+        rec["editorial"] = spans
+    return rec
 
 
 def _place_headings(
-    paragraphs: list[dict[str, str]],
-    headings: list[tuple[int, str, str]],
-) -> list[dict[str, str]]:
-    """Insert the ``<head>`` texts as heading records (#71).
+    paragraphs: list[dict],
+    headings: list[tuple[int, str, str, str]] | list[tuple[int, str, str]],
+) -> list[dict]:
+    """Insert the ``<head>`` texts as heading records (#71), marked (#128).
 
-    *headings* are ``(position, ref, text)``: the head's div path as ref, and
-    the number of paragraphs that came before it.  The reader treats a chunk
-    whose ref is the parent of the next chunk's ref as a section heading
-    (``web/src/lib/render.ts``), so a head is kept only where that holds: its
-    ref is no paragraph's ref and the next paragraph lies inside its div.  A
-    head whose div holds its paragraphs directly (they share the div's ref)
-    can't be a heading without renumbering them, so it stays out.  Paragraph
-    refs are never changed: they are reader URLs.  Several heads of one div
-    (title and subtitle) are joined into one heading.
+    *headings* are ``(position, ref, text, kind)``: the head's div path as
+    ref, the number of paragraphs that came before it, and its editorial kind.
+    A head becomes a record of its own at the div's ref where that ref is no
+    paragraph's and the next paragraph lies inside its div; the record is
+    editorial material as a whole.  Where the div's paragraphs share its ref
+    (``<div n="3"><head/><p/><p/></div>`` → ``X.3``, ``X.3.1``), the head goes
+    at the start of the div's first paragraph and is marked there (#259), so
+    paragraph refs never change: they are reader URLs.  Several heads of one
+    div (title and subtitle) are joined into one.
+
+    Headings given without a kind (``(position, ref, text)``, CSEL's) are
+    neither marked nor put into paragraphs.
     """
     taken = {p["ref"] for p in paragraphs}
-    kept: dict[str, tuple[int, list[str]]] = {}  # ref → (position, texts), in order
-    for pos, ref, text in headings:
-        if ref in taken or pos >= len(paragraphs):
+    kept: dict[str, tuple[int, list[str], str | None]] = {}  # ref → (position, texts, kind)
+    for pos, ref, text, *rest in headings:
+        kind = rest[0] if rest else None
+        if pos >= len(paragraphs):
             continue
-        if not paragraphs[pos]["ref"].startswith(f"{ref}."):
+        own = ref not in taken and paragraphs[pos]["ref"].startswith(f"{ref}.")
+        inline = kind is not None and ref in taken and paragraphs[pos]["ref"] == ref
+        if not (own or inline):
             continue
         if ref in kept:
             if kept[ref][0] == pos:
                 kept[ref][1].append(text)
             continue  # a second head of the div after some of its text
-        kept[ref] = (pos, [text])
-    before: dict[int, list[dict[str, str]]] = {}
-    for ref, (pos, texts) in kept.items():
-        before.setdefault(pos, []).append({"ref": ref, "text": " ".join(texts)})
-    result: list[dict[str, str]] = []
-    for i, para in enumerate(paragraphs):
+        kept[ref] = (pos, [text], kind)
+    before: dict[int, list[dict]] = {}
+    result_paras = list(paragraphs)
+    for ref, (pos, texts, kind) in kept.items():
+        head = " ".join(texts)
+        if ref in taken:
+            para = result_paras[pos]
+            shift = len(head) + 1
+            spans = [[0, len(head), kind]] + [
+                [a + shift, b + shift, k] for a, b, k in para.get("editorial", [])]
+            result_paras[pos] = {**para, "text": f"{head} {para['text']}", "editorial": spans}
+        else:
+            rec: dict = {"ref": ref, "text": head}
+            if kind is not None:
+                rec["editorial"] = [[0, len(head), kind]]
+            before.setdefault(pos, []).append(rec)
+    result: list[dict] = []
+    for i, para in enumerate(result_paras):
         result.extend(before.get(i, ()))
         result.append(para)
     return result
@@ -228,22 +290,22 @@ def _extract_paragraphs(
     as one (:func:`_place_headings`).
     """
     records: list[dict[str, str]] = []
-    headings: list[tuple[int, str, str]] = []
+    headings: list[tuple[int, str, str, str]] = []
 
     def _head(element: etree._Element, path_parts: list[str]) -> None:
-        text = _clean_text(element)
+        text = _clean_text(element).replace(_GAP, LACUNA)
         if any(ch.isalpha() for ch in text):  # a bare "3" only repeats the ref
             ref = slugify_ref(".".join([work_cts_id] + path_parts))
-            headings.append((len(records), ref, text))
+            headings.append((len(records), ref, text, "heading" if path_parts else "title"))
 
     def _walk(element: etree._Element, path_parts: list[str]) -> None:
         tag = etree.QName(element.tag).localname if element.tag != etree.Comment else ""
 
         if tag in ("p", "ab"):
             text = _clean_text(element)
-            if text:
+            if text and text != _GAP:
                 ref = slugify_ref(".".join([work_cts_id] + path_parts))
-                records.append({"ref": ref, "text": text})
+                records.append(_record(ref, text))
             return
 
         if tag == "div":
@@ -306,7 +368,14 @@ def _apply_corrections(work_id: str, paragraphs: list[dict[str, str]]) -> list[d
         if i is None or old not in result[i]["text"]:
             log.warning("%s: correction for %s no longer matches %r; skipped", work_id, ref, old)
             continue
-        result[i] = {**result[i], "text": result[i]["text"].replace(old, new, 1)}
+        text = result[i]["text"]
+        at, delta = text.index(old), len(new) - len(old)
+        rec = {**result[i], "text": text.replace(old, new, 1)}
+        if rec.get("editorial"):
+            rec["editorial"] = [[a + delta if a >= at + len(old) else a,
+                                 b + delta if b >= at + len(old) else b, k]
+                                for a, b, k in rec["editorial"]]
+        result[i] = rec
     return result
 
 
