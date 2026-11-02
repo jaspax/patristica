@@ -52,6 +52,10 @@ export const RENAMED_WORK_IDS: ReadonlyArray<readonly [from: string, to: string]
   ["anf-works/hippolytus-dogmatical-and-historical", "anf-works/hippolytus-christ-and-antichrist"],
   // PG 33's two-author work: Peter II's encyclical first, then Timothy's Responsa.
   ["ogpg/vol-033/alexandrina-varia", "ogpg/vol-033/petrus-ii-epistula-encyclica"],
+  // #96/#95: OGPG remainders whose text now belongs to a work (repeated pages dropped, new rows).
+  ["ogpg/vol-028/other", "ogpg/vol-028/de-incarnatione-dei-verbi"],
+  ["ogpg/vol-070/other", "ogpg/vol-070/commentarius-in-isaiam"],
+  ["ogpg/vol-088/other", "ogpg/vol-088/constantinus-diaconus-laudatio"],
   // #415: PTA's transcriptions of single manuscripts of Athanasius were dropped; each opens the edition.
   ...PTA_ATHANASIUS_TRANSCRIPTIONS.map(
     ([work, ms]) => [`pta/pta0022/${work}/pta-${ms}`, `pta/pta0022/${work}/pta-grc1`] as const,
