@@ -134,3 +134,28 @@ vendor.
 - 43 pass and 71 corrected (37 paraphrases, 34 topical queries; the draft kept in `drafted_text`). Almost every correction cuts a *Heliand* or *Genesis* query down to its one line: the reviewer counts words taken from the neighbouring lines as additions. 23 topical queries were rated too narrow, mostly because they named the Gospel scene.
 - Paraphrase accuracy averaged 3.28 (Heliand 2.50, Genesis 2.68, minor texts 4.78), and topical relevance 3.86. Opus read 44 originals well and 13 partly.
 - Rerunning retrieval moved native Voyage's paraphrase R@3 from 0.19 (drafts) to 0.33 (corrected) and 0.40 (the 20 passing). The decision is the same with every variant.
+**Old English (#582).** `ang.jsonl`: drafted by Claude on 2026-11-02 from
+the Old English text, never from Thorpe's English (`aelfric-ch-eng`): 80
+targets, each with one English paraphrase and one English topical query.
+There is no Old English Scripture in the corpus, so every target is
+`unique`. The targets are every target of the one-language set
+`scripts.embed_eval.langset ang --scripture-per-lang 0 --unique-per-lang 80
+--min-target-chars 80` (seed 0), skipping none, 20 from each pool of
+`UNIQUE_POOLS["ang"]`:
+- **Religious narrative verse (20):** Genesis, Exodus, Daniel, Christ and Satan, Judith, Andreas, Elene, the Fates of the Apostles, the Dream of the Rood;
+- **Exeter Book religious poems (20):** Christ I–III, Guthlac, the Phoenix, Juliana, Azarias, the Panther, the Whale, the Partridge, the Descent into Hell, Judgment Day I, Alms-Giving, Soul and Body II, Homiletic Fragment II;
+- **Wisdom and elegy (20):** the Wanderer, the Seafarer, the Order of the World, Maxims I and II, the Fortunes and Gifts of Men, Precepts, Vainglory, the Riming Poem, Resignation, the Rune Poem, Solomon and Saturn, the Meters of Boethius;
+- **Ælfric's Catholic Homilies I (20).**
+
+Thorpe's English is a version of every homily, but the one-language set
+holds no English (as for the Würzburg glosses), so a query can't be answered
+by the English. 22 targets are `medium` confidence: verse whose syntax or
+referent is uncertain out of context.
+
+**Review of `ang.jsonl` (#87 method, local-opus, one pass, 2026-11-02).**
+The owner allowed no paid API for this eval, so the reviewer was Claude Opus
+5.5 on the Claude subscription (`review --reviewer local-opus`): the
+drafter's own model, so less independent than Sol's reviews above.
+- 143 pass and 17 corrected (5 paraphrases, misread clauses; 12 topical queries, 11 of them as too narrow; the draft kept in `drafted_text`).
+- Paraphrase accuracy averaged 4.55 and topical relevance 4.72. Opus read 78 originals well and 2 partly.
+- Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.04.

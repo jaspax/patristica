@@ -1,0 +1,23 @@
+{
+  "work_id": "aspr/proverb-from-winfrids-time",
+  "source_path": "aspr/proverb-from-winfrids-time.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/proverb-from-winfrids-time#Winfrid.1",
+      "source_sha256": "c5b573fbc2e5c4b5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 1,
+      "text": "Often the procrastinator puts off glory, every chance of victory; for that he dies alone."
+    }
+  ]
+}

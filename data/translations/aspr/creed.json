@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/creed",
+  "source_path": "aspr/creed.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/creed#Creed.33.s1",
+      "source_sha256": "874e86c776b9ec43",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Then on the third day the ruler of nations, the lord of the kingdom, quickly rose from the earth, and for forty days he taught his followers secret counsels,"
+    },
+    {
+      "chunk_id": "aspr/creed#Creed.33.s2",
+      "source_sha256": "f8032ea98e7d9371",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "and when he began to seek his kingdom, the heavenly homeland, he said that he would not forsake anyone who would follow him from then on and keep faith with him in love with a steadfast mind."
+    }
+  ]
+}

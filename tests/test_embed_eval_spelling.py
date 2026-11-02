@@ -172,6 +172,7 @@ def test_eval_languages_are_not_enrolled():
     assert PROMPT_NAMES["chu"] == "Old Church Slavonic"  # enrolled on #336
     assert PROMPT_NAMES["oge"] == "Old Georgian"  # enrolled on #529
     assert PROMPT_NAMES["sga"] == "Old Irish"  # enrolled on #552
+    assert PROMPT_NAMES["ang"] == "Old English"  # enrolled on #582
 
 
 def test_lectionaries_are_not_georgian_only():
@@ -263,3 +264,16 @@ def test_langset_groups_felire_witnesses_and_needs_no_scripture(tmp_path):
         "target_lang": "sga", "origin": "unique", "target_chunk_id": t}) + "\n")
     [q] = load_authored([tmp_path / "q.jsonl"], list(rows.values()))
     assert set(q.relevant_ids) == {t, other}
+
+
+def test_old_english_pools():
+    """#582: the ASPR poems by kind and Ælfric are pools; Thorpe's English is in none."""
+    from scripts.embed_eval.select import pool_of
+
+    assert pool_of("ang", "aspr/andreas") == "narrative"
+    assert pool_of("ang", "aspr/phoenix") == "exeter"
+    assert pool_of("ang", "aspr/wanderer") == "wisdom"
+    assert pool_of("ang", "aelfric-ch/ch1-05") == "aelfric"
+    assert pool_of("ang", "aspr/creed") is None  # a minor poem: distractor only
+    assert pool_of("ang", "aelfric-ch-eng/ch1-05") is None
+

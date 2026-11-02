@@ -1,0 +1,23 @@
+{
+  "work_id": "aspr/bedes-death-song-west-saxon",
+  "source_path": "aspr/bedes-death-song-west-saxon.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/bedes-death-song-west-saxon#BedeWS.1",
+      "source_sha256": "2324ead590040cc8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 1,
+      "text": "Before that unavoidable journey, no one becomes wiser in thought than he needs to be, in considering before his going hence what good or evil will be judged for his soul after death, on the way from here."
+    }
+  ]
+}

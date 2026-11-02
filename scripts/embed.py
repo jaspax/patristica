@@ -11,10 +11,10 @@ What is embedded (IMPLEMENTATION_PLAN.md §2.3–2.5):
 - every unit with at least ``MIN_CHARS`` characters of text, as a document,
   its ``text`` only, without editorial material (``patristica.editorial.source_text``,
   #236), and no context overlap, as in the eval (#3);
-- for Syriac, Coptic, Armenian, Ge'ez, Church Slavonic, Old Georgian, Old Irish and Old Saxon
-  units, also
-  their fresh English translation (``patristica.translations``), as a second vector (#84). A unit
-  with no fresh translation is counted and reported; run ``scripts.translate``.
+- for Syriac, Coptic, Armenian, Ge'ez, Church Slavonic, Old Georgian, Old Irish, Old Saxon and
+  Old English units, also their fresh English translation (``patristica.translations``), as a
+  second vector (#84). A unit with no fresh translation is counted and reported; run
+  ``scripts.translate``.
 
 Vectors are stored at the model's full 1024 dims in float16; the DB keeps 512
 (``patristica.embedders.shorten``, #50). Each row records its run (model,

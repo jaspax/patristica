@@ -1,0 +1,30 @@
+{
+  "work_id": "aspr/alms-giving",
+  "source_path": "aspr/alms-giving.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/alms-giving#Alms.1",
+      "source_sha256": "8bd7af102bdfaaac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "It is well for the man, the earnest-minded [?] man, who has within him a generous heart; that is for him the greatest of honours in the world, and the best of judgements before our Lord."
+    },
+    {
+      "chunk_id": "aspr/alms-giving#Alms.5",
+      "source_sha256": "fe42f4ddfd927668",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Just as a man quenches the surging flame with water, so that it can no longer, burning brightly, do harm to the towns, so with almsgiving he drives away all the wounds of sins and heals souls."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "work_id": "aspr/partridge",
+  "source_path": "aspr/partridge.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/partridge#Partridge.1.s1",
+      "source_sha256": "78460ee47433174f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "I have also heard tell of a certain bird, wondrous [?] fair [?] … that word which the Lord of glory spoke:"
+    },
+    {
+      "chunk_id": "aspr/partridge#Partridge.1.s2",
+      "source_sha256": "1dfa0df7a0b30c30",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "\"At whatever time you turn to me in your mind with faith, and cease from dark hellish crimes, I will always turn back to you at once with kindred love, out of a gentle heart."
+    },
+    {
+      "chunk_id": "aspr/partridge#Partridge.1.s3",
+      "source_sha256": "69e43c4565f78b0e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "From then on you will be counted and reckoned by me as shining ones, blessed with glory, bright brothers in the place of children.\""
+    },
+    {
+      "chunk_id": "aspr/partridge#Partridge.12",
+      "source_sha256": "80f30b225cbcd171",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "Let us therefore all the more eagerly seek to please God, hate sin, and earn peace and favour with the Lord while the day shines on us, so that we may live in the best of dwellings, so noble, in the splendour of glory."
+    }
+  ]
+}

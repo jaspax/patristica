@@ -101,6 +101,30 @@ UNIQUE_POOLS: dict[str, dict[str, tuple[str, ...]]] = {
         "genesis": ("rea/genesis",),
         "minor": ("rea/",),
     },
+    # Old English (#582): no Scripture, and Ælfric's homilies have Thorpe's
+    # English in the corpus (left out of the one-language set). Four pools:
+    # religious narrative verse, the Exeter Book's religious poems, wisdom
+    # and elegiac poems, Ælfric's Catholic Homilies. Minor poems are distractors.
+    "ang": {
+        "narrative": (
+            "aspr/genesis", "aspr/exodus", "aspr/daniel", "aspr/christ-and-satan",
+            "aspr/judith", "aspr/andreas", "aspr/elene", "aspr/fates-of-the-apostles",
+            "aspr/dream-of-the-rood",
+        ),
+        "exeter": (
+            "aspr/christ-i", "aspr/christ-ii", "aspr/christ-iii", "aspr/guthlac",
+            "aspr/phoenix", "aspr/juliana", "aspr/azarias", "aspr/panther", "aspr/whale",
+            "aspr/partridge", "aspr/descent-into-hell", "aspr/judgment-day-i",
+            "aspr/alms-giving", "aspr/soul-and-body-ii", "aspr/homiletic-fragment-ii",
+        ),
+        "wisdom": (
+            "aspr/wanderer", "aspr/seafarer", "aspr/order-of-the-world", "aspr/maxims-i",
+            "aspr/maxims-ii", "aspr/fortunes-of-men", "aspr/gifts-of-men", "aspr/precepts",
+            "aspr/vainglory", "aspr/riming-poem", "aspr/resignation", "aspr/rune-poem",
+            "aspr/solomon-and-saturn", "aspr/meters-of-boethius",
+        ),
+        "aelfric": ("aelfric-ch/",),
+    },
 }
 
 MIN_CHARS = 30

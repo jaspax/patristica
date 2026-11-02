@@ -1,0 +1,44 @@
+{
+  "work_id": "aspr/homiletic-fragment-ii",
+  "source_path": "aspr/homiletic-fragment-ii.json",
+  "source_language": "ang",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "aspr/homiletic-fragment-ii#HomFragII.1.s2",
+      "source_sha256": "e2f9be2ae7119543",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "Many a trusted companion proves unreliable; they fail at times, and promises made in words grow weak. So this world goes: it rushes on in storms and endures its fate."
+    },
+    {
+      "chunk_id": "aspr/homiletic-fragment-ii#HomFragII.8.s1",
+      "source_sha256": "ba42dce924b05900",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "There is one faith, one living One, one baptism, one eternal Father, one Lord of the people, who created this earth, its blessings and its joys."
+    },
+    {
+      "chunk_id": "aspr/homiletic-fragment-ii#HomFragII.8.s2",
+      "source_sha256": "84f60bc18f1572d4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "Glory grew afterwards, though this transitory creation had long stood hidden in darkness, concealed under a covering [?], well covered with trees [?], wrapped in gloom, until a young maiden, brave of heart, grew up among mankind."
+    },
+    {
+      "chunk_id": "aspr/homiletic-fragment-ii#HomFragII.8.s3",
+      "source_sha256": "449a0b0365d17340",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "There it then pleased [?] the Holy Spirit in that treasure-vessel. Bright, he shone in the br[?], he who was the origin of all light."
+    }
+  ]
+}
