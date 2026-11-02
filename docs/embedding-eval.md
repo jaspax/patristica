@@ -532,7 +532,14 @@ By text (all queries, n = 20 each, paraphrase R@3 / topical R@100):
 - **Quotes:** BM25 0.96 at R@1 on exact and near-verbatim spans, Voyage 0.80 / 0.81.
 - **With translations**, paraphrase R@3 is 1.00 in every pool. The queries, the review and the translations all come from Claude models, so shared phrasing may flatter these numbers somewhat; the Irish run, with Sol translations, also reached 1.00.
 
-**Translation quality** (`translate quality --langs goh --translators local-opus local-haiku --judges local-opus`): GOH_QUALITY
+**Translation quality** (`translate quality --langs goh --translators local-opus local-haiku --judges local-opus`): 80 targets (all of them); both translators use the per-passage prompt, and Opus judged both blind, under shuffled labels. There was no second vendor, so Opus judged its own work: treat its own score as an upper bound. Haiku is there as a contrast, to show that the judge separates good from bad translations.
+
+| Translator | Fidelity (Opus judge) | Otfrid | Notker's Psalter | Tatian | minor | Hallucinated (of 80) |
+|---|---:|---:|---:|---:|---:|---:|
+| Opus 5.5 (`local-opus`) | 4.83 (self) | 4.85 | 4.80 | 4.85 | 4.80 | 0 |
+| Haiku 5.5 (`local-haiku`) | 3.20 | 2.45 | 3.40 | 4.15 | 2.80 | 1 |
+
+The judge said it read 74 originals well and 6 partly. Haiku does well only on Tatian, where it can lean on the Gospel text. Skipped: the cross-vendor judging (#84 used Sol and the API Opus) and the Sol and API translators, because they are paid APIs.
 
 - **Spot check:** Claude compared 14 random Opus translations from the set with the OHG (Notker's Psalter, *Cantica* and Boethius, Tatian, Otfrid, the Murbach Hymns, the Monsee fragments) and found no hallucinations or omissions. Opus marks a word it can't read with `[?]`: 167 of the 2,357 units (7 %). The share is highest in the fragmentary Monsee texts and the interlinear glosses (Murbach Hymns 9 of 20, *Carmen ad Deum* 4 of 5); Notker's Psalter has 59 of 812, Otfrid 30 of 807 and Tatian 1 of 233.
 
