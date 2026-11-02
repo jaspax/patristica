@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-006/oratio-ad-graecos",
  "pivot": "anf-works/pseudo-justin-discourse-to-the-greeks",
- "groups": 40,
- "inputs": "9bf8e79cbe1325bf",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 47,
+ "inputs": "9d31cd3b54a5f57f",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pseudo-justin-discourse-to-the-greeks", "units": 55, "ids": "def9f9f61bd2eeb7", "inputs": "1e1a9baf3359d17d", "spans": ".++++++..........++++++=+++=+.+++++=+++++++++++++++++++", "conf": "9999949999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-006/oratio-ad-graecos", "units": 44, "ids": "cc80bae87afede32", "inputs": "b561c7ce9645d0b1", "spans": "+++++++++++++++++++++++++++..+++=+++++++++=+", "conf": "9999949999999999999999999999999999999999"}
+  {"work_id": "anf-works/pseudo-justin-discourse-to-the-greeks", "units": 55, "ids": "def9f9f61bd2eeb7", "inputs": "1e1a9baf3359d17d", "spans": ".+++++++=++++=+=+++++++=+++=+.+++++=+++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-006/oratio-ad-graecos", "units": 55, "ids": "5f87ee6c9e5c4df7", "inputs": "6bf5ad44380d15d1", "spans": "+++++.++++++++...+++++++++++++++++++++..+++=+++++++++=+", "conf": "99999999999999999999999999999999999999999999999"}
  ]
 }

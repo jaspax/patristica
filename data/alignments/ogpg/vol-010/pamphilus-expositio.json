@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/pamphilus-expositio",
  "pivot": "ogpg/vol-010/pamphilus-expositio",
  "groups": 65,
- "inputs": "b7a6200ecc18684f",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "41f4e614c7099e4e",
+ "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/pseudo-pamphilus-exposition-of-acts", "units": 78, "ids": "d1a6ee1a9b8f947c", "inputs": "62a08fd1bb7042b9", "spans": "+++++++++++++++++++=++++.++++=+=++++++++++.++=+=++++++++++++=.+.++=+++++=++=++", "conf": "29999999999999999999994999999999999999999999999999999399999999997"},
-  {"work_id": "ogpg/vol-010/pamphilus-expositio", "units": 197, "ids": "b57e774d04598f5e", "inputs": "d0a7c1def0562090", "spans": "..........................................+....................................................................+++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++.....................", "conf": "29999999999999999999994999999999999999999999999999999399999999997"}
+  {"work_id": "ogpg/vol-010/pamphilus-expositio", "units": 199, "ids": "47d6da5ee12eaddd", "inputs": "c27ad8a5c6e8dfcd", "spans": "............................................+....................................................................+++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++.....................", "conf": "29999999999999999999994999999999999999999999999999999399999999997"}
  ]
 }
