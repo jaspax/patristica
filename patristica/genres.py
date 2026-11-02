@@ -15,8 +15,14 @@ canonical in the tradition it belongs to (its language and edition) is
 ``apocrypha`` in another (Ge'ez vs Greek 1 Enoch); a work with any liturgical
 use is ``liturgical``; other apocryphal gospels, acts,
 apocalypses, testaments and Old Testament pseudepigrapha are ``apocrypha``.
-Patristic works about apocrypha, hagiography and martyr acts stay
-``patristic``.
+Patristic works about apocrypha stay ``patristic``.
+
+``hagiography`` (#558): a text by or about an apostle (or Christ or Mary) is
+``apocrypha``; a post-apostolic saint's life, passion, martyrdom or miracle
+collection is ``hagiography``.  Homilies and panegyrics on a saint by a known
+Father, and ecclesiastical histories, stay ``patristic``.  No ingestor assigns
+``hagiography``, so every such work has a row here; an ``mt-eng`` work carries
+its original's genre from the raw file and gets the same row.
 """
 
 from __future__ import annotations

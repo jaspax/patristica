@@ -84,7 +84,7 @@ def _prose_text(raw_text: str, ref: str, work: Work) -> str:
 
 
 def _work_out_of_period(work: Work) -> bool:
-    """``Chunk.out_of_period`` for a scripture/patristic/apocrypha work's chunks.
+    """``Chunk.out_of_period`` for a scripture/patristic/apocrypha/hagiography work's chunks.
 
     The author's birth year (author index, #82) decides when known: a work by
     an author born before ``AUTHOR_BORN_BEFORE`` is in period whatever its
@@ -194,7 +194,7 @@ def normalize_liturgical_work(
 def normalize_patristic_work(
     raw_record: dict,
 ) -> tuple[Work, list[Chunk]]:
-    """Convert a raw patristic or apocrypha record into a ``Work`` + ``Chunk`` list.
+    """Convert a raw patristic, apocrypha or hagiography record into a ``Work`` + ``Chunk`` list.
 
     For patristic prose, each paragraph is a chunk.  Context overlap
     (``context_before`` / ``context_after``) is left ``None`` here and filled
@@ -332,7 +332,7 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path,
     genre = work_dict.get("genre", "")
     if genre == "scripture":
         work, chunks = normalize_scripture_work(raw_record)
-    elif genre in ("patristic", "apocrypha"):
+    elif genre in ("patristic", "apocrypha", "hagiography"):
         work, chunks = normalize_patristic_work(raw_record)
     elif genre == "liturgical":
         work, chunks = normalize_liturgical_work(raw_record)
