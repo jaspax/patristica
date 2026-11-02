@@ -1,0 +1,65 @@
+{
+  "work_id": "rea/palatine-confession",
+  "source_path": "rea/palatine-confession.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s1",
+      "source_sha256": "37af1f76569e61bc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "I will make confession of all my sins to God almighty, and to all God's saints, and to you, man of God: whatever wrong I have seen or wrongly consented to;"
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s2",
+      "source_sha256": "63ea348ba35f92d2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "of wrong words, wrong deeds, evil thoughts; evil desires, evil will; of cursing, of lying, of wrongful standing, of wrongful sitting; while I was walking, while I was riding, while I was sleeping,"
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s3",
+      "source_sha256": "3b5dbbf512780dda",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "while waking, while eating, while drinking; consuming food immoderately; of my vomiting, of adultery, of theft, of manslaughter, of false oaths, of my broken fasts."
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s4",
+      "source_sha256": "90395eaabac81cbf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "I did not seek my church as I rightly should have; I did not honour [?] as I rightly should have. I did not honour the holy mass as I rightly should have."
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s5",
+      "source_sha256": "685b56936b463964",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "I did not keep the holy law as I rightly should have. I did not fulfil my course of prayer as I rightly should have."
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s6",
+      "source_sha256": "062fddcffba7b0c7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "I was not [?] as I rightly should have been. I did not receive the needy as I rightly should have. I did not give alms as I rightly should have."
+    },
+    {
+      "chunk_id": "rea/palatine-confession#PfB.1.s7",
+      "source_sha256": "fc9531026db8dd88",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 7,
+      "text": "Without leave I gave what I should not have. Without leave I received what I should not have. I did not reconcile two people at odds, as I rightly should have."
+    }
+  ]
+}

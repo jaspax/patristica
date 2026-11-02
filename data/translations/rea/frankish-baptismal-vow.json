@@ -1,0 +1,51 @@
+{
+  "work_id": "rea/frankish-baptismal-vow",
+  "source_path": "rea/frankish-baptismal-vow.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/frankish-baptismal-vow#FT.1.s1",
+      "source_sha256": "a92e05c6c34a56ad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Do you renounce the devil? I renounce him. Do you renounce the devil's works and will? I renounce them."
+    },
+    {
+      "chunk_id": "rea/frankish-baptismal-vow#FT.1.s2",
+      "source_sha256": "a3142df486758cfb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Do you renounce all the sacrifices and the offerings and the gods that heathen men hold as sacrifices and as offerings and as gods? I renounce them."
+    },
+    {
+      "chunk_id": "rea/frankish-baptismal-vow#FT.1.s3",
+      "source_sha256": "df610f8bdb90ce26",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "Do you believe in God the Father almighty? I believe. Do you believe in Christ, the Son of God, the Saviour? I believe. Do you believe in the Holy Spirit?"
+    },
+    {
+      "chunk_id": "rea/frankish-baptismal-vow#FT.1.s4",
+      "source_sha256": "9a3cad21f8a37e84",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "I believe. Do you believe in one God almighty, in Trinity and in Unity? I believe. Do you believe in the holy Church of God?"
+    },
+    {
+      "chunk_id": "rea/frankish-baptismal-vow#FT.1.s5",
+      "source_sha256": "21f5e50bf59be119",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 5,
+      "text": "I believe. Do you believe in the forgiveness of sins through baptism? I believe. Do you believe in life after death? I believe."
+    }
+  ]
+}

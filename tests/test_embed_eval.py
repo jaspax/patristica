@@ -562,7 +562,7 @@ def test_old_saxon_pools():
     assert select.pool_of("osx", "rea/heliand") == "heliand"
     assert select.pool_of("osx", "rea/genesis") == "genesis"
     assert select.pool_of("osx", "rea/old-saxon-confession") == "minor"
-    assert select.pool_of("goh", "rea/tatian") is None
+    assert select.pool_of("grc", "rea/heliand") is None
 
 
 def test_reviewed_by_names_the_reviewer():
@@ -587,3 +587,26 @@ def test_quality_summary_with_one_local_translator_and_judge(tmp_path: Path, cap
     assert "cost so far $0.00" in out
     assert "(self)" in out and "4.00" in out
     assert "judge agreement" not in out
+
+
+# --- Old High German target pools and local-opus options (#584) ----------------
+
+def test_goh_pools_put_the_three_big_texts_first_and_the_rest_in_minor():
+    assert select.pool_of("goh", "rea/otfrid") == "otfrid"
+    assert select.pool_of("goh", "rea/notker-psalter") == "notker-psalter"
+    assert select.pool_of("goh", "rea/tatian") == "tatian"
+    assert select.pool_of("goh", "rea/muspilli") == "minor"
+    assert select.pool_of("goh", "rea/notker-boethius") == "minor"
+    works = [{"work_id": "rea/tatian", "language": "goh", "genre": "patristic",
+              "translation_of": "rea/tatian-lat"},
+             {"work_id": "rea/tatian-lat", "language": "lat", "genre": "patristic"},
+             {"work_id": "rea/heliand", "language": "osx", "genre": "patristic"}]
+    # a translation of a Latin work, but unique within the one-language set
+    assert select.unique_works(works)["goh"] == {"rea/tatian"}
+
+
+def test_goh_is_enrolled_for_translation_vectors():
+    from scripts.embed_eval import translate
+
+    assert translate.LANGUAGE_NAMES["goh"] == "Old High German"  # enrolled (#584)
+    assert "goh" not in translate.EVAL_LANGUAGES

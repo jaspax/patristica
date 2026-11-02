@@ -159,3 +159,27 @@ drafter's own model, so less independent than Sol's reviews above.
 - 143 pass and 17 corrected (5 paraphrases, misread clauses; 12 topical queries, 11 of them as too narrow; the draft kept in `drafted_text`).
 - Paraphrase accuracy averaged 4.55 and topical relevance 4.72. Opus read 78 originals well and 2 partly.
 - Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.04.
+
+
+**Old High German (#584).** `goh.jsonl`: drafted by Claude on 2026-11-02
+from the OHG text, never from an English or Latin version: 80 targets, each
+with one English paraphrase and one English topical query. There is no OHG
+Scripture in the corpus, so every target is `unique`. The targets are every
+target of the one-language set `scripts.embed_eval.langset goh
+--scripture-per-lang 0 --unique-per-lang 80` (seed 0), skipping none, 20 from
+each pool of `UNIQUE_POOLS["goh"]`:
+- **Otfrid's *Evangelienbuch* (20):** one long line each (the unit ReA gives), so most are a clause or two;
+- **Notker's Psalter (20):** Notker weaves the Latin psalm text and some Latin terms into his German, so 18 of the 20 targets contain some Latin;
+- **Tatian (20):** the OHG Gospel harmony;
+- **minor texts (20):** one unit from each of 20 of the other works (the confessions, creeds and Lord's Prayer commentaries, *Muspilli*, the *Ludwigslied*, the *Georgslied*, the *Petruslied*, the Murbach Hymns, the Benedictine Rule, the Monsee fragments, Notker's *Cantica*, …).
+
+35 targets are `medium` confidence, mostly Otfrid lines read without their context.
+
+**Review of `goh.jsonl` (#87 method, Claude Opus 5.5 on `local-opus`, one pass, 2026-11-02).**
+The owner allowed no paid API but Voyage for this eval, so the reviewer is
+Opus on the Claude subscription (`review --reviewer local-opus`) instead of
+GPT-6.1 Sol. It is the drafter's model family, so this review is not
+independent.
+- 134 pass and 26 corrected (7 paraphrases, mostly a misread word such as *gilári* "lodging", *gebînot* "tormented", *ríetun* "took counsel"; 19 topical queries, 18 of them as too narrow; the draft kept in `drafted_text`).
+- Paraphrase accuracy averaged 4.65 and topical relevance 4.61. Opus read 75 originals well and 5 partly.
+- Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.02.

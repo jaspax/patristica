@@ -1,0 +1,44 @@
+{
+  "work_id": "rea/st-gall-credo",
+  "source_path": "rea/st-gall-credo.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/st-gall-credo#GC.1.s1",
+      "source_sha256": "ca04a3380314a00a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "I believe in God. I believe in God the Father almighty, maker of heaven and earth,"
+    },
+    {
+      "chunk_id": "rea/st-gall-credo#GC.1.s2",
+      "source_sha256": "ce66d2fc5257a8a5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of Mary the eternal virgin, martyred under the power of Pilate, struck onto the cross,"
+    },
+    {
+      "chunk_id": "rea/st-gall-credo#GC.1.s3",
+      "source_sha256": "c58aaebc8ea3134f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "dead and buried; he descended into torment [hell]; on the third day he rose from the dead; he ascended into heaven; he sits at the right hand of God the Father almighty; from there he is to come to judge the living and the dead."
+    },
+    {
+      "chunk_id": "rea/st-gall-credo#GC.1.s4",
+      "source_sha256": "f56b647ec8c13f93",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 4,
+      "text": "I believe in the Holy Spirit, in the holy catholic church, the communion of saints, the forgiveness of sins, the resurrection of the flesh, in eternal life. Amen."
+    }
+  ]
+}

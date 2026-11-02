@@ -35,7 +35,7 @@ TARGET_LANGUAGE = "eng"
 # translations (#84): scripts.translate translates them, scripts.embed embeds
 # the translation as a second vector.
 TRANSLATED_LANGUAGES: frozenset[str] = frozenset({"syc", "cop", "hye", "gez", "chu", "oge", "sga",
-                                                   "osx", "ang"})
+                                                   "osx", "ang", "goh"})
 
 
 def text_sha(text: str) -> str:

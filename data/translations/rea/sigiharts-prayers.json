@@ -1,0 +1,30 @@
+{
+  "work_id": "rea/sigiharts-prayers",
+  "source_path": "rea/sigiharts-prayers.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-02": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-02",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/sigiharts-prayers#SG.1.s1",
+      "source_sha256": "b0205c253833eaa0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "O heavenly Lord, have mercy on us with your power, [bringing us] into your own kingdom, as is fitting for you. Another [version]."
+    },
+    {
+      "chunk_id": "rea/sigiharts-prayers#SG.1.s2",
+      "source_sha256": "1901894bd43fad4d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "group_size": 2,
+      "text": "Lord Christ in heaven, with your Father's blessing have mercy on us for ever, so that we may not suffer woe."
+    }
+  ]
+}
