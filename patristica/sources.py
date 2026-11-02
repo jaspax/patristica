@@ -31,6 +31,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Patristic
     "anf-works": "Ante-Nicene Fathers",
     "apostolic-constitutions": "Apostolic Constitutions (Ante-Nicene Fathers)",
+    "aspr": "Anglo-Saxon Poetic Records (Old English; Oxford Text Archive)",
     "ccmh": "Corpus Cyrillo-Methodianum Helsingiense",
     "ccmh-supr": "Codex Suprasliensis (CCMH)",
     "titus-hagiography": "Old Georgian Hagiography (TITUS)",
