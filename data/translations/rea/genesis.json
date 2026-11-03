@@ -1,0 +1,37 @@
+{
+  "work_id": "rea/genesis",
+  "source_path": "rea/genesis.json",
+  "source_language": "osx",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-03": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-03",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/genesis#AsGen.3.898.s4",
+      "source_sha256": "708df99c55517893",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "Then all the people of Sodom had paid dearly for their crimes, except that the Ruler, by his will, had led one of them out of there, and the women with him: three with the thane."
+    },
+    {
+      "chunk_id": "rea/genesis#AsGen.3.898.s5",
+      "source_sha256": "7d245c840b8987ea",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "Then they heard the death-agony of the people, the cities burning. Then a nobly born woman looked back behind her: she would not carry out the teaching of the angels (that was Lot's wife), for as long as she was allowed to live in that land."
+    },
+    {
+      "chunk_id": "rea/genesis#AsGen.3.920",
+      "source_sha256": "3523800357d49649",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "When she stood on the hill and looked back behind her, she was turned to stone. There she shall stand as a famous sign to men across middle-earth, from now on forever, as long as this earth lives."
+    }
+  ]
+}
