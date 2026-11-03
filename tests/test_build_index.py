@@ -195,6 +195,45 @@ def test_hash_cache_survives_a_bad_file(tmp_path: Path, caplog) -> None:
     assert build_index.HashCache(None).entries == {}
 
 
+def test_concurrent_cache_saves_never_fail(tmp_path: Path, no_racy) -> None:
+    """build_index and scripts.status may save the same cache at once (PR #609 review)."""
+    import threading
+
+    f = tmp_path / "a.json"
+    f.write_text("[1]")
+    path = tmp_path / "cache" / "hashes.json"
+    errors: list[BaseException] = []
+
+    def saver(n: int) -> None:
+        try:
+            for i in range(50):
+                cache = build_index.HashCache(path)
+                cache.put(f"s/{n}-{i}", "head", build_index.file_stamps([f]), "sha")
+                cache.save()
+        except BaseException as e:  # noqa: BLE001 - the test reports any failure
+            errors.append(e)
+
+    threads = [threading.Thread(target=saver, args=(n,)) for n in range(4)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    assert errors == []
+    assert build_index.HashCache(path).entries  # a complete file, whoever won
+    assert [p.name for p in path.parent.iterdir()] == ["hashes.json"]  # no temp files left
+
+
+def test_failed_cache_save_is_only_a_warning(tmp_path: Path, no_racy, caplog) -> None:
+    f = tmp_path / "a.json"
+    f.write_text("[1]")
+    blocker = tmp_path / "not-a-dir"
+    blocker.write_text("")
+    cache = build_index.HashCache(blocker / "hashes.json")
+    cache.put("s/a", "head", build_index.file_stamps([f]), "sha")
+    cache.save()  # mkdir fails: logged, not raised
+    assert "could not save the hash cache" in caplog.text
+
+
 def test_run_with_hash_cache_reads_only_changed_files(pg_url: str, tmp_path: Path, no_racy,
                                                       monkeypatch: pytest.MonkeyPatch) -> None:
     psycopg = pytest.importorskip("psycopg")

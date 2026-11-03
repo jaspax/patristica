@@ -70,10 +70,13 @@ Needs the ``index`` extra.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import hashlib
 import json
 import logging
+import os
 import struct
+import tempfile
 import time
 from collections.abc import Iterable
 from dataclasses import dataclass, field
@@ -320,15 +323,32 @@ class HashCache:
         self.dirty = True
 
     def save(self) -> None:
-        """Write the cache atomically (a crash leaves the old file or the new one)."""
+        """Write the cache atomically; a failure is logged, never raised.
+
+        Each save writes its own temporary file next to the cache and renames
+        it into place, so concurrent runs (``build_index`` and ``scripts.status
+        --db --vectors``) never trip over each other's file: the last rename
+        wins, and the other run's new entries are just computed again next
+        time. The cache only saves time, so it must never fail a run.
+        """
         if self.path is None or not self.dirty:
             return
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        tmp = self.path.with_suffix(".tmp")
-        tmp.write_text(json.dumps({"version": self.VERSION, "works": self.entries},
-                                  sort_keys=True), encoding="utf-8")
-        tmp.replace(self.path)
-        self.dirty = False
+        tmp: str | None = None
+        try:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            fd, tmp = tempfile.mkstemp(dir=self.path.parent, prefix=f".{self.path.name}.",
+                                       suffix=".tmp")
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump({"version": self.VERSION, "works": self.entries}, f, sort_keys=True)
+            os.replace(tmp, self.path)
+            tmp = None
+            self.dirty = False
+        except OSError as e:
+            log.warning("%s: could not save the hash cache (%s)", self.path, e)
+        finally:
+            if tmp is not None:
+                with contextlib.suppress(OSError):
+                    os.unlink(tmp)
 
 
 def cached_content_sha(cache: HashCache, entry: dict, files: tuple[Path, ...]) -> str:
