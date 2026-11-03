@@ -160,6 +160,16 @@ Bulk translation groups up to 25 consecutive chunks of one work per request, whi
 uv run --extra eval python -m scripts.embed_eval.translate quality --langs syc cop hye gez --translators kimi opus sol --judges local-opus
 ```
 
+**Kimi K3 (#606, 2026-11-03).** Kimi K3 (Ollama Cloud, subscription) translated 146 of the 151 targets; 4 Coptic and 1 Ge'ez passage timed out twice at 900 s (Kimi thinks long: about 6,850 output tokens per passage against Opus's 720, and the subscription allows few concurrent requests, so run it with `--workers 1`). Opus 5.5 on the subscription (`local-opus`) judged Kimi, Opus and Sol blind on those 146, so it judged its own work (read 0.2–0.3 high in the earlier evals); it read 130 originals well and 16 partly.
+
+| Translator | cop/scri | cop/uniq | gez/scri | gez/uniq | hye/scri | hye/uniq | syc/scri | syc/uniq | All | Hallucinated | Mistranslations |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Opus 5.5 (self) | 4.65 | 4.75 | 4.95 | 4.86 | 4.85 | 4.65 | 4.75 | 4.25 | 4.71 | 0 | 47 |
+| GPT-6.1 Sol | 4.55 | 4.83 | 4.50 | 4.36 | 4.65 | 4.30 | 4.60 | 4.20 | 4.49 | 0 | 87 |
+| Kimi K3 | 4.20 | 3.67 | 3.45 | 3.21 | 4.40 | 2.55 | 4.50 | 3.25 | 3.67 | 3 | 302 |
+
+Kimi is well behind both: close only on Scripture it recognizes, and weakest on texts it can't (Armenian Fathers 2.55, Ge'ez 3.21, Syriac 3.25). Its three hallucinations read the Armenian *yovanak* "colt" as Jonah and supplied content from other textual traditions (the Hebrew *Shibboleth* in Ge'ez Judges 12:6). Not a candidate for search translations or reader MTs.
+
 ## Church Slavonic (`chu`, #336)
 
 Measured on 2026-10-29, Voyage `voyage-4-large` only, on the CCMH Gospel codices (Marianus, Zographensis, Assemanianus, Savvina kniga), Codex Suprasliensis and the Vitae of Constantine and Methodius. These are built from the branches of #332 and #333 before they merged. The harness is `scripts.embed_eval.spelling` and `scripts.embed_eval.langset`. The old eval set's cache and chunk ids are gone (#102), and every number above is filtered to the target's language, so `chu` gets its own one-language set, `data/eval/chu`, built the same way. It has 2,706 chunks: 100 Scripture and 100 Slavonic-only targets, their ±2 neighbours, every witness of the target verses, and 1,908 distractors.
