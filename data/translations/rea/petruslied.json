@@ -1,0 +1,37 @@
+{
+  "work_id": "rea/petruslied",
+  "source_path": "rea/petruslied.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-03": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-03",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/petruslied#Petr.1",
+      "source_sha256": "12c24e2987ed5b13",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "Our Lord has given Saint Peter power, so that he can save the man who puts his hope in him. Kyrie eleison, Christe eleison [Lord, have mercy; Christ, have mercy]."
+    },
+    {
+      "chunk_id": "rea/petruslied#Petr.4",
+      "source_sha256": "ec79c4f8203d13b1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "He also holds the gates of the kingdom of heaven by his word: he can let in there whomever he wants to save. Kyrie eleison, Christe eleison [Lord, have mercy; Christ, have mercy]."
+    },
+    {
+      "chunk_id": "rea/petruslied#Petr.7",
+      "source_sha256": "aca5fa709cfda4c7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 3,
+      "text": "Let us all pray together aloud to God's beloved friend, that he may be willing to show mercy to us sinners. Kyrie eleison, Christe eleison [Lord, have mercy; Christ, have mercy]."
+    }
+  ]
+}

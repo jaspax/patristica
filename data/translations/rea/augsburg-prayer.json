@@ -1,0 +1,30 @@
+{
+  "work_id": "rea/augsburg-prayer",
+  "source_path": "rea/augsburg-prayer.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-03": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-03",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/augsburg-prayer#AG.1",
+      "source_sha256": "14ac2643a827af7c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 2,
+      "text": "God, whose nature it is always to have mercy and to spare, receive our prayer, so that those whom the chain of sins binds may be set free by the compassion of your loving-kindness. Through our Lord."
+    },
+    {
+      "chunk_id": "rea/augsburg-prayer#AG.4",
+      "source_sha256": "95266afba622f746",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 2,
+      "text": "God, whose nature it is that you are always merciful, receive our prayer, which we now greatly need, so that, as the chains of sins bind us, the grace of your mildness may graciously set us free."
+    }
+  ]
+}
