@@ -5,8 +5,7 @@ George the Athonite's (1009-1065) revision of the Georgian Gospels
 against the Greek, the Georgian vulgate.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etca/cauc/ageo/nt/giornt/giorn.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

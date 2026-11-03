@@ -5,8 +5,7 @@ Acts in Abuladze's redactions A and B (Tbilisi 1950): the old version,
 before the Athonite revisions.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/nt/actsab/actsa.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

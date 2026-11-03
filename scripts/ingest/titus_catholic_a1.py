@@ -5,8 +5,7 @@ The Catholic Epistles in Lortkipanidze's redaction A1 (Tbilisi 1956), the
 old version in the Sinai manuscripts 39 and 31.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/nt/kb/kba1/kba1.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

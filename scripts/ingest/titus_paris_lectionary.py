@@ -22,8 +22,7 @@ December (TITUS's date reference; movable feasts have their own,
   ``[Jer 23:2-6]``;
 * the inserted pericope itself is the text.
 
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations

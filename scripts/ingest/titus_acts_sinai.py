@@ -5,8 +5,7 @@ The oldest Georgian version of Acts, after Garitte's edition of two
 Sinai manuscripts (Louvain 1955).
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/nt/sakme/sakme.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

@@ -16,7 +16,7 @@ edition's chapters, ref ``Satb.{Work}.{chapter}`` (``Satb.HomOp.Intr``,
 table is ``scripts/ingest/data/titus_shatberdi.csv``; the shared machinery is
 ``_titus_works.py``.
 
-Licence: ``unknown`` until TITUS grants permission to republish (#514).
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations

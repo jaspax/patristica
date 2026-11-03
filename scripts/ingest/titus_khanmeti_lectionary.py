@@ -14,8 +14,7 @@ the Bible ref they render (``Matt.28.4``), so the reader shows them by
 chapter. The Mkhedruli transcription is the text kept; text outside any
 Bible location (lection titles) has no verse and is left out.
 
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations
