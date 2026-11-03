@@ -154,6 +154,12 @@ Four models translated each target. Opus 5.5 and GPT-6.1 Sol judged every transl
 
 Bulk translation groups up to 25 consecutive chunks of one work per request, which costs about $0.0014 per chunk.
 
+**Adding a translator to the bake-off.** Translations and judgements are cached in `data/eval/translation/`, so a new model translates only its own 151 passages; every cached judgement then lacks a verdict on it and is judged again with all candidates, blind, as before. Kimi K3 runs through Ollama Cloud on the owner's Ollama subscription (`kimi`, `OLLAMA_API_KEY`, #606):
+
+```bash
+uv run --extra eval python -m scripts.embed_eval.translate quality --langs syc cop hye gez --translators kimi --judges opus sol
+```
+
 ## Church Slavonic (`chu`, #336)
 
 Measured on 2026-10-29, Voyage `voyage-4-large` only, on the CCMH Gospel codices (Marianus, Zographensis, Assemanianus, Savvina kniga), Codex Suprasliensis and the Vitae of Constantine and Methodius. These are built from the branches of #332 and #333 before they merged. The harness is `scripts.embed_eval.spelling` and `scripts.embed_eval.langset`. The old eval set's cache and chunk ids are gone (#102), and every number above is filtered to the target's language, so `chu` gets its own one-language set, `data/eval/chu`, built the same way. It has 2,706 chunks: 100 Scripture and 100 Slavonic-only targets, their ±2 neighbours, every witness of the target verses, and 1,908 distractors.

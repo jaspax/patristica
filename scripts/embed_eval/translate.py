@@ -12,6 +12,16 @@ group (WEB, else KJV/ASV) is given to the judges as a reference. Having
 judges from two vendors means every translation also gets a verdict from a
 model other than the one that produced it.
 
+``kimi`` is Moonshot's Kimi K3 through Ollama Cloud (``Clients._ollama``, the
+native ``/api/chat`` with ``OLLAMA_API_KEY``), on the owner's Ollama
+subscription: no per-token bill, so its cost shows as $0. ``OLLAMA_HOST``
+points the same calls at a local Ollama daemon instead (model ``kimi-k3:cloud``
+there; set ``OLLAMA_MODEL_SUFFIX=:cloud``).
+
+When a translator is added to a cached run, every cached judgement that lacks a
+verdict on one of the passage's translations is judged again with all of them,
+so each judge always compares every candidate side by side, blind.
+
 ``local-opus`` runs Opus through a local ``claude -p`` on the Claude
 subscription login instead of the API (``Clients._claude_cli``): no API key
 and no bill, but it counts against the subscription's usage windows, which
@@ -56,7 +66,7 @@ log = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class Model:
-    vendor: Literal["anthropic", "openai", "claude-cli"]
+    vendor: Literal["anthropic", "openai", "claude-cli", "ollama"]
     model_id: str
     price_in: float  # USD per million tokens
     price_out: float
@@ -72,9 +82,14 @@ MODELS: dict[str, Model] = {
     "sol": Model("openai", "gpt-6.1-sol", 2.00, 10.00),
     "local-opus": Model("claude-cli", "claude-opus-5-5", 0.0, 0.0),
     "local-haiku": Model("claude-cli", "claude-haiku-5-5", 0.0, 0.0),  # usage probe
+    # Ollama Cloud on the subscription (usage limits, no per-token bill); the
+    # list price elsewhere is about $3 / $15 per million tokens (Nov 2026).
+    "kimi": Model("ollama", "kimi-k3", 0.0, 0.0),
 }
 TRANSLATORS = ("haiku", "sonnet", "opus", "sol")
 JUDGES = ("opus", "sol")
+
+OLLAMA_CLOUD = "https://ollama.com"
 
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
 FALLBACK_MODELS = {"claude-opus-5-5", "claude-sonnet-5-5"}
@@ -185,6 +200,7 @@ class Clients:
     def __init__(self) -> None:
         self._anthropic_client = None
         self._openai_key: str | None = None
+        self._ollama_key: str | None = None
         self._http = None
         self._lock = threading.Lock()
 
@@ -210,6 +226,15 @@ class Clients:
             return self._openai_key
 
     @property
+    def ollama_key(self) -> str:
+        with self._lock:
+            if self._ollama_key is None:
+                from scripts.embed_eval.embedders import _env_key
+
+                self._ollama_key = _env_key("OLLAMA_API_KEY")
+            return self._ollama_key
+
+    @property
     def http(self):
         with self._lock:
             if self._http is None:
@@ -225,6 +250,8 @@ class Clients:
             return self._anthropic(name, m, system, user, schema, effort)
         if m.vendor == "claude-cli":
             return self._claude_cli(name, m, system, user, schema, effort)
+        if m.vendor == "ollama":
+            return self._ollama(name, m, system, user, schema, effort)
         return self._openai(name, m, system, user, schema, effort)
 
     def _anthropic(self, name, m, system, user, schema, effort):
@@ -272,6 +299,26 @@ class Clients:
                  "output": j["usage"]["completion_tokens"]}
         return schema.model_validate_json(choice["message"]["content"]), usage
 
+    def _ollama(self, name, m, system, user, schema, effort):
+        import os
+
+        host = os.environ.get("OLLAMA_HOST", OLLAMA_CLOUD).rstrip("/")
+        if not host.startswith("http"):
+            host = f"http://{host}"
+        headers = {}
+        if host == OLLAMA_CLOUD:
+            headers["Authorization"] = f"Bearer {self.ollama_key}"
+        body = ollama_body(m.model_id + os.environ.get("OLLAMA_MODEL_SUFFIX", ""),
+                           system, user, schema, effort)
+        for attempt in range(6):
+            r = self.http.post(f"{host}/api/chat", headers=headers, json=body)
+            if r.status_code == 200:
+                break
+            if r.status_code not in (429, 500, 502, 503, 504) or attempt == 5:
+                raise RuntimeError(f"{name}: HTTP {r.status_code}: {r.text[:300]}")
+            time.sleep(10 * (attempt + 1))
+        return parse_ollama_response(name, r.json(), schema)
+
     def _claude_cli(self, name, m, system, user, schema, effort):
         # The request's fields as claude -p arguments: no tools, settings, MCP
         # servers or session, and an empty working directory, so no project
@@ -287,6 +334,37 @@ class Clients:
             proc = subprocess.run(cmd, input=user, capture_output=True, text=True,
                                   cwd=cwd, timeout=900)
         return parse_claude_stream(name, proc.stdout, proc.returncode, proc.stderr, schema)
+
+
+def ollama_body(model_id: str, system: str, user: str, schema: type[BaseModel],
+                effort: str | None) -> dict:
+    """An Ollama ``/api/chat`` request with structured output (``format``).
+
+    The schema is the simplified one sent to OpenAI (no bounds or titles),
+    which every model's constrained decoding accepts; the reply is still
+    validated against the full pydantic model. *effort* maps onto ``think``.
+    """
+    body: dict = {"model": model_id, "stream": False,
+                  "messages": [{"role": "system", "content": system},
+                               {"role": "user", "content": user}],
+                  "format": openai_schema(schema), "options": {"temperature": 0}}
+    if effort:
+        body["think"] = effort if effort in ("low", "medium", "high") else True
+    return body
+
+
+def parse_ollama_response(name: str, j: dict, schema: type[BaseModel]) -> tuple[BaseModel, dict]:
+    """An Ollama ``/api/chat`` reply → (parsed, usage)."""
+    if j.get("error"):
+        raise RuntimeError(f"{name}: {j['error']}")
+    if j.get("done_reason") not in (None, "stop"):
+        raise RuntimeError(f"{name}: done_reason {j.get('done_reason')}")
+    content = (j.get("message") or {}).get("content") or ""
+    usage = {"model": name, "input": j.get("prompt_eval_count", 0),
+             "output": j.get("eval_count", 0)}
+    if j.get("model"):
+        usage["served_by"] = j["model"]
+    return schema.model_validate_json(content), usage
 
 
 def parse_claude_stream(name: str, stdout: str, returncode: int, stderr: str,
@@ -440,9 +518,12 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
 
     def judge_one(job: tuple[str, dict]) -> None:
         judge, t = job
-        if judgements.get(judge, t["chunk_id"]):
+        # Every cached translation of the passage, not only this run's
+        # translators, so adding one model re-judges it against the others.
+        names = [n for n in MODELS if translations.get(n, t["chunk_id"])]
+        cached = judgements.get(judge, t["chunk_id"])
+        if cached and not set(names) - set(cached["verdicts"]):
             return
-        names = [n for n in translators if translations.get(n, t["chunk_id"])]
         rng = random.Random(f"{seed}:{judge}:{t['chunk_id']}")
         rng.shuffle(names)
         labels = dict(zip(string.ascii_uppercase, names, strict=False))
