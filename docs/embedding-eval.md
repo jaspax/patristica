@@ -154,10 +154,10 @@ Four models translated each target. Opus 5.5 and GPT-6.1 Sol judged every transl
 
 Bulk translation groups up to 25 consecutive chunks of one work per request, which costs about $0.0014 per chunk.
 
-**Adding a translator to the bake-off.** Translations and judgements are cached in `data/eval/translation/`, so a new model translates only its own 151 passages; every cached judgement then lacks a verdict on it and is judged again with all candidates, blind, as before. Kimi K3 runs through Ollama Cloud on the owner's Ollama subscription (`kimi`, `OLLAMA_API_KEY`, #606):
+**Adding a translator to the bake-off.** Translations and judgements are cached in `data/eval/translation/`, so a new model translates only its own 151 passages, and the judges compare the run's `--translators` blind (a cached judgement of other candidates is redone). Kimi K3 runs through Ollama Cloud on the owner's Ollama subscription (`kimi`, `OLLAMA_API_KEY`, #606), compared with the cached Sol and Opus translations by Opus on the subscription:
 
 ```bash
-uv run --extra eval python -m scripts.embed_eval.translate quality --langs syc cop hye gez --translators kimi --judges opus sol
+uv run --extra eval python -m scripts.embed_eval.translate quality --langs syc cop hye gez --translators kimi opus sol --judges local-opus
 ```
 
 ## Church Slavonic (`chu`, #336)

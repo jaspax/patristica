@@ -619,10 +619,11 @@ def test_ollama_body_sends_a_strict_schema_and_maps_effort():
 
     body = translate.ollama_body("kimi-k3", "sys", "text", translate.Judgement, "high")
     assert body["model"] == "kimi-k3" and body["stream"] is False
-    assert [m["role"] for m in body["messages"]] == ["system", "user"]
-    assert body["think"] == "high"
-    verdict = body["format"]["$defs"]["Verdict"]["properties"]["fidelity"]
-    assert "minimum" not in verdict and "maximum" not in verdict
+    assert body["format"] == "json" and body["think"] == "high"
+    system, user = body["messages"]
+    assert system["role"] == "system" and user == {"role": "user", "content": "text"}
+    schema = json.loads(system["content"].split("JSON schema, no other text:\n")[1])
+    assert schema == translate.openai_schema(translate.Judgement)  # no bounds or titles
     assert "think" not in translate.ollama_body("kimi-k3", "s", "u", translate.Translation, None)
 
 
@@ -636,6 +637,11 @@ def test_parse_ollama_response():
     out, usage = translate.parse_ollama_response("kimi", reply, translate.Translation)
     assert out.translation == "In the beginning"
     assert usage == {"model": "kimi", "input": 120, "output": 40, "served_by": "kimi-k3"}
+    fenced = {**reply, "message": {"content": "```json\n" + reply["message"]["content"] + "\n```"}}
+    assert translate.parse_ollama_response("kimi", fenced, translate.Translation)[0] == out
+    with pytest.raises(RuntimeError, match="no JSON object"):
+        prose = {**reply, "message": {"content": "**Translation:**"}}
+        translate.parse_ollama_response("kimi", prose, translate.Translation)
     with pytest.raises(RuntimeError, match="done_reason length"):
         translate.parse_ollama_response("kimi", {**reply, "done_reason": "length"},
                                         translate.Translation)
@@ -644,7 +650,7 @@ def test_parse_ollama_response():
 
 
 def test_a_new_translator_is_judged_again_with_the_cached_ones(tmp_path: Path, monkeypatch):
-    """Adding kimi to a cached run re-judges each passage with all five candidates."""
+    """kimi next to cached translators: only kimi translates, the judge sees the run's set."""
     from scripts.embed_eval import translate
 
     (tmp_path / "corpus.jsonl").write_text(json.dumps(
@@ -677,13 +683,40 @@ def test_a_new_translator_is_judged_again_with_the_cached_ones(tmp_path: Path, m
                                    judge_can_read_original="well"), u
 
     monkeypatch.setattr(translate.Clients, "call", fake_call)
+    run = ("kimi", "opus", "sol")
     translate.run_quality(tmp_path, tmp_path / "auth", ["syc"], None, 1,
-                          translators=("kimi",), judges=("opus",))
-    assert [c[:2] for c in calls] == [("kimi", "Translation"), ("opus", "Judgement")]
-    assert calls[1][2].count("Candidate ") == 5
-    judged = translate.Store(out / "judgements.jsonl").get("opus", "w#1")
-    assert set(judged["verdicts"]) == {*old, "kimi"}
+                          translators=run, judges=("opus", "local-opus"))
+    assert sorted(c[:2] for c in calls) == [
+        ("kimi", "Translation"), ("local-opus", "Judgement"), ("opus", "Judgement")]
+    assert all(c[2].count("Candidate ") == 3 for c in calls if c[1] == "Judgement")
+    store = translate.Store(out / "judgements.jsonl")
+    assert set(store.get("opus", "w#1")["verdicts"]) == set(run)  # redone: other candidates
+    assert set(store.get("local-opus", "w#1")["verdicts"]) == set(run)
     calls.clear()
     translate.run_quality(tmp_path, tmp_path / "auth", ["syc"], None, 1,
-                          translators=("kimi",), judges=("opus",))
+                          translators=run, judges=("local-opus",))
     assert calls == []  # everything cached
+
+
+def test_a_passage_missing_a_translation_is_not_judged(tmp_path: Path, monkeypatch):
+    from scripts.embed_eval import translate
+
+    (tmp_path / "corpus.jsonl").write_text(json.dumps(
+        {"chunk_id": "w#1", "work_id": "w", "language": "syc", "text": "ܒܪܫܝܬ"}) + "\n")
+    (tmp_path / "auth").mkdir()
+    (tmp_path / "auth" / "q.jsonl").write_text(json.dumps(
+        {"target_lang": "syc", "target_chunk_id": "w#1", "origin": "unique"}) + "\n")
+    calls = []
+
+    def fake_call(self, name, system, user, schema, effort=None):
+        calls.append(name)
+        if name == "kimi":
+            raise RuntimeError("kimi: no JSON object in the reply")
+        return translate.Translation(translation=name, confidence="high",
+                                     recognized_source=None), {"model": name, "input": 1,
+                                                               "output": 1}
+
+    monkeypatch.setattr(translate.Clients, "call", fake_call)
+    translate.run_quality(tmp_path, tmp_path / "auth", ["syc"], None, 1,
+                          translators=("kimi", "sol"), judges=("local-opus",))
+    assert sorted(calls) == ["kimi", "sol"]  # no judge call

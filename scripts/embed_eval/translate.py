@@ -18,9 +18,9 @@ subscription: no per-token bill, so its cost shows as $0. ``OLLAMA_HOST``
 points the same calls at a local Ollama daemon instead (model ``kimi-k3:cloud``
 there; set ``OLLAMA_MODEL_SUFFIX=:cloud``).
 
-When a translator is added to a cached run, every cached judgement that lacks a
-verdict on one of the passage's translations is judged again with all of them,
-so each judge always compares every candidate side by side, blind.
+A run's judges compare its ``--translators``, blind; cached translations are
+reused, so ``--translators kimi opus sol`` translates only with Kimi. A cached
+judgement of a different set of candidates is judged again with this run's.
 
 ``local-opus`` runs Opus through a local ``claude -p`` on the Claude
 subscription login instead of the API (``Clients._claude_cli``): no API key
@@ -338,16 +338,20 @@ class Clients:
 
 def ollama_body(model_id: str, system: str, user: str, schema: type[BaseModel],
                 effort: str | None) -> dict:
-    """An Ollama ``/api/chat`` request with structured output (``format``).
+    """An Ollama ``/api/chat`` request for a JSON reply matching *schema*.
 
-    The schema is the simplified one sent to OpenAI (no bounds or titles),
-    which every model's constrained decoding accepts; the reply is still
-    validated against the full pydantic model. *effort* maps onto ``think``.
+    Ollama Cloud doesn't enforce a JSON schema in ``format`` for kimi-k3 (Nov
+    2026: the reply came back as Markdown, on ``/v1`` too), so the schema goes
+    in the system prompt, the simplified one sent to OpenAI, with
+    ``format: "json"``; the reply is validated against the full pydantic model.
+    *effort* maps onto ``think``.
     """
+    system += ("\n\nReply with only a JSON object matching this JSON schema, "
+               "no other text:\n" + json.dumps(openai_schema(schema)))
     body: dict = {"model": model_id, "stream": False,
                   "messages": [{"role": "system", "content": system},
                                {"role": "user", "content": user}],
-                  "format": openai_schema(schema), "options": {"temperature": 0}}
+                  "format": "json", "options": {"temperature": 0}}
     if effort:
         body["think"] = effort if effort in ("low", "medium", "high") else True
     return body
@@ -360,6 +364,10 @@ def parse_ollama_response(name: str, j: dict, schema: type[BaseModel]) -> tuple[
     if j.get("done_reason") not in (None, "stop"):
         raise RuntimeError(f"{name}: done_reason {j.get('done_reason')}")
     content = (j.get("message") or {}).get("content") or ""
+    start, end = content.find("{"), content.rfind("}")
+    if start < 0 or end < start:
+        raise RuntimeError(f"{name}: no JSON object in the reply: {content[:300]!r}")
+    content = content[start:end + 1]  # a code fence or a stray word around it
     usage = {"model": name, "input": j.get("prompt_eval_count", 0),
              "output": j.get("eval_count", 0)}
     if j.get("model"):
@@ -518,11 +526,16 @@ def run_quality(eval_dir: Path, authored_dir: Path, langs: list[str], limit: int
 
     def judge_one(job: tuple[str, dict]) -> None:
         judge, t = job
-        # Every cached translation of the passage, not only this run's
-        # translators, so adding one model re-judges it against the others.
-        names = [n for n in MODELS if translations.get(n, t["chunk_id"])]
+        # The candidates are this run's translators (cached ones are reused,
+        # not re-translated); a cached judgement of other candidates is redone.
+        names = [n for n in translators if translations.get(n, t["chunk_id"])]
+        if len(names) < len(translators):
+            # judged later with every candidate, not now with some of them
+            log.warning("%s: no %s translation of %s, not judged", judge,
+                        ", ".join(sorted(set(translators) - set(names))), t["chunk_id"])
+            return
         cached = judgements.get(judge, t["chunk_id"])
-        if cached and not set(names) - set(cached["verdicts"]):
+        if cached and set(cached["verdicts"]) == set(names):
             return
         rng = random.Random(f"{seed}:{judge}:{t['chunk_id']}")
         rng.shuffle(names)
