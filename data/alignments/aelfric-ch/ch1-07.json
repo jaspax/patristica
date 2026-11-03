@@ -3,10 +3,10 @@
  "group": "aelfric-ch/ch1-07",
  "pivot": "aelfric-ch-eng/ch1-07",
  "groups": 108,
- "inputs": "034dfb9fcb052faa",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "17067194dd682e87",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "aelfric-ch-eng/ch1-07", "units": 110, "ids": "9cc21e2b9b8474d4", "inputs": "85b2f8d5872c266b", "spans": "..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999988899999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "aelfric-ch/ch1-07", "units": 110, "ids": "13979fd95b945878", "inputs": "9d8b7c421c9f8a50", "spans": "..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999988899999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "aelfric-ch-eng/ch1-07", "units": 110, "ids": "9cc21e2b9b8474d4", "inputs": "85b2f8d5872c266b", "spans": "..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch/ch1-07", "units": 110, "ids": "13979fd95b945878", "inputs": "b8b60dca50228cc6", "spans": "..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }
