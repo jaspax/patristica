@@ -7,6 +7,7 @@ and skip without it.
 from __future__ import annotations
 
 import json
+import os
 import struct
 from pathlib import Path
 
@@ -126,6 +127,102 @@ def test_content_shas_reproduces_format_1(tmp_path: Path) -> None:
     assert sha == build_index.content_sha(entry, files)
     assert old == _format1_sha(entry, files, groups)
     assert build_index.content_shas(entry, files)[1] is None
+
+
+@pytest.fixture
+def no_racy(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Cache files just written (a test's files are always newer than RACY_SECONDS)."""
+    monkeypatch.setattr(build_index, "RACY_SECONDS", -60.0)
+
+
+def _unreadable(monkeypatch: pytest.MonkeyPatch) -> None:
+    def fail(hashes, path):
+        raise AssertionError(f"{path} was read")
+    monkeypatch.setattr(build_index, "_file_digest", fail)
+
+
+def test_hash_cache_reuses_hashes_of_unchanged_files(tmp_path: Path, no_racy,
+                                                     monkeypatch: pytest.MonkeyPatch) -> None:
+    """#607: an unchanged work's hash comes from the cache without reading its files."""
+    f = tmp_path / "a.json"
+    f.write_text("[1]")
+    files = (f, tmp_path / "missing")
+    entry = {"path": "a.json", "work": {"work_id": "s/a"}}
+    cache_path = tmp_path / "cache" / "hashes.json"
+    cache = build_index.HashCache(cache_path)
+    sha = build_index.cached_content_sha(cache, entry, files)
+    assert sha == build_index.content_sha(entry, files)
+    cache.save()
+
+    with monkeypatch.context() as m:
+        _unreadable(m)
+        again = build_index.HashCache(cache_path)
+        assert build_index.cached_content_sha(again, entry, files) == sha
+
+    # A changed record, a new file and a rewritten one each miss.
+    other = {**entry, "path": "b.json"}
+    assert build_index.cached_content_sha(cache, other, files) \
+        == build_index.content_sha(other, files)
+    (tmp_path / "missing").write_text("x")
+    assert build_index.cached_content_sha(cache, entry, files) \
+        == build_index.content_sha(entry, files) != sha
+    (tmp_path / "missing").unlink()
+    st = f.stat()
+    f.write_text("[2]")  # same size, and the old mtime put back: ctime still differs
+    os.utime(f, ns=(st.st_atime_ns, st.st_mtime_ns))
+    assert build_index.cached_content_sha(cache, entry, files) \
+        == build_index.content_sha(entry, files) != sha
+
+
+def test_hash_cache_skips_racy_files(tmp_path: Path) -> None:
+    """A file changed within RACY_SECONDS could change again with the same stat."""
+    f = tmp_path / "a.json"
+    f.write_text("[1]")
+    cache = build_index.HashCache(tmp_path / "hashes.json")
+    build_index.cached_content_sha(cache, {"path": "a.json", "work": {"work_id": "s/a"}}, (f,))
+    assert cache.entries == {}
+    cache.save()
+    assert not (tmp_path / "hashes.json").exists()
+
+
+def test_hash_cache_survives_a_bad_file(tmp_path: Path, caplog) -> None:
+    bad = tmp_path / "hashes.json"
+    bad.write_text("{not json")
+    assert build_index.HashCache(bad).entries == {}
+    assert "unreadable hash cache" in caplog.text
+    bad.write_text(json.dumps({"version": 0, "works": {"s/a": {}}}))
+    assert build_index.HashCache(bad).entries == {}  # another format: ignored
+    assert build_index.HashCache(None).entries == {}
+
+
+def test_run_with_hash_cache_reads_only_changed_files(pg_url: str, tmp_path: Path, no_racy,
+                                                      monkeypatch: pytest.MonkeyPatch) -> None:
+    psycopg = pytest.importorskip("psycopg")
+    norm, trans, store = fx.write_corpus(tmp_path)
+    cache = tmp_path / "cache.json"
+    with psycopg.connect(pg_url, autocommit=True) as conn:
+        build_index.run(conn, norm, trans, store, maintenance_work_mem="64MB", hash_cache=cache)
+        assert set(json.loads(cache.read_text())["works"]) == {"kjv/gen", "oshb/gen",
+                                                               "pta/hymns"}
+        with monkeypatch.context() as m:
+            _unreadable(m)
+            again = build_index.run(conn, norm, trans, store, hash_cache=cache)
+            dry = build_index.run(conn, norm, trans, store, dry_run=True, hash_cache=cache)
+        assert (again.loaded, again.unchanged) == (0, 3)
+        assert (dry.loaded, dry.unchanged) == (0, 3)
+
+        path = norm / fx.work_path("kjv/gen")
+        chunks = json.loads(path.read_text())
+        chunks[1]["text"] = "And the earth was without form."
+        path.write_text(json.dumps(chunks))
+        read: list[Path] = []
+        real = build_index._file_digest
+        monkeypatch.setattr(build_index, "_file_digest",
+                            lambda hashes, p: (read.append(p), real(hashes, p)))
+        changed = build_index.run(conn, norm, trans, store, hash_cache=cache)
+        assert (changed.loaded, changed.unchanged) == (1, 2)
+        assert path in read
+        assert {p for p in read if p.suffix == ".json" and "normalized" in p.parts} == {path}
 
 
 def test_group_changes() -> None:

@@ -29,8 +29,12 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   stopped. Unless only its metadata changed (#234): a second hash,
   ``body_sha``, leaves out the work record's metadata and the chunks' dates,
   and a work whose body is unchanged is updated in place
-  (``update_metadata``) without re-sending a vector. A full run (no ``--source``/``--work``) deletes works that are no
-  longer in the manifest.
+  (``update_metadata``) without re-sending a vector. A full run (no
+  ``--source``/``--work``) deletes works that are no longer in the manifest.
+- The hashes of unchanged works come from a local cache
+  (``data/cache/build_index_hashes.json``, ``HashCache``, #607), keyed by
+  the manifest record and the stat of each input file, so a run reads only
+  the files that changed instead of ~14 GB.
 - When ``chunk_vectors`` is empty (the first load), or with
   ``--rebuild-index``, the HNSW indexes are dropped first and built after the
   COPY; otherwise new rows go into the live index. There is one partial HNSW
@@ -46,7 +50,11 @@ every run): ``authors``, ``works``, ``chunks``, ``chunk_translations``,
   keyword index for quoted search (#86), a ``pg_trgm`` GIN index built after
   the load. Chunks loaded before that column existed, or folded by an older
   ``FOLD_VERSION``, are folded in place from the normalized files of works
-  whose hash this run checked, so no vectors are reloaded.
+  whose hash this run checked, so no vectors are reloaded. A new
+  ``FOLD_VERSION`` keeps the stored folding and queues every work in
+  ``fold_pending`` (#607): each queued work is folded again locally and only
+  the chunks whose folded text differs are rewritten, so the trigram index
+  stays up and search keeps the previous folding until a work is done.
 
 Usage::
 
@@ -66,6 +74,7 @@ import hashlib
 import json
 import logging
 import struct
+import time
 from collections.abc import Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -141,6 +150,7 @@ class Stats:
     vectors: int = 0
     stale_vectors: int = 0
     folded: int = 0  # chunks folded in place (not counting those loaded)
+    refolded: int = 0  # works refolded after a FOLD_VERSION change (#607)
     regrouped: int = 0  # chunks whose translation_group_id was updated in place
     passages: int = 0  # passage_groups rows written or deleted in place
     stale_alignments: list[str] = field(default_factory=list)  # members whose ids changed
@@ -160,6 +170,7 @@ class Stats:
             (self.chunks, "chunks"), (self.translations, "translations"),
             (self.vectors, "vectors loaded"), (self.stale_vectors, "stale vectors skipped"),
             (len(self.no_vectors), "works without vectors"),
+            (self.refolded, "works refolded"),
             (self.folded, "chunks folded in place"),
             (self.regrouped, "chunks regrouped in place"),
             (self.passages, "passage-group rows synced"),
@@ -236,6 +247,100 @@ def content_shas(entry: dict, files: Iterable[Path],
 def content_sha(entry: dict, files: Iterable[Path]) -> str:
     """Hash of everything ``load_work`` loads for *entry*, except its translation groups."""
     return content_shas(entry, files)[0]
+
+
+#: Where ``run`` keeps each work's ``content_sha`` between runs (gitignored, #607).
+DEFAULT_HASH_CACHE = Path("data/cache/build_index_hashes.json")
+#: A file changed this recently isn't cached: filesystem timestamps are coarse
+#: (ext4 ticks every few ms), so a second write in the same tick would keep its stat.
+RACY_SECONDS = 2.0
+
+
+def file_stamps(files: Iterable[Path]) -> list[list[int] | None]:
+    """``[size, mtime_ns, ctime_ns, inode]`` per file, ``None`` for a missing one.
+
+    ctime and the inode change on every write and rename, also when a tool
+    (``cp -p``, ``rsync -t``, tar) puts the old mtime back.
+    """
+    stamps: list[list[int] | None] = []
+    for path in files:
+        try:
+            st = path.stat()
+        except FileNotFoundError:
+            stamps.append(None)
+            continue
+        stamps.append([st.st_size, st.st_mtime_ns, st.st_ctime_ns, st.st_ino])
+    return stamps
+
+
+class HashCache:
+    """Each work's ``content_sha``, so an unchanged work's files aren't read (#607).
+
+    Hashing every work's normalized file, translations and vector shard read
+    about 14 GB a run. An entry holds the hash of the work's manifest record
+    (``_sha_head``, with the loader, schema and dims) and the stat of each of
+    its files; while both match, the stored ``content_sha`` is reused. It maps
+    inputs to hashes, not to a database, so one cache serves every database.
+    A *path* of ``None`` caches nothing.
+    """
+
+    VERSION = 1
+
+    def __init__(self, path: Path | None) -> None:
+        self.path = path
+        self.entries: dict[str, dict[str, Any]] = {}
+        self.dirty = False
+        if path is not None and path.exists():
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError) as e:
+                log.warning("%s: unreadable hash cache, starting afresh (%s)", path, e)
+                return
+            if data.get("version") == self.VERSION:
+                self.entries = data.get("works", {})
+
+    @staticmethod
+    def head_key(entry: dict) -> str:
+        return hashlib.sha256(_sha_head(entry, None)).hexdigest()
+
+    def get(self, work_id: str, head: str, stamps: list[list[int] | None]) -> str | None:
+        e = self.entries.get(work_id)
+        if e is not None and e["head"] == head and e["files"] == stamps:
+            return e["sha"]
+        return None
+
+    def put(self, work_id: str, head: str, stamps: list[list[int] | None], sha: str) -> None:
+        if self.path is None:
+            return
+        racy = time.time_ns() - int(RACY_SECONDS * 1e9)
+        if any(s is not None and max(s[1], s[2]) > racy for s in stamps):
+            self.entries.pop(work_id, None)
+            return
+        self.entries[work_id] = {"head": head, "files": stamps, "sha": sha}
+        self.dirty = True
+
+    def save(self) -> None:
+        """Write the cache atomically (a crash leaves the old file or the new one)."""
+        if self.path is None or not self.dirty:
+            return
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = self.path.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"version": self.VERSION, "works": self.entries},
+                                  sort_keys=True), encoding="utf-8")
+        tmp.replace(self.path)
+        self.dirty = False
+
+
+def cached_content_sha(cache: HashCache, entry: dict, files: tuple[Path, ...]) -> str:
+    """``content_sha(entry, files)``, from *cache* while the record and files are unchanged."""
+    work_id = entry["work"]["work_id"]
+    head = cache.head_key(entry)
+    stamps = file_stamps(files)  # before reading: a write during the hash makes it miss next time
+    sha = cache.get(work_id, head, stamps)
+    if sha is None:
+        sha = content_sha(entry, files)
+        cache.put(work_id, head, stamps, sha)
+    return sha
 
 
 #: Work fields that only metadata depends on: ``update_metadata`` rewrites them
@@ -522,24 +627,79 @@ def drop_index(conn: psycopg.Connection, name: str) -> None:
 
 
 def check_fold_version(conn: psycopg.Connection) -> None:
-    """Make every stored ``text_folded`` current for ``FOLD_VERSION``, or NULL.
+    """Queue every work for refolding when ``FOLD_VERSION`` changed (#607).
 
     ``index_meta.fold_version`` is the version every non-NULL
-    ``text_folded`` was made with, and NULL rows are the folding still to
-    do. When the version changes, the old text is cleared and the new
-    version recorded in one transaction, so a later run, even one limited to
-    some sources or an interrupted one, never clears work already done (#168).
+    ``text_folded`` was made with, except in the works listed in
+    ``fold_pending``, which may hold an older folding (still searchable, just
+    not with the new rules). The queue and the new version are written in one
+    transaction, so a later run, even one limited to some sources or an
+    interrupted one, never queues work already done (#168). NULL rows (chunks
+    loaded before the column existed) are folded by ``fold_missing``.
     """
     meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'").fetchone()
     if meta is not None and meta[0] == str(FOLD_VERSION):
         return
     with conn.transaction():
         if meta is not None:
-            log.info("fold version %s -> %s: refolding every chunk", meta[0], FOLD_VERSION)
-            drop_index(conn, TRGM_INDEX)
-            conn.execute("UPDATE chunks SET text_folded = NULL")
+            queued = conn.execute("INSERT INTO fold_pending SELECT work_id FROM works "
+                                  "ON CONFLICT DO NOTHING").rowcount
+            log.info("fold version %s -> %s: %d works to refold", meta[0], FOLD_VERSION,
+                     queued)
         conn.execute("INSERT INTO index_meta VALUES ('fold_version', %s) ON CONFLICT (key) "
-                      "DO UPDATE SET value = EXCLUDED.value", (str(FOLD_VERSION),))
+                     "DO UPDATE SET value = EXCLUDED.value", (str(FOLD_VERSION),))
+
+
+#: Works refolded per round trip and transaction.
+REFOLD_BATCH = 50
+
+
+def _md5(text: str) -> str:
+    return hashlib.md5(text.encode("utf-8"), usedforsecurity=False).hexdigest()
+
+
+def refold_pending(conn: psycopg.Connection, paths: dict[str, Path]) -> tuple[int, int]:
+    """Refold the queued works this run checked; returns (works done, chunks rewritten).
+
+    *paths* is as in ``fold_missing``: each file holds exactly the work's
+    stored text. Each chunk is folded locally and compared with
+    ``md5(text_folded)`` from the database, so only the chunks a fold change
+    affects are sent and rewritten, and the trigram index stays in place.
+    Every batch is one transaction that also takes its works off the queue.
+    """
+    todo = [w for (w,) in conn.execute("SELECT work_id FROM fold_pending ORDER BY work_id")
+            if w in paths]
+    if not todo:
+        return 0, 0
+    conn.execute("CREATE TEMP TABLE IF NOT EXISTS fold_stage (chunk_id text, text_folded text) "
+                 "ON COMMIT DELETE ROWS")
+    changed = 0
+    with tqdm(total=len(todo), desc="refold", unit="work") as bar:
+        for i in range(0, len(todo), REFOLD_BATCH):
+            batch = todo[i:i + REFOLD_BATCH]
+            stored = dict(conn.execute("SELECT chunk_id, md5(text_folded) FROM chunks "
+                                       "WHERE work_id = ANY(%s)", (batch,), prepare=False))
+            rows = []
+            for work_id in batch:
+                with paths[work_id].open(encoding="utf-8") as f:
+                    for c in json.load(f):
+                        folded = index_text(c["text"])
+                        if stored.get(c["chunk_id"], "") != _md5(folded):
+                            rows.append((c["chunk_id"], folded))
+            with conn.transaction(), conn.cursor() as cur:
+                if rows:
+                    with cur.copy("COPY fold_stage (chunk_id, text_folded) FROM STDIN") as copy:
+                        for row in rows:
+                            copy.write_row(row)
+                    cur.execute("UPDATE chunks c SET text_folded = s.text_folded "
+                                "FROM fold_stage s WHERE c.chunk_id = s.chunk_id", prepare=False)
+                    changed += cur.rowcount
+                cur.execute("DELETE FROM fold_pending WHERE work_id = ANY(%s)", (batch,),
+                            prepare=False)
+            bar.update(len(batch))
+    if changed > BULK_FOLD:
+        conn.execute("VACUUM chunks")  # the rewritten rows' old versions
+    return len(todo), changed
 
 
 def fold_missing(conn: psycopg.Connection, paths: dict[str, Path],
@@ -779,10 +939,11 @@ def stored_code(conn: psycopg.Connection) -> str | None:
 def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: Path, *,
         sources: Iterable[str] = (), prefixes: Iterable[str] = (), dry_run: bool = False,
         rebuild_index: bool = False, maintenance_work_mem: str = "4GB",
-        align_dir: Path = al.DEFAULT_DIR) -> Stats:
+        align_dir: Path = al.DEFAULT_DIR, hash_cache: Path | None = None) -> Stats:
     """Bring the database in line with the inputs; see the module docstring.
 
     *conn* must be in autocommit mode: each work is its own transaction.
+    *hash_cache* keeps the works' ``content_sha`` between runs (``HashCache``).
     """
     sources, prefixes = list(sources), list(prefixes)
     stats = Stats()
@@ -834,45 +995,52 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     rehash: dict[str, str] = {}  # work_id → new hash, for unchanged works with a format-1 hash
     backfill: dict[str, str] = {}  # work_id → body_sha, for unchanged works without one
     loaded: set[str] = set()
-    for entry in tqdm(wanted, desc="works", unit="work"):
-        path = entry["path"]
-        work_id = entry["work"]["work_id"]
-        norm = input_dir / path
-        tpath = tr.translation_path(trans_dir, path)
-        spath = emb.shard_path(store_dir, path)
-        work_groups = groups.get(work_id, {})
-        legacy = have_groups.get(work_id, {}) if fmt == 1 and work_id in stored else None
-        sha, old_sha = content_shas(entry, (norm, tpath, spath), legacy)
-        if work_id in stored and stored[work_id] in (sha, old_sha):
-            if stored[work_id] != sha:
-                rehash[work_id] = sha
-            if bodies.get(work_id) is None:
-                # Hash format 3 (#234): the stored work is the current one, so
-                # its body hash can be computed from the files, in place.
-                stats.backfilled += 1
+    cache = HashCache(hash_cache)
+    try:
+        for entry in tqdm(wanted, desc="works", unit="work"):
+            path = entry["path"]
+            work_id = entry["work"]["work_id"]
+            norm = input_dir / path
+            tpath = tr.translation_path(trans_dir, path)
+            spath = emb.shard_path(store_dir, path)
+            work_groups = groups.get(work_id, {})
+            legacy = have_groups.get(work_id, {}) if fmt == 1 and work_id in stored else None
+            if legacy is None:
+                sha, old_sha = cached_content_sha(cache, entry, (norm, tpath, spath)), None
+            else:
+                sha, old_sha = content_shas(entry, (norm, tpath, spath), legacy)
+            if work_id in stored and stored[work_id] in (sha, old_sha):
+                if stored[work_id] != sha:
+                    rehash[work_id] = sha
+                if bodies.get(work_id) is None:
+                    # Hash format 3 (#234): the stored work is the current one, so
+                    # its body hash can be computed from the files, in place.
+                    stats.backfilled += 1
+                    if not dry_run:
+                        with norm.open(encoding="utf-8") as f:
+                            backfill[work_id] = body_sha(entry, json.load(f), (tpath, spath))
+                stats.unchanged += 1
+                checked[work_id] = norm
+                continue
+            with norm.open(encoding="utf-8") as f:
+                chunks = json.load(f)
+            body = body_sha(entry, chunks, (tpath, spath))
+            if work_id in stored and bodies.get(work_id) == body:
+                # Only metadata changed: update it in place, no vector is re-sent.
+                stats.updated += 1
                 if not dry_run:
-                    with norm.open(encoding="utf-8") as f:
-                        backfill[work_id] = body_sha(entry, json.load(f), (tpath, spath))
-            stats.unchanged += 1
+                    stats.updated_chunks += update_metadata(conn, entry, sha, body, chunks)
+                checked[work_id] = norm
+                continue
+            stats.loaded += 1
+            if dry_run:
+                continue
+            load_work(conn, entry, sha, chunks, tr.load(trans_dir, path),
+                      emb.load(store_dir, path), work_groups, models, stats, body)
+            loaded.add(work_id)
             checked[work_id] = norm
-            continue
-        with norm.open(encoding="utf-8") as f:
-            chunks = json.load(f)
-        body = body_sha(entry, chunks, (tpath, spath))
-        if work_id in stored and bodies.get(work_id) == body:
-            # Only metadata changed: update it in place, no vector is re-sent.
-            stats.updated += 1
-            if not dry_run:
-                stats.updated_chunks += update_metadata(conn, entry, sha, body, chunks)
-            checked[work_id] = norm
-            continue
-        stats.loaded += 1
-        if dry_run:
-            continue
-        load_work(conn, entry, sha, chunks, tr.load(trans_dir, path), emb.load(store_dir, path),
-                  work_groups, models, stats, body)
-        loaded.add(work_id)
-        checked[work_id] = norm
+    finally:
+        cache.save()  # also after an interrupted run, which resumes from it
 
     # Unchanged works keep their chunks: bring their groups up to date in place.
     changes: dict[str, dict[str, str | None]] = {}
@@ -890,6 +1058,15 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
     if dry_run:
         stats.regrouped = sum(map(len, changes.values()))
         stats.passages = sum(map(len, passages.values()))
+        if stored and _has_table(conn, "index_meta"):
+            # A dry run doesn't queue: with a new FOLD_VERSION every checked work would be.
+            meta = conn.execute("SELECT value FROM index_meta WHERE key = 'fold_version'"
+                                ).fetchone()
+            if meta is not None and meta[0] != str(FOLD_VERSION):
+                stats.refolded = len(checked)
+            elif _has_table(conn, "fold_pending"):
+                stats.refolded = sum(1 for (w,) in conn.execute(
+                    "SELECT work_id FROM fold_pending") if w in checked)
         return stats
     if rehash:
         conn.execute("UPDATE works w SET content_sha = r.sha FROM unnest(%s::text[], %s::text[]) "
@@ -904,7 +1081,8 @@ def run(conn: psycopg.Connection, input_dir: Path, trans_dir: Path, store_dir: P
         set_hash_format(conn)
     stats.regrouped = sync_groups(conn, changes)
     stats.passages = sync_passages(conn, passages)
-    stats.folded = fold_missing(conn, checked, maintenance_work_mem)
+    stats.refolded, refolded_chunks = refold_pending(conn, checked)
+    stats.folded = refolded_chunks + fold_missing(conn, checked, maintenance_work_mem)
     # Also after an index build alone: a rerun after a failed build loads
     # nothing, and the first run never got to its ANALYZE.
     built = build_hnsw(conn, maintenance_work_mem)
@@ -934,6 +1112,11 @@ def main() -> None:
                         help="report what would be loaded; write nothing")
     parser.add_argument("--rebuild-index", action="store_true",
                         help="drop the HNSW indexes first and rebuild them after loading")
+    parser.add_argument("--hash-cache", type=Path, default=DEFAULT_HASH_CACHE,
+                        help="each work's input hash between runs, so unchanged files "
+                             f"aren't read (default {DEFAULT_HASH_CACHE}; gitignored)")
+    parser.add_argument("--no-hash-cache", action="store_true",
+                        help="hash every input file, and don't update the cache")
     parser.add_argument("--maintenance-work-mem", default="4GB",
                         help="memory for building the HNSW index (default 4GB, for 8 GB hosts)")
     args = parser.parse_args()
@@ -947,7 +1130,8 @@ def main() -> None:
                     sources=args.source, prefixes=args.work, dry_run=args.dry_run,
                     rebuild_index=args.rebuild_index,
                     maintenance_work_mem=args.maintenance_work_mem,
-                    align_dir=args.alignments_dir)
+                    align_dir=args.alignments_dir,
+                    hash_cache=None if args.no_hash_cache else args.hash_cache)
     log.info("%s%s", "dry run: " if args.dry_run else "", stats.summary())
     if stats.stale_alignments:
         log.warning("%d works changed since they were aligned, so they have no passage groups: "
