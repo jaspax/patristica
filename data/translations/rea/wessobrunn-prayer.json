@@ -1,0 +1,51 @@
+{
+  "work_id": "rea/wessobrunn-prayer",
+  "source_path": "rea/wessobrunn-prayer.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-03": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-03",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/wessobrunn-prayer#Wess.1.s1",
+      "source_sha256": "93536def74acfb0b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 5,
+      "text": "This I learned among mortals as the greatest of wonders: that there was neither earth nor heaven above, nor tree"
+    },
+    {
+      "chunk_id": "rea/wessobrunn-prayer#Wess.1.s2",
+      "source_sha256": "263dfa50b7ca7be8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 5,
+      "text": "nor mountain was there, nor any [?] at all; nor did the sun shine, nor the moon give light, nor the glorious sea."
+    },
+    {
+      "chunk_id": "rea/wessobrunn-prayer#Wess.6",
+      "source_sha256": "81bb5f807058add0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 5,
+      "text": "When there was nothing there, neither ends nor boundaries, then there was the one almighty God, most generous of men, and there were also many divine spirits with him. And holy God [?]"
+    },
+    {
+      "chunk_id": "rea/wessobrunn-prayer#Wess.10.s1",
+      "source_sha256": "b6eb227e511c9f7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 5,
+      "text": "God almighty, you who made heaven and earth and who gave mankind so many good things, give me in your grace true faith and good will,"
+    },
+    {
+      "chunk_id": "rea/wessobrunn-prayer#Wess.10.s2",
+      "source_sha256": "0e1f740d60abf8d2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 5,
+      "text": "wisdom and prudence and strength, to resist devils and to shun evil and to do your will."
+    }
+  ]
+}
