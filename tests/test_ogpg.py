@@ -106,6 +106,16 @@ class TestVote:
         assert stats.replaced == 1
         assert texts[0] == (0, CLEAN)
 
+    def test_replacement_must_not_repeat_text_the_primary_keeps(self):
+        # #578: the replacement's text is the primary's own a few paragraphs on.
+        garbled_variant = CLEAN[:70] + _NOISE
+        clean2 = "Ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων, καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει καὶ ὁ λόγος ἦν."
+        a = _scan("hvd.1_ocr", [(3, garbled_variant)] + [(4 + i, clean2) for i in range(6)]
+                  + [(10, CLEAN)], n_pages=200)
+        b = _scan("coo.2_ocr", [(3, CLEAN)], n_pages=200)
+        _, texts, stats = ogpg._vote([a, b], LEXICON)
+        assert stats.replaced == 0 and stats.dropped == 1
+
     def test_replacement_must_be_at_same_position(self):
         garbled_variant = CLEAN[:70] + _NOISE
         a = _scan("hvd.1_ocr", [(1, garbled_variant), (2, CLEAN), (3, CLEAN)], n_pages=100)

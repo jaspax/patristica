@@ -292,6 +292,35 @@ class TestTitleLines:
         cands = ogpg._extract_candidates([("010", with_heading)])
         assert [c.text for c in cands] == [CLEAN, CLEAN]
 
+    def test_long_heading_after_body_text_starts_the_next_paragraph(self):
+        # #577: the title of the next work was run into the end of the one before.
+        page = f"{CLEAN} Ἀμήν.\nΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ\n{CLEAN}"
+        cands = ogpg._extract_candidates([("010", page)])
+        assert [(c.text, c.title) for c in cands] == [
+            (f"{CLEAN} Ἀμήν.", None),
+            (f"ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ {CLEAN}", "ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ")]
+
+    def test_heading_with_garbled_line_stays_together(self):
+        # PG 91: one line of the title OCR'd partly in small letters or Latin.
+        for garbled in ("ΚΑΙ ΤΗΣ ΚΑΤΑ ΝΟΥΝ ΠοΑΙΤὲιΑΣ,", "nam ΔΓΑΙΙΗΣ ιω εΓκΡΑτειΑΣ, im nu: ΚΑΤΑ"):
+            page = f"{CLEAN}\n\nΘΑΛΑΣΣΙΟΥ ΑΒΒΑ ΠΕΡΙ ΑΓΑΠΗΣ\n{garbled}\nΠΡΟΣ ΠΑΥΛΟΝ ΠΡΕΣΒΥΤΕΡΟΝ\n{CLEAN}"
+            cands = ogpg._extract_candidates([("010", page)])
+            assert cands[-1].text.startswith("ΘΑΛΑΣΣΙΟΥ ΑΒΒΑ ΠΕΡΙ ΑΓΑΠΗΣ"), garbled
+
+    def test_heading_alone_opens_the_next_paragraph(self):
+        # A title on lines of its own is too short to be a paragraph: it is
+        # kept, at the start of the paragraph after it on the page.
+        page = f"{CLEAN} Ἀμήν.\nΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ\n\n{CLEAN}"
+        cands = ogpg._extract_candidates([("010", page)])
+        assert [c.text for c in cands] == [f"{CLEAN} Ἀμήν.", f"ΠΕΡΙ ΕΥΧΑΡΙΣΤΙΑΣ ΟΜΙΛΙΑ {CLEAN}"]
+
+    def test_heading_of_several_lines_stays_together(self):
+        page = f"{CLEAN}\n\nΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΠΑΡΑΙΝΕΤΙΚΟΣ\nΠΡΟΣ ΣΤΑΓΕΙΡΙΟΝ ΑΣΚΗΤΗΝ\n{CLEAN}"
+        cands = ogpg._extract_candidates([("010", page)])
+        assert len(cands) == 2
+        assert cands[1].text.startswith("ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΠΑΡΑΙΝΕΤΙΚΟΣ ΠΡΟΣ ΣΤΑΓΕΙΡΙΟΝ")
+        assert cands[1].title == "ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΠΑΡΑΙΝΕΤΙΚΟΣ ΠΡΟΣ ΣΤΑΓΕΙΡΙΟΝ ΑΣΚΗΤΗΝ"
+
 
 def _extract(heads: list[tuple[str, list[int]]], paras: list[tuple[str, str | None]]) -> dict:
     return {
@@ -401,6 +430,51 @@ def test_map_columns_orders_pages_numerically():
     heads = _two_column_heads(40, 990, 9)
     shuffled = sorted(heads, key=lambda h: h[0])           # "1000" before "991"
     assert oc.map_columns(shuffled).columns == oc.map_columns(heads).columns
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("ΠΡΟΟΙΜΙΟΝ. α’. Ἀστὴρ ἀειφανὴς", True),
+    ("UMIAIA ΕΙΣ ΤΟ, Πρόσεχε σεαυτῷ (6). Ι. Τοῦ λόγου", True),     # Latin capitals
+    ("οΜιΛιΑ ΠΡΟΣ ΤΟΥΣ ΠΛΟΥἹῸΥΝΤΑΣ (6.4). Ι. Εἴρηται", True),      # small letters
+    ("[3”] ΕΙΣ ΤΗΝ ΥΠΑΠΑΝΤΗΝ Τοῦ Κυρίου", True),                # earlier edition's column
+    ("ΚΥΡ. Ὁμολογοῦμεν τοίνυν", False),                          # speaker label
+    ("0 ΒΑΣΙΛΕΥΣ. Οὐδαμῶς.", False),                             # speaker label (Ὁ)
+    ("HOMILIA PRIMA DE JEJUNIO", False),                         # Latin heading
+    ("ὁ δὲ λόγος ΘΕΟΥ ΕΣΤΙΝ", False),
+])
+def test_opens_with_heading(text: str, expected: bool):
+    assert pgi._opens_with_heading(text) is expected
+
+
+class TestInlineHeadings:
+    ROWS = _index(
+        "vol-031,a,185,196,Basil of Caesarea,A,,,,,,,heads,,",
+        "vol-031,b,197,216,Basil of Caesarea,B,,,,,,,heads,,",
+    )["vol-031"]
+
+    def test_title_run_into_the_previous_work_is_cut(self):
+        paras = [{"cols": (195, 196), "title": None, "text": "ἔτι λόγος"},
+                 {"cols": (197, 198), "title": None,
+                  "text": "εἰς τοὺς αἰῶνας. Ἀμήν. ΤΟΥ ΑΥΤΟΥ ΟΜΙΛΙΑ Β'. Τοῦ λόγου τὴν χρῆσιν"},
+                 {"cols": (199, 200), "title": None, "text": "ἔτι λόγος"}]
+        split = pgi.split_inline_headings(paras, self.ROWS)
+        assert [p["text"] for p in split] == [
+            "ἔτι λόγος", "εἰς τοὺς αἰῶνας. Ἀμήν.",
+            "ΤΟΥ ΑΥΤΟΥ ΟΜΙΛΙΑ Β'. Τοῦ λόγου τὴν χρῆσιν", "ἔτι λόγος"]
+        assert pgi.assign_works(split, self.ROWS) == [0, 0, 1, 1]
+
+    def test_only_where_a_work_starts_unmarked(self):
+        text = "εἰς τοὺς αἰῶνας. Ἀμήν. ΤΟΥ ΑΥΤΟΥ ΟΜΙΛΙΑ Β'. Τοῦ λόγου"
+        inside = [{"cols": (189, 190), "title": None, "text": text}]
+        assert pgi.split_inline_headings(inside, self.ROWS) == inside
+        titled = [{"cols": (197, 198), "title": "ΟΜΙΛΙΑ", "text": "ἀρχή"},
+                  {"cols": (197, 198), "title": None, "text": text}]
+        assert pgi.split_inline_headings(titled, self.ROWS) == titled
+
+    def test_speaker_label_is_no_title(self):
+        paras = [{"cols": (197, 198), "title": None,
+                  "text": "οὕτως ἔχει. ΚΥΡ. Ὁμολογοῦμεν. ΘΕΟ. Ναί."}]
+        assert pgi.split_inline_headings(paras, self.ROWS) == paras
 
 
 def test_heading_run_into_its_paragraph_splits_the_page():

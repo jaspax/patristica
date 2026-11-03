@@ -63,9 +63,14 @@ Column numbers are known per scan page, so a page on which a work starts may
 also hold the end of the previous one.  On such a page the paragraphs are
 split at the first Greek capitals heading (the new work's title), or, when
 the extraction found none, at the first paragraph that opens with a run of
-Greek capitals (a heading run into its paragraph, ``ΠΡΟΟΙΜΙΟΝ. α’. …``); without
-either, the whole page goes to the new work if it starts in the page's first
-column, and to the previous work otherwise.  Paragraphs on pages with no
+Greek capitals (a heading run into its paragraph, ``ΠΡΟΟΙΜΙΟΝ. α’. …``; the
+OCR may read some capitals as Latin ones or in lower case, ``UMIAIA ΕΙΣ ΤΟ``,
+``οΜιΛιΑ ΠΡΟΣ ΤΟΥΣ``); without either, the whole page goes to the new work if
+it starts in the page's first column, and to the previous work otherwise.
+Before that, on such a page with fewer headings than works starting, a
+paragraph that runs the end of one work into the next one's title (``…
+Ἀμήν. ΤΟΥ ΑΥΤΟΥ ΟΜΙΛΙΑ …``) is cut before the title (``split_inline_headings``,
+#577), so the title opens a paragraph of its own.  Paragraphs on pages with no
 column (plates, duplicated leaves, failed OCR heads) belong with the last
 numbered page before them.
 """
@@ -75,6 +80,7 @@ from __future__ import annotations
 import csv
 import functools
 import re
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -261,12 +267,7 @@ def assign_works(paragraphs: list[dict], rows: list[IndexRow]) -> list[int | Non
     See the module docstring for the rules.
     """
     # Effective span: own columns, else those of the last numbered page before.
-    spans: list[tuple[int, int] | None] = []
-    last: tuple[int, int] | None = None
-    for para in paragraphs:
-        if para.get("cols"):
-            last = (para["cols"][0], para["cols"][1])
-        spans.append(last)
+    spans = _effective_spans(paragraphs)
 
     out: list[int | None] = [None] * len(paragraphs)
     i = 0
@@ -281,16 +282,125 @@ def assign_works(paragraphs: list[dict], rows: list[IndexRow]) -> list[int | Non
     return out
 
 
-_HEADING_START = re.compile(r"^[^\w]{0,3}((?:[Α-ΩΆ-Ώ]+[\s.,’']*){1,8})")
 # Greek capitals a paragraph must open with to count as headed; shorter runs
 # are speaker labels (``ΚΥΡ.``) or numerals.
 _HEADING_MIN_LETTERS = 8
+# …of which at least this many must be Greek letters (a Latin running head or
+# heading, ``HOMILIA``, is not one).
+_HEADING_MIN_GREEK = 4
+_HEADING_MAX_TOKENS = 12
+# Latin capitals the OCR reads for Greek ones (``UMIAIA`` = ΟΜΙΛΙΑ), and Greek
+# small letters it reads for capitals of the same shape (``οΜιΛιΑ``).
+_LOOKALIKE_CAPITALS = frozenset("ABEHIKMNOPTUXYZ")
+_SMALL_AS_CAPITAL = frozenset("οιυ")
+_TOKEN = re.compile(r"\S+")
+# Where an inline title may start: after the end of a sentence.
+_SENTENCE_END = re.compile(r"(?:[.·;!]|Ἀμήν|ἀμήν)[\s’'\"»)]*\s")
+
+
+def _is_greek_letter(c: str) -> bool:
+    return "GREEK" in unicodedata.name(c, "")
+
+
+def _caps_token(token: str) -> tuple[int, int] | None:
+    """(letters, Greek letters) of a token in (OCR-read) Greek capitals, else None;
+    (0, 0) for a token without letters (a numeral in brackets, punctuation)."""
+    letters = [c for c in token if c.isalpha()]
+    if not letters:
+        return (0, 0)
+    if not any(c.isupper() for c in letters):
+        return None
+    for c in letters:
+        if c.isupper():
+            if not (_is_greek_letter(c) or c in _LOOKALIKE_CAPITALS):
+                return None
+        elif c not in _SMALL_AS_CAPITAL:
+            return None
+    return len(letters), sum(1 for c in letters if _is_greek_letter(c))
+
+
+def _heading_run(text: str, start: int = 0) -> tuple[int, int, int] | None:
+    """The run of capitals tokens starting at ``start`` → (end offset, letters,
+    Greek letters), if it is long enough for a heading; else None."""
+    end, letters, greek, tokens = start, 0, 0, 0
+    for m in _TOKEN.finditer(text, start):
+        counts = _caps_token(m.group())
+        # A run starts with letters: ``0 ΒΑΣΙΛΕΥΣ.`` is a speaker label (Ὁ).
+        if counts is None or tokens >= _HEADING_MAX_TOKENS or (not letters and not counts[0]):
+            break
+        letters += counts[0]
+        greek += counts[1]
+        tokens += 1
+        end = m.end()
+    if letters >= _HEADING_MIN_LETTERS and greek >= _HEADING_MIN_GREEK:
+        return end, letters, greek
+    return None
+
+
+# What may precede a paragraph's heading: punctuation, and Migne's column of an
+# earlier edition in brackets (``[790] Ὁμιλία``, ``[3”] ΕΙΣ ΤΗΝ``, ``[800i ΟΜΙΛΙΑ``).
+_HEADING_PREFIX = re.compile(r"\[\d{1,4}[^\s\w]{0,2}[a-z]?\s+|[^\w]{0,3}")
 
 
 def _opens_with_heading(text: str) -> bool:
     """Whether a paragraph opens with a heading in Greek capitals."""
-    m = _HEADING_START.match(text)
-    return bool(m) and sum(c.isalpha() for c in m.group(1)) >= _HEADING_MIN_LETTERS
+    m = _HEADING_PREFIX.match(text)
+    return _heading_run(text, m.end() if m else 0) is not None
+
+
+def _inline_heading(text: str) -> int | None:
+    """Offset of a title run into a paragraph after the end of a sentence
+    (two or more capitals tokens), or None."""
+    for m in _SENTENCE_END.finditer(text):
+        run = _heading_run(text, m.end())
+        if run is not None and len(_TOKEN.findall(text[m.end():run[0]])) >= 2 \
+                and run[0] < len(text.rstrip()):
+            return m.end()
+    return None
+
+
+def _effective_spans(paragraphs: list[dict]) -> list[tuple[int, int] | None]:
+    """Each paragraph's columns, else those of the last numbered page before it."""
+    spans: list[tuple[int, int] | None] = []
+    last: tuple[int, int] | None = None
+    for para in paragraphs:
+        if para.get("cols"):
+            last = (para["cols"][0], para["cols"][1])
+        spans.append(last)
+    return spans
+
+
+def split_inline_headings(paragraphs: list[dict], rows: list[IndexRow]) -> list[dict]:
+    """``paragraphs`` with each one that runs into a work's title cut before it.
+
+    Only on a page where works start and the extraction marked fewer of them
+    (no heading line before a paragraph, and fewer paragraphs opening with a
+    heading than works starting); see the module docstring.  The second part
+    keeps the paragraph's page and columns.
+    """
+    spans = _effective_spans(paragraphs)
+    need: dict[tuple[int, int], bool] = {}
+    for span in set(spans):
+        if span is None:
+            continue
+        starting = sum(1 for r in rows if span[0] <= r.col_start <= span[1])
+        if not starting:
+            continue
+        on_page = [p for p, sp in zip(paragraphs, spans) if sp == span]
+        if any(p.get("title") for p in on_page):
+            continue
+        marked = sum(1 for p in on_page if _opens_with_heading(p.get("text", "")))
+        need[span] = marked < starting
+    out: list[dict] = []
+    for para, span in zip(paragraphs, spans):
+        k = _inline_heading(para.get("text", "")) if need.get(span) else None
+        if k is None:
+            out.append(para)
+            continue
+        text = para["text"]
+        out.append({**para, "text": text[:k].rstrip()})
+        out.append({**para, "text": text[k:], "title": None})
+    return out
 
 
 def _assign_page(idx: range, span: tuple[int, int], paragraphs: list[dict],

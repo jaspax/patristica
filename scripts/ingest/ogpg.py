@@ -68,6 +68,7 @@ from patristica.period import work_in_period
 from scripts.ingest import _greek_lexicon as lex
 from scripts.ingest import _ogpg_columns as cols
 from scripts.ingest import _ogpg_index as pgi
+from scripts.ingest import _ogpg_notes as notes
 from scripts.ingest import _ogpg_repeats as rep
 from scripts.ingest import _ogpg_volumes as pgv
 from scripts.ingest._common import offline, require_network
@@ -88,7 +89,7 @@ LEXICON_THRESHOLD = 0.65
 # Fetch every scan of a volume and vote across them.  Off → primary scan only.
 CROSS_SCAN = True
 
-_PIPELINE_VERSION = 6
+_PIPELINE_VERSION = 7
 
 # ---------------------------------------------------------------------------
 # Repo name parsing helpers
@@ -383,6 +384,14 @@ def _is_title_line(line: str) -> bool:
     return sum(1 for c in greek if c.islower()) <= 0.1 * len(greek)
 
 
+def _is_body_line(line: str) -> bool:
+    """Running Greek text: most of its Greek letters are small (not a heading in
+    capitals, nor one whose capitals the OCR read partly as small letters or
+    mixed with Latin, ``nam ΔΓΑΙΙΗΣ ιω εΓκΡΑτειΑΣ, im nu``)."""
+    greek = [c for c in line if c.isalpha() and _is_greek(c)]
+    return len(greek) >= 4 and sum(1 for c in greek if c.islower()) > 0.5 * len(greek)
+
+
 def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     """OCR pages ``[(stem, text)]`` (sorted) → Greek paragraph candidates.
 
@@ -397,26 +406,37 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
     current: list[str] = []
     headings: list[str] = []
     where = (0, "")                 # (page index, stem) of the current paragraph
+    last_body = False               # whether the last line in ``current`` is running text
+    carry: list[str] = []           # heading lines too short for a paragraph of their own
 
     def _flush() -> None:
         text = " ".join(current).strip()
+        lines = list(current)
         current.clear()
         if _passes_basic_filters(text):
             out.append(Candidate(where[0], text, stem=where[1],
                                  title=" ".join(headings) if headings else None))
             headings.clear()
+        elif lines and all(_is_title_line(ln) for ln in lines):
+            carry.extend(lines)     # a title: it opens the next paragraph on the page
 
     for page_idx, (stem, raw) in enumerate(pages):
         if current:
             _flush()      # never join paragraphs across a page boundary
         headings.clear()
+        carry.clear()
         if stem.isdigit() and int(stem) < 9:
             continue
         for line in _fix_hyphenation(raw).splitlines():
             line = _clean_line(line)
-            if _is_title_line(line):
-                if len(line) < 12 and current:
-                    _flush()            # the heading belongs to the next paragraph
+            title = _is_title_line(line)
+            if title:
+                # The heading belongs to the next paragraph: a heading after
+                # running text starts one (#577: a long title line was run
+                # into the end of the work before it); a heading of several
+                # lines stays together, even with a line the OCR garbled.
+                if current and (len(line) < 12 or last_body):
+                    _flush()
                 headings.append(line)
             if len(line) < 12:          # blank / short line ends a paragraph
                 if current:
@@ -425,7 +445,10 @@ def _extract_candidates(pages: list[tuple[str, str]]) -> list[Candidate]:
             if _greek_ratio(line) >= 0.35:
                 if not current:
                     where = (page_idx, stem)
+                    current.extend(carry)
+                    carry.clear()
                 current.append(line)
+                last_body = _is_body_line(line)
             elif current:
                 _flush()
     if current:
@@ -539,6 +562,12 @@ _POSITION_SLACK = 0.04
 _MIN_SHARED_TRIGRAMS = 2
 # …and be of comparable length.
 _LENGTH_RATIO = (0.4, 2.5)
+# Text the primary already has (kept paragraphs within this many candidates)
+# is not taken as a replacement: a garbled paragraph's position slack can reach
+# a page whose text the primary has a few pages on, which then reads twice and
+# its real copy is dropped as a repeat (#578: PG 18 col. 531 took the opening
+# of Alexander's letter, cols. 547ff.).
+_DUP_WINDOW = 15
 
 
 def _known_trigrams(text: str, lexicon: frozenset[str]) -> set[int]:
@@ -575,6 +604,7 @@ class VoteStats:
     scans: int = 0
     misbound_pages: int = 0   # primary pages from another volume, dropped (#90)
     filled: int = 0           # paragraphs of other scans for columns the primary lacks (#90)
+    truncated_pages: int = 0  # primary pages replaced by another scan's fuller copy
 
 
 def _vote(scans: list[_Scan], lexicon: frozenset[str]
@@ -641,7 +671,7 @@ def _best_replacement(
     rel = primary.rel(cand)
     # Text already kept nearby must not be duplicated by the replacement.
     neighbours: set[int] = set()
-    for j in range(max(0, i - 3), min(len(kept_tris), i + 4)):
+    for j in range(max(0, i - _DUP_WINDOW), min(len(kept_tris), i + _DUP_WINDOW + 1)):
         if j != i:
             neighbours |= kept_tris[j]
     best: tuple[int, int] | None = None
@@ -684,9 +714,18 @@ _MISBOUND_MIN_PAGES = 4
 # A page of another scan already present in the primary nearby (this share of
 # its trigrams) is not filled in.
 _FILL_DUP_SHARE = 0.3
-# A filled page must be within this many pages of one whose head numbers
-# confirm its scan's column mapping.
+# A filled page must be within this many pages of one whose columns are
+# confirmed: by its head numbers, or by its text matching the primary's at the
+# same columns (``_FILL_DUP_SHARE``; a scan whose heads OCR'd badly maps its
+# pages as well as the primary does, PG 44 col. 1325).
 _FILL_SUPPORT_PAGES = 2
+# A primary page whose OCR lost part of its Greek (the column breaks off into
+# the Latin, PG 44 col. 1323) is replaced by another scan's page on the same
+# columns that holds the primary's text (``_TRUNCATED_CONTAINED`` of its
+# trigrams) and is much longer (both length conditions).
+_TRUNCATED_CONTAINED = 0.6
+_TRUNCATED_RATIO = 1.5
+_TRUNCATED_MIN_CHARS = 800
 
 
 def _word_trigrams(text: str) -> set[str]:
@@ -717,7 +756,7 @@ class _Layout:
 
 
 def _layout(name: str, paras: list[dict], heads: list[tuple[str, list[int]]]) -> _Layout:
-    repeats = rep.find_repeats(paras, [stem for stem, _ in heads])
+    repeats = _page_repeats(paras, heads)
     cmap = cols.map_columns(heads, skip=set(repeats.pages) | set(repeats.moved))
     pages: dict[str, tuple[int, int]] = {}
     grams: dict[str, set[str]] = {}
@@ -782,18 +821,65 @@ def _misbound_pages(primary: _Layout, others: list[_Layout]) -> set[str]:
     return {s for s in flagged if int(s) in keep}
 
 
+def _by_span(layout: _Layout) -> dict[tuple[int, int], list[str]]:
+    """Page stems of a layout per column span (a span may have several pages)."""
+    out: dict[tuple[int, int], list[str]] = {}
+    for stem, span in layout.pages.items():
+        out.setdefault(span, []).append(stem)
+    return out
+
+
+def _span_text(layout: _Layout, stems: list[str]) -> tuple[int, set[str]]:
+    """Length and trigrams of the text a layout has on ``stems``."""
+    length = sum(len(p["text"]) for p in layout.paras if p["stem"] in stems)
+    grams: set[str] = set()
+    for stem in stems:
+        grams |= layout.grams[stem]
+    return length, grams
+
+
+def _truncated(ours: _Layout, theirs: list[_Layout], misbound: set[str]
+               ) -> dict[tuple[int, int], tuple[list[str], _Layout, list[str]]]:
+    """Primary spans whose Greek another scan has much more of (``_TRUNCATED_*``)
+    → ``{span: (primary stems, other layout, its stems)}``, the longest such page."""
+    out: dict[tuple[int, int], tuple[list[str], _Layout, list[str]]] = {}
+    spans = [(other, _by_span(other)) for other in theirs]
+    for span, stems in _by_span(ours).items():
+        if any(stem in misbound for stem in stems):
+            continue
+        length, grams = _span_text(ours, stems)
+        if not grams:
+            continue
+        best = 0
+        for other, by_span in spans:
+            ostems = by_span.get(span)
+            if not ostems:
+                continue
+            olen, ograms = _span_text(other, ostems)
+            if (olen >= max(_TRUNCATED_RATIO * length, length + _TRUNCATED_MIN_CHARS)
+                    and olen > best and _share(grams, ograms) >= _TRUNCATED_CONTAINED):
+                out[span] = (stems, other, ostems)
+                best = olen
+    return out
+
+
 def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
-                ) -> tuple[set[str], list[dict]]:
-    """Misbound primary pages, and paragraphs of other scans for columns the
-    primary lacks (#90) → ``(misbound page stems, fills)``.
+                ) -> tuple[set[str], list[dict], set[str]]:
+    """Misbound primary pages, paragraphs of other scans for columns the
+    primary lacks (#90), and truncated primary pages
+    → ``(misbound page stems, fills, replaced page stems)``.
 
     The primary is the scan with the most dictionary-valid Greek, but it may
-    stop early or carry another volume's leaves while another scan has the
-    text.  Each fill is ``{"cols", "scan", "stem", "title", "text"}``: a page
-    of another scan whose columns no kept primary page covers, whose text the
-    primary doesn't already have nearby, and whose scan's column mapping is
-    confirmed by head numbers within ``_FILL_SUPPORT_PAGES`` pages.  Scans are
-    tried in order of dictionary-valid Greek.
+    stop early, lose part of a page or carry another volume's leaves while
+    another scan has the text.  Each fill is
+    ``{"cols", "scan", "stem", "title", "text"}``: a page of another scan
+    whose columns no kept primary page covers, whose text the primary doesn't
+    already have nearby, and whose scan's column mapping is confirmed within
+    ``_FILL_SUPPORT_PAGES`` pages (by head numbers, or by text matching the
+    primary's); or a page that holds the text of a truncated primary page
+    (``_TRUNCATED_*``) on the same columns, which then stands for it: the
+    replaced primary pages' paragraphs are to be dropped.  Scans are tried in
+    order of dictionary-valid Greek.
     """
     ours = _layout(primary.name, kept, primary.heads)
     theirs = [_layout(s.name, [{"stem": c.stem, "title": c.title, "text": c.text}
@@ -808,7 +894,18 @@ def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
         if stem not in misbound:
             covered |= {a, b}
     fills: list[dict] = []
+    replaced: set[str] = set()
+    for span, (stems, other, ostems) in sorted(_truncated(ours, theirs, misbound).items()):
+        replaced.update(stems)
+        for p in other.paras:
+            if p["stem"] in ostems:
+                fills.append({"cols": list(span), "scan": other.name, "stem": p["stem"],
+                              "title": p["title"], "text": p["text"]})
     for other in theirs:
+        # Pages whose text the primary has on the same columns confirm the map.
+        confirmed = set(other.supported) | {
+            int(stem) for stem, (a, b) in other.pages.items()
+            if stem.isdigit() and _share(other.grams[stem], ours.near(a, b)) >= _FILL_DUP_SHARE}
         taken: set[int] = set()
         by_page: dict[str, list[dict]] = {}
         for p in other.paras:
@@ -818,7 +915,7 @@ def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
             a, b = other.pages[stem]
             if a in covered or b in covered:
                 continue
-            if not any(abs(int(stem) - n) <= _FILL_SUPPORT_PAGES for n in other.supported):
+            if not any(abs(int(stem) - n) <= _FILL_SUPPORT_PAGES for n in confirmed):
                 continue
             nearby = ours.near(a - _NEAR_COLS, b + _NEAR_COLS)
             for f in fills:
@@ -834,7 +931,7 @@ def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
         covered |= taken
     fills.sort(key=lambda f: (f["cols"][0], f["scan"],
                               int(f["stem"]) if f["stem"].isdigit() else 0))
-    return misbound, fills
+    return misbound, fills, replaced
 
 
 def _merge_fills(paras: list[dict], fills: list[dict]) -> list[dict]:
@@ -1071,12 +1168,17 @@ def _extract_volume(
         {"stem": primary.candidates[i].stem, "title": primary.candidates[i].title, "text": text}
         for i, text in kept
     ]
-    misbound, fills = _cross_scan(primary, paragraphs, [s for s in scans if s is not primary])
+    misbound, fills, replaced = _cross_scan(primary, paragraphs,
+                                            [s for s in scans if s is not primary])
     if misbound:
         log.info("OPG %s: %d primary pages are misbound (another volume's leaves): dropped",
                  vol_slug, len(misbound))
-        paragraphs = [p for p in paragraphs if p["stem"] not in misbound]
+    if replaced:
+        log.debug("OPG %s: %d truncated primary pages replaced from another scan",
+                  vol_slug, len(replaced))
+    paragraphs = [p for p in paragraphs if p["stem"] not in misbound | replaced]
     stats.misbound_pages = len(misbound)
+    stats.truncated_pages = len(replaced)
     stats.filled = len(fills)
     payload = {
         "repo": repo_name,
@@ -1107,10 +1209,50 @@ def _write_if_changed(path: Path, payload: dict) -> None:
         path.write_text(content, encoding="utf-8")
 
 
+def _fits(span: tuple[int, int], numbers: list[int]) -> bool:
+    return any(span[0] - 1 <= n <= span[1] + 1 for n in numbers)
+
+
+def keep_placed_copies(repeats: rep.Repeats, heads: list[tuple[str, list[int]]]
+                       ) -> rep.Repeats:
+    """``repeats`` with a misplaced first copy dropped instead of the second.
+
+    ``find_repeats`` keeps the first copy of a leaf scanned twice.  When that
+    copy is bound out of place (PG 99: a leaf printing cols. 485–486 among
+    461–484, #578), its head numbers don't fit the columns the map gives it,
+    and the second copy, in its right place, is the one to keep.
+    """
+    head_of = dict(heads)
+    pages = dict(repeats.pages)
+    cmap: cols.ColumnMap | None = None
+    for second, first in sorted(repeats.pages.items()):
+        numbers = head_of.get(first, [])
+        if not numbers or first in pages:
+            continue
+        if cmap is None:
+            cmap = cols.map_columns(heads, skip=set(pages) | set(repeats.moved))
+        span = cmap.columns.get(first)
+        if span is None or _fits(span, numbers):
+            continue
+        swapped = (set(pages) - {second}) | {first}
+        alt = cols.map_columns(heads, skip=swapped | set(repeats.moved)).columns.get(second)
+        if alt is not None and _fits(alt, numbers + head_of.get(second, [])):
+            del pages[second]
+            pages[first] = second
+            cmap = None
+    return rep.Repeats(dict(sorted(pages.items(), key=lambda kv: _page_order((kv[0], "")))),
+                       repeats.moved)
+
+
+def _page_repeats(paras: list[dict], heads: list[tuple[str, list[int]]]) -> rep.Repeats:
+    """Repeated pages of a scan: by text, with misplaced first copies swapped."""
+    return keep_placed_copies(rep.find_repeats(paras, [stem for stem, _ in heads]), heads)
+
+
 def volume_repeats(extract: dict) -> rep.Repeats:
-    """Pages the volume's primary scan repeats (``_ogpg_repeats``, #96)."""
-    return rep.find_repeats(extract["paragraphs"],
-                            [stem for stem, _ in extract["page_heads"]])
+    """Pages the volume's primary scan repeats (``_ogpg_repeats``, #96, #578)."""
+    return _page_repeats(extract["paragraphs"],
+                         [(stem, nums) for stem, nums in extract["page_heads"]])
 
 
 def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
@@ -1129,6 +1271,12 @@ def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
     return [p for _, _, p in keyed]
 
 
+def _unit(ref: str, text: str) -> dict:
+    """A raw unit, with Migne's notes at its end marked editorial (#450)."""
+    spans = notes.note_spans(text)
+    return {"ref": ref, "text": text, "editorial": spans} if spans else {"ref": ref, "text": text}
+
+
 def split_volume(
     repo_name: str,
     extract: dict,
@@ -1141,7 +1289,9 @@ def split_volume(
     each in-period row becomes ``{vol}/{slug}.json`` and uncovered text goes
     to ``{vol}/other.json``; rows dated after the collection period are
     dropped (their text is not written).  Paragraphs are ``{"ref", "text"}``
-    with the positional refs of ``_ogpg_index.assign_refs``.  Pages the scan
+    with the positional refs of ``_ogpg_index.assign_refs``, and
+    ``"editorial"`` note spans where a paragraph ends in Migne's notes
+    (``_ogpg_notes``).  Pages the scan
     repeats (``repeats``, found here when not given) are left out.
     """
     vol_nums, vol_slug = _parse_repo(repo_name)
@@ -1156,18 +1306,20 @@ def split_volume(
              if p["stem"] not in repeats.pages]
     paras = _merge_fills(paras, [{**f, "cols": tuple(f["cols"])}
                                  for f in extract.get("fills", [])])
+    if rows:
+        paras = pgi.split_inline_headings(paras, rows)
     refs = pgi.assign_refs(paras, vol_slug)
     if not rows:
         work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
         return [(f"{vol_slug}.json", work,
-                 [{"ref": r, "text": p["text"]} for r, p in zip(refs, paras)])]
+                 [_unit(r, p["text"]) for r, p in zip(refs, paras)])]
 
     owners = pgi.assign_works(paras, rows)
     last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
     buckets: dict[str | None, list[dict]] = {}
     for ref, para, owner in zip(refs, paras, owners):
         key = None if owner is None else rows[owner].slug
-        buckets.setdefault(key, []).append({"ref": ref, "text": para["text"]})
+        buckets.setdefault(key, []).append(_unit(ref, para["text"]))
     by_slug: dict[str, list[pgi.IndexRow]] = {}
     for row in rows:
         by_slug.setdefault(row.slug, []).append(row)
