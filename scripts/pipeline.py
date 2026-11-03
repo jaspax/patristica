@@ -12,13 +12,20 @@ Ingestors are not run: re-ingest by hand, then run this with
 ``--accept-raw-change``.
 
 Paid steps (anchor: Voyage, for the derived verses of enrolled translations,
-#304; translate: OpenAI, plus Anthropic for what Sol's content filter blocks;
-embed: Voyage) send requests only with ``--pay``. Without it the run
+#304; translate: Claude Opus on the subscription, see below; embed: Voyage)
+send requests only with ``--pay``. Without it the run
 stops before the first paid step that has paid work, prints the estimate and
 exits 0. A paid step whose estimate is $0 (a metadata-only change) runs anyway,
 without calling the API or needing a key, and the run goes on. ``--max-cost``
 caps the run's estimated spend; translate also gets the rest of it as its own
 ``--max-cost``.
+
+translate uses ``local-opus`` by default (#601): Opus through a local
+``claude -p`` on the Claude subscription login, with no per-token cost but
+counting against the subscription's usage windows, which it logs
+(``docs/translation-backends.md``). ``--translate-model sol`` uses Sol through
+the OpenAI API instead and retries what Sol's content filter blocks with
+``opus`` through the Anthropic API; ``--translate-model opus`` uses that alone.
 
 Before any step, a preflight lists every problem at once: missing local data,
 the API keys (with ``--pay``), the search database through the SSH tunnel
@@ -35,7 +42,8 @@ Usage::
 
     uv run --extra pipeline python -m scripts.pipeline --dry-run
     uv run --extra pipeline python -m scripts.pipeline [--pay [--max-cost 20]]
-        [--accept-raw-change] [--skip upload_library] [--database-url URL] [-v]
+        [--translate-model local-opus|sol|opus] [--accept-raw-change]
+        [--skip upload_library] [--database-url URL] [-v]
 """
 
 from __future__ import annotations
@@ -74,6 +82,14 @@ STEPS = ("normalize", "anchor", "validate", "translate", "embed", "align", "buil
 PAID = frozenset({"anchor", "translate", "embed"})
 LIBRARY_KEYS = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_BUCKET")
 LFS_POINTER = b"version https://git-lfs"
+#: translate's model (``scripts.translate --model``) and the default, #601.
+TRANSLATE_MODELS = ("local-opus", "sol", "opus")
+DEFAULT_TRANSLATE_MODEL = "local-opus"
+#: what each translate model needs: API keys, or the ``claude`` CLI (None).
+TRANSLATE_KEYS = {"local-opus": (), "sol": ("OPENAI_API_KEY", "ANTHROPIC_API_KEY"),
+                  "opus": ("ANTHROPIC_API_KEY",)}
+#: One ``claude -p`` per request: more workers mostly burn the 5-hour window.
+LOCAL_WORKERS = "4"
 
 
 class StepFailed(Exception):
@@ -91,6 +107,7 @@ class Options:
     accept_raw_change: bool = False
     skip: frozenset[str] = frozenset()
     database_url: str | None = None
+    translate_model: str = DEFAULT_TRANSLATE_MODEL
 
 
 @dataclass
@@ -245,7 +262,7 @@ class Runner:
 class Estimates:
     """What the paid steps would send now: (units, estimated dollars)."""
 
-    def translate(self, model: str = "sol") -> tuple[int, float]:
+    def translate(self, model: str = DEFAULT_TRANSLATE_MODEL) -> tuple[int, float]:
         from scripts import status, translate
 
         by_lang, _ = status.pending_translations(NORMALIZED, TRANSLATIONS)
@@ -365,7 +382,8 @@ def preflight(opts: Options, *, lookup: Callable[[str], str | None] = env_value,
               verify: Callable[[str, str], str | None] = verify_key,
               database: Callable[[str | None], str | None] = check_database,
               normalized: Path = NORMALIZED, raw: Path = RAW,
-              embeddings: Path = EMBEDDINGS) -> list[Check]:
+              embeddings: Path = EMBEDDINGS,
+              which: Callable[[str], str | None] = shutil.which) -> list[Check]:
     """Everything the run will need, checked up front. Paid keys only with --pay:
     without it a paid step runs only when it sends nothing."""
     checks = [Check("data/normalized", (normalized / "_works.jsonl").is_file(),
@@ -383,7 +401,12 @@ def preflight(opts: Options, *, lookup: Callable[[str], str | None] = env_value,
     if opts.pay:
         wanted = []
         if "translate" not in opts.skip:
-            wanted += ["OPENAI_API_KEY", "ANTHROPIC_API_KEY"]
+            wanted += TRANSLATE_KEYS[opts.translate_model]
+            if opts.translate_model == "local-opus":
+                found = which("claude") is not None
+                checks.append(Check("claude CLI (local-opus)", found, "" if found else
+                                    "not on PATH: log in to the subscription, or pass "
+                                    "--translate-model sol"))
         if not {"embed", "anchor"} <= opts.skip:
             wanted.append("VOYAGE_API_KEY")
         for name in wanted:
@@ -510,22 +533,26 @@ class Pipeline:
         return "", 0.0
 
     def translate(self) -> tuple[str, float]:
-        units, cost = self.estimates.translate()
+        model = self.opts.translate_model
+        units, cost = self.estimates.translate(model)
         if not units:  # reuses identical text and drops stale rows; sends nothing
             self._run(python("scripts.translate"))
             return "nothing to send", 0.0
         self._budget(units, cost)
-        self._run(python("scripts.translate", *self._cap()))
-        spent, detail = cost, f"{units:,} units with Sol"
-        left, opus_cost = self.estimates.translate("opus")
-        if left:  # what Sol's content filter blocked (or what failed): Claude Opus
-            self._budget(left, opus_cost, pending=spent)
-            self._run(python("scripts.translate", "--model", "opus", *self._cap(pending=spent)))
-            spent += opus_cost
-            detail += f", {left:,} retried with Opus"
-            still, _ = self.estimates.translate()
-            if still:
-                detail += f"; {still:,} still untranslated (see the log)"
+        workers = ["--workers", LOCAL_WORKERS] if model == "local-opus" else []
+        self._run(python("scripts.translate", "--model", model, *workers, *self._cap()))
+        spent, detail = cost, f"{units:,} units with {model}"
+        if model == "sol":
+            left, opus_cost = self.estimates.translate("opus")
+            if left:  # what Sol's content filter blocked (or what failed): Claude Opus
+                self._budget(left, opus_cost, pending=spent)
+                self._run(python("scripts.translate", "--model", "opus",
+                                 *self._cap(pending=spent)))
+                spent += opus_cost
+                detail += f", {left:,} retried with Opus"
+        still, _ = self.estimates.translate(model)
+        if still:
+            detail += f"; {still:,} still untranslated (see the log)"
         return detail, spent
 
     def embed(self) -> tuple[str, float]:
@@ -598,12 +625,13 @@ def dry_run(opts: Options, run_cmd: Runner) -> int:
             env={"DATABASE_URL": opts.database_url} if opts.database_url else None)
     est = Estimates()
     works, acost = est.anchor() if "anchor" not in opts.skip else (0, 0.0)
-    units, cost = est.translate()
+    units, cost = est.translate(opts.translate_model)
     vectors, vcost = est.embed()
     changed = validate_inputs()
     out.rule("paid work (before normalize, whose rebuilt works can add to it)")
     out.line(f"  anchor     {works:>10,} works to cut   ≤ ~${acost:,.2f}")
-    out.line(f"  translate  {units:>10,} units          ~${cost:,.2f}")
+    out.line(f"  translate  {units:>10,} units          ~${cost:,.2f}"
+             f"  ({opts.translate_model})")
     out.line(f"  embed      {vectors:>10,} vectors        ~${vcost:,.2f}"
              "  (more once translate has run)")
     out.line(f"  validate   {'runs' if changed else 'skipped':>10}"
@@ -653,6 +681,10 @@ def main() -> None:
                    help="let anchor, translate and embed send paid requests")
     p.add_argument("--max-cost", type=float, metavar="USD",
                    help="refuse paid work that would take the run's estimated spend past this")
+    p.add_argument("--translate-model", choices=TRANSLATE_MODELS,
+                   default=DEFAULT_TRANSLATE_MODEL,
+                   help="translate's model (default: %(default)s, on the Claude subscription; "
+                        "sol retries what its filter blocks with opus)")
     p.add_argument("--dry-run", action="store_true",
                    help="report what is stale, the costs and the preflight; change nothing")
     p.add_argument("--accept-raw-change", action="store_true",
@@ -666,7 +698,8 @@ def main() -> None:
     args = p.parse_args()
     console.setup_logging(logging.WARNING)
     opts = Options(pay=args.pay, max_cost=args.max_cost, accept_raw_change=args.accept_raw_change,
-                   skip=frozenset(args.skip), database_url=args.database_url)
+                   skip=frozenset(args.skip), database_url=args.database_url,
+                   translate_model=args.translate_model)
 
     if args.dry_run:
         sys.exit(dry_run(opts, Runner(verbosity=args.verbose)))

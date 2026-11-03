@@ -12,7 +12,7 @@ Sol and Opus translate the rare languages equally well (#84: fidelity 4.44 and 4
 
 ## Which backend to use
 
-- **In an environment attached to an interactive session** (an agent working with the owner in Claude Code on a machine logged in to the subscription): use **`local-opus`**. Translate first, then run the pipeline; its translate step then finds nothing pending:
+- **On a machine logged in to the subscription** (the pipeline machine, an agent working with the owner in Claude Code): use **`local-opus`**. It is the pipeline's default (#601): `scripts.pipeline --pay` runs `scripts.translate --model local-opus --workers 4`, with no API key. For a big batch, translate first by hand, so you can watch the usage windows as below; the pipeline's translate step then finds nothing pending:
 
   ```bash
   uv run python -m scripts.translate --usage                              # usage now
@@ -21,7 +21,7 @@ Sol and Opus translate the rare languages equally well (#84: fidelity 4.44 and 4
   uv run --extra pipeline python -m scripts.pipeline --dry-run           # translate: nothing to do
   ```
 
-- **In unattended runs** (a scheduled `scripts.pipeline --pay`, CI, the droplet, a cloud session without the subscription login): use **Sol**. That is the pipeline's default, and it retries what Sol's content filter blocks with `opus` through the API.
+- **Where there is no subscription login** (CI, the droplet, a cloud session): use **Sol**, `scripts.pipeline --pay --translate-model sol`. It retries what Sol's content filter blocks with `opus` through the API. `--translate-model opus` uses Opus through the API alone.
 - **When local usage runs short** (see below): switch to Sol for the rest. Sol costs money: report its `--dry-run` estimate to the owner and wait for an OK, unless they already approved the spend for this run.
 
 `local-opus` runs `claude -p` with the request's system prompt (`--system-prompt`), JSON schema (`--json-schema`), model and effort. The passages go on stdin. It runs with no tools, settings, MCP servers or session, from an empty directory, so no project context (CLAUDE.md, memory) reaches the model. One subprocess per request, so `--workers 4` is plenty: more mostly burns the 5-hour window faster.
