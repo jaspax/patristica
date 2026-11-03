@@ -1,0 +1,30 @@
+{
+  "work_id": "rea/ludwigslied",
+  "source_path": "rea/ludwigslied.json",
+  "source_language": "goh",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-03": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-03",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "rea/ludwigslied#Ludw.55",
+      "source_sha256": "41acf131c4608419",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 2,
+      "text": "Praised be the power of God! Louis was victorious. And thanks to all the saints! The victory in battle was his."
+    },
+    {
+      "chunk_id": "rea/ludwigslied#Ludw.57",
+      "source_sha256": "e83c624673492763",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-03",
+      "group_size": 2,
+      "text": "Hail then, Louis, blessed king! As ready as he always was, wherever there was need of it, may the Lord keep him in his grace [?]."
+    }
+  ]
+}
