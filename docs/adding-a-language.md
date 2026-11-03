@@ -134,7 +134,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
 - [ ] **Anchored derived verses are cut in the PR** (#304), so master never holds provisional cuts of enrolled works and refs don't change between the PR and the publish. After normalize:
   1. `uv run --extra embed python -m scripts.anchor --dry-run`: the works to cut and the cost (an upper bound; usually cents per source);
   2. if an original lacks vectors (the step refuses it), `scripts.embed --work {original}` (paid);
-  3. **ask the owner**, with the dry run's numbers, and wait for a yes. An agent never sends these requests without that permission, asked each time;
+  3. **ask the owner**, with the dry run's numbers, and wait for a yes. An agent never sends these requests without that permission, asked each time, **unless the dry runs of steps 1–2 total under $1.00** (#604): then it goes on without asking, with `--max-cost` capping anchor at what is left of the $1.00;
   4. `uv run --extra embed python -m scripts.anchor --pay`, then `uv run python -m scripts.normalize` (a no-op check);
   5. commit `data/anchors/`, `data/normalized/` and the changed `data/embeddings` shards, and put the cost in the PR description.
 
@@ -172,9 +172,10 @@ uv run python -m scripts.embed_eval.report
 #    If translation vectors are needed: TRANSLATED_LANGUAGES + LANGUAGE_NAMES, then
 #    scripts.align over the corpus (no API calls) to refresh its fingerprint.
 
-# 4b. Anchored derived verses (section 8, #304): estimate, ASK THE OWNER, then cut.
+# 4b. Anchored derived verses (section 8, #304): estimate, ASK THE OWNER (unless
+#     the Voyage total is under $1.00, #604), then cut.
 uv run --extra embed python -m scripts.anchor --dry-run
-uv run --extra embed python -m scripts.anchor --pay   # only after the owner said yes
+uv run --extra embed python -m scripts.anchor --pay   # only after the owner said yes, or under $1.00 (--max-cost)
 uv run python -m scripts.normalize                    # a no-op check
 
 # 5. Dry run: what is stale and what --pay would cost. Agents skip the steps whose
@@ -204,7 +205,7 @@ Copy into the PR description and tick:
 - [ ] `scripts.validate` has no errors (the pre-push hook runs it when its inputs change).
 - [ ] `scripts.status` is clean apart from the pending paid steps.
 - [ ] `scripts.pipeline --dry-run` output is summarized in the PR (agents add `--skip build_index --skip upload_library`, so nothing connects to production): the stale steps, the translate and embed estimates, and the new works and units (the reload size).
-- [ ] No paid requests were sent, apart from `scripts.anchor --pay` (and the embed of its originals) with the owner's permission, its cost stated. An "After merge" section lists what `scripts.pipeline --pay` will do and cost (as in #262).
+- [ ] No paid requests were sent, apart from `scripts.anchor --pay` (and the embed of its originals) with the owner's permission (or under $1.00 in all, #604), its cost stated. An "After merge" section lists what `scripts.pipeline --pay` will do and cost (as in #262).
 - [ ] `tests/test_anchor_fingerprint.py` passes: every enrolled work has a current cut file in `data/anchors/`.
 - [ ] Reader checked in light and dark themes (and RTL if relevant), with a screenshot of one work and of a parallel view.
 - [ ] Decision record posted or updated on the language's issue (not in this file), and `docs/embedding-eval.md` if measured.

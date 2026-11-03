@@ -186,7 +186,8 @@ A PR that adds an enrolled source runs, after normalize:
 3. `scripts.normalize`, a no-op check that the output is current.
 
 It commits `data/anchors/`, `data/normalized/` and the fingerprints. The
-cost goes in the PR description, as #308 did. Translation, the remaining
+cost goes in the PR description, as #308 did. An agent asks the owner
+before steps 1–2 unless their dry-run estimates total under $1.00 (#604). Translation, the remaining
 embeds (translation vectors), align and publish happen in the owner's next
 `scripts.pipeline --pay`, unchanged. `docs/adding-a-language.md` §8 says "a
 PR never sends translate or embed requests". It should get an exception
