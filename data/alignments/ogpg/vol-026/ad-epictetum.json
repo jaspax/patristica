@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-026/ad-epictetum",
  "pivot": "npnf-works/athanasius-letter-59-to-epictetus",
- "groups": 126,
- "inputs": "21af89ac12aefea6",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 130,
+ "inputs": "b5a605d7dad26962",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letter-59-to-epictetus", "units": 151, "ids": "de606fc1b6c67c62", "inputs": "c3050b201159ce44", "spans": "+==+++++++++=..+=+++++.++++++.+++++++++.++++++.++++.++++++++=+++++++++++=+++++.++++++++++++++=+++++++++++++=++++++++++++++++++++++++++++++++++.........", "conf": "999999999999999999999999999999999999999999889999999999999999999999989999999999998999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-026/ad-epictetum", "units": 156, "ids": "307238b8d6b340fc", "inputs": "00ff79cab7eca3fc", "spans": "+=......+++++++++=.++++++++++++++...++++.+++++=+++++++++++++++++++=.+++++++++++++++.++++++++++=++++..+=++++=+++++=+++...++++++++++++++++++==+++.+++++++++++.", "conf": "999999999999999999999999999999999999999999889999999999999999999999989999999999998999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-letter-59-to-epictetus", "units": 151, "ids": "de606fc1b6c67c62", "inputs": "c3050b201159ce44", "spans": "+==+++++++++++++++++++.++++++.+++++++++.++++++.++++.++++++++=+++++++++++=+++++.++++++++++++++=+++++++++++++=++++++++++++++++++++++++++++++++++.........", "conf": "9999999999999999999999999999999999999999999999889999999999999999999999989999999999998999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-026/ad-epictetum", "units": 165, "ids": "67a1c36878791180", "inputs": "63cf4a983b5a04a5", "spans": "+=......++++++=+++++++......++++++++++++++...++++.+++++=+++++++++++++++++++=.+++++++++++++++.++++++++++=++++..+=++++=+++++=+++...++++++++++++++++++==+++.+++++++++++.", "conf": "9999999999999999999999999999999999999999999999889999999999999999999999989999999999998999999999999999999999999999999999999999999999"}
  ]
 }

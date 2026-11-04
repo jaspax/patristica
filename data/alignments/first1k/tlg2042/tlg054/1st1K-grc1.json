@@ -2,11 +2,11 @@
  "format": 1,
  "group": "first1k/tlg2042/tlg054/1st1K-grc1",
  "pivot": "first1k/tlg2042/tlg054/1st1K-grc1",
- "groups": 41,
- "inputs": "d992dc6ac19233ff",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 42,
+ "inputs": "9f4a11681f4badbd",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "first1k/tlg2042/tlg054/1st1K-grc1", "units": 52, "ids": "d3529937589ec8f4", "inputs": "7d76a17646e13eba", "spans": ".......++=++=+++++++++++++++=++++++++=++++++++++++++", "conf": "99999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-012/selecta-in-jesum-nave", "units": 41, "ids": "c39605477cf0bc41", "inputs": "59aa7416b580da79", "spans": "+++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999"}
+  {"work_id": "first1k/tlg2042/tlg054/1st1K-grc1", "units": 52, "ids": "d3529937589ec8f4", "inputs": "7d76a17646e13eba", "spans": ".+.....++=++=+++++++++++++++=++++++++=++++++++++++++", "conf": "999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-012/selecta-in-jesum-nave", "units": 42, "ids": "7f820f87d3eef9a2", "inputs": "e6017cf352d58437", "spans": "++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999"}
  ]
 }

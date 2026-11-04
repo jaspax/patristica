@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-033/timotheus-responsa-canonica",
  "pivot": "ogpg/vol-033/timotheus-responsa-canonica",
- "groups": 30,
- "inputs": "39e9cbd97557e659",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 31,
+ "inputs": "3ba506b0c85f3a17",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/timothy-of-alexandria-canonical-answers", "units": 57, "ids": "d0832b18e51f668c", "inputs": "0504122ceae722ba", "spans": "...++.++.++.++.+++++.++.+..+++.+.++=..+.++.++.++.....+=..", "conf": "999969978939959999992999997937"},
-  {"work_id": "ogpg/vol-033/timotheus-responsa-canonica", "units": 85, "ids": "2ba6b6d6c7358e8a", "inputs": "ea3dbdff305cc1fa", "spans": "++=...........+....+..++===.+..+++.+.+.+.+++......+++==+=+++.......+..+..+==+...+++=.", "conf": "999969978939959999992999997937"}
+  {"work_id": "npnf-works/timothy-of-alexandria-canonical-answers", "units": 57, "ids": "d0832b18e51f668c", "inputs": "0504122ceae722ba", "spans": "...++.++.++.++.+++++.++.+..+++.+.++=.++.++.++.++.....+=..", "conf": "9999699789399599999929599997937"},
+  {"work_id": "ogpg/vol-033/timotheus-responsa-canonica", "units": 86, "ids": "35d14af57b8914df", "inputs": "e24244e09489a152", "spans": ".++=...........+....+..++===.+..+++.+.+.+.+++......+++==+=++++=.....+..+..+==+...+++=.", "conf": "9999699789399599999929599997937"}
  ]
 }

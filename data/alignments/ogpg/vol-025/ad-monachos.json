@@ -3,10 +3,10 @@
  "group": "ogpg/vol-025/ad-monachos",
  "pivot": "npnf-works/athanasius-letter-52-first-to-monks",
  "groups": 29,
- "inputs": "23e89eedde46fac3",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "56eee74ae2443898",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letter-52-first-to-monks", "units": 32, "ids": "5233b4107d177387", "inputs": "7ee02492fccc2bcc", "spans": "++=+=+++++++++++++=+++++++++++++", "conf": "89999999999999999999999778999"},
-  {"work_id": "ogpg/vol-025/ad-monachos", "units": 32, "ids": "2a9671a4b5e4d17a", "inputs": "57225a977f4ccef6", "spans": "++=++++++++++=+++++++++++++++=++", "conf": "89999999999999999999999778999"}
+  {"work_id": "npnf-works/athanasius-letter-52-first-to-monks", "units": 32, "ids": "5233b4107d177387", "inputs": "7ee02492fccc2bcc", "spans": "+=++=+++++++++++++=+++++++++++++", "conf": "99999999999999999999999778999"},
+  {"work_id": "ogpg/vol-025/ad-monachos", "units": 32, "ids": "2a9671a4b5e4d17a", "inputs": "63cc1fbea2e24fb1", "spans": "++=++++++++++=+++++++++++++++=++", "conf": "99999999999999999999999778999"}
  ]
 }

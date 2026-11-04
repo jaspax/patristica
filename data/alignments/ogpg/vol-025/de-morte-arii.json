@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-025/de-morte-arii",
  "pivot": "npnf-works/athanasius-letter-54-to-serapion-on-the-death-of-arius",
- "groups": 38,
- "inputs": "c40a6b2c7cecea4a",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 39,
+ "inputs": "17cd2531e4fa91d9",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letter-54-to-serapion-on-the-death-of-arius", "units": 44, "ids": "3ee7fe010d1ea179", "inputs": "ed39ab2240788b09", "spans": ".++++++++=+++++++++++=+++++..++++=++++++++++", "conf": "99999999999999999999889399998899999999"},
-  {"work_id": "ogpg/vol-025/de-morte-arii", "units": 46, "ids": "3602091040ffed47", "inputs": "d20c02dd23cfbfde", "spans": "+++++++=++=+++++++++=++=++++++=++=+++++++++=+.", "conf": "99999999999999999999889399998899999999"}
+  {"work_id": "npnf-works/athanasius-letter-54-to-serapion-on-the-death-of-arius", "units": 44, "ids": "3ee7fe010d1ea179", "inputs": "ed39ab2240788b09", "spans": "+++++++++=+++++++++++=+++++..++++=++++++++++", "conf": "999999999999999999999889399998899999999"},
+  {"work_id": "ogpg/vol-025/de-morte-arii", "units": 47, "ids": "ae6809baf2137a4d", "inputs": "cf210d18889dc21f", "spans": "++++++++=++=+++++++++=++=++++++=++=+++++++++=+.", "conf": "999999999999999999999889399998899999999"}
  ]
 }
