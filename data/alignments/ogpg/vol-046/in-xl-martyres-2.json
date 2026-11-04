@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-046/in-xl-martyres-2",
  "pivot": "mt-eng/ogpg/vol-046/in-xl-martyres-2",
- "groups": 137,
- "inputs": "3ae4557d7f8a5092",
- "run": {"aligner": 2, "date": "2026-11-01", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 135,
+ "inputs": "af3a70b693e53aae",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "mt-eng/ogpg/vol-046/in-xl-martyres-2", "units": 137, "ids": "5016d8c8ab52c4ab", "inputs": "c2a8fea652dcdcf3", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-046/in-xl-martyres-2", "units": 137, "ids": "dca9b48f33aa7f74", "inputs": "b00ca1138bde7e44", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/ogpg/vol-046/in-xl-martyres-2", "units": 137, "ids": "5016d8c8ab52c4ab", "inputs": "c2a8fea652dcdcf3", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-046/in-xl-martyres-2", "units": 143, "ids": "19fa815ca34c89c9", "inputs": "4c2f628cd1d23b34", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

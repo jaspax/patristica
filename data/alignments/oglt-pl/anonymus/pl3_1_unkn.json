@@ -2,11 +2,11 @@
  "format": 1,
  "group": "oglt-pl/anonymus/pl3_1_unkn",
  "pivot": "oglt-pl/anonymus/pl3_1_unkn",
- "groups": 30,
- "inputs": "586906466ef17116",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 29,
+ "inputs": "2425f2f2078d086b",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/muratorian-fragment", "units": 31, "ids": "cb93d572980de2b7", "inputs": "2305d178425ccb3e", "spans": "+++++++++++++++=+++++++++++++++", "conf": "499999999999999999999999999999"},
-  {"work_id": "oglt-pl/anonymus/pl3_1_unkn", "units": 557, "ids": "55f65946fa15d7e0", "inputs": "100d699074f7bd3f", "spans": ".........+....+...+.......................+......................+==.........+=.........................++..............................+==.............+=..+=++.............+=..................+==..........+.................................+==.......++++....+.........+===...................+............................................................+=..........................................+=...............................................+...+...................................................+==..............................................+===...", "conf": "499999999999999999999999999999"}
+  {"work_id": "anf-works/muratorian-fragment", "units": 31, "ids": "cb93d572980de2b7", "inputs": "2305d178425ccb3e", "spans": "..+++++++++++++++++++++++++++++", "conf": "89999999999999999999999999998"},
+  {"work_id": "oglt-pl/anonymus/pl3_1_unkn", "units": 543, "ids": "1832923b777a481b", "inputs": "51dd9791518c9d4e", "spans": "++................................................................+=.........+=.........................++..................................++............+=++.+=+............................+++..................................................++++++=.................................+.............................................................................................+........+...................................+............................................................+.....................................................+....+", "conf": "89999999999999999999999999998"}
  ]
 }

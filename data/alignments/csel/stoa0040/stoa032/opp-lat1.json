@@ -2,11 +2,11 @@
  "format": 1,
  "group": "csel/stoa0040/stoa032/opp-lat1",
  "pivot": "csel/stoa0040/stoa032/opp-lat1",
- "groups": 29,
- "inputs": "10875f3630ea655e",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 24,
+ "inputs": "19257aba7ac2b0a4",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "csel/stoa0040/stoa032/opp-lat1", "units": 380, "ids": "9a3c311c8af7d443", "inputs": "94bddc6ef5c34c61", "spans": "............................................................+.......+==+=..................................................................+==.....................+==..+......................+==..................+...................................................................................+...........+.......................................+.......++++++++++++++++++=.....", "conf": "99999794374999999999999999999"},
-  {"work_id": "oglt-pl/augustinus/pl40_6_s.", "units": 36, "ids": "f4346c91718e404d", "inputs": "ec89380795091dd8", "spans": "+++++++=++.+=++.+++++=++=++=++++++++", "conf": "99999794374999999999999999999"}
+  {"work_id": "csel/stoa0040/stoa032/opp-lat1", "units": 380, "ids": "9a3c311c8af7d443", "inputs": "94bddc6ef5c34c61", "spans": "....................................................................+==+=..................................................................+==.....................+==..+.........................................................................................................................................+==...............................................++++++++++++++++++=.....", "conf": "999968999999999999999999"},
+  {"work_id": "oglt-pl/augustinus/pl40_6_s.", "units": 35, "ids": "db6894840e359e44", "inputs": "09472129a16aa82b", "spans": "++++++.......+.+++++=++=++=++++++++", "conf": "999968999999999999999999"}
  ]
 }
