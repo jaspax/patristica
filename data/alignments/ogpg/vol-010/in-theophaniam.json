@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/in-theophaniam",
  "pivot": "ogpg/vol-010/in-theophaniam",
  "groups": 84,
- "inputs": "f379751980be254d",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "52e1ec9f9c55f84c",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/pseudo-hippolytus-on-the-theophany", "units": 100, "ids": "6aaebb425ee1271b", "inputs": "21fda337176a74f4", "spans": "++++++++++++=++++++=++++=+++++++++++++++++=+......+=..++++++++++++=+++++++++++++++=+++++++++=+++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-010/in-theophaniam", "units": 171, "ids": "11894e9911c93c09", "inputs": "bc5ed32a28465346", "spans": "++=+++=+++=++++++++++++++++++++++.+++++++++++++++++=+++++++=+++++++=++++++++++++++++++=+++=++..............................................................................", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "ogpg/vol-010/in-theophaniam", "units": 177, "ids": "df1a9e33344ffb47", "inputs": "c21ad951ea6ac0d3", "spans": "++=+++=+++=++++++++++++++++++++++.+++++++++++++++++=+++++++=+++++++=++++++++++++++++++=+++=++....................................................................................", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -3,10 +3,10 @@
  "group": "oglt-pl/anonymus/pl61_11_au",
  "pivot": "oglt-pl/anonymus/pl6_4_anon",
  "groups": 52,
- "inputs": "8bd26e81f8f2c2f6",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "ec1f0f528966e88f",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "oglt-pl/anonymus/pl61_11_au", "units": 54, "ids": "8fd53748ffc92c0c", "inputs": "c0d0dea25b5d2d94", "spans": ".+++++++++++++++++++++++++++++++++++++++=+++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/anonymus/pl6_4_anon", "units": 55, "ids": "362de2c9fc233485", "inputs": "691f6015f9f7c8a8", "spans": "+++++++=+++++++++=++++++++++++++++++++++++++=++++++++++", "conf": "9999999999999999999999999999999999999999999999999999"}
+  {"work_id": "oglt-pl/anonymus/pl6_4_anon", "units": 55, "ids": "362de2c9fc233485", "inputs": "4d066f159dc5a817", "spans": "+++++++=+++++++++=++++++++++++++++++++++++++=++++++++++", "conf": "9999999999999999999999999999999999999999999999999999"}
  ]
 }

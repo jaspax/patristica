@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "oglt-pl/hieronymus/pl28_16_unknown",
- "pivot": "oglt-pl/hieronymus/pl28_16_unknown",
- "groups": 32,
- "inputs": "b39a03c5692a19cc",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "npnf-works/jerome-preface-to-job",
+ "groups": 30,
+ "inputs": "468c9687b2fafa7d",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/jerome-preface-to-job", "units": 36, "ids": "a243e401bea36bb6", "inputs": "8b5f0026b9115624", "spans": "...++++++++++++++.++++++++++++++++++", "conf": "99979999999999999999999999999999"},
-  {"work_id": "oglt-pl/hieronymus/pl28_16_unknown", "units": 100, "ids": "1ee4e2ee62bed4dd", "inputs": "f7bb0c87925704a3", "spans": "++++.........+=........+=...+==+=++++++++...............+.++++++++++..............++...........+++..", "conf": "99979999999999999999999999999999"}
+  {"work_id": "npnf-works/jerome-preface-to-job", "units": 36, "ids": "a243e401bea36bb6", "inputs": "8b5f0026b9115624", "spans": "...+++++++=++++++.+++++=++++++++++++", "conf": "999999999999999999999999999999"},
+  {"work_id": "oglt-pl/hieronymus/pl28_16_unknown", "units": 98, "ids": "5460b774296f019b", "inputs": "17214cbac4c7fcff", "spans": "++++........................+=++=+++++++++................+++++++++..............++..........+++..", "conf": "999999999999999999999999999999"}
  ]
 }
