@@ -1,0 +1,37 @@
+{
+  "work_id": "titus-paul-ab/1tim",
+  "source_path": "titus-paul-ab/1tim.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-paul-ab/1tim#1Tim.1.5",
+      "source_sha256": "9312d605b0061257",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But the goal of the commandment is love from a pure heart and a good conscience and a sincere faith,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1tim#1Tim.1.6",
+      "source_sha256": "b4b85e953dc134d9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "which some have failed to reach, and they have turned aside to empty talk."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1tim#1Tim.2.3",
+      "source_sha256": "1e3438dd96f4acd9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for this is good and pleasing before God our Savior,"
+    }
+  ]
+}

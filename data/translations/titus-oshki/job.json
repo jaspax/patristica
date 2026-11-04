@@ -1,0 +1,23 @@
+{
+  "work_id": "titus-oshki/job",
+  "source_path": "titus-oshki/job.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-oshki/job#Job.12.16",
+      "source_sha256": "22b1af4751989610",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "From him come strength and power; knowledge and understanding are his."
+    }
+  ]
+}

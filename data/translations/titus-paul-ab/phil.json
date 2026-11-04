@@ -1,0 +1,23 @@
+{
+  "work_id": "titus-paul-ab/phil",
+  "source_path": "titus-paul-ab/phil.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-paul-ab/phil#Phil.4.17",
+      "source_sha256": "a99b65be870efb03",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "It is not that I seek the gift; rather, I seek the fruit that increases to your credit."
+    }
+  ]
+}

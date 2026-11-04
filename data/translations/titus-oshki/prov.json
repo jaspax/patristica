@@ -1,0 +1,23 @@
+{
+  "work_id": "titus-oshki/prov",
+  "source_path": "titus-oshki/prov.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-oshki/prov#Prov.31.8",
+      "source_sha256": "fc474222d73bab49",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Open your mouth with the word of God, and judge everyone soundly."
+    }
+  ]
+}
