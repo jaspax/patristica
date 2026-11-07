@@ -300,7 +300,7 @@
    ]
   },
   "book:1cor": {
-   "keys": "430eb0ccac69c698",
+   "keys": "5e2fe7340cf6bbf1",
    "members": [
     "armenian/1cor",
     "asv/1cor",
@@ -310,6 +310,8 @@
     "pta-lxx/1cor",
     "pta-peshitta/1cor",
     "sblgnt/1cor",
+    "titus-paul-ab/1cor",
+    "titus-paul-cd/1cor",
     "web/1cor",
     "wulfila/1cor"
    ]
@@ -323,16 +325,17 @@
    ]
   },
   "book:1esd": {
-   "keys": "42463f61fe1aca86",
+   "keys": "d2589a1562c43b70",
    "members": [
     "armenian/1esd",
     "gez/1esd",
     "pta-lxx/1esr",
-    "pta-peshitta/3esr"
+    "pta-peshitta/3esr",
+    "titus-oshki/1esd"
    ]
   },
   "book:1john": {
-   "keys": "02ce94eb37995fe7",
+   "keys": "2bbd46c5bc7a3abd",
    "members": [
     "armenian/1john",
     "asv/1john",
@@ -342,11 +345,15 @@
     "pta-lxx/1john",
     "pta-peshitta/1john",
     "sblgnt/1john",
+    "titus-catholic-a1/1john",
+    "titus-catholic-b/1john",
+    "titus-catholic-d/1john",
+    "titus-catholic-g/1john",
     "web/1john"
    ]
   },
   "book:1kgs": {
-   "keys": "dc2cc1261436787e",
+   "keys": "67aa115a9d3d769d",
    "members": [
     "armenian/1kgs",
     "asv/1kgs",
@@ -356,6 +363,7 @@
     "oshb/1kgs",
     "pta-lxx/1kgs",
     "pta-peshitta/1kgs",
+    "titus-oshki/1kgs",
     "web/1kgs"
    ]
   },
@@ -369,7 +377,7 @@
    ]
   },
   "book:1pet": {
-   "keys": "57ced563c8f591d4",
+   "keys": "3a8eac7239e61355",
    "members": [
     "armenian/1pet",
     "asv/1pet",
@@ -379,11 +387,15 @@
     "pta-lxx/1pet",
     "pta-peshitta/1pet",
     "sblgnt/1pet",
+    "titus-catholic-a1/1pet",
+    "titus-catholic-b/1pet",
+    "titus-catholic-d/1pet",
+    "titus-catholic-g/1pet",
     "web/1pet"
    ]
   },
   "book:1sam": {
-   "keys": "e31eb45499bfc59e",
+   "keys": "47993c2a9ed3b586",
    "members": [
     "armenian/1sam",
     "asv/1sam",
@@ -393,11 +405,12 @@
     "oshb/1sam",
     "pta-lxx/1sam",
     "pta-peshitta/1sam",
+    "titus-oshki/1sam",
     "web/1sam"
    ]
   },
   "book:1thess": {
-   "keys": "d24e73dc94934c29",
+   "keys": "9425e7c2956d15a0",
    "members": [
     "armenian/1thess",
     "asv/1thess",
@@ -407,12 +420,14 @@
     "pta-lxx/1thess",
     "pta-peshitta/1thess",
     "sblgnt/1thess",
+    "titus-paul-ab/1thess",
+    "titus-paul-cd/1thess",
     "web/1thess",
     "wulfila/1thess"
    ]
   },
   "book:1tim": {
-   "keys": "b43622e98438f93c",
+   "keys": "f27953a5b6113f26",
    "members": [
     "armenian/1tim",
     "asv/1tim",
@@ -422,6 +437,8 @@
     "pta-lxx/1tim",
     "pta-peshitta/1tim",
     "sblgnt/1tim",
+    "titus-paul-ab/1tim",
+    "titus-paul-cd/1tim",
     "web/1tim",
     "wulfila/1tim"
    ]
@@ -441,7 +458,7 @@
    ]
   },
   "book:2cor": {
-   "keys": "f3efa696dff48892",
+   "keys": "b05c99f69658ed70",
    "members": [
     "armenian/2cor",
     "asv/2cor",
@@ -451,12 +468,14 @@
     "pta-lxx/2cor",
     "pta-peshitta/2cor",
     "sblgnt/2cor",
+    "titus-paul-ab/2cor",
+    "titus-paul-cd/2cor",
     "web/2cor",
     "wulfila/2cor"
    ]
   },
   "book:2john": {
-   "keys": "0af5fb1d89033b79",
+   "keys": "8545a0461c5d8eb9",
    "members": [
     "armenian/2john",
     "asv/2john",
@@ -466,11 +485,15 @@
     "pta-lxx/2john",
     "pta-peshitta/2john",
     "sblgnt/2john",
+    "titus-catholic-a1/2john",
+    "titus-catholic-b/2john",
+    "titus-catholic-d/2john",
+    "titus-catholic-g/2john",
     "web/2john"
    ]
   },
   "book:2kgs": {
-   "keys": "e005df1e0a422700",
+   "keys": "ceed7c2ca082b0a9",
    "members": [
     "armenian/2kgs",
     "asv/2kgs",
@@ -481,6 +504,7 @@
     "oshb/2kgs",
     "pta-lxx/2kgs",
     "pta-peshitta/2kgs",
+    "titus-oshki/2kgs",
     "web/2kgs"
    ]
   },
@@ -495,7 +519,7 @@
    ]
   },
   "book:2pet": {
-   "keys": "4a3bf1642eb99ec2",
+   "keys": "73730af423e1e999",
    "members": [
     "armenian/2pet",
     "asv/2pet",
@@ -505,11 +529,15 @@
     "pta-lxx/2pet",
     "pta-peshitta/2pet",
     "sblgnt/2pet",
+    "titus-catholic-a1/2pet",
+    "titus-catholic-b/2pet",
+    "titus-catholic-d/2pet",
+    "titus-catholic-g/2pet",
     "web/2pet"
    ]
   },
   "book:2sam": {
-   "keys": "16aeeb69fb1f2148",
+   "keys": "8f4388665e2ac4fb",
    "members": [
     "armenian/2sam",
     "asv/2sam",
@@ -519,11 +547,12 @@
     "oshb/2sam",
     "pta-lxx/2sam",
     "pta-peshitta/2sam",
+    "titus-oshki/2sam",
     "web/2sam"
    ]
   },
   "book:2thess": {
-   "keys": "3511e552b3e6387c",
+   "keys": "6e509c537d47412b",
    "members": [
     "armenian/2thess",
     "asv/2thess",
@@ -533,12 +562,14 @@
     "pta-lxx/2thess",
     "pta-peshitta/2thess",
     "sblgnt/2thess",
+    "titus-paul-ab/2thess",
+    "titus-paul-cd/2thess",
     "web/2thess",
     "wulfila/2thess"
    ]
   },
   "book:2tim": {
-   "keys": "f00c0adf880688ff",
+   "keys": "d35801bc11057bd1",
    "members": [
     "armenian/2tim",
     "asv/2tim",
@@ -548,12 +579,14 @@
     "pta-lxx/2tim",
     "pta-peshitta/2tim",
     "sblgnt/2tim",
+    "titus-paul-ab/2tim",
+    "titus-paul-cd/2tim",
     "web/2tim",
     "wulfila/2tim"
    ]
   },
   "book:3john": {
-   "keys": "1bb3923a2738a17f",
+   "keys": "368267d90df24b59",
    "members": [
     "armenian/3john",
     "asv/3john",
@@ -563,6 +596,10 @@
     "pta-lxx/3john",
     "pta-peshitta/3john",
     "sblgnt/3john",
+    "titus-catholic-a1/3john",
+    "titus-catholic-b/3john",
+    "titus-catholic-d/3john",
+    "titus-catholic-g/3john",
     "web/3john"
    ]
   },
@@ -575,10 +612,11 @@
    ]
   },
   "book:4esr": {
-   "keys": "02a520b998cc8788",
+   "keys": "d332c26c02cc99ec",
    "members": [
     "gez/4esr",
-    "pta-peshitta/4esr"
+    "pta-peshitta/4esr",
+    "titus-oshki/4esr"
    ]
   },
   "book:4macc": {
@@ -589,7 +627,7 @@
    ]
   },
   "book:acts": {
-   "keys": "657762495991f966",
+   "keys": "e6609794d11289d4",
    "members": [
     "armenian/acts",
     "asv/acts",
@@ -599,11 +637,13 @@
     "pta-lxx/acts",
     "pta-peshitta/acts",
     "sblgnt/acts",
+    "titus-acts-ab/acts",
+    "titus-acts-sinai/acts",
     "web/acts"
    ]
   },
   "book:amos": {
-   "keys": "eed93d86b0a0a0dc",
+   "keys": "916aade1048285f1",
    "members": [
     "armenian/amos",
     "asv/amos",
@@ -614,26 +654,29 @@
     "oshb/amos",
     "pta-lxx/amos",
     "pta-peshitta/amos",
+    "titus-oshki/amos",
     "web/amos"
    ]
   },
   "book:bar": {
-   "keys": "c296f5bd90f84739",
+   "keys": "4e5706fc59b91ddb",
    "members": [
     "armenian/bar",
     "clementine/bar",
     "coptic-nt/bar",
     "lxx-rahlfs/bar",
     "pta-lxx/bar",
-    "pta-peshitta/bar"
+    "pta-peshitta/bar",
+    "titus-oshki/bar"
    ]
   },
   "book:beldr": {
-   "keys": "afbbd7194063f037",
+   "keys": "16100b04b5cd50c3",
    "members": [
     "pta-lxx/beldr",
     "pta-lxx/beldrthdt",
-    "pta-peshitta/beldr"
+    "pta-peshitta/beldr",
+    "titus-oshki/beldr"
    ]
   },
   "book:chrabr": {
@@ -644,7 +687,7 @@
    ]
   },
   "book:col": {
-   "keys": "3af0b78015b72806",
+   "keys": "c627dcb122ed5c60",
    "members": [
     "armenian/col",
     "asv/col",
@@ -654,12 +697,14 @@
     "pta-lxx/col",
     "pta-peshitta/col",
     "sblgnt/col",
+    "titus-paul-ab/col",
+    "titus-paul-cd/col",
     "web/col",
     "wulfila/col"
    ]
   },
   "book:dan": {
-   "keys": "c591c38ab2c820fc",
+   "keys": "4c5d01d0a10ad4a1",
    "members": [
     "armenian/dan",
     "asv/dan",
@@ -671,6 +716,7 @@
     "pta-lxx/dan",
     "pta-lxx/danthdt",
     "pta-peshitta/dan",
+    "titus-oshki/dan",
     "web/dan"
    ]
   },
@@ -691,7 +737,7 @@
    ]
   },
   "book:eccl": {
-   "keys": "a89e046a138889c9",
+   "keys": "be74e7ee9bf62b9d",
    "members": [
     "armenian/eccl",
     "asv/eccl",
@@ -702,11 +748,12 @@
     "oshb/eccl",
     "pta-lxx/eccl",
     "pta-peshitta/eccl",
+    "titus-oshki/eccl",
     "web/eccl"
    ]
   },
   "book:eph": {
-   "keys": "cd5932e5a0221a17",
+   "keys": "b149a951ec7cb498",
    "members": [
     "armenian/eph",
     "asv/eph",
@@ -716,20 +763,23 @@
     "pta-lxx/eph",
     "pta-peshitta/eph",
     "sblgnt/eph",
+    "titus-paul-ab/eph",
+    "titus-paul-cd/eph",
     "web/eph",
     "wulfila/eph"
    ]
   },
   "book:epjer": {
-   "keys": "2d83fcc8a4bd8697",
+   "keys": "387327325b734d13",
    "members": [
     "coptic-nt/epjer",
     "pta-lxx/epjer",
-    "pta-peshitta/epjer"
+    "pta-peshitta/epjer",
+    "titus-oshki/epjer"
    ]
   },
   "book:esth": {
-   "keys": "8e668f89bc01375e",
+   "keys": "bea1065f752c0f78",
    "members": [
     "armenian/esth",
     "asv/esth",
@@ -739,6 +789,7 @@
     "oshb/esth",
     "pta-lxx/esth",
     "pta-peshitta/esth",
+    "titus-oshki/esth",
     "web/esth"
    ]
   },
@@ -750,7 +801,7 @@
    ]
   },
   "book:exod": {
-   "keys": "92c8d51ca3c9fcee",
+   "keys": "d5b666167d469488",
    "members": [
     "armenian/exod",
     "asv/exod",
@@ -762,11 +813,12 @@
     "oshb/exod",
     "pta-lxx/exod",
     "pta-peshitta/exod",
+    "titus-oshki/exod",
     "web/exod"
    ]
   },
   "book:ezek": {
-   "keys": "9a2df619aff7bcbf",
+   "keys": "61fc575ecfe882d1",
    "members": [
     "armenian/ezek",
     "asv/ezek",
@@ -777,11 +829,12 @@
     "oshb/ezek",
     "pta-lxx/ezek",
     "pta-peshitta/ezek",
+    "titus-oshki/ezek",
     "web/ezek"
    ]
   },
   "book:ezra": {
-   "keys": "8dae8cbbc17f6995",
+   "keys": "79564f6d3bf717bc",
    "members": [
     "armenian/ezra",
     "asv/ezra",
@@ -790,11 +843,12 @@
     "kjv/ezra",
     "oshb/ezra",
     "pta-peshitta/ezra",
+    "titus-oshki/ezra",
     "web/ezra"
    ]
   },
   "book:gal": {
-   "keys": "44b11d9aa8b2107c",
+   "keys": "1f595b0bb2dcccf0",
    "members": [
     "armenian/gal",
     "asv/gal",
@@ -804,12 +858,14 @@
     "pta-lxx/gal",
     "pta-peshitta/gal",
     "sblgnt/gal",
+    "titus-paul-ab/gal",
+    "titus-paul-cd/gal",
     "web/gal",
     "wulfila/gal"
    ]
   },
   "book:gen": {
-   "keys": "c0da725e872bf843",
+   "keys": "6428b6ab1b8532e9",
    "members": [
     "armenian/gen",
     "asv/gen",
@@ -821,11 +877,12 @@
     "oshb/gen",
     "pta-lxx/gen",
     "pta-peshitta/gen",
+    "titus-oshki/gen",
     "web/gen"
    ]
   },
   "book:hab": {
-   "keys": "490f57e4c56ba4bc",
+   "keys": "ecc9a9b1e4ae8b07",
    "members": [
     "armenian/hab",
     "asv/hab",
@@ -836,11 +893,12 @@
     "oshb/hab",
     "pta-lxx/hab",
     "pta-peshitta/hab",
+    "titus-oshki/hab",
     "web/hab"
    ]
   },
   "book:hag": {
-   "keys": "95a43654282c62e2",
+   "keys": "e21d2bcd45dda072",
    "members": [
     "armenian/hag",
     "asv/hag",
@@ -851,11 +909,12 @@
     "oshb/hag",
     "pta-lxx/hag",
     "pta-peshitta/hag",
+    "titus-oshki/hag",
     "web/hag"
    ]
   },
   "book:heb": {
-   "keys": "f2891b30b54cdf4b",
+   "keys": "2495bdd8dfdca471",
    "members": [
     "armenian/heb",
     "asv/heb",
@@ -865,11 +924,13 @@
     "pta-lxx/heb",
     "pta-peshitta/heb",
     "sblgnt/heb",
+    "titus-paul-ab/heb",
+    "titus-paul-cd/heb",
     "web/heb"
    ]
   },
   "book:hos": {
-   "keys": "154a3198e5c18652",
+   "keys": "80dc05e5445c2def",
    "members": [
     "armenian/hos",
     "asv/hos",
@@ -880,11 +941,12 @@
     "oshb/hos",
     "pta-lxx/hos",
     "pta-peshitta/hos",
+    "titus-oshki/hos",
     "web/hos"
    ]
   },
   "book:isa": {
-   "keys": "ee6a59e6bc8ecbde",
+   "keys": "bb8925797c076133",
    "members": [
     "armenian/isa",
     "asv/isa",
@@ -896,11 +958,12 @@
     "oshb/isa",
     "pta-lxx/isa",
     "pta-peshitta/isa",
+    "titus-oshki/isa",
     "web/isa"
    ]
   },
   "book:jas": {
-   "keys": "aa270134c4596bf6",
+   "keys": "23268602fcfbaddb",
    "members": [
     "armenian/jas",
     "asv/jas",
@@ -910,11 +973,15 @@
     "pta-lxx/jas",
     "pta-peshitta/jas",
     "sblgnt/jas",
+    "titus-catholic-a1/jas",
+    "titus-catholic-b/jas",
+    "titus-catholic-d/jas",
+    "titus-catholic-g/jas",
     "web/jas"
    ]
   },
   "book:jdt": {
-   "keys": "7d65058642a8d205",
+   "keys": "3675aa3d787a7b48",
    "members": [
     "armenian/jdt",
     "clementine/jdt",
@@ -922,11 +989,12 @@
     "gez/jdt",
     "lxx-rahlfs/jdt",
     "pta-lxx/jdt",
-    "pta-peshitta/jdt"
+    "pta-peshitta/jdt",
+    "titus-oshki/jdt"
    ]
   },
   "book:jer": {
-   "keys": "096394a7e9d65506",
+   "keys": "56039eda537fb3b2",
    "members": [
     "armenian/jer",
     "asv/jer",
@@ -937,11 +1005,12 @@
     "oshb/jer",
     "pta-lxx/jer",
     "pta-peshitta/jer",
+    "titus-oshki/jer",
     "web/jer"
    ]
   },
   "book:job": {
-   "keys": "69567a33c370e597",
+   "keys": "c45987e6b82fb5e8",
    "members": [
     "armenian/job",
     "asv/job",
@@ -953,11 +1022,12 @@
     "oshb/job",
     "pta-lxx/job",
     "pta-peshitta/job",
+    "titus-oshki/job",
     "web/job"
    ]
   },
   "book:joel": {
-   "keys": "f3e46fd25494cbdc",
+   "keys": "6dbfbc2ac522982f",
    "members": [
     "armenian/joel",
     "asv/joel",
@@ -969,11 +1039,12 @@
     "oshb/joel",
     "pta-lxx/joel",
     "pta-peshitta/joel",
+    "titus-oshki/joel",
     "web/joel"
    ]
   },
   "book:john": {
-   "keys": "074230afd6834fff",
+   "keys": "2da22685b6a110a1",
    "members": [
     "armenian/john",
     "asv/john",
@@ -987,12 +1058,16 @@
     "pta-lxx/john",
     "pta-peshitta/john",
     "sblgnt/john",
+    "titus-adishi/john",
+    "titus-athonite-gospels/john",
+    "titus-khanmeti-gospels/john",
+    "titus-preathonite-gospels/john",
     "web/john",
     "wulfila/john"
    ]
   },
   "book:jonah": {
-   "keys": "458d2da904eb6d20",
+   "keys": "21c889282d9a7d2c",
    "members": [
     "armenian/jonah",
     "asv/jonah",
@@ -1004,6 +1079,7 @@
     "oshb/jonah",
     "pta-lxx/jonah",
     "pta-peshitta/jonah",
+    "titus-oshki/jonah",
     "web/jonah"
    ]
   },
@@ -1023,7 +1099,7 @@
    ]
   },
   "book:jude": {
-   "keys": "15f8195b18ac17a5",
+   "keys": "c0292db72cd347ff",
    "members": [
     "armenian/jude",
     "asv/jude",
@@ -1032,11 +1108,15 @@
     "pta-lxx/jude",
     "pta-peshitta/jude",
     "sblgnt/jude",
+    "titus-catholic-a1/jude",
+    "titus-catholic-b/jude",
+    "titus-catholic-d/jude",
+    "titus-catholic-g/jude",
     "web/jude"
    ]
   },
   "book:judg": {
-   "keys": "af276dd1536f214d",
+   "keys": "2e0b2032f3f4b733",
    "members": [
     "armenian/judg",
     "asv/judg",
@@ -1048,6 +1128,7 @@
     "pta-lxx/judg",
     "pta-lxx/judgvat",
     "pta-peshitta/judg",
+    "titus-oshki/judg",
     "web/judg"
    ]
   },
@@ -1059,7 +1140,7 @@
    ]
   },
   "book:lam": {
-   "keys": "7366d622151e9463",
+   "keys": "2ac651e2537e083a",
    "members": [
     "armenian/lam",
     "asv/lam",
@@ -1071,6 +1152,7 @@
     "oshb/lam",
     "pta-lxx/lam",
     "pta-peshitta/lam",
+    "titus-oshki/lam",
     "web/lam"
    ]
   },
@@ -1082,7 +1164,7 @@
    ]
   },
   "book:lev": {
-   "keys": "9cf8c2d7d7f4bd23",
+   "keys": "89468552b6590b6d",
    "members": [
     "armenian/lev",
     "asv/lev",
@@ -1094,11 +1176,12 @@
     "oshb/lev",
     "pta-lxx/lev",
     "pta-peshitta/lev",
+    "titus-oshki/lev",
     "web/lev"
    ]
   },
   "book:luke": {
-   "keys": "b10226de2b89fcc7",
+   "keys": "e7f5eb5140f17ace",
    "members": [
     "armenian/luke",
     "asv/luke",
@@ -1112,12 +1195,16 @@
     "pta-lxx/luke",
     "pta-peshitta/luke",
     "sblgnt/luke",
+    "titus-adishi/luke",
+    "titus-athonite-gospels/luke",
+    "titus-khanmeti-gospels/luke",
+    "titus-preathonite-gospels/luke",
     "web/luke",
     "wulfila/luke"
    ]
   },
   "book:mal": {
-   "keys": "ca00bd715078710a",
+   "keys": "346e75da39430d99",
    "members": [
     "armenian/mal",
     "asv/mal",
@@ -1127,11 +1214,12 @@
     "oshb/mal",
     "pta-lxx/mal",
     "pta-peshitta/mal",
+    "titus-oshki/mal",
     "web/mal"
    ]
   },
   "book:mark": {
-   "keys": "fb39198cfc634808",
+   "keys": "faf9d9f42fc5af9d",
    "members": [
     "armenian/mark",
     "asv/mark",
@@ -1145,12 +1233,16 @@
     "pta-lxx/mark",
     "pta-peshitta/mark",
     "sblgnt/mark",
+    "titus-adishi/mark",
+    "titus-athonite-gospels/mark",
+    "titus-khanmeti-gospels/mark",
+    "titus-preathonite-gospels/mark",
     "web/mark",
     "wulfila/mark"
    ]
   },
   "book:matt": {
-   "keys": "3a126b2ef5f240ce",
+   "keys": "070ba37b20b597e8",
    "members": [
     "armenian/matt",
     "asv/matt",
@@ -1164,12 +1256,16 @@
     "pta-lxx/matt",
     "pta-peshitta/matt",
     "sblgnt/matt",
+    "titus-adishi/matt",
+    "titus-athonite-gospels/matt",
+    "titus-khanmeti-gospels/matt",
+    "titus-preathonite-gospels/matt",
     "web/matt",
     "wulfila/matt"
    ]
   },
   "book:mic": {
-   "keys": "dcbfb0eb7d33e451",
+   "keys": "9a46a4fe573a5412",
    "members": [
     "armenian/mic",
     "asv/mic",
@@ -1180,6 +1276,7 @@
     "oshb/mic",
     "pta-lxx/mic",
     "pta-peshitta/mic",
+    "titus-oshki/mic",
     "web/mic"
    ]
   },
@@ -1191,7 +1288,7 @@
    ]
   },
   "book:nah": {
-   "keys": "e7c2b6c00842b6d9",
+   "keys": "590e3c3269175244",
    "members": [
     "armenian/nah",
     "asv/nah",
@@ -1202,11 +1299,12 @@
     "oshb/nah",
     "pta-lxx/nah",
     "pta-peshitta/nah",
+    "titus-oshki/nah",
     "web/nah"
    ]
   },
   "book:neh": {
-   "keys": "b16207285bd062e6",
+   "keys": "1b48d45f73c4cf3e",
    "members": [
     "armenian/neh",
     "asv/neh",
@@ -1214,6 +1312,7 @@
     "kjv/neh",
     "oshb/neh",
     "pta-peshitta/neh",
+    "titus-oshki/neh",
     "web/neh",
     "wulfila/neh"
    ]
@@ -1235,7 +1334,7 @@
    ]
   },
   "book:obad": {
-   "keys": "1056f2a80478fca9",
+   "keys": "ff50d43c3fcd86fe",
    "members": [
     "armenian/obad",
     "asv/obad",
@@ -1245,19 +1344,21 @@
     "oshb/obad",
     "pta-lxx/obad",
     "pta-peshitta/obad",
+    "titus-oshki/obad",
     "web/obad"
    ]
   },
   "book:odes": {
-   "keys": "9115364b18df264d",
+   "keys": "1a6381e690f6f91c",
    "members": [
     "mt-eng/pta-peshitta/odes",
     "pta-lxx/odes",
-    "pta-peshitta/odes"
+    "pta-peshitta/odes",
+    "titus-psalter-a/odes"
    ]
   },
   "book:phil": {
-   "keys": "37d86c21a4cf04ee",
+   "keys": "bfa407cbde8472c1",
    "members": [
     "armenian/phil",
     "asv/phil",
@@ -1267,12 +1368,14 @@
     "pta-lxx/phil",
     "pta-peshitta/phil",
     "sblgnt/phil",
+    "titus-paul-ab/phil",
+    "titus-paul-cd/phil",
     "web/phil",
     "wulfila/phil"
    ]
   },
   "book:phlm": {
-   "keys": "67b3bb3b3e3316b3",
+   "keys": "9d1990105c3c427e",
    "members": [
     "armenian/phlm",
     "asv/phlm",
@@ -1282,12 +1385,14 @@
     "pta-lxx/phlm",
     "pta-peshitta/phlm",
     "sblgnt/phlm",
+    "titus-paul-ab/phlm",
+    "titus-paul-cd/phlm",
     "web/phlm",
     "wulfila/phlm"
    ]
   },
   "book:prov": {
-   "keys": "df00dce6e576e815",
+   "keys": "efa52fcb85580b56",
    "members": [
     "armenian/prov",
     "asv/prov",
@@ -1299,11 +1404,12 @@
     "oshb/prov",
     "pta-lxx/prov",
     "pta-peshitta/prov",
+    "titus-oshki/prov",
     "web/prov"
    ]
   },
   "book:ps": {
-   "keys": "87607789d91a4ebc",
+   "keys": "5dcb402ffd9156ca",
    "members": [
     "armenian/ps",
     "asv/ps",
@@ -1315,6 +1421,7 @@
     "oshb/ps",
     "pta-lxx/ps",
     "pta-peshitta/ps",
+    "titus-psalter-a/ps",
     "torot/ps",
     "web/ps"
    ]
@@ -1328,7 +1435,7 @@
    ]
   },
   "book:rev": {
-   "keys": "fae4b8b51652f988",
+   "keys": "b1ab6f7308c203d1",
    "members": [
     "armenian/rev",
     "asv/rev",
@@ -1338,11 +1445,12 @@
     "pta-lxx/rev",
     "pta-peshitta/rev",
     "sblgnt/rev",
+    "titus-apocalypse/rev",
     "web/rev"
    ]
   },
   "book:rom": {
-   "keys": "b23a469a89202b3d",
+   "keys": "29838f06747fc266",
    "members": [
     "armenian/rom",
     "asv/rom",
@@ -1352,12 +1460,14 @@
     "pta-lxx/rom",
     "pta-peshitta/rom",
     "sblgnt/rom",
+    "titus-paul-ab/rom",
+    "titus-paul-cd/rom",
     "web/rom",
     "wulfila/rom"
    ]
   },
   "book:ruth": {
-   "keys": "5c58a41a6fd010da",
+   "keys": "2ccc1b9a03be57d0",
    "members": [
     "armenian/ruth",
     "asv/ruth",
@@ -1369,6 +1479,7 @@
     "oshb/ruth",
     "pta-lxx/ruth",
     "pta-peshitta/ruth",
+    "titus-oshki/ruth",
     "web/ruth"
    ]
   },
@@ -1380,7 +1491,7 @@
    ]
   },
   "book:sir": {
-   "keys": "5aaa2a1b22f36858",
+   "keys": "96cef29756c51ed1",
    "members": [
     "armenian/sir",
     "clementine/sir",
@@ -1388,11 +1499,12 @@
     "gez/sir",
     "lxx-rahlfs/sir",
     "pta-lxx/sir",
-    "pta-peshitta/sir"
+    "pta-peshitta/sir",
+    "titus-oshki/sir"
    ]
   },
   "book:song": {
-   "keys": "91f311455f561fa7",
+   "keys": "ff5bf9479e2da5f4",
    "members": [
     "armenian/song",
     "asv/song",
@@ -1403,15 +1515,17 @@
     "oshb/song",
     "pta-lxx/song",
     "pta-peshitta/song",
+    "titus-oshki/song",
     "web/song"
    ]
   },
   "book:sus": {
-   "keys": "dad33a3b83a55632",
+   "keys": "e0d643131af941f7",
    "members": [
     "pta-lxx/sus",
     "pta-lxx/susthdt",
-    "pta-peshitta/sus"
+    "pta-peshitta/sus",
+    "titus-oshki/sus"
    ]
   },
   "book:synax": {
@@ -1422,7 +1536,7 @@
    ]
   },
   "book:titus": {
-   "keys": "e2548b460c0c584a",
+   "keys": "aebb2f892eb3c404",
    "members": [
     "armenian/titus",
     "asv/titus",
@@ -1432,12 +1546,14 @@
     "pta-lxx/titus",
     "pta-peshitta/titus",
     "sblgnt/titus",
+    "titus-paul-ab/titus",
+    "titus-paul-cd/titus",
     "web/titus",
     "wulfila/titus"
    ]
   },
   "book:tob": {
-   "keys": "d65cedc07c171d79",
+   "keys": "20e102339b38ed89",
    "members": [
     "armenian/tob",
     "clementine/tob",
@@ -1445,22 +1561,24 @@
     "gez/tob",
     "pta-lxx/tobsin",
     "pta-lxx/tobvatal",
-    "pta-peshitta/tob"
+    "pta-peshitta/tob",
+    "titus-oshki/tob"
    ]
   },
   "book:wis": {
-   "keys": "cd6e1831559fb0ce",
+   "keys": "4de776b6041188e6",
    "members": [
     "armenian/wis",
     "clementine/wis",
     "gez/wis",
     "lxx-rahlfs/wis",
     "pta-lxx/wis",
-    "pta-peshitta/wis"
+    "pta-peshitta/wis",
+    "titus-oshki/wis"
    ]
   },
   "book:zech": {
-   "keys": "f873f10e1a1d7ecb",
+   "keys": "b2bf4c20ecd6cd20",
    "members": [
     "armenian/zech",
     "asv/zech",
@@ -1471,11 +1589,12 @@
     "oshb/zech",
     "pta-lxx/zech",
     "pta-peshitta/zech",
+    "titus-oshki/zech",
     "web/zech"
    ]
   },
   "book:zeph": {
-   "keys": "c9baf8d08153bacb",
+   "keys": "37cd7b5e6ec36e0f",
    "members": [
     "armenian/zeph",
     "asv/zeph",
@@ -1486,6 +1605,7 @@
     "oshb/zeph",
     "pta-lxx/zeph",
     "pta-peshitta/zeph",
+    "titus-oshki/zeph",
     "web/zeph"
    ]
   },
@@ -4045,6 +4165,12 @@
     "ogpg/vol-106/andreas-caesariensis"
    ]
   },
+  "goarch-chrysostom/liturgy": {
+   "members": [
+    "goarch-chrysostom/liturgy",
+    "titus-liturgy/liturgy-of-st-john-chrysostom"
+   ]
+  },
   "hudra/hudra-ace-1960": {
    "members": [
     "hudra/hudra-ace-1960",
@@ -4787,7 +4913,8 @@
   "ogpg/vol-010/de-christo-et-antichristo": {
    "members": [
     "anf-works/hippolytus-christ-and-antichrist",
-    "ogpg/vol-010/de-christo-et-antichristo"
+    "ogpg/vol-010/de-christo-et-antichristo",
+    "titus-shatberdi/hippolytus-de-christo-et-antichristo"
    ]
   },
   "ogpg/vol-010/de-consummatione-mundi": {
@@ -5122,7 +5249,8 @@
    "members": [
     "npnf-works/basil-hexaemeron",
     "oglt-pl/eustathius-afer/pl53_23_eu",
-    "ogpg/vol-029/in-hexaemeron"
+    "ogpg/vol-029/in-hexaemeron",
+    "titus-translations/basil-hexaemeron"
    ]
   },
   "ogpg/vol-030/de-hominis-structura": {
@@ -5140,7 +5268,8 @@
   "ogpg/vol-031/in-xl-martyres": {
    "members": [
     "ccmh-supr/basil-in-xl-martyres",
-    "ogpg/vol-031/in-xl-martyres"
+    "ogpg/vol-031/in-xl-martyres",
+    "titus-translations/basil-homily-17"
    ]
   },
   "ogpg/vol-032/de-spiritu-sancto": {
@@ -5325,13 +5454,21 @@
    "members": [
     "npnf-works/gregory-of-nyssa-on-the-making-of-man",
     "oglt-pl/dionysius-exiguus/pl67_16_d.",
-    "ogpg/vol-044/de-opificio-hominis"
+    "ogpg/vol-044/de-opificio-hominis",
+    "titus-shatberdi/gregory-of-nyssa-de-hominis-opificio",
+    "titus-translations/gregory-of-nyssa-de-hominis-opificio"
    ]
   },
   "ogpg/vol-044/de-oratione-dominica": {
    "members": [
     "mt-eng/ogpg/vol-044/de-oratione-dominica",
     "ogpg/vol-044/de-oratione-dominica"
+   ]
+  },
+  "ogpg/vol-044/in-canticum": {
+   "members": [
+    "ogpg/vol-044/in-canticum",
+    "titus-translations/gregory-of-nyssa-in-canticum"
    ]
   },
   "ogpg/vol-044/in-hexaemeron": {
@@ -5470,7 +5607,8 @@
   "ogpg/vol-046/de-virginitate": {
    "members": [
     "npnf-works/gregory-of-nyssa-on-virginity",
-    "ogpg/vol-046/de-virginitate"
+    "ogpg/vol-046/de-virginitate",
+    "titus-translations/gregory-of-nyssa-de-virginitate"
    ]
   },
   "ogpg/vol-046/epistulae": {
@@ -5714,7 +5852,8 @@
   "ogpg/vol-059/in-joannem": {
    "members": [
     "npnf-works/chrysostom-homilies-on-john",
-    "ogpg/vol-059/in-joannem"
+    "ogpg/vol-059/in-joannem",
+    "titus-translations/john-chrysostom-in-joannem"
    ]
   },
   "ogpg/vol-060/in-acta": {
@@ -5851,10 +5990,17 @@
     "ogpg/vol-083/eranistes"
    ]
   },
+  "ogpg/vol-088/climacus-scala": {
+   "members": [
+    "ogpg/vol-088/climacus-scala",
+    "titus-translations/john-climacus-ladder"
+   ]
+  },
   "ogpg/vol-088/climacus-vita": {
    "members": [
     "ccmh-supr/vita-ioannis-climaci",
-    "ogpg/vol-088/climacus-vita"
+    "ogpg/vol-088/climacus-vita",
+    "titus-translations/daniel-of-raithu-life-of-john-climacus"
    ]
   },
   "ogpg/vol-091/mystagogia": {
@@ -6469,6 +6615,18 @@
    "members": [
     "rea/tatian",
     "rea/tatian-lat"
+   ]
+  },
+  "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a": {
+   "members": [
+    "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a",
+    "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a"
+   ]
+  },
+  "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b": {
+   "members": [
+    "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b",
+    "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-b"
    ]
   },
   "wb-glosses/1cor": {

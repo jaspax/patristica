@@ -3,8 +3,8 @@
  "group": "book:2thess",
  "pivot": "asv/2thess",
  "groups": 47,
- "inputs": "c3acf785dde597ee",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "bd2e74c46392cd46",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/2thess", "units": 46, "ids": "0ff738c980cb676c", "inputs": "b4cdbeb8c88d3f4f", "spans": "+++++++++++++++++++++++2+++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
   {"work_id": "asv/2thess", "units": 47, "ids": "e6f2f26b897cd12c", "inputs": "64490c1b77db0d42", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
@@ -14,6 +14,8 @@
   {"work_id": "pta-lxx/2thess", "units": 47, "ids": "c39ba3956c28a199", "inputs": "4a208471ff82788b", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "pta-peshitta/2thess", "units": 47, "ids": "2414a6dd43ef6673", "inputs": "8f65381b20d71f1b", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "sblgnt/2thess", "units": 47, "ids": "b4233fc30b2ac571", "inputs": "2006aa42f0338339", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
+  {"work_id": "titus-paul-ab/2thess", "units": 47, "ids": "5ee5bbfb5e4073c6", "inputs": "f32103485f7f2374", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
+  {"work_id": "titus-paul-cd/2thess", "units": 47, "ids": "31e3ecbe94da5237", "inputs": "388f849f57d76e68", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "web/2thess", "units": 47, "ids": "d4aef0336bcfc8fa", "inputs": "92fd6f1a64790f0a", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999"},
   {"work_id": "wulfila/2thess", "units": 37, "ids": "474580f33e6135d7", "inputs": "fc6c36e2b41e90e7", "spans": "++++++++++++++++2+10+++++++=+2+=+2++++++++", "conf": "99999999999999999999999999999999999"}
  ]
