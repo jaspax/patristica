@@ -1,11 +1,11 @@
 {
  "work_id": "aelfric-ch-eng/ch1-34",
  "anchor": "aelfric-ch/ch1-34",
- "method": "e26e66e4678bcee0",
+ "method": "351020005494c156",
  "anchor_cuts": "c87d625e6ec08d27",
  "words": "58b9690f184ce7b4",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 121, "calibration": [0.7921, 0.1479], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9597, "rounds": 4, "units": 124},
+ "stats": {"beads": 121, "calibration": [0.2154, 0.4704], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9597, "rounds": 4, "units": 124},
  "paragraphs": {
   "AECHomI.34.1": {"words": "75809c4baac58ec6", "starts": [0]},
   "AECHomI.34.2": {"words": "6fb6f1944271b38c", "starts": [0]},
@@ -20,13 +20,13 @@
   "AECHomI.34.11": {"words": "dcf4d5e294934f01", "starts": [0]},
   "AECHomI.34.12": {"words": "2011782284fec7ca", "starts": [0]},
   "AECHomI.34.13": {"words": "66ffb2d1e07f4df9", "starts": [0, 24]},
-  "AECHomI.34.14": {"words": "c1a999a4be001156", "starts": [0, 35, 41, 76, 101]},
+  "AECHomI.34.14": {"words": "c1a999a4be001156", "starts": [0, 35, 54, 76, 101]},
   "AECHomI.34.15": {"words": "a63c05d8931175d8", "starts": [0, 34, 56, 85, 113]},
   "AECHomI.34.16": {"words": "17aa8530dc05286f", "starts": [0, 24, 51, 86, 109, 126, 143, 164, 184, 206, 218, 245]},
-  "AECHomI.34.17": {"words": "3817162cc44ae5cd", "starts": [0, 28, 50, 75, 110, 127, 154, 165, 192]},
-  "AECHomI.34.18": {"words": "581aad7b31688206", "starts": [0, 29, 44, 80, 91, 121, 145, 193, 231, 263, 274]},
+  "AECHomI.34.17": {"words": "3817162cc44ae5cd", "starts": [0, 28, 50, 75, 110, 127, 154, 165, 188]},
+  "AECHomI.34.18": {"words": "581aad7b31688206", "starts": [0, 29, 44, 69, 91, 121, 145, 193, 231, 263, 274]},
   "AECHomI.34.19": {"words": "b5b890b1e68f6bb6", "starts": [0, 35, 56, 82, 104, 131, 163, 183]},
-  "AECHomI.34.20": {"words": "545e2c868aa180c4", "starts": [0, 26, 60, 87, 114, 137]},
+  "AECHomI.34.20": {"words": "545e2c868aa180c4", "starts": [0, 26, 60, 70, 114, 137]},
   "AECHomI.34.21": {"words": "820681d8462a2c28", "starts": [0, 25, 49]}
  }
 }

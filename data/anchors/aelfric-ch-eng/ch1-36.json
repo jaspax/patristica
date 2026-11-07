@@ -1,11 +1,11 @@
 {
  "work_id": "aelfric-ch-eng/ch1-36",
  "anchor": "aelfric-ch/ch1-36",
- "method": "e26e66e4678bcee0",
+ "method": "351020005494c156",
  "anchor_cuts": "75885ab0e0f92bfe",
  "words": "21313f8a1bf67ea6",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 119, "calibration": [0.7987, 0.1224], "converged": false, "fallback_paragraphs": 0, "one_one": 0.959, "rounds": 4, "units": 122},
+ "stats": {"beads": 119, "calibration": [0.1677, 0.4434], "converged": false, "fallback_paragraphs": 0, "one_one": 0.959, "rounds": 4, "units": 122},
  "paragraphs": {
   "AECHomI.36.1": {"words": "441a5411416ff9bc", "starts": [0]},
   "AECHomI.36.2": {"words": "8c6dc80d42924d5b", "starts": [0]},
@@ -16,8 +16,8 @@
   "AECHomI.36.7": {"words": "9b138103db92f0e9", "starts": [0, 31, 64, 73, 104, 133, 161]},
   "AECHomI.36.8": {"words": "956e469e64ce2e28", "starts": [0, 41, 70, 86, 124]},
   "AECHomI.36.9": {"words": "ded0b424c2b31c96", "starts": [0, 28, 57, 88, 108, 131]},
-  "AECHomI.36.10": {"words": "fea8374fab58f4c4", "starts": [0, 23, 47, 84, 106, 130, 172]},
-  "AECHomI.36.11": {"words": "2215f240b742f378", "starts": [0, 42, 63, 88]},
+  "AECHomI.36.10": {"words": "fea8374fab58f4c4", "starts": [0, 23, 47, 84, 106, 130, 165]},
+  "AECHomI.36.11": {"words": "2215f240b742f378", "starts": [0, 42, 63, 75]},
   "AECHomI.36.12": {"words": "dcf4d5e294934f01", "starts": [0]},
   "AECHomI.36.13": {"words": "05e5951bd6860545", "starts": [0]},
   "AECHomI.36.14": {"words": "a519e8a92972c631", "starts": [0]},
@@ -31,8 +31,8 @@
   "AECHomI.36.22": {"words": "3f2a05511297740b", "starts": [0, 12, 35, 62]},
   "AECHomI.36.23": {"words": "664c1ad9e0e43195", "starts": [0, 15, 33, 54, 84, 102, 122]},
   "AECHomI.36.24": {"words": "a08a8fe7f79368bd", "starts": [0, 24, 43, 63, 85, 106]},
-  "AECHomI.36.25": {"words": "9ca54d1b8c04de60", "starts": [0, 11, 29, 59, 92, 113, 137, 162, 190]},
-  "AECHomI.36.26": {"words": "522f35cd6510b147", "starts": [0, 26, 62]},
+  "AECHomI.36.25": {"words": "9ca54d1b8c04de60", "starts": [0, 11, 29, 53, 92, 113, 137, 162, 190]},
+  "AECHomI.36.26": {"words": "522f35cd6510b147", "starts": [0, 26, 50]},
   "AECHomI.36.27": {"words": "6db4ae90b3a6429c", "starts": [0]}
  }
 }

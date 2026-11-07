@@ -3,10 +3,10 @@
  "group": "aelfric-ch/ch1-14",
  "pivot": "aelfric-ch-eng/ch1-14",
  "groups": 90,
- "inputs": "4857cb05183fcacb",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "0efcb3b3fe3d9e80",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "aelfric-ch-eng/ch1-14", "units": 91, "ids": "02bb597446675b60", "inputs": "54bed83a92ca28ef", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch-eng/ch1-14", "units": 91, "ids": "02bb597446675b60", "inputs": "fb21df9ce7e40fc5", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "aelfric-ch/ch1-14", "units": 91, "ids": "0c74c50bfcf3de6e", "inputs": "193a7e8ab389746c", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

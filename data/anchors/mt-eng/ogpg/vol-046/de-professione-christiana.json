@@ -2,10 +2,10 @@
  "work_id": "mt-eng/ogpg/vol-046/de-professione-christiana",
  "anchor": "ogpg/vol-046/de-professione-christiana",
  "method": "e26e66e4678bcee0",
- "anchor_cuts": "e52920070c1a24c8",
+ "anchor_cuts": "8277bdfe7778366a",
  "words": "8fc7f3daa67191d3",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 109, "calibration": [0.7931, 0.1259], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 109},
+ "stats": {"beads": 109, "calibration": [0.6144, 0.1729], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9909, "rounds": 4, "units": 109},
  "paragraphs": {
   "ogpg.vol-046.c0237.1": {"words": "6ca425364487ae4f", "starts": [0, 18, 45, 58, 103, 130]},
   "ogpg.vol-046.c0239.1": {"words": "183906d111f5290a", "starts": [0, 14, 30, 55, 91, 108, 130, 154, 172, 215, 257, 289, 305, 336, 358, 406, 438, 458, 476]},
@@ -13,7 +13,7 @@
   "ogpg.vol-046.c0243.1": {"words": "dc66dc5d46e9ab8a", "starts": [0, 14, 37, 63, 89, 115, 145, 171, 201, 229, 248, 264, 286, 312, 337, 364, 390]},
   "ogpg.vol-046.c0243.2": {"words": "c88c848a21645082", "starts": [0]},
   "ogpg.vol-046.c0245.1": {"words": "521c52d3be1c0e27", "starts": [0, 24, 58, 101, 120, 167, 191, 218, 244, 262, 308, 316, 345, 374, 398, 442, 470, 483]},
-  "ogpg.vol-046.c0247.1": {"words": "5f15144803987371", "starts": [0, 37, 66, 93, 124, 143, 185, 226, 246, 252, 293, 314, 348, 373, 395, 435, 469, 486]},
+  "ogpg.vol-046.c0247.1": {"words": "5f15144803987371", "starts": [0, 37, 66, 93, 124, 152, 203, 226, 246, 252, 289, 314, 348, 373, 395, 435, 469, 486]},
   "ogpg.vol-046.c0249.1": {"words": "1c74e56b590d46f0", "starts": [0, 22, 65, 108, 137, 166, 184, 230, 258, 290, 314, 339, 372]}
  }
 }
