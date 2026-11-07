@@ -1,0 +1,3082 @@
+{
+  "work_id": "titus-paul-ab/1cor",
+  "source_path": "titus-paul-ab/1cor.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.1",
+      "source_sha256": "d18c0af15805d3a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Paul, called to be an apostle of Christ Jesus by the will of God, and Sosthenes our brother,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.2",
+      "source_sha256": "dfaa1e6497c76f8f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "to the churches of God, sanctified in Christ Jesus, which are in Corinth, called to be saints, together with all who call on the name of our Lord Jesus Christ in all places, both ours and yours:"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.3",
+      "source_sha256": "d7807724f95a5d83",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Grace to you and peace from God our Father and our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.4",
+      "source_sha256": "4e3713b9abe02db1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I always thank my God for you, for the grace of God that has been given to you in Christ Jesus."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.5",
+      "source_sha256": "484b8a4580d42140",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For in everything you were made rich in him, in all speech and in all knowledge,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.6",
+      "source_sha256": "114ac9e77157c15a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "just as the testimony of Christ was confirmed among you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.7",
+      "source_sha256": "0cb481666e00d4cd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So you are lacking in nothing, not in a single gift of grace, as you wait for the revealing of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.8",
+      "source_sha256": "6268d4baadf201c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "who will make you firm, wholly blameless, on the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.9",
+      "source_sha256": "ce81214fa21db205",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "God is faithful, by whom you were called into the fellowship of his Son, Jesus Christ our Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.10",
+      "source_sha256": "6c975c1204406199",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I appeal to you, brothers, by the name of our Lord Jesus Christ, that all of you say the same thing, and let there be no division among you, but be established in the same knowledge and the same mind."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.11",
+      "source_sha256": "3c7ab42352c3fe36",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For it has been made known to me about you, my brothers, by those of Chloe's household, that there are some quarrels [?] among you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.12",
+      "source_sha256": "889b3e74d0f1cccd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What I mean is this: each one of you says, \"I belong to Paul,\" \"I belong to Apollos,\" \"I belong to Cephas,\" \"I belong to Christ.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.13",
+      "source_sha256": "986b99a338917b39",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Is Christ divided? Or was Paul crucified for you? Or were you baptized in the name of Paul?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.14",
+      "source_sha256": "5d827de9437ede5b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I thank God that I baptized none of you except Crispus and Gaius,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.15",
+      "source_sha256": "f31e4ba9b9cf0c6d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that no one may say that you were baptized in my name."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.16",
+      "source_sha256": "1ee7ac58dbcfcfda",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I also baptized the household of Stephanas; beyond that, I do not know whether I baptized anyone else."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.17",
+      "source_sha256": "339c36988bb6df89",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the Lord did not send me to baptize but to preach the gospel, and not with wisdom of words, so that the cross of Christ may not be made empty."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.18",
+      "source_sha256": "8bc45a730ff641e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the word of the cross is foolishness to those who are perishing, but to those who are being saved it is the power of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.19",
+      "source_sha256": "208cfe71546b894b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "As it is written: \"I will destroy the wisdom of the wise, and the understanding of the learned I will bring to nothing.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.20",
+      "source_sha256": "3f3001b8d7861d24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Where is the wise man? Where is the scribe? Where is the debater of this world? Has God not made foolish the wisdom of this world?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.21",
+      "source_sha256": "ae34039daef3991e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For since, in the wisdom of God, the world did not know God through its own wisdom, it pleased God through the foolishness of preaching to save those who believe."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.22",
+      "source_sha256": "3c62a0d92b1d6861",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For Jews ask for a sign, and Gentiles seek wisdom."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.23",
+      "source_sha256": "14a26deaece04323",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But we preach Christ crucified: to the Jews a stumbling block and to the Gentiles foolishness."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.24",
+      "source_sha256": "c4ce90505460240b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But to those who are called, both Jews and Gentiles, Christ is the power of God and the wisdom of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.25",
+      "source_sha256": "835208a50d20a93d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the foolishness of God is wiser than men, and the weakness of God is stronger than men."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.26",
+      "source_sha256": "b63709ad017f18cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now consider this calling of yours, brothers: not many of you are wise according to the flesh, are you? Not many are mighty, are you? Not many are noble, are you?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.27",
+      "source_sha256": "85f04db5f41a9e75",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Instead, God chose the foolish things of the world to put the wise to shame, and God chose the weak things of the world to put the mighty to shame."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.28",
+      "source_sha256": "4e886a9584718612",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And God chose the low-born and despised things of the world, and the things that are not, to bring to nothing the things that are,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.29",
+      "source_sha256": "f0a5643c6e838cd2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that no flesh may boast before God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.30",
+      "source_sha256": "4f6c95b3f4a099b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "From him you are in Christ Jesus, who became for us wisdom from God, and righteousness and holiness and redemption,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.1.31",
+      "source_sha256": "9e6acab80c0a2065",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that, as it is written: \"Let whoever boasts, boast in the Lord.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.1",
+      "source_sha256": "62dae66220acea98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And I, brothers, when I came to you, did not come with excellence of speech or of wisdom to tell you the testimony of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.2",
+      "source_sha256": "c671fbeb4a756184",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I resolved in my heart to make known to you nothing else except Christ Jesus, and him crucified."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.3",
+      "source_sha256": "3512934e4fb7cfb1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I was with you in weakness and in fear and in much trembling."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.4",
+      "source_sha256": "ec7bea66f1793d45",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And my word and my preaching were not with the persuasiveness of words of wisdom, but with the manifestation of the Holy Spirit and of power,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.5",
+      "source_sha256": "3cb1488eeaac40d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that your faith might not rest on the wisdom of men, but on the power of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.6",
+      "source_sha256": "6c0633618ec83829",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Yet we do speak wisdom among the mature, though not the wisdom of this world, nor of the rulers of this world, who are passing away."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.7",
+      "source_sha256": "88c3112c4c4b04ec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Rather, we speak the wisdom of God, the hidden mystery, which God appointed beforehand, before the ages, for our glory,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.8",
+      "source_sha256": "cfec9b9c97ac9b5b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "which none of the rulers of this world understood; for if they had understood it, they would not have crucified the Lord of glory."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.9",
+      "source_sha256": "f88c868edaf9e15b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But as it is written: \"What eye has not seen, and ear has not heard, and has not entered into the heart of man, what God has prepared for those who love him.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.10",
+      "source_sha256": "44afcb5e9739e1e2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For God has revealed it to us through his Spirit; for the Spirit searches all things, even the depths of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.11",
+      "source_sha256": "7b76199fd79323f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For who among men knows the things of a man except the spirit of the man that is within him? So also no one knows the things of God except the Spirit of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.12",
+      "source_sha256": "966d4fc1620b4055",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But we have received not the spirit of this world, but the Spirit that is from God, so that we may know the things freely given to us by God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.13",
+      "source_sha256": "cdf539a1e8c035a5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And these things we speak not in words taught by human wisdom, but in those taught by the Holy Spirit, comparing spiritual things with spiritual."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.14",
+      "source_sha256": "566374d76e5e8987",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But the natural man does not accept the things of the Spirit of God, for they seem foolishness to him, and he cannot understand them, because they are spiritually discerned."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.15",
+      "source_sha256": "30c78f8c7c005b2b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The spiritual man judges all things, but he himself is judged by no one."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.2.16",
+      "source_sha256": "488344cfc3c2d313",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For who has known the mind of the Lord, or who has been his counselor? But we have the mind of Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.1",
+      "source_sha256": "380fa90c2846ff07",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And I, brothers, could not speak to you as to spiritual people, but as to fleshly people, as to infants."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.2",
+      "source_sha256": "69891ec975cc5b11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I gave you milk to drink, not solid food, for you were not able to take it, and even now you are not able,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.3",
+      "source_sha256": "87e061123a3768c8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for you are still fleshly. For where there is envy and strife among you, are you not still fleshly and behaving in a merely human way?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.4",
+      "source_sha256": "40d267f86f141b92",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When someone says, \"I am of Paul,\" and another says, \"I am of Apollos,\" are you not merely human?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.5",
+      "source_sha256": "9293839ce426cc15",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What is Apollos? Or what is Paul? They are servants through whom you believed, and to each one as God gave."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.6",
+      "source_sha256": "ac98429a7661986b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I planted, Apollos watered, but God gave the growth."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.7",
+      "source_sha256": "f3ec0d0c96c66f3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So now neither the one who plants is anything, nor the one who waters, but God who gives the growth."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.8",
+      "source_sha256": "d34f15ed2e2c9ca9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The one who plants and the one who waters are one; each will receive his own reward according to his own labor."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.9",
+      "source_sha256": "b11477ca0535e536",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For we are God's fellow workers; you are God's field and God's building."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.10",
+      "source_sha256": "7a45f7480bedacfd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "By the grace of God that was given to me, like a wise master builder I laid the foundation, and another builds on it. But let each one take care how he builds."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.11",
+      "source_sha256": "5e47829b9809e988",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For no one can lay another foundation besides the one that has been laid, which is Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.12",
+      "source_sha256": "cbb5bd784a95f27a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone builds on that foundation with gold, silver, precious carbuncle, wood, hay, or reed,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.13",
+      "source_sha256": "be157b5bc8e18a85",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "each one's work will become manifest, for the Day will reveal it, because it is to be revealed by fire; and the fire will reveal each one's work, of what sort it is."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.14",
+      "source_sha256": "0513f74b54fc3762",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone's work that he has built remains, he will receive a reward."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.15",
+      "source_sha256": "9b3b7749e5a81248",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone's work is burned up, he will suffer loss; but he himself will be saved, yet he will be saved thus, as through fire."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.16",
+      "source_sha256": "d5258a9b29d7fb59",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that you are God's temple, and the Spirit of God dwells among you?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.17",
+      "source_sha256": "da8fce107b124db0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever destroys the temple of God, God will destroy him too; for the temple of God is holy, and that is what you are."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.18",
+      "source_sha256": "45db4aa6777665c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let no one deceive himself. If anyone among you thinks himself wise in this world, let him become foolish, so that he may be wise."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.19",
+      "source_sha256": "ee530f6da7f8b85b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the wisdom of this world is folly before God, for it is written: \"He who catches the wise in their own knowledge.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.20",
+      "source_sha256": "ba1e58bbed63261a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And again it says: \"The Lord knows the thoughts of the wise, that they are futile.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.21",
+      "source_sha256": "b3daaaabe952df6c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So from now on let no one boast in men, for all things are yours:"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.22",
+      "source_sha256": "3082488302325631",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "whether Paul, or Apollos, or Cephas, or the world, or life, or death, or the present time, or the time to come, all things are yours."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.3.23",
+      "source_sha256": "22f9c215541a05f6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And you are Christ's, and Christ is God's."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.1",
+      "source_sha256": "44ea1d1c18d0c8a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Thus let a person regard us: as servants of Christ and stewards of the mysteries of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.2",
+      "source_sha256": "2caa805bbf513cb0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Moreover, from here on it is required among stewards that one be found trustworthy."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.3",
+      "source_sha256": "c62325d3707e6f99",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But for me it is a very small thing if I am judged by you or by any human day; indeed, I do not even judge myself."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.4",
+      "source_sha256": "644f3b94c7d273eb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I am aware of nothing against myself, yet I am not justified by this; the one who judges me is the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.5",
+      "source_sha256": "efe4ccaaf6bc0bf6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore do not judge anything before the time, until the Lord comes, who will bring to light the hidden things of darkness and reveal the intentions of the hearts; then each one's praise will come from God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.6",
+      "source_sha256": "33c409e7a48ae774",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now these things, brothers, I have applied as an example to myself and Apollos for your sake, so that you may learn from us not to think beyond what is written, so that none of you may be puffed up one against another, neighbour against neighbour."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.7",
+      "source_sha256": "f7951f27cfdd11fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Who judges you? Or what do you have that you have not received? And if you have received it, why do you boast as though you had not received it?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.8",
+      "source_sha256": "088386f95b2a51f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Already you are full, already you have become rich, and without us you reign. Would that you did reign, so that we too might reign with you!"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.9",
+      "source_sha256": "3db1c1a02e9efac3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I think that God has put us apostles on display last of all, like men condemned to death, because we have become a spectacle for the world to point at, to angels and to men."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.10",
+      "source_sha256": "823fbeecf5ac3a64",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "We are fools for Christ's sake, but you are wise through Christ; we are weak and you are strong; you are honoured and we are dishonoured."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.11",
+      "source_sha256": "416b9f8a68c1b54b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "To this very hour we both hunger and thirst, we are naked and are beaten, we are without rest, and we toil,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.12",
+      "source_sha256": "3ae3d53b7339d7d9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for we work with our own hands. When we are reviled, we bless; when we are persecuted, we endure;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.13",
+      "source_sha256": "5efcebea17860a98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "when we are slandered, we entreat. We have become like the refuse of the world, the scum of all things, until now."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.14",
+      "source_sha256": "063aa80a9de776c1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I am not writing this to shame you, but I am instructing you as my beloved children."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.15",
+      "source_sha256": "d5eb3f25e2b83d05",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For though you may have ten thousand guardians in Christ, you do not have many fathers, because in Christ Jesus I became your father through the gospel."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.16",
+      "source_sha256": "d723d8ef9e756d73",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I beg you, be imitators of me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.17",
+      "source_sha256": "ed7f2fd83400c36f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For this reason I have sent Timothy to you. He is my beloved and faithful child in the Lord, and he will remind you of my ways in Christ Jesus, just as I teach them everywhere in every church."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.18",
+      "source_sha256": "623a5ffa3f182495",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Some have become puffed up, as though I were not coming to you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.19",
+      "source_sha256": "cc430cc279bd9f6a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But I will come to you soon, if the Lord wills, and I will find out not the talk of those who are puffed up, but their power,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.20",
+      "source_sha256": "4d3c2130c2b5ef32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for the kingdom of God is not a matter of talk but of power."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.4.21",
+      "source_sha256": "e5e74050cf58c73e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What do you want now? Shall I come to you with a rod, or with love and a spirit of peace?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.1",
+      "source_sha256": "3faff3eea16e2df3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "It is actually reported that there is sexual immorality among you, and immorality of a kind that is not even named among the Gentiles: that a man has his father's wife as his wife."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.2",
+      "source_sha256": "770c84ccf615f58b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And you are puffed up! Should you not rather have mourned, so that the man who did this deed would be removed from among you?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.3",
+      "source_sha256": "eaea453bab81e147",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For though I am absent in body, I am present in spirit. As though I were present there, I have already passed judgment on the man who did this deed,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.4",
+      "source_sha256": "ef7acaf1aef4ec02",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "in the name of the Lord Jesus Christ, when you and my spirit are gathered together, with the power of our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.5",
+      "source_sha256": "a951a9f4889a8404",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "to hand such a man over to the devil for the punishment of the flesh, so that his spirit may be saved on the day of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.6",
+      "source_sha256": "bcded46d2b5c8f24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Your boasting is not good. Or do you not know that a little leaven leavens the whole batch of dough?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.7",
+      "source_sha256": "d0361913959eeabd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Clean out the old leaven so that you may be a new lump of dough, as you really are unleavened. For Christ, our Passover lamb, has been sacrificed for us."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.8",
+      "source_sha256": "c16473e2567cd0d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So from now on let us celebrate the feast not with the old leaven, nor with the leaven of malice and wickedness, but with the unleavened bread of righteousness and truth."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.9",
+      "source_sha256": "976f892f1a223aef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I wrote to you in that letter not to associate with sexually immoral people;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.10",
+      "source_sha256": "2f79eee743861fb5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And not only the fornicators of this world, but also the greedy, or robbers, or idolaters; otherwise would you have had to go out of the world?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.11",
+      "source_sha256": "d7ad6fe1985269e9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But now I have written to you: do not mix with anyone who is called a brother if he is a fornicator, or greedy, or an idolater, or a reviler, or a drunkard, or a robber. Do not even eat with such a one."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.12",
+      "source_sha256": "df6eccdb341eace0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What business is it of mine to judge those outside? Do you not judge those who are inside?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.5.13",
+      "source_sha256": "9a47e284bf5e0262",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But God will judge those outside. Remove that wicked person from among you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.1",
+      "source_sha256": "006f4ab897f90356",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Does anyone among you who has a case against his neighbour dare to take it to judgement before the unrighteous, and not rather before the saints?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.2",
+      "source_sha256": "004073fb9c5dfff0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that the saints will judge the world? And since the world is to be judged by you, are you not fit for that contemptible judging?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.3",
+      "source_sha256": "52b04f0e833eeb4f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that we shall judge angels? How much more the things of this world?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.4",
+      "source_sha256": "1c3790b380b62cf3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If, then, you have any case about the things of this world, do you appoint those who are despised in the church as judges?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.5",
+      "source_sha256": "4c823aa40651440a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I say this to your shame: is there no one among you so wise that he is able to judge between his brothers?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.6",
+      "source_sha256": "664659f96a57c1b3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Instead, brother goes to law against brother, and this before unbelievers."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.7",
+      "source_sha256": "418b35f75dda0c9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And now this is a failing on your part, that you have lawsuits with one another at all. Why do you not rather suffer wrong? Why do you not rather let yourselves be defrauded?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.8",
+      "source_sha256": "fafb1fcefecd1ede",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Instead, you do wrong and defraud, and this to brothers."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.9",
+      "source_sha256": "fd764be09c40d7a8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that the unrighteous will not inherit the kingdom of God? Do not be deceived:"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.10",
+      "source_sha256": "9bc65a680e4bbc1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "neither the greedy, nor drunkards, nor revilers, nor robbers will inherit the kingdom of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.11",
+      "source_sha256": "1ffb3eee7ea79198",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And such you once were. But you were washed, you were sanctified, you were justified in the name of our Lord Jesus Christ and by the Spirit of our God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.12",
+      "source_sha256": "1766a928b3eae0c1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "All things are lawful for me, but not all things are better. All things are lawful for me, but I will not submit to the power of anyone."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.13",
+      "source_sha256": "1420a6bb2aee3d87",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Food is for the belly and the belly for food, but God will destroy both the one and the other. The body, however, is not for fornication but for the Lord, and the Lord for the body."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.14",
+      "source_sha256": "0e1c9e9fb6cfdbd4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And God both raised the Lord and will raise us up by his power."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.15",
+      "source_sha256": "673b20373c5935c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do you not know that your bodies are members of Christ? Shall I then take the members of Christ and make them members of a harlot? Far from it!"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.16",
+      "source_sha256": "fcf95abed2a021d4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that whoever joins himself to a harlot is one body with her? For it says: \"The two shall become one flesh.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.17",
+      "source_sha256": "1ce18bf71a277662",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever joins himself to the Lord is one spirit with him."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.18",
+      "source_sha256": "978f52900d92af71",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Flee from fornication. Every sin that a person commits is outside the body, but whoever commits fornication sins against his own body."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.19",
+      "source_sha256": "8e2c3289de960a00",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that your bodies are temples of the Holy Spirit within you, whom you have from God, and that you do not belong to yourselves?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.6.20",
+      "source_sha256": "55fdfee22da661a9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For you were bought with a price. So glorify God in your body."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.1",
+      "source_sha256": "73bd864350ddb36e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now concerning the things you wrote to me about: it is better for a man not to touch a woman."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.2",
+      "source_sha256": "0eadc13b20e7d1f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But because of fornication, let each man have his own wife, and let each woman have her own husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.3",
+      "source_sha256": "fca43bfc32b26993",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let the husband give the wife what is due to her, and likewise the wife to the husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.4",
+      "source_sha256": "858462d4357dffdc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The wife does not have authority over her own body, but the husband does; likewise the husband does not have authority over his own body, but the wife does."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.5",
+      "source_sha256": "28f6b662fb2f37e8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not separate from one another, unless perhaps by agreement for a time, so that you may have leisure for prayer; and then be together with one another again, so that the devil may not tempt you through your lack of self-control."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.6",
+      "source_sha256": "b7ce65106cdd5204",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I say this as a concession, not as a command."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.7",
+      "source_sha256": "a3d5a6685df9b80b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I wish that all people were as I myself am; but each one has his own gift from God, one of this kind and another of that kind."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.8",
+      "source_sha256": "7c70c73e773de7a4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I say to the unmarried and to the widows: it is better for them if they remain as they are, as I am."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.9",
+      "source_sha256": "43b2208b9a899b18",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If they cannot endure it, let them marry; it is better to marry than to burn."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.10",
+      "source_sha256": "a5b3de81ef8caecb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But to those who are married I give this command, not I but the Lord: let the wife not separate from her husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.11",
+      "source_sha256": "60c06629a5e8b029",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If she does separate, let her remain without a husband, or else be reconciled to her own husband; and let the husband not put away his wife."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.12",
+      "source_sha256": "16e379cb0d7115c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But to the rest I say, I and not the Lord: if any brother has an unbelieving wife, and she is content to live with him, let him not put her away."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.13",
+      "source_sha256": "008076e03e3bc06f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If any woman has an unbelieving husband, and he is content to live with her, let her not put away her husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.14",
+      "source_sha256": "647b1f6841034e97",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the unbelieving husband is sanctified by the believing wife, and the unbelieving wife is sanctified by the believing husband. Otherwise your children would be unclean, but as it is they are holy."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.15",
+      "source_sha256": "9be51be35dc52e12",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But if the unbeliever departs, let him depart; the brother or the sister is not enslaved in such cases, for God has called us to peace."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.16",
+      "source_sha256": "0174240dfc155c26",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For how do you know, woman, whether you will save your husband? Or how do you know, man, whether you will save your wife?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.17",
+      "source_sha256": "011310e72cf38d29",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Only, as God has apportioned to each one, and as God has called each one, so let him walk. And this is what I command in all the churches."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.18",
+      "source_sha256": "94fdf5aa72fe5b98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Was anyone called when already circumcised? Let him not be troubled. Was anyone called when uncircumcised? Let him not be circumcised."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.19",
+      "source_sha256": "7676d14d7625a0f1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Circumcision is nothing and uncircumcision is nothing; what matters is keeping the commandments of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.20",
+      "source_sha256": "5878034b2e6ca193",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let each one remain in the calling in which he was called."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.21",
+      "source_sha256": "884b646f5acd6c68",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Were you called as a slave? Do not let it trouble you; but if you are able to become free, strive for it all the more."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.22",
+      "source_sha256": "00014f278a8ca39c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For whoever is called in the Lord as a slave has been set free by the Lord; likewise whoever was called as a free man is a slave of the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.23",
+      "source_sha256": "5377746522236c10",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "You were bought with a price; do not become slaves of men."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.24",
+      "source_sha256": "8d09b6ba8e959bc0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Brothers, in whatever state each one was called, let him remain in it before God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.25",
+      "source_sha256": "0b4ad28f406ee6fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now concerning virgins I have no command from the Lord; but I give you counsel as one who has received mercy from the Lord to be faithful."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.26",
+      "source_sha256": "ae94e2e7f2a9b95d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So I think that this is good because of the distress that has come upon us: that it is better for a person to remain as he is."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.27",
+      "source_sha256": "7481260efa2b0b3e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If you are bound to a wife, do not divorce her. If you are free from a wife, do not seek a wife."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.28",
+      "source_sha256": "4ee5b157a78d22f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But if you marry, you have not sinned; and if a virgin marries, she has not sinned. Such people will bear trouble in the flesh, but I am sparing you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.29",
+      "source_sha256": "28c020f15536aec0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And this I tell you, brothers: the time has been shortened from now on. Let those who have wives be as though they had none;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.30",
+      "source_sha256": "d09417b4a45f8da1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and those who weep, as though they did not weep; and those who rejoice, as though they did not rejoice; and those who buy, as though they possessed nothing;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.31",
+      "source_sha256": "c97ec3a2b21ce084",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and those who make use of this world, as though they did not make use of it, for the form of this world is passing away."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.32",
+      "source_sha256": "31b3f6a0cb6b7873",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But I desire your care. The unmarried man cares for the things of the Lord, how he may please the Lord;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.33",
+      "source_sha256": "6b46cf4f33676e5f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "but the married man cares for the things of the world, how he may please his wife."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.34",
+      "source_sha256": "f03dd21431aba25b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And the married woman and the virgin are divided. For the virgin cares for the things of the Lord, so that she may be holy in spirit and in body; but the married woman cares for the things of the world, how she may please her husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.35",
+      "source_sha256": "2fdf01a95e39aff7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I say this for your own benefit, not to set some snare for you, but for the sake of what is seemly, and so that you may remain steadfast before the Lord without distraction."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.36",
+      "source_sha256": "d3026eff0e19f7e7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone thinks his virginity is shameful, if it is past its prime, and it ought to be so, let him do what he wishes; he does not sin. Let them marry."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.37",
+      "source_sha256": "5c8667be63148e14",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But he who stands firmly established in his heart and has no anxiety, and has authority over his own will, and has resolved this in his heart, to keep his virginity, has done well."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.38",
+      "source_sha256": "69ae610b3552cb1a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So he who gives his virginity in marriage also does well, and he who does not give it in marriage will do better."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.39",
+      "source_sha256": "d18c583f4d085bdd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "A woman is bound for as long as her husband lives. If her husband dies, she is free to marry if she wishes, but only in the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.7.40",
+      "source_sha256": "e770dfa1fd874d00",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But she is more blessed if she remains as she is, according to my counsel. And I think that I have the Spirit of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.1",
+      "source_sha256": "4f79d0ca03cf3b07",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now concerning food offered to idols: we know that we all have knowledge. Knowledge puffs up, but love builds up."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.2",
+      "source_sha256": "20d8ad292862a199",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone thinks that he knows something, he does not yet know as he ought to know."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.3",
+      "source_sha256": "dccc184b7b9993fa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever loves God is known by him."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.4",
+      "source_sha256": "5beb1e8ede340299",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So concerning the eating of food offered to idols, we know that there is no idol in the world, and that there is no God but the One."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.5",
+      "source_sha256": "55a957eab6a05e92",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For even if there are some who are called gods, whether in heaven or on earth, as indeed there are many gods and many lords,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.6",
+      "source_sha256": "e6bf7e6fe2c3b0c5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "yet for us there is one God, the Father, from whom are all things, and we are for him; and one Lord, Jesus Christ, through whom are all things, and we through him."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.7",
+      "source_sha256": "f1eb6f1a294761ef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But not everyone has this knowledge. Some, with doubt even until now, eat it as food offered to an idol, and their conscience, being weak, is defiled."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.8",
+      "source_sha256": "2f875a6967af8990",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But food will not bring us before God. If we eat, nothing more is added to us."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.9",
+      "source_sha256": "26e3396c7f9ce8a5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But take care that this authority of yours does not somehow become a stumbling block to the weak."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.10",
+      "source_sha256": "a5a2b3b0b10f2dc2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For if anyone sees you, who have knowledge, sitting [?] in an idol's temple, will not the conscience of that weak person be emboldened to eat food offered to idols?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.11",
+      "source_sha256": "8b0074bb4f095e1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And so by your knowledge that weak brother is destroyed, the brother for whom Christ died."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.12",
+      "source_sha256": "eb01aedbb7200521",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When you sin against the brothers like this and wound their weak conscience, you sin against Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.8.13",
+      "source_sha256": "2bea8ad850559f35",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So if food makes my brother stumble, I will never eat meat again, so that I do not make my brother stumble."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.1",
+      "source_sha256": "f61565525e7dcfe4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Am I not free? Am I not an apostle? Have I not seen Jesus Christ our Lord with my own eyes? Are you not my work in the Lord?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.2",
+      "source_sha256": "6f7348cacd44ec13",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Even if I am not an apostle to others, I am at least an apostle to you. You are the seal of my apostleship in the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.3",
+      "source_sha256": "e61ce50fdf89d892",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "This is my defence to those who judge me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.4",
+      "source_sha256": "07dff84da1a130d5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do we not have the right to eat and drink?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.5",
+      "source_sha256": "138eb972a9ebbe1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do we not have the right to take a sister along as a wife, as the other apostles, the brothers of the Lord and Cephas do?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.6",
+      "source_sha256": "62c9e7edd0e092fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or is it only Barnabas and I who have no right to do so?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.7",
+      "source_sha256": "9fcb4c523f9e742a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Who serves as a soldier at his own expense? Who plants a vineyard and does not eat its fruit? Who tends a flock and does not drink the milk of the flock?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.8",
+      "source_sha256": "f23a6540ae93fef6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Am I saying this on human authority? Does the law not say the same thing?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.9",
+      "source_sha256": "892c6aadc400227e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For it is written in the law of Moses: \"You shall not muzzle the ox while it is threshing.\" Is it oxen that God is concerned about?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.10",
+      "source_sha256": "8cece2d24851dfae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Surely he says this for our sake. It was written for our sake, because the one who ploughs should plough in hope, and the one who threshes should gather in hope."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.11",
+      "source_sha256": "b8589066992492e5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we have sown spiritual things among you, is it too much if we reap material things from you?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.12",
+      "source_sha256": "c4a3b100bdf3733b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If others share in this right over you, do we not have even more right? But we did not use this right. Instead we put up with everything, so that we would not put any obstacle in the way of the gospel of Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.13",
+      "source_sha256": "57eaa05a0c5bfd32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do you not know that those who work in the temple eat from the temple, and those who serve at the altar receive a share of what is offered on the altar?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.14",
+      "source_sha256": "2c1114700e4c0991",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "In the same way, the Lord commanded that those who proclaim the gospel should get their living from the gospel."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.15",
+      "source_sha256": "54a82aba4d668f06",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But I have not used any of these rights. And I am not writing this so that it will be done for me. I would rather die than let anyone make my boasting empty."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.16",
+      "source_sha256": "5bfe799286be44ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If I preach the gospel, I have nothing to boast about, because I am under compulsion. Woe to me if I do not preach the gospel!"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.17",
+      "source_sha256": "d9fc4372983ff09e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If I do this willingly, I have a reward. If I do it unwillingly, I have still been entrusted with a stewardship."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.18",
+      "source_sha256": "9ac74c32b756c20d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What then is my reward? That when I preach my gospel I offer it free of charge, and so make no use of my right in the gospel."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.19",
+      "source_sha256": "65a1dc83dccd7338",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I was free of everyone, yet I made myself a slave to everyone, so that I might win over as many as possible."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.20",
+      "source_sha256": "6671046c8f771820",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "To the Jews I became like a Jew, so that I might win over the Jews. To those under the law I became like one under the law, so that I might win over those under the law."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.21",
+      "source_sha256": "42f84b067fc2d15d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "To those without the law I became like one without the law, so that I might win over those without the law. I was not without God's law, but under the law of Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.22",
+      "source_sha256": "d1acd9e23cf90b57",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "To the weak I became weak, so that I might win over the weak. I have become all things to all people, so that I might save them all."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.23",
+      "source_sha256": "a6cc950a52172b75",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I do all this for the sake of the gospel, so that I may share in it."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.24",
+      "source_sha256": "cf19c4d8952acd96",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do you not know that those who run in the stadium all run, but only one receives the prize? Run in such a way that you may win."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.25",
+      "source_sha256": "b6302d9f6f7b22bb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Every athlete endures all things. They do it to receive a perishable crown, but we an imperishable one."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.26",
+      "source_sha256": "f8256ae7afd0de0a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So I run in this way, not as one running aimlessly; I fight in this way, not as one beating the air."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.9.27",
+      "source_sha256": "e07e7e74c6f70083",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But I discipline my body and bring it into subjection, lest perhaps, after preaching to others, I myself should be found unproven."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.1",
+      "source_sha256": "cd4a3116498b3c3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I do not want you to be ignorant, brothers, that our fathers were all under the cloud, and all passed through the sea."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.2",
+      "source_sha256": "b38bf8f847bd0ba7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And all were baptized into Moses by the cloud and by the sea;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.3",
+      "source_sha256": "b86e0a6a614cd5ae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and all ate the same spiritual food;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.4",
+      "source_sha256": "312ce13a01efa406",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and all drank the same spiritual drink; for they drank from the spiritual rock that followed them, and that rock was Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.5",
+      "source_sha256": "40fd4a25b2d20841",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But with many of them God was not pleased, for they fell in the wilderness."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.6",
+      "source_sha256": "ed38a2bd0cdafbbb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "These things became examples for us, so that we should not desire evil, as they desired."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.7",
+      "source_sha256": "49d2962e841448fa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not become idolaters, as some of them did, as it is written: \"The people sat down to eat and drink, and rose up to play.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.8",
+      "source_sha256": "dcde2b243bace6fe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not commit fornication, as some of them committed fornication, and twenty-three thousand fell in one day."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.9",
+      "source_sha256": "819472ea1626c169",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not put Christ to the test, as some of them tested him and were destroyed by the serpents."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.10",
+      "source_sha256": "3193ac70038eb19f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not grumble, as some of them grumbled and were destroyed by the destroyer."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.11",
+      "source_sha256": "ce69a55ce7f7b701",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "These things happened to them as examples, and they were written down for the instruction of us, upon whom the end of the ages has come."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.12",
+      "source_sha256": "2a0c3e2a60987880",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore let anyone who thinks he stands take heed lest he fall."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.13",
+      "source_sha256": "e7325bffa6add020",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "No temptation has overtaken you except what is human. But God is faithful, who will not let you be tempted beyond your strength, but with the temptation will also make a way out, so that you may be able to endure it."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.14",
+      "source_sha256": "7a6c5579ad69aef4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore, my beloved, flee from idolatry."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.15",
+      "source_sha256": "1dd3ee41aaf931cf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I speak to you as to wise people; judge for yourselves what I say to you:"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.16",
+      "source_sha256": "c4366ecafc640e09",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The cup of blessing that we bless, is it not a communion in the blood of Christ? The bread that we break, is it not a communion in the body of Christ?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.17",
+      "source_sha256": "a888a9d9d4b20815",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For we, all of us, are one bread and one body, for we all partake of the one bread."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.18",
+      "source_sha256": "c7ddb84c8717144c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Consider Israel according to the flesh: are not those who eat the sacrifices partakers of the altar?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.19",
+      "source_sha256": "14215d8c9910bfda",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What then am I saying? That what is sacrificed to idols is anything, or that an idol is anything?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.20",
+      "source_sha256": "ea5f876bbc6c2343",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Rather, what the gentiles sacrifice, they sacrifice to demons and not to God; and I do not want you to be partakers with demons."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.21",
+      "source_sha256": "5c9078d4291139a1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "You cannot drink the cup of the Lord and the cup of demons; you cannot eat from the table of the Lord and from the table of demons."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.22",
+      "source_sha256": "7dcb3ea9378f9d8c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or shall we provoke the Lord to jealousy? Are we perhaps stronger than he?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.23",
+      "source_sha256": "b781301c2b7f0658",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "All things are lawful, but not all things are fitting; all things are lawful, but not all things build up."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.24",
+      "source_sha256": "26070b96e5dbdcaa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let no one seek his own good, but also that of his neighbour."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.25",
+      "source_sha256": "b3efc83379c62e14",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Eat whatever is sold in the meat market, and judge nothing on account of doubt,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.26",
+      "source_sha256": "b143b299e4ae42fc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for the earth and its fullness are the Lord's."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.27",
+      "source_sha256": "6e30c2795f9554c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If one of the unbelievers invites you and you want to go, eat everything set before you, and judge nothing on account of doubt."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.28",
+      "source_sha256": "2aa59e2bad3d835b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If someone says to you, \"This has been offered to idols,\" do not eat it, for the sake of the one who told you and on account of doubt."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.29",
+      "source_sha256": "45bd38ca72de4aca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I mean the doubt not of myself but of the neighbour. Why should my freedom be judged by another's doubt?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.30",
+      "source_sha256": "c385fdbc8d4d1fbe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If I eat with thanksgiving, why am I reviled for that for which I give thanks?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.31",
+      "source_sha256": "ec19907c4fe69ef8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whether you eat or drink, or whatever you do, do everything to the glory of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.32",
+      "source_sha256": "eff6fd928ad638d2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Give no offence to Jews, to Gentiles or to the churches of God,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.10.33",
+      "source_sha256": "c40e963e02c61bfd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "just as I please everyone in everything, for I do not seek my own advantage, but that of the many, so that they may be saved."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.1",
+      "source_sha256": "5ba1d485127a15e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Be imitators of me, as I am of Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.2",
+      "source_sha256": "b3958b31cf100a24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I praise you, because you remember everything of mine, and you have kept the teaching just as I taught you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.3",
+      "source_sha256": "41b37408ba857faf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I want you to know that the head of every man is Christ; the head of a woman is her husband; and the head of Christ is God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.4",
+      "source_sha256": "31ca734948bc3573",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Every man who prays or prophesies with his head covered dishonours his head."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.5",
+      "source_sha256": "7339b23a4e06992c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And every woman who prays or prophesies with her head uncovered dishonours her head; it is one and the same as if she were shaved."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.6",
+      "source_sha256": "d82b2998176222d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If a woman does not cover herself, let her be shorn; but if it is shameful for a woman to be shorn or shaved, let her cover herself."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.7",
+      "source_sha256": "4c72d20a2bbb9266",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "A man ought not to cover his head, for he is the image and glory of God, but the woman is the glory of her husband."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.8",
+      "source_sha256": "77b2a2efc1b7eb82",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For man is not from woman, but woman is from man;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.9",
+      "source_sha256": "9702771cf6802b93",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and man was not created for woman's sake, but woman for man's sake."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.10",
+      "source_sha256": "f019dc26e0ae4914",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For this reason a woman ought to have authority on her head, because of the angels."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.11",
+      "source_sha256": "ff325d8c7bc34ddf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Yet in the Lord woman is not without man, nor is man without woman."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.12",
+      "source_sha256": "836073c83914f170",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Just as woman is from her husband, so also the husband is through his wife; but all things are from God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.13",
+      "source_sha256": "979fdea31b0db8ae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Judge this for yourselves: is it fitting for a woman to pray before God uncovered?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.14",
+      "source_sha256": "99afe29215ca739f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Does not nature itself teach you that if a man lets his hair grow long, it is a disgrace to him?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.15",
+      "source_sha256": "5eb780afe9ebd0a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But if a woman lets it grow, it is a glory to her, for her hair was given to her as an adornment."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.16",
+      "source_sha256": "7a318f0a97c3e643",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone wishes to be contentious, we have no such custom, nor do the churches of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.17",
+      "source_sha256": "095750ce46257b23",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But in giving you this instruction I do not praise you, for you come together not for the better but for the worse."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.18",
+      "source_sha256": "2b42d67e3f511799",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "First of all, I hear that when you come together in the church there are divisions among you, and in part I believe it."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.19",
+      "source_sha256": "82f632e377741ccd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For there must also be divisions among you, so that the chosen may be made manifest among you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.20",
+      "source_sha256": "a1cca20c805e8a80",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When you come together in one place, it is not the church of God for eating bread."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.21",
+      "source_sha256": "fcba7d0c8c0b622b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For each one of you takes his own bread first to eat, and one is hungry and another is drunk."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.22",
+      "source_sha256": "f5802d1804fbda9d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do you not have houses to eat and drink in? Or do you despise the church of God and shame those who have nothing? What shall I say to you? Shall I praise you for this? I do not praise you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.23",
+      "source_sha256": "ee4dc1ddf5c51749",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I received from the Lord what I also handed on to you: that the Lord Jesus Christ, on the night on which he was betrayed, took bread,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.24",
+      "source_sha256": "d2842ede1e2c5964",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "gave thanks, broke it, and said: \"This is my body, broken for you; do this in remembrance of me.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.25",
+      "source_sha256": "862629e6f7e7512b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "In the same way he took the cup after the bread, and said: \"This cup is the new covenant of my blood; do this; as often as you do it, do it in remembrance of me.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.26",
+      "source_sha256": "18e8bc02f0fda649",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For as often as you eat this bread and drink this cup, you proclaim the death of the Lord until he comes."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.27",
+      "source_sha256": "e275feb68ddab727",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore whoever eats this bread and drinks this cup of the Lord unworthily is guilty of the body and blood of the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.28",
+      "source_sha256": "03074a14714f5744",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let a man examine himself, and so let him eat of that bread and drink of that cup."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.29",
+      "source_sha256": "e993efc5ce966dea",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever eats and drinks unworthily eats and drinks condemnation upon himself, for he has not discerned the body of the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.30",
+      "source_sha256": "8c20b8693a62c554",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For this reason many among you are weak and sick, and many lie asleep."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.31",
+      "source_sha256": "ce78b87edb40ee1a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we judged ourselves, we would not be judged."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.32",
+      "source_sha256": "ab59b4de0bf3d53e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But if we are judged, we are disciplined by God, so that we may not be condemned along with the world."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.33",
+      "source_sha256": "303b03f02db7a75b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore, brothers, when you come together to eat, wait for one another."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.11.34",
+      "source_sha256": "c639f4b652714061",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone is hungry, let him eat at home, so that you do not come together for condemnation. As for the other matters, I will give instructions when I come."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.1",
+      "source_sha256": "45a1e7da57cfad09",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now concerning spiritual gifts, brothers, I do not want you to be ignorant."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.2",
+      "source_sha256": "2afc493f1ca64258",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "You know that when you were still gentiles, you followed after mute idols however you were led, and you were carried about hither and thither."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.3",
+      "source_sha256": "c74c24b18f48529f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore I make known to you that no one speaking by the Spirit of God says, \"Jesus is accursed,\" and no one is able to say, \"Lord Jesus,\" except by the Holy Spirit."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.4",
+      "source_sha256": "a3f4a932a0b45b7c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There are varieties of gifts, but it is the same Spirit."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.5",
+      "source_sha256": "d102f1f2cff07450",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There are different kinds of ministries, and it is the same Lord himself."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.6",
+      "source_sha256": "824b7f954fd2752e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There are different kinds of workings, and it is the same God himself, who works them in all."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.7",
+      "source_sha256": "3e6388bad0de5445",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And to each one is given the manifestation of the Spirit for what is profitable."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.8",
+      "source_sha256": "f28db75dbd5d2530",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "To one is given by the Spirit a word of wisdom, to another a word of knowledge by the same Spirit,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.9",
+      "source_sha256": "d18f9bb68f996614",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "to another faith from the same Spirit, to another the gift of healings from that same Spirit,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.10",
+      "source_sha256": "22e8c55c791a7bed",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "to another the working of powers, to another prophecy, to another the discerning of spirits, to another various kinds of tongues, to another the interpretation of tongues."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.11",
+      "source_sha256": "4a6fb1c04bdcc190",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "All of this is worked by one and the same Spirit, who distributes to each one individually as he wills."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.12",
+      "source_sha256": "808499900ae3d130",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Just as the body is one and has many members, and all those members, though they are many, are one body, so also is Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.13",
+      "source_sha256": "ac6bf2404eae8a77",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For by one Spirit we were all baptized into one body, whether Jews or gentiles, whether slaves or free; and we have all been given to drink into one Spirit."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.14",
+      "source_sha256": "013fd71dd963f962",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the body is not one member, but many."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.15",
+      "source_sha256": "07625b3fded3af07",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If the foot should say, \"Since I am not a hand, I am not part of the body,\" is it for that reason not part of the body?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.16",
+      "source_sha256": "59bcdd5b1d27004e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or if the ear should say, \"Because I am not an eye, I am not part of the body,\" is it for that reason not part of the body?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.17",
+      "source_sha256": "452bac1af3ad36ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If the whole body were an eye, where would the hearing be? If the whole were hearing, where would the senses of smell be?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.18",
+      "source_sha256": "2385d29d9d8520ac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But now God has set the members, each one of them, in the body, as he wished."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.19",
+      "source_sha256": "843aa353925463a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If all were one member, where would the body be?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.20",
+      "source_sha256": "96c1f26934f20f00",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But now there are many members, and one body."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.21",
+      "source_sha256": "9ec97e16c581fda0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The eye cannot say to the hand, \"I have no need of you\"; nor again the head to the feet, \"I have no need of you.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.22",
+      "source_sha256": "341f8bf9d901ed17",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But much rather, the members of the body that are thought to be weaker are necessary."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.23",
+      "source_sha256": "beaa8e71eef9576f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And the parts of the body that we have thought to be without honor, to these I give greater honor."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.24",
+      "source_sha256": "6e6edb4873ea4c0d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Our unseemly parts have greater comeliness, while our comely parts need nothing. But God has tempered the body together and has given greater honor to the part that lacked it,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.25",
+      "source_sha256": "cdc061c43e03da5e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that there may be no division in the body, but that the members may care alike for one another."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.26",
+      "source_sha256": "26a8a308b1ac8112",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And if one member suffers, all the members suffer with it; and if one member is glorified, all the members are glorified with it."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.27",
+      "source_sha256": "5e1d52a5dbcaf7bc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "You are the body of Christ, and members among his members."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.28",
+      "source_sha256": "f228b8236396f69a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And God has set some in the churches: first apostles, second prophets, third teachers, then powers, then gifts of healings, helps, labors, and various kinds of tongues."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.29",
+      "source_sha256": "d64551c5f375dbe0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Are all apostles? Or are all prophets? Or are all teachers? Or are all powers?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.30",
+      "source_sha256": "da552c9afd97514e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or do all have the gift of healing? Do all speak in tongues? Do all interpret?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.12.31",
+      "source_sha256": "102754f263110821",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Be eager for the greater gift. And now I will show you a still more excellent way."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.1",
+      "source_sha256": "5ae6847cb6a7ff63",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Even if I speak in the tongues of men and of angels but do not have love, I have become like brass that clangs, and like cymbals that sound."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.2",
+      "source_sha256": "c0591a3b503fb087",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Even if I have prophecy and know every mystery and all knowledge, and even if I have faith enough to move mountains, but do not have love, I am nothing at all."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.3",
+      "source_sha256": "72915093bd201051",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Even if I give away all my possessions as food and hand over my body to be burned, but do not have love, it is of no profit at all to me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.4",
+      "source_sha256": "0c62df20520af41b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Love is long-suffering and kind; love does not envy, does not boast, is not puffed up,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.5",
+      "source_sha256": "9c4b132a973dc9ee",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "does not behave shamefully, does not seek its own, is not provoked to anger, does not keep account of evil,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.6",
+      "source_sha256": "d73eb81e97b8c3fd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "does not rejoice over falsehood, but rejoices with the truth;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.7",
+      "source_sha256": "b37732d5b7e5d4ae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "it bears all things, believes all things, hopes in all things, endures all things."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.8",
+      "source_sha256": "a766057fed277538",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Love never fails. As for prophecies, they will be done away with; as for tongues, they will cease; as for knowledge, it will be done away with."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.9",
+      "source_sha256": "3a988f0e3ffa3c71",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For we know in part, and we prophesy in part."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.10",
+      "source_sha256": "16f4b1795cf8f242",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When what is perfect comes, what is in part will be done away with."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.11",
+      "source_sha256": "ccfbae40be3c03ea",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When I was a child, I spoke as a child, I understood as a child, I was reckoned as a child; but when I became a man, I put aside childish things."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.12",
+      "source_sha256": "9de23a3ff3480d5d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now we see an image as in a mirror, but then face to face. Now I know in part, but then I will know, just as I have been known."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.13.13",
+      "source_sha256": "7bd2111d84f3aff3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So now faith, hope, and love remain, these three; but the greatest of these is love."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.1",
+      "source_sha256": "404ee0d973e66e64",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Pursue love, and be eager for spiritual gifts, but especially that you may prophesy."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.2",
+      "source_sha256": "6c5fead36926fc00",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever speaks in a tongue does not speak to people but to God, for no one understands him; he speaks mysteries by the Spirit."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.3",
+      "source_sha256": "b73e3bc7d33705a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever prophesies speaks to people for their building up, encouragement, and comfort."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.4",
+      "source_sha256": "39c9759a602b11bc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever speaks in a tongue builds up himself, but whoever prophesies builds up the congregation."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.5",
+      "source_sha256": "29c78ae64a96b564",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I would like all of you to speak in tongues, but even more that you would prophesy. For whoever prophesies is greater than whoever speaks in tongues, unless that person interprets, so that the congregation may be built up."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.6",
+      "source_sha256": "8aca0b1547a51a3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But now, brothers, if I come to you speaking in tongues, how will I benefit you unless I speak to you by revelation, or by knowledge, or by prophecy, or by teaching?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.7",
+      "source_sha256": "c035e19262706687",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "It is the same with lifeless things that give a sound, such as a pipe or a harp. If they do not give distinct sounds, how will anyone know what is being piped or played on the harp?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.8",
+      "source_sha256": "884ce6070b8d7a62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And if the trumpet gives an uncertain sound, who will prepare for battle?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.9",
+      "source_sha256": "d615baa7a93660f5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So it is with you. If you do not speak an intelligible word with your tongue, how will anyone know what is being said? You will be speaking into the air."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.10",
+      "source_sha256": "218c5d1841112be6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There are so many different kinds of sounds in the world, and none of them is without meaning."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.11",
+      "source_sha256": "9a9f5f91056b0c92",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If, then, I do not know the meaning of the sound, I will be like a foreign tongue to the one who speaks, and the one who speaks to me will be like a foreign tongue to me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.12",
+      "source_sha256": "05984e86f137f17e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So also you, since you are eager for spiritual gifts, seek them for building up the church, so that you may excel."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.13",
+      "source_sha256": "b016b5ce9368ef8a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore let the one who speaks in a tongue pray that he may also interpret."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.14",
+      "source_sha256": "8303fcd4021733cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If I pray in a tongue, my spirit prays, but my mind is unfruitful."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.15",
+      "source_sha256": "e0429a3c1f6132f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What, then, is to be done? If I pray with the spirit, let me pray with the mind as well; if I sing with the spirit, let me sing with the mind as well."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.16",
+      "source_sha256": "d7a2978d0e75042e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If you bless with the spirit, how will the one who fills the place of the uninstructed say \"Amen\" to your thanksgiving? For he does not know what you are saying."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.17",
+      "source_sha256": "729f15ee652daedf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "You are indeed giving thanks well, but your neighbour is not built up."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.18",
+      "source_sha256": "7ba272196fd96161",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I thank God that I speak in tongues more than all of you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.19",
+      "source_sha256": "645b87a9ec3022a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But in the church I would rather speak five words with my mind, so that I may also instruct others, than ten thousand words in a tongue."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.20",
+      "source_sha256": "0d852b82312f954e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Brothers, do not be children in your thinking; be children with regard to evil, but in your thinking be mature."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.21",
+      "source_sha256": "57e930be1f04a63c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For it is written in the law: \"With a foreign tongue and with foreign lips I will speak to this people, and not even so will they listen to me, says the Lord.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.22",
+      "source_sha256": "a690b1fcbcefa4bb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So then, tongues are a sign not for believers but for unbelievers; but prophecy is not for unbelievers but for believers."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.23",
+      "source_sha256": "f99a1fbbbd80d070",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If the whole assembly gathers together, and all speak in tongues, and some unbelievers or uninstructed people come in, will they not say that you have somehow gone astray?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.24",
+      "source_sha256": "1ede09c8f14565b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If all prophesy, and some unbeliever or uninstructed person comes in, he is convicted by all and judged by all."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.25",
+      "source_sha256": "0c82dd2021ae2133",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The secrets of his heart are revealed, and so he will fall on his face and worship God and declare that God is truly among you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.26",
+      "source_sha256": "2b62690aa9e3a78a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What, then, is to be done, brothers? When you gather together, each of you may have a psalm, a teaching, a revelation, knowledge, or an interpretation; let all of this be done for building up."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.27",
+      "source_sha256": "67de14bbe2db5bbf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone speaks in a tongue, let it be two, or at most three, one after another, and let one person interpret."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.28",
+      "source_sha256": "5cba5584f932aeba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If there is no interpreter, let them keep silent in the church and speak to themselves and to God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.29",
+      "source_sha256": "0b26d1043c9b8c37",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let two or three prophets speak, and let the others weigh what is said."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.30",
+      "source_sha256": "bf6cf2240a01dec8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If a revelation comes to another person sitting there, let the first one be silent."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.31",
+      "source_sha256": "93dff9b69bd38bc1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For you can all prophesy one by one, so that all may learn and all may be comforted."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.32",
+      "source_sha256": "4795614c5878e173",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And the spirits of prophets are subject to the prophets,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.33",
+      "source_sha256": "617d98d98d73b7dc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for God is a God not of disorder but of peace, as in all the churches of the saints."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.34",
+      "source_sha256": "f338015b93bc4622",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let your women keep silent in the church, for they are not permitted to speak, but are to be in submission, as the law also says."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.35",
+      "source_sha256": "0a45fe7c3a78f851",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If they want to learn anything, let them ask their own husbands at home; for it is shameful for a woman to speak in the church."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.36",
+      "source_sha256": "d388a2e55bf477c3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or did the word of God go out from you? Or has it come to you alone?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.37",
+      "source_sha256": "a48dbc83ef0407c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone thinks himself a prophet or spiritual, let him know that what I am writing to you are the commandments of the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.38",
+      "source_sha256": "305619111cabb013",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone is ignorant, let him be ignorant."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.39",
+      "source_sha256": "fd26873d0727a5d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So, brothers, be eager to prophesy, and do not forbid speaking in tongues."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.14.40",
+      "source_sha256": "2c6acdd593decd53",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Let everything be done fittingly and in order."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.1",
+      "source_sha256": "f17f605e4e940e97",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I make known to you, brothers, the gospel that I preached to you, which you received and in which you stand,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.2",
+      "source_sha256": "c814761c2887b20f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "through which you are also being saved, if you remember the word I preached to you, unless you believed in vain."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.3",
+      "source_sha256": "3ada2a48f23e66cc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I handed on to you first of all what I also received: that Christ died for our sins, as it is written,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.4",
+      "source_sha256": "6ed88435f1a4c87c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and that he was buried and rose on the third day, as it is written,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.5",
+      "source_sha256": "fbb7aab20acd7335",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and that he appeared to Cephas and then to the Twelve."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.6",
+      "source_sha256": "02b0710b23615114",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Then he appeared to more than five hundred brothers at one time, most of whom are alive until now, and some have fallen asleep."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.7",
+      "source_sha256": "b4f15986ce5b1bd4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Then he appeared to James, then to all the apostles."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.8",
+      "source_sha256": "162b1f8471331a20",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Last of all, as to a castoff, he appeared to me as well."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.9",
+      "source_sha256": "9b375e3ea99b395d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For I am the castoff among the apostles, who am not worthy to be called an apostle, because I persecuted the churches of God."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.10",
+      "source_sha256": "6f03abd9317c2bba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But by the grace of God I am what I am; and his grace toward me was not in vain, but I labored more than all of them; yet not I, but the grace that was with me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.11",
+      "source_sha256": "cc1d17f90efbc1b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whether it was they or I, so we preach, and so you believed."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.12",
+      "source_sha256": "9edef8f02156fdcc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If Christ is preached among you as raised from the dead, how do some among you say that there is no resurrection of the dead?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.13",
+      "source_sha256": "1dd5ba32b6df6431",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If there is no resurrection of the dead, then Christ has not been raised either."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.14",
+      "source_sha256": "e35b648ca3aa4da8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If Christ has not been raised, then our preaching is in vain, and your faith is in vain."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.15",
+      "source_sha256": "1d262c53ad14c89c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Then we are found to be false witnesses of God, because we have testified about God that he raised Christ, whom he did not raise."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.16",
+      "source_sha256": "a3060a45f7462d24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If the dead are not raised, then Christ has not been raised either."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.17",
+      "source_sha256": "c125afee23d69987",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If Christ has not been raised, your faith is futile; you are still in your sins."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.18",
+      "source_sha256": "0353ee541d4a781a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Then have those who have fallen asleep in Christ perished?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.19",
+      "source_sha256": "536a8b269189e241",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we have hoped in Christ for this life only, we are more to be pitied than all people."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.20",
+      "source_sha256": "65cb6aa383bfc465",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But now Christ has been raised from the dead, the first of those who have fallen asleep."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.21",
+      "source_sha256": "14e0973dc8c55101",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For death came through a man, and through a man came the resurrection of the dead."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.22",
+      "source_sha256": "e03682c210bfd692",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Just as all die because of Adam, so also all will be made alive through Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.23",
+      "source_sha256": "43ded4739f409bf0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But each in his own order: first Christ, then those who belong to Christ at his coming."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.24",
+      "source_sha256": "8553663c7a8601ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Then comes the end, when he hands over the kingdom to God the Father, when he has destroyed every rule and every authority and power."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.25",
+      "source_sha256": "0582b5af37eecc33",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For he must reign until he has put his enemies under his feet."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.26",
+      "source_sha256": "20ca0156618dac39",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The last enemy to be destroyed is death,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.27",
+      "source_sha256": "f2effa970c159935",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for he has subjected all things under his feet. But when it says, \"All things have been subjected,\" [?] that this is apart from him who subjected all things to him."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.28",
+      "source_sha256": "6461e25281c5c592",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When all things have been subjected to him, then the Son himself will also be subjected to him who subjected all things to him, so that God may be all in all."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.29",
+      "source_sha256": "0769f96651b6d972",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What then will those do who are baptized for the dead? If the dead are not to rise, why are they baptized for them?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.30",
+      "source_sha256": "d9e61bcbdab751b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Or why are we in hardship every hour?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.31",
+      "source_sha256": "7e203726543108b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Day by day I die; I swear by the boasting in you that I have through Christ Jesus our Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.32",
+      "source_sha256": "d3b36801f0dc1273",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If in human fashion I fought with wild beasts at Ephesus, what profit is it to me, if the dead do not rise? Let us eat and drink, for tomorrow we die!"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.33",
+      "source_sha256": "6d2ff511eb1aa89e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not be deceived: evil conversations corrupt good minds."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.34",
+      "source_sha256": "cdd7434c892d4619",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Wake up in righteousness and do not sin; some have ignorance of God. I say this to your shame."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.35",
+      "source_sha256": "292f8ef0331c7a63",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But someone will say: How are the dead raised, or with what body will they come?"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.36",
+      "source_sha256": "0b62935cf166ad6f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Foolish one! What you sow does not come to life unless it dies."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.37",
+      "source_sha256": "13e377bf1179f04c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And what you sow is not the body itself that is to be, but a bare grain, perhaps of wheat or of some other seed."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.38",
+      "source_sha256": "459dea6af421f5ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But God gives it a body as he wills, and to each seed its own body."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.39",
+      "source_sha256": "1f790d5dff40cc0b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Not all flesh is one flesh, but there is one kind for human beings, another flesh for beasts, another flesh for birds, and another flesh for fish;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.40",
+      "source_sha256": "25561bbccb94963b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and there are heavenly bodies and earthly bodies; the glory of the heavenly is one thing, and that of the earthly is another."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.41",
+      "source_sha256": "2f0e7b1eea50eca6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There is one glory of the sun, another glory of the moon, and another glory of the stars; for just as star surpasses star in glory,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.42",
+      "source_sha256": "b23d7f8d3867b806",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so also is the resurrection of the dead: it is sown in corruption and raised in incorruption;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.43",
+      "source_sha256": "66cc12ee62f78fc1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "it is sown in dishonor and raised in glory; it is sown in weakness and raised in power;"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.44",
+      "source_sha256": "fc6262c4f37e8c84",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "it is sown a natural body and raised a spiritual body. If there is a natural body, there is also a spiritual one."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.45",
+      "source_sha256": "915e51fad07b49d4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Thus also the scripture says,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.45a",
+      "source_sha256": "8a8d4a5374bf603d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "As it is said: the first man Adam became a living [?] soul, but the second Adam a life-giving spirit."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.46",
+      "source_sha256": "1fa3a728ddcae46d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The spiritual is not first; the natural comes first, and only then the spiritual."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.47",
+      "source_sha256": "6a2a9b873b879f29",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "The first man was from the earth, made of dust; the second man is from heaven, spiritual."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.48",
+      "source_sha256": "d34700ca915cd422",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "As the man of dust was, so are those who are of dust; and as the heavenly one is, so are those who are heavenly."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.49",
+      "source_sha256": "8c866aadd983f33b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And as we have worn the image of the man of dust, let us also wear the image of the heavenly one."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.50",
+      "source_sha256": "602eb93e42f4ba70",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "This is what I say, brothers: flesh and blood cannot inherit the kingdom of God, and corruption does not inherit incorruption."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.51",
+      "source_sha256": "ce9b59f8dc837095",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Look, I tell you a mystery: we shall all fall asleep, but we shall not all be changed,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.52",
+      "source_sha256": "fcdee06bd944c7c6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "in a moment, in the twinkling of an eye, at the last trumpet. The trumpet will sound, and the dead will rise incorruptible, and we shall be changed."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.53",
+      "source_sha256": "b87e62c693b17a05",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For this corruptible body must put on incorruption, and this mortal body must put on immortality."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.54",
+      "source_sha256": "22194fe620cd62b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When this mortal body has put on immortality, then the word of scripture will be fulfilled: \"Death is swallowed up in victory.\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.55",
+      "source_sha256": "f829a25431b41c7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "\"O death, where is your sting? O hell, where is your victory?\""
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.56",
+      "source_sha256": "6132d4f81c3394ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For the sting of death is sin, and the power of death is the law."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.57",
+      "source_sha256": "da1df8b10f7922ab",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But thanks be to God, who has given us the victory through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.15.58",
+      "source_sha256": "fdddfc3ba25dec1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "So then, my beloved brothers, be firm and unshakable, and always do more in the work of the Lord. Know that your labour is not in vain in the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.1",
+      "source_sha256": "0e1cc1829816fbe1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now about the collection for the saints: do as I instructed the churches of Galatia."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.2",
+      "source_sha256": "259368b5e0ca7968",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "On the first day of every week, each of you should put something aside and store it up at home, according to how he has prospered, so that the collecting does not have to happen when I come."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.3",
+      "source_sha256": "4a172b968c1386b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "When I come, I will send the people you approve to Jerusalem with letters to deliver your gift."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.4",
+      "source_sha256": "08e684fb64366e65",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If it is fitting for me to go too, they will go with me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.5",
+      "source_sha256": "cac9ec34db6875af",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I will come to you when I pass through Macedonia, since I am going through Macedonia."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.6",
+      "source_sha256": "5f1529218b85d9f0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I may stay with you, or even spend the winter, so that you can send me on my way wherever I go."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.7",
+      "source_sha256": "79a2080f5645096b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I do not want to see you now only in passing; I hope to spend some time with you, if the Lord permits."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.8",
+      "source_sha256": "cb62ff306fe7d6fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I will stay in Ephesus until Pentecost [?],"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.9",
+      "source_sha256": "fa0b975ee8ab6ca5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for a great and effective door has opened for me, and there are many who oppose me."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.10",
+      "source_sha256": "a8f63afd53538155",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If Timothy comes, see that he has nothing to fear while he is with you, for he is doing the work of the Lord, just as I am."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.11",
+      "source_sha256": "0bacccc88a34934c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "No one should despise him. Send him on his way in peace so that he may come to me, for I am waiting for him with the brothers."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.12",
+      "source_sha256": "f669f5e29ed13eb7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "As for our brother Apollos, I strongly urged him to go to you with the brothers. But it was not at all his will to go now; he will go when he has the opportunity."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.13",
+      "source_sha256": "52b79599c54fd9a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "Be watchful, stand firm in the faith, be courageous and be strong."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.14",
+      "source_sha256": "be3be02f4c07bc9d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "Let everything you do be done in love."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.15",
+      "source_sha256": "1dba4908a10ab6cc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "I urge you, brothers: you know the household of Stephanas, that it is the firstfruits of Achaia, and they have devoted themselves to the service of the saints,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.16",
+      "source_sha256": "6837fd9040b4d366",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "so that you too may submit to such people, and to everyone who helps and labors with them."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.17",
+      "source_sha256": "7676a4ec335673c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "I rejoice at the coming of Stephanas and Fortunatus and Achaicus, because they have made up for what was lacking from you,"
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.18",
+      "source_sha256": "a0d01f1feae41d4f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "for they refreshed my spirit and yours as well. Recognize such people."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.19",
+      "source_sha256": "2ac0883b5723f300",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "The churches of Asia greet you. Aquila and Priscilla greet you warmly in the Lord, together with the congregation that lives with them."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.20",
+      "source_sha256": "265676fd12587503",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "All the brothers greet you. Greet one another with a holy kiss."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.21",
+      "source_sha256": "939f181db09d0e74",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "The greeting is in my own hand, Paul's."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.22",
+      "source_sha256": "e18aca130b5ee497",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "Whoever does not love our Lord Jesus Christ, let him be accursed. Maranatha."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.23",
+      "source_sha256": "107893938ea4d5c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "The grace of our Lord Jesus Christ be with you."
+    },
+    {
+      "chunk_id": "titus-paul-ab/1cor#1Cor.16.24",
+      "source_sha256": "1291cc9f50b7da7e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 13,
+      "text": "And my love be with all of you in Christ Jesus. Amen."
+    }
+  ]
+}

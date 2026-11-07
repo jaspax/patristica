@@ -7,8 +7,7 @@ Syriac, revised towards the Greek). Variant lines (``Verse: 1V``) are the
 apparatus and are left out.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etca/cauc/ageo/nt/adisnt/adisn.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

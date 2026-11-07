@@ -5,8 +5,7 @@ The Apocalypse, translated from the Greek by Euthymius the Athonite (with
 Andrew of Caesarea's commentary, 978), after Imnaishvili (Tbilisi 1961).
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/nt/apjo/apjo.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

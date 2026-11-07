@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "oglt-pl/augustinus/pl40_4_s.",
- "pivot": "oglt-pl/augustinus/pl40_4_s.",
- "groups": 186,
- "inputs": "6df58e2f9079b2cb",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "npnf-works/augustine-faith-of-things-not-seen",
+ "groups": 187,
+ "inputs": "3674f757b1629f3d",
+ "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/augustine-faith-of-things-not-seen", "units": 199, "ids": "0697d2ec562bfe59", "inputs": "1d62a31a884a96b0", "spans": "++...++++++++++=++++++++=++++=++++=++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++=++++++++++++++++++++++=+++++++=++++++++=++++++++++++++++++++++++++++++++", "conf": "899999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/augustinus/pl40_4_s.", "units": 222, "ids": "047ea4dabce1dcf9", "inputs": "5ab876d60fa716ab", "spans": "++.++++++++++++++++++++++++=+....+++.+++++++++++++++++.....+++++.+.++++++=+++=+++++.++++++++++++++++=++++++=+..+++++++.+++++++++++++++++=+++++++=+++++++++++=++.++++++++.++++++++..+++++++=+.++++++++++..+++++++++.+++++++++..", "conf": "899999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/augustine-faith-of-things-not-seen", "units": 199, "ids": "0697d2ec562bfe59", "inputs": "1d62a31a884a96b0", "spans": "++...++++++++++=++++++++=++++=+++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++=++++++++++++++++++++++=+++++++=++++++++=++++++++++++++++++++++++++++++++", "conf": "8999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/augustinus/pl40_4_s.", "units": 221, "ids": "dd4b854ae07abbab", "inputs": "72a1ec44b980d2fe", "spans": "++.++++++++++++++++++++++++=++...+++.+++++++++++++++++.....+++++.+.++++++=+++=+++++.++++++++++++++++=++++++=+==+++++++.+++++++++++++++++=++++++=++++++++++++=+++=+++++++.++++++++..++++++++.++++++++++==+++++++++.+++++++++..", "conf": "8999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

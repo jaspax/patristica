@@ -281,15 +281,17 @@ def db_rows(url: str, norm: Path, trans: Path, vecs: Path | None,
                         ("no full run recorded" if stored is None else "changed since the last "
                          "full run (bump LOADER_VERSION if stored data should change)")))
         if vecs is not None and vecs.is_dir():
-            st = build_index.run(conn, norm, trans, vecs, dry_run=True, align_dir=align_dir)
+            st = build_index.run(conn, norm, trans, vecs, dry_run=True, align_dir=align_dir,
+                                 hash_cache=build_index.DEFAULT_HASH_CACHE)
             busy = (st.loaded or st.updated or st.deleted or st.regrouped or st.passages
-                    or st.backfilled)
+                    or st.backfilled or st.refolded)
             rows.append(Row("build_index", "database", "warn" if busy or st.stale_alignments
                             else "ok",
                             f"{st.loaded} works to load (vectors re-sent), "
                             f"{st.updated} to update in place (metadata only, #234), "
                             f"{st.backfilled} body hashes to fill in, {st.deleted} to delete, "
                             f"{st.regrouped} chunks to regroup, {st.passages} passage rows, "
+                            f"{st.refolded} works to refold (#607), "
                             f"{len(st.stale_alignments)} works with stale alignments"
                             + ("; run scripts.build_index" if busy else "")))
     return rows

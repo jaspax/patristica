@@ -7,8 +7,7 @@ line in Asomtavruli and in a Mkhedruli transcription; the transcription
 (``mx`` classes) is the text kept. Books are ``Text`` and verses ``Paragraph`` there.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/xanmeti/saxareba/saxar.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

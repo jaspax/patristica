@@ -36,11 +36,10 @@ period flags. In particular:
   only and is not a licence for others: anyone else who wants to reuse the text,
   including from Patristica's data, needs the rights holder's own permission.
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
-  and must be excluded from public distribution until then. Two sources are
-  ingested this way while their permission is asked for: TITUS's Old Georgian
-  texts (#514) and CELT's Old Irish texts, whose pages are "available with
-  prior consent of the CELT programme for purposes of academic research and
-  teaching only" (#542).
+  and must be excluded from public distribution until then. One source is
+  ingested this way while its permission is asked for: CELT's Old Irish texts,
+  whose pages are "available with prior consent of the CELT programme for
+  purposes of academic research and teaching only" (#542).
 
 The corpus breaks down as follows (late October 2026, by chunks):
 
@@ -50,7 +49,7 @@ The corpus breaks down as follows (late October 2026, by chunks):
 | Public domain | 42% | OGPG (Migne), NPNF/ANF (CCEL), CANTUS, KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, older liturgical editions, the Christian Arabic texts on tertullian.org with their English translations (dedicated to the public domain by Roger Pearse) |
 | CC BY 4.0 | 5% | Digital Syriac Corpus, Open Scriptures Hebrew Bible, most of Coptic Scriptorium, parts of PTA, CCMH |
 | CC BY-NC 4.0 | 1.5% | CURSUS, PTA Peshitta |
-| CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr), the Old Irish *Félire Óengusso* (Gloss Corpus, P. Moran) |
+| CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr), the Old Irish *Félire Óengusso* (Gloss Corpus, P. Moran), the Old Georgian texts of TITUS (#514; see "Licences stated in correspondence") |
 | Academic, non-commercial | 0.3% | SBL Greek New Testament, Wulfila Gothic Bible |
 | CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`), the Referenzkorpus Altdeutsch (Old High German and Old Saxon, #567) |
 | Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
@@ -91,12 +90,41 @@ index, so it stays current as the corpus changes.
 hudra.day's own terms grant personal viewing only (#32); this permission is
 what lets Patristica include the texts.
 
+### Licences stated in correspondence
+
+#### TITUS Old Georgian texts (`titus-*`)
+
+- **Texts:** the Old Georgian texts of TITUS, *Thesaurus Indogermanischer
+  Text- und Sprachmaterialien*, ed. Jost Gippert, University of Frankfurt
+  (https://titus.uni-frankfurt.de/): Bible recensions and lectionaries,
+  hagiography, the Shatberdi codex, liturgies, chronicles and translations of
+  Greek Fathers (#514, #515, #516, #517).
+- **Stated by:** the editor of TITUS, on 2026-11-03, in reply to Patristica's
+  request. TITUS's pages say "No parts of this document may be republished in
+  any form without prior permission by the copyright holder"; the reply:
+  *"In principle, the TITUS texts can be used for non-commercial purposes on a
+  CC-BY-NC-SA basis, even though this is not stated explicitly (the CC types
+  did not yet exist when we started in the 1980s)."* The project owner keeps
+  the correspondence.
+- **Licence:** CC BY-NC-SA (`cc-by-nc-sa-4.0`; the reply names no version, so
+  we use the current one). Unlike the Hudra's, this is a licence for anyone,
+  not a permission for Patristica only.
+- **Attribution:** the editor asked that the printed editions' authors and
+  publishers be named as TITUS names them, and TITUS cited as above. Each work's edition line reads "TITUS (Thesaurus
+  Indogermanischer Text- und Sprachmaterialien, ed. …, University of
+  Frankfurt), after {printed edition}" and links to the TITUS page.
+- The printed editions published in Georgia in Soviet times are, in the
+  editor's words, free, and many are online as PDFs at the National
+  Parliamentary Library of Georgia. He also pointed to TITUS's new site
+  (titus2.uni-frankfurt.de, Georgian not yet moved) and the Georgian National
+  Corpus (gnc.gov.ge), which includes the material with some gaps.
+
 ### Non-commercial material
 
 The non-commercial texts mean that **Patristica as a whole may only be used and
 served non-commercially**: no ads, paid tiers or API fees. If that ever changes,
 remove or replace those texts first. That includes the Hudra texts, which are
-used with permission for non-commercial use (`used-with-permission`). For the Septuagint, `pta-lxx` is a
+used with permission for non-commercial use (`used-with-permission`), and the TITUS Old Georgian texts (CC BY-NC-SA). For the Septuagint, `pta-lxx` is a
 CC BY-SA alternative to Rahlfs.
 
 If you reuse the data, filter on `Work.license` to keep only what your use permits.

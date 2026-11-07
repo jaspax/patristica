@@ -37,7 +37,7 @@ The checklist for bringing a new language into the corpus (#293). Work through i
   - keep `fold_spans()` consistent;
   - bump `FOLD_VERSION` in `patristica/keyword.py`.
 
-  This is a **rebuild**. `textfold` is in the normalize closure (via `patristica.authors`), so every work is re-normalized. The `FOLD_VERSION` bump makes `build_index` refold `text_folded` for every chunk: SQL only, no vectors, but the whole corpus. Batch fold changes for a language into one PR.
+  This is a **rebuild**. `textfold` is in the normalize closure (via `patristica.authors`), so every work is re-normalized. The `FOLD_VERSION` bump makes `build_index` fold every chunk again locally (a few minutes for the corpus) and rewrite `text_folded` only where it changed (#607): no vectors, and quoted search keeps the old folding until a work is done. Batch fold changes for a language into one PR.
 
 ## 3. Search quality: measure, then decide
 
@@ -129,7 +129,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
 - [ ] **Estimate before paying:**
   - Embedding: Voyage `voyage-4-large` at $0.12 per million tokens (`PRICE_PER_MTOK` in `scripts/embed.py`). Rare scripts count up to about 2× cl100k. Every unit of at least `MIN_CHARS` characters gets a vector. For scale, the whole corpus (4.02M vectors) cost about $34 (#136).
   - Translation: units × $0.0014, plus the translation vectors, if the language is enrolled.
-- [ ] **Reload size.** `build_index` loads only new works: their chunks and vectors. It updates metadata-only changes in place. A `FOLD_VERSION` bump refolds every chunk; a `LOADER_VERSION` bump reloads everything (avoid). `scripts.status --db --vectors` on the pipeline machine lists the works a run would load, update or delete.
+- [ ] **Reload size.** `build_index` loads only new works: their chunks and vectors. It updates metadata-only changes in place. A `FOLD_VERSION` bump refolds every work locally but rewrites only the chunks it changes; a `LOADER_VERSION` bump reloads everything (avoid). `scripts.status --db --vectors` on the pipeline machine lists the works a run would load, update or delete.
 - [ ] **Paid steps run only in `scripts.pipeline --pay`** on master, after merge, by the owner. A PR never sends translate or embed requests, with one exception:
 - [ ] **Anchored derived verses are cut in the PR** (#304), so master never holds provisional cuts of enrolled works and refs don't change between the PR and the publish. After normalize:
   1. `uv run --extra embed python -m scripts.anchor --dry-run`: the works to cut and the cost (an upper bound; usually cents per source);

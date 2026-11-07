@@ -3,8 +3,8 @@
  "group": "book:hag",
  "pivot": "asv/hag",
  "groups": 38,
- "inputs": "912a0f9792c5a809",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "67ee0c9987b304ce",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/hag", "units": 37, "ids": "8a7781a2bbb0af64", "inputs": "3f1ad84969f0ccad", "spans": "+++++++++++++++2++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999"},
   {"work_id": "asv/hag", "units": 38, "ids": "9a5b419219c141db", "inputs": "0eba51c50c896a37", "spans": "++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999"},
@@ -15,6 +15,7 @@
   {"work_id": "oshb/hag", "units": 38, "ids": "bdff1c386dca185f", "inputs": "111c4742ab0dc5f7", "spans": "++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999"},
   {"work_id": "pta-lxx/hag", "units": 38, "ids": "85d94efb4d196269", "inputs": "278dd61ed418d56e", "spans": "++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999"},
   {"work_id": "pta-peshitta/hag", "units": 38, "ids": "3aa5e4db795a7f0e", "inputs": "87b74963a7de40ac", "spans": "++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999"},
+  {"work_id": "titus-oshki/hag", "units": 36, "ids": "17ef224bfbddc2f3", "inputs": "51247c5001cd7110", "spans": "+++++2++++++++++2+++++++++++++++++++++", "conf": "999999999999999999999999999999999999"},
   {"work_id": "web/hag", "units": 38, "ids": "9d0732e95ac4edf3", "inputs": "9c7c24b6cb228a19", "spans": "++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999"}
  ]
 }

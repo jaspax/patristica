@@ -1,0 +1,737 @@
+{
+  "work_id": "titus-catholic-d/1john",
+  "source_path": "titus-catholic-d/1john.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.1",
+      "source_sha256": "f8b3a0d74308dbbb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "That which was from the beginning, which we heard and saw with our eyes, which we saw and examined with our hands: the word of life."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.2",
+      "source_sha256": "d0e37eef2bafcba1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And that life was revealed, and we saw it, and we bear witness and declare to you that eternal life which was with the Father and appeared to us;"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.3",
+      "source_sha256": "0667204107a82eba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "what we heard and saw we declare to you, so that you too may have fellowship with us, and our fellowship is with the Father and with his Son Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.4",
+      "source_sha256": "16d317c263b5c710",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And I write this to you so that our joy may be complete."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.5",
+      "source_sha256": "8144d946e9f1f27a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And this is the promise which we heard from him and declare to you: that God is light, and there is no darkness in him at all."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.6",
+      "source_sha256": "e3f7fb4d578a59c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we say that we have fellowship with him while we walk in darkness, we lie and do not do the truth."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.7",
+      "source_sha256": "2c6548f537a78b02",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But if we walk in the light, as he is in the light, we have fellowship with one another. And the blood of Jesus Christ, his Son, cleanses us from all sin."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.8",
+      "source_sha256": "84d6ff4fb680513a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we say that we have no sin, we deceive ourselves, and the truth is not in us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.9",
+      "source_sha256": "eb1e0d2f8cc363ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we confess our sins, he is faithful and righteous, so that he will forgive us our sins and cleanse us from all falsehood."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.1.10",
+      "source_sha256": "04d33ca83171b708",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we say that we have not sinned, we make him out to be a liar, and his word is not in us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.1",
+      "source_sha256": "2e5c4d6e7d6e7a42",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "My children, I write this to you so that you may not sin. And if anyone sins, we have a comforter with the Father, Christ Jesus the righteous."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.2",
+      "source_sha256": "d710cb3c7d597139",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And he is the one who forgives our sins, and not only our sins but those of the whole world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.3",
+      "source_sha256": "e351f594f21af2f6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And by this we know that we know him: if we keep his commandments."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.4",
+      "source_sha256": "7d9db7726b2efd32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever says, \"I have known him,\" and does not keep his commandments is a liar, and the truth is not in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.5",
+      "source_sha256": "7783b7d2f9803fc7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For whoever keeps his words, truly the love of God is made perfect in him. By this we know that we are in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.6",
+      "source_sha256": "8a36d2ceb86281e5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever says that he abides in him ought to walk just as he himself walked."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.7",
+      "source_sha256": "504fea6bfb85a735",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Brothers, I am not writing a new commandment to you but the old commandment which you had, love. The old commandment is the word which you heard from the beginning."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.8",
+      "source_sha256": "c602fc971b5c2f54",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Again, I am writing a new commandment to you, which is true in him and in you, for the darkness is passing away and the true light is already shining."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.9",
+      "source_sha256": "640457a7b7c26e55",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever says that he is in the light and hates his brother is in darkness even until now."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.10",
+      "source_sha256": "dc8abcb163a48653",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever loves his brother is in the light, and there is no cause of stumbling in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.11",
+      "source_sha256": "c17953bced850aae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But whoever hates his brother is in darkness and walks in darkness, and does not know where he is going, for the darkness has blinded his eyes."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.12",
+      "source_sha256": "ae0df271107c1b7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I am writing to you, children, because your sins are forgiven you through his name."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.13",
+      "source_sha256": "12521b3cf84391b6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I am writing to you, fathers, because you have known him who is from the beginning. I am writing to you, young men, because you have overcome the evil one. I am writing to you, little ones, because you have known the Father."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.14",
+      "source_sha256": "16cde16c85e9b3a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I wrote to you, fathers, because you have known him who is from the beginning. I wrote to you, young men, because you are strong, and the word of God abides in you, and you have overcome the evil one."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.15",
+      "source_sha256": "d8e1a5a50dd05c78",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not love this world, nor anything that belongs to this world. If anyone loves this world, the love of the Father is not in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.16",
+      "source_sha256": "4e65b2527e4fb2e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "For everything in the world is this: the desire of the flesh, and the desire of the eyes, and the pride of this life. And this is not from the Father, but is from the world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.17",
+      "source_sha256": "3f85a4d99c387e80",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And this world will pass away, and its desire too; but whoever does the will of God abides forever."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.18",
+      "source_sha256": "0a8641931c6b9adc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Children, it is the last hour. As you have heard that the Antichrist is coming, even now there are many antichrists; from this you know that it is the last hour."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.19",
+      "source_sha256": "ac77656e5743cf32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "They went out from us, but they were not of us; for if they had been of us, they would have remained with us. But they went out so that it might be made plain that not all of them are of us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.20",
+      "source_sha256": "b5a0471da0bc8d39",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And you also have an anointing from the Holy One, and you know all things."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.21",
+      "source_sha256": "a0491125faa15904",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "I have not written to you because you do not know the truth, but because you know it, and because no lie is of the truth."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.22",
+      "source_sha256": "e90d9961cab27fc3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Who is the liar? Is it not the one who denies that Jesus is not the Christ? This is the antichrist, the one who denies the Father and the Son."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.23",
+      "source_sha256": "51103693b116dc0c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Everyone who denies the Son does not have the Father with him either; whoever confesses the Son has the Father with him as well."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.24",
+      "source_sha256": "34018cf383cd863a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "As for you, then, let what you heard from the beginning remain with you. If what you heard from the beginning remains with you, you too will remain with the Son and with the Father."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.25",
+      "source_sha256": "9ba81f38420f98a4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And this is the promise that he promised us: eternal life."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.26",
+      "source_sha256": "c05a87b9bd14383f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "I have written this to you concerning those who are deceiving you."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.27",
+      "source_sha256": "4f0569c8e302cc90",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And as for you, the anointing that you received from him abides with you, and you have no need for anyone to teach you. Instead, that same anointing teaches you about all things, and it is true and is not a lie. And just as it has taught you, abide in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.28",
+      "source_sha256": "4bad975f2be9add8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And now, children, abide in him, so that when he appears we may have boldness and not be put to shame by him at his coming."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.2.29",
+      "source_sha256": "0e035e657585fb92",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "If you know that he is righteous, know that everyone who does righteousness is born of him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.1",
+      "source_sha256": "8c7e753474a0b61e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "See what great love the Father has given us, that we should be called children of God. For this reason the world does not know you, because it did not know him either."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.2",
+      "source_sha256": "da3103febb518eae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Beloved, now we are children of God, and it has not yet been revealed what we shall be. But we know that when he appears we shall be like him, for we shall see him as he is."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.3",
+      "source_sha256": "45adbe53ebcc3ee8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And everyone who has this hope in him purifies himself, just as he is pure."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.4",
+      "source_sha256": "d5fe84881030379d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Everyone who commits sin also commits lawlessness, and sin is lawlessness."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.5",
+      "source_sha256": "620cdd63b1a2b1df",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "And you know that the Son of God appeared in order to take away our sins, and there is no sin in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.6",
+      "source_sha256": "5e5b83e163d3269d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Everyone who abides in him does not sin, and everyone who sins has not seen him and does not know him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.7",
+      "source_sha256": "d688255bf8fb8708",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "My children, let no one deceive you: whoever does righteousness is righteous, just as he himself is righteous."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.8",
+      "source_sha256": "207ea72b6761df3b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Whoever commits sin is of the devil, for the devil has been sinning from the beginning. For this reason the Son of God appeared: to destroy the works of the devil."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.9",
+      "source_sha256": "e3ce9bf83242f891",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 23,
+      "text": "Everyone who is born of God does not commit sin, because his seed abides in him; and he cannot sin, because he is born of God."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.10",
+      "source_sha256": "541bf543e87726c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "By this the children of God and the children of the devil are made plain: everyone who does not do righteousness is not of God, nor is the one who does not love his brother."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.11",
+      "source_sha256": "cdb07519ae3fbd05",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For this is the promise which we heard from the beginning: that we should love one another."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.12",
+      "source_sha256": "e31858111a35d80d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Not as Cain, who was of the evil one and killed his brother. And why did he kill him? Because his deeds were evil, but his brother's were righteous."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.13",
+      "source_sha256": "4f5338b94d1d9aac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Do not be amazed, my brothers, that the world hates you."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.14",
+      "source_sha256": "859c24c3e0b35992",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "We know that we have passed from death to life, because we love the brothers. Whoever does not love his brother abides in death."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.15",
+      "source_sha256": "879e98d88f33e3cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Everyone who hates his brother is a murderer, and you know that no murderer has eternal life abiding in him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.16",
+      "source_sha256": "715985e30ef7fda6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "By this we have come to know his love: that he laid down his life for us; and we too ought to [?] our lives for the brothers. [The text reads 'glory' (didebay), probably a corruption of 'laying down' (dadebay).]"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.17",
+      "source_sha256": "09c3cc54ce3d2816",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "If anyone has the livelihood of this world and sees his brother in need of something, and shuts up his compassion from him, how does the love of God abide in him?"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.18",
+      "source_sha256": "9f39292c2e844872",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "My children, let us not love with word only, nor with the tongue, but in deed and in truth."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.19",
+      "source_sha256": "766e959b1748d238",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And by this we shall know that we are of the truth, and before him our hearts are assured."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.20",
+      "source_sha256": "fcbdc68a219bb624",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For if our heart condemns us, God is greater than our heart and knows everything."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.21",
+      "source_sha256": "512963d4811b658f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Beloved, if our heart does not condemn us, we have boldness toward God."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.22",
+      "source_sha256": "ca9c830b8b401607",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And whatever we ask, we shall receive from him, because we keep his commandments and do what is pleasing before him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.23",
+      "source_sha256": "2d3f39a97da99423",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And this is his commandment: that we believe in the name of his Son Jesus Christ, and love one another, as he gave us the commandment."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.3.24",
+      "source_sha256": "531883e766183866",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And whoever keeps his commandments abides in him, and he himself in him. And by this we know that he abides in us: by the Spirit which he gave us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.1",
+      "source_sha256": "b0ce98558c655eb0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Beloved, do not believe every spirit, but test the spirits whether they are of God, for many false prophets have gone out into the world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.2",
+      "source_sha256": "849c87ff4945d835",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "By this you know the Spirit of God: every spirit that does not confess Jesus Christ come in the flesh is not of God;"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.3",
+      "source_sha256": "a5ab16fb3fc596d1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "and every spirit that confesses Jesus Christ come in the flesh is of God. And this is of the Antichrist, of whom you have heard that he is to come, and now he is already in the world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.4",
+      "source_sha256": "e94af1a633afacc4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "You are of God, children, and you have overcome them, for he who is in you is greater than he who is of the world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.5",
+      "source_sha256": "91c35068c1c22ebb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "They are of the world; therefore they speak of the world, and the world listens to them."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.6",
+      "source_sha256": "26cc4f72aaeb9381",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "We are of God. Whoever knows God listens to us, and whoever is not of God does not listen to us. By this we know the spirit of truth and the spirit of deception."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.7",
+      "source_sha256": "2894bec1c8c05d41",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Beloved, let us love one another, for love is of God, and everyone who loves is born of God and knows God."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.8",
+      "source_sha256": "441f593e857e59de",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Whoever does not love does not know God, for God is love."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.9",
+      "source_sha256": "f19cc332e4c0d844",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "By this the love of God was made manifest among us: that God sent his only-begotten Son into the world, so that we might live through him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.10",
+      "source_sha256": "334af761ab5565af",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And this is love: not that we loved God, but that he loved us and sent his Son as the atonement for our sins."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.11",
+      "source_sha256": "0d8be70bffd693fa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Beloved, if God loved us in this way, we also ought to love one another."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.12",
+      "source_sha256": "ca3baee3205395d5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "No one has ever seen God. If we love one another, God abides in us, and his love is made perfect in us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.13",
+      "source_sha256": "4f6dc2ed41031fc8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "By this we know that we abide in him and he in us: because he has given us of his Spirit."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.14",
+      "source_sha256": "16db1b1d952e0b8c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And we have seen and we testify that the Father sent the Son as the Savior of the world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.15",
+      "source_sha256": "2c7cf1ad6b03683a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever confesses that Jesus is the Son of God, God abides in him, and he in God."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.17",
+      "source_sha256": "4bab18705773f0dc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "By this love is made perfect among us, so that we may have boldness on the day of judgment; for as he was, so are we also in this world."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.18",
+      "source_sha256": "c7f4493f782a0f1c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "There is no fear in love; rather, perfect love drives out fear, for fear involves torment, and the one who fears is not made perfect in love."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.19",
+      "source_sha256": "862b309d7fa2a322",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "We love him, because he first loved us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.20",
+      "source_sha256": "cec368592ff3fe6d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If anyone says, “I love God,” and hates his brother, he is a liar; for whoever does not love his brother, whom he has seen, how can he love God, whom he has not seen?"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.4.21",
+      "source_sha256": "d3ec7b6a9a757f4c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And we have received this commandment from him: that whoever loves God should love his brother also."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.1",
+      "source_sha256": "342017af569d5285",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Everyone who believes that Jesus is the Christ is born of God, and everyone who loves the one who begets also loves the one begotten of him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.2",
+      "source_sha256": "a09ef04333a481e9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "By this we know that we love the children of God: when we love God and keep his commandments."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.3",
+      "source_sha256": "1b3444464f1190a9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For this is the love of God: that we keep his commandments. And his commandments are not burdensome."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.4",
+      "source_sha256": "83dae5f46c6d2804",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For everyone who is born of God overcomes the world; and this is the victory by which the world is overcome: our faith."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.5",
+      "source_sha256": "3bf929fddc24f431",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "What is it that overcomes the world, if not the one who believes that Jesus is the Son of God?"
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.6",
+      "source_sha256": "6c723af95c808a55",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "This is the one who came by water and blood, Jesus Christ; not by water only, but by water and by blood. And it is the Spirit who testifies, because the Spirit is of the truth."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.8",
+      "source_sha256": "397d8076dff46f3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For there are three who testify: the Spirit and the water and the blood, and these three are directed toward one."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.9",
+      "source_sha256": "79fdae105a0a2ab7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "If we receive the testimony of men, the testimony of God is greater; for this is the testimony of God, which he has testified concerning his Son."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.10",
+      "source_sha256": "df24658209de8a4e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever believes in the Son of God has that testimony within himself. Whoever does not believe God has made him out to be a liar, because he has not believed the testimony that God testified concerning his Son."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.11",
+      "source_sha256": "f54d25049a705b6c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And this is the testimony: that God has given us eternal life, and this life is in his Son."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.12",
+      "source_sha256": "56811ac831738502",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whoever has the Son has life also; whoever does not have the Son of God does not have life either."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.13",
+      "source_sha256": "c88b36fa445236e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "I have written these things to you who believe in the name of the Son of God, so that you may know that you have eternal life, and so that you may believe in the name of the Son of God."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.14",
+      "source_sha256": "4df8cfe339e1a301",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "And this is the boldness that we have toward him: that if we ask anything according to his will, he hears us."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.15",
+      "source_sha256": "5d17765a054dea96",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Whatever we ask, we also know that we shall receive the request that we have asked of him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.16",
+      "source_sha256": "a96ba876d5594401",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "If anyone sees his brother sinning a sin that is not unto death, let him ask, and He will give him life — to those who sin not unto death. There is a sin unto death; I do not say concerning that one that anyone should ask."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.17",
+      "source_sha256": "4439dc86c96acaf5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "All unrighteousness is sin, and there is a sin that is not unto death."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.18",
+      "source_sha256": "b0801e83a494ca68",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "We know that everyone who has been born of God does not sin; rather, the one who has been born of God keeps himself, and the evil one does not touch him."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.19",
+      "source_sha256": "a5e5b89cf23846f1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "We know that we are of God, and the whole world stands upon (rests upon) the evil one."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.20",
+      "source_sha256": "9c2f8bfc93553269",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "And we know that the Son of God has come and has given us understanding, so that we may know the true God; and we are with the True One, with his Son Jesus Christ. This is the true God and eternal life."
+    },
+    {
+      "chunk_id": "titus-catholic-d/1john#1John.5.21",
+      "source_sha256": "3cf8e4068dd08e26",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 6,
+      "text": "Children, guard yourselves from idols. Amen."
+    }
+  ]
+}

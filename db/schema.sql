@@ -98,10 +98,19 @@ CREATE TABLE IF NOT EXISTS passage_groups (
 CREATE INDEX IF NOT EXISTS passage_groups_group ON passage_groups (group_id);
 
 -- Settings the stored data was built with, e.g. fold_version
--- (patristica.keyword.FOLD_VERSION): when it changes, every chunk is refolded.
+-- (patristica.keyword.FOLD_VERSION): when it changes, every work is queued
+-- in fold_pending and its chunks are refolded.
 CREATE TABLE IF NOT EXISTS index_meta (
     key     text PRIMARY KEY,
     value   text NOT NULL
+);
+
+-- Works whose text_folded may still be from an older fold_version (#607).
+-- build_index folds a queued work again, rewrites only the chunks whose
+-- folded text differs and removes the row; a reloaded work leaves the queue
+-- with its old rows (ON DELETE CASCADE), since load_work folds every chunk.
+CREATE TABLE IF NOT EXISTS fold_pending (
+    work_id     text PRIMARY KEY REFERENCES works ON DELETE CASCADE
 );
 
 -- Machine translations (data/translations/, #93), only those made from the

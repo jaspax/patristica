@@ -1,0 +1,639 @@
+{
+  "work_id": "titus-paul-cd/1thess",
+  "source_path": "titus-paul-cd/1thess.json",
+  "source_language": "oge",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.1",
+      "source_sha256": "6d78cb9acf7957e7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "Paul and Silvanus and Timothy to the churches of the Thessalonians, in God the Father and the Lord Jesus Christ: grace to you and peace from God our Father and the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.2",
+      "source_sha256": "7b12a7a09b31e285",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "We give thanks to God always for all of you and make remembrance of you in our prayers."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.3",
+      "source_sha256": "da2f52a021b38d71",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "Unceasingly we remember those works of your faith and the labor of love and the patience of the hope in our Lord Jesus Christ, before God and our Father."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.4",
+      "source_sha256": "8aa9d4056c52f64a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 22,
+      "text": "Know, brothers beloved of God, that you have been chosen."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.5",
+      "source_sha256": "8f83a062e509fcf6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "For this gospel of ours did not come to you in word only, but also in power and in the Holy Spirit and in much fullness of heart, just as you know what sort of men we became toward you for your own sake."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.6",
+      "source_sha256": "7bd3c72b47e96880",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "And you became imitators of us and of the Lord, and you received the word in much tribulation with the joy of the Holy Spirit,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.7",
+      "source_sha256": "b05aa76ff7ddca78",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "so that you even became a pattern for all those believers who are in Macedonia and Achaia."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.8",
+      "source_sha256": "2c048095c9679694",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "For from you the word of the Lord spread abroad not only in Macedonia and Achaia, but in every place your faith toward God has gone forth, so that we no longer need to say anything."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.9",
+      "source_sha256": "f73314759b95c867",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "They themselves will tell you about us, what kind of entry we had among you, and how you turned from idols to God, to serve the living and true God,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.1.10",
+      "source_sha256": "9bf6def45c5f215e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "and to wait for his Son from heaven, whom he raised from the dead, Jesus, our deliverer from the wrath that is to come."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.1",
+      "source_sha256": "e6939b6dc2cd9720",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "For you yourselves know, brothers, that our coming to you was not in vain;"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.2",
+      "source_sha256": "141a402ff9aa4581",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 22,
+      "text": "We had already suffered and been insulted at Philippi, as you know. Yet through our God we spoke boldly and openly to you the gospel of God, in the midst of great struggle."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.3",
+      "source_sha256": "21c4cf5167b37631",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "for this exhortation of ours does not come from error, nor from impurity, nor with deceit,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.4",
+      "source_sha256": "4dc26b51f600befc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "but just as we have been approved by God to be entrusted with the gospel, so also we speak, not as pleasing men, but God, who is the tester of our hearts."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.5",
+      "source_sha256": "358879b9ee921e58",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "For never were we with words of flattery, as you know, nor with a pretext for greed; God is witness."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.6",
+      "source_sha256": "968f4069859d6b15",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "Nor did we seek glory from men, neither from you nor from others; and yet this was within our power, that we might have burdened you somewhat, as apostles of Christ."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.7",
+      "source_sha256": "2b0f9745b71b9e86",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "But we became gentle and quiet among you, as when a nurse cherishes her own children."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.8",
+      "source_sha256": "14a9fb417c4cd8ae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "So desirous of you were we that it seemed right to us to give you not only the gospel of God, but also our own souls, because you had become beloved to us."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.9",
+      "source_sha256": "36342eec1c9de54c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "Remember, brothers, our labors and toils, for night and day we worked, so that we might not burden any of you, and thus we preached the gospel of God to you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.10",
+      "source_sha256": "7ed688f330199d49",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "You are witnesses, and God also, how worthily and righteously and blamelessly we were toward you believers,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.11",
+      "source_sha256": "c06cafeea92ae321",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "just as you know how, as a father his own child, so we entreated and comforted each one of you"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.12",
+      "source_sha256": "e1e403a00ff06d04",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "and testified to you, that you should walk worthily of God, who has called you into his own kingdom and glory."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.13",
+      "source_sha256": "192f4df476aaf036",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 21,
+      "text": "For this reason we also give thanks to God unceasingly, because you received from us the word of God that you heard and accepted it not as the word of men, but as what it truly is, the word of God, which also shows its help among you believers."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.14",
+      "source_sha256": "0f27ca56790060e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For you became imitators, brothers, of the churches of God that are in Judea in Christ Jesus, because you too suffered in the same way from your own people as they did from the Jews,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.15",
+      "source_sha256": "6d8c19b5aa4276a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "who killed the Lord Jesus and their own prophets and drove us out, and they were not pleasing to God and are opposed to all people,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.16",
+      "source_sha256": "0f3e4655157ca7f0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "and hinder us from speaking to the Gentiles so that they may be saved, so that their sins may always be brought to completion; for wrath has come upon them in full."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.17",
+      "source_sha256": "d5953141466801f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "But we, brothers, although we were orphaned from you for a short time, in face and not in heart, hastened all the more to see your face, with great desire."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.18",
+      "source_sha256": "09834679330d97c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Therefore we wished to come to you, I, Paul, once and twice, and Satan hindered us."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.19",
+      "source_sha256": "5e353e5da16d4f9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For what is our hope or joy or crown of boasting? Is it not you, before our Lord Jesus Christ at his coming?"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.2.20",
+      "source_sha256": "bd257c1eb2df0a1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For you are our glory and joy."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.1",
+      "source_sha256": "acf13be37d02996b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Therefore, when we could bear it no longer, we thought it right to remain alone in Athens,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.2",
+      "source_sha256": "ecf8bb05cdb6431d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "and we sent Timothy, our brother and servant of God and our helper in the gospel of Christ, to strengthen you and comfort you concerning your faith,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.3",
+      "source_sha256": "8de3d819a9fede1a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "so that you might not be troubled in these afflictions, for you yourselves know that we are set for this."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.4",
+      "source_sha256": "a12db267c443510c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And while we were with you, we told you beforehand that we were going to enter into afflictions, just as has indeed happened, and you saw it."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.5",
+      "source_sha256": "63c1aa34c18c3449",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For this reason I too, when I could bear it no longer, sent Timothy to learn about your faith, lest the tempter had tempted you and our labor should be in vain."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.6",
+      "source_sha256": "4484f6b662845f9f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "But now Timothy has come from you and has brought us the good news of your faith and love, and that you always have a good remembrance of us and long to see us, just as we also long to see you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.7",
+      "source_sha256": "8b887e7f2ecd67c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For this reason we have been comforted, brothers, concerning you, in all our sorrows and afflictions, by your faith,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.8",
+      "source_sha256": "0af2959990721674",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "for now we live, if you stand firm in the Lord."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.9",
+      "source_sha256": "d78e1513eb256b25",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For what thanks are we able to give to God for you, for all the joy with which we rejoice over you before our God?"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.10",
+      "source_sha256": "09a63535ec691de8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Night and day we pray more and more earnestly to see your face and to strengthen what is lacking in your faith."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.11",
+      "source_sha256": "1903fe593578e48b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "Now may God himself and our Father and our Lord Jesus Christ direct our ways to you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.12",
+      "source_sha256": "83654d0cf26a2744",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And may the Lord multiply you and make you abound in love for one another and for all, just as we do for you,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.3.13",
+      "source_sha256": "71c86e4e2b65661e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "so as to strengthen your hearts in holiness and blamelessly before God our Father at the coming of our Lord Jesus Christ with all his saints."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.1",
+      "source_sha256": "4954d6934d9ec304",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And now, my brothers, we ask you and I entreat you in the Lord Jesus Christ that, just as you learned from us how you ought to walk and to please God, you may increase all the more;"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.2",
+      "source_sha256": "eba58c8540f19bc4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "for you know what commandments we gave you through the Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.3",
+      "source_sha256": "e2904c6460a25722",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "For this is the will of God, your holiness: that you keep far away from fornication,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.4",
+      "source_sha256": "cded90a8039969f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "that each one of you know how to acquire his own vessel in holiness and honor,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.5",
+      "source_sha256": "f425460b5388bd6b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "not in the passion of lust, like the Gentiles who do not know God,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.6",
+      "source_sha256": "33ef343292d8b66a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "not to transgress and defraud his brother in the matter, for God is the avenger in all these things, just as we told you beforehand and testified to you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.7",
+      "source_sha256": "b52215f461b196c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For God did not call us to impurity, but to holiness."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.8",
+      "source_sha256": "adb9dbcaa00dbc41",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now therefore, whoever despises this despises not a man but God, who has also given his Holy Spirit upon you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.9",
+      "source_sha256": "0bc3f0967ea57497",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But concerning brotherly love we have no need to write to you, for you yourselves are taught by God about love for one another,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.10",
+      "source_sha256": "cee425fe0ad02d67",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and indeed you do this toward all the brothers who are in all Macedonia. But I beseech you, brothers, to abound still more,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.11",
+      "source_sha256": "a560a7d5969034c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and to be lovers of honor and quiet, and to do your own affairs and work with your hands, as we commanded you,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.12",
+      "source_sha256": "d4ade9a062564018",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "so that you may walk becomingly toward them, and may have need of nothing from anyone."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.13",
+      "source_sha256": "623c27cddf2f36f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But we do not wish you to be ignorant, brothers, concerning those who have fallen asleep, so that you may not grieve like the others, who have no hope."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.14",
+      "source_sha256": "ff80f1656fb2ead7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For if we believe that Jesus died and rose, so also God will bring with him, through Jesus, those who have fallen asleep."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.15",
+      "source_sha256": "7f1dd531563dffd2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But this I tell you by the word of the Lord, that we, the living, who remain until the coming of the Lord, will not precede those who have fallen asleep,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.16",
+      "source_sha256": "3caab53989bbe483",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "for the Lord himself, with a command and with the voice of the archangel and with the trumpet of God, will descend from heaven, and the dead in Christ will rise first;"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.17",
+      "source_sha256": "a9f7d523fb96ce46",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and then we, the living, who remain, will be caught up together with them on a cloud to meet the Lord in the air, and so we shall be with the Lord forever."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.4.18",
+      "source_sha256": "4220349ae8665194",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore comfort one another with these words."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.1",
+      "source_sha256": "51b86c645dffe3e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But concerning the times and the years, brothers, we have no need to write to you,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.2",
+      "source_sha256": "fca0b2e67e13087e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For you yourselves know precisely that the day of the Lord comes just like a thief in the night."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.3",
+      "source_sha256": "a4c8cd5bad4f89b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For when they say, \"Peace and security,\" then suddenly a destroyer will come upon them, like the pain of childbirth, and they will not escape."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.4",
+      "source_sha256": "921e914d9b6d94e5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But you, brothers, are not in darkness, so that that day should overtake you like a thief."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.5",
+      "source_sha256": "0a749e2ebfc52ea1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For you are all children of light and children of the day, and we are not of the night, nor of darkness."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.6",
+      "source_sha256": "c954bfa2a981c5f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Now therefore let us not sleep, as the others do, but let us stay awake and be watchful."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.7",
+      "source_sha256": "d9da9096dd29f78e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For those who sleep, sleep at night, and those who get drunk, get drunk at night."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.8",
+      "source_sha256": "c977cb6aef3a352e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But we, because we are born of the day, let us be watchful; let us put on the breastplate of faith and love, and the helmet of hope and of salvation."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.9",
+      "source_sha256": "96bc7e533407e083",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "For God did not make us for wrath, but to obtain salvation through our Lord Jesus Christ,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.10",
+      "source_sha256": "5c5c74a55b822715",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "He died for us, so that whether we sleep or wake, we may live together with him."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.11",
+      "source_sha256": "1e93b1059811c13a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Therefore comfort one another and build one another up, just as you are indeed doing."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.12",
+      "source_sha256": "a4efc010489567ed",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "But I beseech you, brothers, to recognize those who labor among you, and your leaders in the Lord, and your teachers,"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.13",
+      "source_sha256": "803c1ebaa174e0dd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "and to esteem them all the more in love because of their work; and keep peace with them."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.14",
+      "source_sha256": "af753a8328bbba11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 18,
+      "text": "I beg you, brothers, instruct the disorderly, comfort the faint-hearted, support the weak, be patient toward everyone."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.15",
+      "source_sha256": "16e620a82e3feaf4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Take care that you do not repay anyone evil for evil; but always pursue what is good toward one another and toward all."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.16",
+      "source_sha256": "76057482dec8ffe7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 18,
+      "text": "Rejoice always."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.17",
+      "source_sha256": "1d64e7ab4e5844f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 18,
+      "text": "Pray without ceasing."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.18",
+      "source_sha256": "b38c39b02e02ec2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 18,
+      "text": "Give thanks in everything, for this is the will of God in Christ Jesus toward you."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.19",
+      "source_sha256": "6a9212b49433c0dc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not quench the Spirit."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.20",
+      "source_sha256": "87cc70c63e20e372",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "Do not despise prophecies."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.21",
+      "source_sha256": "d8fd4bd6563d4fad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "Test all things, and hold on to what is better."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.22",
+      "source_sha256": "751a97075f3d9716",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "Keep away from every evil deed. 7"
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.23",
+      "source_sha256": "7cff4dc379e6bc64",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "And may the God of peace himself make you holy in all perfection and in all life, and may he keep your spirit, soul, and body spotless for the coming of our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.24",
+      "source_sha256": "88323ddf32a05c4c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "The one who called you is faithful, and he will also do it."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.25",
+      "source_sha256": "eb20e94572d74b9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 18,
+      "text": "Brothers, pray for us as well."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.26",
+      "source_sha256": "fdaace48609104d5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "Greet all the brothers with a holy kiss."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.27",
+      "source_sha256": "d738d0a45e81380b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "I adjure you by the Lord: read this letter to all the holy brothers."
+    },
+    {
+      "chunk_id": "titus-paul-cd/1thess#1Thess.5.28",
+      "source_sha256": "1a3ca52d3f9810b6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 7,
+      "text": "The grace of our Lord Jesus Christ be with you. Amen."
+    }
+  ]
+}

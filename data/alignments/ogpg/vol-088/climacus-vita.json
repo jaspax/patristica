@@ -2,11 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-088/climacus-vita",
  "pivot": "ogpg/vol-088/climacus-vita",
- "groups": 37,
- "inputs": "32697482557aac28",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 40,
+ "inputs": "50c6e0f3143282da",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/vita-ioannis-climaci", "units": 43, "ids": "7207dc3f18a7fa23", "inputs": "8d75bd907d39e1d3", "spans": "++++=++.+++++++=++++=+++++++++++=+++++++++=", "conf": "9999999698898992999999999999999999998"},
-  {"work_id": "ogpg/vol-088/climacus-vita", "units": 70, "ids": "813d79120cb0ca61", "inputs": "e647a04da48c7c1b", "spans": "++++=++++..++++.+=++.+..+==.....++=+=........+++++++==..++++++.+++..+=", "conf": "9999999698898992999999999999999999998"}
+  {"work_id": "ccmh-supr/vita-ioannis-climaci", "units": 43, "ids": "7207dc3f18a7fa23", "inputs": "8d75bd907d39e1d3", "spans": "+++==++.+++2++=+=++++2=+4+++2+++++++==++++++++=", "conf": "9999996988899299999999999999999998"},
+  {"work_id": "ogpg/vol-088/climacus-vita", "units": 70, "ids": "813d79120cb0ca61", "inputs": "e647a04da48c7c1b", "spans": "+++==++++=++++=.+=+++=.++==+=.++++=+=+.......+++++++==..+=++++.+++..+=", "conf": "9999999999889958999999979999999999999998"},
+  {"work_id": "titus-translations/daniel-of-raithu-life-of-john-climacus", "units": 55, "ids": "8a9cab849a3e918a", "inputs": "5675c2dd4737e01b", "spans": "+++===+++++++....+=+2++++=++++=++=+.+++++++=+==+++++++..", "conf": "99999999998995839999997999999999999999"}
  ]
 }

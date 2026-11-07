@@ -5,8 +5,7 @@ The Psalter and Odes in Shanidze's redaction A (Tbilisi 1960), the old
 Georgian Psalter of the 10th-century manuscripts.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/at/psa/psa.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 
