@@ -7,8 +7,7 @@ keeps TITUS's numbering, which runs on across chapters (2.23 follows 1.22);
 the "Prayer of Jeremiah" printed after it is Lamentations 5.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/at/oskijer/oskij.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

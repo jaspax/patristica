@@ -6,8 +6,7 @@ the old version revised against the Greek in the 8th-10th centuries, in
 10th-century manuscripts (Ksani, Berta, Jruchi, Parkhali, Sinai).
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etca/cauc/ageo/nt/cinant/cinan.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

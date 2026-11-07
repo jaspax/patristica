@@ -53,9 +53,7 @@ cleaned by ``_titus.clean_text`` (supplements, lacunae and notes as editorial
 spans). An editor's heading in modern Georgian (``ng``) is kept and marked as
 a ``heading``.
 
-Licence: every work is ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS
-grants permission, #514), so nothing is translated, embedded, indexed or
-published.
+Licence: every work is ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations

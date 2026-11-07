@@ -126,15 +126,20 @@ def test_parse_header_and_edition_line() -> None:
     assert h.last_changed == "2022-02-16"
     assert not h.restricted
     assert T.edition_line(h.printed_edition, editors=h.version_by, last_changed=h.last_changed) == (
-        "TITUS (ed. Jost Gippert), after Šaniʒe, Psalmunis, Tbilisi 1960; last changed 2022-02-16"
+        "TITUS (Thesaurus Indogermanischer Text- und Sprachmaterialien, ed. Jost Gippert, "
+        "University of Frankfurt), after Šaniʒe, Psalmunis, Tbilisi 1960; last changed 2022-02-16"
     )
-    assert T.edition_line("") == "TITUS (ed. Jost Gippert)"
+    assert T.edition_line("") == (
+        "TITUS (Thesaurus Indogermanischer Text- und Sprachmaterialien, ed. Jost Gippert, "
+        "University of Frankfurt)")
     assert T.parse_header("… (TITUS Members only) …").restricted
 
 
-def test_licence_is_unpublishable_until_permission() -> None:
+def test_licence_is_publishable_non_commercial() -> None:
+    """CC BY-NC-SA, as TITUS's editor stated (#514): published, and flagged non-commercial."""
     from scripts.translate import EXCLUDED_LICENSES  # noqa: PLC0415
-    assert T.TITUS_LICENSE in EXCLUDED_LICENSES
+    assert T.TITUS_LICENSE == "cc-by-nc-sa-4.0"
+    assert T.TITUS_LICENSE not in EXCLUDED_LICENSES
 
 
 def test_page_navigation() -> None:

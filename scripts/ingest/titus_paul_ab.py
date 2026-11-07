@@ -5,8 +5,7 @@ St Paul's Epistles in the old Georgian redactions A and B (Dzotsenidze and
 Danelia, Tbilisi 1974), before the Athonite revisions.
 
 Source: TITUS, https://titus.uni-frankfurt.de/texte/etcs/cauc/ageo/nt/pavleni/pavle.htm
-Licence: ``_titus.TITUS_LICENSE`` (``unknown`` until TITUS grants
-permission, #514): never translated, embedded, indexed or published.
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 Shared logic: ``scripts/ingest/_titus_bible.py``.
 """
 

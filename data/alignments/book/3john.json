@@ -3,8 +3,8 @@
  "group": "book:3john",
  "pivot": "asv/3john",
  "groups": 14,
- "inputs": "c094ef4a9f6cebd4",
- "run": {"aligner": 2, "date": "2026-10-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "5b75d0264e3710b3",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "armenian/3john", "units": 15, "ids": "864f4d5bd15959ef", "inputs": "307c02093cc2c62b", "spans": "++++++++++++++=", "conf": "99999999999999"},
   {"work_id": "asv/3john", "units": 14, "ids": "1535c0076ae74c2d", "inputs": "bc5b50abe550cad4", "spans": "++++++++++++++", "conf": "99999999999999"},
@@ -14,6 +14,10 @@
   {"work_id": "pta-lxx/3john", "units": 15, "ids": "3de13b4ed40ad352", "inputs": "e96cae0ad120fc92", "spans": "++++++++++++++=", "conf": "99999999999999"},
   {"work_id": "pta-peshitta/3john", "units": 15, "ids": "680c6602c03be9f4", "inputs": "9939f352c937e110", "spans": "++++++++++++++=", "conf": "99999999999999"},
   {"work_id": "sblgnt/3john", "units": 15, "ids": "e377db5478544897", "inputs": "50beff48c137df07", "spans": "++++++++++++++=", "conf": "99999999999999"},
+  {"work_id": "titus-catholic-a1/3john", "units": 15, "ids": "8cbb39b24dac607b", "inputs": "7126dd12bd51d5d8", "spans": "++++++++++++++=", "conf": "99999999999999"},
+  {"work_id": "titus-catholic-b/3john", "units": 8, "ids": "945003d8e6272d9c", "inputs": "14d2c6d8c7f8f199", "spans": "++++++++", "conf": "99999999"},
+  {"work_id": "titus-catholic-d/3john", "units": 15, "ids": "b8450a07896f897a", "inputs": "0a2058dafd0d9128", "spans": "++++++++++++++=", "conf": "99999999999999"},
+  {"work_id": "titus-catholic-g/3john", "units": 15, "ids": "94d49c2ed6311f08", "inputs": "34fea9dbb1669783", "spans": "++++++++++++++=", "conf": "99999999999999"},
   {"work_id": "web/3john", "units": 14, "ids": "f1dd392c62e0c532", "inputs": "cf78ccc072de1d85", "spans": "++++++++++++++", "conf": "99999999999999"}
  ]
 }

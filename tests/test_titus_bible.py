@@ -64,10 +64,11 @@ def test_ingest_bible_from_cache(tmp_path: Path) -> None:
         works = B.ingest_bible(spec, tmp_path, force=True)
     assert [w.work_id for w in works] == ["titus-test/2john", "titus-test/odes"]
     w = works[0]
-    assert w.license == _titus.TITUS_LICENSE == "unknown"
+    assert w.license == _titus.TITUS_LICENSE == "cc-by-nc-sa-4.0"
     assert w.language == "oge" and w.genre == "scripture" and w.tradition == "georgian"
     assert w.provenance_url == base + "tst.htm"
-    assert w.edition == ("TITUS (ed. Jost Gippert), after K. Ʒoc̣eniʒe, Tbilisi 1974 (test redaction); "
+    assert w.edition == ("TITUS (Thesaurus Indogermanischer Text- und Sprachmaterialien, ed. Jost Gippert, "
+                         "University of Frankfurt), after K. Ʒoc̣eniʒe, Tbilisi 1974 (test redaction); "
                          "last changed 2005-11-03")
     raw = json.loads((tmp_path / "titus-test" / "2john.json").read_text())
     assert raw["verses"] == [

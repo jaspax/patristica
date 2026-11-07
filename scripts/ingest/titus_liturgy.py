@@ -16,7 +16,7 @@ out. TITUS marks no rubrics in these sets (no ``b`` segments), so there are
 no rubric spans. Curated table: ``scripts/ingest/data/titus_liturgy.csv``;
 shared machinery: ``_titus_works.py``.
 
-Licence: ``unknown`` until TITUS grants permission to republish (#514).
+Licence: ``_titus.TITUS_LICENSE`` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations

@@ -20,9 +20,7 @@ or a set's own filter). Left out, and why:
 Brackets become editorial spans (``_titus.clean_text``, #236). A fragmentary
 witness keeps only the verses it has.
 
-Licence: :data:`_titus.TITUS_LICENSE` (``unknown`` until TITUS grants
-permission, #514), so these works are never translated, embedded, indexed or
-published.
+Licence: :data:`_titus.TITUS_LICENSE` (CC BY-NC-SA, #514).
 """
 
 from __future__ import annotations

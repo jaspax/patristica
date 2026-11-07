@@ -41,12 +41,15 @@ This module gives an ingestor:
   import ``patristica.editorial``, and nor does this module;
 * :func:`parse_header`, :data:`TITUS_LICENSE`, :func:`edition_line`.
 
-Licence (#514): TITUS allows free scholarly, non-commercial use, but every
-page says "No parts of this document may be republished in any form without
-prior permission by the copyright holder". Until TITUS grants permission,
-every TITUS work is ``unknown`` (in ``EXCLUDED_LICENSES``: never translated,
-embedded, indexed or published). :data:`TITUS_LICENSE` is the one place to
-change when permission arrives.
+Licence (#514): every page says "No parts of this document may be republished
+in any form without prior permission by the copyright holder". Asked by
+Patristica, the editor (Jost Gippert) replied on 2026-11-03 that the TITUS
+texts may be used for non-commercial purposes on a CC BY-NC-SA basis, though
+the site predates Creative Commons and doesn't say so (recorded in
+``DATA_LICENSE.md``). He asked that the printed editions' authors and
+publishers be named as TITUS names them, and TITUS cited by its full name:
+:func:`edition_line` does both. :data:`TITUS_LICENSE` is the one place the
+licence is set.
 """
 
 from __future__ import annotations
@@ -67,9 +70,13 @@ from scripts.ingest._common import offline, require_network
 
 log = logging.getLogger(__name__)
 
-# Licence of every TITUS work. "unknown" until TITUS grants permission to
-# republish (#514); then "used-with-permission" plus a DATA_LICENSE.md record.
-TITUS_LICENSE = "unknown"
+# Licence of every TITUS work: CC BY-NC-SA, as stated by TITUS's editor on
+# 2026-11-03 (#514, DATA_LICENSE.md). No version was named; 4.0 is the current one.
+TITUS_LICENSE = "cc-by-nc-sa-4.0"
+
+# How TITUS asks to be cited (#514).
+TITUS_NAME = "Thesaurus Indogermanischer Text- und Sprachmaterialien"
+TITUS_PUBLISHER = "University of Frankfurt"
 
 BASE_URL = "https://titus.uni-frankfurt.de/texte/"
 CACHE_SUBDIR = Path("_cache") / "titus"
@@ -702,12 +709,14 @@ def edition_line(
 ) -> str:
     """The attribution TITUS asks for, for ``Work.edition``.
 
-    ``"TITUS (ed. Jost Gippert), after {printed_edition}; last changed
-    2022-02-16"``. Pass the set's :class:`SetHeader` fields:
+    ``"TITUS (Thesaurus Indogermanischer Text- und Sprachmaterialien, ed. Jost
+    Gippert, University of Frankfurt), after {printed_edition}; last changed
+    2022-02-16"``: TITUS by its full name, and the printed edition's
+    authors and publishers as TITUS names them (#514). Pass the set's :class:`SetHeader` fields:
     ``edition_line(h.printed_edition, editors=h.version_by, last_changed=h.last_changed)``.
     """
     ed = " and ".join(e for e in editors if e) or "Jost Gippert"
-    line = f"TITUS (ed. {ed})"
+    line = f"TITUS ({TITUS_NAME}, ed. {ed}, {TITUS_PUBLISHER})"
     if printed_edition:
         line += f", after {_one_line(printed_edition)}"
     if last_changed:
