@@ -20,7 +20,8 @@ import unicodedata
 
 from patristica.textfold import fold, fold_spans
 
-#: Bump when ``fold`` changes, so ``scripts.build_index`` refolds every chunk.
+#: Bump when ``fold`` changes, so ``scripts.build_index`` refolds every work and rewrites
+#: the chunks whose folded text changed (#607).
 #: 2: Church Slavonic letters (#330); 3: Arabic letters (#83); 4: Old Georgian (#222);
 #: 5: Old Georgian old/modern spellings (#511); 6: Old English, Old Saxon and
 #: Old High German letters (ð/đ/þ, ƀ/b, ƿ/w, ȝ/g; #563).

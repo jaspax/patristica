@@ -41,5 +41,8 @@ infra/tofu/.terraform/
 # scripts.pipeline run logs
 logs/
 
+# Local caches: build_index's input hashes (#607)
+data/cache/
+
 # Scratch vectors of scripts.anchor (#304): segment and candidate vectors, regenerable
 data/anchor_vectors/
