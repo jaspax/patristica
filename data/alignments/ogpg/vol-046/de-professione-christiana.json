@@ -3,10 +3,10 @@
  "group": "ogpg/vol-046/de-professione-christiana",
  "pivot": "mt-eng/ogpg/vol-046/de-professione-christiana",
  "groups": 109,
- "inputs": "2c2656c57c3a6e94",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "d37f32124b35ac01",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "mt-eng/ogpg/vol-046/de-professione-christiana", "units": 109, "ids": "cd8863d23332a590", "inputs": "aa503878b9dd5696", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ogpg/vol-046/de-professione-christiana", "units": 109, "ids": "cd8863d23332a590", "inputs": "d392742f2f5d773c", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "ogpg/vol-046/de-professione-christiana", "units": 110, "ids": "50d3d5fe79e211d7", "inputs": "3eab9e5f8372b65a", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

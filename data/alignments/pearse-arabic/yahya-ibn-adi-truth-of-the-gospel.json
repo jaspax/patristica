@@ -2,11 +2,11 @@
  "format": 1,
  "group": "pearse-arabic/yahya-ibn-adi-truth-of-the-gospel",
  "pivot": "pearse-arabic-eng/yahya-ibn-adi-truth-of-the-gospel",
- "groups": 29,
- "inputs": "6e5f61173e5c84ba",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 30,
+ "inputs": "40ada43456980ecc",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "pearse-arabic-eng/yahya-ibn-adi-truth-of-the-gospel", "units": 30, "ids": "9197175bda9d77f4", "inputs": "7f33cb68c1ba3736", "spans": ".+++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999"},
-  {"work_id": "pearse-arabic/yahya-ibn-adi-truth-of-the-gospel", "units": 32, "ids": "653238224f7cb9b6", "inputs": "82aa46a3d6e3d3fd", "spans": ".++++++++++++++++++++++=+++++++.", "conf": "99999999999999999999999999999"}
+  {"work_id": "pearse-arabic-eng/yahya-ibn-adi-truth-of-the-gospel", "units": 31, "ids": "2e49c4d71618cf64", "inputs": "1e4396296e46eb80", "spans": ".++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999"},
+  {"work_id": "pearse-arabic/yahya-ibn-adi-truth-of-the-gospel", "units": 32, "ids": "653238224f7cb9b6", "inputs": "82aa46a3d6e3d3fd", "spans": ".++++++++++++++++++++++++++++++.", "conf": "999999999999999999999999999999"}
  ]
 }

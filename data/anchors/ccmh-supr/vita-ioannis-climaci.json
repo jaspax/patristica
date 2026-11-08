@@ -2,17 +2,17 @@
  "work_id": "ccmh-supr/vita-ioannis-climaci",
  "anchor": "ogpg/vol-088/climacus-vita",
  "method": "e26e66e4678bcee0",
- "anchor_cuts": "4a7d4c367052806f",
+ "anchor_cuts": "b1b025560efc838c",
  "words": "f0dcaf7ee0af25bb",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 41, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 0, "one_one": 0.6364, "rounds": 4, "units": 43},
+ "stats": {"beads": 53, "calibration": [0.9729, 0.0947], "converged": false, "fallback_paragraphs": 0, "one_one": 0.6714, "rounds": 4, "units": 56},
  "paragraphs": {
-  "Supr.136v": {"words": "91def6455dab2cde", "starts": [0, 11, 51, 66, 78, 103, 129]},
-  "Supr.137r": {"words": "74247c85d92618da", "starts": [0, 12, 33, 62, 69, 107, 121, 143, 148]},
-  "Supr.137v": {"words": "3c962acce88a3eea", "starts": [0, 4, 10, 58, 108, 129]},
-  "Supr.138r": {"words": "516154f6461e35b7", "starts": [0, 47, 134, 154, 168]},
-  "Supr.138v": {"words": "483fbaab9eddcb91", "starts": [0, 15, 51, 65, 96]},
-  "Supr.139r": {"words": "e1bd91e74380614d", "starts": [0, 10, 35, 47, 69, 81, 112, 126]},
-  "Supr.139v": {"words": "7d31f15f1f63a9b5", "starts": [0, 22, 26]}
+  "Supr.136v": {"words": "91def6455dab2cde", "starts": [0, 11, 39, 66, 86, 103, 122]},
+  "Supr.137r": {"words": "74247c85d92618da", "starts": [0, 12, 33, 50, 62, 75, 96, 121, 143, 148]},
+  "Supr.137v": {"words": "3c962acce88a3eea", "starts": [0, 4, 18, 47, 58, 66, 73, 92, 108, 129]},
+  "Supr.138r": {"words": "516154f6461e35b7", "starts": [0, 35, 58, 95, 108, 129, 134, 154, 168]},
+  "Supr.138v": {"words": "483fbaab9eddcb91", "starts": [0, 15, 51, 74, 86, 112, 119]},
+  "Supr.139r": {"words": "e1bd91e74380614d", "starts": [0, 19, 31, 47, 63, 81, 96, 107, 126]},
+  "Supr.139v": {"words": "7d31f15f1f63a9b5", "starts": [0, 8, 22, 26]}
  }
 }

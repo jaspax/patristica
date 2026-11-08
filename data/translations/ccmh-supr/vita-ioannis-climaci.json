@@ -10,6 +10,12 @@
       "date": "2026-10-30",
       "script": "__main__"
     },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-07": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-07",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-29": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -27,45 +33,45 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s2",
-      "source_sha256": "4a14fc1640fcd72f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "Whose surname was Scholasticus. As for the city that gave birth to and brought up this valiant man before his monastic life, that wondrous city, so to speak, is an earthly one. I have no need to speak of it, but rather of the city that has now received him and feeds this wondrous man with nourishment that is not food,"
+      "source_sha256": "f6e5e25bf1132c8c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "Whose by-name was Scholasticus. Which it is, then, that gave birth to this noble man and nourished him before his monastic life, that is, so to speak, a marvelous earthly city, I have no need to speak about it."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s3",
-      "source_sha256": "c7b9073f9b006f7f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "I am not ignorant of it; rather, I know it very well. For he too is now in that city"
+      "source_sha256": "e7d3d6d210c09675",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "But which it is now that has received this marvelous man and feeds him with foodless food, that I do not fail to know; rather, I know it very well. For he is now in that city as well,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s4",
-      "source_sha256": "d90f283319005342",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "of which Paul cries out with a loud voice, saying, “Their citizenship is in heaven.”"
+      "source_sha256": "1de673d15216f485",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "about which Paul cries out with a great voice, saying: \"whose citizenship is in the heavens.\" He is being filled with the immaterial food of the God who can never be had to the full and who is invisible,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s5",
-      "source_sha256": "54011a571da7c6d6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "satisfying with immaterial nourishment one who cannot be satisfied, as he beholds the beauty of the invisible God, contemplating it with the understanding of his mind alone and marveling, having received gifts and crowns worthy of his labors,"
+      "source_sha256": "1e407a03ecf2f66b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "gazing on his beauties, as one who gazes with the rational mind alone and marvels, having received the worthy gifts and crowns of his labors."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s6",
-      "source_sha256": "98ad045cb7f03a16",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "having been numbered among those whose feet stand on the straight path, and remaining with them forever. How, then, he came there in a material body to stand among the [?] was plainly related."
+      "source_sha256": "a1735e71ab9c3f88",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "He has been numbered with those, and abides forever with those, whose feet stand in uprightness. And how, indeed, there"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.136v.s7",
-      "source_sha256": "51b16a2ee989452f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "The blessed man was sixteen years old in age, but a thousand years old in intellectual"
+      "source_sha256": "b3e68743797a7536",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "he ran together with the immaterial and took his stand, [being] material [?], I will tell plainly. When the blessed one was sixteen years old in age, but a thousand in understanding,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s1",
@@ -83,48 +89,55 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s3",
-      "source_sha256": "869814c39413bc59",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
-      "group_size": 7,
-      "text": "Having resolved to gain guidance and progress, and living there, he took on great humility. He cut off all his own will from himself and bowed his neck in humility, and so of his own free will he put to death his impulse [?]."
+      "source_sha256": "4bd8b7d229239907",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "he resolved to acquire right conduct and progress. And living there, he took up great humility and cut off from himself all his own will."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s4",
-      "source_sha256": "46e223bb40644e39",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "as though he had a soul without reason or a will of its own,"
+      "source_sha256": "4330f2975fbf3329",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And he bent his neck to humility, and so, headlong, he put himself to death by his own free choice,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s5",
-      "source_sha256": "98ca17bc1c2878cc",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "and had become completely changed from his natural disposition. What is still more remarkable is that, despite his great wisdom, he drove away pride in his wisdom through a simple life and humility. Then, after nineteen years, he sent his teacher ahead to the King on high, as a kind of envoy and intercessor."
+      "source_sha256": "dd666d7878384e01",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "as one having a soul in some way without reason and without a will of its own, and having it wholly changed from its natural state."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s6",
-      "source_sha256": "7d90337c7dd90dda",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "he went out to a place of silence, carrying the abbot’s prayers in his hand like a weapon to strengthen himself."
+      "source_sha256": "09edec6fb713b4c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And this is more marvelous: that in this great wisdom of his, by a simple life and by humility, he drove away the pride that comes from wisdom. Then, in the nineteenth year,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s7",
+      "source_sha256": "758cb3547057dabf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "having sent his teacher ahead to the most high King, as a kind of envoy and advocate, he went out to a place of silence, carrying in his hand, as a weapon for his own strengthening, the prayers of the abbot."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s8",
       "source_sha256": "8af9c1965c10bf80",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "He took up residence in a place five stadia away from the monastery. The name of that place was Tholas. He spent forty years living there,"
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s8",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s9",
       "source_sha256": "07653567a4dc1ddb",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "without growing weary and with burning love,"
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s9",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137r.s10",
       "source_sha256": "851413313bbbd32b",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
@@ -139,34 +152,62 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s2",
-      "source_sha256": "d96ea24bba4b9dd8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "And who is capable of recounting in words"
+      "source_sha256": "a378d3d7dd575c44",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And who is able to declare in words his virtues and the labors that he performed while dwelling there?"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s3",
-      "source_sha256": "19553ea0f0772973",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
-      "group_size": 7,
-      "text": "Of his virtues and the labours he performed while living there, I will at least tell a little, from the beginnings of this blessed man's good resolve. He ate of everything, but very sparingly, for the sake of the commandment, not so that he might take pride in it but so that he might always keep his humility. He carefully kept himself from every kind of ointment [?]. At all hours"
+      "source_sha256": "a84a1ad1f2467704",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "Nevertheless, let me relate at least a little of the beginnings of this blessed man's good resolve. He ate of everything, but very little, for the sake of the commandment; he was not made proud by this, but acted so that he might always keep humility."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s4",
-      "source_sha256": "281756748d582dd5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
-      "group_size": 7,
-      "text": "he meditated on death and so roused his soul to greater labours. Through obedience he cut off the tormentor's enmity as if with a sword. Through seclusion and silence he put to death vainglory, which is flimsier than a spider's web. How can I tell of the crowns he wove for himself in our presence with his streaming tears? Their secret work still remains [?] to this day in the cave, which stood a short distance from his cell."
+      "source_sha256": "0169001ff5df1b62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And he kept himself well away from every kind of unguent [?]. At all hours,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s5",
+      "source_sha256": "8b85e547975b48be",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "thinking on death, he roused his soul to greater labors."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s6",
+      "source_sha256": "1f7113155ecb15d6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "By obedience he cut off the enmity of the tormentor as with a sword."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s7",
+      "source_sha256": "34655d265d077281",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "By seclusion and silence he killed glory, which is worthless as a spider's web. And how shall I relate the crowns that he wove for himself in our presence by the flowing of his tears,"
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s8",
+      "source_sha256": "29d163049b19ae6c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "whose secret work remains even until now in the cave that stood a little distance from his hut?"
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s9",
       "source_sha256": "3083fc3a39acdbfc",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
       "text": "There he would always sit weeping with tears, crying out and shouting loudly, as though someone had pierced his eyes with a weapon."
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s6",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.137v.s10",
       "source_sha256": "5214c8f2eb89470a",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 17,
@@ -174,34 +215,62 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s1",
-      "source_sha256": "1213a5c7c071b657",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 17,
-      "text": "and his love for God was beyond measure. For night and day, beholding God as in a mirror through the purity of his life, he could never have enough. A certain Moses, one of the monks there, wished to imitate his life and begged the abbot to have John receive him as his disciple."
+      "source_sha256": "369fd01a6e1e3a32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And his love for God was without measure. For gazing on him night and day in the purity of his life, as in a mirror, he could not be filled to satisfaction. Imitating his life, a certain Moses, one of the monks there, begged the abbot"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s2",
-      "source_sha256": "957d0dea97ca54ec",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "The abbot pressed him, pleading with him, and he took him in, and he stayed with him. One day Father John ordered Moses to go to a certain place, dig a channel, divert the water, and bring it to water the vegetables. When he reached the appointed place, he diligently carried out his instructions. When the midday heat came, Moses lay down beneath a large rock and rested in sleep. But the Lord, who desires no harm for his servants, intervened beforehand, as he always does. For while the great-minded father was in his cell praying to God, he grew drowsy and slept a little."
+      "source_sha256": "687bccfea2c473d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "that John would receive him, so that he might be his disciple. And the abbot pressed him, entreating him, and he received him."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s3",
+      "source_sha256": "a360bf9581ae4a9d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "And Moses stayed with him. One day Father John ordered Moses to go to a certain place, dig a ditch to divert water, and bring it for watering the vegetables. When he reached the appointed place, he did what had been ordered without sloth."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s4",
+      "source_sha256": "08ac9332da9c80fe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "When the heat came at midday, Moses lay down under a great rock, fell asleep, and rested."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s5",
+      "source_sha256": "c1dca8dd6f45b7eb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "But the Lord, not wishing harm to his servants, acted beforehand, as is his custom. For while the great-minded father was in his cell, making prayer to God,"
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s6",
+      "source_sha256": "cee801414fec47eb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "he dozed off and slept a little."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s7",
       "source_sha256": "0829bc5101e1fd02",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
       "text": "And he saw someone in priestly splendor waking him, reproaching him for sleeping, and saying, “John, how can you sleep without a care,"
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s4",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s8",
       "source_sha256": "a24a171b76c6d9b6",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
       "text": "while Moses is in great danger?” He immediately sprang up and prayed for his disciple."
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s5",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138r.s9",
       "source_sha256": "40c816537ad508e2",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
@@ -223,76 +292,97 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138v.s3",
-      "source_sha256": "180ad3dcd7c07619",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "severely oppressed by the burden of a lustful demon and brought to despair, hurried to this wise father."
+      "source_sha256": "47f17e66ee92a0ef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "Gripped hard by the weight of the flesh-loving demon and fallen into despair, he ran to this great-minded father, and with tears and wailing he confessed the harm of his warfare."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138v.s4",
-      "source_sha256": "524ef17c92056f73",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "With tears and cries he confessed how the struggle had wounded him. The blessed man, marveling at his faith, said, “Let us stand in prayer, my friend.” And as the words of the prayer were coming to an end, while the suffering man was still lying face down,"
+      "source_sha256": "6f7000631d6a42c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "The blessed one, marveling at his faith, said, \"Let the two of us stand in prayer, O friend.\""
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138v.s5",
-      "source_sha256": "c7515cc62bc773c5",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "the Lord, who fulfills the will of those who please him, heard his servant’s prayers and relieved that brother’s struggle. Both gave thanks to the Lord God. Some, goaded by envy, called him a chatterbox and a babbler. Teaching them through his actions, he showed everyone that he could do all things through Christ, who gave him strength in everything. He remained silent for an entire year, saying nothing to anyone, so that his detractors became petitioners, saying:"
+      "source_sha256": "0d51dcdad0bc74c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "And as the words of the prayer were being finished, while the sick man still lay prostrate, the Lord, who does the will of those who please him, heard the prayer of his servant too, and lightened the warfare for that brother."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138v.s6",
+      "source_sha256": "afe858e95e685e6d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "And the two of them gave thanks to the Lord God. Some people, goaded by envy,"
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.138v.s7",
+      "source_sha256": "9d777ebb198042af",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "called him a chatterer and an idle babbler. Correcting them by deed, he showed all that he was capable of everything in every way, since Christ gave him strength for all things. And he kept silent for a whole year, saying nothing to anyone, so that the envious became petitioners, saying:"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s1",
-      "source_sha256": "0785c93f8880cc58",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "“The ever-flowing spring has been shut off, and everyone’s salvation has been lost.”"
+      "source_sha256": "95626bcc1e5b65c5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "\"An ever-flowing spring has been shut up, and the salvation of all has perished.\" Being entreated, he took up his former practice again."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s2",
-      "source_sha256": "2c457b58f46378c0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "When they had prevailed upon him, he resumed his former way of life. Then, marveling at all his accomplishments, they all raised him to leadership over the brethren, as though he were a newly revealed Moses."
+      "source_sha256": "8feed8058997c2af",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "Then all, marveling at all his accomplishments, as at some newly appeared Moses,"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s3",
-      "source_sha256": "ec9a6dc81c39310c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "placing the lamp on the chief lampstand. These good judges had considered the matter, and they were not mistaken."
+      "source_sha256": "69e760248aabc2db",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "raised him to the headship of the brethren, a lamp upon the chief lampstand. And the good examiners, having pondered, were not mistaken."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s4",
-      "source_sha256": "a8e8b04947bb7ce9",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "He too ascends the mountain and, passing through the impenetrable darkness, receives the God-fashioned law, being raised by spiritual steps; and [?] opens his mouth with the word of God."
+      "source_sha256": "53b7cc39205fd112",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "But he too ascends the mountain, and passing through the impassable darkness, he receives the God-shaped lawgiving, led up by spiritual steps."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s5",
-      "source_sha256": "89ccf30c7ddebca8",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "draws in the Spirit, and pours forth a word and sayings, and good things from the treasury of his heart."
+      "source_sha256": "7412bee719da7055",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "And having seen, he opens his mouth by the word of God, and he drew in the Spirit and belched forth a word and words, and the good treasures of the heart."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s6",
-      "source_sha256": "b848eb26d2e595fa",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 9,
-      "text": "He reaches the end of his visible life while guiding the Israelite monks. In only one respect was he unlike Moses: he entered the heavenly Jerusalem, whereas Moses was somehow denied entry into the earthly one. Many bear witness to these things,"
+      "source_sha256": "28df26a44a89dcaf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "And he passes the end of visible life in guiding the Israelite monks, being unlike Moses in one thing only:"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s7",
-      "source_sha256": "9e1b41fdd1edbff6",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "who have been saved and are being saved through him. The valiant new David is a witness to the wise man’s wisdom and salvation."
+      "source_sha256": "72092ab364b29f3d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "namely, the entry into the upper Jerusalem, as that one was somehow cheated of entry into the lower [?]."
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s8",
+      "source_sha256": "890d8a63ce6eabd3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "And many bear witness who through these things were saved and are being saved. A good [?] witness is the new David, of the all-wise one's wisdom and salvation."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139r.s9",
       "source_sha256": "3e086b5b7618dff8",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
       "group_size": 25,
@@ -300,20 +390,27 @@
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s1",
-      "source_sha256": "99f1564ceaeb50f0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
-      "group_size": 7,
-      "text": "This new seer of God came down to us from the Sinai of contemplation. He also showed us his tablets written by God, active on the outside and contemplative on the inside,"
+      "source_sha256": "01ce0f582d0afa33",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "To us this new God-seer, having come down from Sinai in thought [?],"
     },
     {
       "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s2",
+      "source_sha256": "6202240a97c1b93b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 17,
+      "text": "showed us, he too, his tablets written by God: outwardly practical and inwardly contemplative."
+    },
+    {
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s3",
       "source_sha256": "96aab0ecce7bc937",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 7,
       "text": "which carry confirmation, and say this:"
     },
     {
-      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s3",
+      "chunk_id": "ccmh-supr/vita-ioannis-climaci#Supr.139v.s4",
       "source_sha256": "b9bc0ca0579aceb5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-30",
       "group_size": 7,

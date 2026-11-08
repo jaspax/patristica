@@ -3,10 +3,10 @@
  "group": "aelfric-ch/ch1-praefatio",
  "pivot": "aelfric-ch-eng/ch1-praefatio",
  "groups": 43,
- "inputs": "c800ff358f9ae0ea",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "5d67eaa9950ce4f4",
+ "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "aelfric-ch-eng/ch1-praefatio", "units": 44, "ids": "0c4177bb55e1e368", "inputs": "a5694c986abedde8", "spans": ".+++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch-eng/ch1-praefatio", "units": 44, "ids": "0c4177bb55e1e368", "inputs": "fb21030fe50a5989", "spans": ".+++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999"},
   {"work_id": "aelfric-ch/ch1-praefatio", "units": 44, "ids": "59c63d778d8e2e13", "inputs": "d54974c823ad27a2", "spans": ".+++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999"}
  ]
 }
