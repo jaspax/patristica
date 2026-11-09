@@ -551,13 +551,13 @@ def test_a_cut_made_on_text_vectors_of_a_rare_original_is_frozen(coptic_corpus) 
 
 def test_text_vector_originals_keep_the_method_of_existing_cut_files() -> None:
     """Greek and Latin originals: the method hash is ``anchoring.params_hash()``
-    (``ANCHOR_VERSION`` 2 since #622; 1 was ``e26e66e4678bcee0``). (A Slavonic
+    (``ANCHOR_VERSION`` 3 since #622; 1 was ``e26e66e4678bcee0``). (A Slavonic
     *translation* is anchored on its Greek original: the original's language
     decides.)"""
     assert anchor.original_vectors("chu") == emb.KIND_TRANSLATION  # #336
     for language in ("grc", "lat", ""):
         c = anchor.Candidate("tr/w.json", "tr/w", "eng", "orig/w", "orig/w.json", language)
-        assert anchor.method_hash(c) == anchoring.params_hash() == "b634dc5d91b31ea7"
+        assert anchor.method_hash(c) == anchoring.params_hash() == "7c99b01da01bd8eb"
 
 
 def test_a_provisional_cut_after_a_quotations_first_word_is_dropped() -> None:

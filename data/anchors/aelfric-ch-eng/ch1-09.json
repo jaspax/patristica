@@ -1,11 +1,11 @@
 {
  "work_id": "aelfric-ch-eng/ch1-09",
  "anchor": "aelfric-ch/ch1-09",
- "method": "351020005494c156",
- "anchor_cuts": "884e3078d15e8b23",
+ "method": "6c9e64855bac5892",
+ "anchor_cuts": "0228fd1e25e50b04",
  "words": "5139ba40db1de21c",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 117, "calibration": [0.1358, 0.4615], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9748, "rounds": 4, "units": 119},
+ "stats": {"beads": 118, "calibration": [0.1788, 0.4453], "converged": false, "fallback_paragraphs": 0, "one_one": 0.975, "rounds": 4, "units": 120},
  "paragraphs": {
   "AECHomI.9.1": {"words": "c2388da816630adc", "starts": [0]},
   "AECHomI.9.2": {"words": "1b0a6ba1f79768e3", "starts": [0]},
@@ -19,13 +19,13 @@
   "AECHomI.9.10": {"words": "62ecb8b1293ed183", "starts": [0, 19, 55]},
   "AECHomI.9.11": {"words": "d4951985e8c4d225", "starts": [0, 32, 56, 78, 113, 135]},
   "AECHomI.9.12": {"words": "8f538c8fb3c2b716", "starts": [0, 25, 49, 81, 99, 127, 150]},
-  "AECHomI.9.13": {"words": "fb0a6ca6be321d44", "starts": [0, 28, 48, 62, 92, 117, 137, 159, 181]},
-  "AECHomI.9.14": {"words": "2971795b4eaa5065", "starts": [0, 38, 65, 82, 105, 126, 157, 196, 213, 257]},
+  "AECHomI.9.13": {"words": "fb0a6ca6be321d44", "starts": [0, 28, 48, 62, 92, 117, 137, 165]},
+  "AECHomI.9.14": {"words": "2971795b4eaa5065", "starts": [0, 38, 65, 85, 105, 129, 157, 179, 213, 232, 257]},
   "AECHomI.9.15": {"words": "efbb667011da0505", "starts": [0, 22, 64, 91, 117, 149, 182, 205, 227, 254]},
   "AECHomI.9.16": {"words": "bbb5d5bf40505960", "starts": [0, 16, 32, 63, 87, 114]},
   "AECHomI.9.17": {"words": "325686aff0dd44fd", "starts": [0, 17, 43, 67, 98, 120, 138, 160]},
   "AECHomI.9.18": {"words": "c13b351f5a45d9d4", "starts": [0, 17, 40, 67, 88, 112, 153, 180, 201, 218, 248]},
-  "AECHomI.9.19": {"words": "dca8b50b701930c9", "starts": [0, 35, 55, 90, 116, 143, 166, 194, 224, 249]},
+  "AECHomI.9.19": {"words": "dca8b50b701930c9", "starts": [0, 17, 35, 55, 90, 116, 143, 166, 194, 224, 249]},
   "AECHomI.9.20": {"words": "67f5f7ae5726bfb6", "starts": [0, 30, 64]}
  }
 }

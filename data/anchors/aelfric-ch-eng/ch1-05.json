@@ -1,16 +1,16 @@
 {
  "work_id": "aelfric-ch-eng/ch1-05",
  "anchor": "aelfric-ch/ch1-05",
- "method": "351020005494c156",
- "anchor_cuts": "976352cdb34b25ab",
+ "method": "6c9e64855bac5892",
+ "anchor_cuts": "77e1a82fe53a6291",
  "words": "4cf1e9d6620a1bac",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 82, "calibration": [0.1745, 0.452], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9643, "rounds": 4, "units": 84},
+ "stats": {"beads": 83, "calibration": [0.1639, 0.4538], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9647, "rounds": 4, "units": 85},
  "paragraphs": {
   "AECHomI.5.1": {"words": "4c5ffc12525f5717", "starts": [0]},
   "AECHomI.5.2": {"words": "6e38b97b75840fd9", "starts": [0]},
   "AECHomI.5.3": {"words": "5338ece8d12af3a2", "starts": [0]},
-  "AECHomI.5.4": {"words": "b286b27540d81983", "starts": [0, 33, 63, 97, 124, 165, 193, 215, 249, 274, 289, 321, 342, 374, 398]},
+  "AECHomI.5.4": {"words": "b286b27540d81983", "starts": [0, 18, 63, 97, 124, 165, 193, 215, 249, 274, 289, 321, 342, 374, 398]},
   "AECHomI.5.5": {"words": "b4043194138bdca2", "starts": [0, 22, 39, 62, 89, 134]},
   "AECHomI.5.6": {"words": "21940b99f1bc2df7", "starts": [0, 22, 46, 72]},
   "AECHomI.5.7": {"words": "f8081c5c7162dd3d", "starts": [0, 25, 42, 61, 80, 115, 147]},
@@ -19,7 +19,7 @@
   "AECHomI.5.10": {"words": "f26e2f2b8c82cf05", "starts": [0, 18, 36]},
   "AECHomI.5.11": {"words": "cb7794357640a513", "starts": [0, 39, 60, 91, 116, 129, 159, 190, 221, 236, 266]},
   "AECHomI.5.12": {"words": "f114889a1a90b039", "starts": [0, 35, 67, 97, 130, 157, 189]},
-  "AECHomI.5.13": {"words": "bd1b714cf1a4213b", "starts": [0, 39, 70, 89, 121, 147, 161]},
+  "AECHomI.5.13": {"words": "bd1b714cf1a4213b", "starts": [0, 22, 49, 70, 89, 121, 147, 161]},
   "AECHomI.5.14": {"words": "c52dca6eab7773ab", "starts": [0, 26, 38]}
  }
 }

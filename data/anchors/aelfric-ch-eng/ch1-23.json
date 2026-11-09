@@ -1,24 +1,24 @@
 {
  "work_id": "aelfric-ch-eng/ch1-23",
  "anchor": "aelfric-ch/ch1-23",
- "method": "351020005494c156",
- "anchor_cuts": "7c32988fb24b20be",
+ "method": "6c9e64855bac5892",
+ "anchor_cuts": "a869bc2f9e868878",
  "words": "8768a93289c42be5",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 65, "calibration": [0.2255, 0.3769], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9697, "rounds": 3, "units": 66},
+ "stats": {"beads": 66, "calibration": [0.4338, 0.2945], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9701, "rounds": 2, "units": 67},
  "paragraphs": {
   "AECHomI.23.1": {"words": "9e5a7ffccd347733", "starts": [0]},
   "AECHomI.23.2": {"words": "f33d2039ba98bdb0", "starts": [0]},
   "AECHomI.23.3": {"words": "be77a5e44093eeca", "starts": [0, 27]},
   "AECHomI.23.4": {"words": "bb24bae8015e39c6", "starts": [0, 19, 44, 75, 102, 146, 167]},
   "AECHomI.23.5": {"words": "c9eb4b84d5586dc8", "starts": [0, 28, 60, 81, 122, 148, 175, 209]},
-  "AECHomI.23.6": {"words": "6fd69a4e836f5f3e", "starts": [0, 19, 48, 82, 101, 115, 145, 174, 198]},
-  "AECHomI.23.7": {"words": "129c502440fba9f4", "starts": [0, 15, 36, 62, 96, 117]},
+  "AECHomI.23.6": {"words": "6fd69a4e836f5f3e", "starts": [0, 19, 48, 82, 101, 121, 145, 174, 198]},
+  "AECHomI.23.7": {"words": "129c502440fba9f4", "starts": [0, 25, 43, 62, 96, 117]},
   "AECHomI.23.8": {"words": "9a21857e4b07ab79", "starts": [0, 19, 50, 77]},
   "AECHomI.23.9": {"words": "60f4a9802afe3ffa", "starts": [0, 26, 64, 90, 118]},
   "AECHomI.23.10": {"words": "db07aab2e085838b", "starts": [0, 43, 69]},
-  "AECHomI.23.11": {"words": "b415fd3d15c78f62", "starts": [0, 31, 55, 71, 95, 122]},
-  "AECHomI.23.12": {"words": "7101cce34f45b019", "starts": [0, 21, 64, 88, 127, 152, 187, 206, 233, 249]},
+  "AECHomI.23.11": {"words": "b415fd3d15c78f62", "starts": [0, 24, 55, 71, 95, 115]},
+  "AECHomI.23.12": {"words": "7101cce34f45b019", "starts": [0, 21, 64, 88, 108, 127, 152, 169, 197, 222, 249]},
   "AECHomI.23.13": {"words": "c7cdac540a28f18b", "starts": [0, 35, 64, 99]}
  }
 }

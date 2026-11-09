@@ -1,16 +1,16 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-feriam-tertiam",
  "anchor": "ccmh-supr/chrysostom-in-feriam-tertiam",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "b284c465600c5ae1",
  "words": "4a30ead314f5485b",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 80, "calibration": [0.7409, 0.1806], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9753, "rounds": 3, "units": 80},
+ "stats": {"beads": 80, "calibration": [0.4748, 0.3146], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9753, "rounds": 3, "units": 80},
  "paragraphs": {
   "Supr.192v": {"words": "f21ec4b8d6d08e62", "starts": [0, 19, 26, 51, 67, 87, 101, 128, 135, 162]},
   "Supr.193r": {"words": "be599b3540bc22a3", "starts": [0, 18, 32, 42, 68, 89, 104, 116, 130, 152, 177, 192, 212, 228, 245]},
-  "Supr.193v": {"words": "ab639e1f520e3a94", "starts": [0, 22, 50, 76, 94, 111, 125, 146, 160, 173, 183, 203, 218, 230]},
-  "Supr.194r": {"words": "ca4d5b6167a26823", "starts": [0, 20, 41, 68, 86, 98, 122, 146, 174, 194, 217, 233, 259]},
+  "Supr.193v": {"words": "ab639e1f520e3a94", "starts": [0, 22, 50, 76, 94, 111, 125, 146, 160, 173, 182, 203, 218, 230]},
+  "Supr.194r": {"words": "ca4d5b6167a26823", "starts": [0, 20, 41, 68, 86, 98, 122, 146, 174, 194, 217, 233, 255]},
   "Supr.194v": {"words": "396d20bae4ca5648", "starts": [0, 17, 38, 61, 72, 87, 100, 126, 139, 161, 182, 194, 215, 234]},
   "Supr.195r": {"words": "e14fb289932cfd13", "starts": [0, 22, 37, 52, 70, 88, 100, 123, 141, 153, 176, 182, 201, 217]}
  }

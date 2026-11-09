@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/shenoute_crushed",
  "anchor": "coptic-scriptorium/shenoute_crushed",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "d0db841c3f86e421",
  "words": "4887aac578b8d231",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 127, "calibration": [0.1813, 0.4398], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9844, "rounds": 4, "units": 128},
+ "stats": {"beads": 127, "calibration": [0.082, 0.4739], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9844, "rounds": 4, "units": 128},
  "paragraphs": {
   "CopScr.shenoute-crushed.000.0000": {"words": "090d5e70fe111e6a", "starts": [0]},
   "CopScr.shenoute-crushed.000.0001": {"words": "f5cd6367c9125571", "starts": [0]},
@@ -62,7 +62,7 @@
   "CopScr.shenoute-crushed.002.0010": {"words": "b992ca3ab31d1ee1", "starts": [0]},
   "CopScr.shenoute-crushed.002.0011": {"words": "ec781cbea153279d", "starts": [0, 45, 72, 113]},
   "CopScr.shenoute-crushed.002.0012": {"words": "645a104ca79706ca", "starts": [0]},
-  "CopScr.shenoute-crushed.002.0013": {"words": "2b89ffaea9942e6b", "starts": [0, 21, 54, 80]},
+  "CopScr.shenoute-crushed.002.0013": {"words": "2b89ffaea9942e6b", "starts": [0, 24, 54, 80]},
   "CopScr.shenoute-crushed.002.0014": {"words": "86d04c41caba221c", "starts": [0]},
   "CopScr.shenoute-crushed.002.0015": {"words": "df348e9c999bd4a0", "starts": [0]},
   "CopScr.shenoute-crushed.002.0016": {"words": "28ab509e3744e816", "starts": [0]},

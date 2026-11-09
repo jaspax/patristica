@@ -1,13 +1,13 @@
 {
  "work_id": "mt-eng/dsc/travels-of-peter",
  "anchor": "dsc/travels-of-peter",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "4382f7a85ae104c2",
  "words": "1f7e573486bc7f20",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 19, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9, "rounds": 2, "units": 19},
+ "stats": {"beads": 20, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 1, "units": 20},
  "paragraphs": {
-  "DSC389.1": {"words": "3296400e9acc588e", "starts": [0, 28, 60, 85, 101, 118, 141, 174, 202]},
+  "DSC389.1": {"words": "3296400e9acc588e", "starts": [0, 28, 60, 85, 101, 118, 130, 141, 174, 202]},
   "DSC389.2": {"words": "dcab63231151c558", "starts": [0, 22, 63, 91, 125, 153]},
   "DSC389.3": {"words": "a75dd696be2b8d94", "starts": [0, 29, 67, 87]}
  }

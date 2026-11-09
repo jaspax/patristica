@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ogpg/vol-046/de-pauperibus-amandis-1",
  "anchor": "ogpg/vol-046/de-pauperibus-amandis-1",
- "method": "e26e66e4678bcee0",
- "anchor_cuts": "55272afa2fa0924f",
+ "method": "b634dc5d91b31ea7",
+ "anchor_cuts": "24415ee6600e62ae",
  "words": "de3c79da2240a8eb",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 155, "calibration": [0.7051, 0.1582], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 155},
+ "stats": {"beads": 155, "calibration": [0.7147, 0.1553], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 155},
  "paragraphs": {
   "ogpg.vol-046.c0453.1": {"words": "826a2e8dea779e9b", "starts": [0, 6, 34, 66, 88, 132, 161, 193, 212, 243, 260]},
   "ogpg.vol-046.c0455.1": {"words": "c52c5666e76417d3", "starts": [0, 36, 55, 97, 125, 145, 175, 206, 233, 255, 287, 307, 341, 354, 417, 449, 498, 528, 568]},
@@ -13,7 +13,7 @@
   "ogpg.vol-046.c0459.1": {"words": "91be1f9074525690", "starts": [0, 26, 38, 75, 93, 121, 148, 173, 192, 214, 241, 275, 300, 331, 365, 387, 405, 432, 458]},
   "ogpg.vol-046.c0461.1": {"words": "5914a780eb4affdd", "starts": [0, 24, 37, 57, 90, 128, 150, 173, 196, 227, 253, 287, 317, 335, 367, 399, 416, 445, 464]},
   "ogpg.vol-046.c0463.1": {"words": "e0a17291eb3afd9c", "starts": [0, 25, 39, 66, 90, 118, 149, 182, 204, 231, 254, 270, 294, 324, 342, 372, 408, 440]},
-  "ogpg.vol-046.c0465.1": {"words": "20478759c9ceea15", "starts": [0, 13, 45, 62, 111, 145, 161, 182, 209, 250, 271, 291]},
+  "ogpg.vol-046.c0465.1": {"words": "20478759c9ceea15", "starts": [0, 13, 45, 62, 111, 128, 161, 182, 209, 250, 271, 291]},
   "ogpg.vol-046.c0465.2": {"words": "84fea9482210669a", "starts": [0, 20, 49, 91, 135]},
   "ogpg.vol-046.c0467.1": {"words": "fef7bc3a66239641", "starts": [0, 27]},
   "ogpg.vol-046.c0467.2": {"words": "a76a74a7f149728c", "starts": [0, 27, 59, 76, 123, 140, 167, 188, 216, 254, 279, 318, 348, 375, 397, 425]},

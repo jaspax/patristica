@@ -1,27 +1,27 @@
 {
  "work_id": "mt-eng/torot/euch",
  "anchor": "torot/euch",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "735f1714d41e3908",
  "words": "a0f605db5f4197ee",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 46, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8776, "rounds": 2, "units": 46},
+ "stats": {"beads": 49, "calibration": [0.5134, 0.2703], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 49},
  "paragraphs": {
   "Euch.1": {"words": "a42f9518142892a2", "starts": [0]},
   "Euch.1.1": {"words": "480690b704643311", "starts": [0, 21, 41, 62]},
   "Euch.2": {"words": "b08c761f2f694700", "starts": [0]},
-  "Euch.2.1": {"words": "0f0f1c560d61221e", "starts": [0, 31, 58]},
+  "Euch.2.1": {"words": "0f0f1c560d61221e", "starts": [0, 16, 57]},
   "Euch.3": {"words": "3d701db6567e1eec", "starts": [0]},
-  "Euch.3.1": {"words": "44f4214e81ec8204", "starts": [0, 25, 37]},
+  "Euch.3.1": {"words": "44f4214e81ec8204", "starts": [0, 25, 37, 59]},
   "Euch.4": {"words": "0fceeb0cd94f708d", "starts": [0]},
-  "Euch.4.1": {"words": "08ba93307596fc71", "starts": [0, 40, 63]},
+  "Euch.4.1": {"words": "08ba93307596fc71", "starts": [0, 29, 40, 63]},
   "Euch.5": {"words": "9129d5d40234ddf8", "starts": [0]},
   "Euch.5.1": {"words": "a75102d351f87271", "starts": [0, 25, 42, 60, 77, 98]},
   "Euch.6": {"words": "8e6d584418d3d894", "starts": [0]},
-  "Euch.6.1": {"words": "3dd6831652924552", "starts": [0, 23]},
+  "Euch.6.1": {"words": "3dd6831652924552", "starts": [0, 20]},
   "Euch.7": {"words": "b7f32a6cc321d6dc", "starts": [0]},
-  "Euch.7.1": {"words": "338e39840961bd77", "starts": [0, 14, 31, 60]},
+  "Euch.7.1": {"words": "338e39840961bd77", "starts": [0, 14, 31, 55]},
   "Euch.8": {"words": "ed771f172245e9fe", "starts": [0]},
-  "Euch.8.1": {"words": "43857348aaf98699", "starts": [0, 25, 46, 58, 82, 114, 154, 181, 190, 201, 226, 254, 273]}
+  "Euch.8.1": {"words": "43857348aaf98699", "starts": [0, 25, 46, 58, 82, 103, 136, 154, 169, 190, 201, 226, 250, 273]}
  }
 }

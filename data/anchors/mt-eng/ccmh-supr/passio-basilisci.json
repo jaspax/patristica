@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/passio-basilisci",
  "anchor": "ccmh-supr/passio-basilisci",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "2371bdd08f3e867f",
  "words": "7945d8ad97c881d4",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 104, "calibration": [0.7107, 0.2138], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9623, "rounds": 4, "units": 104},
+ "stats": {"beads": 105, "calibration": [0.537, 0.3136], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9811, "rounds": 4, "units": 105},
  "paragraphs": {
   "Supr.8r": {"words": "648ca2744d46fd5c", "starts": [0, 14, 32, 55, 68]},
   "Supr.8v": {"words": "6a823c93e0dda444", "starts": [0, 13, 28, 46, 67, 88, 98, 126, 141, 156, 174, 194, 212]},
@@ -13,8 +13,8 @@
   "Supr.9v": {"words": "79d46b6d53d90e15", "starts": [0, 24, 36, 47, 62, 78, 92, 110, 128, 149, 169, 204, 215]},
   "Supr.10r": {"words": "89f30ba8d4ddb4e5", "starts": [0, 14, 31, 52, 68, 82, 101, 128, 145, 173, 192]},
   "Supr.10v": {"words": "7922bad60f053fc1", "starts": [0, 16, 31, 59, 80, 98, 119, 144, 162, 177, 189, 218, 227]},
-  "Supr.11r": {"words": "353e1f9f637ca7d4", "starts": [0, 18, 33, 42, 59, 73, 91, 113, 127, 141, 149, 178, 185, 201]},
-  "Supr.11v": {"words": "5f323dc4f273cd00", "starts": [0, 12, 25, 39, 51, 63, 90, 114, 131, 141, 176, 199]},
+  "Supr.11r": {"words": "353e1f9f637ca7d4", "starts": [0, 18, 33, 42, 59, 73, 91, 113, 127, 141, 157, 178, 185, 201]},
+  "Supr.11v": {"words": "5f323dc4f273cd00", "starts": [0, 12, 25, 39, 51, 63, 90, 114, 131, 141, 176, 181, 199]},
   "Supr.12r": {"words": "1836420f0be4ed8a", "starts": [0, 28, 39, 56, 90, 107, 132, 147, 171, 184, 191]}
  }
 }

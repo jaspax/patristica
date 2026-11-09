@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/narratio-de-milite",
  "anchor": "ccmh-supr/narratio-de-milite",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "576fd4e5b46e6bff",
  "words": "09ad6b0a268a65a9",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 19, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8095, "rounds": 3, "units": 19},
+ "stats": {"beads": 19, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8095, "rounds": 1, "units": 19},
  "paragraphs": {
   "Supr.85r": {"words": "5658df0aa82fd2f5", "starts": [0, 17, 43, 52, 75, 97, 116, 148, 151, 173, 191]},
   "Supr.85v": {"words": "5de96a770a6f6311", "starts": [0, 28, 52, 67, 81, 98, 123, 139]}

@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/pseudo_ephrem",
  "anchor": "coptic-scriptorium/pseudo_ephrem",
- "method": "351020005494c156",
+ "method": "6c9e64855bac5892",
  "anchor_cuts": "46f77a5e11c9429d",
  "words": "8d514b86b2ce7ae0",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 495, "calibration": [0.4225, 0.3212], "converged": false, "fallback_paragraphs": 4, "one_one": 0.98, "rounds": 4, "units": 500},
+ "stats": {"beads": 495, "calibration": [0.3679, 0.3379], "converged": false, "fallback_paragraphs": 4, "one_one": 0.98, "rounds": 4, "units": 500},
  "paragraphs": {
   "CopScr.pseudo-ephrem.000.0000": {"words": "e3b7e0d780b7b59e", "starts": [0]},
   "CopScr.pseudo-ephrem.000.0001": {"words": "89f2c4226cfc2e0d", "starts": [0]},
