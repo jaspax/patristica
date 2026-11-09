@@ -3,7 +3,7 @@
  "group": "ogpg/vol-026/ad-amunem",
  "pivot": "ogpg/vol-026/ad-amunem",
  "groups": 45,
- "inputs": "56ae011286c195e3",
+ "inputs": "a1cbdf5db164e484",
  "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/athanasius-letter-48-to-amun", "units": 48, "ids": "7a09ee8a3e25e0c5", "inputs": "f97e99393f5a996b", "spans": "+++++=+++++++++++++++++++=+++++++++++=++++++++++", "conf": "999999999999999999999899999999999999999999999"},

@@ -1,13 +1,13 @@
 {
  "format": 1,
  "group": "oglt-pl/boethius/pl64_26_qu",
- "pivot": "perseus-eng/stoa0058/stoa003/perseus-eng1",
- "groups": 60,
- "inputs": "39f1e539061c480b",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "oglt-pl/boethius/pl64_26_qu",
+ "groups": 52,
+ "inputs": "c232e9f9098591b7",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"perseus/stoa0058/stoa003/perseus-lat1": {"head": "oglt-pl/boethius/pl64_26_qu", "shared": 0.8973}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "oglt-pl/boethius/pl64_26_qu", "units": 66, "ids": "d45de83307d70f2a", "inputs": "0a4ac8b2a4ad971f", "spans": "+++=++++2++++++++=+2+++++=++++++++++=++++.++++++.++++++=+++++++++++.", "conf": "9999999999999989999999999999999999999999988999998779999999"},
-  {"work_id": "perseus-eng/stoa0058/stoa003/perseus-eng1", "units": 66, "ids": "0689c5cb119f9b91", "inputs": "2e3c10d98d9305ce", "spans": ".++++++++++++++++=++++++=+=+++++++++++++++++++++=+++++++++++++++=+", "conf": "999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "perseus/stoa0058/stoa003/perseus-lat1", "units": 64, "ids": "ce7585412503ff58", "inputs": "f14415e78ce68d5c", "spans": "++++++++++++++++++++++=++++++++++++=++++++++++=+++++++++++++++=+", "conf": "999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "oglt-pl/boethius/pl64_26_qu", "units": 66, "ids": "d45de83307d70f2a", "inputs": "0a4ac8b2a4ad971f", "spans": "++==++++++++++++=++++++++=++++++++=+++++=+++=++=+++++===+++++++===", "conf": "9999999999999999999999999999999999999999999999999999"},
+  {"work_id": "perseus-eng/stoa0058/stoa003/perseus-eng1", "units": 66, "ids": "0689c5cb119f9b91", "inputs": "2e3c10d98d9305ce", "spans": ".++=+++.+++++++++=.+++++=+++=++++++++++++++++=++=+++++==+++++++===", "conf": "9999999999999899999999999999999999999998899987799999"},
+  {"work_id": "perseus/stoa0058/stoa003/perseus-lat1", "units": 64, "ids": "ce7585412503ff58", "inputs": "f14415e78ce68d5c", "spans": "++=+++=+++++++++=++++++++=++++++++=++++++++=++=+++++==+++++++===", "conf": "9999999999999999999999999999999999999999999999999999"}
  ]
 }

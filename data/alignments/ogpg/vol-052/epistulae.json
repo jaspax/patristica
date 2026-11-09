@@ -3,7 +3,7 @@
  "group": "ogpg/vol-052/epistulae",
  "pivot": "ogpg/vol-052/epistulae",
  "groups": 406,
- "inputs": "9c5b60ff2f94ba81",
+ "inputs": "189f4cc3960fb897",
  "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/chrysostom-correspondence-with-innocent", "units": 157, "ids": "aa9a5209b046d0a0", "inputs": "2ad1193c85a3c8c6", "spans": "..+++=++.+=....++++++++++++++++..........+.........++=+=++++++++++++++.....+.+=+........+++++..+=+++++++++++++=..........+++++...+++++++++++++=++++75+61+121+17+7++5+9+12+3+12", "conf": "9999979999999999999999699999999999999999664999999999999999999899999999999999999999385578989999"},

@@ -3,7 +3,7 @@
  "group": "ogpg/vol-051/in-loca-novi-testamenti",
  "pivot": "ogpg/vol-051/in-loca-novi-testamenti",
  "groups": 699,
- "inputs": "49181a5900eade2d",
+ "inputs": "7251be7b3a9ef74e",
  "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "npnf-works/chrysostom-homily-against-publishing-errors", "units": 219, "ids": "36e9c28e036b27a1", "inputs": "b0ec5546aca3e1ac", "spans": "+459.+120+++++++=+++++++++++=+=+++++=....................++++++++++=+++++++++++=....................++=++++++++++=++++++=++.......-219+++..+217=........+++=++++++++++=++++=++...+....-226++.........+225++++=+++=+++++=+++++++.++++.++++++++2", "conf": "9999999999999999999999999989999999999999999999969999999999999999999677899999999999999999999977999999999999999999884573299587998"},

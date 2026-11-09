@@ -1,13 +1,13 @@
 {
  "format": 1,
  "group": "first1k/tlg2022/tlg007/1st1K-grc1",
- "pivot": "npnf-works/gregory-nazianzen-oration-27",
- "groups": 92,
- "inputs": "e4b0b7df1208fd79",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "first1k/tlg2022/tlg007/1st1K-grc1",
+ "groups": 79,
+ "inputs": "b5ef1fe8f1ba1c43",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"ogpg/vol-036/oratio-27": {"head": "first1k/tlg2022/tlg007/1st1K-grc1", "shared": 0.841}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "first1k/tlg2022/tlg007/1st1K-grc1", "units": 106, "ids": "02f8ffd7f22a6d3c", "inputs": "25cdf24a0fa7cab0", "spans": ".++++++++++++++++=++++++=+++=++=+++++++++++=++=+++++++++++2=++++=+=+++++++++=++++++=+++=+++++++=+.+++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "npnf-works/gregory-nazianzen-oration-27", "units": 107, "ids": "846cdcd81c0da834", "inputs": "d12225537a6c7178", "spans": "+====+++++++++++++=++++++++=+++=++++++++=++++++++++++=+++++++++++++++++=++++=++++++=+=+++++++++=++++++=++++", "conf": "99999999999999999999999999999999999999999999999999799999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-036/oratio-27", "units": 110, "ids": "98408fc3d696db6a", "inputs": "2bc334f8c891ea72", "spans": "+=+++++.+++++++++++++++.+++++.+.+++=++++++++++=++++++++.+2++++++=++++++++...+++++++++++=+++++++++=++++=+=+++...", "conf": "9999997999999999999889999999999999999999999999999778999998889989998889999999999999999999999"}
+  {"work_id": "first1k/tlg2022/tlg007/1st1K-grc1", "units": 106, "ids": "02f8ffd7f22a6d3c", "inputs": "25cdf24a0fa7cab0", "spans": ".+++++++=+++++++==++++++=+++==+=+++=+++++++==+=+++===++=++=++++=+==++++++++=++++++=+++=++++++==++=+++++=++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "npnf-works/gregory-nazianzen-oration-27", "units": 107, "ids": "846cdcd81c0da834", "inputs": "d12225537a6c7178", "spans": "...+=++++++=++++++=+=++++++=+++==++++=++=+++++=+++.....+2+=+.++++++=++++=++++=++++++=+=++++++++==++++++=+=++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-036/oratio-27", "units": 110, "ids": "98408fc3d696db6a", "inputs": "2bc334f8c891ea72", "spans": "+=+++++.+=+++++++=+++++.++++=+=.+++==+++++++=+=+++===++.+.+++++=+=++++++...+++++++++++=++++++=++=++++=+==++...", "conf": "9999959999999999999999969999999999999999688998999999899999589997899999999999999"}
  ]
 }

@@ -2,11 +2,11 @@
  "format": 1,
  "group": "csel/stoa0104p/stoa002/opp-lat1",
  "pivot": "oglt-pl/pseudo-cyprian/pl6_5_cels",
- "groups": 112,
- "inputs": "67aaea6aa3b13963",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 99,
+ "inputs": "0d8599581f88d166",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"csel/stoa0104p/stoa002/opp-lat1": {"head": "oglt-pl/pseudo-cyprian/pl6_5_cels", "shared": 0.8381}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "csel/stoa0104p/stoa002/opp-lat1", "units": 114, "ids": "2c58c051a3018a91", "inputs": "f69ca66d9a52d6c3", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/pseudo-cyprian/pl6_5_cels", "units": 181, "ids": "a72a700659e5404c", "inputs": "feb8f9d4dd87d681", "spans": "++++++++++=+++=++++.............+++++=++++++=++=++++++++=+++++=+++..............+++++++++++++=+++=+++++++++++++=+............+=++++++++=++=++++++++=++++=+++++...........+++=+++++...", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "csel/stoa0104p/stoa002/opp-lat1", "units": 114, "ids": "2c58c051a3018a91", "inputs": "f69ca66d9a52d6c3", "spans": ".+++++++=++++++++++++++++++++++++++++==++++++++++++++++++++=+++=+==+++=++++=++==+++++=++++++++=++++=++++++++++++++", "conf": "997999999999999999999999959999999999999999999999999999999999999999999999999997999999999999999999999"},
+  {"work_id": "oglt-pl/pseudo-cyprian/pl6_5_cels", "units": 181, "ids": "a72a700659e5404c", "inputs": "feb8f9d4dd87d681", "spans": "+++++++=++=+++=++++=============+++++=++++++=+=+++++++===+++++=+++==============++++++++++++==++=+=+=+++=++++=+=+===============+++++=+=++=+++++=++=++==++++++...........+++=+++++...", "conf": "997999999999999999999999959999999999999999999999999999999999999999999999999997999999999999999999999"}
  ]
 }
