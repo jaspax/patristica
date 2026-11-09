@@ -55,7 +55,7 @@ import logging
 import os
 import sys
 from concurrent.futures import ProcessPoolExecutor
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from datetime import date
 from pathlib import Path
 
@@ -64,6 +64,7 @@ from tqdm import tqdm
 from patristica import alignment_store as store
 from patristica import embeddings as emb
 from patristica import fingerprint
+from patristica import text_alignment as text
 from patristica import translations as tr
 from patristica.corpus import load_works, select
 from patristica.editorial import source_text
@@ -77,6 +78,14 @@ ALIGNER_VERSION = 2
 METHOD = ("pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, "
           "baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of "
           "unaligned blocks")
+#: Recorded (with ``text.Params``) only in the files of groups with two editions
+#: in one language, so the other groups' files and inputs don't change (#199).
+TEXT_METHOD = ("same-language editions aligned with the head of their language (the pivot "
+               "if it is one) by their folded words (patience-style anchors, difflib in "
+               "small gaps, runs of 3+ words), carried through the head's beads; their "
+               "text beads replace vector beads and keep their pivot units in one group")
+#: Bump when the text aligner changes in a way ``text.Params`` doesn't show.
+TEXT_VERSION = 1
 SCRIPTURE_PRIOR = 0.1
 
 STEP = "align"
@@ -137,6 +146,7 @@ class Loaded:
     vecs: object  # np.ndarray (units × dims, unit rows, zero rows: no vector)
     keys: object | None  # np.ndarray of int64, or None
     models: frozenset[str]
+    texts: list[str] = field(default_factory=list)  # each unit's source text
 
     @property
     def vectored(self) -> int:
@@ -245,8 +255,10 @@ def load_member_checked(entry: dict, input_dir: Path, trans_dir: Path, store_dir
     h = hashlib.sha256()
     models: set[str] = set()
     missing = 0
+    texts: list[str] = []
     for u, c in enumerate(chunks):
         text = source_text(c)
+        texts.append(text)
         sha = tr.text_sha(text)
         k = index.get((c["chunk_id"], emb.KIND_TEXT))
         if wants_vector(text) and (k is None or shard.rows[k].sha != sha):
@@ -281,7 +293,7 @@ def load_member_checked(entry: dict, input_dir: Path, trans_dir: Path, store_dir
             keys = np.array([ref_key(r) if r else -1 for r in refs], dtype=np.int64)
     return Loaded(work["work_id"], work["language"], len(chunks), h.hexdigest()[:16],
                   store.ids_sha([c["chunk_id"] for c in chunks]), vecs, keys,
-                  frozenset(models)), missing
+                  frozenset(models), texts), missing
 
 
 def params_for(group: str):
@@ -291,12 +303,78 @@ def params_for(group: str):
     return replace(p, prior=SCRIPTURE_PRIOR) if group.startswith("book:") else p
 
 
+def editions(group: str, members: list[Loaded]) -> list[Loaded]:
+    """The *members* that share their language with another member: the
+    editions ``text_plan`` aligns by their text. None in Scripture, whose
+    verses are aligned through their refs."""
+    if group.startswith("book:"):
+        return []
+    count: dict[str, int] = {}
+    for m in members:
+        count[m.language] = count.get(m.language, 0) + 1
+    return [m for m in members if count[m.language] >= 2]
+
+
 def group_inputs(group: str, members: list[Loaded]) -> str:
     h = hashlib.sha256()
     head = {"aligner": ALIGNER_VERSION, "params": params_for(group).to_dict(),
             "members": sorted((m.work_id, m.inputs) for m in members)}
+    same = editions(group, members)
+    if same:  # only these groups' inputs change with the text aligner (#199)
+        texts = hashlib.sha256()
+        for m in sorted(same, key=lambda m: m.work_id):
+            texts.update(m.work_id.encode("utf-8") + b"\x00")
+            texts.update("\x00".join(m.texts).encode("utf-8") + b"\x01")
+        head["text"] = {"version": TEXT_VERSION, "params": text.Params().to_dict(),
+                        "texts": texts.hexdigest()[:16]}
     h.update(json.dumps(head, sort_keys=True).encode("utf-8"))
     return h.hexdigest()[:16]
+
+
+def text_plan(group: str, members: list[Loaded], tp: text.Params,
+              pivot: str | None = None) -> dict[str, tuple[str, text.TextAlignment]]:
+    """Which editions to align by their text: ``{work id: (head, alignment)}``.
+
+    The editions of one language (``editions``) are each aligned with that
+    language's *head*: *pivot* if it is one of them, else the one with the most
+    words. One whose text shares less than ``tp.min_shared`` with the head (a
+    different translation, or another work of a collection) is left out.
+    """
+    by_lang: dict[str, list[Loaded]] = {}
+    for m in editions(group, members):
+        by_lang.setdefault(m.language, []).append(m)
+    plan: dict[str, tuple[str, text.TextAlignment]] = {}
+    for ms in by_lang.values():
+        head = next((m for m in ms if m.work_id == pivot), None) or max(
+            ms, key=lambda m: (m.vectored, m.work_id))
+        for m in ms:
+            if m is head:
+                continue
+            ta = text.align_texts(m.texts, head.texts, tp)
+            if ta.shared >= tp.min_shared:
+                plan[m.work_id] = (head.work_id, ta)
+    return plan
+
+
+def edition_weights(members: list[Loaded], plan: dict[str, tuple[str, text.TextAlignment]]
+                    ) -> dict[str, int]:
+    """``choose_pivot``'s preference: for every member of a language with editions
+    in *plan*, the units those editions align by text."""
+    lang = {m.work_id: m.language for m in members}
+    per_lang: dict[str, int] = {}
+    for wid, (_, ta) in plan.items():
+        per_lang[lang[wid]] = per_lang.get(lang[wid], 0) + sum(t.i1 - t.i0 for t in ta.beads)
+    return {m.work_id: per_lang[m.language] for m in members if m.language in per_lang}
+
+
+def clean_shares(plan: dict[str, tuple[str, text.TextAlignment]]) -> dict[str, float]:
+    """Each edition's share of its own words that its head matches (and the
+    head's best share against one of them): ``choose_pivot``'s ``clean``."""
+    out: dict[str, float] = {}
+    for wid, (head, ta) in plan.items():
+        out[wid] = ta.clean_a
+        out[head] = max(out.get(head, 0.0), ta.clean_b)
+    return out
 
 
 def align_group(group: str, members: list[Loaded], inputs: str, today: str,
@@ -305,24 +383,47 @@ def align_group(group: str, members: list[Loaded], inputs: str, today: str,
 
     *params* overrides the group's parameters (``scripts.align_eval``).
     """
-    from patristica.alignment import Version, align_pair, choose_pivot, merge, span_fit
+    from patristica.alignment import (
+        Version,
+        align_pair,
+        choose_pivot,
+        merge,
+        prefer_text,
+        span_fit,
+        text_beads,
+    )
 
     p = params or params_for(group)
+    tp = text.Params()
     by_id = {m.work_id: m for m in members}
-    pivot = choose_pivot({m.work_id: (m.language, m.vectored) for m in members})
+    plan = text_plan(group, members, tp)
+    pivot = choose_pivot({m.work_id: (m.language, m.vectored) for m in members},
+                         edition_weights(members, plan), clean_shares(plan))
+    if pivot in plan:  # the pivot's language is aligned with the pivot as its head
+        plan = text_plan(group, members, tp, pivot)
     pv = by_id[pivot]
     b = Version(pivot, pv.vecs, pv.keys)
+    vector = {m.work_id: align_pair(Version(m.work_id, m.vecs, m.keys), b, p)
+              for m in members if m.work_id != pivot}
     pairs = {}
-    for m in members:
-        if m.work_id == pivot:
-            continue
-        beads = align_pair(Version(m.work_id, m.vecs, m.keys), b, p)
-        pairs[m.work_id] = (m.units, beads)
+    joined_by = []
+    for wid, beads in vector.items():
+        if wid in plan:
+            head, ta = plan[wid]
+            tb = text_beads(ta.beads, None if head == pivot else vector[head])
+            joined_by += tb
+            beads = prefer_text(tb, beads)
+        pairs[wid] = (by_id[wid].units, beads)
     merged = merge(pivot, pv.units, pairs,
-                   span_fit({m.work_id: m.vecs for m in members}, pv.vecs))
+                   span_fit({m.work_id: m.vecs for m in members}, pv.vecs), joined_by)
     run = {"aligner": ALIGNER_VERSION, "method": METHOD, "params": p.to_dict(),
            "models": sorted(set().union(*(m.models for m in members))),
            "date": today, "script": "scripts.align"}
+    if plan:
+        run["text"] = {"version": TEXT_VERSION, "method": TEXT_METHOD,
+                       "params": tp.to_dict(),
+                       "editions": {w: {"head": h, "shared": ta.shared}
+                                    for w, (h, ta) in sorted(plan.items())}}
     out = store.Alignment(group, pivot, merged.n_groups, inputs, run)
     for wid in sorted(by_id):
         conf = {g: int(c * 10) for g, c in merged.conf[wid].items()}
