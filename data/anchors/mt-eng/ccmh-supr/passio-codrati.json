@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/passio-codrati",
  "anchor": "ccmh-supr/passio-codrati",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "b3b1539e522d7ee1",
  "words": "52b67b442459d330",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 302, "calibration": [0.5324, 0.3068], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9739, "rounds": 4, "units": 302},
+ "stats": {"beads": 302, "calibration": [0.4956, 0.3259], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9739, "rounds": 3, "units": 302},
  "paragraphs": {
   "Supr.50r": {"words": "281bb2ea0b1f34b9", "starts": [0, 15]},
   "Supr.50v": {"words": "3bf9ccb62d2d7af9", "starts": [0, 13, 31, 41, 59, 70, 87, 111, 120, 138, 152, 166, 181, 195, 207]},
@@ -15,7 +15,7 @@
   "Supr.52v": {"words": "d39f9b957fb47104", "starts": [0, 2, 25, 43, 64, 78, 97, 108, 128, 142, 160, 179, 198, 212, 218]},
   "Supr.53r": {"words": "f40d38fa6dacee44", "starts": [0, 10, 38, 54, 75, 88, 103, 113, 127, 141, 149, 176, 184, 197, 223]},
   "Supr.53v": {"words": "b49f73a83a778f75", "starts": [0, 17, 24, 52, 67, 80, 91, 110, 134, 146, 177, 190, 204, 226]},
-  "Supr.54r": {"words": "a326b4941ba1ce7f", "starts": [0, 15, 39, 54, 75, 98, 112, 128, 155, 159, 174, 190]},
+  "Supr.54r": {"words": "a326b4941ba1ce7f", "starts": [0, 15, 39, 54, 75, 98, 112, 128, 144, 159, 174, 190]},
   "Supr.54v": {"words": "72b68324de648847", "starts": [0, 22, 44, 61, 77, 105, 121, 131, 151, 162, 177, 193, 216]},
   "Supr.55r": {"words": "c02618b451fe0665", "starts": [0, 23, 44, 66, 86, 113, 123, 144, 168, 181, 200, 218, 245]},
   "Supr.55v": {"words": "f16475a9dbdf3b3d", "starts": [0, 9, 30, 49, 63, 79, 95, 118, 136, 152, 173, 197, 215]},

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1",
  "anchor": "ccmh-supr/chrysostom-in-annuntiationem-1",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "36f6bef4f197548b",
  "words": "64989882c2d4e7fb",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 89, "calibration": [0.7231, 0.2216], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 89},
+ "stats": {"beads": 89, "calibration": [0.6892, 0.2369], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 89},
  "paragraphs": {
   "Supr.119r": {"words": "05fa9035b2454cf6", "starts": [0, 27, 51, 67, 91, 120, 145, 163, 182, 198, 225, 244]},
   "Supr.119v": {"words": "0314988b9de3401e", "starts": [0, 26, 46, 57, 80, 88, 103, 116, 136, 149, 162, 174, 191, 205, 215]},

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta008/pta-grc1",
  "anchor": "pta/pta0001/pta008/pta-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "c24c05350a7d43fa",
  "words": "361b40e78937bc1e",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 261, "calibration": [0.5484, 0.2414], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 261},
+ "stats": {"beads": 261, "calibration": [0.5533, 0.2404], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 261},
  "paragraphs": {
   "pta0001.pta008.1": {"words": "a2c67bf57ee97b05", "starts": [0, 28, 46, 82, 102, 128, 166, 200, 224, 254, 275, 303, 329, 358, 402, 434, 450, 483, 511, 539, 573, 591, 621, 652, 689, 711, 746, 768, 809, 828, 846, 871]},
   "pta0001.pta008.2": {"words": "885d06341266af3b", "starts": [0, 20, 48, 80, 102, 123, 143, 163, 184, 217, 255, 274, 304, 337, 375, 405, 439, 452, 480, 491, 525, 558, 600, 614, 638, 659, 698, 735, 752, 781, 795, 826, 848, 871, 892, 921, 949, 979, 997, 1024, 1045]},

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-de-thoma-1",
  "anchor": "ccmh-supr/chrysostom-de-thoma-1",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "5da8a242607605fa",
  "words": "a6850d37121d4d1a",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 158, "calibration": [0.5266, 0.2891], "converged": false, "fallback_paragraphs": 0, "one_one": 0.975, "rounds": 4, "units": 158},
+ "stats": {"beads": 158, "calibration": [0.5001, 0.3016], "converged": true, "fallback_paragraphs": 0, "one_one": 0.975, "rounds": 2, "units": 158},
  "paragraphs": {
   "Supr.249v": {"words": "3ae789582fbe72ac", "starts": [0, 11, 26, 47, 63, 71, 96, 108, 125, 147]},
   "Supr.250r": {"words": "e0df167faa7a56e0", "starts": [0, 11, 44, 70, 89, 113, 128, 151, 178, 192, 210, 221, 237, 262, 284]},

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta026/pta-grc1",
  "anchor": "pta/pta0001/pta026/pta-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "f8ed0a1c2f633ead",
  "words": "ae69c140be9c7c0b",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 141, "calibration": [0.7068, 0.1651], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 141},
+ "stats": {"beads": 141, "calibration": [0.7028, 0.1673], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 141},
  "paragraphs": {
   "pta0001.pta026.1": {"words": "ef6c68745f2f9582", "starts": [0, 40, 62, 96, 115, 136, 162, 199, 232, 267, 298, 321, 333, 358, 393, 419, 451, 492, 514, 538, 561, 584, 605, 643, 663, 685, 704, 735, 764, 795, 832]},
   "pta0001.pta026.2": {"words": "d94f8301302feebe", "starts": [0, 19, 38, 70, 99, 135, 147, 169, 181, 207, 232, 260, 273, 304, 332, 364, 402, 421, 444, 485, 523, 553, 565, 591, 606, 622, 644, 673, 709]},

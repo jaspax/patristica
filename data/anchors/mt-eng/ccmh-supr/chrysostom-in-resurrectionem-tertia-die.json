@@ -1,15 +1,15 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-resurrectionem-tertia-die",
  "anchor": "ccmh-supr/chrysostom-in-resurrectionem-tertia-die",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "7a263175ed4eb21d",
  "words": "f8ac23372ae5282a",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 189, "calibration": [0.4901, 0.3172], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9286, "rounds": 4, "units": 189},
+ "stats": {"beads": 189, "calibration": [0.4901, 0.3172], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9286, "rounds": 1, "units": 189},
  "paragraphs": {
   "Supr.243v": {"words": "de78c736e517b590", "starts": [0, 9, 25, 41, 56, 76, 97]},
   "Supr.244r": {"words": "8ab16818c4e3af67", "starts": [0, 12, 26, 36, 61, 73, 84, 99, 118, 137, 154, 170, 188, 202, 210, 227, 253, 267]},
-  "Supr.244v": {"words": "9f8b860dcc025c75", "starts": [0, 15, 44, 55, 73, 87, 114, 129, 146, 170, 182, 199, 210, 230, 247, 265, 270]},
+  "Supr.244v": {"words": "9f8b860dcc025c75", "starts": [0, 15, 44, 55, 73, 87, 114, 127, 146, 170, 182, 199, 210, 230, 247, 265, 270]},
   "Supr.245r": {"words": "79c180189997d3d0", "starts": [0, 7, 39, 53, 66, 83, 105, 120, 139, 156, 186, 193, 215, 235, 254, 272, 285]},
   "Supr.245v": {"words": "bc821f2650bf88c4", "starts": [0, 17, 42, 72, 78, 99, 113, 133, 154, 174, 195, 213, 232, 259]},
   "Supr.246r": {"words": "398af877b1a6c3c2", "starts": [0, 6, 32, 54, 61, 77, 102, 123, 131, 140, 165, 184, 197, 224, 245]},

@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/life_phib",
  "anchor": "coptic-scriptorium/life_phib",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "c6e4b5d79c654cb1",
  "words": "142b786227f517ae",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 64, "calibration": [0.46, 0.2736], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9275, "rounds": 4, "span": [0, 69], "units": 64},
+ "stats": {"beads": 64, "calibration": [0.4841, 0.267], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9275, "rounds": 3, "span": [0, 69], "units": 64},
  "paragraphs": {
   "CopScr.life-phib.000.0000": {"words": "269574cae5e65c21", "starts": [0, 23]},
   "CopScr.life-phib.000.0001": {"words": "f8ca34809c8ba7c8", "starts": [0, 17]},
@@ -14,7 +14,7 @@
   "CopScr.life-phib.000.0004": {"words": "68a0e6163c983997", "starts": [0, 33, 51, 79, 107, 129, 146, 158]},
   "CopScr.life-phib.000.0005": {"words": "7a8b54ecb5d11ba9", "starts": [0, 9, 52, 75, 101, 106]},
   "CopScr.life-phib.000.0006": {"words": "452da1930258d4f1", "starts": [0, 26, 43, 68, 95, 112, 141, 174, 184]},
-  "CopScr.life-phib.000.0007": {"words": "8c8e959c8a0e38ac", "starts": [0, 24, 38, 61, 86, 125, 151, 171, 184, 207]},
+  "CopScr.life-phib.000.0007": {"words": "8c8e959c8a0e38ac", "starts": [0, 24, 38, 61, 86, 125, 151, 173, 193, 207]},
   "CopScr.life-phib.000.0008": {"words": "d4e1dce084f0ee54", "starts": [0, 24, 43, 68, 102, 127]},
   "CopScr.life-phib.000.0009": {"words": "0cc54ab67c91a5e5", "starts": [0, 20, 36, 74, 96, 117, 141]},
   "CopScr.life-phib.000.0010": {"words": "9dfcff045ef84a11", "starts": [0, 22, 53, 83, 94]}

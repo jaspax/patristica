@@ -1,13 +1,13 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/mercurius",
  "anchor": "coptic-scriptorium/mercurius",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "4623a0b6e56aeebe",
  "words": "4168d4b5aac09a97",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 840, "calibration": [0.2907, 0.4595], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9976, "rounds": 4, "units": 841},
+ "stats": {"beads": 840, "calibration": [0.2757, 0.4666], "converged": true, "fallback_paragraphs": 1, "one_one": 0.9976, "rounds": 3, "units": 841},
  "paragraphs": {
-  "CopScr.mercurius.000.0000": {"words": "66d246a49ef1312c", "starts": [0, 21, 35]},
+  "CopScr.mercurius.000.0000": {"words": "66d246a49ef1312c", "starts": [0, 21, 54]},
   "CopScr.mercurius.000.0001": {"words": "e9eac9b60c87bd48", "starts": [0, 14]},
   "CopScr.mercurius.000.0002": {"words": "05c211dc9ac02a3b", "starts": [0]},
   "CopScr.mercurius.000.0003": {"words": "643c21ab4d3b3ff8", "starts": [0]},

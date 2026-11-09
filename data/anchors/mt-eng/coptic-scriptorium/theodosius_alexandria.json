@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/theodosius_alexandria",
  "anchor": "coptic-scriptorium/theodosius_alexandria",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "5597ee972bec0784",
  "words": "ee5b71e0ca1754fc",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 2291, "calibration": [0.0876, 0.5347], "converged": false, "fallback_paragraphs": 8, "one_one": 0.9935, "rounds": 4, "units": 2299},
+ "stats": {"beads": 2291, "calibration": [0.0867, 0.5351], "converged": true, "fallback_paragraphs": 8, "one_one": 0.9935, "rounds": 3, "units": 2299},
  "paragraphs": {
   "CopScr.theodosius-alexandria.000.0000": {"words": "25d9e266b2fa3888", "starts": [0]},
   "CopScr.theodosius-alexandria.000.0001": {"words": "e4a15d1302c0c05d", "starts": [0]},
@@ -1217,7 +1217,7 @@
   "CopScr.theodosius-alexandria.005.0040": {"words": "1ed500addfb6349e", "starts": [0]},
   "CopScr.theodosius-alexandria.005.0041": {"words": "70d0f1a542a80ec7", "starts": [0]},
   "CopScr.theodosius-alexandria.005.0042": {"words": "c70fb8372cc41f48", "starts": [0]},
-  "CopScr.theodosius-alexandria.005.0043": {"words": "88d462f768c0ab7d", "starts": [0, 42]},
+  "CopScr.theodosius-alexandria.005.0043": {"words": "88d462f768c0ab7d", "starts": [0, 27]},
   "CopScr.theodosius-alexandria.005.0044": {"words": "c56099d3b93b7008", "starts": [0]},
   "CopScr.theodosius-alexandria.005.0045": {"words": "21ccfa94f0c4cf56", "starts": [0]},
   "CopScr.theodosius-alexandria.005.0046": {"words": "2786fd3f7fb96725", "starts": [0]},

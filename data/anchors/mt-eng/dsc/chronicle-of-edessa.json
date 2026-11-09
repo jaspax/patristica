@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/dsc/chronicle-of-edessa",
  "anchor": "dsc/chronicle-of-edessa",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "a8b764844c3aa5f2",
  "words": "c8b4c374bebce550",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 188, "calibration": [0.1713, 0.5374], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 188},
+ "stats": {"beads": 188, "calibration": [0.1613, 0.5421], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 188},
  "paragraphs": {
   "DSC57": {"words": "c7588bdafa24760e", "starts": [0]},
   "DSC57.rubric.1": {"words": "90e930f9bfbbc7c7", "starts": [0]},

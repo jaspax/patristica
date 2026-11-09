@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/shenoute_listen",
  "anchor": "coptic-scriptorium/shenoute_listen",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "db9f4a6f69b4ef8e",
  "words": "e31fb88290273776",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 61, "calibration": [0.0686, 0.4582], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 61},
+ "stats": {"beads": 61, "calibration": [0.0686, 0.4582], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 61},
  "paragraphs": {
   "CopScr.shenoute-listen.000.0000": {"words": "8d9ccf67554b85a0", "starts": [0, 17]},
   "CopScr.shenoute-listen.000.0001": {"words": "9f35657fa3e2565f", "starts": [0, 48]},

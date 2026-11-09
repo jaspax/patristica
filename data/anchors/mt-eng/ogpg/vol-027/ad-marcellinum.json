@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ogpg/vol-027/ad-marcellinum",
  "anchor": "ogpg/vol-027/ad-marcellinum",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "b4826ae6e36a93c7",
  "words": "906bdfc5d0e3cf0c",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 307, "calibration": [0.7657, 0.1408], "converged": false, "fallback_paragraphs": 0, "one_one": 0.984, "rounds": 4, "span": [0, 312], "units": 316},
+ "stats": {"beads": 307, "calibration": [0.7623, 0.1418], "converged": false, "fallback_paragraphs": 0, "one_one": 0.984, "rounds": 4, "span": [0, 312], "units": 317},
  "paragraphs": {
   "ogpg.vol-027.c0011.1": {"words": "2cd1f496613e4dcd", "starts": [0, 10, 49, 79, 102, 123, 169, 196, 220, 249, 280]},
   "ogpg.vol-027.c0013.1": {"words": "75a7c414a09716de", "starts": [0, 23, 52, 75, 99, 119, 162, 200, 223, 246, 271, 307, 318, 349, 396, 422, 457, 486, 496, 535, 548]},
@@ -34,8 +34,8 @@
   "ogpg.vol-027.c0051.1": {"words": "0e602a3f257bd845", "starts": [0, 28]},
   "ogpg.vol-027.c0053.1": {"words": "cb60b02fa1d86da0", "starts": [0]},
   "ogpg.vol-027.c0053.2": {"words": "12b6ddf5fb1e8132", "starts": [0]},
-  "ogpg.vol-027.c0055.1": {"words": "98025dbead115ebc", "starts": [0, 35]},
-  "ogpg.vol-027.c0057.1": {"words": "ef1e9f44d3051ce6", "starts": [0, 257, 415]},
+  "ogpg.vol-027.c0055.1": {"words": "98025dbead115ebc", "starts": [0, 56]},
+  "ogpg.vol-027.c0057.1": {"words": "ef1e9f44d3051ce6", "starts": [0, 2, 291, 415]},
   "ogpg.vol-027.c0059.1": {"words": "d05d79a6789f88b7", "starts": [0]}
  }
 }

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-de-invidia",
  "anchor": "ccmh-supr/chrysostom-de-invidia",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "8d4c8cb4933f70e0",
  "words": "abdd3b88771255a4",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 138, "calibration": [0.6908, 0.252], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9574, "rounds": 4, "units": 138},
+ "stats": {"beads": 138, "calibration": [0.6892, 0.256], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9574, "rounds": 3, "units": 138},
  "paragraphs": {
   "Supr.198r": {"words": "46b2f328c4783c87", "starts": [0, 18, 29, 48, 64]},
   "Supr.198v": {"words": "ebcaa94f7c5f38fa", "starts": [0, 29, 51, 73, 94, 105, 139, 159, 172, 183, 193, 209, 225, 238]},

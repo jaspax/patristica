@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/AP",
  "anchor": "coptic-scriptorium/AP",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "aa2085db6cca1d62",
  "words": "fc8b5d828366ddf8",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 685, "calibration": [0.3142, 0.3623], "converged": false, "fallback_paragraphs": 2, "one_one": 0.9855, "rounds": 4, "units": 687},
+ "stats": {"beads": 685, "calibration": [0.3142, 0.3623], "converged": true, "fallback_paragraphs": 2, "one_one": 0.9855, "rounds": 1, "units": 687},
  "paragraphs": {
   "CopScr.AP.000.0000": {"words": "8d5078b88069132c", "starts": [0]},
   "CopScr.AP.000.0001": {"words": "9a23aa377617c713", "starts": [0]},
@@ -270,7 +270,7 @@
   "CopScr.AP.051.0000": {"words": "a0bbfc952ee7a62c", "starts": [0]},
   "CopScr.AP.051.0001": {"words": "d7afe55cd66e3d3a", "starts": [0]},
   "CopScr.AP.051.0002": {"words": "d87a1a67dfcec954", "starts": [0]},
-  "CopScr.AP.051.0003": {"words": "2da0829011c921f8", "starts": [0, 23]},
+  "CopScr.AP.051.0003": {"words": "2da0829011c921f8", "starts": [0, 30]},
   "CopScr.AP.051.0004": {"words": "2466a19cd77afb33", "starts": [0]},
   "CopScr.AP.051.0005": {"words": "437a67ea73ae2ff6", "starts": [0]},
   "CopScr.AP.052.0000": {"words": "45cd788bdefa64ba", "starts": [0]},

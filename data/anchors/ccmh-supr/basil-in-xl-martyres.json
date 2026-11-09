@@ -1,11 +1,11 @@
 {
  "work_id": "ccmh-supr/basil-in-xl-martyres",
  "anchor": "ogpg/vol-031/in-xl-martyres",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "8401f9ec72138f3b",
  "words": "c4476a1fabc4f2a2",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 130, "calibration": [0.7356, 0.1346], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8921, "rounds": 4, "units": 138},
+ "stats": {"beads": 130, "calibration": [0.7519, 0.1325], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8921, "rounds": 4, "units": 138},
  "paragraphs": {
   "Supr.42r": {"words": "73e1d606a8b1ac1f", "starts": [0]},
   "Supr.42v": {"words": "43343039fbf22d56", "starts": [0, 26, 37, 58, 79, 105, 140]},
@@ -21,7 +21,7 @@
   "Supr.47v": {"words": "2951676e07bcb9d0", "starts": [0, 10, 32, 46, 55, 72, 79, 97, 111, 125, 133]},
   "Supr.48r": {"words": "56b429112f38a3a5", "starts": [0, 6, 21, 49, 62, 78, 105, 139]},
   "Supr.48v": {"words": "c7b1c770dfbe3ca0", "starts": [0, 7, 16, 46, 61, 96, 102, 124, 145, 158]},
-  "Supr.49r": {"words": "10b438d4d916d4c8", "starts": [0, 20, 37, 59, 70, 94, 118, 132, 158]},
+  "Supr.49r": {"words": "10b438d4d916d4c8", "starts": [0, 20, 37, 59, 70, 94, 118, 138, 158]},
   "Supr.49v": {"words": "0aa8439fd39e35a0", "starts": [0, 30, 43, 56, 83, 101, 116, 137]},
   "Supr.50r": {"words": "c00e26c27c80d620", "starts": [0, 5, 15, 31, 41, 50, 59]}
  }

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-decem-virgines",
  "anchor": "ccmh-supr/chrysostom-in-decem-virgines",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "ae4c39acc9e91e39",
  "words": "46a661592b68ff9b",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 217, "calibration": [0.3654, 0.3621], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9908, "rounds": 4, "units": 217},
+ "stats": {"beads": 217, "calibration": [0.3626, 0.3649], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9908, "rounds": 3, "units": 217},
  "paragraphs": {
   "Supr.184v": {"words": "11a81485f78b7923", "starts": [0, 16, 27, 51, 60]},
   "Supr.185r": {"words": "5010839abb23c0ca", "starts": [0, 17, 27, 49, 73, 93, 111, 126, 146, 180, 194, 207, 221, 230, 248]},

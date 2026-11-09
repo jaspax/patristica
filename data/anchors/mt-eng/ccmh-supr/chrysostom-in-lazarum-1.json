@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-lazarum-1",
  "anchor": "ccmh-supr/chrysostom-in-lazarum-1",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "f166395727817d78",
  "words": "5cafbec59850757d",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 123, "calibration": [0.4831, 0.2966], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 123},
+ "stats": {"beads": 123, "calibration": [0.4572, 0.3093], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 123},
  "paragraphs": {
   "Supr.152r": {"words": "fe2627367939debc", "starts": [0, 17, 31, 60, 68, 93, 124, 138, 173, 198, 209, 236, 241, 255]},
   "Supr.152v": {"words": "b2f087b0ae1d5d3a", "starts": [0, 31, 42, 58, 82, 95, 134, 155, 179, 188, 218, 234, 251, 267]},
@@ -15,6 +15,6 @@
   "Supr.154v": {"words": "f8ca0a78b57069a4", "starts": [0, 27, 48, 58, 84, 99, 118, 140, 154, 170, 196, 206, 230, 241]},
   "Supr.155r": {"words": "cec181dd84088d56", "starts": [0, 14, 49, 74, 94, 111, 135, 153, 174, 194, 223, 244, 283]},
   "Supr.155v": {"words": "748ab58cf919a172", "starts": [0, 13, 34, 55, 62, 74, 93, 111, 130, 147, 168, 187, 203, 233, 246]},
-  "Supr.156r": {"words": "9c21266ca023dead", "starts": [0, 25, 36, 69, 92, 103, 119, 141, 167, 192, 199, 218]}
+  "Supr.156r": {"words": "9c21266ca023dead", "starts": [0, 25, 54, 69, 92, 103, 119, 141, 167, 192, 199, 218]}
  }
 }

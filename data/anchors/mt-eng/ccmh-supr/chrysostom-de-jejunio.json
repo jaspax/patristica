@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-de-jejunio",
  "anchor": "ccmh-supr/chrysostom-de-jejunio",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "dbaa2c1d7b0306d4",
  "words": "e78e3d243166f1a7",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 196, "calibration": [0.2836, 0.3946], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9798, "rounds": 4, "units": 196},
+ "stats": {"beads": 196, "calibration": [0.2522, 0.412], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9798, "rounds": 4, "units": 196},
  "paragraphs": {
   "Supr.177v": {"words": "48152297349c575b", "starts": [0, 18, 31, 48, 61, 78, 88]},
   "Supr.178r": {"words": "8357affd050d1f03", "starts": [0, 22, 44, 54, 70, 80, 107, 122, 130, 149, 160, 186, 202, 212]},
@@ -17,8 +17,8 @@
   "Supr.181r": {"words": "b86901901756b052", "starts": [0, 18, 28, 41, 59, 73, 99, 104, 122, 145, 164, 175, 193, 209, 225]},
   "Supr.181v": {"words": "9ac00410cb52a817", "starts": [0, 16, 35, 45, 74, 84, 103, 119, 139, 165, 174, 182, 205, 209]},
   "Supr.182r": {"words": "394f6f4b220f814d", "starts": [0, 31, 45, 60, 82, 104, 116, 136, 155, 178, 192, 205, 220]},
-  "Supr.182v": {"words": "dd10202681cbcf0d", "starts": [0, 22, 31, 50, 67, 85, 109, 124, 138, 150, 172, 194, 208, 238]},
-  "Supr.183r": {"words": "430312f15fb05050", "starts": [0, 12, 34, 53, 68, 89, 110, 125, 144, 164, 189, 210]},
+  "Supr.182v": {"words": "dd10202681cbcf0d", "starts": [0, 21, 31, 50, 67, 85, 109, 124, 138, 150, 172, 194, 208, 238]},
+  "Supr.183r": {"words": "430312f15fb05050", "starts": [0, 12, 34, 53, 68, 89, 110, 125, 144, 164, 180, 210]},
   "Supr.183v": {"words": "ee237396a30340b0", "starts": [0, 18, 36, 55, 66, 101, 113, 126, 142, 148, 172, 198, 218, 233]},
   "Supr.184r": {"words": "f69b0a3cbdb81089", "starts": [0, 15, 38, 48, 56, 72, 88, 102, 130, 158, 176, 191, 214, 226, 246]},
   "Supr.184v": {"words": "aa3f8232c2977dad", "starts": [0, 19, 31, 52, 69, 88, 109, 134, 157]}

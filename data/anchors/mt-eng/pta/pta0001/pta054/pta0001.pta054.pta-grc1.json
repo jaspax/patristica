@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta054/pta-grc1",
  "anchor": "pta/pta0001/pta054/pta-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "316792e4e658d43b",
  "words": "5058986c9ac43561",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 83, "calibration": [0.5182, 0.2156], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 83},
+ "stats": {"beads": 83, "calibration": [0.5154, 0.217], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 83},
  "paragraphs": {
   "pta0001.pta054.1": {"words": "f1eb363e280412d8", "starts": [0, 23, 58, 78]},
   "pta0001.pta054.2": {"words": "f56bb16a8018df94", "starts": [0, 33, 67, 96]},

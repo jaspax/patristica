@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ogpg/vol-046/in-placillam",
  "anchor": "ogpg/vol-046/in-placillam",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "e7a0ef555b477ad8",
  "words": "a6b789baba33682f",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 134, "calibration": [0.8162, 0.127], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 134},
+ "stats": {"beads": 134, "calibration": [0.8098, 0.1289], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 134},
  "paragraphs": {
   "ogpg.vol-046.c0877.2": {"words": "a0c019d33497b1a7", "starts": [0, 6, 25, 58, 97, 130]},
   "ogpg.vol-046.c0879.1": {"words": "f6f8a7445793ae63", "starts": [0, 27, 71, 110, 147, 169, 207, 247, 271, 286, 301, 327, 359, 382, 395, 417, 441, 466, 486]},

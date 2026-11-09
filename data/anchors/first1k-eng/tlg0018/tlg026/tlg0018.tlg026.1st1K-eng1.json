@@ -1,11 +1,11 @@
 {
  "work_id": "first1k-eng/tlg0018/tlg026/1st1K-eng1",
  "anchor": "first1k/tlg0018/tlg026/1st1K-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "36119abaa4fb928b",
  "words": "f223ce9f3ddc4232",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 435, "calibration": [0.5501, 0.2254], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9908, "rounds": 4, "units": 442},
+ "stats": {"beads": 435, "calibration": [0.5484, 0.2257], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9908, "rounds": 4, "units": 442},
  "paragraphs": {
   "tlg0018.tlg026": {"words": "88c18617044884a9", "starts": [0]},
   "tlg0018.tlg026.1": {"words": "012bc4d842168426", "starts": [0, 40, 106]},

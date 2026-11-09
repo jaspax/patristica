@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/proclus_homilies",
  "anchor": "coptic-scriptorium/proclus_homilies",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "454c81ed17435fc2",
  "words": "bb961ba5e204e9e1",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 253, "calibration": [0.4884, 0.2808], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9921, "rounds": 3, "units": 254},
+ "stats": {"beads": 253, "calibration": [0.4884, 0.2808], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9921, "rounds": 1, "units": 254},
  "paragraphs": {
   "CopScr.proclus-homilies.000.0000": {"words": "9524f71a1795fd83", "starts": [0, 21]},
   "CopScr.proclus-homilies.000.0001": {"words": "15c7af4e065b4351", "starts": [0]},

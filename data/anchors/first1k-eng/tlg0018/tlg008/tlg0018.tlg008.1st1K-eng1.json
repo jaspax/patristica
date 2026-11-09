@@ -1,11 +1,11 @@
 {
  "work_id": "first1k-eng/tlg0018/tlg008/1st1K-eng1",
  "anchor": "first1k/tlg0018/tlg008/1st1K-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "b2d5dbd2d8433adb",
  "words": "a3b69246889203bb",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 427, "calibration": [0.5604, 0.2286], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9953, "rounds": 4, "units": 437},
+ "stats": {"beads": 427, "calibration": [0.5573, 0.2306], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9953, "rounds": 4, "units": 438},
  "paragraphs": {
   "tlg0018.tlg008": {"words": "06e37076c0fbd1b6", "starts": [0]},
   "tlg0018.tlg008.1": {"words": "54a3133b4de72e04", "starts": [0, 30]},
@@ -57,7 +57,7 @@
   "tlg0018.tlg008.47": {"words": "e84614d4da379a53", "starts": [0, 56, 103]},
   "tlg0018.tlg008.48": {"words": "f07590dfa10d4bae", "starts": [0, 33, 99]},
   "tlg0018.tlg008.49": {"words": "08110113395e35f5", "starts": [0, 23, 72]},
-  "tlg0018.tlg008.50": {"words": "a129a06a74e58322", "starts": [0, 31, 74]},
+  "tlg0018.tlg008.50": {"words": "a129a06a74e58322", "starts": [0, 31, 84]},
   "tlg0018.tlg008.51": {"words": "6aa1e3d53a78319e", "starts": [0, 20]},
   "tlg0018.tlg008.52": {"words": "bbc16adeffad6b01", "starts": [0, 35, 76]},
   "tlg0018.tlg008.53": {"words": "045aab1f3180daf8", "starts": [0]},
@@ -151,7 +151,7 @@
   "tlg0018.tlg008.141": {"words": "d0dcd21556ff2436", "starts": [0, 34]},
   "tlg0018.tlg008.142": {"words": "940a40b05bbbb049", "starts": [0, 46, 64]},
   "tlg0018.tlg008.143": {"words": "2bbada084ab587ad", "starts": [0, 42, 80]},
-  "tlg0018.tlg008.144": {"words": "4eb355d6e78cdcdb", "starts": [0]},
+  "tlg0018.tlg008.144": {"words": "4eb355d6e78cdcdb", "starts": [0, 43]},
   "tlg0018.tlg008.145": {"words": "76d28b6fbcb80bec", "starts": [0, 34, 65, 91, 122]},
   "tlg0018.tlg008.146": {"words": "9a3e82b1734c4f15", "starts": [0, 29]},
   "tlg0018.tlg008.147": {"words": "afc32c36655bf4b1", "starts": [0, 39]},
@@ -178,7 +178,7 @@
   "tlg0018.tlg008.168": {"words": "305a034a4cbda28d", "starts": [0]},
   "tlg0018.tlg008.169": {"words": "139e501bb46a55df", "starts": [0, 33]},
   "tlg0018.tlg008.170": {"words": "8c253eb3e595f5c7", "starts": [0, 22, 85]},
-  "tlg0018.tlg008.171": {"words": "ae52a1cf4d10458d", "starts": [0, 22]},
+  "tlg0018.tlg008.171": {"words": "ae52a1cf4d10458d", "starts": [0, 18]},
   "tlg0018.tlg008.172": {"words": "3fe1b1a85a690b84", "starts": [0, 13]},
   "tlg0018.tlg008.173": {"words": "782d304994117fac", "starts": [0, 29]},
   "tlg0018.tlg008.174": {"words": "838b3c0a54b02df4", "starts": [0, 47, 71]},
@@ -189,7 +189,7 @@
   "tlg0018.tlg008.179": {"words": "36de862ef99f39d0", "starts": [0, 35]},
   "tlg0018.tlg008.180": {"words": "ad00b704d87fd212", "starts": [0, 35]},
   "tlg0018.tlg008.181": {"words": "5b6051c5f7f31d2f", "starts": [0, 29, 66]},
-  "tlg0018.tlg008.182": {"words": "ad723e1087e68052", "starts": [0, 18, 58]},
+  "tlg0018.tlg008.182": {"words": "ad723e1087e68052", "starts": [0, 19, 58]},
   "tlg0018.tlg008.183": {"words": "f8f531a66b1a7d9e", "starts": [0, 40]}
  }
 }

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ogpg/vol-046/in-christi-resurrectionem",
  "anchor": "ogpg/vol-046/in-christi-resurrectionem",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "03af7caeb720e313",
  "words": "d8f0c670516d1de5",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 856, "calibration": [0.6726, 0.187], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9861, "rounds": 4, "units": 856},
+ "stats": {"beads": 856, "calibration": [0.6601, 0.1909], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9861, "rounds": 4, "units": 856},
  "paragraphs": {
   "ogpg.vol-046.c0599.2": {"words": "56ec1d9a28a5de7a", "starts": [0]},
   "ogpg.vol-046.c0599.3": {"words": "a6f118549f265242", "starts": [0, 33]},
@@ -24,7 +24,7 @@
   "ogpg.vol-046.c0621.1": {"words": "4ade35b6f65f0951", "starts": [0, 23, 49, 71, 94, 128, 152, 163, 187, 203, 233, 261, 308, 336, 359, 377, 412, 441, 456, 499]},
   "ogpg.vol-046.c0623.1": {"words": "86c8afb26c1dfbb0", "starts": [0, 28, 44, 72, 87, 121, 174, 201, 218, 245, 263, 301, 327, 345, 364, 385, 428, 449, 485, 509, 534]},
   "ogpg.vol-046.c0625.1": {"words": "298db65a82af91eb", "starts": [0, 26, 55, 88, 112, 145, 168, 185, 217, 231, 255, 282, 311, 335, 360, 381, 402, 430, 472, 507, 529]},
-  "ogpg.vol-046.c0627.1": {"words": "60a2b0129d9349e0", "starts": [0, 15, 35, 72, 102, 129, 144, 155, 168, 196, 225, 244, 269]},
+  "ogpg.vol-046.c0627.1": {"words": "60a2b0129d9349e0", "starts": [0, 15, 35, 72, 102, 129, 144, 160, 179, 196, 225, 244, 269]},
   "ogpg.vol-046.c0629.1": {"words": "8c0b5c6fcf91704b", "starts": [0, 36, 67, 80, 96, 127, 152, 190, 213, 236, 264, 290, 318, 347, 370, 377, 420, 456, 485, 505, 538]},
   "ogpg.vol-046.c0631.1": {"words": "ba8b1d8dd89ac627", "starts": [0, 12, 39, 68, 106, 126, 153, 177, 209, 232, 263, 291, 316, 345, 376, 403, 441, 465]},
   "ogpg.vol-046.c0633.1": {"words": "41c6491ffbde9a2a", "starts": [0, 12, 48, 89, 129, 163, 188, 209, 227, 254, 278, 316, 352, 372, 393, 432, 461, 484]},

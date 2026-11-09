@@ -1,11 +1,11 @@
 {
  "work_id": "first1k-eng/tlg0018/tlg022/1st1K-eng1",
  "anchor": "first1k/tlg0018/tlg022/1st1K-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "c3deabc2a7f8f819",
  "words": "a635fcdca0e12aa9",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 1472, "calibration": [0.5959, 0.228], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9953, "rounds": 4, "units": 1487},
+ "stats": {"beads": 1472, "calibration": [0.5905, 0.2298], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9953, "rounds": 4, "units": 1487},
  "paragraphs": {
   "tlg0018.tlg022": {"words": "7e64e6d250c76934", "starts": [0]},
   "tlg0018.tlg022.1.1": {"words": "97509ef4f4e2238e", "starts": [0]},
@@ -258,7 +258,7 @@
   "tlg0018.tlg022.1.248": {"words": "46fad640c40d7ad1", "starts": [0, 37]},
   "tlg0018.tlg022.1.249": {"words": "0bacc8858c938e9d", "starts": [0, 39]},
   "tlg0018.tlg022.1.250": {"words": "6da4ca5e52a512d6", "starts": [0, 72, 114]},
-  "tlg0018.tlg022.1.251": {"words": "9486a6cf97fa95b3", "starts": [0, 27, 66, 103]},
+  "tlg0018.tlg022.1.251": {"words": "9486a6cf97fa95b3", "starts": [0, 15, 66, 103]},
   "tlg0018.tlg022.1.252": {"words": "2141b2787dae97fb", "starts": [0, 39]},
   "tlg0018.tlg022.1.253": {"words": "85adcc31cd614b0c", "starts": [0, 28]},
   "tlg0018.tlg022.1.254": {"words": "aa9cdeb4f5ec55a6", "starts": [0, 24, 67]},

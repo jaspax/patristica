@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/vita-ioannis-hesychastae",
  "anchor": "ccmh-supr/vita-ioannis-hesychastae",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "295c6be8046b7006",
  "words": "3e6b68ca201f0d55",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 317, "calibration": [0.5401, 0.3181], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9096, "rounds": 4, "units": 317},
+ "stats": {"beads": 317, "calibration": [0.5267, 0.323], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9096, "rounds": 2, "units": 317},
  "paragraphs": {
   "Supr.139v": {"words": "49157348c6fc19ce", "starts": [0, 18, 38, 54, 65, 72, 97, 110, 130]},
   "Supr.140r": {"words": "931895fe2ac1c38c", "starts": [0, 16, 28, 50, 63, 89, 100, 112, 130, 146, 162, 182]},
@@ -19,7 +19,7 @@
   "Supr.144r": {"words": "d45a8526ad04e173", "starts": [0, 17, 24, 42, 53, 72, 94, 103, 116, 122, 141, 158, 176, 191]},
   "Supr.144v": {"words": "8c5c638d7e8202ae", "starts": [0, 15, 44, 55, 74, 91, 105, 122, 137, 154, 170, 197, 218]},
   "Supr.145r": {"words": "58db5b07549a411e", "starts": [0, 17, 36, 47, 54, 71, 86, 109, 129, 150, 172, 191, 201]},
-  "Supr.145v": {"words": "f9ef4e6afd5ed773", "starts": [0, 14, 27, 47, 57, 73, 91, 110, 123, 147, 168, 185, 199, 216]},
+  "Supr.145v": {"words": "f9ef4e6afd5ed773", "starts": [0, 14, 27, 47, 57, 73, 91, 110, 133, 147, 168, 185, 199, 216]},
   "Supr.146r": {"words": "7d339ecb863d19b0", "starts": [0, 14, 35, 53, 59, 70, 83, 112, 127, 142, 164, 182, 193]},
   "Supr.146v": {"words": "bbac93dc0135a703", "starts": [0, 17, 41, 64, 82, 99, 112, 131, 154, 166, 187, 198]},
   "Supr.147r": {"words": "4d7c1d29173de5e7", "starts": [0, 17, 22, 31, 49, 81, 93, 112, 124, 140, 163, 179, 192]},
@@ -30,7 +30,7 @@
   "Supr.149v": {"words": "7c718006afc4ebaa", "starts": [0, 22, 39, 49, 66, 79, 95, 123, 141, 161, 175, 184, 190]},
   "Supr.150r": {"words": "609c6e444fcfc6c6", "starts": [0, 10, 28, 46, 75, 94, 105, 126, 147, 167, 188, 209, 222]},
   "Supr.150v": {"words": "71e97d5ac9e5aafc", "starts": [0, 20, 43, 61, 69, 97, 119, 138, 156, 170, 193, 211, 222]},
-  "Supr.151r": {"words": "33c94f5c91a0c029", "starts": [0, 21, 41, 58, 68, 84, 111, 156, 168, 180, 193, 215, 227]},
+  "Supr.151r": {"words": "33c94f5c91a0c029", "starts": [0, 21, 41, 58, 68, 84, 111, 139, 168, 180, 193, 215, 236]},
   "Supr.151v": {"words": "e008237647ecde9e", "starts": [0, 4, 35, 57, 74, 91, 108, 134, 147, 164, 187]}
  }
 }

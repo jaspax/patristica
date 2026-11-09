@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/life_cyrus",
  "anchor": "coptic-scriptorium/life_cyrus",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "b9d0b44cf0ab8c79",
  "words": "a2279a1e9bd45a92",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 137, "calibration": [0.2269, 0.38], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 137},
+ "stats": {"beads": 137, "calibration": [0.2269, 0.38], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 1, "units": 137},
  "paragraphs": {
   "CopScr.life-cyrus.000.0000": {"words": "249f995c60288e2e", "starts": [0, 16]},
   "CopScr.life-cyrus.000.0001": {"words": "1613a2dca6825d6e", "starts": [0]},

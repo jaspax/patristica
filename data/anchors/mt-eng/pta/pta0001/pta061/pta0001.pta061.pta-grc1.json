@@ -1,13 +1,13 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta061/pta-grc1",
  "anchor": "pta/pta0001/pta061/pta-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "a24023d4ea9a0603",
  "words": "33e0645d6c3318fb",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 299, "calibration": [0.5829, 0.2297], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 299},
+ "stats": {"beads": 299, "calibration": [0.5756, 0.233], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 299},
  "paragraphs": {
-  "pta0001.pta061.1": {"words": "4e6c2f62d1cf2376", "starts": [0, 27, 50, 82, 100, 128, 164, 190, 218, 250, 281, 311, 325, 351, 382, 412, 427, 453, 490, 516, 538, 564, 585, 616]},
+  "pta0001.pta061.1": {"words": "4e6c2f62d1cf2376", "starts": [0, 27, 50, 82, 100, 128, 164, 195, 218, 250, 281, 311, 325, 351, 382, 412, 427, 453, 490, 516, 538, 564, 585, 616]},
   "pta0001.pta061.2": {"words": "a63c8f222df1512f", "starts": [0, 43, 70, 101, 129, 167, 189, 211]},
   "pta0001.pta061.2.1": {"words": "bed99a0868517c84", "starts": [0, 27, 51, 83, 112, 142, 166, 187, 222, 231, 254, 273, 301, 338, 353, 378, 410, 441, 459, 479, 515, 549]},
   "pta0001.pta061.3": {"words": "682a08827720071d", "starts": [0, 23, 43, 84, 117, 145, 175, 197, 231, 254, 284, 320, 345, 364, 385, 403, 429, 456, 498, 520, 544, 570]},

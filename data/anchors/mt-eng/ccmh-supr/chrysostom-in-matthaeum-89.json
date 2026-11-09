@@ -1,15 +1,15 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-matthaeum-89",
  "anchor": "ccmh-supr/chrysostom-in-matthaeum-89",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "66f968b96f666a05",
  "words": "fc91e30b436971d0",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 126, "calibration": [0.5603, 0.2898], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9688, "rounds": 4, "units": 126},
+ "stats": {"beads": 126, "calibration": [0.5484, 0.2961], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9688, "rounds": 2, "units": 126},
  "paragraphs": {
   "Supr.220r": {"words": "8e78489b6e7f995e", "starts": [0, 14, 31, 48, 59, 78, 88, 101, 125]},
   "Supr.220v": {"words": "4cadaf536b0847a2", "starts": [0, 23, 43, 60, 85, 95, 117, 134, 150, 168, 187, 206, 223, 243, 263]},
-  "Supr.221r": {"words": "084cb312a99312ff", "starts": [0, 22, 41, 74, 93, 119, 138, 156, 169, 191, 205, 220, 243, 265]},
+  "Supr.221r": {"words": "084cb312a99312ff", "starts": [0, 22, 41, 62, 93, 119, 138, 156, 169, 191, 205, 220, 243, 265]},
   "Supr.221v": {"words": "edf2c7af298ab5c7", "starts": [0, 17, 42, 66, 82, 104, 114, 131, 154, 179, 191, 213, 228, 241]},
   "Supr.222r": {"words": "d7e8e41596a73549", "starts": [0, 28, 51, 71, 90, 116, 131, 151, 162, 181, 206, 225, 249, 266]},
   "Supr.222v": {"words": "c7af84b31750c89e", "starts": [0, 8, 43, 63, 80, 94, 122, 146, 163, 186, 210, 226, 242, 254, 284]},

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/helias",
  "anchor": "coptic-scriptorium/helias",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "0c825025b29b3ec6",
  "words": "5b59e53190935b40",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 648, "calibration": [0.2577, 0.4188], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9969, "rounds": 4, "units": 649},
+ "stats": {"beads": 648, "calibration": [0.2534, 0.4206], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9969, "rounds": 4, "units": 649},
  "paragraphs": {
   "CopScr.helias.000.0000": {"words": "4d1031fb6596a74f", "starts": [0, 34]},
   "CopScr.helias.000.0001": {"words": "34778a1035793091", "starts": [0]},
@@ -588,7 +588,7 @@
   "CopScr.helias.005.0054": {"words": "fa674495dd4a2b3d", "starts": [0]},
   "CopScr.helias.005.0055": {"words": "1ef9739d20c976ef", "starts": [0]},
   "CopScr.helias.005.0056": {"words": "47bd550e3d145b2d", "starts": [0]},
-  "CopScr.helias.005.0057": {"words": "9f33a1ce197a4b61", "starts": [0, 34, 69]},
+  "CopScr.helias.005.0057": {"words": "9f33a1ce197a4b61", "starts": [0, 34, 68]},
   "CopScr.helias.005.0058": {"words": "0bccb51c3967ef29", "starts": [0]},
   "CopScr.helias.005.0059": {"words": "7d215913ad72fcbc", "starts": [0]},
   "CopScr.helias.005.0060": {"words": "eb2092b22ea10d5f", "starts": [0]},

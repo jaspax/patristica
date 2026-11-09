@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/passio-pauli-et-julianae",
  "anchor": "ccmh-supr/passio-pauli-et-julianae",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "34c84b90ce919553",
  "words": "5a57ba5902d238c0",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 187, "calibration": [0.5398, 0.3105], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9378, "rounds": 4, "units": 187},
+ "stats": {"beads": 187, "calibration": [0.3727, 0.3778], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9378, "rounds": 4, "units": 187},
  "paragraphs": {
   "Supr.1r": {"words": "e96feaa6589db027", "starts": [0, 18, 43, 68, 86, 100, 114, 123, 147, 162, 176, 189]},
   "Supr.1v": {"words": "86c8eca875343f84", "starts": [0, 26, 51, 74, 96, 116, 130, 154, 175, 192, 217, 229]},
@@ -16,7 +16,7 @@
   "Supr.4r": {"words": "ff33a74a7d543493", "starts": [0, 10, 24, 43, 64, 74, 98, 119, 129, 164, 185, 194, 204]},
   "Supr.4v": {"words": "610b89d55f483758", "starts": [0, 17, 33, 43, 60, 76, 89, 110, 121, 131, 155, 171, 192]},
   "Supr.5r": {"words": "303b62d9e3813063", "starts": [0, 19, 45, 71, 92, 105, 122, 148, 172, 187, 201]},
-  "Supr.5v": {"words": "cdd2964debd91597", "starts": [0, 19, 32, 51, 61, 74, 97, 111, 127, 150, 172, 189, 203]},
+  "Supr.5v": {"words": "cdd2964debd91597", "starts": [0, 19, 32, 51, 61, 74, 97, 111, 132, 150, 172, 189, 203]},
   "Supr.6r": {"words": "39d1f60d9e425fbe", "starts": [0, 15, 26, 48, 63, 78, 96, 116, 133, 158, 173, 182, 206]},
   "Supr.6v": {"words": "13ac9353d500a266", "starts": [0, 12, 34, 43, 57, 85, 101, 125, 146, 158, 169, 197, 207]},
   "Supr.7r": {"words": "f205b206b7d491bd", "starts": [0, 16, 22, 45, 63, 83, 94, 111, 124, 147, 160, 176, 199, 209]},

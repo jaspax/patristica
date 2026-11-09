@@ -1,11 +1,11 @@
 {
  "work_id": "ccmh-supr/vita-cononis",
  "anchor": "pta/pta0041/pta001/pta-grc1",
- "method": "b634dc5d91b31ea7",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "1dccba81a241f1f0",
  "words": "0388853c31c1f21d",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 283, "calibration": [0.7819, 0.1352], "converged": false, "fallback_paragraphs": 1, "one_one": 0.8176, "rounds": 4, "units": 297},
+ "stats": {"beads": 283, "calibration": [0.7746, 0.1364], "converged": false, "fallback_paragraphs": 1, "one_one": 0.8176, "rounds": 4, "units": 297},
  "paragraphs": {
   "Supr.12r": {"words": "8524636fec2be997", "starts": [0]},
   "Supr.12v": {"words": "e229b674bc89c2be", "starts": [0, 4, 25, 41, 62, 75, 90, 97, 105, 125]},
@@ -13,7 +13,7 @@
   "Supr.13v": {"words": "d52148b221b718be", "starts": [0, 15, 29, 35, 61, 77, 83, 92, 124, 139]},
   "Supr.14r": {"words": "118622b5822c8eb8", "starts": [0, 10, 26, 43, 62, 82, 115, 130, 156, 173]},
   "Supr.14v": {"words": "8356d1c9c95c9657", "starts": [0, 10, 24, 51, 60, 76, 97, 107, 136, 152, 155]},
-  "Supr.15r": {"words": "fc3fa9adb285b382", "starts": [0, 12, 38, 51, 65, 81, 107, 147, 156]},
+  "Supr.15r": {"words": "fc3fa9adb285b382", "starts": [0, 12, 33, 51, 65, 81, 107, 147, 156]},
   "Supr.15v": {"words": "10121d965854d938", "starts": [0, 29, 58, 102, 113, 133, 147]},
   "Supr.16r": {"words": "00155fa9fda5ba67", "starts": [0, 3, 31, 47, 56, 83, 88, 123, 145, 162]},
   "Supr.16v": {"words": "47e32d6f058df794", "starts": [0, 27, 47, 69, 83, 99, 117, 135, 148, 161]},

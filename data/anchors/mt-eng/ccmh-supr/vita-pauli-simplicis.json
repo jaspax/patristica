@@ -1,17 +1,17 @@
 {
  "work_id": "mt-eng/ccmh-supr/vita-pauli-simplicis",
  "anchor": "ccmh-supr/vita-pauli-simplicis",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "2b217789f7c3213f",
  "words": "d9d69fe52c3a1125",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 60, "calibration": [0.5241, 0.2962], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9672, "rounds": 4, "units": 60},
+ "stats": {"beads": 60, "calibration": [0.4093, 0.3392], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9672, "rounds": 2, "units": 60},
  "paragraphs": {
   "Supr.85v": {"words": "81d354f4e57feb93", "starts": [0]},
   "Supr.86r": {"words": "c9b88a24a7c81aa1", "starts": [0, 24, 40, 49, 54, 80, 97, 107, 129, 149, 167, 186, 210]},
   "Supr.86v": {"words": "a266f7254773494a", "starts": [0, 16, 42, 69, 96, 113, 133, 152, 179, 181]},
   "Supr.87r": {"words": "31143be0ab7f1070", "starts": [0, 12, 36, 45, 67, 78, 86, 109, 129, 143, 172]},
-  "Supr.87v": {"words": "f7662ecc973bc8e3", "starts": [0, 24, 53, 61, 78, 93, 110, 129, 152, 181]},
+  "Supr.87v": {"words": "f7662ecc973bc8e3", "starts": [0, 24, 53, 61, 78, 93, 110, 129, 152, 166]},
   "Supr.88r": {"words": "745984b0699de1ac", "starts": [0, 18, 28, 46, 66, 79, 91, 108, 119, 145, 156, 168]},
   "Supr.88v": {"words": "10afd1eb7703d0b2", "starts": [0, 20, 29]}
  }

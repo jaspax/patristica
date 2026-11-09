@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/vita-iacobi-monachi",
  "anchor": "ccmh-supr/vita-iacobi-monachi",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "93347ed7af9f05d2",
  "words": "39c3b77d3268f7a3",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 324, "calibration": [0.6288, 0.2647], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9286, "rounds": 4, "units": 324},
+ "stats": {"beads": 324, "calibration": [0.5747, 0.2897], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9286, "rounds": 2, "units": 324},
  "paragraphs": {
   "Supr.257r": {"words": "ba9e662f5553051d", "starts": [0, 10, 29, 38, 62, 66, 87, 98, 110]},
   "Supr.257v": {"words": "d4b6c662d7d6c764", "starts": [0, 17, 26, 39, 62, 75, 91, 110, 132, 144, 155, 181, 203, 224, 240, 253, 265, 283]},

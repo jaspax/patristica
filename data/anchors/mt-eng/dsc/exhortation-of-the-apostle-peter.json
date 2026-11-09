@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/dsc/exhortation-of-the-apostle-peter",
  "anchor": "dsc/exhortation-of-the-apostle-peter",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "e05f577153f216de",
  "words": "a80ff6ffb68af9a4",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 83, "calibration": [0.4016, 0.3716], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 83},
+ "stats": {"beads": 83, "calibration": [0.3995, 0.3736], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 1, "units": 83},
  "paragraphs": {
   "DSC372.rubric.1": {"words": "fa8fd22bcd8bee31", "starts": [0]},
   "DSC372.1": {"words": "01a18b342f125763", "starts": [0, 10, 36, 57]},

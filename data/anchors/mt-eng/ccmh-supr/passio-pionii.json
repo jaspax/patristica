@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/passio-pionii",
  "anchor": "ccmh-supr/passio-pionii",
- "method": "6c9e64855bac5892",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "093420df7528b96a",
  "words": "e112761f8719d9de",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 251, "calibration": [0.3562, 0.3922], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9842, "rounds": 4, "units": 251},
+ "stats": {"beads": 251, "calibration": [0.3028, 0.4133], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9842, "rounds": 4, "units": 251},
  "paragraphs": {
   "Supr.63v": {"words": "3fc436f3fcb980d5", "starts": [0, 13, 25, 38, 55, 75, 97, 119, 134, 147, 154, 169]},
   "Supr.64r": {"words": "fc18ce5f55405b15", "starts": [0, 18, 36, 54, 71, 95, 108, 123, 137, 152, 171, 187, 198, 222, 238]},
@@ -15,7 +15,7 @@
   "Supr.66r": {"words": "33f70cfd02858477", "starts": [0, 26, 41, 54, 71, 91, 111, 128, 150, 167, 197, 210, 217]},
   "Supr.66v": {"words": "09f4f9949e564acb", "starts": [0, 18, 40, 50, 70, 78, 90, 109, 136, 152, 168, 178, 203, 225]},
   "Supr.67r": {"words": "a05232b58a66b207", "starts": [0, 20, 41, 53, 70, 96, 114, 129, 153, 172, 188, 202, 217]},
-  "Supr.67v": {"words": "7d9e1cfbf74f998f", "starts": [0, 20, 36, 50, 67, 76, 95, 131, 144, 157, 174, 198, 207, 215]},
+  "Supr.67v": {"words": "7d9e1cfbf74f998f", "starts": [0, 20, 36, 50, 67, 76, 95, 131, 144, 157, 174, 176, 202, 215]},
   "Supr.68r": {"words": "2521654b3b70951f", "starts": [0, 11, 33, 44, 63, 79, 90, 114, 128, 143, 160, 187, 202, 216]},
   "Supr.68v": {"words": "e47871637f27f7fb", "starts": [0, 10, 29, 52, 82, 93, 115, 131, 155, 172, 183, 211, 222]},
   "Supr.69r": {"words": "db3afc07d418e629", "starts": [0, 24, 42, 70, 80, 99, 116, 123, 146, 170, 192, 206, 220, 234]},
