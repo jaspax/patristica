@@ -43,7 +43,7 @@ One JSON object, one member per line:
 | `pivot` | the member every other member was aligned with; groups are numbered in its order |
 | `groups` | number of alignment groups |
 | `inputs` | hash of everything the alignment depends on; `scripts.align` skips a group whose hash still matches |
-| `run` | the run that wrote the file: `aligner` version, `method`, `params`, embedding `models`, `date`, `script` |
+| `run` | the run that wrote the file: `aligner` version, `method`, `params`, embedding `models`, `date`, `script`; in a group with two editions in one language also `text` (#199): the text aligner's `version`, `method` and `params`, and per edition aligned by its words its `head` and `shared` (the share of the shorter text's words in matched runs) |
 | `members` | one row per member, by work id |
 
 Each member row:

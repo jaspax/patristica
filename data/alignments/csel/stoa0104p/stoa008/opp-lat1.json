@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "csel/stoa0104p/stoa008/opp-lat1",
- "pivot": "oglt-pl/pseudo-cyprian/pl4_2_dem",
- "groups": 140,
- "inputs": "ce453d6b9b4f3b4e",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "csel/stoa0104p/stoa008/opp-lat1",
+ "groups": 127,
+ "inputs": "bb8a30065888ac7b",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"oglt-pl/pseudo-cyprian/pl4_2_dem": {"head": "csel/stoa0104p/stoa008/opp-lat1", "shared": 0.7916}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "csel/stoa0104p/stoa008/opp-lat1", "units": 145, "ids": "fe9a7a12ffae61c6", "inputs": "d351a09c3de6ae3a", "spans": ".+=+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+=+++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/pseudo-cyprian/pl4_2_dem", "units": 223, "ids": "e1f551d78c57145c", "inputs": "bd465f28e17c3a3d", "spans": "++++++=+++............++++=++++++++=................++++++++++++++......+++=+++++++++++.........++++++++++++++.........+++++++++++++=+++.....+=++=+++++=+++++++...+++++++++++++++.....++++++++++=++++.....+++++++++=...++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "csel/stoa0104p/stoa008/opp-lat1", "units": 145, "ids": "fe9a7a12ffae61c6", "inputs": "d351a09c3de6ae3a", "spans": ".+=+=+=+=+++++++++++=+++=+++++++++++++++++++++=+++++=+==++++++++++++++++++++=+++++++++++++++++++++++=++..+++++++++++++++==++++++++++++++=++++++++", "conf": "9999999999999999999959989799999997999999899999979999997999999999999999999999999999999999999999999999989999999989999959999999999"},
+  {"work_id": "oglt-pl/pseudo-cyprian/pl4_2_dem", "units": 223, "ids": "e1f551d78c57145c", "inputs": "bd465f28e17c3a3d", "spans": "+++=+==++++============+++=++++=+++==================++++++++++++++======+=++++++=+++++===========+=++++++++++.........++++++++++=++=+++=====+=++=++++++=++++++===+++=+++++++++++=====++++++==++=+++++=====+++++++=+====+++++++", "conf": "9999999999999999999959989799999997999999899999979999997999999999999999999999999999999999999999999999989999999989999959999999999"}
  ]
 }

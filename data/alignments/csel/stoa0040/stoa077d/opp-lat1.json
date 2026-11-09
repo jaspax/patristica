@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "csel/stoa0040/stoa077d/opp-lat1",
- "pivot": "oglt-pl/pseudo-augustinus/pl43_2_ser",
- "groups": 77,
- "inputs": "265e861d20140409",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "csel/stoa0040/stoa077d/opp-lat1",
+ "groups": 64,
+ "inputs": "077473dd1628ffe1",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"oglt-pl/pseudo-augustinus/pl43_2_ser": {"head": "csel/stoa0040/stoa077d/opp-lat1", "shared": 0.835}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "csel/stoa0040/stoa077d/opp-lat1", "units": 83, "ids": "60e78339f04f90bb", "inputs": "470771bfee62828f", "spans": "...+++++++++++++++++=++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++=+", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/pseudo-augustinus/pl43_2_ser", "units": 91, "ids": "61bc049988b84ec8", "inputs": "c9fc5e080942207c", "spans": "++++++=++++=++++++=+++=++=+=++.+++++++++=+++++++++++++++==.++++++=+++++++++++++=+++++=+++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "csel/stoa0040/stoa077d/opp-lat1", "units": 83, "ids": "60e78339f04f90bb", "inputs": "470771bfee62828f", "spans": "...++++++=+++++++=++==++++++++++++++=++++=+++++++++====+++=+=++==+++++++++++=++++.+", "conf": "9999999999999999999999999999999999899999999999999999999999999989"},
+  {"work_id": "oglt-pl/pseudo-augustinus/pl43_2_ser", "units": 91, "ids": "61bc049988b84ec8", "inputs": "c9fc5e080942207c", "spans": "++++++==+++=++++=+=+=+=++=+=++=+++++++.+.+++.++++++++++======+++==+=++==+++++++=++++==+++++", "conf": "9999999999999999999999999999999999899999999999999999999999999989"}
  ]
 }

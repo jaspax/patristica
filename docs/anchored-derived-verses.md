@@ -627,8 +627,12 @@ because the scratch cache the source PR left lacks pieces its run embedded).
   alignment of `textfold.fold` output). Its boundaries then coincide wherever
   the texts agree.
 - The design keeps the hook from #303 (`same_language_units`): enrolled works
-  whose `translation_of` is in their own language aren't anchored until #199
-  lands.
+  whose `translation_of` is in their own language aren't anchored yet.
+- **#199 landed the text alignment** (`patristica/text_alignment.py`, used by
+  `scripts.align` for parallel reading): `align_words` maps the folded words of
+  two editions monotonically, so #200 can carry a cut at word *k* of the
+  original to the word it is matched with in the other edition (or the
+  nearest matched word), with no vectors.
 - Two translations of one original (two English versions of Basil) are each
   anchored on the original, not on each other. Their rows coincide through
   the original.

@@ -2,12 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-011/epistula-ad-gregorium",
  "pivot": "anf-works/origen-letter-to-gregory-anf09",
- "groups": 34,
- "inputs": "ec4555cc0d202658",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 36,
+ "inputs": "3c7add750e6f56bd",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"anf-works/origen-letter-to-gregory": {"head": "anf-works/origen-letter-to-gregory-anf09", "shared": 0.3599}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "anf-works/origen-letter-to-gregory", "units": 38, "ids": "7593b0cd5b505638", "inputs": "bf672799c77e66bf", "spans": "+++++++++++=++++++++++=++++++=+=++++++", "conf": "9999999999999999999999999999999999"},
-  {"work_id": "anf-works/origen-letter-to-gregory-anf09", "units": 52, "ids": "f91fd2398365dd64", "inputs": "b63c536088dee5c2", "spans": "+==......+++++=++==+++==+++++++++++++=+++==.+++++++=", "conf": "9999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-011/epistula-ad-gregorium", "units": 30, "ids": "2f33a8302da0b617", "inputs": "13706ff32b8c800a", "spans": "++++++=+++.++=++++++++++++++++", "conf": "999999999999999999999999999"}
+  {"work_id": "anf-works/origen-letter-to-gregory", "units": 38, "ids": "7593b0cd5b505638", "inputs": "bf672799c77e66bf", "spans": "++2+++++.++2++++++++++++.++++++=+=++++++", "conf": "9999995499499969757989999639965989"},
+  {"work_id": "anf-works/origen-letter-to-gregory-anf09", "units": 52, "ids": "f91fd2398365dd64", "inputs": "b63c536088dee5c2", "spans": "++=......+++++=+.+=+++=++++++++++++++=+++==.+++++++=", "conf": "999999999999999999999999999999965989"},
+  {"work_id": "ogpg/vol-011/epistula-ad-gregorium", "units": 30, "ids": "2f33a8302da0b617", "inputs": "13706ff32b8c800a", "spans": "+2+++++=+++.+++++++++++++++++++", "conf": "9999999999999999999999999999"}
  ]
 }

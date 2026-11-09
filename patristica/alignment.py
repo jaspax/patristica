@@ -46,6 +46,18 @@ version (``choose_pivot``). Pivot units that one bead covers belong to one
 group, so the groups are runs of pivot units, and every version's beads are
 attached to the group of their pivot units. A version's units in one group
 are a contiguous run. The file format is in ``patristica.alignment_store``.
+
+**Same-language editions (#199).** Two editions in one language (Migne and a
+critical text) are aligned by their words (``patristica.text_alignment``),
+not their vectors: the vectors can't tell where inside near-identical
+sentences two editions cut their units, so through a pivot in another
+language their units drifted a row apart. ``scripts.align`` aligns every
+edition with its language's *head* by text; ``text_beads`` carries those beads
+through the head's own beads when the head isn't the pivot, ``prefer_text``
+lets them replace the edition's vector beads, and ``merge`` keeps the pivot
+units of each text bead in one group, so editions cut at different words
+share a row. ``choose_pivot`` prefers an edition, so the editions are aligned
+unit for unit and the passages only they have still form groups.
 """
 
 from __future__ import annotations
@@ -530,7 +542,8 @@ class Merged:
 
 
 def merge(pivot: str, n_pivot: int, pairs: dict[str, tuple[int, list[Bead]]],
-          fit: Callable[[str, Bead, int, int], float] | None = None) -> Merged:
+          fit: Callable[[str, Bead, int, int], float] | None = None,
+          joined_by: Sequence[Bead] = ()) -> Merged:
     """Build groups from each version's beads against the pivot.
 
     *pairs* maps a version's work id to (its unit count, its beads), where a
@@ -554,6 +567,8 @@ def merge(pivot: str, n_pivot: int, pairs: dict[str, tuple[int, list[Bead]]],
             if k and by_pivot[k - 1].j1 == bd.j0:
                 cuts[bd.j0 - 1] += 1
     joined = (joins > 0) & (joins >= cuts)
+    for bd in joined_by:
+        joined[bd.j0:bd.j1 - 1] = True
     pivot_group = np.full(n_pivot, -1, dtype=np.int64)
     starts: list[int] = []
     for q in range(n_pivot):
@@ -609,21 +624,85 @@ def span_fit(vecs: dict[str, np.ndarray], pivot_vecs: np.ndarray
 LANGUAGE_PREFERENCE: tuple[str, ...] = ("eng", "grc", "lat", "hbo")
 
 
-def choose_pivot(members: dict[str, tuple[str, int]]) -> str:
+def choose_pivot(members: dict[str, tuple[str, int]], prefer: dict[str, int] | None = None,
+                 clean: dict[str, float] | None = None) -> str:
     """The pivot of a version group: *members* maps work id → (language, units with vectors).
 
-    The longest version, so that the others' passages are in it; among those
-    within 10 % of the longest, by ``LANGUAGE_PREFERENCE`` (English has the
-    strongest vectors, and the rare languages are compared through English
-    translations), then the most units, then the smallest work id.
+    The longest version, so that the others' passages are in it. Among those
+    within 10 % of the longest:
+
+    - the highest *prefer* weight: an edition with other editions in its
+      language, weighted by the units they align by text (#199), so the
+      editions are aligned with each other unit for unit and passages only
+      they have still form groups;
+    - then by ``LANGUAGE_PREFERENCE`` (English has the strongest vectors, and
+      the rare languages are compared through English translations);
+    - then the highest *clean* share (``TextAlignment.clean_a``: a critical
+      text before an OCR'd one that carries page furniture and notes);
+    - then the most units, then the smallest work id.
     """
     longest = max(n for _, n in members.values())
     near = [w for w, (_, n) in members.items() if n >= 0.9 * longest]
+    weight = prefer or {}
+    share = clean or {}
 
-    def rank(w: str) -> tuple[int, int, str]:
+    def rank(w: str) -> tuple[int, int, float, int, str]:
         lang, n = members[w]
         pref = LANGUAGE_PREFERENCE.index(lang) if lang in LANGUAGE_PREFERENCE else len(
             LANGUAGE_PREFERENCE)
-        return (pref, -n, w)
+        return (-weight.get(w, 0), pref, -round(share.get(w, 0.0), 2), -n, w)
 
     return min(near, key=rank)
+
+
+# ------------------------------------------------- same-language editions (#199)
+
+
+def text_beads(beads: Sequence[object], head_beads: Sequence[Bead] | None) -> list[Bead]:
+    """A member's beads against the pivot from its text beads against its *head*.
+
+    *beads* are ``patristica.text_alignment.TextBead`` (A: the member, B: the
+    head), in order. When the head is the pivot (*head_beads* None) they are
+    used as they are. Otherwise each is carried through the head's beads
+    against the pivot: its pivot span is the span of the head beads its head
+    units are in, and its confidence the lower of its own and theirs. A text
+    bead is dropped when its head units are in no head bead, or in head beads
+    whose pivot spans aren't contiguous (a block the head moved). A bead whose
+    pivot span starts inside the previous one's (both carried through one head
+    bead) is joined with it; one that would overlap another way is dropped.
+    The result is monotonic.
+    """
+    if head_beads is None:
+        return [Bead(t.i0, t.i1, t.j0, t.j1, t.dice, t.dice, t.conf) for t in beads]
+    by_unit: dict[int, Bead] = {}
+    for hb in head_beads:
+        for u in range(hb.i0, hb.i1):
+            by_unit[u] = hb
+    out: list[Bead] = []
+    for t in beads:
+        hs = sorted({(hb.j0, hb.j1, hb.conf) for u in range(t.j0, t.j1)
+                     if (hb := by_unit.get(u))})
+        if not hs or any(b[0] != a[1] for a, b in zip(hs, hs[1:])):
+            continue
+        bd = Bead(t.i0, t.i1, hs[0][0], hs[-1][1], t.dice, t.dice,
+                  min([t.conf] + [c for _, _, c in hs]))
+        if out and out[-1].j0 <= bd.j0 < out[-1].j1:
+            last = out.pop()
+            bd = Bead(last.i0, bd.i1, last.j0, max(last.j1, bd.j1), min(last.sim, bd.sim),
+                      min(last.margin, bd.margin), min(last.conf, bd.conf))
+        elif out and bd.j0 < out[-1].j1:
+            continue
+        out.append(bd)
+    return out
+
+
+def prefer_text(text: Sequence[Bead], vector: Sequence[Bead]) -> list[Bead]:
+    """*text* beads, plus the *vector* beads that touch none of their units on either side."""
+    used_a: set[int] = set()
+    used_b: set[int] = set()
+    for bd in text:
+        used_a.update(range(bd.i0, bd.i1))
+        used_b.update(range(bd.j0, bd.j1))
+    rest = [bd for bd in vector
+            if used_a.isdisjoint(range(bd.i0, bd.i1)) and used_b.isdisjoint(range(bd.j0, bd.j1))]
+    return sorted([*text, *rest], key=lambda bd: (bd.i0, bd.j0))

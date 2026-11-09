@@ -18,12 +18,21 @@ groups ("before") and for the alignment groups with the prior ("after").
 ``sample``: align the given version group and print a random sample of
 alignment groups with their text, for checking by hand.
 
+``compare``: compare two alignment stores (``--before``, ``--after``) on the
+groups both have: for every pair of members, the share of the first one's
+units that are in a confident group with the second, summed over same-language
+pairs (editions, #199) and other pairs, and the pairs that changed most. It
+reads only the files (no vectors), so it measures a change to the method
+after ``scripts.align --output-dir`` has written the new files elsewhere.
+
 Usage::
 
     uv run --extra embed python -m scripts.align_eval scripture [--book prov] [--prior]
         [--calibrate] --embeddings-dir data/embeddings
     uv run --extra embed python -m scripts.align_eval neighbours [--book prov]
     uv run --extra embed python -m scripts.align_eval sample --group GROUP [--n 40]
+    uv run python -m scripts.align_eval compare --before data/alignments --after DIR
+        [--group GROUP] [--n 20]
 """
 
 from __future__ import annotations
@@ -38,6 +47,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+from patristica import alignment_store as store
 from patristica import translations as tr
 from patristica.alignment import CONFIDENCE_FIT, Version, align_pair, choose_pivot, merge, span_fit
 from patristica.alignment_store import MIN_CONFIDENCE
@@ -348,6 +358,58 @@ def sample(args: argparse.Namespace) -> None:
             print(f"[{wid} {refs} conf {c}] {body[:args.chars]}")
 
 
+def pair_cover(a: store.Alignment) -> dict[tuple[str, str], int]:
+    """``(x, y) → units of x`` in a confident group with *y*, for every pair of members."""
+    out: dict[tuple[str, str], int] = {}
+    for spans in a.groups_of().values():
+        for x, (s, e) in spans.items():
+            for y in spans:
+                if y != x:
+                    out[(x, y)] = out.get((x, y), 0) + e - s
+    return out
+
+
+def compare(args: argparse.Namespace) -> None:
+    works = load_works(args.input_dir)
+    lang = {e["work"]["work_id"]: e["work"]["language"] for e in works}
+    before = {a.group: a for _, a in store.iter_store(args.before)}
+    after = {a.group: a for _, a in store.iter_store(args.after)}
+    groups = sorted(set(before) & set(after))
+    if args.group:
+        groups = [g for g in groups if g == args.group]
+    totals: dict[str, Counter] = {"same language": Counter(), "other": Counter()}
+    changes: list[tuple[float, str, str, str, float, float, int]] = []
+    pivots = Counter()
+    for g in groups:
+        b, a = before[g], after[g]
+        pivots["changed" if a.pivot != b.pivot else "kept"] += 1
+        cb, ca = pair_cover(b), pair_cover(a)
+        for x in a.members:
+            for y in a.members:
+                if x == y or x not in b.members or y not in b.members:
+                    continue
+                units = a.members[x].units
+                kind = "same language" if lang.get(x) == lang.get(y) else "other"
+                t = totals[kind]
+                t["units"] += units
+                t["before"] += cb.get((x, y), 0)
+                t["after"] += ca.get((x, y), 0)
+                t["pairs"] += 1
+                d = (ca.get((x, y), 0) - cb.get((x, y), 0)) / units if units else 0.0
+                changes.append((d, g, x, y, cb.get((x, y), 0) / max(units, 1),
+                                ca.get((x, y), 0) / max(units, 1), units))
+    print(f"{len(groups)} groups; pivot changed in {pivots['changed']}")
+    print("pairs (x, y): share of x's units in a confident group with y, summed over pairs")
+    for kind, t in totals.items():
+        print(f"  {kind:14s} {t['pairs']:5d} pairs  {pct(t['before'], t['units'])} -> "
+              f"{pct(t['after'], t['units'])}")
+    for title, rows in (("most improved", sorted(changes, reverse=True)),
+                        ("most worsened", sorted(changes))):
+        print(f"\n{title}:")
+        for d, g, x, y, sb, sa, units in rows[:args.n]:
+            print(f"  {d:+.3f}  {sb:.3f} -> {sa:.3f}  {x} with {y} ({units} units; {g})")
+
+
 def _corpus(args: argparse.Namespace) -> tuple[dict[str, dict], dict[str, tuple[str, ...]]]:
     works = load_works(args.input_dir)
     entries = {e["work"]["work_id"]: e for e in select(works, [], [], include_unpublishable=False)}
@@ -357,7 +419,10 @@ def _corpus(args: argparse.Namespace) -> tuple[dict[str, dict], dict[str, tuple[
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[1],
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("mode", choices=("scripture", "neighbours", "sample"))
+    parser.add_argument("mode", choices=("scripture", "neighbours", "sample", "compare"))
+    parser.add_argument("--before", type=Path, default=store.DEFAULT_DIR,
+                        help="compare: the alignment store before")
+    parser.add_argument("--after", type=Path, help="compare: the alignment store after")
     parser.add_argument("--input-dir", type=Path, default=Path("data/normalized"))
     parser.add_argument("--translations-dir", type=Path, default=tr.DEFAULT_DIR)
     parser.add_argument("--embeddings-dir", type=Path, default=Path("data/embeddings"))
@@ -371,7 +436,8 @@ def main() -> None:
     parser.add_argument("--jobs", type=int, default=6)
     args = parser.parse_args()
     logging.basicConfig(level=logging.WARNING)
-    {"scripture": scripture, "neighbours": neighbours, "sample": sample}[args.mode](args)
+    {"scripture": scripture, "neighbours": neighbours, "sample": sample,
+     "compare": compare}[args.mode](args)
 
 
 if __name__ == "__main__":
