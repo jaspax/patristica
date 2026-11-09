@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -546,132 +552,139 @@
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s1",
-      "source_sha256": "81ef6200cca1e71a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "But they also divide David into five books. The first runs from the first psalm, which is \"Esria\", which translates as: \"Blessed is the man who [?] went\""
+      "source_sha256": "2df03c2e8a131b4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "They also divide David into five books. The first runs from the first psalm, which is \"Esria\" [Ashrei], which is translated:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s2",
-      "source_sha256": "f7e63b7ae7d356bd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "up to the one whose beginning is: \"Er meskil al dal oebion\", which is: \"Blessed is he who understands the poor.\" And Aquila [?] said: \"Blessed is -- to give a good likeness.\""
+      "source_sha256": "bca93f0d00bc991b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Blessed is the man who [?] has gone\" up to the one [number missing ?] whose beginning is: \"Er meskil al dal oebion\" [Ashrei maskil el dal], which is:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s3",
-      "source_sha256": "a089cdfd881cb78d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "As the second book: psalm 41, whose beginning is: \"Kial taarog, alapisimain\", which translates as: \"As the deer longs\""
+      "source_sha256": "b102de48dc28ae44",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Blessed is he who considers the poor.\" But Aquila said: \"Blessed is [?] to give a good form.\" The second book: 41, whose beginning is:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s4",
-      "source_sha256": "2130264e79091e56",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "up to heading 71, whose beginning is: \"Eloin maspatak lamel ekte\", which translates as: \"O God, give your judgment to the king.\" As the third book:"
+      "source_sha256": "2c27c66340994e7f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Kial taarog, alafisimain\" [Ke-ayyal ta'arog al afiqe mayim], which is translated: \"As the hart longs [?]\", up to 71, whose beginning is:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s5",
-      "source_sha256": "bee29fed839c29da",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "psalm 72, whose beginning is: \"Ak bot iel eliom\", which translates as: \"How good is the God of Israel in heart [?]\" up to psalm 88, whose beginning is:"
+      "source_sha256": "576ba377236b974d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Eloin masfatak lamel ekte\" [Elohim mishpatekha la-melekh ten], which is translated: \"O God, give your judgment to the king.\" The third book: 72, whose beginning is:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s6",
+      "source_sha256": "b7c8395ed354d70b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Ak bot iel eliom\" [Akh tov le-Israel Elohim], which is translated: \"How good is the God of Israel to [?] in heart\", up to 88, whose beginning is:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s7",
       "source_sha256": "c068f7be33e433b8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "\"Esdi Adonai lulam asis\", which translates as: \"Of your mercies, O Lord, let me sing forever.\""
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s7",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s8",
       "source_sha256": "f1a755edac5f629b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "And as the fourth book, psalm 89, whose beginning is: \"Adonai maon ata aiata lanu\", which translates as: \"Lord, you have been a refuge for us.\""
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s8",
-      "source_sha256": "8efe605273bf5b23",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "-- up to psalm 105, whose beginning is: \"Udula Adonai kitop kelula misdo\", which translates as: \"Give thanks to the Lord, for he is sweet.\""
-    },
-    {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s9",
-      "source_sha256": "117a7f0c2e457822",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 20,
-      "text": "And those psalms are Alleluia. And as the fifth book, psalm 106, whose beginning is:"
+      "source_sha256": "74ba552a20425665",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "[?] — up to 105, whose beginning is: \"Udula adonai kitof kelula misdo\" [Hodu la-Adonai ki tov ki le-olam hasdo], which is translated:"
     },
     {
       "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s10",
+      "source_sha256": "917bcdb46b7cee9c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Give thanks to the Lord, for he is good.\" Those psalms have Alleluia. The fifth book: psalm 106, whose beginning is:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s11",
       "source_sha256": "93fb64512a87aa4b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "\"Ud ula Adonai kitob kilul amisdo\", which likewise translates as: \"Give thanks to the Lord, for he is good\""
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s11",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s12",
       "source_sha256": "d9ea463941b68a1e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "up to the end, up to the fiftieth psalm, whose beginning is: \"Aleluel bakadis\", which translates as:"
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s12",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s13",
       "source_sha256": "8c9b78c6a974e6de",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "\"Praise God in his holy places.\" That one too is an Alleluia. At the 150th psalm they set the book right."
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s13",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s14",
       "source_sha256": "61d2d86518257482",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "For the Hebrews make the end of each book of those five books of psalms at the end of that psalm."
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s14",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s15",
       "source_sha256": "6fabec9f3291dce7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "The hymn is the end of the book: \"Mistobarok Adonai eloi ieli mealo aod laula aminoamin\", which translates as:"
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s15",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s16",
       "source_sha256": "b9a0d03ace161ca8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "\"Blessed is the Lord God of Israel from now on and forever. So be it, so be it.\""
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s16",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s17",
       "source_sha256": "854ce39e3b326397",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "This is where each of those same five books ends, which is written at the end of the 40th psalm and of the 71st and of the 88th and of the 105th."
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s17",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s18",
       "source_sha256": "3e372a6a029fb793",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "But of the hundred and fiftieth -- \"Blessed is the Lord God of Israel, so be it, so be it."
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s18",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s19",
       "source_sha256": "354b456bfb5bb5d5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,
       "text": "Let every soul praise the Lord\", which is said in Hebrew: \"Kohannes samate iel telula\"."
     },
     {
-      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s19",
+      "chunk_id": "titus-shatberdi/epiphanius-de-mensuris-et-ponderibus#Satb.MensPond.5.s20",
       "source_sha256": "81735d35a5edb9d5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 20,

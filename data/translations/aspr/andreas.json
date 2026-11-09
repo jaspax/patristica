@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -126,17 +132,17 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.59.s1",
-      "source_sha256": "aa086a8666750e0a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then, weeping with weary tears, he greeted his Lord of victories with sorrowful speech, the Prince of men, with mournful voice, the Giver of joy to the hosts, and spoke thus in words: \"How the foreigners sew for me a snare of malice, a cunning net!"
+      "source_sha256": "f91d89664d7f9f6e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then, weeping weary tears, he greeted his Lord of victory in a sorrowful voice, the prince of men, the gracious giver to hosts, with a mournful voice, and spoke these words:"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.59.s2",
-      "source_sha256": "604ac0baeec548af",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Always, on every path, I was eager in mind for your will; now, through sorrows, I must act like the dumb cattle."
+      "source_sha256": "52e0ba348c109d11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"How these foreigners weave a cunning net for me, a malicious snare! I have always been eager in mind for your will, in every way; now, because of sorrows, I must act like the dumb beasts."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.68",
@@ -482,25 +488,32 @@
       "text": "They were in the clothing of seafarers, these men like voyagers on the sea, when in the embrace of the flood they toss in their ships over a far way on the cold water."
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.254",
-      "source_sha256": "85cb3a73c4f673f3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Then he who stood on the sand, eager on the shore, greeted them and spoke gladly: \"Where have you come from, sailing in your ship, men skilled in seafaring, in this sea-runner, this lone ocean-floater? Where has the sea-stream brought you from over the rolling of the waves?\""
+      "chunk_id": "aspr/andreas#Andreas.254.s1",
+      "source_sha256": "aa1fe512ecb43ace",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then he who stood on the shore, eager at the water's edge, greeted them and spoke gladly:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.254.s2",
+      "source_sha256": "6159b918777d061d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Where have you come from, sailing in your ships, men skilled in seafaring, in a sea-rushing vessel, a lone ocean-floater? From where has the ocean stream brought you over the rolling of the waves?\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.260.s1",
-      "source_sha256": "037f4daaf558cb97",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Then almighty God answered him, in such a way that the one waiting for the reply did not know which of the speakers it was that he was talking with there on the shore: \"We have been carried here from far away, from the nation of the Mermedonians.\""
+      "source_sha256": "f9d394fd4ed4c6e9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then almighty God answered him in such a way that the one waiting for the reply did not know who that man among the speakers was, with whom he was conversing there on the shore:"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.260.s2",
-      "source_sha256": "bc030dda1148f027",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "The high-prowed vessel, the swift sea-steed, quickly enclosed [by the waves], carried us with the flood on the whale-road, until we reached the land of these people, driven by the sea, as the wind drove us.\""
+      "source_sha256": "769ce6b1e0e1102d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"We have been brought from far away, from the people of Mermedonia. A high-prowed ship carried us on the flood along the whale-road, a swift sea-horse, quickly wrapped about [by the waves], until we reached the land of these people, driven by the sea, as the wind drove us.\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.270.s1",
@@ -552,11 +565,18 @@
       "text": "once you have paid your fare, the fixed payments, as the ship's keepers, the messengers aboard the ship, agree to it.\""
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.299",
-      "source_sha256": "4fde4b5f1a9ee66d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Then Andrew, in need of friends, quickly spoke to him: \"I have no plated gold or treasure, no wealth or provisions, no wire clasps, no land or linked rings, with which I could satisfy your desire, your wish in this world, as you have stated.\""
+      "chunk_id": "aspr/andreas#Andreas.299.s1",
+      "source_sha256": "76b314cd45fa04a1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then Andrew, in need of a friend, quickly spoke to him in words:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.299.s2",
+      "source_sha256": "0ea26630019148a9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I have no plated gold or treasure, no wealth or provisions, no wire ornaments, no land or linked rings, with which I could stir your desire, your wish in this world, as you mention in your words.\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.305.s1",
@@ -763,13 +783,20 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.427.s1",
-      "source_sha256": "f4f94120f85bede9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Then he wisely began to strengthen his disciples, men rich in glory, with words: \"You resolved, when you embarked on the sea, to carry your lives among a hostile people, to suffer death for the love of the Lord, and to give up your souls in the homeland of the dark foreigners."
+      "source_sha256": "8134b8f545d91d21",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then he began wisely to strengthen his disciples with words, those men rich in glory:"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.427.s2",
+      "source_sha256": "7d08710eae2e8c1c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"You resolved this when you went out on the sea: that you would carry your lives among a hostile people, and suffer death for the Lord's love, and give up your souls in the homeland of foreign peoples."
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.427.s3",
       "source_sha256": "5869e053bf7ef64e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 20,
@@ -944,11 +971,18 @@
       "text": "The waters subsided once they perceived that God, who established the splendour of glory by his strong powers, had wrapped you in his protection.\""
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.537",
-      "source_sha256": "3da1f3faca04ae46",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then the bold-hearted warrior spoke with holy voice and honoured the King, the Ruler of glory, and said these words: \"Blessed be you, Prince of mankind, Lord Saviour! May your glory live for ever!"
+      "chunk_id": "aspr/andreas#Andreas.537.s1",
+      "source_sha256": "7f57996f3a192c15",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then the bold-spirited champion spoke with a holy voice, honoured the King, the Ruler of glory, and spoke these words:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.537.s2",
+      "source_sha256": "963b81f5ad5033b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Blessed be you, Prince of mankind, Lord Saviour! Your glory lives forever!"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.542.s1",
@@ -1484,17 +1518,17 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.847.s1",
-      "source_sha256": "a1449475d8c99c32",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 24,
-      "text": "Then on the sand he saw his disciples, brave warriors, sleeping beside him."
+      "source_sha256": "1a4d478179beb087",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then he saw his disciples on the sand, battle-brave men, sleeping beside him. At once he began to wake the warriors, and spoke these words:"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.847.s2",
-      "source_sha256": "2f7e8c4bf5887ce4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 24,
-      "text": "At once he began to wake the warriors, and spoke these words: \"I can tell you a true thing, plainly: yesterday a prince carried us on the ocean's stream, over the surging sea."
+      "source_sha256": "8e44c682de288610",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I can tell you a clear truth: yesterday a prince carried us on the ocean's stream over the oar-swept sea."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.854",
@@ -1820,17 +1854,24 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1015.s1",
-      "source_sha256": "e5f44ee4c0de7a7f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Each wrapped the other in his arms; they kissed and embraced. Both were dear to Christ in their hearts. A light shone around them, holy and heaven-bright. Their hearts within were welling with joy."
+      "source_sha256": "865e546f8eb96f33",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Each wrapped the other in his arms; they kissed and embraced. Both were dear to Christ in heart. A light shone around them, holy and bright as heaven."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1015.s2",
-      "source_sha256": "8228210f103839c5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then Andrew first began with words to greet his noble, God-fearing companion in the prison-cell with his speech, and told him of the hostile encounters, the fighting of the enemy men: \"Now this people is eager [?]... men hither [?] to seek out the land.\""
+      "source_sha256": "74c7693ac703db1d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "The heart within was welling with joy. Then Andrew was the first to speak, greeting his noble, God-fearing companion in the prison cell with his words, and told him of the coming battle, the fighting of hostile men:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.1015.s3",
+      "source_sha256": "c179a8548f495862",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Now this people is eager [?] ... men [have come] here, according to their deserts, to seek the land [?].\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1026",
@@ -2337,11 +2378,18 @@
       "text": "You are the protector against the weapons of enemies, eternal source of blessing, for all your own; do not now let the slayer of mankind, the first-born of deceit, mock and burden with sins, through the fiend's craft, those who bear your praise.\""
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.1296",
-      "source_sha256": "087051b2d86bce24",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then the terrible spirit appeared there, the angry traitor. The devil of hell, accursed in torments, instructed the warriors in front of the army, and spoke these words: \"Strike the sinful one across his very mouth, the enemy of the people! Now he talks too much.\""
+      "chunk_id": "aspr/andreas#Andreas.1296.s1",
+      "source_sha256": "5bb3e20e9b1f3f7e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then the terrible spirit appeared there, the hostile traitor. The devil of hell, accursed in torments, instructed the warriors in front of that army, and spoke these words:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.1296.s2",
+      "source_sha256": "92e0366aa8e0db10",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Strike the sinner across his own mouth, the enemy of the people! He talks too much now.\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1302.s1",
@@ -2526,11 +2574,18 @@
       "text": "Then hostility was stirred up anew, hard and fiercely hateful. The holy man was sorely scourged, cunningly bound, pierced through with gaping wounds, while the day shone."
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.1398",
-      "source_sha256": "9b11e56459dd67fa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then, sad in mind, he began to call to God; stalwart in captivity, weary in spirit, he wept with holy voice and spoke these words: \"Never under the vault of heaven, by the Lord's will, have I lived through harsher hardships, while I was to proclaim the Lord's law."
+      "chunk_id": "aspr/andreas#Andreas.1398.s1",
+      "source_sha256": "0e7155771a1ff13d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then, sad at heart, he began to call to God, steadfast in captivity; weary in spirit he wept with a holy voice and spoke these words:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.1398.s2",
+      "source_sha256": "f29dced75696ac95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Never under the vault of heaven, going by the Lord's will, have I had a harder life, where I had to proclaim the Lord's law."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1404.s1",
@@ -2575,11 +2630,18 @@
       "text": "\"Now my sinews are torn loose and my blood has dripped away. My locks lie scattered across the land, my hair on the ground. Death is much dearer to me than this life of sorrow.\""
     },
     {
-      "chunk_id": "aspr/andreas#Andreas.1429",
-      "source_sha256": "3552a328a80dba2e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Then a voice answered him, the resolute one; the word of the King of glory rang out: \"Do not weep over this journey of exile, dearest friend; it is not too perilous for you. I hold you in peace and surround you with the might of my protection."
+      "chunk_id": "aspr/andreas#Andreas.1429.s1",
+      "source_sha256": "3b781363f3c40b95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then a voice answered him, the steadfast-minded one; the word of the King of glory resounded:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.1429.s2",
+      "source_sha256": "01729b4e7e7a3a2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Do not weep over this journey of exile, dearest friend; it is not too dangerous for you. I will keep you safe and surround you with the power of my protection."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1434.s1",
@@ -2639,10 +2701,17 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1458.s2",
-      "source_sha256": "9bff64b882d6f068",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Then the Lord God came into the prison-house, the glory of men. The father of mankind, the teacher of life, greeted his friend with words and spoke comfort to him, and told him to enjoy his body whole again: \"You shall no longer suffer pain at the hands of these armed men.\""
+      "source_sha256": "9996070d4e4a8291",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then the Lord God came into that prison-house, the glory of men, and greeted his friend with words and spoke comfort, the Father of mankind, the Teacher of life, and commanded him to enjoy his body made whole:"
+    },
+    {
+      "chunk_id": "aspr/andreas#Andreas.1458.s3",
+      "source_sha256": "86a94b075af23d57",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"You shall no longer suffer pain in the hands of the armed men.\""
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1469",
@@ -3010,17 +3079,17 @@
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1659.s2",
-      "source_sha256": "b0aa477600c977b6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 13,
-      "text": "Then the God of glory, the Lord of hosts, appeared to him in person on that journey and spoke these words: \"The people from sins [?]"
+      "source_sha256": "56c4004b11113c2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "Then the God of glory himself appeared to him on that journey, and the Lord of hosts spoke these words:"
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1659.s3",
-      "source_sha256": "3fbc1bf3ba778e67",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 13,
-      "text": "Their eager mind goes mourning; men and women together lament their sorrow. Their weeping has reached me, and their grieving hearts have hastened before me."
+      "source_sha256": "1d7dc14c5c7d7f2d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "\"[?] the people from their sins? Their eager spirit goes mourning; men and women together lament their sorrow. Their weeping has come, and their mourning hearts hastened forth before [?]."
     },
     {
       "chunk_id": "aspr/andreas#Andreas.1669",

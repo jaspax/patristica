@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -308,20 +314,13 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.III.s20",
-      "source_sha256": "fc9cabd24c1f5a77",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "In all, the years of the kings of Judah who reigned"
+      "source_sha256": "53d34d627d1137d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "In all, the years of the kings of Judah who reigned in Jerusalem, from Saul to Jehoiakim, add up to 564 years; and from the going out of the children of Israel from Egypt, 1,165 years."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.III.s21",
-      "source_sha256": "5957afcfc89af65e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "in Jerusalem, from Saul to Jehoiachin, add up to 564 years, and from the exodus of the children of Israel from Egypt, 1,165 years,"
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.III.s22",
       "source_sha256": "7d767d53fdd515af",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -532,17 +531,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.V.s15",
-      "source_sha256": "731f6bae344f6751",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Alexander of Macedon killed King Darius and overthrew the power of the Persians. Altogether, the years from Cyrus king of the Persians to King Darius add up to [?] years"
+      "source_sha256": "4626c435ac51cf15",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "Alexander the Macedonian killed King Darius and overthrew the power of the Persians. In all, the years from Cyrus, king of the Persians, to King Darius add up to 230 years."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.V.s16",
-      "source_sha256": "814d6d03d870ec4e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "230. Alexander, after the killing of Darius, reigned firmly for 26 years and 7 months."
+      "source_sha256": "a4de85fa7c82e5df",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "After killing Darius, Alexander reigned securely for 26 years and 7 months."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-chronicon#Satb.HippChron.VI.s1",

@@ -4,6 +4,12 @@
   "source_language": "syc",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-28": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -1197,17 +1203,17 @@
     },
     {
       "chunk_id": "dsc/moses-bar-kepha-on-the-soul#DSC474.f.12b.s4",
-      "source_sha256": "1bbb6a951f5a698f",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-28",
-      "group_size": 25,
-      "text": "Thus Aristotle understood it in three ways: (1) One is matter, which he called potentiality, like bronze that has not been shaped or worked in relief. (2)"
+      "source_sha256": "cd23adf9014eac11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "Aristotle, then, recognizes it in three ways: (a) one from matter, which he calls \"potentiality,\" like bronze that is not shaped and not [?] (b)"
     },
     {
       "chunk_id": "dsc/moses-bar-kepha-on-the-soul#DSC474.f.12b.s5",
-      "source_sha256": "670686b9d4fec019",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-28",
-      "group_size": 25,
-      "text": "Another is form and shape, which he calls entelechy, like shape, configuration, and form. (3) Another is that which is composed of matter and form,"
+      "source_sha256": "3e2ecfaa35c1c6ad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "The second is the species and form, which he names \"entelechy\" [actuality], as the form and shape and species. (c) The third is the one that is composed of matter [and] form."
     },
     {
       "chunk_id": "dsc/moses-bar-kepha-on-the-soul#DSC474.f.12b.s6",

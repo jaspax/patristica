@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -252,17 +258,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.9.s1",
-      "source_sha256": "8a23352c10971e05",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And the one who sent him revealed himself to him,"
+      "source_sha256": "687c4d3693018a89",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "But the one who sent him revealed himself to him, who he was, and said:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.9.s2",
-      "source_sha256": "364a7d28139403dd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "who he was, and said: \"I am the God of Abraham, the God of Isaac, the God of Jacob,\" and of the one who made himself known to your fathers [?]."
+      "source_sha256": "51e0e7150bdf8716",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"I am the God of Abraham, the God of Isaac, the God of Jacob, and of the one who made [it] known to your fathers [?]."
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.9.s3",
@@ -532,52 +538,59 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s5",
-      "source_sha256": "2b4099ab9180d419",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Nor did he understand what the prophet David said: \"By the word of the Lord the heavens were established, and by the Spirit of his mouth all their power.\""
+      "source_sha256": "46d884f2c7883c1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "Nor did he understand that saying of the prophet David:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s6",
+      "source_sha256": "8680be2995581b8d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"By the word of the Lord the heavens were established, and by the spirit of his mouth all their host.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s7",
       "source_sha256": "42233fc31a70c781",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If he is the Spirit of his mouth, how could the Holy Spirit be created!"
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s7",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s8",
       "source_sha256": "e4467b880188b1ee",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For everything that exists is his. If the Spirit were created, then the Father would have been without a Spirit until that Spirit was created!"
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s8",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s9",
       "source_sha256": "b235852153f53ad9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Rather, its Creator is that Spirit of truth, who proceeds from the Father and is worshipped together with the Son,"
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s9",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s10",
       "source_sha256": "432f61ee3d21d48d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "that Spirit who moved upon the waters, and by that moving over them gave form to and created all created things, and by grace brought forth each one as he willed;"
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s10",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s11",
       "source_sha256": "b2055d0990f371e9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "that Spirit who came down like fire upon the apostles and, with a most surpassing wonder, divided the tongues."
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s11",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.12.s12",
       "source_sha256": "c1b7c807f3394285",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "Behold the ineffable grace: the apostle speaks in Hebrew, in only one tongue, and all the barbarians heard him in all tongues!"
+      "text": "Behold, a grace beyond words: the apostle speaks in Hebrew, in one tongue only, and all the barbarians hear him in every tongue!"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.13.s1",
@@ -749,24 +762,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.21.s4",
-      "source_sha256": "bcb049be0f904afd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "From one land and from one kindred he brought out both Abraham and John. For the holy John was truly one of the offspring of Abraham."
+      "source_sha256": "41693ce243888c9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "From one land and from one lineage he brought forth Abraham and John;"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.21.s5",
-      "source_sha256": "ccb7cb90ab92fde3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Listen to the apostle Paul and what he says: \"If you are Christ's, then you are indeed Abraham's children, heirs according to the promise.\""
+      "source_sha256": "e0c13a95f90dc32e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "for truly holy John was of the offspring of Abraham. Hear what the apostle Paul says:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.21.s6",
-      "source_sha256": "a32ba3201e31d457",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Truly, a holy root has brought forth good fruit."
+      "source_sha256": "9c8343f734a1de53",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"If you are Christ's, then you are indeed Abraham's children, heirs according to the promise.\" Truly the holy root brought forth good [fruit]."
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.22",
@@ -777,20 +790,27 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.23.s1",
-      "source_sha256": "26e6b7b5af40ab02",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "But the blessed disciples remembered the words of the prophet Elisha: \"As the Lord lives, and as your soul lives, we will not leave you alone, wherever you go."
+      "source_sha256": "cf91841016e72bad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "And the saying of the prophet Elisha calls the blessed disciples to mind:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.23.s2",
+      "source_sha256": "e9052a0b473627f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"As the Lord lives, and as your soul lives, I will not leave you alone as long as you go on.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.23.s3",
       "source_sha256": "e03be38c6ee5b45f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "We drink from that spring every day and are filled by it. Let us not deprive ourselves of it in these few days of ours."
     },
     {
-      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.23.s3",
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.23.s4",
       "source_sha256": "7a1883e4bfb2eaea",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -1260,17 +1280,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s2",
-      "source_sha256": "753f257de65699fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "one will, created by nature, which was in Adam in Paradise before he broke the commandment, while he was still spiritual and [?];"
+      "source_sha256": "66637bbf5341b585",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "One will is natural and created. Adam had it before he transgressed the commandment in Paradise, while he was still spiritual, and Nathanael [?]. But the other one"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s3",
-      "source_sha256": "93cd80428e8b6feb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and the other, which came to live in us after the fall, not by nature but by breaking in from outside, through the cunning of that heart [?]."
+      "source_sha256": "fa8fb8073c6a0c64",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "settled in us after the error, not by nature: it broke in [?] from outside the heart by cunning."
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s4",
@@ -1309,17 +1329,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s9",
-      "source_sha256": "6eb94cc4b6d7452f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "God did by sending his own Son in the likeness of flesh.\" He took on this flesh of ours without sin, cleansed of all the error of the first Adam,"
+      "source_sha256": "22ebc27ea32537b4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"God sent his Son in the likeness of flesh,\" and he took on this flesh of ours without sin,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s10",
-      "source_sha256": "283500b8f3210eef",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "so that the righteousness of the law might be fulfilled in us, \"for the mind of the flesh is death, but the mind of the spirit is life.\""
+      "source_sha256": "970a97ba04b65e27",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "cleansed of all the error of the first Adam, so that the righteousness of the law might be fulfilled in us,"
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.35.s11",
+      "source_sha256": "56c925815d88e5e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"for the mind of the flesh is death, but the mind of the Spirit is life.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-a/life-of-john-of-zedazeni-a#AsIoZedA.36.s1",

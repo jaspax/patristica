@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -49,17 +55,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.1.1.s6",
-      "source_sha256": "b425a9ed956d1b8e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "and where the queen stood at the right hand of the king in the royal palaces, so that these too might be made worthy to stand with her in that great assembly of the firstborn,"
+      "source_sha256": "b2a0a897f5b73720",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And since the queen stood at the king's right hand in the royal palaces, and so that these too might be made worthy to stand with her in the great assembly of the firstborn, as David says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.1.1.s7",
-      "source_sha256": "647fc0d3f159c8c8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "as David says: \"In the great congregation I will confess you,\" where God is made known among gods through them,"
+      "source_sha256": "3a97a25504c154bd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"In the great church I will confess you,\" where God among gods was made known through them,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.1.1.s8",
@@ -644,27 +650,20 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.3.17.s2",
-      "source_sha256": "bc929a42a020115b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "all those fathers were amazed at his ascetic struggles and labors, which surpassed nature, and to everyone he became a marvel to be talked about and pointed at,"
+      "source_sha256": "3420a8f313b6ce7f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "all the fathers were amazed at his struggles and labors, which were beyond nature, and by everyone he was spoken of as something marvelous and pointed out with the finger, as the apostle says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.3.17.s3",
-      "source_sha256": "d2d34032625dfbc0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "as the apostle says: \"We have become a spectacle to the world, to angels and to men.\""
+      "source_sha256": "7db34e0e42649f9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"We have been made a spectacle to the world, to angels and to men.\" And he always prayed to God to reveal to him what was best for his soul, whatever was pleasing to His mercy."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.3.17.s4",
-      "source_sha256": "b2d812c4d69ba342",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "And he would always pray to God to reveal to him what was best for his soul and pleasing to His mercy."
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.3.17.s5",
       "source_sha256": "912df4fad0481244",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -910,10 +909,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.4.7.s8",
-      "source_sha256": "117d7d9ad591b94b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "c776426abed11a4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When he fell asleep, he saw a radiant man who said to him: \"Do not be afraid, O Hilarion, for this very day your enemy will be taught a lesson and will fall at your feet.\""
+      "text": "And as he fell asleep, he saw a radiant man, who said to him:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.4.7.s9",
+      "source_sha256": "8099651f7a89eea7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Do not be afraid, O Hilarion, for this very day that enemy of yours will be taught a lesson and will fall at your feet.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.4.8.s1",
@@ -1015,111 +1021,118 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s3",
-      "source_sha256": "b54cb3ce23357f5c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "When the blessed Hilarion perceived this, he resolved within himself: \"This glory of this world is a deceiver that leads to that [?eternal] disgrace.\""
+      "source_sha256": "b0c540c4c19d0842",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And when the blessed Hilarion understood this, he reasoned within himself:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s4",
+      "source_sha256": "ea28f5b04c32ab02",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"This glory of this world is a deceiver that leads to everlasting disgrace.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s5",
       "source_sha256": "7a6bf9ec37413344",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "In this too he became like the great lawgiver Moses, by going out of Egypt again, a second time,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s5",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s6",
       "source_sha256": "5366d0288f9bdd02",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "since he delivered many souls from slavery to that invisible Pharaoh and led them out through the sea of this world without their drowning,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s6",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s7",
       "source_sha256": "dfdd0bed5cf3fd17",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "and there he saw that mighty pursuer drowned along with his horsemen, and with spiritual dancing he offered a song of victory to God, the giver of victory."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s7",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s8",
       "source_sha256": "0653a843d51f9fb2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "When he had firmly decided in his mind to flee from vainglory and to go away to a more distant land, where he would not be known,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s8",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s9",
       "source_sha256": "660dc4594233e055",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "he chose one brother from among the brothers of the monastery, a man full of all wisdom and able to shepherd the rational sheep."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s9",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s10",
       "source_sha256": "72b28a2dfc4cae39",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "He brought him and set him before everyone, laid his holy hands on him, lifted up his eyes to heaven and said:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s10",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s11",
       "source_sha256": "37dc611203e47c16",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "\"I thank you, my King and my God, to whom I have been entrusted from my mother's womb until this day,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s11",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s12",
       "source_sha256": "2387740a8f6c2e51",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "who rescued me from the snares of those who hunted me, and walked with me and struggled alongside me in all my ways,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s12",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s13",
       "source_sha256": "9a2157997a852b07",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "until you willed that I should come back to this land, in which I lived and was brought up."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s13",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s14",
       "source_sha256": "d201836302b1773d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "Thus your incomprehensible providence was pleased that through me, a poor man, this place should be built for these brothers to gather in."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s14",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s15",
       "source_sha256": "5634549efa26392b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "Now, O good Lord, I commit these your servants into your holy hands. Guard them, O King, from the many forms and many tricks of the enemy's schemes."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s15",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s16",
       "source_sha256": "f488dcdc18bb3618",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "Let the evil devil find no place of rest among them, but let your holy and life-giving Spirit rest upon them."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s16",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s17",
       "source_sha256": "9694122d7c26c4d3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "And this brother, whom your all-holy will has chosen as superior over them: bless him with every blessing with which you blessed our holy fathers."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s17",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s18",
       "source_sha256": "f00d11bda135b0d9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "Through the laying on of my unworthy hands, let your holy grace come upon him, so that he may guide these brothers well and increase the talent entrusted to him,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s18",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.5.2.s19",
       "source_sha256": "035082f788daf849",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
@@ -1477,17 +1490,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.6.8.s3",
-      "source_sha256": "65b29ab3d1214e9a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "The inhabitants of the imperial city also heard of the virtues of Saint Hilarion and of his angelic way of life. They came and begged him to accept from them what he needed."
+      "source_sha256": "2256be05059223d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And the inhabitants of the royal city too heard of the virtues of Saint Hilarion and of his angelic way of life,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.6.8.s4",
-      "source_sha256": "7a5c62e8f2b4f215",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "But he would not do this. Instead he said to them: \"Our helper, the holy Mother of God, nourishes us, and she will not let me lack bodily food.\""
+      "source_sha256": "01c3fa99dfc6ef44",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and they would come and beg him to accept from them whatever he needed. But he did not wish to do this, and said to them:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.6.8.s5",
+      "source_sha256": "9454fb5801391ade",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Our helper, the holy Mother of God, feeds us, and she will not let us lack bodily food.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.6.9.s1",
@@ -1617,69 +1637,76 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s5",
-      "source_sha256": "055dc0cce3096982",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "\"Man, get up and bring me a bunch of grapes.\" The man said to him: \"Look, father, this garden is in front of you; take whatever you want,"
+      "source_sha256": "94a090191a33300b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Man, get up and bring me one bunch of grapes.\" The man said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s6",
-      "source_sha256": "b3a283855f670c1d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "for because of my sins I cannot stand up. I have been here thirteen years, ever since I became lame, and the owner of this place feeds me.\""
+      "source_sha256": "60330c57f9e05098",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Look, father, this garden is before you; take whatever you wish, for I cannot get up because of my sins,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s7",
+      "source_sha256": "62c7be5705fee7b6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and I have been here thirteen years, ever since I became lame, and the owner of this place feeds me.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s8",
       "source_sha256": "d6d3dc8a2da8b2c4",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "Then the saint took pity on that man. He sighed from the depth of his heart and lifted the eyes of his mind to God,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s8",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s9",
       "source_sha256": "5af7a073b6be6494",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "who hears those who pray in silence more than any loud cry. And he said to the man:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s9",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s10",
       "source_sha256": "5f7ff90cf7c1d600",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "\"Get up, brother, the Lord has commanded it. Bring me some of the fruit of that garden with your own hand.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s10",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s11",
       "source_sha256": "9415eb927c060e63",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "At that very moment his feet were made straight. He stood up and went into the vineyard to bring him grapes."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s11",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s12",
       "source_sha256": "bcf595aaa9f67c8d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "But Saint Hilarion got up and went away by another road. When the man came out, he could no longer find that good healer."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s12",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s13",
       "source_sha256": "87058e2228d95398",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And at once he went into the city, holding that cluster [?] in his hands, giving thanks to God and crying out:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s13",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s14",
       "source_sha256": "e9f29dd675fe4a7c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"Inhabitants of this city, look at me, look at me! For I am the one who was lame before, and you saw me many times."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s14",
+      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.3.s15",
       "source_sha256": "e105bd53bc3650eb",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1687,17 +1714,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.4.s1",
-      "source_sha256": "2f4c3dce8bd1191e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "81b305f299f549c8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then, when the people of the city saw that great wonder, those who had known the man before were amazed and asked him, \"How were you healed?\""
+      "text": "Then, when the people of the city saw that great wonder, those who had known the man before asked him in amazement:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.4.s2",
-      "source_sha256": "8cd0ecde11169c30",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "01c2d447b1fa9e9d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he told them the whole story of his healing, and described to them the appearance and marks of the saint and of his disciple as well."
+      "text": "\"How were you healed?\" And he told them the whole story of his healing, and described to them the appearance and features of the saint and of his disciple too."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.7.4.s3",
@@ -1848,24 +1875,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.8.6.s4",
-      "source_sha256": "1b4f908645490545",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He made the sign of the cross over the boy and said to him: \"In the name of the Father and of the Son and of the Holy Spirit I say to you,"
+      "source_sha256": "efca701556138d8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "He made the sign of the cross over the boy and said, \"In the name of the Father and of the Son and of the Holy Spirit, I say to you, boy,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.8.6.s5",
-      "source_sha256": "bfbcc77af859d56f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "boy, rise up alive.\" And at once he was healed and rose, entirely unharmed, on his own feet."
+      "source_sha256": "3a13bf1b9e35eca8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "rise up alive.\" And immediately he was healed and stood up on his feet, completely unharmed. And he said again to the boy:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.8.6.s6",
-      "source_sha256": "563748280689ec6a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And he said again to the boy: \"Go, child; your mother [?] wants you.\" And the boy rose up alive and went in to his mother."
+      "source_sha256": "a1a6f64f3b88b130",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Go, child, your mother needs you.\" And the boy rose up alive and went in to his mother."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.8.6.s7",
@@ -2184,17 +2211,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.1.s3",
-      "source_sha256": "230676f9bd98f86e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "f3a96b46166b91fc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the look of his face changed, and he became joyful in spirit, like a good labourer going to receive the fruit of his virtues,"
+      "text": "And the appearance of his face changed and he became joyful in spirit, like a good laborer going to gather the fruit of his virtues, as David says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.1.s4",
-      "source_sha256": "51664bb5f4f4cbc5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "06a21a7554a64f3f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "as David says: \"They shall surely come with rejoicing, bringing their sheaves.\""
+      "text": "\"They came with joy, bringing their sheaves.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.2.s1",
@@ -2352,17 +2379,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.8.s1",
-      "source_sha256": "ead791b6bb263a79",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "88d00b67be5cd5d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And as his burial was about to take place, two men possessed by demons suddenly came and said: \"Hilarion the Georgian, why are you driving us out of our dwellings?\""
+      "text": "And when his burial was about to take place, two men possessed by demons suddenly came and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.8.s2",
-      "source_sha256": "9ac52bfbbd4fd0ab",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "732322aa7f7ba9b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And as soon as they came near his holy body, they were healed at once."
+      "text": "\"Hilarion the Georgian, why are you driving us out of our dwellings?\" And as soon as they came near his holy body, they were healed."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.9.8.s3",
@@ -2730,17 +2757,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.2.s2",
-      "source_sha256": "0d2a4c6e8070d28f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9185649ad561cc8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"O honorable fathers, let your worthiness choose a monastery, wherever you wish, for yourselves and for your nation.\""
+      "text": "\"O honored fathers, let your worthiness choose a monastery, wherever you wish, for yourselves and for your people.\" But they answered:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.2.s3",
-      "source_sha256": "2dd73115d42434a2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3788c73d61a3f232",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But they answered: \"O king, we cannot do this: take possession of what others have built, we who are strangers, and drive out those who built it."
+      "text": "\"O king, this is not possible for us: that we, men who are foreigners, should take over what others have built and drive out those who built it."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.2.s4",
@@ -2842,24 +2869,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.5.s1",
-      "source_sha256": "c6b7db06e92781fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Then the king said to the worthy fathers: \"Holy fathers! Ask for whatever you need from my majesty.\""
+      "source_sha256": "ba0a87a7bb89884a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "Then the king said to those worthy fathers: \"Holy fathers! Ask for whatever you need from my kingdom.\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.5.s2",
-      "source_sha256": "08190c6dc77d480c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "They said to him: \"We ask of you, O God-loving king, that you remove all injustice from your kingdom,"
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.5.s3",
-      "source_sha256": "991f9db7122b50d9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "so that you do not provoke the Lord to anger against you, and the good you have done for us does not become worthless.\""
+      "source_sha256": "195f83b02b3c2f02",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "\"We ask of you, O God-loving king, that you remove all injustice from your realm, so that you do not make the Lord angry with you, and so that your kindness toward us does not come to nothing.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.11.6.s1",
@@ -3199,17 +3219,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.12.5.s7",
-      "source_sha256": "91017a1c3fac5ab5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "But they could not find out. Then, by God's providence, the emperor fell asleep again, and at once Saint Hilarion appeared to him,"
+      "source_sha256": "eede95b8bef47602",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "And they could not recognize [him]. But by God's providence, when the king had fallen asleep again, Saint Hilarion suddenly appeared to him, clothed in a priestly vestment, and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.12.5.s8",
-      "source_sha256": "e093b54dbdc6943e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 21,
-      "text": "clothed in a priestly vestment, and he said to him: \"You have done well to receive me, O king, this stranger and poor man.\""
+      "source_sha256": "270b213c9ea3ac0f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "\"You did well to receive me, O king, this stranger and poor man."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-2/life-of-hilarion-the-georgian#Ilar.12.5.s9",

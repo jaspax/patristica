@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -21,17 +27,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.3.s1",
-      "source_sha256": "b20926e028bd8c8a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "cb969a762c59d95f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 21,
-      "text": "Luke the Evangelist admonished us in this epistle reading, saying thus: \"The Saviour, the Redeemer of the world, showed himself alive to his disciples"
+      "text": "Luke the Evangelist taught us in this epistle reading, saying thus:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.3.s2",
-      "source_sha256": "c7d5e369f2f67397",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "4c959164da8ec5d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 21,
-      "text": "after his passion and his resurrection, in many proofs, over forty days, and spoke to them about the kingdom of God, eating together with them;"
+      "text": "\"The Saviour, the Redeemer of the world, showed himself alive to his disciples after his passion and his resurrection, by many proofs, over forty days, and spoke to them about the kingdom of God, eating together with them.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.3.s3",
@@ -182,20 +188,27 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.8.s1",
-      "source_sha256": "7df8889bf96f0424",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "d9123be73d58864b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 21,
-      "text": "The holy company asked Christ whether he would bring this world to an end at that time. He said to them in answer, \"It is not for you to know the time that my Father has set by his own power.\""
+      "text": "The holy company asked Christ whether he would bring this world to an end at that time. Then he said to them in answer,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.8.s2",
-      "source_sha256": "ea25bf1dec6dd357",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "4493558aaae133b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 21,
-      "text": "He also said in another place, \"No one knows the day or the time of the ending of this world, neither the angels nor any saint, but God alone.\""
+      "text": "\"It is not for you to know the time which my Father has set by his power.\" He also said in another place,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.8.s3",
+      "source_sha256": "2c86c43aaea19387",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"No man knows the day or the hour of the ending of this world, neither the angels nor any saint, but God alone.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.8.s4",
       "source_sha256": "f8c2dcbb0bac26fd",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
@@ -308,27 +321,34 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.12.s1",
-      "source_sha256": "6b3b7199af417501",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "\"As the eleven disciples were sitting at table,\" and so on. We have now read Luke's account of Christ's ascension; now we turn our study to the other evangelist, Mark, who said in this day's gospel"
+      "source_sha256": "7f7668faae02fe09",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "Recumbentibus undecim discipulis, et reliqua (\"As the eleven disciples sat at meat,\" and so on). We have now read Luke's account of Christ's ascension;"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.12.s2",
-      "source_sha256": "06e2bd129fb603ec",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "that the Saviour showed himself to his apostles and rebuked them, because at first they would not believe in his resurrection from death when it was made known to them."
+      "source_sha256": "5a86e6f46151a2d2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "now let us turn our study to the other evangelist, Mark, who said in today's gospel that the Saviour showed himself to his apostles and rebuked them,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.12.s3",
-      "source_sha256": "aaa830f430cedbdb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "Then the Lord said to his disciples, \"Go throughout all the world, and preach the gospel to every creature. Whoever believes and is baptized will be saved; whoever does not believe will be condemned."
+      "source_sha256": "47d9dd66f7752abf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "because at first they would not believe in his resurrection from death when it was made known to them. Then the Ruler said to his disciples,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.12.s4",
+      "source_sha256": "d64eee4da535e3f7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"Go throughout all the world and preach the gospel to every creature: he who believes and is baptized will be saved; he who does not believe will be condemned.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.12.s5",
       "source_sha256": "138991547809e630",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
@@ -427,48 +447,41 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s2",
-      "source_sha256": "7e61219b345ced23",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Faith is true when a man does not deny by perverse conduct what he believes; about this John the apostle said, \"He who says that he knows God and does not keep his commandments is a liar.\""
+      "source_sha256": "b2714dfe6ad7bd77",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "That faith is true which does not contradict with perverse conduct what it believes. Of this John the apostle said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s3",
-      "source_sha256": "829f5c94f6ff160d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Again the apostle James says, \"The faith that is without good works is dead.\""
+      "source_sha256": "99d071f9070bfd40",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"He who says that he knows God and does not keep his commandments is a liar.\" Again the apostle James says, \"Faith that is without good works is dead.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s4",
-      "source_sha256": "ba23d956187c8186",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "09aa8fb13bf0cdc2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 21,
-      "text": "Again he said, \"What good does it do you to have faith if you do not have good works?"
+      "text": "Again he said, \"What does it profit you to have faith if you do not have good works? Faith cannot save you without works."
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s5",
-      "source_sha256": "3080b48dcd34e680",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Faith cannot save you without works. Devils believe, but they tremble.\""
+      "source_sha256": "e779e295a3a69217",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "Devils believe, but they tremble.\" The devils saw Christ in this life in his human nature, and they fell at his feet and cried out and said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s6",
-      "source_sha256": "586e41df2ecf0f23",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "The devils saw Christ in this life, in his human nature, and they fell at his feet and cried out and said, \"You are the Son of God; you have come because you would destroy us.\""
+      "source_sha256": "2e5d1dc39d9b7997",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"You are the Son of God; therefore you have come, because you would destroy us.\" The man who will not believe in God and has no fear of God is worse than the devil."
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s7",
-      "source_sha256": "a8ef11192eef6d7b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "The person who will not believe in God and has no fear of God is worse than the devil."
-    },
-    {
-      "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.14.s8",
       "source_sha256": "8a8e5eb4da4d45e6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
@@ -581,24 +594,24 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.17.s2",
-      "source_sha256": "b9d5d4dc718d4503",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "Both good men and evil worked the earlier miracles. Judas, who betrayed Christ, was evil, though he had earlier worked miracles through God's name."
+      "source_sha256": "1236942243d00976",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "The earlier miracles were performed by both good men and evil. Judas, who betrayed Christ, was evil, though he had earlier performed miracles through God's name. Of such men Christ said in another place,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.17.s3",
-      "source_sha256": "13880721e0d5bdbd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "Of such men Christ said in another place, \"I say to you, many will say to me on that great day, 'Lord, Lord, did we not prophesy in your name,"
+      "source_sha256": "ee19d585bf33937c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"I tell you, many will say to me on that great day, 'Lord, Lord, did we not prophesy in your name, and drive devils out of madmen, and perform great mighty works in your name?'"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.17.s4",
-      "source_sha256": "f3e30146c07aa6ca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "and did we not drive devils out of mad men, and do great mighty works in your name?' Then I will declare to them, 'I do not know you: depart from me, you workers of unrighteousness.'\""
+      "source_sha256": "0032eed5b31e6d61",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "Then I will declare to them, 'I do not know you: depart from me, you workers of unrighteousness.'\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.17.s5",
@@ -721,17 +734,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.21.s2",
-      "source_sha256": "0cb092d3bdff12d5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "and the first martyr, Stephen, said that he saw the heavens open, and the Savior standing at his Father's right hand."
+      "source_sha256": "dd9a49c58e6fe93c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "and the first martyr, Stephen, said that he saw the heavens open and the Saviour standing at his Father's right hand. Now the commentator says,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.21.s3",
-      "source_sha256": "14a0b902ae67f5e4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 7,
-      "text": "Now the commentator says, \"It is rightly said that he sat after his ascension, because a seat befits a judge.\""
+      "source_sha256": "e039e1fd069a992c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"It is rightly said that he sat after his ascension, because a seat befits a judge.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.21.s4",
@@ -756,31 +769,24 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.22.s2",
-      "source_sha256": "d298327c788b284d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "The apostles, that is, God's heralds, went out across the whole world. Peter preached in the land of Judea, Paul among the heathen peoples, Andrew in Scythia,"
+      "source_sha256": "e7c349163c9f3721",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "The apostles, that is, God's messengers, went out through all the world. Peter preached in the land of Judea, Paul among the heathen peoples, Andrew in Scythia, John in Asia, Bartholomew in India, Matthew in Ethiopia,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.22.s3",
-      "source_sha256": "73a01d1329257483",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 7,
-      "text": "John in Asia, Bartholomew in India, Matthew in Ethiopia, and so each of them in his own portion, and God's power was with them to carry out their preaching and countless miracles;"
+      "source_sha256": "4485fcf988a0a873",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "and so each of them in his own region, and God's power was with them for the carrying out of their preaching and of countless signs; for Christ said, \"You can do nothing without me.\" Again he said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.22.s4",
-      "source_sha256": "bb203b7313035cac",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 7,
-      "text": "because Christ said, \"You can do nothing without me.\" Again he said, \"I am with you all days,"
-    },
-    {
-      "chunk_id": "aelfric-ch/ch1-21#AECHomI.21.22.s5",
-      "source_sha256": "2ddab5b8b95242ba",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "until the ending of this world,\" he who lives and reigns with the Almighty Father and the Holy Spirit forever into eternity. Amen."
+      "source_sha256": "5e4782ce52c500e4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 1,
+      "text": "\"I am with you always, until the end of this world,\" he who lives and reigns with the Almighty Father and the Holy Spirit forever and ever. Amen."
     }
   ]
 }

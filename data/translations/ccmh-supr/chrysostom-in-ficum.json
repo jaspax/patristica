@@ -4,6 +4,12 @@
   "source_language": "chu",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-29": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -735,17 +741,17 @@
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-in-ficum#Supr.175v.s9",
-      "source_sha256": "afd2da713c16aa57",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "This fig tree was a symbol"
+      "source_sha256": "8ca7ab82c2157303",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "This fig tree bore the image"
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-in-ficum#Supr.175v.s10",
-      "source_sha256": "b4908b33d4a6f1bb",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-29",
-      "group_size": 25,
-      "text": "representing the wide and spacious road that leads to destruction. The fig leaf is flat and sharp."
+      "source_sha256": "5f768a279ec89296",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "of the broad and spacious way that leads to destruction. The fig leaf is flat and sharp."
     },
     {
       "chunk_id": "ccmh-supr/chrysostom-in-ficum#Supr.175v.s11",

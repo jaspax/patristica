@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -231,52 +237,59 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s1",
-      "source_sha256": "f3aa8ecac65bb5f0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 12,
-      "text": "God spoke these words through the prophet Ezekiel, concerning teachers and concerning his people. You must be zealous for your own need, even if it should happen that the teacher is negligent, [?]"
+      "source_sha256": "b1e708679848e06a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "God spoke these words through the prophet Ezekiel, about teachers and about his people."
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s2",
-      "source_sha256": "e4192f7895352d37",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 5,
-      "text": "and do as Christ taught: \"If the teacher teaches well and sets a bad example, do as he teaches, and not according to the example he sets.\""
+      "source_sha256": "a312fdc01375f958",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "You must be eager for your own good, even if it happens that the teacher is careless, and do as Christ taught:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s3",
-      "source_sha256": "6995cdef9554c908",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 12,
-      "text": "The Saviour said of himself, \"I am the good shepherd, and I know my sheep, and they know me.\" That is, I love them, and they love me. He who does not love truth has not yet known God."
+      "source_sha256": "7ef2e955c8e08aa5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"If the teacher teaches well and sets a bad example, do as he teaches, and not according to the example he sets.\" The Saviour said of himself,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s4",
-      "source_sha256": "790176dc9e54a7cd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 5,
-      "text": "But consider whether you are God's sheep, whether you have yet come to know him, whether you love him in truth."
+      "source_sha256": "3a2eabfa20f1efcb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"I am the good shepherd, and I know my sheep, and they know me.\" That is, I love them, and they love me. Whoever does not love truth has not yet known God."
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s5",
-      "source_sha256": "b7cf77a9a835bde6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 12,
-      "text": "He said, \"Just as my Father knows me, and I know him, so I give my own life for my sheep.\""
+      "source_sha256": "331266b264523700",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "But consider whether you are God's sheep, whether you have yet known him, whether you love him in truth. He said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s6",
-      "source_sha256": "cc5221626ba35457",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 12,
-      "text": "He knows his Father through himself, and we know through him. By the love with which he was willing to die for mankind, by that he showed how greatly he loves his Father."
+      "source_sha256": "f890f983adbd1c9b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Just as my Father knows me, and I know him, and I give my own life for my sheep.\" He knows his Father through himself, and we know him through him."
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s7",
-      "source_sha256": "82cc4af92f4844e2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 12,
-      "text": "He said, \"I have other sheep that are not of this flock, and those I must lead, and they will hear my voice, and there shall be one flock and one shepherd.\""
+      "source_sha256": "fa4337a3f744673e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "By the love with which he was willing to die for mankind, he showed how greatly he loves his Father. He said,"
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.8.s8",
+      "source_sha256": "df6c91b62cf8d1b1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"I have other sheep which are not of this flock, and I must lead them, and they will hear my voice, and there shall be one flock and one shepherd.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-17#AECHomI.17.9.s1",

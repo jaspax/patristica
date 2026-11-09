@@ -9,6 +9,18 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-10-31",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-04",
+      "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -238,17 +250,17 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.2.s4",
-      "source_sha256": "5d70ec78148893df",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "16c3d735b65f69a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The holy Shushanik said to me: \"Priest, I am indeed ready for a great contest.\" And I said to her: \"So it is."
+      "text": "And holy Shushanik said to me: \"Priest, I too am prepared for a great contest.\" And I said to her:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.2.s5",
-      "source_sha256": "d674f0df155786a3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "31f02eddd5f4cc54",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Be brave, patient and long-suffering.\" But she said to me: \"These troubles are mine alone!\""
+      "text": "\"So it is. Be brave, patient and long-suffering.\" And she said to me: \"These troubles are for me alone!\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.3.s1",
@@ -280,24 +292,31 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.4.s3",
-      "source_sha256": "a5396f6d1eba850b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "c0a24ccc5fc0a305",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Far be it from me to share in the deeds and sins of Varsken!\" I answered her: \"He has a cruel mind. He will subject you to beatings and great torment.\""
+      "text": "\"Far be it from me that I should share in the deeds and sins of Varsken!\" I answered and said to her:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.4.s4",
-      "source_sha256": "b3177da6a58556d0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "8225c80aafdc84ec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "She said to me: \"It is better for me to die at his hands than to be united with him again and lose my soul,"
+      "text": "\"He has a bitter mind; he will cast you into beatings and great torment.\" And she said to me:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.3.4.s5",
-      "source_sha256": "da0c4aef8840a1c6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "f0a99d759f87ba89",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for I have heard from the Apostle Paul: 'A brother or a sister is not bound; let them separate.'\" And I said: \"So it is.\""
+      "text": "\"It is better for me to die at his hands than to be united with him and have my soul perish, for I have heard from Paul the apostle:"
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.3.4.s6",
+      "source_sha256": "26d3fd00552d3fa0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'A brother or a sister is not bound in slavery, but let them separate.'\" And I said: \"So it is.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.4.1.s1",
@@ -329,17 +348,17 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.4.2.s1",
-      "source_sha256": "f097db7e2a30263b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "55866bccc831da48",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "Three days later Varsken the pitiakhsh arrived. The Persian spoke to him in secret and said: \"From what I have learned, your wife has separated from you."
+      "text": "And after three days Varsken the pitiakhsh came. And that Persian spoke to him in secret and said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.4.2.s2",
-      "source_sha256": "f5a91c5aa4695f35",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "160cf7a5b51347a5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And I tell you: do not say anything harsh to her, for women's nature is weak.\""
+      "text": "\"As I understand it, your wife has separated herself from you. And I tell you: do not say any harsh word to her, for the nature of women is narrow [frail].\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.4.3.s1",
@@ -455,17 +474,17 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.2.s5",
-      "source_sha256": "b28f9cbaf03b01e4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "3179609bc7707c4d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Jojik said to her: \"Know this: now they will send servants, and he will have you dragged away by force.\""
+      "text": "Jojik said to her: \"Know that they will now send servants, and he will have you dragged away.\" And holy Shushanik said to him:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.2.s6",
-      "source_sha256": "65d4492ff9ce4359",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "674033a66adf3404",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But holy Shushanik said: \"If he binds me and drags me, I will rejoice, for in that way my separation from him will be settled.\""
+      "text": "\"If he binds me and drags me, I rejoice, for in that way my separation from him will come about.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.3.s1",
@@ -476,17 +495,24 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.3.s2",
-      "source_sha256": "180f936325a2c77d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "72583642c07e9eb1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"How can you tell me to give in, when he has denied God?!\" But Jojik pleaded with her and said: \"You are our sister. Do not destroy this royal house.\""
+      "text": "\"How can you tell me to trust him, when he has denied God?!\" And Jojik entreated her and said to her:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.3.s3",
-      "source_sha256": "04b26d662eb2e122",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "d553fb783ea697e2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Holy Shushanik said to him: \"I know that I am your sister and that we were brought up together, but I cannot do that, even if it should come to bloodshed and all of you be held guilty.\""
+      "text": "\"You are our sister; do not ruin this royal house.\" Holy Shushanik said to him:"
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.5.3.s4",
+      "source_sha256": "6f0b37df5713a3a1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I know that I am a sister and that we were raised together, but that I cannot do, even if bloodshed should be committed and all of you become guilty.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.5.4.s1",
@@ -658,31 +684,31 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.2.s1",
-      "source_sha256": "3399dafbdcb55f37",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "cf5c177444ec272c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But I got up, went, and said to the guard: \"Let me go in, just me alone, and see her wounds.\""
+      "text": "And I rose and went and said to the guard: \"Let me in, me alone, so that I may see her wounds.\" And he said to me:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.2.s2",
-      "source_sha256": "2c657d2d7f7ec86f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "4c15026a9f48eb9c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But he said to me: \"What if he finds out and kills me?\" And I said to him: \"You wretch, were you not raised by her? And if he kills you for her sake, what of it?\" Then he let me in secretly."
+      "text": "\"What if he finds out and kills me?\" And I said to him: \"Wretch, were you not raised by her? And if he kills you for her sake, what of it?\" Then he let me in secretly."
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.3.s1",
-      "source_sha256": "6254e1d6d3e0f9a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "d7521c357f12d8fc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when I went inside, I saw her face, cracked open and swollen, and I cried out aloud and wept."
+      "text": "And when I went inside, I saw her face battered and swollen, and I cried aloud and wept. And holy Shushanik said to me:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.3.s2",
-      "source_sha256": "5946686fbc7c6091",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "0c0ebad1d50b1304",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But holy Shushanik said to me: \"Do not weep for me, for this night has become the beginning of joy for me.\" And I said to holy Shushanik: \"Allow me to"
+      "text": "\"Do not weep for me, for this night has become for me the beginning of joy.\" And I said to holy Shushanik: \"Command me and [?]"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.4.s1",
@@ -721,48 +747,55 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s1",
-      "source_sha256": "ec907affb81d4dc4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 24,
-      "text": "Then holy Shushanik said to me: \"Priest, shouldn't I send him this jewelry of his? He may ask for it, because I have no more need of it in this life!\" But I said: \"Don't be in any hurry; let it stay with you.\""
+      "source_sha256": "c9975419c02d79b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then holy Shushanik said to me: \"Priest, shall I send him this adornment of his, in case he asks for it? For I have no more use for it in this life!\" And I said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s2",
-      "source_sha256": "37dc5870018d6a94",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 24,
-      "text": "While we were still talking this over, a boy came and said: \"Is Jacob there?\" I said: \"What do you want?\" And he said to me: \"The pitiakhsh is summoning you.\""
+      "source_sha256": "ab86ee5bada425aa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Do not be in a hurry; let it stay with you.\" And while we were still discussing this, a boy came and said: \"Is Jacob there?\" And I said to him:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s3",
-      "source_sha256": "30445dce32f43b24",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 24,
-      "text": "I was surprised and wondered why he was summoning me at this hour. I hurried and went, and he said to me: \"Do you know, priest, that I am going off to war against the Huns?"
+      "source_sha256": "82bebb9d04de451d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"What do you want?\" And he said to me: \"The pitiakhsh summons you.\" And I wondered why he was summoning me at this hour."
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s4",
+      "source_sha256": "c6afe5533d7077f5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And I hurried and went, and he said to me: \"Do you know, priest, that I am going to war against the Huns?\""
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s5",
       "source_sha256": "24234c72d12be289",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 24,
       "text": "I will not leave my jewelry with her. Since she is no longer my wife, someone will be found who will [?] it."
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s5",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s6",
       "source_sha256": "e4ae6e037b1ba1e0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 24,
       "text": "Go and bring me all of it, whatever there is!\" So I went and told holy Shushanik."
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s6",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s7",
       "source_sha256": "1005a8c2a57527c1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 24,
       "text": "She rejoiced greatly, gave thanks to God, and sent me everything."
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s7",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.7.6.s8",
       "source_sha256": "b75bd469a6e9bb2a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 24,
@@ -952,31 +985,31 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.9.4.s2",
-      "source_sha256": "2ff78cbd79978cd2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "e48a5cbc6d3786fa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the chain that had been put on her neck stayed on her as before, and the lawless Varsken sealed it with his own seal."
+      "text": "And the chain that lay upon her neck lay there likewise, and the lawless Varsken sealed it with his own seal. And holy Shushanik said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.9.4.s3",
-      "source_sha256": "8c917ec961d118d4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "2f6df680fc9a9274",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But holy Shushanik said: \"I rejoice in this, that I may suffer here and find rest there.\" And the pitiakhsh said to her: \"Yes, yes, rest!\""
+      "text": "\"I am glad of this, that I may suffer torment here and find rest there.\" And the pitiakhsh said to her: \"Yes, yes, rest!\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.9.5.s1",
-      "source_sha256": "6caad2aee9090736",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "a293e59f5f6d40ea",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then he set guards over her and ordered them to kill her by starvation."
+      "text": "Then he set guards over her and ordered them to kill her by starvation. And he spoke to them thus:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.9.5.s2",
-      "source_sha256": "5296d61d734b4958",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "6b03bc1a55edda03",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he spoke to them thus: \"I tell you, if anyone goes in to her, man or woman, look to yourselves and your wives and children and houses!"
+      "text": "\"I tell you, if anyone goes in to her, man or woman, look to your own heads, and your wives and children and houses!\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.9.5.s3",
@@ -1113,27 +1146,34 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s2",
-      "source_sha256": "71963360002df080",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "da11382f3c9a5d3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And she came to the holy Shushanik, and Shushanik taught her to give up her magian religion and become a Christian. And the woman quickly agreed."
+      "text": "And he came to holy Shushanik, and she taught him to abandon Magianism and become a Christian."
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s3",
-      "source_sha256": "142688a325d00a13",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "And she instructed the woman and said to her: \"Go to Jerusalem, and you will be cleansed of your leprosy.\""
+      "source_sha256": "5c10e5b6853440e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "But the woman took it upon herself early, early [?]. And he taught the woman and said to her:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s4",
+      "source_sha256": "895374f9e29f44a9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Go to Jerusalem and be cleansed of your [?].\""
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s5",
       "source_sha256": "f1aca6b58e83ec60",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 25,
       "text": "And the woman eagerly accepted this and set out on the road in the name of our Lord Jesus Christ. And she was healed of her disease."
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s5",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.11.2.s6",
       "source_sha256": "8f92d9f0c554dd2f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 25,
@@ -1197,34 +1237,41 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s1",
-      "source_sha256": "8238f4dca0719b75",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "And afterward the pitiakhsh sent messengers and said to her: \"Either do my will and come to the palace, or, if you will not come home, I will hand you over to Chor, or to the [royal] court, under guard.\""
+      "source_sha256": "293b9528bfd11950",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And afterward the pitiakhsh sent messengers and said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s2",
-      "source_sha256": "f9321487c73518de",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "But the holy Shushanik answered him thus: \"O wretched and senseless man, if you send me to the court, do not send me to Chor. Who knows whether I may meet with something good there and escape this evil.\""
+      "source_sha256": "c114a4aaffb5cb9f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Either do my will and come to the palace, or, if you do not come home, I will send you off on a mule [?], or to the court, under guard.\" But Saint Shushanik answered him thus:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s3",
+      "source_sha256": "841501d6a21f0ee1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Wretched and senseless one! As for me, if it is to the court, do not send me on a mule [?]. Who knows whether I may meet with some good there and escape this evil?\""
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s4",
       "source_sha256": "9d2fb4f8a6637af0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 25,
       "text": "And the pitiakhsh pondered in his heart over those words that she had said to him:"
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s4",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s5",
       "source_sha256": "7d19919df34ec511",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 25,
       "text": "\"Who knows whether I may meet with something good\" — [thinking] that perhaps she might become the wife of one of the princes. And from then on he sent no one to her any more."
     },
     {
-      "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s5",
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.13.1.s6",
       "source_sha256": "b77cb8213ae869c1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
       "group_size": 25,
@@ -1232,17 +1279,17 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.2.s1",
-      "source_sha256": "bc81e1372ee1a6ec",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Then the pitiakhsh chose her own milk-brother to bring her to the palace."
+      "source_sha256": "3689b7744848f587",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "But the pitiakhsh chose her own foster-brother to bring her to the palace. And when that man said to her:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.2.s2",
-      "source_sha256": "e83c7ae38ea07222",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "When that man said to her, \"Listen to me and come down to the palace, and do not ruin that house of yours,\" holy Shushanik said to him:"
+      "source_sha256": "15151e6012b25d77",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Listen to me and come down to the palace, and do not ruin that house of yours,\" Saint Shushanik said to him:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.13.2.s3",
@@ -1470,17 +1517,24 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.1.s3",
-      "source_sha256": "e2cea10be2190a80",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "When he arrived, he got in only with difficulty. He bowed before the precious cross and greeted holy Shushanik. He sat down beside her and asked her about her sufferings."
+      "source_sha256": "16e2c54813ace136",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And when he arrived, he only just managed to come in [?], and bowed down before the venerable cross and greeted Saint Shushanik."
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.1.s4",
-      "source_sha256": "378a99c2ad455f35",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "The saint said to him: \"I am well, as God wills, but I too am going on the road that everyone must travel.\""
+      "source_sha256": "91863a96532feac6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "He sat down with her and asked about her sufferings. And the saint said to him:"
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.16.1.s5",
+      "source_sha256": "41018652dbb37ed1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"I am well, as God wills. But I too am going on the road that everyone must travel.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.2.s1",
@@ -1498,24 +1552,24 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.2.s3",
-      "source_sha256": "fdb89b4f524b0080",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Holy Shushanik said to him: \"If you do nothing else of that kind, childishly, God will forgive you.\""
+      "source_sha256": "05953d5244ddcd6f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And Saint Shushanik said to him: \"If you have done anything otherwise, in a childish way, may God forgive you.\" And Jojik said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.2.s4",
-      "source_sha256": "7429a1fe07f2f66c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Jojik said: \"That is the very reason I have come to you, so that I will not do anything that is not pleasing to God.\""
+      "source_sha256": "55c15ce8f1b20531",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"It is for that very reason that I have come to you, so that I may not do anything that is not pleasing to God.\" Saint Shushanik said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.2.s5",
-      "source_sha256": "865dc20c5b5816f7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Holy Shushanik said: \"If you do so, you will make me immortal by that word, and may God add to the days of your life.\""
+      "source_sha256": "1dada1781ee42b19",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"If you do so, you will have made me immortal [?] by that word, and may God add to the days of your life.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s1",
@@ -1540,31 +1594,31 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s4",
-      "source_sha256": "4a6d10758c22c98f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Holy Shushanik said to Jojik and his wife: \"Make haste in this matter of ours, for no one was found among men"
+      "source_sha256": "1d55ebafc94e7951",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And Saint Shushanik said to Jojik and his wife:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s5",
-      "source_sha256": "a463c03f93d56d1f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "who had mercy and felt pain for me, who would have admonished that godless husband of this passing world.\""
+      "source_sha256": "2b25906cbee8b8e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Hasten this matter of ours, for no one was found among men who had mercy on me and felt pain for me, who would have reconciled me with that godless husband of this passing world.\""
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s6",
-      "source_sha256": "35651ffe296443b7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "They said to her: \"We strove hard on your behalf without your knowing, but he would neither listen nor answer.\""
+      "source_sha256": "d407f68edfd2ffff",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And they said to her: \"Apart from you [?], we wore ourselves out greatly, but there was neither hearing nor a word in reply.\" Then Saint Shushanik said:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s7",
-      "source_sha256": "f3e3e7451c88a723",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "Then holy Shushanik said: \"Let me and Varsken the pitiakhsh be judged there, where there is no partiality before the Judge of judges and King of kings,"
+      "source_sha256": "dd1721d84e3a2584",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"Let Varsken the pitiakhsh and I be judged there, where there is no partiality, before the Judge of judges and the King of kings,"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.3.s8",
@@ -1624,17 +1678,24 @@
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.4.s5",
-      "source_sha256": "7d51b3cddba25433",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "And she urged them to walk in the ways of God and said to them: \"All this life is like the flower of the fields: it passes away and does not last. Whoever has sown will reap,"
+      "source_sha256": "452168badb6ab687",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "And she commanded them to walk in the ways of God and said to them:"
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.16.4.s6",
-      "source_sha256": "cf25ac9a86cca3a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
-      "group_size": 25,
-      "text": "and whoever has scattered to the poor has gathered; and whoever loses his own life will find it, the one who has glorified Him.\" And she bade them farewell and sent them away in peace."
+      "source_sha256": "031338393656a3e8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"All this life, like a flower of the fields, is passing and unstable. Whoever sowed has reaped, and whoever scattered to the poor"
+    },
+    {
+      "chunk_id": "wikisource-oge/shushanik#Shushanik.16.4.s7",
+      "source_sha256": "1b56b22165fea2e5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "has gathered. And whoever loses his own self shall find it, he who glorified Him [?].\" And she bade them farewell and sent them away in peace."
     },
     {
       "chunk_id": "wikisource-oge/shushanik#Shushanik.17.1.s1",

@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -112,17 +118,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.4.s1",
-      "source_sha256": "16b4587b6cbd1887",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Holy Eustathius was a little shaken and wanted to avoid it."
+      "source_sha256": "47f3cacd9c7398f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "But holy Eustathius faltered a little and wanted to hold back. And then [?] he thought it over and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.4.s2",
-      "source_sha256": "9d4e0348c5511002",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Then he thought it over again and said: \"These men are my companions. If I am afraid even of them, how will I later stand before great rulers?!"
+      "source_sha256": "5a43e55752e76be2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"These are my companions. If I am afraid even of them, how will I stand before the great princes later?!\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.4.s3",
@@ -147,17 +153,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.5.s1",
-      "source_sha256": "2e07c2d53d30c07c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The blessed Eustathius came and stood before Ustam, the commander of the fortress of Mtskheta."
+      "source_sha256": "7e0adf966eefe440",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "And the blessed Eustathius came and stood before Ustam, the commander of the fortress of Mtskheta. And the man who had summoned him said to Ustam:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.5.s2",
-      "source_sha256": "ce95d5e3ebcbf6c0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The man who had summoned him said to Ustam: \"This is the one who insults our religion.\" The commander looked at the blessed Eustathius and said to him:"
+      "source_sha256": "1b40f2624d277db5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"This is a man who insults our religion.\" And the fortress commander looked at the blessed Eustathius and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.2.5.s3",
@@ -336,17 +342,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.2.s5",
-      "source_sha256": "6dc42c5a267c33f1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "But whoever does not profess the ancestral religion, let him die in prison.\""
+      "source_sha256": "21eb8edf7c5b3cd1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"But whoever does not profess the religion of his fathers must die in prison.\" And when they heard the marzban's words:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.2.s6",
-      "source_sha256": "d31630abc24eba56",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And when they heard the marzpan's word, \"Whoever professes it, I will let him live, and whoever does not profess the ancestral religion, let him die in prison,\""
+      "source_sha256": "259881095ded84d1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Whoever professes it, I will let him live, and whoever does not profess the religion of his fathers must die in prison,\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.2.s7",
@@ -427,34 +433,41 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s2",
-      "source_sha256": "3981de8d219cb4fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "\"We entreat your lordship; we ask one request of you.\" He said to them, \"Say what you wish! What could there be that I would not grant you?\""
+      "source_sha256": "8fc59f5a7ee0b98c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"We beg your lordship; we ask you for one favour.\" And he said to them: \"Speak, whatever you wish!"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s3",
-      "source_sha256": "18b8756454ff688d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "They all said to him, \"We beg you, lord, may it please you to release those men of Mtskheta who have been put in prison for their Christianity.\""
+      "source_sha256": "bc716a31ad8f9e30",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "What could there be that I would not grant you?\" And all of them said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s4",
+      "source_sha256": "59b9741bdb923f6f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"We beg you, lord, may it please you to release those men of Mtskheta who have been put in prison for Christianity.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s5",
       "source_sha256": "62c6c6a414ac337b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "The marzban said to them, \"Those men were meant to be put to death, but at your intercession I release them.\" And they thanked him."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s6",
       "source_sha256": "a0e6935ba9c42dfc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "He ordered their release. They brought them out of the prison, and they went to their own homes as Christians."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s6",
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.3.4.s7",
       "source_sha256": "f12b1da488b71b83",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -567,27 +580,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s2",
-      "source_sha256": "48a93d293eb53b89",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And when the horsemen arrived, they brought Eustathius and Stephen before the marzpan Vezhan Buzmir and said: \"These are those new Christians from Mtskheta.\""
+      "source_sha256": "92c25dbf49972e81",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "And when the horsemen arrived, they brought Eustathius and Stephen before the marzban Vezhan Buzmir and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s3",
-      "source_sha256": "594571574888b903",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And Vezhan Buzmir said to Eustathius and Stephen: \"Who are you, and what religion do you hold?\" And the Syrian leading men stood up on Stephen's behalf and said to him:"
+      "source_sha256": "f2b997758a439160",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"These are the new Christians from Mtskheta.\" And Vezhan Buzmir said to Eustathius and Stephen:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s4",
+      "source_sha256": "940967bff2e7205f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Who are you, and what religion do you hold?\" And the leading men of the Assyrians stood up on behalf of Stephen and said to him:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s5",
       "source_sha256": "122199767da94909",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"We know this man; he is our fellow townsman. His father and mother and brothers and sisters are Christians, and he too is a Christian.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.4.3.s6",
       "source_sha256": "1e7731808aacf1b8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1666,17 +1686,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.7.4.s1",
-      "source_sha256": "2b9a418cb12dba23",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then Buzmir the marzpan said to him: \"My son Eustathius,"
+      "source_sha256": "4fad1af1c3641c27",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Then the marzban Buzmir said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.7.4.s2",
-      "source_sha256": "8a71fb649f81e35e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "listen to me. Do not cut short the days of your life for the sake of Christianity. Do not make your wife a widow and your children orphans, and do not be cut off from your companions in this life.\""
+      "source_sha256": "9b95880dcc09303e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"My son Eustathius, listen to me. Do not cut short the days of your life for the sake of Christianity. Do not make your wife a widow and your children orphans, and do not be cut off from your companions in this life.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.7.5",
@@ -1820,20 +1840,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.8.5.s1",
-      "source_sha256": "5d323290ce6703e1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 19,
-      "text": "And when he had finished his prayer and supplication and petition to the Lord, he said to the servants of the marzpan: \"Now carry out the command that has been decreed against me.\""
+      "source_sha256": "313d4d3f553bfb23",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "And when he had finished his prayer, supplication and petition to the Lord, he said to the marzban's servants:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.8.5.s2",
-      "source_sha256": "d24d22c45bc39b87",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 19,
-      "text": "But they did not want to kill him. Then one of them said: \"We will perish if he stays alive.\""
+      "source_sha256": "7bcbd4ac99e4e3f0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Now carry out the sentence that has been decreed against me.\" But they did not want to kill him."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.8.5.s3",
+      "source_sha256": "bf671c495be9e110",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "But one of them said: \"We will be put to death if he stays alive.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/martyrdom-of-eustathius-of-mtskheta#Eust.8.5.s4",
       "source_sha256": "196eca5c53395c4d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 19,

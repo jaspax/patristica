@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -21,17 +27,24 @@
     },
     {
       "chunk_id": "aspr/wanderer#Wanderer.6.s1",
-      "source_sha256": "e9dbf477cae5beee",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 13,
-      "text": "So spoke the earth-walker, mindful of hardships, of cruel slaughters, of the fall of dear kinsmen: \"Often, alone, at every dawn I have had to lament my sorrow."
+      "source_sha256": "60780715099f9d50",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "So spoke the earth-walker, mindful of hardships, of cruel slaughters, of the fall of dear kinsmen:"
     },
     {
       "chunk_id": "aspr/wanderer#Wanderer.6.s2",
-      "source_sha256": "fdad74edc7f1b6a5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 13,
-      "text": "There is now no one living to whom I dare speak my mind openly. I know for a truth that it is a noble custom in a man to bind fast the enclosure of his spirit and keep his treasure-chamber shut, whatever he may think."
+      "source_sha256": "a04d58262f4909ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "\"Often I have had to lament my sorrow alone, every dawn. There is now no one living to whom I dare speak my mind plainly."
+    },
+    {
+      "chunk_id": "aspr/wanderer#Wanderer.6.s3",
+      "source_sha256": "6ea392e7e988eff8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "I know for a truth that it is a noble custom in a man that he bind fast his heart's enclosure, keep close his treasure-chamber [of thought], whatever he may think."
     },
     {
       "chunk_id": "aspr/wanderer#Wanderer.15",
