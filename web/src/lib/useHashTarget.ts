@@ -104,12 +104,24 @@ export function useHashTarget(ready: boolean, resolve: (id: string) => Element |
 }
 
 /**
- * The element with id `id`; for a derived verse (`Did.1.s3`) that isn't on
- * the page, its unit (`Did.1`), or the section heading that took over that
- * ref when the unit was cut into printed verses (#122).
+ * Ids to try, in order, for a derived verse (`Did.1.s3`) that isn't on the
+ * page: its unit (`Did.1`, also the section heading that took over that ref
+ * when the unit was cut into printed verses, #122), then the unit's first
+ * derived verse (`Did.1.s1`). A link to a derived verse that a re-cut moved
+ * or removed (#200: cuts anchored on the original) lands on its paragraph,
+ * whose ref never changes. Empty for any other ref.
  */
+export function derivedFallbacks(id: string): string[] {
+  if (!isDerivedRef(id)) return [];
+  const unit = id.slice(0, id.lastIndexOf("."));
+  return [unit, `${unit}.s1`];
+}
+
+/** The element with id `id`, or for a derived verse that isn't on the page, its paragraph. */
 export function byId(id: string): Element | null {
-  const el = document.getElementById(id);
-  if (el || !isDerivedRef(id)) return el;
-  return document.getElementById(id.slice(0, id.lastIndexOf(".")));
+  for (const candidate of [id, ...derivedFallbacks(id)]) {
+    const el = document.getElementById(candidate);
+    if (el) return el;
+  }
+  return null;
 }
