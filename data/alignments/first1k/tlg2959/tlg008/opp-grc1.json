@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "first1k/tlg2959/tlg008/opp-grc1",
- "pivot": "first1k/tlg2959/tlg008/opp-grc1",
- "groups": 1,
- "inputs": "4b6f562b4aff32be",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "anf-works/methodius-on-martyrs",
+ "groups": 2,
+ "inputs": "05a4e4ea84c968ba",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/methodius-on-martyrs", "units": 2, "ids": "b4295e45cb43491a", "inputs": "7b1e41311d94c701", "spans": ".+", "conf": "8"},
-  {"work_id": "first1k/tlg2959/tlg008/opp-grc1", "units": 4, "ids": "1a86a88417895e1a", "inputs": "0b527ba4ad0c44d1", "spans": ".+=.", "conf": "8"}
+  {"work_id": "anf-works/methodius-on-martyrs", "units": 3, "ids": "11a8f4654fa8dadd", "inputs": "464e583ad28433e1", "spans": ".++", "conf": "69"},
+  {"work_id": "first1k/tlg2959/tlg008/opp-grc1", "units": 4, "ids": "1a86a88417895e1a", "inputs": "0b527ba4ad0c44d1", "spans": ".++.", "conf": "69"}
  ]
 }

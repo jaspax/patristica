@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-005/melito-fragmenta",
  "pivot": "anf-works/melito-fragments",
- "groups": 68,
- "inputs": "a3af05ff39228e06",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 67,
+ "inputs": "34f994fa9aba3c07",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/melito-fragments", "units": 140, "ids": "af5bac7f0a1caf1a", "inputs": "3a36b61984f64df0", "spans": ".+=...+++......+.....+..++......++...+........+....+............+++..+=.++=..++++=+=++++=+++++++++.++.++++++++++.+==++++=++++.+++++..++++.+=", "conf": "74927494373333867999999999999999999995949999999999999999998999999999"},
-  {"work_id": "ogpg/vol-005/melito-fragmenta", "units": 89, "ids": "6867f66b56f94075", "inputs": "66620f311b7772d4", "spans": "..+=++=..++.+++++..+.+.+..++++...++=++++++.+++++++++++++=+=++++++++++++++++++++++++.+++++", "conf": "74927494373333867999999999999999999995949999999999999999998999999999"}
+  {"work_id": "anf-works/melito-fragments", "units": 140, "ids": "af5bac7f0a1caf1a", "inputs": "3a36b61984f64df0", "spans": "..+....++......+.....+..++......++...+........+....+............+++..+=.++=..++++=+=++++=+++++++++.++.++++++++++.+==++++=++++.+++++..++++.+=", "conf": "5927494373333867999999999999999999995949999999999999999997999999999"},
+  {"work_id": "ogpg/vol-005/melito-fragmenta", "units": 89, "ids": "6867f66b56f94075", "inputs": "bb2faeb613185b35", "spans": "....++=..++.+++++..+.+.+..++++...++=++++++.+++++++++++++=+=++++++++++++++++++++++++.+++++", "conf": "5927494373333867999999999999999999995949999999999999999997999999999"}
  ]
 }

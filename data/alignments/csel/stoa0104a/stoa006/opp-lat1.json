@@ -3,10 +3,10 @@
  "group": "csel/stoa0104a/stoa006/opp-lat1",
  "pivot": "anf-works/cyprian-vanity-of-idols",
  "groups": 91,
- "inputs": "7dac200a12afee84",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "e50762f185d04209",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/cyprian-vanity-of-idols", "units": 112, "ids": "e3f6c7a0055f4cf8", "inputs": "0649c83e83be37a6", "spans": ".+===.+++++=+++=++++++=++=+++++=+=+++++=+++=++=+++++++++++++=++++=++++++=++++++=+++++++++=+++++=++++++++=+++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "anf-works/cyprian-vanity-of-idols", "units": 112, "ids": "e3f6c7a0055f4cf8", "inputs": "0098a686209ae725", "spans": ".+===.+++++=+++=++++++=++=+++++=+=+++++=+++=++=+++++++++++++=++++=++++++=++++++=+++++++++=+++++=++++++++=+++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "csel/stoa0104a/stoa006/opp-lat1", "units": 93, "ids": "0e96a4788fd5046c", "inputs": "d37ae8b8f09c3c6e", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++.+++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

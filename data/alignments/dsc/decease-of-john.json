@@ -3,10 +3,10 @@
  "group": "dsc/decease-of-john",
  "pivot": "mt-eng/dsc/decease-of-john",
  "groups": 69,
- "inputs": "70451067fa81d461",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "609fc07af4b4a615",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "dsc/decease-of-john", "units": 69, "ids": "29f57a4d2029eb5b", "inputs": "0e82400ca08fdd68", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "mt-eng/dsc/decease-of-john", "units": 69, "ids": "c647ece54aa001cf", "inputs": "7f7561d006e3cff9", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/dsc/decease-of-john", "units": 69, "ids": "c647ece54aa001cf", "inputs": "3ed38caf290742ab", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -3,11 +3,11 @@
  "group": "csel/stoa0171/stoa010/opp-lat1",
  "pivot": "csel/stoa0171/stoa010/opp-lat1",
  "groups": 26,
- "inputs": "59ff1bf35e6f19b3",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "6a0b9c850a38c6f1",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/lactantius-fragments", "units": 15, "ids": "d72d50dcb0f1ac65", "inputs": "186611931b8bf594", "spans": "+8+=+++++4+2+3+4=-22++", "conf": "9999996889999"},
   {"work_id": "csel/stoa0171/stoa010/opp-lat1", "units": 166, "ids": "22b262bb3b028077", "inputs": "851b0254ffa48d48", "spans": "++++===++...........+........+=+++.+........................................+==..+==..+=........+=...........+===....+..+=....+=..+........+=....+=.+=+=.....+=.......", "conf": "89899999999999989489488899"},
-  {"work_id": "oglt-pl/lactantius/pl7_0_lact", "units": 58, "ids": "6fa4925a389346d7", "inputs": "44e28924d0ecd591", "spans": "+8=+++-10=+=...++==++++7.............+++++2......++2=+=+==......", "conf": "999989899999989494889"}
+  {"work_id": "oglt-pl/lactantius/pl7_0_lact", "units": 58, "ids": "6fa4925a389346d7", "inputs": "9391f8f4d361d849", "spans": "+8=+++-10=+=...++==++++7.............+++++2......++2=+=+==......", "conf": "999989899999989494889"}
  ]
 }

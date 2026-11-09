@@ -3,10 +3,10 @@
  "group": "aelfric-ch/ch1-12",
  "pivot": "aelfric-ch-eng/ch1-12",
  "groups": 71,
- "inputs": "ea68a94797114552",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "c51c7d17999c9c18",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "aelfric-ch-eng/ch1-12", "units": 72, "ids": "8f341037a0266a44", "inputs": "08ff6f703e6bcd25", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "aelfric-ch/ch1-12", "units": 72, "ids": "d76494e798febea2", "inputs": "e73c562ee532b485", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "aelfric-ch-eng/ch1-12", "units": 72, "ids": "8f341037a0266a44", "inputs": "6ec67690c6b9bc9a", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch/ch1-12", "units": 72, "ids": "d76494e798febea2", "inputs": "c1e095bc1386505b", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

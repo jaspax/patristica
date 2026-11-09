@@ -3,10 +3,10 @@
  "group": "dsc/isaac-of-antioch-on-the-end-times",
  "pivot": "mt-eng/dsc/isaac-of-antioch-on-the-end-times",
  "groups": 40,
- "inputs": "dbc0b534f4415a52",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "a3fcc8f52bced9fb",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "dsc/isaac-of-antioch-on-the-end-times", "units": 40, "ids": "0b7a4bec0e48db0c", "inputs": "24d94ca2492cbcb8", "spans": "++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999"},
-  {"work_id": "mt-eng/dsc/isaac-of-antioch-on-the-end-times", "units": 40, "ids": "80478c77b518d8f6", "inputs": "1924d89f328a5aa0", "spans": "++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/dsc/isaac-of-antioch-on-the-end-times", "units": 40, "ids": "80478c77b518d8f6", "inputs": "2067c6d629e5afa5", "spans": "++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999"}
  ]
 }

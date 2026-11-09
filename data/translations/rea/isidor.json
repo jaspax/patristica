@@ -15,32 +15,38 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-07",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
     {
-      "chunk_id": "rea/isidor#Isid.1.5",
-      "source_sha256": "1e58b31f7ece449a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "[?] they dispute in doubt [?] the Son of God. Thus indeed said the prophet: \"[?] to his [?] whom you seek, whom you desire.\""
+      "chunk_id": "rea/isidor#Isid.1.5.s1",
+      "source_sha256": "03d5f2122df39e37",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "[?] they dispute in doubt [?]"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.1.5.s2",
+      "source_sha256": "de3deff9b89bb486",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "[?] Son of God. Thus indeed spoke the prophet: [?] to his [?] whom you seek, whom you desire."
     },
     {
       "chunk_id": "rea/isidor#Isid.1.6.s1",
-      "source_sha256": "62c8fade341dd2b4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "that he is born of the Father, is named the Son of God, [?] is read [?] to be announced beforehand, [?] the same Father foretold [?], saying:"
+      "source_sha256": "28c56b5e49732c9e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "That he is born of the Father and is named Son of God is read as having been announced beforehand; the same Father announced it beforehand, saying: \"and [?] you to the place which I have prepared.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.1.6.s2",
-      "source_sha256": "29d89f0b03541575",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 20,
-      "text": "and [?] you to the place that I have prepared."
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.1.6.s3",
       "source_sha256": "a1a9319e98c0ee6a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 20,
@@ -55,27 +61,41 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.1.7.s2",
-      "source_sha256": "c94064ae7aab4da7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "078d894edbcf0ecd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "who, ever sent from the Father, later showed himself to the sight of men. From this same sending he is called an angel. Isaiah also, more openly, confirmed this same Son born of the Father, when he said:"
+      "text": "He who is always sent by the Father afterwards showed himself to the sight of men."
     },
     {
       "chunk_id": "rea/isidor#Isid.1.7.s3",
-      "source_sha256": "74aba33773f49c58",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "3a2b82ad7ae4a375",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "\"The voice of the Lord repaying recompense to his enemies,\" signifying those same Jewish people who do not believe. Thus also said the prophet:"
+      "text": "Because of this same sending he is called an angel. Isaiah also confirmed more openly that this same Son was born of the Father, when he said:"
     },
     {
       "chunk_id": "rea/isidor#Isid.1.7.s4",
+      "source_sha256": "b6d068a6d04c54bb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"The voice of the Lord, repaying recompense to his enemies,\" signifying that same Jewish people, who do not believe."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.1.7.s5",
+      "source_sha256": "618aad03cb164f34",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "Thus also spoke the prophet:"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.1.7.s6",
       "source_sha256": "086e578ac52029da",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 20,
       "text": "\"Before\" [?]"
     },
     {
-      "chunk_id": "rea/isidor#Isid.1.7.s5",
+      "chunk_id": "rea/isidor#Isid.1.7.s7",
       "source_sha256": "1767bdfa12c61c05",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 20,
@@ -83,24 +103,24 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.1.8.s1",
-      "source_sha256": "e48ebb0104d6a678",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "Thus the same prophet said openly: Before the virgin bore Christ in the flesh,"
+      "source_sha256": "7234ebf25e759409",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "So the same prophet said openly: Before the virgin bore Christ in the flesh, the Father begot the Son in his Godhead,"
     },
     {
       "chunk_id": "rea/isidor#Isid.1.8.s2",
-      "source_sha256": "58f2e77934abb342",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "the Father begot the Son in his divinity; and before the virgin's time came to give birth, the Father begot him without any beginning of time. About this the prophet said afterward: \"Who has ever heard, or who has ever seen anything like this, anything at all among men that is in any way like it?\""
+      "source_sha256": "364e2183a8562001",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "and before the time came for the virgin to give birth, the Father begot him without any beginning of time. About this the prophet said afterwards: \"Who has ever heard, or who has ever seen such things, anything at all among men"
     },
     {
       "chunk_id": "rea/isidor#Isid.1.8.s3",
-      "source_sha256": "93ab3c94f159b2d6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "And afterward he said: \"Shall I, who make others give birth, not give birth myself? said the Lord."
+      "source_sha256": "7d99667ac24047ae",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "that is in any way like this?\" And after that he said: \"Shall I, who cause others to be born, not give birth myself? said the Lord.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.1.8.s4",
@@ -195,17 +215,17 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.2.5.s1",
-      "source_sha256": "4dd573e392369fab",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "5ab5f55a6375e2d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "It is certainly for us to know now that to the Father alone it is fully known how he begot the Son,"
+      "text": "We must now certainly know that it is fully known to the Father alone"
     },
     {
       "chunk_id": "rea/isidor#Isid.2.5.s2",
-      "source_sha256": "5329ee82c988a7f0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "d1f140680ab95e05",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "and to the Son, how he was born of the Father. In the same way they also now seek an account of this begotten Son, because there is no son unless he is born of two. And the perishing creation of mortals has the beginning of birth in this same manner."
+      "text": "how he begot the Son, and to the Son, how he was born of the Father. Likewise they also now seek an explanation of this begotten Son, because there is no son unless he is born of two. And the perishable creation of mortals has the beginning of its birth by that same custom."
     },
     {
       "chunk_id": "rea/isidor#Isid.2.5.s3",
@@ -272,20 +292,13 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.3.2.s4",
-      "source_sha256": "8028d49e4dfcd76a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "590515a4c1ba08d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "About this same Christ the almighty Father proclaimed through Isaiah,"
+      "text": "About this same Christ the almighty Father announced through Isaiah, though he spoke in the name of Cyrus, that he is God and Lord:"
     },
     {
       "chunk_id": "rea/isidor#Isid.3.2.s5",
-      "source_sha256": "6dbf99967c171e4f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 20,
-      "text": "though he spoke in the name of Cyrus, that he is God and Lord:"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.3.2.s6",
       "source_sha256": "626b20770aa13496",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 20,
@@ -293,17 +306,17 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.3.3.s1",
-      "source_sha256": "148e412a9b6be5cb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "f8f555760cb10bc1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "In the name of Cyrus, Christ is certainly foretold, before whom nations and kingdoms are bowed down into the faith. In no other way was anyone ever named Cyrus in the kingdom of Israel. If then anyone believes"
+      "text": "In the name of Cyrus Christ is certainly foretold, before whom peoples and kingdoms are bowed down in faith. In no other way was any Cyrus ever named in the kingdom of Israel. If then anyone believes that this was foretold of Cyrus, king of the Persians, let him recognize that it is repugnant and heathenish for anyone to believe"
     },
     {
       "chunk_id": "rea/isidor#Isid.3.3.s2",
-      "source_sha256": "6960bb1704b8b949",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "source_sha256": "4c5aa1512ac22dad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 20,
-      "text": "that this was foretold of Cyrus, king of the Persians, let him recognize that it is repugnant and heathen for anyone to believe that this lawless man and worshipper of the heathens' idols should be named Christ, God and Lord. Moreover, concerning this it is not so written in the translations of the Seventy:"
+      "text": "that the lawless man, who served the idols of the heathen, should be named Christ, God and Lord. On this account it is also not so written in the translations of the Seventy:"
     },
     {
       "chunk_id": "rea/isidor#Isid.3.3.s3",
@@ -461,17 +474,17 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.3.10.s1",
-      "source_sha256": "60ef6fd2fbc8d3a9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 15,
-      "text": "Which, then, is this Lord sent by the Lord of hosts, if not again that same Lord, the Savior Christ? Moreover, also earlier here, concerning the Holy Spirit, concerning his Godhead and that he is the Spirit of God, Job spoke thus:"
+      "source_sha256": "357b95444dbe2864",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "Who then is this Lord sent by the Lord of hosts, unless again the same Lord, the Savior Christ? Moreover, there is also here, before this, [testimony] concerning the Holy Spirit, concerning his Godhead, and that he is the Spirit of God."
     },
     {
       "chunk_id": "rea/isidor#Isid.3.10.s2",
-      "source_sha256": "b360ac692094ec35",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 15,
-      "text": "\"The Spirit of the Lord made me, and the breath of the Almighty gave me life."
+      "source_sha256": "15929be924cb95d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "Thus said Job: \"The Spirit of the Lord made me, and the breath of the Almighty gave me life.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.3.10.s3",
@@ -636,20 +649,27 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.4.7.s1",
-      "source_sha256": "ef0f01bcf8f9633d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 15,
-      "text": "In the same way, the separate distinction of each of the persons is also shown in the books of Isaiah, when the Son of God himself says: \"I am the first and I am the last. My hands also made the earth, and my right hand measured the heavens. And from the beginning I was speaking in secret, from that time, and before any time came to be, I was there.\" Immediately after that he also said:"
+      "source_sha256": "6b85c0f9c306ccc8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "Likewise, too, the separate distinction of each of the persons is shown in the books of Isaiah, the Son of God himself saying:"
     },
     {
       "chunk_id": "rea/isidor#Isid.4.7.s2",
+      "source_sha256": "d9a5ddb22d0ccd75",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"I am the first and I am the last. My hands also made the earth, and my right hand measured the heavens. And from the beginning I was speaking secretly from time, and before it came to be, I was there.\" Right after that he also said:"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.4.7.s3",
       "source_sha256": "957b4c4605bf9f89",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 15,
       "text": "\"And now the Lord God and his Spirit have sent me.\" Behold, here two of the persons,"
     },
     {
-      "chunk_id": "rea/isidor#Isid.4.7.s3",
+      "chunk_id": "rea/isidor#Isid.4.7.s4",
       "source_sha256": "81fdbd5dfc3164c6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 15,
@@ -783,17 +803,10 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.5.1.s4",
-      "source_sha256": "d936f4e3475aad9f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "\"A child will be born to us, a son will be given to us, and his lordship will be upon his shoulders, and his name will be called Wonderful, Counsellor, mighty God, Father of the world to come,"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.5.1.s5",
-      "source_sha256": "387ecdbfe9929b36",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "Prince of peace. His rule will be multiplied, and of his peace there will be no end.\""
+      "source_sha256": "aa8937f9fbca9c14",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 20,
+      "text": "\"A child is born to us, a son is given to us, and his lordship shall be upon his shoulders, and his name shall be called Wonderful, Counselor, God the Mighty, Father of the world to come, Prince of Peace. His rule shall be multiplied, and of his peace there shall be no end.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.5.2.s1",
@@ -846,17 +859,17 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.5.4.s1",
-      "source_sha256": "469836a25c6b413f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 15,
-      "text": "This incarnation of the Son of God the Holy Spirit also in the Psalms"
+      "source_sha256": "8133079f0512af31",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "The Holy Spirit also made this incarnation of the Son of God known in the psalms, where he said:"
     },
     {
       "chunk_id": "rea/isidor#Isid.5.4.s2",
-      "source_sha256": "7a1e4a09bd5fadf3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "Thus he made known, where he said: \"To Zion one said, and a man will be born in her, and he himself made her, he the Most High.\""
+      "source_sha256": "3453e566adac90c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"To Zion it shall be said: a man is born in her, and the Most High himself has made her.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.5.4.s3",
@@ -979,66 +992,52 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.5.9.s3",
-      "source_sha256": "2d9daba272c1ec22",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 15,
-      "text": "he then set him in his paradise, so that he would be obedient to God and be above God's other creatures."
+      "source_sha256": "b97203f1bc049f3d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then he set him in his paradise,"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.5.9.s4",
+      "source_sha256": "dc2ace9fb6c0d350",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "so that he would obey God and stand above God's other creatures."
     },
     {
       "chunk_id": "rea/isidor#Isid.5.10.s1",
-      "source_sha256": "3fe00be0abfef8a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 15,
-      "text": "But he then became disobedient, and in contempt of God he defiled the commandment that had forbidden him. God did not slay him when he was cast out of there for his arrogance, but made him an exile from the bliss of paradise. The Almighty still waited then, so that through repentance he might again make himself ready for salvation."
+      "source_sha256": "28860ba488b476ea",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But he then became disobedient, and in contempt of God he defiled the commandment that had forbidden him. God did not strike him dead, though he had been cast out from there because of his pride. Instead he made him an exile from the joy of paradise."
     },
     {
       "chunk_id": "rea/isidor#Isid.5.10.s2",
-      "source_sha256": "d2c6e2982104cabd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "And when he again did not turn back to the way of his former virtue, God then gave Moses the law, so that by it he might yet turn back to the love of God and to works of righteousness."
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.5.10.s3",
-      "source_sha256": "bcaf9c0011c414ca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "But when he then, arrogant and unbelieving, did not even keep that same law:"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.5.10.s4",
-      "source_sha256": "b199385cbe83e89f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 15,
-      "text": "then at last the Son of God came for this reason and took on a human body, so that when they saw him in person they might at least believe in this way, and so that the world might abandon the devil's deceptions and be moved back to the grace of its Creator."
+      "source_sha256": "3d9b6f4681e06054",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "The Almighty still waited, so that he might prepare himself again for salvation through repentance. When he still did not turn back to the way of his former virtue, God gave Moses the law, so that through it he might at least turn to the love of God and to works of righteousness. But when, proud and unbelieving, he did not keep even that law, then at last the Son of God came for this reason and took a human body. He came so that when they saw him in person, they might at least then believe, and so that the world might abandon the deceptions of devils and be moved back to the favour of its Creator."
     },
     {
       "chunk_id": "rea/isidor#Isid.5.11.s1",
-      "source_sha256": "a7c729eb46dcc524",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 17,
-      "text": "This is the reason for the birth of Christ,"
+      "source_sha256": "c3902142b37eac24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "This is the reason for Christ's birth. The Jewish people believe that he will be born, yet they revile him all the same as one struck on the cross and dead."
     },
     {
       "chunk_id": "rea/isidor#Isid.5.11.s2",
-      "source_sha256": "4287d7a651478fc9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "whom the Jewish people, though they believe him to have been born, nevertheless revile as having been nailed to the cross and put to death."
+      "source_sha256": "5c5b2280ca6453aa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "They do not understand that just as it was foretold that he would be born for the redemption of the world, so it was also said that he, Christ, would suffer martyrdom for the salvation of the world. We will find his passion and death confirmed by the testimony of Holy Scripture when, in [?], we go through what must be said here before it. Now let us return to the discourse we began."
     },
     {
       "chunk_id": "rea/isidor#Isid.5.11.s3",
-      "source_sha256": "48ff815b83c2dff0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "They do not understand that just as he, the Christ, was said to be born for the redemption of the world, so likewise it was also said that he was to be martyred for the salvation of the earth. His martyrdom and death we find with the testimonies of holy scripture,"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.5.11.s4",
-      "source_sha256": "5b86afb114a1bdc7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "when in other passages we go through what is to be said here before that. Now, however, let us follow the discourse we have begun. And of this same Christ, the birth of whose humanity following upon his godhead we have already gloriously made known, let us now also make known his descent and lineage."
+      "source_sha256": "58b38a6af7a75bab",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "We have already made known the birth of this same Christ in his humanity, following his divinity, in the proper way. Now we will also make known his nobility and his ancestry."
     },
     {
       "chunk_id": "rea/isidor#Isid.6",
@@ -1273,27 +1272,34 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.1.s4",
-      "source_sha256": "198482bb8a21ca98",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "\"The Lord swore to David in truth and did not deceive him: The fruit of your womb I will set upon my throne.\""
+      "source_sha256": "5e54f5fa255d2db0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"The Lord swore to David in truth and did not deceive him:"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.1.s5",
+      "source_sha256": "af397f45b493cf1d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "I will set the fruit of your womb upon my throne.\""
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.1.s6",
       "source_sha256": "aede6e99eace7802",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
       "text": "\"Once I swore by my holiness:"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.1.s6",
+      "chunk_id": "rea/isidor#Isid.9.1.s7",
       "source_sha256": "56c1ec73e26667b8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
       "text": "I will not lie to David; his seed shall dwell forever. And his throne is like the sun before my face, and forever like the full-grown moon,"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.1.s7",
+      "chunk_id": "rea/isidor#Isid.9.1.s8",
       "source_sha256": "1e65da2394e6542e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
@@ -1308,55 +1314,90 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s2",
-      "source_sha256": "81b408aab357f919",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "212d162127030d79",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"And the word of the Lord came to Nathan, saying: Go and say to my servant David:"
+      "text": "\"And the word of the Lord came to Nathan, saying:"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s3",
+      "source_sha256": "aedce08399af83fd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Go and say to my servant David:"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s4",
       "source_sha256": "d8e3507060a58fc6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 22,
       "text": "Thus said the Lord:"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.2.s4",
-      "source_sha256": "764eb0a2a4192bae",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "I tell you that the Lord will build you a house. When you have fulfilled your days, so that you go to your forefathers, I will raise up your seed after you, who shall be from your sons,"
-    },
-    {
       "chunk_id": "rea/isidor#Isid.9.2.s5",
-      "source_sha256": "c38fd2532ce29162",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "and I will establish his kingdom for him. He himself will build me a house, and I will make his throne firm forever. I shall be to him in the place of a father and he shall be to me in the place of a son,"
+      "source_sha256": "82e541990fe202b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "I tell you that the Lord will build you a house."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s6",
-      "source_sha256": "535927a410ed33e6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "and I will not take my mercy from him,"
+      "source_sha256": "9e571e6c49cd2e2a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "When you have completed your days,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s7",
-      "source_sha256": "94a039bd990e64e1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "as I took it from that one,"
+      "source_sha256": "f3b28853454f42d8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "so that you go to your fathers,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s8",
-      "source_sha256": "6aadd7916d3df5df",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
+      "source_sha256": "201ee81f6bdf6287",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who was before you."
+      "text": "I will raise up your offspring after you,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.2.s9",
+      "source_sha256": "c985e8efe6a3696c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
+      "group_size": 22,
+      "text": "who shall be from your sons,"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s10",
+      "source_sha256": "88f2c5d3dc6603ed",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and I will establish his kingdom for him."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s11",
+      "source_sha256": "cbbee7370d979bc7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "He shall build me a house, and I will make his throne firm for ever."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s12",
+      "source_sha256": "3ae563428582df16",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "I will be to him in the place of a father, and he shall be to me in the place of a son, and I will not take my mercy away from him,"
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s13",
+      "source_sha256": "6ebe4fa120e5dafc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "as I took it from the one who was before you.\""
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.2.s14",
       "source_sha256": "ee58f38b07a75db5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
@@ -1364,24 +1405,24 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s1",
-      "source_sha256": "8e1e68a403f8f666",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "Whoever supposes that all such things were fulfilled in Solomon understands very wrongly."
+      "source_sha256": "af96154055170d09",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Whoever thinks that all of this was fulfilled in Solomon understands it very wrongly. For how could this saying be understood of Solomon:"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s2",
-      "source_sha256": "b2e624cab77a9856",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "For how is it to be understood of Solomon that it was said thus:"
+      "source_sha256": "f35b17f2fe397352",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"After you sleep with your fathers,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s3",
-      "source_sha256": "03e7e08b3b1ced3a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "\"After you sleep with your fathers, I will raise up your seed after you,"
+      "source_sha256": "ae55b9b53c20f914",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "I will raise up your offspring after you,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s4",
@@ -1392,24 +1433,31 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s5",
-      "source_sha256": "eb1e910622ebee7e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "and I will establish his kingdom for him\"? It is by no means to be believed that this was foretold of that Solomon, who certainly began to reign while his father was living."
+      "source_sha256": "feafca0f686f6af0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and I will establish his kingdom for him\"?"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s6",
-      "source_sha256": "d50ca0774c56a016",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "But here it says:"
+      "source_sha256": "27c52f7b0f1337b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "Nor is it to be believed that this was foretold of Solomon,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.3.s7",
-      "source_sha256": "99f411d115b6e428",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "\"For when your days are fulfilled and you sleep with your fathers, I will raise up your seed.\" From this it is to be understood that another was promised there, because he was not foretold to be raised up before David's death, but only after his death."
+      "source_sha256": "60f5644729a01e40",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "who indeed began to reign while his father was still living."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.3.s8",
+      "source_sha256": "4d255af321bed38b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "And here it says: \"For when your days are fulfilled and you sleep with your fathers, I will raise up your seed.\" From this it is to be understood that someone else was promised there, because he was foretold to be raised up not before David's death but after his death."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.6.s1",
@@ -1420,27 +1468,20 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.6.s2",
-      "source_sha256": "5d0fe0f98ad32f28",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 22,
-      "text": "\"Behold, days are coming, said the Lord, and I [?]"
+      "source_sha256": "1ade8fccd6c08838",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"Behold, the days are coming, says the Lord, and I will raise up for David a righteous shoot, and a king shall then reign and shall be wise and shall execute judgment and justice on the earth. In his days Judah shall be saved, and Israel also shall dwell confidently.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.9.6.s3",
-      "source_sha256": "eb928dd5eb0560b6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "I will raise up for David a righteous offspring, and he, a king, shall then reign and will be wise and will carry out judgment and justice on earth. In his days Judah shall be saved, and Israel too shall dwell confidently."
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.6.s4",
       "source_sha256": "3608c8cefd60e829",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "And this is his name, as they shall call him:"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.6.s5",
+      "chunk_id": "rea/isidor#Isid.9.6.s4",
       "source_sha256": "df5e39563329d88f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
@@ -1448,69 +1489,48 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.7.s1",
-      "source_sha256": "34468c107ec92afd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "He who was promised through Nathan from the seed of David, that same one was also foretold through Isaiah the prophet:"
+      "source_sha256": "5a5e6c7cd756eff5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "He who was promised through Nathan from David's seed was also foretold through Isaiah the prophet. He said:"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.7.s2",
-      "source_sha256": "f87c63408cbf775a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "he said:"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.7.s3",
       "source_sha256": "1f6a3fb814f7292a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "\"A rod shall grow up from the roots of Jesse, and a flower shall rise from his root.\""
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.7.s4",
+      "chunk_id": "rea/isidor#Isid.9.7.s3",
       "source_sha256": "366a237f6faf2666",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "He said this because he was indeed from the land of Bethlehem, of the kin of David."
     },
     {
+      "chunk_id": "rea/isidor#Isid.9.7.s4",
+      "source_sha256": "d709ef6399dd0957",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "This rod from the root of Jesse is the spotless virgin Mary, sprung from David's root, who bore the flower, the saving Lord. Of him there follows here also afterward: \"And the spirit of the Lord shall rest upon him,"
+    },
+    {
       "chunk_id": "rea/isidor#Isid.9.7.s5",
-      "source_sha256": "7dfd2803001ff147",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "This rod from the root of Jesse is the undefiled virgin Mary, come forth from the root of David, who bore the flower."
+      "source_sha256": "06c0a291fd60b2fc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "the spirit of wisdom and of understanding mind,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.7.s6",
-      "source_sha256": "ac0d0ace03053d4f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "the saving Lord."
+      "source_sha256": "e09dfd320b4995b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "the spirit of counsel and of might, the spirit of knowledge and of mercy,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.7.s7",
-      "source_sha256": "7937b21d139fbebf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "Concerning the same one it also follows afterwards:"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.7.s8",
-      "source_sha256": "16212e5be888b19e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "\"And the spirit of the Lord shall rest upon him,"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.7.s9",
-      "source_sha256": "212ad805c25a28cd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "the spirit of wisdom and of understanding mind, the spirit of counsel and of might, the spirit of knowledge and of mercy.\""
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.7.s10",
       "source_sha256": "fff418d55eb8d9d6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
@@ -1518,27 +1538,13 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.8.s1",
-      "source_sha256": "a30815eb60184651",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "So many gifts of the Spirit are foretold concerning him because the Holy Spirit does not dwell in him by measure, as it does in us."
+      "source_sha256": "bff0fa2d1bb4ebf8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "So many gifts of the Spirit are foretold over him because the Holy Spirit does not dwell in him by measure, as in us. In him is all the fullness of God's gifts and of the Spirit. This is he who \"does not judge according to the sight of the eyes and the hearing of the ears, but righteousness is the girdle of his loins and faithfulness is the belt of his reins.\" In his church \"the wolf dwells with the lamb,\" and so does he who was accustomed to tear plunder away from the church."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.8.s2",
-      "source_sha256": "c9928f7f520b76f1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "Rather, in him is all the fullness of the gifts of God and of the Spirit."
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.8.s3",
-      "source_sha256": "5276b13b5ab03ae1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "This is he who \"does not judge according to the sight of the eyes and the hearing of the ears, but righteousness is the girding of his loins and faithfulness is the belt of his reins.\" In his kingdom \"the wolf dwells with the lamb,\" and also he who was accustomed to drag plunder away from the kingdom."
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.8.s4",
       "source_sha256": "bd76728b55e9c43c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 25,
@@ -1546,24 +1552,24 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.9.s1",
-      "source_sha256": "d52f9a70b19499a5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "In his law \"the leopard lies down with the kid\": this signifies the malicious mingled with the sinful."
+      "source_sha256": "002353d6948f4602",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "In his law \"the leopard lies down with the kid\"; this signifies the envious mingled with sinners. There also \"the calf\" from the Jewish law,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.9.s2",
-      "source_sha256": "e33d5f28caf93cdd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "There also \"the calf,\" from the Jewish law,"
+      "source_sha256": "a112d6cb468fed1b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"the lion\" from worldly power,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.9.s3",
-      "source_sha256": "64b8a862a3d6c0f5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 25,
-      "text": "\"the lion,\" from worldly power, and \"the sheep,\" from the rank of humble people, \"dwell together\" with the stronger in the church of Christ, because there, in the true faith, all share a common life."
+      "source_sha256": "81b92d33e1a4fb3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"the sheep\" from the measure of lowly men \"dwell together\" with the strongest in the church of Christ, because there, in the right faith, all have a common existence."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.9.s4",
@@ -1574,69 +1580,62 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.9.s5",
-      "source_sha256": "3cd3406a36ab675a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "That is indeed he who humbled himself for our sake, just as a child. \"The ox also and the lion shall eat chaff there together,\" because the highest, together with the lowlier people, have common teachings there."
+      "source_sha256": "6b1ace528e1df3c4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "That is indeed he who humbled himself for our sake, just like a child."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.9.s6",
+      "source_sha256": "77786926611deb1c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"The ox also and the lion shall eat chaff together there,\" because the highest, together with the lowlier people, have common teaching there."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.10.s1",
-      "source_sha256": "bc6281de0df5ef33",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "\"The child was longing, from its mother's breasts, over the hole of the asp.\""
+      "source_sha256": "fdb06fba52689aac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"The child was sucking at its mother's breasts over the hole of the asp.\" This signifies that the peoples who were once accustomed to preach poison were turned to the gentleness of children,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.10.s2",
-      "source_sha256": "57587f4fe061ca41",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "This signifies"
+      "source_sha256": "ea741f36fba94358",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "and it pleased them to hear the faith of Christianity. \"The hole of the adder\" signified indeed the minds of the unbelievers,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.10.s3",
-      "source_sha256": "3f67b9584e594ce4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "that the peoples who were once accustomed to preach poison, these, turned again to the gentleness of children, took delight in hearing the faith of Christendom. \"The hole of the adder\" indeed signified the minds and wills of the unbelievers,"
+      "source_sha256": "ed439add596f24cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "in which the crooked serpent rested, which sucked in God's word."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.10.s4",
-      "source_sha256": "ad2895478e8c7aa2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "in which the crooked serpent rested,"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.10.s5",
-      "source_sha256": "9019b4515a1625db",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "which [?] of the word of God,"
-    },
-    {
-      "chunk_id": "rea/isidor#Isid.9.10.s6",
       "source_sha256": "5244fd507e85dc0c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "Christ, having seized it, dragged out from there, away into exile,"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.10.s7",
+      "chunk_id": "rea/isidor#Isid.9.10.s5",
       "source_sha256": "0eb345c9a0b75acd",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 17,
       "text": "so that it \"on Christ's mountain,\""
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.10.s8",
+      "chunk_id": "rea/isidor#Isid.9.10.s6",
       "source_sha256": "9c0262a2d4c6079c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "that is, the kingdom of Christendom,"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.10.s9",
+      "chunk_id": "rea/isidor#Isid.9.10.s7",
       "source_sha256": "aeaaa69d96a078d3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
@@ -1658,62 +1657,69 @@
     },
     {
       "chunk_id": "rea/isidor#Isid.9.11.s3",
-      "source_sha256": "2792de4274122a01",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 17,
-      "text": "\"On that day the root of Jesse shall stand as a sign to the peoples; the nations shall pray to him, and his grave shall be glorious.\""
+      "source_sha256": "02bb68c1268b2386",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"On that day the root of Jesse stands as a sign for the peoples,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.11.s4",
+      "source_sha256": "7ae97564b3e4d00a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "for whom the nations are waiting, and his tomb shall be glorious.\""
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.11.s5",
       "source_sha256": "1089371ae8187567",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 17,
       "text": "The root of Jesse stands as a sign to the peoples when Christ presses the sign of the cross onto their foreheads."
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.11.s5",
-      "source_sha256": "a39ada5914a2556a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 17,
-      "text": "The nations pray to him, which you now see fulfilled before you."
-    },
-    {
       "chunk_id": "rea/isidor#Isid.9.11.s6",
-      "source_sha256": "164aafe92e43e7fd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 17,
-      "text": "His grave, moreover, is so very venerable"
+      "source_sha256": "bad74cdde7052da4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "\"For whom the nations are waiting\": this we already see fulfilled at present. His tomb, moreover, is so greatly venerable"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.11.s7",
-      "source_sha256": "66edb1ac9b2ef6f6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 17,
-      "text": "that we,"
+      "source_sha256": "d387ae65f3b10f75",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 21,
+      "text": "that we, whom Christ called,"
     },
     {
       "chunk_id": "rea/isidor#Isid.9.11.s8",
-      "source_sha256": "121c3c97efc8a784",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
-      "group_size": 23,
-      "text": "Whom Christ fetched, for that redemption in return for his death we rightly and honorably bear honor to the place. And that same place also shows by wondrous signs the matter of his venerable power, and draws all the world to him."
+      "source_sha256": "44a05a2645cb668b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "…of the redemption [won] through his death, on account of which we honorably pay reverence to the place. And this same place also shows, by wondrous signs, the reality of his venerable power, and draws all the world to him."
     },
     {
       "chunk_id": "rea/isidor#Isid.9.12.s1",
-      "source_sha256": "1a95531a33fccff1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 17,
-      "text": "This place is also meant in the Hebrew scripture: \"And his resting place shall be honorable.\" So it certainly is that, when he died, his flesh saw no corruption."
+      "source_sha256": "78bb2da9f4cab288",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "It is this place, moreover, that the Hebrew scripture means [when it says]: \"And his resting place shall be glorious.\""
     },
     {
       "chunk_id": "rea/isidor#Isid.9.12.s2",
+      "source_sha256": "6217b5832ebe7590",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 3,
+      "text": "So it is certain that when he died his flesh saw no corruption."
+    },
+    {
+      "chunk_id": "rea/isidor#Isid.9.12.s3",
       "source_sha256": "62e00292671a17b9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,
       "text": "As it is said according to the saying of the Psalmist:"
     },
     {
-      "chunk_id": "rea/isidor#Isid.9.12.s3",
+      "chunk_id": "rea/isidor#Isid.9.12.s4",
       "source_sha256": "b6b9e1c549311028",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-07",
       "group_size": 23,

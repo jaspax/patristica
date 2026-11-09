@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/adversus-beronem",
  "pivot": "anf-works/pseudo-hippolytus-against-beron-and-helix",
  "groups": 50,
- "inputs": "2d06a5aaa6c625b1",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "03e2a78ae55ce040",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/pseudo-hippolytus-against-beron-and-helix", "units": 89, "ids": "59f67e147852042e", "inputs": "52e2d13cc447c433", "spans": "++=+=...........++++.++++++.+++++==+.+++++=++.........+...++=++.+++=++=+.+++++++=+++=++=+", "conf": "99889889999984889987999899899999999999999988989999"},
-  {"work_id": "ogpg/vol-010/adversus-beronem", "units": 72, "ids": "037979e53075b47a", "inputs": "60835542495d7d3e", "spans": "+=+++++++++++++++++=++=.++++.++.++++++++=+.+++++++=+++.++++=..........+=", "conf": "99889889999984889987999899899999999999999988989999"}
+  {"work_id": "ogpg/vol-010/adversus-beronem", "units": 72, "ids": "037979e53075b47a", "inputs": "82625042c1210b7d", "spans": "+=+++++++++++++++++=++=.++++.++.++++++++=+.+++++++=+++.++++=..........+=", "conf": "99889889999984889987999899899999999999999988989999"}
  ]
 }

@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/anatolius-de-pascha",
  "pivot": "anf-works/anatolius-paschal-canon",
  "groups": 20,
- "inputs": "61581106bd599e90",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "38c7d15207ac234b",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/anatolius-paschal-canon", "units": 206, "ids": "39707c32a61a15de", "inputs": "3dbe04af1c8afcab", "spans": "........................+++=+++.++++++.++++.+++=+.............................................................................................................................................................", "conf": "99999999999999999999"},
+  {"work_id": "anf-works/anatolius-paschal-canon", "units": 207, "ids": "0bdef960196560b7", "inputs": "cf79e1e237f069c8", "spans": "........................+++=+++.++++++.++++.+++=+..............................................................................................................................................................", "conf": "99999999999999999999"},
   {"work_id": "ogpg/vol-010/anatolius-de-pascha", "units": 22, "ids": "97c7d24666076125", "inputs": "f0e458130f8c0895", "spans": "++++++++++=++++++++.++", "conf": "99999999999999999999"}
  ]
 }

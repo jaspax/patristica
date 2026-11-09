@@ -3,10 +3,10 @@
  "group": "ogpg/vol-026/ad-orsisium",
  "pivot": "npnf-works/athanasius-letters-57-58-to-orsisius",
  "groups": 11,
- "inputs": "5514d558e97e349b",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "a0c5c1035d9a3d15",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letters-57-58-to-orsisius", "units": 23, "ids": "277d2b16c57af504", "inputs": "5e8a4643e528e2b4", "spans": ".++++++.+++++..........", "conf": "99999999999"},
+  {"work_id": "npnf-works/athanasius-letters-57-58-to-orsisius", "units": 23, "ids": "277d2b16c57af504", "inputs": "1f948e9a4942b020", "spans": ".++++++.+++++..........", "conf": "99999999999"},
   {"work_id": "ogpg/vol-026/ad-orsisium", "units": 14, "ids": "f6aaab3897135a40", "inputs": "8883fb6c9c7d9b35", "spans": "..++++++++=+++", "conf": "99999999999"}
  ]
 }

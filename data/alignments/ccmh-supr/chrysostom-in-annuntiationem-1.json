@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ccmh-supr/chrysostom-in-annuntiationem-1",
  "pivot": "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1",
- "groups": 88,
- "inputs": "ba9278718bcafbaa",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 89,
+ "inputs": "37f79f1756596018",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/chrysostom-in-annuntiationem-1", "units": 89, "ids": "a1d280e591fc0872", "inputs": "777945b293ec8c5c", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1", "units": 88, "ids": "4a863faa38194303", "inputs": "b8c3fe68ef21db2d", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "ccmh-supr/chrysostom-in-annuntiationem-1", "units": 89, "ids": "a1d280e591fc0872", "inputs": "777945b293ec8c5c", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-annuntiationem-1", "units": 89, "ids": "a4b4f2b24bc5a2d8", "inputs": "ae350faf11ff0747", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

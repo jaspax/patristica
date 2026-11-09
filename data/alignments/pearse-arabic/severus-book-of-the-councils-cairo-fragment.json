@@ -3,10 +3,10 @@
  "group": "pearse-arabic/severus-book-of-the-councils-cairo-fragment",
  "pivot": "pearse-arabic-eng/severus-book-of-the-councils-cairo-fragment",
  "groups": 61,
- "inputs": "473222f3689d5ec9",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "23b2c7190123f9cc",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "pearse-arabic-eng/severus-book-of-the-councils-cairo-fragment", "units": 63, "ids": "25800c88228c5d83", "inputs": "0618db39fb9e195a", "spans": "+++++++++++++++++=+++++++++++++++++++++++++=+++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pearse-arabic-eng/severus-book-of-the-councils-cairo-fragment", "units": 62, "ids": "1d12c05b81a1b451", "inputs": "94e80e45100cb2e2", "spans": "++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "pearse-arabic/severus-book-of-the-councils-cairo-fragment", "units": 62, "ids": "fa696bf8b7b1cf08", "inputs": "f2c6b26f03b261f1", "spans": "++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

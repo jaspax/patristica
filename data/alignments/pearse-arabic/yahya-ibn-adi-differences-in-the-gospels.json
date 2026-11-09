@@ -2,11 +2,11 @@
  "format": 1,
  "group": "pearse-arabic/yahya-ibn-adi-differences-in-the-gospels",
  "pivot": "pearse-arabic-eng/yahya-ibn-adi-differences-in-the-gospels",
- "groups": 10,
- "inputs": "477d5fefea978107",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 11,
+ "inputs": "77868d47b8e994ec",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "pearse-arabic-eng/yahya-ibn-adi-differences-in-the-gospels", "units": 11, "ids": "ab85fe2fba7bee7c", "inputs": "ac6e7f2a44be16d9", "spans": ".++++++++++", "conf": "9999999999"},
-  {"work_id": "pearse-arabic/yahya-ibn-adi-differences-in-the-gospels", "units": 11, "ids": "9325e76c92d8162d", "inputs": "b54b996134b7b670", "spans": ".++++++++++", "conf": "9999999999"}
+  {"work_id": "pearse-arabic-eng/yahya-ibn-adi-differences-in-the-gospels", "units": 12, "ids": "43420f7d731cf1e8", "inputs": "fd4f5a0f2c4be108", "spans": ".+++++++++++", "conf": "99999999999"},
+  {"work_id": "pearse-arabic/yahya-ibn-adi-differences-in-the-gospels", "units": 12, "ids": "15b6ddf0b977c023", "inputs": "8c1f0cdb6fc07d49", "spans": ".+++++++++++", "conf": "99999999999"}
  ]
 }
