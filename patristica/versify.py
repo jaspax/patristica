@@ -161,6 +161,18 @@ _DEFAULT_COMMA_MARKS = ",،"
 # Closing quotes and brackets that may follow the punctuation of a word.
 _CLOSERS = "\"'”’»›)]}"
 
+# Quotation marks (#622). The straight "'" is left out: it is also the
+# apostrophe. A straight '"' opens or closes; where it stands alone, the
+# straight quotes before it in the text decide which.
+_QUOTE_OPENERS = "\"“„«‹‘"
+_QUOTE_CLOSERS = "\"”’»›"
+_LONE_QUOTE_RE = re.compile(r"\s*[\"“”„«»‹›‘’)\]}]+$")
+
+#: Editorial kinds (``patristica.editorial``, #236) that belong with the text
+#: before them, so a break never falls between that text and them (#622): a
+#: note or citation follows what it comments on.
+TRAILING_EDITORIAL_KINDS = frozenset({"note"})
+
 # Words: a run of non-separators with the whitespace before it, which is how
 # cl100k_base splits text (" word"), so per-word token counts add up.
 # U+1361 ETHIOPIC WORDSPACE (፡) separates Ge'ez words, often with no space;
@@ -222,11 +234,85 @@ def _strength(word: str, next_word: str | None, language: str) -> int:
     return WORD
 
 
-def split_text(text: str, language: str) -> list[str]:
+def strengths(atoms: Sequence[str], language: str,
+              spans: Sequence[Sequence[object]] = ()) -> list[int]:
+    """The strength of a break after each of *atoms* (:func:`_atoms` of a text),
+    in context (#622):
+
+    - *spans* are the text's editorial spans ``(start, end, kind)``, offsets
+      into ``"".join(atoms)``. A break before a span of
+      :data:`TRAILING_EDITORIAL_KINDS` moves to its end, with its strength,
+      and breaks inside it are only between words: a note stays with its
+      text, and whole.
+    - A quotation mark standing alone (``… Spirit. [Matthew 1:18] " So``) that
+      closes a quotation stays with the word before it, which passes it its
+      break.
+    - A comma or clause mark before an opening quotation mark (``written,
+      "Mary``) is as strong a break as a full stop.
+    - A comma or clause mark after the first word of a quotation (``"Mary,``)
+      is no break.
+    """
+    n = len(atoms)
+    st = [_strength(atoms[i], atoms[i + 1] if i + 1 < n else None, language)
+          for i in range(n)]
+    if spans:
+        _attach_trailing_editorial(atoms, st, spans)
+    quotes = 0  # straight double quotes so far
+    for j, atom in enumerate(atoms):
+        word = atom.strip()
+        if _LONE_QUOTE_RE.fullmatch(word) and j > 0 and _closes(word, quotes):
+            st[j] = min(st[j], st[j - 1])
+            st[j - 1] = WORD
+        quotes += word.count('"')
+    for i in range(n - 1):
+        if st[i] not in (CLAUSE, COMMA):
+            continue
+        word = atoms[i].strip().lstrip("([{")
+        nxt = atoms[i + 1].strip()
+        if word[:1] in _QUOTE_OPENERS and word[-1:] not in _QUOTE_CLOSERS:
+            st[i] = WORD
+        elif nxt[:1] in _QUOTE_OPENERS:  # a closing one was attached above
+            st[i] = SENTENCE
+    return st
+
+
+def _closes(word: str, quotes: int) -> bool:
+    """Whether a lone quotation mark (or closing bracket) *word* closes a
+    quotation, after *quotes* straight double quotes."""
+    mark = word[0]
+    if mark == '"':
+        return quotes % 2 == 1
+    return mark not in _QUOTE_OPENERS
+
+
+def _attach_trailing_editorial(atoms: Sequence[str], st: list[int],
+                               spans: Sequence[Sequence[object]]) -> None:
+    ends: list[int] = []
+    pos = 0
+    for a in atoms:
+        pos += len(a)
+        ends.append(pos)
+    for start, end, kind in spans:
+        if kind not in TRAILING_EDITORIAL_KINDS or end <= start:
+            continue
+        # The atoms holding the span's first and last characters.
+        i0 = next(i for i, e in enumerate(ends) if e > start)
+        i1 = next(i for i, e in enumerate(ends) if e >= end)
+        if i0 == 0:
+            continue
+        for k in range(i0, i1):
+            st[k] = WORD
+        st[i1] = st[i0 - 1]
+        st[i0 - 1] = WORD
+
+
+def split_text(text: str, language: str,
+               spans: Sequence[Sequence[object]] = ()) -> list[str]:
     """Split *text* into units about one verse long (see the module docstring).
 
     Returns ``[text]`` when it is already about a verse long. Units are
-    contiguous slices of *text*, stripped of surrounding whitespace.
+    contiguous slices of *text*, stripped of surrounding whitespace. *spans*
+    are the text's editorial spans (:func:`strengths`).
     """
     target = VERSE_TOKENS.get(language)
     if target is None:
@@ -240,11 +326,8 @@ def split_text(text: str, language: str) -> list[str]:
         return [text]
 
     n = len(atoms)
-    strengths = [
-        _strength(atoms[i], atoms[i + 1] if i + 1 < n else None, language)
-        for i in range(n)
-    ]
-    ends = _candidate_ends(tokens, strengths, target)
+    st = strengths(atoms, language, spans)
+    ends = _candidate_ends(tokens, st, target)
 
     # prefix[i] = tokens in atoms[:i]; candidate end e means a break after atoms[e-1].
     prefix = [0]
@@ -254,7 +337,7 @@ def split_text(text: str, language: str) -> list[str]:
     best: dict[int, tuple[float, int]] = {0: (0.0, -1)}  # end → (cost, previous end)
     starts: list[int] = [0]
     for e in ends:
-        break_cost = 0.0 if e == n else _BREAK_COST[strengths[e - 1]]
+        break_cost = 0.0 if e == n else _BREAK_COST[st[e - 1]]
         choice: tuple[float, int] | None = None
         for s in reversed(starts):
             length = prefix[e] - prefix[s]
@@ -284,7 +367,7 @@ def split_text(text: str, language: str) -> list[str]:
     return units
 
 
-def _candidate_ends(tokens: Sequence[int], strengths: Sequence[int], target: int) -> list[int]:
+def _candidate_ends(tokens: Sequence[int], st: Sequence[int], target: int) -> list[int]:
     """Positions where a unit may end, ascending, always including the end.
 
     Every punctuation break is a candidate. Breaks between words are
@@ -293,7 +376,7 @@ def _candidate_ends(tokens: Sequence[int], strengths: Sequence[int], target: int
     small for long texts.
     """
     n = len(tokens)
-    punct = [i + 1 for i in range(n - 1) if strengths[i] != WORD]
+    punct = [i + 1 for i in range(n - 1) if st[i] != WORD]
     ends: list[int] = []
     prev = 0
     for stop in [*punct, n]:
@@ -310,6 +393,7 @@ def versify_chunks(
     standard: bool = False,
     units_of: Mapping[str, list[str]] | None = None,
     keep: Collection[str] = (),
+    spans_of: Mapping[str, Sequence[Sequence[object]]] | None = None,
 ) -> list[Chunk]:
     """Replace each long chunk of a work with its derived verses.
 
@@ -323,8 +407,9 @@ def versify_chunks(
     *units_of* gives the units of some chunks by chunk id, cut elsewhere
     (anchored derived verses, ``patristica.anchoring``, #304): contiguous
     stripped slices of the chunk's text. Every other chunk is cut by
-    :func:`split_text`, except those whose ids are in *keep* (a heading that
-    is editorial material as a whole, #259), which stay whole.
+    :func:`split_text`, with its editorial spans from *spans_of* (by chunk
+    id), except those whose ids are in *keep* (a heading that is editorial
+    material as a whole, #259), which stay whole.
     """
     if standard and not any(
         c.work_id in UNVERSIFIED_UNITS or c.chunk_id in UNVERSIFIED_UNITS for c in chunks
@@ -343,7 +428,8 @@ def versify_chunks(
         if units_of is not None and chunk.chunk_id in units_of:
             units = units_of[chunk.chunk_id]
         else:
-            units = split_text(chunk.text, chunk.language)
+            units = split_text(chunk.text, chunk.language,
+                               (spans_of or {}).get(chunk.chunk_id, ()))
         if len(units) == 1:
             out.append(chunk)
             continue

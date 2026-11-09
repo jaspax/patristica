@@ -251,3 +251,79 @@ def test_old_georgian_paragraph_splits_at_its_stops():
     assert all(u[-1] == "." for u in units)
     sizes = [count_tokens(u) / VERSE_TOKENS["oge"] for u in units]
     assert 0.7 < sum(sizes) / len(sizes) < 1.5
+
+
+# #622: quotation marks and editorial notes.
+YAHYA = (
+    'I say: the source from which these words were taken is the Holy Gospel because in it is '
+    'written, "Mary, of whom was born Jesus who is called the Christ, [Matthew 1:16] and she gave '
+    'birth to her firstborn son and his name was called Jesus, [Matthew 1:25] and the one to whom '
+    'she will give birth is of the Holy Spirit, [Matthew 1:20] and she was found with child from '
+    'the Holy Spirit. [Matthew 1:18] " So it is established that Jesus Christ was born of the Holy '
+    'Spirit and the Virgin Mary. The Apostle Paul made clear the circumstances of His birth from '
+    'His mother and said, "He was born in the body of a woman," [Galatians 4:4] meaning that He '
+    'was born in His human nature of Our Lady the Virgin Mary and it was established in our '
+    'previous essay [He indicates here an essay of his on this subject the location of which we '
+    'do not know.] on this statement that that His human nature is created.'
+)
+
+
+def _notes(text: str) -> list[tuple[int, int, str]]:
+    import re
+    return [(m.start(), m.end(), "note") for m in re.finditer(r"\[[^\]]*\]", text)]
+
+
+def _st(text: str, spans=()) -> dict[str, int]:
+    from patristica.versify import _atoms, strengths
+    atoms = _atoms(text)
+    return {a.strip(): s for a, s in zip(atoms, strengths(atoms, "eng", spans))}
+
+
+def test_comma_before_an_opening_quote_is_a_sentence_break():
+    from patristica.versify import COMMA, SENTENCE, WORD
+
+    st = _st('it is written, "Mary, of whom was born Jesus, and he said, “He was born')
+    assert st["written,"] == SENTENCE
+    assert st["said,"] == SENTENCE
+    assert st['"Mary,'] == WORD  # after a quotation's first word: no break
+    assert st["Jesus,"] == COMMA
+    assert _st('he said: "Behold')["said:"] == SENTENCE
+    assert _st('"Yes," he said')['"Yes,"'] == COMMA  # a closed one-word quotation
+
+
+def test_a_lone_closing_quote_stays_with_its_quotation():
+    from patristica.versify import SENTENCE, WORD
+
+    st = _st('he said, "the Holy Spirit. " So it is')
+    assert st["Spirit."] == WORD
+    assert st['"'] == SENTENCE
+    # A lone straight quote after an even number of them opens a quotation.
+    st = _st('he said, " Behold the man')
+    assert st["said,"] == SENTENCE
+    assert st['"'] == WORD
+
+
+def test_a_note_stays_with_the_text_before_it():
+    from patristica.versify import COMMA, SENTENCE, WORD
+
+    text = ('the Christ, [Matthew 1:16] and "she. [Matthew 1:18] " So in our essay '
+            '[It is lost. We know.] on this')
+    st = _st(text, _notes(text))
+    assert st["Christ,"] == WORD and st["1:16]"] == COMMA
+    assert st['"she.'] == WORD and st["1:18]"] == WORD and st['"'] == SENTENCE
+    assert st["essay"] == WORD and st["lost."] == WORD and st["know.]"] == WORD
+    # Other editorial kinds, and notes opening the text, change nothing.
+    other = [(s, e, "supplement") for s, e, _ in _notes(text)]
+    assert _st(text, other)['"she.'] == SENTENCE
+    assert _st("[Note.] Text", [(0, 7, "note")])["[Note.]"] == SENTENCE
+
+
+def test_yahya_cuts_around_quotes_and_citations():
+    units = split_text(YAHYA, "eng", _notes(YAHYA))
+    assert _squash(" ".join(units)) == _squash(YAHYA)
+    assert units[0].endswith("is written,")
+    assert units[1].startswith('"Mary, of whom')
+    assert not any(u.startswith("[") or u.startswith('"  ') or u.startswith('" ') for u in units)
+    assert any(u.endswith('[Matthew 1:18] "') for u in units)
+    assert any(u.endswith('[Galatians 4:4]') for u in units)
+    assert not any(u.endswith("[He indicates here") for u in units)

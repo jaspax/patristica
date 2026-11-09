@@ -65,9 +65,9 @@ from patristica.versify import (
     SENTENCE,
     VERSE_TOKENS,
     _atoms,
-    _strength,
     _word_tokens,
     is_derived_ref,
+    strengths,
 )
 
 log = logging.getLogger(__name__)
@@ -302,8 +302,7 @@ def segments_of(paras: Sequence[Paragraph], language: str) -> list[Segment]:
         if n == 0:
             continue
         tok = [_word_tokens(a) for a in atoms]
-        st = [_strength(atoms[i], atoms[i + 1] if i + 1 < n else None, language)
-              for i in range(n)]
+        st = strengths(atoms, language, para.spans)
         today = set(para.today[1:])
         stops = sorted({i + 1 for i in range(n - 1) if st[i] <= CLAUSE} | {n})
         # Commas (then words) inside long runs. The provisional cut is added

@@ -355,7 +355,8 @@ def _normalize_record(raw_record: dict, raw_path: Path, output_dir: Path,
     if cut is None and not standard:
         whole, headed = _heading_units(chunks, marks)
         units_of = headed or None
-    chunks = versify_chunks(chunks, standard=standard, units_of=units_of, keep=whole)
+    chunks = versify_chunks(chunks, standard=standard, units_of=units_of, keep=whole,
+                            spans_of=marks)
     marks = _split_marks(marks, units, chunks)
 
     out_path = output_dir / _output_rel(raw_path)
@@ -392,7 +393,8 @@ def _heading_units(chunks: list[Chunk], marks: dict[str, list[editorial.Span]]
         start = spans[0][1]
         while start < len(c.text) and c.text[start].isspace():
             start += 1
-        body = split_text(c.text[start:], c.language)
+        body = split_text(c.text[start:], c.language,
+                          [(a - start, b - start, k) for a, b, k in spans if a >= start])
         headed[c.chunk_id] = [c.text[:start + len(body[0])], *body[1:]]
     return whole, headed
 
