@@ -243,8 +243,8 @@ Implementation: `patristica/anchor_refine.py` (the prototype's `refine.py`).
 - **Versioning.** A cut on translation vectors is a different method:
   `scripts.anchor.method_hash` adds the vector kind to the hashed version and
   parameters for such an original only. Every cut file on a text-vector
-  original keeps `anchoring.params_hash()` as its `method` (`e26e66e4678bcee0`,
-  tested), so no existing cut file of a Greek or Latin original (`first1k-eng`,
+  original keeps `anchoring.params_hash()` as its `method` (`b634dc5d91b31ea7`
+  since `ANCHOR_VERSION` 2, #622; `e26e66e4678bcee0` before; tested), so no existing cut file of a Greek or Latin original (`first1k-eng`,
   the Slavonic sources) goes stale, while one made on a rare-language
   original's text vectors before #392 is reported frozen until
   `scripts.anchor --recut`. The hash lives in `scripts/anchor.py`, not in
