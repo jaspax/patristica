@@ -128,7 +128,8 @@ def anchored_paths(norm: Path) -> set[str]:
     by_id = {e["work"]["work_id"]: e["path"] for e in works}
     out: set[str] = set()
     for e in works:
-        if anchoring.is_enrolled(e["work"]["source_id"], e["work"].get("language")):
+        if anchoring.is_enrolled(e["work"]["source_id"], e["work"].get("language"),
+                                 e["work"]["work_id"]):
             out.add(e["path"])
             target = anchoring.anchor_id(e["work"])
             if target in by_id:

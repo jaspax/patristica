@@ -20,12 +20,16 @@ today (``versify.split_text``, the *provisional* cut).
 normalize, never after (that would re-cut published refs: #200's migration).
 A row with a ``language`` enrols only that source's works in that language
 (#335: PTA's one Slavonic text, while PTA's published Greek, Latin, Armenian
-and Syriac works keep their derived verses); a row without one enrols the whole source. Only prose works
+and Syriac works keep their derived verses); a row without one enrols the whole source.
+**#200** re-cuts published works one by one: ``patristica/data/anchored_works.csv``
+(``work_id,anchor,reason``) enrols a single work, anchored on the named work
+(another edition) or, with ``anchor`` empty, on its ``translation_of``. Only prose works
 are anchored: Scripture and works ingested as verses keep their verses.
 
 **The anchor** of an enrolled work is its ``translation_of``. A work without
 one, with an anchor not in the corpus, or with an anchor in its own language
-(another edition: #200's job, :func:`same_language`) is cut as today.
+(another edition, :func:`same_language`) is cut by projecting the anchor's
+cuts through the two texts (``patristica.edition_projection``, #200).
 
 This module is part of normalize's code (no numpy). ``ANCHOR_VERSION`` and
 :class:`RefineParams` live here too: like ``VERSE_TOKENS`` they are frozen,
@@ -50,6 +54,8 @@ if TYPE_CHECKING:
     from patristica.models import Chunk
 
 ENROLMENT_PATH = Path(__file__).parent / "data" / "anchored_sources.csv"
+#: Single published works enrolled by #200's migration (``work_id,anchor,reason``).
+WORKS_PATH = Path(__file__).parent / "data" / "anchored_works.csv"
 
 #: The method version of the refinement. Bump it (deliberately, like
 #: ``LOADER_VERSION``) when a change to ``scripts.anchor`` should re-cut: cut
@@ -113,25 +119,67 @@ def enrols_by_language(source_id: str) -> bool:
     return any(s == source_id for s, _ in enrolled_languages())
 
 
-def is_enrolled(source_id: str, language: str | None = None) -> bool:
+def load_works_enrolment(path: Path = WORKS_PATH) -> dict[str, str | None]:
+    """``{work_id: anchor}`` from the work enrolment table (#200); the anchor is
+    None for a row that leaves it to the work's ``translation_of``."""
+    rows: dict[str, str | None] = {}
+    if not path.exists():
+        return rows
+    with path.open(encoding="utf-8", newline="") as f:
+        for line, row in enumerate(csv.DictReader(f), start=2):
+            work = (row.get("work_id") or "").strip()
+            anchor = (row.get("anchor") or "").strip() or None
+            where = f"{path}:{line}"
+            if "/" not in work:
+                raise AnchoringError(f"{where}: bad work_id {work!r}")
+            if not (row.get("reason") or "").strip():
+                raise AnchoringError(f"{where}: {work}: no reason given")
+            if work in rows:
+                raise AnchoringError(f"{where}: {work} is listed twice")
+            if anchor == work:
+                raise AnchoringError(f"{where}: {work} is anchored on itself")
+            if work.split("/", 1)[0] in enrolled_sources():
+                raise AnchoringError(f"{where}: {work}'s source is enrolled as a whole")
+            rows[work] = anchor
+    return rows
+
+
+@cache
+def enrolled_works() -> dict[str, str | None]:
+    """``{work_id: anchor or None}`` of the works enrolled one by one (#200)."""
+    return load_works_enrolment()
+
+
+def enrols_by_work(source_id: str) -> bool:
+    """True if some works of *source_id* are enrolled one by one, so
+    :func:`is_enrolled` needs the work id to decide."""
+    return any(w.split("/", 1)[0] == source_id for w in enrolled_works())
+
+
+def is_enrolled(source_id: str, language: str | None = None,
+                work_id: str | None = None) -> bool:
     """True if the works of *source_id* (in *language*) get anchored derived
-    verses: the source is enrolled as a whole, or for *language*."""
-    return source_id in enrolled_sources() or (
-        language is not None and (source_id, language) in enrolled_languages())
+    verses: the source is enrolled as a whole, or for *language*, or the work
+    *work_id* is enrolled on its own (#200's migration of published works)."""
+    return (source_id in enrolled_sources()
+            or (language is not None and (source_id, language) in enrolled_languages())
+            or (work_id is not None and work_id in enrolled_works()))
 
 
 def anchor_id(work: Mapping[str, object]) -> str | None:
-    """The work an enrolled work is anchored on: its ``translation_of``, or None."""
+    """The work an enrolled work is anchored on: the anchor its row in the work
+    enrolment table names, else its ``translation_of``, or None."""
+    named = enrolled_works().get(str(work.get("work_id")))
+    if named:
+        return named
     target = work.get("translation_of")
     return target if isinstance(target, str) and target else None
 
 
 def same_language(work_language: str, anchor_language: str) -> bool:
-    """The same-language hook: an anchor in the work's own language is another
-    edition, which needs a text-level alignment rather than vectors. #199's
-    word alignment (``patristica.text_alignment.align_words``) is that
-    alignment, but projecting cuts through it is #200's job; until then such a
-    work isn't anchored (it is cut as today)."""
+    """An anchor in the work's own language is another edition of the text: it
+    is cut by projecting the anchor's cuts through the two texts' word
+    alignment (``patristica.edition_projection``, #200), not from vectors."""
     return work_language == anchor_language
 
 

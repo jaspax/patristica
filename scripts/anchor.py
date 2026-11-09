@@ -133,6 +133,11 @@ class Candidate:
     #: The original's language; it decides the vectors it is anchored on
     #: (:func:`original_vectors`). Empty: read from the original's units.
     anchor_language: str = ""
+    #: ``vectors``: a translation refined on its original's vectors
+    #: (``patristica.anchor_refine``); ``text``: another edition in the same
+    #: language, cut where the anchor cuts by projecting through the two texts
+    #: (``patristica.edition_projection``, #200), with no vectors.
+    method: str = "vectors"
 
 
 @dataclass
@@ -156,11 +161,12 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
 
     A work of an enrolled source is anchorable when normalize cut it as prose
     (its fingerprint's ``anchor`` record isn't null) and its ``translation_of``
-    is in the corpus in another language (an edition in its own language waits
-    for #199). Works whose licence keeps them out of the index
-    (``corpus.EXCLUDED_LICENSES``), and works whose original's does, aren't
-    anchored: neither is embedded (``scripts.embed``), so their text is never
-    sent and they keep the size cut.
+    is in the corpus (a work enrolled one by one, #200, may name its anchor:
+    another edition in its own language, cut by text projection). Works whose
+    licence keeps them out of the index (``corpus.EXCLUDED_LICENSES``), and
+    works whose original's does, aren't anchored: neither is embedded
+    (``scripts.embed``), so their text is never sent and they keep the size
+    cut.
     """
     from scripts import normalize as nz
 
@@ -171,7 +177,7 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
     unbuilt: list[str] = []
     for e in entries:
         work, path = e["work"], e["path"]
-        if not anchoring.is_enrolled(work["source_id"], work.get("language")):
+        if not anchoring.is_enrolled(work["source_id"], work.get("language"), work["work_id"]):
             continue
         fp = fps.get(path)
         if fp is None or "anchor" not in fp:
@@ -185,10 +191,10 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
         orig = by_id[target]["work"]
         if work.get("license") in EXCLUDED_LICENSES or orig.get("license") in EXCLUDED_LICENSES:
             continue
-        if anchoring.same_language(work["language"], orig["language"]):
-            continue
+        method = "text" if anchoring.same_language(work["language"], orig["language"]) else (
+            "vectors")
         out.append(Candidate(path, work["work_id"], work["language"], target,
-                             by_id[target]["path"], orig["language"]))
+                             by_id[target]["path"], orig["language"], method))
     return out, unbuilt
 
 
@@ -277,6 +283,10 @@ def method_hash(c: Candidate, params: anchoring.RefineParams = anchoring.RefineP
 
     Kept here, not in ``patristica.anchoring``, which is normalize's code: a
     change there would change normalize's code hash and rebuild the corpus."""
+    if c.method == "text":
+        from patristica.edition_projection import method_hash as projection_hash
+
+        return projection_hash()
     if original_vectors(c.anchor_language) == emb.KIND_TEXT:
         return anchoring.params_hash(params)
     return fingerprint.value_hash({"version": anchoring.ANCHOR_VERSION, "params": asdict(params),
@@ -541,6 +551,10 @@ def estimate(p: Plan, norm: Path = NORMALIZED, store_dir: Path = EMBEDDINGS,
     earlier: set[str] = set()
     for s in p.todo:
         c = s.candidate
+        if c.method == "text":  # projected through the texts: no requests
+            est.works += 1
+            earlier.add(c.work_id)
+            continue
         _, missing, _ = load_original(c, norm, store_dir)
         if missing and c.anchor not in earlier:
             est.refused.append(f"{c.work_id} (original {c.anchor}: {missing} units without "
@@ -604,6 +618,10 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
     for s in bar:
         c = s.candidate
         bar.set_postfix_str(f"{sent:,} tokens sent")
+        if c.method == "text":
+            cut_by_text(c, norm, raw, anchors_dir)
+            done["cut"].append(c.work_id)
+            continue
         orig, missing, models = load_original(c, norm, store_dir, trans_dir)
         if missing:
             log.error("%s: refused: its original %s has %d units without a current text "
@@ -658,6 +676,35 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
                  f"{cache.sent_tokens:,}", left_units)
         done["cut"].append(c.work_id)
     return done
+
+
+def cut_by_text(c: Candidate, norm: Path, raw: Path, anchors_dir: Path) -> None:
+    """Cut an edition where its anchor (another edition, same language) cuts
+    (``patristica.edition_projection``, #200), write its cut file and
+    re-normalize it. No vectors: its new units are embedded by
+    ``scripts.embed``, like any re-normalized work. All or nothing, as in
+    :func:`run`."""
+    from patristica.edition_projection import project
+
+    paras = anchoring.paragraphs(_chunks(norm, c.path))
+    anchor_chunks = _chunks(norm, c.anchor_path)
+    proj = project(anchoring.paragraphs(anchor_chunks), paras)
+    cut = anchor_store.CutFile(
+        work_id=c.work_id, anchor=c.anchor, method=method_hash(c),
+        anchor_cuts=anchoring.chunks_cuts_hash(anchor_chunks),
+        words=paragraph_words(paras), model="",
+        paragraphs={p.ref: anchor_store.ParagraphCut(p.words_hash, st if st else p.starts)
+                    for p, st in zip(paras, proj.starts)},
+        stats=proj.stats)
+    previous = anchor_store.load(anchors_dir, c.path)
+    anchor_store.save(anchors_dir, c.path, cut)
+    try:
+        renormalize(c, norm, raw, anchors_dir)
+    except BaseException:
+        log.error("%s: not completed; restoring its previous cut file and output", c.work_id)
+        restore(c, previous, norm, raw, anchors_dir)
+        raise
+    log.debug("%s: projected from %s (%s)", c.work_id, c.anchor, json.dumps(proj.stats))
 
 
 def restore(c: Candidate, previous: anchor_store.CutFile | None, norm: Path, raw: Path,

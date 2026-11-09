@@ -521,18 +521,20 @@ def source_of(rel: str) -> str:
 
 def is_enrolled(rel: str, raw_bytes: bytes) -> bool:
     """True if the work at *rel* is enrolled for anchored derived verses: its
-    source as a whole, or its source for the work's language (#335), read
-    from its raw file only for a source enrolled by language."""
+    source as a whole, its source for the work's language (#335), or the work
+    itself (#200); the raw file is read only for a source enrolled by language
+    or with works enrolled one by one."""
     source = source_of(rel)
     if anchoring.is_enrolled(source):
         return True
-    if not anchoring.enrols_by_language(source):
+    if not (anchoring.enrols_by_language(source) or anchoring.enrols_by_work(source)):
         return False
     try:
-        language = json.loads(raw_bytes)["work"]["language"]
+        work = json.loads(raw_bytes)["work"]
+        language, work_id = work["language"], work["work_id"]
     except (json.JSONDecodeError, KeyError, TypeError):
         return False  # not a work: normalize skips it below
-    return anchoring.is_enrolled(source, language)
+    return anchoring.is_enrolled(source, language, work_id)
 
 
 def anchor_record(cut: anchor_store.CutFile | None, standard: bool) -> dict | None:

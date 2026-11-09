@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { fragmentId, noHighlight, TARGET_ATTRIBUTE, useHashTarget } from "./useHashTarget";
+import { byId, derivedFallbacks, fragmentId, noHighlight, TARGET_ATTRIBUTE, useHashTarget } from "./useHashTarget";
 
 function Text({ ready }: { ready: boolean }) {
   useHashTarget(ready);
@@ -86,5 +86,24 @@ describe("useHashTarget", () => {
     const { container } = render(<Text ready />);
     expect(scrolled).not.toHaveBeenCalled();
     expect(container.querySelector(`[${TARGET_ATTRIBUTE}]`)).toBeNull();
+  });
+});
+
+describe("derivedFallbacks", () => {
+  it("tries the paragraph, then its first derived verse (#200)", () => {
+    expect(derivedFallbacks("Aug.Ep.3.s7")).toEqual(["Aug.Ep.3", "Aug.Ep.3.s1"]);
+    expect(derivedFallbacks("Gen.1.1")).toEqual([]);
+  });
+
+  it("finds a moved derived verse at its paragraph's first verse", () => {
+    render(
+      <div>
+        <span id="Ep.2.s1">first</span>
+        <span id="Ep.2.s2">second</span>
+      </div>,
+    );
+    expect(byId("Ep.2.s9")?.id).toBe("Ep.2.s1");
+    expect(byId("Ep.2.s2")?.id).toBe("Ep.2.s2");
+    expect(byId("Ep.4.s1")).toBeNull();
   });
 });

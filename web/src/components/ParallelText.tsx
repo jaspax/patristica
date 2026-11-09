@@ -7,7 +7,7 @@ import { languageInfo } from "@/lib/lang";
 import type { WorkFile, WorkRow } from "@/lib/library";
 import { columnRef, sectionBlocks, type Row, type Span } from "@/lib/parallel";
 import { chunkRoles, parseWork, type ChunkRole, type Section } from "@/lib/render";
-import { useHashTarget } from "@/lib/useHashTarget";
+import { derivedFallbacks, useHashTarget } from "@/lib/useHashTarget";
 
 import EditorialText from "./EditorialText";
 import styles from "./ParallelText.module.css";
@@ -95,14 +95,20 @@ export default function ParallelText({ columns, rows, textRef }: Props) {
   const ownRef = useRef<HTMLDivElement | null>(null);
   const root = textRef ?? ownRef;
   const resolve = useCallback(
-    (id: string) =>
-      document.getElementById(id) ??
-      // A plain ref the leading version lacks (an older link): the first other version that has it.
-      columns
-        .slice(1)
-        .map((c) => document.getElementById(columnRef(id, c.row.id)))
-        .find((el) => el !== null) ??
-      null,
+    (id: string) => {
+      // The ref itself, then for a derived verse a re-cut moved its paragraph (#200).
+      for (const ref of [id, ...derivedFallbacks(id)]) {
+        const el =
+          document.getElementById(ref) ??
+          // A plain ref the leading version lacks (an older link): the first other version that has it.
+          columns
+            .slice(1)
+            .map((c) => document.getElementById(columnRef(ref, c.row.id)))
+            .find((e) => e !== null);
+        if (el) return el;
+      }
+      return null;
+    },
     [columns],
   );
   useHashTarget(blocks.length > 0, resolve);

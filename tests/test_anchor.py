@@ -583,3 +583,33 @@ def test_the_rounds_cap_is_a_bound_not_a_measurement() -> None:
     # Each exploring round, and the final units, send the text at most once
     # (#472: a measured 2× stopped a re-cut).
     assert anchor.ROUNDS_FACTOR >= anchoring.RefineParams().max_rounds + 1
+
+
+# ------------------------------------------------------- editions (#200)
+
+
+def test_an_edition_is_cut_where_its_anchor_cuts(corpus, monkeypatch) -> None:
+    """An edition in the original's language, enrolled on its own with the
+    original as its anchor, takes the original's cuts by text projection: no
+    vectors, no embedder, and its units start at the same words even though
+    its punctuation (and so its own size cut) differs."""
+    text = [latin(SENTENCES[:8]), latin(SENTENCES[8:])]
+    # Another edition: commas where the original has full stops, so split_text
+    # would cut it elsewhere.
+    variant = [t.replace(". ", ", ", 3) for t in text]
+    write_work(corpus["raw"], "ed/w.json", "lat", variant)
+    monkeypatch.setattr(anchoring, "enrolled_works", lambda: {"ed/w": "orig/w"})
+    nz.normalize_all(corpus["raw"], corpus["normalized"], anchors_dir=corpus["anchors"])
+    before = [u["text"] for u in units(corpus, "ed/w.json")]
+    done = run(corpus, None, prefixes=["ed/"])
+    assert done["cut"] == ["ed/w"]
+    cut = anchor_store.load(corpus["anchors"], "ed/w.json")
+    assert cut.anchor == "orig/w" and cut.model == ""
+    orig_words = [[w.strip(".,") for w in u["text"].split()] for u in units(corpus, "orig/w.json")]
+    ed_words = [[w.strip(".,") for w in u["text"].split()] for u in units(corpus, "ed/w.json")]
+    assert ed_words == orig_words
+    assert [u["text"] for u in units(corpus, "ed/w.json")] != before
+    assert not list(corpus["embeddings"].rglob("ed/*.npz"))  # left to scripts.embed
+    states = {s.candidate.work_id: s.status for s in anchor.check_works(
+        corpus["normalized"], corpus["anchors"]) if s.candidate}
+    assert states["ed/w"] == anchor.CURRENT

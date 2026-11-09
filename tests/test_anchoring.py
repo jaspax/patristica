@@ -30,19 +30,61 @@ def test_enrolment_table() -> None:
 
 
 def test_no_published_pta_work_is_enrolled() -> None:
-    """Enrolling PTA's Slavonic re-cuts no other PTA work (#335, #200): of
-    PTA's works in the manifest, only the Slavonic one is enrolled, and every
-    other PTA work's fingerprint has no anchor record (it is cut as before)."""
+    """Enrolling PTA's Slavonic re-cuts no other PTA work (#335): of PTA's works
+    in the manifest, only the Slavonic one and the works #200's migration
+    enrols one by one (``anchored_works.csv``) are enrolled, and every other
+    PTA work's fingerprint has no anchor record (it is cut as before)."""
     manifest = NORMALIZED / "_works.jsonl"
     entries = [json.loads(line) for line in manifest.read_text(encoding="utf-8").splitlines()]
+    by_work = {e["work"]["work_id"]: e["path"] for e in entries
+               if e["work"]["work_id"] in anchoring.enrolled_works()}
     enrolled = sorted(e["work"]["work_id"] for e in entries
                       if e["work"]["source_id"] == "pta" and anchoring.is_enrolled(
-                          e["work"]["source_id"], e["work"]["language"]))
-    assert enrolled == ["pta/pta0001/pta028/pta-chu1"]
+                          e["work"]["source_id"], e["work"]["language"], e["work"]["work_id"]))
+    assert enrolled == sorted(["pta/pta0001/pta028/pta-chu1",
+                               *(w for w in by_work if w.startswith("pta/"))])
     fps = nz.read_work_fingerprints(NORMALIZED)
     anchored = sorted(path for path, fp in fps.items()
                       if path.startswith("pta/") and "anchor" in fp)
-    assert anchored == ["pta/pta0001/pta028/pta0001.pta028.pta-chu1.json"]
+    assert anchored == sorted(["pta/pta0001/pta028/pta0001.pta028.pta-chu1.json",
+                               *(p for w, p in by_work.items() if w.startswith("pta/"))])
+
+
+def test_enrolment_of_single_works(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    path = tmp_path / "w.csv"
+    path.write_text("work_id,anchor,reason\nogpg/vol-032/epistulae,perseus/x/y,edition\n"
+                    "npnf-works/basil-letters,,translation\n", encoding="utf-8")
+    table = anchoring.load_works_enrolment(path)
+    assert table == {"ogpg/vol-032/epistulae": "perseus/x/y", "npnf-works/basil-letters": None}
+    monkeypatch.setattr(anchoring, "enrolled_works", lambda: table)
+    assert anchoring.is_enrolled("ogpg", "grc", "ogpg/vol-032/epistulae")
+    assert not anchoring.is_enrolled("ogpg", "grc", "ogpg/vol-033/other")
+    assert not anchoring.is_enrolled("ogpg", "grc")
+    assert anchoring.enrols_by_work("ogpg") and not anchoring.enrols_by_work("csel")
+    assert anchoring.anchor_id({"work_id": "ogpg/vol-032/epistulae"}) == "perseus/x/y"
+    assert anchoring.anchor_id({"work_id": "npnf-works/basil-letters",
+                                "translation_of": "perseus/x/y"}) == "perseus/x/y"
+
+
+@pytest.mark.parametrize("rows", ["ogpg,,x\n", "a/b,,\n", "a/b,,x\na/b,,y\n", "a/b,a/b,x\n",
+                                  "ccmh-supr/x,,whole source enrolled\n"])
+def test_bad_work_enrolment_rows(tmp_path: Path, rows: str) -> None:
+    path = tmp_path / "w.csv"
+    path.write_text("work_id,anchor,reason\n" + rows, encoding="utf-8")
+    with pytest.raises(anchoring.AnchoringError):
+        anchoring.load_works_enrolment(path)
+
+
+def test_enrolled_works_exist_with_their_anchors() -> None:
+    """Every work enrolled one by one, and its named anchor, is in the corpus;
+    the anchor of a translation (no named anchor) is its translation_of."""
+    manifest = NORMALIZED / "_works.jsonl"
+    works = {json.loads(line)["work"]["work_id"]: json.loads(line)["work"]
+             for line in manifest.read_text(encoding="utf-8").splitlines()}
+    for work_id, anchor in anchoring.enrolled_works().items():
+        assert work_id in works, work_id
+        target = anchor or works[work_id].get("translation_of")
+        assert target in works, (work_id, target)
 
 
 def test_enrolment_by_language(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
