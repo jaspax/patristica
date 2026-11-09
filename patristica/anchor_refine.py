@@ -64,7 +64,9 @@ from patristica.versify import (
     COMMA,
     SENTENCE,
     VERSE_TOKENS,
+    WORD,
     _atoms,
+    _strength,
     _word_tokens,
     is_derived_ref,
     strengths,
@@ -303,7 +305,12 @@ def segments_of(paras: Sequence[Paragraph], language: str) -> list[Segment]:
             continue
         tok = [_word_tokens(a) for a in atoms]
         st = strengths(atoms, language, para.spans)
-        today = set(para.today[1:])
+        # The provisional cut, less any break the context rules forbid (#622:
+        # inside a note, after a quotation's first word, before a closing
+        # quote that stands alone), or an old cut there would stay a candidate.
+        today = {a for a in para.today[1:]
+                 if not (st[a - 1] == WORD and _strength(
+                     atoms[a - 1], atoms[a] if a < n else None, language) != WORD)}
         stops = sorted({i + 1 for i in range(n - 1) if st[i] <= CLAUSE} | {n})
         # Commas (then words) inside long runs. The provisional cut is added
         # after: a run is long or short by its clause breaks alone, or a
