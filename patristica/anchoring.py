@@ -25,7 +25,7 @@ are anchored: Scripture and works ingested as verses keep their verses.
 
 **The anchor** of an enrolled work is its ``translation_of``. A work without
 one, with an anchor not in the corpus, or with an anchor in its own language
-(another edition: #199's job, :func:`same_language`) is cut as today.
+(another edition: #200's job, :func:`same_language`) is cut as today.
 
 This module is part of normalize's code (no numpy). ``ANCHOR_VERSION`` and
 :class:`RefineParams` live here too: like ``VERSE_TOKENS`` they are frozen,
@@ -127,9 +127,11 @@ def anchor_id(work: Mapping[str, object]) -> str | None:
 
 
 def same_language(work_language: str, anchor_language: str) -> bool:
-    """The #199 hook: an anchor in the work's own language is another edition,
-    which needs a text-level alignment rather than vectors. Until #199 lands
-    such a work isn't anchored (it is cut as today)."""
+    """The same-language hook: an anchor in the work's own language is another
+    edition, which needs a text-level alignment rather than vectors. #199's
+    word alignment (``patristica.text_alignment.align_words``) is that
+    alignment, but projecting cuts through it is #200's job; until then such a
+    work isn't anchored (it is cut as today)."""
     return work_language == anchor_language
 
 

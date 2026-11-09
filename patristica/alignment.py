@@ -46,6 +46,18 @@ version (``choose_pivot``). Pivot units that one bead covers belong to one
 group, so the groups are runs of pivot units, and every version's beads are
 attached to the group of their pivot units. A version's units in one group
 are a contiguous run. The file format is in ``patristica.alignment_store``.
+
+**Same-language editions (#199).** Two editions in one language (Migne and a
+critical text) are aligned by their words (``patristica.text_alignment``),
+not their vectors: the vectors can't tell where inside near-identical
+sentences two editions cut their units, so through a pivot in another
+language their units drifted a row apart. ``scripts.align`` aligns every
+edition with its language's *head* by text; ``text_beads`` carries those beads
+through the head's own beads when the head isn't the pivot, ``prefer_text``
+lets them replace the edition's vector beads, and ``merge`` keeps the pivot
+units of each text bead in one group, so editions cut at different words
+share a row. ``choose_pivot`` prefers an edition, so the editions are aligned
+unit for unit and the passages only they have still form groups.
 """
 
 from __future__ import annotations
